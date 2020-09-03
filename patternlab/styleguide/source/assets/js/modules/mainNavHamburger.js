@@ -19,6 +19,17 @@ const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility
 let utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
 let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".ma__utility-nav__container") : null;
 
+
+if (osInfo.indexOf("Mac OS X 10_15_6") !== -1 && osInfo.indexOf("Version/13.1.2 Safari/605.1.15") !== -1) {
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Tab" || e.code === "Tab") {
+      e.preventDefault();
+    }
+  });
+
+}
+
 // Check whether the wide utility nav is open.
 const utilNavWideCheck = function() {
   return utilNavWide ? (utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0) : null;
@@ -111,20 +122,19 @@ if (menuButton !== null) {
     if (e.key === "Tab" || e.code === "Tab") {
       e.preventDefault();
 
-// alert(navigator.appVersion);
-// "5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15"
-      if (osInfo.indexOf("Mac OS X 10_15_6") !== -1 && osInfo.indexOf("Version/13.1.2 Safari/605.1.15") !== -1) {
-        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").style.display = "none";
-      }
-
+      // const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
       let focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
 
-      console.log(focusable[0]);
-
-      // focusable[0].style.background = "yellowgreen";
+      focusable[0].style.background = "pink";
 
       if (width < 621) {
 
+
+        if (osInfo.indexOf("Mac OS X 10_15_6") !== -1 && osInfo.indexOf("Version/13.1.2 Safari/605.1.15") !== -1) {
+
+          document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("tabindex", "-1");
+
+        }
         // hamburgerMenuContainer.setAttribute("tabindex", "0");
         // hamburgerMenuContainer.focus();
 
