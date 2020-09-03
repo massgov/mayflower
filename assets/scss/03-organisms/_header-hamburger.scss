@@ -790,9 +790,11 @@ body.show-menu {
 *:focus {
   background-color: yellowgreen;
 }
+
 *:focus {
   background-color: yellowgreen !important;
 }
+
 .ma__header__hamburger__skip-nav {
   width: 240px !important;
   height: 100px !important;
