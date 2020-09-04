@@ -684,6 +684,7 @@ let debouncer;
 window.addEventListener("resize", function () {
   clearTimeout(debouncer);
   debouncer = setTimeout( () => {
+    closeMenu();
     hamburgerMenuAlertScrolling();
   }, 100);
 });
