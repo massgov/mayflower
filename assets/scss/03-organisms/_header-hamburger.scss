@@ -7,7 +7,6 @@ body.show-menu {
   overflow: hidden;
 
   @media ($bp-header-toggle-max) {
-    position: fixed !important;
     left: 0;
   }
 }
@@ -241,7 +240,7 @@ body.show-menu {
 
   &__nav-container {
     background-color: $c-gray-lightest;
-    height: 95vh;
+    height: calc(100vh - 40px);
     top: 40px;
     overflow-y: auto;
     position: absolute;
@@ -255,7 +254,8 @@ body.show-menu {
 
     @media ($bp-header-toggle-min) {
 
-      top: 43px;
+      top: 44px;
+      height: calc(100vh - 44px);
     }
 
     .show-menu & {
