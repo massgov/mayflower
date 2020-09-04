@@ -20,21 +20,13 @@ let utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling :
 let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".ma__utility-nav__container") : null;
 
 
-// if (osInfo.indexOf("Version/13.1.2 Safari/605.1.15") !== -1) {
-
-//   // document.body.firstElementChild.tabIndex = 1;
-
-//   // hamburgerMenuContainer.firstElementChild.tabIndex = 1;
-
-//   hamburgerMenuContainer.querySelector("a").style.background = "green";
-
-//   // document.addEventListener("keydown", function (e) {
-//   //   if (e.key === "Tab" || e.code === "Tab") {
-//   //     e.preventDefault();
-//   //   }
-//   // });
-
-// }
+if (osInfo.indexOf("Version/13.1.2 Safari/605.1.15") !== -1) {
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Tab" || e.code === "Tab") {
+      body.querySelector("a:first-of-type").focus();
+    }
+  });
+}
 
 // Check whether the wide utility nav is open.
 const utilNavWideCheck = function() {
@@ -114,7 +106,10 @@ if (menuButton !== null) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    // e.target.focus();
+    // For Safari, this ensures to move focus to the menu content.
+    if (osInfo.indexOf("Safari") !== -1) {
+      menuButton.focus();
+    }
 
     toggleMenu();
   });
@@ -128,37 +123,13 @@ if (menuButton !== null) {
 
   menuButton.addEventListener("keydown", function (e) {
     if (e.key === "Tab" || e.code === "Tab") {
-      e.preventDefault();
-
-      // const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
-      let focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
-
-      // focusable[0].style.background = "pink";
-
       if (width < 621) {
+        e.preventDefault();
 
-
-        // if (osInfo.indexOf("Mac OS X 10_15_6") !== -1 && osInfo.indexOf("Version/13.1.2 Safari/605.1.15") !== -1) {
-
-        //   focusable[0].style.background = "pink";
-
-        //   // document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("tabindex", "-1");
-
-        // }
-        // hamburgerMenuContainer.setAttribute("tabindex", "0");
-        // hamburgerMenuContainer.focus();
-
-        // const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
-
-
-        // if (focusable[0] !== hamburgerMenuContainer.querySelector(".ma__header-search__input")) {
-          // document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").style.display = "none";
-          // hamburgerMenuContainer.querySelector(".ma__header-search__input").setAttribute("tabindex", "-1");
-
-        // }
+        const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
+        let focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
 
         focusable[0].focus();
-
       }
     }
   });
