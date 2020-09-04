@@ -18,38 +18,48 @@ const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility
 let utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
 let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".ma__utility-nav__container") : null;
 
-// Check whether the wide utility nav is open.
-const utilNavWideCheck = function() {
-  return utilNavWide ? (utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0) : null;
-};
+// Check whether the narrow utility nav is open.
+const utilNavNarrowCheck = function() {
+  return utilNarrowNav ? (utilNarrowNav.offsetWidth > 0 && utilNarrowNav.offsetHeight > 0) : false;
+}
 
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector(".ma__header__hamburger__main-nav");
 let emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
 let hamburgerMenuAlertScrolling = function() {
-  if (hamburgerMainNav !== null && emergencyAlerts !== null && utilNavWideCheck() !== false) {
+  if (hamburgerMainNav !== null && emergencyAlerts !== null) {
     let alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight || 0;
     let hamburgerMenuTop = document.querySelector(".ma__header__hamburger__nav-container").offsetTop || 0;
+    let paddingTarget = hamburgerMainNav;
+
+    if (utilNavNarrowCheck() !== false) {
+      paddingTarget = utilNarrowNav;
+      hamburgerMainNav.style.paddingBottom = 0;
+    }
 
     // Add bottom padding when function is initially called.
-    hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+    paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
 
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutationRecord) {
-        if (mutationRecord.oldValue !== null && utilNavWideCheck() !== false) {
+        if (mutationRecord.oldValue !== null) {
           let result = {};
           let attributes = mutationRecord.oldValue.split(";");
           for (let i = 0; i < attributes.length; i++) {
             let entry = attributes[i].split(":");
             result[entry.splice(0,1)[0]] = entry.join(":");
           }
+          if (utilNavNarrowCheck() !== false) {
+            paddingTarget = utilNarrowNav;
+            hamburgerMainNav.style.paddingBottom = 0;
+          }
 
           let oldDisplayValue = result.display ? result.display.trim() : null;
           let currentDisplayValue = document.querySelector(".ma__emergency-alerts__content").style.display;
           if (currentDisplayValue === oldDisplayValue) {
             alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
-            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+            paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
           }
         }
       });
@@ -79,14 +89,13 @@ if (siteAlertWrapper !== null) {
     if (emergencyAlerts !== null) {
       observer.disconnect();
     }
+
     hamburgerMenuAlertScrolling();
+
   });
   jsonApiObserver.observe(siteAlertWrapper, {
     childList: true
   });
-}
-else {
-  hamburgerMenuAlertScrolling();
 }
 /** DP-19336 end */
 
@@ -460,9 +469,6 @@ function toggleMenu() {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     openMenu();
 
-    if (utilNavWideCheck() === false) {
-      hamburgerMainNav.style.paddingBottom = 0;
-    }
     // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
@@ -509,6 +515,47 @@ function commonCloseMenuTasks() {
 function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
+  let alertsInterface = document.querySelector('.ma__emergency-alerts__interface');
+  if (document.querySelector("body").clientWidth < 841 && alertsInterface !== null) {
+    let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
+    let scrollOffset = emergencyAlerts.offsetHeight - (alertsInterface.offsetHeight/1.5);
+
+
+    if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
+      function customScrollTo(to, duration) {
+        var start = 0,
+            change = to - start,
+            currentTime = 0,
+            increment = 20;
+
+        var animateScroll = function(){
+          currentTime += increment;
+          var val = Math.easeInOutQuad(currentTime, start, change, duration);
+          window.scrollTo(0,val);
+
+          if(currentTime < duration) {
+            setTimeout(animateScroll, increment);
+          }
+        };
+        animateScroll();
+      }
+
+      Math.easeInOutQuad = function (t, b, c, d) {
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+      };
+
+      customScrollTo(scrollOffset, 250);
+    } else {
+      window.scrollTo({
+        top: scrollOffset,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+  }
 }
 
 function commonOpenMenuTasks() {
@@ -636,15 +683,13 @@ if (null !== menuOverlay) {
 }
 
 let debouncer;
-window.onresize = function () {
+window.addEventListener("resize", function () {
   clearTimeout(debouncer);
   debouncer = setTimeout( () => {
-    width = body.clientWidth;
-    if (utilNavWideCheck() !== false) {
-      hamburgerMenuAlertScrolling();
-    }
+    closeMenu();
+    hamburgerMenuAlertScrolling();
   }, 100);
-};
+});
 
 
 // ** Utility nav
