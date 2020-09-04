@@ -26,7 +26,7 @@ const utilNavNarrowCheck = function() {
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector(".ma__header__hamburger__main-nav");
 let emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
-let hamburgerMenuAlertScrolling = function(scrollOffset = 0) {
+let hamburgerMenuAlertScrolling = function() {
   if (hamburgerMainNav !== null && emergencyAlerts !== null) {
     let alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight || 0;
     let hamburgerMenuTop = document.querySelector(".ma__header__hamburger__nav-container").offsetTop || 0;
@@ -38,7 +38,7 @@ let hamburgerMenuAlertScrolling = function(scrollOffset = 0) {
     }
 
     // Add bottom padding when function is initially called.
-    paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop - scrollOffset + "px";
+    paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
 
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
@@ -59,7 +59,7 @@ let hamburgerMenuAlertScrolling = function(scrollOffset = 0) {
           let currentDisplayValue = document.querySelector(".ma__emergency-alerts__content").style.display;
           if (currentDisplayValue === oldDisplayValue) {
             alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
-            paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop - scrollOffset + "px";
+            paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
           }
         }
       });
@@ -546,14 +546,12 @@ function openMenu() {
       };
 
       customScrollTo(scrollOffset, 250);
-      hamburgerMenuAlertScrolling(scrollOffset);
     } else {
       window.scrollTo({
         top: scrollOffset,
         left: 0,
         behavior: "smooth"
       });
-      hamburgerMenuAlertScrolling(scrollOffset);
     }
   }
 }
@@ -684,7 +682,6 @@ if (null !== menuOverlay) {
 
 let debouncer;
 window.addEventListener("resize", function () {
-  closeMenu();
   clearTimeout(debouncer);
   debouncer = setTimeout( () => {
     hamburgerMenuAlertScrolling();
