@@ -165,7 +165,6 @@ jobs:
       - restore_cache:
           keys:
             - mfr-dependencies-{{ checksum "react/package.json" }}-0
-      - browser-tools/install-browser-tools
       - run: cd react && npm install
       - run:
           name: 'Install Headless Chrome dependencies'
