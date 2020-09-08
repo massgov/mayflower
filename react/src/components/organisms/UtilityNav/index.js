@@ -75,16 +75,21 @@ const NavItem = (obj) => {
     'aria-hidden': isExpanded ? 'false' : 'true',
     id: divId
   };
-  const iconProps = {
-    name: item.icon,
-    ariaHidden: true
-  };
-  return(
-    <li className="ma__utility-nav__item js-util-nav-toggle">
-      <button onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
-        <Icon {...iconProps} />
+  let link;
+  if (item.ariaLabelText) {
+    link = <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText}>
+        <Icon name={item.icon} />
         <span>{item.text}</span>
-      </button>
+      </a>
+  } else {
+    link = <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#">
+        <Icon name={item.icon} />
+        <span>{item.text}</span>
+      </a>
+  }
+  return((
+    <li className="ma__utility-nav__item js-util-nav-toggle">
+      {link}
       <div {...divProps}>
         <div className="ma__utility-nav__container">
           <div className="ma__utility-nav__content-title">

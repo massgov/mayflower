@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Changed
+Minor
+- Patternlab DP-10666: Add a condition for aria-label to render only when its value is available. #320#
+- React DP-10666: Add a conditional renderer for links in utility nav to add aria-label only when its value is available. #320#
