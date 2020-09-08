@@ -25,7 +25,9 @@ const isFixedFeedback = (component) => component.kind.includes('ButtonFixedFeedb
 const mapComponents = (components, debug = false) => Object.values(components)
   .filter((component) => !['/animations', '/styles'].includes(component.kind))
   .map((component) => {
-    const { id, kind, name, parameters } = component;
+    const {
+      id, kind, name, parameters
+    } = component;
     const viewports = [];
     const selectors = [];
     if (isAtom(component)) {

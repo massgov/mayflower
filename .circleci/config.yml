@@ -188,9 +188,6 @@ jobs:
       - run:
           name: Mayflower React Storybook Extract
           command: cd react && npm run storybook:extract
-      - run:
-          name: Mayflower React Linter
-          command: cd react && npm run lint
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
@@ -207,6 +204,9 @@ jobs:
           docker cp ../assets $(docker-compose ps -q backstop):/src/assets
           docker cp ../docs $(docker-compose ps -q backstop):/src/docs
           docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
+      - run:
+          name: Mayflower React Linter
+          command: cd react && npm run lint
       - run: |
           cd react
           docker-compose run backstop test
