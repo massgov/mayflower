@@ -164,7 +164,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "react/package.json" }}-2
+            - mfr-dependencies-{{ checksum "react/package.json" }}-3
       - run: cd react && npm install
       - run:
           name: 'Install Headless Chrome dependencies'
@@ -178,19 +178,19 @@ jobs:
       - save_cache:
           paths:
             - react/node_modules
-          key: mfr-dependencies-{{ checksum "react/package.json" }}-2
+          key: mfr-dependencies-{{ checksum "react/package.json" }}-3
       - run:
           name: Mayflower React Build
           command: cd react && npm run build
-      - run:
-          name: Mayflower React Storybook Extract
-          command: cd react && npm run storybook:extract
       - run:
           name: Mayflower React Linter
           command: cd react && npm run lint
       - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
+      - run:
+          name: Mayflower React Storybook Extract
+          command: cd react && npm run storybook:extract
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
