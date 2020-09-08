@@ -178,7 +178,7 @@ jobs:
       - run:
           name: 'Install puppeteer with chronium'
           command: |
-            npm i puppeteer
+            npm i puppeteer-core
       - save_cache:
           paths:
             - react/node_modules
