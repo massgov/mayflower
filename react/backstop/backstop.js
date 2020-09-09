@@ -36,8 +36,8 @@ module.exports = {
     ],
     devtools: false
   },
-  asyncCaptureLimit: 20,
-  asyncCompareLimit: 50,
+  asyncCaptureLimit: 3,
+  asyncCompareLimit: 20,
   debug,
   debugWindow: debug
 };
