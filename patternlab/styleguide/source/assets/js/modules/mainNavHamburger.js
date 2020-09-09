@@ -496,6 +496,10 @@ function closeMenu() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
+  if (document.querySelector('html.stickyTOCtmp')) {
+    document.querySelector('html.stickyTOCtmp').classList.add('stickyTOC');
+    document.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
+  }
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
@@ -560,6 +564,11 @@ function openMenu() {
 
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
+
+  if (document.querySelector('html.stickyTOC')) {
+    document.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
+    document.querySelector('html.stickyTOC').classList.remove('stickyTOC');
+  }
 
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
