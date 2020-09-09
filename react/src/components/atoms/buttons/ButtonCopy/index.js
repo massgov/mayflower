@@ -15,29 +15,27 @@ import IconInputsuccess from 'MayflowerReactBase/Icon/IconInputsuccess';
 const ButtonCopy = ({ content }) => {
   const [copied, setCopied] = React.useState(false);
   const copyAction = () => {
-    setCopied(true);
-    navigator.clipboard.writeText(content);
-    const timer = setTimeout(() => {
-      setCopied(false);
-    }, 1000);
-    return() => clearTimeout(timer);
+    navigator.clipboard.writeText(content).then(() => setCopied(true));
   };
   const copyButtonTitle = copied ? 'copied' : 'copy hex code';
-  if ((navigator && navigator.clipboard) || (window && window.location.search.indexOf('backstop') > -1)) {
-    return(
-      <button
-        type="button"
-        className="ma__button-copy"
-        onClick={copyAction}
-        title={copyButtonTitle}
-        aria-label={copyButtonTitle}
-      >
-        { copied ? <IconInputsuccess width={16} height={16} /> : <IconCopy width={16} height={16} />}
-      </button>
-    );
-  }
-  // If no clipboard available, don't render ButtonCopy
-  return null;
+  React.useEffect(() => {
+    if (copied) {
+      setTimeout(() => {
+        setCopied(false);
+      }, 1000);
+    }
+  }, [copied]);
+  return(
+    <button
+      type="button"
+      className="ma__button-copy"
+      onClick={copyAction}
+      title={copyButtonTitle}
+      aria-label={copyButtonTitle}
+    >
+      { copied ? <IconInputsuccess width={16} height={16} /> : <IconCopy width={16} height={16} />}
+    </button>
+  );
 };
 
 ButtonCopy.propTypes = {

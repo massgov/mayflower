@@ -23,7 +23,7 @@ const isAtom = (component) => {
 const isFixedFeedback = (component) => component.kind.includes('ButtonFixedFeedback');
 
 const mapComponents = (components, debug = false) => Object.values(components)
-  .filter((component) => !['/animations', '/styles'].includes(component.kind))
+  .filter((component) => !['/animations', '/styles', 'ButtonCopy'].includes(component.kind))
   .map((component) => {
     const {
       id, kind, name, parameters
