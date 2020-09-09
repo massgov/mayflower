@@ -520,7 +520,7 @@ function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
   let alertsInterface = document.querySelector('.ma__emergency-alerts__interface');
-  if (document.querySelector("body").clientWidth < 841 && alertsInterface !== null) {
+  if (alertsInterface !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
     let scrollOffset = emergencyAlerts.offsetHeight - (alertsInterface.offsetHeight/1.5);
 
