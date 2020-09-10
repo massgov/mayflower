@@ -523,6 +523,7 @@ function openMenu() {
 
     if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
       function customScrollTo(to, duration) {
+        window.addEventListener('scroll', function(e) {e.preventDefault();}, true);
         var start = 0,
             change = to - start,
             currentTime = 0,
@@ -546,14 +547,13 @@ function openMenu() {
         t--;
         return -c/2 * (t*(t-2) - 1) + b;
       };
-
-      customScrollTo(scrollOffset, 250);
+      $('html, body').animate({
+        scrollTop: scrollOffset
+      }, 250);
     } else {
-      window.scrollTo({
-        top: scrollOffset,
-        left: 0,
-        behavior: "smooth"
-      });
+      $('html, body').animate({
+        scrollTop: scrollOffset
+      }, 250);
     }
   }
 }
