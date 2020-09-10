@@ -662,10 +662,15 @@ if (null !== menuOverlay) {
 let debouncer;
 window.addEventListener("resize", function () {
   clearTimeout(debouncer);
-  debouncer = setTimeout( () => {
-    closeMenu();
-    hamburgerMenuAlertScrolling();
-  }, 100);
+  const osInfo = navigator.appVersion;
+  // On Android devices resize event is triggered when keyboard appears
+  // and it closes the menu.
+  if (osInfo.indexOf("Android") === -1) {
+    debouncer = setTimeout(() => {
+      closeMenu();
+      hamburgerMenuAlertScrolling();
+    }, 100);
+  }
 });
 
 
