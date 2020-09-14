@@ -329,6 +329,7 @@ jobs:
           paths:
             - packages/site/node_modules
           key: site-dependencies-{{ checksum "packages/site/package.json" }}
+      - run: cd packages/react && pnpm run build
       - run:
           name: Validate Package Build
           command: cd packages/site && pnpm run build
