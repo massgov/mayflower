@@ -49,7 +49,8 @@
     "react-select": "^1.2.1",
     "react-table": "^6.8.6",
     "react-transition-group": "^2.4.0",
-    "shortid": "^2.2.8"
+    "shortid": "^2.2.8",
+    "dom-helpers": "3.4.0"
   },
   "peerDependencies": {
     "react": "^16.13.1",

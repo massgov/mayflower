@@ -12,23 +12,6 @@ module.exports = {
     url: 'https://mayflower.digital.mass.gov/'
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-pnpm',
-      options: {
-        include: [
-          'gatsby',
-          'gatsby-image',
-          'gatsby-source-filesystem',
-          'gatsby-plugin-sharp',
-          'gatsby-plugin-sass',
-          'gatsby-transformer-sharp',
-          'react',
-          'react-dom',
-          'prop-types'
-        ],
-        strict: true
-      }
-    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -61,6 +44,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
+        implementation: require("sass"),
         sourceMap: true,
         useResolveUrlLoader: {
           sourceMap: true
@@ -75,6 +59,17 @@ module.exports = {
           `${path.dirname(require.resolve('@massds/mayflower-react'))}/dist`,
           `${path.dirname(require.resolve('@massds/mayflower-react'))}/styles`
         ].concat(assets.includePaths)
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-pnpm',
+      options: {
+        include: [
+          'react',
+          'react-dom',
+          'prop-types'
+        ],
+        strict: true
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

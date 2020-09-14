@@ -2,13 +2,13 @@ exports.onCreateWebpackConfig = ({
   stage, loaders, rules, actions, getConfig
 }) => {
   if (stage.startsWith('develop')) {
-    actions.setWebpackConfig({
-      resolve: {
-        alias: {
-          'react-dom': '@hot-loader/react-dom'
-        }
-      }
-    });
+    // actions.setWebpackConfig({
+    //   resolve: {
+    //     alias: {
+    //       'react-dom': '@hot-loader/react-dom'
+    //     }
+    //   }
+    // });
   }
   const isSSR = stage.includes('html');
   const config = getConfig();
@@ -39,9 +39,9 @@ exports.onCreateWebpackConfig = ({
       use: loaders.null()
     }
   ];
-  config.resolve = {
-    ...config.resolve,
-    symlinks: !isSSR
-  };
+  // config.resolve = {
+  //   ...config.resolve,
+  //   //symlinks: !isSSR
+  // };
   actions.replaceWebpackConfig(config);
 };

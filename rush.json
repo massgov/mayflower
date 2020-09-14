@@ -50,7 +50,7 @@
      *
      * The default value is "local".
      */
-    "pnpmStore": "global"
+    //"pnpmStore": "global"
 
     /**
      * If true, then Rush will add the "--strict-peer-dependencies" option when invoking PNPM.

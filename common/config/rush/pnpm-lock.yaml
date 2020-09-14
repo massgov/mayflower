@@ -56,6 +56,7 @@ dependencies:
   css-loader: 3.6.0
   del: 5.1.0
   disc: 1.3.3
+  dom-helpers: 3.4.0
   dotenv: 8.2.0
   env-cmd: 10.1.0
   eslint-import-resolver-alias: 1.1.2
@@ -23779,6 +23780,7 @@ packages:
       cross-env: 5.2.1
       css-loader: 3.6.0
       del: 5.1.0
+      dom-helpers: 3.4.0
       env-cmd: 10.1.0
       eslint: 7.8.1
       eslint-config-airbnb: 18.2.0_36b766e25406385ffe74dcc39b4331a6
@@ -23827,7 +23829,7 @@ packages:
     peerDependencies:
       node-sass: '*'
     resolution:
-      integrity: sha512-YarH72mfHDvr3atkXvfq5AR5WVOVkfEUkT3CldLMxvKtJF5oam+A/y4wGXxGA4xVOElO9Oz1+34lNNnNOXoyAg==
+      integrity: sha512-X4IK8Iao1qR/06spNgwLk1mGx4vcPBngxf8tfQJELfZznYyfzjO2f8j1DWGuouWyqJTYsMy1p6WKmXSGn7jFHA==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_jquery@3.5.1':
@@ -23986,6 +23988,7 @@ specifiers:
   css-loader: ^3.5.3
   del: ^5.1.0
   disc: ^1.3.3
+  dom-helpers: 3.4.0
   dotenv: ^8.2.0
   env-cmd: ^10.1.0
   eslint-import-resolver-alias: ^1.1.2

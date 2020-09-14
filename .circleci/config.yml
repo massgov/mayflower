@@ -165,20 +165,22 @@ jobs:
       - restore_cache:
           keys:
             - mfr-dependencies-{{ checksum "react/package.json" }}-0
-      - run: cd react && npm install
+      - run: npm install -g pnpm @microsoft/rush
+      - run: cd packages/react && rush update
       - save_cache:
           paths:
-            - react/node_modules
-          key: mfr-dependencies-{{ checksum "react/package.json" }}-0
+            - common
+            - packages/react/node_modules
+          key: mfr-dependencies-{{ checksum "packages/react/package.json" }}-0
       - run:
           name: Mayflower React Build
-          command: cd react && npm run build
+          command: cd packages/react && pnpm run build
       - run:
           name: Mayflower React Linter
-          command: cd react && npm run lint
+          command: cd packages/react && pnpm run lint
       - run:
           name: Mayflower React Build Storybook
-          command: cd react && npm run build-storybook
+          command: cd packages/react && pnpm run build-storybook
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
@@ -192,20 +194,20 @@ jobs:
           cd react
           docker-compose up --no-start web backstop
           docker cp ./ $(docker-compose ps -q backstop):/src/
-          docker cp ../assets $(docker-compose ps -q backstop):/src/assets
+          docker cp ../packages/assets $(docker-compose ps -q backstop):/src/packages/assets
           docker cp ../docs $(docker-compose ps -q backstop):/src/docs
           docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
-          cd react
+          cd packages/react
           docker-compose run backstop test
       - run:
-          command: cd react && docker cp $(docker-compose ps -q backstop):/src/backstop/. ./backstop/
+          command: cd packages/react && docker cp $(docker-compose ps -q backstop):/src/backstop/. ./backstop/
           when: always
       - store_artifacts:
-          path: react/backstop
+          path: packages/react/backstop
           destination: backstop
       - store_test_results:
-          path: react/backstop/data/ci_report
+          path: packages/react/backstop/data/ci_report
 
   react_deploy_tag:
     <<: *react_defaults
