@@ -293,21 +293,22 @@ if (menuButton !== null) {
         }
       }
 
-      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      // if (e.key === "ArrowUp" || e.code === "ArrowUp") {
 
-        if (e.target === narrowUtilContentLinks[i]) {
-          if (e.target === narrowUtilContentLinks[0]) {
-            i = lastIndex;
-          }
-          else {
-            i--;
-          }
-        }
-      }
+      //   if (e.target === narrowUtilContentLinks[i]) {
+      //     console.log("where I am: " + e.target.innerText);
+      //     if (e.target === narrowUtilContentLinks[0]) {
+      //       i = lastIndex;
+      //     }
+      //     else {
+      //       i--;
+      //     }
+      //   }
+      // }
 
       narrowUtilContentLinks[i].focus();
       // TEST OUTPUT
-      // console.log(i + ": " + document.activeElement.innerText);
+      console.log(i + ": " + document.activeElement.innerText);
     });
   });
 
