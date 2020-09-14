@@ -165,7 +165,7 @@ jobs:
       - restore_cache:
           keys:
             - mfr-dependencies-{{ checksum "react/package.json" }}-0
-      - run: curl -L https://raw.githubusercontent.com/pnpm/self-installer/master/install.js | node
+      - run: curl -L https://unpkg.com/@pnpm/self-installer | node
       - run: cd packages/react && pnpx rush update
       - save_cache:
           paths:
