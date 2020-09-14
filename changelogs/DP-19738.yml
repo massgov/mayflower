@@ -1,0 +1,17 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Add polyfill to enable 'NodeList.prototype.forEach()' for IE11. (#1157)
+    issue: DP-19738
+    impact: Patch
+  - project: Patternlab
+    component: Header
+    description: Add Escape key definition of e.key === Esc for IE11 support. (#1157)
+    issue: DP-19738
+    impact: Patch
+Removed:    
+  - project: Patternlab
+    component: Header
+    description: Replace "e.which", which is deprecated, with "e.code". (#1157)
+    issue: DP-19738
+    impact: Patch
