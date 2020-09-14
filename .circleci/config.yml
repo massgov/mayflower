@@ -49,12 +49,12 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
+            - pl-npm-v3-{{ checksum "patternlab/styleguide/package.json" }}
             - pl-npm-v3-
       - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && npm install' }
       - save_cache:
           name: Save NPM cache
-          key: pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
+          key: pl-npm-v3-{{ checksum "patternlab/styleguide/package.json" }}
           paths: [ patternlab/styleguide/node_modules ]
       - run: { name: 'Build', command: 'cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build'}
       - persist_to_workspace:
@@ -164,7 +164,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "react/package.json" }}-0
+            - mfr-dependencies-{{ checksum "packages/react/package.json" }}-0
       - run: sudo npm install -g pnpm @microsoft/rush
       - run: cd packages/react && rush update
       - save_cache:
@@ -281,15 +281,16 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - assets-dependencies-{{ checksum "assets/package.json" }}
-      - run: cd assets && npm install
+            - assets-dependencies-{{ checksum "packages/assets/package.json" }}
+      - run: sudo npm install -g pnpm @microsoft/rush
+      - run: rush update
       - save_cache:
           paths:
-            - assets/node_modules
-          key: assets-dependencies-{{ checksum "assets/package.json" }}
+            - packages/assets/node_modules
+          key: assets-dependencies-{{ checksum "packages/assets/package.json" }}
       - run:
           name: Mayflower Style Linter
-          command: cd assets && npm run stylelint
+          command: cd packages/assets && pnpm run stylelint
 
   assets_deploy_tag:
     <<: *react_defaults
@@ -321,15 +322,16 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - site-dependencies-{{ checksum "site/yarn.lock" }}
-      - run: {name: 'Install packages', command: 'cd site && yarn'}
+            - site-dependencies-{{ checksum "packages/site/package.json" }}
+      - run: sudo npm install -g pnpm @microsoft/rush
+      - run: rush update
       - save_cache:
           paths:
-            - site/node_modules
-          key: site-dependencies-{{ checksum "site/yarn.lock" }}
+            - packages/site/node_modules
+          key: site-dependencies-{{ checksum "packages/site/package.json" }}
       - run:
           name: Validate Package Build
-          command: cd site && yarn build
+          command: cd packages/site && pnpm run build
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
