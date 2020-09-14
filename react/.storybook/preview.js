@@ -33,9 +33,9 @@ const storyKindOrder = [
   'others/pages'
 ];
 
-export const StoryPage = ({ StoryComponent = null, showStories = false, Description }) => {
+export const StoryPage = ({ StoryComponent = null, showStories = true, Description }) => {
   const docsContext = React.useContext(DocsContext);
-  const [showHTML, setShowHTML] = React.useState(false);
+  const [showHTML, setShowHTML] = React.useState(true);
   const { id, name, parameters = {}, args } = docsContext;
   const { component } = parameters;
   const HtmlComponent = StoryComponent || component;
@@ -60,10 +60,11 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
   };
   return(
     <>
-      <Title>Description</Title>
+      <Title>{component.displayName}</Title>
       <Subtitle />
       { Description && <Description />}
       <Primary name={name} />
+      <ArgsTable story={CURRENT_SELECTION}/>
       {html && (
         <Heading>
           HTML
@@ -72,7 +73,6 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
       )}
       {!showHTML && <Source storyId={id} error="Click Show HTML above to view markup source." />}
       {html && showHTML && <Source storyId={id} language="html" code={html} dark />}
-      <ArgsTable story={CURRENT_SELECTION}/>
       { showStories && <Stories />}
     </>
   );

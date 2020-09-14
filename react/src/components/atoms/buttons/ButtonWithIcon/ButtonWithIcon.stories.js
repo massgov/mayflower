@@ -20,9 +20,9 @@ export default {
 
 export const ButtonWithIconExample = (args) => {
   const {
-    name, width, height, ...rest
+    icon, width, height, ...rest
   } = args;
-  const IconComponent = Icon[name];
+  const IconComponent = Icon[icon];
   return(<ButtonWithIcon {...rest} icon={<IconComponent width={width} height={height} />} />);
 };
 ButtonWithIconExample.parameters = {
@@ -42,16 +42,11 @@ ButtonWithIconExample.args = {
   capitalized: true,
   'arial-label': '',
   'aria-haspopup': false,
-  name: 'IconChevron',
+  icon: 'IconSearch',
   width: 20,
   height: 20
 };
 ButtonWithIconExample.argTypes = {
-  icon: {
-    control: {
-      disable: true
-    }
-  },
   type: {
     control: {
       type: 'select',
@@ -82,7 +77,7 @@ ButtonWithIconExample.argTypes = {
       options: buttonWithIconOptions.usage
     }
   },
-  name: {
+  icon: {
     control: {
       type: 'select',
       options: Object.fromEntries(
@@ -94,9 +89,9 @@ ButtonWithIconExample.argTypes = {
 
 export const ButtonSearch = (args) => {
   const {
-    name, width, height, ...rest
+    icon, width, height, ...rest
   } = args;
-  const IconComponent = Icon[name];
+  const IconComponent = Icon[icon];
 
   return(
     <ButtonWithIcon {...rest} icon={<IconComponent width={width} height={height} />} />
@@ -106,7 +101,7 @@ ButtonSearch.storyName = 'ButtonSearch';
 ButtonSearch.args = {
   onClick: action('ButtonWithIcon clicked'),
   usage: '',
-  name: 'IconChevron',
+  icon: 'IconSearch',
   width: 20,
   height: 20
 };
@@ -117,7 +112,7 @@ ButtonSearch.argTypes = {
       options: buttonWithIconOptions.usage
     }
   },
-  name: {
+  icon: {
     control: {
       type: 'select',
       options: {
