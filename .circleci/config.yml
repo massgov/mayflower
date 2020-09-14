@@ -165,8 +165,8 @@ jobs:
       - restore_cache:
           keys:
             - mfr-dependencies-{{ checksum "react/package.json" }}-0
-      - run: npm install -g pnpm @microsoft/rush
-      - run: cd packages/react && rush update
+      - run: curl -L https://raw.githubusercontent.com/pnpm/self-installer/master/install.js | node
+      - run: cd packages/react && pnpx rush update
       - save_cache:
           paths:
             - common
@@ -174,13 +174,13 @@ jobs:
           key: mfr-dependencies-{{ checksum "packages/react/package.json" }}-0
       - run:
           name: Mayflower React Build
-          command: cd packages/react && pnpm run build
+          command: cd packages/react && pnpx run build
       - run:
           name: Mayflower React Linter
-          command: cd packages/react && pnpm run lint
+          command: cd packages/react && pnpx run lint
       - run:
           name: Mayflower React Build Storybook
-          command: cd packages/react && pnpm run build-storybook
+          command: cd packages/react && pnpx run build-storybook
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
