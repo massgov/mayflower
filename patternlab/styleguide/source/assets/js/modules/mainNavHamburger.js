@@ -527,10 +527,10 @@ function commonCloseMenuTasks() {
 function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
-  let alertsInterface = document.querySelector('.ma__emergency-alerts__interface');
-  if (alertsInterface !== null) {
+  let alertsHeader = document.querySelector('.ma__emergency-alerts__header');
+  if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-    let scrollOffset = emergencyAlerts.offsetHeight - (alertsInterface.offsetHeight/1.5);
+    let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/2);
     if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
       customScrollTo(scrollOffset, 250);
     }
@@ -582,10 +582,10 @@ function jumpToSearch(e) {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     commonOpenMenuTasks();
 
-    let alertsInterface = document.querySelector('.ma__emergency-alerts__interface');
-    if (alertsInterface !== null) {
+    let alertsHeader = document.querySelector('.ma__emergency-alerts__header');
+    if (alertsHeader !== null) {
       let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-      let scrollOffset = emergencyAlerts.offsetHeight - (alertsInterface.offsetHeight/1.5);
+      let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/1.5);
       if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
         customScrollTo(scrollOffset, 250);
       }
