@@ -12,6 +12,23 @@ module.exports = {
     url: 'https://mayflower.digital.mass.gov/'
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-pnpm',
+      options: {
+        include: [
+          'gatsby',
+          'gatsby-image',
+          'gatsby-source-filesystem',
+          'gatsby-plugin-sharp',
+          'gatsby-plugin-sass',
+          'gatsby-transformer-sharp',
+          'react',
+          'react-dom',
+          'prop-types'
+        ],
+        strict: true
+      }
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
