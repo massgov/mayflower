@@ -235,7 +235,7 @@ export default class FeedbackForm extends React.Component {
       id: this.prefixField(refererId),
       name: this.prefixField(refererId),
       size: '50',
-      value: window.location.href,
+      value: window && window.location.href,
       className: 'fsField'
     };
     const yesFieldSetClassNames = classNames({
