@@ -314,29 +314,35 @@ if (menuButton !== null) {
             i++;
           }
         }
-        narrowUtilContentLinks[i].focus();
       }
 
       if (e.key === "ArrowUp" || e.code === "ArrowUp") {
-
-
-          // console.log("where I am: " + e.target.innerText);
-
-
+        if (e.target === narrowUtilContentLinks[i]) {
           if (e.target === narrowUtilContentLinks[0]) {
             i = lastIndex;
-          }
-          else if (i === 1) {
-            i = 0;
-            console.log("RESET");
           }
           else {
             i--;
           }
+        }
+        else {
+          if (e.target === narrowUtilContentLinks[0]) {
+            i = lastIndex;
+          }
+          else {
+            let targetIndex;
+            for (let index = lastIndex; index > -1; index--) {
+              if (e.target === narrowUtilContentLinks[index]) {
+                console.log(index);
+                targetIndex = index;
+              }
+            }
+            i = targetIndex;
+            i--;
+          }
+        }
       }
-
-      // narrowUtilContentLinks[i].focus();
-      // console.log("after focus index:" + i);
+      narrowUtilContentLinks[i].focus();
     });
   });
 
