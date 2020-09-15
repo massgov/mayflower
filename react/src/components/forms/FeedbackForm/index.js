@@ -6,7 +6,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import CharacterCounter from 'react-character-counter';
 import classNames from 'classnames';
 import is from 'is';
 import Paragraph from 'MayflowerReactText/Paragraph';
@@ -26,11 +25,76 @@ HiddenFields.propTypes = {
   formId: PropTypes.number
 };
 
+const styleSheet = {
+  wrapper: {
+    position: 'relative'
+  },
+  characterCounter: {
+    position: 'absolute',
+    fontSize: '12px',
+    fontWeight: '600'
+  }
+};
+
+const CharacterCounter = (props) => {
+  const divRef = React.useRef();
+  React.useEffect(() => {
+    if (!props.overrideStyle) {
+      const { firstChild, lastChild } = divRef.current;
+      lastChild.style.left = `${firstChild.clientWidth - 70}px`;
+      lastChild.style.top = `${firstChild.clientHeight / 2 - lastChild.clientHeight / 2 + 3}px`;
+      firstChild.style.paddingRight = '75px';
+    }
+  }, []);
+  const {
+    value,
+    maxLength,
+    wrapperStyle,
+    characterCounterStyle,
+    overrideStyle,
+    children
+  } = props;
+  let computedWrapperStyle = Object.assign(styleSheet.wrapper, wrapperStyle);
+  let computedCharacterCounterStyle = Object.assign(
+    styleSheet.characterCounter,
+    characterCounterStyle
+  );
+  if (overrideStyle) {
+    computedWrapperStyle = wrapperStyle;
+    computedCharacterCounterStyle = characterCounterStyle;
+  }
+  const displayLength = `${value.length}/${maxLength}`;
+  return(
+    <div ref={divRef} style={computedWrapperStyle}>
+      {children}
+      <span style={computedCharacterCounterStyle}>{displayLength}</span>
+    </div>
+  );
+};
+
+CharacterCounter.propTypes = {
+  children: PropTypes.node,
+  value: PropTypes.string.isRequired,
+  maxLength: PropTypes.number.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  wrapperStyle: PropTypes.object,
+  // eslint-disable-next-line react/forbid-prop-types
+  characterCounterStyle: PropTypes.object,
+  overrideStyle: PropTypes.bool
+};
+
+CharacterCounter.defaultProps = {
+  wrapperStyle: {},
+  characterCounterStyle: {},
+  overrideStyle: false
+};
+
 export default class FeedbackForm extends React.Component {
   static propTypes = {
     /** A ref object as created by React.createRef(). Will be applied to the form element. */
     formRef: PropTypes.oneOfType([
       PropTypes.func,
+      // eslint-disable-next-line react/forbid-prop-types
       PropTypes.shape({ current: PropTypes.any })
     ]),
     /** A function whose return value is displayed after a successful form submission. */
@@ -138,16 +202,15 @@ export default class FeedbackForm extends React.Component {
       newState.feedbackChoice = false;
     }
     if (e.currentTarget === this.yesTextArea.current) {
-      newState.yesText = e.currentTarget.value;
+      newState.yesText = e.currentTarget.value || '';
     }
     if (e.currentTarget === this.noTextArea.current) {
-      newState.noText = e.currentTarget.value;
+      newState.noText = e.currentTarget.value || '';
     }
     // If the form was previously submitted but the user made a new change, reset the form submitted status.
     if (this.state.formSubmitted && Object.keys(newState).length > 0) {
       newState.formSubmitted = false;
       newState.success = false;
-      newState.successMessage = '';
     }
     this.setState(newState, this.checkForErrors);
   }
@@ -285,7 +348,14 @@ export default class FeedbackForm extends React.Component {
       },
       overrideStyle: true
     };
-    const DefaultDisclaimer = this.defaultDisclaimer;
+    const DefaultDisclaimer = () => (
+      <div id="feedback-note" className="ma__disclaimer">
+        We use your feedback to help us improve this site but we are not able to respond directly.
+        <strong>Please do not include personal or contact information.</strong>
+        {' '}
+        If you need a response, please locate the contact information elsewhere on this page or in the footer.
+      </div>
+    );
     return(success && formSubmitted) ? (
       <div className="ma__feedback-form" data-mass-feedback-form>
         <h2 className="visually-hidden">Feedback</h2>
@@ -353,13 +423,13 @@ export default class FeedbackForm extends React.Component {
                 <CharacterCounter value={noText} {...characterCounterProps}>
                   <textarea
                     id={noId}
+                    value={noText}
                     ref={this.noTextArea}
                     onChange={this.handleChange}
                     className={noTextAreaClassNames}
                     name={noId}
                     aria-required="true"
                     maxLength="10000"
-                    disabled={feedbackChoice === false ? null : 'disabled'}
                     aria-describedby="feedback-note"
                   />
                 </CharacterCounter>
@@ -374,12 +444,12 @@ export default class FeedbackForm extends React.Component {
               <div className="ma__textarea__wrapper">
                 <CharacterCounter value={yesText} {...characterCounterProps}>
                   <textarea
+                    value={yesText}
                     ref={this.yesTextArea}
                     onChange={this.handleChange}
                     id={yesId}
                     name={yesId}
                     maxLength="10000"
-                    disabled={feedbackChoice === true ? null : 'disabled'}
                     aria-describedby="feedback-note2"
                   />
                 </CharacterCounter>
