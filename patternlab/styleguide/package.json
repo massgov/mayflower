@@ -73,6 +73,7 @@
     "del": "^5.1.0"
   },
   "scripts": {
+    "build": "gulp",
     "gulp": "gulp"
   }
 }
