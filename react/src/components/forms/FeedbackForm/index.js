@@ -64,7 +64,7 @@ export default class FeedbackForm extends React.Component {
   state = {
     yesText: '',
     noText: '',
-    errorMessage: <Paragraph className="error">Please go back and fill in any required fields (marked with an *)</Paragraph>,
+    ErrorMessage: () => <Paragraph className="error">Please go back and fill in any required fields (marked with an *)</Paragraph>,
     feedbackChoice: null,
     hasError: [],
     success: false,
@@ -91,9 +91,9 @@ export default class FeedbackForm extends React.Component {
               const hasError = [...state.hasError];
               hasError.push(props.radioId);
               hasError.push(props.noFeedbackId);
-              const errorMessage = <Paragraph className="error">{err.error}</Paragraph>;
+              const ErrorMessage = () => <Paragraph className="error">{err.error}</Paragraph>;
               return{
-                hasError, errorMessage
+                hasError, ErrorMessage
               };
             });
           }
@@ -130,16 +130,18 @@ export default class FeedbackForm extends React.Component {
 
   // Handles the onChange event for the yes/no radio buttons as well as the yes/no textareas.
   handleChange = (e) => {
-    let newState = {};
-    e.persist();
-    if (e.currentTarget === this.yesRadio.current || e.currentTarget === this.noRadio.current) {
-      newState = Object.assign(newState, this.handleRadioChange(e));
+    const newState = {};
+    if (e.currentTarget === this.yesRadio.current) {
+      newState.feedbackChoice = true;
+    }
+    if (e.currentTarget === this.noRadio.current) {
+      newState.feedbackChoice = false;
     }
     if (e.currentTarget === this.yesTextArea.current) {
-      newState = Object.assign(newState, { yesText: e.currentTarget.value });
+      newState.yesText = e.currentTarget.value;
     }
     if (e.currentTarget === this.noTextArea.current) {
-      newState = Object.assign(newState, { noText: e.currentTarget.value });
+      newState.noText = e.currentTarget.value;
     }
     // If the form was previously submitted but the user made a new change, reset the form submitted status.
     if (this.state.formSubmitted && Object.keys(newState).length > 0) {
@@ -212,10 +214,10 @@ export default class FeedbackForm extends React.Component {
 
   render() {
     const {
-      yesFeedbackId, yesDisclaimer, noFeedbackId, noDisclaimer, refererId, formId, formRef, radioId, nodeId, successMessage
+      yesFeedbackId, yesDisclaimer, noFeedbackId, noDisclaimer, refererId, formId, formRef = null, radioId, nodeId, successMessage
     } = this.props;
     const {
-      hasError, success, feedbackChoice, formSubmitted, noText, yesText, errorMessage
+      hasError, success, feedbackChoice, formSubmitted, noText, yesText, ErrorMessage
     } = this.state;
     const yesId = this.prefixField(yesFeedbackId);
     const noId = this.prefixField(noFeedbackId);
@@ -283,6 +285,7 @@ export default class FeedbackForm extends React.Component {
       },
       overrideStyle: true
     };
+    const DefaultDisclaimer = this.defaultDisclaimer;
     return(success && formSubmitted) ? (
       <div className="ma__feedback-form" data-mass-feedback-form>
         <h2 className="visually-hidden">Feedback</h2>
@@ -362,7 +365,7 @@ export default class FeedbackForm extends React.Component {
                 </CharacterCounter>
               </div>
               <input type="hidden" id={yesId} name={yesId} value="" />
-              {(is.fn(noDisclaimer)) ? noDisclaimer() : this.defaultDisclaimer()}
+              {(is.fn(noDisclaimer)) ? noDisclaimer() : <DefaultDisclaimer />}
             </fieldset>
           )}
           {(feedbackChoice === true) && (
@@ -382,12 +385,12 @@ export default class FeedbackForm extends React.Component {
                 </CharacterCounter>
               </div>
               <input type="hidden" id={noId} name={noId} value="" />
-              {is.fn(yesDisclaimer) ? yesDisclaimer() : this.defaultDisclaimer()}
+              {is.fn(yesDisclaimer) ? yesDisclaimer() : <DefaultDisclaimer />}
             </fieldset>
           )}
           <fieldset className="ma_feedback-fieldset ma__mass-feedback-form__form--submit-wrapper">
             <div className={messsageClassNames} style={messageStyle}>
-              {success === false && errorMessage}
+              {success === false && <ErrorMessage />}
             </div>
             <input
               id="submitButton2521317"
