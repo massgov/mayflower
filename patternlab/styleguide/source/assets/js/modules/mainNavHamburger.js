@@ -585,7 +585,7 @@ function jumpToSearch(e) {
     let alertsHeader = document.querySelector('.ma__emergency-alerts__header');
     if (alertsHeader !== null) {
       let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-      let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/1.5);
+      let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/2);
       if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
         customScrollTo(scrollOffset, 250);
       }
@@ -856,7 +856,7 @@ function closeSubMenu() {
 }
 
 function customScrollTo(to, duration) {
-  var start = 0,
+  var start = window.scrollY,
       change = to - start,
       currentTime = 0,
       increment = 20;
