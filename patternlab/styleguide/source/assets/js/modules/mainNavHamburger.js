@@ -287,36 +287,56 @@ if (menuButton !== null) {
 
   let narrowUtilContentLinks = document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-content a.js-clickable-link");
   const lastIndex = narrowUtilContentLinks.length - 1;
-  const lastUtilContentLink = narrowUtilContentLinks[lastIndex];
   narrowUtilContentLinks.forEach(function(link, i) {
+
     link.addEventListener("keydown", function(e) {
-
       if (e.key === "ArrowDown" || e.code === "ArrowDown") {
-
-        if (e.target === narrowUtilContentLinks[i] && (e.target !== narrowUtilContentLinks[0] || e.target !== lastUtilContentLink)) {
-          i++;
+        if (e.target === narrowUtilContentLinks[i]) {
+          if (e.target === narrowUtilContentLinks[lastIndex]) {
+            i = 0;
+          }
+          else {
+            i++;
+          }
         }
-        if (e.target === lastUtilContentLink) {
-          i = 0;
+        else {
+          if (e.target === narrowUtilContentLinks[lastIndex]) {
+            i = 0;
+          }
+          else {
+            let targetIndex;
+            for (let index = 0; index < narrowUtilContentLinks.length; index++) {
+              if (e.target === narrowUtilContentLinks[index]) {
+                targetIndex = index;
+              }
+            }
+            i = targetIndex;
+            i++;
+          }
         }
+        narrowUtilContentLinks[i].focus();
       }
 
-      // if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
 
-      //   if (e.target === narrowUtilContentLinks[i]) {
-      //     console.log("where I am: " + e.target.innerText);
-      //     if (e.target === narrowUtilContentLinks[0]) {
-      //       i = lastIndex;
-      //     }
-      //     else {
-      //       i--;
-      //     }
-      //   }
-      // }
 
-      narrowUtilContentLinks[i].focus();
-      // TEST OUTPUT
-      console.log(i + ": " + document.activeElement.innerText);
+          // console.log("where I am: " + e.target.innerText);
+
+
+          if (e.target === narrowUtilContentLinks[0]) {
+            i = lastIndex;
+          }
+          else if (i === 1) {
+            i = 0;
+            console.log("RESET");
+          }
+          else {
+            i--;
+          }
+      }
+
+      // narrowUtilContentLinks[i].focus();
+      // console.log("after focus index:" + i);
     });
   });
 
