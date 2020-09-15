@@ -82,7 +82,7 @@ export default class FeedbackForm extends React.Component {
   submitButton = React.createRef();
 
   componentDidMount() {
-    if (window) {
+    if (typeof window !== 'undefined') {
       // We don't have the FormStack class available, but we can fake like we do:
       window[`form${this.props.formId}`] = {
         onSubmitError: (err) => {
@@ -189,7 +189,7 @@ export default class FeedbackForm extends React.Component {
       const errors = this.checkForErrors();
       // If no remaining errors, submit form.
       // Since we have to use jsonp and this component could be used with server side rendering, ensure that window exists.
-      if (window && is.array.empty(errors)) {
+      if (typeof window !== 'undefined' && is.array.empty(errors)) {
         import('b-jsonp').then((module) => {
           const jsonp = module.default;
           const form = document.getElementById(`fsForm${this.props.formId}`);
@@ -235,9 +235,11 @@ export default class FeedbackForm extends React.Component {
       id: this.prefixField(refererId),
       name: this.prefixField(refererId),
       size: '50',
-      value: window && window.location.href,
       className: 'fsField'
     };
+    if (typeof window !== 'undefined') {
+      refererProps.value = window.location.href;
+    }
     const yesFieldSetClassNames = classNames({
       'radio-yes': true,
       error: (hasError.includes(yesFeedbackId))
