@@ -5,7 +5,6 @@ var gulpSass          = require("gulp-sass"),
     rename        = require("gulp-rename"),
     header        = require("gulp-header"),
     sourcemaps    = require("gulp-sourcemaps"),
-    normalizePaths = require("node-normalize-scss").includePaths,
     assetsPaths   = require("@massds/mayflower-assets").includePaths,
     path          = require("path"),
     gulpIf        = require("gulp-if"),
@@ -27,12 +26,15 @@ module.exports = function(minify, root) {
         sourceMap: process.env.NODE_ENV !== "production",
         sourceComments: process.env.NODE_ENV !== "production",
         includePaths: assetsPaths
-            .concat([normalizePaths])
             .concat(
                 [path.join(path.dirname(require.resolve("pikaday")), "scss")]
             )
+            .concat(
+                [path.dirname(require.resolve("normalize-scss"))]
+            )
             .concat([`${root}/node_modules`])
     };
+    console.log(sassOptions);
     return lazypipe()
         .pipe(sourcemaps.init, { loadMaps: true, largeFile: true})
         .pipe(sourcemaps.identityMap)

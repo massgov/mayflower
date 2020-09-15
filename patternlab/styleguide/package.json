@@ -56,7 +56,6 @@
     "mdn-polyfills": "^5.16.0",
     "merge-stream": "^1.0.1",
     "moment": "^2.24.0",
-    "node-normalize-scss": "^8.0.0",
     "picturefill": "^3.0.3",
     "pikaday": "^1.8.0",
     "sass": "^1.26.5",
@@ -70,7 +69,8 @@
     "whatwg-fetch": "^3.0.0"
   },
   "dependencies": {
-    "del": "^5.1.0"
+    "del": "^5.1.0",
+    "normalize-scss": "~7.0.1"
   },
   "scripts": {
     "build": "gulp",
