@@ -3,6 +3,11 @@
 /**
  * FeedbackForm module.
  * @module @massds/mayflower-react/FeedbackForm
+ * @requires "@massds/mayflower-assets/scss/01-atoms/forms";
+ * @requires "@massds/mayflower-assets/scss/01-atoms/buttons";
+ * @requires "@massds/mayflower-assets/scss/01-atoms/input-radio";
+ * @requires "@massds/mayflower-assets/scss/02-molecules/input-radio-group";
+ * @requires "@massds/mayflower-react/dist/FeedbackForm";
  */
 import React from 'react';
 import PropTypes from 'prop-types';
