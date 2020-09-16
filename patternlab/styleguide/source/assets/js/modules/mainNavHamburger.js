@@ -40,7 +40,7 @@ let hamburgerMenuAlertScrolling = function() {
     // Add bottom padding when function is initially called.
     paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
 
-git checkout -b pattern    // Add bottom padding when alert style changes occur.
+    // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutationRecord) {
         if (mutationRecord.oldValue !== null) {
