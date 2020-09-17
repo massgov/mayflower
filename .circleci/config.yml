@@ -51,7 +51,7 @@ jobs:
           keys:
             - pl-npm-v3-{{ checksum "packages/patternlab/styleguide/package.json" }}
             - pl-npm-v3-
-      - run: sudo npm install -g pnpm @microsoft/rush
+      - run: npm install -g pnpm @microsoft/rush
       - run: cd packages/patternlab/styleguide && rush update
       - save_cache:
           name: Save NPM cache
