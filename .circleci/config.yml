@@ -52,6 +52,8 @@ jobs:
             - pl-npm-v3-{{ checksum "packages/patternlab/styleguide/package.json" }}
             - pl-npm-v3-
       - run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+      - run: export NVM_DIR="$HOME/.nvm"
+      - run: { name: 'Install NVM', command: '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'}
       - run: cd packages/patternlab/styleguide && nvm use
       - run: npm install -g pnpm @microsoft/rush
       - run: cd packages/patternlab/styleguide && rush update
