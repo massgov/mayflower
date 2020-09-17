@@ -49,14 +49,15 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - pl-npm-v3-{{ checksum "patternlab/styleguide/package.json" }}
+            - pl-npm-v3-{{ checksum "packages/patternlab/styleguide/package.json" }}
             - pl-npm-v3-
-      - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && npm install' }
+      - run: sudo npm install -g pnpm @microsoft/rush
+      - run: cd packages/patternlab/styleguide && rush update
       - save_cache:
           name: Save NPM cache
-          key: pl-npm-v3-{{ checksum "patternlab/styleguide/package.json" }}
-          paths: [ patternlab/styleguide/node_modules ]
-      - run: { name: 'Build', command: 'cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build'}
+          key: pl-npm-v3-{{ checksum "packages/patternlab/styleguide/package.json" }}
+          paths: [ packages/patternlab/styleguide/node_modules ]
+      - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && pnpm run gulp patternlab:build'}
       - persist_to_workspace:
           root: /var/www/code
           paths: ["*"]
@@ -67,21 +68,21 @@ jobs:
       - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
       - run: |
-          cd patternlab
+          cd packages/patternlab
           docker-compose up --no-start web backstop
           docker cp ./ $(docker-compose ps -q backstop):/src/
           docker cp ./styleguide/public/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
-          cd patternlab
+          cd packages/patternlab
           docker-compose run backstop test
       - run:
-          command: cd patternlab && docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
+          command: cd packages/patternlab && docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
           when: always
       - store_artifacts:
-          path: patternlab/backstopjs
+          path: packages/patternlab/backstopjs
           destination: backstop
       - store_test_results:
-          path: patternlab/backstopjs/reports/ci
+          path: packages/patternlab/backstopjs/reports/ci
 
   patternlab_deploy_branch:
     <<: *patternlab_defaults
@@ -191,10 +192,10 @@ jobs:
       - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
       - run: |
-          cd react
+          cd packages/react
           docker-compose up --no-start web backstop
           docker cp ./ $(docker-compose ps -q backstop):/src/
-          docker cp ../packages/assets $(docker-compose ps -q backstop):/src/packages/assets
+          docker cp ../assets $(docker-compose ps -q backstop):/src/assets
           docker cp ../docs $(docker-compose ps -q backstop):/src/docs
           docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
