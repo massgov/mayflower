@@ -497,6 +497,10 @@ function closeMenu() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
+  if (document.querySelector('html.stickyTOCtmp')) {
+    document.querySelector('html.stickyTOCtmp').classList.add('stickyTOC');
+    document.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
+  }
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
@@ -520,8 +524,8 @@ function commonCloseMenuTasks() {
 function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
-  let alertsInterface = document.querySelector(".ma__emergency-alerts__interface");
-  if (document.querySelector("body").clientWidth < 841 && alertsInterface !== null) {
+  let alertsInterface = document.querySelector('.ma__emergency-alerts__interface');
+  if (alertsInterface !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
     let scrollOffset = emergencyAlerts.offsetHeight - (alertsInterface.offsetHeight/1.5);
 
@@ -565,6 +569,11 @@ function openMenu() {
 
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
+
+  if (document.querySelector('html.stickyTOC')) {
+    document.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
+    document.querySelector('html.stickyTOC').classList.remove('stickyTOC');
+  }
 
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
