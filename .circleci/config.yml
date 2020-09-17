@@ -51,8 +51,14 @@ jobs:
           keys:
             - pl-npm-v3-{{ checksum "packages/patternlab/styleguide/package.json" }}
             - pl-npm-v3-
-      - run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-      - run: source ~/.bash_profile
+      - run:
+        label: Use nvm for a specific node version
+        command: |
+          set +e
+          # if you need to install it, uncomment the following
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash &&  sudo /root/.nvm/nvm.sh
+          export NVM_DIR="/root/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
       - run: cd packages/patternlab/styleguide && nvm use
       - run: npm install -g pnpm @microsoft/rush
       - run: cd packages/patternlab/styleguide && rush update
