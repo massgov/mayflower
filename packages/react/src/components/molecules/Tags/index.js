@@ -16,7 +16,8 @@ class Tags extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ tags: nextProps.tags });
   }
 

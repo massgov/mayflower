@@ -22,7 +22,8 @@ class InputDate extends React.Component {
     this.picker.setDate(this.props.defaultDate, true);
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.picker.setDate(nextProps.defaultDate, true);
   }
 

@@ -1,6 +1,8 @@
 const path = require('path');
 const assets = require('@massds/mayflower-assets');
 const iconPath = path.resolve(__dirname, '../src/components/base/Icon/assets');
+const nodeModules = path.resolve(path.join(process.cwd(), 'node_modules'));
+const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
 
 module.exports = {
   stories: ['../src/**/*.stories.js'],
@@ -19,6 +21,8 @@ module.exports = {
           implementation: require('sass'),
           sassOptions: {
             includePaths: [
+              nodeModules,
+              pnpmNodeModules,
               path.resolve(__dirname, '../src'),
               path.resolve(__dirname, '../src/components'),
               path.resolve(__dirname, '../src/components/styles'),

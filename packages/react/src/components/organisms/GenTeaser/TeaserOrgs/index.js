@@ -26,7 +26,8 @@ class TeaserOrgs extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { orgs } = nextProps;
     const allOrgs = orgs.split(',');
     this.setState({ shouldTruncate: (allOrgs.length > 3), truncateOrgs: (allOrgs.length > 3), showAll: false });

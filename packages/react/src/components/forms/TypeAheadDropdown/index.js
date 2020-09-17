@@ -41,7 +41,8 @@ class TypeAheadDropdown extends React.Component {
     this.dropDownButtonRef.addEventListener('mousedown', this.handleRefMouseDown);
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const selectedValue = nextProps.inputText.selected;
     if (selectedValue !== undefined) {
       this.setState({

@@ -14,7 +14,8 @@ class ButtonToggle extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ selected: nextProps.defaultValue });
   }
 

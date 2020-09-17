@@ -73,7 +73,7 @@
     "normalize-scss": "~7.0.1"
   },
   "scripts": {
-    "build": "gulp",
+    "build": "gulp prod",
     "gulp": "gulp"
   }
 }

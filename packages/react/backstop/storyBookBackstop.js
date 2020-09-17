@@ -5,6 +5,7 @@ require('acorn-jsx/inject')(acorn);
 require('acorn-object-rest-spread/inject')(acorn);
 require('acorn-static-class-property-initializer/inject')(acorn);
 const walk = require('acorn/dist/walk');
+// eslint-disable-next-line import/no-unresolved
 const { toId } = require('@storybook/router');
 
 const acornOptions = {

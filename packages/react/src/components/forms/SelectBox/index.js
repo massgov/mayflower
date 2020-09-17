@@ -17,7 +17,8 @@ class SelectBox extends React.Component {
     this.handleOnChange = this.handleOnChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ selected: nextProps.selected });
   }
 

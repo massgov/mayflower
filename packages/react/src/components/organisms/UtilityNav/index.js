@@ -30,7 +30,8 @@ class UtilityNav extends React.Component {
     this.ident = shortid.generate();
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { isOpen } = nextProps;
     this.setState({ isOpen, navSelected: -1 });
   }

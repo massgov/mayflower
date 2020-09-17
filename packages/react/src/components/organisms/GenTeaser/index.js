@@ -45,7 +45,7 @@ const GenTeaser = (props) => {
   });
   const role = onClick ? 'button' : '';
   return(
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <section className={teaserClasses} onClick={onClick} onKeyDown={onKeyDown} role={role} {...rest}>
       {children}
     </section>

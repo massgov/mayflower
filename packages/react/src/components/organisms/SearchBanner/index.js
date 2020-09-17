@@ -30,7 +30,8 @@ class SearchBanner extends React.Component {
     this.toggleFilterBox = this.toggleFilterBox.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { filterBoxExpanded } = nextProps;
     if (this.state.filterBoxExpanded !== filterBoxExpanded) {
       this.setState({ filterBoxExpanded });
