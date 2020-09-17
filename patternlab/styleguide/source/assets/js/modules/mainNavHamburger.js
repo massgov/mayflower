@@ -3,6 +3,7 @@ let width = body.clientWidth;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
 const menuBarHeight = document.querySelector(".ma__header__hamburger__nav") ? document.querySelector(".ma__header__hamburger__nav").offsetHeight : null;
 const menuOverlay = document.querySelector(".menu-overlay");
+const alertOverlay = document.querySelector(".alert-overlay");
 
 const menuButton = document.querySelector(".js-header-menu-button");
 
@@ -429,8 +430,8 @@ setTimeout(function timeoutFunction() {
   if (document.querySelector(".js-ajax-pattern")) {
     document.querySelector(".ma__button-alert").addEventListener("click", function () {
       if (body.classList.contains("show-menu")) {
-        let openAboveNavBar = document.querySelector(".js-accordion-content").getBoundingClientRect().top;
-        let closeOverlayOffset = openAboveNavBar + menuBarHeight;
+        let heightAboveNavBar = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top;
+        let closeOverlayOffset = heightAboveNavBar + menuBarHeight;
         if (document.querySelector(".js-emergency-alerts").classList.contains("is-open") === true) {
           if (width > 840) {
             closeOverlayOffset = closeOverlayOffset -1;
@@ -510,12 +511,16 @@ function commonCloseMenuTasks() {
   if (menuOverlay) {
     menuOverlay.classList.remove("overlay-open");
   }
+  if (alertOverlay) {
+    alertOverlay.classList.remove("overlay-open");
+    alertOverlay.removeAttribute("style");
+  }
 }
 
 function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
-  let alertsInterface = document.querySelector('.ma__emergency-alerts__interface');
+  let alertsInterface = document.querySelector(".ma__emergency-alerts__interface");
   if (document.querySelector("body").clientWidth < 841 && alertsInterface !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
     let scrollOffset = emergencyAlerts.offsetHeight - (alertsInterface.offsetHeight/1.5);
@@ -564,12 +569,38 @@ function commonOpenMenuTasks() {
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
-    feedbackButton.classList.add("hide-button");
+   feedbackButton.classList.add("hide-button");
   }
   jumpToSearchButton.setAttribute("aria-expanded", "true");
   if (menuOverlay) {
-    offsetMenuOverlay();
-    menuOverlay.classList.add("overlay-open");
+    if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
+      setTimeout(function () {
+        offsetMenuOverlay();
+        menuOverlay.classList.add("overlay-open");
+      }, 600);
+    }
+    else {
+      setTimeout(function () {
+        offsetMenuOverlay();
+        menuOverlay.classList.add("overlay-open");
+      }, 300);
+    }
+  }
+  if (alertOverlay && body.clientWidth < 621) {
+    let aboveNavBar = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top;
+    if (aboveNavBar > 0) {
+      aboveNavBar = 35;
+      if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
+        setTimeout(function () {
+          alertOverlay.classList.add("overlay-open");
+          alertOverlay.style.height = aboveNavBar + "px";
+        }, 100);
+      }
+      else {
+        alertOverlay.classList.add("overlay-open");
+        alertOverlay.style.height = aboveNavBar + "px";
+      }
+    }
   }
 }
 
@@ -678,6 +709,11 @@ if ((utilNavWide !== null) && body.classList.contains("show-menu")) {
 // Close and reset menu on overlay click
 if (null !== menuOverlay) {
   menuOverlay.addEventListener("click", () => {
+    closeMenu();
+  });
+}
+if (alertOverlay !== null) {
+  alertOverlay.addEventListener("click", () => {
     closeMenu();
   });
 }
