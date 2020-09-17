@@ -51,7 +51,7 @@ jobs:
           keys:
             - pl-npm-v3-{{ checksum "packages/patternlab/styleguide/package.json" }}
             - pl-npm-v3-
-      - run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+      - run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
       - run: cd packages/patternlab/styleguide && nvm use
       - run: npm install -g pnpm @microsoft/rush
       - run: cd packages/patternlab/styleguide && rush update
