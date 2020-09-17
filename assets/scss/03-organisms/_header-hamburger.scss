@@ -36,7 +36,7 @@ body.show-menu {
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
   background-color: rgba($c-black, 0.4);
-  top: 37px;
+  top: 44px;
   z-index: $z-high;
 
   &.overlay-open {
@@ -44,15 +44,10 @@ body.show-menu {
     opacity: 1;
     transition: opacity 0.6s linear;
   }
-
-  @media ($bp-header-toggle-min) {
-
-    top: 43px;
-  }
 }
 
 .ma__header__hamburger {
-  padding-top: 37px;
+  padding-top: 44px;
   position: relative;
   background-color: $c-bg-section;
 
@@ -112,7 +107,7 @@ body.show-menu {
 
       padding-right: 0;
       padding-left: 0;
-      height: $header-mobile-controls-height;
+      height: $utility-nav-height;
       left: 0;
       width: 100%;
       z-index: $z-dropdown;
@@ -257,8 +252,8 @@ body.show-menu {
 
   &__nav-container {
     background-color: $c-gray-lightest;
-    height: calc(100vh - 40px);
-    top: 40px;
+    height: calc(100vh - 44px);
+    top: 44px;
     overflow-y: auto;
     position: absolute;
     left: -320px;
@@ -288,7 +283,7 @@ body.show-menu {
 
     .translated-rtl &,
     .translated-ltr & {
-      top: 40px;
+      top: 44px;
     }
   }
 
@@ -307,8 +302,8 @@ body.show-menu {
     font-size: 19.2px;// Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
-    height: 40px;
-    line-height: 35px;
+    height: 44px;
+    line-height: 44px;
     margin-top: 0;
     padding-right: 30px;
     padding-left: 20px;
