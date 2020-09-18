@@ -153,8 +153,9 @@ if (menuButton !== null) {
         if ((e.key === "Tab" || e.code === "Tab") && !subMenuContainer.classList.contains(".is-closed")) {
           // Close the submenu and move focus to the first top menu button.
           if (width > 840) {
-            closeSubMenu();
-            setFocusOnFirstTopMenu();
+            setTimeout(function timeOutFunction () {
+              subMenuContainer.querySelector(".js-main-nav-hamburger__subitem:first-of-type .js-main-nav-hamburger__link").focus();
+            }, 1);
           }
         }
       });
@@ -177,28 +178,28 @@ if (menuButton !== null) {
       if ((e.shiftKey && e.key === "Tab") || (e.shiftKey && e.code === "Tab")) {
         if (width < 841) {
           setTimeout(function timeOutFunction () {
-            this.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
+            e.target.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
           }, 1);
         }
       }
       else if (e.key === "Tab" || e.code === "Tab") {
         // Close the nav content and move focus to the first top menu button.
         if (width < 841) {
-          closeNarrowUtilContent();
-          setFocusOnFirstTopMenu();
+          setTimeout(function timeOutFunction () {
+            e.target.closest(".js-util-nav-content").querySelector("a:first-of-type").focus();
+          }, 1);
         }
       }
     });
   }
 
 
-
-  function setFocusOnFirstTopMenu () {
+  const setFocusOnFirstTopMenu = function () {
     // Timeout function is necessary to set focus on the first top menu button. Otherwise, focus is set on next focusable element outside the menu.
     setTimeout(function timeOutFunction () {
       firstTopMenuItem.focus();
     }, 1);
-  }
+  };
 
   document.addEventListener("keydown", function (e) {
     // ESC to close menus.
@@ -253,6 +254,96 @@ if (menuButton !== null) {
         closeMenu();
       }
     }
+  });
+
+
+  // Arrow keyboard navigation in the menu.
+  let submenuLinks = document.querySelectorAll(".js-main-nav-hamburger__link");
+  submenuLinks.forEach(link => {
+    link.addEventListener("keydown", function(e) {
+      let targetParent = e.target.closest(".js-main-nav-hamburger__subitem");
+
+      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+        if(targetParent.nextElementSibling) {
+          targetParent.nextElementSibling.querySelector("a").focus();
+        }
+        else {
+          // Set focus on the first sibling submenu item link.
+          document.querySelector(".js-main-nav-hamburger-content:not(.is-closed) .js-main-nav-hamburger__subitem:first-of-type a").focus();
+        }
+      }
+
+      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+        if(targetParent.previousElementSibling) {
+          targetParent.previousElementSibling.querySelector("a").focus();
+        }
+        else {
+          // Set focus on the last sibling submenu item link.
+          document.querySelector(".js-main-nav-hamburger-content:not(.is-closed) .js-main-nav-hamburger__subitem:last-of-type a").focus();
+        }
+      }
+    });
+  });
+
+  let narrowUtilContentLinks = document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-content a.js-clickable-link");
+  const lastIndex = narrowUtilContentLinks.length - 1;
+  narrowUtilContentLinks.forEach(function(link, i) {
+
+    link.addEventListener("keydown", function(e) {
+      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+        if (e.target === narrowUtilContentLinks[i]) {
+          if (e.target === narrowUtilContentLinks[lastIndex]) {
+            i = 0;
+          }
+          else {
+            i++;
+          }
+        }
+        else {
+          if (e.target === narrowUtilContentLinks[lastIndex]) {
+            i = 0;
+          }
+          else {
+            let targetIndex;
+            for (let index = 0; index < narrowUtilContentLinks.length; index++) {
+              if (e.target === narrowUtilContentLinks[index]) {
+                targetIndex = index;
+              }
+            }
+            i = targetIndex;
+            i++;
+          }
+        }
+      }
+
+      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+        if (e.target === narrowUtilContentLinks[i]) {
+          if (e.target === narrowUtilContentLinks[0]) {
+            i = lastIndex;
+          }
+          else {
+            i--;
+          }
+        }
+        else {
+          if (e.target === narrowUtilContentLinks[0]) {
+            i = lastIndex;
+          }
+          else {
+            let targetIndex;
+            for (let index = lastIndex; index > -1; index--) {
+              if (e.target === narrowUtilContentLinks[index]) {
+                console.log(index);
+                targetIndex = index;
+              }
+            }
+            i = targetIndex;
+            i--;
+          }
+        }
+      }
+      narrowUtilContentLinks[i].focus();
+    });
   });
 
   // NOTE: KEEPING BELOW FOR MORE KEYBOARD NAVIGATION WORK AFTER ACCESSIBILITY TEST.
@@ -387,28 +478,29 @@ if (menuButton !== null) {
     }
   });
 
-  [].forEach.call(subMenuItems, function (subItem) {
-    const prevSib = subItem.previousElementSibling;
-    const nextSib = subItem.nextElementSibling;
+  // Replacing this with submenuLinks.forEach() since this doesn't work with Voiceover.
+  // [].forEach.call(subMenuItems, function (subItem) {
+  //   const prevSib = subItem.previousElementSibling;
+  //   const nextSib = subItem.nextElementSibling;
 
-    subItem.addEventListener("keydown", function (e) {
+  //   subItem.addEventListener("keydown", function (e) {
 
-      switch (e.code) {
-        case "ArrowUp":
-        case "ArrowLeft":
-          if (subItem === prevSib) {
-            prevSib.querySelector(".js-main-nav-hamburger__link").focus();
-          }
-          break;
-        case "ArrowDown":
-        case "ArrowRight":
-          if (subItem === nextSib) {
-            nextSib.querySelector(".js-main-nav-hamburger__link").focus();
-          }
-          break;
-      }
-    });
-  });
+  //     switch (e.code) {
+  //       case "ArrowUp":
+  //       case "ArrowLeft":
+  //         if (subItem === prevSib) {
+  //           prevSib.querySelector(".js-main-nav-hamburger__link").focus();
+  //         }
+  //         break;
+  //       case "ArrowDown":
+  //       case "ArrowRight":
+  //         if (subItem === nextSib) {
+  //           nextSib.querySelector(".js-main-nav-hamburger__link").focus();
+  //         }
+  //         break;
+  //     }
+  //   });
+  // });
 });
 
 if (jumpToSearchButton !== null) {
@@ -486,9 +578,9 @@ function closeMenu() {
   }, 100);
 
   if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")) {
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .goog-te-menu-value").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").removeAttribute("tabindex");
     document.querySelector(".js-header-search-access-button").removeAttribute("tabindex");
   }
 }
@@ -777,6 +869,7 @@ if (utilNarrowButton !== null) {
       closeSubMenu();
 
       thisButton.setAttribute("aria-expanded", "true");
+      utilNarrowContent.removeAttribute("aria-hidden");
       thisNavContainer.style.pointerEvents = "none";
       /** Slide down. */
       setTimeout(function timeoutFunction() {
@@ -814,6 +907,7 @@ function closeNarrowUtilContent() {
     const thisNavContainer = utilNarrowButton.closest(".ma__utility-nav__item");
 
     utilNarrowButton.setAttribute("aria-expanded", "false");
+    utilNarrowContent.setAttribute("aria-hidden", "true");
     thisNavContainer.style.pointerEvents = "none";
 
     setTimeout(function timeoutFunction() {
