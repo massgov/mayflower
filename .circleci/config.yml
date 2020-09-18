@@ -1,5 +1,8 @@
 
-version: 2
+version: 2.1
+
+orbs:
+  php: circleci/php@1.0.2
 
 references:
   configure_npm: &configure_npm
@@ -16,7 +19,7 @@ react_defaults: &react_defaults
 patternlab_defaults: &patternlab_defaults
   working_directory: /var/www/code
   docker:
-    - image: massgov/drupal-container:1.0.8-ci
+    - image: cimg/php:7.4.10-node
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
@@ -51,13 +54,6 @@ jobs:
           keys:
             - pl-npm-v3-{{ checksum "packages/patternlab/styleguide/package.json" }}
             - pl-npm-v3-
-      - run:
-          name: Use nvm for a specific node version
-          command: |
-            set +e
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-      - run: nvm install v12.18.0
-      - run: cd packages/patternlab/styleguide && nvm use
       - run: npm install -g pnpm @microsoft/rush
       - run: cd packages/patternlab/styleguide && rush update
       - save_cache:
