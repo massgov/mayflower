@@ -1,12 +1,12 @@
 Added:
   - project: Patternlab
     component: Header
-    description: Add overlay to alert under screen width 620px. (#1180)
+    description: Add overlay to alert as the menu is open. (#1180)
     issue: DP-19879
     impact: Patch
 Changed:
   - project: Patternlab
     component: Header
-    description: Adjust overlay position and timing in mobile. (#1180)
+    description: Adjust menu overlay position and timing in mobile and Firefox in desktop. (#1180)
     issue: DP-19879
     impact: Patch
