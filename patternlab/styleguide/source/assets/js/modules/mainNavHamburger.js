@@ -580,8 +580,9 @@ function jumpToSearch(e) {
     searchInput.focus();
   } else {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
-    commonOpenMenuTasks();
+    openMenu();
     setTimeout(function timeoutFunction() {
+      console.log('search timeout clicked');
       jumpToSearchButton.setAttribute("aria-pressed", "true");
       searchInput.setAttribute("autofocus", "");
       searchInput.focus();
