@@ -35,11 +35,15 @@ let hamburgerMenuAlertScrolling = function() {
 
     if (utilNavNarrowCheck() !== false) {
       paddingTarget = utilNarrowNav;
+      if (width < 841) {
+        paddingTarget.style.paddingBottom = "80px";
+      }
       hamburgerMainNav.style.paddingBottom = 0;
     }
-
-    // Add bottom padding when function is initially called.
-    paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+    else {
+      // Add bottom padding when function is initially called.
+      paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+    }
 
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
@@ -61,6 +65,9 @@ let hamburgerMenuAlertScrolling = function() {
           if (currentDisplayValue === oldDisplayValue) {
             alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
             paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+            if (width < 841) {
+              paddingTarget.style.paddingBottom = "80px";
+            }
           }
         }
       });
@@ -70,6 +77,7 @@ let hamburgerMenuAlertScrolling = function() {
       attributeFilter: ["style"],
       attributeOldValue: true
     });
+
   }
 };
 
@@ -524,40 +532,14 @@ function commonCloseMenuTasks() {
 function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
-  let alertsInterface = document.querySelector('.ma__emergency-alerts__interface');
-  if (alertsInterface !== null) {
+  let alertsHeader = document.querySelector('.ma__emergency-alerts__header');
+  if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-    let scrollOffset = emergencyAlerts.offsetHeight - (alertsInterface.offsetHeight/1.5);
-
-
+    let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/2);
     if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
-      function customScrollTo(to, duration) {
-        var start = 0,
-            change = to - start,
-            currentTime = 0,
-            increment = 20;
-
-        var animateScroll = function(){
-          currentTime += increment;
-          var val = Math.easeInOutQuad(currentTime, start, change, duration);
-          window.scrollTo(0,val);
-
-          if(currentTime < duration) {
-            setTimeout(animateScroll, increment);
-          }
-        };
-        animateScroll();
-      }
-
-      Math.easeInOutQuad = function (t, b, c, d) {
-        t /= d/2;
-        if (t < 1) return c/2*t*t + b;
-        t--;
-        return -c/2 * (t*(t-2) - 1) + b;
-      };
-
       customScrollTo(scrollOffset, 250);
-    } else {
+    }
+    else {
       window.scrollTo({
         top: scrollOffset,
         left: 0,
@@ -630,13 +612,14 @@ function jumpToSearch(e) {
   } else {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     commonOpenMenuTasks();
+
     jumpToSearchButton.setAttribute("aria-pressed", "true");
     // Set focus on the search input field.
     const osInfo = navigator.appVersion;
     if (osInfo.indexOf("iPhone") !== -1) {
       // Set up a temp input to display onscreen keyboard.
       const __tempEl = document.createElement("input");
-      document.body.appendChild(__tempEl);
+      document.body.prepend(__tempEl);
       __tempEl.classList.add("ma__visually-hidden");
       __tempEl.focus();
 
@@ -730,10 +713,15 @@ if (alertOverlay !== null) {
 let debouncer;
 window.addEventListener("resize", function () {
   clearTimeout(debouncer);
-  debouncer = setTimeout( () => {
-    closeMenu();
-    hamburgerMenuAlertScrolling();
-  }, 100);
+  const osInfo = navigator.appVersion;
+  // On Android devices resize event is triggered when keyboard appears
+  // and it closes the menu.
+  if (osInfo.indexOf("Android") === -1) {
+    debouncer = setTimeout(() => {
+      closeMenu();
+      hamburgerMenuAlertScrolling();
+    }, 100);
+  }
 });
 
 
@@ -886,3 +874,28 @@ function closeSubMenu() {
     }, 700);
   }
 }
+
+function customScrollTo(to, duration) {
+  var start = window.scrollY,
+      change = to - start,
+      currentTime = 0,
+      increment = 20;
+
+  var animateScroll = function(){
+    currentTime += increment;
+    var val = Math.easeInOutQuad(currentTime, start, change, duration);
+    window.scrollTo(0,val);
+
+    if(currentTime < duration) {
+      setTimeout(animateScroll, increment);
+    }
+  };
+  animateScroll();
+}
+
+Math.easeInOutQuad = function (t, b, c, d) {
+  t /= d/2;
+  if (t < 1) return c/2*t*t + b;
+  t--;
+  return -c/2 * (t*(t-2) - 1) + b;
+};
