@@ -583,47 +583,27 @@ function jumpToSearch(e) {
     commonOpenMenuTasks();
 
     jumpToSearchButton.setAttribute("aria-pressed", "true");
-    // Set focus on the search input field.
-    const osInfo = navigator.appVersion;
-    if (osInfo.indexOf("iPhone") !== -1) {
-      // Set up a temp input to display onscreen keyboard.
-      const __tempEl = document.createElement("input");
-      document.body.prepend(__tempEl);
-      __tempEl.classList.add("ma__visually-hidden");
-      __tempEl.focus();
 
-      setTimeout(function timeoutFunction() {
-        searchInput.setAttribute("autofocus", "");
-        // Setting focus on the search box twice. Both are necessary to make it work.
-        searchInput.focus();
-        // Remove the temp input.
-        // Timings are set differently per version to minimize the awekwardness by delay.
-        if (osInfo.indexOf("OS 12") !== -1) {
-          setTimeout(function removeTempInput() {
-            cleanUpTemp();
-          }, 300);
-        } else if (osInfo.indexOf("OS 11") !== -1) {
-          setTimeout(function removeTempInput() {
-            cleanUpTemp();
-          }, 170);
-        } else {
-          setTimeout(function removeTempInput() {
-            cleanUpTemp();
-          }, 70);
-        }
+    let alertsHeader = document.querySelector('.ma__emergency-alerts__header');
+    if (alertsHeader !== null) {
+      let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
+      let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/2);
+      if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
+        customScrollTo(scrollOffset, 250);
+      }
+      else {
+        window.scrollTo({
+          top: scrollOffset,
+          left: 0,
+          behavior: "smooth"
+        });
+      }
+    }
 
-        function cleanUpTemp() {
-          searchInput.focus();
-          document.body.removeChild(__tempEl);
-        }
-      }, 70);
-    }
-    else {
-      setTimeout(function timeoutFunction() {
-        searchInput.setAttribute("autofocus", "");
-        searchInput.focus();
-      }, 70);
-    }
+    setTimeout(function timeoutFunction() {
+      searchInput.setAttribute("autofocus", "");
+      searchInput.focus();
+    }, 100);
   }
 }
 
