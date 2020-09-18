@@ -599,7 +599,6 @@ function jumpToSearch(e) {
         });
       }
     }
-
     setTimeout(function timeoutFunction() {
       searchInput.setAttribute("autofocus", "");
       searchInput.focus();
