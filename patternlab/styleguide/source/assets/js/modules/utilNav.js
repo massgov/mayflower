@@ -55,7 +55,7 @@ export default (function (window, document, $, undefined) {
 
       // Only affects utility nav on the utility nav bar with the hamburger menu.
       if ($(this).closest(".ma__header__hamburger__utility-nav--wide")) {
-        if ($thisPanel.hasClass("is-closed")) {
+        if ($thisPanel && $thisPanel.hasClass("is-closed")) {
           $(this).closest(".ma__header__hamburger__nav").removeClass("util-nav-content-open");
         }
         else {
