@@ -582,29 +582,13 @@ function jumpToSearch(e) {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     commonOpenMenuTasks();
 
-    let alertsHeader = document.querySelector('.ma__emergency-alerts__header');
-    if (alertsHeader !== null) {
-      let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-      let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/2);
-      if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
-        customScrollTo(scrollOffset, 250);
-      }
-      else {
-        window.scrollTo({
-          top: scrollOffset,
-          left: 0,
-          behavior: "smooth"
-        });
-      }
-    }
-
     jumpToSearchButton.setAttribute("aria-pressed", "true");
     // Set focus on the search input field.
     const osInfo = navigator.appVersion;
     if (osInfo.indexOf("iPhone") !== -1) {
       // Set up a temp input to display onscreen keyboard.
       const __tempEl = document.createElement("input");
-      document.body.appendChild(__tempEl);
+      document.body.prepend(__tempEl);
       __tempEl.classList.add("ma__visually-hidden");
       __tempEl.focus();
 
