@@ -581,25 +581,8 @@ function jumpToSearch(e) {
   } else {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     commonOpenMenuTasks();
-
-    jumpToSearchButton.setAttribute("aria-pressed", "true");
-
-    let alertsHeader = document.querySelector('.ma__emergency-alerts__header');
-    if (alertsHeader !== null) {
-      let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-      let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/2);
-      if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
-        customScrollTo(scrollOffset, 250);
-      }
-      else {
-        window.scrollTo({
-          top: scrollOffset,
-          left: 0,
-          behavior: "smooth"
-        });
-      }
-    }
     setTimeout(function timeoutFunction() {
+      jumpToSearchButton.setAttribute("aria-pressed", "true");
       searchInput.setAttribute("autofocus", "");
       searchInput.focus();
     }, 100);
