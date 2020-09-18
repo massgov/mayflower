@@ -17,7 +17,7 @@ react_defaults: &react_defaults
   docker:
     - image: circleci/node:12.18.0
 patternlab_defaults: &patternlab_defaults
-  working_directory: /var/www/code
+  working_directory: ~/code
   docker:
     - image: cimg/php:7.3-node
 
@@ -42,7 +42,7 @@ jobs:
           key: root-npm-v3-{{ checksum "yarn.lock" }}
           paths: [ node_modules ]
       - persist_to_workspace:
-          root: /var/www/code
+          root: ~/code
           paths: ["*"]
 
   patternlab_build:
@@ -62,7 +62,7 @@ jobs:
           paths: [ packages/patternlab/styleguide/node_modules ]
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && pnpm run gulp patternlab:build'}
       - persist_to_workspace:
-          root: /var/www/code
+          root: ~/code
           paths: ["*"]
 
   patternlab_test:
