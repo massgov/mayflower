@@ -435,7 +435,7 @@ if (jumpToSearchButton !== null) {
 
 // Adjust the overlay position as the alert accordion opens/closes while the menu is open.
 setTimeout(function timeoutFunction() {
-  if (document.querySelector(".js-ajax-pattern")) {
+  if (document.querySelector(".ma__button-alert")) {
     document.querySelector(".ma__button-alert").addEventListener("click", function () {
       if (body.classList.contains("show-menu")) {
         let heightAboveNavBar = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top;
@@ -577,19 +577,24 @@ function commonOpenMenuTasks() {
       }, 300);
     }
   }
-  if (alertOverlay && body.clientWidth < 621) {
-    let aboveNavBar = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top;
-    if (aboveNavBar > 0) {
-      aboveNavBar = 35;
-      if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
+  if (alertOverlay) {
+    if (isMobileDevice()) {// mobile
+      if (document.querySelector(".ma__emergency-alerts")) {
         setTimeout(function () {
           alertOverlay.classList.add("overlay-open");
-          alertOverlay.style.height = aboveNavBar + "px";
-        }, 100);
+          alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
+        }, 600);
       }
-      else {
-        alertOverlay.classList.add("overlay-open");
-        alertOverlay.style.height = aboveNavBar + "px";
+    }
+    else {// desktop
+      if (document.querySelector(".ma__emergency-alerts")) {
+        setTimeout(function () {
+          alertOverlay.classList.add("overlay-open");
+          // Get the overlay height after scrolling completes.
+          setTimeout(function () {
+            alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
+          }, 800);
+        }, 300);
       }
     }
   }
@@ -598,7 +603,11 @@ function commonOpenMenuTasks() {
 function offsetMenuOverlay () {
   let overlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
   if (width > 840) {
-    overlayOffset = overlayOffset -1;
+    if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      overlayOffset = overlayOffset - 14;
+    } else {
+      overlayOffset = overlayOffset -1;
+    }
   }
   menuOverlay.style.top = overlayOffset + "px";
 }
@@ -899,3 +908,7 @@ Math.easeInOutQuad = function (t, b, c, d) {
   t--;
   return -c/2 * (t*(t-2) - 1) + b;
 };
+
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf("IEMobile") !== -1);
+}
