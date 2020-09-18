@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Set focus on the menu container from the menu button while the container is open with tab. (#1159)
+    issue: DP-19783
+    impact: Patch

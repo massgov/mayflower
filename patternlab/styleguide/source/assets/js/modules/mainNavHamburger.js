@@ -1,3 +1,4 @@
+const osInfo = navigator.appVersion;
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
@@ -105,6 +106,11 @@ if (menuButton !== null) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
+    // For Safari, this ensures to move focus to the menu content.
+    if (osInfo.indexOf("Safari") !== -1) {
+      menuButton.focus();
+    }
+
     toggleMenu();
   });
 
@@ -113,6 +119,19 @@ if (menuButton !== null) {
     event.preventDefault();
 
     toggleMenu();
+  });
+
+  menuButton.addEventListener("keydown", function (e) {
+    if (e.key === "Tab" || e.code === "Tab") {
+      if (width < 621) {
+        e.preventDefault();
+
+        const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
+        let focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
+
+        focusable[0].focus();
+      }
+    }
   });
 
   const firstTopMenuItem = document.querySelector(".ma__header__hamburger__nav .ma__main__hamburger-nav__item:first-of-type .js-main-nav-hamburger__top-link");
@@ -572,7 +591,7 @@ function closeMenu() {
   commonCloseMenuTasks();
   menuButton.setAttribute("aria-pressed", "false");
 
-  // Set focusn on the menu button.
+  // Set focus on the menu button.
   setTimeout(function timeoutFunction() {
     document.querySelector(".js-header-menu-button").focus();
   }, 100);
@@ -594,6 +613,10 @@ function commonCloseMenuTasks() {
   }
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+
+  // if (hamburgerMenuContainer.hasAttribute("tabindex")) {
+  //   hamburgerMenuContainer.removeAttribute("tabindex");
+  // }
 
   if(searchInput.hasAttribute("autofocus")) {
     searchInput.removeAttribute("autofocus");
@@ -693,7 +716,6 @@ function jumpToSearch(e) {
     commonOpenMenuTasks();
     jumpToSearchButton.setAttribute("aria-pressed", "true");
     // Set focus on the search input field.
-    const osInfo = navigator.appVersion;
     if (osInfo.indexOf("iPhone") !== -1) {
       // Set up a temp input to display onscreen keyboard.
       const __tempEl = document.createElement("input");
