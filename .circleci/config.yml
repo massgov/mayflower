@@ -95,6 +95,12 @@ jobs:
       - add_ssh_keys
       - *configure_git
       - run:
+          name: 'Install AWS'
+          command: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+      - run:
           name: 'Deploy Artifact Branch'
           command: |
             # This snippet pushes the dist directory to the artifact repo by faking a checkout
@@ -115,7 +121,7 @@ jobs:
             fi
       - run:
           name: 'Deploy S3 Branch'
-          command: aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH"
+          command: aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH"
 
   patternlab_deploy_tag:
     <<: *patternlab_defaults
@@ -156,10 +162,10 @@ jobs:
       - run:
           name: 'Deploy S3 Tag'
           command: |
-            aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
+            aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-              aws s3 cp --recursive packages/patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
+              aws s3 cp --recursive patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
             fi
 
   react_build_storybook:
