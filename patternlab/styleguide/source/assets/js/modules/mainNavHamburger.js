@@ -22,7 +22,7 @@ let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".
 // Check whether the narrow utility nav is open.
 const utilNavNarrowCheck = function() {
   return utilNarrowNav ? (utilNarrowNav.offsetWidth > 0 && utilNarrowNav.offsetHeight > 0) : false;
-}
+};
 
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector(".ma__header__hamburger__main-nav");
@@ -360,7 +360,6 @@ if (menuButton !== null) {
             let targetIndex;
             for (let index = lastIndex; index > -1; index--) {
               if (e.target === narrowUtilContentLinks[index]) {
-                console.log(index);
                 targetIndex = index;
               }
             }
@@ -413,7 +412,6 @@ if (menuButton !== null) {
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
-  let subMenuItems = subMenu.querySelectorAll(".js-main-nav-hamburger__subitem");
 
   subItems.style.opacity = "0";
 
@@ -504,30 +502,6 @@ if (menuButton !== null) {
       }
     }
   });
-
-  // Replacing this with submenuLinks.forEach() since this doesn't work with Voiceover.
-  // [].forEach.call(subMenuItems, function (subItem) {
-  //   const prevSib = subItem.previousElementSibling;
-  //   const nextSib = subItem.nextElementSibling;
-
-  //   subItem.addEventListener("keydown", function (e) {
-
-  //     switch (e.code) {
-  //       case "ArrowUp":
-  //       case "ArrowLeft":
-  //         if (subItem === prevSib) {
-  //           prevSib.querySelector(".js-main-nav-hamburger__link").focus();
-  //         }
-  //         break;
-  //       case "ArrowDown":
-  //       case "ArrowRight":
-  //         if (subItem === nextSib) {
-  //           nextSib.querySelector(".js-main-nav-hamburger__link").focus();
-  //         }
-  //         break;
-  //     }
-  //   });
-  // });
 });
 
 if (jumpToSearchButton !== null) {
@@ -545,7 +519,7 @@ if (jumpToSearchButton !== null) {
 
 // Adjust the overlay position as the alert accordion opens/closes while the menu is open.
 setTimeout(function timeoutFunction() {
-  if (document.querySelector(".js-ajax-pattern")) {
+  if (document.querySelector(".ma__button-alert")) {
     document.querySelector(".ma__button-alert").addEventListener("click", function () {
       if (body.classList.contains("show-menu")) {
         let openAboveNavBar = document.querySelector(".js-accordion-content").getBoundingClientRect().top;
@@ -615,9 +589,9 @@ function closeMenu() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
-  if (document.querySelector('html.stickyTOCtmp')) {
-    document.querySelector('html.stickyTOCtmp').classList.add('stickyTOC');
-    document.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
+  if (document.querySelector("html.stickyTOCtmp")) {
+    document.querySelector("html.stickyTOCtmp").classList.add("stickyTOC");
+    document.querySelector("html.stickyTOCtmp").classList.remove("stickyTOCtmp");
   }
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
@@ -642,7 +616,7 @@ function commonCloseMenuTasks() {
 function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
-  let alertsHeader = document.querySelector('.ma__emergency-alerts__header');
+  let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
   if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
     let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/2);
@@ -662,9 +636,9 @@ function openMenu() {
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
-  if (document.querySelector('html.stickyTOC')) {
-    document.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
-    document.querySelector('html.stickyTOC').classList.remove('stickyTOC');
+  if (document.querySelector("html.stickyTOC")) {
+    document.querySelector("html.stickyTOC").classList.add("stickyTOCtmp");
+    document.querySelector("html.stickyTOC").classList.remove("stickyTOC");
   }
 
   menuButton.setAttribute("aria-expanded", "true");
@@ -697,7 +671,6 @@ function jumpToSearch(e) {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     openMenu();
     setTimeout(function timeoutFunction() {
-      console.log('search timeout clicked');
       jumpToSearchButton.setAttribute("aria-pressed", "true");
       searchInput.setAttribute("autofocus", "");
       searchInput.focus();
