@@ -610,10 +610,19 @@ body.show-menu {
               color: $c-black;
 
               @include ma-reset-list;
+
+              & .ma__rich-text {
+                padding-top: calc(0.5em + 5px);
+              }
             }
 
             & .ma__utility-panel + .ma__utility-panel {
-              margin-top: 1em;
+              margin-top: 0.5em;
+
+              & .ma__rich-text {
+                padding-top: 0.8em;
+                border-top: 2px solid $c-bd-divider;
+              }
             }
 
             & .ma__utility-panel__description {
@@ -621,10 +630,8 @@ body.show-menu {
               text-align: left;
               display: block;
               position: relative;
-              font-style: italic;
-              font-size: 1.125rem;
               line-height: 1.33;
-              padding: 10px 20px 10px 30px;
+              padding: 0 20px 10px 20px;
               color: $c-black;
               margin-bottom: 0;
             }
