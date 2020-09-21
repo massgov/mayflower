@@ -596,6 +596,10 @@ function commonCloseMenuTasks() {
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
+  if (hamburgerMenuContainer.hasAttribute("style")) {
+    hamburgerMenuContainer.removeAttribute("style");
+  }
+
   // if (hamburgerMenuContainer.hasAttribute("tabindex")) {
   //   hamburgerMenuContainer.removeAttribute("tabindex");
   // }
@@ -635,6 +639,19 @@ function openMenu() {
 
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
+
+  if (osInfo.indexOf("iPhone") !== -1) {
+    let heightAboveNavContainer = document.querySelector(".ma__header__hamburger__nav-container").getBoundingClientRect().top;
+
+    if (heightAboveNavContainer > 0) {
+      if (osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/11.") !== -1 || osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/10.") !== -1)  {
+        let bodyOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top - 80;
+        document.querySelector(".show-menu").style.top = `-${bodyOffset}px`;
+        document.querySelector(".show-menu").style.position = "fixed";
+      }
+    }
+    hamburgerMenuContainer.style.height = "calc(100vh - 150px)";
+  }
 
   if (document.querySelector("html.stickyTOC")) {
     document.querySelector("html.stickyTOC").classList.add("stickyTOCtmp");
