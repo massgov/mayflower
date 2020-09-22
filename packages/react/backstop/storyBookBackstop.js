@@ -1,6 +1,8 @@
 const fs = require('fs');
-const acorn = require('acorn');
 const path = require('path');
+console.log(require('acorn', [path.resolve(__dirname, '../../../common/temp/node_modules')]));
+//console.log(require('../../../common/temp/node_modules/.pnpm/acorn@5.7.4/node_modules/acorn/dist/acorn'))
+const acorn = require('acorn');
 require('acorn-jsx/inject')(acorn);
 require('acorn-object-rest-spread/inject')(acorn);
 require('acorn-static-class-property-initializer/inject')(acorn);

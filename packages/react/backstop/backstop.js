@@ -1,5 +1,12 @@
 const path = require('path');
-
+console.log(require('acorn', [ '/src/backstop/node_modules',
+'/src/node_modules',
+'/node_modules',
+'/root/.node_modules',
+'/root/.node_libraries',
+'/root/node_modules',
+'/common/temp/node_modules',
+'/usr/local/lib/node']));
 const listDirs = require('./listDirs.js');
 const storyBookBackstop = require('./storyBookBackstop');
 
