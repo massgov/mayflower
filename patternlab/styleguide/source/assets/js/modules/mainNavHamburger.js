@@ -123,13 +123,6 @@ if (menuButton !== null) {
     toggleMenu();
   });
 
-  // for touch devices
-  menuButton.addEventListener("touchend", function (event) {
-    event.preventDefault();
-
-    toggleMenu();
-  });
-
   menuButton.addEventListener("keydown", function (e) {
     if (e.key === "Tab" || e.code === "Tab") {
       if (width < 621) {
@@ -510,12 +503,6 @@ if (jumpToSearchButton !== null) {
     e.preventDefault();
     jumpToSearch();
   });
-
-  jumpToSearchButton.addEventListener("touchend", (e) => {
-    e.preventDefault();
-
-    jumpToSearch();
-  }, false);
 }
 
 // Adjust the overlay position as the alert accordion opens/closes while the menu is open.
