@@ -588,6 +588,12 @@ function closeMenu() {
 
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
+  if (body.style.position === "fixed") {
+    body.style.position = "relative";
+  }
+  if (body.style.top !== 0) {
+    body.style.top = 0;
+  }
 
   if (document.querySelector("html.stickyTOCtmp")) {
     document.querySelector("html.stickyTOCtmp").classList.add("stickyTOC");
@@ -650,6 +656,7 @@ function commonOpenMenuTasks() {
         document.querySelector(".show-menu").style.position = "fixed";
       }
     }
+    // The height setting makes the menu container scroll.
     hamburgerMenuContainer.style.height = "calc(100vh - 150px)";
   }
 
