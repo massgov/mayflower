@@ -11,6 +11,23 @@ body.show-menu {
   }
 }
 
+.alert-overlay {
+  position: fixed;
+  width: 100vw;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.6s, opacity 0.6s linear;
+  background-color: rgba($c-black, 0.4);
+  top: 0;
+  z-index: 90;// Lay over the alerts.
+
+  &.overlay-open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.6s linear;
+  }
+}
+
 .menu-overlay {
   position: fixed;
   width: 100vw;
@@ -610,10 +627,19 @@ body.show-menu {
               color: $c-black;
 
               @include ma-reset-list;
+
+              & .ma__rich-text {
+                padding-top: calc(0.5em + 5px);
+              }
             }
 
             & .ma__utility-panel + .ma__utility-panel {
-              margin-top: 1em;
+              margin-top: 0.5em;
+
+              & .ma__rich-text {
+                padding-top: 0.8em;
+                border-top: 2px solid $c-bd-divider;
+              }
             }
 
             & .ma__utility-panel__description {
@@ -621,10 +647,8 @@ body.show-menu {
               text-align: left;
               display: block;
               position: relative;
-              font-style: italic;
-              font-size: 1.125rem;
               line-height: 1.33;
-              padding: 10px 20px 10px 30px;
+              padding: 0 20px 10px 20px;
               color: $c-black;
               margin-bottom: 0;
             }
