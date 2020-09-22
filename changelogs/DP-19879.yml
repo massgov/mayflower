@@ -1,0 +1,12 @@
+Added:
+  - project: Patternlab
+    component: Header
+    description: Add overlay to alert as the menu is open. (#1180)
+    issue: DP-19879
+    impact: Patch
+Changed:
+  - project: Patternlab
+    component: Header
+    description: Adjust menu overlay position and timing in mobile and Firefox in desktop. (#1180)
+    issue: DP-19879
+    impact: Patch

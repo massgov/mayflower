@@ -11,6 +11,23 @@ body.show-menu {
   }
 }
 
+.alert-overlay {
+  position: fixed;
+  width: 100vw;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.6s, opacity 0.6s linear;
+  background-color: rgba($c-black, 0.4);
+  top: 0;
+  z-index: 90;// Lay over the alerts.
+
+  &.overlay-open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.6s linear;
+  }
+}
+
 .menu-overlay {
   position: fixed;
   width: 100vw;

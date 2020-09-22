@@ -4,6 +4,7 @@ let width = body.clientWidth;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
 const menuBarHeight = document.querySelector(".ma__header__hamburger__nav") ? document.querySelector(".ma__header__hamburger__nav").offsetHeight : null;
 const menuOverlay = document.querySelector(".menu-overlay");
+const alertOverlay = document.querySelector(".alert-overlay");
 
 const menuButton = document.querySelector(".js-header-menu-button");
 
@@ -543,37 +544,6 @@ if (jumpToSearchButton !== null) {
   }, false);
 }
 
-// Adjust the overlay position as the alert accordion opens/closes while the menu is open.
-setTimeout(function timeoutFunction() {
-  if (document.querySelector(".js-ajax-pattern")) {
-    document.querySelector(".ma__button-alert").addEventListener("click", function () {
-      if (body.classList.contains("show-menu")) {
-        let openAboveNavBar = document.querySelector(".js-accordion-content").getBoundingClientRect().top;
-        let closeOverlayOffset = openAboveNavBar + menuBarHeight;
-        if (document.querySelector(".js-emergency-alerts").classList.contains("is-open") === true) {
-          if (width > 840) {
-            closeOverlayOffset = closeOverlayOffset -1;
-          }
-          menuOverlay.style.top = closeOverlayOffset + "px";
-        }
-
-        // When the alert is close, wait till accordion animation to complete
-        // to get the complete height of the alert header and the accordion content.
-        if (document.querySelector(".js-emergency-alerts").classList.contains("is-open") === false) {
-          setTimeout(function () {
-            let openOverlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
-
-            if (width > 840) {
-              openOverlayOffset = openOverlayOffset -1;
-            }
-            menuOverlay.style.top = openOverlayOffset + "px";
-          }, 400);
-        }
-      }
-    });
-  }
-}, 1000);
-
 function toggleMenu() {
   if (body.classList.contains("show-menu")) {
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
@@ -637,6 +607,10 @@ function commonCloseMenuTasks() {
   if (menuOverlay) {
     menuOverlay.classList.remove("overlay-open");
   }
+  if (alertOverlay) {
+    alertOverlay.classList.remove("overlay-open");
+    alertOverlay.removeAttribute("style");
+  }
 }
 
 function openMenu() {
@@ -670,19 +644,54 @@ function commonOpenMenuTasks() {
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
-    feedbackButton.classList.add("hide-button");
+   feedbackButton.classList.add("hide-button");
   }
   jumpToSearchButton.setAttribute("aria-expanded", "true");
   if (menuOverlay) {
-    offsetMenuOverlay();
-    menuOverlay.classList.add("overlay-open");
+    if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
+      setTimeout(function () {
+        offsetMenuOverlay();
+        menuOverlay.classList.add("overlay-open");
+      }, 600);
+    }
+    else {
+      setTimeout(function () {
+        offsetMenuOverlay();
+        menuOverlay.classList.add("overlay-open");
+      }, 300);
+    }
+  }
+  if (alertOverlay) {
+    if (isMobileDevice()) {// mobile
+      if (document.querySelector(".ma__emergency-alerts")) {
+        setTimeout(function () {
+          alertOverlay.classList.add("overlay-open");
+          alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
+        }, 600);
+      }
+    }
+    else {// desktop
+      if (document.querySelector(".ma__emergency-alerts")) {
+        setTimeout(function () {
+          alertOverlay.classList.add("overlay-open");
+          // Get the overlay height after scrolling completes.
+          setTimeout(function () {
+            alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
+          }, 800);
+        }, 300);
+      }
+    }
   }
 }
 
 function offsetMenuOverlay () {
   let overlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
   if (width > 840) {
-    overlayOffset = overlayOffset -1;
+    if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      overlayOffset = overlayOffset - 14;
+    } else {
+      overlayOffset = overlayOffset -1;
+    }
   }
   menuOverlay.style.top = overlayOffset + "px";
 }
@@ -748,6 +757,11 @@ if ((utilNavWide !== null) && body.classList.contains("show-menu")) {
 // Close and reset menu on overlay click
 if (null !== menuOverlay) {
   menuOverlay.addEventListener("click", () => {
+    closeMenu();
+  });
+}
+if (alertOverlay !== null) {
+  alertOverlay.addEventListener("click", () => {
     closeMenu();
   });
 }
@@ -943,3 +957,7 @@ Math.easeInOutQuad = function (t, b, c, d) {
   t--;
   return -c/2 * (t*(t-2) - 1) + b;
 };
+
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf("IEMobile") !== -1);
+}
