@@ -23,7 +23,7 @@ let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".
 // Check whether the narrow utility nav is open.
 const utilNavNarrowCheck = function() {
   return utilNarrowNav ? (utilNarrowNav.offsetWidth > 0 && utilNarrowNav.offsetHeight > 0) : false;
-}
+};
 
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector(".ma__header__hamburger__main-nav");
@@ -361,7 +361,6 @@ if (menuButton !== null) {
             let targetIndex;
             for (let index = lastIndex; index > -1; index--) {
               if (e.target === narrowUtilContentLinks[index]) {
-                console.log(index);
                 targetIndex = index;
               }
             }
@@ -414,7 +413,6 @@ if (menuButton !== null) {
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
-  let subMenuItems = subMenu.querySelectorAll(".js-main-nav-hamburger__subitem");
 
   subItems.style.opacity = "0";
 
@@ -505,30 +503,6 @@ if (menuButton !== null) {
       }
     }
   });
-
-  // Replacing this with submenuLinks.forEach() since this doesn't work with Voiceover.
-  // [].forEach.call(subMenuItems, function (subItem) {
-  //   const prevSib = subItem.previousElementSibling;
-  //   const nextSib = subItem.nextElementSibling;
-
-  //   subItem.addEventListener("keydown", function (e) {
-
-  //     switch (e.code) {
-  //       case "ArrowUp":
-  //       case "ArrowLeft":
-  //         if (subItem === prevSib) {
-  //           prevSib.querySelector(".js-main-nav-hamburger__link").focus();
-  //         }
-  //         break;
-  //       case "ArrowDown":
-  //       case "ArrowRight":
-  //         if (subItem === nextSib) {
-  //           nextSib.querySelector(".js-main-nav-hamburger__link").focus();
-  //         }
-  //         break;
-  //     }
-  //   });
-  // });
 });
 
 if (jumpToSearchButton !== null) {
@@ -544,6 +518,36 @@ if (jumpToSearchButton !== null) {
   }, false);
 }
 
+// Adjust the overlay position as the alert accordion opens/closes while the menu is open.
+setTimeout(function timeoutFunction() {
+  if (document.querySelector(".ma__button-alert")) {
+    document.querySelector(".ma__button-alert").addEventListener("click", function () {
+      if (body.classList.contains("show-menu")) {
+        let openAboveNavBar = document.querySelector(".js-accordion-content").getBoundingClientRect().top;
+        let closeOverlayOffset = openAboveNavBar + menuBarHeight;
+        if (document.querySelector(".js-emergency-alerts").classList.contains("is-open") === true) {
+          if (width > 840) {
+            closeOverlayOffset = closeOverlayOffset -1;
+          }
+          menuOverlay.style.top = closeOverlayOffset + "px";
+        }
+
+        // When the alert is close, wait till accordion animation to complete
+        // to get the complete height of the alert header and the accordion content.
+        if (document.querySelector(".js-emergency-alerts").classList.contains("is-open") === false) {
+          setTimeout(function () {
+            let openOverlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
+
+            if (width > 840) {
+              openOverlayOffset = openOverlayOffset -1;
+            }
+            menuOverlay.style.top = openOverlayOffset + "px";
+          }, 400);
+        }
+      }
+    });
+  }
+}, 1000);
 function toggleMenu() {
   if (body.classList.contains("show-menu")) {
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
@@ -584,13 +588,23 @@ function closeMenu() {
 
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
+  if (body.style.position === "fixed") {
+    body.style.position = "relative";
+  }
+  if (body.style.top !== 0) {
+    body.style.top = 0;
+  }
 
-  if (document.querySelector('html.stickyTOCtmp')) {
-    document.querySelector('html.stickyTOCtmp').classList.add('stickyTOC');
-    document.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
+  if (document.querySelector("html.stickyTOCtmp")) {
+    document.querySelector("html.stickyTOCtmp").classList.add("stickyTOC");
+    document.querySelector("html.stickyTOCtmp").classList.remove("stickyTOCtmp");
   }
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+
+  if (hamburgerMenuContainer.hasAttribute("style")) {
+    hamburgerMenuContainer.removeAttribute("style");
+  }
 
   // if (hamburgerMenuContainer.hasAttribute("tabindex")) {
   //   hamburgerMenuContainer.removeAttribute("tabindex");
@@ -616,7 +630,7 @@ function commonCloseMenuTasks() {
 function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
-  let alertsHeader = document.querySelector('.ma__emergency-alerts__header');
+  let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
   if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
     let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/2);
@@ -636,9 +650,23 @@ function openMenu() {
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
-  if (document.querySelector('html.stickyTOC')) {
-    document.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
-    document.querySelector('html.stickyTOC').classList.remove('stickyTOC');
+  if (osInfo.indexOf("iPhone") !== -1) {
+    let heightAboveNavContainer = document.querySelector(".ma__header__hamburger__nav-container").getBoundingClientRect().top;
+
+    if (heightAboveNavContainer > 0) {
+      if (osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/11.") !== -1 || osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/10.") !== -1)  {
+        let bodyOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top - 80;
+        document.querySelector(".show-menu").style.top = `-${bodyOffset}px`;
+        document.querySelector(".show-menu").style.position = "fixed";
+      }
+    }
+    // The height setting makes the menu container scroll.
+    hamburgerMenuContainer.style.height = "calc(100vh - 150px)";
+  }
+
+  if (document.querySelector("html.stickyTOC")) {
+    document.querySelector("html.stickyTOC").classList.add("stickyTOCtmp");
+    document.querySelector("html.stickyTOC").classList.remove("stickyTOC");
   }
 
   menuButton.setAttribute("aria-expanded", "true");
@@ -706,7 +734,6 @@ function jumpToSearch(e) {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     openMenu();
     setTimeout(function timeoutFunction() {
-      console.log('search timeout clicked');
       jumpToSearchButton.setAttribute("aria-pressed", "true");
       searchInput.setAttribute("autofocus", "");
       searchInput.focus();
