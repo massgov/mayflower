@@ -559,11 +559,7 @@ body.show-menu {
             @include ma-chevron;
 
             &:after {
-              position: absolute;
-              right: 20px;
-              top: 25px;
-              border-right-color: $c-primary-alt;
-              border-bottom-color: $c-primary-alt;
+              border: none;
             }
           }
 
