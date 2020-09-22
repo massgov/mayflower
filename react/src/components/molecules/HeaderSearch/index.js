@@ -13,6 +13,8 @@ import is from 'is';
 import componentWithName from 'airbnb-prop-types/src/componentWithName';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import TypeAheadDropdown from 'MayflowerReactForms/TypeAheadDropdown';
+// eslint-disable-next-line import/no-unresolved
+import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 
 class HeaderSearch extends React.Component {
   constructor(props) {
@@ -36,7 +38,7 @@ class HeaderSearch extends React.Component {
   };
 
   render() {
-    const headerSearch = this.props;
+    const headerSearch = { ...this.props };
     const orgDropdown = headerSearch.orgDropdown;
     const shouldShowTypeAhead = (orgDropdown && orgDropdown.dropdownButton && orgDropdown.inputText);
     const inputProps = {
@@ -50,6 +52,7 @@ class HeaderSearch extends React.Component {
     if (this.props.inputRef) {
       inputProps.ref = this.props.inputRef;
     }
+    headerSearch.buttonSearch.icon = <IconSearch />;
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
         {shouldShowTypeAhead

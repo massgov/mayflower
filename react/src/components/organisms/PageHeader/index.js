@@ -67,7 +67,7 @@ PageHeader.propTypes = {
   title: PropTypes.string,
   /** Render subTitle text */
   subTitle: PropTypes.string,
-  /** optional array of paragraphs @atoms/headings/CompHeading */
+  /** optional array of paragraphs `@atoms/headings/CompHeading` */
   optionalContents: PropTypes.arrayOf(PropTypes.shape(Paragraph.propTypes))
 };
 

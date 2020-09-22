@@ -38,11 +38,11 @@ ButtonWithIconExample.args = {
   classes: [],
   iconSize: '',
   size: '',
-  expanded: true,
+  expanded: false,
   capitalized: true,
   'arial-label': '',
   'aria-haspopup': false,
-  icon: 'IconSearch',
+  icon: 'IconChevron',
   width: 20,
   height: 20
 };

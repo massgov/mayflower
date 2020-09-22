@@ -24,7 +24,7 @@ const ButtonAlert = (props) => {
     'is-open': isOpen
   });
   const buttonProps = {
-    className: buttonClasses,
+    classes: [buttonClasses],
     expanded: isOpen,
     text: isOpen ? `${hideText} ${text}` : `${showText} ${text}`,
     usage: 'alert',
@@ -49,7 +49,7 @@ ButtonAlert.propTypes = {
   hideText: PropTypes.string.isRequired,
   /** Adds is-open class to button if true. */
   isOpen: PropTypes.bool,
-  /** HTML <button> 'type' attribute  */
+  /** HTML `<button>` 'type' attribute  */
   type: PropTypes.oneOf(['submit', 'reset', 'button', '']),
   /** Theme of the button */
   theme: PropTypes.oneOf(['', 'c-primary', 'c-highlight', 'c-gray-dark', 'c-black'])

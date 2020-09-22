@@ -18,7 +18,7 @@ const themeOptions = {
 export const CalloutAlertExample = (args) => {
   const icon = {
     ariaHidden: true,
-    name: args.iconName
+    name: args.icon
   };
   return(
     <CalloutAlert {...args} icon={icon}>
@@ -30,11 +30,11 @@ export const CalloutAlertExample = (args) => {
 };
 CalloutAlertExample.storyName = 'Default';
 CalloutAlertExample.args = {
-  iconName: '',
+  icon: '',
   theme: ''
 };
 CalloutAlertExample.argTypes = {
-  iconName: {
+  icon: {
     control: {
       type: 'select',
       options: Object.fromEntries(
@@ -62,7 +62,7 @@ CalloutAlertExample.parameters = {
 export const CalloutAlertRealData = (args) => {
   const icon = {
     ariaHidden: true,
-    name: args.iconName
+    name: args.icon
   };
   return(
     <CalloutAlert {...args} icon={icon}>
@@ -73,11 +73,11 @@ export const CalloutAlertRealData = (args) => {
 };
 CalloutAlertRealData.storyName = 'CalloutAlert with real data';
 CalloutAlertRealData.args = {
-  iconName: 'IconAlert',
+  icon: 'IconAlert',
   theme: 'c-primary'
 };
 CalloutAlertRealData.argTypes = {
-  iconName: {
+  icon: {
     control: {
       type: 'select',
       options: Object.fromEntries(

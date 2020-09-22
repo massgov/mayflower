@@ -22,8 +22,7 @@ ButtonAlertExample.args = {
   showText: 'Show',
   hideText: 'Hide',
   classes: '',
-  isOpen: false,
-  theme: ''
+  isOpen: false
 };
 ButtonAlertExample.argTypes = {
   theme: {
