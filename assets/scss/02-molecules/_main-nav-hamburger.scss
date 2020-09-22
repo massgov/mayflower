@@ -58,11 +58,7 @@
       @include ma-chevron;
 
       &:after {
-        position: absolute;
-        right: 20px;
-        top: 22px;
-        border-right-color: $c-primary-alt;
-        border-bottom-color: $c-primary-alt;
+        border: none;
       }
 
       &:hover {
@@ -134,12 +130,13 @@
     text-transform: uppercase;
 
     & > svg {
-      fill: rgba($c-black, .5);
+      fill: $c-atlantic-gray;
       height: 20px;
       width: 20px;
     }
 
     &>span {
+      padding-top: 2px;
       border-bottom: 2px solid transparent;
     }
 
