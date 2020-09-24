@@ -786,7 +786,7 @@ window.addEventListener("resize", function () {
   const osInfo = navigator.appVersion;
   // On Android devices resize event is triggered when keyboard appears
   // and it closes the menu.
-  if (osInfo.indexOf("Android") === -1) {
+  if (osInfo.indexOf("Android") === -1 && osInfo.indexOf("iPhone") === -1) {
     debouncer = setTimeout(() => {
       closeMenu();
       hamburgerMenuAlertScrolling();
