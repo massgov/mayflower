@@ -1,6 +1,7 @@
 const osInfo = navigator.appVersion;
 const body = document.querySelector("body");
 let width = body.clientWidth;
+let alertlOffsetPosition;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
 const menuBarHeight = document.querySelector(".ma__header__hamburger__nav") ? document.querySelector(".ma__header__hamburger__nav").offsetHeight : null;
 const menuOverlay = document.querySelector(".menu-overlay");
@@ -571,16 +572,21 @@ function closeMenu() {
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").removeAttribute("tabindex");
     document.querySelector(".js-header-search-access-button").removeAttribute("tabindex");
   }
+
+  if (body.style.position === "fixed") {
+    body.style.position = "relative";
+  }
+  // When the page is loaded first time, body initially has "top: 0;".
+  // As the menu closes, reset the override top value to 0.
+  if (body.style.top.indexOf("-") !== -1) {
+    body.style.top = 0;
+  }
+  // At the same time, the alert needs to be scrolled up to the position again to retain the page elements position.
+  window.scrollTo(0, alertlOffsetPosition);
 }
 
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
-  if (body.style.position === "fixed") {
-    body.style.position = "relative";
-  }
-  if (body.style.top !== 0) {
-    body.style.top = 0;
-  }
 
   if (document.querySelector("html.stickyTOCtmp")) {
     document.querySelector("html.stickyTOCtmp").classList.add("stickyTOC");
@@ -620,36 +626,31 @@ function openMenu() {
   let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
   if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-    let scrollOffset = emergencyAlerts.offsetHeight - (alertsHeader.offsetHeight/2);
+
+    let emergencyAlertsHeight = emergencyAlerts.offsetHeight;
+
+    alertlOffsetPosition = emergencyAlertsHeight - (alertsHeader.offsetHeight/2);
     if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
-      customScrollTo(scrollOffset, 250);
+      customScrollTo(alertlOffsetPosition, 250);
+      setTimeout(lockPage(), 250);
     }
     else {
       window.scrollTo({
-        top: scrollOffset,
+        top: alertlOffsetPosition,
         left: 0,
         behavior: "smooth"
       });
+      lockPage();
     }
+    function lockPage () {
+      document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
+      document.querySelector("body").style.position = "fixed";
+    };
   }
 }
 
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
-
-  if (osInfo.indexOf("iPhone") !== -1) {
-    let heightAboveNavContainer = document.querySelector(".ma__header__hamburger__nav-container").getBoundingClientRect().top;
-
-    if (heightAboveNavContainer > 0) {
-      if (osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/11.") !== -1 || osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/10.") !== -1)  {
-        let bodyOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top - 80;
-        document.querySelector(".show-menu").style.top = `-${bodyOffset}px`;
-        document.querySelector(".show-menu").style.position = "fixed";
-      }
-    }
-    // The height setting makes the menu container scroll.
-    hamburgerMenuContainer.style.height = "calc(100vh - 150px)";
-  }
 
   if (document.querySelector("html.stickyTOC")) {
     document.querySelector("html.stickyTOC").classList.add("stickyTOCtmp");
