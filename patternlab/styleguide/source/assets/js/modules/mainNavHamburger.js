@@ -578,9 +578,6 @@ function commonCloseMenuTasks() {
   if (body.style.position === "fixed") {
     body.style.position = "relative";
   }
-  if (body.style.top !== 0) {
-    body.style.top = 0;
-  }
 
   if (document.querySelector("html.stickyTOCtmp")) {
     document.querySelector("html.stickyTOCtmp").classList.add("stickyTOC");
