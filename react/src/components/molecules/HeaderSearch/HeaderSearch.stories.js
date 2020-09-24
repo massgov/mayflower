@@ -39,6 +39,18 @@ HeaderSearchExample.args = {
     }
   }
 };
+HeaderSearchExample.argTypes = {
+  buttonSearch: {
+    control: {
+      disable: true
+    }
+  },
+  orgDropdown: {
+    control: {
+      disable: true
+    }
+  }
+};
 
 
 export const HeaderSearchPostInput = (args) => <HeaderSearch {...args} />;
@@ -86,6 +98,16 @@ HeaderSearchPostInput.argTypes = {
     control: {
       type: 'select',
       options: selectOptions.options.distance.map((option) => option.text)
+    }
+  },
+  buttonSearch: {
+    control: {
+      disable: true
+    }
+  },
+  orgDropdown: {
+    control: {
+      disable: true
     }
   }
 };

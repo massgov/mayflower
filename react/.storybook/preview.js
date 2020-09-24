@@ -33,7 +33,7 @@ const storyKindOrder = [
   'others/pages'
 ];
 
-export const StoryPage = ({ StoryComponent = null, showStories = true, Description }) => {
+export const StoryPage = ({ StoryComponent = null, showStories = false, Description }) => {
   const docsContext = React.useContext(DocsContext);
   const [showHTML, setShowHTML] = React.useState(true);
   const { id, name, parameters = {}, args } = docsContext;

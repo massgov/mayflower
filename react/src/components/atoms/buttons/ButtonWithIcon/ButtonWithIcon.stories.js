@@ -99,6 +99,7 @@ export const ButtonSearch = (args) => {
 };
 ButtonSearch.storyName = 'ButtonSearch';
 ButtonSearch.args = {
+  text: 'Search',
   onClick: action('ButtonWithIcon clicked'),
   usage: '',
   icon: 'IconSearch',
