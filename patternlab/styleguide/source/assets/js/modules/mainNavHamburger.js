@@ -621,6 +621,11 @@ function commonCloseMenuTasks() {
 }
 
 function openMenu() {
+  let lockPage = function () {
+    document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
+    document.querySelector("body").style.position = "fixed";
+  };
+
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
   let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
@@ -642,10 +647,6 @@ function openMenu() {
       });
       lockPage();
     }
-    function lockPage () {
-      document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
-      document.querySelector("body").style.position = "fixed";
-    };
   }
 }
 
