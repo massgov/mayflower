@@ -634,19 +634,19 @@ function openMenu() {
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
-  // if (osInfo.indexOf("iPhone") !== -1) {
+  if (osInfo.indexOf("iPhone") !== -1) {
     let heightAboveNavContainer = document.querySelector(".ma__header__hamburger__nav-container").getBoundingClientRect().top;
 
     if (heightAboveNavContainer > 0) {
-      // if (osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/11.") !== -1 || osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/10.") !== -1)  {
+      if (osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/11.") !== -1 || osInfo.indexOf("Version/12.") !== -1 || osInfo.indexOf("Version/10.") !== -1)  {
         let bodyOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top - 80;
         document.querySelector(".show-menu").style.top = `-${bodyOffset}px`;
         document.querySelector(".show-menu").style.position = "fixed";
-      // }
+      }
     }
     // The height setting makes the menu container scroll.
     hamburgerMenuContainer.style.height = "calc(100vh - 150px)";
-  // }
+  }
 
   if (document.querySelector("html.stickyTOC")) {
     document.querySelector("html.stickyTOC").classList.add("stickyTOCtmp");
