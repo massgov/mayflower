@@ -735,7 +735,7 @@ function jumpToSearch(e) {
       jumpToSearchButton.setAttribute("aria-pressed", "true");
       searchInput.setAttribute("autofocus", "");
       searchInput.focus();
-    }, 100);
+    }, 200);
   }
 }
 
