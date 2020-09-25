@@ -647,6 +647,16 @@ function openMenu() {
       });
       lockPage();
     }
+    // Set the nav container height to enable scrolling to the bottom.
+    let heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
+    if (osInfo.indexOf("iPhone") !== -1) {
+      let removeFromHeight = heightAboveMenuContainer + 15;
+      hamburgerMenuContainer.style.height = `calc(100vh - ${removeFromHeight}px)`;
+      hamburgerMenuContainer.style.paddingBottom = "20px";
+    }
+    else {
+      hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
+    }
   }
 }
 
