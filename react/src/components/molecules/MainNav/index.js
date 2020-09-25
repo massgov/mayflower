@@ -115,16 +115,29 @@ class MainNav extends React.Component {
       <div className="ma__main-nav">
         <ul className="ma__main-nav__items" role="menubar">
           {mainNav.map((item, index) => {
+            const covidTopLink = item.text.toLowerCase().includes('covid') || false;
             const topItemClasses = classNames({
               'ma__main-nav__item': true,
               'is-active': item.active,
-              'has-subnav': item.subNav
+              'has-subnav': item.subNav && !covidTopLink
             });
             const buttonId = `button${index}`;
             const liId = `li${index}`;
             const isExpanded = navSelected === liId;
             const itemBody = [];
-            if (item.subNav) {
+            if (covidTopLink) {
+              const covidTopLinkProps = {
+                index,
+                className: classNames([
+                  'ma__main-nav__top-link',
+                  'cv-alternate-style'
+                ]),
+                role: 'menuitem',
+                key: buttonId,
+                href: item.href
+              };
+              itemBody.push(<a {...covidTopLinkProps}>{item.text}</a>);
+            } else if (item.subNav) {
               const buttonProps = {
                 id: buttonId,
                 index,
@@ -183,17 +196,17 @@ class MainNav extends React.Component {
                     }
                   </ul>
                 </div>));
-            } else {
-              const buttonProps = {
-                id: buttonId,
-                className: 'ma__main-nav__top-link',
-                'aria-haspopup': 'true',
-                key: buttonId,
-                role: 'menuitem',
-                'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`
-              };
-              itemBody.push(<button type="button" {...buttonProps}>{item.text}</button>);
-            }
+              } else {
+                const buttonProps = {
+                  id: buttonId,
+                  className: 'ma__main-nav__top-link',
+                  'aria-haspopup': 'true',
+                  key: buttonId,
+                  role: 'menuitem',
+                  'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`
+                };
+                itemBody.push(<button type="button" {...buttonProps}>{item.text}</button>);
+              }
             return(
               /* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */
               <li
