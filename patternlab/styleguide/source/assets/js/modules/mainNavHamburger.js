@@ -578,6 +578,7 @@ function closeMenu() {
   }
   // When the page is loaded first time, body initially has "top: 0;".
   // As the menu closes, reset the override top value to 0.
+  // Note: The top value is recognized as a string, not number.
   if (body.style.top.indexOf("-") !== -1) {
     body.style.top = 0;
   }
@@ -631,9 +632,7 @@ function openMenu() {
   let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
   if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-
     let emergencyAlertsHeight = emergencyAlerts.offsetHeight;
-
     alertlOffsetPosition = emergencyAlertsHeight - (alertsHeader.offsetHeight/2);
     if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
       customScrollTo(alertlOffsetPosition, 250);
@@ -650,8 +649,8 @@ function openMenu() {
     // Set the nav container height to enable scrolling to the bottom.
     let heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
     if (osInfo.indexOf("iPhone") !== -1) {
-      let removeFromHeight = heightAboveMenuContainer + 15;
-      hamburgerMenuContainer.style.height = `calc(100vh - ${removeFromHeight}px)`;
+      let subtractFromMenuHeight = heightAboveMenuContainer + 15;
+      hamburgerMenuContainer.style.height = `calc(100vh - ${subtractFromMenuHeight}px)`;
       hamburgerMenuContainer.style.paddingBottom = "20px";
     }
     else {
