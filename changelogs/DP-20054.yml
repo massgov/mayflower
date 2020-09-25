@@ -4,4 +4,3 @@ Fixed:
     description: Addresses a timing issue with jump to search that prevented it from working on some Android devices. (#1191)
     issue: DP-20054
     impact: Patch
-  
