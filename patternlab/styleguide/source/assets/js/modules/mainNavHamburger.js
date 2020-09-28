@@ -713,11 +713,7 @@ function commonOpenMenuTasks() {
 function offsetMenuOverlay () {
   let overlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
   if (width > 840) {
-    if (navigator.userAgent.indexOf("Firefox") !== -1) {
-      overlayOffset = overlayOffset - 14;
-    } else {
-      overlayOffset = overlayOffset -1;
-    }
+    overlayOffset = overlayOffset -1;
   }
   menuOverlay.style.top = overlayOffset + "px";
 }

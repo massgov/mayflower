@@ -1,0 +1,6 @@
+Removed:
+  - project: Patternlab
+    component: Header
+    description: Removed Firefox-specific code causing menu overlay issues in Firefox. (#1192)
+    issue: DP-20055
+    impact: Patch
