@@ -265,6 +265,7 @@ body.show-menu {
     z-index: $z-dropdown;
 
     // TEST STYLE
+    -webkit-scroll-scroll-snap-type: y mandatory;
     scroll-snap-type: y mandatory;
 
     @media ($bp-header-toggle-min) {
@@ -275,6 +276,7 @@ body.show-menu {
 
     // TEST STYLE
     .snap-top {
+      -webkit-scroll-snap-align: start;
       scroll-snap-align: start;
     }
 
