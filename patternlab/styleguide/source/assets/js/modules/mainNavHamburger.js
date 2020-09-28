@@ -419,10 +419,9 @@ if (menuButton !== null) {
     setTimeout(function timeoutFunction() {
       if (item.classList.contains("submenu-open")) {
 
-        // if (isMobileDevice()) {
-          console.log("subnav self:  remove snap-top");
+        if (isMobileDevice()) {
           itemButton.classList.remove("snap-top");
-        // }
+        }
 
         item.classList.remove("submenu-open");
         itemButton.setAttribute("aria-expanded", "false");
@@ -433,11 +432,10 @@ if (menuButton !== null) {
         }, 700);
       } else {
 
-        // if (isMobileDevice()) {
+        if (isMobileDevice()) {
           console.log(osInfo);
-          console.log("subnav self:  add snap-top");
           itemButton.classList.add("snap-top");
-        // }
+        }
 
         item.classList.add("submenu-open");
         itemButton.setAttribute("aria-expanded", "true");
@@ -763,10 +761,9 @@ function closeSubMenus(item) {
 
     if (siblings[i].classList.contains("submenu-open")) {
 
-      // if (isMobileDevice()) {
-        console.log("sibling[i] button: remove snap-top");
+      if (isMobileDevice()) {
         siblings[i].querySelector(".js-main-nav-hamburger__top-link").classList.remove("snap-top");
-      // }
+      }
 
 
       siblings[i].classList.remove("submenu-open");
@@ -896,13 +893,10 @@ if (utilNarrowButton !== null) {
 
       closeSubMenu();
 
-      // console.log(e.target.closest(".ma__utility-nav__item").offsetTop);
-      // console.log(e.target.offsetTop);
-      // if (isMobileDevice()) {
-        console.log(osInfo);
-        console.log("add snap-top");
+
+      if (isMobileDevice()) {
         thisButton.classList.add("snap-top");
-      // }
+      }
 
 
       thisButton.setAttribute("aria-expanded", "true");
@@ -935,10 +929,9 @@ if (utilNarrowButton !== null) {
       }, 50);
     } else {
 
-      // if (isMobileDevice()) {
-        console.log("remove snap-top");
+      if (isMobileDevice()) {
         thisButton.classList.remove("snap-top");
-      // }
+      }
 
       closeNarrowUtilContent();
     }
@@ -973,10 +966,9 @@ function closeSubMenu() {
     let openSubMenuContent = openSubMenu.querySelector(".js-main-nav-hamburger-content");
     let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger__container");
 
-    // if (isMobileDevice()) {
-      console.log("closeSubMenu():  remove snap-top");
+    if (isMobileDevice()) {
       openSubMenuButton.classList.remove("snap-top");
-    // }
+    }
 
     openSubMenuButton.setAttribute("aria-expanded", "false");
     openSubMenuContent.style.height = "0";

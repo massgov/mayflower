@@ -265,6 +265,7 @@ body.show-menu {
     z-index: $z-dropdown;
 
     // TEST STYLE
+    -webkit-overflow-scrolling: touch;
     scroll-snap-type: y mandatory;
 
     @media ($bp-header-toggle-min) {
