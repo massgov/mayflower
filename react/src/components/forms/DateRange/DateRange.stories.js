@@ -34,7 +34,7 @@ DateRangeExample.args = {
 };
 
 export default {
-  title: 'forms/DateRange',
+  title: 'forms/molecules/DateRange',
   component: DateRange,
   parameters: {
     docs: {
