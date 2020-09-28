@@ -196,17 +196,17 @@ class MainNav extends React.Component {
                     }
                   </ul>
                 </div>));
-              } else {
-                const buttonProps = {
-                  id: buttonId,
-                  className: 'ma__main-nav__top-link',
-                  'aria-haspopup': 'true',
-                  key: buttonId,
-                  role: 'menuitem',
-                  'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`
-                };
-                itemBody.push(<button type="button" {...buttonProps}>{item.text}</button>);
-              }
+            } else {
+              const buttonProps = {
+                id: buttonId,
+                className: 'ma__main-nav__top-link',
+                'aria-haspopup': 'true',
+                key: buttonId,
+                role: 'menuitem',
+                'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`
+              };
+              itemBody.push(<button type="button" {...buttonProps}>{item.text}</button>);
+            }
             return(
               /* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */
               <li
