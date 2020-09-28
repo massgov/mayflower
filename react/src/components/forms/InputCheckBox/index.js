@@ -60,7 +60,7 @@ const CheckBox = (props) => {
   return(
     <span className={checkboxClasses}>
       <input {...inputProps} />
-      {icon && icon.name && icon}
+      {icon && icon}
       <label htmlFor={id} tabIndex={-1}><span>{ label }</span></label>
     </span>
 

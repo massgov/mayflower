@@ -1,49 +1,58 @@
 import React from 'react';
+import { StoryPage } from 'StorybookConfig/preview';
 
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select, array, color } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-
-import InputCheckBox from './index';
-import inputCheckBoxDocs from './InputCheckBox.md';
-
 import * as Icon from 'MayflowerReactBase/Icon';
 import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
+import InputCheckBox from './index';
+import InputCheckBoxDocs from './InputCheckBox.md';
 
-storiesOf('forms/atoms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'InputCheckBox', (() => {
-      const props = {
-        id: text('id', 'input-checkbox'),
-        value: text('value', 'select-all'),
-        label: text('label', 'Apply to all'),
-        defaultValue: text('defaultValue', 'select-all'),
-        onChange: action('onChange'),
-        onKeyDown: action('onKeyDown'),
-        disabled: boolean('disabled', false),
-        required: boolean('required', false),
-        errorMsg: text('errorMsg', 'You are required to check this box.'),
-        labelText: text('labelText', 'Checkbox Input'),
-        classes: array('classes', [])
-      };
-      const iconProps = {
-        name: select('icon.name', svgOptions),
-        width: 20,
-        height: 20,
-        fill: color('icon.color', '#388557')
-      };
-      // Capitalizes the name of each SVG icon to match
-      // what SVGR names components.
-      const component = select('icon.name',
-        Object.fromEntries(
-          Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
-          )
-      );
-      const SelectedComponent = Icon[component];
-      return(
-        <InputCheckBox {...props} icon={<SelectedComponent {...iconProps} />} />
-      );
-    }),
-    { info: inputCheckBoxDocs }
+export const InputCheckBoxExample = (args) => {
+  const {
+    icon, ...rest
+  } = args;
+  const props = {
+    ...rest
+  };
+  if (icon) {
+    const IconComponent = Icon[icon];
+    props.icon = <IconComponent name={icon} width={20} height={20} />;
+  }
+  return(
+    <InputCheckBox {...props} />
   );
+};
+InputCheckBoxExample.storyName = 'Default';
+InputCheckBoxExample.args = {
+  id: 'input-checkbox',
+  value: 'select-all',
+  label: 'Apply to all',
+  defaultValue: 'select-all',
+  onChange: action('onChange'),
+  onKeyDown: action('onKeyDown'),
+  disabled: false,
+  required: false,
+  errorMsg: 'You are required to check this box.',
+  labelText: 'Checkbox Input',
+  classes: []
+};
+InputCheckBoxExample.argTypes = {
+  icon: {
+    control: {
+      type: 'select',
+      options: Object.fromEntries(
+        Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
+      )
+    }
+  }
+};
+
+export default {
+  title: 'forms/atoms/InputCheckBox',
+  component: InputCheckBox,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={InputCheckBoxDocs} />
+    }
+  }
+};

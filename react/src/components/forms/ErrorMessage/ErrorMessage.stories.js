@@ -1,23 +1,34 @@
 import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import ErrorMessage from './index';
 import ErrorMessageDocs from './ErrorMessage.md';
 import ErrorMessageOptions from './ErrorMessage.knobs.options';
 
-storiesOf('forms/atoms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'ErrorMessage', (() => {
-      const props = {
-        inputId: text('inputID', ErrorMessageOptions.inputId),
-        error: text('error', ErrorMessageOptions.error),
-        success: text('success'),
-        status: select('status', ErrorMessageOptions.status, 'error')
-      };
-      return(<ErrorMessage {...props} />);
-    }),
-    { info: ErrorMessageDocs }
-  );
+export const ErrorMessageExample = (args) => (
+  <ErrorMessage {...args} />
+);
+ErrorMessageExample.storyName = 'Default';
+ErrorMessageExample.args = {
+  inputId: ErrorMessageOptions.inputId,
+  error: ErrorMessageOptions.error,
+  status: 'error'
+};
+ErrorMessageExample.argTypes = {
+  status: {
+    control: {
+      type: 'select',
+      options: ErrorMessageOptions.status
+    }
+  }
+};
+
+export default {
+  title: 'forms/atoms/ErrorMessage',
+  component: ErrorMessage,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={ErrorMessageDocs} />
+    }
+  }
+};

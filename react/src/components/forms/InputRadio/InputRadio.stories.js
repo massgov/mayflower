@@ -1,30 +1,34 @@
 import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 import { action } from '@storybook/addon-actions';
 
 import InputRadio from './index';
 import InputRadioDocs from './InputRadio.md';
 
-storiesOf('forms/atoms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'InputRadio', (() => {
-      const props = {
-        name: text('name', 'plant'),
-        id: text('id', 'fern123'),
-        value: text('value', 'fern'),
-        label: text('label', 'Fern'),
-        required: boolean('required', true),
-        outline: boolean('outline', true),
-        checked: boolean('checked', null),
-        disabled: boolean('disabled', false),
-        error: boolean('error', false)
-      };
-      return(
-        <InputRadio {...props} onChange={action('onChange')} />
-      );
-    }),
-    { info: InputRadioDocs }
-  );
+export const InputRadioExample = (args) => (
+  <InputRadio {...args} />
+);
+
+InputRadioExample.storyName = 'Default';
+InputRadioExample.args = {
+  name: 'plant',
+  id: 'fern123',
+  value: 'fern',
+  label: 'Fern',
+  required: true,
+  outline: true,
+  checked: null,
+  disabled: false,
+  error: false,
+  onChange: action('onChange')
+};
+
+export default {
+  title: 'forms/atoms/InputRadio',
+  component: InputRadio,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={InputRadioDocs} />
+    }
+  }
+};

@@ -1,28 +1,46 @@
 import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 import { action } from '@storybook/addon-actions';
 
 import SelectBox from './index';
 import selectOptions from './SelectBox.knobs.options';
 import SelectBoxDocs from './SelectBox.md';
 
-storiesOf('forms/atoms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'SelectBox', (() => {
-      const props = {
-        label: text('label', 'Color Scheme:'),
-        stackLabel: boolean('stackLabel', false),
-        required: boolean('required', true),
-        id: text('id', 'color-select'),
-        options: object('options', selectOptions.options.colors),
-        selected: select('defaultSelected', selectOptions.options.colors.map((option) => option.text), selectOptions.options.colors[0].text),
-        onChangeCallback: action('SelectBox onChangeCallback')
-      };
-      props.className = text('className', !props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown');
-      return(<SelectBox {...props} />);
-    }),
-    { info: SelectBoxDocs }
+export const SelectBoxExample = (args) => {
+  const props = {
+    ...args
+  };
+  props.className = args.required ? 'ma__select-box js-dropdown' : 'ma__select-box js-dropdown ma__select-box--optional';
+  return(
+    <SelectBox {...props} />
   );
+};
+
+SelectBoxExample.storyName = 'Default';
+SelectBoxExample.args = {
+  label: 'Color Scheme:',
+  stackLabel: false,
+  required: true,
+  id: 'color-select',
+  options: selectOptions.options.colors,
+  selected: selectOptions.options.colors[0].text,
+  onChangeCallback: action('SelectBox onChangeCallback')
+};
+SelectBoxExample.argTypes = {
+  selected: {
+    control: {
+      type: 'select',
+      options: selectOptions.options.colors.map((option) => option.text)
+    }
+  }
+};
+
+export default {
+  title: 'forms/atoms/SelectBox',
+  component: SelectBox,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={SelectBoxDocs} />
+    }
+  }
+};
