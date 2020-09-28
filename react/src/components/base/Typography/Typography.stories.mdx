@@ -48,16 +48,3 @@ const slugifyStyle = (style) => {
     </div>
   </Story>
 </Canvas>
-
-export const Template = (args) => (
-    <>
-      <SidebarHeading title="Custom Sentence" level={2} />
-      <div className="sb-block">
-        <CustomElement className={`ma-texta-${slugifyStyle(args.style)}`}>
-          {args.text}
-        </CustomElement>
-      </div>
-  </>
-);
-
-<ArgsTable story={CURRENT_SELECTION}/>
