@@ -418,6 +418,12 @@ if (menuButton !== null) {
     // The open/close submenu animation is CSS. Unable to confirm the completion of the animation in JS. Unable to use callback in this case.
     setTimeout(function timeoutFunction() {
       if (item.classList.contains("submenu-open")) {
+
+        if (isMobileDevice()) {
+          console.log("subnav self:  remove snap-top");
+          item.classList.remove("snap-top");
+        }
+
         item.classList.remove("submenu-open");
         itemButton.setAttribute("aria-expanded", "false");
         item.style.pointerEvents = "none";
@@ -426,24 +432,18 @@ if (menuButton !== null) {
           item.removeAttribute("style");
         }, 700);
       } else {
+
+        if (isMobileDevice()) {
+          console.log("subnav self:  add snap-top");
+          item.classList.add("snap-top");
+        }
+
         item.classList.add("submenu-open");
         itemButton.setAttribute("aria-expanded", "true");
         item.style.pointerEvents = "none";
         setTimeout(function timeoutFunction() {
           item.removeAttribute("style");
         }, 700);
-
-        // MIGHT TARGET IOS 10, 11, 12
-        // if (osInfo.indexOf("iPhone") !== -1) {
-
-          console.log(item.offsetTop);
-
-          item.scroll({
-            top: item.offsetTop,
-            left: 0,
-            behavior: "smooth",
-            block: "start"
-          });
       }
 
       if (subMenu.classList.contains("is-closed")) {
@@ -766,6 +766,12 @@ function closeSubMenus(item) {
 
     if (siblings[i].classList.contains("submenu-open")) {
 
+      if (isMobileDevice()) {
+        console.log("sibling[i]: remove snap-top");
+        siblings[i].classList.remove("snap-top");
+      }
+
+
       siblings[i].classList.remove("submenu-open");
       siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
       siblings[i].style.pointerEvents = "none";
@@ -893,8 +899,13 @@ if (utilNarrowButton !== null) {
 
       closeSubMenu();
 
-      console.log(e.target.closest(".ma__utility-nav__item").offsetTop);
-      console.log(e.target.offsetTop);
+      // console.log(e.target.closest(".ma__utility-nav__item").offsetTop);
+      // console.log(e.target.offsetTop);
+      if (isMobileDevice()) {
+        console.log("add snap-top");
+        thisButton.classList.add("snap-top");
+      }
+
 
       thisButton.setAttribute("aria-expanded", "true");
       utilNarrowContent.removeAttribute("aria-hidden");
@@ -925,6 +936,12 @@ if (utilNarrowButton !== null) {
         utilNarrowContainer.style.opacity = "1";
       }, 50);
     } else {
+
+      if (isMobileDevice()) {
+        console.log("remove snap-top");
+        thisButton.classList.remove("snap-top");
+      }
+
       closeNarrowUtilContent();
     }
   });
@@ -957,6 +974,11 @@ function closeSubMenu() {
     let openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
     let openSubMenuContent = openSubMenu.querySelector(".js-main-nav-hamburger-content");
     let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger__container");
+
+    if (isMobileDevice()) {
+      console.log("remove snap-top");
+      openSubMenu.classList.remove("snap-top");
+    }
 
     openSubMenuButton.setAttribute("aria-expanded", "false");
     openSubMenuContent.style.height = "0";

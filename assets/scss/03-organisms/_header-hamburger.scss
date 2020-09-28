@@ -264,10 +264,18 @@ body.show-menu {
     width: 320px;
     z-index: $z-dropdown;
 
+    // TEST STYLE
+    scroll-snap-type: y mandatory;
+
     @media ($bp-header-toggle-min) {
 
       top: 44px;
       height: calc(100vh - 44px);
+    }
+
+    // TEST STYLE
+    .snap-top {
+      scroll-snap-align: start;
     }
 
     .show-menu & {
