@@ -2,6 +2,7 @@
 // See @mixin ma-texta-style in 00-base/mixins/_ma-typography.scss
 
 @use "mixins" as *;
+@use "variables" as *;
 
 $styles: (
   "lighter": $fonts-lighter,
