@@ -432,6 +432,18 @@ if (menuButton !== null) {
         setTimeout(function timeoutFunction() {
           item.removeAttribute("style");
         }, 700);
+
+        // MIGHT TARGET IOS 10, 11, 12
+        // if (osInfo.indexOf("iPhone") !== -1) {
+
+          console.log(item.offsetTop);
+
+          item.scroll({
+            top: item.offsetTop,
+            left: 0,
+            behavior: "smooth",
+            block: "start"
+          });
       }
 
       if (subMenu.classList.contains("is-closed")) {
@@ -880,6 +892,9 @@ if (utilNarrowButton !== null) {
       // TO OPEN
 
       closeSubMenu();
+
+      console.log(e.target.closest(".ma__utility-nav__item").offsetTop);
+      console.log(e.target.offsetTop);
 
       thisButton.setAttribute("aria-expanded", "true");
       utilNarrowContent.removeAttribute("aria-hidden");
