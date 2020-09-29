@@ -3,10 +3,14 @@
 /**
  * FeedbackForm module.
  * @module @massds/mayflower-react/FeedbackForm
+ * @requires "@massds/mayflower-assets/scss/01-atoms/forms";
+ * @requires "@massds/mayflower-assets/scss/01-atoms/buttons";
+ * @requires "@massds/mayflower-assets/scss/01-atoms/input-radio";
+ * @requires "@massds/mayflower-assets/scss/02-molecules/input-radio-group";
+ * @requires "@massds/mayflower-react/dist/FeedbackForm";
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import CharacterCounter from 'react-character-counter';
 import classNames from 'classnames';
 import is from 'is';
 import Paragraph from 'MayflowerReactText/Paragraph';
@@ -26,11 +30,76 @@ HiddenFields.propTypes = {
   formId: PropTypes.number
 };
 
+const styleSheet = {
+  wrapper: {
+    position: 'relative'
+  },
+  characterCounter: {
+    position: 'absolute',
+    fontSize: '12px',
+    fontWeight: '600'
+  }
+};
+
+const CharacterCounter = (props) => {
+  const divRef = React.useRef();
+  React.useEffect(() => {
+    if (!props.overrideStyle) {
+      const { firstChild, lastChild } = divRef.current;
+      lastChild.style.left = `${firstChild.clientWidth - 70}px`;
+      lastChild.style.top = `${firstChild.clientHeight / 2 - lastChild.clientHeight / 2 + 3}px`;
+      firstChild.style.paddingRight = '75px';
+    }
+  }, []);
+  const {
+    value,
+    maxLength,
+    wrapperStyle,
+    characterCounterStyle,
+    overrideStyle,
+    children
+  } = props;
+  let computedWrapperStyle = Object.assign(styleSheet.wrapper, wrapperStyle);
+  let computedCharacterCounterStyle = Object.assign(
+    styleSheet.characterCounter,
+    characterCounterStyle
+  );
+  if (overrideStyle) {
+    computedWrapperStyle = wrapperStyle;
+    computedCharacterCounterStyle = characterCounterStyle;
+  }
+  const displayLength = `${value.length}/${maxLength}`;
+  return(
+    <div ref={divRef} style={computedWrapperStyle}>
+      {children}
+      <span style={computedCharacterCounterStyle}>{displayLength}</span>
+    </div>
+  );
+};
+
+CharacterCounter.propTypes = {
+  children: PropTypes.node,
+  value: PropTypes.string.isRequired,
+  maxLength: PropTypes.number.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  wrapperStyle: PropTypes.object,
+  // eslint-disable-next-line react/forbid-prop-types
+  characterCounterStyle: PropTypes.object,
+  overrideStyle: PropTypes.bool
+};
+
+CharacterCounter.defaultProps = {
+  wrapperStyle: {},
+  characterCounterStyle: {},
+  overrideStyle: false
+};
+
 export default class FeedbackForm extends React.Component {
   static propTypes = {
     /** A ref object as created by React.createRef(). Will be applied to the form element. */
     formRef: PropTypes.oneOfType([
       PropTypes.func,
+      // eslint-disable-next-line react/forbid-prop-types
       PropTypes.shape({ current: PropTypes.any })
     ]),
     /** A function whose return value is displayed after a successful form submission. */
@@ -64,7 +133,7 @@ export default class FeedbackForm extends React.Component {
   state = {
     yesText: '',
     noText: '',
-    errorMessage: <Paragraph className="error">Please go back and fill in any required fields (marked with an *)</Paragraph>,
+    ErrorMessage: () => <Paragraph className="error">Please go back and fill in any required fields (marked with an *)</Paragraph>,
     feedbackChoice: null,
     hasError: [],
     success: false,
@@ -82,7 +151,7 @@ export default class FeedbackForm extends React.Component {
   submitButton = React.createRef();
 
   componentDidMount() {
-    if (window) {
+    if (typeof window !== 'undefined') {
       // We don't have the FormStack class available, but we can fake like we do:
       window[`form${this.props.formId}`] = {
         onSubmitError: (err) => {
@@ -91,9 +160,9 @@ export default class FeedbackForm extends React.Component {
               const hasError = [...state.hasError];
               hasError.push(props.radioId);
               hasError.push(props.noFeedbackId);
-              const errorMessage = <Paragraph className="error">{err.error}</Paragraph>;
+              const ErrorMessage = () => <Paragraph className="error">{err.error}</Paragraph>;
               return{
-                hasError, errorMessage
+                hasError, ErrorMessage
               };
             });
           }
@@ -130,22 +199,23 @@ export default class FeedbackForm extends React.Component {
 
   // Handles the onChange event for the yes/no radio buttons as well as the yes/no textareas.
   handleChange = (e) => {
-    let newState = {};
-    e.persist();
-    if (e.currentTarget === this.yesRadio.current || e.currentTarget === this.noRadio.current) {
-      newState = Object.assign(newState, this.handleRadioChange(e));
+    const newState = {};
+    if (e.currentTarget === this.yesRadio.current) {
+      newState.feedbackChoice = true;
+    }
+    if (e.currentTarget === this.noRadio.current) {
+      newState.feedbackChoice = false;
     }
     if (e.currentTarget === this.yesTextArea.current) {
-      newState = Object.assign(newState, { yesText: e.currentTarget.value });
+      newState.yesText = e.currentTarget.value || '';
     }
     if (e.currentTarget === this.noTextArea.current) {
-      newState = Object.assign(newState, { noText: e.currentTarget.value });
+      newState.noText = e.currentTarget.value || '';
     }
     // If the form was previously submitted but the user made a new change, reset the form submitted status.
     if (this.state.formSubmitted && Object.keys(newState).length > 0) {
       newState.formSubmitted = false;
       newState.success = false;
-      newState.successMessage = '';
     }
     this.setState(newState, this.checkForErrors);
   }
@@ -189,7 +259,7 @@ export default class FeedbackForm extends React.Component {
       const errors = this.checkForErrors();
       // If no remaining errors, submit form.
       // Since we have to use jsonp and this component could be used with server side rendering, ensure that window exists.
-      if (window && is.array.empty(errors)) {
+      if (typeof window !== 'undefined' && is.array.empty(errors)) {
         import('b-jsonp').then((module) => {
           const jsonp = module.default;
           const form = document.getElementById(`fsForm${this.props.formId}`);
@@ -212,10 +282,10 @@ export default class FeedbackForm extends React.Component {
 
   render() {
     const {
-      yesFeedbackId, yesDisclaimer, noFeedbackId, noDisclaimer, refererId, formId, formRef, radioId, nodeId, successMessage
+      yesFeedbackId, yesDisclaimer, noFeedbackId, noDisclaimer, refererId, formId, formRef = null, radioId, nodeId, successMessage
     } = this.props;
     const {
-      hasError, success, feedbackChoice, formSubmitted, noText, yesText, errorMessage
+      hasError, success, feedbackChoice, formSubmitted, noText, yesText, ErrorMessage
     } = this.state;
     const yesId = this.prefixField(yesFeedbackId);
     const noId = this.prefixField(noFeedbackId);
@@ -235,9 +305,11 @@ export default class FeedbackForm extends React.Component {
       id: this.prefixField(refererId),
       name: this.prefixField(refererId),
       size: '50',
-      value: window.location.href,
       className: 'fsField'
     };
+    if (typeof window !== 'undefined') {
+      refererProps.value = window.location.href;
+    }
     const yesFieldSetClassNames = classNames({
       'radio-yes': true,
       error: (hasError.includes(yesFeedbackId))
@@ -281,6 +353,14 @@ export default class FeedbackForm extends React.Component {
       },
       overrideStyle: true
     };
+    const DefaultDisclaimer = () => (
+      <div id="feedback-note" className="ma__disclaimer">
+        We use your feedback to help us improve this site but we are not able to respond directly.
+        <strong>Please do not include personal or contact information.</strong>
+        {' '}
+        If you need a response, please locate the contact information elsewhere on this page or in the footer.
+      </div>
+    );
     return(success && formSubmitted) ? (
       <div className="ma__feedback-form" data-mass-feedback-form>
         <h2 className="visually-hidden">Feedback</h2>
@@ -348,19 +428,19 @@ export default class FeedbackForm extends React.Component {
                 <CharacterCounter value={noText} {...characterCounterProps}>
                   <textarea
                     id={noId}
+                    value={noText}
                     ref={this.noTextArea}
                     onChange={this.handleChange}
                     className={noTextAreaClassNames}
                     name={noId}
                     aria-required="true"
                     maxLength="10000"
-                    disabled={feedbackChoice === false ? null : 'disabled'}
                     aria-describedby="feedback-note"
                   />
                 </CharacterCounter>
               </div>
               <input type="hidden" id={yesId} name={yesId} value="" />
-              {(is.fn(noDisclaimer)) ? noDisclaimer() : this.defaultDisclaimer()}
+              {(is.fn(noDisclaimer)) ? noDisclaimer() : <DefaultDisclaimer />}
             </fieldset>
           )}
           {(feedbackChoice === true) && (
@@ -369,23 +449,23 @@ export default class FeedbackForm extends React.Component {
               <div className="ma__textarea__wrapper">
                 <CharacterCounter value={yesText} {...characterCounterProps}>
                   <textarea
+                    value={yesText}
                     ref={this.yesTextArea}
                     onChange={this.handleChange}
                     id={yesId}
                     name={yesId}
                     maxLength="10000"
-                    disabled={feedbackChoice === true ? null : 'disabled'}
                     aria-describedby="feedback-note2"
                   />
                 </CharacterCounter>
               </div>
               <input type="hidden" id={noId} name={noId} value="" />
-              {is.fn(yesDisclaimer) ? yesDisclaimer() : this.defaultDisclaimer()}
+              {is.fn(yesDisclaimer) ? yesDisclaimer() : <DefaultDisclaimer />}
             </fieldset>
           )}
           <fieldset className="ma_feedback-fieldset ma__mass-feedback-form__form--submit-wrapper">
             <div className={messsageClassNames} style={messageStyle}>
-              {success === false && errorMessage}
+              {success === false && <ErrorMessage />}
             </div>
             <input
               id="submitButton2521317"
