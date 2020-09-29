@@ -1,19 +1,45 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
-
-import compHeadingOptions from './CompHeading.knob.options';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import CompHeading from './index';
 import CompHeadingDocs from './CompHeading.md';
 
-storiesOf('atoms/headings', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'Comp Heading', (() => {
-      const compOptionsWithKnobs = Object.assign(...Object.entries(compHeadingOptions).map(([k, v]) => (
-        { [k]: v(CompHeading.defaultProps[k]) })));
-      return(<CompHeading {...compOptionsWithKnobs} />);
-    }),
-    { info: CompHeadingDocs }
-  );
+export const CompHeadingExample = (args) => (<CompHeading {...args} />);
+
+CompHeadingExample.storyName = 'Default';
+
+CompHeadingExample.args = {
+  title: 'Title text'
+};
+
+CompHeadingExample.argTypes = {
+  level: {
+    control: {
+      type: 'select',
+      options: {
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6
+      }
+    }
+  },
+  color: {
+    control: {
+      type: 'select',
+      options: { 'green (default)': '', yellow: 'yellow', gray: 'gray' }
+    }
+  }
+};
+
+export default {
+  title: 'atoms/headings/CompHeading',
+  component: CompHeading,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={CompHeadingDocs} />
+    }
+  }
+};

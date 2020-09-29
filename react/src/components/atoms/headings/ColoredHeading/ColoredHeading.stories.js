@@ -1,22 +1,42 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import ColoredHeading from './index';
 import ColoredHeadingDocs from './ColoredHeading.md';
 import coloredHeadingOptions from './ColoredHeading.knobs.options';
 import headingsOptions from '../Headings.knobs.options';
 
-storiesOf('atoms/headings', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'ColoredHeading', (() => {
-      const props = {
-        text: text('text', 'Title text'),
-        level: select('level', headingsOptions.levels, 2),
-        color: select('color', coloredHeadingOptions.color)
-      };
-      return(<ColoredHeading {...props} />);
-    }),
-    { info: ColoredHeadingDocs }
-  );
+export const ColoredHeadingExample = (args) => (<ColoredHeading {...args} />);
+
+ColoredHeadingExample.storyName = 'Default';
+
+ColoredHeadingExample.args = {
+  text: 'Title text',
+  level: '2',
+  color: ''
+};
+
+ColoredHeadingExample.argTypes = {
+  level: {
+    control: {
+      type: 'select',
+      options: headingsOptions.levels
+    }
+  },
+  color: {
+    control: {
+      type: 'select',
+      options: coloredHeadingOptions.color
+    }
+  }
+};
+
+export default {
+  title: 'atoms/headings/ColoredHeading',
+  component: ColoredHeading,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={ColoredHeadingDocs} />
+    }
+  }
+};

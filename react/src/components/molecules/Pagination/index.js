@@ -12,13 +12,13 @@ const Pagination = (props) => {
 
   const handleClick = (event, handleAnchorClick) => {
     event.preventDefault();
-    if (is.fn(handleClick)) {
+    if (is.fn(handleAnchorClick)) {
       handleAnchorClick(event);
     }
   };
 
   const handleKeyDown = (event, handleAnchorClick) => {
-    if (event.key === ' ' && is.fn(handleClick)) {
+    if (event.key === ' ' && is.fn(handleAnchorClick)) {
       event.preventDefault();
       handleAnchorClick(event);
     }

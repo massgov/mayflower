@@ -268,12 +268,15 @@ Header.propTypes = {
   utilityNav: PropTypes.shape(UtilityNav.propTypes),
   /** imports the headersearch component */
   headerSearch: PropTypes.oneOfType([PropTypes.shape(HeaderSearch.propTypes), PropTypes.func]).isRequired,
+  /** `searchRedirect:` <ul>
+   * `baseUrl:` The base url that the user is redirected to when submitting a non-empty search value.<br />
+   * `searchTermParam:` The URL query parameter that will be set to the value of the search input element.<br />
+   * `queryParams:` Optional extra query parameters to add to the redirect baseUrl.<br />
+   * </ul>
+  */
   searchRedirect: PropTypes.shape({
-    /** The base url that the user is redirected to when submitting a non-empty search value. */
     baseUrl: PropTypes.string,
-    /** The URL query parameter that will be set to the value of the search input element. */
     searchTermParam: PropTypes.string,
-    /** Optional extra query parameters to add to the redirect baseUrl. */
     queryParams: PropTypes.object
   }),
   /** imports the mainnav component */

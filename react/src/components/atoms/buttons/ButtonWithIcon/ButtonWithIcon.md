@@ -1,4 +1,3 @@
-### Description
 A button that displays with an icon component.
 e.g. ButtonSearch, which is used for submitting a keyword search.
 e.g. Button with chevron, which is used for toggling between the expanded state and the collapsed state.

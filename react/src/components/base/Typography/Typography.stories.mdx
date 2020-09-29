@@ -1,0 +1,45 @@
+import { Meta, Story, Canvas,  ArgsTable, CURRENT_SELECTION } from '@storybook/addon-docs/blocks';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Heading from 'MayflowerReactHeadings/Heading';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+import {
+  characters,
+  letters,
+  numbers,
+  styles
+} from './typography.json';
+import './styles.scss';
+import typographyOptions from './Typography.knobs.options';
+const slugifyStyle = (style) => {
+  const [weight, italic] = style.split(' ');
+  return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
+};
+
+<Meta
+  title="brand/typography/Source Code Pro (Monospace Font)" 
+  parameters={{
+    previewTabs: { canvas: { hidden: true } } 
+  }} 
+/>
+
+<div className="page-content">
+  <Heading text="Source Code Pro" level={1} />
+  <SidebarHeading title="Characters" level={2} />
+  <div className="sb-block sb-block--mono">
+    <div className="sb-text">{letters.toUpperCase()}</div>
+    <div className="sb-text">{letters}</div>
+    <hr />
+    <div className="sb-text">{numbers}</div>
+    <hr />
+    <div className="sb-text">{characters}</div>
+    <hr />
+  </div>
+  <div className="sb-block">
+    Source Code Pro is an open source font available on Google Fonts.
+    <DecorativeLink
+      text="Download the fonts or see more information on Google Fonts"
+      href="https://fonts.google.com/specimen/Source+Code+Pro"
+    />
+  </div>
+</div>
+  

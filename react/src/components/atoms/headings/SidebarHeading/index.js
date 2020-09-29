@@ -19,7 +19,7 @@ const SidebarHeading = (props) => {
 
 SidebarHeading.propTypes = {
   /** The heading level e.g. H1, H2, etc. */
-  level: PropTypes.number,
+  level: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**  The title text shown by the heading */
   title: PropTypes.string
 };

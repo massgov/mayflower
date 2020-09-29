@@ -110,23 +110,23 @@ class SectionCard extends React.Component {
 }
 
 SectionCard.propTypes = {
-  // The title of the card, it can be a link or just a heading text.
-  // If title is a link (has href), the link will be rendered as a "Learn More" link on mobile below the title and description.
+  /** The title of the card, it can be a link or just a heading text.
+  If title is a link (has href), the link will be rendered as a "Learn More" link on mobile below the title and description. */
   title: PropTypes.shape({
     // If href is provided, the card title will render as a decorative link. Otherwise it will render as a heading text
     href: PropTypes.string,
     text: PropTypes.string.isRequired
   }),
-  // An optional decorative link rendered at the bottom of the card on desktop. This is usually used to link to a landing page for the category.
+  /** An optional decorative link rendered at the bottom of the card on desktop. This is usually used to link to a landing page for the category. */
   seeAll: PropTypes.shape({
     href: PropTypes.string,
     text: PropTypes.string
   }),
-  // An optional description of the card rendered below the card title.
+  /** An optional description of the card rendered below the card title. */
   description: PropTypes.string,
-  // A unique number index of the card used for setting key and id
+  /** A unique number index of the card used for setting key and id */
   index: PropTypes.number,
-  // An array of child components to render as links inside of the card. Currently the options passed into the card from budget homepages are either CalloutLinks or DecorativeLinks.
+  /** An array of child components to render as links inside of the card. Currently the options passed into the card from budget homepages are either CalloutLinks or DecorativeLinks. */
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 };
 

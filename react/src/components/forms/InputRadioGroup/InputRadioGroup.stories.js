@@ -1,31 +1,35 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, object } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 import { action } from '@storybook/addon-actions';
 
 import InputRadioGroup from './index';
 import inputRadioGroupOptions from './InputRadioGroup.knobs.options';
 import InputRadioGroupDocs from './InputRadioGroup.md';
 
-storiesOf('forms|molecules', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'InputRadioGroup', (() => {
-      const InputRadioGroupProps = {
-        title: text('title', 'Pick your favorite plant'),
-        name: text('group', 'favorite-plant'),
-        outline: boolean('outline', true),
-        defaultSelected: text('defaultSelected', ''),
-        error: boolean('error', false),
-        errorMsg: text('errorMsg', 'You must selected your favorite plant.'),
-        disabled: boolean('disabled', false),
-        inline: boolean('inline', true),
-        radioButtons: object('radioButtons', inputRadioGroupOptions.radioButtons)
-      };
+export const InputRadioGroupExample = (args) => (
+  <InputRadioGroup {...args} />
+);
 
-      return(
-        <InputRadioGroup {...InputRadioGroupProps} onChange={action('onChange')} />
-      );
-    }),
-    { info: InputRadioGroupDocs }
-  );
+InputRadioGroupExample.storyName = 'Default';
+InputRadioGroupExample.args = {
+  title: 'Pick your favorite plant',
+  name: 'favorite-plant',
+  outline: true,
+  defaultSelected: '',
+  error: false,
+  errorMsg: 'You must selected your favorite plant.',
+  disabled: false,
+  inline: true,
+  radioButtons: inputRadioGroupOptions.radioButtons,
+  onChange: action('onChange')
+};
+
+export default {
+  title: 'forms/molecules/InputRadioGroup',
+  component: InputRadioGroup,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={InputRadioGroupDocs} />
+    }
+  }
+};

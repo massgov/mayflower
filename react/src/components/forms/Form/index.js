@@ -10,17 +10,14 @@ import { FormContext } from 'MayflowerReactForms/Input/context';
 
 /* eslint-disable react/no-unused-state */
 
-const Form = (props) => (
-  <FormContext.Consumer>
-    {
-        (formContext) => (
-          <form className="ma__form-page" action="#">
-            {props.children(formContext)}
-          </form>
-        )
-      }
-  </FormContext.Consumer>
-);
+const Form = (props) => {
+  const formContext = React.useContext(FormContext);
+  return(
+    <form className="ma__form-page" action="#">
+      {typeof props.children === 'function' && props.children(formContext)}
+    </form>
+  );
+};
 
 Form.propTypes = {
   children: PropTypes.node

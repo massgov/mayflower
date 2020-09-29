@@ -35,7 +35,7 @@ const ArrowButton = (props) => {
 ArrowButton.propTypes = {
   /** Custom click handler function. */
   onClick: PropTypes.func,
-  /** When populated with a url, this component renders a <a> vs a <button> */
+  /** When populated with a url, this component renders a `<a>` vs a `<button>` */
   href: PropTypes.string,
   /** The text which renders in the standard browser tooltip on hover */
   info: PropTypes.string,
@@ -44,7 +44,6 @@ ArrowButton.propTypes = {
 };
 
 ArrowButton.defaultProps = {
-  onClick: '',
   href: '',
   info: '',
   direction: 'left'

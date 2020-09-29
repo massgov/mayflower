@@ -162,8 +162,8 @@ HelpTip.propTypes = {
   text: PropTypes.string,
   /** The text that will be a clickable inline toolitp */
   triggerText: PropTypes.arrayOf(PropTypes.string),
-  /** The help text that is displayed on clicking the trigger text */
-  /** You can also render children in the help text */
+  /** The help text that is displayed on clicking the trigger text.
+  You can also render children in the help text */
   helpText: PropTypes.arrayOf(PropTypes.string),
   /** The id for the whole component */
   id: PropTypes.string.isRequired,

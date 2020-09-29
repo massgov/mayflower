@@ -1,0 +1,17 @@
+Changed:
+  - project: React
+    component: Storybook
+    description: Adds support for Storybook Controls and removes the usage of knobs.
+    impact: Major
+  - project: React
+    component: Storybook
+    description: Replaces the use of addon-info with Storybook Docs.
+    impact: Major
+  - project: React
+    component: Storybook
+    description: Displays story only pages with .mdx files.
+    impact: Major
+  - project: React
+    component: Storybook
+    description: Transfers all storiesOf usage to CSF storybook format.
+    impact: Major

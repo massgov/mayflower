@@ -1,22 +1,25 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, object } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import SortResults from './index';
 import SortResultsDocs from './SortResults.md';
 import sortResultsOptions from './SortResults.knobs.options';
 
-storiesOf('molecules', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'SortResults', (() => {
-      const props = {
-        label: text('label', 'Sort by:'),
-        sortButtons: object('sortButtons', sortResultsOptions.sortButtons)
-      };
-      return(
-        <SortResults {...props} />
-      );
-    }),
-    { info: SortResultsDocs }
-  );
+export const SortResultsExample = (args) => <SortResults {...args} />;
+
+SortResultsExample.storyName = 'Default';
+SortResultsExample.args = {
+  label: 'Sort by:',
+  sortButtons: sortResultsOptions.sortButtons
+};
+
+
+export default {
+  title: 'molecules/SortResults',
+  component: SortResults,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={SortResultsDocs} />
+    }
+  }
+};

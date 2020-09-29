@@ -63,9 +63,9 @@ const LinkList = (props) => {
 };
 
 LinkList.propTypes = {
-  /** @atoms/headings/CompHeading */
+  /** `@atoms/headings/CompHeading` */
   compHeading: PropTypes.shape(CompHeading.PropTypes),
-  /** short description rendered below the heading, note that this version renders @atoms/text/Paragraph instead of rich text */
+  /** short description rendered below the heading, note that this version renders `@atoms/text/Paragraph` instead of rich text */
   description: PropTypes.shape(Paragraph.PropTypes),
   /** Render links as a stacked list instead of two columns */
   stacked: PropTypes.bool,
@@ -73,7 +73,7 @@ LinkList.propTypes = {
   hideBullets: PropTypes.bool,
   /** List of links rendered */
   links: PropTypes.arrayOf(PropTypes.shape(DecorativeLink.PropTypes)).isRequired,
-  /** @atoms/DecorativeLink as see all link */
+  /** `@atoms/DecorativeLink` as see all link */
   more: PropTypes.shape(DecorativeLink.PropTypes)
 };
 
