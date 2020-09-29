@@ -16,35 +16,30 @@ const slugifyStyle = (style) => {
 };
 
 <Meta
-  title="brand/typography" 
+  title="brand/typography/Source Code Pro (Monospace Font)" 
   parameters={{
     previewTabs: { canvas: { hidden: true } } 
   }} 
 />
 
-
-
-<Canvas>
-  <Story name="Source Code Pro (Monospace Font)">
-    <div className="page-content">
-      <Heading text="Source Code Pro" level={1} />
-      <SidebarHeading title="Characters" level={2} />
-      <div className="sb-block sb-block--mono">
-        <div className="sb-text">{letters.toUpperCase()}</div>
-        <div className="sb-text">{letters}</div>
-        <hr />
-        <div className="sb-text">{numbers}</div>
-        <hr />
-        <div className="sb-text">{characters}</div>
-        <hr />
-      </div>
-      <div className="sb-block">
-        Source Code Pro is an open source font available on Google Fonts.
-        <DecorativeLink
-          text="Download the fonts or see more information on Google Fonts"
-          href="https://fonts.google.com/specimen/Source+Code+Pro"
-        />
-      </div>
-    </div>
-  </Story>
-</Canvas>
+<div className="page-content">
+  <Heading text="Source Code Pro" level={1} />
+  <SidebarHeading title="Characters" level={2} />
+  <div className="sb-block sb-block--mono">
+    <div className="sb-text">{letters.toUpperCase()}</div>
+    <div className="sb-text">{letters}</div>
+    <hr />
+    <div className="sb-text">{numbers}</div>
+    <hr />
+    <div className="sb-text">{characters}</div>
+    <hr />
+  </div>
+  <div className="sb-block">
+    Source Code Pro is an open source font available on Google Fonts.
+    <DecorativeLink
+      text="Download the fonts or see more information on Google Fonts"
+      href="https://fonts.google.com/specimen/Source+Code+Pro"
+    />
+  </div>
+</div>
+  
