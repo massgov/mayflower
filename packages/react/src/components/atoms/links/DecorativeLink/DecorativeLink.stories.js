@@ -1,43 +1,66 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
+import IconDownload from 'MayflowerReactBase/Icon/IconDownload';
 import DecorativeLink from './index';
 import DecorativeLinkDocs from './DecorativeLink.md';
-import IconDownload from 'MayflowerReactBase/Icon/IconDownload';
 
-storiesOf('atoms/links', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'DecorativeLink', (() => {
-      const props = {
-        info: text('DecorativeLink: info', 'This is a clickable styled link', 'DecorativeLink'),
-        text: text('DecorativeLink: text', 'HTML Page as a Link', 'DecorativeLink'),
-        href: text('DecorativeLink: href', '#', 'DecorativeLink'),
-        showFileIcon: boolean('DecorativeLink: showFileIcon', false, 'DecorativeLink')
-      };
-      const fileProps = {
-        info: text('DecorativeLink as File: info', 'This is a clickable styled link', 'DecorativeLink as File'),
-        text: text('DecorativeLink as File: text', 'File as a Link', 'DecorativeLink as File'),
-        href: text('DecorativeLink as File: href', 'https://www.mass.gov/test.pdf', 'DecorativeLink as File'),
-        showFileIcon: boolean('DecorativeLink as File: showFileIcon', true, 'DecorativeLink as File')
-      };
-      const fileDlProps = {
-        info: text('DecorativeLink as File Dl: info', 'This is a clickable styled link', 'DecorativeLink as File Download'),
-        text: text('DecorativeLink as File Dl: text', 'File Download as a Link', 'DecorativeLink as File Download'),
-        href: text('DecorativeLink as File Dl: href', 'https://www.mass.gov/test.pdf', 'DecorativeLink as File Download'),
-        details: text('DecorativeLink as File Dl: details', '(30 MB)', 'DecorativeLink as File Download'),
-        showFileIcon: boolean('DecorativeLink as as File Dl: showFileIcon', true, 'DecorativeLink as File'),
-        icon: <IconDownload width={15} height={15} />
-      };
-      return(
-        <React.Fragment>
-          <DecorativeLink {...props} />
-          <hr />
-          <DecorativeLink {...fileProps} />
-          <hr />
-          <DecorativeLink {...fileDlProps} />
-        </React.Fragment>
-      );
-    }),
-    { info: DecorativeLinkDocs }
-  );
+const Template = (args) => <DecorativeLink {...args} />;
+
+export const DecorativeLinkExample = Template.bind({});
+
+DecorativeLinkExample.storyName = 'Default';
+
+DecorativeLinkExample.args = {
+  info: 'This is a clickable styled link',
+  text: 'HTML Page as a Link',
+  href: '#',
+  showFileIcon: false
+};
+DecorativeLinkExample.argTypes = {
+  icon: {
+    control: {
+      disable: true
+    }
+  }
+};
+
+export const FileExample = Template.bind({});
+FileExample.args = {
+  info: 'This is a clickable styled link',
+  text: 'File as a Link',
+  href: 'https://www.mass.gov/test.pdf',
+  showFileIcon: true
+};
+FileExample.argTypes = {
+  icon: {
+    control: {
+      disable: true
+    }
+  }
+};
+export const FileDownloadExample = Template.bind({});
+FileDownloadExample.args = {
+  info: 'This is a clickable styled link',
+  text: 'File Download as a Link',
+  href: 'https://www.mass.gov/test.pdf',
+  details: '(30 MB)',
+  showFileIcon: true,
+  icon: <IconDownload width={15} height={15} />
+};
+FileDownloadExample.argTypes = {
+  icon: {
+    control: {
+      disable: true
+    }
+  }
+};
+
+export default {
+  title: 'atoms/links/DecorativeLink',
+  component: DecorativeLink,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={DecorativeLinkDocs} />
+    }
+  }
+};

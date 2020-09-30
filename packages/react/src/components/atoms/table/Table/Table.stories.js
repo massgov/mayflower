@@ -1,20 +1,24 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, object, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import Table from '.';
 import TableDocs from './Table.md';
 import tableOptions from './Table.knobs.options';
 
+export const TableExample = (args) => <Table {...args} />;
 
-storiesOf('atoms/table', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'Table', (() => {
-      tableOptions.feeTable = object('feeTable', tableOptions.feeTable);
-      const tableProps = JSON.parse(JSON.stringify(tableOptions));
-      tableProps.id = text('id', tableOptions.id);
-      return(<Table {...tableProps.feeTable} />);
-    }),
-    { info: TableDocs }
-  );
+TableExample.storyName = 'Default';
+TableExample.args = {
+  id: tableOptions.id,
+  ...tableOptions.feeTable
+};
+
+export default {
+  title: 'atoms/Table',
+  component: Table,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={TableDocs} />
+    }
+  }
+};

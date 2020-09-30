@@ -1,36 +1,35 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import UtilityNav from './index';
 import UtilityNavDocs from './UtilityNav.md';
 import UtilityNavData from './UtilityNav.knob.options';
 
-storiesOf('organisms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'UtilityNav', () => {
-      const googleLanguages = boolean('UtilityNav googleLanguages', false);
-      const newProps = {
-        items: [],
-        googleLanguages
-      };
-      newProps.items = UtilityNavData.items.map((item, itemIndex) => {
-        const icons = {
-          building: 'building',
-          login: 'login'
-        };
-        const storyProps = {
-          text: text(`UtilityNav item${itemIndex}: text`, item.text, `Item ${itemIndex}`),
-          ariaLabelText: text(`UtilityNav item${itemIndex}: ariaLabelText`, item.ariaLabelText, `Item ${itemIndex}`),
-          closeText: text(`UtilityNav item${itemIndex}: closeText`, item.closeText, `Item ${itemIndex}`),
-          href: text(`UtilityNav item${itemIndex}: href`, item.href, `Item ${itemIndex}`),
-          panel: object(`UtilityNav item${itemIndex}: panel`, item.panel, `Item ${itemIndex}`)
-        };
-        storyProps.icon = select(`UtilityNav item${itemIndex}: icons`, icons, item.icon, `Item ${itemIndex}`);
-        return(storyProps);
-      });
-      return(<UtilityNav {...newProps} />);
-    },
-    { info: UtilityNavDocs }
-  );
+export const UtilityNavExample = (args) => <UtilityNav {...args} />;
+
+
+UtilityNavExample.storyName = 'Default';
+UtilityNavExample.args = {
+  googleLanguages: false,
+  items: UtilityNavData.items.map((item, itemIndex) => {
+    const storyProps = {
+      text: item.text,
+      ariaLabelText: item.ariaLabelText,
+      closeText: item.closeText,
+      href: item.href,
+      panel: item.panel
+    };
+    storyProps.icon = item.icon;
+    return(storyProps);
+  })
+};
+
+export default {
+  title: 'organisms/UtilityNav',
+  component: UtilityNav,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={UtilityNavDocs} />
+    }
+  }
+};

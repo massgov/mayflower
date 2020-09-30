@@ -15,7 +15,7 @@ references:
 react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:12.18.0
+    - image: circleci/node:12.18.0-browsers
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
@@ -186,11 +186,14 @@ jobs:
           name: Mayflower React Build
           command: cd packages/react && pnpm run build
       - run:
-          name: Mayflower React Linter
-          command: cd packages/react && pnpm run lint
-      - run:
           name: Mayflower React Build Storybook
           command: cd packages/react && pnpm run build-storybook
+      - run:
+          name: Mayflower React Storybook Extract
+          command: cd packages/react && pnpm run storybook:extract
+      - run:
+          name: Mayflower React Linter
+          command: cd packages/react && pnpm run lint
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]

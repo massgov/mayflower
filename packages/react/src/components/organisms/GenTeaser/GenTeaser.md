@@ -59,7 +59,7 @@ Pass a State to `<GenTeaser>` via `<GenTeaser.Stat>`. This will render a key val
 
 #### Title
 
-Pass a Title to <GenTeaser> via `<GenTeaser.Title>`. Pass `<GenTeaser.Title>` inside `<GenTeaser.Details>`.
+Pass a Title to `<GenTeaser>` via `<GenTeaser.Title>`. Pass `<GenTeaser.Title>` inside `<GenTeaser.Details>`.
 
 
 #### Emphasis
@@ -76,7 +76,7 @@ Pass `<GenTeaser.Orgs>` inside `<GenTeaser.Emphasis>`. This should render the pu
 
 #### Description
 
-Pass a description to <GenTeaser> via `<GenTeaser.Description>`. Pass `<GenTeaser.Description>` inside `<GenTeaser.Details>`.
+Pass a description to `<GenTeaser>` via `<GenTeaser.Description>`. Pass `<GenTeaser.Description>` inside `<GenTeaser.Details>`.
 
 #### SearchBar
 
@@ -105,4 +105,4 @@ Pass `<GenTeaser.Address>`, `<GenTeaser.Phone>`, `<GenTeaser.Event>`, and `<GenT
 
 #### Tags
 
-Pass `<GenTeaser.Tags>` inside `<GenTeaser.Details>. This expects an array of tags an will render these in a row of grey squares in the Teaser.
+Pass `<GenTeaser.Tags>` inside `<GenTeaser.Details>`. This expects an array of tags an will render these in a row of grey squares in the Teaser.

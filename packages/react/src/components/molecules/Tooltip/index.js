@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import IconQuestionmark from 'MayflowerReactBase/Icon/IconQuestionmark';
 
 const Tooltip = (tooltip) => {
-  const HeadingTag = `h${tooltip.level ? tooltip.level : 2}`;
+  const HeadingTag = `h${tooltip.level}`;
   const location = (tooltip.location === 'above') ? 'ma__tooltip__modal--above' : 'ma__tooltip__modal--below';
   const openIcon = tooltip.openIcon ? <IconQuestionmark height={20} width={20} /> : '';
 
@@ -54,6 +54,10 @@ const Tooltip = (tooltip) => {
       </div>
     </div>
   );
+};
+
+Tooltip.defaultValue = {
+  level: 2
 };
 
 Tooltip.propTypes = {

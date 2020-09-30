@@ -1,23 +1,34 @@
 import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, date } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import EventTime from './index';
 
-const startTime = new Date('March 15, 2002 03:00:00');
-const endTime = new Date('March 15, 2002 12:00:00');
+export default {
+  title: 'atoms/contact/EventTime',
+  component: EventTime,
+  parameters: {
+    docs: {
+      page: () => <StoryPage />
+    }
+  }
+};
 
-storiesOf('atoms/contact', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('EventTime', (() => {
-    const props = {
-      startDate: date('startDate', startTime),
-      endDate: date('endDate', endTime),
-      details: text('details', 'First come first serve.')
-    };
-    return(
-      <EventTime {...props} />
-    );
-  }));
-
+export const EventTimeExample = (args) => <EventTime {...args} />;
+EventTimeExample.storyName = 'Default';
+EventTimeExample.args = {
+  startDate: new Date('March 15, 2002 03:00:00'),
+  endDate: new Date('March 15, 2002 12:00:00'),
+  details: 'First come first serve.'
+};
+EventTimeExample.argTypes = {
+  startDate: {
+    control: {
+      type: 'date'
+    }
+  },
+  endDate: {
+    control: {
+      type: 'date'
+    }
+  }
+};

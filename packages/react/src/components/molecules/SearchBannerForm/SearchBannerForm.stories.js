@@ -1,42 +1,53 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, array, text, boolean, select, number } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 import { action } from '@storybook/addon-actions';
 
 import SearchBannerForm from '.';
-import SearchBannerDocs from './SearchBannerForm.md';
+import SearchBannerFormDocs from './SearchBannerForm.md';
 
-storiesOf('molecules', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'SearchBannerForm', (() => {
-      const props = {
-        action: '#',
-        onSubmit: action('Form submitted'),
-        inputText: {
-          hiddenLabel: boolean('SearchBannerForm inputText: hiddenLabel', false, 'InputText'),
-          labelText: text('SearchBannerForm inputText: labelText', 'Search terms', 'InputText'),
-          required: boolean('SearchBannerForm inputText: required', false, 'InputText'),
-          id: text('SearchBannerForm inputText: id', 'GUID138490237', 'InputText'),
-          name: text('SearchBannerForm inputText: name', 'search', 'InputText'),
-          type: select('SearchBannerForm inputText: type', ['text', 'email', 'number'], 'text', 'InputText'),
-          width: number('SearchBannerForm inputText: width', 0, 'InputText'),
-          maxlength: number('SearchBannerForm inputText: maxlength', 0, 'InputText'),
-          pattern: text('SearchBannerForm inputText: pattern', '', 'InputText'),
-          placeholder: text('SearchBannerForm inputText: placeholder', 'Search...', 'InputText'),
-          errorMsg: text('SearchBannerForm inputText: errorMsg', '', 'InputText'),
-          onChange: action('Text input modified')
-        },
-        buttonSearch: {
-          classes: array('SearchBannerForm buttonSearch: classes', [], ' ', 'ButtonSearch'),
-          onClick: action('Search button clicked'),
-          text: text('SearchBannerForm buttonSearch: text', 'Search', 'ButtonSearch'),
-          ariaLabel: text('SearchBannerForm buttonSearch: ariaLabel', 'Search', 'ButtonSearch')
-        }
-      };
-      return(
-        <SearchBannerForm {...props} />
-      );
-    }),
-    { info: SearchBannerDocs }
-  );
+export const SearchBannerFormExample = (args) => <SearchBannerForm {...args} />;
+
+SearchBannerFormExample.storyName = 'Default';
+SearchBannerFormExample.args = {
+  action: '#',
+  onSubmit: action('Form submitted'),
+  inputText: {
+    hiddenLabel: false,
+    labelText: 'Search terms',
+    required: false,
+    id: 'GUID138490237',
+    name: 'search',
+    type: 'text',
+    width: 0,
+    maxlength: 0,
+    pattern: '',
+    placeholder: 'Search...',
+    errorMsg: '',
+    onChange: action('Text input modified')
+  },
+  buttonSearch: {
+    classes: [],
+    onClick: action('Search button clicked'),
+    text: 'Search',
+    ariaLabel: 'Search'
+  }
+};
+SearchBannerFormExample.argTypes = {
+  type: {
+    control: {
+      type: 'select',
+      options: ['text', 'email', 'number']
+    }
+  }
+};
+
+
+export default {
+  title: 'molecules/SearchBannerForm',
+  component: SearchBannerForm,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={SearchBannerFormDocs} />
+    }
+  }
+};

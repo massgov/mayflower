@@ -37,9 +37,9 @@ class FootNoteLink extends React.Component {
 }
 
 FootNoteLink.propTypes = {
-  /** Pair the FootNoteLink molecule with the FootNote. */
-  /** The number/index of the footnote item you are referencing. */
-  /** If this is the second footnote on the page, `i` would be 2. */
+  /** Pair the FootNoteLink molecule with the FootNote.
+  The number/index of the footnote item you are referencing.
+  If this is the second footnote on the page, `i` would be 2. */
   index: PropTypes.string
 };
 

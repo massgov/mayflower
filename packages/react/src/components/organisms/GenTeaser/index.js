@@ -179,7 +179,7 @@ const GenTeaserStat = (props) => {
 };
 
 GenTeaserStat.propTypes = {
-  /** Expects to receive children directly (e.g. <span><b>103 item</b></span>). */
+  /** Expects to receive children directly (e.g. `<span><b>103 item</b></span>`). */
   children: PropTypes.node.isRequired
 };
 

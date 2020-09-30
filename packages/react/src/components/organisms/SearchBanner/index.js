@@ -100,11 +100,11 @@ class SearchBanner extends React.Component {
 }
 
 SearchBanner.propTypes = {
-  /** @molecules/HeaderSearch */
+  /** `@molecules/HeaderSearch` */
   searchBox: PropTypes.shape(PropTypes.HeaderSearch).isRequired,
-  /** @molecules/Tabs */
+  /** `@molecules/Tabs` */
   tabs: PropTypes.shape(PropTypes.Tabs),
-  /** @organisms/FilterBox */
+  /** `@organisms/FilterBox` */
   filterBox: PropTypes.shape(PropTypes.FilterBox),
   /** filterbox toggle button custom function */
   toggleButtonOnClick: PropTypes.func,

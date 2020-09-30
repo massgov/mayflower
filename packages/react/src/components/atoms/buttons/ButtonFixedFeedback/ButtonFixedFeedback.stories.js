@@ -1,22 +1,23 @@
 import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import ButtonFixedFeedback from './index';
 import ButtonFixedFeedbackDocs from './ButtonFixedFeedback.md';
 
-storiesOf('atoms/buttons', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'ButtonFixedFeedback', (() => {
-      const props = {
-        href: text('href', '#'),
-        text: text('text', 'Feedback')
-      };
-      return(
-        <ButtonFixedFeedback {...props} />
-      );
-    }),
-    { info: ButtonFixedFeedbackDocs }
-  );
+export default {
+  title: 'atoms/buttons/ButtonFixedFeedback',
+  component: ButtonFixedFeedback,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={ButtonFixedFeedbackDocs} />
+    },
+    layout: 'centered'
+  }
+};
+
+export const ButtonFixedFeedbackExample = (args) => <ButtonFixedFeedback {...args} />;
+ButtonFixedFeedbackExample.storyName = 'Default';
+ButtonFixedFeedbackExample.args = {
+  href: '#',
+  text: 'Feedback'
+};

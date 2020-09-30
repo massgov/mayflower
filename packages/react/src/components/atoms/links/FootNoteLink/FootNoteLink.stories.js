@@ -1,25 +1,33 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import FootNoteLink from './index';
 import FootNote from '../FootNote/index';
 import FootNoteLinkDocs from './FootNoteLink.md';
 
-storiesOf('atoms/links', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'FootNoteLink', (() => {
-      const props = {
-        index: text('index', '1')
-      };
-      const rawHtml = 'This is the footnote <a href="#">(reference)</a>.';
-      return(
-        <div>
-          <p>This is where the footnote would be referenced. <FootNoteLink index={props.index} /> </p>
-          <FootNote index={props.index}>{rawHtml}</FootNote>
-        </div>
-      );
-    }),
-    { info: FootNoteLinkDocs }
-  );
+export const FootNoteLinkExample = (args) => (
+  <div>
+    <p>
+      This is where the footnote would be referenced.&nbsp;
+      <FootNoteLink index={args.index} />
+    </p>
+    <FootNote {...args} />
+  </div>
+);
+
+FootNoteLinkExample.storyName = 'Default';
+
+FootNoteLinkExample.args = {
+  index: '1',
+  children: 'This is the footnote <a href="https://www.mass.gov/">(reference)</a>.'
+};
+
+export default {
+  title: 'atoms/links/FootNoteLink',
+  component: FootNoteLink,
+  parameters: {
+    docs: {
+      page: () => <StoryPage StoryComponent={FootNoteLinkExample} Description={FootNoteLinkDocs} />
+    }
+  }
+};

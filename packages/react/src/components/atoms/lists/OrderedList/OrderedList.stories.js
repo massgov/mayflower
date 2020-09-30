@@ -1,18 +1,35 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import OrderedList from './index';
 import OrderedListDocs from './OrderedList.md';
-import orderedOptions from './OrderedList.knob.options';
 
-storiesOf('atoms/lists', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'OrderedList', (() => {
-      const orderedOptionsWithKnobs = Object.assign(...Object.entries(orderedOptions).map(([k, v]) => (
-        { [k]: v(OrderedList.defaultProps[k]) })));
-      return(<OrderedList {...orderedOptionsWithKnobs} />);
-    }),
-    { info: OrderedListDocs }
-  );
+export const OrderedListExample = (args) => (<OrderedList {...args} />);
+
+OrderedListExample.storyName = 'Default';
+OrderedListExample.args = {
+  sublist: [{
+    text: 'This is a list item in an ordered list'
+  }, {
+    text: 'An ordered list is a list in which the sequence of items is important.'
+  }, {
+    text: 'Lists can be nested inside of each other',
+    sublist: [{
+      text: 'This is a nested list item'
+    }, {
+      text: 'This is another nested list item in an ordered list'
+    }]
+  }, {
+    text: 'This is the last list item'
+  }]
+};
+
+export default {
+  title: 'atoms/lists/OrderedList',
+  component: OrderedList,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={OrderedListDocs} />
+    }
+  }
+};

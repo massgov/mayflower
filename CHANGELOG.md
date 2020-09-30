@@ -1,6 +1,18 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.55.1 (9/2/2020)
+### Fixed 
+- (React) [InputCurrency] Fix onBlur bug to allow value 0 to be returned in onBlur callback. (#1161)
+- (React) [InputCurrency] Fix onBlur bug to allow onBlur callback to fire on input with `$`. (#1163)
+
+## 9.55.0 (8/24/2020)
+### Changed 
+- (React) [MainNav] DP-19425: Fix formatting of COVID global nav link on search.mass.gov (#1143)
+
+### Fixed 
+- (React, Assets) [FooterSlim] Fix markup semantic and classnames. (#1148)
+
 ## 9.54.0 (8/10/2020)
 ### Added
 - (Assets) [Font] DP-19538: Consolidate font sizes into a variable scale. (#1055)

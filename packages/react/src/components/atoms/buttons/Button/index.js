@@ -41,13 +41,13 @@ const Button = (button) => {
 Button.propTypes = {
   /** Custom click handler function. */
   onClick: PropTypes.func,
-  /** When populated with a url, this component renders a <a> vs a <button> */
+  /** When populated with a url, this component renders an `<a>` vs a `<button>` */
   href: PropTypes.string,
   /** The text which renders in the standard browser tooltip on hover */
   info: PropTypes.string,
   /** Button or link text */
   text: PropTypes.string,
-  /** HTML <button> 'type' attribute  */
+  /** HTML button 'type' attribute  */
   type: PropTypes.oneOf(['submit', 'reset', 'button', '']),
   /** Create a smaller button */
   size: PropTypes.oneOf(['', 'small', 'large']),
@@ -55,7 +55,7 @@ Button.propTypes = {
   theme: PropTypes.oneOf(['', 'c-primary-alt', 'c-highlight', 'c-gray-dark']),
   /** Button usage */
   usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary']),
-  /** Set button to disabled */
+  /** Set `<button>` to disabled */
   disabled: PropTypes.bool,
   /** Custom classnames appending to the button */
   classes: PropTypes.arrayOf(PropTypes.string)

@@ -5,17 +5,34 @@ const nodeModules = path.resolve(path.join(process.cwd(), 'node_modules'));
 const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
 
 module.exports = {
-  stories: ['../src/**/*.stories.js'],
+  stories: ['../src/**/*.stories.@(js|mdx)'],
   addons: [
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        transcludeMarkdown: true
+      }
+    },
+    '@storybook/addon-controls',
     '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-knobs',
     '@storybook/addon-viewport',
-    '@storybook/addon-storysource',
+    {
+      name: '@storybook/addon-storysource',
+      options: {
+        rule: {
+          enforce: 'pre',
+        }
+      }
+    },
     '@storybook/addon-a11y',
     {
       name: '@storybook/preset-scss',
       options: {
+        cssLoaderOptions: {
+          sourceMap: true
+        },
         sassLoaderOptions: {
           sourceMap: true,
           implementation: require('sass'),
@@ -36,12 +53,7 @@ module.exports = {
     // modify storybook's file-loader rule to avoid conflicts with svgr
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test && rule.test.test('.svg'));
     fileLoaderRule.exclude = iconPath;
-    // Configure the storysource plugin.
-    config.module.rules.push({
-      test: /\.stories\.js?$/,
-      loader: require.resolve('@storybook/addon-storysource/loader'),
-      enforce: 'pre',
-    });
+    
 
     config.module.rules.unshift({
       test: /\.svg$/,
@@ -61,6 +73,7 @@ module.exports = {
       ...config.resolve,
       alias: {
         ...config.resolve.alias,
+        StorybookConfig: path.resolve(__dirname, './'),
         MayflowerReactComponents: path.resolve(__dirname, '../src/components'),
         MayflowerReactAtoms: path.resolve(__dirname, '../src/components/atoms'),
         MayflowerReactAnimations: path.resolve(__dirname, '../src/components/animations'),

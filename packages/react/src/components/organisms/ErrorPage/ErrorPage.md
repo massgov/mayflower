@@ -1,4 +1,3 @@
-### Description
 This Pattern shows information about why the page didn't load.
 
 

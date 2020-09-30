@@ -141,21 +141,23 @@ const NavItemLink = (obj) => {
 UtilityNav.propTypes = {
   /** Boolean that controls when to show the google language dom. */
   googleLanguages: PropTypes.bool,
-  /** An array of navigation items to display to the user. */
+  /** An array of navigation items to display to the user: <ul>
+   * `text:` The text to display for the main navigation item.<br />
+   * `ariaLabelText:` Defines the label to use with aria-label.<br />
+   * `icon:` The icon to display to the left of text.<br />
+   * `href:` The href for the link if not a button.<br />
+   * `closeText:` The text to use on the close link.<br />
+   * `panel:` Displays an utility panel when text is clicked.
+   * </ul>
+  */
   items: PropTypes.arrayOf(PropTypes.shape({
-    /** The text to display for the main navigation item. */
     text: PropTypes.string.isRequired,
-    /** Defines the label to use with aria-label. */
     ariaLabelText: PropTypes.string,
-    /** The icon to display to the left of text. */
     icon: PropTypes.oneOf([
       'building', 'login'
     ]),
-    /** The href for the link if not a button. */
     href: PropTypes.string,
-    /** The text to use on the close link. */
     closeText: PropTypes.string,
-    /** Displays an utility panel when text is clicked. */
     panel: PropTypes.shape(UtilityPanel.propTypes)
   })),
   /** Boolean that controls if any UtilityNav div should be should be open on mobile. */

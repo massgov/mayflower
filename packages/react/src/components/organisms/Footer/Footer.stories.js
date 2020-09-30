@@ -1,60 +1,60 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, object, boolean, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 import stateSeal from '@massds/mayflower-assets/static/images/stateseal.png';
-import Footer from './index';
-import FooterDocs from './Footer.md';
 import FooterLinksData from 'MayflowerReactMolecules/FooterLinks/FooterLinks.json';
 import SocialLinksData from 'MayflowerReactMolecules/SocialLinks/SocialLinks.json';
 import FooterLinksLiveData from 'MayflowerReactMolecules/FooterLinks/FooterLinksLive.json';
 import SocialLinksLiveData from 'MayflowerReactMolecules/SocialLinks/SocialLinksLive.json';
+import Footer from './index';
+import FooterDocs from './Footer.md';
 
+export const FooterExample = (args) => <Footer {...args} />;
 
-storiesOf('organisms/Footer', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'Footer', () => {
-      const props = {
-        footerLinks: object('footerLinks', FooterLinksData),
-        showNavHeading: boolean('showNavHeading', true),
-        socialLinks: object('socialLinksData', SocialLinksData),
-        footerLogo: object('footer.footerLogo', {
-          domain: text('footer.footerLogo.domain', 'https://www.mass.gov/'),
-          src: text('footer.footerLogo.src', stateSeal),
-          title: text('footer.footerLogo.title', 'Mass.gov homepage')
-        }),
-        footerText: object('footerText', {
-          copyright: '2018 Commonwealth of Massachusetts.',
-          description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-          privacyPolicy: {
-            text: 'Mass.gov Privacy Policy',
-            url: 'https://www.mass.gov/privacypolicy'
-          }
-        })
-      };
-      return(<Footer {...props} />);
-    },
-    { info: FooterDocs }
-  )
-  .add(
-    'Footer with live JSON', () => {
-      const props = {
-        footerLinks: object('footerLinks', FooterLinksLiveData),
-        showNavHeading: boolean('showNavHeading', false),
-        socialLinks: object('socialLinks', SocialLinksLiveData),
-        footerLogo: {
-          src: text('footer.footerLogo.src', stateSeal)
-        },
-        footerText: object('footerText', {
-          copyright: '2018 Commonwealth of Massachusetts.',
-          description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-          privacyPolicy: {
-            text: 'Mass.gov Privacy Policy',
-            url: 'https://www.mass.gov/privacypolicy'
-          }
-        })
-      };
-      return(<Footer {...props} />);
-    },
-    { info: FooterDocs }
-  );
+FooterExample.storyName = 'Default';
+FooterExample.args = {
+  footerLinks: FooterLinksData,
+  showNavHeading: true,
+  socialLinks: SocialLinksData,
+  footerLogo: {
+    domain: 'https://www.mass.gov/',
+    src: stateSeal,
+    title: 'Mass.gov homepage'
+  },
+  footerText: {
+    copyright: '2020 Commonwealth of Massachusetts.',
+    description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
+    privacyPolicy: {
+      text: 'Mass.gov Privacy Policy',
+      url: 'https://www.mass.gov/privacypolicy'
+    }
+  }
+};
+
+export const FooterLiveData = (args) => <Footer {...args} />;
+FooterLiveData.storyName = 'Footer with live JSON';
+FooterLiveData.args = {
+  footerLinks: FooterLinksLiveData,
+  showNavHeading: false,
+  socialLinks: SocialLinksLiveData,
+  footerLogo: {
+    src: stateSeal
+  },
+  footerText: {
+    copyright: '2020 Commonwealth of Massachusetts.',
+    description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
+    privacyPolicy: {
+      text: 'Mass.gov Privacy Policy',
+      url: 'https://www.mass.gov/privacypolicy'
+    }
+  }
+};
+
+export default {
+  title: 'organisms/Footer',
+  component: Footer,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={FooterDocs} />
+    }
+  }
+};

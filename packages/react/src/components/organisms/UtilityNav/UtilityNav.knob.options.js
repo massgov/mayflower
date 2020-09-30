@@ -2,7 +2,7 @@ export default {
   items: [{
     text: 'All Budgets',
     ariaLabelText: '',
-    icon: 'building',
+    icon: 'IconBuilding',
     href: 'https://www.mass.gov'
   }, {
     text: 'State Organizations',
@@ -17,7 +17,7 @@ export default {
   }, {
     text: 'Log in to...',
     ariaLabelText: 'Log in to the most requested services',
-    icon: 'login',
+    icon: 'IconLogin',
     closeText: 'Close',
     panel: {
       description: {

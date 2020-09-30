@@ -59,9 +59,9 @@ class Tags extends React.Component {
 }
 
 Tags.propTypes = {
-  /** The tags applied to the search list
-        type: The type of tag
-        text: The text displayed by the tag (required)
+  /** The tags applied to the search list <br/>
+        type: The type of tag <br />
+        text: The text displayed by the tag (required) <br />
         value: The value of the tag  */
   tags: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.string,

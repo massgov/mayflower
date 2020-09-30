@@ -2,7 +2,7 @@
 module.exports = async (page, scenario, vp) => {
   await page.setRequestInterception(true);
   page.on('request', interceptRequest);
-}
+};
 
 function escapeRegexp(string) {
   return string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
@@ -33,13 +33,13 @@ async function interceptRequest(request) {
     request.respond({
       status: 301,
       headers: {"Location": `https://via.placeholder.com/${urlMatch[1]}/B2DEA2.png?text=Static%20Map`}
-    })
-    return
+    });
+    return;
   }
   // Conditionally block requests if they match our regex.
   if(bannedRE.test(request.url())) {
-    request.abort()
+    request.abort();
   } else {
-    request.continue()
+    request.continue();
   }
 }
