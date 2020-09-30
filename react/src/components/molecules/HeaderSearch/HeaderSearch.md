@@ -1,4 +1,3 @@
-### Description
 The search form that displays in the header.
 
 ### Pattern Contains

@@ -1,23 +1,47 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
+import { action } from '@storybook/addon-actions';
 
 import InputSlider from './index';
-import InputSliderOptions from './InputSlider.knobs.options';
 import InputSliderDocs from './InputSlider.md';
 
-storiesOf('forms|atoms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'InputSlider', (() => {
-      const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
-        { [k]: v() })));
-      const ticks = [];
-      Object.keys(inputTextOptionsWithKnobs.ticks).forEach((tick) => ticks.push([tick, inputTextOptionsWithKnobs.ticks[tick]]));
-      inputTextOptionsWithKnobs.ticks = ticks;
-      return(
-        <InputSlider {...inputTextOptionsWithKnobs} />
-      );
-    }),
-    { info: InputSliderDocs }
-  );
+export const InputSliderExample = (args) => (
+  <InputSlider {...args} />
+);
+
+InputSliderExample.storyName = 'Default';
+InputSliderExample.args = {
+  labelText: 'Family Leave',
+  id: 'text-input',
+  disabled: false,
+  required: true,
+  defaultValue: '0',
+  axis: 'x',
+  max: 1,
+  min: 0,
+  step: 0.01,
+  ticks: [[0, '0%'], [0.6, 'Minimum requirement'], [1, '100%']],
+  domain: [0, 1],
+  onChange: action('inputSlider.onChange'),
+  onUpdate: action('inputSlider.onUpdate'),
+  skipped: false,
+  displayValueFormat: 'percentage'
+};
+InputSliderExample.argTypes = {
+  displayValueFormat: {
+    control: {
+      type: 'select',
+      options: ['percentage', 'value', null]
+    }
+  }
+};
+
+export default {
+  title: 'forms/atoms/InputSlider',
+  component: InputSlider,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={InputSliderDocs} />
+    }
+  }
+};

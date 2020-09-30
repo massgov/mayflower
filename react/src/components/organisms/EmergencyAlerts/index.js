@@ -125,13 +125,14 @@ EmergencyAlerts.propTypes = {
   emergencyHeader: PropTypes.shape(EmergencyHeader.propTypes),
   /** The props for the button alert */
   buttonAlert: PropTypes.shape(ButtonAlert.propTypes),
-  /* An array of alter messages */
+  /** An array of alert messages: <br />
+   * `message:` A message describing the event.<br />
+   * `timeStamp:` A string representing the time of the event.<br />
+   * `link:` An optional function whose return value is a link to take the user to page with more information.
+  */
   alerts: PropTypes.arrayOf(PropTypes.shape({
-    /** A message describing the event. */
     message: PropTypes.string.isRequired,
-    /** A string representing the time of the event. */
     timeStamp: PropTypes.string,
-    /** An optional function whose return value is a link to take the user to page with more information. */
     link: PropTypes.func
   })),
   /** Whether or not to render a close button if not alerts are provided */

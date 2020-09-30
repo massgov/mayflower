@@ -1,32 +1,37 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, number, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
-import HeaderSlim from '.';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
-import Button from 'MayflowerReactButtons/Button';
+import HeaderSlim from '.';
 
-storiesOf('organisms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('HeaderSlim', () => {
-    const siteLogoProps = {
-      url: {
-        domain: text('HeaderSlim siteLogo: url domain', 'https://www.mass.gov/')
-      },
-      image: {
-        src: text('HeaderSlim siteLogo: image src', logo),
-        alt: text('HeaderSlim siteLogo: image alt', 'Massachusetts state seal'),
-        width: number('HeaderSlim siteLogo: image width', 45),
-        height: number('HeaderSlim siteLogo: image height', 45)
-      },
-      siteName: text('HeaderSlim siteLogo: siteName', 'Mass.gov'),
-      title: text('HeaderSlim siteLogo: title', 'Mass.gov homepage')
-    };
-    const headerProps = {
-      siteLogo: <SiteLogo {...siteLogoProps} />
-    };
-    return(
-      <HeaderSlim {...headerProps} />
-    );
-  });
+export const HeaderSlimExample = (args) => <HeaderSlim {...args} />;
+
+HeaderSlimExample.storyName = 'Default';
+HeaderSlimExample.args = {
+  siteLogo: (
+    <SiteLogo
+      url={{
+        domain: 'https://www.mass.gov/'
+      }}
+      image={{
+        src: logo,
+        alt: 'Massachusetts state seal',
+        width: 45,
+        height: 45
+      }}
+      siteName="Mass.gov"
+      title="Mass.gov homepage"
+    />
+  )
+};
+
+export default {
+  title: 'organisms/HeaderSlim',
+  component: HeaderSlim,
+  parameters: {
+    docs: {
+      page: () => <StoryPage />
+    }
+  }
+};

@@ -1,18 +1,22 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import Placeholder from '.';
 import PlaceholderDocs from './Placeholder.md';
 
-storiesOf('atoms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'Placeholder', (() => {
-      const props = {
-        text: text('text', 'This is just a placeholder for templates')
-      };
-      return(<Placeholder {...props} />);
-    }),
-    { info: PlaceholderDocs }
-  );
+export const PlaceholderExample = (args) => <Placeholder {...args} />;
+
+PlaceholderExample.storyName = 'Default';
+PlaceholderExample.args = {
+  text: 'This is just a placeholder for templates'
+};
+
+export default {
+  title: 'atoms/Placeholder',
+  component: Placeholder,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={PlaceholderDocs} />
+    }
+  }
+};

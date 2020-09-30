@@ -56,30 +56,32 @@ const Footer = ({
 );
 
 Footer.propTypes = {
-  /** @molecules/FooterLinks */
+  /** `@molecules/FooterLinks` */
   footerLinks: PropTypes.shape(FooterLinks.propTypes).isRequired,
   /** Whether to display or visually hiding footer nav headings */
   showNavHeading: PropTypes.bool,
-  /** @molecules/SocialLinks */
+  /** `@molecules/SocialLinks` */
   socialLinks: PropTypes.shape(SocialLinks.propTypes).isRequired,
   /** A floating button on the lower right corner which onClick takes user to the top of the page. */
   backToTopButton: PropTypes.bool,
-  /** Adds footer logo */
+  /** Adds footer logo. <br />
+   * `src:` logo image source url <br />
+   * `domain:` The URL for the site root <br />
+   * `title:` The title of the logo link
+  */
   footerLogo: PropTypes.shape({
-    /** logo image source url */
     src: PropTypes.string,
-    /** The URL for the site root */
     domain: PropTypes.string,
-    /** The title of the logo link */
     title: PropTypes.string
   }),
-  /** Adds footer info section */
+  /** Adds footer info section. <br />
+   * `copyright:` Bolded copyright info starting with © <br />
+   * `description:` Descriptive info below copyright <br />
+   * `privacyPolicy:` A link to the privacy policy page of the site
+  */
   footerText: PropTypes.shape({
-    /** Bolded copyright info starting with © */
     copyright: PropTypes.string,
-    /** Descriptive info below copyright */
     description: PropTypes.string,
-    /** A link to the privacy policy page of the site */
     privacyPolicy: PropTypes.shape({
       text: PropTypes.string,
       url: PropTypes.string

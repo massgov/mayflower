@@ -105,10 +105,10 @@ SelectBox.propTypes = {
   /** An array of options for the selectbox */
   options: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.oneOfType([
-      PropTypes.string
+      PropTypes.string, PropTypes.number
     ]),
     text: PropTypes.oneOfType([
-      PropTypes.string
+      PropTypes.string, PropTypes.number
     ])
   })).isRequired,
   /** Change handler callback provided by the parent */

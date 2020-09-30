@@ -1,6 +1,6 @@
 
-version: 2
-
+version: 2.1
+  
 references:
   configure_npm: &configure_npm
     run: { name: 'Configure NPM', command: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'}
@@ -12,7 +12,7 @@ references:
 react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:12.18.0
+    - image: circleci/node:12.18.0-browsers
 patternlab_defaults: &patternlab_defaults
   working_directory: /var/www/code
   docker:
@@ -164,21 +164,24 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "react/package.json" }}-0
+            - mfr-dependencies-{{ checksum "react/package.json" }}-4
       - run: cd react && npm install
       - save_cache:
           paths:
             - react/node_modules
-          key: mfr-dependencies-{{ checksum "react/package.json" }}-0
+          key: mfr-dependencies-{{ checksum "react/package.json" }}-4
       - run:
           name: Mayflower React Build
           command: cd react && npm run build
       - run:
-          name: Mayflower React Linter
-          command: cd react && npm run lint
-      - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
+      - run:
+          name: Mayflower React Storybook Extract
+          command: cd react && npm run storybook:extract
+      - run:
+          name: Mayflower React Linter
+          command: cd react && npm run lint
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]

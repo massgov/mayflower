@@ -1,10 +1,9 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select, array } from '@storybook/addon-knobs/react';
+import { StoryPage } from 'StorybookConfig/preview';
 
-import HelpTip from './index';
 import CalloutAlert from 'MayflowerReactOrganisms/CalloutAlert';
 import Paragraph from 'MayflowerReactText/Paragraph';
+import HelpTip from './index';
 
 const themeOptions = {
   'c-highlight': 'c-highlight',
@@ -15,43 +14,55 @@ const themeOptions = {
   'c-white': 'c-white'
 };
 
-storiesOf('organisms/HelpTip', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('HelpTip with HelpText', () => {
-    const props = {
-      text: text('text', 'I am a complete sentence with a help tip in it and another help tip here.'),
-      triggerText: array('triggerText', ['a help tip', 'another help tip']),
-      helpText: array('helpText', ['This is a bunch of help text that should be helpful.', 'Another bunch of help text that should be helpful.']),
-      id: text('id', 'helptext-id-123'),
-      bypassMobileStyle: boolean('bypassMobileStyle', false),
-      hasMarkup: boolean('hasMarkup', true),
-      theme: select('theme', themeOptions, 'c-primary'),
-      disabled: boolean('disabled', false)
-    };
+export const HelpTipExample = (args) => <HelpTip {...args} />;
 
-    return(<HelpTip {...props} />);
-  })
-  .add('HelpTip with Children', () => {
-    const props = {
-      text: text('text', 'I am a complete sentence with a help tip in it and another help tip here.'),
-      triggerText: array('triggerText', ['a help tip', 'another help tip']),
-      id: text('id', 'helptext-id-123'),
-      bypassMobileStyle: boolean('bypassMobileStyle', false),
-      hasMarkup: boolean('hasMarkup', true),
-      theme: select('theme', themeOptions, 'c-primary'),
-      disabled: boolean('disabled', false)
-    };
+HelpTipExample.storyName = 'Default';
+HelpTipExample.args = {
+  text: 'I am a complete sentence with a help tip in it and another help tip here.',
+  triggerText: ['a help tip', 'another help tip'],
+  helpText: ['This is a bunch of help text that should be helpful.', 'Another bunch of help text that should be helpful.'],
+  id: 'helptext-id-123',
+  bypassMobileStyle: false,
+  hasMarkup: true,
+  theme: 'c-primary',
+  disabled: false
+};
+HelpTipExample.argTypes = {
+  theme: {
+    control: {
+      type: 'select',
+      options: themeOptions
+    }
+  }
+};
+export const HelpTipWithChildren = (args) => (
+  <HelpTip {...args}>
+    <CalloutAlert theme={args.theme} icon={null}>
+      <Paragraph text="<strong>You are required to remit payment to the department starting 7/1.</strong> Because you have more than 25 total employees in Massachusetts." />
+      <Paragraph text="<strong>You are required to remit payment on behalf of your contractors.</strong> For employers with over 50% their workforce made up of 1099s need to consider these as full time employees under the new language." />
+    </CalloutAlert>
+    <CalloutAlert theme={args.theme} icon={null}>
+      <Paragraph text="<strong>You are required to remit payment to the department starting 7/1.</strong> Because you have more than 25 total employees in Massachusetts." />
+      <Paragraph text="<strong>You are required to remit payment on behalf of your contractors.</strong> For employers with over 50% their workforce made up of 1099s need to consider these as full time employees under the new language." />
+    </CalloutAlert>
+  </HelpTip>
+);
+HelpTipWithChildren.args = {
+  text: 'I am a complete sentence with a help tip in it and another help tip here.',
+  triggerText: ['a help tip', 'another help tip'],
+  id: 'helptext-id-123',
+  bypassMobileStyle: false,
+  hasMarkup: true,
+  theme: 'c-primary',
+  disabled: false
+};
 
-    return(
-      <HelpTip {...props}>
-        <CalloutAlert theme={props.theme} icon={null}>
-          <Paragraph text="<strong>You are required to remit payment to the department starting 7/1.</strong> Because you have more than 25 total employees in Massachusetts." />
-          <Paragraph text="<strong>You are required to remit payment on behalf of your contractors.</strong> For employers with over 50% their workforce made up of 1099s need to consider these as full time employees under the new language." />
-        </CalloutAlert>
-        <CalloutAlert theme={props.theme} icon={null}>
-          <Paragraph text="<strong>You are required to remit payment to the department starting 7/1.</strong> Because you have more than 25 total employees in Massachusetts." />
-          <Paragraph text="<strong>You are required to remit payment on behalf of your contractors.</strong> For employers with over 50% their workforce made up of 1099s need to consider these as full time employees under the new language." />
-        </CalloutAlert>
-      </HelpTip>
-    );
-  });
+export default {
+  title: 'organisms/HelpTip',
+  component: HelpTip,
+  parameters: {
+    docs: {
+      page: () => <StoryPage />
+    }
+  }
+};

@@ -54,7 +54,7 @@ ResultsHeading.propTypes = {
   /** The sort input type as ButtonToggle */
   buttonToggle: PropTypes.shape(ButtonToggle.props),
   /** The sort input type as SelectBox */
-  selecBox: PropTypes.shape(SelectBox.props),
+  selectBox: PropTypes.shape(SelectBox.props),
   /** The array of tags and the tags callback functions */
   tags: PropTypes.shape(Tags.propTypes)
 };

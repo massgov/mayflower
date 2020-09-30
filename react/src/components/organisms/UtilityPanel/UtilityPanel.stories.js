@@ -1,16 +1,23 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import UtilityPanel from '.';
 import UtilityPanelDocs from './UtilityPanel.md';
 import UtilityPanelData from './UtilityPanel.json';
 
-storiesOf('organisms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'UtilityPanel', () => (
-      <UtilityPanel {...UtilityPanelData} />
-    ),
-    { info: UtilityPanelDocs }
-  );
+export const UtilityPanelExample = (args) => <UtilityPanel {...args} />;
+
+
+UtilityPanelExample.storyName = 'Default';
+UtilityPanelExample.args = {
+  ...UtilityPanelData
+};
+export default {
+  title: 'organisms/UtilityPanel',
+  component: UtilityPanel,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={UtilityPanelDocs} />
+    }
+  }
+};

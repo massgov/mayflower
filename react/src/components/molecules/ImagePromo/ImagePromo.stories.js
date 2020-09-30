@@ -1,117 +1,114 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 import rectPlaceholder from '@massds/mayflower-assets/static/images/placeholder/190x107.png';
 import sqrPlaceholder from '@massds/mayflower-assets/static/images/placeholder/100x100.png';
-import ImagePromo from '.';
-import ImagePromoDocs from './ImagePromo.md';
 import IconWheelchair from 'MayflowerReactBase/Icon/IconWheelchair';
 import IconOpennow from 'MayflowerReactBase/Icon/IconOpennow';
+import ImagePromo from '.';
+import ImagePromoDocs from './ImagePromo.md';
 
-storiesOf('molecules/ImagePromo', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'ImagePromo', (() => {
-      const props = {
-        title: {
-          href: text('ImagePromo: title href', '#', 'Title'),
-          text: text('ImagePromo: title text', 'Activity Title', 'Title')
-        },
-        tags: null,
-        stacked: boolean('ImagePromo: stacked', false),
-        small: boolean('ImagePromo: small', false),
-        image: {
-          src: text('ImagePromo: image src', rectPlaceholder, 'Image'),
-          alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
-          width: number('ImagePromo: image width', 190, 'Image'),
-          height: number('ImagePromo: image height', 107, 'Image')
-        },
-        subTitle: text('ImagePromo: subTitle', 'subtitle'),
-        description: text('ImagePromo: description', 'Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.'),
-        link: {
-          text: text('ImagePromo: link text', 'Read More', 'Link'),
-          href: text('ImagePromo: link href', '#', 'Link'),
-          info: text('ImagePromo: link info', 'Read More about Activity Title', 'Link')
-        },
-        location: null,
-        phone: null
-      };
-      return(<ImagePromo {...props} />);
-    }),
-    { info: ImagePromoDocs }
-  )
-  .add(
-    'ImagePromo as orgInfo', (() => {
-      const props = {
-        title: {
-          href: text('ImagePromo: title href', '#', 'Title'),
-          text: text('ImagePromo: title text', 'Maura Healey', 'Title')
-        },
-        tags: null,
-        stacked: boolean('ImagePromo: stacked', true),
-        small: boolean('ImagePromo: small', true),
-        image: {
-          src: text('ImagePromo: image src', sqrPlaceholder, 'Image'),
-          alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
-          width: number('ImagePromo: image width', 100, 'Image'),
-          height: number('ImagePromo: image height', 100, 'Image')
-        },
-        subTitle: text('ImagePromo: subTitle', 'Attorney General'),
-        description: text('ImagePromo: description', 'The Attorney General is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.'),
-        link: {
-          text: text('ImagePromo: link text', 'more information', 'Link'),
-          href: text('ImagePromo: link href', '#', 'Link'),
-          info: text('ImagePromo: link info', 'learn more about Attorney General Maura Healey', 'Link')
-        },
-        location: null,
-        phone: null
-      };
-      return(<ImagePromo {...props} />);
-    }),
-    { info: ImagePromoDocs }
-  )
-  .add(
-    'ImagePromo with map link', (() => {
-      const props = {
-        title: {
-          href: text('ImagePromo: title href', '#', 'Title'),
-          text: text('ImagePromo: title text', 'Activity Title', 'Title')
-        },
-        tags: [{
-          id: 123,
-          label: 'handicapped accessible',
-          icon: <IconWheelchair />
-        }, {
-          id: 456,
-          label: 'open now',
-          icon: <IconOpennow />
-        }],
-        stacked: boolean('ImagePromo: stacked', false),
-        small: boolean('ImagePromo: small', false),
-        image: {
-          src: text('ImagePromo: image src', rectPlaceholder, 'Image'),
-          alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
-          width: undefined,
-          height: number('ImagePromo: image height', 107, 'Image')
-        },
-        subTitle: text('ImagePromo: subTitle', 'subtitle'),
-        description: text('ImagePromo: description', 'Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.'),
-        link: {
-          text: text('ImagePromo: link text', 'Directions', 'Link'),
-          href: text('ImagePromo: link href', '#', 'Link'),
-          info: text('ImagePromo: link info', 'Directions to Activity Title', 'Link')
-        },
-        location: {
-          text: text('ImagePromo: location text', '89 Summer St, Malden, MA 02148', 'Location'),
-          map: true
-        },
-        phone: {
-          text: text('ImagePromo: phone text', '(781) 322-7500', 'Phone'),
-          href: text('ImagePromo: phone href', '17813227500', 'Phone')
-        }
-      };
 
-      return(<ImagePromo {...props} />);
-    }),
-    { info: ImagePromoDocs }
-  );
+const Template = (args) => <ImagePromo {...args} />;
+export const ImagePromoExample = Template.bind({});
+ImagePromoExample.storyName = 'Default';
+ImagePromoExample.args = {
+  title: {
+    href: '#',
+    text: 'Activity Title'
+  },
+  tags: null,
+  stacked: false,
+  small: false,
+  image: {
+    src: rectPlaceholder,
+    alt: 'placeholder image',
+    width: 190,
+    height: 107
+  },
+  subTitle: 'subtitle',
+  description: 'Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.',
+  link: {
+    text: 'Read More',
+    href: '#',
+    info: 'Read More about Activity Title'
+  },
+  location: null,
+  phone: null
+};
+
+export const ImagePromoOrgInfo = Template.bind({});
+ImagePromoOrgInfo.storyName = 'ImagePromo as orgInfo';
+ImagePromoOrgInfo.args = {
+  title: {
+    href: '#',
+    text: 'Maura Healey'
+  },
+  tags: null,
+  stacked: true,
+  small: true,
+  image: {
+    src: sqrPlaceholder,
+    alt: 'placeholder image',
+    width: 100,
+    height: 100
+  },
+  subTitle: 'Attorney General',
+  description: 'The Attorney General is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.',
+  link: {
+    text: 'more information',
+    href: '#',
+    info: 'learn more about Attorney General Maura Healey'
+  },
+  location: null,
+  phone: null
+};
+
+export const ImagePromoMapLink = Template.bind({});
+ImagePromoMapLink.storyName = 'ImagePromo with map link';
+ImagePromoMapLink.args = {
+  title: {
+    href: '#',
+    text: 'Activity Title'
+  },
+  tags: [{
+    id: 123,
+    label: 'handicapped accessible',
+    icon: <IconWheelchair />
+  }, {
+    id: 456,
+    label: 'open now',
+    icon: <IconOpennow />
+  }],
+  stacked: false,
+  small: false,
+  image: {
+    src: rectPlaceholder,
+    alt: 'placeholder image',
+    width: undefined,
+    height: 107
+  },
+  subTitle: 'subtitle',
+  description: 'Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.',
+  link: {
+    text: 'Directions',
+    href: '#',
+    info: 'Directions to Activity Title'
+  },
+  location: {
+    text: '89 Summer St, Malden, MA 02148',
+    map: true
+  },
+  phone: {
+    text: '(781) 322-7500',
+    href: '17813227500'
+  }
+};
+export default {
+  title: 'molecules/ImagePromo',
+  component: ImagePromo,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={ImagePromoDocs} />
+    }
+  }
+};

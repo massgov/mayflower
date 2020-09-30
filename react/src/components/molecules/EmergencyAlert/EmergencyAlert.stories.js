@@ -1,30 +1,38 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import EmergencyAlert from './index';
+import { StoryPage } from 'StorybookConfig/preview';
 import Link from 'MayflowerReactMolecules/Link';
+import EmergencyAlert from './index';
 
-/* eslint-disable react/prop-types */
-storiesOf('molecules', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'EmergencyAlert', (() => {
-      const props = {
-        theme: select('theme', {
-          'c-warning (default)': 'c-warning',
-          'c-primary': 'c-primary',
-          'c-primary-alt': 'c-primary-alt',
-          'c-error': 'c-error',
-          'c-gray': 'c-gray'
-        }, 'c-warning'),
-        message: text('message', 'MassPort is operating with limited flights due to road closures.'),
-        timeStamp: text('timeStamp', '02.15.16, 5:00 p.m'),
-        link: ({ linkClasses, TextElement }) => <Link classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
-      };
-      return(
-        <EmergencyAlert {...props} />
-      );
-    }),
-    { info: '' }
-  );
+export const EmergencyAlertExample = (args) => <EmergencyAlert {...args} />;
 
+EmergencyAlertExample.storyName = 'Default';
+EmergencyAlertExample.args = {
+  theme: 'c-warning',
+  message: 'MassPort is operating with limited flights due to road closures.',
+  timeStamp: '02.15.16, 5:00 p.m',
+  link: ({ linkClasses, TextElement }) => <Link classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
+};
+EmergencyAlertExample.argTypes = {
+  theme: {
+    control: {
+      type: 'select',
+      options: {
+        'c-warning (default)': 'c-warning',
+        'c-primary': 'c-primary',
+        'c-primary-alt': 'c-primary-alt',
+        'c-error': 'c-error',
+        'c-gray': 'c-gray'
+      }
+    }
+  }
+};
+
+export default {
+  title: 'molecules/EmergencyAlert',
+  component: EmergencyAlert,
+  parameters: {
+    docs: {
+      page: () => <StoryPage />
+    }
+  }
+};

@@ -17,16 +17,26 @@ import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 const ButtonWithIcon = (props) => {
   const {
-    classes, iconSize, icon, expanded, capitalized, usage, theme, setButtonRef, text, size, ...rest
+    classes = [],
+    iconSize,
+    icon,
+    expanded,
+    capitalized,
+    usage,
+    theme,
+    setButtonRef,
+    text,
+    size,
+    ...rest
   } = props;
   const buttonClasses = classNames({
     'ma__button-icon': true,
     [`ma__button-icon--${size}`]: size,
     'ma__button-icon--expanded': expanded,
     'ma__button-icon--capitalized': capitalized,
-    'ma__icon-small': iconSize === 'small' || icon.type === IconChevron,
-    'ma__button-search': icon.type === IconSearch,
-    'ma__button-search--secondary': icon.type === IconSearch && usage === 'secondary',
+    'ma__icon-small': iconSize === 'small' || icon?.type === IconChevron,
+    'ma__button-search': icon?.type === IconSearch,
+    'ma__button-search--secondary': icon?.type === IconSearch && usage === 'secondary',
     [`ma__button-icon--${theme}`]: theme,
     [`ma__button-icon--${usage}`]: usage,
     [classes.join(' ')]: classes
@@ -58,7 +68,7 @@ ButtonWithIcon.propTypes = {
   setButtonRef: ref(),
   // Button text.
   text: PropTypes.string,
-  /** HTML <button> 'type' attribute  */
+  /** HTML `<button>` 'type' attribute  */
   type: PropTypes.oneOf(['submit', 'reset', 'button', '']),
   /** Create a smaller button */
   size: PropTypes.oneOf(['', 'small', 'large']),
@@ -82,20 +92,6 @@ ButtonWithIcon.propTypes = {
   usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary', 'quaternary-simple', 'alert']),
   /** Whether the button has a popup or not */
   'aria-haspopup': PropTypes.bool
-};
-
-ButtonWithIcon.defaultProps = {
-  text: 'Search',
-  type: 'submit',
-  size: '',
-  classes: [],
-  icon: <IconSearch height={20} width={20} />,
-  capitalized: false,
-  iconSize: '',
-  'aria-label': '',
-  usage: '',
-  theme: '',
-  'aria-haspopup': false
 };
 
 export default ButtonWithIcon;

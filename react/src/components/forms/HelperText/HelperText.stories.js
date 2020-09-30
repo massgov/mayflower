@@ -1,20 +1,25 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import HelperText from './index';
 import HelperTextDocs from './HelperText.md';
 import HelperTextOptions from './HelperText.knobs.options';
 
-storiesOf('forms|atoms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'HelperText', (() => {
-      const props = {
-        inputId: text('inputID', HelperTextOptions.inputId),
-        message: text('message', HelperTextOptions.message)
-      };
-      return(<HelperText {...props} />);
-    }),
-    { info: HelperTextDocs }
-  );
+export const HelperTextExample = (args) => (
+  <HelperText {...args} />
+);
+HelperTextExample.storyName = 'Default';
+HelperTextExample.args = {
+  inputId: HelperTextOptions.inputId,
+  message: HelperTextOptions.message
+};
+
+export default {
+  title: 'forms/atoms/HelperText',
+  component: HelperText,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={HelperTextDocs} />
+    }
+  }
+};

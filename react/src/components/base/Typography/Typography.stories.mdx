@@ -1,0 +1,86 @@
+çimport { Meta, Story, Canvas,  ArgsTable, CURRENT_SELECTION } from '@storybook/addon-docs/blocks';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Heading from 'MayflowerReactHeadings/Heading';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+import {
+  characters,
+  letters,
+  numbers,
+  styles
+} from './typography.json';
+import './styles.scss';
+import typographyOptions from './Typography.knobs.options';
+const slugifyStyle = (style) => {
+  const [weight, italic] = style.split(' ');
+  return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
+};
+
+<Meta
+  title="brand/typography/Noto Sans"
+  parameters={{
+    previewTabs: { canvas: { hidden: true } }
+  }}
+/>
+
+# Typography
+
+**The official typeface of Mayflower is Noto Sans. **
+
+### Usage
+
+Mayflower uses the the following font weight options of Noto Sans:
+
+| Font weight | Specs |
+| :--- | :--- |
+| Lighter | 250 |
+| Light | 350 |
+| Normal | 400 |
+| Bold | 550 |
+| Bolder | 650 |
+
+
+### License
+
+Noto Sans is an open source font licensed under SIL Open Font License 1.1 (OFL) by the Google team. The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. For more details, refer to the [license](https://github.com/googlefonts/noto-fonts/blob/master/LICENSE).
+
+<>
+<Heading text="Noto Sans" level={1} />
+<SidebarHeading title="Characters" level={2} />
+{console.log(letters)}
+<div className="sb-block">
+  <div className="sb-text">{letters.toUpperCase()}</div>
+  <div className="sb-text">{letters}</div>
+  <hr />
+  <div className="sb-text">{numbers}</div>
+  <hr />
+  <div className="sb-text">{characters}</div>
+  <hr />
+</div>
+<SidebarHeading title="Styles" level={2} />
+<div className="sb-block sb-grid">
+  {
+    styles.map((style, styleIndex) => {
+      const className = `ma-fonts-${slugifyStyle(style)}`;
+      return(
+        <React.Fragment key={`style.block.${styleIndex}`}>
+          <span className={className}>{style}</span>
+          <span className="markdown-body">
+            <code>{`.${className}`}</code>
+          </span>
+        </React.Fragment>
+      );
+    })
+  }
+</div>
+<SidebarHeading title="Sizes" level={2} />
+<div className="sb-block">
+  { Object.keys(typographyOptions.size).map((key, keyIndex) => {
+      const Element = typographyOptions.size[key];
+      return(
+        <Element key={`element.key.${keyIndex}`}>{key}</Element>
+      );
+    })
+  }
+</div>
+</>

@@ -1,23 +1,34 @@
 import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import ButtonSort from './index';
 import ButtonSortDocs from './ButtonSort.md';
-import buttonSortOptions from './ButtonSort.knobs.options';
 
-storiesOf('atoms/buttons', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'ButtonSort', (() => {
-      const props = {
-        text: text('text', 'Date'),
-        direction: select('direction', buttonSortOptions.direction, '')
-      };
-      return(
-        <ButtonSort {...props} />
-      );
-    }),
-    { info: ButtonSortDocs }
-  );
+export default {
+  title: 'atoms/buttons/ButtonSort',
+  component: ButtonSort,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={ButtonSortDocs} />
+    }
+  }
+};
+
+export const ButtonSortExample = (args) => <ButtonSort {...args} />;
+ButtonSortExample.storyName = 'Default';
+ButtonSortExample.args = {
+  text: 'Date',
+  direction: ''
+};
+ButtonSortExample.argTypes = {
+  direction: {
+    control: {
+      type: 'select',
+      options: {
+        'do not sort (default)': '',
+        ascending: 'asc',
+        descending: 'dsc'
+      }
+    }
+  }
+};

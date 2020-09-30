@@ -60,25 +60,12 @@ $fonts-khmer: "Noto Sans Khmer VF",sans-serif;
 
 // font weights
 // Noto
-$fonts-lightest: 150; // only used for styling non text font weights, e.g. separator |
-$fonts-lighter:  250;
-$fonts-light:    350;
-$fonts-normal:   400;
-$fonts-bold:     550;
-$fonts-bolder:   650;
-
-// Texta
-// Light => 300
-// Book => 400
-// Medium => 500
-// Bold => 700
-// Black => 800
-$fonts-lightest: 100 !default; // only used for styling non text font weights, e.g. separator |
-$fonts-lighter:  300 !default;
-$fonts-light:    400 !default;
-$fonts-normal:   500 !default;
-$fonts-bold:     700 !default;
-$fonts-bolder:   800 !default;
+$fonts-lightest: 150 !default; // only used for styling non text font weights, e.g. separator |
+$fonts-lighter:  250 !default;
+$fonts-light:    350 !default;
+$fonts-normal:   400 !default;
+$fonts-bold:     550 !default;
+$fonts-bolder:   650 !default;
 
 //font sizes
 $fonts-base:        calc(16px / 1.2) !default;

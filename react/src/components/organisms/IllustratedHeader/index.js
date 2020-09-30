@@ -62,7 +62,7 @@ IllustratedHeader.propTypes = {
   inverted: PropTypes.bool,
   /** category prefix text rendered in all caps above the page header title */
   category: PropTypes.string,
-  /** render PageHeader component @organisms/PageHeader */
+  /** render PageHeader component `@organisms/PageHeader` */
   pageHeader: PropTypes.shape(PageHeader.propTypes)
 };
 
