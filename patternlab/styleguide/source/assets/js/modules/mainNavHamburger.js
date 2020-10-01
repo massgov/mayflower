@@ -3,7 +3,6 @@ const body = document.querySelector("body");
 let width = body.clientWidth;
 let alertlOffsetPosition;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
-const menuBarHeight = document.querySelector(".ma__header__hamburger__nav") ? document.querySelector(".ma__header__hamburger__nav").offsetHeight : null;
 const menuOverlay = document.querySelector(".menu-overlay");
 const alertOverlay = document.querySelector(".alert-overlay");
 
@@ -593,18 +592,29 @@ function commonCloseMenuTasks() {
 
 function openMenu() {
   let heightAboveMenuContainer;
+  let emergencyAlertsHeight;
   // Set the alert to its offset position in the window to prevent the page to shift as the menu opens.
   let lockPage = function () {
     document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
     document.querySelector("body").style.position = "fixed";
 
-
-
-    console.log("alertlOffsetPosition: " + alertlOffsetPosition);
-    console.log("ACTUAL above nav container: " + document.querySelector(".ma__header__hamburger__nav-container").getBoundingClientRect().top);
-
-
     heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
+
+    if (osInfo.indexOf("iPhone") !== -1) {
+
+      // WHEN THE MENU IS OPENED SECOND TIME AND LATER(AFTER THE PAGE LOADED, OPEN MENU, THEN CLOSE IT, THEN OPEN IT AGAIN), heightAboveMenuContainer VALUE CHANGES, WHICH DOESN'T HAPPEN IN OTHER DEVICES AND OS. I CANNOT FIGURE OUT WHERE IT'S COMING FROM. EITHER SOMETHING NEEDS TO BE CORRECTED OR ADJUSTMENT IS NEEDED LIKE CLEAR THE VALUE AT THE END OF THE FUNCTION.
+
+      // TEST OUTPUT
+      console.log("iphone heightAboveMenuContainer: " + heightAboveMenuContainer);
+      console.log("iphone2 emergencyAlertsHeight: " + emergencyAlertsHeight);
+      console.log("iphone2 alertlOffsetPosition: " + alertlOffsetPosition);
+      // END: TEST OUTPUT
+
+      // if (document.querySelector(".ma__header__hamburger__nav-container").getBoundingClientRect().top < 0) {
+      //   heightAboveMenuContainer = emergencyAlertsHeight - alertlOffsetPosition + 1;
+      // }
+    }
+
   };
 
   if (document.querySelector("html.stickyTOC")) {
@@ -628,37 +638,20 @@ function openMenu() {
   let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
   if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-    let emergencyAlertsHeight = emergencyAlerts.offsetHeight;
+    emergencyAlertsHeight = emergencyAlerts.offsetHeight;
     alertlOffsetPosition = emergencyAlertsHeight - (alertsHeader.offsetHeight/2);
 
+    // TEST OUTPUT
     console.log("alertsHeader.offsetHeight: " + alertsHeader.offsetHeight);
     console.log("emergencyAlertsHeight: " + emergencyAlertsHeight);
     console.log("emergencyAlertsHeight - alertlOffsetPosition:");
     console.log(emergencyAlertsHeight - alertlOffsetPosition);
+    // END: TEST OUTPUT
 
 
     if (osInfo.indexOf("iPhone") !== -1) {
-      // customScrollTo(alertlOffsetPosition, 250);
-      // function customScrollTo(to, duration) {
       // Changed the duration value to 600.
-      let duration = 600;
-      var start = window.scrollY,
-      change = alertlOffsetPosition - start,
-      currentTime = 0,
-      increment = 20;
-
-      var animateScroll = function(){
-        currentTime += increment;
-        var val = Math.easeInOutQuad(currentTime, start, change, duration);
-        window.scrollTo(0,val);
-
-        if(currentTime < duration) {
-          setTimeout(animateScroll, increment);
-        }
-      };
-      animateScroll();
-      // END:  customScrollTo()
-
+      customScrollTo(alertlOffsetPosition, 600);
       setTimeout(lockPage(), 600);
     }
     else {
@@ -671,40 +664,24 @@ function openMenu() {
     }
 
     // Set the nav container height to enable scrolling to the bottom.
-    // let heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
-
     if (osInfo.indexOf("iPhone") !== -1) {
-      let subtractFromMenuHeight = heightAboveMenuContainer;
-      hamburgerMenuContainer.style.height = `calc(100vh - ${subtractFromMenuHeight}px)`;
-      // hamburgerMenuContainer.style.height = "calc(100vh - 111px)";
-      utilNarrowNav.style.paddingBottom = "20px";
+      heightAboveMenuContainer = heightAboveMenuContainer + 20;
     }
-    else {
-      hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
-    }
+
+    // TEST OUTPUT
+    console.log("heightAboveMenuContainer: " + heightAboveMenuContainer);
+    // END: TEST OUTPUT
+
+    hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
   }
 
   if (menuOverlay) {
     let overlayOffset = heightAboveMenuContainer;
-
-    // document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
-
-    console.log("overlayOffset: " + overlayOffset);
-    // console.log("above header: " + document.querySelector(".ma__header__hamburger").getBoundingClientRect().top);
-    // console.log("menuBarHeight: " + menuBarHeight);
-
     if (width > 840) {
       overlayOffset = overlayOffset -1;
     }
     menuOverlay.style.top = overlayOffset + "px";
     menuOverlay.classList.add("overlay-open");
-
-    //     if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
-    //   setTimeout(function () {
-    //     offsetMenuOverlay();
-    //     menuOverlay.classList.add("overlay-open");
-    //   }, 600);
-    // }
   }
   if (alertOverlay) {
     if (document.querySelector(".ma__emergency-alerts")) {
@@ -713,7 +690,9 @@ function openMenu() {
     }
   }
 
+  // TEST OUTPUT
   console.log(hamburgerMenuContainer.style.height);
+  // END: TEST OUTPUT
 }
 
 function jumpToSearch(e) {
