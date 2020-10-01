@@ -1,4 +1,4 @@
-çimport { Meta, Story, Canvas,  ArgsTable, CURRENT_SELECTION } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas,  ArgsTable, CURRENT_SELECTION, DocsContext } from '@storybook/addon-docs/blocks';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import Heading from 'MayflowerReactHeadings/Heading';
 import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
@@ -16,38 +16,25 @@ const slugifyStyle = (style) => {
 };
 
 <Meta
-  title="brand/typography/Noto Sans"
+  title="brand/typography"
   parameters={{
     previewTabs: { canvas: { hidden: true } }
   }}
 />
 
-# Typography
+export const Template = (args) => <p>{args.text}</p>
 
-**The official typeface of Mayflower is Noto Sans. **
+# Noto Sans
+**Noto Sans is the official typeface of Mayflower.**
+ Noto Sans is an open source typeface joinly designed and developed by Google and Monotype. It has the most comprehensive language coverage — including more than 800 languages and 100 written scripts.
 
-### Usage
-
-Mayflower uses the the following font weight options of Noto Sans:
-
-| Font weight | Specs |
-| :--- | :--- |
-| Lighter | 250 |
-| Light | 350 |
-| Normal | 400 |
-| Bold | 550 |
-| Bolder | 650 |
+It's selected to be the Mayflower typeface to:
+- enable all Commonwealth agencies to design, produce and deliver online and offline content with consistent typography, without additional costs or legal barriers.
+- provide the best language coverage for content internationalization.
+- support the guiding principles of the Mass.gov brand identities: modern, dignified, human, helpful
 
 
-### License
-
-Noto Sans is an open source font licensed under SIL Open Font License 1.1 (OFL) by the Google team. The OFL allows the licensed fonts to be used, studied, modified and
-redistributed freely as long as they are not sold by themselves. For more details, refer to the [license](https://github.com/googlefonts/noto-fonts/blob/master/LICENSE).
-
-<>
-<Heading text="Noto Sans" level={1} />
-<SidebarHeading title="Characters" level={2} />
-{console.log(letters)}
+## Characters
 <div className="sb-block">
   <div className="sb-text">{letters.toUpperCase()}</div>
   <div className="sb-text">{letters}</div>
@@ -57,7 +44,59 @@ redistributed freely as long as they are not sold by themselves. For more detail
   <div className="sb-text">{characters}</div>
   <hr />
 </div>
-<SidebarHeading title="Styles" level={2} />
+
+
+## Custom Preview
+<Story
+  name="Noto Sans"
+  argTypes={{
+    text: {
+      type: { name: 'string' },
+      defaultValue: 'Type something in control to preview text in Noto Sans.',
+      control: 'text'
+    }
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+
+<ArgsTable story="Noto Sans" />
+
+
+
+
+## Styles and Usage
+Noto Sans is being used both as the display fonts and the text fonts.
+When being used as the display fonts for headings, it should be styled at large sizes and in bold, with enough visual contrast to the body text to show the content hierarchy.
+
+### Font Sizes
+<div className="sb-block">
+  { Object.keys(typographyOptions.size).map((key, keyIndex) => {
+      const Element = typographyOptions.size[key];
+      return(
+        <Element key={`element.key.${keyIndex}`}>{key}</Element>
+      );
+    })
+  }
+</div>
+
+----
+
+### Font Weights
+Mayflower uses the the following 5 font weight options of Noto Sans:
+
+| Font weight | Specs |
+| :--- | :--- |
+| Lighter | 250 |
+| Light | 350 |
+| Normal | 400 |
+| Bold | 550 |
+| Bolder | 650 |
+
+----
+
+### Styles
 <div className="sb-block sb-grid">
   {
     styles.map((style, styleIndex) => {
@@ -73,14 +112,10 @@ redistributed freely as long as they are not sold by themselves. For more detail
     })
   }
 </div>
-<SidebarHeading title="Sizes" level={2} />
-<div className="sb-block">
-  { Object.keys(typographyOptions.size).map((key, keyIndex) => {
-      const Element = typographyOptions.size[key];
-      return(
-        <Element key={`element.key.${keyIndex}`}>{key}</Element>
-      );
-    })
-  }
-</div>
-</>
+
+----
+
+## License
+
+Noto Sans is an open source font licensed under SIL Open Font License 1.1 (OFL) by the Google team. The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. For more details, refer to the [license](https://github.com/googlefonts/noto-fonts/blob/master/LICENSE).
