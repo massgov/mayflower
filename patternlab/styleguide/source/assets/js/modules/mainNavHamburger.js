@@ -599,7 +599,6 @@ function openMenu() {
     document.querySelector("body").style.position = "fixed";
 
     heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
-
     if (osInfo.indexOf("iPhone") !== -1) {
 
       // WHEN THE MENU IS OPENED SECOND TIME AND LATER(AFTER THE PAGE LOADED, OPEN MENU, THEN CLOSE IT, THEN OPEN IT AGAIN), heightAboveMenuContainer VALUE CHANGES, WHICH DOESN'T HAPPEN IN OTHER DEVICES AND OS. I CANNOT FIGURE OUT WHERE IT'S COMING FROM. EITHER SOMETHING NEEDS TO BE CORRECTED OR ADJUSTMENT IS NEEDED LIKE CLEAR THE VALUE AT THE END OF THE FUNCTION.
@@ -649,19 +648,19 @@ function openMenu() {
     // END: TEST OUTPUT
 
 
-    if (osInfo.indexOf("iPhone") !== -1) {
-      // Changed the duration value to 600.
-      customScrollTo(alertlOffsetPosition, 600);
-      setTimeout(lockPage(), 600);
-    }
-    else {
+    // if (osInfo.indexOf("iPhone") !== -1) {
+    //   // Changed the duration value to 600.
+    //   customScrollTo(alertlOffsetPosition, 600);
+    //   setTimeout(lockPage(), 600);
+    // }
+    // else {
       window.scrollTo({
-        top: alertlOffsetPosition,
+        top: 0,
         left: 0,
         behavior: "smooth"
       });
       lockPage();
-    }
+    //}
 
     // Set the nav container height to enable scrolling to the bottom.
     if (osInfo.indexOf("iPhone") !== -1) {
@@ -806,10 +805,8 @@ if (utilWideButton !== null && utilWideCloseButton !== null && utilWideContent !
       thisWideButton.setAttribute("aria-pressed", "true");
     }
 
-    setTimeout(function () {
       thisWideButton.setAttribute("aria-expanded", "true");
       thisWideButton.setAttribute("aria-pressed", "true");
-    }, 200);
   });
 }
 
@@ -858,9 +855,7 @@ if (utilNarrowButton !== null) {
       utilNarrowContent.removeAttribute("aria-hidden");
       thisNavContainer.style.pointerEvents = "none";
       /** Slide down. */
-      setTimeout(function timeoutFunction() {
         thisNavContainer.removeAttribute("style");
-      }, 700);
 
       /** Show the content. */
       utilNarrowContent.classList.remove("is-closed");
@@ -878,10 +873,8 @@ if (utilNarrowButton !== null) {
       utilNarrowContent.style.height = contentHeight;
       utilNarrowContainer.style.height = contentHeight;
 
-      setTimeout(function timeoutFunction() {
         utilNarrowContent.style.maxHeight = contentHeight;
         utilNarrowContainer.style.opacity = "1";
-      }, 50);
     } else {
       closeNarrowUtilContent();
     }
@@ -920,14 +913,10 @@ function closeSubMenu() {
     openSubMenuContent.style.height = "0";
     openSubMenuContainer.style.opacity = "0";
 
-    setTimeout(function timeoutFunction() {
       openSubMenuContent.classList.add("is-closed");
-    }, 500);
 
-    setTimeout(function timeoutFunction() {
       openSubMenu.removeAttribute("style");
       openSubMenu.classList.remove("submenu-open");
-    }, 700);
   }
 }
 
