@@ -47,12 +47,14 @@ It's selected to be the Mayflower typeface to:
 
 
 ## Custom Preview
+
+
 <Story
   name="Noto Sans"
   argTypes={{
     text: {
       type: { name: 'string' },
-      defaultValue: 'Type something in control to preview text in Noto Sans.',
+      defaultValue: 'Welcome to Massachusetts. What would you like to do?',
       control: 'text'
     }
   }}
@@ -60,8 +62,9 @@ It's selected to be the Mayflower typeface to:
   {Template.bind({})}
 </Story>
 
+> Type something in control below to preview text in Noto Sans.
 
-<ArgsTable story="Noto Sans" />
+<ArgsTable className="preview-control" story="Noto Sans" />
 
 
 
