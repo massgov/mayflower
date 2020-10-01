@@ -262,7 +262,7 @@ $border-width: 1px;
       .ma__help-tip__text-direct {
         padding: 10px 5px;
         margin: 0px;
-        font-size: 1.25rem;
+        font-size: $fonts-small;
         line-height: 1.1;
         color: $c-black;
       }

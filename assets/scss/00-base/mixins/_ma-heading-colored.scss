@@ -6,7 +6,7 @@
   $offset: 55px;
   
   @if ($c-bg == transparent) {
-    font-size: 1.375rem;
+    font-size: $fonts-medium;
     letter-spacing: $letter-spacing-large;
     line-height: 1.39;
     margin-bottom: 20px;

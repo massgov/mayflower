@@ -51,7 +51,7 @@
 
   &--accordion__status {
     display: block;
-    font-size: 2.5rem;
+    font-size: $fonts-4xlarge;
     line-height: .65em;
     overflow: hidden;
     position: absolute;
@@ -204,7 +204,7 @@
       @include ma-link-underline;
 
       @include ma-chevron;
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       padding-right: 10px;
 
       &--accordion__status {

@@ -1,10 +1,12 @@
 .ma__sticky-toc {
   margin-bottom: 30px;
   //position: relative // can't have position relative here or the links won't stick for the height of page-content
+  font-size: $fonts-medium;
 
   @media ($bp-small-min) {
     margin-bottom: 60px;
     padding-top: 30px;
+    font-size: $fonts-small;
   }
 
   @media print {
@@ -94,7 +96,7 @@
   &__toggle-link {
 
     @include ma-button-reset;
-    font-size: 2.5rem;
+    font-size: $fonts-4xlarge;
     line-height: .65em;
     overflow: hidden;
     position: absolute;
@@ -146,7 +148,6 @@
 
     @media ($bp-x-small-max) {
       display: none;
-      font-size: 20px;
       line-height: 1.2;
       padding: 10px 35px 10px 15px;
 
@@ -260,7 +261,6 @@
 
   &__footer {
     border-top: 1px solid $c-bd-divider;
-    font-size: 1.25rem;
     padding: 20px;
     width: 95%;
     margin: 0 auto;
@@ -278,7 +278,6 @@
       padding: 3px 20px 1px;
       border-bottom: 3px solid transparent;
       transition: border 0.4s ease;
-      font-size: 19px;
 
       &::after {
         content: "";
@@ -375,7 +374,7 @@
       span {
         display: block;
         text-transform: uppercase;
-        font-size: 0.75rem;
+        font-size: $fonts-3xsmall;
         font-weight: $fonts-bold;
         color: $c-primary;
         letter-spacing: $letter-spacing-large;
@@ -390,7 +389,7 @@
     button {
 
       @include ma-button("","solid",$c-primary);
-      font-size: 1.3rem;
+      font-size: $fonts-medium;
       padding: 10px 0;
       width: 100%;
     }
@@ -398,7 +397,6 @@
 }
 
 .ma__sticky-toc__secondary-label {
-  font-size: 20px;
   font-weight: $fonts-bold;
   line-height: 1.2;
   padding: 10px 35px 10px 15px;
@@ -423,7 +421,7 @@
 
     span {
       display: block;
-      font-size: 2.1rem;
+      font-size: $fonts-2xlarge;
       font-weight: 200;
       left: 50%;
       line-height: 0;
@@ -481,7 +479,7 @@
     align-items: center;
     justify-content: space-between;
     border: 0;
-    font-size: 1.375rem;
+    font-size: $fonts-medium;
     font-weight: $fonts-normal;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
@@ -514,7 +512,7 @@
 
     a {
       font-weight: $fonts-bold;
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       display: flex;
 
       svg {

@@ -79,7 +79,7 @@ $bp-illustrated-header-image-width: 360px;
   }
 
   &__category {
-    font-size: 1.375rem;
+    font-size: $fonts-medium;
     font-weight: $fonts-bold;
     color: $c-font-detail;
     letter-spacing: $letter-spacing-large;

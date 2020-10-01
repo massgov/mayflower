@@ -31,10 +31,10 @@ html {
     font-size: 14px;
   }
 
-  font-size: 14.5px;
+  font-size: $fonts-base-mobile;
 
   @media ($bp-small-min) {
-    font-size: 16px;
+    font-size: $fonts-base;
   }
 }
 
@@ -42,7 +42,7 @@ html {
 body {
   width: 100vw;
   margin: 0;
-  font-size: 1.375rem;
+  font-size: $fonts-medium;
   line-height: 1.5;
   color: $c-font-base;
   font-weight: $fonts-light;
@@ -133,7 +133,6 @@ ol {
   h#{$i} {
     margin-top: 0;
     color: $c-font-heading;
-    font-weight: $fonts-bold;
 
     @include ma-heading($i);
   }

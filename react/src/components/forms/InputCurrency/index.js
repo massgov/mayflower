@@ -140,15 +140,16 @@ const Currency = (props) => {
           const handleBlur = (e) => {
             const { type } = e;
             const inputEl = ref.current;
-            const stringValue = inputEl.value;
-            // isNotNumber returns true if stringValue is null, undefined or 'NaN'
+            const value = inputEl && inputEl.value;
+            const numberValue = value && Number(numbro.unformat(value.replace('$', '')));
+
+            // isNotNumber returns true if value is null, undefined or NaN vs Number.isNaN only checks if value is NaN
             /* eslint-disable-next-line   no-restricted-globals */
-            const isNotNumber = !stringValue || isNaN(Number(numbro.unformat(stringValue)));
+            const isNotNumber = isNaN(numberValue);
             if (isNotNumber) {
               inputEl.setAttribute('placeholder', props.placeholder);
-            }
-            let newValue = isNotNumber ? '' : Number(numbro.unformat(stringValue));
-            if (!is.empty(newValue)) {
+            } else {
+              let newValue = numberValue;
               if (hasNumberProperty(props, 'max') && newValue > props.max) {
                 newValue = props.max;
               }

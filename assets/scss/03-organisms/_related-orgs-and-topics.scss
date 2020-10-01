@@ -44,7 +44,7 @@
     }
 
     .ma__link-list__item {
-      font-size: 1.5rem;
+      font-size: $fonts-large;
       line-height: 1.2;
       padding: 0;
       margin-bottom: 1.2rem;
@@ -97,7 +97,7 @@
     padding: 3px 20px 1px;
     border-bottom: 3px solid transparent;
     transition: border 0.4s ease;
-    font-size: 1.188rem;
+    font-size: $fonts-smaller;
     margin-top: 16px;
 
     &::after {
