@@ -18,11 +18,17 @@ This project is licensed under the is licensed under the GNU General Public Lice
 [npm]: https://www.npmjs.com/package/@massds/mayflower-react
 
 ## Monorepo Package Management
-This PR adds support for the creation of a monorepo using [Rush](https://rushjs.io/) and [PNPM](https://pnpm.js.org/). To install both globally, run the following command:
+This PR adds support for the creation of a monorepo using [Rush](https://rushjs.io/) and [PNPM](https://pnpm.js.org/).
+
+#### Getting Started on Development
+To install both pnpm and rush globally, run the following command:
 ```
 npm install -g pnpm @microsoft/rush
 ```
 
+Once installed, run `rush install` or `rush update`. This will install each package's dependencies on disk and symlink together all local packages that depend on one another.
+
+#### Monorepo Structure
 All uses of `npm` or `yarn` have been replaced by `pnpm` which works similarly. For the moment, the following are defined as packages for the mayflower monorepo:
 
 - Mayflower Assets (located under `packages/assets/`)
