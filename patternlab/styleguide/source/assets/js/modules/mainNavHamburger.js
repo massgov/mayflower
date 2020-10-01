@@ -592,6 +592,7 @@ function commonCloseMenuTasks() {
 }
 
 function openMenu() {
+  let heightAboveMenuContainer;
   // Set the alert to its offset position in the window to prevent the page to shift as the menu opens.
   let lockPage = function () {
     document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
@@ -601,6 +602,9 @@ function openMenu() {
 
     console.log("alertlOffsetPosition: " + alertlOffsetPosition);
     console.log("ACTUAL above nav container: " + document.querySelector(".ma__header__hamburger__nav-container").getBoundingClientRect().top);
+
+
+    heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
   };
 
   if (document.querySelector("html.stickyTOC")) {
@@ -667,9 +671,10 @@ function openMenu() {
     }
 
     // Set the nav container height to enable scrolling to the bottom.
-    let heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
+    // let heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
+
     if (osInfo.indexOf("iPhone") !== -1) {
-      let subtractFromMenuHeight = heightAboveMenuContainer + 15;
+      let subtractFromMenuHeight = heightAboveMenuContainer;
       hamburgerMenuContainer.style.height = `calc(100vh - ${subtractFromMenuHeight}px)`;
       // hamburgerMenuContainer.style.height = "calc(100vh - 111px)";
       utilNarrowNav.style.paddingBottom = "20px";
@@ -680,9 +685,11 @@ function openMenu() {
   }
 
   if (menuOverlay) {
-    let overlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
+    let overlayOffset = heightAboveMenuContainer;
 
-    // console.log("overlayOffset: " + overlayOffset);
+    // document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
+
+    console.log("overlayOffset: " + overlayOffset);
     // console.log("above header: " + document.querySelector(".ma__header__hamburger").getBoundingClientRect().top);
     // console.log("menuBarHeight: " + menuBarHeight);
 
@@ -705,6 +712,8 @@ function openMenu() {
       alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
     }
   }
+
+  console.log(hamburgerMenuContainer.style.height);
 }
 
 function jumpToSearch(e) {
