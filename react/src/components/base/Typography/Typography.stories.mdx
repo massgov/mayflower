@@ -1,5 +1,5 @@
 import { styled } from '@storybook/theming';
-import { Meta, Story, ArgsTable, CURRENT_SELECTION } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story, ArgsTable, CURRENT_SELECTION } from '@storybook/addon-docs/blocks';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import Heading from 'MayflowerReactHeadings/Heading';
 
@@ -7,10 +7,10 @@ import {
   characters,
   letters,
   numbers,
-  styles
+  styles,
+  headings
 } from './typography.json';
 import './styles.scss';
-import typographyOptions from './Typography.knobs.options';
 const slugifyStyle = (style) => {
   const [weight, italic] = style.split(' ');
   return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
@@ -83,18 +83,14 @@ Noto Sans is being used both as the display fonts and the text fonts.
 When being used as the display fonts for headings, it should be styled at large sizes and in bold, with enough visual contrast to the body text to show the content hierarchy.
 
 <div className="sb-block">
-  { Object.keys(typographyOptions.size).map((key, keyIndex) => {
-      if (key === "Body text") {
-        return (<p>{key}</p>)
-      } else {
-        const headingLevel = keyIndex + 1;
-        return(
-          <Heading level={headingLevel} key={`element.key.${keyIndex}`} text={key} />
-        );
-      }
-    })
-  }
+  { Object.keys(headings).map((key, keyIndex) => (
+      (key === "Body text") ?
+      (<p>{key}</p>) :
+      (<Heading level={headings[key]} key={`element.key.${keyIndex}`} text={key} />)
+    )
+  )}
 </div>
+
 
 
 Mayflower uses the the following 5 font weight options of Noto Sans:
