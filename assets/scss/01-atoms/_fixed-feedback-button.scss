@@ -5,8 +5,7 @@
   position: fixed;
   right: 0;
   width: 40px;
-  // The highest posible value.
-  z-index: $z-skyline;
+  z-index: $z-feedback-button;//$z-skyline;
 
   a {
     background-color: $c-white;
@@ -31,5 +30,5 @@
   &.hide-button {
     display: none;
   }
-} 
+}
 
