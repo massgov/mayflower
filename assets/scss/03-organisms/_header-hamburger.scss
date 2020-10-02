@@ -110,7 +110,7 @@ body.show-menu {
       height: $utility-nav-height;
       left: 0;
       width: 100%;
-      z-index: $z-overlay;//$z-dropdown;
+      z-index: $z-overlay;
       background-color: $c-primary;
     }
   }
@@ -262,7 +262,7 @@ body.show-menu {
     margin-top: 0;
     transition: left 0.3s ease, visibility 0.3s;
     width: 320px;
-    z-index: $z-overlay;//$z-dropdown;
+    z-index: $z-overlay;
 
     @media ($bp-header-toggle-min) {
 
