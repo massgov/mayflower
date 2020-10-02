@@ -873,10 +873,10 @@ function closeSubMenu() {
     openSubMenuContent.style.height = "0";
     openSubMenuContainer.style.opacity = "0";
 
-      openSubMenuContent.classList.add("is-closed");
+    openSubMenuContent.classList.add("is-closed");
 
-      openSubMenu.removeAttribute("style");
-      openSubMenu.classList.remove("submenu-open");
+    openSubMenu.removeAttribute("style");
+    openSubMenu.classList.remove("submenu-open");
   }
 }
 
