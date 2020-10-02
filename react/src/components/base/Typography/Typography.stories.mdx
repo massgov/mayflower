@@ -1,7 +1,8 @@
-import { Meta, Story, Canvas,  ArgsTable, CURRENT_SELECTION, DocsContext } from '@storybook/addon-docs/blocks';
+import { styled } from '@storybook/theming';
+import { Meta, Story, ArgsTable, CURRENT_SELECTION } from '@storybook/addon-docs/blocks';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import Heading from 'MayflowerReactHeadings/Heading';
-import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+
 import {
   characters,
   letters,
@@ -14,6 +15,9 @@ const slugifyStyle = (style) => {
   const [weight, italic] = style.split(' ');
   return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
 };
+
+
+
 
 <Meta
   title="brand/typography"
@@ -78,20 +82,21 @@ It's selected to be the Mayflower typeface to:
 Noto Sans is being used both as the display fonts and the text fonts.
 When being used as the display fonts for headings, it should be styled at large sizes and in bold, with enough visual contrast to the body text to show the content hierarchy.
 
-### Font Sizes
 <div className="sb-block">
   { Object.keys(typographyOptions.size).map((key, keyIndex) => {
-      const Element = typographyOptions.size[key];
-      return(
-        <Element key={`element.key.${keyIndex}`}>{key}</Element>
-      );
+      if (key === "Body text") {
+        return (<p>{key}</p>)
+      } else {
+        const headingLevel = keyIndex + 1;
+        return(
+          <Heading level={headingLevel} key={`element.key.${keyIndex}`} text={key} />
+        );
+      }
     })
   }
 </div>
 
-----
 
-### Font Weights
 Mayflower uses the the following 5 font weight options of Noto Sans:
 
 | Font weight | Specs |
@@ -102,9 +107,7 @@ Mayflower uses the the following 5 font weight options of Noto Sans:
 | Bold | 550 |
 | Bolder | 650 |
 
-----
 
-### Styles
 <div className="sb-block sb-grid">
   {
     styles.map((style, styleIndex) => {
@@ -121,7 +124,6 @@ Mayflower uses the the following 5 font weight options of Noto Sans:
   }
 </div>
 
-----
 
 ## License
 

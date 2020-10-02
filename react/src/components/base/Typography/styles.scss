@@ -1,4 +1,5 @@
 @use "styles/global" as *;
+@use "00-base/fonts-styles";
 @use "04-templates/general";
 
 .sb {
@@ -7,11 +8,14 @@
   }
 
   &-block {
+    font-family: $fonts !important;
     margin-top: 0 !important;
     margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid $c-gray-lightest;
 
     hr {
-      border: 1px solid $c-gray-lightest;
+      color: $c-gray-lightest;
     }
 
     &--mono {
@@ -28,6 +32,8 @@
   }
 }
 
+
+// Show only the control column for custom preview controls
 #sb-control--preview {
   .docblock-argstable {
     thead,tbody {
