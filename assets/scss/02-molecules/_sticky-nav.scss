@@ -8,7 +8,7 @@
   position: relative;
   transition: top .3s;
   width: 100%;
-  z-index: $z-sticky-content;
+  z-index: $z-overlay;//$z-sticky-content;
 
   font-size: $fonts-medium;
 
