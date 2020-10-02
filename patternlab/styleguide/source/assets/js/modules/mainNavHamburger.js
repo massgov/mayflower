@@ -457,6 +457,43 @@ if (menuButton !== null) {
         if (width < 840) {
           closeNarrowUtilContent();
         }
+        setTimeout(function () {
+          let scrollOffset = subMenu.parentElement.offsetTop;
+          if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
+            function customScrollTo(to, duration) {
+              var start = 0,
+                  change = to - start,
+                  currentTime = 0,
+                  increment = 20;
+
+              var animateScroll = function(){
+                currentTime += increment;
+                var val = Math.easeInOutQuad(currentTime, start, change, duration);
+                hamburgerMenuContainer.scrollTo(0,val);
+
+                if(currentTime < duration) {
+                  setTimeout(animateScroll, increment);
+                }
+              };
+              animateScroll();
+            }
+
+            Math.easeInOutQuad = function (t, b, c, d) {
+              t /= d/2;
+              if (t < 1) return c/2*t*t + b;
+              t--;
+              return -c/2 * (t*(t-2) - 1) + b;
+            };
+
+            customScrollTo(scrollOffset, 250);
+          } else {
+            hamburgerMenuContainer.scrollTo({
+              top: scrollOffset,
+              left: 0,
+              behavior: "smooth"
+            });
+          }
+        }, 200);
       }
       else {
         subMenu.style.height = "0";
@@ -905,6 +942,43 @@ if (utilNarrowButton !== null) {
         utilNarrowContent.style.maxHeight = contentHeight;
         utilNarrowContainer.style.opacity = "1";
       }, 50);
+      setTimeout(function () {
+        let scrollOffset = document.querySelector(".js-utility-nav--narrow").offsetTop;
+        if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
+          function customScrollTo(to, duration) {
+            var start = 0,
+                change = to - start,
+                currentTime = 0,
+                increment = 20;
+
+            var animateScroll = function(){
+              currentTime += increment;
+              var val = Math.easeInOutQuad(currentTime, start, change, duration);
+              hamburgerMenuContainer.scrollTo(0,val);
+
+              if(currentTime < duration) {
+                setTimeout(animateScroll, increment);
+              }
+            };
+            animateScroll();
+          }
+
+          Math.easeInOutQuad = function (t, b, c, d) {
+            t /= d/2;
+            if (t < 1) return c/2*t*t + b;
+            t--;
+            return -c/2 * (t*(t-2) - 1) + b;
+          };
+
+          customScrollTo(scrollOffset, 250);
+        } else {
+          hamburgerMenuContainer.scrollTo({
+            top: scrollOffset,
+            left: 0,
+            behavior: "smooth"
+          });
+        }
+      }, 250);
     } else {
       closeNarrowUtilContent();
     }
