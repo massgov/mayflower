@@ -14,7 +14,6 @@ module.exports = {
     '@storybook/addon-controls',
     '@storybook/addon-actions',
     '@storybook/addon-links',
-    '@storybook/addon-knobs',
     '@storybook/addon-viewport',
     {
       name: '@storybook/addon-storysource',
@@ -49,7 +48,7 @@ module.exports = {
     // modify storybook's file-loader rule to avoid conflicts with svgr
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test && rule.test.test('.svg'));
     fileLoaderRule.exclude = iconPath;
-    
+
 
     config.module.rules.unshift({
       test: /\.svg$/,
