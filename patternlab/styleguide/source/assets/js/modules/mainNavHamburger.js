@@ -3,7 +3,6 @@ const body = document.querySelector("body");
 let width = body.clientWidth;
 let alertlOffsetPosition;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
-const menuBarHeight = document.querySelector(".ma__header__hamburger__nav") ? document.querySelector(".ma__header__hamburger__nav").offsetHeight : null;
 const menuOverlay = document.querySelector(".menu-overlay");
 const alertOverlay = document.querySelector(".alert-overlay");
 
@@ -79,9 +78,9 @@ let hamburgerMenuAlertScrolling = function() {
       attributeFilter: ["style"],
       attributeOldValue: true
     });
-
   }
 };
+
 
 // Not ideal, but this is here to wait for alerts to load via AJAX.
 const maAjaxPattern = document.querySelectorAll(".ma__ajax-pattern");
@@ -506,36 +505,6 @@ if (jumpToSearchButton !== null) {
   });
 }
 
-// Adjust the overlay position as the alert accordion opens/closes while the menu is open.
-setTimeout(function timeoutFunction() {
-  if (document.querySelector(".ma__button-alert")) {
-    document.querySelector(".ma__button-alert").addEventListener("click", function () {
-      if (body.classList.contains("show-menu")) {
-        let openAboveNavBar = document.querySelector(".js-accordion-content").getBoundingClientRect().top;
-        let closeOverlayOffset = openAboveNavBar + menuBarHeight;
-        if (document.querySelector(".js-emergency-alerts").classList.contains("is-open") === true) {
-          if (width > 840) {
-            closeOverlayOffset = closeOverlayOffset -1;
-          }
-          menuOverlay.style.top = closeOverlayOffset + "px";
-        }
-
-        // When the alert is close, wait till accordion animation to complete
-        // to get the complete height of the alert header and the accordion content.
-        if (document.querySelector(".js-emergency-alerts").classList.contains("is-open") === false) {
-          setTimeout(function () {
-            let openOverlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
-
-            if (width > 840) {
-              openOverlayOffset = openOverlayOffset -1;
-            }
-            menuOverlay.style.top = openOverlayOffset + "px";
-          }, 400);
-        }
-      }
-    });
-  }
-}, 1000);
 function toggleMenu() {
   if (body.classList.contains("show-menu")) {
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
@@ -622,100 +591,67 @@ function commonCloseMenuTasks() {
 }
 
 function openMenu() {
+  let heightAboveMenuContainer;
+  let emergencyAlertsHeight;
+  // Set the alert to its offset position in the window to prevent the page to shift as the menu opens.
   let lockPage = function () {
     document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
     document.querySelector("body").style.position = "fixed";
+
+    heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
   };
-
-  commonOpenMenuTasks();
-  menuButton.setAttribute("aria-pressed", "true");
-  let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
-  if (alertsHeader !== null) {
-    let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
-    let emergencyAlertsHeight = emergencyAlerts.offsetHeight;
-    alertlOffsetPosition = emergencyAlertsHeight - (alertsHeader.offsetHeight/2);
-    if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
-      customScrollTo(alertlOffsetPosition, 250);
-      setTimeout(lockPage(), 250);
-    }
-    else {
-      window.scrollTo({
-        top: alertlOffsetPosition,
-        left: 0,
-        behavior: "smooth"
-      });
-      lockPage();
-    }
-    // Set the nav container height to enable scrolling to the bottom.
-    let heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
-    if (osInfo.indexOf("iPhone") !== -1) {
-      let subtractFromMenuHeight = heightAboveMenuContainer + 15;
-      hamburgerMenuContainer.style.height = `calc(100vh - ${subtractFromMenuHeight}px)`;
-      hamburgerMenuContainer.style.paddingBottom = "20px";
-    }
-    else {
-      hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
-    }
-  }
-}
-
-function commonOpenMenuTasks() {
-  body.classList.add("show-menu");
 
   if (document.querySelector("html.stickyTOC")) {
     document.querySelector("html.stickyTOC").classList.add("stickyTOCtmp");
     document.querySelector("html.stickyTOC").classList.remove("stickyTOC");
   }
 
+  // Start open menu tasks.
+  body.classList.add("show-menu");
+
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
-   feedbackButton.classList.add("hide-button");
+    feedbackButton.classList.add("hide-button");
   }
   jumpToSearchButton.setAttribute("aria-expanded", "true");
+
+  menuButton.setAttribute("aria-pressed", "true");
+  let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
+  if (alertsHeader !== null) {
+    let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
+    emergencyAlertsHeight = emergencyAlerts.offsetHeight;
+    alertlOffsetPosition = emergencyAlertsHeight - (alertsHeader.offsetHeight/2);
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+    lockPage();
+
+    // Set the nav container height to enable scrolling to the bottom.
+    if (osInfo.indexOf("iPhone") !== -1) {
+      heightAboveMenuContainer = heightAboveMenuContainer + 20;
+    }
+
+    hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
+  }
+
   if (menuOverlay) {
-    if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
-      setTimeout(function () {
-        offsetMenuOverlay();
-        menuOverlay.classList.add("overlay-open");
-      }, 600);
+    let overlayOffset = heightAboveMenuContainer;
+    if (width > 840) {
+      overlayOffset = overlayOffset -1;
     }
-    else {
-      setTimeout(function () {
-        offsetMenuOverlay();
-        menuOverlay.classList.add("overlay-open");
-      }, 300);
-    }
+    menuOverlay.style.top = overlayOffset + "px";
+    menuOverlay.classList.add("overlay-open");
   }
   if (alertOverlay) {
-    if (isMobileDevice()) {// mobile
-      if (document.querySelector(".ma__emergency-alerts")) {
-        setTimeout(function () {
-          alertOverlay.classList.add("overlay-open");
-          alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
-        }, 600);
-      }
-    }
-    else {// desktop
-      if (document.querySelector(".ma__emergency-alerts")) {
-        setTimeout(function () {
-          alertOverlay.classList.add("overlay-open");
-          // Get the overlay height after scrolling completes.
-          setTimeout(function () {
-            alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
-          }, 800);
-        }, 300);
-      }
+    if (document.querySelector(".ma__emergency-alerts")) {
+      alertOverlay.classList.add("overlay-open");
+      alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
     }
   }
-}
-
-function offsetMenuOverlay () {
-  let overlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
-  if (width > 840) {
-    overlayOffset = overlayOffset -1;
-  }
-  menuOverlay.style.top = overlayOffset + "px";
 }
 
 function jumpToSearch(e) {
@@ -829,10 +765,8 @@ if (utilWideButton !== null && utilWideCloseButton !== null && utilWideContent !
       thisWideButton.setAttribute("aria-pressed", "true");
     }
 
-    setTimeout(function () {
       thisWideButton.setAttribute("aria-expanded", "true");
       thisWideButton.setAttribute("aria-pressed", "true");
-    }, 200);
   });
 }
 
@@ -881,9 +815,7 @@ if (utilNarrowButton !== null) {
       utilNarrowContent.removeAttribute("aria-hidden");
       thisNavContainer.style.pointerEvents = "none";
       /** Slide down. */
-      setTimeout(function timeoutFunction() {
         thisNavContainer.removeAttribute("style");
-      }, 700);
 
       /** Show the content. */
       utilNarrowContent.classList.remove("is-closed");
@@ -901,10 +833,8 @@ if (utilNarrowButton !== null) {
       utilNarrowContent.style.height = contentHeight;
       utilNarrowContainer.style.height = contentHeight;
 
-      setTimeout(function timeoutFunction() {
         utilNarrowContent.style.maxHeight = contentHeight;
         utilNarrowContainer.style.opacity = "1";
-      }, 50);
     } else {
       closeNarrowUtilContent();
     }
@@ -943,42 +873,9 @@ function closeSubMenu() {
     openSubMenuContent.style.height = "0";
     openSubMenuContainer.style.opacity = "0";
 
-    setTimeout(function timeoutFunction() {
-      openSubMenuContent.classList.add("is-closed");
-    }, 500);
+    openSubMenuContent.classList.add("is-closed");
 
-    setTimeout(function timeoutFunction() {
-      openSubMenu.removeAttribute("style");
-      openSubMenu.classList.remove("submenu-open");
-    }, 700);
+    openSubMenu.removeAttribute("style");
+    openSubMenu.classList.remove("submenu-open");
   }
-}
-
-function customScrollTo(to, duration) {
-  var start = window.scrollY,
-      change = to - start,
-      currentTime = 0,
-      increment = 20;
-
-  var animateScroll = function(){
-    currentTime += increment;
-    var val = Math.easeInOutQuad(currentTime, start, change, duration);
-    window.scrollTo(0,val);
-
-    if(currentTime < duration) {
-      setTimeout(animateScroll, increment);
-    }
-  };
-  animateScroll();
-}
-
-Math.easeInOutQuad = function (t, b, c, d) {
-  t /= d/2;
-  if (t < 1) return c/2*t*t + b;
-  t--;
-  return -c/2 * (t*(t-2) - 1) + b;
-};
-
-function isMobileDevice() {
-  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf("IEMobile") !== -1);
 }
