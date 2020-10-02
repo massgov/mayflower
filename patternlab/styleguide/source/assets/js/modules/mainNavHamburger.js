@@ -599,21 +599,6 @@ function openMenu() {
     document.querySelector("body").style.position = "fixed";
 
     heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
-    if (osInfo.indexOf("iPhone") !== -1) {
-
-      // WHEN THE MENU IS OPENED SECOND TIME AND LATER(AFTER THE PAGE LOADED, OPEN MENU, THEN CLOSE IT, THEN OPEN IT AGAIN), heightAboveMenuContainer VALUE CHANGES, WHICH DOESN'T HAPPEN IN OTHER DEVICES AND OS. I CANNOT FIGURE OUT WHERE IT'S COMING FROM. EITHER SOMETHING NEEDS TO BE CORRECTED OR ADJUSTMENT IS NEEDED LIKE CLEAR THE VALUE AT THE END OF THE FUNCTION.
-
-      // TEST OUTPUT
-      console.log("iphone heightAboveMenuContainer: " + heightAboveMenuContainer);
-      console.log("iphone2 emergencyAlertsHeight: " + emergencyAlertsHeight);
-      console.log("iphone2 alertlOffsetPosition: " + alertlOffsetPosition);
-      // END: TEST OUTPUT
-
-      // if (document.querySelector(".ma__header__hamburger__nav-container").getBoundingClientRect().top < 0) {
-      //   heightAboveMenuContainer = emergencyAlertsHeight - alertlOffsetPosition + 1;
-      // }
-    }
-
   };
 
   if (document.querySelector("html.stickyTOC")) {
@@ -622,7 +607,6 @@ function openMenu() {
   }
 
   // Start open menu tasks.
-  // commonOpenMenuTasks();
   body.classList.add("show-menu");
 
   menuButton.setAttribute("aria-expanded", "true");
@@ -631,7 +615,6 @@ function openMenu() {
     feedbackButton.classList.add("hide-button");
   }
   jumpToSearchButton.setAttribute("aria-expanded", "true");
-  // END COMMON TASKS
 
   menuButton.setAttribute("aria-pressed", "true");
   let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
@@ -640,36 +623,17 @@ function openMenu() {
     emergencyAlertsHeight = emergencyAlerts.offsetHeight;
     alertlOffsetPosition = emergencyAlertsHeight - (alertsHeader.offsetHeight/2);
 
-    // TEST OUTPUT
-    console.log("alertsHeader.offsetHeight: " + alertsHeader.offsetHeight);
-    console.log("emergencyAlertsHeight: " + emergencyAlertsHeight);
-    console.log("emergencyAlertsHeight - alertlOffsetPosition:");
-    console.log(emergencyAlertsHeight - alertlOffsetPosition);
-    // END: TEST OUTPUT
-
-
-    // if (osInfo.indexOf("iPhone") !== -1) {
-    //   // Changed the duration value to 600.
-    //   customScrollTo(alertlOffsetPosition, 600);
-    //   setTimeout(lockPage(), 600);
-    // }
-    // else {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
-      });
-      lockPage();
-    //}
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+    lockPage();
 
     // Set the nav container height to enable scrolling to the bottom.
     if (osInfo.indexOf("iPhone") !== -1) {
       heightAboveMenuContainer = heightAboveMenuContainer + 20;
     }
-
-    // TEST OUTPUT
-    console.log("heightAboveMenuContainer: " + heightAboveMenuContainer);
-    // END: TEST OUTPUT
 
     hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
   }
@@ -688,10 +652,6 @@ function openMenu() {
       alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
     }
   }
-
-  // TEST OUTPUT
-  console.log(hamburgerMenuContainer.style.height);
-  // END: TEST OUTPUT
 }
 
 function jumpToSearch(e) {
@@ -920,31 +880,9 @@ function closeSubMenu() {
   }
 }
 
-function customScrollTo(to, duration) {
-  var start = window.scrollY,
-      change = to - start,
-      currentTime = 0,
-      increment = 20;
-
-  var animateScroll = function(){
-    currentTime += increment;
-    var val = Math.easeInOutQuad(currentTime, start, change, duration);
-    window.scrollTo(0,val);
-
-    if(currentTime < duration) {
-      setTimeout(animateScroll, increment);
-    }
-  };
-  animateScroll();
-}
-
 Math.easeInOutQuad = function (t, b, c, d) {
   t /= d/2;
   if (t < 1) return c/2*t*t + b;
   t--;
   return -c/2 * (t*(t-2) - 1) + b;
 };
-
-function isMobileDevice() {
-  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf("IEMobile") !== -1);
-}
