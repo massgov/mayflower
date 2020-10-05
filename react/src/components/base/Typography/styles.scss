@@ -38,10 +38,8 @@
   .docblock-argstable {
     thead,tbody {
       tr{
-        th,td {
-          &:not(:last-child) {
-            display: none;
-          }
+        th,td:not(:last-child) {
+          display: none;
         }
       }
     }

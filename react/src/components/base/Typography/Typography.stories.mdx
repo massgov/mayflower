@@ -22,11 +22,10 @@ const slugifyStyle = (style) => {
 <Meta
   title="brand/typography"
   parameters={{
-    previewTabs: { canvas: { hidden: true } }
+    previewTabs: { canvas: { hidden: true } },
+    viewMode: 'docs'
   }}
 />
-
-export const Template = (args) => <p>{args.text}</p>
 
 # Noto Sans
 **Noto Sans is the official typeface of Mayflower.**
@@ -51,8 +50,6 @@ It's selected to be the Mayflower typeface to:
 
 
 ## Custom Preview
-
-
 <Story
   name="Noto Sans"
   argTypes={{
@@ -63,10 +60,9 @@ It's selected to be the Mayflower typeface to:
     }
   }}
 >
-  {Template.bind({})}
 </Story>
 
-> Type something in control below to preview text in Noto Sans.
+> Type something below to preview text in Noto Sans.
 
 <div id="sb-control--preview">
   <ArgsTable
@@ -74,8 +70,6 @@ It's selected to be the Mayflower typeface to:
     story="Noto Sans"
   />
 </div>
-
-
 
 
 ## Styles and Usage
