@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Fixed global nav issues when text truncation enabled. (#1197)
+    issue: DP-20092
+    impact: Patch
