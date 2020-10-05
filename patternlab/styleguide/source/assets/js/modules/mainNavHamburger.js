@@ -630,11 +630,6 @@ function openMenu() {
     });
     lockPage();
 
-    // Set the nav container height to enable scrolling to the bottom.
-    if (osInfo.indexOf("iPhone") !== -1) {
-      heightAboveMenuContainer = heightAboveMenuContainer + 20;
-    }
-
     hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
   }
 
