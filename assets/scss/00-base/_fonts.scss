@@ -49,10 +49,10 @@
 
   @font-face {
     font-family: 'Noto Sans VF';
-    src:  url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.eot?#iefix') format('embedded-opentype'),
-          url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.woff') format('woff'),
-          url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.ttf') format('truetype'),
-          url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.svg#NotoSans-Italic') format('svg');
+    src:  url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.eot?#iefix') format('embedded-opentype'),
+          url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.woff') format('woff'),
+          url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.ttf') format('truetype'),
+          url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.svg#NotoSans-Italic') format('svg');
     font-weight: 100 900;
     font-style: italic;
   }
@@ -60,10 +60,10 @@
 
   @font-face {
     font-family: 'Noto Sans Mono VF';
-    src:  url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.eot?#iefix') format('embedded-opentype'),
-          url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.woff') format('woff'),
-          url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.ttf') format('truetype'),
-          url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.svg#NotoSans-Mono') format('svg');
+    src:  url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-VF.eot?#iefix') format('embedded-opentype'),
+          url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-VF.woff') format('woff'),
+          url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-VF.ttf') format('truetype'),
+          url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-VF.svg#NotoSans-Mono') format('svg');
     font-weight: 100 900;
     font-style: normal;
   }
