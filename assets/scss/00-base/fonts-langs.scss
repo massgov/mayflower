@@ -1,218 +1,199 @@
-// Variable sans fonts
-$adlam:						U+1E900-1E95F, U+2E41; // Uses reversed comma
-$arabic:					U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+1EE00-1EEFF; // Arabic, supplement, extended A, presentation forms A and B, alphabetic mathematical symbols
-$armenian:				U+0530-058F;
-$balinese:				U+1B00-1B7F;
-$bamum:						U+A6A0-A6FF, U+16800-16A3F; // Bamum and supplement
-$bengali:					U+0980-09FF;
-$brahmi:					U+11000-1107F;
-$buginese:				U+1A00-1A1F;
-$buhid:						U+1740-175F, U+1735;
-$c-aboriginal:		U+1400-167F, U+18B0-18FF; // UCAS and extended
-$cham:						U+AA00-AA5F;
-$cherokee:				U+????; // U+13A0-13FF;
-$chinese:					U+4E00-9FFF, U+31C0-31EF, U+3300-33FF, U+3000-303F, U+2E80-2EFF, U+FE30-FE4F, U+2F00-2FDF, U+FF0C;
-$cyrillic:				U+0400-04FF, U+0500-052F, U+1C80-1C8F;
-$devanagari:			U+0900-097F, U+A8E0-A8FF; // Devanagari and extended
-$elemaic:					U+10FE0-10FFF;
-$ethiopic:				U+1200-137F, U+1380-139F, U+2D80-2DDF; // Ethiopic, extended, and supplement
-$grantha:					U+11300-1137F;
-$georgian:				U+10A0-10FF, U+1C90-1CBF, U+2D00-2D2F; // Georgian, extended, and supplement
-$greek:						U+0370-03FF, U+1F00-1FFF; // Greek and coptic, greek extended
-$gujarati:				U+0A80-0AFF;
-$gurmukhi:				U+0A00-0A7F;
-$hangul:					U+1100-11FF, U+3130-318F, U+AC00-D7AF, U+A960-A97F, U+D7B0-D7FF; // With compatibility jamo
-$hanifi-rohingya:	U+10D00-10D3F;
-$hanunoo:					U+1720-173F;
-$hebrew:					U+0590-05FF, U+FB1D-FB4F;
-$japanese:				U+A5, U+4E00-9FFF, U+30??, U+FF00-FF9F; // Kanji, Hiragana, Katakana, Yen symbol.
-$kannada:					U+0C80-0CFF;
-$kayah:						U+A900-A92F;
-$khmer:						U+1780-17FF, U+19E0-19FF; // Khmer and symbols
-$lao:							U+0E80-0EFF;
-$latin:						U+????;
-$limbu:						U+1900-194F;
-$lisu:						U+A4D0-A4FF;
-$malayalam:				U+0D00-0D7F;
-$myanmar:					U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF;
-$mongolian:				U+1800-18AF, U+11660-1167F;
-$nko:							U+07C0-07FF;
-$nushu:						U+1B170-1B2FF;
-$oriya:						U+0B00-0B7F;
-$olchiki:					U+1C50-1C7F;
-$rashi-hebrew:		U+0590-05FF;
-$sinhala:					U+0D80-0DFF;
-$sora-sompeng:		U+110D0-110FF;
-$tai-le:					U+1950-197F;
-$tai-tham:				U+1A20-1AAF;
-$tai-viet:				U+AA80-AADF;
-$takri:						U+11680-116CF;
-$tamil:						U+0B80-0BFF, U+11FC0-11FFF; // Tamil and supplement
-$telugu:					U+0C00-0C7F;
-$tagalog:					U+1700-171F, U+1735;
-$thaana:					U+0780-07BF;
-$thai:						U+0E00-0E7F;
-$tibetan:					U+0F00-0FFF;
-$warang-citi:			U+118A0-118FF;
-$zanabazar:				U+11A00-11A4F;
-$lgc: 						U+0000-00FF, U+0100-017F, U+0180-024F, U+0370-03FF, U+0259-03C0, U+1E00-1EFF, U+2000-FB02, U+1F00-1FFF, U+0400-04FF, U+0500-052F, U+1C80-1C8F;
+// Language sets and @mixin
+$fonts: "Noto Sans VF","Noto Sans","Helvetica", "Arial",sans-serif;
 
-
-$oneSpace: 	' ';
-$oneDash:		'-';
-$global-font-display:	'swap';
-$assets-path: '/static' !default;
-$fonts-path: '/fonts/noto/' !default;
-
-@mixin font-face ($family: "Noto", $type: "Sans", $script: "Cyrillic", $suffix: "UI", $weight: "-VF", $subset: "-subset", $fontWeight: "100 900", $fontStyle: "normal", $fontDisplay: "swap", $unicodeRange: "cyrillic", $space: $oneSpace, $dash: $oneDash) {
-	font-family: '#{$family} #{$type} #{$script}#{$space}#{$suffix}';
-	src:	url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$weight}#{$subset}.woff2') format('woff2'),
-				url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$weight}#{$subset}.woff') format('woff'),
-				url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$weight}#{$subset}.eot?#iefix') format('embedded-opentype'),
-				url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$weight}#{$subset}.svg') format('svg'),
-				;
-	font-weight: $fontWeight;
-	font-style: $fontStyle;
-	font-display: $fontDisplay;
-	unicode-range: $unicodeRange;
+// This adds all of the language sets for a script to an `&:lang()` rule
+// it is used in script selector files so they can easily be applied to each font style
+@mixin langlist($stack, $dir, $langs) {
+  @each $lang in $langs {
+    &:lang(#{$lang}) {
+			font-family: $stack, $fonts;
+			direction: $dir;
+      @if $dir == rtl {
+        text-align: right;
+      }
+		}
+  }
 }
 
-// Variable sans fonts
+// Script selector template -- replace 'thelang' with language name and 'code' with scrpt code
+// @import "language-sets";
+//
+// $sans-stack: 		$base-sans,$thelang-sans,sans-serif;
+// $serif-stack: 	$base-sans,$thelang-serif,serif;
+// $ui-stack: 			$base-sans,$thelang-sans-ui,sans-serif;
+//
+// *,
+// .#{$prefix}sans {
+// 	@include langlist($sans-stack, ltr, $langs-code...);
+// }
+//
+// .#{$prefix}serif {
+// 	@include langlist($serif-stack, ltr, $langs-code...);
+// }
+//
+// .#{$prefix}sans-ui {
+// 	@include langlist($ui-stack, ltr, $langs-code...);
+// }
 
-// Adlam
-@font-face { @include font-face(Noto, Sans, Adlam, null, -VF, -subset, 100 900, normal, $global-font-display, $adlam, null, null); }
-
+ // Adlam
+$langs-Adlm: "ff", "Adlm" !default;
 // Arabic
-@font-face { @include font-face(Noto, Sans, Arabic, null, -VF, -subset, 100 900, normal, $global-font-display, $arabic, null, null); }
-
+$langs-Arab: "ar", "fa", "ps", "ur", "wni", "zdj", "aeb", "arq", "ars", "ary", "arz", "bej", "bgn", "bqi", "ckb", "dcc", "doi", "fia", "gbz", "gjk", "gju", "glk", "haz", "hnd", "hno", "khw", "kvx", "kxp", "lah", "lki", "lrc", "luz", "mfa", "mvy", "mzn", "prd", "rmt", "sdh", "skr", "trw", "aii", "az", "inh", "ky", "kk", "ku", "tg", "tk", "tly", "ttt", "ug", "uz", "Arab", "aii-Arab", "az-Arab", "inh-Arab", "ky-Arab", "kk-Arab", "ku-Arab", "tg-Arab", "tk-Arab", "tly-Arab", "ttt-Arab", "ug-Arab", "uz-Arab", "bal-Arab", "brh-Arab", "dyo-Arab", "ha-Arab", "id-Arab", "ms-Arab", "so-Arab", "sus-Arab", "swb-Arab", "tr-Arab", "tru-Arab", "wo-Arab", "hi-Arab", "hif-Arab", "ks-Arab", "sd-Arab", "Arab" !default;
 // Armenian
-@font-face { @include font-face(Noto, Sans, Armenian, null, -VF, -subset, 100 900, normal, $global-font-display, $armenian, null, null); }
-
+$langs-Armn: "hy", "Armn" !default;
+// Balinese
+$langs-Bali: "ban", "Bali" !default;
 // Bamum
-@font-face { @include font-face(Noto, Sans, Bamum, null, -VF, -subset, 100 900, normal, $global-font-display, $bamum, null, null); }
-
+$langs-Bamu: "bax", "Bamu" !default;
 // Bengali
-@font-face { @include font-face(Noto, Sans, Bengali, null, -VF, -subset, 100 900, normal, $global-font-display, $bengali, null, null); }
-
+$langs-Beng: "bn", "Beng" !default;
 // Brahmi
-@font-face { @include font-face(Noto, Sans, Brahmi, null, -VF, -subset, 100 900, normal, $global-font-display, $brahmi, null, null); }
-
+$langs-Brah: "Brah" !default;
 // Buginese
-@font-face { @include font-face(Noto, Sans, Buginese, null, -VF, -subset, 100 900, normal, $global-font-display, $buginese, null, null); }
-
+$langs-Bugi: "bug", "Bugi" !default;
 // Buhid
-@font-face { @include font-face(Noto, Sans, Buhid, null, -VF, -subset, 100 900, normal, $global-font-display, $buhid, null, null); }
-
-// Unified Canadian Aboriginal
-@font-face { @include font-face(Noto, Sans, Canadian, Aboriginal, -VF, -subset, 100 900, normal, $global-font-display, $c-aboriginal, $oneSpace, null); }
-
+$langs-Buhd: "bku", "Buhd" !default;
+// Canadian Aboriginal
+$langs-Cans: "chp", "cr", "crj", "crk", "crl", "crm", "csw", "den", "iu", "nsk", "oj", "Cans" !default;
 // Cham
-@font-face { @include font-face(Noto, Sans, Cham, null, -VF, -subset, 100 900, normal, $global-font-display, $cham, null, null); }
-
+$langs-Cham: "cja", "cjm", "Cham" !default;
 // Cherokee
-@font-face { @include font-face(Noto, Sans, Cherokee, null, -VF, -subset, 100 900, normal, $global-font-display, $cherokee, null, null); }
-
+$langs-Cher: "chr", "Cher" !default;
+// Chinese - simplified
+$langs-Hans: "zh", "gan", "hak", "hsn", "nan", "wuu", "za", "lzh", "Hans", "zh-Hans", "gan-Hans", "hak-Hans", "hsn-Hans", "nan-Hans", "wuu-Hans", "yue-Hans", "za-Hans", "lzh-Hans", "Hans" !default;
+// Chinese - traditional
+$langs-Hant: "yue", "zh-Hant", "gan-Hant", "hak-Hant", "hsn-Hant", "nan-Hant", "wuu-Hant", "yue-Hant", "za-Hant", "lzh-Hant", "Hant", "zh-HK" !default;
 // Cyrillic
-@font-face { @include font-face(Noto, Sans, LGC, null, -VF, -subset, 100 900, normal, $global-font-display, $cyrillic, null, null); }
-
-// Devanagari (Hindi)
-@font-face { @include font-face(Noto, Sans, Devanagari, null, -VF, -subset, 100 900, normal, $global-font-display, $devanagari, null, null); }
-
+$langs-Cyrl: "be", "bg", "mk", "mn", "ru", "uk", "ab", "abq", "ady", "alt", "av", "ba", "bua", "ce", "chm", "cjs", "ckt", "crh", "cv", "dar", "dng", "evn", "gld", "kaa", "kbd", "kca", "kjh", "koi", "kpy", "krc", "kum", "kv", "lbe", "lez", "mdf", "mns", "mrj", "myv", "nog", "os", "rue", "sah", "sel", "tab", "tt", "tyv", "ude", "xal", "yrk", "aii-Cyrl", "az-Cyrl", "inh-Cyrl", "ky-Cyrl", "kk-Cyrl", "ku-Cyrl", "tg-Cyrl", "tk-Cyrl", "tly-Cyrl", "ttt-Cyrl", "ug-Cyrl", "uz-Cyrl", "ro-Cyrl", "sr-Cyrl", "gag-Cyrl", "bs-Cyrl", "rom-Cyrl", "se-Cyrl", "tkr-Cyrl", "udm-Cyrl", "Cyrl" !default;
+// Devanagari
+$langs-Deva: "anp", "awa", "bap", "bfy", "bgc", "bhb", "bhi", "bho", "bjj", "bra", "brx", "btv", "dty", "gbm", "gom", "gvr", "hi", "hif", "hne", "hoc", "hoj", "jml", "kfr", "kfy", "khn", "kok", "kru", "ks", "mag", "mai", "mgp", "mr", "mrd", "mtr", "mwr", "ne", "new", "noe", "raj", "rjs", "sa", "sck", "sd", "srx", "swv", "tdh", "thl", "thq", "thr", "tkt", "wbr", "wtm", "xnr", "xsr", "hi-Deva", "hif-Deva", "ks-Deva", "sd-Deva", "Deva" !default;
+// Ethiopic
+$langs-Ethi: "am", "ti", "byn", "tig", "wal", "Ethi" !default;
 // Georgian
-@font-face { @include font-face(Noto, Sans, Georgian, null, -VF, -subset, 100 900, normal, $global-font-display, $georgian, null, null); }
-
+$langs-Geor: "ka", "Geor" !default;
 // Grantha
-@font-face { @include font-face(Noto, Sans, Grantha, null, -VF, -subset, 100 900, normal, $global-font-display, $grantha, null, null); }
-
+$langs-Gran: "sa", "Gran" !default;
 // Greek
-@font-face { @include font-face(Noto, Sans, LGC, null, -VF, -subset, 100 900, normal, $global-font-display, $greek, null, null); }
-
+$langs-Grek: "gr", "Grek" !default;
 // Gujarati
-// @font-face { @include font-face(Noto, Sans, Gujarati, null, -VF, -subset, 100 900, normal, $global-font-display, $gujarati, null, null); }
-
+$langs-Gujr: "gu", "Gujr" !default;
 // Gurmukhi
-@font-face { @include font-face(Noto, Sans, Gurmukhi, null, -VF, -subset, 100 900, normal, $global-font-display, $gurmukhi, null, null); }
-
+$langs-Guru: "gi", "Guru" !default;
 // Hanifi Rohingya
-@font-face { @include font-face(Noto, Sans, Hanifi, Rohingya, -VF, -subset, 100 900, normal, $global-font-display, $hanifi-rohingya, $oneSpace, null); }
-
+$langs-Rohg: "Rohg" !default;
+// Hanunoo
+$langs-Hano: "Hano" !default;
 // Hebrew
-@font-face { @include font-face(Noto, Sans, Hebrew, null, -VF, -subset, 100 900, normal, $global-font-display, $hebrew, null, null); }
-
+$langs-Hebr: "iw", "he", "jpr", "jrb", "lad", "yi", "Hebr" !default;
+// Japanese
+$langs-Jpan: "jp", "Jpan" !default;
 // Kannada
-@font-face { @include font-face(Noto, Sans, Kannada, null, -VF, -subset, 100 900, normal, $global-font-display, $kannada, null, null); }
-
+$langs-Knda: "kn", "Knda" !default;
 // Khmer
-@font-face { @include font-face(Noto, Sans, Khmer, null, -VF, -subset, 100 900, normal, $global-font-display, $khmer, null, null); }
-
+$langs-Khmr: "km", "Khmr" !default;
+// Korean
+$langs-Kore: "ko", "Kore" !default;
 // Lao
-@font-face { @include font-face(Noto, Sans, Lao, null, -VF, -subset, 100 900, normal, $global-font-display, $lao, null, null); }
-
+$langs-Lao: "lo", "Lao" !default;
 // Latin
-@font-face { @include font-face(Noto, Sans, Latin, null, -VF, -subset, 100 900, normal, $global-font-display, $latin, null, null); }
-
+$langs-Latn: "ay", "bi", "ca", "ch", "cs", "da", "de", "en", "eo", "es", "et", "fi", "fil", "fj", "fo", "fr", "ga", "gil", "gn", "gsw", "gv", "ho", "hr", "ht", "hu", "in", "is", "it", "kl", "lb", "lt", "lv", "mg", "mh", "mi", "mt", "na", "nb", "nd", "niu", "nl", "nn", "no", "ny", "pap", "pau", "pl", "pt", "qu", "rn", "rw", "sg", "sk", "sl", "sm", "sn", "sq", "ss", "st", "sv", "sw", "tet", "tkl", "tl", "tn", "to", "tpi", "tr", "tvl", "ty", "yo", "aa", "abr", "ace", "ach", "ada", "af", "agq", "ak", "akz", "ale", "aln", "amo", "an", "aoz", "arn", "aro", "arp", "arw", "asa", "ast", "atj", "bar", "bas", "bbj", "bci", "bem", "bew", "bez", "bfd", "bik", "bin", "bjn", "bkm", "bku", "bla", "bmq", "bqv", "br", "bss", "bto", "buc", "bug", "bum", "bvb", "byv", "bze", "bzx", "cad", "car", "cay", "cch", "ceb", "cgg", "chk", "chn", "cho", "chy", "cic", "co", "cps", "crj", "crl", "crs", "csb", "ctd", "cy", "dak", "dav", "del", "dgr", "din", "dje", "dnj", "dsb", "dtm", "dtp", "dua", "dyu", "ebu", "ee", "efi", "egl", "eka", "esu", "eu", "ewo", "ext", "fan", "ffm", "fit", "fon", "frc", "frp", "frr", "frs", "fud", "fuq", "fur", "fuv", "fvr", "fy", "gaa", "gay", "gba", "gcr", "gd", "gl", "gor", "gos", "grb", "gub", "guc", "gur", "guz", "gwi", "hai", "haw", "hil", "hmn", "hnn", "hop", "hsb", "hup", "hz", "iba", "ibb", "ife", "ig", "ik", "ikt", "ilo", "izh", "jam", "jgo", "jmc", "kab", "kac", "kaj", "kam", "kao", "kcg", "kck", "kde", "kea", "kfo", "kg", "kge", "kgp", "khq", "ki", "kiu", "kj", "kkj", "kln", "kmb", "kos", "kpe", "kr", "kri", "krj", "krl", "ksb", "ksf", "ksh", "kut", "kvr", "kw", "lag", "laj", "lam", "lbw", "li", "lij", "liv", "lkt", "lmo", "mad", "rtm", "tiv", "tmh", "tog", "trv", "ts", "tsg", "tsi", "ttj", "tum", "twq", "uli", "umb", "ve", "vec", "vep", "vic", "vls", "vmf", "vmw", "vot", "vro", "vun", "wa", "wae", "war", "was", "wbp", "wls", "xav", "xh", "xog", "yao", "yap", "yav", "ybb", "yrl", "yua", "zag", "zap", "zea", "zmi", "zu", "zun", "zza", "ro-Latn", "sr-Latn", "gag-Latn", "bs-Latn", "rom-Latn", "se-Latn", "tkr-Latn", "udm-Latn", "hi-Latn", "hif-Latn", "ks-Latn", "sd-Latn", "ar-Latn", "bal-Latn", "brh-Latn", "dyo-Latn", "ha-Latn", "id-Latn", "ms-Latn", "so-Latn", "sus-Latn", "swb-Latn", "tr-Latn", "tru-Latn", "wo-Latn","aii-Latn", "az-Latn", "inh-Latn", "ky-Latn", "kk-Latn", "ku-Latn", "tg-Latn", "tk-Latn", "tly-Latn", "ttt-Latn", "ug-Latn", "uz-Latn", "Latn" !default;
 // Limbu
-@font-face { @include font-face(Noto, Sans, Limbu, null, -VF, -subset, 100 900, normal, $global-font-display, $limbu, null, null); }
-
+$langs-Limb: "lif", "Limb" !default;
 // Lisu
-@font-face { @include font-face(Noto, Sans, Lisu, null, -VF, -subset, 100 900, normal, $global-font-display, $lisu, null, null); }
-
+$langs-Lisu: "lis", "Lisu" !default;
 // Malayalam
-@font-face { @include font-face(Noto, Sans, Malayalam, null, -VF, -subset, 100 900, normal, $global-font-display, $malayalam, null, null); }
-
-// Mongolian
-// @font-face { @include font-face(Noto, Sans, Mongolian, null, -VF, -subset, 100 900, normal, $global-font-display, $mongolian, null, null); }
-
+$langs-Mlym: "ms", "Mlym" !default;
 // Myanmar
-@font-face { @include font-face(Noto, Sans, Myanmar, null, -VF, -subset, 100 900, normal, $global-font-display, $myanmar, null, null); }
-
-// Naskh Arabic
-@font-face { @include font-face(Noto, Naskh, Arabic, null, -VF, -subset, 100 900, normal, $global-font-display, $arabic, null, null); }
-
-// NKo
-// @font-face { @include font-face(Noto, Sans, NKo, null, -VF, -subset, 100 900, normal, $global-font-display, $nushu, null, null); }
-
-// Nushu
-@font-face { @include font-face(Noto, Sans, Nushu, null, -VF, -subset, 100 900, normal, $global-font-display, $nushu, null, null); }
-
+$langs-Mymr: "my", "Mymr" !default;
+// Nko
+$langs-Nkoo: "bm", "man", "nqo", "Nkoo" !default;
+// Ol Chiki
+$langs-Olck: "Olck" !default;
 // Oriya
-@font-face { @include font-face(Noto, Sans, Oriya, null, -VF, -subset, 100 900, normal, $global-font-display, $oriya, null, null); }
-
+$langs-Orya: "ori", "or", "Orya" !default;
 // Sinhala
-@font-face { @include font-face(Noto, Sans, Sinhala, null, -VF, -subset, 100 900, normal, $global-font-display, $sinhala, null, null); }
-
+$langs-Sinh: "si", "Sinh" !default;
+// Sora-sompeng
+$langs-Sora: "srb", "Sora" !default;
 // Tagalog
-@font-face { @include font-face(Noto, Sans, Tagalog, null, -VF, -subset, 100 900, normal, $global-font-display, $tagalog, null, null); }
-
+$langs-Tglg: "fil", "Tglg" !default;
 // Tai Le
-@font-face { @include font-face(Noto, Sans, Tai, Le, -VF, -subset, 100 900, normal, $global-font-display, $tai-le, $oneSpace, null); }
-
+$langs-Tale: "tdd", "Tale" !default;
 // Tai Tham
-@font-face { @include font-face(Noto, Sans, Tai, Tham, -VF, -subset, 100 900, normal, $global-font-display, $tai-tham, $oneSpace, null); }
-
+$langs-Lana: "kkh", "Lana" !default;
 // Tai Viet
-@font-face { @include font-face(Noto, Sans, Tai, Viet, -VF, -subset, 100 900, normal, $global-font-display, $tai-viet, $oneSpace, null); }
-
-// Thaana
-@font-face { @include font-face(Noto, Sans, Thaana, null, -VF, -subset, 100 900, normal, $global-font-display, $thaana, null, null); }
-
-// Thai
-@font-face { @include font-face(Noto, Sans, Thai, null, -VF, -subset, 100 900, normal, $global-font-display, $thai, null, null); }
-
-// Takri
-@font-face { @include font-face(Noto, Sans, Takri, null, -VF, -subset, 100 900, normal, $global-font-display, $takri, null, null); }
-
-// Telugu
-@font-face { @include font-face(Noto, Sans, Telugu, null, -VF, -subset, 100 900, normal, $global-font-display, $telugu, null, null); }
-
+$langs-Tavt: "bit", "Tavt" !default;
 // Tamil
-@font-face { @include font-face(Noto, Sans, Tamil, null, -VF, -subset, 100 900, normal, $global-font-display, $tamil, null, null); }
-
+$langs-Taml: "ta", "Taml" !default;
+// Telugu
+$langs-Telu: "te", "Telu" !default;
+// Thaana
+$langs-Thaa: "dv", "Thaa" !default;
+// Thai
+$langs-Thai: "th", "Thai" !default;
 // Tibetan
-// @font-face { @include font-face(Noto, Sans, Tibetan, null, -VF, -subset, 100 900, normal, $global-font-display, $tibetan, null, null); }
+$langs-Tibt: "bo", "dz", "Tibt" !default;
+// Warang Citi
+$langs-Wara: "hoc", "Wara" !default;
+// Zanazabar Square
+$langs-Zanb: "za", "Zanb" !default;
 
-//  Warang Citi
-@font-face { @include font-face(Noto, Sans, Warang, Citi, -VF, -subset, 100 900, normal, $global-font-display, $warang-citi, $oneSpace, null); }
 
-// Zanabazar Square
-@font-face { @include font-face(Noto, Sans, Zanabazar, Square, -VF, -subset, 100 900, normal, $global-font-display, $zanabazar, $oneSpace, null); }
+// Static sans
+$adlam-sans:						'Noto Sans Adlam';								// Static + VF
+$arabic-sans:						'Noto Sans Arabic';								// Static + VF
+$armenian-sans:					'Noto Sans Armenian';							// Static + VF
+$bamum-sans:						'Noto Sans Bamum';								// Static + VF
+$balinese-sans:					'Noto Sans Balinese';							// Static
+$bengali-sans:					'Noto Sans Bengali';							// Static + VF
+$brahmi-sans:						'Noto Sans Brahmi';								// Static + VF
+$buginese-sans:					'Noto Sans Buginese';							// Static + VF
+$buhid-sans:						'Noto Sans Buhid';								// Static + VF
+$c-aboriginal-sans:			'Noto Sans Canadian Aboriginal'; 	// Static + VF
+$cham-sans:							'Noto Sans Cham';									// Static + VF
+$cherokee-sans:					'Noto Sans Cherokee';							// Static + VF
+$chinese-s-sans:				'Noto Sans SC'; 									// Static - Simplified Chinese
+$chinese-t-sans:				'Noto Sans TC'; 									// Static - Traditional Chinese
+$cyrillic-sans:					'Noto Sans LGC'; 									// Static + VF 	latin, greek cyrillic
+$devanagari-sans:				'Noto Sans Devanagari';						// Static + VF
+$georgian-sans:					'Noto Sans Georgian';							// Static + VF
+$grantha-sans:					'Noto Sans Grantha';							// Static + VF
+$greek-sans:						'Noto Sans LGC'; 									// Static + VF 	latin, greek, cyrillic
+$gujarati-sans:					'Noto Sans Gujarati';							// Static + VF
+$gurmukhi-sans:					'Noto Sans Gurmukhi';							// Static + VF
+$hanifi-rohingya-sans:	'Noto Sans Hanifi Rohingya';			// Static + VF
+$hanunoo-sans:					'Noto Sans Hanunoo';							// Static + VF
+$hebrew-sans:						'Noto Sans Hebrew';								// Static + VF
+$japanese-sans:					'Noto Sans JP';										// Static - Japanese
+$kannada-sans:					'Noto Sans Kannada';							// Static + VF
+$kayah-sans:						'Noto Sans Kayah';								// Static + VF
+$khmer-sans:						'Noto Sans Khmer';								// Static + VF
+$korean-sans:						'Noto Sans KR';										// Static - Korean
+$latin-sans:						'Noto Sans Latin'; 								// Static + VF
+$lao-sans:							'Noto Sans Lao';									// Static + VF
+$limbu-sans:						'Noto Sans Limbu';								// Static + VF
+$lisu-sans:							'Noto Sans Lisu';									// Static + VF
+$malayalam-sans:				'Noto Sans Malayalam';						// Static + VF
+$mongolian-sans:				'';																// None
+$myanmar-sans:					'Noto Sans Myanmar';							// Static + VF
+$nko-sans:							'Noto Sans NKo';									// Static
+$oriya-sans:						'Noto Sans Oriya';								// Static + VF
+$ol-chiki-sans:					'Noto Sans Ol Chiki';							// Static + VF
+$sinhala-sans:					'Noto Sans Sinhala';							// Static + VF
+$sora-sompeng-sans:			'Noto Sans Sora Sompeng';					// Static + VF
+$tagalog-sans:					'Noto Sans Tagalog';							// Static + VF
+$tai-le-sans:						'Noto Sans Tai Le';								// Static + VF
+$tai-tham-sans:					'Noto Sans Tai Tham';							// Static + VF
+$tai-viet-sans:					'Noto Sans Tai Viet';							// Static + VF
+$takri-sans:						'Noto Sans Takri';								// Static + VF
+$tamil-sans:						'Noto Sans Tamil';								// Static + VF
+$tamil-sans-supplement:	'Noto Sans Tamil Supplement';			// Static + VF
+$telugu-sans:						'Noto Sans Telugu';								// Static + VF
+$thaana-sans:						'Noto Sans Thaana';								// Static + VF
+$thai-sans:							'Noto Sans Thai';									// Static + VF
+$tibetan-sans:					'Noto Sans Tibetan';							// Static
+$warang-citi-sans:			'Noto Sans Warang Citi';					// Static + VF
+$zanabazar-square-sans:	'Noto Sans Zanabazar Square';			// Static + VF
+
+*{	@include langlist($arabic-sans, rtl, $langs-Arab); }
+*{	@include langlist($hebrew-sans, rtl, $langs-Hebr); }

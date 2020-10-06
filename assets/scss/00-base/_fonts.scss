@@ -9,6 +9,7 @@
 @forward "paths";
 
 @use "paths" as *;
+@use "fonts-scripts";
 
 /* The fallback non-variable Noto Sans font */
 
@@ -66,6 +67,7 @@
     font-weight: 100 900;
     font-style: normal;
   }
+
   /* The variable font of Noto Sans Khmer */
 
   @font-face {
