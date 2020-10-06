@@ -7,8 +7,13 @@ if (menuButton !== null) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
+    // Toggle mobile menu.
+    if (window.innerWidth < 841) {
+      toggleMobileMenu();
+    }
+
     // Hide feedback button when menu opens.
-    toggleFeedbackButton()
+    toggleFeedbackButton();
   });
 }
 
@@ -29,5 +34,16 @@ function toggleFeedbackButton() {
     else {
       feedbackButton.classList.remove("hide-button");
     }
+  }
+}
+
+function toggleMobileMenu() {
+  const body = document.querySelector("body");
+
+  if (body.classList.contains("show-menu")) {
+    body.classList.remove("show-menu");
+  }
+  else {
+    body.classList.add("show-menu");
   }
 }
