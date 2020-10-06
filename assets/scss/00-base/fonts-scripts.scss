@@ -110,14 +110,15 @@ $global-font-display:	'swap';
 // // Lao
 // @font-face { @include font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, $global-font-display, $lao, null, null); }
 //
-// // Latin
-// @font-face { @include font-face(Noto, Sans, Latin, null, VF, -subset, 100 900, normal, $global-font-display, $latin, null, null); }
-//
 // // Malayalam
 // @font-face { @include font-face(Noto, Sans, Malayalam, null, VF, -subset, 100 900, normal, $global-font-display, $malayalam, null, null); }
 //
-// // Myanmar
-// @font-face { @include font-face(Noto, Sans, Myanmar, null, VF, -subset, 100 900, normal, $global-font-display, $myanmar, null, null); }
+// Myanmar
+@supports ( font-variation-settings: normal ) {
+  @font-face { @include font-face(Noto, Sans, Myanmar, null, VF, -subset, 100 900, normal, $global-font-display, $myanmar, null, null); }
+}
+@font-face { @include font-face(Noto, Sans, Myanmar, null, Bold, -subset, $fonts-bold, normal, $global-font-display, $myanmar, null, null); }
+@font-face { @include font-face(Noto, Sans, Myanmar, null, Regular, -subset, $fonts-normal, normal, $global-font-display, $myanmar, null, null); }
 //
 // // Tai Le
 // @font-face { @include font-face(Noto, Sans, Tai, Le, VF, -subset, 100 900, normal, $global-font-display, $tai-le, $oneSpace, null); }
