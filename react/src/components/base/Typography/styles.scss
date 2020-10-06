@@ -9,6 +9,12 @@
 
   &-block {
     font-family: $fonts !important;
+
+    &:lang(km) {
+      font-family: $fonts-khmer, $fonts !important;
+      font-size: 14px;
+    }
+
     margin-top: 0 !important;
     margin-bottom: 2rem;
     padding: 1rem;
