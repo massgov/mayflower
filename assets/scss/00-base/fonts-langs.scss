@@ -1,5 +1,8 @@
+@forward "variables";
+
+@use "variables" as *;
 // Language sets and @mixin
-$fonts: "Noto Sans VF","Noto Sans","Helvetica", "Arial",sans-serif;
+
 
 // This adds all of the language sets for a script to an `&:lang()` rule
 // it is used in script selector files so they can easily be applied to each font style

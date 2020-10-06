@@ -1,3 +1,8 @@
+@forward "paths";
+@forward "variables";
+
+@use "paths" as *;
+@use "variables" as *;
 // Variable sans fonts
 $adlam:						U+1E900-1E95F, U+2E41; // Uses reversed comma
 $arabic:					U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+1EE00-1EEFF; // Arabic, supplement, extended A, presentation forms A and B, alphabetic mathematical symbols
@@ -61,8 +66,6 @@ $lgc: 						U+0000-00FF, U+0100-017F, U+0180-024F, U+0370-03FF, U+0259-03C0, U+1
 $oneSpace: 	' ';
 $oneDash:		'-';
 $global-font-display:	'swap';
-$assets-path: '/static' !default;
-$fonts-path: '/fonts/noto/' !default;
 
 @mixin font-face ($family: "Noto", $type: "Sans", $script: "Cyrillic", $suffix: "UI", $weight: "VF", $subset: "-subset", $fontWeight: "100 900", $fontStyle: "normal", $fontDisplay: "swap", $unicodeRange: "cyrillic", $space: $oneSpace, $dash: $oneDash) {
 	@if $weight == "VF" {
@@ -87,22 +90,22 @@ $fonts-path: '/fonts/noto/' !default;
 @supports ( font-variation-settings: normal ) {
 	@font-face { @include font-face(Noto, Sans, Arabic, null, VF, -subset, 100 900, normal, $global-font-display, $arabic, null, null); }
 }
-@font-face { @include font-face(Noto, Sans, Arabic, null, Bold, -subset, 550, normal, $global-font-display, $arabic, null, null); }
-@font-face { @include font-face(Noto, Sans, Arabic, null, Regular, -subset, 400, normal, $global-font-display, $arabic, null, null); }
+@font-face { @include font-face(Noto, Sans, Arabic, null, Bold, -subset, $fonts-bold, normal, $global-font-display, $arabic, null, null); }
+@font-face { @include font-face(Noto, Sans, Arabic, null, Regular, -subset, $fonts-normal, normal, $global-font-display, $arabic, null, null); }
 
 // Hebrew
 @supports ( font-variation-settings: normal ) {
   @font-face { @include font-face(Noto, Sans, Hebrew, null, VF, -subset, 100 900, normal, $global-font-display, $hebrew, null, null); }
 }
-@font-face { @include font-face(Noto, Sans, Hebrew, null, Bold, -subset, 550, normal, $global-font-display, $hebrew, null, null); }
-@font-face { @include font-face(Noto, Sans, Hebrew, null, Regular, -subset, 400, normal, $global-font-display, $hebrew, null, null); }
+@font-face { @include font-face(Noto, Sans, Hebrew, null, Bold, -subset, $fonts-bold, normal, $global-font-display, $hebrew, null, null); }
+@font-face { @include font-face(Noto, Sans, Hebrew, null, Regular, -subset, $fonts-normal, normal, $global-font-display, $hebrew, null, null); }
 
 // Khmer
 @supports ( font-variation-settings: normal ) {
   @font-face { @include font-face(Noto, Sans, Khmer, null, VF, -subset, 100 900, normal, $global-font-display, $khmer, null, null); }
 }
-@font-face { @include font-face(Noto, Sans, Khmer, null, Bold, -subset, 550, normal, $global-font-display, $khmer, null, null); }
-@font-face { @include font-face(Noto, Sans, Khmer, null, Regular, -subset, 400, normal, $global-font-display, $khmer, null, null); }
+@font-face { @include font-face(Noto, Sans, Khmer, null, Bold, -subset, $fonts-bold, normal, $global-font-display, $khmer, null, null); }
+@font-face { @include font-face(Noto, Sans, Khmer, null, Regular, -subset, $fonts-normal, normal, $global-font-display, $khmer, null, null); }
 
 // // Lao
 // @font-face { @include font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, $global-font-display, $lao, null, null); }
