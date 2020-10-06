@@ -634,10 +634,13 @@ function openMenu() {
 
     // Set the nav container height to enable scrolling to the bottom.
     if (osInfo.indexOf("iPhone") !== -1) {
-      heightAboveMenuContainer = heightAboveMenuContainer + 20;
+      // iPhone needs a little extra height to show the very last item in the menu container.
+      let iphoneAdjustment = heightAboveMenuContainer + 20;
+      hamburgerMenuContainer.style.height = `calc(100vh - ${iphoneAdjustment}px)`;
     }
-
-    hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
+    else {
+      hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
+    }
   }
 
   if (menuOverlay) {
