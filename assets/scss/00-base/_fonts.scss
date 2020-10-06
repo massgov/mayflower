@@ -32,7 +32,7 @@
 }
 
 
-@supports ( font-variation-settings: 'wdth' 100 ) {
+@supports ( font-variation-settings: normal ) {
   /* The variable font of Noto Sans */
 
   @font-face {
