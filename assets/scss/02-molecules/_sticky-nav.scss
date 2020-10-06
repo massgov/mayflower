@@ -9,7 +9,6 @@
   transition: top .3s;
   width: 100%;
   z-index: $z-sticky-content;
-
   font-size: $fonts-medium;
 
   @media ($bp-small-min) {
@@ -60,7 +59,8 @@
 
   &[data-sticky='middle'] {
     position: fixed;
-      top: 40px;
+    top: 40px;
+    z-index: $z-overlay;
 
     .translated-rtl &,
     .translated-ltr & {
