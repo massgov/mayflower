@@ -29,22 +29,11 @@
 
 html {
   font-family: $fonts;
-
-  &:lang(km) {
-    font-family: $fonts-khmer, $fonts;
-    font-size: 14px;
-  }
-
   font-size: $fonts-base-mobile;
 
   @media ($bp-small-min) {
     font-size: $fonts-base;
   }
-
-
-  // .translated-rtl & {
-  //   direction: rtl;
-  // }
 }
 
 body {

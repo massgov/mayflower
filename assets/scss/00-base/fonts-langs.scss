@@ -6,7 +6,7 @@ $fonts: "Noto Sans VF","Noto Sans","Helvetica", "Arial",sans-serif;
 @mixin langlist($stack, $dir, $langs) {
   @each $lang in $langs {
     &:lang(#{$lang}) {
-			font-family: $stack, $fonts;
+			font-family: '#{$stack} VF', $stack, $fonts;
 			direction: $dir;
       @if $dir == rtl {
         text-align: right;
@@ -197,3 +197,4 @@ $zanabazar-square-sans:	'Noto Sans Zanabazar Square';			// Static + VF
 
 *{	@include langlist($arabic-sans, rtl, $langs-Arab); }
 *{	@include langlist($hebrew-sans, rtl, $langs-Hebr); }
+*{	@include langlist($khmer-sans, null, $langs-Khmr); }
