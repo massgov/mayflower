@@ -8,7 +8,7 @@ if (menuButton !== null) {
     event.preventDefault();
 
     // Toggle mobile menu.
-    if (window.innerWidth < 841) {
+    if (window.innerWidth < 841 && document.querySelector(".ma__header")) {
       toggleMobileMenu();
     }
 
