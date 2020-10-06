@@ -1,0 +1,12 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Fix the varying height value for the menu container whenever the menu opens in ios. (#1196)
+    issue: DP-20080
+    impact: Patch
+Changed:
+  - project: Patternlab
+  component: Header
+    description: Clean up and streamline some timing functions, unused variables and functions. (#1196)
+    issue: DP-20096
+    impact: Patch

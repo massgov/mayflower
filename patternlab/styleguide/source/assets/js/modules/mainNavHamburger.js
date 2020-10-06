@@ -504,21 +504,6 @@ function openMenu() {
     document.querySelector("body").style.position = "fixed";
 
     heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
-    if (osInfo.indexOf("iPhone") !== -1) {
-
-      // WHEN THE MENU IS OPENED SECOND TIME AND LATER(AFTER THE PAGE LOADED, OPEN MENU, THEN CLOSE IT, THEN OPEN IT AGAIN), heightAboveMenuContainer VALUE CHANGES, WHICH DOESN'T HAPPEN IN OTHER DEVICES AND OS. I CANNOT FIGURE OUT WHERE IT'S COMING FROM. EITHER SOMETHING NEEDS TO BE CORRECTED OR ADJUSTMENT IS NEEDED LIKE CLEAR THE VALUE AT THE END OF THE FUNCTION.
-
-      // TEST OUTPUT
-      console.log("iphone heightAboveMenuContainer: " + heightAboveMenuContainer);
-      console.log("iphone2 emergencyAlertsHeight: " + emergencyAlertsHeight);
-      console.log("iphone2 alertlOffsetPosition: " + alertlOffsetPosition);
-      // END: TEST OUTPUT
-
-      // if (document.querySelector(".ma__header__hamburger__nav-container").getBoundingClientRect().top < 0) {
-      //   heightAboveMenuContainer = emergencyAlertsHeight - alertlOffsetPosition + 1;
-      // }
-    }
-
   };
 
   if (document.querySelector("html.stickyTOC")) {
@@ -527,7 +512,6 @@ function openMenu() {
   }
 
   // Start open menu tasks.
-  // commonOpenMenuTasks();
   body.classList.add("show-menu");
 
   menuButton.setAttribute("aria-expanded", "true");
@@ -536,7 +520,6 @@ function openMenu() {
     feedbackButton.classList.add("hide-button");
   }
   jumpToSearchButton.setAttribute("aria-expanded", "true");
-  // END COMMON TASKS
 
   menuButton.setAttribute("aria-pressed", "true");
   let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
@@ -572,10 +555,6 @@ function openMenu() {
       heightAboveMenuContainer = heightAboveMenuContainer + 20;
     }
 
-    // TEST OUTPUT
-    console.log("heightAboveMenuContainer: " + heightAboveMenuContainer);
-    // END: TEST OUTPUT
-
     hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
   }
 
@@ -593,10 +572,6 @@ function openMenu() {
       alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
     }
   }
-
-  // TEST OUTPUT
-  console.log(hamburgerMenuContainer.style.height);
-  // END: TEST OUTPUT
 }
 
 function jumpToSearch(e) {
@@ -834,10 +809,10 @@ function closeSubMenu() {
     openSubMenuContent.style.height = "0";
     openSubMenuContainer.style.opacity = "0";
 
-      openSubMenuContent.classList.add("is-closed");
+    openSubMenuContent.classList.add("is-closed");
 
-      openSubMenu.removeAttribute("style");
-      openSubMenu.classList.remove("submenu-open");
+    openSubMenu.removeAttribute("style");
+    openSubMenu.classList.remove("submenu-open");
   }
 }
 
