@@ -302,12 +302,13 @@ body.show-menu {
     font-size: 19.2px;// Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
-    height: 44px;
-    line-height: 44px;
+    height: 43px;
+    line-height: 43px;
     margin-top: 0;
     padding-right: 30px;
     padding-left: 20px;
     transition: transform 0.5s ease;
+    vertical-align: text-bottom;
 
     // Expand close button to fll the blue bar.
 
@@ -347,7 +348,7 @@ body.show-menu {
     position: absolute;
     transition: all 500ms ease-in-out;
     width: 15px;
-    top: 19px;
+    top: 20px;
 
     &:before,
     &:after {
