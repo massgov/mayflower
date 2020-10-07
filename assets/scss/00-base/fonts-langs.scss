@@ -11,9 +11,6 @@
     &:lang(#{$lang}) {
 			font-family: '#{$stack} VF', $stack, $fonts;
 			direction: $dir;
-      @if $dir == rtl {
-        text-align: right;
-      }
 		}
   }
 }
@@ -198,7 +195,7 @@ $tibetan-sans:					'Noto Sans Tibetan';							// Static
 $warang-citi-sans:			'Noto Sans Warang Citi';					// Static + VF
 $zanabazar-square-sans:	'Noto Sans Zanabazar Square';			// Static + VF
 
-*{	@include langlist($arabic-sans, rtl, $langs-Arab); }
-*{	@include langlist($hebrew-sans, rtl, $langs-Hebr); }
-*{	@include langlist($khmer-sans, null, $langs-Khmr); }
-*{	@include langlist($myanmar-sans, null, $langs-Mymr); }
+p{ @include langlist($arabic-sans, rtl, $langs-Arab); }
+p{ @include langlist($hebrew-sans, rtl, $langs-Hebr); }
+p{ @include langlist($khmer-sans, null, $langs-Khmr); }
+p{ @include langlist($myanmar-sans, null, $langs-Mymr); }

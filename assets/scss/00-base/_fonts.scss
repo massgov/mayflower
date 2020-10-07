@@ -9,6 +9,8 @@
 @forward "paths";
 
 @use "paths" as *;
+
+// load additional fonts for language support
 @use "fonts-scripts";
 
 /* The fallback non-variable Noto Sans font */
