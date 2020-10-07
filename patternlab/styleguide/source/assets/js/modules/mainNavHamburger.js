@@ -411,23 +411,25 @@ if (jumpToSearchButton !== null) {
 }
 
 function toggleMenu() {
-  if (body.classList.contains("show-menu")) {
-    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-    // .toggleAttribute() doesn't work with ios11.
-    hamburgerMenuContainer.setAttribute("aria-hidden", "");
-    closeMenu();
+  if(hamburgerMenuContainer) {// To prevent null in the original mobile main nav.
+    if (body.classList.contains("show-menu")) {
+      // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+      // .toggleAttribute() doesn't work with ios11.
+      hamburgerMenuContainer.setAttribute("aria-hidden", "");
+      closeMenu();
 
-    setTimeout(function timeoutFunction() {
-      document.querySelector(".js-header-menu-button").focus();
-    }, 100);
-  } else {
-    hamburgerMenuContainer.removeAttribute("aria-hidden");
-    openMenu();
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".js-header-menu-button").focus();
+      }, 100);
+    } else {
+      hamburgerMenuContainer.removeAttribute("aria-hidden");
+      openMenu();
 
-    // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
+      // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
+    }
   }
 }
 
@@ -552,10 +554,13 @@ function openMenu() {
 
     // Set the nav container height to enable scrolling to the bottom.
     if (osInfo.indexOf("iPhone") !== -1) {
-      heightAboveMenuContainer = heightAboveMenuContainer + 20;
+      // iPhone needs a little extra height to show the very last item in the menu container.
+      let iphoneAdjustment = heightAboveMenuContainer + 20;
+      hamburgerMenuContainer.style.height = `calc(100vh - ${iphoneAdjustment}px)`;
     }
-
-    hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
+    else {
+      hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
+    }
   }
 
   if (menuOverlay) {
@@ -816,37 +821,8 @@ function closeSubMenu() {
   }
 }
 
-function customScrollTo(to, duration) {
-  var start = window.scrollY,
-      change = to - start,
-      currentTime = 0,
-      increment = 20;
-
-  var animateScroll = function(){
-    currentTime += increment;
-    var val = Math.easeInOutQuad(currentTime, start, change, duration);
-    window.scrollTo(0,val);
-
-    if(currentTime < duration) {
-      setTimeout(animateScroll, increment);
-    }
-  };
-  animateScroll();
-}
-
-Math.easeInOutQuad = function (t, b, c, d) {
-  t /= d/2;
-  if (t < 1) return c/2*t*t + b;
-  t--;
-  return -c/2 * (t*(t-2) - 1) + b;
-};
-
-function isMobileDevice() {
-  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf("IEMobile") !== -1);
-}
-
 menuItems.forEach((item) => {
-  
+
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
@@ -873,7 +849,7 @@ menuItems.forEach((item) => {
         item.removeAttribute("style");
       }, 500);
     }
-    
+
     if (item.querySelector(".js-main-nav-hamburger-content").classList.contains("is-closed")) {
       /** Show the subMenu. */
 
@@ -943,5 +919,5 @@ menuItems.forEach((item) => {
       }
     }
   });
-  
+
 });

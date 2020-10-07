@@ -24,7 +24,7 @@
 
   .ma__toc__subtitle {
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: $fonts-xsmall;
     vertical-align: middle;
     display: inline-block;
     padding-right: 10px;
@@ -71,7 +71,7 @@
     height: 100vh;
     opacity: 0;
     transition: all .5s ease;
-    z-index: 100;
+    z-index: $z-overlay;
     display: flex;
     flex-direction: column;
 
@@ -102,7 +102,7 @@
     top: calc(50% - 20px);
     width: 40px;
     height: 40px;
-    font-size: 2.5rem;
+    font-size: $fonts-4xlarge;
     line-height: 1.15;
     border: none;
     background: transparent;

@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Fixed sticky TOC on the newer global nav. (#1194)
+    issue: DP-20085
+    impact: Patch
