@@ -59,7 +59,7 @@
     margin-bottom: 5px;
 
     span {
-      font-size: 0.813rem;
+      font-size: $fonts-3xsmall;
       letter-spacing: $letter-spacing-large;
       padding: 5px 7px;
       text-transform: uppercase;
@@ -67,7 +67,7 @@
   }
 
   &__title {
-    font-size: 1.625rem;
+    font-size: $fonts-larger;
     line-height: 1.2em;
     margin-bottom: .25em;
 
@@ -76,7 +76,7 @@
     }
 
     .ma__decorative-link {
-      font-size: 1.625rem;
+      font-size: $fonts-larger;
       line-height: 1.2;
     }
   }
@@ -86,7 +86,7 @@
   }
 
   &__emph-text {
-    font-size: 18px;
+    font-size: $fonts-smaller;
     line-height: 1;
     margin-bottom: 1em;
 
@@ -99,7 +99,7 @@
   }
 
   &__contents {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
   }
 
 }

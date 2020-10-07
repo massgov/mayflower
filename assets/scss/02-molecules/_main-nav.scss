@@ -33,7 +33,7 @@
     transition: background-color .4s;
 
     @media ($bp-header-toggle-max) {
-      font-size: 1rem;
+      font-size: $fonts-xsmall;
     }
 
     @media ($bp-header-toggle-min) {
@@ -70,7 +70,7 @@
 
     @include ma-button-reset;
     display: block;
-    font-size: 1.125rem;
+    font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
     line-height: 1.45;
     padding: 10px 0;
@@ -87,7 +87,7 @@
 
     @media ($bp-header-toggle-min) {
       display: inline-block;
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       padding: 14px 12px;
       vertical-align: middle;
     }
@@ -143,7 +143,7 @@
   &__back {
 
     @include ma-button-reset;
-    font-size: 1.125rem;
+    font-size: $fonts-smaller;
     padding-left: 20px;
     position: fixed;
       top: 5px;
@@ -182,7 +182,7 @@
       top: 0;
     text-align: left;
     width: 300px;
-    z-index: $z-dropdown;
+    z-index: $z-overlay;
 
     @media ($bp-header-toggle-max) {
       margin-top: $header-mobile-controls-height;
@@ -268,7 +268,7 @@
     width: 100%;
     text-align: left;
     display: block;
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     line-height: 1.33;
     padding: 10px 20px;
 
@@ -280,7 +280,7 @@
   }
 
   &__subitem:last-child &__link {
-    font-size: 1.125rem;
+    font-size: $fonts-smaller;
     letter-spacing: letter-spacing-medium;
     text-transform: uppercase;
   }

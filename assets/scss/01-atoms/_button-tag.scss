@@ -1,7 +1,7 @@
 .ma__button-tag {
 
   @include ma-button-reset;
-  font-size: 1.125rem;
+  font-size: $fonts-smaller;
   display: inline-block;
   line-height: 1em;
   margin-right: .25em;

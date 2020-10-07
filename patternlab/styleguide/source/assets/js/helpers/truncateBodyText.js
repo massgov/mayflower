@@ -69,7 +69,7 @@ var removeTruncation = function($el) {
  * Make elements focusable or not focusable based on expansion/collapse
  * of content area.
  */
-var toggleTabindexes = function($focusableEls, expanded) {
+var toggleTabindexes = (function($focusableEls, expanded, $) {
   if(expanded) {
     $focusableEls.each(function(i, el) {
       var $el = $(el);
@@ -93,8 +93,8 @@ var toggleTabindexes = function($focusableEls, expanded) {
       
       $el.attr('tabindex', '-1');
     });
-  }  
-};
+  }
+}).bind(undefined, jQuery);
 
 /**
  * Turn on truncation (if height requires it) based on previous calculations.

@@ -20,10 +20,10 @@ $page-banner-height: 330px;
   .decision-tree & {
 
     h1 {
-      font-size: 2.125rem;
+      font-size: $fonts-2xlarge;
 
       @media ($bp-small-min) {
-        font-size: 1.8125rem;
+        font-size: $fonts-xlarge;
       }
     }
 
@@ -153,7 +153,7 @@ $page-banner-height: 330px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 1rem;
+    font-size: $fonts-xsmall;
     max-width: 1050px;
     padding: 30px 25px 45px 0;
     z-index: 1;
@@ -194,7 +194,7 @@ $page-banner-height: 330px;
   }
 
   &--small &__content {
-    font-size: .8rem;
+    font-size: $fonts-2xsmall;
     padding: 25px 25px 40px 0;
 
     @media ($bp-x-small-min) {
@@ -307,15 +307,11 @@ $page-banner-height: 330px;
   &--small &__title {
 
     @media ($bp-small-min) {
-      font-size: 3.25rem;
+      font-size: $fonts-7xlarge;
     }
 
     @media ($bp-large-min) {
-      font-size: 3.5rem;
-    }
-
-    @media ($bp-x-large-min) {
-      font-size: 3.875rem;
+      font-size: $fonts-8xlarge;
     }
   }
 
@@ -348,7 +344,7 @@ $page-banner-height: 330px;
   &__unlinked-title,
   .ma__decorative-link {
     display: block;
-    font-size: 1.813rem;
+    font-size: $fonts-xlarge;
     letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
     margin-bottom: 0;
@@ -378,7 +374,7 @@ $page-banner-height: 330px;
   }
 
   &--columns &__description {
-    font-size: 1.5rem;
+    font-size: $fonts-large;
     margin-top: 0;
     padding: 25px 0 20px;
     width: 95%;
@@ -389,7 +385,7 @@ $page-banner-height: 330px;
     @media ($bp-medium-min) {
 
       @include span-columns(4 of 12);
-      font-size: 1.813rem;
+      font-size: $fonts-xlarge;
       letter-spacing: $letter-spacing-small;
       line-height: 2.188rem;
       padding-top: 100px;
