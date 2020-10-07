@@ -114,6 +114,9 @@ $global-font-display:	'swap';
 @font-face { @include font-face(Noto, Sans, Myanmar, null, Bold, -subset, $fonts-bold, normal, $global-font-display, $myanmar, null, null); }
 @font-face { @include font-face(Noto, Sans, Myanmar, null, Regular, -subset, $fonts-normal, normal, $global-font-display, $myanmar, null, null); }
 
+// Chinese (Simplified)
+@font-face { @include font-face(Noto, Sans, SC, null, Regular, null, $fonts-normal, normal, $global-font-display, $myanmar, null, null); }
+
 
 // // Lao
 // @font-face { @include font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, $global-font-display, $lao, null, null); }

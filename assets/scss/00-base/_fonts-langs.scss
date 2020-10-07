@@ -199,3 +199,4 @@ $zanabazar-square-sans:	'Noto Sans Zanabazar Square';			// Static + VF
 *{ @include langlist($hebrew-sans, rtl, $langs-Hebr); }
 *{ @include langlist($khmer-sans, null, $langs-Khmr); }
 *{ @include langlist($myanmar-sans, null, $langs-Mymr); }
+*{ @include langlist($chinese-s-sans, null, $langs-Hans); }
