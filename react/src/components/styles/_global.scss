@@ -1,5 +1,5 @@
 @forward "00-base/global" with (
   $assets-path: "~@massds/mayflower-assets/static" !default,
-  $enable-rtl: true !default,
+  $enable-rtl: true
 );
 @forward "00-base/z-index";

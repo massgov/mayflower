@@ -10,9 +10,6 @@
 
 @use "paths" as *;
 
-// load additional fonts for language support
-@use "fonts-langs-import";
-
 /* The fallback non-variable Noto Sans font */
 
 @font-face {

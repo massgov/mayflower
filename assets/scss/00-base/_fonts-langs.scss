@@ -8,7 +8,7 @@
 @mixin langlist($stack, $dir, $langs) {
   @each $lang in $langs {
     &:lang(#{$lang}) {
-			font-family: '#{$stack} VF', $stack, $fonts;
+			font-family: '#{$stack} VF', $stack, $fonts !important;
       @if $enable-rtl { direction: $dir;}
 
 		}

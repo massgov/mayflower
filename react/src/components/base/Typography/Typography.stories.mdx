@@ -2,6 +2,7 @@ import { styled } from '@storybook/theming';
 import { Canvas, Meta, Story, ArgsTable, CURRENT_SELECTION } from '@storybook/addon-docs/blocks';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import Heading from 'MayflowerReactHeadings/Heading';
+import RichText from 'MayflowerReactOrganisms/RichText';
 
 import {
   characters,
@@ -35,12 +36,12 @@ const slugifyStyle = (style) => {
 
 It's selected to be the Mayflower typeface to:
 - enable all Commonwealth agencies to design, produce and deliver online and offline content with consistent typography, without additional costs or legal barriers.
-- provide the best language coverage for content internationalization.
+- provide comprehensive language coverage for content internationalization.
 - support the guiding principles of the Mass.gov brand identities: modern, dignified, human, helpful
 
 
 ## Characters
-<div className="sb-block">
+<RichText className="sb-block">
   <div className="sb-text">{letters.toUpperCase()}</div>
   <div className="sb-text">{letters}</div>
   <hr />
@@ -49,7 +50,7 @@ It's selected to be the Mayflower typeface to:
   <hr />
   <div className="sb-text">{characters}</div>
   <hr />
-</div>
+</RichText>
 
 
 ## Custom Preview
