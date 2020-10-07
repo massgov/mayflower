@@ -1,0 +1,6 @@
+Changed:
+  - project: Assets
+    component: Fonts
+    description: Switch fonts from Texta to Noto Sans, removed fallback fonts and added language support. Added `enable-rtl` variable to allow setting direction to "right-to-left" for languages like Arabic, Persian, Urdu and Hebrew. (#1193)
+    issue: DP-20050
+    impact: Major
