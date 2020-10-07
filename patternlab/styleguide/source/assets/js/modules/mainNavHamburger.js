@@ -828,7 +828,7 @@ menuItems.forEach((item) => {
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
   subItems.style.opacity = "0";
-  item.addEventListener("click", (e) => {
+  itemButton.addEventListener("click", (e) => {
 
     anotherCloseSubMenus(item);
 
