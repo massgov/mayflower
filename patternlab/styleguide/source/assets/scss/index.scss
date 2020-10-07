@@ -10,12 +10,14 @@
 @use "00-base/z-index";
 // Base theme variables
 @use "00-base/fonts";
+@use "00-base/fonts-langs-import";
+@use "00-base/fonts-langs";
+@use "00-base/elements";
+@use "00-base/fonts-styles";
 @use "00-base/pikaday" as pik;
 // Print styles
 @use "08-print/print";
 // Atoms - reusable styles
-@use "00-base/elements";
-@use "00-base/fonts-styles";
 @use "01-atoms/arrow-button";
 @use "01-atoms/button-search";
 @use "01-atoms/button-sort";

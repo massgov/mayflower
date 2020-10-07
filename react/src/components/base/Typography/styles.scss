@@ -1,5 +1,7 @@
 @use "styles/global" as *;
 @use "00-base/fonts-styles";
+@use "00-base/fonts";
+@use "00-base/elements";
 @use "04-templates/general";
 
 .sb {
@@ -8,12 +10,12 @@
   }
 
   &-block {
-    font-family: $fonts !important;
-
-    &:lang(km) {
-      font-family: $fonts-khmer, $fonts !important;
-      font-size: 14px;
-    }
+    // font-family: $fonts !important;
+    //
+    // &:lang(km) {
+    //   font-family: $fonts-khmer, $fonts !important;
+    //   font-size: 14px;
+    // }
 
     margin-top: 0 !important;
     margin-bottom: 2rem;

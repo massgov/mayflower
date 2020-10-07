@@ -53,9 +53,10 @@ $default-feature: min-width !default; // Default @media feature for the breakpoi
 
 
 /* FONT */
-$fonts: "Noto Sans VF","Noto Sans","Helvetica", "Arial",sans-serif;
-$fonts-mono: "Noto Sans Mono VF","Noto Sans Mono",monospace;
-$fonts-khmer: "Noto Sans Khmer VF","Noto Sans Khmer",sans-serif;
+$fonts: "Noto Sans VF","Noto Sans","Helvetica", "Arial",sans-serif !default;
+$fonts-mono: "Noto Sans Mono VF","Noto Sans Mono",monospace !default;
+// variable controlling whether to allow rtl scripts to render rtl, currently disabled in patternlab for imcompatible components.
+$enable-rtl: false !default;
 
 
 // font weights

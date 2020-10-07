@@ -13,8 +13,8 @@ export default create({
   appBorderRadius: 6,
 
   // Typography
-  fontBase: '"Texta", "Helvetica", "Arial", sans-serif',
-  fontCode: '"Source Code Pro", "Monaco", monospace',
+  // fontBase: '"Texta", "Helvetica", "Arial", sans-serif',
+  // fontCode: '"Source Code Pro", "Monaco", monospace',
 
   // Text colors
   textColor: 'black',

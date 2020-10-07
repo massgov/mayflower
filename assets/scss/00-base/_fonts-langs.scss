@@ -3,14 +3,14 @@
 @use "variables" as *;
 // Language sets and @mixin
 
-
 // This adds all of the language sets for a script to an `&:lang()` rule
 // it is used in script selector files so they can easily be applied to each font style
 @mixin langlist($stack, $dir, $langs) {
   @each $lang in $langs {
     &:lang(#{$lang}) {
 			font-family: '#{$stack} VF', $stack, $fonts;
-			direction: $dir;
+      @if $enable-rtl { direction: $dir;}
+
 		}
   }
 }
@@ -195,7 +195,7 @@ $tibetan-sans:					'Noto Sans Tibetan';							// Static
 $warang-citi-sans:			'Noto Sans Warang Citi';					// Static + VF
 $zanabazar-square-sans:	'Noto Sans Zanabazar Square';			// Static + VF
 
-p{ @include langlist($arabic-sans, rtl, $langs-Arab); }
-p{ @include langlist($hebrew-sans, rtl, $langs-Hebr); }
-p{ @include langlist($khmer-sans, null, $langs-Khmr); }
-p{ @include langlist($myanmar-sans, null, $langs-Mymr); }
+*{ @include langlist($arabic-sans, rtl, $langs-Arab); }
+*{ @include langlist($hebrew-sans, rtl, $langs-Hebr); }
+*{ @include langlist($khmer-sans, null, $langs-Khmr); }
+*{ @include langlist($myanmar-sans, null, $langs-Mymr); }
