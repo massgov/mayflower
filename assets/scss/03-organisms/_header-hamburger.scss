@@ -285,6 +285,11 @@ body.show-menu {
     .translated-ltr & {
       top: 44px;
     }
+
+    & .ma__header__nav-search {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
   }
 
   &__main-nav {
