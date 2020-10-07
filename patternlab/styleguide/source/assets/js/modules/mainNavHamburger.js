@@ -502,7 +502,11 @@ function openMenu() {
   let emergencyAlertsHeight;
   // Set the alert to its offset position in the window to prevent the page to shift as the menu opens.
   let lockPage = function () {
-    document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
+    if (document.querySelector(".ma__emergency-alerts")) {
+      document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
+    } else {
+      document.querySelector("body").style.top = 0;
+    }
     document.querySelector("body").style.position = "fixed";
 
     heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
@@ -823,7 +827,7 @@ function closeSubMenu() {
 }
 
 menuItems.forEach((item) => {
-  
+
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
@@ -850,7 +854,7 @@ menuItems.forEach((item) => {
         item.removeAttribute("style");
       }, 500);
     }
-    
+
     if (item.querySelector(".js-main-nav-hamburger-content").classList.contains("is-closed")) {
       /** Show the subMenu. */
 
@@ -920,5 +924,5 @@ menuItems.forEach((item) => {
       }
     }
   });
-  
+
 });
