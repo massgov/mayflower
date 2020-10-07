@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Fixed menu icon, text, search alignment. (#1200)
+    issue: DP-20090
+    impact: Patch
