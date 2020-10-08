@@ -7,7 +7,7 @@
   @each $lang in $langs {
     &:lang(#{$lang}) {
 			font-family: '#{$stack} VF', $stack, $fonts !important;
-      @if $enable-rtl { direction: $dir;}
+      @if $fonts-enable-rtl { direction: $dir;}
 
 		}
   }

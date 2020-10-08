@@ -79,3 +79,36 @@ $global-font-display:	'swap';
 	font-display: $fontDisplay;
 	unicode-range: $unicodeRange;
 }
+
+// To use font-face:
+// @use "mixins/ma-font-face";
+// // Lao
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $lao, null, null); }
+//
+// // Malayalam
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Malayalam, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $malayalam, null, null); }
+////
+// // Tai Le
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Tai, Le, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $tai-le, $oneSpace, null); }
+//
+// // Tai Tham
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Tai, Tham, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $tai-tham, $oneSpace, null); }
+//
+// // Tai Viet
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Tai, Viet, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $tai-viet, $oneSpace, null); }
+//
+// // Thaana
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Thaana, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $thaana, null, null); }
+//
+// // Thai
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Thai, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $thai, null, null); }
+//
+// // Takri
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Takri, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $takri, null, null); }
+//
+// // Telugu
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Telugu, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $telugu, null, null); }
+//
+// // Tamil
+// @font-face { @include ma-font-face.font-face(Noto, Sans, Tamil, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $tamil, null, null); }
+//
