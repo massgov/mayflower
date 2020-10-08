@@ -1,6 +1,6 @@
 /////////////////////////////////////
 // Fonts unicode-range lookup
-// Use with @mixin font-face
+// Use with @mixin ma-font-face
 $adlam:						U+1E900-1E95F, U+2E41; // Uses reversed comma
 $arabic:					U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+1EE00-1EEFF; // Arabic, supplement, extended A, presentation forms A and B, alphabetic mathematical symbols
 $armenian:				U+0530-058F;
@@ -63,7 +63,7 @@ $lgc: 						U+0000-00FF, U+0100-017F, U+0180-024F, U+0370-03FF, U+0259-03C0, U+1
 
 /////////////////////////////////////
 // Language code lookup
-// Use with @mixin langlist
+// Use with @mixin ma-langlist
 
 // Adlam
 $langs-Adlm: "ff", "Adlm" !default;
@@ -170,7 +170,7 @@ $langs-Zanb: "za", "Zanb" !default;
 
 /////////////////////////////////////
 // Font-family names lookup
-// Use with @mixin langlist
+// Use with @mixin ma-langlist
 
 $adlam-sans:						'Noto Sans Adlam';								// Static + VF
 $arabic-sans:						'Noto Sans Arabic';								// Static + VF

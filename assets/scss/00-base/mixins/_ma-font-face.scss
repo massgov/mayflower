@@ -1,8 +1,8 @@
+/////////////////////////////////////
+// font-face imports for language support
 @use "paths" as *;
 @use "variables" as *;
 
-/////////////////////////////////////
-// font-face imports for language support
 $oneSpace: 	' ';
 $oneDash:		'-';
 
@@ -28,8 +28,8 @@ $oneDash:		'-';
 // @use "fonts-langs-vars";
 // @use "variables" as *;
 // // Lao
-// @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, $fonts-display-global, fonts-langs-vars.$lao, null, null); }
+// @font-face { @include ma-font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, $fonts-display-global, fonts-langs-vars.$lao, null, null); }
 //
 // // Malayalam
-// @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Malayalam, null, VF, -subset, 100 900, normal, $fonts-display-global, fonts-langs-vars.$malayalam, null, null); }
+// @font-face { @include ma-font-face(Noto, Sans, Malayalam, null, VF, -subset, 100 900, normal, $fonts-display-global, fonts-langs-vars.$malayalam, null, null); }
 ////

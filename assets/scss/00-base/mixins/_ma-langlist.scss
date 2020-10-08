@@ -16,9 +16,9 @@
 
 
 // To use ma-langlist:
-// @use "mixins/ma-font-face";
+// @use "mixins/ma-langlist";
 // @use "fonts-langs-vars";
 // @use "variables" as *;
-// *{ @include ma-fonts-langs.langlist(fonts-langs-vars.$arabic-sans, rtl, fonts-langs-vars.$langs-Arab); }
-// *{ @include ma-fonts-langs.langlist(fonts-langs-vars.$hebrew-sans, rtl, fonts-langs-vars.$langs-Hebr); }
-// *{ @include ma-fonts-langs.langlist(fonts-langs-vars.$khmer-sans, null, fonts-langs-vars.$langs-Khmr); }
+// *{ @include ma-langlist(fonts-langs-vars.$arabic-sans, rtl, fonts-langs-vars.$langs-Arab); }
+// *{ @include ma-langlist(fonts-langs-vars.$hebrew-sans, rtl, fonts-langs-vars.$langs-Hebr); }
+// *{ @include ma-langlist(fonts-langs-vars.$khmer-sans, null, fonts-langs-vars.$langs-Khmr); }
