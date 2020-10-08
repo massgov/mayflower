@@ -4,7 +4,7 @@
 $oneSpace: 	' ';
 $oneDash:		'-';
 
-@mixin font-face ($family: "Noto", $type: "Sans", $script: "Cyrillic", $suffix: "UI", $weight: "VF", $subset: "-subset", $fontWeight: "100 900", $fontStyle: "normal", $fontDisplay: "swap", $unicodeRange: "cyrillic", $space: $oneSpace, $dash: $oneDash) {
+@mixin font-face ($family: "Noto", $type: "Sans", $script: "Cyrillic", $suffix: "UI", $weight: "VF", $subset: "-subset", $fontWeight: "100 900", $fontStyle: "normal", $fontDisplay: $fonts-display-global, $unicodeRange: "cyrillic", $space: $oneSpace, $dash: $oneDash) {
 	@if $weight == "VF" {
 		font-family: '#{$family} #{$type} #{$script}#{$space}#{$suffix} VF';
 	} @else {
@@ -29,30 +29,6 @@ $oneDash:		'-';
 // // Malayalam
 // @font-face { @include ma-font-face.font-face(Noto, Sans, Malayalam, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $malayalam, null, null); }
 ////
-// // Tai Le
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Tai, Le, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $tai-le, $oneSpace, null); }
-//
-// // Tai Tham
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Tai, Tham, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $tai-tham, $oneSpace, null); }
-//
-// // Tai Viet
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Tai, Viet, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $tai-viet, $oneSpace, null); }
-//
-// // Thaana
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Thaana, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $thaana, null, null); }
-//
-// // Thai
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Thai, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $thai, null, null); }
-//
-// // Takri
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Takri, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $takri, null, null); }
-//
-// // Telugu
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Telugu, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $telugu, null, null); }
-//
-// // Tamil
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Tamil, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $tamil, null, null); }
-//
 
 
 
@@ -70,12 +46,9 @@ $oneDash:		'-';
   }
 }
 
-// Script selector template -- replace 'thelang' with language name and 'code' with scrpt code
-// @import "language-sets";
-//
-// $sans-stack: 		$base-sans,$thelang-sans,sans-serif;
-// $serif-stack: 	$base-sans,$thelang-serif,serif;
-// $ui-stack: 			$base-sans,$thelang-sans-ui,sans-serif;
+
+// To use langlist:
+
 //
 // *,
 // .#{$prefix}sans {

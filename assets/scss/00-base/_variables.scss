@@ -59,6 +59,7 @@ $fonts-mono: "Noto Sans Mono VF","Noto Sans Mono",monospace !default;
 
 $fonts-langs-support: true !default;
 $fonts-enable-rtl: false !default;
+$fonts-display-global: "swap" !default; // Controls the custom fonts download and render behavior https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
 
 
 // font weights
