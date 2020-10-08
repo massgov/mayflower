@@ -174,7 +174,7 @@ jobs:
             - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
       - run:
           name: Install Rush on Repo directory
-          command: node ../../common/scripts/install-run-rush.js install
+          command: node common/scripts/install-run-rush.js install
       - save_cache:
         name: Save NPM cache
         key: mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
