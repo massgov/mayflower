@@ -75,7 +75,7 @@
 }
 
 /////////////////////////////////////
-// Import language support fonts
+// Import language support fonts (conditionally)
 /* Set $fonts-langs-support in _global.scss to enable/disable imports of additional fonts for language support.
  * By default $fonts-langs-support is set to true
  * To disable:
@@ -120,7 +120,7 @@ html {
 }
 
 /////////////////////////////////////
-// Set language support fonts
+// Set language support fonts (conditionally)
 @if $fonts-langs-support {
   *{ @include ma-fonts-langs.langlist(langs.$arabic-sans, rtl, langs.$langs-Arab); }
   *{ @include ma-fonts-langs.langlist(langs.$hebrew-sans, rtl, langs.$langs-Hebr); }
