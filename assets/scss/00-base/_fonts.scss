@@ -121,7 +121,9 @@ html {
 
 /////////////////////////////////////
 // Set language support fonts
-*{ @include ma-fonts-langs.langlist(langs.$arabic-sans, rtl, langs.$langs-Arab); }
-*{ @include ma-fonts-langs.langlist(langs.$hebrew-sans, rtl, langs.$langs-Hebr); }
-*{ @include ma-fonts-langs.langlist(langs.$khmer-sans, null, langs.$langs-Khmr); }
-*{ @include ma-fonts-langs.langlist(langs.$myanmar-sans, null, langs.$langs-Mymr); }
+@if $fonts-langs-support {
+  *{ @include ma-fonts-langs.langlist(langs.$arabic-sans, rtl, langs.$langs-Arab); }
+  *{ @include ma-fonts-langs.langlist(langs.$hebrew-sans, rtl, langs.$langs-Hebr); }
+  *{ @include ma-fonts-langs.langlist(langs.$khmer-sans, null, langs.$langs-Khmr); }
+  *{ @include ma-fonts-langs.langlist(langs.$myanmar-sans, null, langs.$langs-Mymr); }
+}
