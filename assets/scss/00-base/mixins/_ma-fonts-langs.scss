@@ -1,6 +1,8 @@
 @use "paths" as *;
 @use "variables" as *;
 
+/////////////////////////////////////
+// font-face imports for language support
 $oneSpace: 	' ';
 $oneDash:		'-';
 
@@ -23,42 +25,37 @@ $oneDash:		'-';
 
 // To use font-face:
 // @use "mixins/ma-font-face";
+// @use "fonts-langs-vars";
+// @use "variables" as *;
 // // Lao
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $lao, null, null); }
+// @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, $fonts-display-global, fonts-langs-vars.$lao, null, null); }
 //
 // // Malayalam
-// @font-face { @include ma-font-face.font-face(Noto, Sans, Malayalam, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, $malayalam, null, null); }
+// @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Malayalam, null, VF, -subset, 100 900, normal, $fonts-display-global, fonts-langs-vars.$malayalam, null, null); }
 ////
 
 
 
-// Language sets and @mixin
+/////////////////////////////////////
+// font-family setting for language support
 
 // This adds all of the language sets for a script to an `&:lang()` rule
 // it is used in script selector files so they can easily be applied to each font style
+// Set $fonts-enable-rtl in _global.scss to conditionally enable right-to-left scripts to render RTL. By default, it's set to false.
 @mixin langlist($stack, $dir, $langs) {
   @each $lang in $langs {
     &:lang(#{$lang}) {
 			font-family: '#{$stack} VF', $stack, $fonts !important;
       @if $fonts-enable-rtl { direction: $dir;}
-
 		}
   }
 }
 
 
 // To use langlist:
-
-//
-// *,
-// .#{$prefix}sans {
-// 	@include langlist($sans-stack, ltr, $langs-code...);
-// }
-//
-// .#{$prefix}serif {
-// 	@include langlist($serif-stack, ltr, $langs-code...);
-// }
-//
-// .#{$prefix}sans-ui {
-// 	@include langlist($ui-stack, ltr, $langs-code...);
-// }
+// @use "mixins/ma-font-face";
+// @use "fonts-langs-vars";
+// @use "variables" as *;
+// *{ @include ma-fonts-langs.langlist(fonts-langs-vars.$arabic-sans, rtl, fonts-langs-vars.$langs-Arab); }
+// *{ @include ma-fonts-langs.langlist(fonts-langs-vars.$hebrew-sans, rtl, fonts-langs-vars.$langs-Hebr); }
+// *{ @include ma-fonts-langs.langlist(fonts-langs-vars.$khmer-sans, null, fonts-langs-vars.$langs-Khmr); }

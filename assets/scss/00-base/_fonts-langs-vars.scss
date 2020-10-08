@@ -1,4 +1,6 @@
-// Variable sans fonts
+/////////////////////////////////////
+// Fonts unicode-range lookup
+// Use with @mixin font-face
 $adlam:						U+1E900-1E95F, U+2E41; // Uses reversed comma
 $arabic:					U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+1EE00-1EEFF; // Arabic, supplement, extended A, presentation forms A and B, alphabetic mathematical symbols
 $armenian:				U+0530-058F;
@@ -58,8 +60,10 @@ $zanabazar:				U+11A00-11A4F;
 $lgc: 						U+0000-00FF, U+0100-017F, U+0180-024F, U+0370-03FF, U+0259-03C0, U+1E00-1EFF, U+2000-FB02, U+1F00-1FFF, U+0400-04FF, U+0500-052F, U+1C80-1C8F;
 
 
-/////////////////////////////////////
 
+/////////////////////////////////////
+// Language code lookup
+// Use with @mixin langlist
 
 // Adlam
 $langs-Adlm: "ff", "Adlm" !default;
@@ -164,8 +168,10 @@ $langs-Wara: "hoc", "Wara" !default;
 // Zanazabar Square
 $langs-Zanb: "za", "Zanb" !default;
 
+/////////////////////////////////////
+// Font-family names lookup
+// Use with @mixin langlist
 
-// Static sans
 $adlam-sans:						'Noto Sans Adlam';								// Static + VF
 $arabic-sans:						'Noto Sans Arabic';								// Static + VF
 $armenian-sans:					'Noto Sans Armenian';							// Static + VF
