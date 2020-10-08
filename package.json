@@ -14,5 +14,10 @@
   "dependencies": {
     "@massds/mayflower-react": "^9.42.1",
     "@octokit/rest": "^16.35.0"
+  },
+  "scripts": {
+    "start:react": "cd react & pnpm start",
+    "start:patternlab": "cd patternlab/styleguide & pnpm run gulp",
+    "start:site": "cd site & pnpm run develop"
   }
 }
