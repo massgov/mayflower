@@ -5,8 +5,11 @@
 // Bold => 700
 // Black => 800
 
-// Set $assets-path to form the correct links to the parent folder of fonts/ based on the location of the compiled css
-@forward "paths";
+/* Set $assets-path in _global.scss to form the correct links to the parent folder of fonts/ based on the location of the compiled css
+ * @forward "00-base/global" with (
+     $assets-path: "~@massds/mayflower-assets/static"
+   );
+*/
 
 @use "paths" as *;
 
