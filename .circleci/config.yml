@@ -35,7 +35,6 @@ jobs:
           name: Restore pnpm-lock.yaml
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
-            - root-npm-v4-
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
@@ -53,7 +52,6 @@ jobs:
           name: Restore NPM Cache
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
-            - root-npm-v4-
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
@@ -169,7 +167,6 @@ jobs:
       - restore_cache:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
-            - root-npm-v4-
       - run:
           name: Mayflower React Build
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
@@ -261,7 +258,6 @@ jobs:
       - restore_cache:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
-            - root-npm-v4-
       - run: sudo npm install -g pnpm @microsoft/rush
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -276,7 +272,6 @@ jobs:
       - restore_cache:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
-            - root-npm-v4-
       - run: sudo npm install -g pnpm @microsoft/rush
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -291,7 +286,6 @@ jobs:
       - restore_cache:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
-            - root-npm-v4-
       - run:
           name: Mayflower Style Linter
           command: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
@@ -304,7 +298,6 @@ jobs:
       - restore_cache:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
-            - root-npm-v4-
       - run:
           name: 'Publish mayflower-assets NPM package'
           command: |
@@ -323,7 +316,6 @@ jobs:
       - restore_cache:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
-            - root-npm-v4-
       - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Validate Package Build
