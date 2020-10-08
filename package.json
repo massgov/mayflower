@@ -16,8 +16,8 @@
     "@octokit/rest": "^16.35.0"
   },
   "scripts": {
-    "start:react": "cd react & pnpm start",
-    "start:patternlab": "cd patternlab/styleguide & pnpm run gulp",
-    "start:site": "cd site & pnpm run develop"
+    "start:react": "cd packages/react & pnpm start",
+    "start:patternlab": "cd packages/patternlab/styleguide & pnpm run gulp",
+    "start:site": "cd packages/site & pnpm run develop"
   }
 }
