@@ -19,21 +19,6 @@ This project is licensed under the is licensed under the GNU General Public Lice
 
 ## Monorepo Package Management
 This monorepo is managed using [Rush](https://rushjs.io/) and [PNPM](https://pnpm.js.org/).
-```
-// Mayflower monorepo
-
-├── docs
-├── packages
-|  ├── assets
-|  |   ├── scss
-|  |   └── static
-|  |       ├── fonts
-|  |       └── images
-|  ├── patternlab
-|  |   └── styleguide
-|  ├── react
-|  └── site
-```
 #### Getting Started on Development
 To install both pnpm and rush globally, run the following command:
 ```
@@ -43,17 +28,17 @@ npm install -g pnpm @microsoft/rush
 Once installed, run `rush install` or `rush update`. This will install each package's dependencies on disk and symlink together all local packages that depend on one another.
 
 To start developing mayflower react
->- `rush install`
->- `cd react & pnpm start`
->
+- `rush install`
+- `cd react & pnpm start`
+
 To start developing mayflower patternlab
->- `rush install`
->- `cd patternlab/styleguide & pnpm run gulp`
->
+- `rush install`
+- `cd patternlab/styleguide & pnpm run gulp`
+
 To start developing mayflower site
->- `rush install`
->- `rush build` (build local @massds/mayflower-react)
->- `cd site & pnpm run develop`
+- `rush install`
+- `rush build` (build local @massds/mayflower-react)
+- `cd site & pnpm run develop`
 
 #### Monorepo Structure
 All uses of `npm` or `yarn` have been replaced by `pnpm` which works similarly. For the moment, the following are defined as packages for the mayflower monorepo:
@@ -62,6 +47,21 @@ All uses of `npm` or `yarn` have been replaced by `pnpm` which works similarly. 
 - Mayflower React (located under `packages/react/`)
 - Mayflower Artifacts (located under `packages/patternlab/styleguide/`)
 - `packages/site/`
+```
+// Mayflower monorepo
+
+├── docs
+├── packages
+|  ├── assets *
+|  |   ├── scss
+|  |   └── static
+|  |       ├── fonts
+|  |       └── images
+|  ├── patternlab
+|  |   └── styleguide *
+|  ├── react *
+|  └── site *
+```
 
 Each of the packages' dependencies from npm are installed using Rush's cli tools. To install packages initially, use the command `rush install` at either the root directory or within any of the package directories. When installing packages using `rush install`, rush will use `pnpm install` within each package's directories. Each dependency is actually installed in a directory (.pnpm) located in your home directory and symlinked to within Rush's internal temporary store at `common/temp/`. Each dependency of a package located under `<package-name>/node_modules/` is actually a symlink to rush's own temporary store at `common/temp/`.
 
@@ -73,10 +73,13 @@ Rush also either symlinks (by default) or local installs a copy of every package
 
 #### Useful Commands
 
-- `rush add` - Use this to add a new dependency to a package.
 - `rush install` - Use this to install dependencies for all packages.
 - `rush update` - Use this after updating rush/pnpm configurations.
 - `rush build` - Use this to make production builds for all packages.
+- `rush add` - Use this to add a new dependency to a package.
+  - To add a dependency for a package, cd into the specific package directory and run `rush add --package "example@^1.2.3"`
+
+> For more rush commands, see the [rush command documentation](https://rushjs.io/pages/commands/rush_add/).
 
 #### Other Commands
 When needing to run other commands for a package (such as starting up development mode), use `pnpm` instead of `npm` or `yarn` in the package directory. For example, to run development mode for react, instead of using `npm run start`, move to the `packages/react/` direction and use `pnpm run start`.
