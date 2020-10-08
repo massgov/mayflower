@@ -362,6 +362,7 @@ workflows:
   # Executed on branch pushes.
   build_branch:
     jobs:
+      - build
       - auto_changelog:
           filters:
             branches: { only: /dependabot\/.*/ }
@@ -434,6 +435,7 @@ workflows:
   # Executed on tag pushes.
   build_tag:
     jobs:
+      - build
       - patternlab_build:
           requires: [build]
           filters:
