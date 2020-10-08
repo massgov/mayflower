@@ -14,17 +14,17 @@
   ],
   "scripts": {
     "backstop:test": "docker-compose run backstop test --rm",
-    "backstop": "pnpm run build-storybook && pnpm run storybook:extract && pnpm run backstop:test",
+    "backstop": "rushx build-storybook && rushx storybook:extract && rushx backstop:test",
     "backstop:approve": "docker-compose run backstop approve",
     "build": "gulp",
     "build:icons": "gulp cleanIconDir && svgr --out-dir ./src/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js --ext js",
-    "start": "pnpm run build:icons && pnpm run storybook",
+    "start": "rushx build:icons && rushx storybook",
     "lint": "eslint . -c .eslintrc.json",
     "lint-fix": "eslint --fix . && exit 0",
-    "prepublishOnly": "pnpm run build",
+    "prepublishOnly": "rushx build",
     "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
     "storybook:extract": "sb extract",
-    "build-storybook": "pnpm run build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static"
+    "build-storybook": "rushx build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static"
   },
   "pre-push": [
     "lint"
