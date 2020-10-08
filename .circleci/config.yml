@@ -363,7 +363,6 @@ workflows:
   build_branch:
     jobs:
       - auto_changelog:
-          requires: [build]
           filters:
             branches: { only: /dependabot\/.*/ }
       - assets_build:
