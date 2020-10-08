@@ -435,7 +435,10 @@ workflows:
   # Executed on tag pushes.
   build_tag:
     jobs:
-      - build
+      - build:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
       - patternlab_build:
           requires: [build]
           filters:
