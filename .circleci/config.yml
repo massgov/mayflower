@@ -176,14 +176,14 @@ jobs:
           name: Install Rush on Repo directory
           command: node common/scripts/install-run-rush.js install
       - save_cache:
-        name: Save NPM cache
-        key: mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
-        paths:
-          - common
-          - packages/assets/node_modules
-          - packages/react/node_modules
-          - packages/patternlab/styleguide/node_modules
-          - packages/site/node_modules
+          name: Save NPM cache
+          key: mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
+          paths:
+            - common
+            - packages/assets/node_modules
+            - packages/react/node_modules
+            - packages/patternlab/styleguide/node_modules
+            - packages/site/node_modules
       - run:
           name: Mayflower React Build
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
