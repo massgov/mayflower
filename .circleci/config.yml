@@ -39,7 +39,7 @@ jobs:
       - run: {name: 'Install packages', command: 'sudo npm install -g pnpm @microsoft/rush && rush install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v3-{{ checksum "common/config/rush/pnpm-lock.yaml" }}
+          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}
           paths: [ common ]
       - persist_to_workspace:
           root: ~/code
