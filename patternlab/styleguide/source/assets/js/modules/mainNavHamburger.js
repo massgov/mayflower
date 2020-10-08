@@ -504,10 +504,10 @@ function openMenu() {
   let lockPage = function () {
     if (document.querySelector(".ma__emergency-alerts")) {
       document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
+      document.querySelector("body").style.position = "fixed";
     } else {
       document.querySelector("body").style.top = 0;
     }
-    document.querySelector("body").style.position = "fixed";
 
     heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
   };
