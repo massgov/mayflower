@@ -29,16 +29,16 @@ Once installed, run `rush install` or `rush update`. This will install each pack
 
 To start developing mayflower react
 - `rush install`
-- `pnpm run start:react` or `cd react & pnpm start`
+- `pnpm run start:react` or `cd packages/react & pnpm start`
 
 To start developing mayflower patternlab
 - `rush install`
-- `pnpm run start:patternlab` or `cd patternlab/styleguide & pnpm run gulp`
+- `pnpm run start:patternlab` or `cd packages/patternlab/styleguide & pnpm run gulp`
 
 To start developing mayflower site
 - `rush install`
 - `rush build` (build local @massds/mayflower-react)
-- `pnpm run start:site` or `cd site & pnpm run develop`
+- `pnpm run start:site` or `cd packages/site & pnpm run develop`
 
 #### Monorepo Structure
 All uses of `npm` or `yarn` have been replaced by `pnpm` which works similarly. For the moment, the following are defined as packages for the mayflower monorepo:
