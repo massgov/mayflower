@@ -11,6 +11,30 @@
    * "rush my-global-command --help".
    */
   "commands": [
+    {
+      "commandKind": "global",
+      "name": "start:react",
+      "summary": "Runs 'rushx start' for the react package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/react && rushx start"
+    },
+    {
+      "commandKind": "global",
+      "name": "start:patternlab",
+      "summary": "Runs 'rushx start' for the patternlab package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/patternlab/styleguide && rushx start"
+    },
+    {
+      "commandKind": "global",
+      "name": "start:site",
+      "summary": "Runs 'rushx start' for the gatsby site package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/site && rushx start"
+    }
     // {
     //   /**
     //    * (Required) Determines the type of custom command.
@@ -152,6 +176,27 @@
    * For example, you might define a "--production" parameter for the "rush build" command.
    */
   "parameters": [
+    // {
+    //   "parameterKind": "choice",
+    //   "longName": "--package",
+    //   "description": "A custom flag to select a specific package in the repo.",
+    //   "associatedCommands": ["start"],
+    //   "required": true,
+    //   "alternatives": [
+    //     {
+    //       "name": "react",
+    //       "description": "Mayflower React"
+    //     },
+    //     {
+    //       "name": "site",
+    //       "description": "Gatsby Site"
+    //     },
+    //     {
+    //       "name": "patternlab",
+    //       "description": "Patternlab Styleguide"
+    //     }
+    //   ]
+    // }
     // {
     //   /**
     //    * (Required) Determines the type of custom parameter.
