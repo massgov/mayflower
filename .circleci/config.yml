@@ -36,7 +36,7 @@ jobs:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}
             - root-npm-v4-
-      - run: {name: 'Install packages', command: 'sudo npm install -g pnpm @microsoft/rush && rush install'}
+      - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
           key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}
@@ -54,8 +54,7 @@ jobs:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}
             - root-npm-v4-
-      - run: sudo npm install -g pnpm @microsoft/rush
-      - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && rushx build'}
+      - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
           paths: ["*"]
@@ -171,19 +170,18 @@ jobs:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}
             - root-npm-v4-
-      - run: sudo npm install -g pnpm @microsoft/rush
       - run:
           name: Mayflower React Build
-          command: cd packages/react && rushx build
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Mayflower React Build Storybook
-          command: cd packages/react && rushx build-storybook
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
       - run:
           name: Mayflower React Storybook Extract
-          command: cd packages/react && rushx storybook:extract
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js storybook:extract
       - run:
           name: Mayflower React Linter
-          command: cd packages/react && rushx lint
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js lint
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
@@ -294,10 +292,9 @@ jobs:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}
             - root-npm-v4-
-      - run: sudo npm install -g pnpm @microsoft/rush
       - run:
           name: Mayflower Style Linter
-          command: cd packages/assets && rushx stylelint
+          command: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
 
   assets_deploy_tag:
     <<: *react_defaults
@@ -327,11 +324,10 @@ jobs:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}
             - root-npm-v4-
-      - run: sudo npm install -g pnpm @microsoft/rush
-      - run: cd packages/react && rushx build
+      - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Validate Package Build
-          command: cd packages/site && rushx build
+          command: cd packages/site && node ../../common/scripts/install-run-rushx.js build
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
