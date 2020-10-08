@@ -534,14 +534,6 @@ function openMenu() {
     emergencyAlertsHeight = emergencyAlerts.offsetHeight;
     alertlOffsetPosition = emergencyAlertsHeight - (alertsHeader.offsetHeight/2);
 
-    // TEST OUTPUT
-    console.log("alertsHeader.offsetHeight: " + alertsHeader.offsetHeight);
-    console.log("emergencyAlertsHeight: " + emergencyAlertsHeight);
-    console.log("emergencyAlertsHeight - alertlOffsetPosition:");
-    console.log(emergencyAlertsHeight - alertlOffsetPosition);
-    // END: TEST OUTPUT
-
-
     // if (osInfo.indexOf("iPhone") !== -1) {
     //   // Changed the duration value to 600.
     //   customScrollTo(alertlOffsetPosition, 600);
