@@ -6,7 +6,8 @@
 
 @use "paths" as *;
 @use "variables" as *;
-@use "mixins/ma-font-face";
+@use "fonts-langs-vars";
+@use "mixins/ma-fonts-langs";
 
 /////////////////////////////////////
 // Import fonts
@@ -79,33 +80,43 @@
 */
 @if $fonts-langs-support {
   @supports ( font-variation-settings: normal ) {
-  	@font-face { @include ma-font-face.font-face(Noto, Sans, Arabic, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, ma-font-face.$arabic, null, null); }
+  	@font-face { @include ma-fonts-langs.font-face(Noto, Sans, Arabic, null, VF, -subset, 100 900, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$arabic, null, null); }
   }
-  @font-face { @include ma-font-face.font-face(Noto, Sans, Arabic, null, Bold, -subset, $fonts-bold, normal, ma-font-face.$global-font-display, ma-font-face.$arabic, null, null); }
-  @font-face { @include ma-font-face.font-face(Noto, Sans, Arabic, null, Regular, -subset, $fonts-normal, normal, ma-font-face.$global-font-display, ma-font-face.$arabic, null, null); }
+  @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Arabic, null, Bold, -subset, $fonts-bold, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$arabic, null, null); }
+  @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Arabic, null, Regular, -subset, $fonts-normal, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$arabic, null, null); }
 
   // Hebrew
   @supports ( font-variation-settings: normal ) {
-    @font-face { @include ma-font-face.font-face(Noto, Sans, Hebrew, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, ma-font-face.$hebrew, null, null); }
+    @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Hebrew, null, VF, -subset, 100 900, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$hebrew, null, null); }
   }
-  @font-face { @include ma-font-face.font-face(Noto, Sans, Hebrew, null, Bold, -subset, $fonts-bold, normal, ma-font-face.$global-font-display, ma-font-face.$hebrew, null, null); }
-  @font-face { @include ma-font-face.font-face(Noto, Sans, Hebrew, null, Regular, -subset, $fonts-normal, normal, ma-font-face.$global-font-display, ma-font-face.$hebrew, null, null); }
+  @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Hebrew, null, Bold, -subset, $fonts-bold, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$hebrew, null, null); }
+  @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Hebrew, null, Regular, -subset, $fonts-normal, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$hebrew, null, null); }
 
   // Khmer
   @supports ( font-variation-settings: normal ) {
-    @font-face { @include ma-font-face.font-face(Noto, Sans, Khmer, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, ma-font-face.$khmer, null, null); }
+    @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Khmer, null, VF, -subset, 100 900, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$khmer, null, null); }
   }
-  @font-face { @include ma-font-face.font-face(Noto, Sans, Khmer, null, Bold, -subset, $fonts-bold, normal, ma-font-face.$global-font-display, ma-font-face.$khmer, null, null); }
-  @font-face { @include ma-font-face.font-face(Noto, Sans, Khmer, null, Regular, -subset, $fonts-normal, normal, ma-font-face.$global-font-display, ma-font-face.$khmer, null, null); }
+  @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Khmer, null, Bold, -subset, $fonts-bold, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$khmer, null, null); }
+  @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Khmer, null, Regular, -subset, $fonts-normal, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$khmer, null, null); }
 
   // Myanmar
   @supports ( font-variation-settings: normal ) {
-    @font-face { @include ma-font-face.font-face(Noto, Sans, Myanmar, null, VF, -subset, 100 900, normal, ma-font-face.$global-font-display, ma-font-face.$myanmar, null, null); }
+    @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Myanmar, null, VF, -subset, 100 900, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$myanmar, null, null); }
   }
-  @font-face { @include ma-font-face.font-face(Noto, Sans, Myanmar, null, Bold, -subset, $fonts-bold, normal, ma-font-face.$global-font-display, ma-font-face.$myanmar, null, null); }
-  @font-face { @include ma-font-face.font-face(Noto, Sans, Myanmar, null, Regular, -subset, $fonts-normal, normal, ma-font-face.$global-font-display, ma-font-face.$myanmar, null, null); }
+  @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Myanmar, null, Bold, -subset, $fonts-bold, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$myanmar, null, null); }
+  @font-face { @include ma-fonts-langs.font-face(Noto, Sans, Myanmar, null, Regular, -subset, $fonts-normal, normal, fonts-langs-vars.$global-font-display, fonts-langs-vars.$myanmar, null, null); }
 }
 
 
 /////////////////////////////////////
 // Set fonts
+html {
+  font-family: $fonts;
+}
+
+/////////////////////////////////////
+// Set language support fonts
+*{ @include ma-fonts-langs.langlist(fonts-langs-vars.$arabic-sans, rtl, fonts-langs-vars.$langs-Arab); }
+*{ @include ma-fonts-langs.langlist(fonts-langs-vars.$hebrew-sans, rtl, fonts-langs-vars.$langs-Hebr); }
+*{ @include ma-fonts-langs.langlist(fonts-langs-vars.$khmer-sans, null, fonts-langs-vars.$langs-Khmr); }
+*{ @include ma-fonts-langs.langlist(fonts-langs-vars.$myanmar-sans, null, fonts-langs-vars.$langs-Mymr); }

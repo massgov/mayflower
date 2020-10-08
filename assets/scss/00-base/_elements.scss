@@ -27,7 +27,6 @@
 }
 
 html {
-  font-family: $fonts;
   font-size: $fonts-base-mobile;
 
   @media ($bp-small-min) {
