@@ -5,7 +5,7 @@ Fixed:
     issue: DP-20085
     impact: Patch
 Changed:
-  - project: React
+  - project: Patternlab
     component: Header
     description: Fix utility sub container open/close state icon with keyboard navigation. (#1205)
     issue: DP-20176
