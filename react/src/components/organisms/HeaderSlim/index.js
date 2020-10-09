@@ -4,14 +4,20 @@
  * @requires module:@massds/mayflower-assets/scss/03-organisms/header-slim
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const HeaderSlim = (props) => (
+const HeaderSlim = ({
+  skipNav,
+  siteLogo,
+  children
+}) => (
   <div className="ma__header_slim">
+    {skipNav}
     <div className="ma__header_slim__banner" />
     <header className="ma__header_slim__header" id="header">
       <div className="ma__header_slim__container ma__container">
-        <div className="ma__header_slim__logo">{props.siteLogo}</div>
-        {props.children}
+        <div className="ma__header_slim__logo">{siteLogo}</div>
+        {children}
       </div>
     </header>
   </div>
@@ -33,7 +39,10 @@ HeaderSlim.propTypes = {
         component.type.name
       }. Validation failed.`);
     }
-  }
+  },
+  /** Anchor link to skip to the main content and bypass the header navigations */
+  skipNav: PropTypes.node,
+  children: PropTypes.node
 };
 
 export default HeaderSlim;

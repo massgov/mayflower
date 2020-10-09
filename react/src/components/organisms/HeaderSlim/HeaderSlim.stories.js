@@ -23,7 +23,8 @@ HeaderSlimExample.args = {
       siteName="Mass.gov"
       title="Mass.gov homepage"
     />
-  )
+  ),
+  skipNav: (<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>)
 };
 
 export default {
