@@ -24,7 +24,9 @@ HeaderSlimExample.args = {
       title="Mass.gov homepage"
     />
   ),
-  skipNav: (<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>)
+  skipNav: (<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>),
+  mainNav: <a href="#main-content">main Nav Link</a>,
+  utilityNav: <a href="#main-content">utility Nav Link</a>
 };
 
 export default {

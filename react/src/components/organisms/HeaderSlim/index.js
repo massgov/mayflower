@@ -9,15 +9,18 @@ import PropTypes from 'prop-types';
 const HeaderSlim = ({
   skipNav,
   siteLogo,
-  children
+  mainNav,
+  utilityNav
 }) => (
   <div className="ma__header_slim">
     {skipNav}
-    <div className="ma__header_slim__banner" />
+    <div className="ma__header_slim__banner">
+      {utilityNav}
+    </div>
     <header className="ma__header_slim__header" id="header">
       <div className="ma__header_slim__container ma__container">
         <div className="ma__header_slim__logo">{siteLogo}</div>
-        {children}
+        {mainNav}
       </div>
     </header>
   </div>
@@ -42,7 +45,10 @@ HeaderSlim.propTypes = {
   },
   /** Anchor link to skip to the main content and bypass the header navigations */
   skipNav: PropTypes.node,
-  children: PropTypes.node
+  /** Navigation items that are rendered in the blue banner, above the header element */
+  mainNav: PropTypes.node,
+  /** Navigation items that are rendered in the header area */
+  utilityNav: PropTypes.node
 };
 
 export default HeaderSlim;
