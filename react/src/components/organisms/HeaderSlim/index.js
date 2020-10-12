@@ -14,13 +14,15 @@ const HeaderSlim = ({
 }) => (
   <div className="ma__header_slim">
     {skipNav}
-    <div className="ma__header_slim__banner">
-      {utilityNav}
+    <div className="ma__header_slim__utility">
+      <div className="ma__header_slim__utility-container ma__container">
+        {utilityNav}
+      </div>
     </div>
     <header className="ma__header_slim__header" id="header">
-      <div className="ma__header_slim__container ma__container">
+      <div className="ma__header_slim__header-container ma__container">
         <div className="ma__header_slim__logo">{siteLogo}</div>
-        {mainNav}
+        <div className="ma__header_slim__nav">{mainNav}</div>
       </div>
     </header>
   </div>
