@@ -352,7 +352,7 @@ body.show-menu {
     transition: all 500ms ease-in-out;
     width: 15px;
 
-    .ios-less-than-11 & {
+    .ios-safari-less-than-11 & {
       top: 20px;
     }
 

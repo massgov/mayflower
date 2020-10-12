@@ -893,7 +893,7 @@ if (osInfo.indexOf("Safari") !== -1) {
     if (splitVar.length > 0 && splitVar.indexOf("Version/", 0) !== false) {
       let version = splitVar.match(/\d+/);
       if (version !== null && version[0] < 11) {
-        body.classList.add("ios-less-than-11");
+        body.classList.add("ios-safari-less-than-11");
       }
     }
   });
