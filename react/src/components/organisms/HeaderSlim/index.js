@@ -29,22 +29,8 @@ const HeaderSlim = ({
 );
 
 HeaderSlim.propTypes = {
-  /** The domain you want to send users to from the site logo icon */
-  // eslint-disable-next-line consistent-return
-  SiteLogo: (props, propName, componentName) => {
-    const component = props[propName];
-    const isValid = (comp) => {
-      if (typeof comp.type === 'string') {
-        return comp.type === 'SiteLogo';
-      }
-      return comp.type.name && comp.type.name === 'SiteLogo';
-    };
-    if (!component || (component && !isValid(component))) {
-      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${
-        component.type.name
-      }. Validation failed.`);
-    }
-  },
+  /** A render function that renders SiteLogo component. */
+  SiteLogo: PropTypes.func,
   /** A render function that renders Anchor link to skip to the main content and bypass the header navigations */
   SkipNav: PropTypes.func,
   /** A render function that renders Navigation items in the blue banner, above the header element */
