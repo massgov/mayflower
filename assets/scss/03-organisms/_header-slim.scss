@@ -3,6 +3,7 @@
 .ma__header_slim {
 
   .ma__container {
+
     @include ma-container;
   }
 
@@ -74,6 +75,7 @@
     }
 
     a {
+
       &:not(:first-child) {
         margin-left: 1rem;
       }
