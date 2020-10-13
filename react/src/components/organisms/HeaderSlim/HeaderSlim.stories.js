@@ -50,8 +50,8 @@ HeaderSlimWithNavs.args = {
     />
   ),
   skipNav: (<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>),
-  mainNav: <Button usage="secondary" text="Log in"/>,
-  utilityNav: <><a href="#main-content">Nav Link 1</a><a href="#main-content">Nav Link 2</a></>
+  mainNav: <HeaderSearch />,
+  utilityNav: <div><a href="#main-content">Nav Link 1</a><a href="#main-content">Nav Link 2</a></div>
 };
 
 export default {
