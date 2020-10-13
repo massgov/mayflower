@@ -5,24 +5,7 @@
   a {
     display: flex;
     font-size: 0px;
-    width: 164px;// total: 164 x 45
-    margin: 0 auto;
     align-items: center;
-
-
-    @media ($bp-small-max) {
-      width: 150px;// total: 150 x 42
-    }
-
-    img {
-      width: 45px;
-      height: 45px;
-
-      @media ($bp-small-max) {
-        width: 42px;
-        height: 42px;
-      }
-    }
 
     span {
       font-size: $fonts-2xlarge;
