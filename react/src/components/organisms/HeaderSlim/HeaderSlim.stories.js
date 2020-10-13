@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
-import SiteLogo from 'MayflowerReactMedia/SiteLogo';
+import SiteLogoHeader from 'MayflowerReactMedia/SiteLogo';
 import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
 import Button from 'MayflowerReactButtons/Button';
 import HeaderSlim from '.';
@@ -12,8 +12,8 @@ export const HeaderSlimExample = (args) => <HeaderSlim {...args} />;
 
 HeaderSlimExample.storyName = 'Default';
 HeaderSlimExample.args = {
-  siteLogo: (
-    <SiteLogo
+  SiteLogo: () => (
+    <SiteLogoHeader
       url={{
         domain: 'https://www.mass.gov/'
       }}
@@ -34,8 +34,8 @@ export const HeaderSlimWithNavs = (args) => <HeaderSlim {...args} />;
 
 HeaderSlimWithNavs.storyName = 'HeaderSlim with Nav';
 HeaderSlimWithNavs.args = {
-  siteLogo: (
-    <SiteLogo
+  SiteLogo: () => (
+    <SiteLogoHeader
       url={{
         domain: 'https://www.mass.gov/'
       }}

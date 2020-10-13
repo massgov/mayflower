@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 const HeaderSlim = ({
   SkipNav,
-  siteLogo,
+  SiteLogo,
   MainNav,
   UtilityNav
 }) => (
@@ -21,7 +21,7 @@ const HeaderSlim = ({
     </div>
     <header className="ma__header_slim__header" id="header">
       <div className="ma__header_slim__header-container ma__container">
-        <div className="ma__header_slim__logo">{siteLogo}</div>
+        <div className="ma__header_slim__logo"><SiteLogo /></div>
         { MainNav && <div className="ma__header_slim__nav"><MainNav /></div> }
       </div>
     </header>
@@ -31,7 +31,7 @@ const HeaderSlim = ({
 HeaderSlim.propTypes = {
   /** The domain you want to send users to from the site logo icon */
   // eslint-disable-next-line consistent-return
-  siteLogo: (props, propName, componentName) => {
+  SiteLogo: (props, propName, componentName) => {
     const component = props[propName];
     const isValid = (comp) => {
       if (typeof comp.type === 'string') {
