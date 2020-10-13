@@ -7,22 +7,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const HeaderSlim = ({
-  skipNav,
+  SkipNav,
   siteLogo,
-  mainNav,
-  utilityNav
+  MainNav,
+  UtilityNav
 }) => (
   <div className="ma__header_slim">
-    {skipNav}
+    {SkipNav && <SkipNav />}
     <div className="ma__header_slim__utility">
       <div className="ma__header_slim__utility-container ma__container">
-        {utilityNav}
+        {UtilityNav && <UtilityNav />}
       </div>
     </div>
     <header className="ma__header_slim__header" id="header">
       <div className="ma__header_slim__header-container ma__container">
         <div className="ma__header_slim__logo">{siteLogo}</div>
-        <div className="ma__header_slim__nav">{mainNav}</div>
+        { MainNav && <div className="ma__header_slim__nav"><MainNav /></div> }
       </div>
     </header>
   </div>
@@ -45,12 +45,12 @@ HeaderSlim.propTypes = {
       }. Validation failed.`);
     }
   },
-  /** Anchor link to skip to the main content and bypass the header navigations */
-  skipNav: PropTypes.node,
-  /** Navigation items that are rendered in the blue banner, above the header element */
-  mainNav: PropTypes.node,
-  /** Navigation items that are rendered in the header area */
-  utilityNav: PropTypes.node
+  /** A render function that renders Anchor link to skip to the main content and bypass the header navigations */
+  SkipNav: PropTypes.func,
+  /** A render function that renders Navigation items in the blue banner, above the header element */
+  MainNav: PropTypes.func,
+  /** A render function that renders Navigation items in the header area */
+  UtilityNav: PropTypes.func
 };
 
 export default HeaderSlim;
