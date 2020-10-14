@@ -136,6 +136,17 @@ if (menuButton !== null) {
     }
   });
 
+  const logoLink = document.querySelector(".ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a");
+  if(logoLink) {
+    logoLink.addEventListener("keydown", function (e) {
+      if ((e.shiftKey && e.key === "Tab") || (e.shiftKey && e.code === "Tab")) {
+        setTimeout(function timeoutFunction() {
+          document.querySelector(".js-header-menu-button").focus();
+        }, 100);
+      }
+    });
+  }
+
   const firstTopMenuItem = document.querySelector(".ma__header__hamburger__nav .ma__main__hamburger-nav__item:first-of-type .js-main-nav-hamburger__top-link");
   // To accomodate both button and link as the last top menu item, use 'ma__' classes instead of 'js-'.
   const lastTopMenuItem = document.querySelector(".ma__main__hamburger-nav__item:last-of-type .ma__main__hamburger-nav__top-link");
@@ -241,6 +252,7 @@ if (menuButton !== null) {
               utilNarrowButton.focus();
             }
           }
+          closeNarrowUtilContent();
         }
         else {
           let narrowNavItems = utilNarrowNav.querySelectorAll(".ma__utility-nav__link");
@@ -401,102 +413,7 @@ if (menuButton !== null) {
   // });
 }
 
-[].forEach.call(menuItems, function (item, i, arr) {
 
-  const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
-  const subMenu = item.querySelector(".js-main-nav-hamburger-content");
-  const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
-
-  subItems.style.opacity = "0";
-
-  itemButton.addEventListener("click", function (e) {
-
-    closeSubMenus(item);
-
-    // Set a little bit of delay to run
-    // The open/close submenu animation is CSS. Unable to confirm the completion of the animation in JS. Unable to use callback in this case.
-    setTimeout(function timeoutFunction() {
-      if (item.classList.contains("submenu-open")) {
-        item.classList.remove("submenu-open");
-        itemButton.setAttribute("aria-expanded", "false");
-        item.style.pointerEvents = "none";
-
-        setTimeout(function timeoutFunction() {
-          item.removeAttribute("style");
-        }, 700);
-      } else {
-        item.classList.add("submenu-open");
-        itemButton.setAttribute("aria-expanded", "true");
-        item.style.pointerEvents = "none";
-        setTimeout(function timeoutFunction() {
-          item.removeAttribute("style");
-        }, 700);
-      }
-
-      if (subMenu.classList.contains("is-closed")) {
-        /** Show the subMenu. */
-
-        subMenu.classList.remove("is-closed");
-        subMenu.style.height = "auto";
-
-        /** Get the computed height of the subMenu. */
-        var height = subMenu.clientHeight + "px";
-
-
-        /** Set the height of the submenu as 0px, */
-        /** so we can trigger the slide down animation. */
-        subMenu.style.height = "0";
-
-        setTimeout(function timeoutFunction() {
-          subMenu.style.height = height;
-          subItems.style.opacity = "1";
-        }, 50);
-
-        /** Close Utility menu content when a sub menu is open. */
-        if (width < 840) {
-          closeNarrowUtilContent();
-        }
-      }
-      else {
-        subMenu.style.height = "0";
-        subItems.style.opacity = "0";
-
-        setTimeout(function timeoutFunction() {
-        subMenu.classList.add("is-closed");
-
-        }, 500);
-      }
-    }, 230);
-  });
-
-  itemButton.addEventListener("keydown", function (e) {
-
-    if (e.code == "ArrowDown" || e.key == "ArrowDown") {
-      let first = subItems.getElementsByTagName("li")[0];
-      first.querySelector(".js-main-nav-hamburger__link").focus();
-    }
-
-    // 'e.key === "Esc"' is for IE11.
-    if (e.code == "Escape" || e.key == "Escape" || e.key === "Esc") {
-      if (item.classList.contains("submenu-open")) {
-        // NOTE: KEEP BELOW COMMENTED LINES UNTIL THE DESIGN TEAM FINALIZES THE BEHAVIOR.
-
-        // subItems.style.opacity = "0";
-        // subMenu.style.height = "0";
-        // itemButton.parentElement.classList.remove("submenu-open");
-        // itemButton.setAttribute("aria-expanded", "false");
-
-        // setTimeout(function timeoutFunction() {
-        //   subMenu.classList.add("is-closed");
-        // }, 500);
-
-      // }
-      // else {
-        closeMenu();
-      }
-    }
-  });
-});
 
 if (jumpToSearchButton !== null) {
   jumpToSearchButton.addEventListener("click", (e) => {
@@ -597,8 +514,11 @@ function openMenu() {
   let emergencyAlertsHeight;
   // Set the alert to its offset position in the window to prevent the page to shift as the menu opens.
   let lockPage = function () {
-    document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
-    document.querySelector("body").style.position = "fixed";
+    if (document.querySelector(".ma__emergency-alerts")) {
+      document.querySelector("body").style.top = `-${alertlOffsetPosition}px`;
+    } else {
+      document.querySelector("body").style.top = 0;
+    }
 
     heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
   };
@@ -620,17 +540,26 @@ function openMenu() {
 
   menuButton.setAttribute("aria-pressed", "true");
   let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
+  document.querySelector("body").style.position = "fixed";
+
   if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
     emergencyAlertsHeight = emergencyAlerts.offsetHeight;
     alertlOffsetPosition = emergencyAlertsHeight - (alertsHeader.offsetHeight/2);
 
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth"
-    });
-    lockPage();
+    // if (osInfo.indexOf("iPhone") !== -1) {
+    //   // Changed the duration value to 600.
+    //   customScrollTo(alertlOffsetPosition, 600);
+    //   setTimeout(lockPage(), 600);
+    // }
+    // else {
+      // window.scrollTo({
+      //   top: 0,
+      //   left: 0,
+      //   behavior: "smooth"
+      // });
+      lockPage();
+    //}
 
     // Set the nav container height to enable scrolling to the bottom.
     if (osInfo.indexOf("iPhone") !== -1) {
@@ -641,6 +570,7 @@ function openMenu() {
     else {
       hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
     }
+
   }
 
   if (menuOverlay) {
@@ -676,40 +606,56 @@ function jumpToSearch(e) {
   }
 }
 
-function closeSubMenus(item) {
-  //Close other open submenus
-  let siblings = [];
-  let thisSibling = item.parentNode.firstChild;
-
-  while (thisSibling) {
-    if (thisSibling !== item && thisSibling.nodeType === Node.ELEMENT_NODE)
-      siblings.push(thisSibling);
-    thisSibling = thisSibling.nextElementSibling || thisSibling.nextSibling;
-  }
-
-  for (let i = 0; i < siblings.length; i++) {
-
-    if (siblings[i].classList.contains("submenu-open")) {
-
-      siblings[i].classList.remove("submenu-open");
-      siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
-      siblings[i].style.pointerEvents = "none";
-
-      setTimeout(function timeoutFunction() {
-        siblings[i].removeAttribute("style");
-      }, 700);
-
+function anotherCloseSubMenus(item) {
+  menuItems.forEach((li) => {
+    if (item !== li && li.classList.contains("submenu-open")) {
+      li.classList.remove("submenu-open");
+      li.querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
+      li.style.pointerEvents = "none";
       /** Slide up. */
-      siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
-      siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
-
+      li.querySelector(".js-main-nav-hamburger-content").style.height = "0";
+      li.querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
       setTimeout(function timeoutFunction() {
-        siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
-
+        li.removeAttribute("style");
+        li.querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
       }, 500);
     }
-  }
+  });
 }
+// function closeSubMenus(item) {
+//   //Close other open submenus
+//   let siblings = [];
+//   let thisSibling = item.parentNode.firstChild;
+
+//   while (thisSibling) {
+//     if (thisSibling !== item && thisSibling.nodeType === Node.ELEMENT_NODE)
+//       siblings.push(thisSibling);
+//     thisSibling = thisSibling.nextElementSibling || thisSibling.nextSibling;
+//   }
+
+//   for (let i = 0; i < siblings.length; i++) {
+
+//     if (siblings[i].classList.contains("submenu-open")) {
+
+//       siblings[i].classList.remove("submenu-open");
+//       siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
+//       siblings[i].style.pointerEvents = "none";
+
+//       //setTimeout(function timeoutFunction() {
+//       //}, 700);
+
+//       /** Slide up. */
+//       siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
+//       siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
+//       siblings[i].removeAttribute("style");
+
+//       //setTimeout(function timeoutFunction() {
+//         siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+
+//       //}, 500);
+//     }
+//   }
+// }
 
 // Close menu when utility nav is clicked
 if ((utilNavWide !== null) && body.classList.contains("show-menu")) {
@@ -898,3 +844,104 @@ if (osInfo.indexOf("Safari") !== -1) {
     }
   });
 }
+
+menuItems.forEach((item) => {
+
+  const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
+  const subMenu = item.querySelector(".js-main-nav-hamburger-content");
+  const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
+  subItems.style.opacity = "0";
+  itemButton.addEventListener("click", (e) => {
+
+    anotherCloseSubMenus(item);
+
+    if (item.classList.contains("submenu-open")) {
+      item.classList.remove("submenu-open");
+      itemButton.setAttribute("aria-expanded", "false");
+      item.style.pointerEvents = "none";
+
+      setTimeout(function timeoutFunction() {
+         //item.style.height = "0";
+         //item.style.opacity = "0";
+         item.removeAttribute("style");
+      }, 700);
+    } else {
+      item.classList.add("submenu-open");
+      itemButton.setAttribute("aria-expanded", "true");
+      item.style.pointerEvents = "none";
+      setTimeout(function timeoutFunction() {
+        item.removeAttribute("style");
+      }, 500);
+    }
+
+    if (item.querySelector(".js-main-nav-hamburger-content").classList.contains("is-closed")) {
+      /** Show the subMenu. */
+
+      item.querySelector(".js-main-nav-hamburger-content").classList.remove("is-closed");
+      item.querySelector(".js-main-nav-hamburger-content").style.height = "auto";
+
+      /** Get the computed height of the subMenu. */
+      const height = item.querySelector(".js-main-nav-hamburger-content").clientHeight + "px";
+
+
+      /** Set the height of the submenu as 0px, */
+      /** so we can trigger the slide down animation. */
+      item.querySelector(".js-main-nav-hamburger-content").style.height = "0";
+
+      setTimeout(function timeoutFunction() {
+        item.querySelector(".js-main-nav-hamburger-content").style.height = height;
+        item.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+
+        subItems.style.opacity = "1";
+      }, 500);
+
+      /** Close Utility menu content when a sub menu is open. */
+      if (width < 840) {
+        closeNarrowUtilContent();
+      }
+    }
+    else {
+      item.querySelector(".js-main-nav-hamburger-content").style.height = "0";
+      subItems.style.opacity = "0";
+
+      // Set a little bit of delay to run
+      // The open/close submenu animation is CSS.
+      // Unable to confirm the completion of the animation in JS.
+      // Unable to use callback in this case.
+      setTimeout(function timeoutFunction() {
+        item.querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+
+      }, 500);
+    }
+
+  });
+
+  itemButton.addEventListener("keydown", function (e) {
+
+    if (e.code == "ArrowDown" || e.key == "ArrowDown") {
+      let first = subItems.getElementsByTagName("li")[0];
+      first.querySelector(".js-main-nav-hamburger__link").focus();
+    }
+
+    // 'e.key === "Esc"' is for IE11.
+    if (e.code == "Escape" || e.key == "Escape" || e.key === "Esc") {
+      if (item.classList.contains("submenu-open")) {
+        // NOTE: KEEP BELOW COMMENTED LINES UNTIL THE DESIGN TEAM FINALIZES THE BEHAVIOR.
+
+        // subItems.style.opacity = "0";
+        // subMenu.style.height = "0";
+        // itemButton.parentElement.classList.remove("submenu-open");
+        // itemButton.setAttribute("aria-expanded", "false");
+
+        // setTimeout(function timeoutFunction() {
+        //   subMenu.classList.add("is-closed");
+        // }, 500);
+
+      // }
+      // else {
+        closeMenu();
+      }
+    }
+  });
+
+});

@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Set focus on the menu button from the logo link in the menu container with shift + tab. (#1206)
+    issue: DP-20181
+    impact: Patch
