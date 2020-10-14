@@ -1,5 +1,5 @@
 {
-  "name": "core",
+  "name": "mayflower-core",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,7 +21,15 @@
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.26",
     "babel-loader": "^8.1.0",
-    "react-is": "^16.13.1"
+    "react-is": "^16.13.1",
+    "style-loader": "~2.0.0",
+    "css-loader": "~5.0.0",
+    "sass-loader": "~10.0.3",
+    "sass": "~1.27.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@massds/mayflower-assets": "^0.2.2",
+    "@massds/mayflower-react": "10.0.0-alpha.2",
+    "@storybook/preset-scss": "~1.0.2"
+  }
 }

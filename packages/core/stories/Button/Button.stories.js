@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Button } from './Button';
+import Button from '@massds/mayflower-react/dist/Button';
+import '@massds/mayflower-react/dist/Button/_index.scss';
 
 export default {
-  title: 'Example/Button',
+  title: 'Base Elements/Button',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -15,22 +16,22 @@ const Template = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
-  label: 'Button',
+  text: 'Button',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
+  text: 'Button',
 };
 
 export const Large = Template.bind({});
 Large.args = {
   size: 'large',
-  label: 'Button',
+  text: 'Button',
 };
 
 export const Small = Template.bind({});
 Small.args = {
   size: 'small',
-  label: 'Button',
+  text: 'Button',
 };

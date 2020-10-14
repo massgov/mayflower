@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Header } from './Header';
+import Header from '@massds/mayflower-react/dist/HeaderSlim';
+import '@massds/mayflower-assets/scss/03-organisms/_header-slim.scss';
 
 export default {
-  title: 'Example/Header',
+  title: 'Brand Components/Header',
   component: Header,
 };
 
