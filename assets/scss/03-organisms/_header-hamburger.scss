@@ -91,13 +91,12 @@ body.show-menu {
   }
 
   &-wrapper {
+    display: flex;
     height: $utility-nav-height;
 
     @include ma-container;
 
     @media ($bp-medium-min) {
-
-      display: flex;
       justify-content: space-between;
     }
 
@@ -118,6 +117,7 @@ body.show-menu {
   &__button-container {
     display: flex;
     justify-content: space-between;
+    width: inherit;
 
     // Expand close button to fll the blue bar.
 
@@ -307,12 +307,11 @@ body.show-menu {
     font-size: 19.2px;// Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
-    height: 44px;
-    line-height: 44px;
-    margin-top: 0;
     padding-right: 30px;
     padding-left: 20px;
     transition: transform 0.5s ease;
+    display: flex;
+    align-items: center;
 
     // Expand close button to fll the blue bar.
 
@@ -352,7 +351,10 @@ body.show-menu {
     position: absolute;
     transition: all 500ms ease-in-out;
     width: 15px;
-    top: 19px;
+
+    .ios-safari-less-than-11 & {
+      top: 20px;
+    }
 
     &:before,
     &:after {

@@ -831,6 +831,20 @@ function closeSubMenu() {
   }
 }
 
+// Target iOS Safari versions less than 11 to handle issues that cannot be targeted
+// with behavior detection due to either buggy or idiosyncratic browser implementation
+// issues addressed in later major versions.
+if (osInfo.indexOf("Safari") !== -1) {
+  osInfo.split(" ").forEach(function(splitVar) {
+    if (splitVar.length > 0 && splitVar.indexOf("Version/", 0) !== false) {
+      let version = splitVar.match(/\d+/);
+      if (version !== null && version[0] < 11) {
+        body.classList.add("ios-safari-less-than-11");
+      }
+    }
+  });
+}
+
 menuItems.forEach((item) => {
 
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
