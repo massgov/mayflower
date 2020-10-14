@@ -36,7 +36,7 @@ const FooterSlim = ({
     <footer className="ma__footer-slim" id="footer">
       <div className="ma__footer-slim__container ma__container">
         <div className={logoWrapperClasses}>
-          {siteLogo}
+          <SiteLogo />
         </div>
         <div className={innerWrapperClasses}>
           <div className="ma__footer-slim__info">
