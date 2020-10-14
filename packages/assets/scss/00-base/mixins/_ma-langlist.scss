@@ -5,10 +5,13 @@
 // This adds all of the language sets for a script to an `&:lang()` rule
 // it is used in script selector files so they can easily be applied to each font style
 // Set $fonts-enable-rtl in _global.scss to conditionally enable right-to-left scripts to render RTL. By default, it's set to false.
+
 @mixin ma-langlist($stack, $dir, $langs) {
+  
   @each $lang in $langs {
     &:lang(#{$lang}) {
 			font-family: '#{$stack} VF', $stack, $fonts !important;
+      
       @if $fonts-enable-rtl { direction: $dir;}
 		}
   }

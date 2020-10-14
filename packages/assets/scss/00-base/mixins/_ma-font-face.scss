@@ -1,12 +1,15 @@
 /////////////////////////////////////
 // font-face imports for language support
+
 @use "paths" as *;
+
 @use "variables" as *;
 
 $oneSpace: 	' ';
 $oneDash:		'-';
 
 @mixin ma-font-face ($family: "Noto", $type: "Sans", $script: "Cyrillic", $suffix: "UI", $weight: "VF", $subset: "-subset", $fontWeight: "100 900", $fontStyle: "normal", $fontDisplay: $fonts-display-global, $unicodeRange: "cyrillic", $space: $oneSpace, $dash: $oneDash) {
+
 	@if $weight == "VF" {
 		font-family: '#{$family} #{$type} #{$script}#{$space}#{$suffix} VF';
 	} @else {
