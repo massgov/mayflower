@@ -108,7 +108,7 @@ FooterSlim.propTypes = {
     })
   }),
   /** One or multiple logos rendered at the footer */
-  siteLogo: PropTypes.element.isRequired,
+  SiteLogo: PropType.func.isRequired,
   /** Whether logo(s) should be stacked on top of footer title */
   stackedLogo: PropTypes.bool
 };
