@@ -1,6 +1,6 @@
 /**
  * Button module.
- * @module @massds/mayflower-react/Button
+ * @module @massds/mayflower-react/dist/Button
  */
 import React from 'react';
 import PropTypes from 'prop-types';
