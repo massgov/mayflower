@@ -30,7 +30,7 @@ const HeaderSlim = ({
 
 HeaderSlim.propTypes = {
   /** A render function that renders SiteLogo component. */
-  SiteLogo: PropTypes.func,
+  SiteLogo: PropTypes.func.isRequired,
   /** A render function that renders Anchor link to skip to the main content and bypass the header navigations */
   SkipNav: PropTypes.func,
   /** A render function that renders Navigation items in the blue banner, above the header element */
