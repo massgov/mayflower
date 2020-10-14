@@ -241,6 +241,7 @@ if (menuButton !== null) {
               utilNarrowButton.focus();
             }
           }
+          closeNarrowUtilContent();
         }
         else {
           let narrowNavItems = utilNarrowNav.querySelectorAll(".ma__utility-nav__link");
