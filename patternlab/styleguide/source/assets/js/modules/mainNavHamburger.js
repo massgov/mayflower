@@ -462,16 +462,10 @@ function closeMenu() {
   }
 
   if (body.style.position === "fixed") {
-    body.style.position = "relative";
+    // At the same time, the alert needs to be scrolled up to the position again to retain the page elements position.
+    window.scrollTo(0, alertlOffsetPosition);
+    body.removeAttribute("style");
   }
-  // When the page is loaded first time, body initially has "top: 0;".
-  // As the menu closes, reset the override top value to 0.
-  // Note: The top value is recognized as a string, not number.
-  if (body.style.top.indexOf("-") !== -1) {
-    body.style.top = 0;
-  }
-  // At the same time, the alert needs to be scrolled up to the position again to retain the page elements position.
-  window.scrollTo(0, alertlOffsetPosition);
 }
 
 function commonCloseMenuTasks() {
