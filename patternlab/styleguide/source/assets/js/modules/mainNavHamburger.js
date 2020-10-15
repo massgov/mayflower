@@ -33,7 +33,18 @@ let hamburgerMenuAlertScrolling = function() {
     let alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight || 0;
     let hamburgerMenuTop = document.querySelector(".ma__header__hamburger__nav-container").offsetTop || 0;
     let paddingTarget = hamburgerMainNav;
-    paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+
+    if (utilNavNarrowCheck() !== false) {
+      paddingTarget = utilNarrowNav;
+      if (width < 841) {
+        paddingTarget.style.paddingBottom = "80px";
+      }
+      hamburgerMainNav.style.paddingBottom = 0;
+    }
+    else {
+      // Add bottom padding when function is initially called.
+      paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+    }
 
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
@@ -47,7 +58,6 @@ let hamburgerMenuAlertScrolling = function() {
           }
           if (utilNavNarrowCheck() !== false) {
             paddingTarget = utilNarrowNav;
-            
             hamburgerMainNav.style.paddingBottom = 0;
           }
 
@@ -56,6 +66,9 @@ let hamburgerMenuAlertScrolling = function() {
           if (currentDisplayValue === oldDisplayValue) {
             alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
             paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+            if (width < 841) {
+              paddingTarget.style.paddingBottom = "80px";
+            }
           }
         }
       });
