@@ -8,13 +8,13 @@ import ReactHtmlParser from 'react-html-parser';
 import ReactDOMServer from 'react-dom/server';
 
 const RichText = ({
-  className, id, htmlTag, rawHtml, transform, children
+  className, id, htmlTag, rawHtml, transform, children, ...rest
 }) => {
   const CustomElement = htmlTag;
   // If chidlren don't exist, expect to render the rawHtml string.
   const markup = children ? ReactDOMServer.renderToStaticMarkup(children) : rawHtml;
   return(
-    <CustomElement ref={(element) => element} className={className} id={id}>
+    <CustomElement ref={(element) => element} className={className} id={id} {...rest}>
       {ReactHtmlParser(markup, { transform })}
     </CustomElement>
   );

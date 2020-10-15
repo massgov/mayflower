@@ -1,4 +1,4 @@
-// Base variables
+// Configurable variables
 
 @forward "paths";
 
@@ -6,13 +6,12 @@
 
 @forward "breakpoints";
 
-@forward "mixins";
-
 @forward "z-index";
-// base theme variables
 
 @forward "colors";
 
 @forward "color-tokens";
 
+// Mixins
 
+@forward "mixins";

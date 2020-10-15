@@ -171,13 +171,13 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
+            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
       - run:
           name: Install Rush on Repo directory
           command: node common/scripts/install-run-rush.js install
       - save_cache:
           name: Save NPM cache
-          key: mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
+          key: mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
           paths:
             - common
             - packages/assets/node_modules
@@ -302,7 +302,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
+            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
       - run:
           name: Mayflower Style Linter
           command: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
@@ -314,7 +314,7 @@ jobs:
       - *configure_npm
       - restore_cache:
           keys:
-            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
+            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
       - run:
           name: 'Publish mayflower-assets NPM package'
           command: |
@@ -332,7 +332,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-0
+            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
       - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Validate Package Build

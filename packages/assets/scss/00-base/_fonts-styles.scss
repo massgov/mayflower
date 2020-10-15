@@ -1,26 +1,25 @@
-// Texta styles.
-// See @mixin ma-texta-style in 00-base/mixins/_ma-typography.scss
-
-@use "mixins" as *;
+@use "variables" as *;
 
 $styles: (
-  "light": 'Light',
-  "book": 'Book',
-  "medium": 'Medium',
-  "bold": 'Bold',
-  "black": 'Black'
+  "lighter": $fonts-lighter,
+  "light": $fonts-light,
+  "normal": $fonts-normal,
+  "bold": $fonts-bold,
+  "bolder": $fonts-bolder
 );
 
-.ma-texta {
+
+// Font weight classes
+
+.ma-fonts {
 
   @each $class, $s in $styles {
     &-#{$class} {
-
-      @include ma-texta-style($s);
+      font-weight: $s;
 
       &--italic {
-
-        @include ma-texta-style($s, true);
+        font-weight: $s;
+        font-style: italic;
       }
     }
   }

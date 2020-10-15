@@ -20,40 +20,24 @@
 
 @use "mixins" as *;
 
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 html {
-  font-family: $fonts;
-
-  &:lang(km) {
-    font-family: $fonts-khmer, $fonts;
-    font-size: 14px;
-  }
-
-  &:lang(vi) {
-    font-family: $fonts-vietnamese, sans-serif;
-    font-size: 14px;
-  }
-
   font-size: $fonts-base-mobile;
 
   @media ($bp-small-min) {
     font-size: $fonts-base;
   }
-
-
-  // .translated-rtl & {
-  //   direction: rtl;
-  // }
 }
 
 body {
   margin: 0;
   font-size: $fonts-medium;
-  line-height: 1.5;
+  line-height: 1.6;
   color: $c-font-base;
   font-family: $fonts;
   font-weight: $fonts-light;
