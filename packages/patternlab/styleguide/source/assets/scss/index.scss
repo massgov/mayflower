@@ -5,7 +5,8 @@
 // Bower vendors
 @use "pikaday";
 @use "00-base/global" with(
-  $assets-path: './assets'
+  // relative to the compiled css in public/
+  $assets-path: '../../assets'
 );
 @use "00-base/z-index";
 // Base theme variables
