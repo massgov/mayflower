@@ -428,6 +428,7 @@ function commonCloseMenuTasks() {
 function openMenu() {
   let heightAboveMenuContainer;
   let emergencyAlertsHeight;
+  let alertOffsetAdjusted = 0;
   // Set the alert to its offset position in the window to prevent the page to shift as the menu opens.
   let lockPage = function () {
     if (document.querySelector(".ma__emergency-alerts")) {
@@ -461,7 +462,8 @@ function openMenu() {
   if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
     emergencyAlertsHeight = emergencyAlerts.offsetHeight;
-    alertlOffsetPosition = emergencyAlertsHeight - (alertsHeader.offsetHeight/2);
+    alertOffsetAdjusted = alertsHeader.offsetHeight/2;
+    alertlOffsetPosition = emergencyAlertsHeight - alertOffsetAdjusted;
 
     // if (osInfo.indexOf("iPhone") !== -1) {
     //   // Changed the duration value to 600.
@@ -477,7 +479,8 @@ function openMenu() {
       lockPage();
     //}
 
-    heightAboveMenuContainer = (alertsHeader.offsetHeight/2) + document.querySelector(".ma__header__hamburger__nav").offsetHeight;
+    let hamburgerNavOffset = document.querySelector(".ma__header__hamburger__nav").offsetHeight;
+    heightAboveMenuContainer = alertOffsetAdjusted + hamburgerNavOffset;
     hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
   }
 
@@ -492,7 +495,7 @@ function openMenu() {
   if (alertOverlay) {
     if (document.querySelector(".ma__emergency-alerts")) {
       alertOverlay.classList.add("overlay-open");
-      alertOverlay.style.height = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + "px";
+      alertOverlay.style.height = alertOffsetAdjusted + "px";
     }
   }
 }
