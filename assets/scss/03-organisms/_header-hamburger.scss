@@ -263,7 +263,7 @@ body.show-menu {
     transition: left 0.3s ease, visibility 0.3s;
     width: 320px;
     z-index: $z-overlay;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
 
     @media ($bp-header-toggle-min) {
 
