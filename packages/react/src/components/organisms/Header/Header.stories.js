@@ -6,6 +6,7 @@ import MainNavData from 'MayflowerReactMolecules/MainNav/MainNav.knob.options';
 import UtilityNavData from 'MayflowerReactOrganisms/UtilityNav/UtilityNav.knob.options';
 import Header from './index';
 import HeaderDocs from './Header.md';
+import styles from './_index.scss';
 
 const Template = (args) => <Header {...args} />;
 export const HeaderExample = Template.bind({});
@@ -216,7 +217,7 @@ export default {
   component: Header,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={HeaderDocs} />
+      page: () => <StoryPage styles={styles} Description={HeaderDocs} />
     }
   }
 };

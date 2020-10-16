@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { StoryPage } from 'StorybookConfig/preview';
 import ArrowButton from './index';
 import ArrowButtonDocs from './ArrowButton.md';
-
+import styles from './_index.scss';
 export const ArrowButtonExample = (args) => (<ArrowButton {...args} />);
 
 ArrowButtonExample.storyName = 'Default';
@@ -30,7 +30,7 @@ export default {
   component: ArrowButton,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={ArrowButtonDocs} />
+      page: () => <StoryPage Description={ArrowButtonDocs} styles={styles} />
     }
   }
 };

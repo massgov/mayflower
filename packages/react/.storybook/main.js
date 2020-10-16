@@ -30,6 +30,7 @@ module.exports = {
     {
       name: '@storybook/preset-scss',
       options: {
+        styleLoaderOptions: false,
         cssLoaderOptions: {
           sourceMap: true
         },

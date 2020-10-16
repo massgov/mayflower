@@ -51,7 +51,11 @@
     "react-table": "^6.8.6",
     "react-transition-group": "^2.4.0",
     "shortid": "^2.2.8",
-    "dom-helpers": "3.4.0"
+    "dom-helpers": "3.4.0",
+    "purgecss": "~3.0.0",
+    "uncss": "~0.17.3",
+    "css-purge": "~3.1.8",
+    "trapcss": "~1.2.0"
   },
   "peerDependencies": {
     "react": "^16.13.1",
