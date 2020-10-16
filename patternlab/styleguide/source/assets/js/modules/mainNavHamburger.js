@@ -25,77 +25,6 @@ const utilNavNarrowCheck = function() {
   return utilNarrowNav ? (utilNarrowNav.offsetWidth > 0 && utilNarrowNav.offsetHeight > 0) : false;
 };
 
-/** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
-const hamburgerMainNav = document.querySelector(".ma__header__hamburger__main-nav");
-let emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
-let hamburgerMenuAlertScrolling = function() {
-  if (hamburgerMainNav !== null && emergencyAlerts !== null) {
-    let alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight || 0;
-    let hamburgerMenuTop = document.querySelector(".ma__header__hamburger__nav-container").offsetTop || 0;
-    let paddingTarget = hamburgerMainNav;
-    paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
-
-    // Add bottom padding when alert style changes occur.
-    const alertObserver = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutationRecord) {
-        if (mutationRecord.oldValue !== null) {
-          let result = {};
-          let attributes = mutationRecord.oldValue.split(";");
-          for (let i = 0; i < attributes.length; i++) {
-            let entry = attributes[i].split(":");
-            result[entry.splice(0,1)[0]] = entry.join(":");
-          }
-          if (utilNavNarrowCheck() !== false) {
-            paddingTarget = utilNarrowNav;
-            
-            hamburgerMainNav.style.paddingBottom = 0;
-          }
-
-          let oldDisplayValue = result.display ? result.display.trim() : null;
-          let currentDisplayValue = document.querySelector(".ma__emergency-alerts__content").style.display;
-          if (currentDisplayValue === oldDisplayValue) {
-            alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
-            paddingTarget.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
-          }
-        }
-      });
-    });
-    alertObserver.observe(emergencyAlerts, {
-      attributes : true,
-      attributeFilter: ["style"],
-      attributeOldValue: true
-    });
-  }
-};
-
-
-// Not ideal, but this is here to wait for alerts to load via AJAX.
-const maAjaxPattern = document.querySelectorAll(".ma__ajax-pattern");
-let siteAlertWrapper = null;
-if (maAjaxPattern !== null) {
-  maAjaxPattern.forEach(function(value, key) {
-    if (value.dataset.maAjaxRenderPattern === "@organisms/by-template/emergency-alerts.twig") {
-      siteAlertWrapper = value;
-    }
-  });
-}
-
-if (siteAlertWrapper !== null) {
-  const jsonApiObserver = new MutationObserver(function(mutations, observer) {
-    emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
-    if (emergencyAlerts !== null) {
-      observer.disconnect();
-    }
-
-    hamburgerMenuAlertScrolling();
-
-  });
-  jsonApiObserver.observe(siteAlertWrapper, {
-    childList: true
-  });
-}
-/** DP-19336 end */
-
 // Open and close the menu
 if (menuButton !== null) {
 
@@ -548,16 +477,8 @@ function openMenu() {
       lockPage();
     //}
 
-    // Set the nav container height to enable scrolling to the bottom.
-    if (osInfo.indexOf("iPhone") !== -1) {
-      // iPhone needs a little extra height to show the very last item in the menu container.
-      let iphoneAdjustment = heightAboveMenuContainer + 20;
-      hamburgerMenuContainer.style.height = `calc(100vh - ${iphoneAdjustment}px)`;
-    }
-    else {
-      hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
-    }
-
+    heightAboveMenuContainer = alertsHeader.offsetHeight + document.querySelector(".ma__header__hamburger").offsetHeight;
+    hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
   }
 
   if (menuOverlay) {
@@ -670,7 +591,6 @@ window.addEventListener("resize", function () {
   if (osInfo.indexOf("Android") === -1 && osInfo.indexOf("iPhone") === -1) {
     debouncer = setTimeout(() => {
       closeMenu();
-      hamburgerMenuAlertScrolling();
     }, 100);
   }
 });
