@@ -477,7 +477,7 @@ function openMenu() {
       lockPage();
     //}
 
-    heightAboveMenuContainer = alertsHeader.offsetHeight + document.querySelector(".ma__header__hamburger").offsetHeight;
+    heightAboveMenuContainer = alertsHeader.offsetHeight + document.querySelector(".ma__header__hamburger__nav").offsetHeight;
     hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
   }
 
