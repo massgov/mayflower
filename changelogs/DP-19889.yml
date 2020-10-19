@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: Header
-    description: Make the menu container stay open and scrollable. (#1183)
-    issue: DP-19889
-    impact: Patch

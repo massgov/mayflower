@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: HeaderHamburgerMenu
-    description: Set the height of the nav bar consistent regardless of screen sizes. (#1115)
-    issue: DP-19331
-    impact: Minor

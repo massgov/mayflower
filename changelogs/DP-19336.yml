@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Header, Main Navigation
-    description: Fixes to address off-screen scroll behavior and console errors (#1128)
-    issue: DP-19336
-    impact: Minor

@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: header
-    description: Remove extra space and bottom border from the search component in menu container. (#1201)
-    issue: DP-20163
-    impact: Patch

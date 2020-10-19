@@ -1,6 +1,0 @@
-Added:
-  - project: Patternlab
-    component: Header, Main Navigation
-    description: Added new hamburger naviagation and the header with mixed version of navigation.
-    issue: DP-17200
-    impact: Minor

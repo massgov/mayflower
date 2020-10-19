@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Header
-    description: Addded Color stories and color gradients. (#1120)
-    issue: DP-19354
-    impact: Patch
