@@ -12,14 +12,13 @@ dependencies:
   '@proscom/gulp-svgr': 0.1.3
   '@rush-temp/mayflower': 'file:projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:projects/mayflower-assets.tgz'
-  '@rush-temp/mayflower-core': 'file:projects/mayflower-core.tgz_547a7eb6d3c17ccfe67762d2fa041eff'
+  '@rush-temp/mayflower-core': 'file:projects/mayflower-core.tgz_48edae982817f948dfe28c82e9da9156'
   '@rush-temp/mayflower-react': 'file:projects/mayflower-react.tgz_react-is@16.13.1'
   '@rush-temp/mayflower-site': 'file:projects/mayflower-site.tgz_jquery@3.5.1+webpack@4.44.2'
   '@storybook/addon-a11y': 6.0.22_react-dom@16.13.1+react@16.13.1
   '@storybook/addon-controls': 6.0.22_react-dom@16.13.1+react@16.13.1
   '@storybook/addon-docs': 6.0.22_5944079073b126d8319a74895d6b9145
   '@storybook/addon-essentials': 6.0.26_5944079073b126d8319a74895d6b9145
-  '@storybook/addon-knobs': 6.0.22_react-dom@16.13.1+react@16.13.1
   '@storybook/addon-storysource': 6.0.22_react-dom@16.13.1
   '@storybook/addon-viewport': 6.0.22_react-dom@16.13.1+react@16.13.1
   '@storybook/addons': 6.0.22_react-dom@16.13.1+react@16.13.1
@@ -45,7 +44,6 @@ dependencies:
   babel-preset-env: 1.7.0
   babel-preset-proposals: 0.3.0
   babelify: 8.0.0_babel-core@6.26.3
-  bootstrap: 4.5.2_jquery@3.5.1
   browser-sync: 2.26.12
   browserify: 16.5.2
   child-process-promise: 2.2.1
@@ -8238,6 +8236,15 @@ packages:
       popper.js: ^1.16.1
     resolution:
       integrity: sha512-vlGn0bcySYl/iV+BGA544JkkZP5LB3jsmkeKLFQakCOwCM3AOk7VkldBz4jrzSe+Z0Ezn99NVXa1o45cQY4R6A==
+  /bootstrap/4.5.3_jquery@3.5.1:
+    dependencies:
+      jquery: 3.5.1
+    dev: false
+    peerDependencies:
+      jquery: 1.9.1 - 3
+      popper.js: ^1.16.1
+    resolution:
+      integrity: sha512-o9ppKQioXGqhw8Z7mah6KdTYpNQY//tipnkxppWhPbiSWdD+1raYsnhwEZjkTHYbGee4cVQ0Rx65EhOY/HNLcQ==
   /boxen/3.2.0:
     dependencies:
       ansi-align: 3.0.0
@@ -10282,6 +10289,20 @@ packages:
   /debug/4.2.0:
     dependencies:
       ms: 2.1.2
+    dev: false
+    engines:
+      node: '>=6.0'
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    resolution:
+      integrity: sha512-IX2ncY78vDTjZMFUdmsvIRFY2Cf4FnD0wRs+nQwJU8Lu99/tPFdb0VybiiMTPe3I6rQmwsqQqRBvxU+bZ/I8sg==
+  /debug/4.2.0_supports-color@6.1.0:
+    dependencies:
+      ms: 2.1.2
+      supports-color: 6.1.0
     dev: false
     engines:
       node: '>=6.0'
@@ -23510,27 +23531,31 @@ packages:
     dev: false
     resolution:
       integrity: sha512-+orQK83kyMva3WyPf59k1+Y525csj5JejicWut55zeTWANuN17qSiSLUXWtzHeNWORSvT7GLDJ/E/XiIWoXBTw==
-  /spdy-transport/3.0.0:
+  /spdy-transport/3.0.0_supports-color@6.1.0:
     dependencies:
-      debug: 4.2.0
+      debug: 4.2.0_supports-color@6.1.0
       detect-node: 2.0.4
       hpack.js: 2.1.6
       obuf: 1.1.2
       readable-stream: 3.6.0
       wbuf: 1.7.3
     dev: false
+    peerDependencies:
+      supports-color: '*'
     resolution:
       integrity: sha512-hsLVFE5SjA6TCisWeJXFKniGGOpBgMLmerfO2aCyCU5s7nJ/rpAepqmFifv/GCbSbueEeAJJnmSQ2rKC/g8Fcw==
-  /spdy/4.0.2:
+  /spdy/4.0.2_supports-color@6.1.0:
     dependencies:
-      debug: 4.2.0
+      debug: 4.2.0_supports-color@6.1.0
       handle-thing: 2.0.1
       http-deceiver: 1.2.7
       select-hose: 2.0.0
-      spdy-transport: 3.0.0
+      spdy-transport: 3.0.0_supports-color@6.1.0
     dev: false
     engines:
       node: '>=6.0.0'
+    peerDependencies:
+      supports-color: '*'
     resolution:
       integrity: sha512-r46gZQZQV+Kl9oItvl1JZZqJKGr+oEkB08A6BzkiR7593/7IbtuncXHd2YoYeTsG4157ZssMu9KYvUHLcjcDoA==
   /specificity/0.4.1:
@@ -25816,7 +25841,7 @@ packages:
       chokidar: 2.1.8
       compression: 1.7.4
       connect-history-api-fallback: 1.6.0
-      debug: 4.2.0
+      debug: 4.2.0_supports-color@6.1.0
       del: 4.1.1
       express: 4.17.1
       html-entities: 1.3.1
@@ -25836,7 +25861,7 @@ packages:
       serve-index: 1.9.1
       sockjs: 0.3.20
       sockjs-client: 1.4.0
-      spdy: 4.0.2
+      spdy: 4.0.2_supports-color@6.1.0
       strip-ansi: 3.0.1
       supports-color: 6.1.0
       url: 0.11.0
@@ -26543,7 +26568,7 @@ packages:
       integrity: sha512-8w+stuJLq9+5/SrW6/W/bplUNiRcBorxQiWr/WNISyaOS3Dea5eHdxWsQqReKwNPrE/0Wh/aUV18ILb+I3l8wA==
       tarball: 'file:projects/mayflower-assets.tgz'
     version: 0.0.0
-  'file:projects/mayflower-core.tgz_547a7eb6d3c17ccfe67762d2fa041eff':
+  'file:projects/mayflower-core.tgz_48edae982817f948dfe28c82e9da9156':
     dependencies:
       '@babel/core': 7.11.6
       '@storybook/addon-actions': 6.0.26_react-dom@16.13.1
@@ -26554,6 +26579,7 @@ packages:
       '@storybook/preset-scss': 1.0.2_70a123cc1d2d356560099a21e3447317
       '@storybook/react': 6.0.26_6bdba264761f07f08bbbbaa244b1a258
       babel-loader: 8.1.0_d2a654c8b7ff226093b38eb7b56a78a8
+      bootstrap: 4.5.3_jquery@3.5.1
       css-loader: 5.0.0_webpack@4.44.2
       react-is: 16.13.1
       sass: 1.27.0
@@ -26563,11 +26589,12 @@ packages:
     id: 'file:projects/mayflower-core.tgz'
     name: '@rush-temp/mayflower-core'
     peerDependencies:
+      jquery: '*'
       react: '*'
       react-dom: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-osWt5FC5e8tuGXlqi30MGmqS7Bgch1uyljovT6fkQZJN6l5DvBjOOjOO3B6o0nogLcEUV+OxkphA+2LvH6qBzw==
+      integrity: sha512-xXhs5KoyrWrIead9G2b/lmPLXwwbkPko895H+yvmrUrYBW55b+HDlz3xxBOfQU7yJl0xKjRrdXu5SZK4X+OQ7Q==
       tarball: 'file:projects/mayflower-core.tgz'
     version: 0.0.0
   'file:projects/mayflower-react.tgz_react-is@16.13.1':
@@ -26669,7 +26696,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-aVgSFfBxD/5OgkVHWje4L8BaVkVbculYgg/SKSRs/Lg6AUAm2Bkd+PxF/SlB0/ByvmGc6EO+TnMNGPwqEjWPeA==
+      integrity: sha512-GcOOmq4287GcoufSrg/AA8WjCy4j9i2RUmafoVV+gZMVlkvfh0X7tnqu7NWSsXir3tdYBEqv9ku3WrifNf+qBg==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_jquery@3.5.1+webpack@4.44.2':
@@ -26791,7 +26818,6 @@ specifiers:
   '@storybook/addon-controls': ^6.0.21
   '@storybook/addon-docs': ^6.0.21
   '@storybook/addon-essentials': ^6.0.26
-  '@storybook/addon-knobs': ^6.0.21
   '@storybook/addon-storysource': ^6.0.21
   '@storybook/addon-viewport': ^6.0.21
   '@storybook/addons': ^6.0.21
@@ -26817,7 +26843,6 @@ specifiers:
   babel-preset-env: ^1.7.0
   babel-preset-proposals: ^0.3.0
   babelify: ^8.0.0
-  bootstrap: ^4.4.1
   browser-sync: ^2.26.7
   browserify: ^16.2.3
   child-process-promise: ^2.2.1

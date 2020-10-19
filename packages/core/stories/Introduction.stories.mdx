@@ -3,7 +3,9 @@ import '@massds/mayflower-react/dist/Button/_index.scss';
 import {
   SectionLinks, DecorativeLink, CalloutLink
 } from '@massds/mayflower-react';
+
 import '@massds/mayflower-react/dist/SectionLinks/_index.scss';
+import './styles/index.scss';
 
 <Meta title="Get Started/Introduction" />
 
@@ -11,18 +13,34 @@ import '@massds/mayflower-react/dist/SectionLinks/_index.scss';
 
 Mayflower is a living styleguide for the Massachusetts state government — providing guidance and tools for Massachusetts state agencies to create a cohesive government identity and trustworthy look and feel across Commonwealth digital ecosystem.
 
-<SectionLinks
-  title={{
-    href: 'test',
-    text: 'test'
-  }}
-  seeAll={{
-    href: 'test',
-    text: 'See all'
-  }}
-  description="This is a group of links"
-  index={0}
-/>
-
+<div className="row">
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Design Principles'
+      }}
+      description="This is a group of links"
+      index={0}
+    />
+  </div>
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Design Tokens'
+      }}
+      description="This is a group of links"
+      index={1}
+    />
+  </div>
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Brand Touch Points'
+      }}
+      description="This is a group of links"
+      index={2}
+    />
+  </div>
+</div>
 
 We encourage all Commonwealth web properties to implement the Mayflower Design System for a consistent look and feel. It’s important that constituents know they are on an official state government website, and the visual cues that come from using a cohesive design help convey that legitimacy.
