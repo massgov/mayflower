@@ -379,8 +379,9 @@ function closeMenu() {
 
   if (body.style.position === "fixed") {
     // At the same time, the alert needs to be scrolled up to the position again to retain the page elements position.
-    window.scrollTo(0, alertlOffsetPosition);
     body.removeAttribute("style");
+    body.style.position = "relative";
+    window.scrollTo(0, alertlOffsetPosition);
   }
 }
 
