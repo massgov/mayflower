@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: Header
+    description: Removed touchend events from the menu and search buttons. (#1185)
+    issue: DP-19878
+    impact: Patch

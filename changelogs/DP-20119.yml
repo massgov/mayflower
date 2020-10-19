@@ -1,0 +1,11 @@
+Changed:
+  - project: Patternlab
+    component: pageTemplates
+    description: Switch the main navigation to the new one in all page types which have the main navigation. (#1213)
+    issue: DP-20119
+    impact: Patch
+  - project: Patternlab
+    component: Assets
+    description: Adjust sticky table heaer z-index value to be under the main manu bar. (#1213)
+    issue: DP-20119
+    impact: Patch

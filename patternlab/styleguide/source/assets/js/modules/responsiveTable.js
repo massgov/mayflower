@@ -67,6 +67,7 @@ export default (function (window, document, $) {
           "left": tableLeft,
           "top": getAdditionalOffset(),
           "opacity": 0,
+          "z-index": 50,
           "height": theadHeight
         });
       $stickyHeader[0].scrollLeft = 0;
@@ -156,7 +157,7 @@ export default (function (window, document, $) {
     const elementTop = rt.$root.offset().top;
     const windowTop = $window.scrollTop();
     const windowBottom = windowTop + $window.height();
-    // + 50 to accommodate table padding for stickyNav 
+    // + 50 to accommodate table padding for stickyNav
     const elementBottom = (elementTop + (rt.$root.height() + 50));
     const tableBottom = elementTop + rt.$table.height();
 

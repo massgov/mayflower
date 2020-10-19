@@ -1,19 +1,26 @@
 <div class="ma__main-nav">
-  <ul class="ma__main-nav__items js-main-nav" role="menubar">
+  <ul role="menubar" class="ma__main-nav__items js-main-nav">
     {% for nav in mainNav %}
       {% set buttonId =  'button' ~ loop.index %}
       {% set menuId =  'menu' ~ loop.index %}
-      <li  role="menuitem" class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}" tabindex="-1">
+      <li role="none" class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}" tabindex="-1">
         {% if nav.subNav %}
-          <button id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0"><span class="visually-hidden show-label">Show the sub topics of </span>{{ nav.text }}</button>
+          <button type="button" role="menuitem" id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">
+              <span class="visually-hidden show-label">Show the sub topics of </span>
+              {{ nav.text }}
+          </button>
           <div class="ma__main-nav__subitems js-main-nav-content is-closed">
             <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
-              <li role="menuitem" class="ma__main-nav__subitem"><a href="{{ nav.href }}" class="ma__main-nav__link">{{ nav.text }}</a></li>
+              <li role="none" class="ma__main-nav__subitem">
+                <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__link">{{ nav.text }}</a>
+              </li>
               {% for subNav in nav.subNav %}
-                <li class="ma__main-nav__subitem"><a href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a></li>
+                <li role="none" class="ma__main-nav__subitem">
+                  <a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a>
+                </li>
               {% endfor %}
-              <li class="ma__main-nav__subitem" role="menuitem">
-                <a href="{{ nav.href }}" class="ma__main-nav__link">
+              <li role="none" class="ma__main-nav__subitem">
+                <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__link">
                   {{ icon('arrow-bent') }}
                   <span>
                     <span class="visually-hidden">See all topics under </span>
@@ -29,9 +36,9 @@
           {% if 'covid' in nav.text|lower %}
             {% set altClass = 'cv-alternate-style' %}
           {% endif %}
-          <a href="{{ nav.href }}" class="ma__main-nav__top-link {{ altClass }}" tabindex="0">{{ nav.text }}</a>
+          <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__top-link {{ altClass }}" tabindex="0">{{ nav.text }}</a>
         {% else %}
-          <button id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
+          <button type="button" role="menuitem" id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
         {% endif %}
       </li>
     {% endfor %}

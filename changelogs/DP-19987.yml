@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Fixed log in to menu width. (#1186)
+    issue: DP-19783
+    impact: Patch
