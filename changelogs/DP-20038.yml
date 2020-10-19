@@ -4,14 +4,12 @@ Fixed:
     description: Fix the page not to scroll up to the top of the page as the menu closes. (#1190)
     issue: DP-20037
     impact: Patch
-
 Fixed:
   - project: Patternlab
     component: Header
     description: Fix the alert shifts as sub components open in the menu container. (#1190)
     issue: DP-20038
     impact: Patch
-
 Fixed:
   - project: Patternlab
     component: Header
