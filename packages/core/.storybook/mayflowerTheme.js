@@ -13,8 +13,7 @@ export default create({
   appBorderRadius: 6,
 
   // Typography
-  fontBase: '"Texta", "Helvetica", "Arial", sans-serif',
-  fontCode: '"Source Code Pro", "Monaco", monospace',
+  fontBase: '"Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif',
 
   // Text colors
   textColor: 'black',

@@ -13,4 +13,6 @@ export const parameters = {
     },
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
+  canvas: { hidden: true },
+  viewMode: 'docs'
 }

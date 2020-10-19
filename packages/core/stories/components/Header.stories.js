@@ -10,10 +10,7 @@ export default {
 
 const Template = (args) => <Header {...args} />;
 
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
+export const Slim = Template.bind({});
+Slim.args = {
   user: {},
 };
-
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {};
