@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: Header
-    description: Fixed search button issues caused by resize events (#1187)
-    issue: DP-20029
-    impact: Patch

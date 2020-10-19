@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: Header
-    description: Fixed global nav scrolling for small devices. (#1211)
-    issue: DP-20209
-    impact: Patch

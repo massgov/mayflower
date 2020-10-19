@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Header
-    description: Style the log in to content in the menu container. (#1182)
-    issue: DP-19953
-    impact: Patch

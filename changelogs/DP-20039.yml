@@ -1,6 +1,0 @@
-Removed:
-  - project: Patternlab
-    component: Header
-    description: Remove transition value causing Safari to crash in iOS 12. (#1189)
-    issue: DP-20039
-    impact: Patch
