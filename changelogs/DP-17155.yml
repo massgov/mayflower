@@ -14,7 +14,6 @@ Changed:
     description: Set an open submenu not to collapse as focus moves to another menu unit. (#1141)
     issue: DP-17155
     impact: Patch
-
 Added:
   - project: Patternlab
     component: Header
