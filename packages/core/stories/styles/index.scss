@@ -5,3 +5,12 @@
 
 @use '~@massds/mayflower-assets/scss/00-base/_fonts.scss';
 @use './bootstrap-grid';
+
+
+// Match row height
+.ma__section-links {
+  height: 100%;
+  &__title {
+    margin-bottom: 0;
+  }
+}

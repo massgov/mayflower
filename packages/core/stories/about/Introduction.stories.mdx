@@ -1,11 +1,12 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import '@massds/mayflower-react/dist/Button/_index.scss';
 import {
   SectionLinks, DecorativeLink, CalloutLink
 } from '@massds/mayflower-react';
 
+import '@massds/mayflower-react/dist/Button/_index.scss';
 import '@massds/mayflower-react/dist/SectionLinks/_index.scss';
-import './styles/index.scss';
+import '@massds/mayflower-assets/scss/01-atoms/_decorative-link.scss';
+import '../styles/index.scss';
 
 <Meta title="Get Started/Introduction" />
 
@@ -13,7 +14,7 @@ import './styles/index.scss';
 
 Mayflower is a living styleguide for the Massachusetts state government — providing guidance and tools for Massachusetts state agencies to create a cohesive government identity and trustworthy look and feel across Commonwealth digital ecosystem.
 
-<div className="row">
+<div className="row ma__row--three-up">
   <div className="col-md">
     <SectionLinks
       title={{
@@ -21,7 +22,10 @@ Mayflower is a living styleguide for the Massachusetts state government — prov
       }}
       description="This is a group of links"
       index={0}
-    />
+    >
+      <DecorativeLink text="Brand Pillars" href="" />
+      <DecorativeLink text="Design Guidelines" href="" />
+    </SectionLinks>
   </div>
   <div className="col-md">
     <SectionLinks
@@ -30,7 +34,12 @@ Mayflower is a living styleguide for the Massachusetts state government — prov
       }}
       description="This is a group of links"
       index={1}
-    />
+      >
+      <DecorativeLink text="Colors" href="" />
+      <DecorativeLink text="Typography" href="" />
+      <DecorativeLink text="Logo" href="" />
+      <DecorativeLink text="Icons" href="" />
+    </SectionLinks>
   </div>
   <div className="col-md">
     <SectionLinks
@@ -39,7 +48,10 @@ Mayflower is a living styleguide for the Massachusetts state government — prov
       }}
       description="This is a group of links"
       index={2}
-    />
+      >
+      <DecorativeLink text="Branding Components" href="" />
+      <DecorativeLink text="Base Elements" href="" />
+    </SectionLinks>
   </div>
 </div>
 
