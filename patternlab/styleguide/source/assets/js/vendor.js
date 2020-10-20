@@ -8,6 +8,8 @@
  * object, which is the window.
  */
 // Polyfills.
+window.__forceSmoothScrollPolyfill__ = true;
+
 import 'whatwg-fetch';
 import 'picturefill';
 import 'core-js/fn/promise';
@@ -21,6 +23,8 @@ import 'mdn-polyfills/Element.prototype.closest'
 import 'mdn-polyfills/Element.prototype.matches'
 import 'url-search-params-polyfill';
 import svg4everybody from 'svg4everybody'
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 
 svg4everybody({
     validate: function(src) {
