@@ -7,14 +7,13 @@ import * as Icon from 'MayflowerReactBase/Icon';
 import ButtonWithIcon from '.';
 import ButtonWithIconDocs from './ButtonWithIcon.md';
 import buttonWithIconOptions from './ButtonWithIcon.knobs.options';
-import styles from './_index.scss';
 
 export default {
   title: 'atoms/buttons/ButtonWithIcon',
   component: ButtonWithIcon,
   parameters: {
     docs: {
-      page: () => <StoryPage styles={styles} Description={ButtonWithIconDocs} />
+      page: () => <StoryPage Description={ButtonWithIconDocs} />
     }
   }
 };
@@ -28,7 +27,7 @@ export const ButtonWithIconExample = (args) => {
 };
 ButtonWithIconExample.parameters = {
   docs: {
-    page: () => <StoryPage styles={styles} StoryComponent={ButtonWithIconExample} Description={ButtonWithIconDocs} />
+    page: () => <StoryPage StoryComponent={ButtonWithIconExample} Description={ButtonWithIconDocs} />
   }
 };
 ButtonWithIconExample.storyName = 'Default';
@@ -126,6 +125,6 @@ ButtonSearch.argTypes = {
 };
 ButtonSearch.parameters = {
   docs: {
-    page: () => <StoryPage styles={styles} StoryComponent={ButtonSearch} Description={ButtonWithIconDocs} />
+    page: () => <StoryPage StoryComponent={ButtonSearch} Description={ButtonWithIconDocs} />
   }
 };
