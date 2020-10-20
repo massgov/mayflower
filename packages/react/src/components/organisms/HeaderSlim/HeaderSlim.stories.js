@@ -3,6 +3,7 @@ import { StoryPage } from 'StorybookConfig/preview';
 
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
+import styles from './_index.scss';
 import HeaderSlim from '.';
 
 export const HeaderSlimExample = (args) => <HeaderSlim {...args} />;
@@ -31,7 +32,7 @@ export default {
   component: HeaderSlim,
   parameters: {
     docs: {
-      page: () => <StoryPage />
+      page: () => <StoryPage styles={styles} />
     }
   }
 };

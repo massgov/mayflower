@@ -3,6 +3,7 @@ const assets = require('@massds/mayflower-assets');
 const iconPath = path.resolve(__dirname, '../src/components/base/Icon/assets');
 const nodeModules = path.resolve(path.join(process.cwd(), 'node_modules'));
 const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   stories: ['../src/**/*.stories.@(js|mdx)'],
@@ -30,22 +31,73 @@ module.exports = {
       name: '@storybook/preset-scss',
       options: {
         styleLoaderOptions: false,
-        cssLoaderOptions: {
-          sourceMap: true
+        sassLoaderOptions: false,
+        cssLoaderOptions: false,
+        rule: {
+          oneOf: [
+            {
+              exclude: [
+                path.resolve(__dirname, '../src/index.scss')
+              ],
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: {
+                    sourceMap: process.env.NODE_ENV === 'development'
+                  }
+                },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    sourceMap: process.env.NODE_ENV === 'development',
+                    implementation: require('sass'),
+                    sassOptions: {
+                      includePaths: [
+                        nodeModules,
+                        pnpmNodeModules,
+                        path.resolve(__dirname, '../src'),
+                        path.resolve(__dirname, '../src/components'),
+                        path.resolve(__dirname, '../src/components/styles'),
+                      ].concat(assets.includePaths)
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              include: [
+                path.resolve(__dirname, '../src/index.scss')
+              ],
+              use: [
+                {
+                  loader: MiniCssExtractPlugin.loader
+                },
+                {
+                  loader: 'css-loader',
+                  options: {
+                    sourceMap: process.env.NODE_ENV === 'development'
+                  }
+                },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    sourceMap: process.env.NODE_ENV === 'development',
+                    implementation: require('sass'),
+                    sassOptions: {
+                      includePaths: [
+                        nodeModules,
+                        pnpmNodeModules,
+                        path.resolve(__dirname, '../src'),
+                        path.resolve(__dirname, '../src/components'),
+                        path.resolve(__dirname, '../src/components/styles'),
+                      ].concat(assets.includePaths)
+                    }
+                  }
+                }
+              ]
+            }
+          ]
         },
-        sassLoaderOptions: {
-          sourceMap: true,
-          implementation: require('sass'),
-          sassOptions: {
-            includePaths: [
-              nodeModules,
-              pnpmNodeModules,
-              path.resolve(__dirname, '../src'),
-              path.resolve(__dirname, '../src/components'),
-              path.resolve(__dirname, '../src/components/styles'),
-            ].concat(assets.includePaths)
-          }
-        }
       }
     },
   ],
@@ -53,8 +105,15 @@ module.exports = {
     // modify storybook's file-loader rule to avoid conflicts with svgr
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test && rule.test.test('.svg'));
     fileLoaderRule.exclude = iconPath;
-
-
+    
+    config.plugins.push(
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+      })
+    );
     config.module.rules.unshift({
       test: /\.svg$/,
       include: iconPath,
@@ -68,7 +127,6 @@ module.exports = {
         },
       ],
     });
-
     config.resolve = {
       ...config.resolve,
       alias: {

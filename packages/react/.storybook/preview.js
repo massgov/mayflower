@@ -15,17 +15,15 @@ import {
   Canvas, Story
 } from '@storybook/addon-docs/blocks';
 import { ActionBar, Source } from '@storybook/components';
+
 import prettier from 'prettier/standalone';
 import parserHtml from 'prettier/parser-html';
 import parserCss from 'prettier/parser-postcss';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import trapcss from 'trapcss'
+import SyntaxHighlighter, { Renderer, Wrapper } from './syntax-highlighter';
 
-// Webpack is set to run .scss files through scss-loader and css-loader only.
-// This allows stories to import their scss files and get processed css.
-// style-loader is added here to attach the css from the index.scss file to a style tag on page.
-import 'style-loader!../src/index.scss';
+import '../src/index.scss';
+
+import logo from '!url-loader!@massds/mayflower-assets/static/images/stateseal.png';
 
 const storyKindOrder = [
   'about', // storyKindOrder.indexOf -1 follow alphabetical order
@@ -43,24 +41,21 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
   const docsContext = React.useContext(DocsContext);
   const [showHTML, setShowHTML] = React.useState(true);
   const [showCSS, setShowCSS] = React.useState(true);
+  
+  const css = React.useMemo(() => showCSS && styles ? prettier.format(styles.toString(), {
+    parser: 'css',
+    plugins: [parserCss]
+  }) : null, [showCSS, styles]);
+
   const { id, name, parameters = {}, args } = docsContext;
   const { component } = parameters;
   const HtmlComponent = StoryComponent || component;
-  let html = null;
-  if (HtmlComponent) {
-    html = prettier.format(ReactDOMServer
-    .renderToStaticMarkup(
-      (
-        <HtmlComponent {...args} />
-      )),
-      {
-        htmlWhitespaceSensitivity: 'ignore',
-        endOfLine: 'auto',
-        parser: 'html',
-        plugins: [parserHtml]
-      }
-    );
-  }
+  
+  let html = ReactDOMServer
+  .renderToStaticMarkup(
+    (
+      <HtmlComponent {...args} />
+    ));
   const actionItem = {
     title: showHTML ? 'Hide HTML' : 'Show HTML?', 
     onClick: () => setShowHTML((prev) => !prev)
@@ -69,22 +64,18 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
     title: showCSS ? 'Hide Styles' : 'Show Styles?', 
     onClick: () => setShowCSS((prev) => !prev)
   };
-  let css = null;
-  if (styles) {
-    // Strip out all unused styles from story.
-    const purgedCss = trapcss({
-      html,
-      // css-loader returns an object. This converts that object to
-      // the css string.
-      css: styles.toString()
+  
+    html = prettier.format(html,
+    {
+      htmlWhitespaceSensitivity: 'ignore',
+      endOfLine: 'auto',
+      parser: 'html',
+      plugins: [parserHtml]
     });
-    // Format purged css.
-    css = prettier.format(purgedCss.css, {
-      parser: 'css',
-      plugins: [parserCss]
-    });
+    // Replaces the path to the state seal with a base64 image.
+    html = html.replace(/static\/media\/stateseal\.(.*)\.png/, logo);
+  
     
-  }
   return(
     <>
       <Title>{component.displayName}</Title>
@@ -92,17 +83,17 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
       { Description && <Description />}
       <Primary name={name} />
       <ArgsTable story={CURRENT_SELECTION}/>
-      {html && (
-        <Heading>
-          HTML
-          <ActionBar actionItems={[actionItem]} />
-        </Heading>
-      )}
-      {!showHTML && <Source storyId={id} error="Click Show HTML above to view markup source." />}
-      {html && showHTML && <Source storyId={id} language="html" code={html} dark />}
-      {styles && <Heading>Styles<ActionBar actionItems={[cssActionItem]} /></Heading>}
-      {!showCSS && <Source storyId={id} error="Click Show Styles above to view styles source." />}
-      {styles && showCSS && <Source storyId={id} language="css" code={css} dark />}
+        {html && (
+          <Heading>
+            HTML
+            <ActionBar actionItems={[actionItem]} />
+          </Heading>
+        )}
+        {!showHTML && <Source storyId={id} error="Click Show HTML above to view markup source." />}
+        {html && showHTML && <SyntaxHighlighter format={false} renderer={Renderer} language="html" code={html} dark />}
+        <Heading>Styles<ActionBar actionItems={[cssActionItem]} /></Heading>
+        {!showCSS && <Source storyId={id} error="Click Show Styles above to view styles source." />}
+        {css && showCSS && <SyntaxHighlighter format={false} renderer={Renderer} language="css" code={css} dark />}
       { showStories && <Stories />}
     </>
   );

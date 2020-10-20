@@ -1,10 +1,10 @@
-@use "sass:meta";
-@use '00-base/mixins';
-@use '03-organisms/header';
-@use '03-organisms/utility-nav';
-@use '03-organisms/utility-panel';
+@use "~normalize-scss/sass/normalize";
+@use '../../molecules/HeaderSearch';
+@use '../../molecules/MainNav';
+@use "00-base/elements";
+@use "00-base/layout";
+@use "00-base/fonts";
 @use '01-atoms/decorative-link';
-@use '02-molecules/main-nav';
 @use '01-atoms/button-with-icon';
 @use '01-atoms/button-search';
 @use '01-atoms/input-typeahead';
@@ -14,73 +14,6 @@
 @use '01-atoms/svg-icons';
 @use '01-atoms/svg-loc-icons';
 @use '01-atoms/forms';
-@use '00-base/elements';
-@use '00-base/layout';
-@use '00-base/fonts';
-@use '00-base/fonts-fallback';
-@use '00-base/breakpoints' as *;
-@use "01-atoms/button-search" as *;
-@use '00-base/colors' as *;
-@use '00-base/color-tokens' as *;
-.ma__header-search {
-  &__wrapper{
-  	display: flex;
-    position: relative;
-
-    .ma__button-icon {
-      border-right: none;
-    }
-
-    &--responsive {
-      @media ($bp-medium-max) {
-        .ma__header-search__pre-filter, .ma__header-search__post-filter {
-          display: none;
-        }
-      }
-    }
-  }
-
-  .ma__form {
-    display: flex;
-  }
-
-  //overwrite needs to port back to shared scss
-  .ma__button-search {
-    &, &--secondary {
-      border: 2px solid !important; //override header-search button search border styles
-      position: relative !important;
-      margin-left: -2px !important;
-    }
-    & {
-      @include ma-button-search($c-primary-alt, $c-white);
-    }
-    &--secondary {
-      @include ma-button-search($c-white, $c-primary-alt);
-    }
-  }
-
-
-  &__input {
-    padding-right: 0 !important;
-  }
-
-
-  .ma__select-box {
-    margin-left: -2px;
-
-    &__field {
-      height:46px;
-    }
-
-    &__link {
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    label {
-      position: absolute !important;
-    }
-  }
-}
-@include meta.load-css("02-molecules/header-search");
+@use '03-organisms/header';
+@use '03-organisms/utility-nav';
+@use '03-organisms/utility-panel';
