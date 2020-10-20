@@ -3,8 +3,10 @@ import React from 'react';
 import Footer from '@massds/mayflower-react/dist/FooterSlim';
 import '@massds/mayflower-assets/scss/03-organisms/_footer-slim.scss';
 
+import generateTitle from '../util/generateTitle';
+
 export default {
-  title: 'Brand Components/Footer',
+  title: generateTitle('Footer'),
   component: Footer,
 };
 

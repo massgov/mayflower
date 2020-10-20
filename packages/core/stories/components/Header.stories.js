@@ -6,8 +6,10 @@ import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import '@massds/mayflower-assets/scss/03-organisms/_header-slim.scss';
 import '@massds/mayflower-assets/scss/01-atoms/_site-logo.scss';
 
+import generateTitle from '../util/generateTitle';
+
 export default {
-  title: 'Brand Components/Header',
+  title: generateTitle('Header'),
   component: Header,
 };
 

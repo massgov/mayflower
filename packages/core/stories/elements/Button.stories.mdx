@@ -8,7 +8,9 @@ import '@massds/mayflower-react/dist/Button/_index.scss';
 );
 import '@massds/mayflower-assets/scss/00-base/_fonts.scss';
 
-<Meta title="Base Elements/Buttons" component={Button} />
+import generateTitle from '../util/generateTitle';
+
+<Meta title={generateTitle('Button')} />
 
 export const Template = (args) => <Button {...args } />
 
