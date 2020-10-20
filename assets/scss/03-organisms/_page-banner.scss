@@ -336,7 +336,7 @@ $page-banner-height: 330px;
   &--small &__icon + &__title {
 
     @media ($bp-medium-min) {
-      width: calc(100% - $column);
+      width: calc(100% - #{$column});
     }
   }
 
