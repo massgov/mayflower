@@ -10,30 +10,11 @@ import '!!style-loader!css-loader!react-virtualized/styles.css'; // only needs t
 
 const themedSyntax = (theme) =>
   Object.entries(theme.code || {}).reduce((acc, [key, val]) => ({ ...acc, [`* .${key}`]: val }), {});
-
-const Scroller = styled(({ children, className }) => (
-  <>
-  <div className={className}>
-    {children}
-  </div>
-  </>
-))(
-  {
-    position: 'relative',
-  },
-  ({ theme }) => ({
-    '& code': {
-      paddingRight: theme.layoutMargin,
-    },
-  }),
-  ({ theme }) => themedSyntax(theme)
-);
   
 const Pre = styled.pre(({ theme, padded }) => ({
   display: 'flex',
   justifyContent: 'flex-start',
   height: '100%',
-
   margin: 0,
   padding: padded ? theme.layoutMargin : 0,
 }));
@@ -43,8 +24,6 @@ const Code = styled.code({
   paddingRight: 0,
   opacity: 1,
 });
-
-
 
 export const Wrapper = styled.div(
   ({ theme }) => ({
@@ -69,6 +48,8 @@ export const Wrapper = styled.div(
 
 );
 
+// This is a refactor of Storybook's Source component to support
+// react virtualization.
 const SyntaxHighlighter = ({
   children,
   language = 'jsx',
@@ -104,26 +85,22 @@ const SyntaxHighlighter = ({
   };
 
   return (
-    <>
-
     <Wrapper bordered={bordered} padded={padded} className={className}>
-
-        <ReactSyntaxHighlighter
-          padded={padded || bordered}
-          language={language}
-          lineNumberContainerStyle={{}}
-          PreTag={Pre}
-          CodeTag={Code}
-          useInlineStyles={useInlineStyles}
-          {...rest}
-        >
-          {highlightableCode}
-        </ReactSyntaxHighlighter>
+      <ReactSyntaxHighlighter
+        padded={padded || bordered}
+        language={language}
+        lineNumberContainerStyle={{}}
+        PreTag={Pre}
+        CodeTag={Code}
+        useInlineStyles={useInlineStyles}
+        {...rest}
+      >
+        {highlightableCode}
+      </ReactSyntaxHighlighter>
       {copyable ? (
         <ActionBar actionItems={[{ title: copied ? 'Copied' : 'Copy', onClick }]} />
       ) : null}
-      </Wrapper>
-      </>
+    </Wrapper>
   );
 };
 
@@ -170,28 +147,27 @@ const Source = (props) => {
 
 export default Source;
 
-export const Renderer = ({rows, stylesheet, useInlineStyles }) => {
-  return(
-    
-      <AutoSizer>
-        {({height, width}) => (
-          <List
-            columnCount={1}
-            height={height}
-            width={width}
-            columnWidth={400}
-            rowHeight={19}
-            containerStyle={{overflowX: 'auto'}}
-            rowRenderer={({ index, key, style }) => createSyntaxHighlighterElement({
-              node: rows[index],
-              stylesheet,
-              style,
-              useInlineStyles: true,
-              key
-          })}
-            rowCount={rows.length}
-            />
-        )}
-      </AutoSizer>
-        
-)};
+// Renders each row of code for the syntax highlighter.
+export const Renderer = ({rows, stylesheet, useInlineStyles }) => (
+  <AutoSizer>
+    {({height, width}) => (
+      <List
+        columnCount={1}
+        height={height}
+        width={width}
+        columnWidth={400}
+        rowHeight={19}
+        containerStyle={{overflowX: 'auto'}}
+        rowRenderer={({ index, key, style }) => createSyntaxHighlighterElement({
+          node: rows[index],
+          stylesheet,
+          style,
+          // Required to get this to work with react virtualization.
+          useInlineStyles: true,
+          key
+      })}
+        rowCount={rows.length}
+        />
+    )}
+  </AutoSizer>     
+);
