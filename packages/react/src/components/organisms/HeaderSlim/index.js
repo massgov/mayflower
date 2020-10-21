@@ -23,7 +23,7 @@ const HeaderSlim = ({
       <div className="ma__header_slim__header-container ma__container">
         <div className="ma__header_slim__logo">{SiteLogo}</div>
         {
-          // MainNav && <div className="ma__header_slim__nav">{MainNav}</div>
+          MainNav && <div className="ma__header_slim__nav">{() => MainNav}</div>
         }
       </div>
     </header>
