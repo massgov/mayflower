@@ -378,10 +378,21 @@ function closeMenu() {
   }
 
   if (body.style.position === "fixed") {
-    // At the same time, the alert needs to be scrolled up to the position again to retain the page elements position.
-    body.removeAttribute("style");
-    body.style.position = "relative";
-    window.scrollTo(0, alertlOffsetPosition);
+    // navigator.appVersion in Chrome contains "Safari", so needs to exclude it to target Safari.
+    if (osInfo.indexOf("Mac") != -1 && osInfo.indexOf("Safari") != -1 && osInfo.indexOf("Version/13") !== -1 && osInfo.indexOf("Chrome") === -1) {
+      body.style.position = "relative";
+      window.scrollTo(0, alertlOffsetPosition);
+      body.style.top = 0;
+    } else {
+      // At the same time, the alert needs to be scrolled up to the position again to retain the page elements position.
+      body.removeAttribute("style");
+      body.style.position = "relative";
+      window.scrollTo(0, alertlOffsetPosition);
+    }
+    // // At the same time, the alert needs to be scrolled up to the position again to retain the page elements position.
+    // body.removeAttribute("style");
+    // body.style.position = "relative";
+    // window.scrollTo(0, alertlOffsetPosition);
   }
 }
 
