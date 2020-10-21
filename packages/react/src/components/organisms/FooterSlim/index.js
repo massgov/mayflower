@@ -70,7 +70,7 @@ const FooterSlim = ({
                 {contact.phone && (
                   <div className="ma__footer-slim__contact__item">
                     <IconPhone width={20} height={20} />
-                    <span>{contact.phone}</span>
+                    <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                   </div>
                 )}
                 {contact.online && contact.online.href && contact.online.title && (
