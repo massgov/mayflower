@@ -52,6 +52,9 @@ module.exports = {
                     sourceMap: process.env.NODE_ENV === 'development',
                     implementation: require('sass'),
                     sassOptions: {
+                      // This ensures production builds of storybook maintain
+                      // spacing for displaying styles.
+                      outputStyle: 'expanded',
                       includePaths: [
                         nodeModules,
                         pnpmNodeModules,

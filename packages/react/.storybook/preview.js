@@ -42,10 +42,7 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
   const [showHTML, setShowHTML] = React.useState(true);
   const [showCSS, setShowCSS] = React.useState(true);
   
-  const css = React.useMemo(() => showCSS && styles ? prettier.format(styles.toString(), {
-    parser: 'css',
-    plugins: [parserCss]
-  }) : null, [showCSS, styles]);
+  const css = React.useMemo(() => showCSS && styles ? styles.toString() : null, [showCSS, styles]);
 
   const { id, name, parameters = {}, args } = docsContext;
   const { component } = parameters;
