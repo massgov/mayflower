@@ -13,7 +13,7 @@ const HeaderSlim = ({
   UtilityNav
 }) => (
   <div className="ma__header_slim">
-    {SkipNav && <SkipNav />}
+    {() => SkipNav && <SkipNav />}
     <div className="ma__header_slim__utility">
       <div className="ma__header_slim__utility-container ma__container">
         {UtilityNav && <UtilityNav />}
@@ -32,7 +32,7 @@ HeaderSlim.propTypes = {
   /** A render function that renders SiteLogo component. */
   SiteLogo: PropTypes.func.isRequired,
   /** A render function that renders Anchor link to skip to the main content and bypass the header navigations */
-  SkipNav: PropTypes.func,
+  SkipNav: PropTypes.node,
   /** A render function that renders Navigation items in the blue banner, above the header element */
   MainNav: PropTypes.func,
   /** A render function that renders Navigation items in the header area */
