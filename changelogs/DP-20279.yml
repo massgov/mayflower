@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Handle the menu closing tasks differently in Safari 13 on MacOS. (#1225)
+    issue: DP-20279
+    impact: Patch
