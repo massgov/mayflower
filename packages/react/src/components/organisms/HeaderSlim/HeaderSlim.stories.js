@@ -12,7 +12,7 @@ export const HeaderSlimExample = (args) => <HeaderSlim {...args} />;
 
 HeaderSlimExample.storyName = 'Default';
 HeaderSlimExample.args = {
-  SiteLogo: (<SiteLogoHeader
+  siteLogo: (<SiteLogoHeader
     url={{
       domain: 'https://www.mass.gov/'
     }}
@@ -25,14 +25,14 @@ HeaderSlimExample.args = {
     siteName="Mass.gov"
     title="Mass.gov homepage"
   />),
-  SkipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
+  skipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
 };
 
 export const HeaderSlimWithNavs = (args) => <HeaderSlim {...args} />;
 
 HeaderSlimWithNavs.storyName = 'HeaderSlim with Nav';
 HeaderSlimWithNavs.args = {
-  SiteLogo: (<SiteLogoHeader
+  siteLogo: (<SiteLogoHeader
     url={{
       domain: 'https://www.mass.gov/'
     }}
@@ -45,9 +45,9 @@ HeaderSlimWithNavs.args = {
     siteName="Mass.gov"
     title="Mass.gov homepage"
   />),
-  SkipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>,
-  MainNav: (<HeaderSearch />),
-  UtilityNav: <div><a href="#main-content">Nav Link 1</a><a href="#main-content">Nav Link 2</a></div>
+  skipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>,
+  mainNav: <HeaderSearch />,
+  utilityNav: <div><a href="#main-content">Nav Link 1</a><a href="#main-content">Nav Link 2</a></div>
 };
 
 export default {
