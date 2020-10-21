@@ -1,5 +1,6 @@
 import "./helpers/jQueryExtend.js";
 import "./helpers/jQueryExtend_ajaxPattern.js";
+import "./helpers/polyfill.js";
 import ajaxPattern from "./modules/ajaxPattern.js";
 import ajaxPatternOverride from "./modules/ajaxPatternOverride.js";
 import accordions from "./modules/accordions.js";
@@ -26,6 +27,8 @@ import linkListToggle from "./modules/linkListToggle.js";
 import locationListing from "./modules/locationListing.js";
 import locationFilters from "./modules/locationFilters.js";
 import mainNav from "./modules/mainNav.js";
+import mainNavHamburger from "./modules/mainNavHamburger.js";
+import mainNavMIxed from "./modules/mainNavMixed.js";
 import mobileNav from "./modules/mobileNav.js";
 import orgSelector from "./modules/orgSelector.js";
 import organizationNavigation from "./modules/organizationNavigation.js";

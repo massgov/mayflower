@@ -1,0 +1,45 @@
+<div class="ma__main__hamburger-nav">
+  <ul role="menubar" class="ma__main__hamburger-nav__items js-main-nav-hamburger">
+    {% for nav in mainNav %}
+      {% set buttonId =  'button' ~ loop.index %}
+      {% set menuId =  'menu' ~ loop.index %}
+      <li role="none" class="ma__main__hamburger-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-hamburger-toggle' : 'js-main-nav-hamburger-top-link' }}">
+        {% if nav.subNav %}
+          <button type="button" role="menuitem" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-expanded="false" aria-haspopup="true">
+          <span class="visually-hidden show-label">Show the sub topics of </span>
+              {{ nav.text }}
+          <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <div class="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
+            <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
+              {% for subNav in nav.subNav %}
+                <li role="none" class="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
+                  <a role="menuitem" href="{{ subNav.href }}" class="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{{ subNav.text }}</a>
+                </li>
+              {% endfor %}
+              <li role="none" class="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
+                <a role="menuitem" href="{{ nav.href }}" class="js-main-nav-hamburger__link ma__main__hamburger-nav__link">
+                  {{ icon('arrow-bent') }}
+                  <span>
+                    <span class="visually-hidden">See all topics under </span>
+                    {{ nav.text }}
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        {% elseif nav.href %}
+            {# This is temporary. We want to provide visual context for the COVID-19 menu link. #}
+            {% set altClass = '' %}
+            {% if 'covid' in nav.text|lower %}
+                {% set altClass = 'cv-alternate-style' %}
+            {% endif %}
+            <a role="menuitem" href="{{ nav.href }}" class="ma__main__hamburger-nav__top-link {{ altClass }}">{{ nav.text
+                }}</a>
+        {% else %}
+          <button type="button" role="menuitem" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link">{{ nav.text }}</button>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
