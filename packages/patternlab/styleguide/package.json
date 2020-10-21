@@ -58,6 +58,7 @@
     "moment": "^2.24.0",
     "picturefill": "^3.0.3",
     "pikaday": "^1.8.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "sass": "^1.26.5",
     "svg4everybody": "^2.1.9",
     "terser": "^4.6.3",
