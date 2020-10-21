@@ -12,21 +12,19 @@ export const HeaderSlimExample = (args) => <HeaderSlim {...args} />;
 
 HeaderSlimExample.storyName = 'Default';
 HeaderSlimExample.args = {
-  SiteLogo: () => (
-    <SiteLogoHeader
-      url={{
-        domain: 'https://www.mass.gov/'
-      }}
-      image={{
-        src: logo,
-        alt: 'Massachusetts state seal',
-        width: 45,
-        height: 45
-      }}
-      siteName="Mass.gov"
-      title="Mass.gov homepage"
-    />
-  ),
+  SiteLogo: (<SiteLogoHeader
+    url={{
+      domain: 'https://www.mass.gov/'
+    }}
+    image={{
+      src: logo,
+      alt: 'Massachusetts state seal',
+      width: 45,
+      height: 45
+    }}
+    siteName="Mass.gov"
+    title="Mass.gov homepage"
+  />),
   SkipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
 };
 
@@ -34,24 +32,22 @@ export const HeaderSlimWithNavs = (args) => <HeaderSlim {...args} />;
 
 HeaderSlimWithNavs.storyName = 'HeaderSlim with Nav';
 HeaderSlimWithNavs.args = {
-  SiteLogo: () => (
-    <SiteLogoHeader
-      url={{
-        domain: 'https://www.mass.gov/'
-      }}
-      image={{
-        src: logo,
-        alt: 'Massachusetts state seal',
-        width: 45,
-        height: 45
-      }}
-      siteName="Mass.gov"
-      title="Mass.gov homepage"
-    />
-  ),
+  SiteLogo: (<SiteLogoHeader
+    url={{
+      domain: 'https://www.mass.gov/'
+    }}
+    image={{
+      src: logo,
+      alt: 'Massachusetts state seal',
+      width: 45,
+      height: 45
+    }}
+    siteName="Mass.gov"
+    title="Mass.gov homepage"
+  />),
   SkipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>,
-  MainNav: () => <HeaderSearch />,
-  UtilityNav: () => <div><a href="#main-content">Nav Link 1</a><a href="#main-content">Nav Link 2</a></div>
+  MainNav: (<HeaderSearch />),
+  UtilityNav: <div><a href="#main-content">Nav Link 1</a><a href="#main-content">Nav Link 2</a></div>
 };
 
 export default {
