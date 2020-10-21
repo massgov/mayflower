@@ -21,7 +21,7 @@ import parserHtml from 'prettier/parser-html';
 import parserCss from 'prettier/parser-postcss';
 import SyntaxHighlighter, { Renderer, Wrapper } from './syntax-highlighter';
 
-import '../src/index.scss';
+import '../src/components/styles/_index.scss';
 
 import logo from '!url-loader!@massds/mayflower-assets/static/images/stateseal.png';
 

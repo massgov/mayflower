@@ -1,9 +1,5 @@
-@use "~normalize-scss/sass/normalize";
 @use '../../molecules/HeaderSearch';
 @use '../../molecules/MainNav';
-@use "00-base/elements";
-@use "00-base/layout";
-@use "00-base/fonts";
 @use '01-atoms/decorative-link';
 @use '01-atoms/button-with-icon';
 @use '01-atoms/button-search';

@@ -37,7 +37,7 @@ module.exports = {
           oneOf: [
             {
               exclude: [
-                path.resolve(__dirname, '../src/index.scss')
+                path.resolve(__dirname, '../src/components/styles/_index.scss')
               ],
               use: [
                 {
@@ -69,7 +69,7 @@ module.exports = {
             },
             {
               include: [
-                path.resolve(__dirname, '../src/index.scss')
+                path.resolve(__dirname, '../src/components/styles/_index.scss')
               ],
               use: [
                 {

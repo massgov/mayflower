@@ -3,8 +3,6 @@ import { AutoSizer, List } from 'react-virtualized';
 import { PrismLight as ReactSyntaxHighlighter } from 'react-syntax-highlighter';
 import { ActionBar, createSyntaxHighlighterElement, EmptyBlock  } from '@storybook/components';
 import { styled, ThemeProvider, convert, themes, Global, getScrollAreaStyles } from '@storybook/theming';
-import createElement from 'react-syntax-highlighter/dist/esm/create-element';
-import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { formatter } from '@storybook/components/dist/syntaxhighlighter/formatter';
 import '!!style-loader!css-loader!react-virtualized/styles.css'; // only needs to be imported once
 
