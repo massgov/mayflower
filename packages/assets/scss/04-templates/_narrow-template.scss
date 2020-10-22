@@ -114,8 +114,8 @@ $narrow-template-header-height: 170px;
 
     @include ma-container;
     display: flex;
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
     height: $narrow-template-header-height;
     font-size: 0;
     max-width: $narrow-template-max-width;
@@ -128,8 +128,8 @@ $narrow-template-header-height: 170px;
 
     @include ma-container;
     display: flex;
-      flex-direction: column;
-      justify-content: center;
+    flex-direction: column;
+    justify-content: center;
     max-width: $narrow-template-max-width;
     min-height: calc(100vh - #{$narrow-template-header-height});
 
