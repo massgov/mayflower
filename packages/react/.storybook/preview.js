@@ -18,7 +18,6 @@ import { ActionBar, Source } from '@storybook/components';
 
 import prettier from 'prettier/standalone';
 import parserHtml from 'prettier/parser-html';
-import parserCss from 'prettier/parser-postcss';
 import SyntaxHighlighter, { Renderer, Wrapper } from './syntax-highlighter';
 
 import '../src/components/styles/_index.scss';
@@ -48,11 +47,21 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
   const { component } = parameters;
   const HtmlComponent = StoryComponent || component;
   
-  let html = ReactDOMServer
-  .renderToStaticMarkup(
-    (
+  let html = React.useMemo(() => {
+    const markup = ReactDOMServer.renderToStaticMarkup((
       <HtmlComponent {...args} />
     ));
+    const prettyMarkup = prettier.format(markup,
+    {
+      htmlWhitespaceSensitivity: 'ignore',
+      endOfLine: 'auto',
+      parser: 'html',
+      plugins: [parserHtml]
+    });
+    // Replaces the path to the state seal with a base64 image.
+    return prettyMarkup.replace(/static\/media\/stateseal\.(.*)\.png/, logo);
+  }, [args]);
+
   const actionItem = {
     title: showHTML ? 'Hide HTML' : 'Show HTML?', 
     onClick: () => setShowHTML((prev) => !prev)
@@ -62,17 +71,6 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
     onClick: () => setShowCSS((prev) => !prev)
   };
   
-    html = prettier.format(html,
-    {
-      htmlWhitespaceSensitivity: 'ignore',
-      endOfLine: 'auto',
-      parser: 'html',
-      plugins: [parserHtml]
-    });
-    // Replaces the path to the state seal with a base64 image.
-    html = html.replace(/static\/media\/stateseal\.(.*)\.png/, logo);
-  
-    
   return(
     <>
       <Title>{component.displayName}</Title>
