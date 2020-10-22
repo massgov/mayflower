@@ -184,7 +184,7 @@
       top: 0;
     text-align: left;
     width: 300px;
-    z-index: $z-dropdown;
+    z-index: $z-overlay;
 
     @media ($bp-header-toggle-max) {
       margin-top: $header-mobile-controls-height;

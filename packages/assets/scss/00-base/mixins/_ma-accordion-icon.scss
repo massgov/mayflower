@@ -1,3 +1,7 @@
+@use "00-base/colors" as *;
+
+@use "00-base/color-tokens" as *;
+
 @mixin ma-accordion-icon() {
 
     &:after {

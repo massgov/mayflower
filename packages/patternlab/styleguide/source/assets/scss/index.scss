@@ -103,6 +103,7 @@
 @use "02-molecules/location-filters";
 @use "02-molecules/location-icons";
 @use "02-molecules/main-nav";
+@use "02-molecules/main-nav-hamburger";
 @use "02-molecules/org-info";
 @use "02-molecules/org-selector";
 @use "02-molecules/page-intro";
@@ -154,6 +155,8 @@
 @use "03-organisms/form-downloads";
 @use "03-organisms/form-requirements";
 @use "03-organisms/header";
+@use "03-organisms/header-hamburger";
+@use "03-organisms/header-mixed";
 @use "03-organisms/header-alert";
 @use "03-organisms/helpful-links";
 

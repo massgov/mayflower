@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 @media ($bp-header-toggle-min) {
 
   .ma__header__mixed {
