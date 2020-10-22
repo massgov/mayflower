@@ -1,45 +1,194 @@
-import { Meta, Story, Canvas,  ArgsTable, CURRENT_SELECTION } from '@storybook/addon-docs/blocks';
+import { styled } from '@storybook/theming';
+import { Canvas, Meta, Story, ArgsTable, CURRENT_SELECTION } from '@storybook/addon-docs/blocks';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import Heading from 'MayflowerReactHeadings/Heading';
-import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+import RichText from 'MayflowerReactOrganisms/RichText';
+
 import {
   characters,
   letters,
   numbers,
-  styles
+  numbersReverse,
+  styles,
+  headings
 } from './typography.json';
 import './styles.scss';
-import typographyOptions from './Typography.knobs.options';
+import './styles.scss';
 const slugifyStyle = (style) => {
   const [weight, italic] = style.split(' ');
   return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
 };
 
+
+
+
 <Meta
-  title="brand/typography/Source Code Pro (Monospace Font)" 
+  title="brand/typography"
   parameters={{
-    previewTabs: { canvas: { hidden: true } } 
-  }} 
+    previewTabs: { canvas: { hidden: true } },
+    viewMode: 'docs'
+  }}
 />
 
-<div className="page-content">
-  <Heading text="Source Code Pro" level={1} />
-  <SidebarHeading title="Characters" level={2} />
-  <div className="sb-block sb-block--mono">
-    <div className="sb-text">{letters.toUpperCase()}</div>
-    <div className="sb-text">{letters}</div>
-    <hr />
-    <div className="sb-text">{numbers}</div>
-    <hr />
-    <div className="sb-text">{characters}</div>
-    <hr />
-  </div>
-  <div className="sb-block">
-    Source Code Pro is an open source font available on Google Fonts.
-    <DecorativeLink
-      text="Download the fonts or see more information on Google Fonts"
-      href="https://fonts.google.com/specimen/Source+Code+Pro"
-    />
-  </div>
+# Noto Sans
+**The official typeface of Mayflower is Noto Sans.**
+ Noto Sans is an open source typeface joinly designed and developed by Google and Monotype. It has the most comprehensive language coverage — including more than 800 languages and 100 written scripts.
+
+It's selected to be the Mayflower typeface to:
+- enable all Commonwealth agencies to design, produce and deliver online and offline content with consistent typography, without additional costs or legal barriers.
+- provide comprehensive language coverage for content internationalization.
+- support the guiding principles of the Mass.gov brand identities: modern, dignified, human, helpful
+
+
+## Characters
+<RichText className="sb-block">
+  <div className="sb-text">{letters.toUpperCase()}</div>
+  <div className="sb-text">{letters}</div>
+  <hr />
+  <div className="sb-text">{numbers}</div>
+  <div className="sb-text">{numbersReverse}</div>
+  <hr />
+  <div className="sb-text">{characters}</div>
+</RichText>
+
+
+## Custom Preview
+<Story
+  name="Noto Sans"
+  argTypes={{
+    text: {
+      type: { name: 'string' },
+      defaultValue: 'Welcome to Massachusetts. What would you like to do?',
+      control: 'text'
+    }
+  }}
+>
+</Story>
+
+> Type something below to preview text in Noto Sans.
+
+<div id="sb-control--preview">
+  <ArgsTable
+    compact
+    story="Noto Sans"
+  />
 </div>
-  
+
+## Languages by Script
+The following languages are officially supported by [Mass.gov](https://www.mass.gov). If your project needs to support an addtional language, please [submit a feature request](https://github.com/massgov/mayflower/issues/new/choose) on Github.
+
+#### Arabic
+<RichText htmlTag="p" className="sb-block" lang="Arab"><b>Arabic: </b>مرحبا بكم في ماساتشوستس</RichText>
+<RichText htmlTag="p" className="sb-block" lang="fa"><b>Persian: </b>به ماساچوست خوش آمدید</RichText>
+<RichText htmlTag="p" className="sb-block" lang="ur"><b>Urdu: </b>میساچوسٹس میں آپ کا استقبال ہےد</RichText>
+
+#### Armenian
+<RichText htmlTag="p" className="sb-block" lang="hy">Բարի գալուստ Մասաչուսեթս</RichText>
+
+#### Chinese
+<RichText htmlTag="p" className="sb-block" lang="zh-Hans"><b>Simplified: </b>欢迎来到马萨诸塞州</RichText>
+<RichText htmlTag="p" className="sb-block" lang="yue-Hant"><b>Tranditional: </b>歡迎來到馬薩諸塞州</RichText>
+
+#### Cyrillic
+<RichText htmlTag="p" className="sb-block" lang="Cyrl"><b>Russian: </b>Добро пожаловать в Массачусетс</RichText>
+<RichText htmlTag="p" className="sb-block" lang="uk"><b>Ukrainian: </b>Ласкаво просимо до Массачусетсу</RichText>
+
+#### Greek
+<RichText htmlTag="p" className="sb-block" lang="gr">Καλώς ήλθατε στη Μασαχουσέτη</RichText>
+
+#### Gujarati
+<RichText htmlTag="p" className="sb-block" lang="gu">મેસેચ્યુસેટ્સમાં</RichText>
+
+
+#### Hebrew
+<RichText htmlTag="p" className="sb-block" lang="Hebr">ברוך הבא למסצ'וסט.ס</RichText>
+
+#### Hindi
+<RichText htmlTag="p" className="sb-block" lang="hi">मैसाचुसेट्स में आपका स्वागत है</RichText>
+
+#### Japanese
+<RichText htmlTag="p" className="sb-block" lang="jp">マサチューセッツへようこそ</RichText>
+
+#### Khmer
+<RichText htmlTag="p" className="sb-block" lang="km">សូមស្វាគមន៍មកកាន់ម៉ាសាឈូសេត</RichText>
+
+#### Korean
+<RichText htmlTag="p" className="sb-block" lang="ko">매사추세츠에 오신 것을 환영합니다</RichText>
+
+#### Lao
+<RichText htmlTag="p" className="sb-block" lang="lo">ຍິນດີຕ້ອນຮັບສູ່ Massachusetts</RichText>
+
+#### Latin
+<RichText htmlTag="p" className="sb-block" lang="Latn"><b>English: </b>Welcome to Massachusetts</RichText>
+<RichText htmlTag="p" className="sb-block" lang="tl"><b>Filipino: </b>Maligayang pagdating sa Massachusetts</RichText>
+<RichText htmlTag="p" className="sb-block" lang="fr"><b>French: </b>Bienvenue au Massachusetts</RichText>
+<RichText htmlTag="p" className="sb-block" lang="de"><b>German: </b>Willkommen in Massachusetts</RichText>
+<RichText htmlTag="p" className="sb-block" lang="hr"><b>Haitian Creole: </b>Byenveni nan Massachusetts</RichText>
+<RichText htmlTag="p" className="sb-block" lang="tl"><b>Arabic: </b>Maligayang pagdating sa Massachusetts</RichText>
+<RichText htmlTag="p" className="sb-block" lang="it"><b>Italian: </b>Benvenuto in Massachusetts</RichText>
+<RichText htmlTag="p" className="sb-block" lang="pl"><b>Polish: </b>Witamy w Massachusetts</RichText>
+<RichText htmlTag="p" className="sb-block" lang="pt"><b>Portuguese: </b>Bem vindo a Massachusetts</RichText>
+<RichText htmlTag="p" className="sb-block" lang="es"><b>Spanish: </b>Bienvenido a massachusetts</RichText>
+
+#### Malayalam
+<RichText htmlTag="p" className="sb-block" lang="ml">മസാച്ചുസെറ്റ്സിലേക്ക് സ്വാഗതം</RichText>
+
+#### Tamil
+<RichText htmlTag="p" className="sb-block" lang="ta">மாசசூசெட்ஸுக்கு வருக</RichText>
+
+#### Telugu
+<RichText htmlTag="p" className="sb-block" lang="te">మసాచుసెట్స్‌కు స్వాగతం</RichText>
+
+#### Thai
+<RichText htmlTag="p" className="sb-block" lang="Thai">ยินดีต้อนรับสู่แมสซาชูเซตส์</RichText>
+
+#### Vietnamese
+<RichText htmlTag="p" className="sb-block" lang="vi">Chào mừng đến với Massachusetts</RichText>
+
+## Styles and Usage
+Noto Sans is being used both as the display fonts and the text fonts.
+When being used as the display fonts for headings, it should be styled at large sizes and in bold, with enough visual contrast to the body text to show the content hierarchy.
+
+<div className="sb-block">
+  { Object.keys(headings).map((key, keyIndex) => (
+      (key === "Body text") ?
+      (<p>{key}</p>) :
+      (<Heading level={headings[key]} key={`element.key.${keyIndex}`} text={key} />)
+    )
+  )}
+</div>
+
+
+
+Mayflower uses the the following 5 font weight options of Noto Sans:
+
+| Font weight | Specs |
+| :--- | :--- |
+| Lighter | 250 |
+| Light | 350 |
+| Normal | 400 |
+| Bold | 550 |
+| Bolder | 650 |
+
+
+<div className="sb-block sb-grid">
+  {
+    styles.map((style, styleIndex) => {
+      const className = `ma-fonts-${slugifyStyle(style)}`;
+      return(
+        <React.Fragment key={`style.block.${styleIndex}`}>
+          <span className={className}>{style}</span>
+          <span className="markdown-body">
+            <code>{`.${className}`}</code>
+          </span>
+        </React.Fragment>
+      );
+    })
+  }
+</div>
+
+
+## License
+
+Noto Sans is an open source font licensed under SIL Open Font License 1.1 (OFL) by the Google team. The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. For more details, refer to the [license](https://github.com/googlefonts/noto-fonts/blob/master/LICENSE).

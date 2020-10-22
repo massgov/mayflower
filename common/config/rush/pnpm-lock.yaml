@@ -19,7 +19,6 @@ dependencies:
   '@storybook/addon-actions': 6.0.22_react-dom@16.13.1
   '@storybook/addon-controls': 6.0.22_react-dom@16.13.1+react@16.13.1
   '@storybook/addon-docs': 6.0.22_a511a505b079755b1d18bf8f9d9cf264
-  '@storybook/addon-knobs': 6.0.22_react-dom@16.13.1+react@16.13.1
   '@storybook/addon-links': 6.0.22_react-dom@16.13.1+react@16.13.1
   '@storybook/addon-storysource': 6.0.22_react-dom@16.13.1
   '@storybook/addon-viewport': 6.0.22_react-dom@16.13.1+react@16.13.1
@@ -121,6 +120,7 @@ dependencies:
   resolve-url-loader: 3.1.1
   sass-loader: 8.0.2_webpack@4.44.2
   shortid: 2.2.15
+  smoothscroll-polyfill: 0.4.4
   style-loader: 1.2.1_webpack@4.44.2
   stylelint: 13.7.1
   stylelint-config-recommended: 3.0.0_stylelint@13.7.1
@@ -21405,6 +21405,10 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-WpECLAgYaxHoEAJ8Q1Lo8HOs1ngn7LN7QjXgOLbmmfkcWvosyk4ZTXkTzKyhngK640USTZUlgoQJfED1kz5fnQ==
+  /smoothscroll-polyfill/0.4.4:
+    dev: false
+    resolution:
+      integrity: sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==
   /snapdragon-node/2.1.1:
     dependencies:
       define-property: 1.0.0
@@ -24828,7 +24832,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower-react'
     resolution:
-      integrity: sha512-aVgSFfBxD/5OgkVHWje4L8BaVkVbculYgg/SKSRs/Lg6AUAm2Bkd+PxF/SlB0/ByvmGc6EO+TnMNGPwqEjWPeA==
+      integrity: sha512-GcOOmq4287GcoufSrg/AA8WjCy4j9i2RUmafoVV+gZMVlkvfh0X7tnqu7NWSsXir3tdYBEqv9ku3WrifNf+qBg==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_jquery@3.5.1+webpack@4.44.2':
@@ -24914,6 +24918,7 @@ packages:
       picturefill: 3.0.3
       pikaday: 1.8.0
       sass: 1.26.11
+      smoothscroll-polyfill: 0.4.4
       svg4everybody: 2.1.9
       terser: 4.8.0
       through2: 3.0.2
@@ -24925,7 +24930,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-KKTSAI7gMRUm3VxKVvxRT8qep4vrI4Yl085GFQm+osZ5kKJCXLg+7DlvDSsOD/nT4sIJ3iWwFvRFj60vUktBBA==
+      integrity: sha512-HEFIBW9/VPx2xY70mz/usK3ZGACBvAtM5mQ0uc3B/L1RJYMk3M3787F87ZJU/VKm6xgZwYZoVaw0/1dIzwSlkg==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
 registry: ''
@@ -24950,7 +24955,6 @@ specifiers:
   '@storybook/addon-actions': ^6.0.21
   '@storybook/addon-controls': ^6.0.21
   '@storybook/addon-docs': ^6.0.21
-  '@storybook/addon-knobs': ^6.0.21
   '@storybook/addon-links': ^6.0.21
   '@storybook/addon-storysource': ^6.0.21
   '@storybook/addon-viewport': ^6.0.21
@@ -25052,6 +25056,7 @@ specifiers:
   resolve-url-loader: ^3.1.1
   sass-loader: ^8.0.2
   shortid: ^2.2.8
+  smoothscroll-polyfill: ^0.4.4
   style-loader: ^1.2.1
   stylelint: ^13.3.3
   stylelint-config-recommended: ^3.0.0

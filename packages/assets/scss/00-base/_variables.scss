@@ -53,26 +53,28 @@ $default-feature: min-width !default; // Default @media feature for the breakpoi
 
 
 /* FONT */
+$fonts: "Noto Sans VF","Noto Sans","Helvetica", "Arial",sans-serif !default;
+$fonts-mono: "Noto Sans Mono VF","Noto Sans Mono",monospace !default;
 
-// font families
-$fonts:      "Texta", "Helvetica", "Arial", sans-serif;
-$fonts-mono: "Source Code Pro", "Monaco", monospace;
-$fonts-khmer: "Hanuman";
-$fonts-vietnamese: "Muli";
+
+$fonts-langs-support: true !default; // Controls whether to load and render additional fonts for language support
+$fonts-enable-rtl: false !default; // Controls whether to allow rtl scripts to render rtl, currently disabled in patternlab for imcompatible components.
+$fonts-display-global: "swap" !default; // Controls the custom fonts download and render behavior https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display
 
 
 // font weights
-$fonts-lightest: 100; // only used for styling non text font weights, e.g. separator |
-$fonts-lighter:  300;
-$fonts-light:    400;
-$fonts-normal:   500;
-$fonts-bold:     700;
-$fonts-bolder:   800;
+// Noto
+$fonts-lightest: 150 !default; // only used for styling non text font weights, e.g. separator |
+$fonts-lighter:  250 !default;
+$fonts-light:    350 !default;
+$fonts-normal:   400 !default;
+$fonts-bold:     550 !default;
+$fonts-bolder:   650 !default;
 
 //font sizes
-$fonts-base:        16px !default;
-$fonts-base-mobile: 14.5px !default;
-$fonts-print:       12px !default;
+$fonts-base:        calc(16px / 1.2) !default;
+$fonts-base-mobile: calc(14.5px / 1.2) !default;
+$fonts-print:       calc(12px / 1.2) !default;
 // ----------------------------
 $fonts-3xsmall:     0.8rem !default;
 $fonts-2xsmall:     0.875rem !default;
