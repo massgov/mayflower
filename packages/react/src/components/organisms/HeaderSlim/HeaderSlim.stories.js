@@ -3,8 +3,8 @@ import { StoryPage } from 'StorybookConfig/preview';
 
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import SiteLogoHeader from 'MayflowerReactMedia/SiteLogo';
-import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
-import Button from 'MayflowerReactButtons/Button';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import HeaderSlim from '.';
 
 
@@ -46,7 +46,7 @@ HeaderSlimWithNavs.args = {
     title="Mass.gov homepage"
   />),
   skipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>,
-  mainNav: <HeaderSearch />,
+  mainNav: <ButtonWithIcon icon={<IconSearch />} />,
   utilityNav: <div><a href="#main-content">Nav Link 1</a><a href="#main-content">Nav Link 2</a></div>
 };
 
