@@ -13,12 +13,33 @@
   }
 
   &__container {
-    position: relative;
+
+    &__logos {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      & > * {
+        margin-right: 1rem;
+      }
+
+      @media ($bp-large-min) {
+        position: absolute;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &--stacked {
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+      }
+    }
 
     &__inner {
       display: flex;
       flex-direction: column;
-      padding-top: 0.5rem;
+      padding-top: 0rem;
 
       @media ($bp-large-min) {
         flex-direction: row;
@@ -27,17 +48,14 @@
         margin: 0;
         padding: 0.75rem 0 0 3.5rem;
       }
+
+      &--stacked {
+        padding-left: 0;
+      }
     }
   }
 
-  .ma__site-logo {
-    position: absolute;
-    top: 0;
 
-    span {
-      display: none;
-    }
-  }
 
   &__info {
     max-width: 500px;
@@ -52,14 +70,6 @@
 
     @include ma-heading(3);
     font-size: $fonts-small;
-
-    margin-top: 0.5rem;
-    margin-left: 3.25rem;
-
-    @media ($bp-large-min) {
-      margin-top: inherit;
-      margin-left: auto;
-    }
   }
 
   &__details {
@@ -97,8 +107,9 @@
       font-weight: $fonts-normal;
     }
 
-    &> p {
+    &__item {
       display: flex;
+      margin-bottom: 1rem;
 
       svg {
         fill: $c-primary-alt;
