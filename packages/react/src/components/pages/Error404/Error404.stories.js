@@ -11,7 +11,7 @@ export const Error404Example = (args) => <Error404 {...args} />;
 
 Error404Example.storyName = 'Default';
 Error404Example.args = {
-  siteLogo: () => <SiteLogo siteName="Mass.gov" url={{ domain: '/' }} image={{ src: logo }} />
+  siteLogo: () => <SiteLogo siteName="Mass.gov" url={{ domain: '/' }} image={{ src: logo, width: 45, height: 45 }} />
 };
 export default {
   title: 'pages/Error404',
