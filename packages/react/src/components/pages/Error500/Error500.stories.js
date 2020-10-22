@@ -11,7 +11,7 @@ export const Error500Example = (args) => <Error500 {...args} />;
 
 Error500Example.storyName = 'Default';
 Error500Example.args = {
-  siteLogo: () => <SiteLogo siteName="Mass.gov" url={{ domain: '/' }} image={{ src: logo }} />
+  siteLogo: () => <SiteLogo siteName="Mass.gov" url={{ domain: '/' }} image={{ src: logo, width: 45, height: 45 }} />
 };
 export default {
   title: 'pages/Error500',

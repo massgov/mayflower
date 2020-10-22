@@ -109,7 +109,7 @@ $utility-nav-height: 43px;
       text-align: left;
     }
 
-    @media ($bp-header-toggle-max) {// I MIGHT REMOVED IT TO REMOVE THE CHEVRON.
+    @media ($bp-header-toggle-max) {
 
       @include ma-chevron;
 
