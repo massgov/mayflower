@@ -61,6 +61,9 @@ export default (function (window, document, $) {
 
       // Setting it in a fixed position, but initially invisible.
       let tableLeft = $element.offset().left;
+
+      console.log("theadHeight: " + theadHeight);
+
       $stickyHeader
         .css({
           "position": "fixed",
@@ -131,6 +134,9 @@ export default (function (window, document, $) {
   function getAdditionalOffset() {
     let additionalOffset = 0;
     if (document.documentElement.clientWidth <= 825) {
+
+      console.log("additionalOffset: " + additionalOffset);
+
       const $jsStickyHeader = $(".js-sticky-header");
       if ($jsStickyHeader) {
         additionalOffset += $jsStickyHeader.height();
@@ -168,10 +174,15 @@ export default (function (window, document, $) {
       if (!rt.headerStuck && elementTop < stuckTop && tableBottom > stuckBottom) {
         responsiveTables[rt.index].headerStuck = true;
         rt.$stickyHeader.css("opacity", 1);
+        rt.$stickyHeader.css("-webkit-box-shadow", "");
+        rt.$stickyHeader.css("box-shadow", "");
       }
       else if (rt.headerStuck && (elementTop > stuckTop || tableBottom < stuckBottom)) {
         responsiveTables[rt.index].headerStuck = false;
         rt.$stickyHeader.css("opacity", 0);
+        // rt.$stickyHeader.css("height", 0);
+        rt.$stickyHeader.css("-webkit-box-shadow", "none");
+        rt.$stickyHeader.css("box-shadow", "none");
       }
     }
 
