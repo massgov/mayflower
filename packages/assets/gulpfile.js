@@ -47,8 +47,6 @@ function compileMiniScss() {
     ],
   }))
   .pipe(rename(function(assetPath) {
-    // Sass will not compile files that start with an underscore,
-    // so rename them to remove it.
     assetPath.basename = `${assetPath.basename}.min`;
     return assetPath;
   }))
