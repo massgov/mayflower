@@ -1,9 +1,12 @@
 @use "sass:meta";
+
 @use "00-base/configure" as *;
+
 @use "01-atoms/button-search" as *;
 
 .ma__header-search {
-  &__wrapper{
+  
+  &__wrapper {
   	display: flex;
     position: relative;
 
@@ -12,7 +15,9 @@
     }
 
     &--responsive {
+
       @media ($bp-medium-max) {
+
         .ma__header-search__pre-filter, .ma__header-search__post-filter {
           display: none;
         }
@@ -25,16 +30,22 @@
   }
 
   //overwrite needs to port back to shared scss
+  
   .ma__button-search {
+
     &, &--secondary {
       border: 2px solid !important; //override header-search button search border styles
       position: relative !important;
       margin-left: -2px !important;
     }
+
     & {
+
       @include ma-button-search($c-primary-alt, $c-white);
     }
+
     &--secondary {
+
       @include ma-button-search($c-white, $c-primary-alt);
     }
   }
@@ -63,4 +74,5 @@
     }
   }
 }
+
 @include meta.load-css("02-molecules/header-search");
