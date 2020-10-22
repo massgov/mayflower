@@ -81,7 +81,7 @@ FooterSlimMultiLogos.args = {
       title: 'EEC Official Website'
     }
   },
-  SiteLogo: () => (
+  siteLogo: (
     <React.Fragment>
       <SiteLogo {...siteLogo1Props} />
       <SiteLogo {...siteLogo2Props} />

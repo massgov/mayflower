@@ -17,7 +17,7 @@ import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
 import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
 const FooterSlim = ({
-  title, description, SiteLogo, stackedLogo = false, links = null, contact = null
+  title, description, siteLogo, stackedLogo = false, links = null, contact = null
 }) => {
   const today = new Date();
   const year = today.getFullYear();
@@ -36,7 +36,7 @@ const FooterSlim = ({
     <footer className="ma__footer-slim" id="footer">
       <div className="ma__footer-slim__container ma__container">
         <div className={logoWrapperClasses}>
-          <SiteLogo />
+          {siteLogo}
         </div>
         <div className={innerWrapperClasses}>
           <div className="ma__footer-slim__info">
@@ -108,7 +108,7 @@ FooterSlim.propTypes = {
     })
   }),
   /** One or multiple logos rendered at the footer */
-  SiteLogo: PropTypes.func.isRequired,
+  siteLogo: PropTypes.node.isRequired,
   /** Whether logo(s) should be stacked on top of footer title */
   stackedLogo: PropTypes.bool
 };
