@@ -3,7 +3,6 @@ import { Canvas, Meta, Story, ArgsTable, CURRENT_SELECTION } from '@storybook/ad
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import Heading from 'MayflowerReactHeadings/Heading';
 import RichText from 'MayflowerReactOrganisms/RichText';
-
 import {
   characters,
   letters,
@@ -12,15 +11,10 @@ import {
   styles,
   headings
 } from './typography.json';
-import './styles.scss';
-import './styles.scss';
 const slugifyStyle = (style) => {
   const [weight, italic] = style.split(' ');
   return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
 };
-
-
-
 
 <Meta
   title="brand/typography"

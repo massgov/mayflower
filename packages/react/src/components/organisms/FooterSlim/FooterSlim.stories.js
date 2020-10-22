@@ -3,6 +3,7 @@ import { StoryPage } from 'StorybookConfig/preview';
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import FooterSlim from './index';
+import styles from './_index.scss';
 import FooterSlimDocs from './FooterSlim.md';
 
 export const FooterSlimExample = (args) => <FooterSlim {...args} />;
@@ -95,7 +96,7 @@ export default {
   component: FooterSlim,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={FooterSlimDocs} />
+      page: () => <StoryPage styles={styles} Description={FooterSlimDocs} />
     }
   }
 };

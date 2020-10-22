@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonCopy from 'MayflowerReactButtons/ButtonCopy';
-import './styles.scss';
 
 const ColorSwatch = ({ name, value, variable }) => {
   const hexValue = value.toUpperCase();

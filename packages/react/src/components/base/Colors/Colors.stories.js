@@ -3,10 +3,7 @@ import { StoryPage } from 'StorybookConfig/preview';
 import SidebarHeading from '../../atoms/headings/SidebarHeading';
 import { ColorSwatch, GradientSpectrum } from './index';
 import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors } from './colors.json';
-
 import ColorGradientsDocs from './ColorGradients.md';
-
-import './styles.scss';
 
 export const Colors = () => (
   <React.Fragment>

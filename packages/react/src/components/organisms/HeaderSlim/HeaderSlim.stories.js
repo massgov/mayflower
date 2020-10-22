@@ -6,7 +6,7 @@ import SiteLogoHeader from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import HeaderSlim from '.';
-
+import styles from './_index.scss';
 
 export const HeaderSlimExample = (args) => <HeaderSlim {...args} />;
 
@@ -47,7 +47,12 @@ HeaderSlimWithNavs.args = {
   />),
   skipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>,
   mainNav: <ButtonWithIcon icon={<IconSearch />} />,
-  utilityNav: <div><a href="#main-content">Nav Link 1</a><a href="#main-content">Nav Link 2</a></div>
+  utilityNav: (
+    <div>
+      <a href="#main-content">Nav Link 1</a>
+      <a href="#main-content">Nav Link 2</a>
+    </div>
+  )
 };
 
 export default {
@@ -55,7 +60,7 @@ export default {
   component: HeaderSlim,
   parameters: {
     docs: {
-      page: () => <StoryPage />
+      page: () => <StoryPage styles={styles} />
     }
   }
 };
