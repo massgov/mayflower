@@ -73,7 +73,7 @@
     height: 100vh;
     opacity: 0;
     transition: all .5s ease;
-    z-index: 100;
+    z-index: $z-overlay;
     display: flex;
     flex-direction: column;
 

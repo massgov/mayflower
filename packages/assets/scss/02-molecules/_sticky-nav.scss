@@ -62,7 +62,8 @@
 
   &[data-sticky='middle'] {
     position: fixed;
-      top: 40px;
+    top: 40px;
+    z-index: $z-overlay;
 
     .translated-rtl &,
     .translated-ltr & {
