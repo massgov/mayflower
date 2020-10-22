@@ -1,4 +1,4 @@
-@forward "00-base/global" with (
+@forward "00-base/configure" with (
   $assets-path: "~@massds/mayflower-assets/static" !default,
   $fonts-enable-rtl: true !default,
 );

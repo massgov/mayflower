@@ -1,4 +1,4 @@
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 $page-banner-icon-width: $column + $gutter;
 $page-banner-height: 330px;
