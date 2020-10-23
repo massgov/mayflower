@@ -15,7 +15,9 @@ NarrowTemplateExample.args = {
     },
     image: {
       src: logo,
-      alt: 'Massachusetts state seal'
+      alt: 'Massachusetts state seal',
+      width: 45,
+      height: 45
     },
     siteName: 'Mass.gov'
   }

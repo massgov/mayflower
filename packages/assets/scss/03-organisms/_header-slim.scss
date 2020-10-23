@@ -11,7 +11,6 @@
     transition: all 0.4s ease;
     text-decoration: none;
     font-weight: $fonts-bold;
-    color: $c-primary;
   }
 
   @media (min-width: 1000px) {
@@ -31,7 +30,7 @@
 
     &__logo {
       float: none;
-      display: inline-block;
+      align-self: flex-start;
       margin-right: 1.6129%;
 
       &:last-child {
@@ -44,7 +43,6 @@
     width: 100%;
 
     & a {
-      font-size: 0px;
       margin: 0;
       display: flex;
       align-items: center;
@@ -65,29 +63,39 @@
     }
   }
 
-  &__banner {
-    height: 15px;
+  &__utility {
+    min-height: 15px;
     background-color: $c-primary;
-    color: white;
+    color: $c-white;
+
+    &-container {
+      display: flex;
+        justify-content: flex-end;
+    }
+
+    a {
+
+      &:not(:first-child) {
+        margin-left: 1rem;
+      }
+      color: $c-white;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
   }
 
   &__header {
     background-color: $c-gray-lightest;
     position: relative;
-  }
 
-  &__container {
-      font-size: 0;
-      padding-top: 20px;
-      padding-bottom: 20px;
-
-      &:before {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        margin-right: -1px;
-        vertical-align: middle;
-        width: 1px;
+    &-container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+          align-items: center;
+          justify-content: space-between;
       }
-    }
+  }
 }

@@ -5,7 +5,8 @@
 // Bower vendors
 @use "pikaday";
 @use "00-base/global" with(
-  $assets-path: '/assets'
+  // relative to the compiled css in public/
+  $assets-path: '../../assets'
 );
 @use "00-base/z-index";
 // Base theme variables
@@ -13,6 +14,7 @@
 @use "00-base/elements";
 @use "00-base/fonts-styles";
 @use "00-base/pikaday" as pik;
+@use "00-base/layout";
 // Print styles
 @use "08-print/print";
 // Atoms - reusable styles
@@ -101,6 +103,7 @@
 @use "02-molecules/location-filters";
 @use "02-molecules/location-icons";
 @use "02-molecules/main-nav";
+@use "02-molecules/main-nav-hamburger";
 @use "02-molecules/org-info";
 @use "02-molecules/org-selector";
 @use "02-molecules/page-intro";
@@ -152,6 +155,8 @@
 @use "03-organisms/form-downloads";
 @use "03-organisms/form-requirements";
 @use "03-organisms/header";
+@use "03-organisms/header-hamburger";
+@use "03-organisms/header-mixed";
 @use "03-organisms/header-alert";
 @use "03-organisms/helpful-links";
 

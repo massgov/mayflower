@@ -42,7 +42,15 @@
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/core && rushx start"
-    }
+    },
+    {
+      "commandKind": "global",
+      "name": "backstop:react",
+      "summary": "Runs 'rushx backstop' for the react package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/react && rushx backstop"
+    },
     // {
     //   /**
     //    * (Required) Determines the type of custom command.

@@ -1,0 +1,72 @@
+<div class="alert-overlay"></div>
+<!-- Begin .header -->
+<header class="ma__header__hamburger" id="header">
+  {% if not header.hideBackTo %}
+    <div class="ma__header__hamburger__backto">
+      <a href="{{ header.backTo ? header.backTo.url : 'https://www.mass.gov' }}">{{ header.backTo ? header.backTo.text : 'Go to classic Mass.gov' }}</a>
+    </div>
+  {% endif %}
+
+  <a class="ma__header__hamburger__skip-nav" href="#main-content">skip to main content</a>
+
+  <nav class="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation" role="navigation">
+    <div class="ma__header__hamburger-wrapper">
+
+      <div class="ma__header__hamburger__button-container js-sticky-header">
+        <button type="button"
+                aria-expanded="false"
+                aria-label="Open the main menu for mass.gov"
+                class="ma__header__hamburger__menu-button js-header-menu-button">
+          <span class="ma__header__hamburger__menu-icon"></span>
+          {# Visible menu label is managed with CSS.  The button has aria-label and the button label via aria-label is visible to screen reader users. #}
+          <span class="ma__header__hamburger__menu-text js-header__menu-text"></span>
+        </button>
+        {# Skip button to search. #}
+        <button type="button"
+                aria-expanded="false"
+                class="ma__header__hamburger__search-access-button js-header-search-access-button">
+          <span class="ma__visually-hidden">Access to search</span>
+          {{ icon('search') }}
+        </button>
+      </div>{# .ma__header__hamburger__button-container #}
+
+      <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--wide js-utility-nav--wide">
+        {% include "@organisms/by-template/utility-nav.twig" %}
+      </div>
+
+      <div class="ma__header__hamburger__nav-container" aria-hidden="true">
+        <div class="ma__header__hamburger__logo ma__header__hamburger__logo--mobile">
+          {% include "@atoms/09-media/site-logo.twig" %}
+        </div>{# .ma__header__hamburger__logo #}
+
+        {% if not hideHeaderSearch %}
+          <div class="ma__header__nav-search js-header__nav-search" >
+            {% set headerSearch = headerSearch|merge({'id':'nav-search'}) %}
+            {% include "@molecules/header-search.twig" %}
+          </div>{# .ma__header__nav-search #}
+        {% endif %}
+
+        <div class="ma__header__hamburger__main-nav">
+          {% include "@molecules/main-nav-hamburger.twig" %}
+        </div>{# .ma__header__hamburger__main-nav #}
+
+        <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--narrow js-utility-nav--narrow">
+          {% include "@organisms/by-template/utility-nav.twig" %}
+        </div>{# .ma__header__hamburger__utility-nav #}
+      </div>{# .ma__header__hamburger__nav-container #}
+
+    </div>{# . ma__header__hamburger-wrapper #}
+  </nav>
+
+  <div class="ma__header__container">
+    <div class="ma__header__hamburger__logo" tabindex="-1">
+      {% include "@atoms/09-media/site-logo.twig" %}
+    </div>
+    {% if not hideHeaderSearch %}
+      <div class="ma__header__hamburger__search ma__header__hamburger__search-bar js-header-search-menu">
+        {% include "@molecules/header-search.twig" %}
+      </div>
+    {% endif %}
+  </div>
+</header>
+<!-- end .header -->
