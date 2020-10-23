@@ -130,17 +130,11 @@ export default (function (window, document, $) {
   // This calculates the additional offset that a table sticky header should drop down.
   function getAdditionalOffset() {
     let additionalOffset = 0;
-    if (document.documentElement.clientWidth <= 825) {
-      const $jsStickyHeader = $(".js-sticky-header");
-      if ($jsStickyHeader) {
-        additionalOffset += $jsStickyHeader.height();
-      }
-    }
     if ($(".js-scroll-anchors")[0] &&
       document.documentElement.clientWidth <= 765) {
       additionalOffset += $(".js-scroll-anchors").height();
     }
-    if (document.documentElement.classList.contains('stickyTOC')) {
+    if (document.documentElement.classList.contains("stickyTOC")) {
       if (document.documentElement.clientWidth <= 841) {
         additionalOffset += 75;
       }
@@ -168,10 +162,14 @@ export default (function (window, document, $) {
       if (!rt.headerStuck && elementTop < stuckTop && tableBottom > stuckBottom) {
         responsiveTables[rt.index].headerStuck = true;
         rt.$stickyHeader.css("opacity", 1);
+        rt.$stickyHeader.css("-webkit-box-shadow", "");
+        rt.$stickyHeader.css("box-shadow", "");
       }
       else if (rt.headerStuck && (elementTop > stuckTop || tableBottom < stuckBottom)) {
         responsiveTables[rt.index].headerStuck = false;
         rt.$stickyHeader.css("opacity", 0);
+        rt.$stickyHeader.css("-webkit-box-shadow", "none");
+        rt.$stickyHeader.css("box-shadow", "none");
       }
     }
 

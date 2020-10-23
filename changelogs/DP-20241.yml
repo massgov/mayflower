@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: ResponsiveTable
+    description: Remove extra space above the sticky table header. (#1226)
+    issue: DP-20241
+    impact: Minor
