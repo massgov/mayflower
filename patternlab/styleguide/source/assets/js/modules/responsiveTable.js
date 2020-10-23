@@ -61,7 +61,6 @@ export default (function (window, document, $) {
 
       // Setting it in a fixed position, but initially invisible.
       let tableLeft = $element.offset().left;
-
       $stickyHeader
         .css({
           "position": "fixed",
@@ -169,7 +168,6 @@ export default (function (window, document, $) {
       else if (rt.headerStuck && (elementTop > stuckTop || tableBottom < stuckBottom)) {
         responsiveTables[rt.index].headerStuck = false;
         rt.$stickyHeader.css("opacity", 0);
-        // rt.$stickyHeader.css("height", 0);
         rt.$stickyHeader.css("-webkit-box-shadow", "none");
         rt.$stickyHeader.css("box-shadow", "none");
       }
