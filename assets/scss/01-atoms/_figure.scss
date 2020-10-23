@@ -1,5 +1,7 @@
 .ma__figure {
 
+  // viewport under 620, all display patterns have 100% width.
+  // Only the bottom mergin is necessary.
   margin: 0 0 20px 0;
 
   .main-content--full .page-content > & {
@@ -7,7 +9,7 @@
     @include ma-container;
   }
 
-  @media ($bp-small-min) {
+  @media ($bp-small-min) {// 621~
     margin: 0 30px 30px 30px;
 
     // support pre-existing figure elements besides dataviz.
@@ -50,6 +52,7 @@
     line-height: 1.57;
   }
 
+  // xtra large
   &--x-large {
 
     width: 100%;
@@ -62,22 +65,16 @@
   .no-sidebar &--small {
 
     @media ($bp-small-min) {// 621~
-      width: calc(33.33% - 30px);
-      width: calc(100% / 3 - 30px);
+      width: 33.33%;
+      width: calc(100% / 3);
     }
   }
 
   .page-content:not(.no-sidebar) &--small {
-    width: 100%;
 
-    @media ($bp-large-max) {
-      margin-right: 0;
-      margin-left: 0;
-    }
-
-    @media ($bp-large-min) {// 910~
-      width: calc(33.33% - 30px);
-      width: calc(100% / 3 - 30px);
+    @media ($bp-large-min) {// 910 <
+      width: 33.33%;
+      width: calc(100% / 3);
     }
   }
 
@@ -86,20 +83,14 @@
   .no-sidebar &--medium {
 
     @media ($bp-small-min) {// 621~
-      width: calc(50% - 30px);
+      width: 50%;
     }
   }
 
   .page-content:not(.no-sidebar) &--medium {
-    width: 100%;
-
-    @media ($bp-large-max) {
-      margin-right: 0;
-      margin-left: 0;
-    }
 
     @media ($bp-large-min) {// 910~
-      width: calc(50% - 30px);
+      width: 50%;
     }
   }
 
@@ -121,14 +112,6 @@
     @media ($bp-large-min) {
       width: 66.66%;
       width: calc(100% / 3 * 2);
-    }
-  }
-
-  .page-content:not(.no-sidebar) &--large {
-
-    @media ($bp-large-min) {
-      margin-right: 0;
-      margin-left: 0;
     }
   }
 
