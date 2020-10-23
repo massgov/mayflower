@@ -62,8 +62,6 @@ export default (function (window, document, $) {
       // Setting it in a fixed position, but initially invisible.
       let tableLeft = $element.offset().left;
 
-      console.log("theadHeight: " + theadHeight);
-
       $stickyHeader
         .css({
           "position": "fixed",
@@ -133,20 +131,11 @@ export default (function (window, document, $) {
   // This calculates the additional offset that a table sticky header should drop down.
   function getAdditionalOffset() {
     let additionalOffset = 0;
-    if (document.documentElement.clientWidth <= 825) {
-
-      console.log("additionalOffset: " + additionalOffset);
-
-      const $jsStickyHeader = $(".js-sticky-header");
-      if ($jsStickyHeader) {
-        additionalOffset += $jsStickyHeader.height();
-      }
-    }
     if ($(".js-scroll-anchors")[0] &&
       document.documentElement.clientWidth <= 765) {
       additionalOffset += $(".js-scroll-anchors").height();
     }
-    if (document.documentElement.classList.contains('stickyTOC')) {
+    if (document.documentElement.classList.contains("stickyTOC")) {
       if (document.documentElement.clientWidth <= 841) {
         additionalOffset += 75;
       }
