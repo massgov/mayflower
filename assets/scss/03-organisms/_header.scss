@@ -1,6 +1,8 @@
 $header-mobile-menu-width: 300px;
 $header-logo-width: 150px;
 $bp-header-logo-min: "min-width: 1000px";
+$search-mobile-width: 66.12903%; //@include span-columns(8 of 12);
+$search-width: 74.59677%; //@include span-columns(9 of 12);
 
 body {
 
@@ -88,15 +90,15 @@ body {
     }
 
     @media ($bp-small-min) {
-
-      @include span-columns(4);
+      width: calc(100% - #{$search-mobile-width}-10%);
+      // @include span-columns(4 of 12);
       display: inline-block;
       float: none;
     }
 
     @media ($bp-header-logo-min) {
-
-      @include span-columns(3);
+      width: calc(100% - #{$search-width} -10%);
+      //@include span-columns(3 of 12);
       display: inline-block;
       float: none;
     }
@@ -138,11 +140,11 @@ body {
     width: calc(100% - #{$header-logo-width});
 
     @media ($bp-small-min) {
-      width: 66.12903%; //@include span-columns(8);
+      width: 66.12903%; //@include span-columns(8 of 12);
     }
 
     @media ($bp-header-logo-min) {
-      width: 74.59677%; //@include span-columns(9);
+      width: 74.59677%; //@include span-columns(9 of 12);
     }
 
     @media ($bp-small-max) {

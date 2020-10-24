@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/// Provides an easy way to include a clearfix for containing floats.
+/// Copied from Bourbon clearfix
+/// @link https://github.com/thoughtbot/bourbon/
+/// @link https://goo.gl/yP5hiZ
+///
+/// @example scss
+///   .element {
+///     @include clearfix;
+///   }
+///
+///   // CSS Output
+///   .element::after {
+///     clear: both;
+///     content: "";
+///     display: block;
+///   }
+
+@mixin clearfix {
+
+  &::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
