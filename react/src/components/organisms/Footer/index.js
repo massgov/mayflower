@@ -29,9 +29,9 @@ const Footer = ({
           <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
         </div>
       </section>
-      <div className="ma__footer__nav">
+      <section className="ma__footer__nav">
         <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
-      </div>
+      </section>
     </div>
     { backToTopButton &&
     <button className="ma__footer__back2top js-back2top is-hidden">
