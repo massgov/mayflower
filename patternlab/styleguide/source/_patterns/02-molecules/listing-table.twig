@@ -27,11 +27,11 @@
               {% if inlineAccordion %}
                 {# Separate items into visible + extra for accordion. #}
                 {% for item in row.items[:visibleItems] %}
-                  <span class="ma__listing-table__data-item">{{ item.text|raw }}</span>
+                  <span class="ma__listing-table__data-item">{{ item.text }}</span>
                 {% endfor %}
                 <div class="ma__listing-table__extra js-accordion-content">
                   {% for item in row.items[visibleItems:last] %}
-                    <span class="ma__listing-table__data-item">{{ item.text|raw }}</span>
+                    <span class="ma__listing-table__data-item">{{ item.text }}</span>
                   {% endfor %}
                 </div>
                 <div class="ma__listing-table__expand">
@@ -42,7 +42,7 @@
               {% else %}
                 {# Show all items with no accordion. #}
                 {% for item in row.items %}
-                  <span class="ma__listing-table__data-item">{{ item.text|raw }}</span>
+                  <span class="ma__listing-table__data-item">{{ item.text }}</span>
                 {% endfor %}
               {% endif %}
             </td>

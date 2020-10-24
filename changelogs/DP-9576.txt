@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Removed
+Minor
+- Patternlab DP-9576: Remove raw filter from patternlab/styleguide/source/_patterns/02-molecules/listing-table.twig.
