@@ -7,6 +7,7 @@ import FooterLinksLiveData from 'MayflowerReactMolecules/FooterLinks/FooterLinks
 import SocialLinksLiveData from 'MayflowerReactMolecules/SocialLinks/SocialLinksLive.json';
 import Footer from './index';
 import FooterDocs from './Footer.md';
+import styles from './_index.scss';
 
 export const FooterExample = (args) => <Footer {...args} />;
 
@@ -54,7 +55,7 @@ export default {
   component: Footer,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={FooterDocs} />
+      page: () => <StoryPage styles={styles} Description={FooterDocs} />
     }
   }
 };

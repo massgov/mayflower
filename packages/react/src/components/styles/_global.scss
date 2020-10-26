@@ -1,5 +1,10 @@
 @forward "00-base/configure" with (
   $assets-path: "~@massds/mayflower-assets/static" !default,
   $fonts-enable-rtl: true !default,
+  $fonts-langs-support: false
 );
 @forward "00-base/z-index";
+@use "00-base/elements";
+@use "00-base/layout";
+@use "00-base/fonts";
+@use "00-base/fonts-styles";

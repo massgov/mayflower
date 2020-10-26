@@ -97,6 +97,7 @@ dependencies:
   markdown-it: 10.0.0
   mdn-polyfills: 5.20.0
   merge-stream: 1.0.1
+  mini-css-extract-plugin: 1.1.2_webpack@4.44.2
   npm-run-all: 4.1.5
   numbro: 2.3.1
   object.entries: 1.1.2
@@ -114,6 +115,7 @@ dependencies:
   react-select: 1.3.0_react-dom@16.13.1+react@16.13.1
   react-table: 6.11.5_react-dom@16.13.1+react@16.13.1
   react-transition-group: 2.9.0_react-dom@16.13.1+react@16.13.1
+  react-virtualized: 9.22.2_react-dom@16.13.1+react@16.13.1
   resolve-url-loader: 3.1.1
   sass-loader: 8.0.2_webpack@4.44.2
   shortid: 2.2.15
@@ -129,6 +131,7 @@ dependencies:
   twig: 1.15.2
   undertaker-registry: 1.0.1
   untildify: 4.0.0
+  url-loader: 4.1.1_webpack@4.44.2
   url-search-params-polyfill: 5.1.0
   webpack: 4.44.2_webpack@4.44.2
   whatwg-fetch: 3.4.1
@@ -7492,6 +7495,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-2EF8zTQOxYq70Y4XKtorQupqF0m49MBz2/yf5Bj+MHjvpG3Hy7sImifnqD6UA+TKYxeSV+u6qqQPawN5UvnpKQ==
+  /clsx/1.1.1:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
   /coa/2.0.2:
     dependencies:
       '@types/q': 1.5.4
@@ -16355,6 +16364,19 @@ packages:
       webpack: ^4.4.0
     resolution:
       integrity: sha512-a3Y4of27Wz+mqK3qrcd3VhYz6cU0iW5x3Sgvqzbj+XmlrSizmvu8QQMl5oMYJjgHOC4iyt+w7l4umP+dQeW3bw==
+  /mini-css-extract-plugin/1.1.2_webpack@4.44.2:
+    dependencies:
+      loader-utils: 2.0.0
+      schema-utils: 3.0.0
+      webpack: 4.44.2_webpack@4.44.2
+      webpack-sources: 1.4.3
+    dev: false
+    engines:
+      node: '>= 10.13.0'
+    peerDependencies:
+      webpack: ^4.4.0 || ^5.0.0
+    resolution:
+      integrity: sha512-tIq578wiGzmo9Ll+JOgHPssV4eoMDTcj3MKkjPbzgooaakMklViJG1qbT0zcwoogUKKliFy/kKjUJaFb4DBHxQ==
   /mini-svg-data-uri/1.2.3:
     dev: false
     resolution:
@@ -19812,6 +19834,22 @@ packages:
       react-dom: '>=16.6.0'
     resolution:
       integrity: sha512-Djqr7OQ2aPUiYurhPalTrVy9ddmFCCzwhqQmtN+J3+3DzLO209Fdr70QrN8Z3DsglWql6iY1lDWAfpFiBtuKGw==
+  /react-virtualized/9.22.2_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@babel/runtime': 7.11.2
+      clsx: 1.1.1
+      dom-helpers: 5.2.0
+      loose-envify: 1.4.0
+      prop-types: 15.7.2
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+      react-lifecycles-compat: 3.0.4
+    dev: false
+    peerDependencies:
+      react: ^15.3.0 || ^16.0.0-alpha
+      react-dom: ^15.3.0 || ^16.0.0-alpha
+    resolution:
+      integrity: sha512-5j4h4FhxTdOpBKtePSs1yk6LDNT4oGtUwjT7Nkh61Z8vv3fTG/XeOf8J4li1AYaexOwTXnw0HFVxsV0GBUqwRw==
   /react/16.13.1:
     dependencies:
       loose-envify: 1.4.0
@@ -20949,6 +20987,16 @@ packages:
       node: '>= 8.9.0'
     resolution:
       integrity: sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg==
+  /schema-utils/3.0.0:
+    dependencies:
+      '@types/json-schema': 7.0.6
+      ajv: 6.12.5
+      ajv-keywords: 3.5.2_ajv@6.12.5
+    dev: false
+    engines:
+      node: '>= 10.13.0'
+    resolution:
+      integrity: sha512-6D82/xSzO094ajanoOSbe4YvXWMfn2A//8Y1+MUqFAJul5Bs+yn36xbK9OtNDcRVSBJ9jjeoXftM6CfztsjOAA==
   /scss-tokenizer/0.2.3:
     dependencies:
       js-base64: 2.6.4
@@ -23587,6 +23635,23 @@ packages:
         optional: true
     resolution:
       integrity: sha512-IzgAAIC8wRrg6NYkFIJY09vtktQcsvU8V6HhtQj9PTefbYImzLB1hufqo4m+RyM5N3mLx5BqJKccgxJS+W3kqw==
+  /url-loader/4.1.1_webpack@4.44.2:
+    dependencies:
+      loader-utils: 2.0.0
+      mime-types: 2.1.27
+      schema-utils: 3.0.0
+      webpack: 4.44.2_webpack@4.44.2
+    dev: false
+    engines:
+      node: '>= 10.13.0'
+    peerDependencies:
+      file-loader: '*'
+      webpack: ^4.0.0 || ^5.0.0
+    peerDependenciesMeta:
+      file-loader:
+        optional: true
+    resolution:
+      integrity: sha512-3BTV812+AVHHOJQO8O5MkWgZ5aosP7GnROJwvzLS9hWDj00lZ6Z0wNak423Lp9PBZN05N+Jk/N5Si8jRAlGyWA==
   /url-parse-lax/1.0.0:
     dependencies:
       prepend-http: 1.0.4
@@ -24830,6 +24895,7 @@ packages:
       is: 3.3.0
       jscodeshift: 0.10.0_@babel+preset-env@7.11.5
       markdown-it: 10.0.0
+      mini-css-extract-plugin: 1.1.2_webpack@4.44.2
       moment: 2.28.0
       normalize-scss: 7.0.1
       npm-run-all: 4.1.5
@@ -24850,15 +24916,17 @@ packages:
       react-select: 1.3.0_react-dom@16.13.1+react@16.13.1
       react-table: 6.11.5_eb0d650be231ffd0ace4a30b38162117
       react-transition-group: 2.9.0_react-dom@16.13.1+react@16.13.1
+      react-virtualized: 9.22.2_react-dom@16.13.1+react@16.13.1
       sass: 1.26.11
       sass-loader: 8.0.2_sass@1.26.11+webpack@4.44.2
       shortid: 2.2.15
       style-loader: 1.2.1_webpack@4.44.2
+      url-loader: 4.1.1_webpack@4.44.2
       webpack: 4.44.2_webpack@4.44.2
     dev: false
     name: '@rush-temp/mayflower-react'
     resolution:
-      integrity: sha512-GcOOmq4287GcoufSrg/AA8WjCy4j9i2RUmafoVV+gZMVlkvfh0X7tnqu7NWSsXir3tdYBEqv9ku3WrifNf+qBg==
+      integrity: sha512-n6Un8tiYlJuUHTPqt2t2+dpny21vKlF9npi0TJD9Kg5iNMgpdc5LMjgZcM22uOKeZyt/A7qxg+/zhCH16LtALw==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_jquery@3.5.1+webpack@4.44.2':
@@ -25059,6 +25127,7 @@ specifiers:
   markdown-it: ^10.0.0
   mdn-polyfills: ^5.16.0
   merge-stream: ^1.0.1
+  mini-css-extract-plugin: ~1.1.1
   npm-run-all: ^4.1.5
   numbro: ^2.1.2
   object.entries: ^1.0.4
@@ -25076,6 +25145,7 @@ specifiers:
   react-select: ^1.2.1
   react-table: ^6.8.6
   react-transition-group: ^2.4.0
+  react-virtualized: ~9.22.2
   resolve-url-loader: ^3.1.1
   sass-loader: ^8.0.2
   shortid: ^2.2.8
@@ -25091,6 +25161,7 @@ specifiers:
   twig: ^1.13.2
   undertaker-registry: ^1.0.1
   untildify: ^4.0.0
+  url-loader: ~4.1.1
   url-search-params-polyfill: ^5.0.0
   webpack: ^4.44.2
   whatwg-fetch: ^3.0.0
