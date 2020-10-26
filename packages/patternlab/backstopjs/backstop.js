@@ -1,8 +1,7 @@
 
 var walk = require('./walk-dir');
 var path = require('path');
-
-var patternPath = `${__dirname}/../styleguide/public/patterns/`;
+var patternPath = path.resolve(__dirname, '../styleguide/public/patterns');
 
 /**
  * Scan for page and template patterns.
