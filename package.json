@@ -11,5 +11,9 @@
     "shelljs": "^0.8.3",
     "simple-git": "^1.126.0",
     "@octokit/rest": "^16.35.0"
+  },
+  "scripts": {
+    "release-branch": "node scripts/release-branch.js",
+    "release-tag": "node scripts/release-tag.js"
   }
 }

@@ -279,7 +279,7 @@ jobs:
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
-      - run: node scripts/release-branch.js
+      - run: node common/scripts/install-run-rushx.js release-branch
 
   github_tag:
     <<: *patternlab_defaults
@@ -293,7 +293,7 @@ jobs:
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
-      - run: node scripts/release-tag.js
+      - run: node common/scripts/install-run-rushx.js release-tag
 
 
   assets_build:
