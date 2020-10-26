@@ -1,6 +1,6 @@
 Changed:
   - project: React
     component: RichText
-    description: Render welcome page to Mayflower-react. (#1006)
+    description: Refactor RichText component to render raw HTML without `dangerouslySetInnerHTML`. (#1006)
     issue: DP-17982
     impact: Major
