@@ -1,0 +1,145 @@
+//Custom breakpoint for contact row
+$accordion-break: 720px;
+
+@use "00-base/global" as *;
+
+.ma__contact-row {
+  position: relative;
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container();
+  }
+
+  @media ($bp-large-min) {
+
+    .ma__comp-heading,
+    .ma__contact-row__columns {
+      width: calc(100% - 300px);
+    }
+  }
+
+  .ma__contact-row__columns {
+
+    @media (min-width: $accordion-break) {
+      column-count: 2; 
+      column-gap: 40px; 
+      column-rule: 1px solid $c-bd-divider;
+
+      
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+
+        .ma__contact-set {
+          overflow: hidden;
+        }
+      }
+      
+
+      .ma__contact-group {
+        break-inside: avoid;
+        will-change: transform;
+      }
+    }
+  }
+
+  .ma__contact-group--more-link {
+    width: 100%;
+    clear: both;
+  }
+
+  .ma__image {
+    margin-bottom: 1rem;
+    width: auto;
+    max-width: 300px;
+
+    @media ($bp-large-min) {
+      position: absolute;
+      top: 0;
+      right: 30px;
+    }
+  }
+
+  .ma__contact-row__more-info {
+    margin-top: 40px;
+  }
+
+  .ma__contact-row__expand {
+    display: none;
+  }
+
+  // Accordion behavior for mobile
+
+  @media (max-width: $accordion-break) {
+
+    .ma__contact-row__columns.has-many  .ma__contact-set:nth-child(n+3) {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding: 0;
+      transition: all 350ms ease-in-out;
+    }
+
+
+      .ma__contact-row__columns.is-open .ma__contact-set:nth-child(n+3) {
+        max-height: 100vh; //arbitrarily large max height for contact groups to avoid clipping
+        opacity: 1;
+        padding-top: 20px;
+      }
+
+      // button text
+
+      .ma__contact-row__expand {
+        
+        &.toggle-sets {
+          display: inline;
+
+          button {
+
+            @include ma-button-reset;
+
+            @include ma-link-underline;
+
+            @include ma-chevron;
+            font-size: $fonts-medium;
+            font-weight: $fonts-bold;
+            color: $c-font-link;
+            padding-right: 10px;
+
+            span:first-child {
+              display: inline;
+            }
+
+            span:nth-child(2) {
+              display: none;
+            }
+
+            &:after {
+              transform: translateY(-45%) rotate(45deg);
+              border-color: $c-font-link;
+              opacity: .5;
+            }
+          }
+        }
+
+        &.is-open {
+
+          button {
+
+            span:first-child {
+              display: none;
+            }
+
+            span:nth-child(2) {
+              display: inline;
+            }
+
+            &:after {
+              transform: translateY(-45%) rotate(-135deg);
+            }
+          }
+        }
+      }
+  }
+}

@@ -1,0 +1,12 @@
+@use "00-base/global" as *;
+
+.ma__accordion-wrapper {
+
+  .ma__accordion-item {
+	  margin-top: 20px;
+  }
+
+  .ma__accordion-item:first-child {
+    margin-top: 0px;
+  }
+}

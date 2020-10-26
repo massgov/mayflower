@@ -1,0 +1,70 @@
+@use "00-base/global" as *;
+
+
+.ma__input-group {
+  $group: &;
+  &--inline {
+    display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      @media ($bp-small-max) {
+      	flex-direction: column;
+      }
+    #{$group}-right {
+      display: flex;
+        flex-direction: column;
+        @media ($bp-small-max) {
+          align-items: flex-start;
+        }
+    }
+  }
+}
+
+// error message
+.ma__input-error-msg {
+  font-size: $fonts-smaller;
+  line-height: 1.75rem;
+  margin-bottom: .5em;
+
+  color: $c-font-error;
+  font-weight: 500;
+
+  &--success {
+    color: $c-primary-alt !important;
+  }
+
+  &.has-error {
+    display: flex !important;
+    align-items: center;
+  }
+}
+
+%disabled {
+  opacity: 0.5;
+}
+
+input:disabled {
+  @extend %disabled;
+  background-color: $c-gray-lightest;
+}
+
+button:disabled {
+  @extend %disabled;
+  &:before, &:after {
+    @extend %disabled;
+  }
+}
+
+.ma__input-number-unit{
+  &--disabled {
+    @extend %disabled;
+    background-color: $c-gray-lightest;
+  }
+}
+
+.ma__label {
+  &--disabled {
+    @extend %disabled;
+  }
+}

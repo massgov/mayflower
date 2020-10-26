@@ -1,0 +1,121 @@
+@use "00-base/global" as *;
+
+@mixin tabscroll {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+%focus {
+
+  &:focus {
+    outline: none;
+    box-shadow: inset 0px 0px 2px 2px $c-focus;
+  }
+}
+
+.ma__tab-container {
+  display: flex;
+  flex-direction: column;
+
+  &-head {
+    display: inline-flex;
+    margin-bottom: 0;
+    padding-inline-start: 0;
+    list-style: none;
+
+    @include tabscroll;
+  }
+
+  &-body {
+    padding: 1rem;
+    border: 1px solid $c-gray-light;
+    margin-top: -1px;
+
+    @extend %focus;
+  }
+
+  .ma__tab-title {
+    border-left: 1px solid $c-gray-light;
+    border-top: 1px solid $c-gray-light;
+    border-right: none;
+    border-bottom: none;
+    margin-bottom: -1px;
+
+    &:first-child {
+      border-left-width: 1px;
+    }
+
+    &:last-child {
+      border-right: 1px solid $c-gray-light;
+    }
+
+
+    button {
+      cursor: pointer;
+      padding: 1.77rem 1.5rem 0.81rem 1.5rem;
+      background-color: unset;
+      white-space: nowrap;
+      border: none;
+      display: block;
+      font-size: $fonts-small;
+    }
+
+    &--active {
+      border-top: 5px solid $c-primary;
+      background-color: white;
+      z-index: 1;
+      outline: $c-error-red;
+
+      button {
+        padding-top: 1.5rem;
+        font-weight: $fonts-bold;
+        color: $c-primary;
+
+        @extend %focus;
+      }
+    }
+  }
+
+  .ma__tab-container--nested {
+
+    .ma__tab-container {
+
+      &-head {
+        border-bottom: 1px solid $c-gray-light;
+      }
+
+      &-body {
+        border: none;
+
+        @extend %focus;
+      }
+    }
+
+    .ma__tab-title {
+      border: none;
+      border-bottom: 5px solid;
+      border-bottom-color: transparent;
+
+      button {
+        padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+      }
+
+      &--active {
+        color: $c-primary;
+        border-bottom: 5px solid $c-primary;
+
+        button {
+          padding-bottom: 1.25rem;
+
+          @extend %focus;
+        }
+      }
+    }
+  }
+}

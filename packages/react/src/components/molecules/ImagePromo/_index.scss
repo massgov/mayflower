@@ -1,0 +1,57 @@
+@use "00-base/global" as *;
+@use '02-molecules/image-promo';
+@use "02-molecules/org-info";
+
+.ma__image-promo--stacked {
+  flex-direction: column;
+
+  .ma__image-promo__image,
+  .ma__image-promo__details {
+    flex-basis: auto;
+  }
+
+  .ma__image-promo__image {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    overflow: hidden;
+
+    .ma__image {
+      margin-bottom: 10px;
+      margin-right: 20px;
+      width: auto;
+    }
+
+    .ma__image-promo__header {
+      display: inline-flex;
+      flex-direction: column;
+      flex-basis: 100%;
+
+      .ma__image-promo__title,
+      .ma__org-info__job-title {
+        display: block;
+      }
+
+      .ma__image-promo__tags {
+        float: left;
+      }
+    }
+  }
+}
+
+.ma__image-promo--small {
+  font-size: $fonts-smaller;
+
+  .ma__image-promo__title {
+    font-size: $fonts-large;
+    margin-bottom: 0;
+  }
+
+  .ma__image-promo__subtitle {
+    font-size: $fonts-small;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-top: 0.5em;
+  }
+}

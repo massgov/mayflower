@@ -1,0 +1,13 @@
+@use "00-base/global" as *;
+@use '03-organisms/callout-alert';
+
+
+.ma__callout-alert__content--no-icon {
+  padding-left: 0;
+  padding: 15px 20px;
+
+  @media ($bp-small-min){
+    padding-left: 0;
+    padding: 30px;
+  }
+}

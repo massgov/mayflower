@@ -1,0 +1,72 @@
+@use "00-base/global" as *;
+
+.ma__button-alert {
+
+  @include ma-button-reset;
+
+  @include ma-chevron;
+  font-size: $fonts-xsmall;
+  font-weight: $fonts-bold;
+  letter-spacing: $letter-spacing-large;
+  line-height: 1;
+  padding: .4em;
+  padding-left: .7em;
+  padding-right: .8em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: $c-font-inverse;
+  background-color: $c-black;
+  box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
+
+  &:after {
+    border-width: 3px;
+    height: 8px;
+    margin-top: 3px;
+    margin-left: 3px;
+    transform: translateY(-50%) rotate(45deg);
+    transform-origin: 65% 65%;
+    transition: transform .5s;
+    width: 8px;
+    border-color: rgba($c-font-inverse,.5);
+  }
+
+  // If the parent of the button-alert is an open accordion, then flip the arrow up.
+
+  .js-accordion.is-open & {
+
+    &:after {
+      transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+
+  // This is used in mayflower-react specifically, `is-open` class is moved down a level from patternlab
+
+  &.is-open {
+
+    &:after {
+      transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+
+
+  &:hover {
+    transition: background-color .4s, color .4s, border .4s, fill .4s;
+    background-color: rgba($c-font-dark, 0.75);
+  }
+
+  &__hide {
+    display: none;
+
+    .is-open & {
+      display: inline;
+    }
+  }
+
+  &__show {
+    display: inline;
+
+    .is-open & {
+      display: none;
+    }
+  }
+}

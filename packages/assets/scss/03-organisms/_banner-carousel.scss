@@ -1,0 +1,147 @@
+@use "00-base/global" as *;
+
+.ma__banner-carousel {
+  margin-bottom: 45px;
+  overflow: hidden;
+  position: relative;
+
+  .slick-arrow {
+
+    @include ma-chevron;
+
+    @include ma-button-reset;
+    font-size: $fonts-xsmall;
+    height: 100%;
+    position: absolute;
+      top: 0;
+    width: 40px;
+    z-index: 1;
+
+    @media ($bp-page-width-min) {
+      min-width: 40px;
+      width: calc((100vw - #{$max-width} + 40px) / 2);
+    }
+
+    &:after {
+      margin-left: 0;
+      margin-top: -5px;
+      border-width: 6px;
+      height: 1rem;
+      position: absolute;
+        top: 50%;
+      width: 1rem;
+    }
+
+    &:before {
+      content:"";
+      height: 60px;
+      position: absolute;
+        top: 50%;
+      transform: translateY(-50%);
+      transition: background-color .7s;
+      width: 40px;
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      left: 4px;
+      transform: translateY(-50%) rotate(135deg);
+    }
+  }
+
+  .slick-next {
+    right: 0;
+
+    &:before {
+      right: 0;
+    }
+
+    &:after {
+      right: 12px;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+
+  .slick-dots {
+
+    @include ma-reset-list;
+    position: absolute;
+      top: 0;
+      left: 50%;
+    transform: translateX(-50%);
+
+    li {
+      display: inline-block;
+      font-size: 0;
+      padding: 0 .4rem;
+    }
+
+    button {
+
+      @include ma-button-reset;
+      border-radius: 50%;
+      height: .75rem;
+      width: .75rem;
+
+    }
+  }
+
+  &__slides {
+
+    @include clearfix;
+  }
+
+  &__slide {
+    display: none;
+    float: left;
+    font-size: 0;
+    width: 100%;
+
+    &:first-child,
+    .slick-slider & {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+//theme
+
+.ma__banner-carousel {
+
+  .slick-arrow {
+
+    &:after {
+      border-color: $c-white;
+    }
+
+    &:before {
+      background-color: rgba($c-primary,.5);
+    }
+
+    &:hover:before {
+      background-color: $c-primary;
+    }
+  }
+
+  .slick-dots {
+
+    button {
+      background-color: $c-primary;
+    }
+
+    .slick-active button {
+      background-color: $c-white;
+    }
+  }
+}

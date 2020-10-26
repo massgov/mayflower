@@ -1,0 +1,54 @@
+@use "00-base/global" as *;
+
+.ma__transition-page {
+  margin-bottom: 40px;
+  text-align: center;
+
+  &__icon {
+    margin-bottom: 15px;
+
+    svg {
+      width: 63px;
+      height: 66px;
+    }
+  }
+
+  &__message {
+    font-size: $fonts-xlarge;
+    line-height: 1.31;
+
+    @media ($bp-small-min) {
+      font-size: $fonts-4xlarge;
+    }
+  }
+
+  &__checkbox {
+    margin-bottom: 45px;
+  }
+
+  &__buttons {
+    margin: 0 -10px;
+
+    button,
+    input {
+      margin: 0 10px 20px;
+    }
+  }
+}
+
+//theme
+
+.ma__transition-page {
+
+  &:before {
+    background-color: rgba($c-primary-alt, .15);
+  }
+
+  &__icon {
+    fill: $c-primary-alt;
+  }
+
+  &__message {
+    font-weight: $fonts-bold;
+  }
+}

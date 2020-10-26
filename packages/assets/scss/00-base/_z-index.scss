@@ -1,0 +1,24 @@
+// z-index.
+//
+// Standard z-index values that are used to create a stacking context.
+
+// This should be the highest value.
+$z-skyline:        9999 !default;
+
+// This should be the second highest value.
+$z-modal:          1000 !default;
+
+// Overlays fall under modal components.
+$z-overlay:        900 !default;
+
+// Shaded overlay between the overlay compoenent with $z-overlay and other page compoenents with lower index values.
+$z-overlay-shade:   800 !default;
+
+$z-dropdown:       100 !default;
+$z-feedback-button: 90 !default;
+$z-sticky-content: 80 !default;
+$z-high:           10 !default;
+$z-medium:         5 !default;
+$z-low:            1 !default;
+$z-ground:         0 !default;
+$z-below-ground:   0 !default;

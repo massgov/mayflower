@@ -1,0 +1,14 @@
+@use "00-base/global" as *;
+
+.ma__sort-results {
+  font-size: 0;
+
+  &__label {
+    font-size: $fonts-small;
+    margin-right: 8px;
+  }
+
+  .ma__button-sort {
+    margin-right: 8px;
+  }
+}

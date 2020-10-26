@@ -1,0 +1,64 @@
+@use "00-base/global" as *;
+
+.ma__mapped-locations {
+
+  @include ma-container;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__header {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  &__map {
+    flex: 0 1 auto;
+    width: 100%;
+
+    @media ($bp-large-extended) {
+      text-align: center;
+    }
+
+    @media ($bp-large-extended-min) {
+      order: 2;
+      width: 60%;
+    }
+
+    .ma__google-map {
+      height: 360px;
+
+      @media ($bp-x-small-min) {
+        height: 500px;
+      }
+    }
+  }
+
+  &__aside {
+    background-color: $c-gray-lightest;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1rem;
+    width: 100%;
+
+    @media ($bp-large-extended) {
+      text-align: center;
+    }
+
+    @media ($bp-large-extended-min) {
+      order: 1;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      width: 40%;
+    }
+  }
+
+  // When text is exposed, pull element up to account for line-height
+  // in equidistant spacing in component.
+
+  &__info {
+    margin-top: -0.5rem;
+  }
+
+}

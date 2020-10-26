@@ -1,0 +1,44 @@
+@use "00-base/global" as *;
+
+.ma__footnote-item {
+  transition: all 0.4s ease;
+  display: flex;
+  
+  @include ma-button-reset;
+
+  button {
+
+    @include ma-button-reset;
+    
+  }
+
+  span {
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-weight: $fonts-light;
+    font-size: $fonts-small;
+    color: $c-font-link;
+
+    a {
+      font-weight: $fonts-normal;
+      border-bottom: 1px solid;
+    }
+
+    &:after {
+      content: "\2191";
+      line-height: 1;
+      color: $c-font-link;
+      margin-left: .25em;
+    }
+
+    &:hover {
+      border-bottom: 1px solid;
+
+      &::after {
+        border: none;
+        opacity: .7;
+      }
+    }
+  }
+
+}
