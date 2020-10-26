@@ -22,7 +22,7 @@ import SyntaxHighlighter, { Renderer, Wrapper } from './syntax-highlighter';
 
 import '../src/components/styles/_index.scss';
 
-import logo from '!url-loader!@massds/mayflower-assets/static/images/stateseal.png';
+import logo from '!url-loader!@massds/mayflower-assets/static/images/logo/stateseal.png';
 
 const storyKindOrder = [
   'about', // storyKindOrder.indexOf -1 follow alphabetical order
@@ -40,13 +40,13 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
   const docsContext = React.useContext(DocsContext);
   const [showHTML, setShowHTML] = React.useState(true);
   const [showCSS, setShowCSS] = React.useState(true);
-  
+
   const css = React.useMemo(() => showCSS && styles ? styles.toString() : null, [showCSS, styles]);
 
   const { id, name, parameters = {}, args } = docsContext;
   const { component } = parameters;
   const HtmlComponent = StoryComponent || component;
-  
+
   let html = React.useMemo(() => {
     const markup = ReactDOMServer.renderToStaticMarkup((
       <HtmlComponent {...args} />
@@ -63,14 +63,14 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
   }, [args]);
 
   const actionItem = {
-    title: showHTML ? 'Hide HTML' : 'Show HTML?', 
+    title: showHTML ? 'Hide HTML' : 'Show HTML?',
     onClick: () => setShowHTML((prev) => !prev)
   };
   const cssActionItem = {
-    title: showCSS ? 'Hide Styles' : 'Show Styles?', 
+    title: showCSS ? 'Hide Styles' : 'Show Styles?',
     onClick: () => setShowCSS((prev) => !prev)
   };
-  
+
   return(
     <>
       <Title>{component.displayName}</Title>
