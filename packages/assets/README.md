@@ -4,6 +4,7 @@ The styles provided by this package require compiling with a tool that supports 
 ## License
 Please note that the icons are licensed only for the usage on websites that are **owned by the Commonwealth of Massachusetts**. Mayflower is currently using a licensed icon set purchased through [Smashing Icons](https://smashicons.com/).
 
+
 ## Publishing Instructions
 >To publish the package, you will have to be a collaborator or have access to the [@massds/mayflower-assets npm package](https://www.npmjs.com/package/@massds/mayflower-assets).
 
