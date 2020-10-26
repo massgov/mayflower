@@ -10,13 +10,11 @@ Added:
     description: Added `$fonts-enable-rtl` global variable to allow setting direction to "right-to-left" for languages like Arabic, Persian, Urdu and Hebrew. (#1193)
     issue: DP-20050
     impact: Major
-Added:
   - project: Assets
     component: Fonts
     description: Added `$fonts-langs-support` global variable to conditionally load and render additional fonts for language support. (#1193)
     issue: DP-20050
     impact: Major
-Added:
   - project: Assets
     component: Fonts
     description: Added `$fonts-display-global` global variable to control the custom fonts download and render behavior. (#1193)
