@@ -1,0 +1,40 @@
+// Special label handling
+
+@use "00-base/global" as *;
+
+.ma__legend,
+.ma__label {
+
+  // This class is in use in patternlab
+  // To do: update to render condition label to match Label component in mayflower-react
+
+  &--optional {
+
+    &:after {
+      content: "(optional)";
+      font-size: .8em;
+      margin-left: .25em;
+    }
+  }
+  
+  &-condition {
+    font-size: $fonts-xsmall;
+  }
+
+  &--hidden {
+
+    @include ma-visually-hidden;
+
+    & + input {
+      margin-top: inherit;
+    }
+  }
+
+  &--inline {
+    display: inline;
+  }
+
+  &--small {
+    font-size: $fonts-smaller;
+  }
+}

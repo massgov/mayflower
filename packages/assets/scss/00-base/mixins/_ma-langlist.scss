@@ -1,0 +1,27 @@
+@use "variables" as *;
+/////////////////////////////////////
+// font-family setting for language support
+
+// This adds all of the language sets for a script to an `&:lang()` rule
+// it is used in script selector files so they can easily be applied to each font style
+// Set $fonts-enable-rtl in _global.scss to conditionally enable right-to-left scripts to render RTL. By default, it's set to false.
+
+@mixin ma-langlist($stack, $dir, $langs) {
+  
+  @each $lang in $langs {
+    &:lang(#{$lang}) {
+			font-family: '#{$stack} VF', $stack, $fonts !important;
+      
+      @if $fonts-enable-rtl { direction: $dir;}
+		}
+  }
+}
+
+
+// To use ma-langlist:
+// @use "mixins/ma-langlist";
+// @use "fonts-langs-vars";
+// @use "variables" as *;
+// *{ @include ma-langlist(fonts-langs-vars.$arabic-sans, rtl, fonts-langs-vars.$langs-Arab); }
+// *{ @include ma-langlist(fonts-langs-vars.$hebrew-sans, rtl, fonts-langs-vars.$langs-Hebr); }
+// *{ @include ma-langlist(fonts-langs-vars.$khmer-sans, null, fonts-langs-vars.$langs-Khmr); }

@@ -1,0 +1,12 @@
+@use "00-base/global" as *;
+
+.ma__descriptive-links {
+
+  .ma__descriptive-link {
+    padding-bottom: 2rem;
+
+    .ma__decorative-link {
+      padding-top: 1rem;
+    }
+  }
+}

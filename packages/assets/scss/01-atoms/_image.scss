@@ -1,0 +1,8 @@
+@use "00-base/global" as *;
+
+.ma__image {
+
+  &.circular {
+    border-radius: 50%;
+  }
+}

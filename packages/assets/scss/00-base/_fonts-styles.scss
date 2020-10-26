@@ -1,0 +1,26 @@
+@use "variables" as *;
+
+$styles: (
+  "lighter": $fonts-lighter,
+  "light": $fonts-light,
+  "normal": $fonts-normal,
+  "bold": $fonts-bold,
+  "bolder": $fonts-bolder
+);
+
+
+// Font weight classes
+
+.ma-fonts {
+
+  @each $class, $s in $styles {
+    &-#{$class} {
+      font-weight: $s;
+
+      &--italic {
+        font-weight: $s;
+        font-style: italic;
+      }
+    }
+  }
+}

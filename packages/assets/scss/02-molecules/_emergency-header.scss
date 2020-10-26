@@ -1,0 +1,96 @@
+@use "00-base/global" as *;
+
+.ma__emergency-header {
+
+  @include ma-container;
+  margin: 0;
+  padding: 12px;
+  font-size: inherit;
+  line-height: inherit;
+  background-color: $c-warning;
+
+  @media ($bp-small-max) {
+    text-align: center;
+  }
+
+  @media ($bp-large-min) {
+    display: flex;
+      align-items: center;
+  }
+
+  &__label {
+    display: block;
+    flex-shrink: 0;
+    flex-basis: auto;
+    letter-spacing: $letter-spacing-large;
+    white-space: nowrap;
+    color: rgba($c-font-base,.8);
+    font-weight: $fonts-bold;
+
+    @media ($bp-large-max) {
+      margin-bottom: 10px;
+    }
+
+    @media ($bp-large-min) {
+      border-right-width: 1px;
+      border-right-style: solid;
+      border-right-color: rgba($c-font-base,.3);
+      padding-right: 18px;
+      margin-right: 18px;
+    }
+
+    // icon
+
+    & > svg {
+      height: 24px;
+      margin-right: 7px;
+      vertical-align: middle;
+      width: 27px;
+
+      @media ($bp-small-min) {
+        height: 32px;
+        width: 36px;
+      }
+
+    }
+
+    // text
+
+    span {
+      display: inline-block;
+      font-size: $fonts-xsmall;
+      line-height: 1.13;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-size: $fonts-large;
+    line-height: 1.4;
+    margin-bottom: 0;
+    font-weight: $fonts-bold;
+
+    .ma__decorative-link {
+      display: inline;
+      vertical-align: baseline;
+    }
+
+  }
+}
+
+$colors: (
+  "c-warning": $c-warning,
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-error": $c-error,
+  "c-gray": $c-gray
+);
+
+@each $class, $c in $colors {
+  .ma__emergency-header--#{$class} {
+
+    @include ma-emergency-header($c);
+  }
+}

@@ -1,0 +1,93 @@
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@use "00-base/breakpoints" as *;
+
+@mixin ma-h1 {
+  font-size: $fonts-6xlarge;
+  line-height: 1.07;
+
+  @media ($bp-medium-min) {
+    font-size: $fonts-7xlarge;
+  }
+
+  @media ($bp-x-large-min) {
+    font-size: $fonts-8xlarge;
+  }
+}
+
+@mixin ma-h2 {
+  font-size: $fonts-3xlarge;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+
+  @media ($bp-medium-min) {
+    font-size: $fonts-4xlarge;
+  }
+
+  @media ($bp-x-large-min) {
+    font-size: $fonts-5xlarge;
+  }
+}
+
+@mixin ma-h3 {
+  font-size: $fonts-2xlarge;
+  line-height: 1.2;
+  margin-bottom: .75em;
+
+  @media ($bp-small-min) {
+    margin-bottom: 1em;
+  }
+}
+
+@mixin ma-h4 {
+  font-size: $fonts-xlarge;
+  line-height: 1.2;
+}
+
+@mixin ma-h5 {
+  font-size: $fonts-larger;
+  line-height: 1.3;
+  margin-bottom: .5em;
+}
+
+@mixin ma-h6 {
+  font-size: $fonts-large;
+  line-height: 1.4;
+  margin-bottom: .25em;
+}
+
+@mixin ma-heading($level: 1) {
+  font-weight: $fonts-bold;
+
+  @if ($level == 1) {
+
+    @include ma-h1;
+  }
+
+  @if ($level == 2) {
+
+    @include ma-h2;
+  }
+
+  @if ($level == 3) {
+
+    @include ma-h3;
+  }
+
+  @if ($level == 4) {
+
+    @include ma-h4;
+  }
+
+  @if ($level == 5) {
+
+    @include ma-h5;
+  }
+
+  @if ($level == 6) {
+
+    @include ma-h6;
+  }
+}

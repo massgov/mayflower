@@ -1,0 +1,92 @@
+@use "00-base/global" as *;
+
+.ma__download-link {
+
+  @include clearfix();
+
+  & + & {
+    padding-top: 25px;
+  }
+
+  &--small + &--small {
+    padding-top: 10px;
+  }
+
+  &__icon {
+    float: left;
+    height: 36px;
+    opacity: .75;
+    width: 55px;
+    overflow: hidden;
+
+    & > svg {
+      height: 36px;
+      width: 34px;
+    }
+  }
+
+  &--small &__icon {
+    height: 25px;
+    margin-top: 4px;
+    width: 40px;
+
+    & > svg {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: $fonts-medium;
+    margin-bottom: 0;
+    width: calc(100% - 66px);
+  }
+
+  &__file-link {
+
+    @include ma-link-underline;
+    padding-bottom: 3px;
+    margin-right: .2em;
+  }
+
+  &__file-spec {
+    font-size: $fonts-xsmall;
+    line-height: 2.14;
+    white-space: nowrap;
+  }
+
+  &__description {
+    font-size: $fonts-small;
+    margin-top: 10px;
+  }
+
+  .ma__form-downloads--listing & {
+    border-bottom: 1px solid;
+    padding-bottom: 25px;
+  }
+}
+
+//theme
+
+.ma__download-link {
+
+  &__icon {
+    fill: rgba($c-font-link,.7);
+  }
+
+  &__file-link {
+
+    &:hover {
+      border-bottom-color: rgba($c-font-link,.5);
+    }
+  }
+
+  &__file-spec {
+    font-weight: $fonts-normal;
+  }
+
+  .ma__form-downloads--listing & {
+    border-color: $c-bd-divider;
+  }
+}

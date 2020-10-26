@@ -1,0 +1,61 @@
+@use "00-base/global" as *;
+
+.ma__org-info {
+
+  &__header {
+    display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-left: -20px;
+  }
+
+  &__image {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    a {
+      display: block;
+      font-size: 0;
+    }
+  }
+
+  &__title {
+    flex-basis: calc(100% - 140px);
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__name {
+    font-size: $fonts-large;
+    margin-bottom: 0;
+  }
+
+  &__job-title {
+    font-size: $fonts-small;
+    margin-top: .5em;
+    margin-bottom: 0;
+  }
+
+  &__content {
+    font-size: $fonts-smaller;
+
+    .ma__rich-text {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+//theme
+
+.ma__org-info {
+
+  &__job-title {
+    font-weight: $fonts-light;
+  }
+}

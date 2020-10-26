@@ -1,0 +1,144 @@
+@use "00-base/global" as *;
+
+.ma__services {
+
+  @include ma-truncated-body-text;
+
+  .page-content--intro {
+
+    @media ($bp-large-min) {
+
+      & > .ma__image:first-child {
+        display: none;
+      }
+
+      .ma__video--right,
+      .ma__rich-text__container,
+      .ma__rich-text {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .more-info-header {
+
+    @include ma-container;
+
+    @include ma-component-spacing;
+
+    @include clearfix;
+
+    .ma__comp-heading {
+      margin-bottom: 0;
+    }
+  }
+
+  &.ma__services-flexible-link-groups {
+
+    .ma__action-finder h3.ma__action-finder__category {
+      margin-bottom: .4em;
+    }
+
+    .ma__stacked-row__section {
+
+      .ma__split-columns {
+        margin-top: 15px;
+      }
+    }
+
+    .ma__link-list {
+      max-width: inherit;
+      width: 100%;
+
+      @media ($bp-large-min) {
+        max-width: 820px;
+      }
+    }
+
+    .ma__link-list__item {
+      line-height: 1.3;
+      padding: 6px 0;
+    }
+
+    .ma__download-link__icon {
+      width: 35px;
+      height: 25px;
+      position: relative;
+      top: 4px;
+      left: -6px;
+
+      &>svg {
+        height: 25px;
+      }
+    }
+
+
+  }
+
+  .ma__stacked-row__section {
+
+    .ma__split-columns {
+
+      .ma__comp-heading,
+      .ma__sidebar-heading {
+
+        @include ma-h3;
+        border: 0;
+        margin-bottom: 0 !important;
+        text-transform: none;
+        letter-spacing: normal;
+      }
+
+    }
+  }
+
+  .ma__stacked-row__section .main-content .page-content {
+
+    .ma__action-finder,
+    .ma__mapped-locations,
+    .ma__event-listing,
+    .ma__image-credit {
+
+      @include ma-component-spacing;
+    }
+  }
+
+  .main-content--full .page-content--intro {
+
+    .ma__video--right + .ma__teaser-text {
+
+      @media ($bp-page-width-min) {
+        display: inline-block;
+        float: none;
+        margin-left: calc(50vw - (#{$max-width} / 2));
+        padding-right: 0;
+        width:  $max-width - 500px;
+      }
+    }
+
+    & > .ma__image:first-child {
+      margin-left: 20px;
+      margin-right: 20px;
+
+      @media ($bp-medium-min) {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+    }
+  }
+
+
+  .sidebar--intro {
+
+    & > .ma__image:first-child {
+
+      @media ($bp-large-max) {
+        display: none;
+
+        & + * {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

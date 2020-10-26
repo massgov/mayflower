@@ -1,0 +1,55 @@
+@use "00-base/global" as *;
+
+.ma__personal-message {
+  padding: 30px;
+  position: relative;
+
+  @media ($bp-small-min) {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .main-content--two .page-content > & {
+
+    @media ($bp-large-min) {
+      padding-left: 0;
+
+      &:before {
+        content: "";
+        height: 100%;
+        position: absolute;
+          right: 100%;
+          top: 0;
+        width: 50vw;
+      }
+    }
+  }
+
+  &__container {
+
+    .pre-content > &,
+    .post-content > &,
+    .main-content--full .page-content > & {
+
+      @include ma-container('restricted');
+    }
+  }
+
+  .ma__image-promo__details {
+    flex-basis: calc(100% - 130px)
+  }
+
+  .ma__image-promo__description {
+    font-size: $fonts-medium;
+  }
+}
+
+//theme
+
+.ma__personal-message {
+  background-color: $c-bg-subtle;
+
+  .main-content--two .page-content > &:before {
+    background-color: $c-bg-subtle;
+  }
+}

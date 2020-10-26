@@ -1,0 +1,18 @@
+@use "01-atoms/button-with-icon";
+@use "01-atoms/button-search";
+@use "01-atoms/input-typeahead";
+@use "01-atoms/svg-icons";
+@use "01-atoms/svg-loc-icons";
+
+.ma__input-typeahead {
+  &-toggle {
+    display: inline-block;
+  }
+
+  &--boxed {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    z-index: 100;
+  }
+}

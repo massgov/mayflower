@@ -1,0 +1,43 @@
+@use "00-base/global" as *;
+
+.ma__banner-credit {
+  position: relative;
+
+  &__container {
+    padding: 8px 30px;
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+      top: 0;
+      left: 0;
+
+    & > svg {
+      height: 27px;
+      width: 20px;
+    }
+  }
+
+  &__image-name {
+    font-size: $fonts-xsmall;
+    line-height: 1.125rem;
+  }
+
+  &__image-author {
+    font-size: $fonts-2xsmall;
+    line-height: 1.125rem;
+  }
+
+}
+//theme
+
+.ma__banner-credit {
+
+  &__icon {
+
+    & > svg {
+      fill: $c-primary-alt;
+    }
+  }
+}

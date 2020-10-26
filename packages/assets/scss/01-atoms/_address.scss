@@ -1,0 +1,13 @@
+@use "00-base/global" as *;
+
+.ma__address {
+
+  &__address {
+    font-weight: $fonts-bold;
+  }
+}
+
+.ma__contact__details {
+  font-style: italic;
+  margin: .2rem 0 0;
+}

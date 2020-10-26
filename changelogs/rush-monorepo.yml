@@ -1,0 +1,6 @@
+Changed:
+  - project: React, Patternlab, Assets, Site
+    component: NPM package
+    description: Restructure mono repo — group all projects under packages folder. Use rush and pnpm to manage and share dependencies. (#1195)
+    issue:
+    impact: Major
