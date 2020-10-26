@@ -38,7 +38,7 @@ module.exports = {
         short_name: 'starter',
         start_url: '/',
         display: 'minimal-ui',
-        icon: 'src/images/logo/stateseal.png' // This path is relative to the root of the site.
+        icon: `${path.dirname(require.resolve('@massds/mayflower-assets'))}/static/images/logo/stateseal.png` // This path is relative to the root of the site.
       }
     },
     {
