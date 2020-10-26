@@ -34,11 +34,11 @@ jobs:
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
+          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
           paths:
             - common
             - packages/assets/node_modules
@@ -56,7 +56,7 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
@@ -274,7 +274,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
       - run: sudo npm install -g pnpm @microsoft/rush
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -288,7 +288,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
       - run: sudo npm install -g pnpm @microsoft/rush
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
