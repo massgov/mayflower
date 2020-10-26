@@ -1,12 +1,8 @@
 # Mayflower Assets
-The styles provided by this package require compiling with a tool that supports the [npm sass package](https://www.npmjs.com/package/sass). 
+The styles provided by this package require compiling with a tool that supports the [npm sass package](https://www.npmjs.com/package/sass).
 
 ## License
-Please note that the fonts and the svg-icons are licensed only for the usage on websites that are **owned by the Commonwealth of Massachusetts**. Mayflower is currently using a licensed web font Texta and purchased [Smashing Icons](https://smashicons.com/) for some icons.
-
-## Texta License
-Fontspring grants Licensee a perpetual, worldwide, non-exclusive and non-transferrable license to install the Texta as webfont on Websites that are owned by the Commonwealth of Massachusetts using the @font-face selector in CSS files. For other usage, you may have to acquire an additional license through Fontsprint.
-For more details about Texta's terms of use, please refer to our [web font license](https://www.fontspring.com/lic/htswufoczd).
+Please note that the icons are licensed only for the usage on websites that are **owned by the Commonwealth of Massachusetts**. Mayflower is currently using a licensed icon set purchased through [Smashing Icons](https://smashicons.com/).
 
 ## Publishing Instructions
 >To publish the package, you will have to be a collaborator or have access to the [@massds/mayflower-assets npm package](https://www.npmjs.com/package/@massds/mayflower-assets).
@@ -17,7 +13,7 @@ For more details about Texta's terms of use, please refer to our [web font licen
 
 
 ## Setup and Usage (fonts/images)
-If you're using this package only for its fonts and images, you can skip installing bourbon and sass. Assets can be found under `fonts` and `images`.
+If you're using this package only for its fonts and images, you can skip installing bourbon and sass. Static assets like fonts, images and state seals can be found under `static`.
 
 ## Setup and Usage (Sass)
 When using this package for the .scss files, you should set the sass package's include paths to include bourbon's include paths as well as this package's own. This package's include paths are:
@@ -128,11 +124,11 @@ const compileSass = () => {
   // Loops over all files in the stream with flatmap.
   .pipe(flatmap((stream, file) => {
     // Normally you should require/import the index file
-    // to get the includePaths used but that points to 
+    // to get the includePaths used but that points to
     // the dist/ directory. Here we mimic that by just replacing
     // dist/ with src/.
     return stream
-    
+
     .pipe(sass({
       includePaths: [
         path.join(__dirname, 'src'),
