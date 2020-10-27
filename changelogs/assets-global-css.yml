@@ -9,7 +9,7 @@ Changed:
     component: NPM package
     description: The functionality of packages/assets/scss/00-base/_global.scss has changed to contain optional miscellaneous styles a site can include once for setting up layout/fonts/normalization. (#1240)
     issue: 
-    impact: Major
+    impact: Minor
   - project: React, Assets, Site, Patternlab
     component: NPM package
     description: The file at packages/assets/scss/00-base/configure.scss preserves the previous behavior of packages/assets/scss/00-base/_global.scss. All files previously pointing to _global.scss have been updated to point at _configure.scss. (#1240)
