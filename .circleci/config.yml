@@ -24,7 +24,7 @@ patternlab_defaults: &patternlab_defaults
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
-    - image: circleci/python:2.7.14
+    - image: cimg/python:2.7.14
 
 jobs:
   build:
@@ -36,6 +36,13 @@ jobs:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
+      - run: {name: 'Build Packages', command: 'node common/scripts/install-run-rush.js build'}
+      - run:
+          name: Mayflower React Build Storybook
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
+      - run:
+          name: Mayflower React Storybook Extract
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js storybook:extract
       - save_cache:
           name: Save NPM cache
           key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
@@ -187,15 +194,7 @@ jobs:
       - run:
           name: Mayflower React Build
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
-      - run:
-          name: Mayflower React Build Storybook
-          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
-      - run:
-          name: Mayflower React Storybook Extract
-          command: cd packages/react && node ../../common/scripts/install-run-rushx.js storybook:extract
-      - run:
-          name: Mayflower React Linter
-          command: cd packages/react && node ../../common/scripts/install-run-rushx.js lint
+      
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
@@ -205,6 +204,9 @@ jobs:
     steps:
       - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
+      - run:
+          name: Mayflower React Linter
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js lint
       - run: |
           cd packages/react
           docker-compose up --no-start web backstop
@@ -228,7 +230,7 @@ jobs:
     <<: *react_defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: ~/code
       - *configure_npm
       - run:
           name: 'Publish mayflower-react NPM package'
@@ -297,12 +299,12 @@ jobs:
 
 
   assets_build:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
       - run:
           name: Mayflower Style Linter
           command: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
@@ -372,35 +374,35 @@ workflows:
           filters:
             branches: { only: /dependabot\/.*/ }
       - assets_build:
-          requires: [react_build_storybook]
+          requires: [build]
           filters:
             branches: { ignore: /(docs|site\/).*/ }
       # patternlab
-      - patternlab_build:
+      # - patternlab_build:
+      #     requires: [build]
+      #     filters:
+      #       branches: { ignore: /(docs|react\/|site\/).*/ }
+      - patternlab_deploy_branch:
           requires: [build]
           filters:
             branches: { ignore: /(docs|react\/|site\/).*/ }
-      - patternlab_deploy_branch:
-          requires: [patternlab_build]
-          filters:
-            branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_test:
-          requires: [patternlab_build]
+          requires: [build]
           filters:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       # react
-      - react_build_storybook:
-          filters:
-            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+      # - react_build_storybook:
+      #     filters:
+      #       branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       - react_test:
-          requires: [react_build_storybook]
+          requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       # site
-      - site_build:
-          requires: [react_build_storybook]
-          filters:
-            branches: { ignore: /(docs|patternlab\/|react\/).*/ }
+      # - site_build:
+      #     requires: [react_build_storybook]
+      #     filters:
+      #       branches: { ignore: /(docs|patternlab\/|react\/).*/ }
 
   # Release branch automation every Monday at 4:10 p.m. ET
   release:
@@ -443,37 +445,37 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
-      - patternlab_build:
+      # - patternlab_build:
+      #     requires: [build]
+      #     filters:
+      #       branches: { ignore: /.*/ }
+      #       tags: { only: /.*/ }
+      - patternlab_deploy_tag:
           requires: [build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
-      - patternlab_deploy_tag:
-          requires: [patternlab_build]
-          filters:
-            branches: { ignore: /.*/ }
-            tags: { only: /.*/ }
-      - react_build_storybook:
-          filters:
-            branches: { ignore: /.*/ }
-            tags: { only: /.*/ }
+      # - react_build_storybook:
+      #     filters:
+      #       branches: { ignore: /.*/ }
+      #       tags: { only: /.*/ }
       - react_deploy_tag:
-          requires: [react_build_storybook]
+          requires: [build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - assets_deploy_tag:
-          requires: [react_build_storybook]
+          requires: [build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
-      - site_build:
-          requires: [react_build_storybook]
-          filters:
-            branches: { ignore: /.*/ }
-            tags: { only: /.*/ }
+      # - site_build:
+      #     requires: [build]
+      #     filters:
+      #       branches: { ignore: /.*/ }
+      #       tags: { only: /.*/ }
       - site_deploy_tag:
-          requires: [site_build]
+          requires: [build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
