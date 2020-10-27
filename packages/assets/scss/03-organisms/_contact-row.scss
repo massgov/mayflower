@@ -1,7 +1,7 @@
 //Custom breakpoint for contact row
 $accordion-break: 720px;
 
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 .ma__contact-row {
   position: relative;
