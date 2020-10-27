@@ -129,6 +129,12 @@ jobs:
       - *configure_git
       - *configure_npm
       - run:
+          name: 'Install AWS'
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+      - run:
           name: 'Deploy Artifact Tag'
           command: |
             # This snippet pushes the dist directory to the artifact repo by faking a checkout
