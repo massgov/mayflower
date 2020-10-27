@@ -14,7 +14,7 @@
 
     // support pre-existing figure elements besides dataviz.
 
-    &--left,
+    &--left:not(.ma__dataviz),
     &--align-left,
     &.align-left {
       float: left;
@@ -22,7 +22,7 @@
       width: 50%;
     }
 
-    &--right,
+    &--right:not(.ma__dataviz),
     &--align-right,
     &.align-right {
       float: right;
@@ -52,6 +52,7 @@
     line-height: 1.57;
   }
 
+  // extra large
   &--x-large {
 
     width: 100%;
@@ -61,47 +62,20 @@
 
   // Small
 
-  .no-sidebar &--small {
+  &--small {
 
     @media ($bp-small-min) {// 621~
-      width: calc(33.33% - 30px);
-      width: calc(100% / 3 - 30px);
-    }
-  }
-
-  .page-content:not(.no-sidebar) &--small {
-    width: 100%;
-
-    @media ($bp-large-max) {
-      margin-right: 0;
-      margin-left: 0;
-    }
-
-    @media ($bp-large-min) {// 910~
-      width: calc(33.33% - 30px);
-      width: calc(100% / 3 - 30px);
+      width: 33.33%;
+      width: calc(100% / 3);
     }
   }
 
   // Medium
 
-  .no-sidebar &--medium {
+  &--medium {
 
     @media ($bp-small-min) {// 621~
-      width: calc(50% - 30px);
-    }
-  }
-
-  .page-content:not(.no-sidebar) &--medium {
-    width: 100%;
-
-    @media ($bp-large-max) {
-      margin-right: 0;
-      margin-left: 0;
-    }
-
-    @media ($bp-large-min) {// 910~
-      width: calc(50% - 30px);
+      width: 50%;
     }
   }
 
@@ -123,14 +97,6 @@
     @media ($bp-large-min) {
       width: 66.66%;
       width: calc(100% / 3 * 2);
-    }
-  }
-
-  .page-content:not(.no-sidebar) &--large {
-
-    @media ($bp-large-min) {
-      margin-right: 0;
-      margin-left: 0;
     }
   }
 
@@ -179,11 +145,6 @@
 
     @media ($bp-small-min) {// 621~
 
-      padding-left: 50%;
-    }
-
-    @media ($bp-medium-min) {// 781~
-
       padding-left: 66.66%;
       padding-left: calc(100% / 3 * 2);
     }
@@ -194,12 +155,6 @@
   .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium {
 
     @media ($bp-small-min) {// 621~
-
-      padding-left: 33.33%;
-      padding-left: calc(100% / 3);
-    }
-
-    @media ($bp-medium-min) {// 781~
 
       padding-left: 50%;
     }
