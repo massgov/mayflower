@@ -63,7 +63,7 @@
   input:checked ~ label {
 
     &:before {
-      content: url("#{$assets-path}/images/svg-icons/checkmark.svg"); //"✔";
+      content: url("#{$assets-path}/images/icons/checkmark.svg"); //"✔";
     }
   }
 
