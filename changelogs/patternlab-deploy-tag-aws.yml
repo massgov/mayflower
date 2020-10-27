@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: CircleCI Configuration
+    description: Updates patternlab_deploy_tag job in CircleCI to install AWS. (#1242)
+    issue: 
+    impact: Minor
