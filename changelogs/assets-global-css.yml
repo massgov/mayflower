@@ -14,7 +14,7 @@ Changed:
     component: NPM package
     description: The file at packages/assets/scss/00-base/configure.scss preserves the previous behavior of packages/assets/scss/00-base/_global.scss. All files previously pointing to _global.scss have been updated to point at _configure.scss. (#1240)
     issue: 
-    impact: Major
+    impact: Minor
   - project: React
     component: Header, HeaderSlim, Footer, FooterSlim
     description: The _index.scss files used by Header, HeaderSlim, Footer, and FooterSlim's storybook stories have been moved to packages/assets/build.
