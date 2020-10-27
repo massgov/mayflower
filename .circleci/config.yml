@@ -473,7 +473,7 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - site_deploy_tag:
-          requires: [react_build_storybook]
+          requires: [site_build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
