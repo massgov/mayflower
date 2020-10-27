@@ -2,8 +2,8 @@ import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
+import styles from '@massds/mayflower-assets/build/footer-slim.scss';
 import FooterSlim from './index';
-import styles from './_index.scss';
 import FooterSlimDocs from './FooterSlim.md';
 
 export const FooterSlimExample = (args) => <FooterSlim {...args} />;

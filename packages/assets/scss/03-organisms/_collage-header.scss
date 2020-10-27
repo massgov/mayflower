@@ -1,6 +1,6 @@
 $collage-header-bp-min: "min-width: 701px";
 
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 .ma__collage-header {
   overflow: hidden;

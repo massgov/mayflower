@@ -4,7 +4,7 @@
 // some variables adjust the settings in Neat
 // Bower vendors
 @use "pikaday";
-@use "00-base/global" with(
+@use "00-base/configure" with(
   // relative to the compiled css in public/
   $assets-path: '../../assets'
 );

@@ -7,7 +7,7 @@
  // Sass frameworks added in npm
 
  // some variables adjust the settings in Neat
-@use "00-base/global" with(
+ @use "00-base/configure" with(
   $assets-path: '/assets'
 );
 @use "00-base/z-index";

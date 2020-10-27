@@ -1,5 +1,5 @@
 @use "sass:meta";
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 @use "01-atoms/button-search" as *;
 
 .ma__header-search {
