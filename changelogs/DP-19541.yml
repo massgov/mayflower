@@ -1,6 +1,0 @@
-Changed:
-  - project: React
-    component: HeaderSlim
-    description: Extend HeaderSlim component to allow passing in custom components/HTML elements into the utility nav (blue bar) and the main header area, providing basic layout and styles. (#1207)
-    issue: DP-19541
-    impact: Minor

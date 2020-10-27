@@ -1,6 +1,0 @@
-Changed:
-  - project: React
-    component: NPM package
-    description: Removed NWB package and replaced its usage with gulp. Combined lib(es5) and es(es6) directory in dist, and added Webpack/Babel aliases to flatten the structure of the mayflower-react published package. Removed storybook specific data from published package. Cleaned up all component styles in mayflower-react to rely on mayflower-assets peer dependency. (#1039)
-    issue: DP-18263
-    impact: Major
