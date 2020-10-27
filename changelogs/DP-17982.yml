@@ -1,6 +1,0 @@
-Changed:
-  - project: React
-    component: RichText
-    description: Refactor RichText component to render raw HTML without `dangerouslySetInnerHTML`. (#1006)
-    issue: DP-17982
-    impact: Major

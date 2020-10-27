@@ -1,6 +1,6 @@
 // Custom Date input
 
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 .ma__input-date[type=text] {
   background-image: url("#{$assets-path}/images/svg-icons/date-picker.svg");

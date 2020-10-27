@@ -2,7 +2,7 @@ $header-mobile-menu-width: 300px;
 $header-logo-width: 150px;
 $bp-header-logo-min: "min-width: 1000px";
 
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 @use "sass:color" as *;
 

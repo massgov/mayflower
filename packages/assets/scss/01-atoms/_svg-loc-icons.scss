@@ -1,7 +1,7 @@
 // heights should all be 40px tall
 // add top padding to compensate
 
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 .svg-loc-dogs-allowed {
   height: 35px;
