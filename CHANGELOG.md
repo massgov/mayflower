@@ -1,6 +1,31 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 10.0.0 (10/27/2020)
+### Changed 
+- (React) [RichText] DP-17982: Refactor RichText component to render raw HTML without `dangerouslySetInnerHTML`. (#1006)
+- (React) [TeaserListing] DP-18263: Refactor TeaserListing and convert it to a composition component. (#1050)
+- (React) [Icon] DP-19414: Icon has been refactored from one component into many icon components. Each .svg icon file is now generated into its own React component at build time with SVGR and SVG Sprite Loader is no longer used. (#1123)
+- (React, Assets) [FooterSlim] DP-19539: Allow adding multiple logos, added `stackedLogo` prop to support multiple logo layout. (#1149)
+- (React) [HeaderSlim] DP-19541: Extend HeaderSlim component to allow passing in custom components/HTML elements into the utility nav (blue bar) and the main header area, providing basic layout and styles. (#1207)
+- (Assets) [Fonts] DP-20050: Switch fonts from Texta to Noto Sans, removed fallback fonts and added language support. (#1193)
+- (Patternlab) [ResponsiveTable] DP-20241: Remove extra space above the sticky table header. (#1226)
+- (React) [NPM package] DP-18263: Removed NWB package and replaced its usage with gulp. Combined lib(es5) and es(es6) directory in dist, and added Webpack/Babel aliases to flatten the structure of the mayflower-react published package. Removed storybook specific data from published package. Cleaned up all component styles in mayflower-react to rely on mayflower-assets peer dependency. (#1039)
+- (React, Patternlab, Assets, Site) [NPM package] Restructure mono repo — group all projects under packages folder. Use rush and pnpm to manage and share dependencies. (#1195)
+
+### Removed 
+- (React) [PressTeaser] DP-18263: Remove PressTeaser molecule from mayflower-react npm package. (#1049)
+- (React) [GeneralTeaser, Teaser] DP-18263: Remove GeneralTeaser and Teaser organisms from mayflower-react npm package. (#1050)
+
+### Fixed 
+- (React) [FooterSlim] DP-19539: Use address html tag for contact info in footer. (#1149)
+- (React) [FooterSlim] DP-19539: Removed mommentJS import. (#1149)
+
+### Added 
+- (Assets) [Fonts] DP-20050: Added `$fonts-enable-rtl` global variable to allow setting direction to "right-to-left" for languages like Arabic, Persian, Urdu and Hebrew. (#1193)
+- (Assets) [Fonts] DP-20050: Added `$fonts-langs-support` global variable to conditionally load and render additional fonts for language support. (#1193)
+- (Assets) [Fonts] DP-20050: Added `$fonts-display-global` global variable to control the custom fonts download and render behavior. (#1193)
+
 ## 9.56.0 (10/19/2020)
 ### Changed 
 - (Patternlab) [Header] DP-17154: Change the label of the hamburger menu button on mobile width. (#1099)
