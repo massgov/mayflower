@@ -24,7 +24,7 @@ patternlab_defaults: &patternlab_defaults
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
-    - image: cimg/python:2.7.14
+    - image: cimg/python:2.7.16
 
 jobs:
   build:
@@ -36,7 +36,7 @@ jobs:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
-      - run: {name: 'Build Packages', command: 'node common/scripts/install-run-rush.js build'}
+      - run: {name: 'Build Packages', command: 'node common/scripts/install-run-rush.js rebuild'}
       - run:
           name: Mayflower React Build Storybook
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
