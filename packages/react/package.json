@@ -24,7 +24,7 @@
     "prepublishOnly": "node ../../common/scripts/install-run-rushx.js build",
     "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
     "storybook:extract": "sb extract",
-    "build-storybook": "rushx build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static"
+    "build-storybook": "rushx build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static --quiet"
   },
   "pre-push": [
     "lint"

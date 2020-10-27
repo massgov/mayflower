@@ -24,7 +24,7 @@ patternlab_defaults: &patternlab_defaults
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
-    - image: cimg/python:2.7.16
+    - image: cimg/python:2.7-browsers
 
 jobs:
   build:
@@ -43,9 +43,6 @@ jobs:
       - run:
           name: Mayflower React Build Storybook
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
-      - run:
-          name: Mayflower React Storybook Extract
-          command: cd packages/react && node ../../common/scripts/install-run-rushx.js storybook:extract
       - save_cache:
           name: Save NPM cache
           key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
@@ -210,6 +207,9 @@ jobs:
       - run:
           name: Mayflower React Linter
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js lint
+      - run:
+          name: Mayflower React Storybook Extract
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js storybook:extract
       - run: |
           cd packages/react
           docker-compose up --no-start web backstop
