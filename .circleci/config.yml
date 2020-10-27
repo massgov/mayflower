@@ -134,7 +134,7 @@ jobs:
             # This snippet pushes the dist directory to the artifact repo by faking a checkout
             # of the artifact repository, creating a new commit and tag, then pushing.
             # See https://github.com/LastCallMedia/Artifact.sh/blob/master/artifact.sh
-            cd patternlab/styleguide/dist
+            cd packages/patternlab/styleguide/dist
             git clone --bare git@github.com:massgov/mayflower-artifacts.git .git
             git config core.bare false
             git symbolic-ref HEAD "refs/heads/master"
