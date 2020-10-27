@@ -66,7 +66,7 @@ module.exports = {
           "--disable-setuid-sandbox"
       ]
   },
-  "asyncCaptureLimit": 3,
+  "asyncCaptureLimit": 6,
   "asyncCompareLimit": 10,
   "debug": false,
   "debugWindow": false

@@ -34,7 +34,7 @@ jobs:
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-5
       - run:
           name: 'Install and Build Node Packages'
           command: |
@@ -45,13 +45,17 @@ jobs:
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
+          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-5
           paths:
             - common
+            - packages/assets/.rush
             - packages/assets/node_modules
             - packages/react/node_modules
+            - packages/react/.rush
             - packages/patternlab/styleguide/node_modules
+            - packages/patternlab/styleguide/.rush
             - packages/site/node_modules
+            - packages/site/.rush
       - persist_to_workspace:
           root: ~/code
           paths: ["*"]
@@ -63,7 +67,7 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-5
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
@@ -279,7 +283,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-5
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -293,7 +297,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-5
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -307,7 +311,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-5
       - run:
           name: Mayflower Style Linter
           command: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
