@@ -1,0 +1,22 @@
+Added:
+  - project: Assets
+    component: NPM package
+    description: Added functionality to generate css files based on scss files placed under packages/assets/build. A minified version of each scss file is also provided as [scss-filename].min.css. (#1240)
+    issue: 
+    impact: Minor
+Changed:
+  - project: Assets
+    component: NPM package
+    description: The functionality of packages/assets/scss/00-base/_global.scss has changed to contain optional miscellaneous styles a site can include once for setting up layout/fonts/normalization. (#1240)
+    issue: 
+    impact: Major
+  - project: React, Assets, Site, Patternlab
+    component: NPM package
+    description: The file at packages/assets/scss/00-base/configure.scss preserves the previous behavior of packages/assets/scss/00-base/_global.scss. All files previously pointing to _global.scss have been updated to point at _configure.scss. (#1240)
+    issue: 
+    impact: Major
+  - project: React
+    component: Header, HeaderSlim, Footer, FooterSlim
+    description: The _index.scss files used by Header, HeaderSlim, Footer, and FooterSlim's storybook stories have been moved to packages/assets/build.
+    issue: 
+    impact: Minor

@@ -5,7 +5,8 @@
   "main": "index.js",
   "files": [
     "static",
-    "scss"
+    "scss",
+    "css"
   ],
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   ],
   "scripts": {
     "build": "gulp",
+    "prepublishOnly": "gulp",
     "test": "npm run stylelint",
     "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
     "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose"
