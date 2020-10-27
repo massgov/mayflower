@@ -392,12 +392,7 @@
     {
       "packageName": "mayflower-site",
       "projectFolder": "packages/site"
-    },
-    {
-      "packageName": "mayflower",
-      "projectFolder": "."
     }
-
     // {
     //   /**
     //    * The NPM package name of the project (must match package.json)
