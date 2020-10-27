@@ -1,0 +1,64 @@
+@use "00-base/global" as *;
+
+.ma__decorative-link {
+
+  @include ma-link-decorative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+
+  a:hover {
+    border-bottom-color: rgba($c-font-link,.5);
+  }
+
+  a:focus {
+    // important needed to overwrite the focus border color
+    border-bottom-color: rgba($c-font-link,.5) !important;
+  }
+
+  svg {
+    fill: rgba($c-font-link,.5);
+  }
+
+  &.button-link {
+    outline: 1px solid rgba($c-font-link, 0.5);
+    display: inline-block;
+    width: auto;
+    padding: .5rem 1.8rem .5rem .8rem;
+    background-color: $c-white;
+
+    &:hover,
+    &:focus {
+      outline: 1px solid rgba($c-font-link, 1);
+
+      a {
+        border-bottom-color: transparent;
+
+        svg {
+          fill: rgba($c-font-link, 1);
+        }
+      }
+    }
+  }
+
+  &__details {
+    font-weight: $fonts-light;
+  }
+
+  a {
+
+    .ma__download-link--icon {
+      display: inline-flex;
+      align-self: center;
+      top: .3em;
+      position: relative;
+
+      svg {
+        margin-right: 0;
+        width: 29px;
+        height: 30px;
+      }
+    }
+  }
+
+}

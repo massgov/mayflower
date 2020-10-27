@@ -1,0 +1,14 @@
+@use "00-base/global" as *;
+
+.ma__helper-text {
+  font-size: $fonts-xsmall;
+  line-height: 1.438rem;
+  margin-top: 10px;
+}
+
+//theme
+
+.ma__helper-text {
+  font-style: italic;
+  font-weight: normal;
+}

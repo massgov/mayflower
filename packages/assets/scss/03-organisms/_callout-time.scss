@@ -1,0 +1,63 @@
+@use "00-base/global" as *;
+
+.ma__callout-time {
+  position: relative;
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container('restricted');
+  }
+
+  .ma__rich-text__container & {
+
+    @include ma-component-spacing;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__icon {
+    font-size: 0;
+    height: 30px;
+    position: absolute;
+      top: 16%;
+      left: 0;
+    width: 30px;
+
+    @media ($bp-medium-min) {
+      top: 10%;
+    }
+
+    & > svg {
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  &__text {
+    font-size: $fonts-medium;
+    font-style: italic;
+    display: inline-block;
+    padding-left: 42px; // width of icon and margin
+  }
+}
+
+//theme
+
+.ma__callout-time {
+
+  &__icon {
+
+    & > svg {
+      fill: $c-highlight;
+    }
+  }
+
+  &__text {
+    color: $c-font-detail;
+    font-weight: $fonts-normal;
+  }
+}

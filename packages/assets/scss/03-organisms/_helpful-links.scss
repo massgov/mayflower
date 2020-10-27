@@ -1,0 +1,23 @@
+@use "00-base/global" as *;
+
+.ma__helpful-links {
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container();
+  }
+
+  &__items {
+
+    @include ma-reset-list;
+  }
+
+  &--columns &__items {
+
+    @media ($bp-small-min) {
+      column-count: 2;
+    }
+  }
+}

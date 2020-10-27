@@ -1,0 +1,71 @@
+@use "00-base/global" as *;
+
+.ma__information-details {
+
+  &__pre-content-media {
+
+    .ma__figure {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__content {
+
+    & > * {
+
+      @include ma-component-spacing;
+    }
+  }
+}
+//theme
+
+.ma__information-details {
+
+  .pre-content .ma__rich-text {
+    margin-bottom: 30px;
+  }
+
+  &__content,
+  &__post-content {
+
+    & > * {
+
+      @include ma-component-spacing;
+    }
+  }
+
+  .ma__image-credit__container {
+    padding-left: 0;
+  }
+
+  &__pre-content-media {
+    margin-bottom: 5rem;
+  }
+
+  .ma__iframe {
+    margin-bottom: 1.75rem;
+  }
+
+  .sidebar {
+
+    @media ($bp-medium-min) {
+      padding-top: 10px;
+    }
+
+    .ma__link-list {
+      display: none;
+
+      @media ($bp-large-min) {
+        display: block;
+      }
+    }
+  }
+
+  .page-content.no-sidebar {
+    float: none;
+    padding-right: 0;
+    width: 100%;
+  }
+
+}

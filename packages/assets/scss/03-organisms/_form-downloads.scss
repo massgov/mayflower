@@ -1,0 +1,15 @@
+@use "00-base/global" as *;
+
+.ma__form-downloads {
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container('restricted');
+  }
+
+  &__see-all {
+    margin-top: 1rem;
+  }
+}

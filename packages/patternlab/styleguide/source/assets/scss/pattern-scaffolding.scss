@@ -1,0 +1,72 @@
+/**
+ * This stylesheet is for styles you want to include only when displaying demo
+ * styles for grids, animations, color swatches, etc.
+ * These styles will not be your production CSS.
+ */
+
+ // Sass frameworks added in npm
+
+ // some variables adjust the settings in Neat
+@use "00-base/global" with(
+  $assets-path: '/assets'
+);
+@use "00-base/z-index";
+@use "00-base/layout";
+
+#sg-patterns {
+  box-sizing: border-box !important;
+  max-width: 100%;
+  padding: 0 0.5em;
+}
+
+.demo-animate {
+  background: #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1em;
+  padding: 1em;
+  text-align: center;
+}
+
+.sg-colors {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.sg-colors li {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex-basis: auto;
+  margin: 0 0.5em 0.5em 0;
+  max-width: 14em;
+  min-width: 5em;
+  padding: 0.3em;
+}
+
+.sg-swatch {
+  border-radius: 5px;
+  display: block;
+  height: 4em;
+  margin-bottom: 0.3em;
+}
+
+.sg-label {
+  font-size: 90%;
+  line-height: 1;
+}
+
+.sg-pattern-extra.active {
+
+}
+
+// overriding Flex box code - IE11 bug with height = 0
+.sg-tabs-content,
+.sg-tabs,
+.sg-pattern-extra-code,
+.sg-pattern-extra-inner,
+.sg-modal-content-inner {
+  display: block;
+  width: 100%;
+}

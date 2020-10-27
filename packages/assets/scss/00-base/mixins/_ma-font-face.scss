@@ -1,0 +1,38 @@
+/////////////////////////////////////
+// font-face imports for language support
+
+@use "paths" as *;
+
+@use "variables" as *;
+
+$oneSpace: 	' ';
+$oneDash:		'-';
+
+@mixin ma-font-face ($family: "Noto", $type: "Sans", $script: "Cyrillic", $suffix: "UI", $weight: "VF", $subset: "-subset", $fontWeight: "100 900", $fontStyle: "normal", $fontDisplay: $fonts-display-global, $unicodeRange: "cyrillic", $space: $oneSpace, $dash: $oneDash) {
+
+	@if $weight == "VF" {
+		font-family: '#{$family} #{$type} #{$script}#{$space}#{$suffix} VF';
+	} @else {
+		font-family: '#{$family} #{$type} #{$script}#{$space}#{$suffix}';
+	}
+	src:	url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$oneDash}#{$weight}#{$subset}.woff2') format('woff2'),
+				url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$oneDash}#{$weight}#{$subset}.woff') format('woff'),
+				// url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$weight}#{$subset}.eot?#iefix') format('embedded-opentype'),
+				// url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$weight}#{$subset}.svg') format('svg'),
+				;
+	font-weight: $fontWeight;
+	font-style: $fontStyle;
+	font-display: $fontDisplay;
+	unicode-range: $unicodeRange;
+}
+
+// To use ma-font-face:
+// @use "mixins/ma-font-face";
+// @use "fonts-langs-vars";
+// @use "variables" as *;
+// // Lao
+// @font-face { @include ma-font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, $fonts-display-global, fonts-langs-vars.$lao, null, null); }
+//
+// // Malayalam
+// @font-face { @include ma-font-face(Noto, Sans, Malayalam, null, VF, -subset, 100 900, normal, $fonts-display-global, fonts-langs-vars.$malayalam, null, null); }
+////

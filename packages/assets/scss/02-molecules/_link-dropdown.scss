@@ -1,0 +1,42 @@
+@use "00-base/global" as *;
+
+.ma__link-dropdown {
+
+  display: inline-block;
+
+  .ma__link-dropdown-menu {
+    position: fixed;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    list-style: none;
+    background-color: $c-white;
+
+    &--expanded {
+      box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+    }
+
+    .ma__link-dropdown-item {
+      display: block;
+      width: 100%;
+      padding: 5px calc(5px + 0.8em) 5px 5px;
+      font-size: $fonts-xsmall;
+      text-align: inherit;
+      white-space: nowrap;
+      background-color: transparent;
+      border: 0;
+
+      a, a:hover, a:hover {
+        border-bottom: none;
+        width: 100%;
+      }
+
+      &:hover, &:focus {
+        background-color: $c-gray-light;
+      }
+    }
+
+  }
+
+}

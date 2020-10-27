@@ -1,0 +1,53 @@
+@use "00-base/global" as *;
+
+.ma__form-page {
+
+  & > * {
+
+    @include ma-component-spacing;
+  }
+
+  & > .ma__comp-heading {
+    margin-bottom: 0;
+  }
+
+  fieldset {
+
+    label,
+    .ma__input-group__title {
+     color: $c-font-detail;
+    }
+
+    & > fieldset,
+    & > label {
+      margin-top: 30px;
+
+      @media ($bp-small-min) {
+        margin-top: 45px;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    & > .ma__select-box,
+    & > input[type=text] {
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .ma__button {
+      margin-top: .25em;
+    }
+  }
+
+  textarea,
+  .ma__textarea__wrapper {
+    width: 100%;
+  }
+
+  .ma__helper-text {
+    margin-top: 10px;
+  }
+}

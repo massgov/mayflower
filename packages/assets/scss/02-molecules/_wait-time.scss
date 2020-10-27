@@ -1,0 +1,113 @@
+@use "00-base/global" as *;
+
+.ma__wait-time {
+
+  &__title {
+
+    @include ma-border-decorative;
+
+    @include ma-h3;
+    margin-bottom: .75em;
+    padding-bottom: .5em;
+
+    &:after {
+      width: 100%;
+    }
+
+    span,
+    & > svg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    & > svg {
+      height: 40px;
+      width: 40px;
+    }
+
+    span {
+      font-size: $fonts-medium;
+      letter-spacing: $letter-spacing-large;
+      line-height: 1.39;
+      padding-left: 5px;
+      padding-top: 7px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__items {
+
+    @include ma-reset-list;
+    display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+  }
+
+  &__item {
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-bottom: 20px;
+    width: 50%;
+
+    &:nth-child(even) {
+      border-left: 1px solid;
+      padding-left: 38px;
+    }
+
+    &:nth-child(odd) {
+      padding-right: 38px;
+    }
+  }
+
+  &__label {
+    font-size: $fonts-2xsmall;
+    letter-spacing: $letter-spacing-large;
+    line-height: 1.27;
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
+
+  &__time {
+    font-size: $fonts-2xlarge;
+  }
+
+  &__units {
+    font-size: $fonts-large;
+  }
+}
+
+//theme
+
+.ma__wait-time {
+
+  &__title {
+
+    @include ma-border-decorative($c-highlight);
+
+    svg {
+      fill: $c-highlight;
+    }
+
+  }
+
+  &__item {
+
+    &:nth-child(even) {
+      border-color: $c-bd-divider;
+    }
+  }
+
+  &__label {
+    color: $c-font-medium;
+    font-weight: $fonts-bold;
+  }
+
+  &__time {
+    font-weight: 900;
+  }
+
+  &__units {
+    font-weight: $fonts-normal;
+  }
+}

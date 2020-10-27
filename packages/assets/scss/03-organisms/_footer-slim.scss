@@ -1,0 +1,124 @@
+@use "00-base/global" as *;
+
+.ma__footer-slim {
+  background-color: $c-platinum-gray;
+  font-size: $fonts-small;
+  line-height: 1.2;
+  padding: 20px 0 30px;
+  position: relative;
+
+  .ma__container {
+
+    @include ma-container;
+  }
+
+  &__container {
+
+    &__logos {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      & > * {
+        margin-right: 1rem;
+      }
+
+      @media ($bp-large-min) {
+        position: absolute;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &--stacked {
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      padding-top: 0rem;
+
+      @media ($bp-large-min) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0.75rem 0 0 3.5rem;
+      }
+
+      &--stacked {
+        padding-left: 0;
+      }
+    }
+  }
+
+
+
+  &__info {
+    max-width: 500px;
+
+    @media ($bp-large-min) {
+      margin-right: 2rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  &__title {
+
+    @include ma-heading(3);
+    font-size: $fonts-small;
+  }
+
+  &__details {
+    margin-top: 2rem;
+
+    @media ($bp-large-min) {
+      display: block;
+      margin-top: 0;
+    }
+  }
+
+  &__links {
+    margin-bottom: 1em;
+
+    a {
+      color: $c-primary;
+      font-weight: 600;
+
+      &:after {
+        content: "|";
+        font-weight: $fonts-lightest;
+        margin: 0 0.85rem;
+      }
+
+      &:last-child:after {
+        content: "";
+        margin: 0;
+      }
+    }
+  }
+
+  &__contact {
+
+    a {
+      font-weight: $fonts-normal;
+    }
+
+    &__item {
+      display: flex;
+      margin-bottom: 1rem;
+
+      svg {
+        fill: $c-primary-alt;
+      }
+
+      span, a {
+        padding-left: 0.25rem;
+      }
+    }
+  }
+
+}
