@@ -11,7 +11,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import { HeaderSlim, SiteLogo, FooterSlim } from '@massds/mayflower-react';
 import '../styles/_layout.scss';
-import logo from '../images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
+
 
 const Layout = ({ children, pre }) => {
   const data = useStaticQuery(graphql`
