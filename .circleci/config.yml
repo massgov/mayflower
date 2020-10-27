@@ -401,10 +401,6 @@ workflows:
           requires: [react_build_storybook]
           filters:
             branches: { ignore: /(docs|patternlab\/|react\/).*/ }
-      - release_branch:
-          requires: [build]
-          filters:
-            branches: { ignore: /(docs|react\/|site\/).*/ }
 
   # Release branch automation every Monday at 4:10 p.m. ET
   release:
