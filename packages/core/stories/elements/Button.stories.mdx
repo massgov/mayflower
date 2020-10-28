@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Button from '@massds/mayflower-react/dist/Button';
+import '@massds/mayflower-react/dist/Button/_index.scss';
+
+@forward "00-base/global" with (
+  $assets-path: "~@massds/mayflower-assets/static" !default,
+  $fonts-enable-rtl: true !default,
+);
+import '@massds/mayflower-assets/scss/00-base/_fonts.scss';
+
+import generateTitle from '../util/generateTitle';
+
+<Meta title={generateTitle('Button')} />
+
+export const Template = (args) => <Button {...args } />
+
+<Story name="primary" args={{
+    text: 'Button',
+    label: 'Positive'
+}}>
+  {Template.bind({})}
+</Story>
