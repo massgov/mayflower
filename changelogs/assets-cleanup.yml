@@ -1,0 +1,11 @@
+Changed:
+  - project: Assets
+    component: Images
+    description: Rename `assets/static/images/svg-icons` to `assets/static/images/icons` and move checkmark.svg into the icons folder. (#1243)
+    issue:
+    impact: Minor
+  - project: Assets, React, Site, Patternlab
+    component: Images
+    description: Move stateseal PNGs into a folder named logo. (#1243)
+    issue:
+    impact: Minor
