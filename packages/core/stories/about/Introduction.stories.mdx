@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import {
+  SectionLinks, DecorativeLink, CalloutLink
+} from '@massds/mayflower-react';
+
+import '@massds/mayflower-react/dist/Button/_index.scss';
+import '@massds/mayflower-react/dist/SectionLinks/_index.scss';
+
+import '../styles/index.scss';
+
+
+import generateTitle from '../util/generateTitle';
+
+<Meta title={generateTitle('Introduction')} />
+
+# Welcome to Mayflower
+
+Mayflower is a living styleguide for the Massachusetts state government — providing guidance and tools for Massachusetts state agencies to create a cohesive government identity and trustworthy look and feel across Commonwealth digital ecosystem.
+
+<div className="row ma__row--three-up">
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Design Principles'
+      }}
+      description="Design principles are the guiding theories and rationales for the Mayflower brand and other implementation ground rules, where all the system-wide design decisions and best practices are rooted in. Follow these guides when making about adopting or contributing to Mayflower."
+      index={0}
+    >
+      <DecorativeLink text="Brand Pillars" href="" />
+      <DecorativeLink text="Design Guidelines" href="" />
+    </SectionLinks>
+  </div>
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Design Tokens'
+      }}
+      description="Design tokens are assets and variables referenced and propagated throughout the design system. Apply these basic design vocabulary to achieve a cohesive visual brand across various mediums and tech stacks. "
+      index={1}
+      >
+      <DecorativeLink text="Colors" href="" />
+      <DecorativeLink text="Typography" href="" />
+      <DecorativeLink text="Logo" href="" />
+      <DecorativeLink text="Icons" href="" />
+    </SectionLinks>
+  </div>
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Brand Touch Points'
+      }}
+      description="Branding components are the templating components, such as Headers and Footers, and other base elements, such as Heading, Links, Buttons, that are frequently used in all web products. Learn about how to implement these quickly to achieve a consistent look and feel with the other Commonwealth digital products."
+      index={2}
+      >
+      <DecorativeLink text="Branding Components" href="" />
+      <DecorativeLink text="Base Elements" href="" />
+    </SectionLinks>
+  </div>
+</div>

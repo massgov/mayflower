@@ -1,0 +1,22 @@
+@forward "00-base/configure" with (
+  $assets-path: "~@massds/mayflower-assets/static" !default,
+  $fonts-enable-rtl: true !default,
+);
+
+@use '~@massds/mayflower-assets/scss/00-base/fonts';
+@use './bootstrap-grid';
+
+@use '~@massds/mayflower-assets/scss/00-base/elements';
+@use '@massds/mayflower-assets/scss/01-atoms/decorative-link';
+
+.row.ma__row--three-up {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+// Match row height
+.ma__section-links {
+  height: 100%;
+  &__title {
+    margin-bottom: 0;
+  }
+}
