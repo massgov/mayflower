@@ -20,11 +20,13 @@ patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
     - image: cimg/php:7.3-node
+  resource_class: xlarge
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
     - image: cimg/python:2.7-browsers
+  resource_class: xlarge
 
 jobs:
   build:
