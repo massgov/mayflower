@@ -1,0 +1,6 @@
+Changed:
+  - project: Assets
+    component: PressTeaser, OrganizationNavigation, ContactGroup
+    description: Fine tune line-height setting in the components. (#1248)
+    issue: DP-20363
+    impact: Patch
