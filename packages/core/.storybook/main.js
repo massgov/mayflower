@@ -26,7 +26,8 @@ module.exports = {
               nodeModules,
               pnpmNodeModules,
               path.resolve(__dirname, '../stories'),
-              path.resolve(nodeModules, '@massds/mayflower-react/dist')
+              path.resolve(nodeModules, '@massds/mayflower-react/dist'),
+              path.resolve(nodeModules, '@massds/mayflower-assets/scss')
             ].concat(assets.includePaths)
           }
         }
