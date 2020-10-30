@@ -1,4 +1,4 @@
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 .ma__press-teaser {
 
@@ -68,12 +68,11 @@
 
   &__title {
     font-size: $fonts-larger;
-    line-height: 1.2em;
+    line-height: 1.5;
     margin-bottom: .25em;
 
     .ma__decorative-link {
       font-size: $fonts-larger;
-      line-height: 1.2;
     }
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-import logo from '@massds/mayflower-assets/static/images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
 import NarrowTemplate from '.';
 import NarrowTemplateDocs from './NarrowTemplate.md';

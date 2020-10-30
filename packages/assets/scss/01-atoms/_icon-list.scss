@@ -1,4 +1,4 @@
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 .ma__rich-text .ma__icon-list,
 .ma__icon-list {
@@ -33,6 +33,6 @@
 .ma__icon-list {
 
   & > li {
-    background: url('#{$assets-path}/images/svg-icons/circle-chevron-green.svg') no-repeat left top;
+    background: url('#{$assets-path}/images/icons/circle-chevron-green.svg') no-repeat left top;
   }
 }

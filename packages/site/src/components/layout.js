@@ -11,7 +11,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import { HeaderSlim, SiteLogo, FooterSlim } from '@massds/mayflower-react';
 import '../styles/_layout.scss';
-import logo from '../images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
+
 
 const Layout = ({ children, pre }) => {
   const data = useStaticQuery(graphql`
@@ -36,13 +37,12 @@ const Layout = ({ children, pre }) => {
       width: 45,
       height: 45
     },
-    siteName: title,
     title: description
   };
   // Makes sure that header and footer don't use the same
   // SiteLogo component instance.
   const headerProps = {
-    siteLogo: <SiteLogo {...siteLogoProps} />
+    siteLogo: <SiteLogo {...siteLogoProps} siteName={title}/>
   };
 
   const footerProps = {

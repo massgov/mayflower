@@ -1,4 +1,4 @@
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 .ma__form-requirements {
   position: relative;
@@ -60,6 +60,6 @@
   }
 
   &__container {
-    background: transparent url('#{$assets-path}/images/svg-icons/bg-checklist.svg') right 50px bottom -50px no-repeat;
+    background: transparent url('#{$assets-path}/images/icons/bg-checklist.svg') right 50px bottom -50px no-repeat;
   }
 }

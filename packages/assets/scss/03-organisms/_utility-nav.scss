@@ -1,6 +1,6 @@
 $utility-nav-height: 43px;
 
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 .ma__utility-nav {
   position: relative;

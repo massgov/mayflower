@@ -129,6 +129,12 @@ jobs:
       - *configure_git
       - *configure_npm
       - run:
+          name: 'Install AWS'
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+      - run:
           name: 'Deploy Artifact Tag'
           command: |
             # This snippet pushes the dist directory to the artifact repo by faking a checkout
@@ -402,7 +408,8 @@ workflows:
           filters:
             branches: { ignore: /(docs|patternlab\/|react\/).*/ }
 
-  # Release branch automation every Monday at 4:10 p.m. ET
+  # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
+  # Release branch automation every Friday at 12:00 p.m. ET (temporary)
   release:
     jobs:
       - build
@@ -410,7 +417,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "45 14 * * 2"
+          cron: "00 16 * * 5"
           filters:
             branches:
               only:

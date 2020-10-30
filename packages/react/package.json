@@ -21,7 +21,7 @@
     "start": "rushx build:icons && rushx storybook",
     "lint": "eslint . -c .eslintrc.json",
     "lint-fix": "eslint --fix . && exit 0",
-    "prepublishOnly": "node ../../common/scripts/install-run-rushx.js build",
+    "prepublishOnly": "gulp",
     "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
     "storybook:extract": "sb extract",
     "build-storybook": "rushx build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static"
@@ -112,7 +112,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.0",
-    "github-markdown-css": "^3.0.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-rename": "^2.0.0",

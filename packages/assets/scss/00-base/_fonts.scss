@@ -1,5 +1,5 @@
 /* Set $assets-path in _global.scss to form the correct links to the parent folder of fonts/ based on the location of the compiled css
- * @forward "00-base/global" with (
+ * @forward "00-base/configure" with (
      $assets-path: "~@massds/mayflower-assets/static"
    );
 */
@@ -84,7 +84,7 @@
 /* Set $fonts-langs-support in _global.scss to enable/disable imports of additional fonts for language support.
  * By default $fonts-langs-support is set to true
  * To disable:
- * @forward "00-base/global" with (
+ * @forward "00-base/configure" with (
      $fonts-langs-support: false
    );
 */

@@ -26,7 +26,7 @@ export default (function(Twig, ma) {
      *   The name of an icon (i.e. arrow)
      *
      * @returns {string}
-     *   The path to an icon SVG file which can be used in a get request (i.e. /images/svg-icons/arrow.svg )
+     *   The path to an icon SVG file which can be used in a get request (i.e. /images/icons/arrow.svg )
      */
     function getIconPath(name) {
         return ma.iconPath + '/' + name + '.svg';
