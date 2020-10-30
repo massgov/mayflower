@@ -52,7 +52,7 @@ class HeaderSearch extends React.Component {
     if (this.props.inputRef) {
       inputProps.ref = this.props.inputRef;
     }
-    headerSearch.buttonSearch.icon = <IconSearch />;
+    //headerSearch.buttonSearch.icon = <IconSearch />;
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
         {shouldShowTypeAhead
@@ -76,7 +76,7 @@ class HeaderSearch extends React.Component {
                 {this.props.postInputFilter}
               </div>
             )}
-            <ButtonWithIcon {...headerSearch.buttonSearch} />
+            <ButtonWithIcon {...headerSearch.buttonSearch} icon={<IconSearch />} />
           </form>
         </div>
       </div>

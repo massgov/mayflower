@@ -51,6 +51,7 @@ dependencies:
   child-process-promise: 2.2.1
   classname: 0.0.0
   classnames: 2.2.6
+  concurrently: 5.3.0
   css-loader: 3.6.0_webpack@4.44.2
   disc: 1.3.3
   dom-helpers: 3.4.0
@@ -76,7 +77,6 @@ dependencies:
   gatsby-source-filesystem: 2.3.30_gatsby@2.24.58
   gatsby-transformer-json: 2.4.12_gatsby@2.24.58
   gatsby-transformer-sharp: 2.5.15_c79592a7bb1857b084914d78484a55e1
-  github-markdown-css: 3.0.1
   gulp-autoprefixer: 5.0.0
   gulp-babel: 8.0.0_@babel+core@7.11.6
   gulp-concat: 2.6.1
@@ -104,6 +104,7 @@ dependencies:
   picturefill: 3.0.3
   pre-push: 0.1.1
   react: 16.13.1
+  react-animate-height: 2.0.23_react-dom@16.13.1+react@16.13.1
   react-autosuggest: 9.4.3_react@16.13.1
   react-autowhatever: 10.2.1_react@16.13.1
   react-character-counter: 1.0.1
@@ -113,9 +114,11 @@ dependencies:
   react-html-parser: 2.0.2_react@16.13.1
   react-portal: 4.2.1_react@16.13.1
   react-select: 1.3.0_react-dom@16.13.1+react@16.13.1
+  react-spring: 8.0.27_react-dom@16.13.1+react@16.13.1
   react-table: 6.11.5_react-dom@16.13.1+react@16.13.1
   react-transition-group: 2.9.0_react-dom@16.13.1+react@16.13.1
   react-virtualized: 9.22.2_react-dom@16.13.1+react@16.13.1
+  resize-observer-polyfill: 1.5.1
   resolve-url-loader: 3.1.1
   sass-loader: 8.0.2_webpack@4.44.2
   shortid: 2.2.15
@@ -19474,6 +19477,20 @@ packages:
     dev: false
     resolution:
       integrity: sha1-o5TefCx77Na1R1uhuXrEcs58dPg=
+  /react-animate-height/2.0.23_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      classnames: 2.2.6
+      prop-types: 15.7.2
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+    dev: false
+    engines:
+      node: '>= 6.0.0'
+    peerDependencies:
+      react: '>=15.6.2'
+      react-dom: '>=15.6.2'
+    resolution:
+      integrity: sha512-DucSC/1QuxWEFzR9IsHMzrf2nrcZ6qAmLIFoENa2kLK7h72XybcMA9o073z7aHccFzdMEW0/fhAdnQG7a4rDow==
   /react-autosuggest/9.4.3_react@16.13.1:
     dependencies:
       prop-types: 15.7.2
@@ -19971,6 +19988,18 @@ packages:
       react-dom: ^0.14.0 || ^15.0.0-0 || ^16.0.0
     resolution:
       integrity: sha512-tL4sCgfmvapYRZ1FO2VmBmjPVzzqgHA7kI8lSJ6JS6L78jXFNRdOZFpXyK6P1NBZvKPPCZxReNgzZNUajAerZw==
+  /react-spring/8.0.27_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@babel/runtime': 7.11.2
+      prop-types: 15.7.2
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    resolution:
+      integrity: sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
   /react-style-singleton/2.1.0_react@16.13.1:
     dependencies:
       get-nonce: 1.0.1
@@ -25262,6 +25291,7 @@ packages:
       babel-plugin-transform-react-remove-prop-types: 0.4.24
       babel-preset-proposals: 0.3.0_@babel+core@7.11.6
       classnames: 2.2.6
+      concurrently: 5.3.0
       cross-env: 5.2.1
       css-loader: 3.6.0_webpack@4.44.2
       css-purge: 3.1.8
@@ -25299,6 +25329,7 @@ packages:
       prop-types: 15.7.2
       purgecss: 3.0.0
       react: 16.13.1
+      react-animate-height: 2.0.23_react-dom@16.13.1+react@16.13.1
       react-autosuggest: 9.4.3_react@16.13.1
       react-autowhatever: 10.2.1_react@16.13.1
       react-character-counter: 1.0.1
@@ -25307,9 +25338,11 @@ packages:
       react-html-parser: 2.0.2_react@16.13.1
       react-portal: 4.2.1_react@16.13.1
       react-select: 1.3.0_react-dom@16.13.1+react@16.13.1
+      react-spring: 8.0.27_react-dom@16.13.1+react@16.13.1
       react-table: 6.11.5_eb0d650be231ffd0ace4a30b38162117
       react-transition-group: 2.9.0_react-dom@16.13.1+react@16.13.1
       react-virtualized: 9.22.2_react-dom@16.13.1+react@16.13.1
+      resize-observer-polyfill: 1.5.1
       sass: 1.26.11
       sass-loader: 8.0.2_sass@1.26.11+webpack@4.44.2
       shortid: 2.2.15
@@ -25321,7 +25354,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower-react'
     resolution:
-      integrity: sha512-n6Un8tiYlJuUHTPqt2t2+dpny21vKlF9npi0TJD9Kg5iNMgpdc5LMjgZcM22uOKeZyt/A7qxg+/zhCH16LtALw==
+      integrity: sha512-sFwY2Y7fSr13hybnzzZ1e++P0bT6N7xpXB2jwz+q2wAobB5Nj+9Wlpu9gisbZH0NdZHDUdhWMYMsFcqVzdgf/A==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_jquery@3.5.1+webpack@4.44.2':
@@ -25377,6 +25410,7 @@ packages:
       browser-sync: 2.26.12
       browserify: 16.5.2
       child-process-promise: 2.2.1
+      concurrently: 5.3.0
       core-js: 2.6.11
       del: 5.1.0
       disc: 1.3.3
@@ -25419,7 +25453,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-HEFIBW9/VPx2xY70mz/usK3ZGACBvAtM5mQ0uc3B/L1RJYMk3M3787F87ZJU/VKm6xgZwYZoVaw0/1dIzwSlkg==
+      integrity: sha512-mwAxhpYAandeu7vXzRy7Wm1SDtLQ0hN0RrpmPXR0CLk8j5i5s8ILBLpULotUGAIMdcpS1G9iypNV0z8yM/BbiA==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
 registry: ''
@@ -25476,6 +25510,7 @@ specifiers:
   child-process-promise: ^2.2.1
   classname: ^0.0.0
   classnames: ^2.2.6
+  concurrently: ~5.3.0
   css-loader: ^3.5.3
   disc: ^1.3.3
   dom-helpers: 3.4.0
@@ -25501,7 +25536,6 @@ specifiers:
   gatsby-source-filesystem: ^2.1.46
   gatsby-transformer-json: ^2.2.27
   gatsby-transformer-sharp: ^2.3.13
-  github-markdown-css: ^3.0.1
   gulp-autoprefixer: ^5.0.0
   gulp-babel: ^8.0.0
   gulp-concat: ^2.6.1
@@ -25529,6 +25563,7 @@ specifiers:
   picturefill: ^3.0.3
   pre-push: ^0.1.1
   react: ^16.13.1
+  react-animate-height: ~2.0.23
   react-autosuggest: ^9.4.3
   react-autowhatever: ^10.2.0
   react-character-counter: ^1.0.1
@@ -25538,9 +25573,11 @@ specifiers:
   react-html-parser: ^2.0.2
   react-portal: ^4.2.0
   react-select: ^1.2.1
+  react-spring: ~8.0.27
   react-table: ^6.8.6
   react-transition-group: ^2.4.0
   react-virtualized: ~9.22.2
+  resize-observer-polyfill: ~1.5.1
   resolve-url-loader: ^3.1.1
   sass-loader: ^8.0.2
   shortid: ^2.2.8

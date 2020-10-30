@@ -42,6 +42,17 @@
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/react && rushx backstop"
+    },
+    {
+      "commandKind": "bulk",
+      "name": "start",
+      "summary": "Runs 'start' script for all packages.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "enableParallelism": true,
+      "ignoreMissingScript": true,
+      "ignoreDependencyOrder": true
+
     }
     // {
     //   /**

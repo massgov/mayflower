@@ -15,7 +15,9 @@ import {
   Canvas, Story
 } from '@storybook/addon-docs/blocks';
 import { ActionBar, Source } from '@storybook/components';
-
+window.__forceSmoothScrollPolyfill__ = true;
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 import prettier from 'prettier/standalone';
 import parserHtml from 'prettier/parser-html';
 import SyntaxHighlighter, { Renderer, Wrapper } from './syntax-highlighter';

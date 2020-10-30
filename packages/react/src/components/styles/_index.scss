@@ -71,6 +71,7 @@
 @use "molecules/ImagePromo";
 @use "02-molecules/listing-table";
 @use "molecules/MainNav";
+@use "02-molecules/main-nav-hamburger";
 @use "02-molecules/pagination";
 @use "02-molecules/press-teaser";
 @use "molecules/ResultsHeading";
@@ -90,6 +91,7 @@
 @use "03-organisms/gen-teaser";
 @use "~@massds/mayflower-assets/build/header";
 @use "~@massds/mayflower-assets/build/header-slim";
+@use "03-organisms/header-hamburger";
 @use "03-organisms/help-tip";
 @use "03-organisms/illustrated-header";
 @use "03-organisms/link-list";

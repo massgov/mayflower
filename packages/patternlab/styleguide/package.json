@@ -71,7 +71,8 @@
   },
   "dependencies": {
     "del": "^5.1.0",
-    "normalize-scss": "~7.0.1"
+    "normalize-scss": "~7.0.1",
+    "concurrently": "~5.3.0"
   },
   "scripts": {
     "start": "gulp",
