@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: CircleCI
+    description: Fix patternlab deploy tag paths. (#1252)
+    issue:
+    impact: Patch
