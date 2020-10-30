@@ -54,7 +54,7 @@
     {
       "commandKind": "global",
       "name": "backstop-report:react",
-      "summary": "Runs 'rushx backstop:approve' for the react package.",
+      "summary": "Runs 'open backstop/data/html_report/index.html' for the react package.",
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/react && open backstop/data/html_report/index.html"
@@ -74,6 +74,14 @@
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/patternlab && docker-compose run backstop approve"
+    },
+    {
+      "commandKind": "global",
+      "name": "backstop-report:patternlab",
+      "summary": "Runs 'open backstopjs/reports/html/index.html' for the patternlab package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/patternlab && open backstopjs/reports/html/index.html"
     },
     // {
     //   /**
