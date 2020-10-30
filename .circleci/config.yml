@@ -165,10 +165,10 @@ jobs:
       - run:
           name: 'Deploy S3 Tag'
           command: |
-            aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
+            aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-              aws s3 cp --recursive patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
+              aws s3 cp --recursive packages/patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
             fi
 
   react_build_storybook:
