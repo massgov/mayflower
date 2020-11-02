@@ -28,7 +28,7 @@ backstop_defaults: &backstop_defaults
 
 jobs:
   build:
-    <<: *patternlab_defaults
+    <<: *react_defaults
     steps:
       - checkout
       - restore_cache:
