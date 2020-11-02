@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: SiteLogo
+    description: Set Patternlab SiteLogo global path in patternlab to be relative to the current path in order to fix production urls. (#1254)
+    issue:
+    impact: Patch
