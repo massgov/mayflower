@@ -21,6 +21,14 @@
     },
     {
       "commandKind": "global",
+      "name": "build:react",
+      "summary": "Runs 'rushx build' for the react package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/react && rushx build"
+    },
+    {
+      "commandKind": "global",
       "name": "start:patternlab",
       "summary": "Runs 'rushx start' for the patternlab package.",
       "safeForSimultaneousRushProcesses": true,
