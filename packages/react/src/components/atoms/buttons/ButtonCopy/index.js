@@ -2,8 +2,7 @@
  * ButtonCopy module.
  * @module @massds/mayflower-react/ButtonCopy
  * @requires module:@massds/mayflower-assets/scss/00-base/mixins/ma-button-reset
- * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
- * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-copy
  */
 import React from 'react';
 import PropTypes from 'prop-types';
