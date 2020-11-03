@@ -24,7 +24,7 @@ patternlab_defaults: &patternlab_defaults
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
-    - image: circleci/python:2.7.14
+    - image: cimg/node:12.14
 
 jobs:
   build:
