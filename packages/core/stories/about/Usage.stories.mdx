@@ -12,3 +12,68 @@ import generateTitle from '../util/generateTitle';
 # Install Mayflower
 
 We encourage all Commonwealth web properties to implement the Mayflower Design System for a consistent look and feel. It’s important that constituents know they are on an official state government website, and the visual cues that come from using a cohesive design help convey that legitimacy.
+
+## Download and CDN
+To ensure and enable that cohesion, Mayflower delivers the following static assets and generated artifacts as a version controlled package.
+```
+├── css
+├── js
+├── scss
+├── static
+   ├── fonts
+   └── images
+       ├── icons
+       └── stateseal
+```
+
+NPM Package
+This package is named @massds/mayflower-assets and is published on NPM. If you use Node.js, you can download the whole package simply by running
+`npm install @massds/mayflower-assets`
+CDN
+Mayflower leverages UNPKG CDN and allows you to load any file in the @massds/mayflower-assets package directly.
+unpkg.com/@massds/mayflower-assets@:version/:file
+
+For example:
+
+| Asset | CDN  |
+|---|---|
+| unpkg.com/@massds/mayflower-assets@10.0.0/static/logo/stateseal.png |
+| unpkg.com/@massds/mayflower-assets@10.0.0/static/logo/stateseal-color.png |
+| Fonts |
+|  └── Static Fonts | unpkg.com/@massds/mayflower-assets@10.0.0/static/fonts/noto/Latin/NotoSans-Regular.(ttf\|woff\|eot\|svg) |
+| | unpkg.com/@massds/mayflower-assets@10.0.0/static/fonts/noto/Latin/NotoSans-Italic.(ttf\|woff\|eot\|svg) |
+| └── Variable Fonts |
+| | unpkg.com/@massds/mayflower-assets@10.0.0/static/fonts/noto/Latin/NotoSans-VF.(ttf\|woff\|eot\|svg) |
+| | unpkg.com/@massds/mayflower-assets@10.0.0/static/fonts/noto/Latin/NotoSansItalic-VF.(ttf\|woff\|eot\|svg) |
+| Global CSS |
+| | unpkg.com/@massds/mayflower-assets@10.0.0/css/global.css |
+| | unpkg.com/@massds/mayflower-assets@10.0.0/css/global.min.css |
+| Header CSS and JS |
+| | unpkg.com/@massds/mayflower-assets@10.0.0/css/header.min.css |
+| | unpkg.com/@massds/mayflower-assets@10.0.0/js/header.js |
+
+
+
+
+To locate a specific file to link to, you can:
+browse the @massds/mayflower-assets package at: https://unpkg.com/browse/@massds/mayflower-assets@10.0.0/assets/
+Navigate on the resource you want to link to, e.g. css/index-generated.css
+Click on “View Raw” and copy the URL for the file
+
+Build with Mayflower
+To import fonts and get started with basic Mayflower layout CSS, you need to import `scss/global.scss` (@use `scss/global.scss`) or link to the compiled `static/fonts/css/global.css` (a minified version is available as global.min.css).
+To implement a Mayflower branding component in your website, navigate to the documentation of the component and copy and paste the html and CSS (and JS) snippets into your code to get started. You can also link to the CDN version of CSS and JS files for the component directly in the head of your HTML.
+
+Configure Your Theme
+Mayflower style guide is derived from our research, experience, and expertise, and decision making in creating Mass.gov. We recognize that not all aspects of this branding guide will make sense for every organization, and that some organizations have their own distinct branding. We provide SCSS variables and partials for organizations to configure and compile their own Mayflower stylesheets, based on individual branding needs.
+You can configure all the variables declared in scss/00-base with a !default flag, such as _variables.scss _colors.scss _color-tokens.scss _breakpoints.scss _z-index.scss
+For example to theme the Mayflower header with your own primary color:
+@use "00-base/configure" with (
+  $assets-path: "~@massds/mayflower-assets/static”,
+  $c-primary: #xxxxxx
+);
+@use "03-organism/header"
+If you use Node.js, you can install Sass using npm by running
+npm install -g sass
+And compile any sass files by running
+Sass source.scss output.scss
