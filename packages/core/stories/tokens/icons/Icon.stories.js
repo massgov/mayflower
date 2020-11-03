@@ -5,16 +5,6 @@ import * as Icon from '@massds/mayflower-react/dist/Icon';
 import IconDisplay from './IconDisplay';
 import generateTitle from '../../util/generateTitle';
 
-export default {
-  title: generateTitle('Icons'),
-  component: Icons,
-  parameters: {
-    docs: {
-      page: () => <StoryPage />
-    }
-  }
-};
-
 
 export const Icons = (args) => {
   return(
@@ -42,4 +32,10 @@ Icons.argTypes = {
       type: 'color'
     }
   }
+};
+
+
+export default {
+  title: generateTitle('Icons'),
+  component: Icons
 };

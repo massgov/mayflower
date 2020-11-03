@@ -10,7 +10,20 @@
 @use '@massds/mayflower-assets/scss/01-atoms/decorative-link';
 @use '@massds/mayflower-assets/scss/01-atoms/button-copy';
 @use '@massds/mayflower-react/dist/Typography';
+@use '@massds/mayflower-react/dist/Button';
 
+
+// Global
+.sp {
+  &--top {
+    margin-top: 2rem;
+  }
+  &--bottom {
+    margin-bottom: 2rem;
+  }
+}
+
+// Intro story
 .row.ma__row--three-up {
   margin-left: -15px;
   margin-right: -15px;
@@ -20,5 +33,12 @@
   height: 100%;
   &__title {
     margin-bottom: 0;
+  }
+}
+
+// Button story
+.ma__button-group {
+  button:not(:first-child) {
+    margin-left: 1rem;
   }
 }

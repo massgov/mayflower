@@ -1,22 +1,66 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Button from '@massds/mayflower-react/dist/Button';
-import '@massds/mayflower-react/dist/Button/_index.scss';
-
-@forward "00-base/global" with (
-  $assets-path: "~@massds/mayflower-assets/static" !default,
-  $fonts-enable-rtl: true !default,
-);
-import '@massds/mayflower-assets/scss/00-base/_fonts.scss';
-
 import generateTitle from '../util/generateTitle';
 
-<Meta title={generateTitle('Button')} />
+<Meta
+  title={generateTitle('Button')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
 
-export const Template = (args) => <Button {...args } />
+# Buttons
+Buttons express what action will occur when the user clicks or touches it. Buttons are used to initialize an action, either in the background or foreground of an experience.
 
-<Story name="primary" args={{
-    text: 'Button',
-    label: 'Positive'
-}}>
-  {Template.bind({})}
-</Story>
+## Overview
+Buttons are vital for creating a smooth conversational flow on the web, and should be used sparingly. Buttons should adhere to standard web practices, and afford for a target area of 45 pixels. They should also appear slightly raised, and not be completely flat. They have a slight shadow on them so they appear clickable. The small buttons are often used on forms and to set filters on listing pages. The large buttons should be used for primary calls to action. Font sizes reduce slightly on mobile.
+
+
+## Variations
+<br />
+
+### Primary Button
+**Usage:** For the principle call to action on the page.
+
+**Style:**
+Default buttons are solid colors with uppercased button text (this is configurable with an capitalized option for longer button text) Box shadow are used to accentuate the actions. Background color of the primary button lightens when being hovered over.
+<div className="ma__button-group">
+  <Button usage="primary" text="button"/>
+  <Button usage="primary" theme="c-primary-alt" text="button"/>
+  <Button usage="primary" theme="c-highlight" text="button"/>
+  <Button usage="primary" theme="c-gray-dark" text="button"/>
+</div>
+
+
+<hr className="sp--top" />
+
+### Secondary Button
+**Usage:** For the secondary action on a page.
+
+**Style:**
+The outline button provides a less prominent visual to indicate an less important action on a page, e.g. the Back button. The hover state of the secondary button inverts the background/foreground colors.
+<div className="ma__button-group">
+  <Button usage="secondary" text="button"/>
+  <Button usage="secondary" theme="c-primary-alt" text="button"/>
+  <Button usage="secondary" theme="c-highlight" text="button"/>
+  <Button usage="secondary" theme="c-gray-dark" text="button"/>
+</div>
+
+<hr className="sp--top" />
+
+### Tertiary Button
+**Usage:** For the third action on a page.
+
+**Style:** This is a solid gray button with a lighter background color than the foreground text. The muted color makes this button less prominent on a page than the secondary outline button a providing an option for a tertiary action. The hover state of this button will invert background color with white color text.
+
+<Button usage="tertiary" text="button"/>
+
+<hr className="sp--top" />
+
+### Quaternary Button
+**Usage:** For the third action on a page.
+
+**Style:**
+Appears as a link.
+
+<Button usage="quaternary" text="button"/>
