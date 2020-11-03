@@ -50,7 +50,47 @@
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/react && rushx backstop"
-    }
+    },
+    {
+      "commandKind": "global",
+      "name": "backstop-approve:react",
+      "summary": "Runs 'rushx backstop:approve' for the react package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/react && rushx backstop:approve"
+    },
+    {
+      "commandKind": "global",
+      "name": "backstop-report:react",
+      "summary": "Runs 'open backstop/data/html_report/index.html' for the react package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/react && open backstop/data/html_report/index.html"
+    },
+    {
+      "commandKind": "global",
+      "name": "backstop:patternlab",
+      "summary": "Runs 'gulp prod && docker-compose run backstop test' for the patternlab package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/patternlab/styleguide && gulp prod && docker-compose run backstop test"
+    },
+    {
+      "commandKind": "global",
+      "name": "backstop-approve:patternlab",
+      "summary": "Runs 'rushx docker-compose run backstop approve' for the patternlab package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/patternlab && docker-compose run backstop approve"
+    },
+    {
+      "commandKind": "global",
+      "name": "backstop-report:patternlab",
+      "summary": "Runs 'open backstopjs/reports/html/index.html' for the patternlab package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/patternlab && open backstopjs/reports/html/index.html"
+    },
     // {
     //   /**
     //    * (Required) Determines the type of custom command.

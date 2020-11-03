@@ -1,6 +1,19 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 10.1.0 (10/30/2020)
+### Changed
+- (Assets) [Images] Rename `assets/static/images/svg-icons` to `assets/static/images/icons` and move checkmark.svg into the icons folder. (#1243)
+- (Assets, React, Site, Patternlab) [Images] Move stateseal PNGs into a folder named logo. (#1243)
+- (Assets) [NPM package] The functionality of packages/assets/scss/00-base/_global.scss has changed to contain optional miscellaneous styles a site can include once for setting up layout/fonts/normalization. (#1240)
+- (React, Assets, Site, Patternlab) [NPM package] The file at packages/assets/scss/00-base/configure.scss preserves the previous behavior of packages/assets/scss/00-base/_global.scss. All files previously pointing to _global.scss have been updated to point at _configure.scss. (#1240)
+- (React) [Header, HeaderSlim, Footer, FooterSlim] The _index.scss files used by Header, HeaderSlim, Footer, and FooterSlim's storybook stories have been moved to packages/assets/build.
+- (Patternlab) [CircleCI Configuration] Updates patternlab_deploy_tag job in CircleCI to install AWS. (#1242)
+- (Assets) [PressTeaser, OrganizationNavigation, ContactGroup] DP-20363: Fine tune line-height setting in the components. (#1248)
+
+### Added
+- (Assets) [NPM package] Added functionality to generate css files based on scss files placed under packages/assets/build. A minified version of each scss file is also provided as [scss-filename].min.css. (#1240)
+
 ## 10.0.0 (10/27/2020)
 ### Changed
 - (React) [RichText] DP-17982: Refactor RichText component to render raw HTML without `dangerouslySetInnerHTML`. (#1006)
