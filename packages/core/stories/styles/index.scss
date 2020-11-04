@@ -11,7 +11,11 @@
 @use '@massds/mayflower-assets/scss/01-atoms/button-copy';
 @use '@massds/mayflower-react/dist/Typography';
 @use '@massds/mayflower-react/dist/Button';
+@use '@massds/mayflower-assets/scss/01-atoms/button-with-icon';
+@use '@massds/mayflower-assets/scss/02-molecules/header-search';
 
+@use '@massds/mayflower-assets/scss/03-organisms/_header-slim.scss';
+@use '@massds/mayflower-assets/scss/01-atoms/_site-logo.scss';
 
 // Global
 .sp {
@@ -22,6 +26,7 @@
     margin-bottom: 2rem;
   }
 }
+
 
 // Intro story
 .row.ma__row--three-up {
@@ -40,5 +45,18 @@
 .ma__button-group {
   button:not(:first-child) {
     margin-left: 1rem;
+  }
+}
+
+// Header story
+.ma__header_slim {
+  &__utility-link {
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      margin-right: .25rem;
+    }
   }
 }

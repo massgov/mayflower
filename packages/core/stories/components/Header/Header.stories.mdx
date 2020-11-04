@@ -1,0 +1,115 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import HeaderSlim from '@massds/mayflower-react/dist/HeaderSlim';
+import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
+import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
+import IconSearch from '@massds/mayflower-react/dist/Icon/IconSearch';
+import IconLatlonglobe from '@massds/mayflower-react/dist/Icon/IconLatlonglobe';
+import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
+import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
+import HeaderDocs from './Header.md';
+
+import generateTitle from '../../util/generateTitle';
+
+<Meta
+  title={generateTitle('Header')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Header
+
+Headers are containers that span across the top of each page to house product-wide branding and global actions and navigation, as well as user preferences.
+
+<Canvas>
+  <HeaderSlim
+   siteLogo={<SiteLogo
+     url={{
+       domain: 'https://www.mass.gov/'
+     }}
+     image={{
+       src: logo,
+       alt: 'Massachusetts state seal',
+       width: 45,
+       height: 45
+     }}
+     siteName="Mass.gov"
+     title="Mass.gov homepage"
+   />}
+  />
+</Canvas>
+
+## Overview
+Mayflower header consists of the following parts:
+- Utility nav — a blue bar spans across the top of the header that is used to house global actions such as:
+  - Log in/ logout
+  - Global hamburger navigation
+  - Language translation
+  - Other global utilities
+- Site logo and title
+- Navigation items such a drop down menu or a search bar
+
+## Variations
+
+Base on the complexity of the navigation functionality, we can categorize Mayflower headers into the following two types:
+- **A Slim Header:**
+A flexible container that includes the site logo and styles of the Mayflower header with fully configurable utility nav and main nav areas
+
+- **A Full-Menu Header:**
+Header with full menu is designed for sites with more complex information architecture, it includes a main nav that allows up to two levels of navigation
+
+
+### Header (Slimmest)
+A most simplified version of a header contains a blue bar (height: 15px) at the top and a site logo and site name linked to the home of the website, placed on a light gray background ($c-gray-lightest)
+<Canvas>
+  <HeaderSlim
+   siteLogo={<SiteLogo
+     url={{
+       domain: 'https://www.mass.gov/'
+     }}
+     image={{
+       src: logo,
+       alt: 'Massachusetts state seal',
+       width: 45,
+       height: 45
+     }}
+     siteName="Mass.gov"
+     title="Mass.gov homepage"
+   />}
+  />
+</Canvas>
+
+### Header (Slim version with utility nav links)
+For web apps and websites that provide multi-language localization and login/logout functionalities, add the action links or buttons in the utility navigation bar as such:
+<Canvas>
+  <HeaderSlim
+    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} siteName="Mass.gov" title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
+    skipNav={<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>}
+    utilityNav={
+      <>
+        <a className="ma__header_slim__utility-link" href="#main-content"><IconLatlonglobe fill="#fff" />English</a>
+        <a className="ma__header_slim__utility-link" href="#main-content"><IconLogin fill="#fff" />Log in</a>
+      </>
+    }
+  />
+</Canvas>
+
+### Header (Slim version with utility nav links and search)
+For simple navigation options, add the main navigation links and search bar in the header nav container `.ma__header_slim__nav`
+<Canvas>
+  <HeaderSlim
+    mainNav={<ButtonWithIcon icon={<IconSearch />} />}
+    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} siteName="Mass.gov" title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
+    skipNav={<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>}
+    utilityNav={
+      <>
+        <a className="ma__header_slim__utility-link" href="#main-content"><IconLatlonglobe fill="#fff" />English</a>
+        <a className="ma__header_slim__utility-link" href="#main-content"><IconLogin fill="#fff" />Log in</a>
+      </>
+    }
+  />
+</Canvas>
+
+
+For sites with more complex information architecture, Mayflower provides examples of headers with a fully integrated, responsive and interactive menu. The menu can contain up to two levels of navigation links and is available in two options:
+Header with a hamburger menu. The hamburger menu by default collapses the main navigation of the site into a side drawer that opens up when users interact with the “Menu” icon. This option saves the header space for content pages whose primary goals are for accessing the information and actions in the main content area. For example this header option is used on the Mass.gov content pages that are not the homepage.
