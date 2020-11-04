@@ -60,6 +60,11 @@
 @use '@massds/mayflower-assets/scss/00-base/layout';
 @use '@massds/mayflower-assets/scss/01-atoms/place-holder';
 
+@use '@massds/mayflower-assets/scss/03-organisms/footer-slim';
+@use '@massds/mayflower-assets/scss/03-organisms/footer';
+@use '@massds/mayflower-assets/scss/02-molecules/footer-links';
+@use '@massds/mayflower-assets/scss/02-molecules/social-links';
+
 // Global
 .sp {
   &--top {
