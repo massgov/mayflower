@@ -21,6 +21,11 @@
 @use '@massds/mayflower-assets/scss/03-organisms/header';
 @use '@massds/mayflower-assets/scss/01-atoms/site-logo';
 
+@use '@massds/mayflower-assets/scss/03-organisms/footer-slim';
+@use '@massds/mayflower-assets/scss/03-organisms/footer';
+@use '@massds/mayflower-assets/scss/02-molecules/footer-links';
+@use '@massds/mayflower-assets/scss/02-molecules/social-links';
+
 // Global
 .sp {
   &--top {
