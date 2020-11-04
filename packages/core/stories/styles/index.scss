@@ -14,8 +14,12 @@
 @use '@massds/mayflower-assets/scss/01-atoms/button-with-icon';
 @use '@massds/mayflower-assets/scss/02-molecules/header-search';
 
-@use '@massds/mayflower-assets/scss/03-organisms/_header-slim.scss';
-@use '@massds/mayflower-assets/scss/01-atoms/_site-logo.scss';
+@use '@massds/mayflower-assets/scss/03-organisms/header-slim';
+@use '@massds/mayflower-assets/scss/03-organisms/utility-nav';
+@use '@massds/mayflower-assets/scss/03-organisms/utility-panel';
+@use '@massds/mayflower-assets/scss/02-molecules/main-nav';
+@use '@massds/mayflower-assets/scss/03-organisms/header';
+@use '@massds/mayflower-assets/scss/01-atoms/site-logo';
 
 // Global
 .sp {
