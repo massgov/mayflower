@@ -19,16 +19,16 @@ react_defaults: &react_defaults
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
-    - image: cimg/php:7.3-node
+    - image: cimg/node:12.14
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
-    - image: circleci/python:2.7.14
+    - image: cimg/node:12.14
 
 jobs:
   build:
-    <<: *patternlab_defaults
+    <<: *react_defaults
     steps:
       - checkout
       - restore_cache:
