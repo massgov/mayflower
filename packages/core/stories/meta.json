@@ -35,6 +35,14 @@
     "group": "Base Elements",
     "title": "Buttons"
   },
+  "Heading": {
+    "group": "Base Elements",
+    "title": "Heading"
+  },
+  "Link": {
+    "group": "Base Elements",
+    "title": "Link"
+  },
   "Headings": {
     "group": "Base Elements",
     "title": "Headings"
