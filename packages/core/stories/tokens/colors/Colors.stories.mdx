@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import generateTitle from '../../util/generateTitle';
-import { ColorSwatch, GradientSpectrum } from './index';
+import { ColorSwatch, GradientSpectrum } from './ColorDisplay';
 import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors } from './colors.json';
 
 <Meta title={generateTitle('Colors')} />
@@ -30,13 +30,17 @@ import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltC
     highLightColors.map((color, i) => <ColorSwatch key={`highLightColors${i}`} {...color} />)
   }
 </ul>
-<SidebarHeading title="Gray Scale Colors" level={2} />
+
+## Gray Scale Colors
+
 <ul className="sg-colors">
   {
     grayScaleColors.map((color, i) => <ColorSwatch key={`grayScaleColors${i}`} {...color} />)
   }
 </ul>
-<SidebarHeading title="Utility Colors" level={2} />
+
+## Utility Colors
+
 <ul className="sg-colors">
   {
     utilityColors.map((color, i) => <ColorSwatch key={`utilityColors${i}`} {...color} />)
@@ -48,6 +52,23 @@ import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltC
 Gradients are generated for each Mayflower brand color to provide additional options for data visualization usage. The "Light" and "Dark" spectrums are programmatically generated using functions `tint` and `shade` and a 10% percentage intervals for consistency.
 
 ### Use Tint to Generate Light Gradient Variants
+
+<React.Fragment>
+  {
+    themeColors.map(({ token, name }, i) => {
+      const props = {
+        token: token.match(/\$(.*)/)[1],
+        name,
+        effect: 'tint'
+      };
+      return(
+        // eslint-disable-next-line react/no-array-index-key
+        <GradientSpectrum {...props} key={`spectrum_${token}${i}`} />
+      );
+    })
+  }
+</React.Fragment>
+
 `tint` takes in a `$color` and mixes it with color white. It also takes in a percentage to define the percentage of `$color` in the mix.
 - 0% is the original `$color` and 100% is the color white.
 - Light Gradient Variants include 10%-90% with a 10% interval.

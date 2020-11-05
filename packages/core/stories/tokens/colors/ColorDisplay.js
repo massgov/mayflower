@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonCopy from '@massds/mayflower-react/dist/ButtonCopy';
+import './_color-display.scss';
 
 const ColorSwatch = ({ name, value, variable }) => {
   const hexValue = value.toUpperCase();
   return(
-    <li style={{ width: 300, padding: 10 }}>
+    <li style={{ width: 200, padding: 5 }}>
       <h6 className="ma__sidebar-heading">{name}</h6>
       <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
       <div className="sg-info">
@@ -71,8 +72,6 @@ const GradientTile = (props) => {
       <div className="sg-info">
         <span>{hexValue}</span>
         <ButtonCopy content={hexValue} />
-        <br />
-        <code style={{ fontSize: '1rem' }}>{token}</code>
       </div>
     </li>
   );

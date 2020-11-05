@@ -3,6 +3,8 @@
   $fonts-enable-rtl: true !default,
 );
 
+@use "00-base/configure" as *;
+
 @use '~@massds/mayflower-assets/scss/00-base/fonts';
 @use './bootstrap-grid';
 
@@ -10,7 +12,6 @@
 @use '@massds/mayflower-assets/scss/01-atoms/decorative-link';
 @use '@massds/mayflower-assets/scss/01-atoms/button-copy';
 @use '@massds/mayflower-react/dist/Typography';
-@use '@massds/mayflower-react/dist/Colors';
 @use '@massds/mayflower-react/dist/Button';
 @use '@massds/mayflower-assets/scss/01-atoms/button-with-icon';
 @use '@massds/mayflower-assets/scss/02-molecules/header-search';
@@ -67,7 +68,7 @@ ul.sg-colors {
 // Header story
 .ma__header_slim {
   &__utility-link {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     display: inline-flex;
     align-items: center;
 
