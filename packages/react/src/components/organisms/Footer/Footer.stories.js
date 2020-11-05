@@ -1,13 +1,13 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-import stateSeal from '@massds/mayflower-assets/static/images/stateseal.png';
+import stateSeal from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import FooterLinksData from 'MayflowerReactMolecules/FooterLinks/FooterLinks.json';
 import SocialLinksData from 'MayflowerReactMolecules/SocialLinks/SocialLinks.json';
 import FooterLinksLiveData from 'MayflowerReactMolecules/FooterLinks/FooterLinksLive.json';
 import SocialLinksLiveData from 'MayflowerReactMolecules/SocialLinks/SocialLinksLive.json';
+import styles from '@massds/mayflower-assets/build/footer.scss';
 import Footer from './index';
 import FooterDocs from './Footer.md';
-import styles from './_index.scss';
 
 export const FooterExample = (args) => <Footer {...args} />;
 

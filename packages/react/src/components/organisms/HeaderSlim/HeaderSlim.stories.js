@@ -1,12 +1,12 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 
-import logo from '@massds/mayflower-assets/static/images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import SiteLogoHeader from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
+import styles from '@massds/mayflower-assets/build/header-slim.scss';
 import HeaderSlim from '.';
-import styles from './_index.scss';
 
 export const HeaderSlimExample = (args) => <HeaderSlim {...args} />;
 

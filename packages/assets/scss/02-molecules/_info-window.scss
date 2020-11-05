@@ -1,7 +1,7 @@
 // // use in the Action Map component info window
 // // Handle bar template
 
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 .ma__info-window {
   font-size: $fonts-small;

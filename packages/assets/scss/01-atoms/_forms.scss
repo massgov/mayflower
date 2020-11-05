@@ -1,9 +1,9 @@
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 input {
 
   &.has-error:not(:focus) {
-    background-image: url('#{$assets-path}/images/svg-icons/input-error.svg');
+    background-image: url('#{$assets-path}/images/icons/input-error.svg');
     border-color: $c-bd-error;
   }
 

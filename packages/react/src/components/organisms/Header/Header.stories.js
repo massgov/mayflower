@@ -1,12 +1,12 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 import { action } from '@storybook/addon-actions';
-import logo from '@massds/mayflower-assets/static/images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import MainNavData from 'MayflowerReactMolecules/MainNav/MainNav.knob.options';
 import UtilityNavData from 'MayflowerReactOrganisms/UtilityNav/UtilityNav.knob.options';
+import styles from '@massds/mayflower-assets/build/header.scss';
 import Header from './index';
 import HeaderDocs from './Header.md';
-import styles from './_index.scss';
 
 const Template = (args) => <Header {...args} />;
 export const HeaderExample = Template.bind({});

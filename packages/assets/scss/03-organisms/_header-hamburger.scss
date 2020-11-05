@@ -3,7 +3,7 @@ $header-logo-width: 150px;
 $bp-header-logo-min: "min-width: 1000px";
 $utility-nav-height: 44px;
 
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 
 body.show-menu {
   overflow: hidden;

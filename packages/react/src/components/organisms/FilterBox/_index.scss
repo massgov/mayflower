@@ -1,4 +1,4 @@
-@use "00-base/global" as *;
+@use "00-base/configure" as *;
 //include form styles here to export input styling
 //$assets-path: '../../../assets';
 @use "01-atoms/forms" as *;

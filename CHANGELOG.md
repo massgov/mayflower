@@ -1,8 +1,51 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 10.1.0 (10/30/2020)
+### Changed
+- (Assets) [Images] Rename `assets/static/images/svg-icons` to `assets/static/images/icons` and move checkmark.svg into the icons folder. (#1243)
+- (Assets, React, Site, Patternlab) [Images] Move stateseal PNGs into a folder named logo. (#1243)
+- (Assets) [NPM package] The functionality of packages/assets/scss/00-base/_global.scss has changed to contain optional miscellaneous styles a site can include once for setting up layout/fonts/normalization. (#1240)
+- (React, Assets, Site, Patternlab) [NPM package] The file at packages/assets/scss/00-base/configure.scss preserves the previous behavior of packages/assets/scss/00-base/_global.scss. All files previously pointing to _global.scss have been updated to point at _configure.scss. (#1240)
+- (React) [Header, HeaderSlim, Footer, FooterSlim] The _index.scss files used by Header, HeaderSlim, Footer, and FooterSlim's storybook stories have been moved to packages/assets/build.
+- (Patternlab) [CircleCI Configuration] Updates patternlab_deploy_tag job in CircleCI to install AWS. (#1242)
+- (Assets) [PressTeaser, OrganizationNavigation, ContactGroup] DP-20363: Fine tune line-height setting in the components. (#1248)
+
+### Added
+- (Assets) [NPM package] Added functionality to generate css files based on scss files placed under packages/assets/build. A minified version of each scss file is also provided as [scss-filename].min.css. (#1240)
+
+## 10.0.0 (10/27/2020)
+### Changed
+- (React) [RichText] DP-17982: Refactor RichText component to render raw HTML without `dangerouslySetInnerHTML`. (#1006)
+- (React) [TeaserListing] DP-18263: Refactor TeaserListing and convert it to a composition component. (#1050)
+- (React) [Icon] DP-19414: Icon has been refactored from one component into many icon components. Each .svg icon file is now generated into its own React component at build time with SVGR and SVG Sprite Loader is no longer used. (#1123)
+- (React, Assets) [FooterSlim] DP-19539: Allow adding multiple logos, added `stackedLogo` prop to support multiple logo layout. (#1149)
+- (React) [HeaderSlim] DP-19541: Extend HeaderSlim component to allow passing in custom components/HTML elements into the utility nav (blue bar) and the main header area, providing basic layout and styles. (#1207)
+- (Assets) [Fonts] DP-20050: Switch fonts from Texta to Noto Sans, removed fallback fonts and added language support. (#1193)
+- (Patternlab) [ResponsiveTable] DP-20241: Remove extra space above the sticky table header. (#1226)
+- (React) [NPM package] DP-18263: Removed NWB package and replaced its usage with gulp. Combined lib(es5) and es(es6) directory in dist, and added Webpack/Babel aliases to flatten the structure of the mayflower-react published package. Removed storybook specific data from published package. Cleaned up all component styles in mayflower-react to rely on mayflower-assets peer dependency. (#1039)
+- (React, Patternlab, Assets, Site) [NPM package] Restructure mono repo — group all projects under packages folder. Use rush and pnpm to manage and share dependencies. (#1195)
+- (React) [Storybook] Adds support for Storybook Controls and removes the usage of knobs. (#1162)
+- (React) [Storybook] Replaces the use of addon-info with Storybook Docs. (#1162)
+- (React) [Storybook] Displays story only pages with .mdx files. (#1162)
+- (React) [Storybook] Transfers all storiesOf usage to CSF storybook format. (#1162)
+- (React) [Storybook] Display rendered HTML and CSS for Header and Footer components. (#1224)
+
+### Removed
+- (React) [PressTeaser] DP-18263: Remove PressTeaser molecule from mayflower-react npm package. (#1049)
+- (React) [GeneralTeaser, Teaser] DP-18263: Remove GeneralTeaser and Teaser organisms from mayflower-react npm package. (#1050)
+
+### Fixed
+- (React) [FooterSlim] DP-19539: Use address html tag for contact info in footer. (#1149)
+- (React) [FooterSlim] DP-19539: Removed mommentJS import. (#1149)
+
+### Added
+- (Assets) [Fonts] DP-20050: Added `$fonts-enable-rtl` global variable to allow setting direction to "right-to-left" for languages like Arabic, Persian, Urdu and Hebrew. (#1193)
+- (Assets) [Fonts] DP-20050: Added `$fonts-langs-support` global variable to conditionally load and render additional fonts for language support. (#1193)
+- (Assets) [Fonts] DP-20050: Added `$fonts-display-global` global variable to control the custom fonts download and render behavior. (#1193)
+
 ## 9.56.0 (10/19/2020)
-### Changed 
+### Changed
 - (Patternlab) [Header] DP-17154: Change the label of the hamburger menu button on mobile width. (#1099)
 - (Patternlab) [Header] DP-17154: Change the location of the logo based on screen widths. (#1099)
 - (Patternlab) [Header] DP-17154: Match the style of the utility nav elements to the main nav ones in the hamburger menu. (#1099)
@@ -32,7 +75,7 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [header] DP-20163: Remove extra space and bottom border from the search component in menu container. (#1201)
 - (Patternlab) [Header] DP-20176: Fix utility sub container open/close state icon with keyboard navigation. (#1205)
 
-### Added 
+### Added
 - (Patternlab) [Header] DP-17154: Add a 'jump to search' button on the utility nav bar in mobile display. (#1099)
 - (Patternlab) [Header] DP-17154: Set up to render the log-in-to content in the utility nav in the hamburger menu. (#1099)
 - (Patternlab) [Header] DP-17155: Set up tabbing behaviors at the last elements in various conditions in the hamburger menu. (#1141)
@@ -43,7 +86,7 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [Header] DP-19879: Add overlay to alert as the menu is open. (#1180)
 - (Assets) [scss] DP-20091: Add new variables for z-index values for overlay navigation components and the overlay shade. (#1198)
 
-### Fixed 
+### Fixed
 - (Patternlab) [Header] DP-19683: Set the overlay below the blue nav bar when it has active alerts. (#1152)
 - (Patternlab) [Header] DP-19738: For IE11, add polyfill to enable 'NodeList.prototype.forEach()' and escape key definition of 'e.key === Esc'. (#1157)
 - (Patternlab) [Header] DP-19739: Enable Voiceover to navigate the flyout content. (#1166)
@@ -65,21 +108,21 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [Header] DP-20209: Move window scrollTo and remove inline body styling when closing the global nav menu. (#1210)
 - (Patternlab) [Header] DP-20209: Fixed global nav scrolling for small devices. (#1211)
 
-### Removed 
+### Removed
 - (Patternlab) [Header] DP-19738: Replace "e.which", which is deprecated, with "e.code". (#1157)
 - (Patternlab) [Header] DP-20039: Remove transition value causing Safari to crash in iOS 12. (#1189)
 - (Patternlab) [Header] DP-20055: Removed Firefox-specific code causing menu overlay issues in Firefox. (#1192)
 
 ## 9.55.1 (9/2/2020)
-### Fixed 
+### Fixed
 - (React) [InputCurrency] Fix onBlur bug to allow value 0 to be returned in onBlur callback. (#1161)
 - (React) [InputCurrency] Fix onBlur bug to allow onBlur callback to fire on input with `$`. (#1163)
 
 ## 9.55.0 (8/24/2020)
-### Changed 
+### Changed
 - (React) [MainNav] DP-19425: Fix formatting of COVID global nav link on search.mass.gov (#1143)
 
-### Fixed 
+### Fixed
 - (React, Assets) [FooterSlim] Fix markup semantic and classnames. (#1148)
 
 ## 9.54.0 (8/10/2020)

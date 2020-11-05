@@ -34,11 +34,11 @@ jobs:
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
+          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
           paths:
             - common
             - packages/assets/node_modules
@@ -56,7 +56,7 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
@@ -129,12 +129,18 @@ jobs:
       - *configure_git
       - *configure_npm
       - run:
+          name: 'Install AWS'
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+      - run:
           name: 'Deploy Artifact Tag'
           command: |
             # This snippet pushes the dist directory to the artifact repo by faking a checkout
             # of the artifact repository, creating a new commit and tag, then pushing.
             # See https://github.com/LastCallMedia/Artifact.sh/blob/master/artifact.sh
-            cd patternlab/styleguide/dist
+            cd packages/patternlab/styleguide/dist
             git clone --bare git@github.com:massgov/mayflower-artifacts.git .git
             git config core.bare false
             git symbolic-ref HEAD "refs/heads/master"
@@ -159,10 +165,10 @@ jobs:
       - run:
           name: 'Deploy S3 Tag'
           command: |
-            aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
+            aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-              aws s3 cp --recursive patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
+              aws s3 cp --recursive packages/patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
             fi
 
   react_build_storybook:
@@ -274,12 +280,12 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
-      - run: sudo npm install -g pnpm @microsoft/rush
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+      - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
-      - run: node common/scripts/install-run-rushx.js release-branch
+      - run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-branch.js
 
   github_tag:
     <<: *patternlab_defaults
@@ -288,12 +294,12 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
-      - run: sudo npm install -g pnpm @microsoft/rush
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+      - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
-      - run: node common/scripts/install-run-rushx.js release-tag
+      - run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-tag.js
 
 
   assets_build:
@@ -402,7 +408,7 @@ workflows:
           filters:
             branches: { ignore: /(docs|patternlab\/|react\/).*/ }
 
-  # Release branch automation every Monday at 4:10 p.m. ET
+  # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
   release:
     jobs:
       - build
@@ -410,7 +416,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "10 20 * * 1"
+          cron: "00 18 * * 1"
           filters:
             branches:
               only:
@@ -473,7 +479,7 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - site_deploy_tag:
-          requires: [react_build_storybook]
+          requires: [site_build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
