@@ -240,8 +240,8 @@
       }
     }
 
-    &.single {
-      
+    &.single [aria-labelledby="secondary"] {
+
       a {
         color: $c-primary-alt;
         box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary-alt, 0.4);
