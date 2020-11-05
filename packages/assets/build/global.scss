@@ -4,6 +4,10 @@
 
 @forward "layout";
 
+@forward "paths" with (
+  $assets-path: "https://unpkg.com/@massds/mayflower-assets@10.1.0/static"
+);
+
 @forward "fonts";
 
 @forward "fonts-styles";

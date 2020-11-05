@@ -25,7 +25,7 @@ HeaderSlimExample.args = {
     siteName="Mass.gov"
     title="Mass.gov homepage"
   />),
-  skipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
+  skipNav: <a className="ma__header_slim__skip-nav" href="#main-content">skip to main content</a>
 };
 
 export const HeaderSlimWithNavs = (args) => <HeaderSlim {...args} />;
@@ -45,7 +45,7 @@ HeaderSlimWithNavs.args = {
     siteName="Mass.gov"
     title="Mass.gov homepage"
   />),
-  skipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>,
+  skipNav: <a className="ma__header_slim__skip-nav" href="#main-content">skip to main content</a>,
   mainNav: <ButtonWithIcon icon={<IconSearch />} />,
   utilityNav: (
     <div>
