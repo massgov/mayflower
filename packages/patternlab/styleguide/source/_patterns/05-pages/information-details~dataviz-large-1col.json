@@ -30,8 +30,10 @@
     }
   },
   "relationshipIndicators": {
-    "primary": {
-      "position": "primary",
+    "pageTitle": "Why is habitat management needed?",
+    "primary": {},
+    "secondary": {
+      "position": "secondary",
       "label": "offered by",
       "tags": [{
         "class": "ma__relationship-indicators--term",
