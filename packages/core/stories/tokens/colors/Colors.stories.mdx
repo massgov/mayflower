@@ -6,8 +6,16 @@ import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltC
 <Meta title={generateTitle('Colors')} />
 
 # Colors
+Color is a key component of a brand. An intentially designed and well defined suite of colors can effeciently convey the brand and empower visual consistency. Apply colors systemematically across can help users set expections of the meaning and hierarchies of the perceived information.
+
 
 ## Brand Colors
+Mayflower brand colors are carefully selected to meet the brand pillars and adhere to specific accessibility standards.
+We encourage that all Commonwealth agencies use the same
+suite of colors in order to cement a cohesive image of the Commonwealth
+brand on all public-facing assets and documents.
+Organizations that have their own visual identity are invited to extend this color palette with additional colors that reflect their unique brand in conjunction with the shared Commonwealth identity.
+
 <ul className="sg-colors">
   {
     themeColors.map((color, i) => <ColorSwatch key={`themeColors${i}`} {...color} variable={color.token} />)
@@ -15,23 +23,49 @@ import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltC
 </ul>
 
 ## Theme Colors
+Theme colors are putting brand colors and their variants into use, and assigning them roles and contextual meaning. Think of theme colors as slots for color tokens to systematize color usage.
+
+### Primary Colors
+
+**Primary Color** is the default and most often used color on a page and throughout the site. Accompanying
+shades and tints can be used to create depth.
+
+**Examples:** Headings, titles, icons, graphics, calls to action, buttons,
+and backgrounds.
+
 <ul className="sg-colors">
   {
     primaryColors.map((color, i) => <ColorSwatch key={`primaryColors${i}`} {...color} />)
   }
 </ul>
+
+**Primary Alt Color** is an alternative primary color.
+It is used to balance the theme and create more variety to the color usage on a page and throughout the site.
+Examples: Headings, titles, icons, graphics, calls to action,
+buttons, and backgrounds.
+
 <ul className="sg-colors">
   {
     primaryAltColors.map((color, i) => <ColorSwatch key={`primaryAltColors${i}`} {...color} />)
   }
 </ul>
+
+### highLight Colors
+The purpose of the highlight colors are to to draw attention to key sections or
+information that usually is time sensitive.
+
+**Examples:** Updates, time changes, alerts.
+
 <ul className="sg-colors">
   {
     highLightColors.map((color, i) => <ColorSwatch key={`highLightColors${i}`} {...color} />)
   }
 </ul>
 
-## Gray Scale Colors
+### Gray Scale Colors
+A set of neutral color used to complement and balance primary and secondary colors. It is the base color for all text on both print and digital materials for Mass.gov.
+
+**Examples:** Body text, icons, and backgrounds.
 
 <ul className="sg-colors">
   {
@@ -39,7 +73,8 @@ import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltC
   }
 </ul>
 
-## Utility Colors
+### Utility Colors
+Colors that are to convey a specific meaning or serve a particular purpose.
 
 <ul className="sg-colors">
   {
@@ -49,9 +84,15 @@ import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltC
 
 ## Color Gradients
 
-Gradients are generated for each Mayflower brand color to provide additional options for data visualization usage. The "Light" and "Dark" spectrums are programmatically generated using functions `tint` and `shade` and a 10% percentage intervals for consistency.
+Gradients are programmatically generated as an extension of the Mayflower color palette in order to meet the needs of data visualization.
 
-### Use Tint to Generate Light Gradient Variants
+The "Light" and "Dark" spectrums are programmatically generated using functions `tint` and `shade` and a 10% percentage intervals for evenness and consistency. If a new color is added to the color system, the gradients can be generated following the same method.
+
+### Light Gradients
+
+`tint` takes in a `$color` and mixes it with color white. It also takes in a percentage to define the percentage of `$color` in the mix.
+- 0% is the original `$color` and 100% is the color white.
+- Light Gradient Variants include 10%-90% with a 10% interval.
 
 <React.Fragment>
   {
@@ -69,14 +110,26 @@ Gradients are generated for each Mayflower brand color to provide additional opt
   }
 </React.Fragment>
 
-`tint` takes in a `$color` and mixes it with color white. It also takes in a percentage to define the percentage of `$color` in the mix.
-- 0% is the original `$color` and 100% is the color white.
-- Light Gradient Variants include 10%-90% with a 10% interval.
 
-### Use Dark to Generate Dark Gradient Variants
+
+### Dark Gradients
+
 `shade` takes in a `$color` and mixes it with color black. It also takes in a percentage to define the percentage of `$color` in the mix.
 - 0% is the original `$color` and 100% is the color black.
 - Dark Gradient Variants include 10%-50% with a 10% interval.
 
-### Use the Color Story to Generate Hex Values
-`GradientTile` and `GradientSpectrum` components are created as a color display as well as a hex value generation tool for these gradient values, getting the RGB color values from the rendered color from the `tint` and `shade` functions and converting the decimal values to hexadecimal values.
+<React.Fragment>
+  {
+    themeColors.map(({ token, name }, i) => {
+      const props = {
+        token: token.match(/\$(.*)/)[1],
+        name,
+        effect: 'shade'
+      };
+      return(
+        // eslint-disable-next-line react/no-array-index-key
+        <GradientSpectrum {...props} key={`spectrum_${token}${i}`} />
+      );
+    })
+  }
+</React.Fragment>
