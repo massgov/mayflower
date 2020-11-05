@@ -51,6 +51,14 @@
     "kind": "Elements",
     "story": "Link"
   },
+  "Heading": {
+    "group": "Base Elements",
+    "title": "Heading"
+  },
+  "Link": {
+    "group": "Base Elements",
+    "title": "Link"
+  },
   "Headings": {
     "kind": "Elements",
     "story": "Headings"
