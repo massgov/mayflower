@@ -35,6 +35,10 @@
     "kind": "Foundation",
     "story": "Logo"
   },
+  "Logo": {
+    "group": "Design Tokens",
+    "title": "Logo"
+  },
   "Typography": {
     "kind": "Foundation",
     "story": "Typography"
