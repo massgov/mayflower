@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "start": "rushx storybook"
+    "start": "rushx storybook",
+    "chromatic": "npx chromatic --project-token engf6vhuiv"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +26,8 @@
     "style-loader": "~2.0.0",
     "css-loader": "~5.0.0",
     "sass-loader": "~10.0.3",
-    "sass": "~1.27.0"
+    "sass": "~1.27.0",
+    "chromatic": "~5.3.0"
   },
   "dependencies": {
     "@massds/mayflower-assets": "^0.2.2",
