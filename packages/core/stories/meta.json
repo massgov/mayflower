@@ -27,6 +27,10 @@
     "group": "Design Tokens",
     "title": "Icons"
   },
+  "Logo": {
+    "group": "Design Tokens",
+    "title": "Logo"
+  },
   "Typography": {
     "group": "Design Tokens",
     "title": "Typeface"
