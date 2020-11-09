@@ -1,10 +1,6 @@
 
 version: 2.1
 
-orbs:
-  php: circleci/php@1.1.0
-  node: circleci/node@4.1.0
-
 references:
   configure_npm: &configure_npm
     run: { name: 'Configure NPM', command: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'}
@@ -20,7 +16,7 @@ react_defaults: &react_defaults
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
-    - image: cimg/php:7.4.12
+    - image: circleci/php:7.1-node-browsers
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
@@ -35,11 +31,11 @@ jobs:
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
           paths:
             - common
             - packages/assets/node_modules
@@ -54,15 +50,10 @@ jobs:
     <<: *patternlab_defaults
     steps:
       - checkout
-      - run:
-          name: Install NodeJS 12
-          command: |
-            curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-            sudo apt-get install -y nodejs
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
@@ -286,7 +277,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -300,7 +291,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-4
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
