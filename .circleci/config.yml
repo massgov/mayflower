@@ -55,7 +55,8 @@ jobs:
       - checkout
       - php/install-php:
           version: '7.3'
-      - php/install-composer
+      - php/install-composer:
+          install-version: 1.10.17
       - php/install-packages:
           app-dir: packages/patternlab/styleguide
       - restore_cache:
