@@ -3,6 +3,7 @@ version: 2.1
 
 orbs:
   php: circleci/php@1.1.0
+  node: circleci/node@4.1.0
 
 references:
   configure_npm: &configure_npm
@@ -19,7 +20,7 @@ react_defaults: &react_defaults
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
-    - image: cimg/node:12.14
+    - image: cimg/php:7.4.12
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
@@ -53,12 +54,8 @@ jobs:
     <<: *patternlab_defaults
     steps:
       - checkout
-      - php/install-php:
-          version: '7.3'
-      - php/install-composer:
-          install-version: 1.10.17
-      - php/install-packages:
-          app-dir: packages/patternlab/styleguide
+      - node/install:
+          node-version: '12'
       - restore_cache:
           name: Restore NPM Cache
           keys:
