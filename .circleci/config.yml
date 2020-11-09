@@ -55,6 +55,9 @@ jobs:
       - checkout
       - php/install-php:
           version: '7.3'
+      - php/install-composer
+      - php/install-packages:
+          app-dir: packages/patternlab/styleguide
       - restore_cache:
           name: Restore NPM Cache
           keys:
