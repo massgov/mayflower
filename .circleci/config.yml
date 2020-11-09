@@ -43,7 +43,7 @@ jobs:
             - packages/patternlab/styleguide/node_modules
             - packages/site/node_modules
       - persist_to_workspace:
-          root: ~/code
+          root: ~/repo
           paths: ["*"]
 
   patternlab_build:
