@@ -54,8 +54,11 @@ jobs:
     <<: *patternlab_defaults
     steps:
       - checkout
-      - node/install:
-          node-version: '12.18.0'
+      - run:
+          name: Install NodeJS 12
+          command: |
+            curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+            sudo apt-get install -y nodejs
       - restore_cache:
           name: Restore NPM Cache
           keys:
