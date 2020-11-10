@@ -37,7 +37,6 @@ module.exports = {
     ],
     devtools: false
   },
-  asyncCaptureLimit: os.cpus().length,
   asyncCompareLimit: 20,
   debug,
   debugWindow: debug
