@@ -38,7 +38,8 @@ jobs:
           command: 'node common/scripts/install-run-rush.js build'
       - persist_to_workspace:
           root: ~/code
-          paths: ["*"]
+          paths:
+            - ~/code/*
   install:
     <<: *patternlab_defaults
     steps:
@@ -76,7 +77,7 @@ jobs:
           paths: ["*"]
 
   patternlab_test:
-    <<: *backstop_defaults
+    <<: *patternlab_defaults
     steps:
       - attach_workspace: {at: ~/code }
       - setup_remote_docker
@@ -204,7 +205,7 @@ jobs:
             - packages/react/storybook-static
 
   react_test:
-    <<: *backstop_defaults
+    <<: *patternlab_defaults
     steps:
       - attach_workspace: {at: ~/code }
       - setup_remote_docker
