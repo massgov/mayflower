@@ -28,7 +28,7 @@ jobs:
   build:
     <<: *patternlab_defaults
     steps:
-      - attach_workspace: {at: ~/code}
+      - checkout
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
