@@ -13,16 +13,17 @@ react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
     - image: circleci/node:12.18.0-browsers
+  resource_class: xlarge
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
     - image: circleci/php:7.1-node-browsers
-
+  resource_class: xlarge
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
     - image: cimg/node:12.14
-
+  resource_class: xlarge
 jobs:
   build:
     <<: *patternlab_defaults
