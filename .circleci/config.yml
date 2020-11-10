@@ -379,7 +379,7 @@ workflows:
           filters:
             branches: { only: /dependabot\/.*/ }
       - assets_build:
-          requires: [install]
+          requires: [build]
           filters:
             branches: { ignore: /(docs|site\/).*/ }
       # patternlab
