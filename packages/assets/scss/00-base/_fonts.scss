@@ -18,7 +18,24 @@
 // Import fonts
 /* The fallback non-variable Noto Sans font */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@font-face {
+  font-family: 'Noto Sans';
+  src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.woff2') format('woff2'),
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.woff') format('woff');
+  font-style: normal;
+  font-display: $fonts-display-global;
+}
+/* The fallback non-variable Noto Sans Italic font */
+
+@font-face {
+  font-family: 'Noto Sans';
+  src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic.woff2') format('woff2'),
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic.woff') format('woff');
+  font-style: italic;
+  font-display: $fonts-display-global;
+}
 
 
 @supports ( font-variation-settings: normal ) {
@@ -26,10 +43,8 @@
 
   @font-face {
     font-family: 'Noto Sans VF';
-    src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF.eot?#iefix') format('embedded-opentype'),
-          url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF.woff') format('woff'),
-          url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF.ttf') format('truetype'),
-          url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF.svg#NotoSans-Regular') format('svg');
+    src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF.woff2') format('woff2'),
+          url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF.woff') format('woff');
     font-weight: 100 900;
     font-style: normal;
     font-display: $fonts-display-global;
@@ -38,10 +53,8 @@
 
   @font-face {
     font-family: 'Noto Sans VF';
-    src:  url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.eot?#iefix') format('embedded-opentype'),
-          url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.woff') format('woff'),
-          url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.ttf') format('truetype'),
-          url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.svg#NotoSans-Italic') format('svg');
+    src:  url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.woff2') format('woff2'),
+          url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.woff') format('woff');
     font-weight: 100 900;
     font-style: italic;
     font-display: $fonts-display-global;
