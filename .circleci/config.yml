@@ -34,7 +34,7 @@ jobs:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
       - run:
           name: 'Build'
-          command: 'common/scripts/install-run-rush.js build'
+          command: 'node common/scripts/install-run-rush.js build'
       - persist_to_workspace:
           root: ~/code
           paths: ["*"]
