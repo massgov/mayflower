@@ -1,0 +1,6 @@
+Fixed:
+  - project: Assets
+    component: Fonts
+    description: Fix font issue on Macs running El Capitan, Yosemite, Mavericks (10.11, 10.10, 10.9) with Firefox and Safari. (#1259)
+    issue: DP-20468
+    impact: Patch
