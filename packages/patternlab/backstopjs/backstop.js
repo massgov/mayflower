@@ -1,7 +1,7 @@
 
 var walk = require('./walk-dir');
 var path = require('path');
-
+var os = require('os');
 var patternPath = path.resolve(__dirname, '../styleguide/public/patterns/');
 
 /**
@@ -66,7 +66,7 @@ module.exports = {
           "--disable-setuid-sandbox"
       ]
   },
-  "asyncCaptureLimit": 3,
+  "asyncCaptureLimit": os.cpus().length,
   "asyncCompareLimit": 10,
   "debug": false,
   "debugWindow": false
