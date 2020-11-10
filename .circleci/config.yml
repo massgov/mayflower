@@ -29,6 +29,7 @@ jobs:
     <<: *patternlab_defaults
     steps:
       - checkout
+      - attach_workspace: {at: ~/code}
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
@@ -38,7 +39,12 @@ jobs:
           command: 'node common/scripts/install-run-rush.js build'
       - persist_to_workspace:
           root: ~/code
-          paths: ["*"]
+          paths:
+            - packages/patternlab/styleguide/public
+            - packages/react/dist
+            - packages/assets/css
+            - packages/site/.cache
+            - packages/site/public
   install:
     <<: *patternlab_defaults
     steps:
@@ -201,7 +207,8 @@ jobs:
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js lint
       - persist_to_workspace:
           root: ~/code
-          paths: ["*"]
+          paths:
+            - packages/react/storybook-static
 
   react_test:
     <<: *backstop_defaults
