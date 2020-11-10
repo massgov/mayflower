@@ -48,7 +48,7 @@
 		"pattern-lab/styleguidekit-assets-default": "^3.0.0",
 		"pattern-lab/styleguidekit-twig-default": "^3.0.0",
 		"phing/phing": "^2.14",
-		"pear/versionControl_git": "dev-master",
+		"pear/versioncontrol_git": "dev-master",
 		"cweagans/composer-patches": "^1.6"
 	},
 	"scripts": {
