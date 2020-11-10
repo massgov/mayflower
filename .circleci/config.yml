@@ -38,7 +38,7 @@ jobs:
           command: 'node common/scripts/install-run-rush.js build'
       - persist_to_workspace:
           root: ~/code
-          paths: [*]
+          paths: ["*"]
   install:
     <<: *patternlab_defaults
     steps:
