@@ -28,7 +28,6 @@ jobs:
   build:
     <<: *patternlab_defaults
     steps:
-      - checkout
       - attach_workspace: {at: ~/code}
       - restore_cache:
           name: Restore pnpm-lock.yaml
@@ -39,12 +38,7 @@ jobs:
           command: 'node common/scripts/install-run-rush.js build'
       - persist_to_workspace:
           root: ~/code
-          paths:
-            - packages/patternlab/styleguide/public
-            - packages/react/dist
-            - packages/assets/css
-            - packages/site/.cache
-            - packages/site/public
+          paths: [*]
   install:
     <<: *patternlab_defaults
     steps:
@@ -84,7 +78,7 @@ jobs:
   patternlab_test:
     <<: *backstop_defaults
     steps:
-      - attach_workspace: {at: /home/circleci}
+      - attach_workspace: {at: ~/code }
       - setup_remote_docker
       - run: |
           cd packages/patternlab
@@ -193,7 +187,6 @@ jobs:
   react_build_storybook:
     <<: *patternlab_defaults
     steps:
-      - checkout
       - attach_workspace:
           at: ~/code
       - run:
@@ -213,7 +206,7 @@ jobs:
   react_test:
     <<: *backstop_defaults
     steps:
-      - attach_workspace: {at: /home/circleci}
+      - attach_workspace: {at: ~/code }
       - setup_remote_docker
       - run: |
           cd packages/react
@@ -267,7 +260,8 @@ jobs:
   auto_changelog:
     <<: *react_defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/code
       - *no_host_check
       - add_ssh_keys:
           fingerprints:
@@ -280,7 +274,8 @@ jobs:
   release_branch:
     <<: *patternlab_defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/code
       - *no_host_check
       - restore_cache:
           keys:
@@ -294,7 +289,8 @@ jobs:
   github_tag:
     <<: *patternlab_defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/code
       - *no_host_check
       - restore_cache:
           keys:
@@ -309,10 +305,8 @@ jobs:
   assets_build:
     <<: *patternlab_defaults
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-13
+      - attach_workspace:
+          at: ~/code
       - run:
           name: Mayflower Style Linter
           command: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
@@ -320,7 +314,8 @@ jobs:
   assets_deploy_tag:
     <<: *patternlab_defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/code
       - *configure_npm
       - restore_cache:
           keys:
