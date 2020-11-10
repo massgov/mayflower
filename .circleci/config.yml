@@ -39,7 +39,7 @@ jobs:
       - persist_to_workspace:
           root: ~/code
           paths:
-            - ~/code/*
+            - *
   install:
     <<: *patternlab_defaults
     steps:
