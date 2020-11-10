@@ -3,17 +3,14 @@ const fs = require('fs');
 const path = require('path');
 
 function walkDir(dir) {
-    var files = fs.readdirSync(dir);
+    var files = fs.readdirSync(dir, { withFileTypes: true });
     var filelist = [];
-
     files.forEach(function(file) {
-        var absfile = path.join(dir, file)
-        if(fs.statSync(absfile).isDirectory()) {
-            // var theseFiles = walkDir(absfile).map(subfile => path.join(file, subfile))
-            filelist = filelist.concat(walkDir(absfile));
+        if(file.isDirectory()) {
+            filelist = filelist.concat(walkDir(path.join(dir, file.name)));
         }
         else {
-            filelist.push(absfile)
+            filelist.push(path.join(dir, file.name));
         }
     });
 

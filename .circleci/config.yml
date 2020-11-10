@@ -1,9 +1,6 @@
 
 version: 2.1
 
-orbs:
-  php: circleci/php@1.0.2
-
 references:
   configure_npm: &configure_npm
     run: { name: 'Configure NPM', command: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'}
@@ -19,12 +16,12 @@ react_defaults: &react_defaults
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
-    - image: cimg/php:7.3-node
+    - image: circleci/php:7.1-node-browsers
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
-    - image: circleci/python:2.7.14
+    - image: cimg/node:12.14
 
 jobs:
   build:
@@ -34,20 +31,17 @@ jobs:
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
           paths:
             - common
             - packages/assets/node_modules
             - packages/react/node_modules
             - packages/patternlab/styleguide/node_modules
             - packages/site/node_modules
-      - persist_to_workspace:
-          root: ~/code
-          paths: ["*"]
 
   patternlab_build:
     <<: *patternlab_defaults
@@ -56,7 +50,7 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
@@ -172,24 +166,12 @@ jobs:
             fi
 
   react_build_storybook:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
-      - run:
-          name: Install Rush on Repo directory
-          command: node common/scripts/install-run-rush.js install
-      - save_cache:
-          name: Save NPM cache
-          key: mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
-          paths:
-            - common
-            - packages/assets/node_modules
-            - packages/react/node_modules
-            - packages/patternlab/styleguide/node_modules
-            - packages/site/node_modules
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
       - run:
           name: Mayflower React Build
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
@@ -203,7 +185,7 @@ jobs:
           name: Mayflower React Linter
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js lint
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/code
           paths: ["*"]
 
   react_test:
@@ -231,10 +213,10 @@ jobs:
           path: packages/react/backstop/data/ci_report
 
   react_deploy_tag:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: ~/code
       - *configure_npm
       - run:
           name: 'Publish mayflower-react NPM package'
@@ -280,7 +262,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -294,7 +276,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-3
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -303,24 +285,24 @@ jobs:
 
 
   assets_build:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
       - run:
           name: Mayflower Style Linter
           command: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
 
   assets_deploy_tag:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - *configure_npm
       - restore_cache:
           keys:
-            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
       - run:
           name: 'Publish mayflower-assets NPM package'
           command: |
@@ -333,26 +315,26 @@ jobs:
             fi
 
   site_build:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - mfr-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-1
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-11
       - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Validate Package Build
           command: cd packages/site && node ../../common/scripts/install-run-rushx.js build
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/code
           paths: ["*"]
 
 
   site_deploy_tag:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: ~/code
       - run: |
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
@@ -396,6 +378,7 @@ workflows:
             branches: { ignore: /(docs|react\/|site\/|core\/).*/ }
       # react
       - react_build_storybook:
+          requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/|core\/).*/ }
       - react_test:
