@@ -1,47 +1,47 @@
 Added:
   - project: Assets
     component:
-    description: Added support for the generation of static HTML for header, header hamburger, header mixed, header slim, header slim with nav, footer, and footer slim. (#1265)
+    description: Added support for the generation of static HTML for header, header hamburger, header mixed, header slim, header slim with nav, footer, and footer slim. (#1266)
     issue:
     impact: Minor
   - project: Assets
     component:
-    description: Added support for the generation of static JS for header, header hamburger, and header mixed. (#1265)
+    description: Added support for the generation of static JS for header, header hamburger, and header mixed. (#1266)
     issue:
     impact: Minor
 Changed:
   - project: Assets
     component: 
-    description: Changed global.scss path for static assets to point to unpkg CDN url. (#1265)
+    description: Changed global.scss path for static assets to point to unpkg CDN url. (#1266)
     issue:
     impact: Patch
   - project: Assets
     component: 03-organisms/header-slim
-    description: Added missing styles from 01-atoms/button-with-icon, 01-atoms/button-search, and 01-atoms/buttons, needed by 03-organisms/header-slim. (#1265)
+    description: Added missing styles from 01-atoms/button-with-icon, 01-atoms/button-search, and 01-atoms/buttons, needed by 03-organisms/header-slim. (#1266)
     issue:
     impact: Patch
   - project: Assets
     component:
-    description: Restructured build directory to contain both js and scss files meant to be used for building static assets. (#1265)
+    description: Restructured build directory to contain both js and scss files meant to be used for building static assets. (#1266)
     issue:
     impact: Minor
   - project: Patternlab
     component: js/modules/mainNav.js
-    description: Changed main nav js for window resize to use addEventListener instead of undefined addEventHandler. (#1265)
+    description: Changed main nav js for window resize to use addEventListener instead of undefined addEventHandler. (#1266)
     issue:
     impact: Patch
   - project: Patternlab
     component: js/modules/mainNavHamburger.js
-    description: Fixed a bug causing non-smooth scrolling in browser when clicking hamburger nav items. (#1265)
+    description: Fixed a bug causing non-smooth scrolling in browser when clicking hamburger nav items. (#1266)
     issue:
     impact: Patch
   - project: Patternlab
     component: js/modules/mobileNav.js, js/modules/mainNavMixed.js
-    description: Renamed variable names to be unique for each module file, allowing those files to be combined without conflicts for static js generation. (#1265)
+    description: Renamed variable names to be unique for each module file, allowing those files to be combined without conflicts for static js generation. (#1266)
     issue:
     impact: Patch
   - project: React
     component: HeaderSlim
-    description: Updated story to use correct css class name on skip nav element. (#1265)
+    description: Updated story to use correct css class name on skip nav element. (#1266)
     issue:
     impact: Patch
