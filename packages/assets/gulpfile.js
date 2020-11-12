@@ -24,7 +24,7 @@ function deleteMainNav() {
 }
 
 function compileScss() {
-  return src('./build/*.scss')
+  return src('./build/scss/*.scss')
   .pipe(sass({
     includePaths: [
       path.join(__dirname, 'scss'),
@@ -42,7 +42,7 @@ function compileScss() {
 };
 
 function compileMiniScss() {
-  return src('./build/*.scss')
+  return src('./build/scss/*.scss')
   .pipe(sass({
     outputStyle: 'compressed',
     includePaths: [
@@ -65,12 +65,12 @@ function compileMiniScss() {
 };
 
 function watchScss() {
-  return watch(['./build/*.scss'], {ignoreInitial: false}, parallel(compileMiniScss, compileScss));
+  return watch(['./build/scss/*.scss'], {ignoreInitial: false}, parallel(compileMiniScss, compileScss));
 }
 
 function compileHamburgerHeader() {
   return src([
-    './build-js/header-hamburger-vendor.js',
+    './build/js/header-hamburger-vendor.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
     '../patternlab/styleguide/source/assets/js/modules/mobileNav.js'
   ])
@@ -83,7 +83,7 @@ function compileHamburgerHeader() {
 
 function compileMiniHamburgerHeader() {
   return src([
-    './build-js/header-hamburger-vendor.js',
+    './build/js/header-hamburger-vendor.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
     '../patternlab/styleguide/source/assets/js/modules/mobileNav.js'
   ])
@@ -110,7 +110,7 @@ function compileMainNav() {
 
 function compileMixedHeader() {
   return src([
-    './build-js/header-hamburger-vendor.js',
+    './build/js/header-hamburger-vendor.js',
     './js/mainNav.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavMixed.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
@@ -127,7 +127,7 @@ function compileMixedHeader() {
 
 function compileMiniMixedHeader() {
   return src([
-    './build-js/header-hamburger-vendor.js',
+    './build/js/header-hamburger-vendor.js',
     './js/mainNav.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavMixed.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
