@@ -17,14 +17,6 @@ module.exports = {
       }
     },
     {
-      name: '@storybook/addon-storysource',
-      options: {
-        rule: {
-          enforce: 'pre',
-        }
-      }
-    },
-    {
       name: '@storybook/preset-scss',
       options: {
         cssLoaderOptions: {
