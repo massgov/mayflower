@@ -16,12 +16,32 @@ Changed:
     issue:
     impact: Patch
   - project: Assets
+    component: 03-organisms/header-slim
+    description: Added missing styles from 01-atoms/button-with-icon, 01-atoms/button-search, and 01-atoms/buttons, needed by 03-organisms/header-slim. (#1265)
+    issue:
+    impact: Patch
+  - project: Assets
     component:
     description: Restructured build directory to contain both js and scss files meant to be used for building static assets. (#1265)
     issue:
     impact: Minor
   - project: Patternlab
-    component: MainNav
+    component: js/modules/mainNav.js
     description: Changed main nav js for window resize to use addEventListener instead of undefined addEventHandler. (#1265)
+    issue:
+    impact: Patch
+  - project: Patternlab
+    component: js/modules/mainNavHamburger.js
+    description: Fixed a bug causing non-smooth scrolling in browser when clicking hamburger nav items. (#1265)
+    issue:
+    impact: Patch
+  - project: Patternlab
+    component: js/modules/mobileNav.js, js/modules/mainNavMixed.js
+    description: Renamed variable names to be unique for each module file, allowing those files to be combined without conflicts for static js generation. (#1265)
+    issue:
+    impact: Patch
+  - project: React
+    component: HeaderSlim
+    description: Updated story to use correct css class name on skip nav element. (#1265)
     issue:
     impact: Patch
