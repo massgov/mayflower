@@ -12,16 +12,21 @@
 @use '@massds/mayflower-assets/scss/01-atoms/decorative-link';
 @use '@massds/mayflower-assets/scss/01-atoms/button-copy';
 @use '@massds/mayflower-react/dist/Typography';
+
 @use '@massds/mayflower-react/dist/Button';
 @use '@massds/mayflower-assets/scss/01-atoms/button-with-icon';
-@use '@massds/mayflower-assets/scss/02-molecules/header-search';
 
+@use '@massds/mayflower-assets/scss/01-atoms/colored-heading';
+@use '@massds/mayflower-assets/scss/01-atoms/comp-heading';
+@use '@massds/mayflower-assets/scss/01-atoms/sidebar-heading';
+
+@use '@massds/mayflower-assets/scss/01-atoms/site-logo';
+@use '@massds/mayflower-assets/scss/02-molecules/header-search';
+@use '@massds/mayflower-assets/scss/02-molecules/main-nav';
+@use '@massds/mayflower-assets/scss/03-organisms/header';
 @use '@massds/mayflower-assets/scss/03-organisms/header-slim';
 @use '@massds/mayflower-assets/scss/03-organisms/utility-nav';
 @use '@massds/mayflower-assets/scss/03-organisms/utility-panel';
-@use '@massds/mayflower-assets/scss/02-molecules/main-nav';
-@use '@massds/mayflower-assets/scss/03-organisms/header';
-@use '@massds/mayflower-assets/scss/01-atoms/site-logo';
 
 @use '@massds/mayflower-assets/scss/03-organisms/footer-slim';
 @use '@massds/mayflower-assets/scss/03-organisms/footer';
