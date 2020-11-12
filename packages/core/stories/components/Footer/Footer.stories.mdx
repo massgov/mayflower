@@ -9,6 +9,7 @@ import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
 import generateTitle from '../../util/generateTitle';
+import { renderReactMarkup } from '../../util/renderCode';
 
 <Meta
   title={generateTitle('Footer')}
@@ -68,29 +69,60 @@ For web apps and websites that have a simple sitemap or navigation structure, th
 ### Footer (Slim Version)
 A most simplified version of a header contains a blue bar (height: 15px) at the top and a site logo and site name linked to the home of the website, placed on a light gray background ($c-gray-lightest)
 <Canvas>
-  <FooterSlim
-    contact={{
-      address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
-      online: {
-        href: '#',
-        title: 'EEC Official Website'
-      },
-      phone: '(617) 988-6600'
-    }}
-    description="The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
-    links={[
-      {
-        href: '#',
-        title: 'Lead Agencies Policies'
-      },
-      {
-        href: '#',
-        title: 'Child Care Licensing Procedures'
-      }
-    ]}
-    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
-    title="Massachusetts Executive Office of Eductation (EDU)"
-  />
+  <Story
+    name="footer-slim"
+    inline={false}
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <FooterSlim
+        contact={{
+          address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
+          online: {
+            href: '#',
+            title: 'EEC Official Website'
+          },
+          phone: '(617) 988-6600'
+        }}
+        description="The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
+        links={[
+          {
+            href: '#',
+            title: 'Lead Agencies Policies'
+          },
+          {
+            href: '#',
+            title: 'Child Care Licensing Procedures'
+          }
+        ]}
+        siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
+        title="Massachusetts Executive Office of Eductation (EDU)"
+      />) } }}>
+      <FooterSlim
+        contact={{
+          address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
+          online: {
+            href: '#',
+            title: 'EEC Official Website'
+          },
+          phone: '(617) 988-6600'
+        }}
+        description="The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
+        links={[
+          {
+            href: '#',
+            title: 'Lead Agencies Policies'
+          },
+          {
+            href: '#',
+            title: 'Child Care Licensing Procedures'
+          }
+        ]}
+        siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
+        title="Massachusetts Executive Office of Eductation (EDU)"
+      />
+  </Story>
+  <Story
+    name="footer-slim-css"
+    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/footer-slim.css">'} } }} />
 </Canvas>
 
 
