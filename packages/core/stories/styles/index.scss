@@ -9,7 +9,6 @@
 @use './bootstrap-grid';
 
 @use '~@massds/mayflower-assets/scss/00-base/elements';
-@use '@massds/mayflower-assets/scss/01-atoms/decorative-link';
 @use '@massds/mayflower-assets/scss/01-atoms/button-copy';
 @use '@massds/mayflower-react/dist/Typography';
 
@@ -19,6 +18,10 @@
 @use '@massds/mayflower-assets/scss/01-atoms/colored-heading';
 @use '@massds/mayflower-assets/scss/01-atoms/comp-heading';
 @use '@massds/mayflower-assets/scss/01-atoms/sidebar-heading';
+
+// Links
+@use '@massds/mayflower-assets/scss/01-atoms/decorative-link';
+@use '@massds/mayflower-assets/scss/02-molecules/callout-link';
 
 @use '@massds/mayflower-assets/scss/01-atoms/site-logo';
 @use '@massds/mayflower-assets/scss/02-molecules/header-search';
