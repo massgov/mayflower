@@ -4,6 +4,7 @@ import ColoredHeading from '@massds/mayflower-react/dist/ColoredHeading';
 import CompHeading from '@massds/mayflower-react/dist/CompHeading';
 import SidebarHeading from '@massds/mayflower-react/dist/SidebarHeading';
 import generateTitle from '../util/generateTitle';
+import { renderReactMarkup } from '../util/renderCode';
 
 import {
   headings
@@ -65,44 +66,98 @@ Should be used as a navigational heading, high up on the page. If a page heading
 ### Component Heading Variations
 Should be used to to separate content within a big section. If used under Colored Heading, should use a lower heading level than the colored heading, usually as H3 or lower. When nesting Color Headings, use colors as an indicator of the hierarchy in this order: Primary Alt > Highlight > Gray.
 
-
-  <CompHeading
-    centered={false}
-    color=""
-    id=""
-    level={3}
-    sidebar={false}
-    title="Comp Heading (Primary Alt | H3)"
-    titleContext=""
-  />
-  <CompHeading
-    centered={false}
-    color="yellow"
-    id=""
-    level={4}
-    sidebar={false}
-    title="Comp Heading (Highlight | H4)"
-    titleContext=""
-  />
-  <CompHeading
-    centered={false}
-    color="gray"
-    id=""
-    level={5}
-    sidebar={false}
-    title="Comp Heading (Gray | H5)"
-    titleContext=""
-  />
+<Canvas inline={false}>
+  <Story
+    name="heading-comp--primary-alt"
+    inline={false}
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <CompHeading
+        centered={false}
+        color=""
+        id=""
+        level={3}
+        sidebar={false}
+        title="Comp Heading (Primary Alt | H3)"
+        titleContext=""
+      />) } }}>
+      <CompHeading
+        centered={false}
+        color=""
+        id=""
+        level={3}
+        sidebar={false}
+        title="Comp Heading (Primary Alt | H3)"
+        titleContext=""
+      />
+  </Story>
+  <Story
+    name="heading-comp--highlight"
+    inline={false}
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <CompHeading
+        centered={false}
+        color="yellow"
+        id=""
+        level={4}
+        sidebar={false}
+        title="Comp Heading (Highlight | H4)"
+        titleContext=""
+      />) } }}>
+      <CompHeading
+        centered={false}
+        color="yellow"
+        id=""
+        level={4}
+        sidebar={false}
+        title="Comp Heading (Highlight | H4)"
+        titleContext=""
+      />
+  </Story>
+  <Story
+    name="heading-comp--gray"
+    inline={false}
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <CompHeading
+        centered={false}
+        color="gray"
+        id=""
+        level={5}
+        sidebar={false}
+        title="Comp Heading (Gray | H5)"
+        titleContext=""
+      />) } }}>
+      <CompHeading
+        centered={false}
+        color="gray"
+        id=""
+        level={5}
+        sidebar={false}
+        title="Comp Heading (Gray | H5)"
+        titleContext=""
+      />
+  </Story>
+  <Story
+    name="heading-css"
+    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/comp-heading.css">'} } }} />
+</Canvas>
 
 <br />
 
 ### List Heading Variations
 Should be used as a heading of a list either full width or in a 50/50 split the main content well.
 <Canvas>
-  <SidebarHeading
-    level={2}
-    title="List Heading"
-  />
+  <Story
+    name="heading-sidebar"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <SidebarHeading
+        level={2}
+        title="List Heading"
+      />) } }}>
+      <SidebarHeading
+        level={2}
+        title="List Heading"
+      />
+  </Story>
 </Canvas>
 
 ## Accessibility & Best Practices
