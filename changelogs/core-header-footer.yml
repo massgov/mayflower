@@ -15,6 +15,11 @@ Changed:
     description: Changed global.scss path for static assets to point to unpkg CDN url. (#1265)
     issue:
     impact: Patch
+  - project: Assets
+    component:
+    description: Restructured build directory to contain both js and scss files meant to be used for building static assets. (#1265)
+    issue:
+    impact: Minor
   - project: Patternlab
     component: MainNav
     description: Changed main nav js for window resize to use addEventListener instead of undefined addEventHandler. (#1265)
