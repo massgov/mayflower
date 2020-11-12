@@ -13,14 +13,6 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     {
-      name: '@storybook/addon-storysource',
-      options: {
-        rule: {
-          enforce: 'pre',
-        }
-      }
-    },
-    {
       name: '@storybook/preset-scss',
       options: {
         cssLoaderOptions: {
