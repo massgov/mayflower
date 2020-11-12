@@ -240,8 +240,10 @@
         }
 
         if (windowWidth <= breakpoint) {
+          //this should not animate
           $content.classList.add(closeClass);
         } else {
+          //this should animate sliding upwards
           //$content.getAnimations().forEach(contentAnimation => contentAnimation.cancel());
           $content.classList.add(closeClass);
         }
@@ -254,12 +256,13 @@
           $content.classList.add(openClass);
           $content.classList.remove(closeClass);
         } else {
+          //this should animate sliding downwards
           //$content.getAnimations().forEach(contentAnimation => contentAnimation.cancel());
+          $content.classList.add(openClass);
           $content.classList.remove(closeClass);
 
-          setInterval(function () {
-            $content.classList.add(openClass);
-          }, 500);
+          //setInterval(function () {
+          //}, 500);
         }
       }
     });

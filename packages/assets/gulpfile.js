@@ -81,7 +81,7 @@ function compileHamburgerHeader() {
 function compileMixedHeader() {
   return src([
     './build-js/header-hamburger-vendor.js',
-    '../patternlab/styleguide/source/assets/js/modules/mainNav.js',
+    './build-js/main-nav-without-jQuery.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavMixed.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
     '../patternlab/styleguide/source/assets/js/modules/mobileNav.js',
