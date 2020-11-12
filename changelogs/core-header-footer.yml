@@ -1,22 +1,22 @@
 Added:
   - project: Assets
     component:
-    description: Added support for the generation of static HTML for header, header hamburger, header mixed, header slim, header slim with nav, footer, and footer slim. (#)
+    description: Added support for the generation of static HTML for header, header hamburger, header mixed, header slim, header slim with nav, footer, and footer slim. (#1265)
     issue:
     impact: Minor
   - project: Assets
     component:
-    description: Added support for the generation of static JS for header, header hamburger, and header mixed. (#)
+    description: Added support for the generation of static JS for header, header hamburger, and header mixed. (#1265)
     issue:
     impact: Minor
 Changed:
   - project: Assets
     component: 
-    description: Changed global.scss path for static assets to point to unpkg CDN url. (#)
+    description: Changed global.scss path for static assets to point to unpkg CDN url. (#1265)
     issue:
     impact: Patch
   - project: Patternlab
     component: MainNav
-    description: Changed main nav js for window resize to use addEventListener instead of undefined addEventHandler. (#)
+    description: Changed main nav js for window resize to use addEventListener instead of undefined addEventHandler. (#1265)
     issue:
     impact: Patch
