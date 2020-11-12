@@ -1,6 +1,9 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Button from '@massds/mayflower-react/dist/Button';
+import DecorativeLink from '@massds/mayflower-react/dist/DecorativeLink';
+import CalloutLink from '@massds/mayflower-react/dist/CalloutLink';
 import generateTitle from '../util/generateTitle';
+import { renderReactMarkup } from '../util/renderCode';
 
 <Meta
   title={generateTitle('Link')}
@@ -10,5 +13,88 @@ import generateTitle from '../util/generateTitle';
 />
 
 # Links
+Links are used to embed actions or pathways to more information in a sentence or on a page.
 
-(WIP)
+## Variations
+
+#### Inline Link
+**Usage:** Use when you are linking just a few words of text or when you are doing inline links.
+
+**Style:**
+
+<Canvas>
+  <Story
+    name="link">
+      <a href="#">Inline Link</a>
+  </Story>
+  <Story
+    name="link-css"
+    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/decorative-link.css">'} } }} />
+</Canvas>
+
+#### Decorative Link
+**Usage:** Use when you are linking just a few words of text or when you are doing inline links.
+
+**Style:** Used for standalone links that require more emphasis.
+
+<Canvas>
+  <Story
+    name="link-decorative"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+    <DecorativeLink text="Decorative Link"/>) } }}>
+    <DecorativeLink text="Decorative Link"/>
+  </Story>
+  <Story
+    name="link-decorative-css"
+    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/decorative-link.css">'} } }} />
+</Canvas>
+
+
+#### Callout Link
+**Usage:** Call to action links that require more emphasis.
+
+**Style:**
+
+<Canvas>
+  <Story
+    name="link-callout"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<CalloutLink text="Callout Link"/>) } }}>
+      <CalloutLink text="Callout Link"/>
+  </Story>
+  <Story
+    name="link-callout-css"
+    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/callout-link.css">'} } }} />
+</Canvas>
+
+
+#### Link styled as a button
+**Usage:** Use when you are linking just a few words of text or when you are doing inline links. In general, we should style buttons as button and style links as links, to provide . But there are cases when
+
+**Style:**
+
+<Canvas>
+  <Story
+    name="link-button-primary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button href="#" text="Button as a link" usage="" type="submit"/>) } }}>
+      <Button href="#" text="Button as a link" usage="" type="submit"/>
+  </Story>
+  <Story
+    name="link-button-secondary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button href="#" text="Button as a link" usage="secondary"/>) } }}>
+      <Button href="#" text="Button as a link" usage="secondary"/>
+  </Story>
+  <Story
+    name="link-button-tertiary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(  <Button href="#" text="Button as a link" usage="tertiary"/>) } }}>
+        <Button href="#" text="Button as a link" usage="tertiary"/>
+  </Story>
+  <Story
+    name="link-button-css"
+    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/button.css">'} } }} />
+</Canvas>
+
+
+## Accessibility & Best Practices
+The purpose of a link can be determined from the link text alone or from the text combined with programmatically determined content
+The largest errors usually found here are on article preview links or similar where there may be multiple links on a page stating “read more” or other similar repeatable text, this should be avoided.
+Additionally links that are not links but items such as files, e-mail to links and phone numbers should be clearly labeled as such
