@@ -6,7 +6,9 @@
   "files": [
     "static",
     "scss",
-    "css"
+    "css",
+    "js",
+    "html"
   ],
   "repository": {
     "type": "git",
@@ -46,6 +48,8 @@
     "@babel/preset-env": "~7.12.1",
     "gulp-babel": "~8.0.0",
     "gulp-concat": "~2.6.1",
-    "gulp-terser": "~1.4.1"
+    "gulp-terser": "~1.4.1",
+    "babel-plugin-remove-import-export": "~1.1.1",
+    "babel-plugin-rewire-exports": "~2.2.0"
   }
 }

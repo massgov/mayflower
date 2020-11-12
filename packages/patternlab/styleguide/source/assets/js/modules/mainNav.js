@@ -2,7 +2,7 @@ export default (function (window, document, $, undefined) {
 
   let windowWidth = window.innerWidth;
 
-  window.addEventHandler("resize", function () {
+  window.addEventListener("resize", function () {
     windowWidth = window.innerWidth;
   });
   

@@ -19,6 +19,10 @@ function cleanJS() {
   return del(['js']);
 }
 
+function deleteMainNav() {
+  return del(['js/mainNav.js']);
+}
+
 function compileScss() {
   return src('./build/*.scss')
   .pipe(sass({
@@ -74,39 +78,90 @@ function compileHamburgerHeader() {
       presets: ['@babel/env']
     }))
     .pipe(concat('header-hamburger.js'))
+    .pipe(dest('./js'));
+}
+
+function compileMiniHamburgerHeader() {
+  return src([
+    './build-js/header-hamburger-vendor.js',
+    '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
+    '../patternlab/styleguide/source/assets/js/modules/mobileNav.js'
+  ])
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
+    .pipe(concat('header-hamburger.min.js'))
     .pipe(terser())
     .pipe(dest('./js'));
+}
+
+function compileMainNav() {
+  return src([
+    '../patternlab/styleguide/source/assets/js/modules/mainNav.js'
+  ])
+  .pipe(babel({
+    plugins: [
+      'babel-plugin-rewire-exports',
+      'babel-plugin-remove-import-export'
+    ]
+  }))
+  .pipe(dest('./js'))
 }
 
 function compileMixedHeader() {
   return src([
     './build-js/header-hamburger-vendor.js',
-    './build-js/main-nav-without-jQuery.js',
+    './js/mainNav.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavMixed.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
     '../patternlab/styleguide/source/assets/js/modules/mobileNav.js',
   ])
   .pipe(concat('header-mixed.js'))
-
-    .pipe(babel({
-      presets: [
-        [
-          '@babel/preset-env',
-          { debug: true }
-        ]
-      ]
-    }))
-    //.pipe(terser())
-    .pipe(dest('./js'));
+  .pipe(babel({
+    presets: [
+      '@babel/preset-env',
+    ]
+  }))
+  .pipe(dest('./js'));
 }
-exports.compileMixedHeader = compileMixedHeader;
-exports.compileHeader = series(cleanJS, parallel(compileMixedHeader, compileHamburgerHeader));
+
+function compileMiniMixedHeader() {
+  return src([
+    './build-js/header-hamburger-vendor.js',
+    './js/mainNav.js',
+    '../patternlab/styleguide/source/assets/js/modules/mainNavMixed.js',
+    '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
+    '../patternlab/styleguide/source/assets/js/modules/mobileNav.js',
+  ])
+  .pipe(concat('header-mixed.min.js'))
+  .pipe(babel({
+    presets: [
+      '@babel/preset-env',
+    ]
+  }))
+  .pipe(terser())
+  .pipe(dest('./js'));
+}
+
+exports.deleteMainNav = deleteMainNav;
+exports.compileMainNav = compileMainNav;
 exports.compileMiniScss = compileMiniScss;
 exports.compileScss = compileScss;
 exports.clean = clean;
 
+const transpileMixedHeader = series(compileMainNav, parallel(compileMixedHeader, compileMiniMixedHeader), deleteMainNav);
+const transpileHamburgerHeader = parallel(compileHamburgerHeader, compileMiniHamburgerHeader);
+const compileHeader = series(transpileMixedHeader, transpileHamburgerHeader);
+const build = series(parallel(clean, cleanJS), parallel(compileMiniScss, compileScss), compileHeader);
+
+exports.transpileMixedHeader = transpileMixedHeader;
+
+exports.transpileHamburgerHeader = transpileHamburgerHeader;
+
+exports.compileHeader = compileHeader;
+
 exports.watch = series(clean, watchScss);
 
-exports.build = series(clean, parallel(compileMiniScss, compileScss));
+exports.build = build;
 
-exports.default = series(clean, parallel(compileMiniScss, compileScss));
+exports.default = build;

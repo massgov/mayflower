@@ -1,1 +1,883 @@
-"use strict";function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"en",includedLanguages:"",layout:google.translate.TranslateElement.InlineLayout.SIMPLE},"google_translate_element"),null!==document.querySelector("#google_translate_element")&&document.querySelector("#google_translate_element").classList.add("has-rendered")}!function(){window.__forceSmoothScrollPolyfill__=!0;var e=document.createElement("script");e.src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.js",e.crossOrigin=!0,document.getElementsByTagName("head")[0].appendChild(e)}(),function(){var e=document.createElement("script");e.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit",e.async=!0,document.getElementsByTagName("head")[0].appendChild(e)}();var alertlOffsetPosition,debouncer,osInfo=navigator.appVersion,body=document.querySelector("body"),width=body.clientWidth,feedbackButton=document.querySelector(".ma__fixed-feedback-button"),menuOverlay=document.querySelector(".menu-overlay"),alertOverlay=document.querySelector(".alert-overlay"),menuButton=document.querySelector(".js-header-menu-button"),jumpToSearchButton=document.querySelector(".js-header-search-access-button"),searchInput=document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input"),hamburgerMenuContainer=document.querySelector(".ma__header__hamburger__nav-container"),menuItems=document.querySelectorAll(".js-main-nav-hamburger-toggle"),utilNavWide=document.querySelector(".js-utility-nav--wide"),utilNarrowNav=document.querySelector(".ma__header__hamburger__utility-nav--narrow"),utilNarrowButton=document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle"),utilNarrowContent=utilNarrowButton?utilNarrowButton.nextElementSibling:null,utilNarrowContainer=utilNarrowContent?utilNarrowContent.querySelector(".ma__utility-nav__container"):null,utilNavNarrowCheck=function(){return!!utilNarrowNav&&(utilNarrowNav.offsetWidth>0&&utilNarrowNav.offsetHeight>0)};if(null!==menuButton){menuButton.addEventListener("click",(function(e){e.preventDefault(),-1!==osInfo.indexOf("Safari")&&menuButton.focus(),toggleMenu()})),menuButton.addEventListener("keydown",(function(e){"Tab"!==e.key&&"Tab"!==e.code||width<621&&(e.preventDefault(),document.querySelector(".ma__header__hamburger__nav-container").querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])")[0].focus())}));var logoLink=document.querySelector(".ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a");logoLink&&logoLink.addEventListener("keydown",(function(e){(e.shiftKey&&"Tab"===e.key||e.shiftKey&&"Tab"===e.code)&&setTimeout((function(){document.querySelector(".js-header-menu-button").focus()}),100)}));var firstTopMenuItem=document.querySelector(".ma__header__hamburger__nav .ma__main__hamburger-nav__item:first-of-type .js-main-nav-hamburger__top-link"),lastTopMenuItem=document.querySelector(".ma__main__hamburger-nav__item:last-of-type .ma__main__hamburger-nav__top-link"),lastSubmenuLink=document.querySelector(".js-main-nav-hamburger-toggle:last-of-type .js-main-nav-hamburger-content .js-main-nav-hamburger__subitem:last-of-type .js-main-nav-hamburger__link"),lastUtilMenuItem=document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-nav__link"),lastUtilMenuContentLink=document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-panel:last-of-type .js-clickable:last-of-type .js-clickable-link");lastTopMenuItem&&(lastTopMenuItem.addEventListener("keydown",(function(e){e.shiftKey&&"Tab"===e.key||e.shiftKey&&"Tab"===e.code?width<841&&setTimeout((function(){this.closest(".js-main-nav-hamburger-toggle").previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus()}),1):"Tab"!==e.key&&"Tab"!==e.code||width>840&&(this.hasAttribute("aria-expanded")?"false"===this.getAttribute("aria-expanded")&&setFocusOnFirstTopMenu():setFocusOnFirstTopMenu())})),lastTopMenuItem===document.querySelector(".ma__main__hamburger-nav__item:last-of-type button")&&lastSubmenuLink.addEventListener("keydown",(function(e){var t=this.closest(".js-main-nav-hamburger-content");"Tab"!==e.key&&"Tab"!==e.code||t.classList.contains(".is-closed")||width>840&&setTimeout((function(){t.querySelector(".js-main-nav-hamburger__subitem:first-of-type .js-main-nav-hamburger__link").focus()}),1)}))),lastUtilMenuItem&&(lastUtilMenuItem.addEventListener("keydown",(function(e){"Tab"!==e.key&&"Tab"!==e.code||width<841&&"false"===this.getAttribute("aria-expanded")&&setFocusOnFirstTopMenu()})),lastUtilMenuContentLink.addEventListener("keydown",(function(e){e.shiftKey&&"Tab"===e.key||e.shiftKey&&"Tab"===e.code?width<841&&setTimeout((function(){e.target.closest(".js-clickable").previousElementSibling.querySelector("a").focus()}),1):"Tab"!==e.key&&"Tab"!==e.code||width<841&&setTimeout((function(){e.target.closest(".js-util-nav-content").querySelector("a:first-of-type").focus()}),1)})));var setFocusOnFirstTopMenu=function(){setTimeout((function(){firstTopMenuItem.focus()}),1)};document.addEventListener("keydown",(function(e){if("Escape"===e.key||"Esc"===e.key||"Escape"===e.code){if("1"===utilNavWide.querySelector(".js-util-nav-content").style.opacity&&(closeUtilWideContent(),utilNavWide.querySelector(".js-util-nav-toggle").focus()),utilNarrowNav)if(utilNarrowButton!==document.activeElement&&"1"===utilNarrowContainer.style.opacity){for(var t=utilNarrowNav.querySelectorAll(".js-clickable-link"),n=0;n<t.length;n++)t[n].innerText===document.activeElement.innerText&&utilNarrowButton.focus();closeNarrowUtilContent()}else for(var o=utilNarrowNav.querySelectorAll(".ma__utility-nav__link"),r=0;r<o.length;r++)o[r].innerText===document.activeElement.innerText&&closeMenu();var a=document.querySelector(".submenu-open .js-main-nav-hamburger__top-link");if(a!==document.activeElement){for(var i=document.querySelectorAll(".ma__main__hamburger-nav__top-link"),u=0;u<i.length;u++)i[u]===document.activeElement&&closeMenu();for(var l=document.querySelectorAll(".submenu-open .js-main-nav-hamburger-content:not(is-closed) .js-main-nav-hamburger__link"),s=0;s<l.length;s++)l[s]===document.activeElement&&a.focus()}else closeMenu()}}));var submenuLinks=document.querySelectorAll(".js-main-nav-hamburger__link");submenuLinks.forEach((function(e){e.addEventListener("keydown",(function(e){var t=e.target.closest(".js-main-nav-hamburger__subitem");"ArrowDown"!==e.key&&"ArrowDown"!==e.code||(t.nextElementSibling?t.nextElementSibling.querySelector("a").focus():document.querySelector(".js-main-nav-hamburger-content:not(.is-closed) .js-main-nav-hamburger__subitem:first-of-type a").focus()),"ArrowUp"!==e.key&&"ArrowUp"!==e.code||(t.previousElementSibling?t.previousElementSibling.querySelector("a").focus():document.querySelector(".js-main-nav-hamburger-content:not(.is-closed) .js-main-nav-hamburger__subitem:last-of-type a").focus())}))}));var narrowUtilContentLinks=document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-content a.js-clickable-link"),lastIndex=narrowUtilContentLinks.length-1;narrowUtilContentLinks.forEach((function(e,t){e.addEventListener("keydown",(function(e){if("ArrowDown"===e.key||"ArrowDown"===e.code)if(e.target===narrowUtilContentLinks[t])e.target===narrowUtilContentLinks[lastIndex]?t=0:t++;else if(e.target===narrowUtilContentLinks[lastIndex])t=0;else{for(var n,o=0;o<narrowUtilContentLinks.length;o++)e.target===narrowUtilContentLinks[o]&&(n=o);t=n,t++}if("ArrowUp"===e.key||"ArrowUp"===e.code)if(e.target===narrowUtilContentLinks[t])e.target===narrowUtilContentLinks[0]?t=lastIndex:t--;else if(e.target===narrowUtilContentLinks[0])t=lastIndex;else{for(var r,a=lastIndex;a>-1;a--)e.target===narrowUtilContentLinks[a]&&(r=a);t=r,t--}narrowUtilContentLinks[t].focus()}))}))}function toggleMenu(){hamburgerMenuContainer&&(body.classList.contains("show-menu")?(hamburgerMenuContainer.setAttribute("aria-hidden",""),closeMenu(),setTimeout((function(){document.querySelector(".js-header-menu-button").focus()}),100)):(hamburgerMenuContainer.removeAttribute("aria-hidden"),openMenu(),document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex","-1"),document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex","-1"),document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex","-1")))}function closeMenu(){commonCloseMenuTasks(),menuButton.setAttribute("aria-pressed","false"),setTimeout((function(){document.querySelector(".js-header-menu-button").focus()}),100),width>840&&document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")&&(document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .goog-te-menu-value").removeAttribute("tabindex"),document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex"),document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").removeAttribute("tabindex"),document.querySelector(".js-header-search-access-button").removeAttribute("tabindex")),"fixed"===body.style.position&&(body.removeAttribute("style"),body.style.position="relative",window.scrollTo(0,alertlOffsetPosition))}function commonCloseMenuTasks(){body.classList.remove("show-menu"),document.querySelector("html.stickyTOCtmp")&&(document.querySelector("html.stickyTOCtmp").classList.add("stickyTOC"),document.querySelector("html.stickyTOCtmp").classList.remove("stickyTOCtmp")),menuButton.setAttribute("aria-expanded","false"),menuButton.setAttribute("aria-label","Open the main menu for mass.gov"),hamburgerMenuContainer.hasAttribute("style")&&hamburgerMenuContainer.removeAttribute("style"),searchInput.hasAttribute("autofocus")&&searchInput.removeAttribute("autofocus"),feedbackButton&&feedbackButton.classList.remove("hide-button"),jumpToSearchButton.setAttribute("aria-expanded","false"),menuOverlay&&menuOverlay.classList.remove("overlay-open"),alertOverlay&&(alertOverlay.classList.remove("overlay-open"),alertOverlay.removeAttribute("style"))}function openMenu(){var e,t,n=0;document.querySelector("html.stickyTOC")&&(document.querySelector("html.stickyTOC").classList.add("stickyTOCtmp"),document.querySelector("html.stickyTOC").classList.remove("stickyTOC")),body.classList.add("show-menu"),menuButton.setAttribute("aria-expanded","true"),menuButton.setAttribute("aria-label","Close the main menu for mass.gov"),feedbackButton&&feedbackButton.classList.add("hide-button"),jumpToSearchButton.setAttribute("aria-expanded","true"),menuButton.setAttribute("aria-pressed","true");var o=document.querySelector(".ma__emergency-alerts__header");if(document.querySelector("body").style.position="fixed",null!==o){t=document.querySelector(".ma__emergency-alerts").offsetHeight,n=o.offsetHeight/2,alertlOffsetPosition=t-n,document.querySelector(".ma__emergency-alerts")?document.querySelector("body").style.top="-".concat(alertlOffsetPosition,"px"):document.querySelector("body").style.top=0,e=hamburgerMenuContainer.getBoundingClientRect().top;var r=document.querySelector(".ma__header__hamburger__nav").offsetHeight;e=n+r,hamburgerMenuContainer.style.height="calc(100vh - ".concat(e,"px)")}if(menuOverlay){var a=e;width>840&&(a-=1),menuOverlay.style.top=a+"px",menuOverlay.classList.add("overlay-open")}alertOverlay&&document.querySelector(".ma__emergency-alerts")&&(alertOverlay.classList.add("overlay-open"),alertOverlay.style.height=n+"px")}function jumpToSearch(e){body.classList.contains("show-menu")?(hamburgerMenuContainer.setAttribute("aria-hidden",""),searchInput.focus()):(hamburgerMenuContainer.removeAttribute("aria-hidden"),openMenu(),setTimeout((function(){jumpToSearchButton.setAttribute("aria-pressed","true"),searchInput.setAttribute("autofocus",""),searchInput.focus()}),200))}function anotherCloseSubMenus(e){menuItems.forEach((function(t){e!==t&&t.classList.contains("submenu-open")&&(t.classList.remove("submenu-open"),t.querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded","false"),t.style.pointerEvents="none",t.querySelector(".js-main-nav-hamburger-content").style.height="0",t.querySelector(".js-main-nav-hamburger__container").style.opacity="0",setTimeout((function(){t.removeAttribute("style"),t.querySelector(".js-main-nav-hamburger-content").classList.add("is-closed")}),500))}))}null!==jumpToSearchButton&&jumpToSearchButton.addEventListener("click",(function(e){e.preventDefault(),jumpToSearch()})),null!==utilNavWide&&body.classList.contains("show-menu")&&closeMenu(),null!==menuOverlay&&menuOverlay.addEventListener("click",(function(){closeMenu()})),null!==alertOverlay&&alertOverlay.addEventListener("click",(function(){closeMenu()})),window.addEventListener("resize",(function(){clearTimeout(debouncer);var e=navigator.appVersion;-1===e.indexOf("Android")&&-1===e.indexOf("iPhone")&&(debouncer=setTimeout((function(){closeMenu()}),100))}));var utilWideButton=document.querySelector(".js-utility-nav--wide .js-util-nav-toggle"),utilWideCloseButton=document.querySelector(".js-utility-nav--wide .js-close-util-nav"),utilWideContent=document.querySelector(".js-utility-nav--wide .js-util-nav-content");function closeUtilWideContent(){utilWideContent.style.height="0",utilWideContent.style.opacity="0",utilWideContent.classList.add("is-closed"),utilWideContent.setAttribute("aria-hidden","true"),utilWideCloseButton.setAttribute("aria-expanded","false"),utilWideButton.setAttribute("aria-expanded","false"),utilWideButton.setAttribute("aria-pressed","false"),utilWideButton.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open")}function closeNarrowUtilContent(){if(utilNarrowContent){var e=utilNarrowButton.closest(".ma__utility-nav__item");utilNarrowButton.setAttribute("aria-expanded","false"),utilNarrowContent.setAttribute("aria-hidden","true"),e.style.pointerEvents="none",setTimeout((function(){e.removeAttribute("style")}),700),utilNarrowContent.style.maxHeight="0",utilNarrowContainer.style.opacity="0",setTimeout((function(){utilNarrowContent.classList.add("is-closed")}),500)}}function closeSubMenu(){var e=document.querySelector(".submenu-open");if(e){var t=e.querySelector(".js-main-nav-hamburger__top-link"),n=e.querySelector(".js-main-nav-hamburger-content"),o=e.querySelector(".js-main-nav-hamburger__container");t.setAttribute("aria-expanded","false"),n.style.height="0",o.style.opacity="0",n.classList.add("is-closed"),e.removeAttribute("style"),e.classList.remove("submenu-open")}}null!==utilWideButton&&null!==utilWideCloseButton&&null!==utilWideContent&&utilWideButton.addEventListener("click",(function(e){var t=e.target.closest(".js-util-nav-toggle"),n=t.nextElementSibling;n.classList.contains("is-closed")&&(t.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open"),n.classList.remove("is-closed"),n.removeAttribute("aria-hidden"),n.removeAttribute("style"),n.style.height="auto",n.style.opacity="1",t.setAttribute("aria-expanded","true"),t.setAttribute("aria-pressed","true")),t.setAttribute("aria-expanded","true"),t.setAttribute("aria-pressed","true")})),null!==utilWideCloseButton&&utilWideCloseButton.addEventListener("click",(function(e){closeUtilWideContent()})),null!==utilNarrowButton&&(utilNarrowContent.style.maxHeight="0",utilNarrowContainer.style.opacity="0",utilNarrowButton.addEventListener("click",(function(e){var t=e.target.closest(".js-util-nav-toggle"),n=e.target.closest(".ma__utility-nav__item");if((utilNarrowContent=t.nextElementSibling).classList.contains("is-closed")){closeSubMenu(),t.setAttribute("aria-expanded","true"),utilNarrowContent.removeAttribute("aria-hidden"),n.style.pointerEvents="none",n.removeAttribute("style"),utilNarrowContent.classList.remove("is-closed"),utilNarrowContent.style.maxHeight="auto";var o=utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight+"px";utilNarrowContent.style.maxHeight="0",utilNarrowContent.style.Height="0",utilNarrowContent.style.height=o,utilNarrowContainer.style.height=o,utilNarrowContent.style.maxHeight=o,utilNarrowContainer.style.opacity="1"}else closeNarrowUtilContent()}))),-1!==osInfo.indexOf("Safari")&&osInfo.split(" ").forEach((function(e){if(e.length>0&&!1!==e.indexOf("Version/",0)){var t=e.match(/\d+/);null!==t&&t[0]<11&&body.classList.add("ios-safari-less-than-11")}})),menuItems.forEach((function(e){var t=e.querySelector(".js-main-nav-hamburger__top-link"),n=e.querySelector(".js-main-nav-hamburger-content").querySelector(".js-main-nav-hamburger__container");n.style.opacity="0",e.querySelector(".js-main-nav-hamburger-content").addEventListener("transitionend",(function(t){"height"===t.propertyName&&e.scrollIntoView({behavior:"smooth",block:"start",inline:"start"})})),t.addEventListener("click",(function(o){if(anotherCloseSubMenus(e),e.classList.contains("submenu-open")?(e.classList.remove("submenu-open"),t.setAttribute("aria-expanded","false"),e.style.pointerEvents="none",setTimeout((function(){e.removeAttribute("style")}),700)):(e.classList.add("submenu-open"),t.setAttribute("aria-expanded","true"),e.style.pointerEvents="none",setTimeout((function(){e.removeAttribute("style")}),500)),e.querySelector(".js-main-nav-hamburger-content").classList.contains("is-closed")){e.querySelector(".js-main-nav-hamburger-content").classList.remove("is-closed"),e.querySelector(".js-main-nav-hamburger-content").style.height="auto";var r=e.querySelector(".js-main-nav-hamburger-content").clientHeight+"px";e.querySelector(".js-main-nav-hamburger-content").style.height="0",setTimeout((function(){e.querySelector(".js-main-nav-hamburger-content").style.height=r,e.scrollIntoView({behavior:"smooth",block:"start",inline:"start"}),n.style.opacity="1"}),500),width<840&&closeNarrowUtilContent()}else e.querySelector(".js-main-nav-hamburger-content").style.height="0",n.style.opacity="0",setTimeout((function(){e.querySelector(".js-main-nav-hamburger-content").classList.add("is-closed")}),500)})),t.addEventListener("keydown",(function(t){"ArrowDown"!=t.code&&"ArrowDown"!=t.key||n.getElementsByTagName("li")[0].querySelector(".js-main-nav-hamburger__link").focus();"Escape"!=t.code&&"Escape"!=t.key&&"Esc"!==t.key||e.classList.contains("submenu-open")&&closeMenu()}))}));var mobileMenuButton=document.querySelector(".js-header-menu-button"),mobileFeedbackButton=document.querySelector(".ma__fixed-feedback-button"),mobileJumpToSearchButton=document.querySelector(".js-header-search-access-button");function toggleFeedbackButton(){mobileFeedbackButton&&(!1===mobileFeedbackButton.classList.contains("hide-button")?mobileFeedbackButton.classList.add("hide-button"):mobileFeedbackButton.classList.remove("hide-button"))}function toggleMobileMenu(){var e=document.querySelector("body");e.classList.contains("show-menu")?e.classList.remove("show-menu"):e.classList.add("show-menu")}null!==mobileMenuButton&&mobileMenuButton.addEventListener("click",(function(e){e.preventDefault(),window.innerWidth<841&&document.querySelector(".ma__header")&&toggleMobileMenu(),toggleFeedbackButton()})),null!==mobileJumpToSearchButton&&mobileJumpToSearchButton.addEventListener("click",(function(e){toggleFeedbackButton()}));
+"use strict";
+
+(function () {
+  window.__forceSmoothScrollPolyfill__ = true;
+  var script = document.createElement('script');
+  script.src = "https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.js";
+  script.crossOrigin = true;
+  var element = document.getElementsByTagName('head')[0];
+  element.appendChild(script);
+})();
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: '',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+  document.querySelector('#google_translate_element') !== null ? document.querySelector('#google_translate_element').classList.add('has-rendered') : '';
+}
+
+(function () {
+  var script = document.createElement('script');
+  script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  script.async = true;
+  var element = document.getElementsByTagName('head')[0];
+  element.appendChild(script);
+})();
+"use strict";
+
+var osInfo = navigator.appVersion;
+var body = document.querySelector("body");
+var width = body.clientWidth;
+var alertlOffsetPosition;
+var feedbackButton = document.querySelector(".ma__fixed-feedback-button");
+var menuOverlay = document.querySelector(".menu-overlay");
+var alertOverlay = document.querySelector(".alert-overlay");
+var menuButton = document.querySelector(".js-header-menu-button");
+var jumpToSearchButton = document.querySelector(".js-header-search-access-button");
+var searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
+var hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
+var menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
+var utilNavWide = document.querySelector(".js-utility-nav--wide");
+var utilNarrowNav = document.querySelector(".ma__header__hamburger__utility-nav--narrow");
+var utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
+var utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
+var utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".ma__utility-nav__container") : null; // Check whether the narrow utility nav is open.
+
+var utilNavNarrowCheck = function utilNavNarrowCheck() {
+  return utilNarrowNav ? utilNarrowNav.offsetWidth > 0 && utilNarrowNav.offsetHeight > 0 : false;
+}; // Open and close the menu
+
+
+if (menuButton !== null) {
+  menuButton.addEventListener("click", function (event) {
+    event.preventDefault(); // For Safari, this ensures to move focus to the menu content.
+
+    if (osInfo.indexOf("Safari") !== -1) {
+      menuButton.focus();
+    }
+
+    toggleMenu();
+  });
+  menuButton.addEventListener("keydown", function (e) {
+    if (e.key === "Tab" || e.code === "Tab") {
+      if (width < 621) {
+        e.preventDefault();
+
+        var _hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
+
+        var focusable = _hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
+
+        focusable[0].focus();
+      }
+    }
+  });
+  var logoLink = document.querySelector(".ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a");
+
+  if (logoLink) {
+    logoLink.addEventListener("keydown", function (e) {
+      if (e.shiftKey && e.key === "Tab" || e.shiftKey && e.code === "Tab") {
+        setTimeout(function timeoutFunction() {
+          document.querySelector(".js-header-menu-button").focus();
+        }, 100);
+      }
+    });
+  }
+
+  var firstTopMenuItem = document.querySelector(".ma__header__hamburger__nav .ma__main__hamburger-nav__item:first-of-type .js-main-nav-hamburger__top-link"); // To accomodate both button and link as the last top menu item, use 'ma__' classes instead of 'js-'.
+
+  var lastTopMenuItem = document.querySelector(".ma__main__hamburger-nav__item:last-of-type .ma__main__hamburger-nav__top-link");
+  var lastSubmenuLink = document.querySelector(".js-main-nav-hamburger-toggle:last-of-type .js-main-nav-hamburger-content .js-main-nav-hamburger__subitem:last-of-type .js-main-nav-hamburger__link");
+  var lastUtilMenuItem = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-nav__link");
+  var lastUtilMenuContentLink = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-panel:last-of-type .js-clickable:last-of-type .js-clickable-link"); // no utility nav, sub menu closed
+
+  if (lastTopMenuItem) {
+    lastTopMenuItem.addEventListener("keydown", function (e) {
+      // Without this, sift + tab set focus on the first top menu button.
+      if (e.shiftKey && e.key === "Tab" || e.shiftKey && e.code === "Tab") {
+        if (width < 841) {
+          setTimeout(function timeOutFunction() {
+            this.closest(".js-main-nav-hamburger-toggle").previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
+          }, 1);
+        }
+      } else if (e.key === "Tab" || e.code === "Tab") {
+        if (width > 840) {
+          if (!this.hasAttribute("aria-expanded")) {
+            // For link
+            setFocusOnFirstTopMenu();
+          } else {
+            // For buttons
+            if (this.getAttribute("aria-expanded") === "false") {
+              setFocusOnFirstTopMenu();
+            }
+          }
+        }
+      }
+    }); // no utility nav, last sub menu open
+
+    if (lastTopMenuItem === document.querySelector(".ma__main__hamburger-nav__item:last-of-type button")) {
+      lastSubmenuLink.addEventListener("keydown", function (e) {
+        var subMenuContainer = this.closest(".js-main-nav-hamburger-content");
+
+        if ((e.key === "Tab" || e.code === "Tab") && !subMenuContainer.classList.contains(".is-closed")) {
+          // Close the submenu and move focus to the first top menu button.
+          if (width > 840) {
+            setTimeout(function timeOutFunction() {
+              subMenuContainer.querySelector(".js-main-nav-hamburger__subitem:first-of-type .js-main-nav-hamburger__link").focus();
+            }, 1);
+          }
+        }
+      });
+    }
+  }
+
+  if (lastUtilMenuItem) {
+    // with utility nav, utility nav content closed
+    lastUtilMenuItem.addEventListener("keydown", function (e) {
+      if (e.key === "Tab" || e.code === "Tab") {
+        if (width < 841 && this.getAttribute("aria-expanded") === "false") {
+          setFocusOnFirstTopMenu();
+        }
+      }
+    }); // with utility nav, last utility nav content open
+
+    lastUtilMenuContentLink.addEventListener("keydown", function (e) {
+      // Without this, sift + tab set focus on the first top menu button.
+      if (e.shiftKey && e.key === "Tab" || e.shiftKey && e.code === "Tab") {
+        if (width < 841) {
+          setTimeout(function timeOutFunction() {
+            e.target.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
+          }, 1);
+        }
+      } else if (e.key === "Tab" || e.code === "Tab") {
+        // Close the nav content and move focus to the first top menu button.
+        if (width < 841) {
+          setTimeout(function timeOutFunction() {
+            e.target.closest(".js-util-nav-content").querySelector("a:first-of-type").focus();
+          }, 1);
+        }
+      }
+    });
+  }
+
+  var setFocusOnFirstTopMenu = function setFocusOnFirstTopMenu() {
+    // Timeout function is necessary to set focus on the first top menu button. Otherwise, focus is set on next focusable element outside the menu.
+    setTimeout(function timeOutFunction() {
+      firstTopMenuItem.focus();
+    }, 1);
+  };
+
+  document.addEventListener("keydown", function (e) {
+    // ESC to close menus.
+    // 'e.key === "Esc"' is necessary for IE11.
+    if (e.key === "Escape" || e.key === "Esc" || e.code === "Escape") {
+      // Log in to... in Utility nav bar
+      if (utilNavWide.querySelector(".js-util-nav-content").style.opacity === "1") {
+        closeUtilWideContent();
+        utilNavWide.querySelector(".js-util-nav-toggle").focus();
+      } // Util nav menus in the hamburger menu
+
+
+      if (utilNarrowNav) {
+        if (utilNarrowButton !== document.activeElement && utilNarrowContainer.style.opacity === "1") {
+          // Open Log in to... in Hamburger menu: To be consisitent with submenu, keep the content open and set focus on nav button.
+          var utilNavContentLinks = utilNarrowNav.querySelectorAll(".js-clickable-link");
+
+          for (var i = 0; i < utilNavContentLinks.length; i++) {
+            if (utilNavContentLinks[i].innerText === document.activeElement.innerText) {
+              utilNarrowButton.focus();
+            }
+          }
+
+          closeNarrowUtilContent();
+        } else {
+          var narrowNavItems = utilNarrowNav.querySelectorAll(".ma__utility-nav__link");
+
+          for (var _i = 0; _i < narrowNavItems.length; _i++) {
+            if (narrowNavItems[_i].innerText === document.activeElement.innerText) {
+              closeMenu();
+            }
+          }
+        }
+      } // Main nav elements
+
+
+      var openSubmenu = document.querySelector(".submenu-open .js-main-nav-hamburger__top-link");
+
+      if (openSubmenu !== document.activeElement) {
+        // To prevent to set focus on another top menu button with open submenu.
+        var menus = document.querySelectorAll(".ma__main__hamburger-nav__top-link");
+
+        for (var _i2 = 0; _i2 < menus.length; _i2++) {
+          if (menus[_i2] === document.activeElement) {
+            closeMenu();
+          }
+        } // Set focus on its parent top menu button.
+
+
+        var openSubmenuItems = document.querySelectorAll(".submenu-open .js-main-nav-hamburger-content:not(is-closed) .js-main-nav-hamburger__link");
+
+        for (var _i3 = 0; _i3 < openSubmenuItems.length; _i3++) {
+          if (openSubmenuItems[_i3] === document.activeElement) {
+            openSubmenu.focus();
+          }
+        }
+      } else {
+        closeMenu();
+      }
+    }
+  }); // Arrow keyboard navigation in the menu.
+
+  var submenuLinks = document.querySelectorAll(".js-main-nav-hamburger__link");
+  submenuLinks.forEach(function (link) {
+    link.addEventListener("keydown", function (e) {
+      var targetParent = e.target.closest(".js-main-nav-hamburger__subitem");
+
+      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+        if (targetParent.nextElementSibling) {
+          targetParent.nextElementSibling.querySelector("a").focus();
+        } else {
+          // Set focus on the first sibling submenu item link.
+          document.querySelector(".js-main-nav-hamburger-content:not(.is-closed) .js-main-nav-hamburger__subitem:first-of-type a").focus();
+        }
+      }
+
+      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+        if (targetParent.previousElementSibling) {
+          targetParent.previousElementSibling.querySelector("a").focus();
+        } else {
+          // Set focus on the last sibling submenu item link.
+          document.querySelector(".js-main-nav-hamburger-content:not(.is-closed) .js-main-nav-hamburger__subitem:last-of-type a").focus();
+        }
+      }
+    });
+  });
+  var narrowUtilContentLinks = document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-content a.js-clickable-link");
+  var lastIndex = narrowUtilContentLinks.length - 1;
+  narrowUtilContentLinks.forEach(function (link, i) {
+    link.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+        if (e.target === narrowUtilContentLinks[i]) {
+          if (e.target === narrowUtilContentLinks[lastIndex]) {
+            i = 0;
+          } else {
+            i++;
+          }
+        } else {
+          if (e.target === narrowUtilContentLinks[lastIndex]) {
+            i = 0;
+          } else {
+            var targetIndex;
+
+            for (var index = 0; index < narrowUtilContentLinks.length; index++) {
+              if (e.target === narrowUtilContentLinks[index]) {
+                targetIndex = index;
+              }
+            }
+
+            i = targetIndex;
+            i++;
+          }
+        }
+      }
+
+      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+        if (e.target === narrowUtilContentLinks[i]) {
+          if (e.target === narrowUtilContentLinks[0]) {
+            i = lastIndex;
+          } else {
+            i--;
+          }
+        } else {
+          if (e.target === narrowUtilContentLinks[0]) {
+            i = lastIndex;
+          } else {
+            var _targetIndex;
+
+            for (var _index = lastIndex; _index > -1; _index--) {
+              if (e.target === narrowUtilContentLinks[_index]) {
+                _targetIndex = _index;
+              }
+            }
+
+            i = _targetIndex;
+            i--;
+          }
+        }
+      }
+
+      narrowUtilContentLinks[i].focus();
+    });
+  }); // NOTE: KEEPING BELOW FOR MORE KEYBOARD NAVIGATION WORK AFTER ACCESSIBILITY TEST.
+  // =============== exisiting code below
+  // menuButton.addEventListener("keydown", function (e) {
+  // if (e.code == 'ArrowDown') {
+  //   event.preventDefault();
+  //   openMenu();
+  //   if (window.innerWidth > 620) {
+  //     setTimeout(function timeoutFunction() {
+  //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
+  //     }, 500);
+  //   } else {
+  //     setTimeout(function timeoutFunction() {
+  //       document.querySelector('.js-header__nav-search input').focus();
+  //     }, 500);
+  //   }
+  // }
+  // NOTE: This causes a keyboard trap at the menu open/close button.
+  // if (e.code == 'Tab') {
+  //   e.preventDefault();
+  //   document.querySelector('.ma__header__hamburger-search__input').focus();
+  // }
+  // if (e.shiftKey && e.code == "Tab") {
+  //   closeMenu();
+  // }
+  // if (e.code == "Escape" || e.key == "Escape"|| e.key === "Esc") {
+  //   closeMenu();
+  // }
+  // });
+}
+
+if (jumpToSearchButton !== null) {
+  jumpToSearchButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    jumpToSearch();
+  });
+}
+
+function toggleMenu() {
+  if (hamburgerMenuContainer) {
+    // To prevent null in the original mobile main nav.
+    if (body.classList.contains("show-menu")) {
+      // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+      // .toggleAttribute() doesn't work with ios11.
+      hamburgerMenuContainer.setAttribute("aria-hidden", "");
+      closeMenu();
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".js-header-menu-button").focus();
+      }, 100);
+    } else {
+      hamburgerMenuContainer.removeAttribute("aria-hidden");
+      openMenu(); // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
+
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
+    }
+  }
+}
+
+function closeMenu() {
+  commonCloseMenuTasks();
+  menuButton.setAttribute("aria-pressed", "false"); // Set focus on the menu button.
+
+  setTimeout(function timeoutFunction() {
+    document.querySelector(".js-header-menu-button").focus();
+  }, 100);
+
+  if (width > 840 && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")) {
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .goog-te-menu-value").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").removeAttribute("tabindex");
+    document.querySelector(".js-header-search-access-button").removeAttribute("tabindex");
+  }
+
+  if (body.style.position === "fixed") {
+    // At the same time, the alert needs to be scrolled up to the position again to retain the page elements position.
+    body.removeAttribute("style");
+    body.style.position = "relative";
+    window.scrollTo(0, alertlOffsetPosition);
+  }
+}
+
+function commonCloseMenuTasks() {
+  body.classList.remove("show-menu");
+
+  if (document.querySelector("html.stickyTOCtmp")) {
+    document.querySelector("html.stickyTOCtmp").classList.add("stickyTOC");
+    document.querySelector("html.stickyTOCtmp").classList.remove("stickyTOCtmp");
+  }
+
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+
+  if (hamburgerMenuContainer.hasAttribute("style")) {
+    hamburgerMenuContainer.removeAttribute("style");
+  } // if (hamburgerMenuContainer.hasAttribute("tabindex")) {
+  //   hamburgerMenuContainer.removeAttribute("tabindex");
+  // }
+
+
+  if (searchInput.hasAttribute("autofocus")) {
+    searchInput.removeAttribute("autofocus");
+  }
+
+  if (feedbackButton) {
+    feedbackButton.classList.remove("hide-button");
+  }
+
+  jumpToSearchButton.setAttribute("aria-expanded", "false");
+
+  if (menuOverlay) {
+    menuOverlay.classList.remove("overlay-open");
+  }
+
+  if (alertOverlay) {
+    alertOverlay.classList.remove("overlay-open");
+    alertOverlay.removeAttribute("style");
+  }
+}
+
+function openMenu() {
+  var heightAboveMenuContainer;
+  var emergencyAlertsHeight;
+  var alertOffsetAdjusted = 0; // Set the alert to its offset position in the window to prevent the page to shift as the menu opens.
+
+  var lockPage = function lockPage() {
+    if (document.querySelector(".ma__emergency-alerts")) {
+      document.querySelector("body").style.top = "-".concat(alertlOffsetPosition, "px");
+    } else {
+      document.querySelector("body").style.top = 0;
+    }
+
+    heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
+  };
+
+  if (document.querySelector("html.stickyTOC")) {
+    document.querySelector("html.stickyTOC").classList.add("stickyTOCtmp");
+    document.querySelector("html.stickyTOC").classList.remove("stickyTOC");
+  } // Start open menu tasks.
+
+
+  body.classList.add("show-menu");
+  menuButton.setAttribute("aria-expanded", "true");
+  menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
+
+  if (feedbackButton) {
+    feedbackButton.classList.add("hide-button");
+  }
+
+  jumpToSearchButton.setAttribute("aria-expanded", "true");
+  menuButton.setAttribute("aria-pressed", "true");
+  var alertsHeader = document.querySelector(".ma__emergency-alerts__header");
+  document.querySelector("body").style.position = "fixed";
+
+  if (alertsHeader !== null) {
+    var emergencyAlerts = document.querySelector(".ma__emergency-alerts");
+    emergencyAlertsHeight = emergencyAlerts.offsetHeight;
+    alertOffsetAdjusted = alertsHeader.offsetHeight / 2;
+    alertlOffsetPosition = emergencyAlertsHeight - alertOffsetAdjusted; // if (osInfo.indexOf("iPhone") !== -1) {
+    //   // Changed the duration value to 600.
+    //   customScrollTo(alertlOffsetPosition, 600);
+    //   setTimeout(lockPage(), 600);
+    // }
+    // else {
+    // window.scrollTo({
+    //   top: 0,
+    //   left: 0,
+    //   behavior: "smooth"
+    // });
+
+    lockPage(); //}
+
+    var hamburgerNavOffset = document.querySelector(".ma__header__hamburger__nav").offsetHeight;
+    heightAboveMenuContainer = alertOffsetAdjusted + hamburgerNavOffset;
+    hamburgerMenuContainer.style.height = "calc(100vh - ".concat(heightAboveMenuContainer, "px)");
+  }
+
+  if (menuOverlay) {
+    var overlayOffset = heightAboveMenuContainer;
+
+    if (width > 840) {
+      overlayOffset = overlayOffset - 1;
+    }
+
+    menuOverlay.style.top = overlayOffset + "px";
+    menuOverlay.classList.add("overlay-open");
+  }
+
+  if (alertOverlay) {
+    if (document.querySelector(".ma__emergency-alerts")) {
+      alertOverlay.classList.add("overlay-open");
+      alertOverlay.style.height = alertOffsetAdjusted + "px";
+    }
+  }
+}
+
+function jumpToSearch(e) {
+  if (body.classList.contains("show-menu")) {
+    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    hamburgerMenuContainer.setAttribute("aria-hidden", "");
+    searchInput.focus();
+  } else {
+    hamburgerMenuContainer.removeAttribute("aria-hidden");
+    openMenu();
+    setTimeout(function timeoutFunction() {
+      jumpToSearchButton.setAttribute("aria-pressed", "true");
+      searchInput.setAttribute("autofocus", "");
+      searchInput.focus();
+    }, 200);
+  }
+}
+
+function anotherCloseSubMenus(item) {
+  menuItems.forEach(function (li) {
+    if (item !== li && li.classList.contains("submenu-open")) {
+      li.classList.remove("submenu-open");
+      li.querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
+      li.style.pointerEvents = "none";
+      /** Slide up. */
+
+      li.querySelector(".js-main-nav-hamburger-content").style.height = "0";
+      li.querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
+      setTimeout(function timeoutFunction() {
+        li.removeAttribute("style");
+        li.querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+      }, 500);
+    }
+  });
+} // function closeSubMenus(item) {
+//   //Close other open submenus
+//   let siblings = [];
+//   let thisSibling = item.parentNode.firstChild;
+//   while (thisSibling) {
+//     if (thisSibling !== item && thisSibling.nodeType === Node.ELEMENT_NODE)
+//       siblings.push(thisSibling);
+//     thisSibling = thisSibling.nextElementSibling || thisSibling.nextSibling;
+//   }
+//   for (let i = 0; i < siblings.length; i++) {
+//     if (siblings[i].classList.contains("submenu-open")) {
+//       siblings[i].classList.remove("submenu-open");
+//       siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
+//       siblings[i].style.pointerEvents = "none";
+//       //setTimeout(function timeoutFunction() {
+//       //}, 700);
+//       /** Slide up. */
+//       siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
+//       siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
+//       siblings[i].removeAttribute("style");
+//       //setTimeout(function timeoutFunction() {
+//         siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+//       //}, 500);
+//     }
+//   }
+// }
+// Close menu when utility nav is clicked
+
+
+if (utilNavWide !== null && body.classList.contains("show-menu")) {
+  closeMenu();
+} // Close and reset menu on overlay click
+
+
+if (null !== menuOverlay) {
+  menuOverlay.addEventListener("click", function () {
+    closeMenu();
+  });
+}
+
+if (alertOverlay !== null) {
+  alertOverlay.addEventListener("click", function () {
+    closeMenu();
+  });
+}
+
+var debouncer;
+window.addEventListener("resize", function () {
+  clearTimeout(debouncer);
+  var osInfo = navigator.appVersion; // On Android devices resize event is triggered when keyboard appears
+  // and it closes the menu.
+
+  if (osInfo.indexOf("Android") === -1 && osInfo.indexOf("iPhone") === -1) {
+    debouncer = setTimeout(function () {
+      closeMenu();
+    }, 100);
+  }
+}); // ** Utility nav
+// Wide/utility nav bar
+
+var utilWideButton = document.querySelector(".js-utility-nav--wide .js-util-nav-toggle");
+var utilWideCloseButton = document.querySelector(".js-utility-nav--wide .js-close-util-nav");
+var utilWideContent = document.querySelector(".js-utility-nav--wide .js-util-nav-content");
+
+if (utilWideButton !== null && utilWideCloseButton !== null && utilWideContent !== null) {
+  // Open
+  utilWideButton.addEventListener("click", function (e) {
+    var thisWideButton = e.target.closest(".js-util-nav-toggle");
+    var thisWideContent = thisWideButton.nextElementSibling;
+
+    if (thisWideContent.classList.contains("is-closed")) {
+      //  To open
+      thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
+      thisWideContent.classList.remove("is-closed");
+      thisWideContent.removeAttribute("aria-hidden");
+      thisWideContent.removeAttribute("style");
+      thisWideContent.style.height = "auto";
+      thisWideContent.style.opacity = "1"; // Button State
+
+      thisWideButton.setAttribute("aria-expanded", "true");
+      thisWideButton.setAttribute("aria-pressed", "true");
+    }
+
+    thisWideButton.setAttribute("aria-expanded", "true");
+    thisWideButton.setAttribute("aria-pressed", "true");
+  });
+} // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
+
+
+if (utilWideCloseButton !== null) {
+  utilWideCloseButton.addEventListener("click", function (e) {
+    closeUtilWideContent();
+  });
+}
+
+function closeUtilWideContent() {
+  // Content state
+  utilWideContent.style.height = "0";
+  utilWideContent.style.opacity = "0";
+  utilWideContent.classList.add("is-closed");
+  utilWideContent.setAttribute("aria-hidden", "true"); // Close button state
+
+  utilWideCloseButton.setAttribute("aria-expanded", "false"); // Utility button state
+
+  utilWideButton.setAttribute("aria-expanded", "false");
+  utilWideButton.setAttribute("aria-pressed", "false");
+  utilWideButton.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
+} // Narrow/in hamburger menu
+
+
+if (utilNarrowButton !== null) {
+  // utilNarrowContent = utilNarrowButton.nextElementSibling;
+  utilNarrowContent.style.maxHeight = "0";
+  utilNarrowContainer.style.opacity = "0";
+  utilNarrowButton.addEventListener("click", function (e) {
+    var thisButton = e.target.closest(".js-util-nav-toggle");
+    var thisNavContainer = e.target.closest(".ma__utility-nav__item");
+    utilNarrowContent = thisButton.nextElementSibling;
+
+    if (utilNarrowContent.classList.contains("is-closed")) {
+      // TO OPEN
+      closeSubMenu();
+      thisButton.setAttribute("aria-expanded", "true");
+      utilNarrowContent.removeAttribute("aria-hidden");
+      thisNavContainer.style.pointerEvents = "none";
+      /** Slide down. */
+
+      thisNavContainer.removeAttribute("style");
+      /** Show the content. */
+
+      utilNarrowContent.classList.remove("is-closed");
+      utilNarrowContent.style.maxHeight = "auto";
+      /** Get the computed height of the content. */
+
+      var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
+      /** Set the height of the submenu as 0px, */
+
+      /** so we can trigger the slide down animation. */
+
+      utilNarrowContent.style.maxHeight = "0";
+      utilNarrowContent.style.Height = "0"; // These height settings display the bottom border of the parent li at the correct spot.
+
+      utilNarrowContent.style.height = contentHeight;
+      utilNarrowContainer.style.height = contentHeight;
+      utilNarrowContent.style.maxHeight = contentHeight;
+      utilNarrowContainer.style.opacity = "1";
+    } else {
+      closeNarrowUtilContent();
+    }
+  });
+}
+
+function closeNarrowUtilContent() {
+  if (utilNarrowContent) {
+    var thisNavContainer = utilNarrowButton.closest(".ma__utility-nav__item");
+    utilNarrowButton.setAttribute("aria-expanded", "false");
+    utilNarrowContent.setAttribute("aria-hidden", "true");
+    thisNavContainer.style.pointerEvents = "none";
+    setTimeout(function timeoutFunction() {
+      thisNavContainer.removeAttribute("style");
+    }, 700);
+    utilNarrowContent.style.maxHeight = "0";
+    utilNarrowContainer.style.opacity = "0";
+    setTimeout(function timeoutFunction() {
+      utilNarrowContent.classList.add("is-closed");
+    }, 500);
+  }
+}
+
+function closeSubMenu() {
+  var openSubMenu = document.querySelector(".submenu-open");
+
+  if (openSubMenu) {
+    var openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
+    var openSubMenuContent = openSubMenu.querySelector(".js-main-nav-hamburger-content");
+    var openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger__container");
+    openSubMenuButton.setAttribute("aria-expanded", "false");
+    openSubMenuContent.style.height = "0";
+    openSubMenuContainer.style.opacity = "0";
+    openSubMenuContent.classList.add("is-closed");
+    openSubMenu.removeAttribute("style");
+    openSubMenu.classList.remove("submenu-open");
+  }
+} // Target iOS Safari versions less than 11 to handle issues that cannot be targeted
+// with behavior detection due to either buggy or idiosyncratic browser implementation
+// issues addressed in later major versions.
+
+
+if (osInfo.indexOf("Safari") !== -1) {
+  osInfo.split(" ").forEach(function (splitVar) {
+    if (splitVar.length > 0 && splitVar.indexOf("Version/", 0) !== false) {
+      var version = splitVar.match(/\d+/);
+
+      if (version !== null && version[0] < 11) {
+        body.classList.add("ios-safari-less-than-11");
+      }
+    }
+  });
+}
+
+menuItems.forEach(function (item) {
+  var itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
+  var subMenu = item.querySelector(".js-main-nav-hamburger-content");
+  var subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
+  subItems.style.opacity = "0";
+  item.querySelector(".js-main-nav-hamburger-content").addEventListener("transitionend", function (e) {
+    if (e.propertyName === "height") {
+      item.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "start"
+      });
+    }
+  });
+  itemButton.addEventListener("click", function (e) {
+    anotherCloseSubMenus(item);
+
+    if (item.classList.contains("submenu-open")) {
+      item.classList.remove("submenu-open");
+      itemButton.setAttribute("aria-expanded", "false");
+      item.style.pointerEvents = "none";
+      setTimeout(function timeoutFunction() {
+        //item.style.height = "0";
+        //item.style.opacity = "0";
+        item.removeAttribute("style");
+      }, 700);
+    } else {
+      item.classList.add("submenu-open");
+      itemButton.setAttribute("aria-expanded", "true");
+      item.style.pointerEvents = "none";
+      setTimeout(function timeoutFunction() {
+        item.removeAttribute("style");
+      }, 500);
+    }
+
+    if (item.querySelector(".js-main-nav-hamburger-content").classList.contains("is-closed")) {
+      /** Show the subMenu. */
+      item.querySelector(".js-main-nav-hamburger-content").classList.remove("is-closed");
+      item.querySelector(".js-main-nav-hamburger-content").style.height = "auto";
+      /** Get the computed height of the subMenu. */
+
+      var height = item.querySelector(".js-main-nav-hamburger-content").clientHeight + "px";
+      /** Set the height of the submenu as 0px, */
+
+      /** so we can trigger the slide down animation. */
+
+      item.querySelector(".js-main-nav-hamburger-content").style.height = "0";
+      setTimeout(function timeoutFunction() {
+        item.querySelector(".js-main-nav-hamburger-content").style.height = height;
+        item.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "start"
+        });
+        subItems.style.opacity = "1";
+      }, 500);
+      /** Close Utility menu content when a sub menu is open. */
+
+      if (width < 840) {
+        closeNarrowUtilContent();
+      }
+    } else {
+      item.querySelector(".js-main-nav-hamburger-content").style.height = "0";
+      subItems.style.opacity = "0"; // Set a little bit of delay to run
+      // The open/close submenu animation is CSS.
+      // Unable to confirm the completion of the animation in JS.
+      // Unable to use callback in this case.
+
+      setTimeout(function timeoutFunction() {
+        item.querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+      }, 500);
+    }
+  });
+  itemButton.addEventListener("keydown", function (e) {
+    if (e.code == "ArrowDown" || e.key == "ArrowDown") {
+      var first = subItems.getElementsByTagName("li")[0];
+      first.querySelector(".js-main-nav-hamburger__link").focus();
+    } // 'e.key === "Esc"' is for IE11.
+
+
+    if (e.code == "Escape" || e.key == "Escape" || e.key === "Esc") {
+      if (item.classList.contains("submenu-open")) {
+        // NOTE: KEEP BELOW COMMENTED LINES UNTIL THE DESIGN TEAM FINALIZES THE BEHAVIOR.
+        // subItems.style.opacity = "0";
+        // subMenu.style.height = "0";
+        // itemButton.parentElement.classList.remove("submenu-open");
+        // itemButton.setAttribute("aria-expanded", "false");
+        // setTimeout(function timeoutFunction() {
+        //   subMenu.classList.add("is-closed");
+        // }, 500);
+        // }
+        // else {
+        closeMenu();
+      }
+    }
+  });
+});
+"use strict";
+
+// // ****** Menu button ******
+var mobileMenuButton = document.querySelector(".js-header-menu-button");
+var mobileFeedbackButton = document.querySelector(".ma__fixed-feedback-button");
+var mobileJumpToSearchButton = document.querySelector(".js-header-search-access-button");
+
+if (mobileMenuButton !== null) {
+  mobileMenuButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Toggle mobile menu.
+
+    if (window.innerWidth < 841 && document.querySelector(".ma__header")) {
+      toggleMobileMenu();
+    } // Hide feedback button when menu opens.
+
+
+    toggleFeedbackButton();
+  });
+} // // ****** Access to Search button on mobile should hide feedback button when menu opens  ******
+
+
+if (mobileJumpToSearchButton !== null) {
+  mobileJumpToSearchButton.addEventListener("click", function (event) {
+    toggleFeedbackButton();
+  });
+}
+
+function toggleFeedbackButton() {
+  if (mobileFeedbackButton) {
+    // Cannot use .toggle. It results to show the button with the dropdown and hide it with the closed dropdown.
+    if (mobileFeedbackButton.classList.contains("hide-button") === false) {
+      mobileFeedbackButton.classList.add("hide-button");
+    } else {
+      mobileFeedbackButton.classList.remove("hide-button");
+    }
+  }
+}
+
+function toggleMobileMenu() {
+  var body = document.querySelector("body");
+
+  if (body.classList.contains("show-menu")) {
+    body.classList.remove("show-menu");
+  } else {
+    body.classList.add("show-menu");
+  }
+}
