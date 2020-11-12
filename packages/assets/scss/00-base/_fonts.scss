@@ -21,9 +21,8 @@
 @font-face {
   font-family: 'Noto Sans';
   src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.woff') format('woff'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.ttf') format('truetype'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.svg#NotoSans-Regular') format('svg');
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.woff2') format('woff2'),
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.woff') format('woff');
   font-style: normal;
   font-display: $fonts-display-global;
 }
@@ -32,9 +31,8 @@
 @font-face {
   font-family: 'Noto Sans';
   src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic.eot?#iefix') format('embedded-opentype'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic.woff') format('woff'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic.ttf') format('truetype'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic.svg#NotoSans-Italic') format('svg');
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic.woff2') format('woff2'),
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic.woff') format('woff');
   font-style: italic;
   font-display: $fonts-display-global;
 }
@@ -90,82 +88,82 @@
 */
 
 @if $fonts-langs-support {
-  
+
   @supports ( font-variation-settings: normal ) {
-    
+
     @font-face {
-      
+
       @include ma-font-face(Noto, Sans, Arabic, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$arabic, null, null);
     }
   }
 
   @font-face {
-    
+
     @include ma-font-face(Noto, Sans, Arabic, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$arabic, null, null);
   }
 
   @font-face {
-    
+
     @include ma-font-face(Noto, Sans, Arabic, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$arabic, null, null);
   }
 
   // Hebrew
 
   @supports ( font-variation-settings: normal ) {
-    
+
     @font-face {
-      
+
       @include ma-font-face(Noto, Sans, Hebrew, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$hebrew, null, null);
     }
   }
-  
+
   @font-face {
-    
+
     @include ma-font-face(Noto, Sans, Hebrew, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$hebrew, null, null);
   }
 
   @font-face {
-    
+
     @include ma-font-face(Noto, Sans, Hebrew, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$hebrew, null, null);
   }
 
   // Khmer
-  
+
   @supports ( font-variation-settings: normal ) {
-    
+
     @font-face {
-      
+
       @include ma-font-face(Noto, Sans, Khmer, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$khmer, null, null);
     }
   }
 
   @font-face {
-    
+
     @include ma-font-face(Noto, Sans, Khmer, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$khmer, null, null);
   }
 
   @font-face {
-    
+
     @include ma-font-face(Noto, Sans, Khmer, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$khmer, null, null);
   }
 
   // Myanmar
 
   @supports ( font-variation-settings: normal ) {
-    
+
     @font-face {
-      
+
       @include ma-font-face(Noto, Sans, Myanmar, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$myanmar, null, null);
     }
   }
 
   @font-face {
-    
+
     @include ma-font-face(Noto, Sans, Myanmar, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$myanmar, null, null);
   }
 
   @font-face {
-    
+
     @include ma-font-face(Noto, Sans, Myanmar, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$myanmar, null, null);
   }
 }
@@ -182,24 +180,24 @@ html {
 // Set language support fonts (conditionally)
 
 @if $fonts-langs-support {
-  
+
   * {
-    
+
     @include ma-langlist(langs.$arabic-sans, rtl, langs.$langs-Arab);
   }
 
   * {
-    
+
     @include ma-langlist(langs.$hebrew-sans, rtl, langs.$langs-Hebr);
   }
 
   * {
-    
+
     @include ma-langlist(langs.$khmer-sans, null, langs.$langs-Khmr);
   }
 
   * {
-    
+
     @include ma-langlist(langs.$myanmar-sans, null, langs.$langs-Mymr);
   }
 }
