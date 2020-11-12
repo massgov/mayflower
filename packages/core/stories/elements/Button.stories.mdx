@@ -64,10 +64,26 @@ Default buttons are solid colors with uppercased button text (this is configurab
 **Style:**
 The outline button provides a less prominent visual to indicate an less important action on a page, e.g. the Back button. The hover state of the secondary button inverts the background/foreground colors.
 <Canvas>
-  <Button usage="secondary" text="button"/>
-  <Button usage="secondary" theme="c-primary-alt" text="button"/>
-  <Button usage="secondary" theme="c-highlight" text="button"/>
-  <Button usage="secondary" theme="c-gray-dark" text="button"/>
+  <Story
+    name="button-secondary-c-primary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" text="button"/>) } }}>
+      <Button usage="secondary" text="button" />
+  </Story>
+  <Story
+    name="button-secondary-c-primary-alt"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-primary-alt" text="button"/>) } }}>
+      <Button usage="secondary" theme="c-primary-alt" text="button"/>
+  </Story>
+  <Story
+    name="button-secondary-c-highlight"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-highlight" text="button"/>) } }}>
+      <Button usage="secondary" theme="c-highlight" text="button"/>
+  </Story>
+  <Story
+    name="button-secondary-c-gray"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-gray-dark" text="button"/>) } }}>
+      <Button usage="secondary" theme="c-gray-dark" text="button"/>
+  </Story>
 </Canvas>
 
 <hr className="sp--top" />
@@ -78,7 +94,11 @@ The outline button provides a less prominent visual to indicate an less importan
 **Style:** This is a solid gray button with a lighter background color than the foreground text. The muted color makes this button less prominent on a page than the secondary outline button a providing an option for a tertiary action. The hover state of this button will invert background color with white color text.
 
 <Canvas>
-  <Button usage="tertiary" text="button"/>
+  <Story
+    name="button-tertiary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="tertiary" text="button"/>) } }}>
+      <Button usage="tertiary" text="button"/>
+  </Story>
 </Canvas>
 
 <hr className="sp--top" />
@@ -90,7 +110,11 @@ The outline button provides a less prominent visual to indicate an less importan
 Appears as a link.
 
 <Canvas>
-  <Button usage="quaternary" text="button" />
+  <Story
+    name="button-quaternary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="quaternary" text="button" />) } }}>
+      <Button usage="quaternary" text="button" />
+  </Story>
 </Canvas>
 
 ### Disabled Button
