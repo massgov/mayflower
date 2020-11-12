@@ -13,6 +13,8 @@ export const parameters = {
     },
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
-  canvas: { hidden: true },
+  previewTabs: {
+      canvas: { hidden: true }
+  },
   viewMode: 'docs'
 }
