@@ -2,8 +2,9 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Button from '@massds/mayflower-react/dist/Button';
 import DecorativeLink from '@massds/mayflower-react/dist/DecorativeLink';
 import CalloutLink from '@massds/mayflower-react/dist/CalloutLink';
-import generateTitle from '../util/generateTitle';
-import { renderReactMarkup } from '../util/renderCode';
+import generateTitle from '../../util/generateTitle';
+import { renderReactMarkup } from '../../util/renderCode';
+import * as stories from './Link.stories.js';
 
 <Meta
   title={generateTitle('Link')}
@@ -27,9 +28,7 @@ Links are used to embed actions or pathways to more information in a sentence or
     name="link">
       <a href="#">Inline Link</a>
   </Story>
-  <Story
-    name="link-css"
-    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/decorative-link.css">'} } }} />
+  <Story story={stories.linkCSS} />
 </Canvas>
 
 #### Decorative Link
@@ -44,9 +43,7 @@ Links are used to embed actions or pathways to more information in a sentence or
     <DecorativeLink text="Decorative Link"/>) } }}>
     <DecorativeLink text="Decorative Link"/>
   </Story>
-  <Story
-    name="link-decorative-css"
-    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/decorative-link.css">'} } }} />
+  <Story story={stories.linkDecorativeCSS} />
 </Canvas>
 
 
@@ -61,9 +58,7 @@ Links are used to embed actions or pathways to more information in a sentence or
     parameters={{ docs: { transformSource: () => renderReactMarkup(<CalloutLink text="Callout Link"/>) } }}>
       <CalloutLink text="Callout Link"/>
   </Story>
-  <Story
-    name="link-callout-css"
-    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/callout-link.css">'} } }} />
+  <Story story={stories.linkCalloutCSS} />
 </Canvas>
 
 

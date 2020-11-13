@@ -8,19 +8,17 @@ const cssButton = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.co
 
 
 // exported story names must be unique
-const buttonCSS = () => null;
+export const buttonCSS = () => null;
 attachCSS(buttonCSS, cssButton)
 
-const buttonCSS2 = () => null;
+export const buttonCSS2 = () => null;
 attachCSS(buttonCSS2, cssButton)
 
-const buttonCSS3 = () => null;
+export const buttonCSS3 = () => null;
 attachCSS(buttonCSS3, cssButton)
 
-const buttonCSS4 = () => null;
+export const buttonCSS4 = () => null;
 attachCSS(buttonCSS4, cssButton)
 
-const buttonCSSDisabled = () => null;
+export const buttonCSSDisabled = () => null;
 attachCSS(buttonCSSDisabled, cssButton)
-
-export { buttonCSS, buttonCSS2, buttonCSS3, buttonCSS4, buttonCSSDisabled }
