@@ -1,6 +1,15 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 10.1.2 (11/10/2020)
+### Fixed 
+- (Assets) [Fonts] DP-20468: Fix font issue on Macs running El Capitan, Yosemite, Mavericks (10.11, 10.10, 10.9) with Firefox and Safari. (#1259)
+
+## 10.1.1 (11/2/2020)
+### Fixed
+- (Patternlab) [CircleCI] Fix patternlab deploy tag paths. (#1252)
+- (Patternlab) [SiteLogo] Set Patternlab SiteLogo global path in patternlab to be relative to the current path in order to fix production urls. (#1254)
+
 ## 10.1.0 (10/30/2020)
 ### Changed
 - (Assets) [Images] Rename `assets/static/images/svg-icons` to `assets/static/images/icons` and move checkmark.svg into the icons folder. (#1243)
