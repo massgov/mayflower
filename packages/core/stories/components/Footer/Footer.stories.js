@@ -3,7 +3,6 @@ import FooterSlim from '@massds/mayflower-react/dist/FooterSlim';
 import Footer from '@massds/mayflower-react/dist/Footer';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
-import ReactDOMServer from 'react-dom/server';
 import { attachHTML, attachCSS } from '../../util/renderCode';
 
 
