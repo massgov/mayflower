@@ -2,14 +2,11 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import FooterSlim from '@massds/mayflower-react/dist/FooterSlim';
 import Footer from '@massds/mayflower-react/dist/Footer';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
-import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
-import IconSearch from '@massds/mayflower-react/dist/Icon/IconSearch';
-import IconLatlonglobe from '@massds/mayflower-react/dist/Icon/IconLatlonglobe';
-import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
 import generateTitle from '../../util/generateTitle';
 import { renderReactMarkup } from '../../util/renderCode';
+import * as stories from './Footer.stories.js';
 
 <Meta
   title={generateTitle('Footer')}
@@ -23,29 +20,7 @@ import { renderReactMarkup } from '../../util/renderCode';
 Footers are containers located at the bottom of each page to provide for authorship information, copyright information, contact information, sitemap, back to home and back to top links, and related links.
 
 <Canvas withSource="none" >
-  <FooterSlim
-    contact={{
-      address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
-      online: {
-        href: '#',
-        title: 'EEC Official Website'
-      },
-      phone: '(617) 988-6600'
-    }}
-    description="The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
-    links={[
-      {
-        href: '#',
-        title: 'Lead Agencies Policies'
-      },
-      {
-        href: '#',
-        title: 'Child Care Licensing Procedures'
-      }
-    ]}
-    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
-    title="Massachusetts Executive Office of Eductation (EDU)"
-  />
+  <Story story={stories.footerExample} />
 </Canvas>
 
 ## Overview
@@ -69,60 +44,7 @@ For web apps and websites that have a simple sitemap or navigation structure, th
 ### Footer (Slim Version)
 A most simplified version of a header contains a blue bar (height: 15px) at the top and a site logo and site name linked to the home of the website, placed on a light gray background ($c-gray-lightest)
 <Canvas>
-  <Story
-    name="footer-slim"
-    inline={false}
-    parameters={{ docs: { transformSource: () => renderReactMarkup(
-      <FooterSlim
-        contact={{
-          address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
-          online: {
-            href: '#',
-            title: 'EEC Official Website'
-          },
-          phone: '(617) 988-6600'
-        }}
-        description="The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
-        links={[
-          {
-            href: '#',
-            title: 'Lead Agencies Policies'
-          },
-          {
-            href: '#',
-            title: 'Child Care Licensing Procedures'
-          }
-        ]}
-        siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
-        title="Massachusetts Executive Office of Eductation (EDU)"
-      />) } }}>
-      <FooterSlim
-        contact={{
-          address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
-          online: {
-            href: '#',
-            title: 'EEC Official Website'
-          },
-          phone: '(617) 988-6600'
-        }}
-        description="The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
-        links={[
-          {
-            href: '#',
-            title: 'Lead Agencies Policies'
-          },
-          {
-            href: '#',
-            title: 'Child Care Licensing Procedures'
-          }
-        ]}
-        siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
-        title="Massachusetts Executive Office of Eductation (EDU)"
-      />
-  </Story>
-  <Story
-    name="footer-slim-css"
-    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/footer-slim.css">'} } }} />
+  <Story story={stories.footerSlim} />
 </Canvas>
 
 
@@ -132,30 +54,7 @@ Joint brand with a parent or sibling organization
 Logos available for both the service (application) and the organization
 
 <Canvas>
-  <FooterSlim
-    contact={{
-      address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
-      online: {
-        href: '#',
-        title: 'EEC Official Website'
-      },
-      phone: '(617) 988-6600'
-    }}
-    description="The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
-    links={[
-      {
-        href: '#',
-        title: 'Lead Agencies Policies'
-      },
-      {
-        href: '#',
-        title: 'Child Care Licensing Procedures'
-      }
-    ]}
-    siteLogo={<><SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/><SiteLogo image={{alt: 'Department of Eduction logo', height: 45, src: 'http://www.doe.mass.edu/images/Master-Logo_695x338_color.png', width: 120}} title="Department of Education homepage" url={{domain: 'http://www.doe.mass.edu/'}}/></>}
-    stackedLogo
-    title="Massachusetts Executive Office of Eductation (EDU)"
-  />
+  <Story story={stories.footerSlimDuelLogo} />
 </Canvas>
 
 
@@ -164,106 +63,5 @@ Logos available for both the service (application) and the organization
 
 For sites with more complex information architecture, the footer also provides the opportunity for users to explore additional navigation options when they reach the bottom of the page. In this case, top level navigation menu items and other supporting forms and documents can be organized into up to three columns following the first column. For a live example, see the footer used on Mass.gov.
 <Canvas>
-  <Footer
-  backToTopButton={false}
-  footerLinks={{
-    items: [
-      {
-        heading: 'FooterLinks1',
-        id: 'FooterLinks1',
-        links: [
-          {
-            href: 'https://mass.gov/topics/living',
-            text: 'Living'
-          },
-          {
-            href: 'https://mass.gov/topics/working',
-            text: 'Working'
-          },
-          {
-            href: 'https://mass.gov/topics/learning',
-            text: 'Learning'
-          },
-          {
-            href: 'https://mass.gov/topics/visiting-exploring',
-            text: 'Visiting & Exploring'
-          },
-          {
-            href: 'https://mass.gov/topics/your-government',
-            text: 'Your Government'
-          }
-        ]
-      },
-      {
-        heading: 'FooterLinks2',
-        id: 'FooterLinks2',
-        links: [
-          {
-            href: 'https://www.mass.gov/site-policies',
-            text: 'Site Policies'
-          },
-          {
-            href: 'http://www.mass.gov/opendata/#/',
-            text: 'State Data'
-          },
-          {
-            href: 'https://www.mass.gov/topics/public-records-requests',
-            text: 'Public Records Requests'
-          }
-        ]
-      },
-      {
-        heading: 'FooterLinks3',
-        id: 'FooterLinks3',
-        links: [
-          {
-            href: 'https://www.mass.gov/feedback',
-            text: 'Feedback'
-          }
-        ]
-      }
-    ]
-  }}
-  footerLogo={{
-    src: 'static/media/stateseal.90d94572.png'
-  }}
-  footerText={{
-    copyright: '2020 Commonwealth of Massachusetts.',
-    description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-    privacyPolicy: {
-      text: 'Mass.gov Privacy Policy',
-      url: 'https://www.mass.gov/privacypolicy'
-    }
-  }}
-  showNavHeading={false}
-  socialLinks={{
-    items: [
-      {
-        altText: 'Follow us on Facebook',
-        href: 'https://www.facebook.com/massgov',
-        linkType: 'facebook'
-      },
-      {
-        altText: 'Follow us on Twitter',
-        href: 'https://twitter.com/massgov',
-        linkType: 'twitter'
-      },
-      {
-        altText: 'Follow us on LinkedIn',
-        href: 'https://www.linkedin.com/company/commonwealth-of-massachusetts',
-        linkType: 'linkedin'
-      },
-      {
-        altText: 'Follow us on Youtube',
-        href: 'https://www.youtube.com/user/massgov',
-        linkType: 'youtube'
-      },
-      {
-        altText: 'Follow us on Instagram',
-        href: 'https://www.instagram.com/massgov',
-        linkType: 'instagram'
-      }
-    ]
-  }}
-  />
+  <Story story={stories.footerFullNav} />
 </Canvas>
