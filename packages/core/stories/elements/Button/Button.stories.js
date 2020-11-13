@@ -1,35 +1,11 @@
 import React from 'react';
 import Button from '@massds/mayflower-react/dist/Button';
 import ReactDOMServer from 'react-dom/server';
-import { renderReactMarkup } from '../../util/renderCode';
-
-
-
-const buttonBasic = <Button>Basic</Button>
-
-export const basic = () => buttonBasic;
-basic.parameters = {
-  docs: {
-    source: {
-      code: renderReactMarkup(buttonBasic)
-    }
-  }
-};
-
-
+import { renderReactMarkup, attachCSS } from '../../util/renderCode';
 
 
 const cssButton = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/button.css">'
 
-const attachCSS = (story, css) => {
-  return story.parameters = {
-    docs: {
-      source: {
-        code: cssButton
-      }
-    }
-  }
-}
 
 // exported story names must be unique
 const buttonCSS = () => null;

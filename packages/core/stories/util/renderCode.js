@@ -16,3 +16,25 @@ export const renderReactMarkup = (component) => (
 //     {children}
 //   </Story>
 // )
+
+
+export const attachCSS = (story, css) => {
+  return story.parameters = {
+    docs: {
+      source: {
+        code: css
+      }
+    }
+  }
+}
+
+
+export const attachHTML = (story, Component) => {
+  return story.parameters = {
+    docs: {
+      source: {
+        code: renderReactMarkup(Component)
+      }
+    }
+  };
+}
