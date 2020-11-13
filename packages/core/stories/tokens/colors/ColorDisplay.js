@@ -7,7 +7,7 @@ const ColorSwatch = ({ name, value, variable }) => {
   const hexValue = value.toUpperCase();
   return(
     <li style={{ width: 200, padding: 5 }}>
-      <h6 className="ma__sidebar-heading">{name}</h6>
+      <h6>{name}</h6>
       <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
       <div className="sg-info">
         <span>{hexValue}</span>
@@ -67,7 +67,7 @@ const GradientTile = (props) => {
   const hexValue = rgbToHex(rgb).toUpperCase();
   return(
     <li className={`${props.token}--${effect}`}>
-      <h6 className="ma__sidebar-heading">{name}</h6>
+      <h6>{name}</h6>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
         <span>{hexValue}</span>
