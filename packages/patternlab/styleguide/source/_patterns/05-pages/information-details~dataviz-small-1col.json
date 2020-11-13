@@ -80,6 +80,36 @@
           }
         },
         {
+          "path": "@atoms/09-media/figure--dataviz.twig",
+          "data": {
+            "figure": {
+              "align": "left",
+              "wrap": true,
+              "size": "small",
+              "dataviz": {
+                "id": "1234",
+                "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
+              },
+              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--dataviz.twig",
+          "data": {
+            "figure": {
+              "align": "left",
+              "wrap": true,
+              "size": "small",
+              "dataviz": {
+                "id": "1234",
+                "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
+              },
+              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
+            }
+          }
+        },
+        {
           "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
