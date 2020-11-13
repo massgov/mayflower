@@ -1,7 +1,8 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Button from '@massds/mayflower-react/dist/Button';
-import generateTitle from '../util/generateTitle';
-import { renderReactMarkup } from '../util/renderCode';
+import generateTitle from '../../util/generateTitle';
+import { renderReactMarkup } from '../../util/renderCode';
+import * as stories from './Button.stories.js';
 
 <Meta
   title={generateTitle('Button')}
@@ -53,6 +54,7 @@ Default buttons are solid colors with uppercased button text (this is configurab
     parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" theme="c-gray-dark" text="button"/>) } }}>
       <Button usage="" theme="c-gray-dark" text="button"/>
   </Story>
+  <Story story={stories.buttonCSS} />
 </Canvas>
 
 
@@ -84,6 +86,7 @@ The outline button provides a less prominent visual to indicate an less importan
     parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-gray-dark" text="button"/>) } }}>
       <Button usage="secondary" theme="c-gray-dark" text="button"/>
   </Story>
+  <Story story={stories.buttonCSS2} />
 </Canvas>
 
 <hr className="sp--top" />
@@ -99,6 +102,7 @@ The outline button provides a less prominent visual to indicate an less importan
     parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="tertiary" text="button"/>) } }}>
       <Button usage="tertiary" text="button"/>
   </Story>
+  <Story story={stories.buttonCSS3} />
 </Canvas>
 
 <hr className="sp--top" />
@@ -115,6 +119,7 @@ Appears as a link.
     parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="quaternary" text="button" />) } }}>
       <Button usage="quaternary" text="button" />
   </Story>
+  <Story story={stories.buttonCSS4} />
 </Canvas>
 
 ### Disabled Button
@@ -144,9 +149,7 @@ Box shadow on default buttons are used to accentuate the actions. For disabled b
     parameters={{ docs: { transformSource: (src) => renderReactMarkup(<Button usage="quaternary" text="button" disabled/>) } }}>
       <Button usage="quaternary" text="button" disabled/>
   </Story>
-  <Story
-    name="button-css"
-    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/button.css">'} } }} />
+  <Story story={stories.buttonCSSDisabled} />
 </Canvas>
 
 ### Accessibility & Best Practices
