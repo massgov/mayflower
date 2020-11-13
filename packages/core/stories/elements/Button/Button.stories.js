@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@massds/mayflower-react/dist/Button';
 import ReactDOMServer from 'react-dom/server';
-import { renderReactMarkup, attachCSS } from '../../util/renderCode';
+import { attachCSS } from '../../util/renderCode';
 
 
 const cssButton = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/button.css">'

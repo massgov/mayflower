@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Heading from '@massds/mayflower-react/dist/Heading';
+import ColoredHeading from '@massds/mayflower-react/dist/ColoredHeading';
+import CompHeading from '@massds/mayflower-react/dist/CompHeading';
+import SidebarHeading from '@massds/mayflower-react/dist/SidebarHeading';
+import generateTitle from '../../util/generateTitle';
+import * as stories from './Heading.stories.js';
+
+import {
+  headings
+} from '../../tokens/typography/typography.json';
+
+<Meta
+  title={generateTitle('Heading')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Headings
+
+Headings are used as the titles of each major section of a page in the interface.
+
+<div className="sb-block">
+  { Object.keys(headings).map((key, keyIndex) => (
+      (key !== "Body text") &&
+      (<Heading level={headings[key]} key={`element.key.${keyIndex}`} text={key} />)
+    )
+  )}
+</div>
+
+<br />
+
+## Overview
+These elements represent headings for their sections.These elements have a rank given by the number in their name. The `<h1>` element is said to have the highest rank, the `<h6>` element has the lowest rank, and two elements with the same name have equal rank.
+Navigating through the `<h1>` and `<h2>` elements allows the user to understand the overall purpose of a page and how its content is structured. The `<h3>` through `<h6>` elements provide a quick understanding of the details in each section.
+
+<br />
+
+## Variations
+<br />
+
+### Colored Heading Variations
+Should be used as a navigational heading, high up on the page. If a page heading H1 exists, should use a lower heading level than the page heading, usually as H2. Color is for styling purposes with no semantic differences.
+
+<Canvas>
+  <Story story={stories.headingColoredPrimary} />
+  <Story story={stories.headingColoredPrimaryAlt} />
+  <Story story={stories.headingColoredGray} />
+  <Story story={stories.headingColoredCSS} />
+</Canvas>
+
+<br />
+
+### Component Heading Variations
+Should be used to to separate content within a big section. If used under Colored Heading, should use a lower heading level than the colored heading, usually as H3 or lower. When nesting Color Headings, use colors as an indicator of the hierarchy in this order: Primary Alt > Highlight > Gray.
+
+<Canvas>
+  <Story story={stories.headingCompPrimary} />
+  <Story story={stories.headingCompHighlight} />
+  <Story story={stories.headingCompGray} />
+  <Story story={stories.headingCompCSS} />
+</Canvas>
+
+<br />
+
+### List Heading Variations
+Should be used as a heading of a list either full width or in a 50/50 split the main content well.
+<Canvas>
+  <Story story={stories.headingSidebar} />
+  <Story story={stories.headingSidebarCSS} />
+</Canvas>
+
+## Accessibility & Best Practices
+Headings should not be used to convey style items
+Headings must be hierarchical and properly nested (all h2’s within an h1 etc) so as to maintain proper navigability for low or non-sighted users
