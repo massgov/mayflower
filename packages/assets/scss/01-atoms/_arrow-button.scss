@@ -1,0 +1,47 @@
+@use "00-base/configure" as *;
+
+.ma__arrow-button {
+
+  @include ma-button;
+
+  @include ma-chevron;
+  display: inline-block;
+  min-height: 45px;
+  min-width: 30px;
+  padding: 8px 8px;
+  text-align: center;
+  transform: scale(-1, 1);
+  
+  &--right {
+    transform: scale(1, 1);
+  }
+
+  &:after {
+    border-width: 5px;
+    height: 15px;
+    margin: 0;
+    position: absolute;
+      top: 50%;
+      left: 45%;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    transform-origin: 50% 50%;
+    width: 15px;
+
+    @media ($bp-small-max) {
+      border-width: 3px;
+      height: 9px;
+      width: 9px;
+    }
+  }
+}
+
+//theme
+
+.ma__arrow-button {
+
+  @include ma-button("","solid",$c-primary);
+
+  &:after {
+    border-color: $c-font-inverse;
+  }
+}

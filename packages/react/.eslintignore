@@ -1,0 +1,16 @@
+backstop/data/
+backstop/scripts/
+dist/
+node_modules/
+storybook-static/
+tests/
+umd/
+src/index.js
+src/**/*.stories.js
+src/**/*.knob*
+gulpfile.js
+icon-template.js
+src/components/base/Icon/**
+!src/components/base/Icon/IconDisplay.js
+!src/components/base/Icon/_icon-display.scss
+

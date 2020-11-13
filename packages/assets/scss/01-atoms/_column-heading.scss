@@ -1,0 +1,6 @@
+@use "00-base/configure" as *;
+
+.ma__column-heading {
+
+  @include ma-h5;
+}

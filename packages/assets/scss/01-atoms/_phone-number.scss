@@ -1,0 +1,9 @@
+@use "00-base/configure" as *;
+
+.ma__phone-number {
+
+  &__number {
+    font-weight: $fonts-bold;
+    color: $c-font-detail;
+  }
+}

@@ -1,0 +1,170 @@
+@use "00-base/configure" as *;
+
+.pre-content,
+.main-content,
+.post-content {
+
+  @include clearfix;
+}
+
+.main-content {
+  margin-bottom: 45px;
+
+  @media ($bp-large-min) {
+    margin-bottom: 60px;
+  }
+}
+
+.ma__short-description.main-content {
+  margin-bottom: 45px;
+  margin-bottom: 20px;
+
+  .ma__page-header__sub-title .ma__rich-text h4 {
+    padding-bottom: 0;
+  }
+
+  @media ($bp-x-small-min) {
+    margin-bottom: 60px;
+    margin-bottom: 40px;
+  }
+}
+
+// two column template
+
+.main-content--two {
+
+  @include ma-container;
+}
+
+.page-content {
+  position: relative;
+
+  .main-content--two & {
+
+    @media ($bp-large-min) {
+      float:left;
+      padding-right: $column;
+      width: calc(100% - #{$layout-sidebar-width});
+    }
+
+    @media ($bp-x-large-min) {
+      padding-right: $column + ($gutter * 2);
+    }
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
+  .main-content--two &  > *,
+  .main-content--two & .ma__rich-text__container {
+
+    @include ma-component-spacing;
+  }
+
+  .main-content--full & > * {
+
+    @include ma-component-spacing('large');
+  }
+
+  // Almost works, but needs to only apply while the item is floated
+  // .main-content & > *:first-child[class*='--left'] + *,
+  // .main-content & > *:first-child[class*='--right'] + * {
+  //   margin-top: 0;
+  // }
+}
+
+.post-content > * {
+
+  @include ma-component-spacing;
+}
+
+.sidebar {
+  // two column layout with sidebar on the right
+
+  @media ($bp-large-min) {
+    float: left;
+    width: $layout-sidebar-width;
+  }
+
+  & > * {
+    margin-top: 40px;
+
+    @media ($bp-small-min) {
+      margin-top: 65px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.page-content + .sidebar {
+  padding-top: 40px;
+
+  @media ($bp-small-min) {
+    padding-top: 65px;
+  }
+
+  @media ($bp-large-min) {
+    padding-top: 0;
+  }
+}
+
+// reversed two column layout
+
+.main-content--reversed {
+
+  .page-content {
+    padding-bottom: 0;
+    padding-right: 0;
+
+    @media ($bp-large-min) {
+      float:left;
+      padding-left: $gutter;
+      width: calc(100% - #{$layout-sidebar-width-reversed});
+    }
+
+    @media ($bp-x-large-min) {
+      padding-left: 50px;
+    }
+  }
+
+  .sidebar {
+    padding-bottom: 45px;
+
+    // two column layout with sidebar on the left
+
+    @media ($bp-large-min) {
+      float: left;
+      padding-bottom: 0;
+      width: $layout-sidebar-width-reversed;
+    }
+  }
+}
+
+
+
+// guide page template
+
+.stacked-row-content {
+  position: relative;
+}
+
+//theme
+
+.ma__narrow-template {
+
+  &--blue:before {
+    background-color: rgba($c-primary, .15);
+  }
+
+  &--green:before {
+    background-color: rgba($c-primary-alt, .15);
+  }
+
+  &--yellow:before {
+    background-color: rgba($c-highlight, .15);
+  }
+}

@@ -1,0 +1,16 @@
+@use "00-base/configure" as *;
+
+.ma__tabular-data {
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container();
+    margin-top: 0px;
+  }
+
+  .ma__rich-text {
+    margin-bottom: 45px;
+  }
+}

@@ -1,0 +1,44 @@
+@use "00-base/configure" as *;
+
+.ma__site-logo {
+
+  a {
+    display: flex;
+    font-size: 0px;
+    align-items: center;
+
+    span {
+      font-size: $fonts-2xlarge;
+      display: inline-block;
+      width: 112px;// 119px - margin-left(7)
+      margin-left: 0.4rem;
+      line-height: 1;
+      letter-spacing: $letter-spacing-small;
+
+      @media ($bp-small-max) {
+        width: 102px;// 108px - margin-left(6)
+        margin-left: 0.3rem;
+      }
+    }
+  }
+}
+
+//theme
+
+.ma__site-logo {
+
+  a {
+
+    span {
+      font-weight: $fonts-light;
+      color: $c-primary-alt;
+
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: $c-primary-alt;
+
+      @media ($bp-small-max) {
+        -webkit-text-stroke-width: 0.03rem;
+      }
+    }
+  }
+}

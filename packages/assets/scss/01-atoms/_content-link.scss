@@ -1,0 +1,71 @@
+@use "00-base/configure" as *;
+
+.ma__content-link {
+
+  @include ma-link-underline;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+
+  &--chevron {
+
+    @include ma-chevron;
+    border-bottom: none;
+    display: inline-block;
+    padding-right: .75em;
+    position: relative;
+  
+    &:hover {
+      border-bottom: none;
+    }
+
+    &:after {
+      height: .45em;
+      margin-top: .175em;
+      position: absolute;
+      transform: translateY(50%) rotate(-45deg);
+      width: .45em;
+    }
+
+    span {
+
+      @include ma-link-underline;
+    }
+  }
+
+  &--phone {
+    border: none;
+    padding-bottom: 0;
+
+    &:hover {
+      border: none;
+    }
+  }
+}
+
+//theme
+
+.ma__content-link {
+  color: $c-font-link; 
+
+  &:hover {
+    border-bottom-color: rgba($c-font-link, .5);
+  }
+
+  &--chevron {
+
+    &:after {
+      border-color: rgba($c-font-link, .5);
+    }
+
+    span:hover {
+      border-bottom-color: rgba($c-font-link, .5);
+    }
+  }
+
+  &--phone {
+    color: inherit; 
+    font-weight: inherit;
+  }
+}

@@ -1,0 +1,11 @@
+@use "00-base/variables" as *;
+
+@mixin ma-auto-size($min, $max) {
+
+  @for $i from $min through $max {
+    &:first-child:nth-last-child(#{$i}),
+    &:first-child:nth-last-child(#{$i}) ~ & {
+      width: 1 / $i * 100%;
+    }
+  }
+}

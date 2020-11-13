@@ -1,0 +1,74 @@
+
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: '{{ languages }}', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    document.querySelector('#google_translate_element') !== null ? document.querySelector('#google_translate_element').classList.add('has-rendered') : '';
+  }
+  (function() {
+    var script = document.createElement('script');
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    var element = document.getElementsByTagName('head')[0];
+    element.appendChild(script);
+  })();
+</script>
+
+    <!--DO NOT REMOVE-->
+    {{ patternLabFoot | raw }}
+    <script>
+      var ma = ma || {};
+      // path to where the handlebar templates are being stored.
+      ma.themePath = "../../assets";
+      // path to where twig templates are being stored (for twigJS).
+      ma.twigPath = "../../twig";
+      ma.iconPath = ma.themePath + "/images/icons/"
+      ma.patternPaths = {
+        '@base': ma.twigPath + "/00-base/",
+        '@atoms': ma.twigPath + "/01-atoms/",
+        '@molecules': ma.twigPath + "/02-molecules/",
+        '@organisms': ma.twigPath + "/03-organisms/",
+        '@templates': ma.twigPath + "/04-templates/",
+        '@pages': ma.twigPath + "/05-pages/",
+        '@meta': ma.twigPath + "/07-meta/"
+      };
+    </script>
+    <script src="../../assets/js/vendor-generated.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
+    <script src="../../assets/js/index-generated.js"></script>
+    <script type="text/javascript">
+      window.initGoogleMaps = function() {
+        // Set a flag that the library has loaded, in case google maps js misses event.
+        window.googleMapsLoaded = true;
+        // Emit an event that the library has loaded.
+        $(document).trigger('ma:LibrariesLoaded:GoogleMaps');
+      }
+    </script>
+
+    {% set mapLibraries = 'geometry,places,geocoder' %}
+    <!-- Set google map libraries for event page -->
+    {% if mainContent.eventListingInteractive %}
+      {% set mapLibraries = 'places' %}
+    {% endif %}
+
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyD5HXUVAA4VyRXVX50taVe2hDY8hy2JSdA&v=3&libraries={{ mapLibraries }}&callback=initGoogleMaps"></script>
+
+    <!-- Set Tableau libraries -->
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.3.0.min.js"></script>
+
+    <script>
+      try {
+        if($('.main-content').length === 0){
+          var json = JSON.parse($("#sg-pattern-data-footer").html()),
+
+          data = json.patternBreadcrumb.patternType;
+
+          if(data !== 'templates' && data !== 'pages') {
+            $('body').addClass('page-content');
+            $('html').addClass('main-content').addClass('main-content--full');
+          }
+        }
+      } catch(e) {}
+    </script>
+
+  </body>
+</html>

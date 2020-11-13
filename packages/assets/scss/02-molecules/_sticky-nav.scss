@@ -1,0 +1,235 @@
+// from index.scss
+// $column: 85px;
+// $gutter: 20px;
+
+@use "00-base/configure" as *;
+
+.ma__sticky-nav {
+
+  @include clearfix;
+  position: relative;
+  transition: top .3s;
+  width: 100%;
+  z-index: $z-sticky-content;
+
+  font-size: $fonts-medium;
+
+  @media ($bp-small-min) {
+    font-size: $fonts-small;
+  }
+
+  &:before {
+    content: "true"; // hook for JS to do the mobile sticky
+    display: none;
+
+    @media ($bp-medium-min) {
+      content: "false"; // hook for JS to do the mobile sticky
+    }
+  }
+
+  @media ($bp-medium-max) {
+    background-color: $c-gray-lightest;
+    border: 1px solid $c-gray-light;
+    left: 0;
+  }
+
+  .page-content & {
+
+    @media ($bp-medium-min) {
+      margin-bottom: 0;
+      padding-right: $gutter * 2;
+      position: absolute;
+        top: 0;
+      width: 160px;
+
+      .main-content--two & {
+        margin-left: -160px;
+      }
+    }
+
+    @media ($bp-x-large-min) {
+      width: $column-with-gutter * 2;
+
+      .main-content--two & {
+        margin-left: -$column-with-gutter * 2;
+      }
+    }
+  }
+
+  @media print {
+    display: none;
+  }
+
+  &[data-sticky='middle'] {
+    position: fixed;
+    top: 40px;
+    z-index: $z-overlay;
+
+    .translated-rtl &,
+    .translated-ltr & {
+      top: 80px;
+    }
+
+    @media ($bp-medium-min) {
+      top: 15px;
+
+      .translated-rtl &,
+      .translated-ltr & {
+        top: 55px;
+      }
+    }
+  }
+
+  &[data-sticky='bottom'] {
+    position: absolute;
+      top: auto; // height of one line of text
+      bottom: -30px; // compensate for bottom margin
+
+    @media ($bp-medium-min) {
+      top: auto;
+      bottom: -15px;
+    }
+  }
+
+
+  &__link {
+    cursor: pointer;
+    display: none;
+    line-height: 1.2;
+    padding: 10px 15px;
+    min-height: 47px;
+
+    @media ($bp-small-min) {
+      line-height: 1.5;
+    }
+
+    @media ($bp-medium-min) {
+      display: block;
+      padding: 0;
+      padding-bottom: 12px;
+    }
+
+    &.is-title {
+
+      span {
+        color: $c-gray-dark;
+        border-bottom: 3px solid transparent;
+        padding-top: 3px;
+        padding-bottom: 1px;
+        -webkit-transition: border 0.4s ease;
+        -o-transition: border 0.4s ease;
+        transition: border 0.4s ease;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      a {
+        color: $c-gray-dark !important;
+
+        &:focus {
+          border-bottom-width: 0;
+        }
+      }
+
+      &:hover a {
+        border-bottom-color: transparent;
+      }
+
+      &.is-active {
+
+        div {
+          font-weight: 700;
+        }
+      }
+
+      @media ($bp-medium-min) {
+        display: none;
+
+        &.is-active {
+          display: none;
+        }
+      }
+    }
+
+    &.is-active {
+      display: block;
+
+      a {
+        color: $c-font-base;
+        font-weight: $fonts-bold;
+      }
+
+      &:hover a {
+        color: $c-font-base;
+        border-bottom-color: transparent;
+      }
+
+      @media ($bp-medium-min) {
+        cursor: default;
+      }
+    }
+
+    &:hover a {
+      border-bottom-color: rgba($c-font-link,.5);
+    }
+
+    a {
+
+      @include ma-link-underline;
+      font-weight: $fonts-normal;
+    }
+  }
+
+
+    &__link + &__link {
+    border-top-color: $c-gray-light;
+
+    &.is-open {
+      border-top-color: $c-gray-light;
+    }
+
+    &.is-top {
+
+      @media ($bp-medium-min) {
+        border-top-width: 0;
+      }
+    }
+
+    @media ($bp-medium-min) {
+      border-top-width: 1px;
+      border-top-style: solid;
+      padding-top: 12px;
+    }
+  }
+
+  &.is-open &__link {
+    display: block;
+  }
+
+  &.is-open &__link + &__link {
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
+
+  &__toggle-link {
+
+    @include ma-button-reset;
+    color: $c-primary-alt;
+    font-size: $fonts-6xlarge;
+    line-height: .65em;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    transition: all .2s ease;
+    transform-origin: center center;
+
+    .is-open & {
+      transform: rotate(135deg);
+    }
+
+    @media ($bp-medium-min) {
+      display: none;
+    }
+  }
+}

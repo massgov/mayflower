@@ -1,0 +1,9 @@
+@use "00-base/configure" as *;
+
+.ma__icon-links {
+
+  &__items {
+
+    @include ma-reset-list;
+  }
+}

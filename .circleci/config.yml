@@ -1,5 +1,5 @@
 
-version: 2
+version: 2.1
 
 references:
   configure_npm: &configure_npm
@@ -12,17 +12,16 @@ references:
 react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:10.15.1
-
+    - image: circleci/node:12.18.0-browsers
 patternlab_defaults: &patternlab_defaults
-  working_directory: /var/www/code
+  working_directory: ~/code
   docker:
-    - image: massgov/drupal-container:1.0.8-ci
+    - image: circleci/php:7.1-node-browsers
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
-    - image: circleci/python:2.7.14
+    - image: cimg/node:12.14
 
 jobs:
   build:
@@ -30,18 +29,19 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          name: Restore yarn.lock
+          name: Restore pnpm-lock.yaml
           keys:
-            - root-npm-v3-{{ checksum "yarn.lock" }}
-            - root-npm-v3-
-      - run: {name: 'Install packages', command: 'npm i -g yarn && yarn'}
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
+      - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v3-{{ checksum "yarn.lock" }}
-          paths: [ node_modules ]
-      - persist_to_workspace:
-          root: /var/www/code
-          paths: ["*"]
+          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
+          paths:
+            - common
+            - packages/assets/node_modules
+            - packages/react/node_modules
+            - packages/patternlab/styleguide/node_modules
+            - packages/site/node_modules
 
   patternlab_build:
     <<: *patternlab_defaults
@@ -50,16 +50,10 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
-            - pl-npm-v3-
-      - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && npm install' }
-      - save_cache:
-          name: Save NPM cache
-          key: pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
-          paths: [ patternlab/styleguide/node_modules ]
-      - run: { name: 'Build', command: 'cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build'}
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
+      - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
-          root: /var/www/code
+          root: ~/code
           paths: ["*"]
 
   patternlab_test:
@@ -68,29 +62,35 @@ jobs:
       - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
       - run: |
-          cd patternlab
+          cd packages/patternlab
           docker-compose up --no-start web backstop
           docker cp ./ $(docker-compose ps -q backstop):/src/
           docker cp ./styleguide/public/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
-          cd patternlab
+          cd packages/patternlab
           docker-compose run backstop test
       - run:
-          command: cd patternlab && docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
+          command: cd packages/patternlab && docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
           when: always
       - store_artifacts:
-          path: patternlab/backstopjs
+          path: packages/patternlab/backstopjs
           destination: backstop
       - store_test_results:
-          path: patternlab/backstopjs/reports/ci
+          path: packages/patternlab/backstopjs/reports/ci
 
   patternlab_deploy_branch:
     <<: *patternlab_defaults
     steps:
-      - attach_workspace: {at: /var/www/code}
+      - attach_workspace: {at: ~/code}
       - *no_host_check
       - add_ssh_keys
       - *configure_git
+      - run:
+          name: 'Install AWS'
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
       - run:
           name: 'Deploy Artifact Branch'
           command: |
@@ -98,7 +98,7 @@ jobs:
             # of the artifact repository, creating or reusing an existing branch, committing the
             # work, then pushing to github.
             # See https://github.com/LastCallMedia/Artifact.sh/blob/master/artifact.sh
-            cd patternlab/styleguide/dist
+            cd packages/patternlab/styleguide/dist
             git clone --bare git@github.com:massgov/mayflower-artifacts.git .git
             git config core.bare false
             git rev-parse --verify -q "$CIRCLE_BRANCH" || git branch "$CIRCLE_BRANCH" $(git show-ref -s master)
@@ -112,23 +112,29 @@ jobs:
             fi
       - run:
           name: 'Deploy S3 Branch'
-          command: aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH"
+          command: aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH"
 
   patternlab_deploy_tag:
     <<: *patternlab_defaults
     steps:
-      - attach_workspace: {at: /var/www/code}
+      - attach_workspace: {at: ~/code}
       - *no_host_check
       - add_ssh_keys
       - *configure_git
       - *configure_npm
+      - run:
+          name: 'Install AWS'
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
       - run:
           name: 'Deploy Artifact Tag'
           command: |
             # This snippet pushes the dist directory to the artifact repo by faking a checkout
             # of the artifact repository, creating a new commit and tag, then pushing.
             # See https://github.com/LastCallMedia/Artifact.sh/blob/master/artifact.sh
-            cd patternlab/styleguide/dist
+            cd packages/patternlab/styleguide/dist
             git clone --bare git@github.com:massgov/mayflower-artifacts.git .git
             git config core.bare false
             git symbolic-ref HEAD "refs/heads/master"
@@ -143,7 +149,7 @@ jobs:
       - run:
           name: 'Deploy NPM Tag'
           command: |
-            cd patternlab/styleguide/dist
+            cd packages/patternlab/styleguide/dist
             npm version --no-git-tag-version "$CIRCLE_TAG"
             if test -z "$(npm show @massds/mayflower@$CIRCLE_TAG)"; then
               npm publish
@@ -153,35 +159,33 @@ jobs:
       - run:
           name: 'Deploy S3 Tag'
           command: |
-            aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
+            aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-              aws s3 cp --recursive patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
+              aws s3 cp --recursive packages/patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
             fi
 
   react_build_storybook:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "react/package.json" }}
-      - run: cd react && npm install
-      - save_cache:
-          paths:
-            - react/node_modules
-          key: mfr-dependencies-{{ checksum "react/package.json" }}
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
       - run:
           name: Mayflower React Build
-          command: cd react && npm run build
-      - run:
-          name: Mayflower React Linter
-          command: cd react && npm run lint
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Mayflower React Build Storybook
-          command: cd react && npm run build-storybook
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
+      - run:
+          name: Mayflower React Storybook Extract
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js storybook:extract
+      - run:
+          name: Mayflower React Linter
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js lint
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/code
           paths: ["*"]
 
   react_test:
@@ -190,33 +194,34 @@ jobs:
       - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
       - run: |
-          cd react
+          cd packages/react
           docker-compose up --no-start web backstop
           docker cp ./ $(docker-compose ps -q backstop):/src/
           docker cp ../assets $(docker-compose ps -q backstop):/src/assets
+          docker cp ../../docs $(docker-compose ps -q backstop):/src/docs
           docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
-          cd react
+          cd packages/react
           docker-compose run backstop test
       - run:
-          command: cd react && docker cp $(docker-compose ps -q backstop):/src/backstop/. ./backstop/
+          command: cd packages/react && docker cp $(docker-compose ps -q backstop):/src/backstop/. ./backstop/
           when: always
       - store_artifacts:
-          path: react/backstop
+          path: packages/react/backstop
           destination: backstop
       - store_test_results:
-          path: react/backstop/data/ci_report
+          path: packages/react/backstop/data/ci_report
 
   react_deploy_tag:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: ~/code
       - *configure_npm
       - run:
           name: 'Publish mayflower-react NPM package'
           command: |
-            cd react
+            cd packages/react
             npm version --no-git-tag-version "$CIRCLE_TAG"
             if test -z "$(npm show @massds/mayflower-react@$CIRCLE_TAG)"; then
               npm publish
@@ -231,7 +236,7 @@ jobs:
       - run: |
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            cd react
+            cd packages/react
             aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --delete
             aws configure set preview.cloudfront true
             aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/react*'
@@ -255,93 +260,81 @@ jobs:
     steps:
       - checkout
       - *no_host_check
-      - run: { name: 'NPM Install', command: 'npm install' }
+      - restore_cache:
+          keys:
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
+      - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
-      - run: node scripts/release-branch.js
+      - run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-branch.js
 
   github_tag:
     <<: *patternlab_defaults
     steps:
       - checkout
       - *no_host_check
-      - run: { name: 'NPM Install', command: 'npm install' }
+      - restore_cache:
+          keys:
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
+      - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
-      - run: node scripts/release-tag.js
+      - run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-tag.js
 
 
   assets_build:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - assets-dependencies-{{ checksum "assets/package.json" }}
-      - run: cd assets && npm install
-      - save_cache:
-          paths:
-            - assets/node_modules
-          key: assets-dependencies-{{ checksum "assets/package.json" }}
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
       - run:
           name: Mayflower Style Linter
-          command: cd assets && npm run stylelint
-      - run:
-          name: Validate Package Build
-          command: cd assets && npm run build
+          command: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
 
   assets_deploy_tag:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - *configure_npm
       - restore_cache:
           keys:
-            - assets-dependencies-{{ checksum "assets/package.json" }}
-      - run: cd assets && npm i
-      - save_cache:
-          paths:
-            - assets/node_modules
-          key: assets-dependencies-{{ checksum "assets/package.json" }}
-      - run: cd assets && npm run build
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
       - run:
-          name: 'Publish mayflower-tokens NPM package'
+          name: 'Publish mayflower-assets NPM package'
           command: |
-            cd assets
+            cd packages/assets
             npm version --no-git-tag-version "$CIRCLE_TAG"
-            if test -z "$(npm show @massds/mayflower-tokens@$CIRCLE_TAG)"; then
+            if test -z "$(npm show @massds/mayflower-assets@$CIRCLE_TAG)"; then
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
             fi
 
   site_build:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - site-dependencies-{{ checksum "site/yarn.lock" }}
-      - run: {name: 'Install packages', command: 'cd site && yarn'}
-      - save_cache:
-          paths:
-            - site/node_modules
-          key: site-dependencies-{{ checksum "site/yarn.lock" }}
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
+      - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Validate Package Build
-          command: cd site && yarn build
+          command: cd packages/site && node ../../common/scripts/install-run-rushx.js build
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/code
           paths: ["*"]
 
 
   site_deploy_tag:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: ~/code
       - run: |
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
@@ -350,7 +343,7 @@ jobs:
       - run: |
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            cd site
+            cd packages/site
             aws s3 sync public s3://mayflower.digital.mass.gov/home --delete
             aws configure set preview.cloudfront true
             aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*'
@@ -362,14 +355,17 @@ workflows:
   # Executed on branch pushes.
   build_branch:
     jobs:
+      - build
       - auto_changelog:
           filters:
             branches: { only: /dependabot\/.*/ }
       - assets_build:
+          requires: [react_build_storybook]
           filters:
             branches: { ignore: /(docs|site\/).*/ }
       # patternlab
       - patternlab_build:
+          requires: [build]
           filters:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_deploy_branch:
@@ -382,6 +378,7 @@ workflows:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       # react
       - react_build_storybook:
+          requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       - react_test:
@@ -390,10 +387,11 @@ workflows:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       # site
       - site_build:
+          requires: [react_build_storybook]
           filters:
             branches: { ignore: /(docs|patternlab\/|react\/).*/ }
 
-  # Release branch automation every Tuesday at 1 p.m. ET
+  # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
   release:
     jobs:
       - build
@@ -401,7 +399,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "20 19 * * 1"
+          cron: "00 18 * * 1"
           filters:
             branches:
               only:
@@ -430,7 +428,12 @@ workflows:
   # Executed on tag pushes.
   build_tag:
     jobs:
+      - build:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
       - patternlab_build:
+          requires: [build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
@@ -449,10 +452,12 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - assets_deploy_tag:
+          requires: [react_build_storybook]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - site_build:
+          requires: [react_build_storybook]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }

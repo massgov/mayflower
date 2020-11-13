@@ -1,0 +1,342 @@
+$spacing: 1rem;
+$border-radius: 4px;
+$border-width: 1px;
+
+@use "00-base/configure" as *;
+
+@use "sass:color" as *;
+
+.ma_help-tip__label-a11y {
+  display: none;
+}
+
+.ma__help-tip {
+  $helpTipBaseClass: &;
+
+  display: inline;
+  margin-bottom: .5rem;
+
+  &__container {
+    position: relative;
+    background-color: $c-primary-lightest;
+    margin-top: .5rem;
+
+    &.collapsing, &.expanding {
+        position: relative;
+        overflow: hidden;
+        visibility: visible;
+        -webkit-transition-property: height, visibility;
+        transition-property: height, visibility;
+        transition-duration: 0.2s;
+        -webkit-transition-duration: 0.2s;
+        transition-timing-function: ease;
+        -webkit-transition-timing-function: ease;
+    }
+
+    &.collapsed {
+        display: none;
+        height: 0px;
+    }
+
+    &.expanded {
+       height: auto;
+       visibility: visible;
+       display: block;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__trigger {
+    display: inline;
+    cursor: pointer;
+    border: none;
+    padding: 0px 2px;
+    border-bottom: 2px dotted $c-primary;
+    background-color: $c-bay-blue-lightest;
+
+    svg {
+      margin-left: 5px;
+      width: 16px;
+      height: 16px;
+      margin-bottom: -.1em;
+      fill: $c-font-link;
+    }
+
+    &:focus {
+      box-shadow: 0 0 3px 3px $c-focus;
+      outline: 0;
+    }
+
+    &--active, &:hover {
+      background-color: $c-primary;
+      color: $c-white;
+
+      svg {
+        fill: mix(#fff, $c-font-link, 70%);
+      }
+    }
+
+    &--disabled {
+      pointer-events: none;
+    }
+  }
+
+  &__text {
+    overflow-y: scroll; // overflow scroll MUCH smoother on mobile safari
+    -webkit-overflow-scrolling: touch;
+
+    @media ($bp-large-min) {
+      overflow-y: auto;
+    }
+
+    .ma__help-tip__text--direct {
+      padding: $spacing ($spacing * 2);
+    }
+
+  }
+
+  &__text--children {
+    overflow-y: scroll; // overflow scroll MUCH smoother on mobile safari
+    -webkit-overflow-scrolling: touch;
+
+    @media ($bp-large-min) {
+      overflow-y: auto;
+    }
+
+    .ma__help-tip__text--direct {
+      padding: $spacing $spacing;
+    }
+
+  }
+
+  &__close-mobile {
+    display: none;
+    border-radius: 0;
+    z-index: 1;
+
+    svg {
+      background-color: transparent;
+      cursor: pointer;
+      margin-left: 5px;
+      width: 1rem;
+      height: .75rem;
+      fill: $c-white;
+    }
+  }
+
+  &__close-desktop {
+    display: block;
+    position: absolute;
+    top: -3px;
+    right: 0;
+    padding: 0px 10px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 1;
+
+   svg {
+      width: .75rem;
+      height: .75rem;
+   }
+
+    &:focus {
+      outline: 0;
+      box-shadow: focus-shadow($border-width, $c-focus);
+    }
+  }
+
+  #{$helpTipBaseClass}__container {
+
+    &--c-primary {
+      background-color: $c-primary-lightest;
+      #{$helpTipBaseClass}__close-desktop {
+
+        svg {
+          fill: $c-primary;
+        }
+      }
+    }
+
+    &--c-primary-alt {
+      background-color: $c-primary-alt-lightest;
+      #{$helpTipBaseClass}__close-desktop {
+
+        svg {
+          fill: $c-primary-alt;
+        }
+      }
+    }
+
+    &--c-highlight {
+      background-color: $c-highlight-lightest;
+      #{$helpTipBaseClass}__close-desktop {
+
+        svg {
+          fill: $c-gray-dark;
+        }
+      }
+    }
+
+    &--c-gray-dark {
+      background-color: $c-gray-lightest;
+      #{$helpTipBaseClass}__close-desktop {
+
+        svg {
+          fill: $c-gray-dark;
+        }
+      }
+    }
+
+     &--c-error-red {
+      background-color: $c-error-red-lightest;
+      #{$helpTipBaseClass}__close-desktop {
+
+        svg {
+          fill: $c-error-red;
+        }
+      }
+    }
+
+    &--c-white {
+      background-color: $c-white;
+      #{$helpTipBaseClass}__close-desktop {
+        fill: $c-gray-dark;
+      }
+    }
+  }
+
+  &.mobile-tray {
+    #{$helpTipBaseClass}__container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10; // to create a new stacking context on top, stack below mobile site header (z-index: 90)
+      margin-top: .5rem;
+
+      &--c-primary {
+        background-color: $c-primary-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-primary;
+        }
+      }
+
+      &--c-primary-alt {
+        background-color: $c-primary-alt-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-primary-alt;
+        }
+      }
+
+      &--c-highlight {
+        background-color: $c-highlight-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-highlight;
+        }
+      }
+
+      &--c-gray-dark {
+        background-color: $c-gray-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-gray-dark;
+        }
+      }
+
+      &--c-error-red {
+        background-color: $c-error-red-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-error-red;
+        }
+      }
+
+      &--c-white {
+        background-color: $c-white;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-gray-dark;
+        }
+      }
+    }
+    #{$helpTipBaseClass}__text {
+
+      .ma__help-tip__text-direct {
+        padding: 10px 5px;
+        margin: 0px;
+        font-size: $fonts-small;
+        line-height: 1.1;
+        color: $c-black;
+      }
+    }
+    #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
+      height: 50vh;
+    }
+
+    #{$helpTipBaseClass}__text--children {
+
+      .ma__help-tip__text--direct {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+    }
+
+    #{$helpTipBaseClass}__close-mobile {
+      display: block;
+    }
+
+    #{$helpTipBaseClass}__close-desktop {
+      display: none;
+    }
+
+    @media ($bp-large-min) {
+      #{$helpTipBaseClass}__container {
+        position: relative;
+        bottom: auto;
+
+        &--c-primary {
+          background-color: $c-primary-lightest;
+        }
+
+        &--c-primary-alt {
+          background-color: $c-primary-alt-lightest;
+        }
+
+        &--c-highlight {
+          background-color: $c-highlight-lightest;
+        }
+
+        &--c-gray-dark {
+          background-color: $c-gray-lightest;
+        }
+
+        &--c-error-red {
+          background-color: $c-error-red-lightest;
+        }
+
+        &--c-white {
+          background-color: $c-white;
+        }
+      }
+
+      #{$helpTipBaseClass}__close-mobile {
+        display: none;
+      }
+
+      #{$helpTipBaseClass}__close-desktop {
+        display: block;
+      }
+
+      #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
+        height: auto;
+        #{$helpTipBaseClass}__text-direct {
+          padding: 10px 5px;
+          margin: 0px;
+        }
+
+      }
+    }
+  }
+}

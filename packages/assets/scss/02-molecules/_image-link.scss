@@ -1,0 +1,62 @@
+@use "00-base/configure" as *;
+
+.ma__image-link {
+    display: flex;
+    align-items: center;
+}
+
+.ma__image-link__image {
+    display: flex;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1rem;
+}
+
+.ma__image-link--block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+
+    .ma__image-link__image {
+        width: 6rem;
+        height: 6rem;
+        margin: 0;
+    }
+
+    .ma__image-link__text {
+        padding: 1rem 1rem 1rem 1.5rem;
+        width: 100%;
+        line-height: 1.2;
+    }
+
+    svg {
+
+        @include ma-link-arrow;
+    }
+}
+
+//theme
+
+.ma__image-link--block {
+    background: $c-gray-lightest;
+
+    &:hover,
+    &:active,
+    &:focus {
+
+        .ma__image-link__text {
+            text-decoration: underline;
+        }
+    }
+
+    .ma__image-link__text {
+        color: $c-gray-dark;
+    }
+
+    svg {
+        fill: $c-gray-dark;
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "title" : "Mass Gov",
+  "version": "5.17.0",
+  "htmlClass": "pl",
+  "bodyClass": "",
+  "directory": "assets",
+  "googleLanguages": "ar,es,fr,pt,ht,it,km,ko,ru,vi,zh-CN",
+  "sealImage": "../../assets/images/logo/stateseal.png",
+  "comment": "See \\PatternLab\\DynamicDataListener for further dynamic properties."
+}

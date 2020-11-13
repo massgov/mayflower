@@ -1,0 +1,195 @@
+@use "00-base/configure" as *;
+
+@use "sass:color" as *;
+
+$emergency-alerts-half-max: $max-width / 2;
+
+/* parent class should be 0px tall
+if there are no alerts to show
+since the component will always
+be included at the top of the page */
+
+$colors: (
+  "c-warning": $c-warning,
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-error": $c-error,
+  "c-gray": $c-gray
+);
+
+.ma__emergency-alerts {
+  position: relative;
+  z-index: $z-dropdown - 1;
+
+  &__header {
+    background-color: $c-warning;
+
+    .ma__emergency-header {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__hide {
+
+    @include ma-button-reset;
+    font-size: $fonts-6xlarge;
+    line-height: .65;
+    overflow: hidden;
+    position: absolute;
+      top: 50%;
+      right: 10px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &__header-interface {
+    padding-top: 12px;
+    padding-left: 12px;
+
+    @media ($bp-small-max) {
+      display: none;
+    }
+
+    @media ($bp-small-min) and ($bp-large-max) {
+
+      @include ma-container;
+      margin: 0;
+      position: absolute;
+        top: 0;
+        right: 0;
+    }
+  }
+
+  &__content {
+    background-color: mix(#fff, $c-warning, 90%);
+
+    .js & {
+      display: none;
+    }
+
+    &.collapsed {
+      visibility: hidden;
+      height: 0px;
+    }
+
+    &.collapsing, &.expanding {
+      position: relative;
+      overflow: hidden;
+      visibility: visible;
+      -webkit-transition-property: height, visibility;
+      transition-property: height, visibility;
+      transition-duration: 0.35s;
+      -webkit-transition-duration: 0.35s;
+      transition-timing-function: ease;
+      -webkit-transition-timing-function: ease;
+    }
+
+    &.expanded {
+       height: auto;
+       visibility: visible;
+       display: block;
+    }
+
+  }
+
+  &__container {
+
+    @include ma-container;
+
+    @media ($bp-small-max) {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__header &__container {
+    position: relative;
+
+    @media ($bp-large-min) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__interface {
+
+    @include ma-container;
+    font-size: 0;
+
+    @media ($bp-small-min) {
+      display: none;
+    }
+
+    @media ($bp-small-max) {
+      background-color: $c-warning;
+      padding: 20px;
+      padding-top: 0;
+      transition: background-color .5s;
+
+      .is-open & {
+        background-color: mix(#fff, $c-warning, 90%);
+      }
+
+      .ma__button-alert, .ma__button-icon--alert {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@each $class, $c in $colors {
+
+  .ma__emergency-alerts {
+    &__hide--#{$class} {
+
+      @if $c == $c-warning {
+        color: $c-font-base;
+
+      } @else {
+        color: $c-font-inverse;
+      }
+    }
+    &--#{$class} {
+
+      &.collapsed {
+        visibility: hidden;
+        height: 0px;
+      }
+
+      &.collapsing, &.expanding {
+        position: relative;
+        overflow: hidden;
+        visibility: visible;
+        -webkit-transition-property: height, visibility;
+        transition-property: height, visibility;
+        transition-duration: 0.35s;
+        -webkit-transition-duration: 0.35s;
+        transition-timing-function: ease;
+        -webkit-transition-timing-function: ease;
+      }
+
+      &.expanded {
+         height: auto;
+         visibility: visible;
+         display: block;
+      }
+    }
+    &__content--#{$class} {
+      background-color: mix(#fff, $c, 90%);
+    }
+    &__header--#{$class} {
+      background-color: rgba($c, 1);
+    }
+    &__interface--#{$class} {
+
+      &.open {
+       background-color: mix(#fff, $c, 90%);
+      }
+
+      &.closed {
+       background-color: rgba($c, 1);
+      }
+    }
+  }
+}

@@ -1,0 +1,278 @@
+@use "00-base/configure" as *;
+
+$rich-text-spacing: 1.75rem;
+$rich-text-spacing-mobile: 1.5rem;
+$heading-indent: $gutter;
+
+.ma__rich-text {
+
+  @include clearfix;
+
+  &__flame {
+    text-transform: uppercase;
+  }
+
+  &--description {
+    margin-bottom: 1rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .pre-content > &__container,
+  .pre-content > &,
+  .post-content > &__container,
+  .main-content--full .page-content > &__container,
+  .main-content--full .page-content > & {
+
+    @include ma-container('restricted');
+  }
+
+  .ma__split-columns__column > &__container,
+  .ma__split-columns__column > & {
+    margin-bottom: 1em;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ma__comp-heading + & {
+    margin-top: 0;
+  }
+
+  .page-content.ma__announcement__page-content &__container & {
+
+    @include ma-component-spacing;
+  }
+
+  // extra specificity was needed to override & a { ... }
+
+  & &__footnote {
+    border-style: solid;
+    border-width: 2px;
+    font-size: .6em;
+    line-height: 1;
+    padding: 0 .3em;
+    position: relative;
+    top: .25em;
+    vertical-align: top;
+    transition: all ease .4s;
+
+    &:hover {
+      border-width: 2px;
+    }
+  }
+
+  // rich text has an optional title
+
+  h2:not(.ma__comp-heading),
+  h3:not(.ma__comp-heading),
+  h3:not(.ma__sidebar-heading),
+  h4 {
+
+    @include ma-comp-heading;
+    display: block;
+  }
+
+  & h2,
+  &__container h2 {
+    padding-top: .75em;
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  /**
+   * Rich text content can be styled like an outline when a modifier class is added by rich-text.js
+   * 1. Headings will be indented
+   * 2. Content nested under each heading will be further indented
+   */
+
+  &__indent[data-ma-heading-parent='H2'] {
+    margin-left: $heading-indent; // 2.
+  }
+
+  h3 {
+
+    &.ma__rich-text__indent {
+      margin-left: $heading-indent; // 1.
+    }
+  }
+
+  &__indent[data-ma-heading-parent='H3'] {
+    margin-left: $heading-indent * 2; // 2.
+  }
+
+  h4 {
+    margin-bottom: .6em;
+    padding-bottom: .45em;
+
+    &:after {
+      width: 1.5em;
+    }
+
+    &.ma__rich-text__indent {
+      margin-left: $heading-indent * 2; // 1.
+    }
+  }
+
+  &__indent[data-ma-heading-parent='H4'] {
+    margin-left: $heading-indent * 3; // 2.
+  }
+
+  h5 {
+    display: block;
+    margin-bottom: 0;
+
+    &.ma__rich-text__indent {
+      margin-left: $heading-indent * 3; // 1.
+    }
+  }
+
+  &__indent[data-ma-heading-parent='H5'] {
+    margin-left: $heading-indent * 4; // 2.
+  }
+
+  h6 {
+    display: block;
+
+    &.ma__rich-text__indent {
+      margin-left: $heading-indent * 4; // 1.
+    }
+  }
+
+  &__indent[data-ma-heading-parent='H6'] {
+    margin-left: $heading-indent * 5; // 2.
+  }
+
+  p {
+    margin-bottom: $rich-text-spacing-mobile;
+
+    @media ($bp-small-min) {
+      margin-bottom: $rich-text-spacing;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  // List styles
+
+  ul {
+    list-style-type: disc;
+    margin-bottom: $rich-text-spacing-mobile;
+    padding-left: 20px;
+
+    @media ($bp-small-min) {
+      margin-bottom: $rich-text-spacing;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ol {
+    margin-bottom: $rich-text-spacing-mobile;
+    padding-left: 30px;
+
+    @media ($bp-small-min) {
+      margin-bottom: $rich-text-spacing;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li {
+    margin-bottom: .5em;
+    padding-left: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // end list styles
+
+  // link styles
+
+  a {
+
+    @include ma-link-underline;
+    border-bottom-width: 1px;
+    overflow-wrap: break-word;
+    transition: border .3s;
+    word-wrap: break-word;
+    word-break: normal;
+  }
+
+  // end link styles
+
+  // TABLE styles
+
+  table {
+    margin-bottom: $rich-text-spacing-mobile;
+    min-width: 450px;
+    width: 100%;
+
+    @media ($bp-small-min) {
+      margin-bottom: $rich-text-spacing;
+    }
+  }
+
+  &__table-wrapper {
+    margin-bottom: 1em;
+    overflow: auto;
+
+    table {
+      margin-bottom: 0;
+    }
+  }
+  // end Table styles
+
+  // last element in the rich text content
+
+  & > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+//theme
+
+.ma__rich-text {
+
+  &__flame {
+    font-weight: bold;
+  }
+
+  &__footnote {
+    border-color: rgba($c-font-link,.5);
+
+    &:hover {
+      background-color: $c-font-link;
+      color: $c-font-inverse;
+    }
+  }
+
+  h2, h3, h4 {
+
+    @include ma-comp-heading($c-primary-alt);
+  }
+
+  h5 {
+    font-weight: $fonts-bold;
+  }
+
+  a {
+    border-bottom-color: rgba($c-font-link, .5);
+
+    &:hover {
+      border-bottom-width: 3px;
+    }
+  }
+}

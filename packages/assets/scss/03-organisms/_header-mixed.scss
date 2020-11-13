@@ -1,0 +1,59 @@
+@use "00-base/configure" as *;
+
+@media ($bp-header-toggle-min) {
+
+  .ma__header__mixed {
+
+    & .ma__header__hamburger-wrapper {
+      justify-content: flex-end;
+    }
+
+    // Hide hamburger menu.
+
+    & .ma__header__hamburger__button-container {
+      display: none;
+    }
+  }
+
+  .show-menu .ma__header__mixed .ma__header__hamburger__nav-container {
+    display: none;
+  }
+
+  .ma__header__hamburger__utility-nav--wide .ma__utility-nav__items {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  // Expand utility nav container.
+
+  .util-nav-content-open .ma__header__hamburger-wrapper {
+    padding: 0;
+  }
+
+  .util-nav-content-open .ma__header__hamburger__utility-nav--wide {
+    width: 100%;
+    position: absolute;
+  }
+}
+
+@media ($bp-header-toggle-max) {
+
+  .ma__header__mixed {
+
+    //Hide horizontal menu.
+
+    .ma__header__nav {
+      display: none;
+    }
+  }
+}
+
+// ".ma__header__hamburger__nav +" is necessary to avoid to override the original .ma__header__container
+
+.ma__header__hamburger__nav + .ma__header__container {
+
+  @media ($bp-small-max) {
+
+    display: none;
+  }
+}

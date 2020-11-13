@@ -1,0 +1,119 @@
+@use "00-base/configure" as *;
+
+.ma__person-card {
+  text-align: center;
+
+  @media ($bp-x-large-min) {
+    max-width: 400px;
+    padding: 0 20px;
+  }
+
+  &__wrapper {
+    max-width: 375px;
+    margin: 2rem auto 1.5rem;
+  }
+
+  &__image {
+    margin: 0 auto 1.3rem;
+    max-width: 250px;
+  }
+
+  &__name {
+
+    h2 {
+      margin-bottom: 0;
+      padding-bottom: 5px;
+      font-weight: $fonts-normal;
+
+      @media ($bp-small-min) {
+        font-size: $fonts-4xlarge;
+      }
+    }
+
+    h2::after {
+      display: none;
+    }
+  }
+
+  &__title {
+
+    h3 {
+      margin-bottom: 0;
+
+      @media ($bp-small-min) {
+        font-size: $fonts-medium;
+      }
+    }
+  }
+
+  &__links {
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 1rem 1rem 0;
+
+    @media ($bp-small-min) {
+      padding-top: 1.5rem;
+    }
+
+    .ma__content-link {
+      display: block;
+      padding-top: 1rem;
+      margin: 0;
+
+      span {
+        display: block;
+        line-height: 1;
+        font-weight: $fonts-normal;
+        font-size: $fonts-small;
+      }
+    }
+
+    .ma__divider::after {
+      width: 100px;
+      height: 7px;
+      margin: 0 auto;
+    }
+  }
+}
+
+//theme
+
+.ma__person-card {
+  position: relative;
+  color: $c-font-base;
+  background-color: $c-white;
+
+  @media ($bp-large-extended-min) {
+    border: 1px solid $c-primary-alt;
+    box-shadow: 4px 2px 5px 0px rgba($c-black,0.3);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 5px;
+    transform: skew(-30deg);
+    width: 100%;
+    background-color: $c-bd-input;
+
+    @media ($bp-large-extended-min) {
+      display: none;
+    }
+  }
+
+  &__image {
+
+    img {
+      border: 7px solid $c-bd-input;
+    }
+  }
+
+  .ma__divider {
+    padding: 0;
+
+    &::after {
+      background-color: $c-gray-dark;
+    }
+  }
+}

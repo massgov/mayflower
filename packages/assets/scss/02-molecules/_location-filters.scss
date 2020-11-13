@@ -1,0 +1,141 @@
+@use "00-base/configure" as *;
+
+.ma__location-filters {
+  padding-top: 30px;
+  
+  form {
+
+    @include ma-container;
+    display: flex;
+      flex-wrap: wrap;
+  }
+
+  &__row {
+
+    @include clearfix;
+    display: flex;
+      flex-wrap: wrap;
+    width: 100%;
+
+    @media ($bp-x-large-min) {
+      margin-right: 1.6129%;
+      width: 66.12903%; //@include span-columns(8 of 12);
+    }
+  }
+
+  &__by-location {
+    margin-bottom: 30px;
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  &__by-activity,
+  &__by-keyword {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  &__by-activity {
+
+    @media ($bp-medium-min) {
+
+      @include span-columns(4 of 8);
+    }
+
+    .ma__select-box {
+      width: 100%;
+    }
+  }
+
+  &__by-activity + &__by-keyword {
+    
+    @media ($bp-medium-min) {
+
+      @include span-columns(4 of 8);
+    }
+  }
+
+  &__by-keyword {
+
+    input {
+      width: 100%;
+    }
+  }
+
+  &__by-tags {
+    margin-bottom: 30px;
+    width: 100%;
+
+    @media ($bp-small-max) {
+      margin-top: 10px;
+    }
+
+    @media ($bp-x-large-min) {
+      width: 32.25806%; //@include span-columns(4 of 12);
+      margin-bottom: 30px;
+      padding-left: 80px;
+      padding-top: 45px;
+    }
+  }
+
+  &__tag {
+    font-size: 0;
+    margin-bottom: 10px;
+    white-space: nowrap;
+
+    &:last-child {
+      margin-bottom: 5px;
+    }
+
+    .ma__input-checkbox {
+      margin-right: 5px;
+      vertical-align: top;
+      white-space: normal;
+
+      label {
+        margin-bottom: 0;
+      }
+    }
+
+    & > svg {
+      height: 24px;
+      vertical-align: top;
+      width: 24px;
+    }
+  }
+
+  &__buttons {
+    margin-bottom: 30px;
+    width: 100%;
+
+    @media ($bp-x-large-min) {
+      margin-bottom: 45px;
+    }
+  }
+
+  &__submit {
+
+    @include ma-button('small');
+  }
+}
+
+//theme
+
+.ma__location-filters {
+  background-color: $c-bg-section;
+
+  &__tag {
+
+    & > svg {
+      fill: $c-primary-alt;
+    }
+  }
+
+  &__submit {
+
+    @include ma-button('','solid',$c-primary);
+  }
+}

@@ -1,16 +1,137 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
-## 9.55.1 (9/2/2020)
+## 10.1.2 (11/10/2020)
 ### Fixed 
+- (Assets) [Fonts] DP-20468: Fix font issue on Macs running El Capitan, Yosemite, Mavericks (10.11, 10.10, 10.9) with Firefox and Safari. (#1259)
+
+## 10.1.1 (11/2/2020)
+### Fixed
+- (Patternlab) [CircleCI] Fix patternlab deploy tag paths. (#1252)
+- (Patternlab) [SiteLogo] Set Patternlab SiteLogo global path in patternlab to be relative to the current path in order to fix production urls. (#1254)
+
+## 10.1.0 (10/30/2020)
+### Changed
+- (Assets) [Images] Rename `assets/static/images/svg-icons` to `assets/static/images/icons` and move checkmark.svg into the icons folder. (#1243)
+- (Assets, React, Site, Patternlab) [Images] Move stateseal PNGs into a folder named logo. (#1243)
+- (Assets) [NPM package] The functionality of packages/assets/scss/00-base/_global.scss has changed to contain optional miscellaneous styles a site can include once for setting up layout/fonts/normalization. (#1240)
+- (React, Assets, Site, Patternlab) [NPM package] The file at packages/assets/scss/00-base/configure.scss preserves the previous behavior of packages/assets/scss/00-base/_global.scss. All files previously pointing to _global.scss have been updated to point at _configure.scss. (#1240)
+- (React) [Header, HeaderSlim, Footer, FooterSlim] The _index.scss files used by Header, HeaderSlim, Footer, and FooterSlim's storybook stories have been moved to packages/assets/build.
+- (Patternlab) [CircleCI Configuration] Updates patternlab_deploy_tag job in CircleCI to install AWS. (#1242)
+- (Assets) [PressTeaser, OrganizationNavigation, ContactGroup] DP-20363: Fine tune line-height setting in the components. (#1248)
+
+### Added
+- (Assets) [NPM package] Added functionality to generate css files based on scss files placed under packages/assets/build. A minified version of each scss file is also provided as [scss-filename].min.css. (#1240)
+
+## 10.0.0 (10/27/2020)
+### Changed
+- (React) [RichText] DP-17982: Refactor RichText component to render raw HTML without `dangerouslySetInnerHTML`. (#1006)
+- (React) [TeaserListing] DP-18263: Refactor TeaserListing and convert it to a composition component. (#1050)
+- (React) [Icon] DP-19414: Icon has been refactored from one component into many icon components. Each .svg icon file is now generated into its own React component at build time with SVGR and SVG Sprite Loader is no longer used. (#1123)
+- (React, Assets) [FooterSlim] DP-19539: Allow adding multiple logos, added `stackedLogo` prop to support multiple logo layout. (#1149)
+- (React) [HeaderSlim] DP-19541: Extend HeaderSlim component to allow passing in custom components/HTML elements into the utility nav (blue bar) and the main header area, providing basic layout and styles. (#1207)
+- (Assets) [Fonts] DP-20050: Switch fonts from Texta to Noto Sans, removed fallback fonts and added language support. (#1193)
+- (Patternlab) [ResponsiveTable] DP-20241: Remove extra space above the sticky table header. (#1226)
+- (React) [NPM package] DP-18263: Removed NWB package and replaced its usage with gulp. Combined lib(es5) and es(es6) directory in dist, and added Webpack/Babel aliases to flatten the structure of the mayflower-react published package. Removed storybook specific data from published package. Cleaned up all component styles in mayflower-react to rely on mayflower-assets peer dependency. (#1039)
+- (React, Patternlab, Assets, Site) [NPM package] Restructure mono repo — group all projects under packages folder. Use rush and pnpm to manage and share dependencies. (#1195)
+- (React) [Storybook] Adds support for Storybook Controls and removes the usage of knobs. (#1162)
+- (React) [Storybook] Replaces the use of addon-info with Storybook Docs. (#1162)
+- (React) [Storybook] Displays story only pages with .mdx files. (#1162)
+- (React) [Storybook] Transfers all storiesOf usage to CSF storybook format. (#1162)
+- (React) [Storybook] Display rendered HTML and CSS for Header and Footer components. (#1224)
+
+### Removed
+- (React) [PressTeaser] DP-18263: Remove PressTeaser molecule from mayflower-react npm package. (#1049)
+- (React) [GeneralTeaser, Teaser] DP-18263: Remove GeneralTeaser and Teaser organisms from mayflower-react npm package. (#1050)
+
+### Fixed
+- (React) [FooterSlim] DP-19539: Use address html tag for contact info in footer. (#1149)
+- (React) [FooterSlim] DP-19539: Removed mommentJS import. (#1149)
+
+### Added
+- (Assets) [Fonts] DP-20050: Added `$fonts-enable-rtl` global variable to allow setting direction to "right-to-left" for languages like Arabic, Persian, Urdu and Hebrew. (#1193)
+- (Assets) [Fonts] DP-20050: Added `$fonts-langs-support` global variable to conditionally load and render additional fonts for language support. (#1193)
+- (Assets) [Fonts] DP-20050: Added `$fonts-display-global` global variable to control the custom fonts download and render behavior. (#1193)
+
+## 9.56.0 (10/19/2020)
+### Changed
+- (Patternlab) [Header] DP-17154: Change the label of the hamburger menu button on mobile width. (#1099)
+- (Patternlab) [Header] DP-17154: Change the location of the logo based on screen widths. (#1099)
+- (Patternlab) [Header] DP-17154: Match the style of the utility nav elements to the main nav ones in the hamburger menu. (#1099)
+- (Patternlab) [Header] DP-17155: Set focus on the linked state seal in the hamburger menu  from a lower element with 'shift + tab'. (#1141)
+- (Patternlab) [Header] DP-17155: Set focus on the menu button from the linked state seal in the hamburger menu with 'shift + tab' from a lower element. (#1141)
+- (Patternlab) [Header] DP-17155: Set an open submenu not to collapse as focus moves to another menu unit. (#1141)
+- (Patternlab) [Header] DP-19330: Expand the menu button width to fill the available space on the blue bar when it's labeled as "close" with the screen size 840px and smaller. (#1119)
+- (Patternlab) [HeaderHamburgerMenu] DP-19331: Set the height of the nav bar consistent regardless of screen sizes. (#1115)
+- (Patternlab) [Header] DP-19332: Position the nav bar below the site wide alert. (#1118)
+- (Patternlab) [EmergencyAlert] DP-19332: Remove the extra top space to position the alert container to the top of the page. (#1118)
+- (Patternlab) [Header] DP-19335: Make the font size for the menu button consistent regardless of the screen size. (#916)
+- (Patternlab) [Header] DP-19335: Set the button label "Mass.gov" changes to "Close" when the hamburger menu is open. (#1116)
+- (Patternlab) [Header] DP-19335: The menu button always lines up to the state seal on the left regardless of the screen size when the seal is visible. (#1116)
+- (Patternlab) [Header, Main Navigation] DP-19336: Fixes to address off-screen scroll behavior and console errors (#1128)
+- (Patternlab) [Header] DP-19337: Set only one menu is open at a time including the "log in to" content. (#1131)
+- (Patternlab) [Header] DP-19337: Make the open/close animation consistent. (#1131)
+- (Patternlab) [Header] DP-19337: Adjust the position of the bottom border of "Log In To…" content in the hamburger menu. (#1131)
+- (Patternlab) [Header] DP-19354: Addded Color stories and color gradients. (#1120)
+- (Patternlab) [Header] DP-19879: Adjust menu overlay position and timing in mobile and Firefox in desktop. (#1180)
+- (Patternlab) [Header] DP-19953: Style the log in to content in the menu container. (#1182)
+- (Patternlab) [Header] DP-19984: Remove chevron from links in the menu container. (#1184)
+- (Patternlab) [Header] DP-19984: Align the text and icon in the last sub menu items vertically centered. (#1184)
+- (Assets) [scss] DP-20091: Change z-index value variables for overlay components for consistency. (#1198)
+- (Patternlab) [Header] DP-20096: Clean up and streamline some timing functions, unused variables and functions. (#1196)
+- (Patternlab) [pageTemplates] DP-20119: Switch the main navigation to the new one in all page types which have the main navigation. (#1213)
+- (Patternlab) [Assets] DP-20119: Adjust sticky table heaer z-index value to be under the main manu bar. (#1213)
+- (Patternlab) [header] DP-20163: Remove extra space and bottom border from the search component in menu container. (#1201)
+- (Patternlab) [Header] DP-20176: Fix utility sub container open/close state icon with keyboard navigation. (#1205)
+
+### Added
+- (Patternlab) [Header] DP-17154: Add a 'jump to search' button on the utility nav bar in mobile display. (#1099)
+- (Patternlab) [Header] DP-17154: Set up to render the log-in-to content in the utility nav in the hamburger menu. (#1099)
+- (Patternlab) [Header] DP-17155: Set up tabbing behaviors at the last elements in various conditions in the hamburger menu. (#1141)
+- (Patternlab) [Header] DP-17155: Set up behaviors with 'escape' key at the last elements in various conditions in the hamburger menu. (#1141)
+- (Patternlab) [Header, Main Navigation] DP-17200: Added new hamburger naviagation and the header with mixed version of navigation.
+- (Patternlab) [Header] DP-19739: Enable keyboard users to navigate sub set elements with up/down arrow keys. (#1166)
+- (Patternlab) [Header] DP-19878: Removed touchend events from the menu and search buttons. (#1185)
+- (Patternlab) [Header] DP-19879: Add overlay to alert as the menu is open. (#1180)
+- (Assets) [scss] DP-20091: Add new variables for z-index values for overlay navigation components and the overlay shade. (#1198)
+
+### Fixed
+- (Patternlab) [Header] DP-19683: Set the overlay below the blue nav bar when it has active alerts. (#1152)
+- (Patternlab) [Header] DP-19738: For IE11, add polyfill to enable 'NodeList.prototype.forEach()' and escape key definition of 'e.key === Esc'. (#1157)
+- (Patternlab) [Header] DP-19739: Enable Voiceover to navigate the flyout content. (#1166)
+- (Patternlab) [Header] DP-19783: Set focus on the menu container from the menu button while the container is open with tab. (#1159)
+- (Patternlab) [Header] DP-19889: Make the menu container stay open and scrollable. (#1183)
+- (Patternlab) [Header] DP-19783: Fixed log in to menu width. (#1186)
+- (Patternlab) [Header] DP-20029: Fixed search button issues caused by resize events (#1187)
+- (Patternlab) [Header] DP-20037: Fix the page not to scroll up to the top of the page as the menu closes. (#1190)
+- (Patternlab) [Header] DP-20038: Fix the alert shifts as sub components open in the menu container. (#1190)
+- (Patternlab) [Header] DP-20038: Enable scrolling in the menu container to the bottom. (#1190)
+- (Patternlab) [Header] DP-20054: Addresses a timing issue with jump to search that prevented it from working on some Android devices. (#1191)
+- (Patternlab) [Header] DP-20085: Fixed sticky TOC on the newer global nav. (#1194)
+- (Patternlab) [Header] DP-20090: Fixed menu icon, text, search alignment. (#1200)
+- (Patternlab) [Header] DP-20092: Fixed global nav issues when text truncation enabled. (#1197)
+- (Patternlab) [Header] DP-20080: Fix the varying height value for the menu container whenever the menu opens in ios. (#1196)
+- (Patternlab) [StickyTOC] DP-20085: Put back the lost fix for sticky TOC positioning. (#1205)
+- (Patternlab) [Header] DP-20181: Set focus on the menu button from the logo link in the menu container with shift + tab. (#1206)
+- (Patternlab) [Header] DP-20201: Move window scrollTo and remove inline body styling when closing the global nav menu. (#1210)
+- (Patternlab) [Header] DP-20209: Move window scrollTo and remove inline body styling when closing the global nav menu. (#1210)
+- (Patternlab) [Header] DP-20209: Fixed global nav scrolling for small devices. (#1211)
+
+### Removed
+- (Patternlab) [Header] DP-19738: Replace "e.which", which is deprecated, with "e.code". (#1157)
+- (Patternlab) [Header] DP-20039: Remove transition value causing Safari to crash in iOS 12. (#1189)
+- (Patternlab) [Header] DP-20055: Removed Firefox-specific code causing menu overlay issues in Firefox. (#1192)
+
+## 9.55.1 (9/2/2020)
+### Fixed
 - (React) [InputCurrency] Fix onBlur bug to allow value 0 to be returned in onBlur callback. (#1161)
 - (React) [InputCurrency] Fix onBlur bug to allow onBlur callback to fire on input with `$`. (#1163)
 
 ## 9.55.0 (8/24/2020)
-### Changed 
+### Changed
 - (React) [MainNav] DP-19425: Fix formatting of COVID global nav link on search.mass.gov (#1143)
 
-### Fixed 
+### Fixed
 - (React, Assets) [FooterSlim] Fix markup semantic and classnames. (#1148)
 
 ## 9.54.0 (8/10/2020)

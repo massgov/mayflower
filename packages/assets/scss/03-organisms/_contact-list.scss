@@ -1,0 +1,72 @@
+@use "00-base/configure" as *;
+
+.ma__contact-list {
+
+  &:not(.ma__contact-list--view-specific) {
+    overflow: visible;
+  }
+
+  .sidebar & {
+    overflow: visible;
+  }
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container();
+  }
+
+  .main-content--full .page-content > & {
+
+    @include ma-component-spacing();
+  }
+
+  &--view-specific {
+
+    .main-content--two .page-content & {
+
+      @media ($bp-large-min) {
+        display: none;
+
+        &:first-child + * {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .sidebar & {
+
+      @media ($bp-large-max) {
+        display: none;
+
+        &:first-child + * {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .main-content--two .page-content &:first-child ~ & + * {
+
+      @media ($bp-large-min) {
+        margin-top: 0;
+      }
+    }
+
+    .sidebar &:first-child ~ & + * {
+
+      @media ($bp-large-max) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .ma__image {
+    margin-bottom: 1rem;
+
+    @media ($bp-medium-min) {
+      float: right;
+    }
+  }
+
+}

@@ -1,0 +1,269 @@
+@use "00-base/configure" as *;
+
+.ma__figure {
+
+  margin: 0 0 20px 0;
+
+  .main-content--full .page-content > & {
+
+    @include ma-container;
+  }
+
+  @media ($bp-small-min) {
+    margin: 0 30px 30px 30px;
+
+    // support pre-existing figure elements besides dataviz.
+
+    &--left,
+    &--align-left,
+    &.align-left {
+      float: left;
+      margin-left: 0;
+      width: 50%;
+    }
+
+    &--right,
+    &--align-right,
+    &.align-right {
+      float: right;
+      margin-right: 0;
+      width: 50%;
+    }
+  }
+
+  &--full {
+    transition: width 0.2s;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  &__title {
+
+    @include ma-h2;
+  }
+
+  &__caption {
+    font-size: $fonts-smaller;
+    font-style: italic;
+    line-height: 1.57;
+  }
+
+  &--x-large {
+
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  // Small
+
+  .no-sidebar &--small {
+
+    @media ($bp-small-min) {// 621~
+      width: calc(33.33% - 30px);
+      width: calc(100% / 3 - 30px);
+    }
+  }
+
+  .page-content:not(.no-sidebar) &--small {
+    width: 100%;
+
+    @media ($bp-large-max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    @media ($bp-large-min) {// 910~
+      width: calc(33.33% - 30px);
+      width: calc(100% / 3 - 30px);
+    }
+  }
+
+  // Medium
+
+  .no-sidebar &--medium {
+
+    @media ($bp-small-min) {// 621~
+      width: calc(50% - 30px);
+    }
+  }
+
+  .page-content:not(.no-sidebar) &--medium {
+    width: 100%;
+
+    @media ($bp-large-max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    @media ($bp-large-min) {// 910~
+      width: calc(50% - 30px);
+    }
+  }
+
+  // Large
+
+  &--large,
+  &--large.ma__dataviz {
+    width: 100%;
+  }
+
+  .no-sidebar &--large,
+  .no-sidebar &--large.ma__dataviz {
+
+    @media ($bp-large-max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    @media ($bp-large-min) {
+      width: 66.66%;
+      width: calc(100% / 3 * 2);
+    }
+  }
+
+  .page-content:not(.no-sidebar) &--large {
+
+    @media ($bp-large-min) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  // alignment
+
+  &--left {
+    float: left;
+    margin-left: 0;
+  }
+
+  &--right {
+    float: right;
+    margin-right: 0;
+  }
+
+  @media ($bp-small-max) {
+
+    &--left,
+    &--right {
+      float: none;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  // No wrapping
+
+  &--no-wrap.ma__figure {
+    float: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  &--no-wrap.ma__figure--right {
+    width: 100%;
+
+    @media ($bp-small-min) {
+
+        padding-left: 50%;
+    }
+  }
+
+  // NO WRAP - Small
+
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small {
+
+    @media ($bp-small-min) {// 621~
+
+      padding-left: 50%;
+    }
+
+    @media ($bp-medium-min) {// 781~
+
+      padding-left: 66.66%;
+      padding-left: calc(100% / 3 * 2);
+    }
+  }
+
+  // NO WRAP - Medium
+
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium {
+
+    @media ($bp-small-min) {// 621~
+
+      padding-left: 33.33%;
+      padding-left: calc(100% / 3);
+    }
+
+    @media ($bp-medium-min) {// 781~
+
+      padding-left: 50%;
+    }
+  }
+
+  // NO WRAP - Large
+
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--large {
+
+    @media ($bp-large-min) {
+
+      padding-left: 66.66%;
+      padding-left: calc(100% / 3 * 2);
+    }
+  }
+
+  // caption
+
+  &__caption {
+
+    color: $c-font-detail;
+    font-weight: bold;
+    font-style: normal;
+    border-bottom: 1px solid $c-black;
+    padding: 10px 0;
+
+    @media ($bp-small-min) {
+      padding: 15px 0;
+    }
+  }
+
+  .ma__rich-text &__caption {
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    blockquote,
+    article,
+    .ma__table--responsive {
+      margin-bottom: 10px;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      @media ($bp-small-min) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .ma__rich-text &__caption > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+//theme
+
+.ma__figure {
+
+  &__caption {
+    font-weight: $fonts-lighter;
+  }
+}

@@ -12,7 +12,7 @@ const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 
 // Read directory path and exclude the template.yml file.
 const changelogs = fs.readdirSync(directoryPath).filter(function(file) {
-  return file.match(/^.*\.yml$/g) && file!== "template.yml";
+  return file.match(/^.*\.(yml|yaml)$/g) && file!== "template.yml";
 });
 
 if (!changelogs || changelogs.length<1) {

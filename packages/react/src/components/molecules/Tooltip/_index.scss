@@ -1,0 +1,12 @@
+@use '02-molecules/tooltip';
+
+.ma__tooltip {
+  &__open {
+    & > svg {
+      margin-bottom: -.2em;
+      margin-left: .2em;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

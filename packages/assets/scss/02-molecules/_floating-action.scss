@@ -1,0 +1,31 @@
+@use "00-base/configure" as *;
+
+.ma__floating-action {
+  position: fixed;
+    bottom: 1.3125rem;
+    left: 1.5625rem;
+  z-index: $z-sticky-content;
+  opacity: 1;
+  transition: 0.8s;
+
+  @media ($bp-small-max) {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  &--alignment-right,
+  &--right {
+    left: inherit;
+    right: 1.5625rem;
+
+    @media ($bp-small-max) {
+      left: inherit;
+      right: 1rem;
+    }
+  }
+
+  .stickyTable & {
+    opacity: 0;
+    transition: 0.2s;
+  }
+}

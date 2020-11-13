@@ -1,0 +1,30 @@
+@use "00-base/configure" as *;
+
+.ma__divider {
+
+  @include ma-container;
+  border: none;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    height: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+    transform: skew(-30deg);
+    width: 100%;
+  }
+}
+
+//theme
+
+.ma__divider {
+
+  &:after {
+    background-color: $c-primary-alt;
+  }
+}

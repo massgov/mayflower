@@ -1,0 +1,10 @@
+@use "00-base/configure" as *;
+
+.ma__divided-inputs {
+
+  &__input,
+  &__divider {
+    display: inline-block;
+    vertical-align: baseline;
+  }
+}

@@ -1,0 +1,46 @@
+@use "00-base/configure" as *;
+
+.ma__breadcrumb {
+  display: block;
+  font-size: $fonts-smaller;
+  list-style: none;
+  padding-inline-start: unset;
+
+  &-item {
+    display: inline-block;
+
+    &:last-child {
+
+      a {
+        color: $c-black;
+        font-weight: $fonts-bold;
+        cursor: text;
+        pointer-events: none;
+      }
+    }
+
+    &:not(:last-child) {
+
+      &::after {
+        content: " >";
+        margin-right: 7px;
+      }
+
+      a {
+        color: $c-gray-dark;
+        font-weight: $fonts-normal;
+
+        @include ma-link-transition;
+
+        @include ma-link-underline;
+
+        &:hover {
+          color: $c-primary;
+          border-bottom: 3px solid rgba($c-font-link,.5);
+        }
+      }
+    }
+
+
+  }
+}

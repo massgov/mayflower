@@ -1,0 +1,113 @@
+@use "00-base/configure" as *;
+
+.ma__contact-group {
+
+  padding-bottom: 20px;
+
+  &__item {
+    margin-bottom: .2em;
+  }
+
+  &__name {
+
+    @include ma-h6;
+
+    & > svg {
+      display: inline-block;
+      height: 20px;
+      margin-right: .25em;
+      vertical-align: middle;
+      width: 20px;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+
+    @media ($bp-small-min) {
+      font-size: $fonts-small;
+    }
+
+  }
+
+  &__value {
+    display: inline-block;
+    line-height: 1.75;
+
+    @media ($bp-small-min) {
+      font-size: $fonts-small;
+    }
+  }
+
+  &__details {
+    font-size: $fonts-xsmall;
+    line-height: 1.5;
+    margin-bottom: .35em;
+    margin-top: -.25em;
+  }
+
+  &__address {
+    line-height: 1.5;
+
+    @media ($bp-small-min) {
+      font-size: $fonts-small;
+    }
+  }
+
+  .ma__content-link,
+  .ma__decorative-link {
+    display: inline-block;
+
+    a {
+      overflow-wrap: break-word;
+      -ms-word-break: break-all;
+      word-break: break-all;
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+
+    @media ($bp-small-min) {
+      font-size: $fonts-small;
+    }
+  }
+
+  &__directions {
+
+    .ma__content-link {
+      line-height: inherit;
+    }
+  }
+}
+
+//theme
+
+.ma__contact-group {
+
+  &__name {
+
+    svg {
+      fill: $c-primary-alt;
+    }
+
+    span {
+      font-weight: $fonts-bold;
+    }
+  }
+
+  &__label {
+    font-weight: $fonts-normal;
+  }
+
+  &__value {
+    font-weight: $fonts-lighter;
+  }
+
+  .ma__content-link--phone {
+    font-weight: $fonts-lighter;
+  }
+}

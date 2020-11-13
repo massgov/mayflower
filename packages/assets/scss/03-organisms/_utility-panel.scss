@@ -1,0 +1,96 @@
+$bp-utility-panel-medium-min: "min-width:1121px";
+$bp-utility-panel-reduce-links-max: "max-width:1120px";
+
+@use "00-base/configure" as *;
+
+.ma__utility-panel {
+  background-color: $c-primary; 
+  color: $c-font-inverse;
+
+  @media ($bp-header-toggle-min) {
+
+    &:nth-child(2) {
+      padding-top: 20px;
+      border-top: 2px solid rgba($c-white, 0.4);
+    }
+  }
+
+  &__description {
+    font-size: $fonts-small;
+    font-weight: $fonts-lighter;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    margin-right: 2%;
+  }
+
+  &__items {
+
+    @include ma-reset-list;
+    margin-bottom: 1.75em;
+
+    @media ($bp-header-toggle-min) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 5px;
+
+      .no-flex & {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+    font-size: 0;
+    margin-bottom: 1.5%;
+    background-color: rgba($c-white, 0.2);
+    display: flex;
+    align-items: center;
+
+    &:nth-child(4n+4) {
+      margin-right: 0;
+    }
+
+    @media ($bp-header-toggle-min) {
+      width: 23%;
+      margin-right: 2.5%;
+      min-height: 70px;
+      
+      .no-flex & {
+        display: table-cell;
+      }
+    }
+
+    &:hover {
+      opacity: .8;
+    }
+
+    .ma__decorative-link {
+      line-height: 1.125;
+      padding: 10px;
+      padding-right: 28px;
+    }
+
+    a {
+      border: none;
+      font-size: $fonts-medium;
+      margin: 0;
+      text-align: left;
+      color: $c-font-inverse;
+      font-weight: $fonts-normal;
+
+      @media ($bp-header-toggle-min) and ($bp-utility-panel-reduce-links-max) {
+        font-size: $fonts-small;
+      }
+
+      &:hover {
+        border: none;
+      }
+    }
+
+    svg {
+      fill: $c-font-inverse;
+    }
+  }
+}
