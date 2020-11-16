@@ -1,0 +1,6 @@
+Added:
+  - project: React, Patternlab
+    component: iframe
+    description: Added raw to iframe templates. (#1199)
+    issue: DP-19391
+    impact: Minor
