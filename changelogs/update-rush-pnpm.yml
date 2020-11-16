@@ -1,5 +1,0 @@
-Changed:
-  - project: Monorepo
-    component:
-    description: Updates Rush, PNPM to their latest stable versions. Allows NodeJS version for rush to be between 12.13.x to 14.x. (#1260)
-    impact: Patch
