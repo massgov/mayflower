@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 10.2.0 (11/16/2020)
+### Added 
+- (React, Patternlab) [iframe] DP-19391: Added raw to iframe templates. (#1199)
+
+### Changed 
+- (Monorepo) [null] Updates Rush, PNPM to their latest stable versions. Allows NodeJS version for rush to be between 12.13.x to 14.x. (#1260)
+
 ## 10.1.2 (11/10/2020)
 ### Fixed 
 - (Assets) [Fonts] DP-20468: Fix font issue on Macs running El Capitan, Yosemite, Mavericks (10.11, 10.10, 10.9) with Firefox and Safari. (#1259)
