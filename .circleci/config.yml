@@ -291,7 +291,7 @@ jobs:
       - restore_cache:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-12
-      - run: { name: 'Build', command: 'cd packages/assets && node ../../../common/scripts/install-run-rushx.js build'}
+      - run: { name: 'Build', command: 'cd packages/assets && node ../../common/scripts/install-run-rushx.js build'}
       - run:
           name: Mayflower Style Linter
           command: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
