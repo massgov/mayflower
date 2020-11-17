@@ -50,6 +50,7 @@
     "gulp-concat": "~2.6.1",
     "gulp-terser": "~1.4.1",
     "babel-plugin-remove-import-export": "~1.1.1",
-    "babel-plugin-rewire-exports": "~2.2.0"
+    "babel-plugin-rewire-exports": "~2.2.0",
+    "jquery": "~3.5.1"
   }
 }

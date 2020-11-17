@@ -1,4 +1,3 @@
-
 (function() {
   window.__forceSmoothScrollPolyfill__ = true;
   var script = document.createElement('script');

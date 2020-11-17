@@ -70,6 +70,7 @@ function watchScss() {
 
 function compileHamburgerHeader() {
   return src([
+    require.resolve('jQuery/dist/jquery.min.js'),
     './build/js/header-hamburger-vendor.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
     '../patternlab/styleguide/source/assets/js/modules/mobileNav.js'
@@ -83,6 +84,7 @@ function compileHamburgerHeader() {
 
 function compileMiniHamburgerHeader() {
   return src([
+    require.resolve('jQuery/dist/jquery.min.js'),
     './build/js/header-hamburger-vendor.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
     '../patternlab/styleguide/source/assets/js/modules/mobileNav.js'
@@ -110,6 +112,7 @@ function compileMainNav() {
 
 function compileMixedHeader() {
   return src([
+    require.resolve('jQuery/dist/jquery.min.js'),
     './build/js/header-hamburger-vendor.js',
     './js/mainNav.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavMixed.js',
@@ -127,6 +130,7 @@ function compileMixedHeader() {
 
 function compileMiniMixedHeader() {
   return src([
+    require.resolve('jQuery/dist/jquery.min.js'),
     './build/js/header-hamburger-vendor.js',
     './js/mainNav.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavMixed.js',
