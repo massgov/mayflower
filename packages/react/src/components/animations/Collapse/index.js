@@ -48,12 +48,6 @@ class Collapse extends React.Component {
     this.handleExiting = this.handleExiting.bind(this);
   }
 
-  getDimension() {
-    return(
-      typeof this.props.dimension === 'function' ? this.props.dimension() : this.props.dimension
-    );
-  }
-
   // Expanding
   handleEnter(elem) {
     const { minDimension } = this.props;
@@ -86,6 +80,12 @@ class Collapse extends React.Component {
     const currentDim = parseInt(css(elem, dimension), 10);
     const setDim = (minDimension <= currentDim) ? minDimension : currentDim;
     elem.style[dimension] = `${setDim}px`; // eslint-disable-line no-param-reassign
+  }
+
+  getDimension() {
+    return(
+      typeof this.props.dimension === 'function' ? this.props.dimension() : this.props.dimension
+    );
   }
 
   render() {
