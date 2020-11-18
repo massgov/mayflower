@@ -3,7 +3,7 @@ import FooterSlim from '@massds/mayflower-react/dist/FooterSlim';
 import Footer from '@massds/mayflower-react/dist/Footer';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
-import { attachHTML, attachCSS } from '../../util/renderCode';
+import { attachHTML } from '../../util/renderCode';
 
 
 
@@ -165,27 +165,17 @@ const footer = (
   />
 )
 
-export const footerExample = () => footerBasic;
-attachHTML(footerExample, footerBasic)
+const notesFooterSlim = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/footer-slim.css">'
 
+const notesFooter = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/footer.css">'
+
+export const footerExample = () => footerBasic;
 
 export const footerSlim = () => footerBasic;
-attachHTML(footerSlim, footerBasic)
+attachHTML(footerSlim, footerBasic, notesFooterSlim)
 
 export const footerSlimDuelLogo = () => footerDuelLogo;
-attachHTML(footerSlimDuelLogo, footerDuelLogo)
+attachHTML(footerSlimDuelLogo, footerDuelLogo, notesFooterSlim)
 
 export const footerFullNav = () => footer;
-attachHTML(footerFullNav, footer)
-
-const cssFooterSlim = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/footer-slim.css">'
-
-const cssFooter = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/footer.css">'
-
-
-// exported story names must be unique
-export const footerCSS = () => null;
-attachCSS(footerCSS, cssFooterSlim)
-
-export const footerCSS2 = () => null;
-attachCSS(footerCSS2, cssFooterSlim)
+attachHTML(footerFullNav, footer, notesFooter)
