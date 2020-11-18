@@ -90,6 +90,8 @@
 @use "03-organisms/gen-teaser";
 @use "~@massds/mayflower-assets/build/header";
 @use "~@massds/mayflower-assets/build/header-slim";
+@use "03-organisms/header-mixed";
+@use "03-organisms/header-hamburger";
 @use "03-organisms/help-tip";
 @use "03-organisms/illustrated-header";
 @use "03-organisms/link-list";
