@@ -8,7 +8,7 @@ import IconLatlonglobe from '@massds/mayflower-react/dist/Icon/IconLatlonglobe';
 import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
-import { attachHTML, attachCSS } from '../../util/renderCode';
+import { attachHTML } from '../../util/renderCode';
 
 
 
@@ -297,37 +297,29 @@ const header = (
 )
 
 
+const notesHeaderSlim = `
+  // Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/header-slim.css">
+`
+
+const notesHeader = `
+  // Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/header.css">
+  // Link to JS: <script type="text/javascript" src="https://unpkg.com/@massds/mayflower-assets@[version]/js/heading.js" />
+`
 
 export const headerExample = () => headerBasic;
-attachHTML(headerExample, headerBasic)
-
 
 export const headerSlimmest = () => headerBasic;
-attachHTML(headerSlimmest, headerBasic)
+attachHTML(headerSlimmest, headerBasic, notesHeaderSlim)
 
 export const headerSlimUtil = () => headerUtil;
-attachHTML(headerSlimUtil, headerUtil)
+attachHTML(headerSlimUtil, headerUtil, notesHeaderSlim)
 
 export const headerSlimUtilSearch = () => headerUtilSearch;
-attachHTML(headerSlimUtilSearch, headerUtilSearch)
+attachHTML(headerSlimUtilSearch, headerUtilSearch, notesHeaderSlim)
 
 export const headerFullNav = () => header;
-attachHTML(headerFullNav, header)
+attachHTML(headerFullNav, header, notesHeader)
 
-// export const headerSlimDuelLogo = () => headerDuelLogo;
-// attachHTML(headerSlimDuelLogo, headerDuelLogo)
-//
 // export const headerFullNav = () => header;
 // attachHTML(headerFullNav, header)
 //
-const cssHeaderSlim = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/header-slim.css">'
-
-const cssHeader = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/header.css">'
-
-
-// exported story names must be unique
-export const headerCSS = () => null;
-attachCSS(headerCSS, cssHeaderSlim)
-
-export const headerCSS2 = () => null;
-attachCSS(headerCSS2, cssHeaderSlim)
