@@ -85,11 +85,11 @@
 @use "organisms/EmergencyAlerts";
 @use "03-organisms/error-page";
 @use "organisms/FilterBox";
-@use "~@massds/mayflower-assets/build/footer";
-@use "~@massds/mayflower-assets/build/footer-slim";
+@use "~@massds/mayflower-assets/build/scss/footer";
+@use "~@massds/mayflower-assets/build/scss/footer-slim";
 @use "03-organisms/gen-teaser";
-@use "~@massds/mayflower-assets/build/header";
-@use "~@massds/mayflower-assets/build/header-slim";
+@use "~@massds/mayflower-assets/build/scss/header";
+@use "~@massds/mayflower-assets/build/scss/header-slim";
 @use "03-organisms/help-tip";
 @use "03-organisms/illustrated-header";
 @use "03-organisms/link-list";

@@ -30,20 +30,19 @@
     }
   },
   "relationshipIndicators": {
+    "pageTitle": "Why is habitat management needed?",
     "primary": {
       "position": "primary",
-      "label": "offered by",
-      "tags": [{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Highway Division"
-      },
-      {
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Mass Dept of Transportation"
-      }]
-    }
+      "label": "part of",
+      "tags": [
+        {
+          "class": "",
+          "href": "#",
+          "title": "Snowmobile in the Parks"
+        }
+      ]
+    },
+    "secondary": {}
   },
   "pageContent": {
     "section1": {

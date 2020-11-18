@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: RelationshipIndicator
+    description: Specify the link color for the second unit. (#1257)
+    issue: DP-19520
+    impact: Minor

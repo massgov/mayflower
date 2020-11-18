@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: StickyNav
+    description: Align stikcy nav to the top of the page with screen width 780px and less. (#1268)
+    issue: DP-20499
+    impact: Minor
