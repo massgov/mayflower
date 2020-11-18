@@ -70,7 +70,6 @@ function watchScss() {
 
 function compileHamburgerHeader() {
   return src([
-    require.resolve('jquery/dist/jquery.min.js'),
     './build/js/header-hamburger-vendor.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
     '../patternlab/styleguide/source/assets/js/modules/mobileNav.js'
@@ -84,7 +83,6 @@ function compileHamburgerHeader() {
 
 function compileMiniHamburgerHeader() {
   return src([
-    require.resolve('jquery/dist/jquery.min.js'),
     './build/js/header-hamburger-vendor.js',
     '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
     '../patternlab/styleguide/source/assets/js/modules/mobileNav.js'
