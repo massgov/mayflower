@@ -756,17 +756,6 @@ menuItems.forEach((item) => {
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
   subItems.style.opacity = "0";
-  item
-    .querySelector(".js-main-nav-hamburger-content")
-    .addEventListener("transitionend", (e) => {
-      if (e.propertyName === "height") {
-        item.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "start"
-        });
-      }
-    });
   itemButton.addEventListener("click", (e) => {
 
     anotherCloseSubMenus(item);

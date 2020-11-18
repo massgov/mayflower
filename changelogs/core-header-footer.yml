@@ -31,11 +31,6 @@ Changed:
     issue:
     impact: Patch
   - project: Patternlab
-    component: js/modules/mainNavHamburger.js
-    description: Fixed a bug causing non-smooth scrolling in browser when clicking hamburger nav items. (#1267)
-    issue:
-    impact: Patch
-  - project: Patternlab
     component: js/modules/mobileNav.js, js/modules/mainNavMixed.js
     description: Renamed variable names to be unique for each module file, allowing those files to be combined without conflicts for static js generation. (#1267)
     issue:
