@@ -5,66 +5,58 @@ import CompHeading from '@massds/mayflower-react/dist/CompHeading';
 import SidebarHeading from '@massds/mayflower-react/dist/SidebarHeading';
 import { attachHTML, attachCSS } from '../../util/renderCode';
 
-const coloredHeadingPrimary = (
-  <ColoredHeading
-    color="blue"
-    level="2"
-    text="Colored Heading (Primary)"
-  />
+const coloredHeading = (
+  <>
+    <ColoredHeading
+      color="blue"
+      level="2"
+      text="Colored Heading (Primary)"
+    />
+    <ColoredHeading
+      color="green"
+      sidebar={true}
+      level="2"
+      text="Colored Heading (Primary Alt)"
+    />
+    <ColoredHeading
+      color=""
+      level="2"
+      text="Colored Heading (Gray)"
+    />
+  </>
+
 )
 
-const coloredHeadingPrimaryAlt = (
-  <ColoredHeading
-    color="green"
-    sidebar={true}
-    level="2"
-    text="Colored Heading (Primary Alt)"
-  />
-)
-
-const coloredHeadingGray = (
-  <ColoredHeading
-    color=""
-    level="2"
-    text="Colored Heading (Gray)"
-  />
-)
-
-const compHeadingPrimary = (
-  <CompHeading
-    centered={false}
-    color=""
-    id=""
-    level={3}
-    sidebar={false}
-    title="Comp Heading (Primary Alt | H3)"
-    titleContext=""
-  />
-)
-
-const compHeadingHighlight = (
-  <CompHeading
-    centered={false}
-    color="yellow"
-    id=""
-    level={4}
-    sidebar={false}
-    title="Comp Heading (Highlight | H4)"
-    titleContext=""
-  />
-)
-
-
-const compHeadingGray = (
-  <CompHeading
-    centered={false}
-    color="gray"
-    id=""
-    level={5}
-    sidebar={false}
-    title="Comp Heading (Gray | H5)"
-    titleContext=""
-  />
+const compHeading = (
+  <>
+    <CompHeading
+      centered={false}
+      color=""
+      id=""
+      level={3}
+      sidebar={false}
+      title="Comp Heading (Primary Alt | H3)"
+      titleContext=""
+    />
+    <CompHeading
+      centered={false}
+      color="yellow"
+      id=""
+      level={4}
+      sidebar={false}
+      title="Comp Heading (Highlight | H4)"
+      titleContext=""
+    />
+    <CompHeading
+      centered={false}
+      color="gray"
+      id=""
+      level={5}
+      sidebar={false}
+      title="Comp Heading (Gray | H5)"
+      titleContext=""
+    />
+  </>
 )
 
 
@@ -75,23 +67,13 @@ const sidebarHeading = (
   />
 )
 
-export const headingColoredPrimary = () => coloredHeadingPrimary;
-attachHTML(headingColoredPrimary, coloredHeadingPrimary)
+export const headingColored = () => coloredHeading;
+attachHTML(headingColored, coloredHeading)
 
-export const headingColoredPrimaryAlt = () => coloredHeadingPrimaryAlt;
-attachHTML(headingColoredPrimaryAlt, coloredHeadingPrimaryAlt)
 
-export const headingColoredGray = () => coloredHeadingGray;
-attachHTML(headingColoredGray, coloredHeadingGray)
+export const headingComp = () => compHeading;
+attachHTML(headingComp, compHeading)
 
-export const headingCompPrimary = () => compHeadingPrimary;
-attachHTML(headingCompPrimary, compHeadingPrimary)
-
-export const headingCompHighlight = () => compHeadingHighlight;
-attachHTML(headingCompHighlight, compHeadingHighlight)
-
-export const headingCompGray = () => compHeadingGray;
-attachHTML(headingCompGray, compHeadingGray)
 
 export const headingSidebar = () => sidebarHeading;
 attachHTML(headingSidebar, sidebarHeading)
