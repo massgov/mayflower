@@ -5,7 +5,7 @@ import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import { attachHTML } from '../../util/renderCode';
 
-
+const {STORYBOOK_CDN_PATH} = process.env;
 
 const footerBasic = (
   <FooterSlim
@@ -165,9 +165,9 @@ const footer = (
   />
 )
 
-const notesFooterSlim = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/footer-slim.css">'
+const notesFooterSlim = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">`
 
-const notesFooter = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/footer.css">'
+const notesFooter = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">`
 
 export const footerExample = () => footerBasic;
 
