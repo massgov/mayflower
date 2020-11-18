@@ -4,8 +4,12 @@ import { Story, DocsContext } from '@storybook/addon-docs/blocks';
 import prettier from 'prettier/standalone';
 import parserHtml from 'prettier/parser-html';
 
-export const renderReactMarkup = (component) => {
-  const markup = ReactDOMServer.renderToStaticMarkup(component)
+export const renderReactMarkup = (component, notes) => {
+  let markup = ReactDOMServer.renderToStaticMarkup(component)
+  // Add notes about CSS and JS
+  if(notes) {
+    markup = markup.concat(notes)
+  }
   const prettyMarkup = prettier.format(markup,
   {
     htmlWhitespaceSensitivity: 'ignore',
@@ -39,11 +43,11 @@ export const attachCSS = (story, css) => {
 }
 
 
-export const attachHTML = (story, Component) => {
+export const attachHTML = (story, Component, notes) => {
   return story.parameters = {
     docs: {
       source: {
-        code: renderReactMarkup(Component)
+        code: renderReactMarkup(Component, notes)
       }
     }
   };
