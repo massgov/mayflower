@@ -51,6 +51,7 @@ const HeaderMixed = () => {
                 </li>
                 <li className="ma__utility-nav__item">
                   <button
+                    type="button"
                     className="ma__utility-nav__link js-util-nav-toggle"
                     aria-haspopup="true"
                     aria-label="Log in links for this page"
@@ -66,7 +67,7 @@ const HeaderMixed = () => {
                   <div aria-hidden="true" className="ma__utility-nav__content js-util-nav-content is-closed">
                     <div className="ma__utility-nav__container">
                       <div className="ma__utility-nav__content-title">
-                        <button className="ma__utility-nav__close js-close-util-nav">
+                        <button type="button" className="ma__utility-nav__close js-close-util-nav">
                           <span>Close</span>
                           <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
                         </button>
@@ -480,6 +481,7 @@ const HeaderMixed = () => {
                   </li>
                   <li className="ma__utility-nav__item">
                     <button
+                      type="button"
                       className="ma__utility-nav__link js-util-nav-toggle"
                       aria-haspopup="true"
                       aria-label="Log in links for this page"
@@ -495,7 +497,7 @@ const HeaderMixed = () => {
                     <div aria-hidden="true" className="ma__utility-nav__content js-util-nav-content is-closed">
                       <div className="ma__utility-nav__container">
                         <div className="ma__utility-nav__content-title">
-                          <button className="ma__utility-nav__close js-close-util-nav">
+                          <button type="button" className="ma__utility-nav__close js-close-util-nav">
                             <span>Close</span>
                             <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
                           </button>
@@ -932,6 +934,7 @@ const HeaderMixed = () => {
                 </li>
                 <li className="ma__utility-nav__item">
                   <button
+                    type="button"
                     className="ma__utility-nav__link js-util-nav-toggle"
                     aria-haspopup="true"
                     aria-label="Log in links for this page"
@@ -947,7 +950,7 @@ const HeaderMixed = () => {
                   <div aria-hidden="true" className="ma__utility-nav__content js-util-nav-content is-closed">
                     <div className="ma__utility-nav__container">
                       <div className="ma__utility-nav__content-title">
-                        <button className="ma__utility-nav__close js-close-util-nav">
+                        <button type="button" className="ma__utility-nav__close js-close-util-nav">
                           <span>Close</span>
                           <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
                         </button>
