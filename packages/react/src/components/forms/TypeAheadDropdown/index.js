@@ -61,14 +61,6 @@ class TypeAheadDropdown extends React.Component {
     this.dropDownButtonRef.removeEventListener('mousedown', this.handleRefMouseDown);
   }
 
-  setDropDownButtonRef(node) {
-    this.dropDownButtonRef = node;
-  }
-
-  closeDropdown() {
-    this.setState({ buttonExpand: false });
-  }
-
   handleRefMouseDown() {
     this.buttonClicked = true;
   }
@@ -122,6 +114,14 @@ class TypeAheadDropdown extends React.Component {
         this.setState({ buttonExpand: false });
       }
     }
+  }
+
+  setDropDownButtonRef(node) {
+    this.dropDownButtonRef = node;
+  }
+
+  closeDropdown() {
+    this.setState({ buttonExpand: false });
   }
 
   render() {

@@ -22,8 +22,6 @@ import SyntaxHighlighter, { Renderer, Wrapper } from './syntax-highlighter';
 
 import '../src/components/styles/_index.scss';
 
-import logo from '!url-loader!@massds/mayflower-assets/static/images/logo/stateseal.png';
-
 const storyKindOrder = [
   'about', // storyKindOrder.indexOf -1 follow alphabetical order
   'brand', // storyKindOrder.indexOf -1 follow alphabetical order
@@ -59,7 +57,7 @@ export const StoryPage = ({ StoryComponent = null, showStories = false, Descript
       plugins: [parserHtml]
     });
     // Replaces the path to the state seal with a base64 image.
-    return prettyMarkup.replace(/static\/media\/stateseal\.(.*)\.png/, logo);
+    return prettyMarkup.replace(/static\/media\/stateseal\.(.*)\.png/, 'https://unpkg.com/@massds/mayflower-assets/static/images/logo/stateseal.png');
   }, [args]);
 
   const actionItem = {

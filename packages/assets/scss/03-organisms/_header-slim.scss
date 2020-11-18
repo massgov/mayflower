@@ -1,5 +1,12 @@
 @use "00-base/configure" as *;
 
+@use '01-atoms/button-with-icon';
+
+@use '01-atoms/button-search';
+
+@use '01-atoms/buttons';
+
+
 .ma__header_slim {
 
   .ma__container {
@@ -97,5 +104,18 @@
           align-items: center;
           justify-content: space-between;
       }
+  }
+
+  &__skip-nav {
+    display: block;
+    margin: 0 auto;
+    width: 240px;
+    text-align: center;
+
+    &:not(:focus) {
+
+      @include ma-visually-hidden;
+      width: 240px;
+    }
   }
 }
