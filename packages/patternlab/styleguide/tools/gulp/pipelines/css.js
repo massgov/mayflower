@@ -40,7 +40,7 @@ module.exports = function(minify, root) {
         .pipe(sourcemaps.identityMap)
         .pipe(gulpSass, sassOptions)
         .pipe(autoprefixer)
-        .pipe(pixrem, "16px",{atrules: true, html: true})
+        .pipe(pixrem, { rootValue: '16px', atrules: true, html: false })
         .pipe(rename, {suffix: "-generated"})
         .pipe(function() {
             return gulpIf(!minify, header("/* This file is generated.  DO NOT EDIT. */ \n"));

@@ -5,7 +5,7 @@ import FooterLinksData from 'MayflowerReactMolecules/FooterLinks/FooterLinks.jso
 import SocialLinksData from 'MayflowerReactMolecules/SocialLinks/SocialLinks.json';
 import FooterLinksLiveData from 'MayflowerReactMolecules/FooterLinks/FooterLinksLive.json';
 import SocialLinksLiveData from 'MayflowerReactMolecules/SocialLinks/SocialLinksLive.json';
-import styles from '@massds/mayflower-assets/build/footer.scss';
+import styles from '@massds/mayflower-assets/build/scss/footer.scss';
 import Footer from './index';
 import FooterDocs from './Footer.md';
 
