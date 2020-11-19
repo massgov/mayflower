@@ -10,8 +10,6 @@ import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
 import { attachHTML } from '../../util/renderCode';
 
-
-
 const headerBasic = (
   <HeaderSlim
    siteLogo={<SiteLogo
@@ -320,6 +318,4 @@ attachHTML(headerSlimUtilSearch, headerUtilSearch, notesHeaderSlim)
 export const headerFullNav = () => header;
 attachHTML(headerFullNav, header, notesHeader)
 
-// export const headerFullNav = () => header;
-// attachHTML(headerFullNav, header)
-//
+export const headerHamburger = () => 'Header Hamburger Component (WIP)';
