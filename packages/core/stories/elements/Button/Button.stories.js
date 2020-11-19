@@ -3,9 +3,9 @@ import Button from '@massds/mayflower-react/dist/Button';
 import ReactDOMServer from 'react-dom/server';
 import { attachCSS } from '../../util/renderCode';
 
+const { STORYBOOK_CDN_PATH } = process.env;
 
-const cssButton = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/button.css">'
-
+const cssButton = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/button.css">`
 
 // exported story names must be unique
 export const buttonCSS = () => null;

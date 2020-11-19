@@ -83,9 +83,7 @@ Links are used to embed actions or pathways to more information in a sentence or
     parameters={{ docs: { transformSource: () => renderReactMarkup(  <Button href="#" text="Button as a link" usage="tertiary"/>) } }}>
         <Button href="#" text="Button as a link" usage="tertiary"/>
   </Story>
-  <Story
-    name="link-button-css"
-    parameters={{ docs: { source: {code: '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/button.css">'} } }} />
+  <Story story={stories.linkButtonCSS} />
 </Canvas>
 
 

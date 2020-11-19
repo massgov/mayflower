@@ -4,6 +4,8 @@ import { Story, DocsContext } from '@storybook/addon-docs/blocks';
 import prettier from 'prettier/standalone';
 import parserHtml from 'prettier/parser-html';
 
+const { STORYBOOK_CDN_PATH } = process.env;
+
 export const renderReactMarkup = (component, notes) => {
   let markup = ReactDOMServer.renderToStaticMarkup(component)
   // Add notes about CSS and JS
@@ -18,7 +20,7 @@ export const renderReactMarkup = (component, notes) => {
     plugins: [parserHtml]
   });
   // Replaces the path to the state seal with the latest assets CDN.
-  return prettyMarkup.replace(/static\/media\/stateseal\.(.*)\.png/, 'https://unpkg.com/@massds/mayflower-assets/static/images/logo/stateseal.png');
+  return prettyMarkup.replace(/static\/media\/stateseal\.(.*)\.png/, `${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.png`);
 }
 
 // can't pass DocsContext from .mdx

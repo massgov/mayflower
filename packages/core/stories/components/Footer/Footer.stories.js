@@ -28,7 +28,7 @@ const footerBasic = (
         title: 'Child Care Licensing Procedures'
       }
     ]}
-    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
+    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: logo, width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
     title="Massachusetts Executive Office of Eductation (EDU)"
   />
 )
