@@ -1,7 +1,10 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Image from '@massds/mayflower-react/dist/Image';
+import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
+import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.png';
 
 import generateTitle from '../../util/generateTitle';
+const { STORYBOOK_CDN_PATH } = process.env;
 
 <Meta
   title={generateTitle('Logo')}
@@ -15,16 +18,16 @@ import generateTitle from '../../util/generateTitle';
 The Great Seal should only be used for official communications and publications to convey the Commonwealth’s identity and authority across different state departments.
 It should not be used for personal or private materials outside of the jurisdiction of your office, department, or agency, including in contractor, vendor, or third-party communications. By law, it cannot be used for advertising or commercial purposes.
 
-<Canvas>
+<Canvas withSource="none">
   <Image
     alt="the Massachusetts state seal"
-    src="https://STORYBOOK_CDN_PATH/static/images/logo/stateseal.png"
+    src={logo}
     width={150}
     height={150}
   />
   <Image
     alt="the Massachusetts state seal"
-    src="https://STORYBOOK_CDN_PATH/static/images/logo/stateseal-color.png"
+    src={logoColor}
     width={150}
     height={150}
   />
@@ -46,7 +49,7 @@ Great Seal are in gold, over a blue shield encapsulated in a
 blue circular rim, all resting on a white inner-background.
 <Image
   alt="the Massachusetts state seal"
-  src="https://STORYBOOK_CDN_PATH/static/images/logo/stateseal-color.png"
+  src={logo}
   width={150}
   height={150}
 />
@@ -60,7 +63,7 @@ presented in single-color black, white, and
 gray variants.
 <Image
   alt="the Massachusetts state seal"
-  src="https://STORYBOOK_CDN_PATH/static/images/logo/stateseal.png"
+  src={logoColor}
   width={150}
   height={150}
 />
