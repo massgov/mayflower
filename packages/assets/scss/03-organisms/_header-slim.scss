@@ -1,12 +1,5 @@
 @use "00-base/configure" as *;
 
-@use '01-atoms/button-with-icon';
-
-@use '01-atoms/button-search';
-
-@use '01-atoms/buttons';
-
-
 .ma__header_slim {
 
   .ma__container {
