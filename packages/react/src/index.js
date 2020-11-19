@@ -39,6 +39,7 @@ export ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 export ButtonFixedFeedback from 'MayflowerReactButtons/ButtonFixedFeedback';
 export ButtonAlert from 'MayflowerReactButtons/ButtonAlert';
 export ButtonTag from 'MayflowerReactButtons/ButtonTag';
+export GoogleTranslateElement, { useGoogleTranslateElement } from 'MayflowerReactButtons/GoogleTranslateElement';
 // @atoms/@contact
 export Address from 'MayflowerReactContact/Address';
 export Email from 'MayflowerReactContact/Email';
