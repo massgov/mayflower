@@ -1,6 +1,3 @@
-import path from 'path';
-import FeedbackForm from 'MayflowerReactForms/FeedbackForm';
-
 /*
   Since we are package a library of UI components, export each component here
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
@@ -28,7 +25,6 @@ export DateRange from 'MayflowerReactForms/DateRange';
 export MultiSelectDropDown from 'MayflowerReactForms/MultiSelectDropDown';
 export TypeAheadDropdown from 'MayflowerReactForms/TypeAheadDropdown';
 export FeedbackForm from 'MayflowerReactForms/FeedbackForm';
-
 
 // @atoms
 export Divider from 'MayflowerReactAtoms/Divider';

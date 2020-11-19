@@ -5,7 +5,7 @@ import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import SiteLogoHeader from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
-import styles from '@massds/mayflower-assets/build/header-slim.scss';
+import styles from '@massds/mayflower-assets/build/scss/header-slim.scss';
 import HeaderSlim from '.';
 
 export const HeaderSlimExample = (args) => <HeaderSlim {...args} />;
@@ -25,7 +25,7 @@ HeaderSlimExample.args = {
     siteName="Mass.gov"
     title="Mass.gov homepage"
   />),
-  skipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
+  skipNav: <a className="ma__header_slim__skip-nav" href="#main-content">skip to main content</a>
 };
 
 export const HeaderSlimWithNavs = (args) => <HeaderSlim {...args} />;
@@ -45,7 +45,7 @@ HeaderSlimWithNavs.args = {
     siteName="Mass.gov"
     title="Mass.gov homepage"
   />),
-  skipNav: <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>,
+  skipNav: <a className="ma__header_slim__skip-nav" href="#main-content">skip to main content</a>,
   mainNav: <ButtonWithIcon icon={<IconSearch />} />,
   utilityNav: (
     <div>
