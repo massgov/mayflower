@@ -14,7 +14,7 @@
 
     // support pre-existing figure elements besides dataviz.
 
-    &--left:not(.ma__dataviz, .ma__iframe__container),
+    &--left:not(.ma__dataviz),
     &--align-left,
     &.align-left {
       float: left;
@@ -22,7 +22,7 @@
       width: 50%;
     }
 
-    &--right:not(.ma__dataviz, .ma__iframe__container),
+    &--right:not(.ma__dataviz),
     &--align-right,
     &.align-right {
       float: right;
