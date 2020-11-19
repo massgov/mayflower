@@ -5,6 +5,8 @@ import CompHeading from '@massds/mayflower-react/dist/CompHeading';
 import SidebarHeading from '@massds/mayflower-react/dist/SidebarHeading';
 import { attachHTML } from '../../util/renderCode';
 
+const { STORYBOOK_CDN_PATH } = process.env;
+
 const coloredHeading = (
   <>
     <ColoredHeading
@@ -67,11 +69,12 @@ const sidebarHeading = (
   />
 )
 
-const notesHeadingColored = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/colored-heading.css">'
 
-const notesHeadingComp = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/comp-heading.css">'
+const notesHeadingColored = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/colored-heading.css">`
 
-const notesHeadingSidebar = '// Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/sidebar-heading.css">'
+const notesHeadingComp = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/comp-heading.css">`
+
+const notesHeadingSidebar = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/sidebar-heading.css">`
 
 export const headingColored = () => coloredHeading;
 attachHTML(headingColored, coloredHeading, notesHeadingColored)

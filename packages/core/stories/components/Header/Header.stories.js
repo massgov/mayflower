@@ -8,6 +8,8 @@ import IconLatlonglobe from '@massds/mayflower-react/dist/Icon/IconLatlonglobe';
 import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
+const { STORYBOOK_CDN_PATH } = process.env;
+
 import { attachHTML } from '../../util/renderCode';
 
 const headerBasic = (
@@ -30,7 +32,7 @@ const headerBasic = (
 
 const headerUtil = (
   <HeaderSlim
-    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} siteName="Mass.gov" title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
+    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: logo, width: 45}} siteName="Mass.gov" title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
     skipNav={<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>}
     utilityNav={
       <>
@@ -44,7 +46,7 @@ const headerUtil = (
 const headerUtilSearch = (
   <HeaderSlim
     mainNav={<ButtonWithIcon icon={<IconSearch />} />}
-    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} siteName="Mass.gov" title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
+    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: logo, width: 45}} siteName="Mass.gov" title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
     skipNav={<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>}
     utilityNav={
       <>
@@ -232,7 +234,7 @@ const header = (
       image: {
         alt: 'Massachusetts state seal',
         height: 45,
-        src: 'static/media/stateseal.90d94572.png',
+        src: logo,
         width: 45
       },
       siteName: 'Mass.gov',
@@ -294,14 +296,13 @@ const header = (
   />
 )
 
-
 const notesHeaderSlim = `
-  // Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/header-slim.css">
+  // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
 `
 
 const notesHeader = `
-  // Link to CSS: <link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@[version]/css/header.css">
-  // Link to JS: <script type="text/javascript" src="https://unpkg.com/@massds/mayflower-assets@[version]/js/heading.js" />
+  // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
+  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/heading.js" />
 `
 
 export const headerExample = () => headerBasic;

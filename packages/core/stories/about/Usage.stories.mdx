@@ -1,14 +1,16 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 
 import generateTitle from '../util/generateTitle';
+const { STORYBOOK_CDN_PATH, STORYBOOK_CDN, STORYBOOK_PKG } = process.env;
 
 <Meta title={generateTitle('Usage')} />
 
 # Install Mayflower
 We encourage all Commonwealth web properties to implement the Mayflower Design System for a consistent look and feel. It’s important that constituents know they are on an official state government website, and the visual cues that come from using a cohesive design help convey that legitimacy.
 
-## Download
-To ensure and enable that cohesion, Mayflower delivers the following static assets and generated artifacts as a version controlled package.
+## Mayflower assets
+
+To enable and ensure the branding and visual cohesion, Mayflower delivers the following static assets and generated artifacts as a version controlled package.
 ```
 ├── css
 ├── js
@@ -17,37 +19,88 @@ To ensure and enable that cohesion, Mayflower delivers the following static asse
    ├── fonts
    └── images
        ├── icons
-       └── stateseal
+       └── logos
+```
+### Download the package
+NPM Package
+This package is named @massds/mayflower-assets and is published on NPM. If you use Node.js, you can download the whole package simply by running the following command line:
+
+```
+npm install @massds/mayflower-assets
 ```
 
-NPM Package
-This package is named @massds/mayflower-assets and is published on NPM. If you use Node.js, you can download the whole package simply by running
-`npm install @massds/mayflower-assets`
-CDN
-Mayflower leverages UNPKG CDN and allows you to load any file in the @massds/mayflower-assets package directly.
+### Link to the Mayflower CDN
+Mayflower leverages the UNPKG CDN and allows you to load any file in the @massds/mayflower-assets package directly. We highly recommend that you link to the CDN at a specific version. That way, you never have to worry about your website get impacted by any Mayflower breaking updates, and you can upgrade to a new Mayflower version whenever your team is ready.
+
+To load any file from the @massds/mayflower-assets package using a URL like:
+
+```
 unpkg.com/@massds/mayflower-assets@:version/:file
+```
 
-For example:
+To explore the whole package for a specific version, you can
+1. browse the `@massds/mayflower-assets` package of the lastest version at:
+<a href={`${STORYBOOK_CDN}browse/${STORYBOOK_PKG}/`}>{`${STORYBOOK_CDN}browse/${STORYBOOK_PKG}/`}</a>
 
-| Asset | CDN  |
-|---|---|
-| State Seal | unpkg.com/@massds/mayflower-assets@10.1.0/static/images/logo/stateseal.png |
-| | unpkg.com/@massds/mayflower-assets@10.1.0/static/images/logo/stateseal-color.png |
-| Fonts |
-|  └── Static Fonts | unpkg.com/@massds/mayflower-assets@10.1.0/static/fonts/noto/Latin/NotoSans-Regular.(ttf\|woff\|eot\|svg) |
-| | unpkg.com/@massds/mayflower-assets@10.1.0/static/fonts/noto/Latin/NotoSans-Italic.(ttf\|woff\|eot\|svg) |
-| └── Variable Fonts | unpkg.com/@massds/mayflower-assets@10.1.0/static/fonts/noto/Latin/NotoSans-VF.(ttf\|woff\|eot\|svg) |
-| | unpkg.com/@massds/mayflower-assets@10.1.0/static/fonts/noto/Latin/NotoSansItalic-VF.(ttf\|woff\|eot\|svg) |
-| Global CSS | unpkg.com/@massds/mayflower-assets@10.1.0/css/global(.min).css |
-| Header CSS | unpkg.com/@massds/mayflower-assets@10.1.0/css/header.css |
-| Header JS | unpkg.com/@massds/mayflower-assets@10.1.0/js/header.js |
+2. Navigate on the resource you want to link to, e.g. css/global.css
+3. Click on “View Raw” and copy the URL for the file.
 
+For examples:
 
-
-To locate a specific file to link to, you can:
-browse the @massds/mayflower-assets package at: https://unpkg.com/browse/@massds/mayflower-assets@10.1.0
-Navigate on the resource you want to link to, e.g. css/index-generated.css
-Click on “View Raw” and copy the URL for the file
+<table>
+  <tr>
+    <th>Asset</th>
+    <th>CDN</th>
+  </tr>
+  <tr>
+    <td>State Seal</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.png`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.svg`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.svg`}</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Fonts</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-Regular.woff2`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-Italic.woff2`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-VF.woff2`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSansItalic-VF.woff2`}</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Global CSS</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/css/global.css`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/css/global.min.css`}</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Header CSS</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/css/header.css`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/css/header.min.css`}</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Header JS</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/js/header.js`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/js/header.min.js`}</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ## Build with Mayflower
 To import fonts and get started with basic Mayflower layout CSS, you need to import `scss/global.scss` (@use `scss/global.scss`) or link to the compiled `static/fonts/css/global.css` (a minified version is available as global.min.css).
