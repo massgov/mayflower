@@ -5,7 +5,7 @@ import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import { attachHTML } from '../../util/renderCode';
 
-const {STORYBOOK_CDN_PATH} = process.env;
+const { STORYBOOK_CDN_PATH } = process.env;
 
 const footerBasic = (
   <FooterSlim
@@ -54,7 +54,7 @@ const footerDuelLogo = (
         title: 'Child Care Licensing Procedures'
       }
     ]}
-    siteLogo={<><SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: 'static/media/stateseal.90d94572.png', width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/><SiteLogo image={{alt: 'Department of Eduction logo', height: 45, src: 'http://www.doe.mass.edu/images/Master-Logo_695x338_color.png', width: 120}} title="Department of Education homepage" url={{domain: 'http://www.doe.mass.edu/'}}/></>}
+    siteLogo={<><SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: logo, width: 45}} title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/><SiteLogo image={{alt: 'Department of Eduction logo', height: 45, src: 'http://www.doe.mass.edu/images/Master-Logo_695x338_color.png', width: 120}} title="Department of Education homepage" url={{domain: 'http://www.doe.mass.edu/'}}/></>}
     stackedLogo
     title="Massachusetts Executive Office of Eductation (EDU)"
   />
@@ -122,7 +122,7 @@ const footer = (
     ]
   }}
   footerLogo={{
-    src: 'static/media/stateseal.90d94572.png'
+    src: logo
   }}
   footerText={{
     copyright: '2020 Commonwealth of Massachusetts.',
