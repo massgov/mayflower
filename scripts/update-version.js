@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const updateCoreVersion = (newVer) => {
+module.exports = (function updateCoreVersion(newVer) {
   const filePath = `${path.resolve(__dirname, '../packages/core')}/.env`;
 
   const content = fs.readFileSync(filePath).toString();
@@ -13,8 +13,4 @@ const updateCoreVersion = (newVer) => {
   fs.writeFileSync(filePath, newContent, (err) => {
     if (err) throw err;
   })
-}
-
-module.exports = {
-  updateCoreVersion
-};
+})()
