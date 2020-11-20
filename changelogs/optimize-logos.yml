@@ -1,0 +1,13 @@
+Changed:
+  - project: Assets
+    component: Logos
+    description: Optimize and standardize existing state seals PNGs in assets to significantly reduce file sizes for web usage without sacrificing qualities
+Added PNG and SVG formats for all official state seal variations. (#1273)
+    issue:
+    impact: Patch
+Added:
+  - project: Assets
+    component: Logos
+    description: Added PNG and SVG formats for all official state seal variations: `stateseal.[png|svg]`, `stateseal-color.[png|svg]`, `stateseal-black.[png|svg]`, `stateseal-white.[png|svg]`. (#1273)
+    issue:
+    impact: Minor
