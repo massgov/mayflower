@@ -3,17 +3,17 @@ import logo from './mayflower-logo.png';
 export default create({
   base: 'light',
 
-  // colorPrimary: 'hotpink',
-  colorSecondary: '#14558F',
+	colorPrimary: '#14558F',
+  colorSecondary: '#388557',
 
   // UI
   appBg: '#F2F2F2',
-  // appContentBg: 'silver',
+	appContentBg: '#FFFFFF',
   appBorderColor: '#DCDCDC',
-  appBorderRadius: 6,
+  appBorderRadius: 0,
 
   // Typography
-  fontBase: '"Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif',
+  fontBase: '"Noto Sans VF", "Noto Sans", sans-serif',
 
   // Text colors
   textColor: 'black',
