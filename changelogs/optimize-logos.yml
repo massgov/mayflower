@@ -7,6 +7,6 @@ Changed:
 Added:
   - project: Assets
     component: Logos
-    description: Added PNG and SVG formats for all official state seal variations: `stateseal.[png|svg]`, `stateseal-color.[png|svg]`, `stateseal-black.[png|svg]`, `stateseal-white.[png|svg]`. (#1273)
+    description: Added PNG and SVG formats for all official state seal variations `stateseal.[png|svg]`, `stateseal-color.[png|svg]`, `stateseal-black.[png|svg]`, `stateseal-white.[png|svg]`. (#1273)
     issue:
     impact: Minor
