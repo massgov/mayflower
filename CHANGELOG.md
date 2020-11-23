@@ -1,6 +1,25 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 10.3.0 (11/23/2020)
+### Fixed 
+- (Patternlab) [RelationshipIndicator] DP-19520: Specify the link color for the second unit. (#1257)
+- (Patternlab) [StickyNav] DP-20499: Align stikcy nav to the top of the page with screen width 780px and less. (#1268)
+
+### Added 
+- (Assets) [null] Added support for the generation of static HTML for header, header hamburger, header mixed, header slim, header slim with nav, footer, and footer slim. (#1267)
+- (Assets) [null] Added support for the generation of static JS for header, header hamburger, and header mixed. (#1267)
+- (Assets) [Logos] Added PNG and SVG formats for all official state seal variations `stateseal.[png|svg]`, `stateseal-color.[png|svg]`, `stateseal-black.[png|svg]`, `stateseal-white.[png|svg]`. (#1273)
+
+### Changed 
+- (Assets) [null] Changed global.scss path for static assets to point to unpkg CDN url. (#1267)
+- (Assets) [03-organisms/header-slim] Added missing styles from 01-atoms/button-with-icon, 01-atoms/button-search, and 01-atoms/buttons, needed by 03-organisms/header-slim. (#1267)
+- (Assets) [null] Restructured build directory to contain both js and scss files meant to be used for building static assets. (#1267)
+- (Patternlab) [js/modules/mainNav.js] Changed main nav js for window resize to use addEventListener instead of undefined addEventHandler. (#1267)
+- (Patternlab) [js/modules/mobileNav.js, js/modules/mainNavMixed.js] Renamed variable names to be unique for each module file, allowing those files to be combined without conflicts for static js generation. (#1267)
+- (React) [HeaderSlim] Updated story to use correct css class name on skip nav element. (#1267)
+- (Assets) [Logos] Optimize and standardize existing state seals PNGs in assets to reduce file sizes for web usage without sacrificing qualities. (#1273)
+
 ## 10.2.0 (11/16/2020)
 ### Added 
 - (React, Patternlab) [iframe] DP-19391: Added raw to iframe templates. (#1199)
