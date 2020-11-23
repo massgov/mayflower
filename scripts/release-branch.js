@@ -15,12 +15,11 @@ const updateCoreVersion = require('./update-version');
 // Checkout the branch.
 const releaseBranch = 'release/' + version;
 
-(async function(version) {
+(async function() {
   // This asynchronous logic will happen sequentially.
   // If an error is thrown, it will break out of this
   // asynchronous function immediately and exit 1.
   // Create the release branch and push to Github.
-  console.log(version)
   shell.exec(`git branch -D ${releaseBranch}`)
   updateCoreVersion(version)
 //   await git.checkoutLocalBranch(releaseBranch)
@@ -42,4 +41,4 @@ const releaseBranch = 'release/' + version;
 // })().catch(function(err) {
 //   console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
 //   process.exit(1);
-})(version)
+})()
