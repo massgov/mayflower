@@ -15,14 +15,14 @@ const updateCoreVersion = require('./update-version');
 // Checkout the branch.
 const releaseBranch = 'release/' + version;
 
-(async function() {
+(async function(version) {
   // This asynchronous logic will happen sequentially.
   // If an error is thrown, it will break out of this
   // asynchronous function immediately and exit 1.
-
   // Create the release branch and push to Github.
+  console.log(version)
   shell.exec(`git branch -D ${releaseBranch}`)
-  await updateCoreVersion(version)
+  updateCoreVersion(version)
 //   await git.checkoutLocalBranch(releaseBranch)
 //   await git.add('./*');
 //   await git.commit('Consolidate changelogs and update core version');
@@ -31,15 +31,15 @@ const releaseBranch = 'release/' + version;
 //   await git.push('origin', releaseBranch, {'--force': null});
 //
 //   //Create the pull request in GitHub
-//   await octokit.pulls.create({
-//     owner: 'massgov',
-//     repo: 'mayflower',
-//     title: `Release ${version}`,
-//     head: releaseBranch,
-//     base: 'master',
-//     body: newLogsWithTitle
-//   });
+  // await octokit.pulls.create({
+  //   owner: 'massgov',
+  //   repo: 'mayflower',
+  //   title: `Release ${version}`,
+  //   head: releaseBranch,
+  //   base: 'master',
+  //   body: newLogsWithTitle
+  // });
 // })().catch(function(err) {
 //   console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
 //   process.exit(1);
-})
+})(version)
