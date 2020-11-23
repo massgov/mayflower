@@ -33,7 +33,6 @@
     "@massds/mayflower-assets": "^0.2.2",
     "@massds/mayflower-react": "10.0.0-alpha.2",
     "@storybook/preset-scss": "~1.0.2",
-    "bootstrap": "~4.5.3",
     "url-loader": "~4.1.1",
     "prettier": "~2.1.2"
   }
