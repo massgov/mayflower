@@ -3,8 +3,8 @@ import logo from './mayflower-logo.png';
 export default create({
   base: 'light',
 
-	colorPrimary: '#14558F',
-  colorSecondary: '#388557',
+	colorPrimary: '#388557',
+  colorSecondary: '#14558F',
 
   // UI
   appBg: '#F2F2F2',
