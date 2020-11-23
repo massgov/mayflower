@@ -2,7 +2,7 @@
 {% set accordionClass = alertsExist ? 'js-accordion js-emergency-alerts' : '' %}
 
 {% if emergencyAlerts.alerts or emergencyAlerts.emergencyHeader %}
-  <section class="ma__emergency-alerts {{ accordionClass }}" data-id="{{emergencyAlerts.id}}">
+  <section data-nosnippet="true" class="ma__emergency-alerts {{ accordionClass }}" data-id="{{emergencyAlerts.id}}">
     <div class="ma__emergency-alerts__header">
       <div class="ma__emergency-alerts__container">
         {% set emergencyHeader = emergencyAlerts.emergencyHeader %}
