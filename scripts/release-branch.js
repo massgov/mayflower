@@ -22,23 +22,22 @@ const releaseBranch = 'release/' + version;
   // Create the release branch and push to Github.
   shell.exec(`git branch -D ${releaseBranch}`)
   updateCoreVersion(version)
-//   await git.checkoutLocalBranch(releaseBranch)
-//   await git.add('./*');
-//   await git.commit('Consolidate changelogs and update core version');
-//   // Use a force-push so if we have an old version of the branch sitting around
-//   // (eg: an unreleased one from last week), it gets updated regardless.
-//   await git.push('origin', releaseBranch, {'--force': null});
-//
-//   //Create the pull request in GitHub
-  // await octokit.pulls.create({
-  //   owner: 'massgov',
-  //   repo: 'mayflower',
-  //   title: `Release ${version}`,
-  //   head: releaseBranch,
-  //   base: 'master',
-  //   body: newLogsWithTitle
-  // });
-// })().catch(function(err) {
-//   console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
-//   process.exit(1);
-})()
+  await git.checkoutLocalBranch(releaseBranch)
+  await git.add('./*');
+  await git.commit('Consolidate changelogs and update core version');
+  // Use a force-push so if we have an old version of the branch sitting around
+  // (eg: an unreleased one from last week), it gets updated regardless.
+  await git.push('origin', releaseBranch, {'--force': null});
+
+  //Create the pull request in GitHub
+  await octokit.pulls.create({
+    owner: 'massgov',
+    repo: 'mayflower',
+    title: `Release ${version}`,
+    head: releaseBranch,
+    base: 'master',
+    body: newLogsWithTitle
+  });
+})().catch(function(err) {
+  console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
+  process.exit(1);
