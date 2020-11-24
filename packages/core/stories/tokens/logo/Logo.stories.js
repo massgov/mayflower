@@ -11,7 +11,7 @@ import generateTitle from '../../util/generateTitle';
 const { STORYBOOK_CDN_PATH } = process.env;
 
 const stateSeal = ({ src, dimension, background }) => (
-  <div style={{ background: background || 'none', padding: '5px' }}>
+  <div style={{ background: background || 'none', padding: '5px', lineHeight: 0 }}>
     <Image
       alt="the Massachusetts state seal"
       src={src}
