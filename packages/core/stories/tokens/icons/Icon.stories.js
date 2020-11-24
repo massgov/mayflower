@@ -37,17 +37,5 @@ Icons.argTypes = {
 
 export default {
   title: generateTitle('Icons'),
-  component: Icons,
-  parameters: {
-    backgrounds: {
-        default: 'dark',
-        values: [
-          { name: 'white', value: '#ffffff' },
-          { name: 'light', value: '#eeeeee' },
-          { name: 'gray', value: '#cccccc' },
-          { name: 'dark', value: '#222222' },
-          { name: 'black', value: '#000000' },
-        ],
-    },
-  }
+  component: Icons
 };

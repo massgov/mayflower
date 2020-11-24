@@ -11,7 +11,6 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-links",
-    '@storybook/addon-backgrounds',
     {
       name: '@storybook/addon-docs',
       options: {

@@ -2,9 +2,6 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Image from '@massds/mayflower-react/dist/Image';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.png';
-import logoBlack from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
-import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-black.png';
-import * as stories from './Logo.stories.js';
 
 import generateTitle from '../../util/generateTitle';
 const { STORYBOOK_CDN_PATH } = process.env;
@@ -12,17 +9,7 @@ const { STORYBOOK_CDN_PATH } = process.env;
 <Meta
   title={generateTitle('Logo')}
   parameters={{
-    viewMode: 'docs',
-    backgrounds: {
-        default: 'dark',
-        values: [
-          { name: 'white', value: '#ffffff' },
-          { name: 'light', value: '#eeeeee' },
-          { name: 'gray', value: '#cccccc' },
-          { name: 'dark', value: '#222222' },
-          { name: 'black', value: '#000000' },
-        ],
-    },
+    viewMode: 'docs'
   }}
 />
 
@@ -31,19 +18,19 @@ const { STORYBOOK_CDN_PATH } = process.env;
 The Great Seal should only be used for official communications and publications to convey the Commonwealth’s identity and authority across different state departments.
 It should not be used for personal or private materials outside of the jurisdiction of your office, department, or agency, including in contractor, vendor, or third-party communications. By law, it cannot be used for advertising or commercial purposes.
 
-<Canvas>
-  <Story story={stories.seal} parameters={{
-    backgrounds: {
-        default: 'dark',
-        values: [
-          { name: 'white', value: '#ffffff' },
-          { name: 'light', value: '#eeeeee' },
-          { name: 'gray', value: '#cccccc' },
-          { name: 'dark', value: '#222222' },
-          { name: 'black', value: '#000000' },
-        ],
-    }
-  }}/>
+<Canvas withSource="none">
+  <Image
+    alt="the Massachusetts state seal"
+    src={logo}
+    width={150}
+    height={150}
+  />
+  <Image
+    alt="the Massachusetts state seal"
+    src={logoColor}
+    width={150}
+    height={150}
+  />
 </Canvas>
 
 > The Great Seal of Massachusetts is in the custody of the [Office of the Secretary of the Commonwealth](http://www.sec.state.ma.us), who is the authority on how and when to use it. These draft guidelines are subject to their review and approval and will be updated as needed.
