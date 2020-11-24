@@ -1,6 +1,8 @@
 const storyKindOrder = [
   'Get Started',
+  ['Introduction', 'Install Mayflower', 'Examples'],
   'Design Principles',
+  ['Brand Pillars'],
   'Design Tokens',
   'Branding Components',
   'Base Elements'
