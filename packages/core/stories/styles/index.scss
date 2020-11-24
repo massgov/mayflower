@@ -46,6 +46,12 @@
   }
 }
 
+.sb-block.borderless {
+	margin: 3rem 0 !important;
+	padding: 0 !important;
+	border: 0 !important;
+}
+
 // Intro story
 .row.ma__row--three-up {
   margin-left: -15px;
@@ -87,7 +93,7 @@ ul.sg-colors {
 
 // Typography story
 .font-specimen {
-	font-size: 2rem !important;
+	font-size: 1.7rem !important;
 	line-height: 1.25 !important;
 	word-break: break-all;
 	font-weight: 300;
@@ -98,6 +104,24 @@ ul.sg-colors {
 	& strong {
 		font-weight: 400;
 	}
+}
+
+p.font-specimen {
+	margin: 0 0 .5rem;
+}
+
+p.lang-label {
+	font-weight: 450;
+	margin: 0;
+
+	&.rtl {
+		direction: rtl;
+	}
+}
+
+p.font-specimen,
+p.lang-label {
+	padding: 0 1rem;
 }
 
 .reset-vspace * {
