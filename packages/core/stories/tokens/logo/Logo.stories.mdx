@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import Image from '@massds/mayflower-react/dist/Image';
-import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
-import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.png';
+import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
+import IconDownload from '@massds/mayflower-react/dist/Icon/IconDownload';
+import { ColorSwatch } from '../colors/ColorDisplay';
 import * as stories from './Logo.stories.js';
 
 import generateTitle from '../../util/generateTitle';
@@ -48,13 +48,21 @@ The official colors of the Great Seal are blue and gold with a white inner backg
 
 This is the primary color use of the Great Seal. Specific parts of the Great Seal are in gold, over a blue shield encapsulated in a blue circular rim, all resting on a white inner-background.
 
+<ColorSwatch value="#00649b" width={60} copiable={false} />
+<ColorSwatch value="#fdb827" width={60} copiable={false} />
+<ColorSwatch value="#ffffff" width={60} copiable={false} />
+
+**Usage:** It can be used with all backgrounds.
+
 <Canvas withSource="none">
   <Story story={stories.sealColor} />
   <Story story={stories.sealColorBGLight} />
   <Story story={stories.sealColorBGDark} />
 </Canvas>
 
-[To-do: Color Swatches + Download Links + SVG]
+<a href="https://unpkg.com/@massds/mayflower-assets@10.2.0/static/images/logo/stateseal.png" download>SVG <IconDownload /></a>
+<a href="https://unpkg.com/@massds/mayflower-assets@10.2.0/static/images/logo/stateseal.png" download>PNG (200 x 200 px) <IconDownload /></a>
+
 
 ### Single-color reproduction
 
