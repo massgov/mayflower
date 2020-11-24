@@ -56,26 +56,32 @@ This is the primary color use of the Great Seal. Specific parts of the Great Sea
 
 **Usage:** It can be used with all backgrounds.
 
+<div className="ma__row">
+  <ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalizedhref={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.png`} download />
+</div>
+
 <Canvas withSource="none">
   <Story story={stories.sealColor} />
   <Story story={stories.sealColorBGLight} />
   <Story story={stories.sealColorBGDark} />
 </Canvas>
 
-<div className="ma__row">
-  <a href="https://unpkg.com/@massds/mayflower-assets@10.2.0/static/images/logo/stateseal.png" download>SVG <IconDownload /></a>
-  <a href="https://unpkg.com/@massds/mayflower-assets@10.2.0/static/images/logo/stateseal.png" download>PNG (200 x 200 px) <IconDownload /></a>
-</div>
-
 ### Single-color reproduction
 
 Additionally, the Great Seal may also be presented in a single-color of black, white, and gray. These monochromatic options are transparent in backgrounds, and should be placed on appropriate background colors to ensure sufficient constrast for clear visibility.
+
 
 #### Gray
 
 <ColorSwatch value="#777777" width={20} height={20} copiable={false} inline />
 
 **Usage:** It should only be used on light backgrounds with enough contrast. Mayflower Header and Footer are using the gray seal with a very light gray (plat) background.
+
+<div className="ma__row">
+  <ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalizedhref={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.png`} download />
+</div>
 
 <Canvas withSource="none">
   <Story story={stories.seal} />
@@ -89,11 +95,17 @@ Additionally, the Great Seal may also be presented in a single-color of black, w
 
 **Usage:** It should only be used on light backgrounds with enough contrast.
 
+<div className="ma__row">
+  <ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalizedhref={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-black.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-black.png`} download />
+</div>
+
 <Canvas withSource="none">
   <Story story={stories.sealBlack} />
   <Story story={stories.sealBlackBGLight} />
   <Story story={stories.sealBlackBGLight1} />
 </Canvas>
+
 
 #### White
 
@@ -101,10 +113,17 @@ Additionally, the Great Seal may also be presented in a single-color of black, w
 
 **Usage:** It should only be used on dark backgrounds with enough contrast.
 
+<div className="ma__row">
+  <ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-white.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-white.png`} download />
+</div>
+
 <Canvas withSource="none">
   <Story story={stories.sealWhiteBGDark} />
   <Story story={stories.sealWhiteBGDark1} />
 </Canvas>
+
+
 
 
 ## Accessibility & Best Practices
