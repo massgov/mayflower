@@ -48,9 +48,11 @@ The official colors of the Great Seal are blue and gold with a white inner backg
 
 This is the primary color use of the Great Seal. Specific parts of the Great Seal are in gold, over a blue shield encapsulated in a blue circular rim, all resting on a white inner-background.
 
-<ColorSwatch value="#00649b" width={20} height={20} copiable={false} inline />
-<ColorSwatch value="#fdb827" width={20} height={20} copiable={false} inline />
-<ColorSwatch value="#ffffff" width={20} height={20} copiable={false} inline />
+<div className="ma__row">
+  <ColorSwatch value="#00649b" width={20} height={20} copiable={false} inline />
+  <ColorSwatch value="#fdb827" width={20} height={20} copiable={false} inline />
+  <ColorSwatch value="#ffffff" width={20} height={20} copiable={false} inline />
+</div>
 
 **Usage:** It can be used with all backgrounds.
 
@@ -60,20 +62,20 @@ This is the primary color use of the Great Seal. Specific parts of the Great Sea
   <Story story={stories.sealColorBGDark} />
 </Canvas>
 
-<a href="https://unpkg.com/@massds/mayflower-assets@10.2.0/static/images/logo/stateseal.png" download>SVG <IconDownload /></a>
-<a href="https://unpkg.com/@massds/mayflower-assets@10.2.0/static/images/logo/stateseal.png" download>PNG (200 x 200 px) <IconDownload /></a>
-
+<div className="ma__row">
+  <a href="https://unpkg.com/@massds/mayflower-assets@10.2.0/static/images/logo/stateseal.png" download>SVG <IconDownload /></a>
+  <a href="https://unpkg.com/@massds/mayflower-assets@10.2.0/static/images/logo/stateseal.png" download>PNG (200 x 200 px) <IconDownload /></a>
+</div>
 
 ### Single-color reproduction
 
-Additionally, the Great Seal may also be
-presented in single-color black, white, and
-gray variants.
+Additionally, the Great Seal may also be presented in a single-color of black, white, and gray. These monochromatic options are transparent in backgrounds, and should be placed on appropriate background colors to ensure sufficient constrast for clear visibility.
 
 #### Gray
-This is the primary color use of the Great Seal. Specific parts of the Great Seal are in gold, over a blue shield encapsulated in a blue circular rim, all resting on a white inner-background.
 
 <ColorSwatch value="#777777" width={20} height={20} copiable={false} inline />
+
+**Usage:** It should only be used on light backgrounds with enough contrast. Mayflower Header and Footer are using the gray seal with a very light gray (plat) background.
 
 <Canvas withSource="none">
   <Story story={stories.seal} />
@@ -85,6 +87,8 @@ This is the primary color use of the Great Seal. Specific parts of the Great Sea
 
 <ColorSwatch value="#000000" width={20} height={20} copiable={false} inline />
 
+**Usage:** It should only be used on light backgrounds with enough contrast.
+
 <Canvas withSource="none">
   <Story story={stories.sealBlack} />
   <Story story={stories.sealBlackBGLight} />
@@ -95,28 +99,15 @@ This is the primary color use of the Great Seal. Specific parts of the Great Sea
 
 <ColorSwatch value="#ffffff" width={20} height={20} copiable={false} inline />
 
+**Usage:** It should only be used on dark backgrounds with enough contrast.
+
 <Canvas withSource="none">
   <Story story={stories.sealWhiteBGDark} />
   <Story story={stories.sealWhiteBGDark1} />
 </Canvas>
 
-[To-do: Examples + Color Swatches + Download Links + SVG]
 
 ## Usage
-The Great Seal should never be defaced, altered, skewed, or
-modified in any way. Please note this list does not
-cover all examples. If you have any
-questions, please reach out to Mass Digital
-or the Secretary of the Commonwealth’s
-office.
-
-
-### Background Colors
-The Great Seal almost always appears on a white background, but
-may appear on a colored background if significant contrast is
-present. We recommend the following examples of seal options
-for light and dark backgrounds to ensure that the seal is always
-clearly visible.
 
 ### Sizing
 When reproducing the state seal, it must
