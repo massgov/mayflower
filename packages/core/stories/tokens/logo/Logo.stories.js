@@ -26,12 +26,6 @@ const bgLight1 = { background: '#E7EEF4' };
 const bgDark = { background: '#000' };
 const bgDark1 = { background: '#14558F' };
 
-const DownLoads = () => (
-  <div className="ma__row">
-    <ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-black.svg`} download />
-    <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-black.png`} download />
-  </div>
-)
 
 // exported story names must be unique
 export const sealExample = () => stateSeal({ src: logoSVG, dimension: '150px' });
