@@ -21,10 +21,27 @@ const stateSeal = ({ src, dimension, background }) => (
   </div>
 )
 
+const bgLight = { background: '#F2F2F2' };
+const bgLight1 = { background: '#E7EEF4' };
+const bgDark = { background: '#000' };
+const bgDark1 = { background: '#14558F' };
+
+
 // exported story names must be unique
 export const sealExample = () => stateSeal({ src: logoSVG, dimension: '150px' });
 export const sealColorExample = () => stateSeal({ src: logoColorSVG, dimension: '150px' });
+
 export const seal = () => stateSeal({ src: logo, dimension: '100px' });
+export const sealBGLight = () => stateSeal({ src: logo, dimension: '100px', ...bgLight });
+export const sealBGLight1 = () => stateSeal({ src: logo, dimension: '100px', ...bgLight1 });
+
 export const sealColor = () => stateSeal({ src: logoColor, dimension: '100px' });
+export const sealColorBGLight = () => stateSeal({ src: logoColor, dimension: '100px', ...bgLight1 });
+export const sealColorBGDark = () => stateSeal({ src: logoColor, dimension: '100px', ...bgDark1 });
+
 export const sealBlack = () => stateSeal({ src: logoBlack, dimension: '100px' });
-export const sealWhite = () => stateSeal({ src: logoWhite, dimension: '100px', background: '#000' });
+export const sealBlackBGLight = () => stateSeal({ src: logoBlack, dimension: '100px', ...bgLight });
+export const sealBlackBGLight1 = () => stateSeal({ src: logoBlack, dimension: '100px', ...bgLight1 });
+
+export const sealWhiteBGDark = () => stateSeal({ src: logoWhite, dimension: '100px', ...bgDark });
+export const sealWhiteBGDark1 = () => stateSeal({ src: logoWhite, dimension: '100px', ...bgDark1 });
