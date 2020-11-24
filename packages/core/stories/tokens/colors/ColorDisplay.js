@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import ButtonCopy from '@massds/mayflower-react/dist/ButtonCopy';
 import './_color-display.scss';
 
-const ColorSwatch = ({ name, value, variable, width='200px', height='4rem', copiable=true }) => {
+const ColorSwatch = ({ name, value, variable, width='200px', height='4rem', copiable=true, inline=false }) => {
   const hexValue = value.toUpperCase();
   return(
-    <div style={{ padding: 5, display: 'inline-block' }}>
-      { name && (<h6>{name}</h6>)}
+    <div style={{ display: 'flex', flexDirection: inline ? 'row' : 'column' }}>
+      { name && <h6>{name}</h6>}
       <div className="sg-swatch" style={{ background: value, borderRadius: 0, height, width, border: '1px solid #DCDCDC' }} />
       <div className="sg-info">
         <span>{hexValue}</span>
         {copiable && <ButtonCopy content={hexValue} />}
-        <br />
-        <code style={{ fontSize: '1rem' }}>{variable}</code>
+        {copiable && <br />}
+        {variable && <span style={{ fontSize: '.9rem' }}>{variable}</span>}
       </div>
     </div>
   );

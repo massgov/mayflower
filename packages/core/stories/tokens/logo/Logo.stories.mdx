@@ -48,9 +48,9 @@ The official colors of the Great Seal are blue and gold with a white inner backg
 
 This is the primary color use of the Great Seal. Specific parts of the Great Seal are in gold, over a blue shield encapsulated in a blue circular rim, all resting on a white inner-background.
 
-<ColorSwatch value="#00649b" width={60} copiable={false} />
-<ColorSwatch value="#fdb827" width={60} copiable={false} />
-<ColorSwatch value="#ffffff" width={60} copiable={false} />
+<ColorSwatch value="#00649b" width={20} height={20} copiable={false} inline />
+<ColorSwatch value="#fdb827" width={20} height={20} copiable={false} inline />
+<ColorSwatch value="#ffffff" width={20} height={20} copiable={false} inline />
 
 **Usage:** It can be used with all backgrounds.
 
@@ -70,17 +70,30 @@ Additionally, the Great Seal may also be
 presented in single-color black, white, and
 gray variants.
 
+#### Gray
+This is the primary color use of the Great Seal. Specific parts of the Great Seal are in gold, over a blue shield encapsulated in a blue circular rim, all resting on a white inner-background.
+
+<ColorSwatch value="#777777" width={20} height={20} copiable={false} inline />
+
 <Canvas withSource="none">
   <Story story={stories.seal} />
   <Story story={stories.sealBGLight} />
   <Story story={stories.sealBGLight1} />
 </Canvas>
 
+#### Black
+
+<ColorSwatch value="#000000" width={20} height={20} copiable={false} inline />
+
 <Canvas withSource="none">
   <Story story={stories.sealBlack} />
   <Story story={stories.sealBlackBGLight} />
   <Story story={stories.sealBlackBGLight1} />
 </Canvas>
+
+#### White
+
+<ColorSwatch value="#ffffff" width={20} height={20} copiable={false} inline />
 
 <Canvas withSource="none">
   <Story story={stories.sealWhiteBGDark} />
