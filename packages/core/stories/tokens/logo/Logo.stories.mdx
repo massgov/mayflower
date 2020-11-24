@@ -2,6 +2,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Image from '@massds/mayflower-react/dist/Image';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.png';
+import * as stories from './Logo.stories.js';
 
 import generateTitle from '../../util/generateTitle';
 const { STORYBOOK_CDN_PATH } = process.env;
@@ -18,19 +19,9 @@ const { STORYBOOK_CDN_PATH } = process.env;
 The Great Seal should only be used for official communications and publications to convey the Commonwealth’s identity and authority across different state departments.
 It should not be used for personal or private materials outside of the jurisdiction of your office, department, or agency, including in contractor, vendor, or third-party communications. By law, it cannot be used for advertising or commercial purposes.
 
-<Canvas withSource="none">
-  <Image
-    alt="the Massachusetts state seal"
-    src={logo}
-    width={150}
-    height={150}
-  />
-  <Image
-    alt="the Massachusetts state seal"
-    src={logoColor}
-    width={150}
-    height={150}
-  />
+<Canvas withSource="none" withToolbar>
+  <Story story={stories.sealExample} />
+  <Story story={stories.sealColorExample} />
 </Canvas>
 
 > The Great Seal of Massachusetts is in the custody of the [Office of the Secretary of the Commonwealth](http://www.sec.state.ma.us), who is the authority on how and when to use it. These draft guidelines are subject to their review and approval and will be updated as needed.
@@ -47,12 +38,10 @@ The official colors of the Great Seal are blue and gold with a white inner backg
 This is the primary color use of the Great Seal. Specific parts of the
 Great Seal are in gold, over a blue shield encapsulated in a
 blue circular rim, all resting on a white inner-background.
-<Image
-  alt="the Massachusetts state seal"
-  src={logo}
-  width={150}
-  height={150}
-/>
+
+<Canvas withSource="none">
+  <Story story={stories.sealColor} />
+</Canvas>
 
 [To-do: Color Swatches + Download Links + SVG]
 
@@ -61,15 +50,14 @@ blue circular rim, all resting on a white inner-background.
 Additionally, the Great Seal may also be
 presented in single-color black, white, and
 gray variants.
-<Image
-  alt="the Massachusetts state seal"
-  src={logoColor}
-  width={150}
-  height={150}
-/>
+
+<Canvas withSource="none">
+  <Story story={stories.seal} />
+  <Story story={stories.sealBlack} />
+  <Story story={stories.sealWhite} />
+</Canvas>
 
 [To-do: Examples + Color Swatches + Download Links + SVG]
-
 
 ## Usage
 The Great Seal should never be defaced, altered, skewed, or
