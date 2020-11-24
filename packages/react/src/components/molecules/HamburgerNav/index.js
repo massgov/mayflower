@@ -10,6 +10,7 @@ import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 
 export const HamburgerContext = React.createContext();
 export const useHamburgerNavKeydown = (closeMenu) => {
@@ -38,7 +39,10 @@ export const useHamburgerNavKeydown = (closeMenu) => {
         // Utility button state
         utilWideButton.setAttribute('aria-expanded', 'false');
         utilWideButton.setAttribute('aria-pressed', 'false');
-        utilWideButton.closest('.ma__header__hamburger__nav').classList.toggle('util-nav-content-open');
+        const parentHamburgerNav = utilWideButton.closest('.ma__header__hamburger__nav');
+        if (parentHamburgerNav) {
+          parentHamburgerNav.classList.toggle('util-nav-content-open');
+        }
       }
     }
     function closeNarrowUtilContent() {
@@ -60,8 +64,10 @@ export const useHamburgerNavKeydown = (closeMenu) => {
     // ESC to close menus.
     // 'e.key === "Esc"' is necessary for IE11.
     if (e.key === 'Escape' || e.key === 'Esc' || e.code === 'Escape') {
+      const utilNavWideContent = utilNavWide.querySelector('.js-util-nav-content');
+
       // Log in to... in Utility nav bar
-      if (utilNavWide.querySelector('.js-util-nav-content').style.opacity === '1') {
+      if (utilNavWideContent && utilNavWideContent.style.opacity === '1') {
         closeUtilWideContent();
         utilNavWide.querySelector('.js-util-nav-toggle').focus();
       }
@@ -200,15 +206,22 @@ export const useMenuButtonEffects = (menuButtonRef, toggleMenu) => {
   }, [menuButtonRef, toggleMenu]);
 };
 const HamburgerNav = ({
-  UtilityNav: RenderedUtilityNav = UtilityNav,
-  MainNav: RenderedMainNav = MainNav,
-  NavSearch: RenderedNavSearch = NavSearch,
-  Logo: RenderedLogo = Logo,
+  UtilityNav = null,
+  UtilityItem,
+  MainNav = null,
+  NavSearch = null,
+  Logo = null,
   mainItems = [],
-  utilityItems = []
+  utilityItems = [],
 }) => {
-  const utilityNav = (<RenderedUtilityNav items={utilityItems} narrow />);
+  const RenderedMainNav = MainNav || HamburgerMainNav;
+  const RenderedNavSearch = NavSearch;
+  const RenderedUtilityNav = UtilityNav || HamburgerUtilityNav;
+  const RenderedLogo = Logo;
+  const utilityNav = (utilityItems.length > 0 && <RenderedUtilityNav items={utilityItems} narrow UtilityItem={UtilityItem} />);
   const mainNav = (<RenderedMainNav items={mainItems} />);
+  const logo = (Logo && <RenderedLogo />);
+  const navSearch = (NavSearch && <RenderedNavSearch />);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
   const openMenu = React.useCallback(() => {
@@ -328,11 +341,25 @@ const HamburgerNav = ({
         menuButton.focus();
       }, 100);
 
-      if ((width > 840) && document.querySelector('.js-utility-nav--wide .ma__utility-nav__item .direct-link').hasAttribute('tabindex')) {
-        document.querySelector('.js-utility-nav--wide .ma__utility-nav__item .goog-te-menu-value').removeAttribute('tabindex');
-        document.querySelector('.js-utility-nav--wide .ma__utility-nav__item .direct-link').removeAttribute('tabindex');
-        document.querySelector('.js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle').removeAttribute('tabindex');
-        document.querySelector('.js-header-search-access-button').removeAttribute('tabindex');
+      if ((width > 840)) {
+        const directLink = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item .direct-link');
+        if (directLink && directLink.hasAttribute('tabindex')) {
+          const googleTeMenuValue = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value');
+          const jsUtilNavToggle = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle');
+          const searchAccessButton = document.querySelector('.js-header-search-access-button');
+          if (googleTeMenuValue) {
+            googleTeMenuValue.removeAttribute('tabindex');
+          }
+          if (directLink) {
+            directLink.removeAttribute('tabindex');
+          }
+          if (jsUtilNavToggle) {
+            jsUtilNavToggle.removeAttribute('tabindex');
+          }
+          if (searchAccessButton) {
+            searchAccessButton.removeAttribute('tabindex');
+          }
+        }
       }
 
       if (body.style.position === 'fixed') {
@@ -360,9 +387,18 @@ const HamburgerNav = ({
         hamburgerMenuContainer.removeAttribute('aria-hidden');
         openMenu();
         // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-        document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value').setAttribute('tabindex', '-1');
-        document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .direct-link').setAttribute('tabindex', '-1');
-        document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle').setAttribute('tabindex', '-1');
+        const googleTeMenuValue = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value');
+        const directLink = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .direct-link');
+        const jsUtilNavToggle = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle');
+        if (googleTeMenuValue) {
+          googleTeMenuValue.setAttribute('tabindex', '-1');
+        }
+        if (directLink) {
+          directLink.setAttribute('tabindex', '-1');
+        }
+        if (jsUtilNavToggle) {
+          jsUtilNavToggle.setAttribute('tabindex', '-1');
+        }
       }
     }
   }, [openMenu, closeMenu]);
@@ -403,20 +439,20 @@ const HamburgerNav = ({
               <IconSearch />
             </button>
           </div>
-          <RenderedUtilityNav items={utilityItems} translateId="google_translate_element_hamburger_2" narrow={false} />
-          <NavContainer Logo={RenderedLogo} mainNav={mainNav} utilityNav={utilityNav} NavSearch={RenderedNavSearch} className="ma__header__hamburger__nav-container" aria-hidden="true" />
+          <RenderedUtilityNav items={utilityItems} UtilityItem={UtilityItem} translateId="google_translate_element_hamburger_2" narrow={false} />
+          <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className="ma__header__hamburger__nav-container" aria-hidden="true" />
         </div>
       </nav>
     </HamburgerContext.Provider>
   );
 };
 
-export const MainNav = ({ NavItem: RenderedNavItem = NavItem, items = [] }) => (
+export const HamburgerMainNav = ({ NavItem: RenderedNavItem = NavItem, items = [] }) => (
   <div className="ma__main__hamburger-nav">
     <ul role="menubar" className="ma__main__hamburger-nav__items js-main-nav-hamburger">
       { items.map((item, itemIndex) => (
-          <RenderedNavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} />
-        ))}
+        <RenderedNavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} />
+      ))}
     </ul>
   </div>
 );
@@ -577,334 +613,35 @@ export const NavItem = ({ text, subNav = [], index }) => {
   );
 };
 
-export const UtilityNav = ({ translateId = '', narrow = true }) => {
+export const HamburgerUtilityItem = ({ children }) => (
+  <li className="ma__utility-nav__item">
+    {children}
+  </li>
+);
+
+export const HamburgerUtilityNav = ({
+  UtilityItem = HamburgerUtilityItem,
+  items = [],
+  narrow = true
+}) => {
   const wrapperClassName = classNames('ma__header__hamburger__utility-nav', {
     'ma__header__hamburger__utility-nav--narrow js-utility-nav--narrow': narrow,
     'ma__header__hamburger__utility-nav--wide js-utility-nav--wide': !narrow
   });
-  const loginToggleRef = React.useRef();
-  const loginContentRef = React.useRef();
-  const loginCloseRef = React.useRef();
-  React.useEffect(() => {
-    const utilButton = loginToggleRef.current;
-    const utilCloseButton = loginCloseRef.current;
-    const utilContent = loginContentRef.current;
-    const utilContainer = utilContent ? utilContent.querySelector('.ma__utility-nav__container') : null;
-    if (utilButton && utilCloseButton && utilContent) {
-      // Open
-      if (!narrow) {
-        const closeUtilWideContent = () => {
-          // Content state
-          utilContent.style.height = '0';
-          utilContent.style.opacity = '0';
-          utilContent.classList.add('is-closed');
-          utilContent.setAttribute('aria-hidden', 'true');
-          // Close button state
-          utilCloseButton.setAttribute('aria-expanded', 'false');
-          // Utility button state
-          utilButton.setAttribute('aria-expanded', 'false');
-          utilButton.setAttribute('aria-pressed', 'false');
-          utilButton.closest('.ma__header__hamburger__nav').classList.toggle('util-nav-content-open');
-        };
-        utilButton.addEventListener('click', (e) => {
-          const thisWideButton = e.target.closest('.js-util-nav-toggle');
-          const thisWideContent = thisWideButton.nextElementSibling;
 
-          if (thisWideContent.classList.contains('is-closed')) {//  To open
-            thisWideButton.closest('.ma__header__hamburger__nav').classList.add('util-nav-content-open');
-
-            thisWideContent.classList.remove('is-closed');
-            thisWideContent.removeAttribute('aria-hidden');
-            thisWideContent.removeAttribute('style');
-            thisWideContent.style.height = 'auto';
-            thisWideContent.style.opacity = '1';
-
-            // Button State
-            thisWideButton.setAttribute('aria-expanded', 'true');
-            thisWideButton.setAttribute('aria-pressed', 'true');
-          }
-
-          thisWideButton.setAttribute('aria-expanded', 'true');
-          thisWideButton.setAttribute('aria-pressed', 'true');
-        });
-        utilCloseButton.addEventListener('click', (e) => {
-          closeUtilWideContent();
-        });
-      } else {
-        const closeNarrowUtilContent = () => {
-          const thisNavContainer = utilButton.closest('.ma__utility-nav__item');
-          utilButton.setAttribute('aria-expanded', 'false');
-          utilContent.setAttribute('aria-hidden', 'true');
-          thisNavContainer.style.pointerEvents = 'none';
-          setTimeout(() => {
-            thisNavContainer.removeAttribute('style');
-          }, 700);
-          utilContent.style.maxHeight = '0';
-          utilContainer.style.opacity = '0';
-          setTimeout(() => {
-            utilContent.classList.add('is-closed');
-          }, 500);
-        };
-        utilContent.style.maxHeight = '0';
-        utilContainer.style.opacity = '0';
-
-        utilButton.addEventListener('click', (e) => {
-          const thisButton = e.target.closest('.js-util-nav-toggle');
-          const thisNavContainer = e.target.closest('.ma__utility-nav__item');
-          const utilNarrowContent = thisButton.nextElementSibling;
-
-          if (utilNarrowContent.classList.contains('is-closed')) {
-            // TO OPEN
-
-            closeSubMenu();
-
-            thisButton.setAttribute('aria-expanded', 'true');
-            utilNarrowContent.removeAttribute('aria-hidden');
-            thisNavContainer.style.pointerEvents = 'none';
-            /** Slide down. */
-            thisNavContainer.removeAttribute('style');
-
-            /** Show the content. */
-            utilNarrowContent.classList.remove('is-closed');
-            utilNarrowContent.style.maxHeight = 'auto';
-
-            /** Get the computed height of the content. */
-            const contentHeight = utilContent.querySelector('.ma__utility-nav__content-body').clientHeight + 'px';
-
-            /** Set the height of the submenu as 0px, */
-            /** so we can trigger the slide down animation. */
-            utilContent.style.maxHeight = '0';
-            utilContent.style.Height = '0';
-
-            // These height settings display the bottom border of the parent li at the correct spot.
-            utilContent.style.height = contentHeight;
-            utilContainer.style.height = contentHeight;
-
-            utilContent.style.maxHeight = contentHeight;
-            utilContainer.style.opacity = '1';
-          } else {
-            closeNarrowUtilContent();
-          }
-        });
-      }
-    }
-    
-    function closeSubMenu() {
-      const openSubMenu = document.querySelector('.submenu-open');
-
-      if (openSubMenu) {
-        const openSubMenuButton = openSubMenu.querySelector('.js-main-nav-hamburger__top-link');
-        const openSubMenuContent = openSubMenu.querySelector('.js-main-nav-hamburger-content');
-        const openSubMenuContainer = openSubMenu.querySelector('.js-main-nav-hamburger__container');
-
-        openSubMenuButton.setAttribute('aria-expanded', 'false');
-        openSubMenuContent.style.height = '0';
-        openSubMenuContainer.style.opacity = '0';
-
-        openSubMenuContent.classList.add('is-closed');
-
-        openSubMenu.removeAttribute('style');
-        openSubMenu.classList.remove('submenu-open');
-      }
-    }
-  }, [loginToggleRef, loginCloseRef, loginContentRef]);
   return(
     <div className={wrapperClassName}>
       <div className="ma__utility-nav js-util-nav">
         <ul className="ma__utility-nav__items">
-          <li className="ma__utility-nav__item">
-            <div className="ma__utility-nav__translate">
-              {translateId && <GoogleTranslateElement id={translateId} />}
-            </div>
-          </li>
-          <li className="ma__utility-nav__item">
-            <a className="ma__utility-nav__link direct-link" href="#">
-              <IconBuilding />
-              <span>State Organizations</span>
-            </a>
-          </li>
-          <li className="ma__utility-nav__item">
-            <button
-              ref={loginToggleRef}
-              type="button"
-              className="ma__utility-nav__link js-util-nav-toggle"
-              aria-haspopup="true"
-              aria-label="Log in links for this page"
-              aria-expanded="false"
-            >
-              <IconLogin />
-              <span>
-                Log in to...
-              </span>
-              <span className="toggle-indicator" aria-hidden="true" />
-            </button>
-            <div ref={loginContentRef} aria-hidden="true" className="ma__utility-nav__content js-util-nav-content is-closed">
-              <div className="ma__utility-nav__container">
-                <div className="ma__utility-nav__content-title">
-                  <button ref={loginCloseRef} type="button" className="ma__utility-nav__close js-close-util-nav">
-                    <span>Close</span>
-                    <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
-                  </button>
-                  <svg aria-hidden="true" focusable="false"><use xlinkHref="#5165fd979757da72f1a1a3a1b4595e1e.7" /></svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" version="1.1" viewBox="0 0 20 16" id="5165fd979757da72f1a1a3a1b4595e1e.7"><path d="M1338.67 19.6L1338.67 16.400000000000002L1345.3300000000002 22L1338.67 27.6L1338.67 24.400000000000002L1332 24.400000000000002L1332 19.6ZM1340.33 14L1340.33 15.6L1350.33 15.6L1350.33 28.4L1340.33 28.4L1340.33 30L1352 30L1352 14Z " transform="matrix(1,0,0,1,-1332,-14)" /></symbol></svg>
-                  <h2>Log in to...</h2>
-                </div>
-                <div className="ma__utility-nav__content-body">
-
-                  <div className="ma__utility-panel">
-                    <div className="ma__utility-panel__description ma__utility-panel__description--full">
-
-                      <div className="ma__rich-text ">
-                        <p>Login links for this page</p>
-                      </div>
-                    </div>
-
-                    <ul className="ma__utility-panel__items">
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href="#"
-                            className="js-clickable-link"
-                          >
-                            Contextual Login 1&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.422" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.422"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href=""
-                            className="js-clickable-link"
-                          >
-                            Contextual Login 2&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.423" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.423"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="ma__utility-panel">
-                    <div className="ma__utility-panel__description ma__utility-panel__description--full">
-
-                      <div className="ma__rich-text ">
-                        <p>These are the top requested sites you can log in to access state provided services</p>
-                      </div>
-                    </div>
-
-                    <ul className="ma__utility-panel__items">
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href="https://uionline.detma.org/Claimant/Core/Login.ASPX"
-                            className="js-clickable-link"
-                          >
-                            Unemployment Online&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.424" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.424"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href="https://sso.hhs.state.ma.us/oam/server/obrareq.cgi?encquery%3DA2%2Fmo5AkZreDycpyP0JZAEOYGvW2hviyNhH9Sht2xPp0V1%2BBtWfHnmRGr6zNHOqOlcjphPk7p6bpHHRyNzzk9IYQ%2FcN%2B%2FIcqL2ThnI217OsIKZepptTpGBx83SI0NWjsE7vDi72caItXWlelbGQT7ePanlrVUUy2%2Fj1UEUaXi5G7m47KO9djBnoetZRCtp9G2ZTNFf6zvCGU7Cs02AXYUj2JMH4aqol%2Bh3OK6uhJNNkFvwQ1MFRUa4gR1az4iaW9u83ExKb2a9eDv8ZIUqhlq3%2BNVGTqZHAsHX4KOONSGQRBwCtLNPWwruacjdd9CaEqeIJ2tnP45KrM93edZ6zU1yoWGbAp%2BUWWMqk4HyrtuA8%3D%20agentid%3Dwebgate1%20ver%3D1%20crmethod%3D2"
-                            className="js-clickable-link"
-                          >
-                            Virtual Gateway (SNAP)&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.425" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.425"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href="https://ecse.cse.state.ma.us/ECSE/Login/login.asp"
-                            className="js-clickable-link"
-                          >
-                            Child Support Enforcement&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.426" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.426"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href="https://mtc.dor.state.ma.us/mtc/_/"
-                            className="js-clickable-link"
-                          >
-                            MassTaxConnect&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.427" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.427"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href="https://atlas-myrmv.massdot.state.ma.us/myrmv/"
-                            className="js-clickable-link"
-                          >
-                            myRmv&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.428" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.428"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href="https://www.mahealthconnector.org/"
-                            className="js-clickable-link"
-                          >
-                            Massachusetts Health Connector&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.429" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.429"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href="https://juryduty.majury.gov/ojcweb/public/start.aspx"
-                            className="js-clickable-link"
-                          >
-                            Massachusetts Juror Service Website&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.430" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.430"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                      <li className="ma__utility-panel__item js-clickable">
-                        <span className="ma__decorative-link">
-                          <a
-                            href="https://massanf.taleo.net/careersection/ex/jobsearch.ftl"
-                            className="js-clickable-link"
-                          >
-                            Find a Commonwealth Job&nbsp;
-                            <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.431" /></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.431"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-                          </a>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </li>
+          {items.map((ItemComponent, index) => (
+            <UtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></UtilityItem>
+          ))}
         </ul>
       </div>
     </div>
   );
 };
-export const NavSearch = () => (
+export const HamburgerNavSearch = () => (
   <div className="ma__header__hamburger__search ma__header__hamburger__search-bar js-header-search-menu">
     <div className="ma__header-search">
       <form action="#" className="ma__form js-header-search-form" role="search">
@@ -921,17 +658,13 @@ export const NavSearch = () => (
           type="search"
           inputMode="search"
         />
-        <button type="submit" className="ma__button-search--secondary">
-          <span className="ma__button-search__label">Search</span>
-          <svg aria-hidden="true" focusable="false"><use xlinkHref="#ca4a8fa24c4f86ebb9d78a0f427445d0.12" /></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" version="1.1" viewBox="0 0 20 20" id="ca4a8fa24c4f86ebb9d78a0f427445d0.12"><path d="M1424.99 107.4L1419.66 102.105C1420.44 100.884 1420.89 99.4383 1420.89 97.8892C1420.89 93.54 1417.3300000000002 90 1412.95 90C1408.57 90 1405.01 93.54 1405.01 97.89C1405.01 102.241 1408.57 105.781 1412.95 105.781C1414.43 105.781 1415.82 105.375 1417.01 104.67L1422.3799999999999 110ZM1407.97 97.89C1407.97 95.1625 1410.2 92.9416 1412.95 92.9416C1415.7 92.9416 1417.93 95.1617 1417.93 97.89C1417.93 100.619 1415.7 102.839 1412.95 102.839C1410.2 102.839 1407.97 100.619 1407.97 97.89Z " transform="matrix(1,0,0,1,-1405,-90)" /></symbol></svg>
-        </button>
+        <ButtonWithIcon usage="secondary" icon={<IconSearch />}>Search</ButtonWithIcon>
       </form>
     </div>
   </div>
 );
 
-export const Logo = ({ mobile = true }) => {
+export const HamburgerLogo = ({ mobile = true }) => {
   const classes = classNames('ma__header__hamburger__logo', {
     'ma__header__hamburger__logo--mobile': mobile
   });
@@ -955,10 +688,10 @@ export const Logo = ({ mobile = true }) => {
   );
 };
 
-export const Container = ({ Logo: RenderedLogo = Logo, NavSearch: RenderedNavSearch = NavSearch }) => (
+export const Container = ({ Logo = HamburgerLogo, NavSearch = HamburgerNavSearch }) => (
   <div className="ma__header__container">
-    <RenderedLogo mobile={false} />
-    <RenderedNavSearch />
+    {Logo && <Logo mobile={false} />}
+    {NavSearch && <NavSearch />}
   </div>
 );
 

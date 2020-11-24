@@ -2,14 +2,14 @@ import React from 'react';
 
 const NavContainer = ({
   mainNav,
-  NavSearch,
-  Logo,
+  navSearch,
+  logo,
   utilityNav,
   ...rest
 }) => (
   <div {...rest}>
-    { Logo && <Logo />}
-    { NavSearch && <NavSearch />}
+    { logo && logo}
+    { navSearch && navSearch}
     { mainNav && mainNav }
     { utilityNav && utilityNav }
   </div>

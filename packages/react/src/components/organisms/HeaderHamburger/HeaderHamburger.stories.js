@@ -1,13 +1,11 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 import { action } from '@storybook/addon-actions';
-import { HeaderUtilityNav } from 'MayflowerReactMolecules/HeaderNav';
+import mainItems from './main-nav.data';
+import HeaderHamburger from './index';
 import GoogleTranslateElement from 'MayflowerReactButtons/GoogleTranslateElement';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
-
-import mainItems from './main-nav.data';
-import Header from './index';
 
 const LoginItem = ({ narrow }) => {
   const loginToggleRef = React.useRef();
@@ -32,21 +30,14 @@ const LoginItem = ({ narrow }) => {
           // Utility button state
           utilButton.setAttribute('aria-expanded', 'false');
           utilButton.setAttribute('aria-pressed', 'false');
-          const parentHamburgerNav = utilButton.closest('.ma__header__hamburger__nav');
-          if (parentHamburgerNav) {
-            parentHamburgerNav.classList.toggle('util-nav-content-open');
-          }
+          utilButton.closest('.ma__header__hamburger__nav').classList.toggle('util-nav-content-open');
         };
         utilButton.addEventListener('click', (e) => {
           const thisWideButton = e.target.closest('.js-util-nav-toggle');
           const thisWideContent = thisWideButton.nextElementSibling;
 
-          if (thisWideContent.classList.contains('is-closed')) {
-            //  To open
-            const parentHamburgerNav = thisWideButton.closest('.ma__header__hamburger__nav');
-            if (parentHamburgerNav) {
-              parentHamburgerNav.classList.add('util-nav-content-open');
-            }
+          if (thisWideContent.classList.contains('is-closed')) {//  To open
+            thisWideButton.closest('.ma__header__hamburger__nav').classList.add('util-nav-content-open');
 
             thisWideContent.classList.remove('is-closed');
             thisWideContent.removeAttribute('aria-hidden');
@@ -339,40 +330,20 @@ const StateItem = () => (
     <span>State Organizations</span>
   </a>
 );
-export const HeaderExample = (args) => <Header {...args} />;
-HeaderExample.args = {
+
+export const HeaderHamburgerExample = (args) => <HeaderHamburger {...args} />;
+HeaderHamburgerExample.args = {
   utilityItems: [
-    TranslateItem,
-    StateItem,
-    LoginItem
+     TranslateItem,
+     StateItem,
+     LoginItem
   ],
   mainItems
 };
-HeaderExample.storyName = 'Default';
-
-export const HeaderWithoutMainNav = (args) => <Header {...args} />;
-HeaderWithoutMainNav.args = {
-  mainItems: [],
-  utilityItems: [
-    TranslateItem,
-    StateItem,
-    LoginItem
-  ],
-};
-
-export const HeaderWithoutUtilityNav = (args) => <Header {...args} />;
-HeaderWithoutUtilityNav.args = {
-  utilityItems: [],
-  mainItems
-};
-export const HeaderWithoutUtilityMainSearch = (args) => <Header {...args} />;
-HeaderWithoutUtilityMainSearch.args = {
-  NavSearch: null,
-  mainItems: [],
-};
+HeaderHamburgerExample.storyName = 'Default';
 export default {
-  title: 'organisms/Header',
-  component: Header,
+  title: 'organisms/HeaderHamburger',
+  component: HeaderHamburger,
   parameters: {
     docs: {
       page: () => <StoryPage />
