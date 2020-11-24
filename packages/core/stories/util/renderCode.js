@@ -20,7 +20,7 @@ export const renderReactMarkup = (component, notes) => {
     plugins: [parserHtml]
   });
   // Replaces the path to the state seal with the latest assets CDN.
-  return prettyMarkup.replace(/static\/media\/stateseal?([a-z|\-]+)\.(.*)\.png/, `${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.png`);
+  return prettyMarkup.replace(/static\/media\/stateseal?([a-z|\-]*)\.(.*)\.png/, `${STORYBOOK_CDN_PATH}/static/images/logo/stateseal$1.png`);
 }
 
 // can't pass DocsContext from .mdx
