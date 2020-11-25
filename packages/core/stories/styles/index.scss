@@ -52,11 +52,15 @@
 	border: 0 !important;
 }
 
-// Intro story
-.row.ma__row--three-up {
+// Correct margins
+.row.ma__row--three-up,
+.row.ma__row--two-up {
   margin-left: -15px;
   margin-right: -15px;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
+
 // Match row height
 .ma__section-links {
   height: 100%;
