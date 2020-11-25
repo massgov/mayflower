@@ -72,8 +72,10 @@ ul.sg-colors {
 }
 
 // Button story
-.ma__button-group {
-  button:not(:first-child) {
+.ma__row {
+  display: flex;
+  flex-direction: row;
+  & > *:not(:first-child) {
     margin-left: 1rem;
   }
 }
