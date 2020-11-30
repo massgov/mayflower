@@ -18,7 +18,7 @@ Organizations that have their own visual identity are invited to extend this col
 
 <ul className="sg-colors">
   {
-    themeColors.map((color, i) => <ColorSwatch key={`themeColors${i}`} {...color} variable={color.token} />)
+    themeColors.map((color, i) => <li key={`themeColors${i}`}><ColorSwatch {...color} variable={color.token} /></li>)
   }
 </ul>
 
@@ -35,7 +35,7 @@ and backgrounds.
 
 <ul className="sg-colors">
   {
-    primaryColors.map((color, i) => <ColorSwatch key={`primaryColors${i}`} {...color} />)
+    primaryColors.map((color, i) => <li key={`primaryColors${i}`}><ColorSwatch  {...color} /></li>)
   }
 </ul>
 
@@ -46,7 +46,7 @@ buttons, and backgrounds.
 
 <ul className="sg-colors">
   {
-    primaryAltColors.map((color, i) => <ColorSwatch key={`primaryAltColors${i}`} {...color} />)
+    primaryAltColors.map((color, i) => <li key={`primaryAltColors${i}`}><ColorSwatch  {...color} /></li>)
   }
 </ul>
 
@@ -58,7 +58,7 @@ information that usually is time sensitive.
 
 <ul className="sg-colors">
   {
-    highLightColors.map((color, i) => <ColorSwatch key={`highLightColors${i}`} {...color} />)
+    highLightColors.map((color, i) => <li key={`highLightColors${i}`}><ColorSwatch {...color} /></li>)
   }
 </ul>
 
@@ -69,7 +69,7 @@ A set of neutral color used to complement and balance primary and secondary colo
 
 <ul className="sg-colors">
   {
-    grayScaleColors.map((color, i) => <ColorSwatch key={`grayScaleColors${i}`} {...color} />)
+    grayScaleColors.map((color, i) => <li key={`grayScaleColors${i}`}><ColorSwatch {...color} /></li>)
   }
 </ul>
 
@@ -78,7 +78,7 @@ Colors that are to convey a specific meaning or serve a particular purpose.
 
 <ul className="sg-colors">
   {
-    utilityColors.map((color, i) => <ColorSwatch key={`utilityColors${i}`} {...color} />)
+    utilityColors.map((color, i) => <li key={`utilityColors${i}`}><ColorSwatch {...color} /></li>)
   }
 </ul>
 

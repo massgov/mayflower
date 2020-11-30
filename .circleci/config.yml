@@ -393,6 +393,7 @@ workflows:
             branches: { ignore: /(docs|patternlab\/|react\/|core\/).*/ }
 
   # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
+  # Release branch automation every Monday at 3:45 p.m. ET "45 19 * * 1" (temp)
   release:
     jobs:
       - build
@@ -400,7 +401,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "00 18 * * 1"
+          cron: "45 19 * * 1"
           filters:
             branches:
               only:

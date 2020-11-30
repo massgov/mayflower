@@ -1,3 +1,5 @@
+import mayflowerTheme from './mayflowerTheme';
+
 const storyKindOrder = [
   'Get Started',
   'Design Principles',
@@ -16,5 +18,8 @@ export const parameters = {
   previewTabs: {
       canvas: { hidden: true }
   },
-  viewMode: 'docs'
+  viewMode: 'docs',
+	docs: {
+    theme: mayflowerTheme,
+  }
 }

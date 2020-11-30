@@ -1,7 +1,8 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import Image from '@massds/mayflower-react/dist/Image';
-import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
-import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.png';
+import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
+import IconDownload from '@massds/mayflower-react/dist/Icon/IconDownload';
+import { ColorSwatch } from '../colors/ColorDisplay';
+import * as stories from './Logo.stories.js';
 
 import generateTitle from '../../util/generateTitle';
 const { STORYBOOK_CDN_PATH } = process.env;
@@ -15,105 +16,130 @@ const { STORYBOOK_CDN_PATH } = process.env;
 
 # The Great Stateseal
 
-The Great Seal should only be used for official communications and publications to convey the Commonwealth’s identity and authority across different state departments.
-It should not be used for personal or private materials outside of the jurisdiction of your office, department, or agency, including in contractor, vendor, or third-party communications. By law, it cannot be used for advertising or commercial purposes.
-
-<Canvas withSource="none">
-  <Image
-    alt="the Massachusetts state seal"
-    src={logo}
-    width={150}
-    height={150}
-  />
-  <Image
-    alt="the Massachusetts state seal"
-    src={logoColor}
-    width={150}
-    height={150}
-  />
+<Canvas withSource="none" withToolbar>
+  <Story story={stories.sealExample} />
+  <Story story={stories.sealColorExample} />
 </Canvas>
 
-> The Great Seal of Massachusetts is in the custody of the [Office of the Secretary of the Commonwealth](http://www.sec.state.ma.us), who is the authority on how and when to use it. These draft guidelines are subject to their review and approval and will be updated as needed.
+The Great Seal of Massachusetts is in the custody of the [Office of the Secretary of the Commonwealth](http://www.sec.state.ma.us), who is the authority on how and when to use it. These draft guidelines are subject to their review and approval and will be updated as needed.
+
+According the [public records on the Massachusetts state seal](https://www.sec.state.ma.us/pre/presea/sealhis.htm):
+>The great seal of the Commonwealth shall be circular in form, and shall bear upon its face a representation of the arms of the Commonwealth, with an inscription round about such representation, consisting of the words "Sigillum Reipublicae Massachusettensis";
+> The arms, which form the central part of the Great Seal shall consist of a shield, whereof the field or surface is blue, and thereon an Indian dressed in his shirt and moccasins, holding in his right hand a bow, and in his left hand an arrow, point downward, all of gold; and in the upper corner above his right arm, a silver star with five points. The crest shall be a wreath of blue and gold, whereon is a right arm, bent at the elbow, and clothed and ruffled, the hand grasping a broadsword, all of gold. The motto shall be "Ense petit placidam sub libertate quietem."
+
+<br />
+
+## Restrictions
+
+The Great Seal should ***only*** be used for official communications and publications to convey the Commonwealth’s identity and authority across different state departments.
+It should ***not*** be used for personal or private materials outside of the jurisdiction of your office, department, or agency, including in contractor, vendor, or third-party communications. By law, it ***cannot*** be used for advertising or commercial purposes. Contact the Public Records Division at [617-727-2832](tel:6177272832) with any questions regarding appropriate uses.
+
+The Great Seal should ***never*** be defaced, altered, skewed, or modified in any way.  Please download the approved seal images below or request them directly from  from Office of the Secretary of the Commonwealth.
+
 
 <br />
 
 ## Variations
 
-The official colors of the Great Seal are blue and gold with a white inner background. However, the seal may also be used in the following colors: black, white and grey.
+The official colors of the Great Seal are blue and gold with a white inner background. However, the seal is also approved to be used in the following colors: gray, black and white.
 
 
 ### Three-color reproduction
 
-This is the primary color use of the Great Seal. Specific parts of the
-Great Seal are in gold, over a blue shield encapsulated in a
-blue circular rim, all resting on a white inner-background.
-<Image
-  alt="the Massachusetts state seal"
-  src={logo}
-  width={150}
-  height={150}
-/>
+This is the primary color use of the Great Seal. Specific parts of the Great Seal are in gold, over a blue shield encapsulated in a blue circular rim, all resting on a white inner-background.
 
-[To-do: Color Swatches + Download Links + SVG]
+<div className="ma__row">
+  <ColorSwatch value="#00649b" width={20} height={20} copiable={false} inline />
+  <ColorSwatch value="#fdb827" width={20} height={20} copiable={false} inline />
+  <ColorSwatch value="#ffffff" width={20} height={20} copiable={false} inline />
+</div>
+
+**Usage:** It can be used with all backgrounds.
+
+<div className="ma__row">
+  <ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalizedhref={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.png`} download />
+</div>
+
+<Canvas withSource="none">
+  <Story story={stories.sealColor} />
+  <Story story={stories.sealColorBGLight} />
+  <Story story={stories.sealColorBGDark} />
+</Canvas>
 
 ### Single-color reproduction
 
-Additionally, the Great Seal may also be
-presented in single-color black, white, and
-gray variants.
-<Image
-  alt="the Massachusetts state seal"
-  src={logoColor}
-  width={150}
-  height={150}
-/>
-
-[To-do: Examples + Color Swatches + Download Links + SVG]
+Additionally, the Great Seal may also be presented in a single-color of black, white, and gray. These monochromatic options are transparent in backgrounds, and should be placed on appropriate background colors to ensure sufficient constrast for clear visibility.
 
 
-## Usage
-The Great Seal should never be defaced, altered, skewed, or
-modified in any way. Please note this list does not
-cover all examples. If you have any
-questions, please reach out to Mass Digital
-or the Secretary of the Commonwealth’s
-office.
+#### Gray
+
+<ColorSwatch value="#777777" width={20} height={20} copiable={false} inline />
+
+**Usage:** It should only be used on light backgrounds with enough contrast. Mayflower Header and Footer are using the gray seal with a very light gray (plat) background.
+
+<div className="ma__row">
+  <ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalizedhref={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.png`} download />
+</div>
+
+<Canvas withSource="none">
+  <Story story={stories.seal} />
+  <Story story={stories.sealBGLight} />
+  <Story story={stories.sealBGLight1} />
+</Canvas>
+
+#### Black
+
+<ColorSwatch value="#000000" width={20} height={20} copiable={false} inline />
+
+**Usage:** It should only be used on light backgrounds with enough contrast.
+
+<div className="ma__row">
+  <ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalizedhref={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-black.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-black.png`} download />
+</div>
+
+<Canvas withSource="none">
+  <Story story={stories.sealBlack} />
+  <Story story={stories.sealBlackBGLight} />
+  <Story story={stories.sealBlackBGLight1} />
+</Canvas>
 
 
-### Background Colors
-The Great Seal almost always appears on a white background, but
-may appear on a colored background if significant contrast is
-present. We recommend the following examples of seal options
-for light and dark backgrounds to ensure that the seal is always
-clearly visible.
+#### White
+
+<ColorSwatch value="#ffffff" width={20} height={20} copiable={false} inline />
+
+**Usage:** It should only be used on dark backgrounds with enough contrast.
+
+<div className="ma__row">
+  <ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-white.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-white.png`} download />
+</div>
+
+<Canvas withSource="none">
+  <Story story={stories.sealWhiteBGDark} />
+  <Story story={stories.sealWhiteBGDark1} />
+</Canvas>
+
+
+
+
+## Accessibility & Best Practices
 
 ### Sizing
-When reproducing the state seal, it must
-remain proportionate and legible relative
-to its size. It should never be so small that
-it is no longer distinguishable, as it will no
-longer serve its main purpose of
-identifying official communications from
-the Commonwealth.
+When reproducing the state seal, it must remain proportionate and legible relative to its size. It should never be so small that it is no longer distinguishable, as it will no longer serve its main purpose of identifying official communications from the Commonwealth.
 
 | Medium  | Recommended Size |
 |---|---|
 |**Print**   | 1 in x 1 in  |
 |**Digital**  | 45px x 45px  |
 
-Exception to the rule: The Great Seal may appear smaller than 45px
-when a software application or website requires an icon of a specific
-size, such as a website “favicon.”
+Exception to the rule: The Great Seal may appear smaller than 45px when a software application or website requires an icon of a specific size, such as a website “favicon.”
 
 
 ### Spacing
-The Great Seal should always have plenty
-of clear and empty space around it in
-order to distinguish it from the other
-design elements, including other graphics,
-and text.
+The Great Seal should always have plenty of clear and empty space around it in order to distinguish it from the other design elements, including other graphics,and text.
 
-The Great Seal should never collide or intersect with other objects.
-The minimum white space that should be reserved around the
-Great Seal is equal to 25% of the seal’s width , or roughly about the
-size of the shield’s width within the Seal.
+The Great Seal should never collide or intersect with other objects. The minimum white space that should be reserved around the Great Seal is equal to 25% of the seal’s width , or roughly about the size of the shield’s width within the Seal.
