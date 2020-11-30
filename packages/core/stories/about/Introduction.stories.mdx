@@ -5,60 +5,104 @@ import {
 
 import '../styles/index.scss';
 
-
 import generateTitle from '../util/generateTitle';
 
 <Meta title={generateTitle('Introduction')} />
 
 # Welcome to Mayflower
 
-Mayflower is a living styleguide for the Massachusetts state government — providing guidance and tools for Massachusetts state agencies to create a cohesive government identity and trustworthy look and feel across Commonwealth digital ecosystem.
+Mayflower is the design system for the government of the state of Massachusetts. It's a tool state agencies can use to develop and maintain digital experiences that provide a consistent and trustworthy look and feel across our digital ecosystem.
 
-The goal for Mayflower styleguide is to to help Massachusetts state organizations to easily and quickly apply the Commonwealth branding, follow to best practices, and create a consistent and delightly digital experience regardless of the technology stacks. Refer to the following three areas to "Mayflowerize" your product:
+Read more below for in-depth information about the stystem or go to [Quick Start](quickstart) to dive right in and start using Mayflower.
 
-- **Design principles** are the guiding theories and rationales for the Mayflower brand and other implementation ground rules, where all the system-wide design decisions and best practices are rooted in.
-
-- **Design tokens** are assets and variables referenced and propagated throughout the design system.
-
-- **Branding components** are the templating components, such as Headers and Footers, and other base elements, such as Heading, Links, Buttons, that are frequently used in all web products.
-
-<div className="row ma__row--three-up">
+<!-- This is using the full markup because links will not work with a generated component (as far as I can tell) -->
+<div className="sandbox row ma__row--three-up">
   <div className="col-md">
-    <SectionLinks
-      title={{
-        text: 'Design Principles'
-      }}
-      description="Follow these high-level guides when making decisions on design and development of any digital or print products, and when adopting or contributing to Mayflower."
-      index={0}
-    >
-      <DecorativeLink text="Brand Pillars" href="" />
-      <DecorativeLink text="Design Guidelines" href="" />
-    </SectionLinks>
+    <section className="ma__section-links">
+			<div className="ma__section-links__content">
+				<h2 className="ma__section-links__title">Principles</h2>
+				<p className="ma__section-links__description">The design thinking behind the Mayflower system and its implementation. Use this when starting design and development of any new project or when contributing to Mayflower.</p>
+	      <ul className="ma__section-links__items">
+					<li className="ma__section-links__item">
+						<span className="ma__decorative-link">
+							<a href="http://localhost:6006/?path=/docs/principles-brand-pillars--page">Brand Pillars&nbsp;
+								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
+								</svg>
+							</a>
+						</span>
+					</li>
+				</ul>
+			</div>
+    </section>
   </div>
   <div className="col-md">
-    <SectionLinks
-      title={{
-        text: 'Design Tokens'
-      }}
-      description="Apply these basic design vocabulary and assets to achieve a cohesive visual brand across various mediums and tech stacks. "
-      index={1}
-      >
-      <DecorativeLink text="Colors" href="" />
-      <DecorativeLink text="Typography" href="" />
-      <DecorativeLink text="Logo" href="" />
-      <DecorativeLink text="Icons" href="" />
-    </SectionLinks>
+		<section className="ma__section-links">
+			<div className="ma__section-links__content">
+				<h2 className="ma__section-links__title">Foundation</h2>
+				<p className="ma__section-links__description">The raw materials of the Mayflower system. In general you don't need to 'do' anything to appy these since they are baked into all elements and components, but they are helpful if you need to alter, extend or contribute back to the project.</p>
+				<ul className="ma__section-links__items">
+					<li className="ma__section-links__item">
+						<span className="ma__decorative-link">
+							<a href="http://localhost:6006/?path=/docs/foundation-logo--seal-example">Logo&nbsp;
+								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
+								</svg>
+							</a>
+						</span>
+					</li>
+					<li className="ma__section-links__item">
+						<span className="ma__decorative-link">
+							<a href="http://localhost:6006/?path=/docs/foundation-color--page">Color&nbsp;
+								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
+								</svg>
+							</a>
+						</span>
+					</li>
+					<li className="ma__section-links__item">
+						<span className="ma__decorative-link">
+							<a href="http://localhost:6006/?path=/docs/foundation-typography--page">Typography&nbsp;
+								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
+								</svg>
+							</a>
+						</span>
+					</li>
+					<li className="ma__section-links__item">
+						<span className="ma__decorative-link">
+							<a href="http://localhost:6006/?path=/docs/foundation-iconography--icons">Iconography&nbsp;
+								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
+								</svg>
+							</a>
+						</span>
+					</li>
+				</ul>
+			</div>
+		</section>
   </div>
   <div className="col-md">
-    <SectionLinks
-      title={{
-        text: 'Brand Touch Points'
-      }}
-      description="Learn about how to implement these components quickly to achieve a consistent look and feel with the other Commonwealth digital products by reusing the design and code."
-      index={2}
-      >
-      <DecorativeLink text="Branding Components" href="" />
-      <DecorativeLink text="Base Elements" href="" />
-    </SectionLinks>
+		<section className="ma__section-links">
+			<div className="ma__section-links__content">
+				<h2 className="ma__section-links__title">Elements and Components</h2>
+				<nav className="ma__section-links__toggle-content">
+					<p className="ma__section-links__description">The building blocks, in both design and code, for everything from buttons and links to complex components like our responsive nav, along with helpful instructions on how to use them.</p>
+					<ul className="ma__section-links__items">
+						<li className="ma__section-links__item">
+							<span className="ma__decorative-link">
+								<a href="http://localhost:6006/?path=/docs/elements-buttons--test">Elements&nbsp;
+									<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
+									</svg>
+								</a>
+							</span>
+						</li>
+						<li className="ma__section-links__item">
+							<span className="ma__decorative-link">
+								<a href="http://localhost:6006/?path=/docs/components-header--header-example">Components&nbsp;
+									<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
+									</svg>
+								</a>
+							</span>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</section>
   </div>
 </div>
