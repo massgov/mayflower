@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
@@ -203,19 +204,21 @@ const HamburgerNav = ({
   UtilityNav = null,
   UtilityItem,
   MainNav = null,
+  NavItem,
   NavSearch = null,
   Logo = null,
   mainItems = [],
-  utilityItems = [],
+  utilityItems = []
 }) => {
   const RenderedMainNav = MainNav || HamburgerMainNav;
-  const RenderedNavSearch = NavSearch;
   const RenderedUtilityNav = UtilityNav || HamburgerUtilityNav;
-  const RenderedLogo = Logo;
+  // If UtilityItem or NavItem is set to null by default, this will NOT work:
+  // If UtilityItem is undefined, UtilityNav will fallback to HamburgerUtilityItem.
   const utilityNav = (utilityItems.length > 0 && <RenderedUtilityNav items={utilityItems} narrow UtilityItem={UtilityItem} />);
-  const mainNav = (<RenderedMainNav items={mainItems} />);
-  const logo = (Logo && <RenderedLogo />);
-  const navSearch = (NavSearch && <RenderedNavSearch />);
+  // If NavItem is undefined, HamburgerMainNav falls back to HamburgerNavItem.
+  const mainNav = (<RenderedMainNav NavItem={NavItem} items={mainItems} />);
+  const logo = (Logo && <Logo />);
+  const navSearch = (NavSearch && <NavSearch />);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
   const openMenu = React.useCallback(() => {
@@ -433,7 +436,7 @@ const HamburgerNav = ({
               <IconSearch />
             </button>
           </div>
-          <RenderedUtilityNav items={utilityItems} UtilityItem={UtilityItem} translateId="google_translate_element_hamburger_2" narrow={false} />
+          <RenderedUtilityNav items={utilityItems} UtilityItem={UtilityItem} narrow={false} />
           <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className="ma__header__hamburger__nav-container" aria-hidden="true" />
         </div>
       </nav>
@@ -441,17 +444,56 @@ const HamburgerNav = ({
   );
 };
 
-export const HamburgerMainNav = ({ NavItem: RenderedNavItem = NavItem, items = [] }) => (
+HamburgerNav.propTypes = {
+  /** An uninstantiated component which handles displaying the utility nav. */
+  UtilityNav: propTypes.elementType,
+  /** An uninstantiated component which handles displaying individual items within the utility nav. */
+  UtilityItem: propTypes.elementType,
+  /** An uninstantiated component which handles displaying menu portion of the header. */
+  MainNav: propTypes.elementType,
+  /** An uninstantiated component which handles displaying individual menu items within the menu. */
+  NavItem: propTypes.elementType,
+  /** An uninstantiated component which handles displaying the site logo. */
+  Logo: propTypes.elementType,
+  /** An uninstantiated component which handles search functionality. */
+  NavSearch: propTypes.elementType,
+  /** An array of items used to create the menu. */
+  mainItems: propTypes.arrayOf(propTypes.shape({
+    href: propTypes.string,
+    text: propTypes.string,
+    subNav: propTypes.arrayOf(propTypes.shape({
+      href: propTypes.string,
+      text: propTypes.string
+    }))
+  })),
+  /** An array of uninstantiated components to render within the utility navigation.  */
+  utilityItems: propTypes.arrayOf(propTypes.elementType)
+};
+
+export const HamburgerMainNav = ({ NavItem = HamburgerNavItem, items = [] }) => (
   <div className="ma__main__hamburger-nav">
     <ul role="menubar" className="ma__main__hamburger-nav__items js-main-nav-hamburger">
       { items.map((item, itemIndex) => (
-        <RenderedNavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} />
+        <NavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} />
       ))}
     </ul>
   </div>
 );
+HamburgerMainNav.propTypes = {
+  /** An uninstantiated component which handles displaying individual menu items within the menu. */
+  NavItem: propTypes.elementType,
+  /** An array of items used to create the menu. */
+  items: propTypes.arrayOf(propTypes.shape({
+    href: propTypes.string,
+    text: propTypes.string,
+    subNav: propTypes.arrayOf(propTypes.shape({
+      href: propTypes.string,
+      text: propTypes.string
+    }))
+  }))
+};
 
-export const NavItem = ({ text, subNav = [], index }) => {
+export const HamburgerNavItem = ({ text, subNav = [], index }) => {
   const classes = classNames('ma__main__hamburger-nav__item js-main-nav-hamburger-toggle', {
     'has-subnav': subNav.length > 0
   });
@@ -606,12 +648,24 @@ export const NavItem = ({ text, subNav = [], index }) => {
     </li>
   );
 };
+HamburgerNavItem.propTypes = {
+  text: propTypes.string,
+  subNav: propTypes.arrayOf(propTypes.shape({
+    href: propTypes.string,
+    text: propTypes.string
+  })),
+  index: propTypes.oneOfType([propTypes.number, propTypes.string])
+};
 
 export const HamburgerUtilityItem = ({ children }) => (
   <li className="ma__utility-nav__item">
     {children}
   </li>
 );
+
+HamburgerUtilityItem.propTypes = {
+  children: propTypes.node
+};
 
 export const HamburgerUtilityNav = ({
   UtilityItem = HamburgerUtilityItem,
@@ -635,6 +689,14 @@ export const HamburgerUtilityNav = ({
     </div>
   );
 };
+HamburgerUtilityNav.propTypes = {
+  /** An uninstantiated component which handles displaying individual items within the utility nav. */
+  UtilityItem: propTypes.elementType,
+  /** An array of uninstantiated components to render within the utility navigation.  */
+  items: propTypes.arrayOf(propTypes.elementType),
+  /** A boolean representing when the UtilityNav is being displayed within a narrow screen. */
+  narrow: propTypes.bool
+};
 export const HamburgerNavSearch = () => (
   <div className="ma__header__hamburger__search ma__header__hamburger__search-bar js-header-search-menu">
     <div className="ma__header-search">
@@ -652,7 +714,7 @@ export const HamburgerNavSearch = () => (
           type="search"
           inputMode="search"
         />
-        <ButtonWithIcon usage="secondary" icon={<IconSearch />}>Search</ButtonWithIcon>
+        <ButtonWithIcon usage="secondary" icon={<IconSearch />} text="Search" />
       </form>
     </div>
   </div>
@@ -681,6 +743,10 @@ export const HamburgerLogo = ({ mobile = true }) => {
     </div>
   );
 };
+HamburgerLogo.propTypes = {
+  /** A prop that is true when the logo is displayed on a mobile device. */
+  mobile: propTypes.bool
+};
 
 export const Container = ({ Logo = HamburgerLogo, NavSearch = HamburgerNavSearch }) => (
   <div className="ma__header__container">
@@ -689,4 +755,10 @@ export const Container = ({ Logo = HamburgerLogo, NavSearch = HamburgerNavSearch
   </div>
 );
 
+Container.propTypes = {
+  /** An uninstantiated component which handles displaying the site logo. */
+  Logo: propTypes.elementType,
+  /** An uninstantiated component which handles search functionality. */
+  NavSearch: propTypes.elementType
+};
 export default HamburgerNav;

@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
@@ -10,19 +11,19 @@ const HeaderNav = ({
   UtilityNav = HeaderUtilityNav,
   UtilityItem,
   MainNav = null,
+  NavItem,
   Logo = null,
   NavSearch = HeaderNavSearch,
   ButtonContainer = HeaderButtonContainer,
   mainItems = [],
   utilityItems = []
 }) => {
-
   const RenderedMainNav = MainNav || HeaderMainNav;
   const RenderedNavSearch = NavSearch || HeaderNavSearch;
   const RenderedUtilityNav = UtilityNav || HeaderUtilityNav;
   const RenderedLogo = Logo || HeaderLogo;
   const utilityNav = (utilityItems.length > 0 && <RenderedUtilityNav UtilityItem={UtilityItem} items={utilityItems} narrow />);
-  const mainNav = (mainItems.length > 0 && <RenderedMainNav items={mainItems} />);
+  const mainNav = (mainItems.length > 0 && <RenderedMainNav NavItem={NavItem} items={mainItems} />);
   const logo = (Logo && RenderedLogo && <RenderedLogo />);
   const navSearch = (NavSearch && RenderedNavSearch && <RenderedNavSearch narrow />);
   const buttonContainer = (ButtonContainer && <ButtonContainer />);
@@ -32,6 +33,33 @@ const HeaderNav = ({
       <NavContainer navSearch={navSearch} logo={logo} mainNav={mainNav} utilityNav={utilityNav} className="ma__header__nav-container" />
     </nav>
   );
+};
+HeaderNav.propTypes = {
+  /** An uninstantiated component which handles displaying the utility nav. */
+  UtilityNav: propTypes.elementType,
+  /** An uninstantiated component which handles displaying individual items within the utility nav. */
+  UtilityItem: propTypes.elementType,
+  /** An uninstantiated component which handles displaying menu portion of the header. */
+  MainNav: propTypes.elementType,
+  /** An uninstantiated component which handles displaying individual menu items within the menu. */
+  NavItem: propTypes.elementType,
+  /** An uninstantiated component which handles displaying the site logo. */
+  Logo: propTypes.elementType,
+  /** An uninstantiated component which handles search functionality. */
+  NavSearch: propTypes.elementType,
+  /** An uninstantiated component which handles displaying the menu button on mobile. */
+  ButtonContainer: propTypes.elementType,
+  /** An array of items used to create the menu. */
+  mainItems: propTypes.arrayOf(propTypes.shape({
+    href: propTypes.string,
+    text: propTypes.string,
+    subNav: propTypes.arrayOf(propTypes.shape({
+      href: propTypes.string,
+      text: propTypes.string
+    }))
+  })),
+  /** An array of uninstantiated components to render within the utility navigation.  */
+  utilityItems: propTypes.arrayOf(propTypes.elementType)
 };
 
 export const HeaderButtonContainer = () => {
@@ -96,9 +124,10 @@ export const HeaderButtonContainer = () => {
   }, [menuButtonRef, closeButtonRef]);
   return(
     <div className="ma__header__button-container js-sticky-header">
-      <button ref={closeButtonRef} className="ma__header__back-button js-close-sub-nav"><span>Back</span></button>
-      <button ref={menuButtonRef} className="ma__header__menu-button js-header-menu-button">
-        <span>Menu</span><span className="ma__header__menu-icon"></span>
+      <button type="button" ref={closeButtonRef} className="ma__header__back-button js-close-sub-nav"><span>Back</span></button>
+      <button type="button" ref={menuButtonRef} className="ma__header__menu-button js-header-menu-button">
+        <span>Menu</span>
+        <span className="ma__header__menu-icon" />
       </button>
     </div>
   );
@@ -135,8 +164,9 @@ export const HeaderNavSearch = ({ narrow = false }) => {
     <div className={classes}>
       <div className="ma__header-search">
         <form action="#" className="ma__form js-header-search-form" role="search">
+          { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor="header-search" className="ma__header-search__label">Search terms</label>
-          <input id="header-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputmode="search" />
+          <input id="header-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
           <ButtonWithIcon usage="secondary" icon={<IconSearch />}>Search</ButtonWithIcon>
         </form>
       </div>
@@ -148,6 +178,9 @@ export const HeaderUtilityItem = ({ children }) => (
     {children}
   </li>
 );
+HeaderUtilityItem.propTypes = {
+  children: propTypes.node
+};
 export const HeaderUtilityNav = ({ UtilityItem = HeaderUtilityItem, items = [], narrow = true }) => {
   const classes = classNames('ma__header__utility-nav', {
     'ma__header__utility-nav--narrow': narrow,
@@ -164,6 +197,14 @@ export const HeaderUtilityNav = ({ UtilityItem = HeaderUtilityItem, items = [], 
       </div>
     </div>
   );
+};
+HeaderUtilityNav.propTypes = {
+  /** An uninstantiated component which handles displaying individual items within the utility nav. */
+  UtilityItem: propTypes.elementType,
+  /** An array of uninstantiated components to render within the utility navigation.  */
+  items: propTypes.arrayOf(propTypes.elementType),
+  /** A boolean representing when the UtilityNav is being displayed within a narrow screen. */
+  narrow: propTypes.bool
 };
 export const useWindowWidth = () => {
   const windowWidth = React.useRef(window ? window.innerWidth : null);
@@ -182,7 +223,7 @@ export const useWindowWidth = () => {
   }, [windowWidth]);
   return windowWidth;
 };
-export const HeaderMainNav = ({ NavItem: RenderedNavItem = NavItem, items = [] }) => {
+export const HeaderMainNav = ({ NavItem = HeaderNavItem, items = [] }) => {
   const mainNavRef = React.useRef();
   const windowWidth = useWindowWidth();
   const hide = React.useCallback(($content) => {
@@ -193,7 +234,7 @@ export const HeaderMainNav = ({ NavItem: RenderedNavItem = NavItem, items = [] }
       const closeClass = 'is-closed';
       const breakpoint = 840;
       body.classList.remove(submenuClass);
-      const open = mainNavRef.current.querySelector('.' + openClass);
+      const open = mainNavRef.current.querySelector(`.${openClass}`);
       if (open) {
         open.classList.remove(openClass);
       }
@@ -227,15 +268,35 @@ export const HeaderMainNav = ({ NavItem: RenderedNavItem = NavItem, items = [] }
       <div className="ma__main-nav">
         <ul ref={mainNavRef} role="menubar" className="ma__main-nav__items js-main-nav">
           { items.map((item, itemIndex) => (
-            <RenderedNavItem key={`main-nav-navitem--${itemIndex}`} {...item} hide={hide} show={show} index={itemIndex} mainNav={mainNavRef} />
+            <NavItem key={`main-nav-navitem--${itemIndex}`} {...item} hide={hide} show={show} index={itemIndex} mainNav={mainNavRef} />
           ))}
         </ul>
       </div>
     </div>
   );
 };
+HeaderMainNav.propTypes = {
+  /** An uninstantiated component which handles displaying individual menu items within the menu. */
+  NavItem: propTypes.elementType,
+  /** An array of items used to create the menu. */
+  items: propTypes.arrayOf(propTypes.shape({
+    href: propTypes.string,
+    text: propTypes.string,
+    subNav: propTypes.arrayOf(propTypes.shape({
+      href: propTypes.string,
+      text: propTypes.string
+    }))
+  }))
+};
 
-export const NavItem = ({ hide, show, text, subNav = [], index, mainNav }) => {
+export const HeaderNavItem = ({
+  hide,
+  show,
+  text,
+  subNav = [],
+  index,
+  mainNav
+}) => {
   const classes = classNames('ma__main-nav__item js-main-nav-toggle', {
     'has-subnav': subNav.length > 0
   });
@@ -463,6 +524,19 @@ export const NavItem = ({ hide, show, text, subNav = [], index, mainNav }) => {
       )}
     </li>
   );
+};
+HeaderNavItem.propTypes = {
+  hide: propTypes.func,
+  show: propTypes.func,
+  text: propTypes.string,
+  mainNav: propTypes.shape({
+    current: propTypes.element
+  }),
+  subNav: propTypes.arrayOf(propTypes.shape({
+    href: propTypes.string,
+    text: propTypes.string
+  })),
+  index: propTypes.oneOfType([propTypes.number, propTypes.string])
 };
 
 export default HeaderNav;

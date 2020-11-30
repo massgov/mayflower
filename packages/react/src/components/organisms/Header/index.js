@@ -1,10 +1,16 @@
 import React from 'react';
 import HeaderNav, { HeaderUtilityNav, HeaderLogo, HeaderNavSearch } from 'MayflowerReactMolecules/HeaderNav';
 
-const Header = ({ Logo, NavSearch, UtilityNav, Container, mainItems = [], utilityItems = [] }) => {
+const Header = ({
+  Logo,
+  NavSearch,
+  UtilityNav,
+  Container,
+  mainItems = [],
+  utilityItems = []
+}) => {
   const RenderedContainer = Container || HeaderContainer;
   const RenderedUtilityNav = UtilityNav || HeaderUtilityNav;
-  
   return(
     <header className="ma__header" id="header">
       <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
