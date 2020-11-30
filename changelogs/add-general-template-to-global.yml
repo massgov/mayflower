@@ -1,0 +1,6 @@
+Added:
+  - project: Assets
+    component: CSS
+    description: cleanup general template styles and include into global css. (#1283)
+    issue:
+    impact: Minor
