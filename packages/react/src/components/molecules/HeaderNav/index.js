@@ -67,24 +67,24 @@ export const HeaderButtonContainer = () => {
   const closeButtonRef = React.useRef();
   const windowWidth = useWindowWidth();
   const hide = React.useCallback(($content) => {
-      const body = document.querySelector('body');
-      const mainNav = document.querySelector('.ma__main-nav__items');
-      const submenuClass = 'show-submenu';
-      const openClass = 'is-open';
-      const closeClass = 'is-closed';
-      const breakpoint = 840;
-      body.classList.remove(submenuClass);
-      const open = mainNav.querySelector('.' + openClass);
-      if (open) {
-        open.classList.remove(openClass);
-      }
+    const body = document.querySelector('body');
+    const mainNav = document.querySelector('.ma__main-nav__items');
+    const submenuClass = 'show-submenu';
+    const openClass = 'is-open';
+    const closeClass = 'is-closed';
+    const breakpoint = 840;
+    body.classList.remove(submenuClass);
+    const open = mainNav.querySelector('.' + openClass);
+    if (open) {
+      open.classList.remove(openClass);
+    }
 
-      if (windowWidth.current <= breakpoint) {
-        $content.classList.add(closeClass);
-      } else {
-        // @todo animate here!
-        $content.classList.add(closeClass);
-      }
+    if (windowWidth.current <= breakpoint) {
+      $content.classList.add(closeClass);
+    } else {
+      // @todo animate here!
+      $content.classList.add(closeClass);
+    }
     
   }, [windowWidth]);
   React.useEffect(() => {
@@ -223,56 +223,151 @@ export const useWindowWidth = () => {
   }, [windowWidth]);
   return windowWidth;
 };
-export const HeaderMainNav = ({ NavItem = HeaderNavItem, items = [] }) => {
-  const mainNavRef = React.useRef();
-  const windowWidth = useWindowWidth();
-  const hide = React.useCallback(($content) => {
-    if (mainNavRef) {
+
+function mainNavReducer(state, action) {
+  const newState = { ...state };
+  switch (action.type) {
+    case 'setButtonExpanded': {
+      if (newState.items[action.index]) {
+        newState.items[action.index] = {
+          ...newState.items[action.index],
+          buttonExpanded: action.status
+        };
+      }
+      break;
+    }
+    case 'setIsOpen': {
+      if (action.hasOwnProperty('status')) {
+        newState.isOpen = action.status;
+      }
+      break;
+    }
+    case 'setIsItemOpen': {
+      if (newState.items[action.index]) {
+        newState.items[action.index] = {
+          ...newState.items[action.index],
+          isOpen: action.status
+        };
+      }
+      break;
+    }
+    case 'hide': {
+      newState.items = newState.items.map(() => {
+        return{
+          buttonExpanded: false,
+          isOpen: false
+        }
+      });
+      newState.isOpen = false;
+      if (action.hasOwnProperty('index') && newState.items[action.index]) {
+        newState.items[action.index] = { buttonExpanded: true, isOpen: true };
+      }
+      break;
+    }
+    case 'show': {
+      if (action.hasOwnProperty('index') && state.items[action.index]) {
+        newState.items[action.index] = {
+          buttonExpanded: true,
+          isOpen: true
+        };
+      }
+      newState.isOpen = true;
+      break;
+    }
+    default:
+  }
+  return newState;
+}
+
+export const HeaderMainNavContext = React.createContext();
+
+const initMainNav = (items) => {
+  const initialList = {
+    isOpen: false,
+    items: items.map(() => ({
+      buttonExpanded: false,
+      isOpen: false
+    }))
+  };
+  return initialList;
+};
+export const useHeaderMainNav = (items) => {
+  const windowWidthRef = useWindowWidth();
+  const breakpoint = 840;
+  const [state, dispatch] = React.useReducer(mainNavReducer, items, initMainNav);
+  const { isOpen } = state;
+  const setButtonExpanded = React.useCallback(({ index, status }) => {
+    dispatch({ type: 'setButtonExpanded', index, status });
+  }, []);
+  const setIsOpen = React.useCallback(({ index, status}) => {
+    dispatch({ type: 'setIsItemOpen', index, status });
+  }, []);
+
+  const hide = React.useCallback(() => {
+    const windowWidth = windowWidthRef.current;
+    if (windowWidth) {
       const body = document.querySelector('body');
       const submenuClass = 'show-submenu';
-      const openClass = 'is-open';
-      const closeClass = 'is-closed';
-      const breakpoint = 840;
       body.classList.remove(submenuClass);
-      const open = mainNavRef.current.querySelector(`.${openClass}`);
-      if (open) {
-        open.classList.remove(openClass);
+      if (isOpen) {
+        dispatch({ type: 'hide', status: false });
       }
 
-      if (windowWidth.current <= breakpoint) {
-        $content.classList.add(closeClass);
+      if (windowWidth <= breakpoint) {
+        //setButtonExpanded(false);
+        //setIsOpen(false);
       } else {
         // @todo animate here!
-        $content.classList.add(closeClass);
+        //setButtonExpanded(false);
+        //setIsOpen(false);
       }
     }
-  }, [windowWidth, mainNavRef]);
-  const show = React.useCallback(($content) => {
+  }, [windowWidthRef, isOpen]);
+
+  const show = React.useCallback(({ index }) => {
+    const windowWidth = windowWidthRef.current;
     const body = document.querySelector('body');
     const submenuClass = 'show-submenu';
-    const openClass = 'is-open';
-    const closeClass = 'is-closed';
     body.classList.add(submenuClass);
-    const breakpoint = 840;
-    if (windowWidth.current <= breakpoint) {
-      $content.classList.add(openClass);
-      $content.classList.remove(closeClass);
+    dispatch({ type: 'show', index });
+
+    if (windowWidthRef.current <= breakpoint) {
+      //setButtonExpanded(true);
+      //mainContext.dispatch({ type: 'show', index });
     } else {
-      // @todo animate here!!
-      $content.classList.add(openClass);
-      $content.classList.remove(closeClass);
+      // @todo animate here!
+      //mainContext.dispatch({ type: 'show', index });
     }
-  }, [windowWidth, mainNavRef]);
+  }, [windowWidthRef]);
+  // Restrict the available functionality for NavItem components to the following.
+  return React.useMemo(() => ({
+    ...state,
+    setButtonExpanded,
+    setIsOpen,
+    hide,
+    show
+  }), [state, setButtonExpanded, setIsOpen, hide, show]);
+};
+export const HeaderMainNav = ({ NavItem = HeaderNavItem, items = [] }) => {
+  const mainNavRef = React.useRef();
+  // All items passed will become part of HeaderMainNav's context.
+  const state = useHeaderMainNav(items);
+  const headerMainContext = {
+    ...state
+  };
+
   return(
-    <div className="ma__header__main-nav">
-      <div className="ma__main-nav">
-        <ul ref={mainNavRef} role="menubar" className="ma__main-nav__items js-main-nav">
-          { items.map((item, itemIndex) => (
-            <NavItem key={`main-nav-navitem--${itemIndex}`} {...item} hide={hide} show={show} index={itemIndex} mainNav={mainNavRef} />
-          ))}
-        </ul>
+    <HeaderMainNavContext.Provider value={headerMainContext}>
+      <div className="ma__header__main-nav">
+        <div className="ma__main-nav">
+          <ul ref={mainNavRef} role="menubar" className="ma__main-nav__items js-main-nav">
+            { items.map((item, itemIndex) => (
+              <NavItem key={`main-nav-navitem--${itemIndex}`} {...item} index={itemIndex} mainNav={mainNavRef} />
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </HeaderMainNavContext.Provider>
   );
 };
 HeaderMainNav.propTypes = {
@@ -289,229 +384,223 @@ HeaderMainNav.propTypes = {
   }))
 };
 
-export const HeaderNavItem = ({
-  hide,
-  show,
+export const HeaderNavItem = React.memo(({
   text,
   subNav = [],
   index,
   mainNav
 }) => {
-  const classes = classNames('ma__main-nav__item js-main-nav-toggle', {
-    'has-subnav': subNav.length > 0
-  });
+  const mainContext = React.useContext(HeaderMainNavContext);
+  const windowWidthRef = useWindowWidth();
   const itemRef = React.useRef();
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
-
-  const windowWidth = useWindowWidth();
-
-  React.useEffect(() => {
-    const item = itemRef.current;
+  const breakpoint = 840;
+  const {
+    isOpen,
+    items,
+    hide,
+    show,
+    setIsOpen,
+    setButtonExpanded
+  } = mainContext;
+  const state = items[index];
+  const { buttonExpanded, isOpen: isItemOpen } = state;
+  const classes = classNames('ma__main-nav__item js-main-nav-toggle', {
+    'has-subnav': subNav.length > 0
+  });
+  const contentClasses = classNames('ma__main-nav__subitems js-main-nav-content', {
+    'is-open': isItemOpen,
+    'is-closed': !isItemOpen
+  });
+  const onMouseEnter = React.useCallback(() => {
     const button = buttonRef.current;
-    const breakpoint = 840;
-    const openClass = 'is-open';
-    if (item && button && mainNav && contentRef.current) {
-      button.setAttribute('aria-expanded', 'false');
-      item.addEventListener('mouseenter', () => {
-        button.setAttribute('aria-expanded', 'true');
-
-        if (windowWidth.current > breakpoint) {
-          if (windowWidth <= breakpoint) {
-            contentRef.current.classList.add('is-open');
-            contentRef.current.classList.remove('is-closed');
-          } else {
-            contentRef.current.classList.add('is-open');
-            // @todo animate insert delay here, then...
-            contentRef.current.classList.remove('is-closed');
-          }
-        }
-      });
-      item.addEventListener('mouseleave', () => {
-        button.setAttribute('aria-expanded', 'false');
-        if (windowWidth > breakpoint) {
-          contentRef.current.classList.remove('is-open');
-          contentRef.current.classList.add('is-closed');
-        } else {
-          // @todo animate here
-          contentRef.current.classList.remove('is-open');
-          contentRef.current.classList.add('is-closed');
-        }
-      });
-      item.querySelectorAll('button, a').forEach((element) => element.addEventListener('click', (e) => {
-        const $el = element;
-        const $elParent = element.parentNode;
-        const $content = $elParent.querySelector('.js-main-nav-content');
-        const $openContent = mainNav.current.querySelector('.js-main-nav-content.' + openClass);
-        const isOpen = $content.classList.contains(openClass);
-        // mobile
+    const content = contentRef.current;
+    const windowWidth = windowWidthRef.current;
+    if (button && content && windowWidth) {
+      show({ index });
+      if (windowWidth > breakpoint) {
         if (windowWidth <= breakpoint) {
-          e.preventDefault();
-          // add open class to this item
-          $elParent.classList.add(openClass);
-          show($content);
-          $el.setAttribute('aria-expanded', 'true');
+          setButtonExpanded({ index, status: true });
+          setIsOpen({ index, status: true });
         } else {
-          if ($openContent) {
-            hide($openContent);
-          }
-          $el.setAttribute('aria-expanded', 'false');
-          if (!isOpen) {
-            show($content);
-            $el.setAttribute('aria-expanded', 'true');
-          }
+          setButtonExpanded({ index, status: true });
+          setIsOpen({ index, status: true });
+          // @todo animate insert delay here, then...
         }
-      }));
+      }
     }
-  }, [itemRef, buttonRef, contentRef, mainNav, windowWidth]);
-  React.useEffect(() => {
-    const item = itemRef.current;
+  }, [buttonRef, windowWidthRef, contentRef, show, setIsOpen, setButtonExpanded]);
 
-    if (item) {
-      item.addEventListener('keydown', (e) => {
-        // Grab all the DOM info we need...
-        const $parent = mainNav.current;
-        const openClass = 'is-open';
-        const hasFocus = 'has-focus';
-        const closeClass = 'is-closed';
-        const submenuClass = 'show-submenu';
-        const breakpoint = 840; 
-        const $mainNavItem = item;
-        const $link = item;
-        const $topLevelLinks = $parent.querySelectorAll('.ma__main-nav__top-link');
-        const open = $link.classList.contains(openClass);
-        const $openContent = $parent.querySelector('.js-main-nav-content.' + openClass);
-        const $focusedElement = document.activeElement;
-        const menuFlipped = (windowWidth.current < breakpoint);
-        const $otherLinks = Array.from($parent.childNodes).filter((child) => item !== child);
-        
-        // relevant if open..
-        const $topLevelItem = $focusedElement.closest('.ma__main-nav__item');
-        const $topLevelLink = $topLevelItem.querySelector('.ma__main-nav__top-link');
-        const $dropdownLinks = $link.querySelectorAll('.ma__main-nav__subitem .ma__main-nav__link');
-        const dropdownLinksLength = $dropdownLinks.length;
-        let focusIndexInDropdown = Array.from($dropdownLinks).findIndex((link) => link === $focusedElement);
-        // Easy access to the key that was pressed.
-        const keycode = e.keyCode;
-        const action = {
-          'skip': keycode === 9, // tab
-          'close': keycode === 27, // esc
-          'left': keycode === 37, // left arrow
-          'right': keycode === 39, // right arrow
-          'up': keycode === 38, // up arrow
-          'down': keycode === 40, // down arrow
-          'space': keycode === 32, //space
-          'enter': keycode === 13 // enter
-        };
-        // Default behavior is prevented for all actions except 'skip'.
-        if (action.close || action.left || action.right || action.up || action.down) {
-          e.preventDefault();
-        }
-  
-        if (action.enter || action.space) {
-          $link.classList.add(hasFocus);
-          $otherLinks.forEach(link => link.classList.remove(hasFocus));
-        }
-  
-        if (action.skip && dropdownLinksLength === (focusIndexInDropdown + 1)) {
-          if ($openContent) {
-            hide($openContent);
-          }
-          $topLevelLink.setAttribute('aria-expanded', 'false');
-          $link.classList.remove(hasFocus);
-          return;
-        }
-  
-        // if (action.skip && focusIndexInDropdown === -1) {
-        //   console.log('back');
-        // }
-  
-        // Navigate into or within a submenu. This is needed on up/down actions
-        // (unless the menu is flipped and closed) and when using the right arrow
-        // while the menu is flipped and submenu is closed.
-        if (((action.up || action.down) && !(menuFlipped && !open))
-          || (action.right && menuFlipped && !open)) {
-          // Open pull down menu if necessary.
-          if (!open && !$link.classList.contains(hasFocus)) {
-            show($topLevelItem.querySelector('.js-main-nav-content'));
-            $topLevelLink.setAttribute('aria-expanded', 'true');
-            $link.classList.add(openClass);
-          }
-  
-          // Adjust index of active menu item based on performed action.
-          focusIndexInDropdown += (action.up ? -1 : 1);
-          // If the menu is flipped, skip the last item in each submenu. Otherwise,
-          // skip the first item. This is done by repeating the index adjustment.
-          if (menuFlipped) {
-            if (focusIndexInDropdown === dropdownLinksLength - 1) {
-              focusIndexInDropdown += (action.up ? -1 : 1);
-            }
-          } else {
-            if (focusIndexInDropdown === 0 || focusIndexInDropdown >= dropdownLinksLength) {
-  
-              focusIndexInDropdown += (action.up ? -1 : 1);
-            }
-          }
-          // Wrap around if at the end of the submenu.
-          focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-          $dropdownLinks[focusIndexInDropdown].focus();
-        }
-  
-        // Close menu and return focus to menubar
-        if (action.close || (menuFlipped && action.left)) {
-          if ($openContent) {
-            hide($openContent);
-          }
-          $link.classList.remove(openClass);
-          $link.classList.remove(hasFocus);
-          $topLevelLink.focus();
-          $topLevelLink.setAttribute('aria-expanded', 'false');
-        }
-  
-        // Navigate between submenus. This is needed for left/right actions in
-        // normal layout, or up/down actions in flipped layout (when nav is closed).
-        if (((action.left || action.right) && !menuFlipped) ||
-          ((action.up || action.down) && menuFlipped && !open)) {
-          let idx = Array.from($topLevelLinks).findIndex((link) => link === $topLevelLink);
-          const prev = action.left || action.up;
-          const linkCount = $topLevelLinks.length;
-  
-          // hide content
-          // If menubar focus
-          //  - Change menubar item
-          //
-          // If dropdown focus
-          //  - Open previous pull down menu and select first item
-          if ($openContent) {
-            hide($openContent);
-          }
-          $topLevelLink.setAttribute('aria-expanded', 'false');
-          $link.classList.remove(hasFocus);
-          // Get previous item if left arrow, next item if right arrow.
-          idx += (prev ? -1 : 1);
-          // Wrap around if at the end of the set of menus.
-          idx = ((idx % linkCount) + linkCount) % linkCount;
-          $topLevelLinks[idx].focus();
-        }
-      });
+  const onMouseLeave = React.useCallback(() => {
+    const button = buttonRef.current;
+    const content = contentRef.current;
+    const windowWidth = windowWidthRef.current;
+    if (button && content && windowWidth) {
+      hide();
+      if (windowWidth > breakpoint) {
+        setButtonExpanded({ index, status: false });
+        setIsOpen({ index, status: false });
+      } else {
+        setButtonExpanded({ index, status: false });
+        setIsOpen({ index, status: false });
+        // @todo animate here
+      }
     }
-  }, [itemRef, windowWidth, mainNav]);
+  }, [buttonRef, windowWidthRef, contentRef, hide, setButtonExpanded, setIsOpen]);
+
+  const onButtonLinkClick = React.useCallback((e) => {
+    const content = contentRef.current;
+    const windowWidth = windowWidthRef.current;
+    if (content && windowWidth) {
+      // mobile
+      if (windowWidth <= breakpoint) {
+        e.preventDefault();
+        // add open class to this item
+        setIsOpen({ index, status: true });
+        show({ index });
+        setButtonExpanded({ index, status: true });
+      } else {
+        if (isOpen) {
+          hide(content);
+        }
+        setButtonExpanded({ index, status: false });
+
+        if (!isOpen) {
+          show({ index });
+          setButtonExpanded({ index, status: true });
+        }
+      }
+    }
+  }, [windowWidthRef, contentRef, show, hide, isOpen, setIsOpen, setButtonExpanded, index]);
+
+  const onKeyDown = React.useCallback((e) => {
+    const item = itemRef.current;
+    const windowWidth = windowWidthRef.current;
+    const $parent = mainNav.current;
+    if (item && windowWidth && $parent) {
+      // Grab all the DOM info we need...
+      const openClass = 'is-open';
+      const hasFocus = 'has-focus';
+      const $link = item;
+      const $topLevelLinks = $parent.querySelectorAll('.ma__main-nav__top-link');
+      const $focusedElement = document.activeElement;
+      const menuFlipped = (windowWidth.current < breakpoint);
+      const $otherLinks = Array.from($parent.childNodes).filter((child) => item !== child);
+      // relevant if open..
+      const $topLevelItem = $focusedElement.closest('.ma__main-nav__item');
+      const $topLevelLink = $topLevelItem.querySelector('.ma__main-nav__top-link');
+      const $dropdownLinks = $link.querySelectorAll('.ma__main-nav__subitem .ma__main-nav__link');
+      const dropdownLinksLength = $dropdownLinks.length;
+      let focusIndexInDropdown = Array.from($dropdownLinks).findIndex((link) => link === $focusedElement);
+      // Easy access to the key that was pressed.
+      const keycode = e.keyCode;
+      const action = {
+        skip: keycode === 9, // tab
+        close: keycode === 27, // esc
+        left: keycode === 37, // left arrow
+        right: keycode === 39, // right arrow
+        up: keycode === 38, // up arrow
+        down: keycode === 40, // down arrow
+        space: keycode === 32, // space
+        enter: keycode === 13 // enter
+      };
+        // Default behavior is prevented for all actions except 'skip'.
+      if (action.close || action.left || action.right || action.up || action.down) {
+        e.preventDefault();
+      }
+      if (action.enter || action.space) {
+        $link.classList.add(hasFocus);
+        $otherLinks.forEach((link) => link.classList.remove(hasFocus));
+      }
+      if (action.skip && dropdownLinksLength === (focusIndexInDropdown + 1)) {
+        if (isOpen) {
+          hide($parent);
+        }
+        $topLevelLink.setAttribute('aria-expanded', 'false');
+        $link.classList.remove(hasFocus);
+        return;
+      }
+      // Navigate into or within a submenu. This is needed on up/down actions
+      // (unless the menu is flipped and closed) and when using the right arrow
+      // while the menu is flipped and submenu is closed.
+      if (((action.up || action.down) && !(menuFlipped && !isOpen))
+          || (action.right && menuFlipped && !isOpen)) {
+        // Open pull down menu if necessary.
+        if (!isOpen && !$link.classList.contains(hasFocus)) {
+          show({ index });
+          $topLevelLink.setAttribute('aria-expanded', 'true');
+          $link.classList.add(openClass);
+        }
+        // Adjust index of active menu item based on performed action.
+        focusIndexInDropdown += (action.up ? -1 : 1);
+        // If the menu is flipped, skip the last item in each submenu. Otherwise,
+        // skip the first item. This is done by repeating the index adjustment.
+        if (menuFlipped) {
+          if (focusIndexInDropdown === dropdownLinksLength - 1) {
+            focusIndexInDropdown += (action.up ? -1 : 1);
+          }
+        } else {
+          if (focusIndexInDropdown === 0 || focusIndexInDropdown >= dropdownLinksLength) {
+            focusIndexInDropdown += (action.up ? -1 : 1);
+          }
+        }
+        // Wrap around if at the end of the submenu.
+        focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+        $dropdownLinks[focusIndexInDropdown].focus();
+      }
+      // Close menu and return focus to menubar
+      if (action.close || (menuFlipped && action.left)) {
+        if (isOpen) {
+          hide($parent);
+        }
+        $link.classList.remove(openClass);
+        $link.classList.remove(hasFocus);
+        $topLevelLink.focus();
+        $topLevelLink.setAttribute('aria-expanded', 'false');
+      }
+      // Navigate between submenus. This is needed for left/right actions in
+      // normal layout, or up/down actions in flipped layout (when nav is closed).
+      if (((action.left || action.right) && !menuFlipped) ||
+          ((action.up || action.down) && menuFlipped && !isOpen)) {
+        let idx = Array.from($topLevelLinks).findIndex((link) => link === $topLevelLink);
+        const prev = action.left || action.up;
+        const linkCount = $topLevelLinks.length;
+        // hide content
+        // If menubar focus
+        //  - Change menubar item
+        //
+        // If dropdown focus
+        //  - Open previous pull down menu and select first item
+        if (isOpen) {
+          hide($parent);
+        }
+        $topLevelLink.setAttribute('aria-expanded', 'false');
+        $link.classList.remove(hasFocus);
+        // Get previous item if left arrow, next item if right arrow.
+        idx += (prev ? -1 : 1);
+        // Wrap around if at the end of the set of menus.
+        idx = ((idx % linkCount) + linkCount) % linkCount;
+        $topLevelLinks[idx].focus();
+      }
+    }
+  }, [itemRef, windowWidthRef, mainNav, isOpen, hide, show]);
   return(
-    <li ref={itemRef} role="none" className={classes} tabIndex="-1">
-      <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0">
+    <li ref={itemRef} onKeyDown={onKeyDown} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} role="none" className={classes} tabIndex="-1">
+      <button ref={buttonRef} onClick={onButtonLinkClick} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
         <span className="visually-hidden show-label">Show the sub topics of </span>
         {text}
       </button>
       {subNav && (
-        <div ref={contentRef} className="ma__main-nav__subitems js-main-nav-content is-closed">
+        <div ref={contentRef} className={contentClasses}>
           <ul id={`menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
             { subNav.map((item, itemIndex) => (
               <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
-                <a role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
+                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
               </li>
             ))}
             <li role="none" className="ma__main-nav__subitem">
-              <a role="menuitem" href={subNav.[0].href} className="ma__main-nav__link">
+              <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={subNav.[0].href} className="ma__main-nav__link">
                 <IconArrowbent />
                 <span>
                   <span className="visually-hidden">See all topics under </span>
@@ -524,13 +613,13 @@ export const HeaderNavItem = ({
       )}
     </li>
   );
-};
+});
 HeaderNavItem.propTypes = {
   hide: propTypes.func,
   show: propTypes.func,
   text: propTypes.string,
   mainNav: propTypes.shape({
-    current: propTypes.element
+    current: propTypes.node
   }),
   subNav: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,
