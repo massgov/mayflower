@@ -1,34 +1,62 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import {
+  SectionLinks, DecorativeLink, CalloutLink
+} from '@massds/mayflower-react';
+
 import generateTitle from '../util/generateTitle';
 
 <Meta title={generateTitle('BrandPillars')} />
 
-# Brand Pillars
+# Mayflower brand pillars
 
-Anytime you make a decision about Mass.gov - about what information should go on a page, how to write something, whether to use an image or not, etc. - run it past these 4 pillars. If your decision satisfies all of them, it’s a good decision.
+Our digital brand serves the 7 million people live in Massachusetts, and the millions more who visit or study here. Speaking to those people with a single voice that conveys our shared values requires more than just a logo and some colors, It requires defining some core ideas.
 
-A brand is a conceptual thing, but it shares some similarities with real-world objects like buildings. They both rely upon a strong framework to hold their shape. In the same way that buildings are held up by load-bearing pillars, brands are held up by brand pillars.
+Brand pillars are how we define those critical principles. They are easy to remember and refer to, they outline a few different dimensions of how we want users to think about us. They don't cover every possible sceneario, but they provide a good starting point when we think of new ways to help constituents interact with the Commonwealth online.
 
-So what defines the Mass.gov brand?
+Any time you launch a service or make a decision about content, tone, or imagery in an experience, start here.
 
-Almost 7 million people live in Massachusetts, in large cities and small towns, on the coast and in the mountains. And this website is for all of them - as well as all the people who come to Massachusetts from all over the world to vacation, learn at our schools, or catch a Sox game.
+<div className="row ma__row--two-up">
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Helpful'
+      }}
+      description="We provide our users with the information they need written in plain language and presented in usable interfaces. We make complicated processes simple and understandable. We study what’s most important to our users and respond to their needs."
+      index={0}
+    >
+    </SectionLinks>
+  </div>
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Human'
+      }}
+      description="Our tone is conversational and a warm, not impersonal and bureaucratic. When constituents read our content it should feel like the voice of a real person. We want users to feel comfortable, confident, and supported."
+      index={1}
+      >
+    </SectionLinks>
+  </div>
+</div>
 
-Using brand pillars helps us identify a few central, critical principles which are easy to remember and refer to, and which truly define the brand in all scenarios. This brand doesn’t need to encompass all of Massachusetts - because while it’s true that Mass.gov represents all of Massachusetts, the Mass.gov brand needs to be more specifically focused on helping constituents get things done on this website.
-
-These are the 4 brand pillars that guide us towards achieving Mass.gov’s goal of being the Commonwealth’s customer service desk.
-
-### Helpful
-
-Mass.gov gives our site visitors the information they need, and we make sure that that information is usable. We make complicated application forms and processes more understandable. We think about what’s most important to our users, and we modify the website in response to those needs.
-
-### Human
-
-Mass.gov uses conversational language and a warm tone to break the perception of government as impersonal and bureaucratic. When constituents read content on Mass.gov, it should feel like the voice of a real person. We want our site visitors to feel comfortable, confident, and supported.
-
-### Dignified
-
-Mass.gov represents the Massachusetts state government with authority and trustworthiness. Our effort to be human should never detract from the importance of the information we convey, or from the credibility of that information. We should be warm without being overly informal, friendly without.
-
-### Modern
-
-Mass.gov is a living tool - a platform for continual improvement, which will evolve over time to keep up with changes in technology. Many digital communication tools and techniques that power websites in 2016 \\(e.g. social media, certain software packages behind the scenes, visual and design trends, etc.\\) either didn’t exist or weren’t widely used 10 years ago - and many tools and techniques that people will take for granted in 10 years don’t exist now. Mass.gov, therefore, must keep pace with the evolution of digital communication both technically and visually in order to remain a relevant tool for our users.
+<div className="row ma__row--two-up">
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Dignified'
+      }}
+      description="We represent our state government with authority and trustworthiness. Our effort to be human never undercuts the importance, or credibility of the information we convey. We are friendly but not flippant; natural but not offhand."
+      index={0}
+      >
+    </SectionLinks>
+  </div>
+	<div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Modern'
+      }}
+      description="We build living systems under constant review and improvement. We recognize that many tools powering experiences today didn’t exist just a few years ago, and many will soon be eclipsed. To stay relevant to users we work hard to keep pace with technical, stylistic, and social trends."
+      index={1}
+      >
+    </SectionLinks>
+  </div>
+</div>
