@@ -9,7 +9,10 @@ export const parameters = {
 					'Examples'
 				],
 				'Get Started',
-				'Principles',
+				'Principles', [
+					'Brand Pillars',
+					'Accessibility'
+				],
 				'Foundation', [
 					'Logo',
 					'Color',
