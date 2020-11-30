@@ -4,6 +4,9 @@ import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 
 const HeaderHamburger = ({ Logo, NavSearch, Container = null, mainItems, utilityItems }) => {
+  // Babel won't play nice with setting Container to MixedContainer by default in props.
+  // This appears to only be the case for the default export of a file.
+  // We do it here as a work around.
   const RenderedContainer = Container || HamburgerContainer;
   return(
     <header className="ma__header__hamburger" id="header">

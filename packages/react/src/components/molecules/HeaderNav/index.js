@@ -3,15 +3,8 @@ import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
 import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
-// eslint-disable-next-line import/no-unresolved
-import GoogleTranslateElement from 'MayflowerReactButtons/GoogleTranslateElement';
-// eslint-disable-next-line import/no-unresolved
-import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
-// eslint-disable-next-line import/no-unresolved
-import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
-
 
 const HeaderNav = ({
   UtilityNav = HeaderUtilityNav,

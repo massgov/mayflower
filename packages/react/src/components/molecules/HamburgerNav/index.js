@@ -2,12 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
-// eslint-disable-next-line import/no-unresolved
-import GoogleTranslateElement from 'MayflowerReactButtons/GoogleTranslateElement';
-// eslint-disable-next-line import/no-unresolved
-import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
-// eslint-disable-next-line import/no-unresolved
-import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';

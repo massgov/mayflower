@@ -13,6 +13,9 @@ const MixedContainer = ({ Logo = HamburgerLogo, NavSearch = HamburgerNavSearch }
 );
 
 const HeaderMixed = ({ Container = null, mainItems, utilityItems }) => {
+  // Babel won't play nice with setting Container to MixedContainer by default in props.
+  // This appears to only be the case for the default export of a file.
+  // We do it here as a work around.
   const RenderedContainer = Container || MixedContainer;
   return(
     <header className="ma__header__hamburger ma__header__mixed" id="header">
