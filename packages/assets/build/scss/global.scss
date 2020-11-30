@@ -2,9 +2,7 @@
 
 @forward "elements";
 
-@forward "layout";
-
-@forward "paths" with (
+@forward "configure" with (
   $assets-path: "https://unpkg.com/@massds/mayflower-assets/static"
 );
 

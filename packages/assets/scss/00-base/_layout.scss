@@ -2,6 +2,10 @@
 
 @use "variables" as *;
 
+@use "mixins" as *;
+
+@use "04-templates/general";
+
 @if $border-box-sizing == true {
 
   html { // http://bit.ly/1qk2tVR
@@ -16,4 +20,22 @@
       box-sizing: inherit;
     }
   }
+}
+
+
+#body-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main-content {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.ma__container {
+
+  @include ma-container();
+  margin-top: 0px;
 }
