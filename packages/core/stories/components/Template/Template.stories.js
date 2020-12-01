@@ -8,57 +8,74 @@ const { STORYBOOK_CDN_PATH } = process.env;
 
 import { attachHTML } from '../../util/renderCode';
 
-const template = (renderHeader, renderFooter) => (
-  <div id="body-wrapper">
-    {renderHeader}
-    <main id="main-content">
-      <div className="pre-content sp--bottom">
-        <div className="ma__placeholder">
-          Pre Content
+const template = ({renderHeader, renderFooter, reversed}) => {
+  return(
+    <div id="body-wrapper">
+      {renderHeader}
+      <main id="main-content">
+        <div className="pre-content sp--bottom">
+          <div className="ma__placeholder">
+            Pre Content
+          </div>
         </div>
-      </div>
-      <div className="main-content main-content--two">
-        <div className="page-content">
+        <div className="main-content ma__container">
           <div className="ma__placeholder">
             Main Content
           </div>
         </div>
-        <aside className="sidebar">
-          <div className="ma__placeholder">
-            Side Content
+        <div className={`main-content main-content--two ${reversed && 'main-content--reversed'}`}>
+          { reversed && (
+            <aside className="sidebar">
+              <div className="ma__placeholder">
+                Left Rail
+              </div>
+            </aside>
+            )
+          }
+          <div className="page-content">
+            <div className="ma__placeholder">
+              Main Content
+            </div>
           </div>
-        </aside>
+          { !reversed && (
+            <aside className="sidebar">
+              <div className="ma__placeholder">
+                Right Rail
+              </div>
+            </aside>
+            )
+          }
+        </div>
+      </main>
+      <div className="ma__placeholder">
+        Post Content
       </div>
-    </main>
-    <div className="ma__placeholder">
-      Post Content
+      {renderFooter}
     </div>
-    {renderFooter}
-  </div>
-)
+  )
+}
 
-const templateSlim = template(headerStories.headerSlimmest(), footerStories.footerSlim())
+const templateSlim = template({renderHeader: headerStories.headerSlimmest(), renderFooter: footerStories.footerSlim()})
 
-const templateFullNav = template(headerStories.headerFullNav(), footerStories.footerFullNav())
+const templateFullNav = template({renderHeader: headerStories.headerFullNav(), renderFooter: footerStories.footerFullNav(), reversed: true})
 
 const notesTemplateSlim = `
   // Link to CSS:
-  <head>
-    <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
-    <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
-    <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
-    <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">
-  </head>
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">
 `
 
 const notesTemplate = `
   // Link to CSS:
-  <head>
-    <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
-    <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
-    <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
-    <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
-  </head>
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
+
+  // Link to JS:
+  <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
 `
 
 export const templateBasic = () => templateSlim;
@@ -66,4 +83,4 @@ attachHTML(templateBasic, templateSlim, notesTemplateSlim)
 
 
 export const templateFull = () => templateFullNav;
-attachHTML(templateBasic, templateFullNav, notesTemplateSlim)
+attachHTML(templateFull, templateFullNav, notesTemplate)

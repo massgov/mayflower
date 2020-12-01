@@ -302,7 +302,7 @@ const notesHeaderSlim = `
 
 const notesHeader = `
   // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
-  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/heading.js" />
+  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
 `
 
 export const headerExample = () => headerBasic;
