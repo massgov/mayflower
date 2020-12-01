@@ -27,7 +27,7 @@
     {
       "variable": "$c-independence-cranberry",
       "token": "$c-independence-cranberry",
-      "name": "Independent Cranberry",
+      "name": "Independence Cranberry",
       "value": "#680A1D"
     }
   ],
@@ -65,11 +65,6 @@
       "value": "#CD0D0D"
     },
     {
-      "variable": "$c-focus",
-      "name": "Focus Hightlight",
-      "value": "#3e94cf"
-    },
-    {
       "variable": "$c-warning",
       "name": "Warning Yellow",
       "value": "#f6c51b"
@@ -78,54 +73,28 @@
       "variable": "$c-success",
       "name": "Success Green",
       "value": "#388557"
+    },
+		{
+      "variable": "$c-focus",
+      "name": "Focus Hightlight",
+      "value": "#3e94cf"
     }
   ],
-  "primaryColors": [
+	"hierarchicalColors": [
     {
       "variable": "$c-primary",
-      "name": "Bay Blue",
+      "name": "Bay Blue: Primary",
       "value": "#14558f"
     },
     {
-      "variable": "$c-primary-lighter",
-      "name": "50% Bay Blue",
-      "value": "#8aaac7"
-    },
-    {
-      "variable": "$c-primary-lightest",
-      "name": "10% Bay Blue",
-      "value": "#e7eef4"
-    }],
-  "primaryAltColors": [
-    {
       "variable": "$c-primary-alt",
-      "name": "Berkshires Green",
+      "name": "Berkshires Green: Alternate",
       "value": "#388557"
     },
     {
-      "variable": "$c-primary-alt-lighter",
-      "name": "50% Berkshires Green",
-      "value": "#97c2a9"
-    },
-    {
-      "variable": "$c-primary-alt-lightest",
-      "name": "10% Berkshires Green",
-      "value": "#EBF3EE"
-    }],
-  "highLightColors": [
-    {
       "variable": "$c-highlight",
-      "name": "Duckling Yellow",
+      "name": "Duckling Yellow: Highlight",
       "value": "#f6c51b"
-    },
-    {
-      "variable": "$c-highlight-lighter",
-      "name": "50% Duckling Yellow",
-      "value": "#fbe28d"
-    },
-    {
-      "variable": "$c-highlight-lightest",
-      "name": "10% Duckling Yellow",
-      "value": "#fef9e8"
-    }]
+    }
+	]
 }
