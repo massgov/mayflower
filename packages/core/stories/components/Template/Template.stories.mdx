@@ -1,0 +1,19 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+import generateTitle from '../../util/generateTitle';
+import * as stories from './Template.stories.js';
+
+<Meta
+  title="template"
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Template
+
+Page layout with header and footer
+
+<Canvas>
+    <Story story={stories.templateBasic} />
+</Canvas>
