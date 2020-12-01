@@ -474,6 +474,7 @@ export const HamburgerMainNav = ({ NavItem = HamburgerNavItem, items = [] }) => 
   <div className="ma__main__hamburger-nav">
     <ul role="menubar" className="ma__main__hamburger-nav__items js-main-nav-hamburger">
       { items.map((item, itemIndex) => (
+        // eslint-disable-next-line react/no-array-index-key
         <NavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} />
       ))}
     </ul>
@@ -682,6 +683,7 @@ export const HamburgerUtilityNav = ({
       <div className="ma__utility-nav js-util-nav">
         <ul className="ma__utility-nav__items">
           {items.map((ItemComponent, index) => (
+            // eslint-disable-next-line react/no-array-index-key
             <UtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></UtilityItem>
           ))}
         </ul>
