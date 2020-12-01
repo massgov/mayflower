@@ -1,0 +1,6 @@
+Added:
+  - project: Assets
+    component: CSS
+    description: Cleaned up general template styles and added layout.css. (#1283)
+    issue:
+    impact: Minor

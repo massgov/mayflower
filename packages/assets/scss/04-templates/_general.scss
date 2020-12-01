@@ -143,28 +143,3 @@
     }
   }
 }
-
-
-
-// guide page template
-
-.stacked-row-content {
-  position: relative;
-}
-
-//theme
-
-.ma__narrow-template {
-
-  &--blue:before {
-    background-color: rgba($c-primary, .15);
-  }
-
-  &--green:before {
-    background-color: rgba($c-primary-alt, .15);
-  }
-
-  &--yellow:before {
-    background-color: rgba($c-highlight, .15);
-  }
-}
