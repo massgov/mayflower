@@ -40,7 +40,7 @@ const HeaderHamburger = ({
 
   return(
     <header className="ma__header__hamburger" id="header">
-      {RenderedSkipNav !== null && <RenderedSkipNav />}
+      {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
       <HamburgerNav
         MainNav={RenderedMainNav}
         NavItem={RenderedNavItem}

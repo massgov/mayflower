@@ -11,10 +11,14 @@ HeaderHamburgerExample.args = {
     StateItem,
     LoginItem
   ],
-  mainItems,
-  MainNav: null
+  mainItems
 };
 HeaderHamburgerExample.storyName = 'Default';
+export const HeaderHamburgerWithoutUtilityNav = (args) => <HeaderHamburger {...args} />;
+HeaderHamburgerWithoutUtilityNav.args = {
+  mainItems
+};
+HeaderHamburgerWithoutUtilityNav.storyName = 'Header Hamburger without UtilityNav';
 export default {
   title: 'organisms/HeaderHamburger',
   component: HeaderHamburger,

@@ -49,55 +49,55 @@ const HeaderMixed = ({
   UtilityNav,
   UtilityItem,
   MainNav,
+  MobileMainNav,
   NavItem,
+  MobileNavItem,
   Container,
   mainItems,
   utilityItems
 }) => {
   const RenderedContainer = getFallbackComponent(Container, MixedContainer);
   const RenderedMobileLogo = getFallbackComponent(MobileLogo, HamburgerMobileLogo);
+  const DesktopLogo = getFallbackComponent(Logo, HamburgerLogo);
 
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
 
-  const RenderedNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
+  const DesktopNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MixedNavSearch);
 
   const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
-  const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-  const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
-  const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
+  const RenderedMobileMainNav = getFallbackComponent(MobileMainNav, HamburgerMainNav);
+  const DesktopMainNav = getFallbackComponent(MainNav, HeaderMainNav);
+  const DesktopNavItem = getFallbackComponent(NavItem, HeaderNavItem);
+  const RenderedMobileNavItem = getFallbackComponent(MobileNavItem, HamburgerNavItem);
 
-  const RenderedHeaderUtilityNav = getFallbackComponent(UtilityNav, HeaderUtilityNav);
-  const RenderedHeaderMainNav = getFallbackComponent(MainNav, HeaderMainNav);
-  const RenderedHeaderUtilityItem = getFallbackComponent(UtilityItem, HeaderUtilityItem);
-  const RenderedHeaderNavItem = getFallbackComponent(NavItem, HeaderNavItem);
   return(
     <header className="ma__header__hamburger ma__header__mixed" id="header">
 
-      {RenderedSkipNav !== null && <RenderedSkipNav />}
+      {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
 
       <HamburgerNav
         Logo={RenderedMobileLogo}
         UtilityNav={RenderedUtilityNav}
         UtiltyItem={RenderedUtilityItem}
-        MainNav={RenderedMainNav}
-        NavItem={RenderedNavItem}
+        MainNav={RenderedMobileMainNav}
+        NavItem={RenderedMobileNavItem}
         NavSearch={RenderedMobileNavSearch}
         mainItems={mainItems}
         utilityItems={utilityItems}
       />
 
-      <RenderedContainer Logo={RenderedLogo} NavSearch={RenderedNavSearch} />
+      <RenderedContainer Logo={DesktopLogo} NavSearch={DesktopNavSearch} />
 
       <HeaderNav
         ButtonContainer={null}
         Logo={null}
-        MainNav={RenderedHeaderMainNav}
-        NavItem={RenderedHeaderNavItem}
+        MainNav={DesktopMainNav}
+        NavItem={DesktopNavItem}
         NavSearch={null}
-        UtilityNav={RenderedHeaderUtilityNav}
-        UtiltyItem={RenderedHeaderUtilityItem}
+        UtilityNav={null}
+        UtiltyItem={null}
         utilityItems={utilityItems}
         mainItems={mainItems}
       />
@@ -123,8 +123,12 @@ HeaderMixed.propTypes = {
   UtilityItem: propTypes.elementType,
   /** An uninstantiated component which handles the display of the main navigation and its links. */
   MainNav: propTypes.elementType,
+  /** An uninstantiated component which handles the display of the main navigation and its links on mobile. */
+  MobileMainNav: propTypes.elementType,
   /** An uninstantiated component which handles display of individual navigation items inside of the main navigation. */
   NavItem: propTypes.elementType,
+  /** An uninstantiated component which handles display of individual navigation items inside of the main navigation on mobile. */
+  MobileNavItem: propTypes.elementType,
   /** An array of items used to create the menu. */
   mainItems: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,

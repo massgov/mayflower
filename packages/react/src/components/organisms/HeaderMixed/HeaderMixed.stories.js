@@ -14,6 +14,26 @@ HeaderMixedExample.args = {
   mainItems
 };
 HeaderMixedExample.storyName = 'Default';
+
+export const HeaderMixedWithoutMainNav = (args) => <HeaderMixed {...args} />;
+HeaderMixedWithoutMainNav.args = {
+  utilityItems: [
+    TranslateItem,
+    StateItem,
+    LoginItem
+  ]
+};
+HeaderMixedWithoutMainNav.storyName = 'Header Mixed without MainNav';
+export const HeaderMixedWithoutUtilityNav = (args) => <HeaderMixed {...args} />;
+HeaderMixedWithoutUtilityNav.args = {
+  mainItems
+};
+HeaderMixedWithoutUtilityNav.storyName = 'Header mixed without UtilityNav';
+export const HeaderMixedWithoutMainUtilityNav = (args) => <HeaderMixed {...args} />;
+HeaderMixedWithoutMainUtilityNav.args = {
+
+};
+HeaderMixedWithoutMainUtilityNav.storyName = 'Header Mixed without UtilityNav and MainNav';
 export default {
   title: 'organisms/HeaderMixed',
   component: HeaderMixed,
