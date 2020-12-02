@@ -21,7 +21,7 @@ const releaseBranch = 'release/' + version;
   // asynchronous function immediately and exit 1.
   // Create the release branch and push to Github.
   shell.exec(`git branch -D ${releaseBranch}`)
-  updateCoreVersion(version)
+  await updateCoreVersion(version)
   await git.checkoutLocalBranch(releaseBranch)
   await git.add('./*');
   await git.commit('Consolidate changelogs and update core version');
