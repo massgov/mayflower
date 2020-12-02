@@ -11,7 +11,10 @@ import { attachHTML } from '../../util/renderCode';
 const template = ({renderHeader, renderFooter, reversed}) => {
   return(
     <div id="body-wrapper">
-      {renderHeader}
+      {
+        // header
+        renderHeader
+      }
       <main id="main-content">
         <div className="pre-content sp--bottom">
           <div className="ma__placeholder">
