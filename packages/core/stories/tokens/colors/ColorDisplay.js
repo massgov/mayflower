@@ -8,7 +8,7 @@ const ColorSwatch = ({ name, value, variable, width='200px', height='4rem', copi
   return(
     <div style={{ display: 'flex', flexDirection: inline ? 'row' : 'column' }}>
       { name && <h6>{name}</h6>}
-      <div className="sg-swatch" style={{ background: value, borderRadius: 0, height, width, border: '2px solid #ffffff' }} />
+      <div className="sg-swatch" style={{ background: value, borderRadius: 0, height, width, border: '1px solid #EEEEEE' }} />
       <div className="sg-info">
         <span>{hexValue}</span>
         {copiable && <ButtonCopy content={hexValue} />}
