@@ -36,6 +36,7 @@ HeaderWithoutUtilityMainSearch.args = {
   NavSearch: null,
   mainItems: []
 };
+
 export default {
   title: 'organisms/Header',
   component: Header,

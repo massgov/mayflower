@@ -5,29 +5,33 @@ import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
-import { HeaderMainNav } from 'MayflowerReactMolecules/HeaderNav/main-nav';
+import { HeaderMainNav, HeaderNavItem } from 'MayflowerReactMolecules/HeaderNav/main-nav';
 import { useWindowWidth } from 'MayflowerReactMolecules/HeaderNav/hooks';
+import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
 
 const HeaderNav = ({
-  UtilityNav = HeaderUtilityNav,
+  UtilityNav,
   UtilityItem,
-  MainNav = null,
+  MainNav,
   NavItem,
-  Logo = null,
-  NavSearch = HeaderNavSearch,
-  ButtonContainer = HeaderButtonContainer,
+  Logo,
+  NavSearch,
+  ButtonContainer,
   mainItems = [],
   utilityItems = []
 }) => {
-  const RenderedMainNav = MainNav || HeaderMainNav;
-  const RenderedNavSearch = NavSearch || HeaderNavSearch;
-  const RenderedUtilityNav = UtilityNav || HeaderUtilityNav;
-  const RenderedLogo = Logo || HeaderLogo;
-  const utilityNav = (utilityItems.length > 0 && <RenderedUtilityNav UtilityItem={UtilityItem} items={utilityItems} narrow />);
-  const mainNav = (mainItems.length > 0 && <RenderedMainNav NavItem={NavItem} items={mainItems} />);
-  const logo = (Logo && RenderedLogo && <RenderedLogo />);
-  const navSearch = (NavSearch && RenderedNavSearch && <RenderedNavSearch narrow />);
-  const buttonContainer = (ButtonContainer && <ButtonContainer />);
+  const RenderedMainNav = getFallbackComponent(MainNav, HeaderMainNav);
+  const RenderedNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
+  const RenderedUtilityNav = getFallbackComponent(UtilityNav, HeaderUtilityNav);
+  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HeaderUtilityItem);
+  const RenderedNavItem = getFallbackComponent(NavItem, HeaderNavItem);
+  const RenderedLogo = getFallbackComponent(Logo, HeaderLogo);
+  const RenderedButtonContainer = getFallbackComponent(ButtonContainer, HeaderButtonContainer);
+  const utilityNav = (RenderedUtilityNav !== null ? utilityItems.length > 0 && <RenderedUtilityNav UtilityItem={RenderedUtilityItem} items={utilityItems} narrow /> : null);
+  const mainNav = (RenderedMainNav !== null ? mainItems.length > 0 && <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
+  const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
+  const navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch narrow /> : null);
+  const buttonContainer = (RenderedButtonContainer !== null ? <RenderedButtonContainer /> : null);
   return(
     <nav className="ma__header__nav" aria-label="main navigation" id="main-navigation" role="navigation">
       {buttonContainer}
@@ -182,7 +186,8 @@ export const HeaderUtilityItem = ({ children }) => (
 HeaderUtilityItem.propTypes = {
   children: propTypes.node
 };
-export const HeaderUtilityNav = ({ UtilityItem = HeaderUtilityItem, items = [], narrow = true }) => {
+export const HeaderUtilityNav = ({ UtilityItem, items = [], narrow = true }) => {
+  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HeaderUtilityItem);
   const classes = classNames('ma__header__utility-nav', {
     'ma__header__utility-nav--narrow': narrow,
     'ma__header__utility-nav--wide': !narrow
@@ -192,7 +197,7 @@ export const HeaderUtilityNav = ({ UtilityItem = HeaderUtilityItem, items = [], 
       <div className="ma__utility-nav js-util-nav">
         <ul className="ma__utility-nav__items">
           {items.map((ItemComponent, index) => (
-            <UtilityItem key={`header-utility-item-${index}`}><ItemComponent narrow={narrow} /></UtilityItem>
+            <RenderedUtilityItem key={`header-utility-item-${index}`}><ItemComponent narrow={narrow} /></RenderedUtilityItem>
           ))}
         </ul>
       </div>

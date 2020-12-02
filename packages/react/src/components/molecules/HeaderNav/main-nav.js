@@ -9,10 +9,12 @@ import {
   useHeaderNavButtonEffects,
   useHeaderMainNav
 } from 'MayflowerReactMolecules/HeaderNav/hooks';
+import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
 
 export const HeaderMainNavContext = React.createContext();
 
-export const HeaderMainNav = ({ NavItem = HeaderNavItem, items = [] }) => {
+export const HeaderMainNav = ({ NavItem, items = [] }) => {
+  const RenderedNavItem = getFallbackComponent(NavItem, HeaderNavItem);
   const mainNavRef = React.useRef();
   // All items passed will become part of HeaderMainNav's context.
   const state = useHeaderMainNav(items);
@@ -23,7 +25,7 @@ export const HeaderMainNav = ({ NavItem = HeaderNavItem, items = [] }) => {
           <ul ref={mainNavRef} role="menubar" className="ma__main-nav__items js-main-nav">
             { items.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
-              <NavItem key={`main-nav-navitem--${itemIndex}`} {...item} index={itemIndex} mainNav={mainNavRef} />
+              <RenderedNavItem key={`main-nav-navitem--${itemIndex}`} {...item} index={itemIndex} mainNav={mainNavRef} />
             ))}
           </ul>
         </div>
@@ -181,11 +183,10 @@ export const HeaderNavItem = React.memo(({
           if (focusIndexInDropdown === dropdownLinksLength - 1) {
             focusIndexInDropdown += (action.up ? -1 : 1);
           }
-        } else {
-          if (focusIndexInDropdown === 0 || focusIndexInDropdown >= dropdownLinksLength) {
-            focusIndexInDropdown += (action.up ? -1 : 1);
-          }
+        } else if (focusIndexInDropdown === 0 || focusIndexInDropdown >= dropdownLinksLength) {
+          focusIndexInDropdown += (action.up ? -1 : 1);
         }
+
         // Wrap around if at the end of the submenu.
         focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
         $dropdownLinks[focusIndexInDropdown].focus();
@@ -200,8 +201,8 @@ export const HeaderNavItem = React.memo(({
       }
       // Navigate between submenus. This is needed for left/right actions in
       // normal layout, or up/down actions in flipped layout (when nav is closed).
-      if (((action.left || action.right) && !menuFlipped) ||
-          ((action.up || action.down) && menuFlipped && !isItemOpen)) {
+      if (((action.left || action.right) && !menuFlipped)
+      || ((action.up || action.down) && menuFlipped && !isItemOpen)) {
         let idx = Array.from($topLevelLinks).findIndex((link) => link === $topLevelLink);
         const prev = action.left || action.up;
         const linkCount = $topLevelLinks.length;
@@ -240,6 +241,7 @@ export const HeaderNavItem = React.memo(({
         <div ref={contentRef} className={contentClasses}>
           <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
             { subNav.map((item, itemIndex) => (
+              // eslint-disable-next-line react/no-array-index-key
               <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
                 <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
               </li>
@@ -265,7 +267,8 @@ HeaderNavItem.propTypes = {
   show: propTypes.func,
   text: propTypes.string,
   mainNav: propTypes.shape({
-    current: propTypes.node
+    current: Element ? propTypes.instanceOf(Element) : propTypes.object
+    // Element doesn't exist for SSR, so we check for it.
   }),
   subNav: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,

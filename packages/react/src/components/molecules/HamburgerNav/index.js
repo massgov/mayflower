@@ -6,6 +6,7 @@ import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
 
 export const HamburgerContext = React.createContext();
 export const useHamburgerNavKeydown = (closeMenu) => {
@@ -201,24 +202,27 @@ export const useMenuButtonEffects = (menuButtonRef, toggleMenu) => {
   }, [menuButtonRef, toggleMenu]);
 };
 const HamburgerNav = ({
-  UtilityNav = null,
+  UtilityNav,
   UtilityItem,
-  MainNav = null,
+  MainNav,
   NavItem,
-  NavSearch = null,
-  Logo = null,
+  NavSearch,
+  Logo,
   mainItems = [],
   utilityItems = []
 }) => {
-  const RenderedMainNav = MainNav || HamburgerMainNav;
-  const RenderedUtilityNav = UtilityNav || HamburgerUtilityNav;
-  // If UtilityItem or NavItem is set to null by default, this will NOT work:
+  const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
+  const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+  const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
+  const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   // If UtilityItem is undefined, UtilityNav will fallback to HamburgerUtilityItem.
-  const utilityNav = (utilityItems.length > 0 && <RenderedUtilityNav items={utilityItems} narrow UtilityItem={UtilityItem} />);
+  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+  const utilityNav = ((RenderedUtilityNav !== null && utilityItems.length > 0) ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
   // If NavItem is undefined, HamburgerMainNav falls back to HamburgerNavItem.
-  const mainNav = (<RenderedMainNav NavItem={NavItem} items={mainItems} />);
-  const logo = (Logo && <Logo />);
-  const navSearch = (NavSearch && <NavSearch />);
+  const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
+  const mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
+  const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
+  const navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
   const openMenu = React.useCallback(() => {
@@ -436,7 +440,7 @@ const HamburgerNav = ({
               <IconSearch />
             </button>
           </div>
-          <RenderedUtilityNav items={utilityItems} UtilityItem={UtilityItem} narrow={false} />
+          {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
           <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className="ma__header__hamburger__nav-container" aria-hidden="true" />
         </div>
       </nav>
@@ -470,16 +474,19 @@ HamburgerNav.propTypes = {
   utilityItems: propTypes.arrayOf(propTypes.elementType)
 };
 
-export const HamburgerMainNav = ({ NavItem = HamburgerNavItem, items = [] }) => (
-  <div className="ma__main__hamburger-nav">
-    <ul role="menubar" className="ma__main__hamburger-nav__items js-main-nav-hamburger">
-      { items.map((item, itemIndex) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <NavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} />
-      ))}
-    </ul>
-  </div>
-);
+export const HamburgerMainNav = ({ NavItem, items = [] }) => {
+  const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
+  return(
+    <div className="ma__main__hamburger-nav">
+      <ul role="menubar" className="ma__main__hamburger-nav__items js-main-nav-hamburger">
+        { items.map((item, itemIndex) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <RenderedNavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} />
+        ))}
+      </ul>
+    </div>
+  );
+};
 HamburgerMainNav.propTypes = {
   /** An uninstantiated component which handles displaying individual menu items within the menu. */
   NavItem: propTypes.elementType,
@@ -506,7 +513,6 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
   React.useEffect(() => {
     const item = itemRef.current;
     const itemButton = buttonRef.current;
-    const subMenu = contentRef.current;
     const subItems = ulRef.current;
     subItems.style.opacity = '0';
     const closeNarrowUtilContent = () => {
@@ -534,9 +540,12 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
         if (menuItem !== li && li.classList.contains('submenu-open')) {
           li.classList.remove('submenu-open');
           li.querySelector('.js-main-nav-hamburger__top-link').setAttribute('aria-expanded', 'false');
+          // eslint-disable-next-line no-param-reassign
           li.style.pointerEvents = 'none';
           /** Slide up. */
+          // eslint-disable-next-line no-param-reassign
           li.querySelector('.js-main-nav-hamburger-content').style.height = '0';
+          // eslint-disable-next-line no-param-reassign
           li.querySelector('.js-main-nav-hamburger__container').style.opacity = '0';
           setTimeout(() => {
             li.removeAttribute('style');
@@ -572,7 +581,7 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
         item.querySelector('.js-main-nav-hamburger-content').style.height = 'auto';
 
         /** Get the computed height of the subMenu. */
-        const height = item.querySelector('.js-main-nav-hamburger-content').clientHeight + 'px';
+        const height = `${item.querySelector('.js-main-nav-hamburger-content').clientHeight}px`;
         /** Set the height of the submenu as 0px, */
         /** so we can trigger the slide down animation. */
         item.querySelector('.js-main-nav-hamburger-content').style.height = '0';
@@ -630,6 +639,7 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
         <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
           <ul ref={ulRef} id={`menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
             { subNav.map((item, itemIndex) => (
+              // eslint-disable-next-line react/no-array-index-key
               <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
                 <a role="menuitem" href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
               </li>
@@ -669,10 +679,12 @@ HamburgerUtilityItem.propTypes = {
 };
 
 export const HamburgerUtilityNav = ({
-  UtilityItem = HamburgerUtilityItem,
+  UtilityItem,
   items = [],
   narrow = true
 }) => {
+  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+
   const wrapperClassName = classNames('ma__header__hamburger__utility-nav', {
     'ma__header__hamburger__utility-nav--narrow js-utility-nav--narrow': narrow,
     'ma__header__hamburger__utility-nav--wide js-utility-nav--wide': !narrow
@@ -684,7 +696,7 @@ export const HamburgerUtilityNav = ({
         <ul className="ma__utility-nav__items">
           {items.map((ItemComponent, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            <UtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></UtilityItem>
+            <RenderedUtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></RenderedUtilityItem>
           ))}
         </ul>
       </div>
@@ -703,10 +715,8 @@ export const HamburgerNavSearch = () => (
   <div className="ma__header__hamburger__search ma__header__hamburger__search-bar js-header-search-menu">
     <div className="ma__header-search">
       <form action="#" className="ma__form js-header-search-form" role="search">
-        <label
-          htmlFor="nav-search"
-          className="ma__header-search__label"
-        >
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <label htmlFor="nav-search" className="ma__header-search__label">
           Search terms
         </label>
         <input
@@ -722,7 +732,7 @@ export const HamburgerNavSearch = () => (
   </div>
 );
 
-export const HamburgerLogo = ({ mobile = true }) => {
+export const HamburgerLogo = ({ mobile = false }) => {
   const classes = classNames('ma__header__hamburger__logo', {
     'ma__header__hamburger__logo--mobile': mobile
   });
@@ -750,17 +760,42 @@ HamburgerLogo.propTypes = {
   mobile: propTypes.bool
 };
 
-export const Container = ({ Logo = HamburgerLogo, NavSearch = HamburgerNavSearch }) => (
-  <div className="ma__header__container">
-    {Logo && <Logo mobile={false} />}
-    {NavSearch && <NavSearch />}
-  </div>
+export const HamburgerMobileLogo = () => (
+  <HamburgerLogo mobile />
 );
+export const HamburgerSkipNav = () => (
+  <a className="ma__header__hamburger__skip-nav" href="#main-content">skip to main content</a>
+);
+export const HamburgerContainer = ({ Logo, NavSearch }) => {
+  const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
+  const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
+  return(
+    <div className="ma__header__container">
+      {RenderedLogo !== null && <RenderedLogo mobile={false} />}
+      {RenderedNavSearch !== null && <RenderedNavSearch />}
+    </div>
+  );
+};
 
-Container.propTypes = {
+HamburgerContainer.propTypes = {
   /** An uninstantiated component which handles displaying the site logo. */
   Logo: propTypes.elementType,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType
 };
+
+// For some reason, Header Hamburger has its own Nav Search...
+// This appears to be the same version from HeaderMixed.
+export const MobileHamburgerNavSearch = () => (
+  <div className="ma__header__nav-search js-header__nav-search">
+    <div className="ma__header-search">
+      <form action="#" className="ma__form js-header-search-form" role="search">
+        { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <label htmlFor="nav-search" className="ma__header-search__label">Search terms</label>
+        <input id="nav-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
+        <ButtonWithIcon usage="secondary" icon={<IconSearch />} text="Search" />
+      </form>
+    </div>
+  </div>
+);
 export default HamburgerNav;

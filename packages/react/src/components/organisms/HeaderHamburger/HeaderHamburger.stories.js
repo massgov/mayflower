@@ -11,7 +11,8 @@ HeaderHamburgerExample.args = {
     StateItem,
     LoginItem
   ],
-  mainItems
+  mainItems,
+  MainNav: null
 };
 HeaderHamburgerExample.storyName = 'Default';
 export default {

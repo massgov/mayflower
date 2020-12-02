@@ -1,33 +1,79 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import HamburgerNav, { Container as HamburgerContainer } from 'MayflowerReactMolecules/HamburgerNav';
-import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
-import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
+import HamburgerNav, {
+  MobileHamburgerNavSearch,
+  HamburgerNavItem,
+  HamburgerUtilityItem,
+  HamburgerMainNav,
+  HamburgerUtilityNav,
+  HamburgerLogo,
+  HamburgerSkipNav,
+  HamburgerNavSearch,
+  HamburgerContainer
+} from 'MayflowerReactMolecules/HamburgerNav';
+import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
 
 const HeaderHamburger = ({
   Logo,
+  MobileLogo,
   NavSearch,
-  Container = null,
+  MobileNavSearch,
+  SkipNav,
+  UtilityNav,
+  UtilityItem,
+  MainNav,
+  NavItem,
+  Container,
   mainItems,
   utilityItems
 }) => {
-  // Babel won't play nice with setting Container to MixedContainer by default in props.
-  // This appears to only be the case for the default export of a file.
-  // We do it here as a work around.
-  const RenderedContainer = Container || HamburgerContainer;
+  const RenderedContainer = getFallbackComponent(Container, HamburgerContainer);
+  const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
+  const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
+  const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MobileHamburgerNavSearch);
+  const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
+  const RenderedMobileLogo = getFallbackComponent(MobileLogo, HamburgerLogo);
+  const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+  const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
+  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+  const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
+
   return(
     <header className="ma__header__hamburger" id="header">
-      <a className="ma__header__hamburger__skip-nav" href="#main-content">skip to main content</a>
-      <HamburgerNav Logo={Logo} NavSearch={HamburgerNavSearch} mainItems={mainItems} utilityItems={utilityItems} />
-      <RenderedContainer Logo={Logo} NavSearch={NavSearch} />
+      {RenderedSkipNav !== null && <RenderedSkipNav />}
+      <HamburgerNav
+        MainNav={RenderedMainNav}
+        NavItem={RenderedNavItem}
+        UtilityItem={RenderedUtilityItem}
+        UtilityNav={RenderedUtilityNav}
+        Logo={RenderedMobileLogo}
+        NavSearch={RenderedMobileNavSearch}
+        mainItems={mainItems}
+        utilityItems={utilityItems}
+      />
+      <RenderedContainer Logo={RenderedLogo} NavSearch={RenderedNavSearch} />
     </header>
   );
 };
 HeaderHamburger.propTypes = {
   /** An uninstantiated component which handles displaying the site logo. */
-  Logo: propTypes.elementType,
+  Logo: propTypes.elementType.isRequired,
+  /** An uninstantiated component which handles displaying the site logo on mobile. */
+  MobileLogo: propTypes.elementType.isRequired,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
+  /** An uninstantiated component which handles search functionality on mobile. */
+  MobileNavSearch: propTypes.elementType,
+  /** An uninstantiated component which handles the display of a skip navigation link. */
+  SkipNav: propTypes.elementType,
+  /** An uninstantiated component which handles displaying the utility navigation at the top of the header. */
+  UtilityNav: propTypes.elementType,
+  /** An uninstantiated component which handles the display of individual utility items. */
+  UtilityItem: propTypes.elementType,
+  /** An uninstantiated component which handles the display of the main navigation and its links. */
+  MainNav: propTypes.elementType,
+  /** An uninstantiated component which handles display of individual navigation items inside of the main navigation. */
+  NavItem: propTypes.elementType,
   /** An uninstantiated component that displays the site logo and search on desktop. */
   Container: propTypes.elementType,
   /** An array of items used to create the menu. */
@@ -42,20 +88,5 @@ HeaderHamburger.propTypes = {
   /** An array of uninstantiated components to render within the utility navigation.  */
   utilityItems: propTypes.arrayOf(propTypes.elementType)
 };
-
-// For some reason, Header Hamburger has its own Nav Search...
-// This appears to be the same version from HeaderMixed.
-const HamburgerNavSearch = () => (
-  <div className="ma__header__nav-search js-header__nav-search">
-    <div className="ma__header-search">
-      <form action="#" className="ma__form js-header-search-form" role="search">
-        { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="nav-search" className="ma__header-search__label">Search terms</label>
-        <input id="nav-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
-        <ButtonWithIcon usage="secondary" icon={<IconSearch />} text="Search" />
-      </form>
-    </div>
-  </div>
-);
 
 export default HeaderHamburger;
