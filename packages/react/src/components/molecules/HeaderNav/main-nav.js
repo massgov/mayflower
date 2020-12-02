@@ -3,12 +3,12 @@ import classNames from 'classnames';
 import propTypes from 'prop-types';
 import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 import {
-  useWindowWidth,
   useHeaderNavKeydown,
   useHeaderNavMouseEvents,
   useHeaderNavButtonEffects,
   useHeaderMainNav
 } from 'MayflowerReactMolecules/HeaderNav/hooks';
+import useWindowWidth from 'MayflowerReactHooks/use-window-width';
 import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
 
 export const HeaderMainNavContext = React.createContext();

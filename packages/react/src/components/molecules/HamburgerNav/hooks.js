@@ -1,35 +1,5 @@
 import React from 'react';
 
-export const useEventListener = (eventName, handler, element) => {
-  // Create a ref that stores handler.
-  const savedHandler = React.useRef();
-  // Update ref.current value if handler changes.
-  // This allows our effect below to always get latest handler ...
-  // ... without us needing to pass it in effect deps array ...
-  // ... and potentially cause effect to re-run every render.
-  React.useEffect(() => {
-    savedHandler.current = handler;
-  }, [handler]);
-
-  React.useEffect(() => {
-    // Make sure element supports addEventListener.
-    const isSupported = element && element.addEventListener;
-    if (!isSupported) {
-      return;
-    }
-    // Create event listener that calls handler function stored in ref.
-    const eventListener = (event) => savedHandler.current(event);
-    // Add event listener.
-    element.addEventListener(eventName, eventListener);
-    // Remove event listener on cleanup.
-    // eslint-disable-next-line consistent-return
-    return(() => {
-      if (element) {
-        element.removeEventListener(eventName, eventListener);
-      }
-    });
-  }, [eventName, element]);
-};
 export const useHamburgerNavKeydown = (closeMenu) => {
   // Define this using useCallback so this event listener
   // can be deleted when the parent component unmounts.
@@ -90,7 +60,8 @@ export const useHamburgerNavKeydown = (closeMenu) => {
       }
       // Util nav menus in the hamburger menu
       if (utilNarrowNav) {
-        if ((utilNarrowButton !== document.activeElement) && (utilNarrowContainer.style.opacity === '1')) {// Open Log in to... in Hamburger menu: To be consisitent with submenu, keep the content open and set focus on nav button.
+        // Open Log in to... in Hamburger menu: To be consisitent with submenu, keep the content open and set focus on nav button.
+        if ((utilNarrowButton !== document.activeElement) && (utilNarrowContainer.style.opacity === '1')) {
           const utilNavContentLinks = utilNarrowNav.querySelectorAll('.js-clickable-link');
           for (let i = 0; i < utilNavContentLinks.length; i += 1) {
             if (utilNavContentLinks[i].innerText === document.activeElement.innerText) {
@@ -187,7 +158,7 @@ export const useMenuButtonEffects = (menuButtonRef, toggleMenu) => {
       if (width < 621) {
         e.preventDefault();
         const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
-        const focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");  
+        const focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
         focusable[0].focus();
       }
     }

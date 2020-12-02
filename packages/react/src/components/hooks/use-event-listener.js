@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const useEventListener = (eventName, handler, elementRef) => {
+const useEventListener = (eventName, handler, elementRef) => {
   // Create a ref that stores handler.
   const savedHandler = React.useRef();
   // Update ref.current value if handler changes.
@@ -31,13 +31,4 @@ export const useEventListener = (eventName, handler, elementRef) => {
     });
   }, [eventName, elementRef]);
 };
-
-export const useWindowWidth = () => {
-  const windowWidth = React.useRef(window ? window.innerWidth : null);
-  const resize = React.useCallback(() => {
-    windowWidth.current = window.innerWidth;
-  }, []);
-  useEventListener('resize', resize, { current: window });
-
-  return windowWidth;
-};
+export default useEventListener;

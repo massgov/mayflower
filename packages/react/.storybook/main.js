@@ -157,6 +157,7 @@ module.exports = {
         MayflowerReactTemplates: path.resolve(__dirname, '../src/components/templates'),
         MayflowerReactUtilities: path.resolve(__dirname, '../src/components/utilities'),
         MayflowerReactGenTeaser: path.resolve(__dirname, '../src/components/organisms/GenTeaser'),
+        MayflowerReactHooks: path.resolve(__dirname, '../src/components/hooks'),
         SharedAssets: '@massds/mayflower-assets/static'
       }};
 

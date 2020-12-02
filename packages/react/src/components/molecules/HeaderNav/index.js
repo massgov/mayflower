@@ -6,7 +6,7 @@ import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import { HeaderMainNav, HeaderNavItem } from 'MayflowerReactMolecules/HeaderNav/main-nav';
-import { useWindowWidth } from 'MayflowerReactMolecules/HeaderNav/hooks';
+import useWindowWidth from 'MayflowerReactHooks/use-window-width';
 import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
 
 const HeaderNav = ({
@@ -79,7 +79,7 @@ export const HeaderButtonContainer = () => {
     const closeClass = 'is-closed';
     const breakpoint = 840;
     body.classList.remove(submenuClass);
-    const open = mainNav.querySelector('.' + openClass);
+    const open = mainNav.querySelector(`.${openClass}`);
     if (open) {
       open.classList.remove(openClass);
     }
@@ -90,7 +90,6 @@ export const HeaderButtonContainer = () => {
       // @todo animate here!
       $content.classList.add(closeClass);
     }
-    
   }, [windowWidth]);
   React.useEffect(() => {
     const menuButton = menuButtonRef.current;
@@ -107,7 +106,7 @@ export const HeaderButtonContainer = () => {
     };
     if (menuButton) {
       menuButton.addEventListener('click', () => {
-        const $openContent = mainNav.querySelector('.js-main-nav-content.' + openClass);
+        const $openContent = mainNav.querySelector(`.js-main-nav-content.${openClass}`);
         if ($openContent) {
           hide($openContent);
         }
@@ -120,7 +119,7 @@ export const HeaderButtonContainer = () => {
     }
     if (closeButton) {
       closeButton.addEventListener('click', () => {
-        const $openContent = mainNav.querySelector('.js-main-nav-content.' + openClass);
+        const $openContent = mainNav.querySelector(`.js-main-nav-content.${openClass}`);
         if ($openContent) {
           hide($openContent);
         }
@@ -197,6 +196,7 @@ export const HeaderUtilityNav = ({ UtilityItem, items = [], narrow = true }) => 
       <div className="ma__utility-nav js-util-nav">
         <ul className="ma__utility-nav__items">
           {items.map((ItemComponent, index) => (
+            // eslint-disable-next-line react/no-array-index-key
             <RenderedUtilityItem key={`header-utility-item-${index}`}><ItemComponent narrow={narrow} /></RenderedUtilityItem>
           ))}
         </ul>

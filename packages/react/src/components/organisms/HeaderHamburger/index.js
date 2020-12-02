@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import HamburgerNav, {
-  MobileHamburgerNavSearch,
+  HamburgerMobileNavSearch,
   HamburgerNavItem,
   HamburgerUtilityItem,
   HamburgerMainNav,
@@ -30,7 +30,7 @@ const HeaderHamburger = ({
   const RenderedContainer = getFallbackComponent(Container, HamburgerContainer);
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
-  const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MobileHamburgerNavSearch);
+  const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, HamburgerMobileNavSearch);
   const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
   const RenderedMobileLogo = getFallbackComponent(MobileLogo, HamburgerLogo);
   const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
@@ -57,9 +57,9 @@ const HeaderHamburger = ({
 };
 HeaderHamburger.propTypes = {
   /** An uninstantiated component which handles displaying the site logo. */
-  Logo: propTypes.elementType.isRequired,
+  Logo: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo on mobile. */
-  MobileLogo: propTypes.elementType.isRequired,
+  MobileLogo: propTypes.elementType,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
   /** An uninstantiated component which handles search functionality on mobile. */

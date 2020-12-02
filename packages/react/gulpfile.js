@@ -6,6 +6,7 @@ const rename = require('gulp-rename');
 const del = require('del');
 const path = require('path');
 const run = require('gulp-run-command').default;
+
 function clean() {
   return del(['dist']);
 }
@@ -177,6 +178,7 @@ const aliases = {
   'MayflowerReactPages/(.*)$': './\\1',
   'MayflowerReactTemplates/(.*)$': './\\1',
   'MayflowerReactUtilities/(.*)$': './\\1',
+  'MayflowerReactHooks/(.*)$': './\\1'
 };
 
 const sources = [
@@ -185,7 +187,9 @@ const sources = [
   '!src/**/*.knobs.options.js',
   '!src/**/*.knob.options.js',
   '!src/**/Colors/**',
-  '!src/**/Icon/**'
+  '!src/**/Icon/**',
+  '!src/**/utility-items.data.js',
+  '!src/**/main-nav.data.js'
 ];
 
 function resolvePath(sourcePath, currentFile, opts) {
@@ -210,9 +214,13 @@ function resolvePath(sourcePath, currentFile, opts) {
           'TabContainer/tab-body',
           'TabContainer/context',
           'utilities/componentPropTypeCheck',
+          'utilities/getFallbackComponent',
           'Breadcrumb/item',
           'GenTeaser/utils',
           'Base/Icon/',
+          'hooks/use-script',
+          'hooks/use-event-listener',
+          'hooks/use-window-width'
         ];
         // If the current path is a file and not a directory...
         if (excludes.some((rule) => sourcePath.includes(rule))) {
