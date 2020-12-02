@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { linkTo } from '@storybook/addon-links';
 
 import generateTitle from '../../util/generateTitle';
 import * as stories from './Template.stories.js';
@@ -25,7 +26,10 @@ To kick-start a page in HTML:
     - **JS**: Add links to JS before the closing body tag `</body>`
 5. Replace the `.ma__placeholder` divs with real content
 
-> To use a different variant of Header or Footer component, refer to [Header](/?path=/docs/brand-components-footer) and [Footer](/?path=/docs/brand-components-footer) and replace the HTML, CSS and JS (if any) in the template snippet.
+> To use a different variant of Header or Footer component, refer to <button onClick={linkTo(generateTitle('Header'))}>Header</button> and <button onClick={linkTo(generateTitle('Footer'))}>Footer</button>, and replace the HTML, CSS and JS (if any) in the template snippet.
+>
+>
+
 
 
 ## Examples
