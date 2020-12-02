@@ -1,8 +1,9 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks';
 import { linkTo } from '@storybook/addon-links';
 
 import generateTitle from '../../util/generateTitle';
 import * as stories from './Template.stories.js';
+import { renderReactMarkup } from '../../util/renderCode';
 
 <Meta
   title={generateTitle('Template')}
@@ -15,18 +16,26 @@ import * as stories from './Template.stories.js';
 
 The templates demostrates how to assemble a page with a Mayflower Header, Footer and a basic page layout.
 
+> Refer to <button onClick={linkTo(generateTitle('Header'))}>Header</button> and <button onClick={linkTo(generateTitle('Footer'))}>Footer</button>, copy and paste the Header and Footert HTML, CSS and JS (if any) into the template snippet.
+
+<Source code={
+  `
+  ${stories.notesTemplateCSS}
+<body>
+  ${renderReactMarkup(stories.template({renderHeader: '// Insert Header HTML here', renderFooter: '// Insert Footer HTML here'}))}
+  ${stories.notesTemplateJS}
+</body>
+  `
+} />
+
 
 ## Usage
 To kick-start a page in HTML:
-1. Jump to an example below
-2. Click on "Show code" to expand the HTML snippet
-3. Scroll to the bottom of the code block and "Copy" the whole snippet
-4. Move the links to CSS and JS into the appropriate places for production
-    - **CSS**: Add links to CSS inside the `<head>`
-    - **JS**: Add links to JS before the closing body tag `</body>`
+1. Copy the code above or jump to an example below and click on "Show code" to copy the HTML snippet from the example
+4. Add the links to CSS and JS at the appropriate places
+    - **CSS**: Link to CSS inside the `<head>`
+    - **JS**: Link to JS before the closing body tag `</body>`
 5. Replace the `.ma__placeholder` divs with real content
-
-> To use a different variant of Header or Footer component, refer to <button onClick={linkTo(generateTitle('Header'))}>Header</button> and <button onClick={linkTo(generateTitle('Footer'))}>Footer</button>, and replace the HTML, CSS and JS (if any) in the template snippet.
 
 
 

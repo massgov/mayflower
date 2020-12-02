@@ -8,13 +8,10 @@ const { STORYBOOK_CDN_PATH } = process.env;
 
 import { attachHTML } from '../../util/renderCode';
 
-const template = ({renderHeader, renderFooter, reversed}) => {
+export const template = ({renderHeader, renderFooter, reversed}) => {
   return(
     <div id="body-wrapper">
-      {
-        // header
-        renderHeader
-      }
+      {renderHeader}
       <main id="main-content">
         <div className="pre-content sp--bottom">
           <div className="ma__placeholder">
@@ -26,7 +23,7 @@ const template = ({renderHeader, renderFooter, reversed}) => {
             Main Content
           </div>
         </div>
-        <div className={`main-content main-content--two ${reversed && 'main-content--reversed'}`}>
+        <div className={`main-content main-content--two ${reversed ? 'main-content--reversed' : ''}`}>
           { reversed && (
             <aside className="sidebar">
               <div className="ma__placeholder">
@@ -79,6 +76,20 @@ const notesTemplate = `
 
   // Link to JS:
   <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
+`
+
+export const notesTemplateCSS = `
+<head>
+  <!-- Mayflower fonts and other basic styles -->
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
+  <!-- Mayflower page layout styles -->
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
+  <!-- Add Mayflower Header and Footer specific styles -->
+</head>
+`
+
+export const notesTemplateJS = `
+  <!-- Add Header JS (if any)-->
 `
 
 export const templateBasic = () => templateSlim;
