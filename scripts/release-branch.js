@@ -41,3 +41,4 @@ const releaseBranch = 'release/' + version;
 })().catch(function(err) {
   console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
   process.exit(1);
+})
