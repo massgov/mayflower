@@ -18,7 +18,7 @@ import HamburgerNav, {
 } from 'MayflowerReactMolecules/HamburgerNav';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
-import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
+import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 
 const MixedContainer = ({
   Logo,

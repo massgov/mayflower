@@ -1,6 +1,6 @@
 import React from 'react';
-import useEventListener from 'MayflowerReactHooks/use-event-listener';
-import useWindowWidth from 'MayflowerReactHooks/use-window-width';
+import useEventListener from 'MayflowerReactComponents/hooks/use-event-listener';
+import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 
 export function mainNavReducer(state, action) {
   const newState = { ...state };

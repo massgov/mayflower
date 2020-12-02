@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-unresolved
 import IconLatlonglobe from 'MayflowerReactBase/Icon/IconLatlonglobe';
-import useScript from 'MayflowerReactHooks/use-script';
+import useScript from 'MayflowerReactComponents/hooks/use-script';
 
 const GoogleTranslateElement = ({ id = 'google_translate_element' }) => {
   const status = useGoogleTranslateElement(id);

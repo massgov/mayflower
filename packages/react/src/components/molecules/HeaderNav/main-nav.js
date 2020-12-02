@@ -8,8 +8,8 @@ import {
   useHeaderNavButtonEffects,
   useHeaderMainNav
 } from 'MayflowerReactMolecules/HeaderNav/hooks';
-import useWindowWidth from 'MayflowerReactHooks/use-window-width';
-import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
+import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
+import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 
 export const HeaderMainNavContext = React.createContext();
 

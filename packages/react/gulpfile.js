@@ -201,35 +201,35 @@ function resolvePath(sourcePath, currentFile, opts) {
     if (check.test(sourcePath)) {
       const matches = check.exec(sourcePath);
       resolvedPath = `${rootPath}${matches[1]}`;
-      // ES Modules need to list out the extension on the end of the path,
-      // otherwise index.js will be used instead of index.mjs.
-      if (opts.hasOwnProperty('isES5') && opts.isES5 === false) {
-        // List of exports that are files and not directories.
-        const excludes = [
-          'Input/error',
-          'Input/context',
-          'Input/utility',
-          'Input/validate',
-          'TabContainer/tab',
-          'TabContainer/tab-body',
-          'TabContainer/context',
-          'utilities/componentPropTypeCheck',
-          'utilities/getFallbackComponent',
-          'Breadcrumb/item',
-          'GenTeaser/utils',
-          'Base/Icon/',
-          'hooks/use-script',
-          'hooks/use-event-listener',
-          'hooks/use-window-width'
-        ];
-        // If the current path is a file and not a directory...
-        if (excludes.some((rule) => sourcePath.includes(rule))) {
-          // Add the .mjs extension.
-          resolvedPath = `${resolvedPath}.mjs`;
-        } else {
-          // Else, add the path to the index.mjs file the ES module needs.
-          resolvedPath = `${resolvedPath}/index.mjs`;
-        }
+      const ext = (opts.hasOwnProperty('isES5') && opts.isES5 === true) ? 'js' : 'mjs';
+      // List of exports that are files and not directories.
+      const excludes = [
+        'Input/error',
+        'Input/context',
+        'Input/utility',
+        'Input/validate',
+        'TabContainer/tab',
+        'TabContainer/tab-body',
+        'TabContainer/context',
+        'utilities/componentPropTypeCheck',
+        'utilities/getFallbackComponent',
+        'Breadcrumb/item',
+        'GenTeaser/utils',
+        'Base/Icon/',
+        'HamburgerNav/hooks',
+        'HeaderNav/hooks',
+        'HeaderNav/main-nav',
+        'hooks/use-script',
+        'hooks/use-event-listener',
+        'hooks/use-window-width'
+      ];
+      // If the current path is a file and not a directory...
+      if (excludes.some((rule) => sourcePath.includes(rule))) {
+        // Add the extension.
+        resolvedPath = `${resolvedPath}.${ext}`;
+      } else {
+        // Else, add the path to the index file.
+        resolvedPath = `${resolvedPath}/index.${ext}`;
       }
     }
   });

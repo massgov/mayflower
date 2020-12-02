@@ -2,12 +2,12 @@ import React from 'react';
 import propTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
-import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
+import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import { HeaderMainNav, HeaderNavItem } from 'MayflowerReactMolecules/HeaderNav/main-nav';
-import useWindowWidth from 'MayflowerReactHooks/use-window-width';
-import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
+import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
+import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 
 const HeaderNav = ({
   UtilityNav,

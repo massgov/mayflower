@@ -1,5 +1,5 @@
 import React from 'react';
-import useEventListener from 'MayflowerReactHooks/use-event-listener';
+import useEventListener from 'MayflowerReactComponents/hooks/use-event-listener';
 
 const useWindowWidth = () => {
   const windowWidth = React.useRef(window ? window.innerWidth : null);

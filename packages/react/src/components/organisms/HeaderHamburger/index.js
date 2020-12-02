@@ -11,7 +11,7 @@ import HamburgerNav, {
   HamburgerNavSearch,
   HamburgerContainer
 } from 'MayflowerReactMolecules/HamburgerNav';
-import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
+import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 
 const HeaderHamburger = ({
   Logo,

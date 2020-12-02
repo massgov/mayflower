@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
-import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
+import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
-import getFallbackComponent from 'MayflowerReactUtilities/getFallbackComponent';
+import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import { useHamburgerNavKeydown, useJumpToSearch, useMenuButtonEffects } from 'MayflowerReactMolecules/HamburgerNav/hooks';
 
 export const HamburgerContext = React.createContext();
