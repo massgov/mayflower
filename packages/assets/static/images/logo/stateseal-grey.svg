@@ -1,7 +1,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 210 210" xml:space="preserve">
 <style type="text/css">
-	.color-primary{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-	.color-secondary{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.color-primary{fill-rule:evenodd;clip-rule:evenodd;fill:#777777;}
+	.color-secondary{fill-rule:evenodd;clip-rule:evenodd;fill:#777777;}
 	.color-background{fill:none;}
 </style>
 <g id="yellow-objects" class="color-secondary">
