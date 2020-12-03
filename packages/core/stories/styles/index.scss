@@ -39,6 +39,9 @@
 @use '@massds/mayflower-assets/scss/02-molecules/footer-links';
 @use '@massds/mayflower-assets/scss/02-molecules/social-links';
 
+@use '@massds/mayflower-assets/scss/00-base/layout';
+@use '@massds/mayflower-assets/scss/01-atoms/place-holder';
+
 // Global
 .sp {
   &--top {
