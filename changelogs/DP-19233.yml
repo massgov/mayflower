@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Figure
+    description: Fix the width of small size <figure> and adjust side margins for side by side layout of <figure>s. (#1227)
+    issue: DP-19233
+    impact: Patch
