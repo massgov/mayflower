@@ -1,0 +1,56 @@
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks';
+import { linkTo } from '@storybook/addon-links';
+
+import generateTitle from '../../util/generateTitle';
+import * as stories from './Template.stories.js';
+import { renderReactMarkup } from '../../util/renderCode';
+
+<Meta
+  title={generateTitle('Template')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Template
+
+The templates demostrates how to assemble a page with a Mayflower Header, Footer and a basic page layout.
+
+> Refer to <button onClick={linkTo(generateTitle('Header'))}>Header</button> and <button onClick={linkTo(generateTitle('Footer'))}>Footer</button>, copy and paste the Header and Footert HTML, CSS and JS (if any) into the template snippet.
+
+<Source code={
+  `
+  ${stories.notesTemplateCSS}
+<body>
+  ${renderReactMarkup(stories.template({renderHeader: '// Insert Header HTML here', renderFooter: '// Insert Footer HTML here'}))}
+  ${stories.notesTemplateJS}
+</body>
+  `
+} />
+
+
+## Usage
+To kick-start a page in HTML:
+1. Copy the code above or jump to an example below and click on "Show code" to copy the HTML snippet from the example
+4. Add the links to CSS and JS at the appropriate places
+    - **CSS**: Link to CSS inside the `<head>`
+    - **JS**: Link to JS before the closing body tag `</body>`
+5. Replace the `.ma__placeholder` divs with real content
+
+
+
+## Examples
+
+### Header and Footer (Slim)
+A demo page with the Slim Header, Slim Footer, and a layout of a full-width block, and two-column block with a right-rail.
+
+<Canvas>
+    <Story story={stories.templateBasic} />
+</Canvas>
+
+### Header and Footer (With Full Navigation)
+A demo page with the Full Nav Header, Full Nav Footer, and a layout of a full-width block, and two-column block with a left-rail.
+
+<Canvas>
+    <Story story={stories.templateFull} />
+</Canvas>
