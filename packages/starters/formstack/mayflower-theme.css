@@ -1,0 +1,282 @@
+/* layout */
+.fsBody  {
+    padding: 0;
+    margin-top: 60px;
+
+}
+.fsBody .fsForm {
+    font-family: 'texta';
+    font-size: 22px;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    max-width: 50rem;
+}
+
+
+/* Headline */
+
+
+.fsBody .fsSectionHeader {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.fsBody .fsSectionHeader .fsSectionHeading {
+    text-align: left;
+    position: relative;
+    padding-bottom: 15px;
+    color: #535353;
+    font-weight: 700;
+    font-size: 48px;
+    font-size: 3rem;
+    line-height: 1.07;
+}
+
+.fsBody .fsSectionHeader .fsSectionHeading:after {
+    content: "";
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0.075em;
+    width: 1.85em;
+    background-color: rgba(67, 149, 111, 0.5);
+    -webkit-transform: skew(-30deg);
+    -ms-transform: skew(-30deg);
+    transform: skew(-30deg);
+}
+
+
+/* Labels */
+
+.fsBody .fsForm .fsLabel {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 22px;
+    font-size: 1.375rem;
+    line-height: 1.5;
+}
+/*.fsBody .fsForm .fsRequiredMarker {
+    display: none;
+}
+*/
+.fsBody .fsForm .fsLabel:not(.fsRequiredLabel):after {
+    content: ' (optional)';
+}
+
+/* Inputs */
+
+.fsBody .fsForm fieldset {
+    border: none;
+    padding-left: 0;
+}
+.fsBody .fsForm input[type="text"].fsField,
+.fsBody .fsForm input[type="email"].fsField,
+.fsBody .fsForm input[type="tel"].fsField {
+    background-color: white;
+    border-color: #dcdcdc !important;
+    color: #535353;
+    border: 2px solid;
+    min-height: 46px;
+    padding: 0 18px;
+}
+.fsBody .fsForm input[type="tel"].fsField {
+    min-width: 12rem;
+}
+.fsBody .fsForm textarea {
+    background-color: white;
+    border-color: #dcdcdc !important;
+    border: 2px solid;
+}
+
+.fsForm select:not([multiple="multiple"]) {
+    background-color: white;
+    border-color: #dcdcdc;
+    border: 2px solid #dcdcdc;
+    background-image: none;
+    max-width: 100%;
+}
+
+.fsBody .fsSubField {
+  margin-top: 10px;
+}
+
+
+/* Matrix */
+.fsMatrix {
+  border-collapse: collapse;
+}
+
+.fsMatrix th, .fsMatrix td {
+  padding: 1em;
+  text-align: center;
+}
+
+
+/* Radios, checkbox */
+
+.fsBody .fsForm .fsOptionLabel {
+    font-size: 22px;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    position: relative;
+}
+.fsBody .fsForm .fsOptionLabel.horizontal {
+    /* Just avoid horizontal radios even if authored that way.*/
+    float: none;
+}
+.fsBody .fsForm .fsOptionLabel input[type="radio"],
+.fsBody .fsForm .fsOptionLabel input[type="checkbox"] {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+.fsBody .fsForm .fsOptionLabel input[type="radio"]:focus,
+.fsBody .fsForm .fsOptionLabel input[type="checkbox"]:focus {
+    box-shadow: none;
+}
+
+@media (max-width: 40em) {
+    .fsBody .fsForm label.fsOptionLabel {
+        background: none;
+        border: none;
+        padding: 10px 0;
+    }
+}
+
+
+/* Supporting text */
+
+.fsBody .fsForm .fsSupporting {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.fsBody .fsField::placeholder {
+  color: #cccccc;
+}
+
+/* Submit */
+
+.fsBody .fsForm input.fsSubmitButton {
+    font-weight: 700;
+    background-color: #14558f !important;
+    color: white;
+    border: 3px solid #14558f;
+    box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+    display: inline-block;
+    letter-spacing: 0.1em;
+    padding: 0.4em 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.fsSubmitButton {
+  background-color: #14558f !important;
+}
+
+.fsBody .fsForm input.fsSubmitButton:hover {
+    background-color: rgba(20, 85, 143, 0.75) !important;
+    border-color:  transparent;
+}
+
+.fsBody [data-char-left] {
+    margin-bottom: 1.5rem;
+}
+
+.fsBody .fsCounter {
+    position: absolute;
+    width: .1em;
+    height: .1em;
+    left: -999em;
+    overflow: hidden;
+}
+
+/* Next Button */
+
+.fsNextButton {
+    font-weight: 700;
+    background-color: #14558f !important;
+    color: white;
+    border: 3px solid #14558f;
+    box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+    display: inline-block;
+    letter-spacing: 0.1em;
+    padding: 0.4em 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    float: left !important;
+}
+
+.fsNextButton .fsSlim {
+    display: none;
+}
+
+.fsNextButton:hover {
+    background-color: rgba(20, 85, 143, 0.75) !important;
+    border-color:  transparent;
+}
+
+
+.fhttps://help.formstack.com/hc/en-us/articles/360019519891-Custom-Form-Themes-and-CSSsBody .fsFieldRow {
+    margin-bottom: 3.5rem !important;
+}
+
+.fsBody .fsForm .fsPagination {
+  text-align: left;
+}
+
+.fsBody .fsForm .fsSubmitButton {
+  cursor: pointer;
+}
+
+
+.fsForm, .fsError {
+    float: none !important;
+}
+
+.fsForm  div.fsError {
+    color: white;
+    border-radius: 0;
+    background-color: #f34343;
+    font-weight: bold;
+}
+.fsPage .fsValidationError {
+    background-color: transparent;
+}
+.fsPage .fsValidationError .fsLabel,
+.fsValidationError .fsLabel span,
+div.fsValidationError label.fsLabel{
+    color: #f34343 !important;
+    padding-left: 0;
+    background: none;
+}
+
+.fsPage .fsValidationError input,
+.fsPage .fsValidationError textarea {
+    border: 2px solid #f34343;
+}
+
+
+/* remove branding */
+a[title="Web Form Builder"] {
+    display: none;
+}
+
+/* specifc to given form */
+
+#fsSubmit3193712 {
+    padding-top: 0px !important;
+}
+
+input.fsSubmitButton {
+    font-family: "Texta","Helvetica","Arial",sans-serif;
+    font-size: 1rem;
+}
