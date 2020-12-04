@@ -2,7 +2,6 @@
 .fsBody  {
     padding: 0;
     margin-top: 60px;
-    font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
 }
 
 .fsBody .fsForm {
@@ -15,7 +14,7 @@
     max-width: 50rem;
 }
 
-/* Headline */
+/* Headings */
 .fsBody .fsSectionHeader {
     background-color: transparent;
     padding: 0;
@@ -68,6 +67,7 @@
     border: none;
     padding-left: 0;
 }
+
 .fsBody .fsForm input[type="text"].fsField,
 .fsBody .fsForm input[type="email"].fsField,
 .fsBody .fsForm input[type="tel"].fsField {
@@ -95,6 +95,7 @@
     border: 2px solid #dcdcdc;
     background-image: none;
     max-width: 100%;
+    cursor: pointer;
 }
 
 .fsBody .fsSubField {
@@ -107,8 +108,8 @@
 }
 
 .fsMatrix th, .fsMatrix td {
-  padding: 1em;
-  text-align: center;
+    padding: 1em;
+    text-align: center;
 }
 
 /* Radios, checkbox */
@@ -126,11 +127,18 @@
 .fsBody .fsForm .fsOptionLabel input[type="checkbox"] {
     margin-right: 0.5rem;
     vertical-align: middle;
+    cursor: pointer;
 }
 .fsBody .fsForm .fsOptionLabel input[type="radio"]:focus,
 .fsBody .fsForm .fsOptionLabel input[type="checkbox"]:focus {
     box-shadow: none;
+    cursor: pointer;
 }
+
+.fsBody .fsForm input[type="number"] {
+    font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
+}
+
 
 @media (max-width: 40em) {
     .fsBody .fsForm label.fsOptionLabel {
@@ -149,11 +157,12 @@
 }
 
 .fsBody .fsField::placeholder {
-  color: #cccccc;
+    color: #cccccc;
 }
 
 /* Submit */
 .fsBody .fsForm input.fsSubmitButton {
+    font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
     font-weight: 700;
     background-color: #14558f !important;
     color: white;
@@ -166,10 +175,11 @@
     text-transform: uppercase;
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
+    cursor: pointer;
 }
 
 .fsSubmitButton {
-  background-color: #14558f !important;
+    background-color: #14558f !important;
 }
 
 .fsBody .fsForm input.fsSubmitButton:hover {
@@ -220,11 +230,7 @@
 }
 
 .fsBody .fsForm .fsPagination {
-  text-align: left;
-}
-
-.fsBody .fsForm .fsSubmitButton {
-  cursor: pointer;
+    text-align: left;
 }
 
 .fsForm, .fsError {
@@ -253,7 +259,6 @@ div.fsValidationError label.fsLabel{
     border: 2px solid #f34343;
 }
 
-
 /* remove branding */
 a[title="Web Form Builder"] {
     display: none;
@@ -265,7 +270,6 @@ a[title="Web Form Builder"] {
 }
 
 input.fsSubmitButton {
-    font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
     font-size: 1rem;
 }
 
@@ -277,15 +281,15 @@ div[fs-field-type="richtext"] a {
 
 /* DP-19875 Remove the extra character count */
 .fsFieldRow .ma__textarea__wrapper::after {
-  content: '';
+    content: '';
 }
 
+/* Fix for sub-field groups */
 .fsSubFieldGroup {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex-grow: 2;
-  align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-grow: 2;
 }
 
 .fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(3),
@@ -297,18 +301,34 @@ div[fs-field-type="richtext"] a {
 .fsBody .fsSubField.fsFieldCity,
 .fsBody .fsSubField.fsFieldState,
 .fsBody .fsSubField.fsFieldZip {
-  width: auto;
-  flex-grow: 2;
+    width: auto;
+    flex-grow: 2;
 }
-
-/*.fsBody .fsSubField.fsFieldAddress,
-.fsBody .fsSubField.fsFieldAddress2,
-.fsBody .fsSubField.fsFieldCountry*/
 
 .fsBody .fsForm input[type="text"].fsField,
 .fsBody .fsForm input[type="email"].fsField,
 .fsBody .fsForm input[type="tel"].fsField {
-    max-height: 46px;
     min-height: unset;
+    max-height: 46px;
     width: 100%;
 }
+
+.fsRequiredMarker {
+  font-size: 1rem;
+  color: #CD0D0D;
+}
+
+div[fs-field-type="radio"] div.fieldset-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div[fs-field-type="richtext"] a {
+    border-bottom: 0;
+}
+/*
+*:input:focus {
+    outline-offset: -1px;
+    outline: solid;
+    outline-color: #487fe0;
+}*/
