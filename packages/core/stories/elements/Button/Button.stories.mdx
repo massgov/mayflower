@@ -13,12 +13,12 @@ import * as stories from './Button.stories.js';
 
 # Buttons
 Buttons express what action will occur when the user clicks or touches it. Buttons are used to initialize an action, either in the background or foreground of an experience.
-<Canvas withSource="none" >
+<Canvas>
   <Story
-    name='test'
-    parameters={{ docs: { source: {code: null}}}}>
-    <Button text="Button" />
-    </Story>
+		name="button-primary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary Button"/>) } }}>
+      <Button usage="" text="button" />
+  </Story>
 </Canvas>
 
 ## Overview
@@ -36,23 +36,23 @@ Default buttons are solid colors with uppercased button text (this is configurab
 <Canvas>
   <Story
     name="button-primary-c-primary"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="button"/>) } }}>
-      <Button usage="" text="button" />
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary"/>) } }}>
+      <Button usage="" text="Primary" />
   </Story>
   <Story
     name="button-primary-c-primary-alt"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" theme="c-primary-alt" text="button"/>) } }}>
-      <Button usage="" theme="c-primary-alt" text="button"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" theme="c-primary-alt" text="Primary"/>) } }}>
+      <Button usage="" theme="c-primary-alt" text="Primary"/>
   </Story>
   <Story
     name="button-primary-c-highlight"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" theme="c-highlight" text="button"/>) } }}>
-      <Button usage="" theme="c-highlight" text="button"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" theme="c-highlight" text="Primary"/>) } }}>
+      <Button usage="" theme="c-highlight" text="Primary"/>
   </Story>
   <Story
     name="button-primary-c-gray"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" theme="c-gray-dark" text="button"/>) } }}>
-      <Button usage="" theme="c-gray-dark" text="button"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" theme="c-gray-dark" text="Primary"/>) } }}>
+      <Button usage="" theme="c-gray-dark" text="Primary"/>
   </Story>
   <Story story={stories.buttonCSS} />
 </Canvas>
@@ -68,23 +68,23 @@ The outline button provides a less prominent visual to indicate an less importan
 <Canvas>
   <Story
     name="button-secondary-c-primary"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" text="button"/>) } }}>
-      <Button usage="secondary" text="button" />
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" text="Secondary"/>) } }}>
+      <Button usage="secondary" text="Secondary" />
   </Story>
   <Story
     name="button-secondary-c-primary-alt"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-primary-alt" text="button"/>) } }}>
-      <Button usage="secondary" theme="c-primary-alt" text="button"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-primary-alt" text="Secondary"/>) } }}>
+      <Button usage="secondary" theme="c-primary-alt" text="Secondary"/>
   </Story>
   <Story
     name="button-secondary-c-highlight"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-highlight" text="button"/>) } }}>
-      <Button usage="secondary" theme="c-highlight" text="button"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-highlight" text="Secondary"/>) } }}>
+      <Button usage="secondary" theme="c-highlight" text="Secondary"/>
   </Story>
   <Story
     name="button-secondary-c-gray"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-gray-dark" text="button"/>) } }}>
-      <Button usage="secondary" theme="c-gray-dark" text="button"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="secondary" theme="c-gray-dark" text="Secondary"/>) } }}>
+      <Button usage="secondary" theme="c-gray-dark" text="Secondary"/>
   </Story>
   <Story story={stories.buttonCSS2} />
 </Canvas>
@@ -99,8 +99,8 @@ The outline button provides a less prominent visual to indicate an less importan
 <Canvas>
   <Story
     name="button-tertiary"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="tertiary" text="button"/>) } }}>
-      <Button usage="tertiary" text="button"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="tertiary" text="Tertiary"/>) } }}>
+      <Button usage="tertiary" text="Tertiary"/>
   </Story>
   <Story story={stories.buttonCSS3} />
 </Canvas>
@@ -116,8 +116,8 @@ Appears as a link.
 <Canvas>
   <Story
     name="button-quaternary"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="quaternary" text="button" />) } }}>
-      <Button usage="quaternary" text="button" />
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="quaternary" text="Quaternary" />) } }}>
+      <Button usage="quaternary" text="Quaternary" />
   </Story>
   <Story story={stories.buttonCSS4} />
 </Canvas>
@@ -131,23 +131,23 @@ Box shadow on default buttons are used to accentuate the actions. For disabled b
 <Canvas>
   <Story
     name="button-primary--disabled"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="button" disabled/>) } }}>
-      <Button usage="" text="button" disabled/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Disabled" disabled/>) } }}>
+      <Button usage="" text="Disabled" disabled/>
   </Story>
   <Story
     name="button-secondary--disabled"
-    parameters={{ docs: { transformSource: (src) => renderReactMarkup(<Button usage="secondary" text="button" disabled/>) } }}>
-      <Button usage="secondary" text="button" disabled/>
+    parameters={{ docs: { transformSource: (src) => renderReactMarkup(<Button usage="secondary" text="Disabled" disabled/>) } }}>
+      <Button usage="secondary" text="Disabled" disabled/>
   </Story>
   <Story
     name="button-tertiary--disabled"
-    parameters={{ docs: { transformSource: (src) => renderReactMarkup(<Button usage="tertiary" text="button" disabled/>) } }}>
-      <Button usage="tertiary" text="button" disabled/>
+    parameters={{ docs: { transformSource: (src) => renderReactMarkup(<Button usage="tertiary" text="Disabled" disabled/>) } }}>
+      <Button usage="tertiary" text="Disabled" disabled/>
   </Story>
   <Story
     name="button-quaternary--disabled"
-    parameters={{ docs: { transformSource: (src) => renderReactMarkup(<Button usage="quaternary" text="button" disabled/>) } }}>
-      <Button usage="quaternary" text="button" disabled/>
+    parameters={{ docs: { transformSource: (src) => renderReactMarkup(<Button usage="quaternary" text="Disabled" disabled/>) } }}>
+      <Button usage="quaternary" text="Disabled" disabled/>
   </Story>
   <Story story={stories.buttonCSSDisabled} />
 </Canvas>

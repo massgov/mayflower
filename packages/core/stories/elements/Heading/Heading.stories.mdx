@@ -21,7 +21,7 @@ import {
 
 Headings are used as the titles of each major section of a page in the interface.
 
-<div className="sb-block">
+<div className="sb-block reset-vspace">
   { Object.keys(headings).map((key, keyIndex) => (
       (key !== "Body text") &&
       (<Heading level={headings[key]} key={`element.key.${keyIndex}`} text={key} />)
@@ -38,9 +38,11 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 <br />
 
 ## Variations
+
 <br />
 
 ### Colored Heading Variations
+
 Should be used as a navigational heading, high up on the page. If a page heading H1 exists, should use a lower heading level than the page heading, usually as H2. Color is for styling purposes with no semantic differences.
 
 <Canvas>
@@ -50,6 +52,7 @@ Should be used as a navigational heading, high up on the page. If a page heading
 <br />
 
 ### Component Heading Variations
+
 Should be used to to separate content within a big section. If used under Colored Heading, should use a lower heading level than the colored heading, usually as H3 or lower. When nesting Color Headings, use colors as an indicator of the hierarchy in this order: Primary Alt > Highlight > Gray.
 
 <Canvas>
@@ -59,7 +62,9 @@ Should be used to to separate content within a big section. If used under Colore
 <br />
 
 ### List Heading Variations
+
 Should be used as a heading of a list either full width or in a 50/50 split the main content well.
+
 <Canvas>
   <Story story={stories.headingSidebar} />
 </Canvas>
