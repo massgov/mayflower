@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 10.4.0 (12/7/2020)
+### Fixed 
+- (Patternlab) [Figure] DP-19233: Fix the width of small size <figure> and adjust side margins for side by side layout of <figure>s. (#1227)
+
+### Added 
+- (Assets) [CSS] Cleaned up general template styles and added layout.css. (#1283)
+
 ## 10.3.0 (11/23/2020)
 ### Fixed 
 - (Patternlab) [RelationshipIndicator] DP-19520: Specify the link color for the second unit. (#1257)
