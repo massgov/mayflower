@@ -1,30 +1,19 @@
 import mayflowerTheme from './mayflowerTheme';
 
+const storyKindOrder = [
+  'Get Started',
+  ['Introduction', 'Install Mayflower', 'Examples'],
+  'Design Principles',
+  ['Brand Pillars'],
+  'Design Tokens',
+  'Branding Components',
+  'Base Elements'
+];
+
 export const parameters = {
-	options: {
+  options: {
     storySort: {
-      order: [
-				'Overview', [
-					'Introduction',
-					'Examples'
-				],
-				'Get Started',
-				'Principles', [
-					'Brand Pillars',
-					'Accessibility'
-				],
-				'Foundation', [
-					'Logo',
-					'Color',
-					'Typography',
-					'Iconography'
-				],
-				'Elements',
-				'Components', [
-					'Header',
-					'Footer'
-				],
-			],
+      order: storyKindOrder
     },
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
