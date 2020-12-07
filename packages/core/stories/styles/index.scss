@@ -39,25 +39,6 @@
 @use '@massds/mayflower-assets/scss/02-molecules/footer-links';
 @use '@massds/mayflower-assets/scss/02-molecules/social-links';
 
-// This is to reset sbdocs styles, @todo look at using storybook preview/head instead
-.sandbox {
-	p {
-		font-size: 1.25rem;
-	}
-	h2 {
-		font-size: 1.5rem;
-		border-bottom: 0;
-		margin: 0;
-		padding: 0 0 1rem;
-	}
-	ul {
-		padding: 0;
-		margin-bottom: 3rem;
-	}
-	li {
-		list-style: none;
-	}
-}
 
 // Global
 .sp {
@@ -160,4 +141,24 @@ p.lang-label {
 	line-height: 1.5;
 	margin-block-start: 0;
   margin-block-end: 0;
+}
+
+// This is to reset sbdocs styles, @todo look at using storybook preview/head instead
+.sandbox {
+	p {
+		font-size: 1.25rem;
+	}
+	h2 {
+		font-size: 1.5rem;
+		border-bottom: 0;
+		margin: 0;
+		padding: 0 0 1rem;
+	}
+	ul {
+		padding: 0;
+		margin-bottom: 3rem;
+	}
+	li {
+		list-style: none;
+	}
 }
