@@ -7,7 +7,6 @@ import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-col
 import logoBlack from '@massds/mayflower-assets/static/images/logo/stateseal-black.png';
 import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
 import generateTitle from '../../util/generateTitle';
-import './_logo-display.scss';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
