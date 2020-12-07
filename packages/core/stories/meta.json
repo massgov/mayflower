@@ -7,9 +7,9 @@
     "group": "Overview",
     "title": "Examples"
   },
-	"Installation": {
+	"Usage": {
     "group": "Overview",
-    "title": "Installation"
+    "title": "Usage"
   },
   "BrandPillars": {
     "group": "Principles",
@@ -58,6 +58,10 @@
   "Links": {
     "group": "Elements",
     "title": "Links"
+  },
+	"Template": {
+    "group": "Components",
+    "title": "Template"
   },
   "Header": {
     "group": "Components",

@@ -7,7 +7,7 @@ export const parameters = {
 				'Overview', [
 					'Introduction',
 					'Examples',
-					'Installation'
+					'Usage'
 				],
 				'Get Started',
 				'Principles', [
@@ -22,6 +22,7 @@ export const parameters = {
 				],
 				'Elements',
 				'Components', [
+					'Template',
 					'Header',
 					'Footer'
 				],
