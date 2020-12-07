@@ -1,7 +1,7 @@
 import mayflowerTheme from './mayflowerTheme';
 
 export const parameters = {
-	options: {
+  options: {
     storySort: {
       order: [
 				'Get Started', [
@@ -25,6 +25,7 @@ export const parameters = {
 					'Footer'
 				],
 			],
+      order: storyKindOrder
     },
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
