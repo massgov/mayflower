@@ -1,70 +1,70 @@
 {
   "Introduction": {
-    "group": "Overview",
+    "group": "Get Started",
     "title": "Introduction"
   },
-  "Examples": {
-    "group": "Overview",
-    "title": "Examples"
-  },
-	"Usages": {
+  "Usage": {
     "group": "Get Started",
     "title": "Install Mayflower"
   },
+  "Examples": {
+    "group": "Get Started",
+    "title": "Examples"
+  },
   "BrandPillars": {
-    "group": "Principles",
+    "group": "Design Principles",
     "title": "Brand Pillars"
   },
   "DesignGuidelines": {
-    "group": "Principles",
+    "group": "Design Principles",
     "title": "Guidelines"
   },
   "Accessibility": {
-    "group": "Principles",
+    "group": "Design Principles",
     "title": "Accessibility"
   },
   "Colors": {
-    "group": "Foundation",
-    "title": "Color"
+    "group": "Design Tokens",
+    "title": "Colors"
   },
   "Icons": {
-    "group": "Foundation",
-    "title": "Iconography"
+    "group": "Design Tokens",
+    "title": "Icons"
   },
   "Logo": {
-    "group": "Foundation",
+    "group": "Design Tokens",
     "title": "Logo"
   },
   "Typography": {
-    "group": "Foundation",
-    "title": "Typography"
+    "group": "Design Tokens",
+    "title": "Typeface"
   },
   "Button": {
-    "group": "Elements",
+    "group": "Base Elements",
     "title": "Buttons"
   },
   "Heading": {
-    "group": "Elements",
+    "group": "Base Elements",
     "title": "Heading"
   },
   "Link": {
-    "group": "Elements",
+    "group": "Base Elements",
     "title": "Link"
   },
   "Headings": {
-    "group": "Elements",
+    "group": "Base Elements",
     "title": "Headings"
   },
   "Links": {
-    "group": "Elements",
+    "group": "Base Elements",
     "title": "Links"
   },
   "Header": {
-    "group": "Components",
+    "group": "Brand Components",
     "title": "Header"
   },
   "Footer": {
-    "group": "Components",
+    "group": "Brand Components",
     "title": "Footer"
   },
   "Template": {
