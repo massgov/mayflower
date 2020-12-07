@@ -2,7 +2,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 import {
   SectionLinks, DecorativeLink, CalloutLink
 } from '@massds/mayflower-react';
-
+import LinkTo from '@storybook/addon-links/react';
 import '../styles/index.scss';
 
 import generateTitle from '../util/generateTitle';
@@ -25,10 +25,18 @@ Read more below for in-depth information about the stystem or go to [Quick Start
 	      <ul className="ma__section-links__items">
 					<li className="ma__section-links__item">
 						<span className="ma__decorative-link">
-							<a href="http://localhost:6006/?path=/docs/principles-brand-pillars--page">Brand Pillars&nbsp;
+							<LinkTo kind="Design Principles" story='Brand Pillars' target='_blank'>Brand Pillars
 								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
 								</svg>
-							</a>
+							</LinkTo>
+						</span>
+					</li>
+					<li className="ma__section-links__item">
+						<span className="ma__decorative-link">
+							<LinkTo kind="Design Principles" story='Accessibility' target='_blank'>Accessibility
+								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
+								</svg>
+							</LinkTo>
 						</span>
 					</li>
 				</ul>
@@ -43,34 +51,34 @@ Read more below for in-depth information about the stystem or go to [Quick Start
 				<ul className="ma__section-links__items">
 					<li className="ma__section-links__item">
 						<span className="ma__decorative-link">
-							<a href="http://localhost:6006/?path=/docs/foundation-logo--seal-example">Logo&nbsp;
+							<LinkTo kind="Design Tokens" story='Logo' target='_blank'>Logo
 								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
 								</svg>
-							</a>
+							</LinkTo>
 						</span>
 					</li>
 					<li className="ma__section-links__item">
 						<span className="ma__decorative-link">
-							<a href="http://localhost:6006/?path=/docs/foundation-color--page">Color&nbsp;
+							<LinkTo kind="Design Tokens" story='Color' target='_blank'>Color
 								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
 								</svg>
-							</a>
+							</LinkTo>
 						</span>
 					</li>
 					<li className="ma__section-links__item">
 						<span className="ma__decorative-link">
-							<a href="http://localhost:6006/?path=/docs/foundation-typography--page">Typography&nbsp;
+							<LinkTo kind="Design Tokens" story='Typeface' target='_blank'>Typography
 								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
 								</svg>
-							</a>
+							</LinkTo>
 						</span>
 					</li>
 					<li className="ma__section-links__item">
 						<span className="ma__decorative-link">
-							<a href="http://localhost:6006/?path=/docs/foundation-iconography--icons">Iconography&nbsp;
+							<LinkTo kind="Design Tokens" story='Icons' target='_blank'>Icons
 								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
 								</svg>
-							</a>
+							</LinkTo>
 						</span>
 					</li>
 				</ul>
@@ -86,18 +94,18 @@ Read more below for in-depth information about the stystem or go to [Quick Start
 					<ul className="ma__section-links__items">
 						<li className="ma__section-links__item">
 							<span className="ma__decorative-link">
-								<a href="http://localhost:6006/?path=/docs/elements-buttons--test">Elements&nbsp;
+								<LinkTo kind="Base Elements" story='Buttons' target='_blank'>Elements
 									<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
 									</svg>
-								</a>
+								</LinkTo>
 							</span>
 						</li>
 						<li className="ma__section-links__item">
 							<span className="ma__decorative-link">
-								<a href="http://localhost:6006/?path=/docs/components-header--header-example">Components&nbsp;
+								<LinkTo kind="Brand Components" story='Header' target='_blank'>Components
 									<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
 									</svg>
-								</a>
+								</LinkTo>
 							</span>
 						</li>
 					</ul>
