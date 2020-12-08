@@ -1,64 +1,66 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import {
-  SectionLinks, DecorativeLink, CalloutLink
+  SectionLinks, DecorativeLink, CalloutLink, IconArrow
 } from '@massds/mayflower-react';
-
+import LinkTo from '@storybook/addon-links/react';
 import '../styles/index.scss';
 
-
-import generateTitle from '../util/generateTitle';
+import generateTitle, { StoryLink } from '../util/generateTitle';
+import meta from '../meta.json';
 
 <Meta title={generateTitle('Introduction')} />
 
 # Welcome to Mayflower
 
-Mayflower is a living styleguide for the Massachusetts state government — providing guidance and tools for Massachusetts state agencies to create a cohesive government identity and trustworthy look and feel across Commonwealth digital ecosystem.
+Mayflower is the design system for the government of the state of Massachusetts. It's a tool state agencies can use to develop and maintain digital experiences that provide a consistent and trustworthy look and feel across our digital ecosystem.
 
-The goal for Mayflower styleguide is to to help Massachusetts state organizations to easily and quickly apply the Commonwealth branding, follow to best practices, and create a consistent and delightly digital experience regardless of the technology stacks. Refer to the following three areas to "Mayflowerize" your product:
+<p>
+  Read more below for in-depth information about the stystem or go to
+  {' '}
+  <StoryLink metaID="Usage" inline />
+  to dive right in and start using Mayflower.
+  {' '}
+</p>
 
-- **Design principles** are the guiding theories and rationales for the Mayflower brand and other implementation ground rules, where all the system-wide design decisions and best practices are rooted in.
-
-- **Design tokens** are assets and variables referenced and propagated throughout the design system.
-
-- **Branding components** are the templating components, such as Headers and Footers, and other base elements, such as Heading, Links, Buttons, that are frequently used in all web products.
 
 <div className="row ma__row--three-up">
   <div className="col-md">
     <SectionLinks
       title={{
-        text: 'Design Principles'
+        text: 'Principles'
       }}
-      description="Follow these high-level guides when making decisions on design and development of any digital or print products, and when adopting or contributing to Mayflower."
+      description="The design thinking behind the Mayflower system and its implementation. Use this when starting design and development of any new project or when contributing to Mayflower."
       index={0}
     >
-      <DecorativeLink text="Brand Pillars" href="" />
-      <DecorativeLink text="Design Guidelines" href="" />
+    <StoryLink metaID="BrandPillars"/>
+    <StoryLink metaID="Accessibility" />
     </SectionLinks>
   </div>
   <div className="col-md">
     <SectionLinks
       title={{
-        text: 'Design Tokens'
+        text: 'Foundation'
       }}
-      description="Apply these basic design vocabulary and assets to achieve a cohesive visual brand across various mediums and tech stacks. "
+      description="The raw materials of the Mayflower system. In general you don't need to 'do' anything to appy these since they are baked into all elements and components, but they are helpful if you need to alter, extend or contribute back to the project."
       index={1}
       >
-      <DecorativeLink text="Colors" href="" />
-      <DecorativeLink text="Typography" href="" />
-      <DecorativeLink text="Logo" href="" />
-      <DecorativeLink text="Icons" href="" />
+        <StoryLink metaID="Logo"/>
+        <StoryLink metaID="Colors" />
+        <StoryLink metaID="Typography" />
+        <StoryLink metaID="Icon" />
     </SectionLinks>
   </div>
   <div className="col-md">
     <SectionLinks
       title={{
-        text: 'Brand Touch Points'
+        text: 'UI Components'
       }}
-      description="Learn about how to implement these components quickly to achieve a consistent look and feel with the other Commonwealth digital products by reusing the design and code."
+      description="The building blocks, in both design and code, for everything from buttons and links to complex components like our responsive headers and a starter template, along with helpful instructions on how to use them."
       index={2}
       >
-      <DecorativeLink text="Branding Components" href="" />
-      <DecorativeLink text="Base Elements" href="" />
+      <StoryLink metaID="Button" text="Elements" />
+      <StoryLink metaID="Header" text="Components" />
+      <StoryLink metaID="Template" text="Template" />
     </SectionLinks>
   </div>
 </div>

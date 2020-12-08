@@ -1,74 +1,74 @@
 {
   "Introduction": {
-    "group": "Get Started",
-    "title": "Introduction"
-  },
-  "Usage": {
-    "group": "Get Started",
-    "title": "Install Mayflower"
+    "kind": "Overview",
+    "story": "Introduction"
   },
   "Examples": {
-    "group": "Get Started",
-    "title": "Examples"
+    "kind": "Overview",
+    "story": "Examples"
+  },
+	"Usage": {
+    "kind": "Overview",
+    "story": "Get Started"
   },
   "BrandPillars": {
-    "group": "Design Principles",
-    "title": "Brand Pillars"
+    "kind": "Principles",
+    "story": "Brand Pillars"
   },
   "DesignGuidelines": {
-    "group": "Design Principles",
-    "title": "Guidelines"
+    "kind": "Principles",
+    "story": "Guidelines"
   },
   "Accessibility": {
-    "group": "Design Principles",
-    "title": "Accessibility"
+    "kind": "Principles",
+    "story": "Accessibility"
   },
   "Colors": {
-    "group": "Design Tokens",
-    "title": "Colors"
+    "kind": "Foundation",
+    "story": "Color"
   },
-  "Icons": {
-    "group": "Design Tokens",
-    "title": "Icons"
+  "Icon": {
+    "kind": "Foundation",
+    "story": "Iconography"
   },
   "Logo": {
-    "group": "Design Tokens",
-    "title": "Logo"
+    "kind": "Foundation",
+    "story": "Logo"
   },
   "Typography": {
-    "group": "Design Tokens",
-    "title": "Typeface"
+    "kind": "Foundation",
+    "story": "Typography"
   },
   "Button": {
-    "group": "Base Elements",
-    "title": "Buttons"
+    "kind": "Elements",
+    "story": "Buttons"
   },
   "Heading": {
-    "group": "Base Elements",
-    "title": "Heading"
+    "kind": "Elements",
+    "story": "Heading"
   },
   "Link": {
-    "group": "Base Elements",
-    "title": "Link"
+    "kind": "Elements",
+    "story": "Link"
   },
   "Headings": {
-    "group": "Base Elements",
-    "title": "Headings"
+    "kind": "Elements",
+    "story": "Headings"
   },
   "Links": {
-    "group": "Base Elements",
-    "title": "Links"
+    "kind": "Elements",
+    "story": "Links"
   },
   "Header": {
-    "group": "Brand Components",
-    "title": "Header"
+    "kind": "Components",
+    "story": "Header"
   },
   "Footer": {
-    "group": "Brand Components",
-    "title": "Footer"
+    "kind": "Components",
+    "story": "Footer"
   },
   "Template": {
-    "group": "Brand Components",
-    "title": "Template"
+    "kind": "Components",
+    "story": "Template"
   }
 }
