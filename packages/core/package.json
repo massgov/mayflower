@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 --docs --no-manager-cache",
-    "build-storybook": "build-storybook --docs",
+    "build": "build-storybook --docs",
     "start": "rushx storybook",
     "chromatic": "npx chromatic --project-token engf6vhuiv"
   },
