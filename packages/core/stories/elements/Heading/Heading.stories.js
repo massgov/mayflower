@@ -4,6 +4,7 @@ import ColoredHeading from '@massds/mayflower-react/dist/ColoredHeading';
 import CompHeading from '@massds/mayflower-react/dist/CompHeading';
 import SidebarHeading from '@massds/mayflower-react/dist/SidebarHeading';
 import { attachHTML } from '../../util/renderCode';
+import { attachCSS } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
