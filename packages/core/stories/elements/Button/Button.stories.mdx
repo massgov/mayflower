@@ -25,19 +25,21 @@ Buttons are used in forms and interactive applications, but also as prominent ca
 
 Following web best practices buttons have a target area of 45 pixels. To provide more visual affordance that they are clickable—not just text in a box—they have a shadow to appear slightly raised. Small buttons can be used for secondary tasks on forms—for example image upload—and filters on listing pages. Large buttons should be used for form submits or primary calls to action. There should usually be only one  primary button in any UI. Font sizes reduce slightly on mobile.
 
----
+<hr className="sp--top" />
 
 ### Primary Buttons
 
 <div class="container">
 	<div class="row">
     <div class="col-4">
-			<h4>Usage:</h4>
-			<p>For the main action in a form, or for a call-to-action link on a page.</p>
+			<p>
+				<strong>Usage: </strong>
+			For the main action in a form, or for a call-to-action link on a page.</p>
     </div>
     <div class="col-8">
-			<h4>Style:</h4>
-			<p>Default buttons are solid color with contrasting uppercase text. For actions with text longer than two words use the `tile-case` class. On hover the Background color becomes lighter.
+			<p>
+				<strong>Style: </strong>
+			Default buttons are solid color with contrasting uppercase text. For actions with text longer than two words use the `tile-case` class. On hover the Background color becomes lighter.
 			</p>
     </div>
   </div>
@@ -67,20 +69,20 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   <Story story={stories.buttonCSS} />
 </Canvas>
 
----
+<hr className="sp--top" />
 
 ### Secondary Buttons
 
 <div class="container">
 	<div class="row">
     <div class="col-4">
-			<h4>Usage:</h4>
-			<p>For secondary actions
+			<p>
+				<strong>Usage: </strong>For secondary actions
 			</p>
     </div>
     <div class="col-8">
-			<h4>Style:</h4>
-			<p>The outline button has less visual prominence than the primary button so it can be used alongside it as a secondary action, for example "Cancel". The hover state of the secondary button inverts the background and foreground colors.
+			<p>
+				<strong>Style: </strong>The outline button has less visual prominence than the primary button so it can be used alongside it as a secondary action, for example "Cancel". The hover state of the secondary button inverts the background and foreground colors.
 			</p>
     </div>
   </div>
@@ -110,19 +112,20 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   <Story story={stories.buttonCSS2} />
 </Canvas>
 
----
+<hr className="sp--top" />
 
 ### Tertiary Buttons
 
 <div class="container">
 	<div class="row">
     <div class="col-4">
-			<h4>Usage:</h4>
-			<p>For third-level actions on a page.</p>
+			<p>
+				<strong>Usage: </strong>For third-level actions on a page.
+			</p>
     </div>
     <div class="col-8">
-			<h4>Style:</h4>
-			<p>The gray color is even less prominent than outline button to de-emphasize third-level tasks. The hover state inverts the background and text colors.
+			<p>
+				<strong>Style: </strong>The gray color is even less prominent than outline button to de-emphasize third-level tasks. The hover state inverts the background and text colors.
 			</p>
     </div>
   </div>
@@ -137,19 +140,19 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   <Story story={stories.buttonCSS3} />
 </Canvas>
 
----
+<hr className="sp--top" />
 
 ### Quaternary Buttons
 
 <div class="container">
 	<div class="row">
     <div class="col-4">
-			<h4>Usage:</h4>
-			<p>For fourth-level actions or actions.</p>
+			<p>
+				<strong>Usage: </strong>For fourth-level actions or actions.</p>
     </div>
     <div class="col-8">
-			<h4>Style:</h4>
-			<p>Appears as a link.
+			<p>
+				<strong>Style: </strong>Appears as a link.
 			</p>
     </div>
   </div>
@@ -164,20 +167,20 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   <Story story={stories.buttonCSS4} />
 </Canvas>
 
----
+<hr className="sp--top" />
 
 ### Disabled Buttons
 
 <div class="container">
 	<div class="row">
     <div class="col-6">
-			<h4>Usage:</h4>
-			<p>Disabled buttons should not be clickable. The disabled attribute (as opposed to hidden) can be applied for actions where the user should see the action and it's state but may not be able to perform it because they either don't have permission or some other condition in the form has not been met.
+			<p>
+				<strong>Usage: </strong>Disabled buttons should not be clickable. The disabled attribute (as opposed to hidden) can be applied for actions where the user should see the action and it's state but may not be able to perform it because they either don't have permission or some other condition in the form has not been met.
 			</p>
     </div>
     <div class="col-6">
-			<h4>Style:</h4>
-			<p>Disabled buttons have no box shadow (since the box shadow is what suggests clickability). Their opacity is `0.5.`, no hover or focus states are provided and the cursor is set to `not-allowed`.
+			<p>
+				<strong>Style: </strong>Disabled buttons have no box shadow (since the box shadow is what suggests clickability). Their opacity is `0.5.`, no hover or focus states are provided and the cursor is set to `not-allowed`.
 			</p>
     </div>
   </div>
@@ -206,6 +209,8 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   </Story>
   <Story story={stories.buttonCSSDisabled} />
 </Canvas>
+
+<hr className="sp--top" />
 
 ### Accessibility & Best Practices
 
