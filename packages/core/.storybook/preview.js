@@ -6,10 +6,9 @@ export const parameters = {
       order: [
 				'Overview', [
 					'Introduction',
-					'Examples',
-					'Usage'
+					'Usage',
+          'Examples'
 				],
-				'Get Started',
 				'Principles', [
 					'Brand Pillars',
 					'Accessibility'
@@ -22,11 +21,11 @@ export const parameters = {
 				],
 				'Elements',
 				'Components', [
-					'Template',
 					'Header',
-					'Footer'
-				],
-			],
+					'Footer',
+          'Template'
+				]
+			]
     },
   },
   actions: { argTypesRegex: "^on[A-Z].*" },
