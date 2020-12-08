@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import generateTitle from '../../util/generateTitle';
 import { ColorSwatch, GradientSpectrum } from './ColorDisplay';
-import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors} from './colors.json';
+import { brandColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors} from './colors.json';
 
 <Meta title={generateTitle('Colors')} />
 
@@ -14,7 +14,7 @@ The Mayflower brand colors were selected to meet our brand and accessibility sta
 
 <ul className="sg-colors">
   {
-    themeColors.map((color, i) => <li key={`themeColors${i}`}><ColorSwatch {...color} variable={color.token} /></li>)
+    brandColors.map((color, i) => <li key={`brandColors${i}`}><ColorSwatch {...color} variable={color.token} /></li>)
   }
 </ul>
 
@@ -90,7 +90,7 @@ A `tint` takes a `$color` and mixes it with white. A 0% `tint` is the original `
 
 <React.Fragment>
   {
-    themeColors.map(({ token, name }, i) => {
+    brandColors.map(({ token, name }, i) => {
       const props = {
         token: token.match(/\$(.*)/)[1],
         name,
@@ -110,7 +110,7 @@ A `shade` takes a `$color` and mixes it with black. A 0% `shade` is the original
 
 <React.Fragment>
   {
-    themeColors.map(({ token, name }, i) => {
+    brandColors.map(({ token, name }, i) => {
       const props = {
         token: token.match(/\$(.*)/)[1],
         name,

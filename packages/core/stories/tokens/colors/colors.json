@@ -1,5 +1,5 @@
 {
-  "themeColors": [
+  "brandColors": [
     {
       "variable": "$c-primary",
       "token": "$c-bay-blue",
@@ -56,27 +56,6 @@
       "name": "Platinum Gray",
       "value": "#f2f2f2"
     }],
-  "utilityColors": [
-    {
-      "variable": "$c-error-red",
-      "name": "Error Red",
-      "value": "#CD0D0D"
-    },
-    {
-      "variable": "$c-warning",
-      "name": "Warning Yellow",
-      "value": "#f6c51b"
-    },
-    {
-      "variable": "$c-success",
-      "name": "Success Green",
-      "value": "#388557"
-    },
-		{
-      "variable": "$c-focus",
-      "name": "Focus Hightlight",
-      "value": "#3e94cf"
-    }],
 	"primaryColors": [
 		{
 			"variable": "$c-primary",
@@ -124,5 +103,26 @@
 			"variable": "$c-highlight-lightest",
 			"name": "10% Duckling Yellow",
 			"value": "#fef9e8"
-		}]
+    }],
+  "utilityColors": [
+    {
+      "variable": "$c-error-red",
+      "name": "Error Red",
+      "value": "#CD0D0D"
+    },
+    {
+      "variable": "$c-warning",
+      "name": "Warning Yellow",
+      "value": "#f6c51b"
+    },
+    {
+      "variable": "$c-success",
+      "name": "Success Green",
+      "value": "#388557"
+    },
+    {
+      "variable": "$c-focus",
+      "name": "Focus Hightlight",
+      "value": "#3e94cf"
+    }]
 }
