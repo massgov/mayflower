@@ -36,6 +36,6 @@ Icons.argTypes = {
 
 
 export default {
-  title: generateTitle('Icons'),
+  title: generateTitle('Icon'),
   component: Icons
 };

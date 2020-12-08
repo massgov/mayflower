@@ -1,11 +1,12 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import {
-  SectionLinks, DecorativeLink, CalloutLink
+  SectionLinks, DecorativeLink, CalloutLink, IconArrow
 } from '@massds/mayflower-react';
 import LinkTo from '@storybook/addon-links/react';
 import '../styles/index.scss';
 
-import generateTitle from '../util/generateTitle';
+import generateTitle, { StoryLink } from '../util/generateTitle';
+import meta from '../meta.json';
 
 <Meta title={generateTitle('Introduction')} />
 
@@ -13,104 +14,47 @@ import generateTitle from '../util/generateTitle';
 
 Mayflower is the design system for the government of the state of Massachusetts. It's a tool state agencies can use to develop and maintain digital experiences that provide a consistent and trustworthy look and feel across our digital ecosystem.
 
-Read more below for in-depth information about the stystem or go to [Quick Start](quickstart) to dive right in and start using Mayflower.
+Read more below for in-depth information about the stystem or go to [Get Started](quickstart) to dive right in and start using Mayflower.
 
-<!-- This is using the full markup because links will not work with a generated component (as far as I can tell) -->
-<div className="sandbox row ma__row--three-up">
+
+<div className="row ma__row--three-up">
   <div className="col-md">
-    <section className="ma__section-links">
-			<div className="ma__section-links__content">
-				<h2 className="ma__section-links__title">Principles</h2>
-				<p className="ma__section-links__description">The design thinking behind the Mayflower system and its implementation. Use this when starting design and development of any new project or when contributing to Mayflower.</p>
-	      <ul className="ma__section-links__items">
-					<li className="ma__section-links__item">
-						<span className="ma__decorative-link">
-							<LinkTo kind="Design Principles" story='Brand Pillars' target='_blank'>Brand Pillars
-								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
-								</svg>
-							</LinkTo>
-						</span>
-					</li>
-					<li className="ma__section-links__item">
-						<span className="ma__decorative-link">
-							<LinkTo kind="Design Principles" story='Accessibility' target='_blank'>Accessibility
-								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
-								</svg>
-							</LinkTo>
-						</span>
-					</li>
-				</ul>
-			</div>
-    </section>
+    <SectionLinks
+      title={{
+        text: 'Principles'
+      }}
+      description="The design thinking behind the Mayflower system and its implementation. Use this when starting design and development of any new project or when contributing to Mayflower."
+      index={0}
+    >
+    <StoryLink metaID="BrandPillars"/>
+    <StoryLink metaID="Colors" />
+    </SectionLinks>
   </div>
   <div className="col-md">
-		<section className="ma__section-links">
-			<div className="ma__section-links__content">
-				<h2 className="ma__section-links__title">Foundation</h2>
-				<p className="ma__section-links__description">The raw materials of the Mayflower system. In general you don't need to 'do' anything to appy these since they are baked into all elements and components, but they are helpful if you need to alter, extend or contribute back to the project.</p>
-				<ul className="ma__section-links__items">
-					<li className="ma__section-links__item">
-						<span className="ma__decorative-link">
-							<LinkTo kind="Design Tokens" story='Logo' target='_blank'>Logo
-								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
-								</svg>
-							</LinkTo>
-						</span>
-					</li>
-					<li className="ma__section-links__item">
-						<span className="ma__decorative-link">
-							<LinkTo kind="Design Tokens" story='Color' target='_blank'>Color
-								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
-								</svg>
-							</LinkTo>
-						</span>
-					</li>
-					<li className="ma__section-links__item">
-						<span className="ma__decorative-link">
-							<LinkTo kind="Design Tokens" story='Typeface' target='_blank'>Typography
-								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
-								</svg>
-							</LinkTo>
-						</span>
-					</li>
-					<li className="ma__section-links__item">
-						<span className="ma__decorative-link">
-							<LinkTo kind="Design Tokens" story='Icons' target='_blank'>Icons
-								<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
-								</svg>
-							</LinkTo>
-						</span>
-					</li>
-				</ul>
-			</div>
-		</section>
+    <SectionLinks
+      title={{
+        text: 'Foundation'
+      }}
+      description="The raw materials of the Mayflower system. In general you don't need to 'do' anything to appy these since they are baked into all elements and components, but they are helpful if you need to alter, extend or contribute back to the project."
+      index={1}
+      >
+        <StoryLink metaID="Logo"/>
+        <StoryLink metaID="Colors" />
+        <StoryLink metaID="Typography" />
+        <StoryLink metaID="Icon" />
+    </SectionLinks>
   </div>
   <div className="col-md">
-		<section className="ma__section-links">
-			<div className="ma__section-links__content">
-				<h2 className="ma__section-links__title">Elements and Components</h2>
-				<nav className="ma__section-links__toggle-content">
-					<p className="ma__section-links__description">The building blocks, in both design and code, for everything from buttons and links to complex components like our responsive nav, along with helpful instructions on how to use them.</p>
-					<ul className="ma__section-links__items">
-						<li className="ma__section-links__item">
-							<span className="ma__decorative-link">
-								<LinkTo kind="Base Elements" story='Buttons' target='_blank'>Elements
-									<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
-									</svg>
-								</LinkTo>
-							</span>
-						</li>
-						<li className="ma__section-links__item">
-							<span className="ma__decorative-link">
-								<LinkTo kind="Brand Components" story='Header' target='_blank'>Components
-									<svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 16 18"><path d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"></path>
-									</svg>
-								</LinkTo>
-							</span>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</section>
+    <SectionLinks
+      title={{
+        text: 'Elements and Components'
+      }}
+      description="The building blocks, in both design and code, for everything from buttons and links to complex components like our responsive nav, along with helpful instructions on how to use them."
+      index={2}
+      >
+      <StoryLink metaID="Button" text="Elements" />
+      <StoryLink metaID="Header" text="Components" />
+      <StoryLink metaID="Template" text="Template" />
+    </SectionLinks>
   </div>
 </div>
