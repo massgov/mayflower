@@ -14,7 +14,7 @@
 
     // support pre-existing figure elements besides dataviz.
 
-    &--left,
+    &--left:not(.ma__dataviz),
     &--align-left,
     &.align-left {
       float: left;
@@ -22,7 +22,7 @@
       width: 50%;
     }
 
-    &--right,
+    &--right:not(.ma__dataviz),
     &--align-right,
     &.align-right {
       float: right;
@@ -52,72 +52,89 @@
     line-height: 1.57;
   }
 
-  &--x-large {
+  // Size - Extra large
+  // Always 100% of the paretnt container width
+  // No side margins
 
+  &--x-large {
     width: 100%;
     margin-right: 0;
     margin-left: 0;
   }
 
-  // Small
+  // Size - Small
 
-  .no-sidebar &--small {
+  @media ($bp-small-min) {// 621~
 
-    @media ($bp-small-min) {// 621~
-      width: calc(33.33% - 30px);
-      width: calc(100% / 3 - 30px);
+    .no-sidebar &--small {
+      width: calc(50% - 15px);
     }
   }
+
+  @media ($bp-medium-min) {// 781~
+
+    .no-sidebar &--small {
+      width: calc(33.33% - 20px);
+      width: calc(100% / 3 - 20px);
+    }
+  }
+
+  // with right column
 
   .page-content:not(.no-sidebar) &--small {
-    width: 100%;
 
-    @media ($bp-large-max) {
+    @media (max-width: 1024px) {
+
+      float: none;
       margin-right: 0;
       margin-left: 0;
     }
 
-    @media ($bp-large-min) {// 910~
-      width: calc(33.33% - 30px);
-      width: calc(100% / 3 - 30px);
+    @media (min-width: 1025px) {
+
+      width: calc(50% - 15px);
     }
   }
 
-  // Medium
+  // Size - Medium
 
-  .no-sidebar &--medium {
+  &--medium {
 
     @media ($bp-small-min) {// 621~
-      width: calc(50% - 30px);
+      width: calc(50% - 15px);
     }
   }
+
+  // with right column
 
   .page-content:not(.no-sidebar) &--medium {
+
+    @media (max-width: 1024px) {
+
+      width: 100%;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      float: none;
+    }
+
+    @media (min-width: 1025px) {
+
+      width: calc(50% - 15px);
+    }
+  }
+
+  // Size - Large
+
+  &--large {
     width: 100%;
+  }
+
+  .no-sidebar &--large {
 
     @media ($bp-large-max) {
       margin-right: 0;
       margin-left: 0;
-    }
-
-    @media ($bp-large-min) {// 910~
-      width: calc(50% - 30px);
-    }
-  }
-
-  // Large
-
-  &--large,
-  &--large.ma__dataviz {
-    width: 100%;
-  }
-
-  .no-sidebar &--large,
-  .no-sidebar &--large.ma__dataviz {
-
-    @media ($bp-large-max) {
-      margin-right: 0;
-      margin-left: 0;
+      float: none;
     }
 
     @media ($bp-large-min) {
@@ -126,15 +143,15 @@
     }
   }
 
-  .page-content:not(.no-sidebar) &--large {
-
-    @media ($bp-large-min) {
-      margin-right: 0;
-      margin-left: 0;
-    }
+  .page-content:not(.no-sidebar) &--large {// with right column
+    // Always 100% of the paretnt container width
+    // No side margins
+    margin-right: 0;
+    margin-left: 0;
+    float: none;
   }
 
-  // alignment
+  // Alignment
 
   &--left {
     float: left;
@@ -179,11 +196,6 @@
 
     @media ($bp-small-min) {// 621~
 
-      padding-left: 50%;
-    }
-
-    @media ($bp-medium-min) {// 781~
-
       padding-left: 66.66%;
       padding-left: calc(100% / 3 * 2);
     }
@@ -194,12 +206,6 @@
   .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium {
 
     @media ($bp-small-min) {// 621~
-
-      padding-left: 33.33%;
-      padding-left: calc(100% / 3);
-    }
-
-    @media ($bp-medium-min) {// 781~
 
       padding-left: 50%;
     }
@@ -256,6 +262,130 @@
 
   .ma__rich-text &__caption > :last-child {
     margin-bottom: 0;
+  }
+}
+
+// MARGIN ADJUSTMENT with side by side layout
+
+.no-sidebar { // 1 col layout, no right column
+
+  @media ($bp-small-min) and ($bp-medium-max) {
+
+    // Small size - 50% width for 621 - 780
+
+    // left align --- 3rd item, 5th item, 7th item
+
+    .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left {
+      margin-right: 30px;
+    }
+
+    // right align --- 3rd item, 5th item, 7th item
+
+    .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right {
+      margin-left: 30px;
+    }
+
+    // right side items --- 2nd item, 4th item, 6th item
+
+    .ma__figure--small + .ma__figure--small,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small {
+      margin: 0 0 30px 0;
+    }
+  }
+
+  @media ($bp-medium-min) {
+
+    // Small size - 33% width for 780 <
+
+    // left align --- 4th + 5th itmes, 7th + 8th items
+
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left {
+      margin-right: 30px;
+    }
+
+    // right align ---  4th + 5th itmes, 7th + 8th items
+
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right {
+      margin-left: 30px;
+    }
+
+    // right side items --- 3rd item, 6th item
+
+    .ma__figure--small + .ma__figure--small + .ma__figure--small,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small {
+      margin: 0 0 30px 0;
+    }
+  }
+}
+
+
+
+@media ($bp-small-min) {
+
+  // Medium size - 50% width for 620 <
+  // Apply to layout with/without a right column.
+
+  // left align --- 3rd item, 5th item, 7th item
+
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--left,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--left,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--left {
+    margin-right: 30px;
+  }
+
+  // right align --- 3rd item, 5th item, 7th item
+
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--right,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--right,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--right {
+    margin-left: 30px;
+  }
+
+  // right side items --- 2nd item, 4th item, 6th item
+
+  .ma__figure--medium + .ma__figure--medium,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium {
+    margin: 0 0 30px 0;
+  }
+}
+
+.page-content:not(.no-sidebar) {// with right column
+
+  @media (min-width: 1025px) {
+
+    // Small size - 50% width for 1024 px <
+
+    // left align --- 3rd item, 5th item, 7th item
+
+    .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left {
+      margin-right: 30px;
+    }
+
+    // right align --- 3rd item, 5th item, 7th item
+
+    .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right {
+      margin-left: 30px;
+    }
+
+    // right side items --- 2nd item, 4th item, 6th item
+
+    .ma__figure--small + .ma__figure--small,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small {
+      margin: 0 0 30px 0;
+    }
   }
 }
 
