@@ -12,20 +12,19 @@ import * as stories from './Button.stories.js';
 />
 
 # Buttons
-Buttons express what action will occur when the user clicks or touches it. Buttons are used to initialize an action, either in the background or foreground of an experience.
+
+Buttons are used in forms and interactive applications, but also as prominent call-to-action links on website pages.
+
 <Canvas>
   <Story
 		name="button-primary"
     parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary Button"/>) } }}>
-      <Button usage="" text="button" />
+      <Button usage="" text="Primary Button" />
   </Story>
 </Canvas>
 
-## Overview
-Buttons are vital for creating a smooth conversational flow on the web, and should be used sparingly. Buttons should adhere to standard web practices, and afford for a target area of 45 pixels. They should also appear slightly raised, and not be completely flat. They have a slight shadow on them so they appear clickable. The small buttons are often used on forms and to set filters on listing pages. The large buttons should be used for primary calls to action. Font sizes reduce slightly on mobile.
+Following web best practices buttons have a target area of 45 pixels. To provide more visual affordance that they are clickable—not just text in a box—they have a shadow to appear slightly raised. Small buttons can be used for secondary tasks on forms—for example image upload—and filters on listing pages. Large buttons should be used for form submits or primary calls to action. There should usually be only one  primary button in any UI. Font sizes reduce slightly on mobile.
 
-
-## Variations
 <br />
 
 ### Primary Button
@@ -57,14 +56,14 @@ Default buttons are solid colors with uppercased button text (this is configurab
   <Story story={stories.buttonCSS} />
 </Canvas>
 
-
 <hr className="sp--top" />
 
-### Secondary Button
-**Usage:** For the secondary action on a page.
+### Secondary Buttons
 
-**Style:**
-The outline button provides a less prominent visual to indicate an less important action on a page, e.g. the Back button. The hover state of the secondary button inverts the background/foreground colors.
+**Usage:** For secondary actions
+
+**Style:** The outline button has less visual prominence than the primary button so it can be used alongside it as a secondary action, for example "Cancel". The hover state of the secondary button inverts the background and foreground colors.
+
 <Canvas>
   <Story
     name="button-secondary-c-primary"
@@ -94,7 +93,7 @@ The outline button provides a less prominent visual to indicate an less importan
 ### Tertiary Button
 **Usage:** For the third action on a page.
 
-**Style:** This is a solid gray button with a lighter background color than the foreground text. The muted color makes this button less prominent on a page than the secondary outline button a providing an option for a tertiary action. The hover state of this button will invert background color with white color text.
+**Style:** The muted of this button is even less prominent than outline button for third-level tasks. The hover state inverts the background and text colors.
 
 <Canvas>
   <Story
