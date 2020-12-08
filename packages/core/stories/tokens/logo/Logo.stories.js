@@ -23,8 +23,9 @@ const stateSeal = ({ src, dimension, background }) => (
 
 const bgLight = { background: '#F2F2F2' };
 const bgLight1 = { background: '#E7EEF4' };
-const bgDark = { background: '#000' };
+const bgDark = { background: '#141414' };
 const bgDark1 = { background: '#14558F' };
+const bgDark2 = { background: '#388557' };
 
 
 // exported story names must be unique
@@ -45,3 +46,4 @@ export const sealBlackBGLight1 = () => stateSeal({ src: logoBlack, dimension: '1
 
 export const sealWhiteBGDark = () => stateSeal({ src: logoWhite, dimension: '100px', ...bgDark });
 export const sealWhiteBGDark1 = () => stateSeal({ src: logoWhite, dimension: '100px', ...bgDark1 });
+export const sealWhiteBGDark2 = () => stateSeal({ src: logoWhite, dimension: '100px', ...bgDark2 });

@@ -65,7 +65,7 @@ Mochromatic variations of the Great Seal are black, white, and gray. These files
   <ColorSwatch value="#000000" width={20} height={20} copiable={false} inline />
 </div>
 
-The black variation hould only be used on a background that is a tint of 30% or greater.
+The black variation should be used on a background that is solid white, or a tint of 90% (the lightest variant) of any brand color.
 
 <Canvas withSource="none">
   <Story story={stories.sealBlack} />
@@ -80,11 +80,12 @@ The black variation hould only be used on a background that is a tint of 30% or 
   <ColorSwatch value="#FFFFFF" width={20} height={20} copiable={false} inline />
 </div>
 
-The white variation of the Great Seeal should be used on a background that is a solid named color, a shade of any color, or a tint of 30% or less.
+The white variation should be used on a background that is a solid brand color, or a shade of any brand color (with the exception of Ducking Yellow).
 
 <Canvas withSource="none">
   <Story story={stories.sealWhiteBGDark} />
   <Story story={stories.sealWhiteBGDark1} />
+  <Story story={stories.sealWhiteBGDark2} />
 	<ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-white.svg`} download />
   <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-white.png`} download />
 </Canvas>
@@ -94,7 +95,7 @@ The white variation of the Great Seeal should be used on a background that is a 
   <ColorSwatch value="#777777" width={20} height={20} copiable={false} inline />
 </div>
 
-The gray variation of the Great Seeal should be used only on a background that is a tint of 70% or greater of any named color.
+The gray variation should be used only on a background that is solid white, or a tint of 90% (the lightest variant) of any brand color.
 
 <Canvas withSource="none">
   <Story story={stories.seal} />
@@ -110,12 +111,12 @@ The gray variation of the Great Seeal should be used only on a background that i
 
 ### Sizing
 
-The state seal must remain proportionate (equal in width and height) and legible relative to its size. It should also not be very large since it's use is as an identifier and not a hero image.
+The state seal must remain proportionate (equal in width and height) and legible relative to its size. It should also not be very large since its use is as an identifier and not a hero image.
 
 | Medium | Recommended Size | Minimum size | Maximum size |
 |---|---|---|---|
-| **Print (in)** | 0.5 x 0.5 | 1 x 1 | 2 x 2 |
-| **Digital (px)** | 32 x 32 | 45 x 45 | 200 x 200 |
+| **Print (in)** | 1 x 1 | 1 x 1 | 2 x 2 |
+| **Digital (px)** | 45 x 45 | 45 x 45 | 200 x 200 |
 
 <p>
 	<small>
@@ -125,4 +126,4 @@ The state seal must remain proportionate (equal in width and height) and legible
 
 ### Clear space
 
-The Great Seal should never collide or intersect with other images graphics or text. The minimum space around it should be 25% of it's width, or roughly the width of the shield in the center of the seal.
+The Great Seal should never collide or intersect with other images graphics or text. The minimum space around a standalone seal should be 25% of its width, or roughly the width of the shield in the center of the seal.
