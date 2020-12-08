@@ -1,37 +1,32 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import generateTitle from '../../util/generateTitle';
 import { ColorSwatch, GradientSpectrum } from './ColorDisplay';
-import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors } from './colors.json';
+import { brandColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors} from './colors.json';
 
 <Meta title={generateTitle('Colors')} />
 
-# Colors
-Color is a key component of a brand. A well defined suite of colors can effeciently convey the brand and empower visual consistency. Apply colors systemematically across can help users set expections of the meaning and hierarchies of the perceived information.
+# Color
+We use color to establish brand consistency across all Massachusetts digital experiences, but also to convey semantic meaning—for example in warnings and alerts—as well as to differentiate categories of information.
 
 
 ## Brand Colors
-Mayflower brand colors are carefully selected to meet the brand pillars and adhere to specific accessibility standards.
-We encourage that all Commonwealth agencies use the same
-suite of colors in order to cement a cohesive image of the Commonwealth
-brand on all public-facing assets and documents.
-Organizations that have their own visual identity are invited to extend this color palette with additional colors that reflect their unique brand in conjunction with the shared Commonwealth identity.
+The Mayflower brand colors were selected to meet our brand and accessibility standards. All Commonwealth agencies should use these colors—along with other brand imagery—to signal to users that they are seeing official Commonwealth content. Organizations with their own visual identities may extend this color palette with their unique brand colors, but we encourage you to make an effort to harmonize your color palette with Mayflower as much as possible.
 
 <ul className="sg-colors">
   {
-    themeColors.map((color, i) => <li key={`themeColors${i}`}><ColorSwatch {...color} variable={color.token} /></li>)
+    brandColors.map((color, i) => <li key={`brandColors${i}`}><ColorSwatch {...color} variable={color.token} /></li>)
   }
 </ul>
 
 ## Theme Colors
-Theme colors are putting brand colors and their variants into use, and assigning them roles and contextual meaning. Think of theme colors as slots for color tokens to systematize color usage.
+Theme colors are brand colors and their variants mapped to a color hierarchy, to define their specific roles and usage in the system. 
+For examples, `$c-bay-blue`, as the **Primary Color**, is the default color for links and primary action buttons. Accompanying shades and tints can be used to create depth. It's also used in headings, titles, icons, graphics, and calls to action. `$c-berkshires-green`, as the **Alternate Primary Color**, usually does the same job as the primary color, but when the surrounding context is different, for example in a call-to-action block. `$c-duckling-ellow`, as the **Highlight Color**, is used for time sensitive information like updates and alerts. "Revolution Gray" or `$c-black`, the darkest gray on the gray scale, is primarily used as base text color.
+
+Accompanying shades and tints can be used to create depth. In general, the lighter variants are used for outline, and the lightest variants are used as background colors. The light variants should never be used as text colors. 
 
 ### Primary Colors
 
-**Primary Color** is the default and most often used color on a page and throughout the site. Accompanying
-shades and tints can be used to create depth.
-
-**Examples:** Headings, titles, icons, graphics, calls to action, buttons,
-and backgrounds.
+**Primary Color** is the default and most often used color on a page and throughout the site.  **Examples:** Headings, titles, icons, graphics, calls to action, buttons, and backgrounds.
 
 <ul className="sg-colors">
   {
@@ -39,10 +34,7 @@ and backgrounds.
   }
 </ul>
 
-**Primary Alt Color** is an alternative primary color.
-It is used to balance the theme and create more variety to the color usage on a page and throughout the site.
-Examples: Headings, titles, icons, graphics, calls to action,
-buttons, and backgrounds.
+**Primary Alt Color** is an alternative primary color. It is used to balance the theme and create more variety to the color usage on a page and throughout the site. **Examples:** Headings, titles, icons, graphics, calls to action, buttons, and backgrounds.
 
 <ul className="sg-colors">
   {
@@ -50,11 +42,8 @@ buttons, and backgrounds.
   }
 </ul>
 
-### highLight Colors
-The purpose of the highlight colors are to to draw attention to key sections or
-information that usually is time sensitive.
-
-**Examples:** Updates, time changes, alerts.
+### Highlight Colors
+The purpose of the highlight colors are to to draw attention to key sections or information that usually is time sensitive. **Examples:** Updates, time changes, alerts. When being used as background colors, always pair with the dark text color `$c-black`.
 
 <ul className="sg-colors">
   {
@@ -62,10 +51,9 @@ information that usually is time sensitive.
   }
 </ul>
 
-### Gray Scale Colors
-A set of neutral color used to complement and balance primary and secondary colors. It is the base color for all text on both print and digital materials for Mass.gov.
+### Gray Scale
 
-**Examples:** Body text, icons, and backgrounds.
+A range of neutral grays for text and backgrounds.
 
 <ul className="sg-colors">
   {
@@ -73,8 +61,11 @@ A set of neutral color used to complement and balance primary and secondary colo
   }
 </ul>
 
-### Utility Colors
-Colors that are to convey a specific meaning or serve a particular purpose.
+## Semantic Colors
+
+These colors add specific meanings bassed on UI conventions*. Red connotes "stop", "warning", or "danger"; green connotes "go", or "success". For accessibility avoid using color alone to convey meaning, semantic colors should augment text and images.
+
+Some brand colors like `$c-duckling-ellow` and `$c-berkshires-green` are doing double duty as semantic colors while others like `$c-bay-blue` and `$c-independence-cranberry` are not. We wanted to keep our palette compact, but be careful not to use `$c-bay-blue` as a focus color or `$c-independence-cranberry` as a warning color.
 
 <ul className="sg-colors">
   {
@@ -82,21 +73,23 @@ Colors that are to convey a specific meaning or serve a particular purpose.
   }
 </ul>
 
-## Color Gradients
+<p>
+	<small>
+		<em>*Under some circumstances internationalized information may need to deviate from the standard if the meanings of colors differ.</em>
+	</small>
+</p>
 
-Gradients are programmatically generated as an extension of the Mayflower color palette in order to meet the needs of data visualization.
+## Tints and Shades
 
-The "Light" and "Dark" spectrums are programmatically generated using functions `tint` and `shade` and a 10% percentage intervals for evenness and consistency. If a new color is added to the color system, the gradients can be generated following the same method.
+These are generated as an extension of the Mayflower color palette for places where added color differentiation is needed, for example in charts. They use the functions `tint`, which adds white, and `shade` which adds black, at 10% intervals. If a new color is added to the color system, the tints and shades are generated following the same method.
 
-### Light Gradients
+### Tints
 
-`tint` takes in a `$color` and mixes it with color white. It also takes in a percentage to define the percentage of `$color` in the mix.
-- 0% is the original `$color` and 100% is the color white.
-- Light Gradient Variants include 10%-90% with a 10% interval.
+A `tint` takes a `$color` and mixes it with white. A 0% `tint` is the original `$color` and 100% is white. The range of tints shown are 10% to 90%.
 
 <React.Fragment>
   {
-    themeColors.map(({ token, name }, i) => {
+    brandColors.map(({ token, name }, i) => {
       const props = {
         token: token.match(/\$(.*)/)[1],
         name,
@@ -110,17 +103,13 @@ The "Light" and "Dark" spectrums are programmatically generated using functions 
   }
 </React.Fragment>
 
+### Shades
 
-
-### Dark Gradients
-
-`shade` takes in a `$color` and mixes it with color black. It also takes in a percentage to define the percentage of `$color` in the mix.
-- 0% is the original `$color` and 100% is the color black.
-- Dark Gradient Variants include 10%-50% with a 10% interval.
+A `shade` takes a `$color` and mixes it with black. A 0% `shade` is the original `$color` and 100% is black. Since shades above 50% are hard to distinguish and less useful, the range of shades are 10% to 50%.
 
 <React.Fragment>
   {
-    themeColors.map(({ token, name }, i) => {
+    brandColors.map(({ token, name }, i) => {
       const props = {
         token: token.match(/\$(.*)/)[1],
         name,
