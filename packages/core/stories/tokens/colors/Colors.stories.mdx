@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import generateTitle from '../../util/generateTitle';
 import { ColorSwatch, GradientSpectrum } from './ColorDisplay';
-import { themeColors, grayScaleColors, utilityColors, hierarchicalColors} from './colors.json';
+import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors} from './colors.json';
 
 <Meta title={generateTitle('Colors')} />
 
@@ -10,7 +10,7 @@ import { themeColors, grayScaleColors, utilityColors, hierarchicalColors} from '
 We use color to establish brand consistency across all Massachusetts digital experiences, but also to convey semantic meaning—for example in warnings and alerts—as well as to differentiate categories of information.
 
 
-## Brand Colors
+## Theme Colors
 
 The Mayflower brand colors were selected to meet our brand and accessibility standards. All Commonwealth agencies should use these colors—along with other brand imagery—to signal to users that they are seeing official Commonwealth content. Organizations with their own visual identities may extend this color palette with their unique brand colors, but we encourage you to make an effort to harmonize your color palette with Mayflower as much as possible.
 
@@ -20,31 +20,35 @@ The Mayflower brand colors were selected to meet our brand and accessibility sta
   }
 </ul>
 
-## Semantic Colors
-
-These colors add specific meanings bassed on UI conventions*. Red connotes "stop", "warning", or "danger"; green connotes "go", or "success". For accessibility avoid using color alone to convey meaning, semantic colors should augment text and images.
-
-Some brand colors like `$c-duckling-ellow` and `$c-berkshires-green` are doing double duty as Semantic colors while others like `$c-bay-blue` and `$c-independence-cranberry` are not. We wanted to keep our palett compact, but be careful not to use `$c-bay-blue` as a focus color or `$c-independence-cranberry` as a warning color.
-
-<ul className="sg-colors">
-  {
-    utilityColors.map((color, i) => <li key={`utilityColors${i}`}><ColorSwatch {...color} /></li>)
-  }
-</ul>
-
-<p>
-	<small>
-		<em>*Under some circumstances internationalized information may need to deviate from the standard if the meanings of colors differ.</em>
-	</small>
-</p>
-
 ### Color hierarchy
 
 `$c-bay-blue` is the **Primary Color** is the default color for links and primary action buttons. Accompanying shades and tints can be used to create depth. It's also used in headings, titles, icons, graphics, and calls to action. `$c-berkshires-green` is the **Alternate Primary Color**, it usually does the same job as the primary color, but when the surrounding context is different, for example in a call-to-action block. `$c-duckling-ellow` is the **Highlight Color** and it's used for time sensitive information like updates and alerts.
 
+### Primary Colors
+
+**Primary Color** is the default and most often used color on a page and throughout the site. Accompanying shades and tints can be used to create depth. **Examples:** Headings, titles, icons, graphics, calls to action, buttons,
+and backgrounds.
+
 <ul className="sg-colors">
   {
-    hierarchicalColors.map((color, i) => <li key={`hierarchicalColors${i}`}><ColorSwatch  {...color} /></li>)
+    primaryColors.map((color, i) => <li key={`primaryColors${i}`}><ColorSwatch  {...color} /></li>)
+  }
+</ul>
+
+**Primary Alt Color** is an alternative primary color. It is used to balance the theme and create more variety to the color usage on a page and throughout the site. Examples: Headings, titles, icons, graphics, calls to action, buttons, and backgrounds.
+
+<ul className="sg-colors">
+  {
+    primaryAltColors.map((color, i) => <li key={`primaryAltColors${i}`}><ColorSwatch  {...color} /></li>)
+  }
+</ul>
+
+### Highlight Colors
+The purpose of the highlight colors are to to draw attention to key sections or information that usually is time sensitive. **Examples:** Updates, time changes, alerts.
+
+<ul className="sg-colors">
+  {
+    highLightColors.map((color, i) => <li key={`highLightColors${i}`}><ColorSwatch {...color} /></li>)
   }
 </ul>
 
@@ -58,15 +62,31 @@ A range of neutral grays for text and backgrounds.
   }
 </ul>
 
+## Semantic Colors
+
+These colors add specific meanings bassed on UI conventions*. Red connotes "stop", "warning", or "danger"; green connotes "go", or "success". For accessibility avoid using color alone to convey meaning, semantic colors should augment text and images.
+
+Some brand colors like `$c-duckling-ellow` and `$c-berkshires-green` are doing double duty as Semantic colors while others like `$c-bay-blue` and `$c-independence-cranberry` are not. We wanted to keep our palette compact, but be careful not to use `$c-bay-blue` as a focus color or `$c-independence-cranberry` as a warning color.
+
+<ul className="sg-colors">
+  {
+    utilityColors.map((color, i) => <li key={`utilityColors${i}`}><ColorSwatch {...color} /></li>)
+  }
+</ul>
+
+<p>
+	<small>
+		<em>*Under some circumstances internationalized information may need to deviate from the standard if the meanings of colors differ.</em>
+	</small>
+</p>
+
 ## Tints and shades
 
 These are generated as an extension of the Mayflower color palette for places where added color differentiation is needed, for example in charts. They use the functions `tint`, which adds white, and `shade` which adds black, at 10% intervals. If a new color is added to the color system, the tints and shades are generated following the same method.
 
 ### Tints
 
-A `tint` takes a `$color` and mixes it with white. A 0% `tint` is the original `$color` and 100% is white.
-
-The range of tints shown are 10% to 90%.
+A `tint` takes a `$color` and mixes it with white. A 0% `tint` is the original `$color` and 100% is white. The range of tints shown are 10% to 90%.
 
 <React.Fragment>
   {
@@ -86,9 +106,7 @@ The range of tints shown are 10% to 90%.
 
 ### Shades
 
-A `shade` takes a `$color` and mixes it with black. A 0% `shade` is the original `$color` and 100% is black.
-
-Since shades above 50% are hard to distinguish and less useful, the range of shades are 10% to 50%.
+A `shade` takes a `$color` and mixes it with black. A 0% `shade` is the original `$color` and 100% is black. Since shades above 50% are hard to distinguish and less useful, the range of shades are 10% to 50%.
 
 <React.Fragment>
   {
