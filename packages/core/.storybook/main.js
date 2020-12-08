@@ -2,7 +2,6 @@ const path = require('path');
 const assets = require('@massds/mayflower-assets');
 const nodeModules = path.resolve(path.join(process.cwd(), 'node_modules'));
 const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
-console.log(path.resolve(nodeModules, '@massds/mayflower-react/dist/styles'))
 
 module.exports = {
   "stories": [

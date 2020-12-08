@@ -1,5 +1,8 @@
 import { create } from '@storybook/theming/create';
 import logo from './mayflower-logo.png';
+
+const { VERSION } = process.env;
+
 export default create({
   base: 'light',
 
@@ -30,7 +33,7 @@ export default create({
   inputTextColor: '#141414',
   inputBorderRadius: 4,
 
-  brandTitle: 'Mayflower React',
-  brandUrl: 'https://github.com/massgov/mayflower',
+  brandTitle: `Mayflower Design System ${VERSION}`,
+  brandUrl: '/',
   brandImage: logo,
 });

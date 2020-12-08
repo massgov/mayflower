@@ -32,8 +32,5 @@ export const parameters = {
   previewTabs: {
       canvas: { hidden: true }
   },
-  viewMode: 'docs',
-	docs: {
-    theme: mayflowerTheme,
-  }
+  viewMode: 'docs'
 }
