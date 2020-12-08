@@ -1,14 +1,14 @@
 import mayflowerTheme from './mayflowerTheme';
 
 export const parameters = {
-  options: {
+	options: {
     storySort: {
       order: [
-				'Get Started', [
+				'Overview', [
 					'Introduction',
-					'Examples'
+					'Usage',
+          'Examples'
 				],
-				'Get Started',
 				'Principles', [
 					'Brand Pillars',
 					'Accessibility'
@@ -22,10 +22,10 @@ export const parameters = {
 				'Elements',
 				'Components', [
 					'Header',
-					'Footer'
-				],
-			],
-      order: storyKindOrder
+					'Footer',
+          'Template'
+				]
+			]
     },
   },
   actions: { argTypesRegex: "^on[A-Z].*" },

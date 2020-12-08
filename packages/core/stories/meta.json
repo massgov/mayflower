@@ -1,74 +1,74 @@
 {
   "Introduction": {
-    "group": "Get Started",
+    "group": "Overview",
     "title": "Introduction"
   },
-  "Usage": {
-    "group": "Get Started",
-    "title": "Install Mayflower"
-  },
   "Examples": {
-    "group": "Get Started",
+    "group": "Overview",
     "title": "Examples"
   },
+	"Usage": {
+    "group": "Overview",
+    "title": "Usage"
+  },
   "BrandPillars": {
-    "group": "Design Principles",
+    "group": "Principles",
     "title": "Brand Pillars"
   },
   "DesignGuidelines": {
-    "group": "Design Principles",
+    "group": "Principles",
     "title": "Guidelines"
   },
   "Accessibility": {
-    "group": "Design Principles",
+    "group": "Principles",
     "title": "Accessibility"
   },
   "Colors": {
-    "group": "Design Tokens",
-    "title": "Colors"
+    "group": "Foundation",
+    "title": "Color"
   },
   "Icons": {
-    "group": "Design Tokens",
-    "title": "Icons"
+    "group": "Foundation",
+    "title": "Iconography"
   },
   "Logo": {
-    "group": "Design Tokens",
+    "group": "Foundation",
     "title": "Logo"
   },
   "Typography": {
-    "group": "Design Tokens",
-    "title": "Typeface"
+    "group": "Foundation",
+    "title": "Typography"
   },
   "Button": {
-    "group": "Base Elements",
+    "group": "Elements",
     "title": "Buttons"
   },
   "Heading": {
-    "group": "Base Elements",
+    "group": "Elements",
     "title": "Heading"
   },
   "Link": {
-    "group": "Base Elements",
+    "group": "Elements",
     "title": "Link"
   },
   "Headings": {
-    "group": "Base Elements",
+    "group": "Elements",
     "title": "Headings"
   },
   "Links": {
-    "group": "Base Elements",
+    "group": "Elements",
     "title": "Links"
   },
+	"Template": {
+    "group": "Components",
+    "title": "Template"
+  },
   "Header": {
-    "group": "Brand Components",
+    "group": "Components",
     "title": "Header"
   },
   "Footer": {
-    "group": "Brand Components",
+    "group": "Components",
     "title": "Footer"
-  },
-  "Template": {
-    "group": "Brand Components",
-    "title": "Template"
   }
 }
