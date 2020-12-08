@@ -6,8 +6,8 @@ export const parameters = {
       order: [
 				'Overview', [
 					'Introduction',
-					'Usage',
-          'Examples'
+					'Get Started',
+          			'Examples'
 				],
 				'Principles', [
 					'Brand Pillars',
