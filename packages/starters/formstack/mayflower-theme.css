@@ -398,3 +398,19 @@ div[fs-field-type="datetime"] .fieldset-content:after {
 .fsMatrixFieldset .fsMatrix {
     width: 100%;
 }
+
+/* Hide increment and decrement buttons */
+/* These behave unpredictably           */
+button.ma__input-number__plus,
+button.ma__input-number__minus {
+    display: none !important;
+}
+
+/* Different markup of 'other' field */
+.fieldset-content:last-child div.horizontal {
+    width: 100%;
+}
+.fieldset-content:last-child div.horizontal input[type="text"] {
+    border: 2px solid rgb(220,220,220);
+    width: 100%;
+}
