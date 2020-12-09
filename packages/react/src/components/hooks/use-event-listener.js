@@ -1,8 +1,9 @@
 import React from 'react';
 
-const useEventListener = (eventName, handler, elementRef) => {
+const useEventListener = (eventName, handler, element) => {
   // Create a ref that stores handler.
   const savedHandler = React.useRef();
+  const savedEventName = React.useRef();
   // Update ref.current value if handler changes.
   // This allows our effect below to always get latest handler ...
   // ... without us needing to pass it in effect deps array ...
@@ -12,23 +13,27 @@ const useEventListener = (eventName, handler, elementRef) => {
   }, [handler]);
 
   React.useEffect(() => {
-    const element = elementRef.current;
+    savedEventName.current = eventName;
+  }, [eventName]);
+
+  React.useEffect(() => {
     // Make sure element supports addEventListener.
-    const isSupported = element && element.addEventListener;
+    const elementRef = element;
+    const isSupported = elementRef && elementRef.addEventListener;
     if (!isSupported) {
       return;
     }
     // Create event listener that calls handler function stored in ref.
     const eventListener = (event) => savedHandler.current(event);
     // Add event listener.
-    element.addEventListener(eventName, eventListener);
+    elementRef.addEventListener(savedEventName.current, eventListener);
     // Remove event listener on cleanup.
     // eslint-disable-next-line consistent-return
     return(() => {
-      if (elementRef.current) {
-        elementRef.current.removeEventListener(eventName, eventListener);
+      if (elementRef) {
+        elementRef.removeEventListener(savedEventName.current, eventListener);
       }
     });
-  }, [eventName, elementRef]);
+  }, [element]);
 };
 export default useEventListener;

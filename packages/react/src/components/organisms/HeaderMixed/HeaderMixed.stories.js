@@ -29,11 +29,13 @@ HeaderMixedWithoutUtilityNav.args = {
   mainItems
 };
 HeaderMixedWithoutUtilityNav.storyName = 'Header mixed without UtilityNav';
-export const HeaderMixedWithoutMainUtilityNav = (args) => <HeaderMixed {...args} />;
-HeaderMixedWithoutMainUtilityNav.args = {
 
+export const HeaderMixedWithoutMainUtilityNavAndSearch = (args) => <HeaderMixed {...args} />;
+HeaderMixedWithoutMainUtilityNavAndSearch.args = {
+  NavSearch: null
 };
-HeaderMixedWithoutMainUtilityNav.storyName = 'Header Mixed without UtilityNav and MainNav';
+HeaderMixedWithoutMainUtilityNavAndSearch.storyName = 'Header mixed without MainNav, UtilityNav and Search';
+
 export default {
   title: 'organisms/HeaderMixed',
   component: HeaderMixed,

@@ -27,8 +27,8 @@ const HeaderNav = ({
   const RenderedNavItem = getFallbackComponent(NavItem, HeaderNavItem);
   const RenderedLogo = getFallbackComponent(Logo, HeaderLogo);
   const RenderedButtonContainer = getFallbackComponent(ButtonContainer, HeaderButtonContainer);
-  const utilityNav = (RenderedUtilityNav !== null ? utilityItems.length > 0 && <RenderedUtilityNav UtilityItem={RenderedUtilityItem} items={utilityItems} narrow /> : null);
-  const mainNav = (RenderedMainNav !== null ? mainItems.length > 0 && <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
+  const utilityNav = (RenderedUtilityNav !== null && utilityItems.length > 0 ? <RenderedUtilityNav UtilityItem={RenderedUtilityItem} items={utilityItems} narrow /> : null);
+  const mainNav = (RenderedMainNav !== null && mainItems.length > 0 ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
   const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
   const navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch narrow /> : null);
   const buttonContainer = (RenderedButtonContainer !== null ? <RenderedButtonContainer /> : null);
@@ -84,7 +84,7 @@ export const HeaderButtonContainer = () => {
       open.classList.remove(openClass);
     }
 
-    if (windowWidth.current <= breakpoint) {
+    if (windowWidth <= breakpoint) {
       $content.classList.add(closeClass);
     } else {
       // @todo animate here!
@@ -112,7 +112,7 @@ export const HeaderButtonContainer = () => {
         }
 
         document.querySelector('.ma__utility-nav__content').classList.add('is-closed');
-        if (windowWidth && windowWidth.current < 841 && document.querySelector('.ma__header')) {
+        if (windowWidth < 841 && document.querySelector('.ma__header')) {
           toggleMobileMenu();
         }
       });
@@ -125,7 +125,7 @@ export const HeaderButtonContainer = () => {
         }
       });
     }
-  }, [menuButtonRef, closeButtonRef]);
+  }, [windowWidth, menuButtonRef, closeButtonRef]);
   return(
     <div className="ma__header__button-container js-sticky-header">
       <button type="button" ref={closeButtonRef} className="ma__header__back-button js-close-sub-nav"><span>Back</span></button>

@@ -70,7 +70,7 @@ export const initMainNavState = (items) => {
 // Custom hook that sets up the Header's MainNav context.
 // This isn't placed in the hooks file because it uses mainNavReducer.
 export const useHeaderMainNav = (items) => {
-  const windowWidthRef = useWindowWidth();
+  const windowWidth = useWindowWidth();
   const breakpoint = 840;
   const [state, dispatch] = React.useReducer(mainNavReducer, items, initMainNavState);
   const setButtonExpanded = React.useCallback(({ index, status }) => {
@@ -82,9 +82,9 @@ export const useHeaderMainNav = (items) => {
 
   // Hides all Nav Items. If you pass an object with an index key,
   // all nav items except the one that matches the index will be hidden.
+
   const hide = React.useCallback((options = {}) => {
     const { index = undefined } = options;
-    const windowWidth = windowWidthRef.current;
     if (windowWidth) {
       const body = document.querySelector('body');
       const submenuClass = 'show-submenu';
@@ -96,12 +96,11 @@ export const useHeaderMainNav = (items) => {
         dispatch({ type: 'hide', index, status: false });
       }
     }
-  }, [windowWidthRef]);
+  }, [windowWidth]);
 
   // Shows the NavItem with the passed index number.
   const show = React.useCallback((options = {}) => {
     const { index } = options;
-    const windowWidth = windowWidthRef.current;
     const body = document.querySelector('body');
     const submenuClass = 'show-submenu';
     body.classList.add(submenuClass);
@@ -109,10 +108,11 @@ export const useHeaderMainNav = (items) => {
     if (windowWidth <= breakpoint) {
       dispatch({ type: 'show', index });
     } else {
+      
       // @todo animate here!
       dispatch({ type: 'show', index });
     }
-  }, [windowWidthRef]);
+  }, [windowWidth]);
   // Restrict the available functionality for NavItem components to the following.
   return React.useMemo(() => ({
     ...state,
@@ -120,16 +120,16 @@ export const useHeaderMainNav = (items) => {
     setIsOpen,
     hide,
     show
-  }), [state, setButtonExpanded, setIsOpen, hide, show]);
+  }), [state]);
 };
 
-export const useHeaderNavKeydown = (ref, onKeyDown) => {
-  useEventListener('keydown', onKeyDown, ref);
+export const useHeaderNavKeydown = (element, onKeyDown) => {
+  useEventListener('keydown', onKeyDown, element);
 };
-export const useHeaderNavMouseEvents = (ref, onMouseEnter, onMouseLeave) => {
-  useEventListener('mouseenter', onMouseEnter, ref);
-  useEventListener('mouseleave', onMouseLeave, ref);
+export const useHeaderNavMouseEvents = (element, onMouseEnter, onMouseLeave) => {
+  useEventListener('mouseenter', onMouseEnter, element);
+  useEventListener('mouseleave', onMouseLeave, element);
 };
-export const useHeaderNavButtonEffects = (ref, onClick) => {
-  useEventListener('click', onClick, ref);
+export const useHeaderNavButtonEffects = (element, onClick) => {
+  useEventListener('click', onClick, element);
 };

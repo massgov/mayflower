@@ -47,6 +47,7 @@ HeaderMainNav.propTypes = {
   }))
 };
 
+const MemoArrowBent = React.memo(IconArrowbent);
 export const HeaderNavItem = React.memo(({
   text,
   subNav = [],
@@ -55,13 +56,12 @@ export const HeaderNavItem = React.memo(({
   id
 }) => {
   const mainContext = React.useContext(HeaderMainNavContext);
-  const windowWidthRef = useWindowWidth();
+  const windowWidth = useWindowWidth();
   const itemRef = React.useRef();
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const breakpoint = 840;
   const {
-    isOpen,
     items,
     hide,
     show,
@@ -78,27 +78,15 @@ export const HeaderNavItem = React.memo(({
     'is-closed': !isItemOpen
   });
   const onMouseEnter = React.useCallback(() => {
-    const button = buttonRef.current;
-    const content = contentRef.current;
-    const windowWidth = windowWidthRef.current;
-    if (button && content && windowWidth) {
-      show({ index });
-    }
-  }, [buttonRef, index, windowWidthRef, contentRef]);
+    show({ index });
+  }, [show, index]);
 
   const onMouseLeave = React.useCallback(() => {
-    const button = buttonRef.current;
-    const content = contentRef.current;
-    const windowWidth = windowWidthRef.current;
-    if (button && content && windowWidth) {
-      hide();
-    }
-  }, [buttonRef, windowWidthRef, contentRef]);
+    hide();
+  }, [hide]);
 
   const onButtonLinkClick = React.useCallback((e) => {
-    const content = contentRef.current;
-    const windowWidth = windowWidthRef.current;
-    if (content && windowWidth) {
+    if (windowWidth) {
       // mobile
       if (windowWidth <= breakpoint) {
         e.preventDefault();
@@ -118,11 +106,10 @@ export const HeaderNavItem = React.memo(({
         }
       }
     }
-  }, [windowWidthRef, contentRef, isItemOpen, setIsOpen, setButtonExpanded, index]);
+  }, [show, windowWidth, isItemOpen, setIsOpen, setButtonExpanded, index]);
 
   const onKeyDown = React.useCallback((e) => {
     const item = itemRef.current;
-    const windowWidth = windowWidthRef.current;
     const $parent = mainNav.current;
     if (item && windowWidth && $parent) {
       // Grab all the DOM info we need...
@@ -130,7 +117,7 @@ export const HeaderNavItem = React.memo(({
       const $link = item;
       const $topLevelLinks = $parent.querySelectorAll('.ma__main-nav__top-link');
       const $focusedElement = document.activeElement;
-      const menuFlipped = (windowWidth.current < breakpoint);
+      const menuFlipped = (windowWidth < breakpoint);
       const $otherLinks = Array.from($parent.childNodes).filter((child) => item !== child);
       // relevant if open..
       const $topLevelItem = $focusedElement.closest('.ma__main-nav__item');
@@ -193,7 +180,7 @@ export const HeaderNavItem = React.memo(({
       }
       // Close menu and return focus to menubar
       if (action.close || (menuFlipped && action.left)) {
-        if (isOpen) {
+        if (isItemOpen) {
           hide();
         }
         $link.classList.remove(hasFocus);
@@ -223,13 +210,13 @@ export const HeaderNavItem = React.memo(({
         $topLevelLinks[idx].focus();
       }
     }
-  }, [index, itemRef, windowWidthRef, mainNav, isItemOpen]);
+  }, [index, itemRef, windowWidth, mainNav, isItemOpen]);
   // Adds keyboard support.
-  useHeaderNavKeydown(itemRef, onKeyDown);
+  useHeaderNavKeydown(itemRef.current, onKeyDown);
   // Adds mouse events.
-  useHeaderNavMouseEvents(itemRef, onMouseEnter, onMouseLeave);
+  useHeaderNavMouseEvents(itemRef.current, onMouseEnter, onMouseLeave);
   // Adds button events.
-  useHeaderNavButtonEffects(buttonRef, onButtonLinkClick);
+  useHeaderNavButtonEffects(buttonRef.current, onButtonLinkClick);
 
   return(
     <li ref={itemRef} role="none" className={classes} tabIndex="-1">
@@ -248,7 +235,7 @@ export const HeaderNavItem = React.memo(({
             ))}
             <li role="none" className="ma__main-nav__subitem">
               <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={subNav.[0].href} className="ma__main-nav__link">
-                <IconArrowbent />
+                <MemoArrowBent />
                 <span>
                   <span className="visually-hidden">See all topics under </span>
                   {subNav.[0].text}

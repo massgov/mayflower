@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import classNames from 'classnames';
 import HeaderNav, {
   HeaderUtilityNav,
   HeaderUtilityItem,
@@ -14,11 +15,14 @@ import HamburgerNav, {
   HamburgerLogo,
   HamburgerMobileLogo,
   HamburgerSkipNav,
-  HamburgerNavSearch
+  HamburgerNavSearch,
+  MixedUtilityNav,
+  MixedLogo,
 } from 'MayflowerReactMolecules/HamburgerNav';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
+import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 
 const MixedContainer = ({
   Logo,
@@ -28,8 +32,8 @@ const MixedContainer = ({
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   return(
     <div className="ma__header__container">
-      <RenderedLogo />
-      <RenderedNavSearch />
+      { RenderedLogo !== null && <RenderedLogo />}
+      { RenderedNavSearch !== null && <RenderedNavSearch />}
     </div>
   );
 };
@@ -54,10 +58,17 @@ const HeaderMixed = ({
   MobileNavItem,
   Container,
   mainItems,
-  utilityItems
+  utilityItems = []
 }) => {
+  const windowWidth = useWindowWidth();
+  const isMobileWindow = windowWidth !== null && windowWidth < 840;
   const RenderedContainer = getFallbackComponent(Container, MixedContainer);
-  const RenderedMobileLogo = getFallbackComponent(MobileLogo, HamburgerMobileLogo);
+  let RenderedMobileLogo;
+  if (utilityItems.length > 0) {
+    RenderedMobileLogo = getFallbackComponent(MobileLogo, HamburgerMobileLogo);
+  } else {
+    RenderedMobileLogo = getFallbackComponent(MobileLogo, MixedLogo);
+  }
   const DesktopLogo = getFallbackComponent(Logo, HamburgerLogo);
 
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
@@ -65,15 +76,19 @@ const HeaderMixed = ({
   const DesktopNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MixedNavSearch);
 
-  const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+  const RenderedUtilityNav = getFallbackComponent(UtilityNav, isMobileWindow && utilityItems.length < 1 ? MixedUtilityNav : HamburgerUtilityNav);
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
   const RenderedMobileMainNav = getFallbackComponent(MobileMainNav, HamburgerMainNav);
   const DesktopMainNav = getFallbackComponent(MainNav, HeaderMainNav);
   const DesktopNavItem = getFallbackComponent(NavItem, HeaderNavItem);
   const RenderedMobileNavItem = getFallbackComponent(MobileNavItem, HamburgerNavItem);
-
+  // When there are no utility items passed, render using slim classes.
+  const headerClasses = classNames('ma__header__mixed ma__header__hamburger', {
+    ma__header_slim: isMobileWindow && utilityItems.length < 1,
+    'ma__header__hamburger--slim': !isMobileWindow && utilityItems.length < 1
+  });
   return(
-    <header className="ma__header__hamburger ma__header__mixed" id="header">
+    <header className={headerClasses} id="header">
 
       {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
 

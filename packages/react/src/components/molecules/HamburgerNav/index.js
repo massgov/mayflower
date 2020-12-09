@@ -8,6 +8,7 @@ import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import { useHamburgerNavKeydown, useJumpToSearch, useMenuButtonEffects } from 'MayflowerReactMolecules/HamburgerNav/hooks';
+import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 
 export const HamburgerContext = React.createContext();
 
@@ -21,6 +22,8 @@ const HamburgerNav = ({
   mainItems = [],
   utilityItems = []
 }) => {
+  const windowWidth = useWindowWidth();
+  const isMobileWindow = windowWidth !== null && windowWidth < 840;
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
   const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
@@ -32,7 +35,12 @@ const HamburgerNav = ({
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
   const mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
   const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
-  const navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
+  let navSearch;
+  if (isMobileWindow) {
+    navSearch = (RenderedNavSearch !== null && utilityItems.length > 0 ? <RenderedNavSearch /> : null);
+  } else {
+    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
+  }
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
   const openMenu = React.useCallback(() => {
@@ -220,7 +228,15 @@ const HamburgerNav = ({
   useHamburgerNavKeydown(closeMenu);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
-
+  const wrapperClasses = classNames({
+    ma__header__banner: !isMobileWindow && utilityItems.length < 1,
+    'ma__header__hamburger-wrapper': (!isMobileWindow && utilityItems.length > 0) || (isMobileWindow && mainItems.length > 0),
+    ma__header_slim__header: (isMobileWindow && utilityItems.length < 1 && mainItems.length < 1)
+  });
+  const navContainerClasses = classNames({
+    'ma__header__hamburger__nav-container': !isMobileWindow || (isMobileWindow && utilityItems.length > 0),
+    'ma__header_slim__header-container ma__container': isMobileWindow && utilityItems.length < 1
+  });
   return(
     <HamburgerContext.Provider value={{
       openMenu,
@@ -229,29 +245,31 @@ const HamburgerNav = ({
     }}
     >
       <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation" role="navigation">
-        <div className="ma__header__hamburger-wrapper">
-          <div className="ma__header__hamburger__button-container js-sticky-header">
-            <button
-              ref={menuButtonRef}
-              type="button"
-              aria-expanded="false"
-              aria-label="Open the main menu for mass.gov"
-              className="ma__header__hamburger__menu-button js-header-menu-button"
-            >
-              <span className="ma__header__hamburger__menu-icon" />
-              <span className="ma__header__hamburger__menu-text js-header__menu-text" />
-            </button>
-            <button
-              type="button"
-              aria-expanded="false"
-              className="ma__header__hamburger__search-access-button js-header-search-access-button"
-            >
-              <span className="ma__visually-hidden">Access to search</span>
-              <IconSearch />
-            </button>
-          </div>
+        <div className={wrapperClasses}>
+          {mainItems.length > 0 && (
+            <div className="ma__header__hamburger__button-container js-sticky-header">
+              <button
+                ref={menuButtonRef}
+                type="button"
+                aria-expanded="false"
+                aria-label="Open the main menu for mass.gov"
+                className="ma__header__hamburger__menu-button js-header-menu-button"
+              >
+                <span className="ma__header__hamburger__menu-icon" />
+                <span className="ma__header__hamburger__menu-text js-header__menu-text" />
+              </button>
+              <button
+                type="button"
+                aria-expanded="false"
+                className="ma__header__hamburger__search-access-button js-header-search-access-button"
+              >
+                <span className="ma__visually-hidden">Access to search</span>
+                <IconSearch />
+              </button>
+            </div>
+          )}
           {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
-          <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className="ma__header__hamburger__nav-container" aria-hidden="true" />
+          <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className={navContainerClasses} aria-hidden="true" />
         </div>
       </nav>
     </HamburgerContext.Provider>
@@ -502,17 +520,20 @@ export const HamburgerUtilityNav = ({
 
   return(
     <div className={wrapperClassName}>
-      <div className="ma__utility-nav js-util-nav">
-        <ul className="ma__utility-nav__items">
-          {items.map((ItemComponent, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <RenderedUtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></RenderedUtilityItem>
-          ))}
-        </ul>
-      </div>
+      { items.length > 0 && (
+        <div className="ma__utility-nav js-util-nav">
+          <ul className="ma__utility-nav__items">
+            {items.map((ItemComponent, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <RenderedUtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></RenderedUtilityItem>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
+
 HamburgerUtilityNav.propTypes = {
   /** An uninstantiated component which handles displaying individual items within the utility nav. */
   UtilityItem: propTypes.elementType,
@@ -521,6 +542,35 @@ HamburgerUtilityNav.propTypes = {
   /** A boolean representing when the UtilityNav is being displayed within a narrow screen. */
   narrow: propTypes.bool
 };
+
+export const MixedUtilityNav = ({
+  UtilityItem,
+  items = [],
+  narrow = true
+}) => {
+  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+
+  const wrapperClassName = classNames('ma__header__hamburger__utility-nav', {
+    'ma__header__hamburger__utility-nav--narrow js-utility-nav--narrow': narrow,
+    'ma__header_slim__utility': items.length < 1 && !narrow
+  });
+
+  return(
+    <div className={wrapperClassName}>
+      { items.length > 0 && (
+        <div className="ma__utility-nav js-util-nav">
+          <ul className="ma__utility-nav__items">
+            {items.map((ItemComponent, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <RenderedUtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></RenderedUtilityItem>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const HamburgerNavSearch = () => (
   <div className="ma__header__hamburger__search ma__header__hamburger__search-bar js-header-search-menu">
     <div className="ma__header-search">
@@ -568,6 +618,27 @@ export const HamburgerLogo = ({ mobile = false }) => {
 HamburgerLogo.propTypes = {
   /** A prop that is true when the logo is displayed on a mobile device. */
   mobile: propTypes.bool
+};
+
+export const MixedLogo = () => {
+  const logoProps = {
+    url: {
+      domain: 'https://www.mass.gov/'
+    },
+    image: {
+      src: 'https://unpkg.com/@massds/mayflower-assets/static/images/logo/stateseal.png',
+      alt: 'Massachusetts state seal',
+      width: 45,
+      height: 45
+    },
+    siteName: 'Mass.gov',
+    title: 'Mass.gov homepage'
+  };
+  return(
+    <div className="ma__header_slim__logo">
+      <SiteLogo {...logoProps} />
+    </div>
+  );
 };
 
 export const HamburgerMobileLogo = () => (

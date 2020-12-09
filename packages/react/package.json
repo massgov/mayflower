@@ -22,6 +22,7 @@
     "lint": "eslint . -c .eslintrc.json",
     "lint-fix": "eslint --fix . && exit 0",
     "prepublishOnly": "gulp",
+    "storybook-debug": "node --inspect ./node_modules/.bin/start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
     "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
     "storybook:extract": "sb extract",
     "build-storybook": "rushx build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static"
@@ -127,7 +128,9 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.44.2",
     "url-loader": "~4.1.1",
-    "mini-css-extract-plugin": "~1.1.1"
+    "mini-css-extract-plugin": "~1.1.1",
+    "@simbathesailor/use-what-changed": "~0.1.25",
+    "@simbathesailor/babel-plugin-use-what-changed": "~0.1.17"
   },
   "homepage": "",
   "license": "MIT",

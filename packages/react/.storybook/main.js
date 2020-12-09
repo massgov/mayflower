@@ -7,6 +7,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   stories: ['../src/**/*.stories.@(js|mdx)'],
+  babel: async (options) => ({
+    ...options,
+    plugins: [...options.plugins, [
+      "@simbathesailor/babel-plugin-use-what-changed",
+      {
+        "active": process.env.NODE_ENV === "development"
+      }
+    ]]
+  }),
   addons: [
     {
       name: '@storybook/addon-docs',
