@@ -248,7 +248,7 @@ const header = (
         {
           ariaLabelText: '',
           closeText: undefined,
-          icon: 'IconBuilding',
+          icon: 'building',
           panel: undefined,
           text: 'All Budgets'
         },
@@ -266,7 +266,7 @@ const header = (
         {
           ariaLabelText: 'Log in to the most requested services',
           closeText: 'Close',
-          icon: 'IconLogin',
+          icon: 'login',
           panel: {
             description: {
               text: 'These are the top requested sites you can log in to access state provided services'

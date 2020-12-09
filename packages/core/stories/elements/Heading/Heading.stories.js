@@ -51,7 +51,7 @@ const compHeading = (
     />
     <CompHeading
       centered={false}
-      color="gray"
+      color=""
       id=""
       level={5}
       sidebar={false}
