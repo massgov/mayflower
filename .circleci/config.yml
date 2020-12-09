@@ -419,7 +419,7 @@ workflows:
       - react_build_storybook:
           requires: [build]
           filters:
-            branches: { ignore: /(docs|patternlab\/|site\/|core\/).*/ }
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       - react_test:
           requires: [react_build_storybook]
           filters:
@@ -429,6 +429,13 @@ workflows:
           requires: [react_build_storybook]
           filters:
             branches: { ignore: /(docs|patternlab\/|react\/|core\/).*/ }
+     # core
+      - core_build_storybook:
+          requires: [react_build_storybook]
+          filters:
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+      - core_deploy_tag:
+          requires: [core_build_storybook]
 
   # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
   # Release branch automation every Monday at 3:45 p.m. ET "45 19 * * 1" (temp)
