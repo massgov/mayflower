@@ -42,6 +42,7 @@ jobs:
             - packages/react/node_modules
             - packages/patternlab/styleguide/node_modules
             - packages/site/node_modules
+            - packages/core/node_modules
 
   patternlab_build:
     <<: *patternlab_defaults
@@ -241,6 +242,43 @@ jobs:
             aws configure set preview.cloudfront true
             aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/react*'
           fi
+
+  
+  core_build_storybook:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-20
+      - run:
+          name: Mayflower Core Storybook Build
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
+      - persist_to_workspace:
+          root: ~/code
+          paths: ["*"]
+  
+  core_deploy_tag:
+    <<: *react_defaults
+    steps:
+      - attach_workspace:
+          at: ~/code
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            sudo apt-get update && sudo apt-get -y -qq install awscli
+          fi
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            cd packages/core
+            aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG"
+            if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
+              aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
+            fi
+            aws configure set preview.cloudfront true
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*'
 
   auto_changelog:
     <<: *react_defaults
