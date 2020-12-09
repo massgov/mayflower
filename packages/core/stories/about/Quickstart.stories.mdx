@@ -1,0 +1,63 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import generateTitle, { StoryLink } from '../util/generateTitle';
+import { renderReactMarkup } from '../util/renderCode';
+import Heading from '@massds/mayflower-react/dist/Heading';
+import ColoredHeading from '@massds/mayflower-react/dist/ColoredHeading';
+import { headings } from '../tokens/typography/typography.json';
+import * as stories from '../elements/Heading/Heading.stories.js';
+
+<Meta
+  title={generateTitle('Quickstart')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Quick Start
+
+<p>
+	To rapidly get going developing pages with mayflower just use the
+	{' '}<StoryLink metaID="QuickstartTemplate" inline />
+	which already includes links to all of the Mayflower CSS and Javascript.
+	{' '}
+</p>
+
+```html
+<head>
+	<!-- Mayflower minified CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@10.3.0/css/all.min.css">
+</head>
+<body>
+	<!-- Your content -->
+	<!-- Mayflower minified javascript -->
+	<script type="javascript" src="https://unpkg.com/@massds/mayflower-assets@10.3.0/js/all.min.js"></script>
+</body>
+```
+
+## Example
+
+With the CSS and Javascript added to your HTML all that's left to do is copy the HTML for the component you need. For example with the colored heading below just click "show code" and "copy" then paste it into your document.
+
+<Canvas>
+	<ColoredHeading
+		color="blue"
+		level="2"
+		text="Colored Heading (Primary)"
+	/>
+</Canvas>
+
+## Load by Component
+
+If you want to keep your site lightweight by loading only load the components you need add the component css to `<head>`, and the link to JS (if the component has any) before the closing `</body>`tag.
+
+```html
+<head>
+	<!-- Mayflower slim header CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/@massds/mayflower-assets@10.3.0/css/header-slim.css">
+</head>
+<body>
+	<!-- Your content -->
+	<!-- Mayflower slim header javascript -->
+	<script type="javascript" src="https://unpkg.com/@massds/mayflower-assets@10.3.0/js/header-slim.js"></script>
+</body>
+```

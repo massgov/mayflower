@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas, Source } from '@storybook/addon-docs/blocks';
+import { linkTo } from '@storybook/addon-links';
+
+import generateTitle from '../../util/generateTitle';
+import * as stories from './QuickstartTemplate.stories.js';
+import { renderReactMarkup } from '../../util/renderCode';
+
+<Meta
+  title={generateTitle('QuickstartTemplate')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Quickstart Template
+
+The templates demostrates how to assemble a page with a Mayflower Header, Footer and a basic page layout.
+
+<Source code={
+  `
+  ${stories.quickstartNotesTemplateCSS}
+<body>
+  ${renderReactMarkup(stories.quickstartTemplate({renderHeader: '// Insert Header HTML here', renderFooter: '// Insert Footer HTML here'}))}
+  ${stories.quickstartNotesTemplateJS}
+</body>
+  `
+} />
+
+<Canvas>
+    <Story story={stories.quickstartTemplate} />
+</Canvas>

@@ -7,6 +7,14 @@
     "kind": "Overview",
     "story": "Examples"
   },
+	"Quickstart": {
+    "kind": "Overview",
+    "story": "Quick Start"
+  },
+	"QuickstartTemplate": {
+    "kind": "Overview",
+    "story": "QuickstartTemplate"
+  },
 	"Usage": {
     "kind": "Overview",
     "story": "Get Started"
