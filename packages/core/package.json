@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006 --docs",
-    "build-storybook": "build-storybook --docs",
+    "storybook": "start-storybook -p 6006 --docs --no-manager-cache",
+    "build": "build-storybook --docs",
     "start": "rushx storybook",
     "chromatic": "npx chromatic --project-token engf6vhuiv"
   },
