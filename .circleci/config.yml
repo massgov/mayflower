@@ -245,7 +245,7 @@ jobs:
 
   
   core_build_storybook:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
@@ -259,7 +259,7 @@ jobs:
           paths: ["*"]
   
   core_deploy_tag:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - attach_workspace:
           at: ~/code
