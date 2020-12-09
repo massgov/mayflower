@@ -253,7 +253,7 @@ jobs:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-20
       - run:
           name: Mayflower Core Storybook Build
-          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
+          command: cd packages/core && node ../../common/scripts/install-run-rushx.js build
       - persist_to_workspace:
           root: ~/code
           paths: ["*"]
