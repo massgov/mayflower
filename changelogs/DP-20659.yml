@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: Figure
+    description: Add caspio variation to figure template. (#1296)
+    issue: DP-20659
+    impact: Patch
