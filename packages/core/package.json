@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 --docs --no-manager-cache",
-    "build": "build-storybook --docs -s ./node_modules/@massds/mayflower-assets/static",
+    "build": "build-storybook --docs -s ./node_modules ./node_modules/@massds/mayflower-assets/static",
     "start": "rushx storybook",
     "chromatic": "npx chromatic --project-token engf6vhuiv"
   },
