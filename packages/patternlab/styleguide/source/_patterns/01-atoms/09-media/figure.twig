@@ -4,7 +4,7 @@
 <figure class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}{{ wrapClass }}"{% if figure.title %} aria-label="{{ figure.title.text }}"{% endif %}>
 
 {% if figure.title.text and figure.title.visible %}
-  {# screen reader or AT users get title from aria-label in figure.
+  {# screen reader or AT users get title from aria-label in <figure> in semantic manner.
   To avoid them to receive duplicate information, hide this title from them with aria-hidden. #}
   <span class="ma__figure__title" aria-hidden="true">
     {{ figure.title.text }}
