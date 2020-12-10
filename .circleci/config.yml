@@ -266,7 +266,7 @@ jobs:
           at: ~/code
       - run: |
           # Only sync to S3 for stable tags.
-          # if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             sudo apt-get update && sudo apt-get -y -qq install awscli
             cd packages/core
             aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG" --delete
@@ -274,7 +274,7 @@ jobs:
             aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
             aws configure set preview.cloudfront true
             aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*'
-          # fi
+          fi
 
   auto_changelog:
     <<: *react_defaults
@@ -429,8 +429,6 @@ workflows:
       - core_build_storybook:
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
-      - core_deploy_tag:
-          requires: [core_build_storybook]
 
   # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
   release:
@@ -507,8 +505,8 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
-      # - core_deploy_tag:
-      #     requires: [core_build_storybook]
-      #     filters:
-      #       branches: { ignore: /.*/ }
-      #       tags: { only: /.*/ }
+      - core_deploy_tag:
+          requires: [core_build_storybook]
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
