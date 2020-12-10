@@ -1,5 +1,4 @@
 import React from 'react';
-import useEventListener from 'MayflowerReactComponents/hooks/use-event-listener';
 
 const useWindowWidth = () => {
   // We use state here so that a default can be set based on window,

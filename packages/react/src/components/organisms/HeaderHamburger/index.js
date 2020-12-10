@@ -30,12 +30,14 @@ const HeaderHamburger = ({
   utilityItems
 }) => {
   const windowWidth = useWindowWidth();
+  const isMobileWindow = windowWidth !== null && windowWidth < 840;
+
   const RenderedContainer = getFallbackComponent(Container, HamburgerContainer);
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, HamburgerMobileNavSearch);
   const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
-  const RenderedMobileLogo = (windowWidth < 840) ? getFallbackComponent(MobileLogo, HamburgerMobileLogo) : null;
+  const RenderedMobileLogo = (isMobileWindow) ? getFallbackComponent(MobileLogo, HamburgerMobileLogo) : null;
   const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);

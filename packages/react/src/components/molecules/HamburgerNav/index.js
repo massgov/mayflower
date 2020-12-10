@@ -25,20 +25,22 @@ const HamburgerNav = ({
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
+  const thereAreUtilityItems = utilityItems.length > 0;
+  const thereAreMainItems = mainItems.length > 0;
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
   const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   // If UtilityItem is undefined, UtilityNav will fallback to HamburgerUtilityItem.
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-  const utilityNav = ((RenderedUtilityNav !== null && utilityItems.length > 0) ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
+  const utilityNav = ((RenderedUtilityNav !== null && thereAreUtilityItems) ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
   // If NavItem is undefined, HamburgerMainNav falls back to HamburgerNavItem.
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
   const mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
   const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
   let navSearch;
   if (isMobileWindow) {
-    navSearch = (RenderedNavSearch !== null && (utilityItems.length > 0 || mainItems.length > 0) ? <RenderedNavSearch /> : null);
+    navSearch = (RenderedNavSearch !== null && (thereAreUtilityItems || thereAreMainItems) ? <RenderedNavSearch /> : null);
   } else {
     navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
   }
@@ -232,50 +234,30 @@ const HamburgerNav = ({
   let wrapperClasses;
   let navContainerClasses;
   if (isMobileWindow) {
-    if (headerType === 'mixed') {
-      wrapperClasses = classNames({
-        'ma__header__hamburger-wrapper': mainItems.length > 0 || (mainItems.length < 1 && utilityItems.length > 0),
-        ma__header_slim__header: (mainItems.length < 1 && utilityItems.length < 1)
-      });
-      navContainerClasses = classNames({
-        'ma__header__hamburger__nav-container': utilityItems.length > 0 || (utilityItems.length < 1 && mainItems.length > 0),
-        'ma__header_slim__header-container ma__container': utilityItems.length < 1 && mainItems.length < 1
-      });
-    }
-    if (headerType === 'hamburger') {
-      wrapperClasses = classNames({
-        'ma__header__hamburger-wrapper': mainItems.length > 0 || (mainItems.length < 1 && utilityItems.length > 0),
-        ma__header_slim__header: (utilityItems.length < 1 && mainItems.length < 1)
-      });
-      navContainerClasses = classNames({
-        'ma__header__hamburger__nav-container': utilityItems.length > 0 || (utilityItems.length < 1 && mainItems.length > 0),
-        'ma__header_slim__header-container ma__container': utilityItems.length < 1 && mainItems.length < 1
-      });
-    }
+    navContainerClasses = classNames({
+      'ma__header__hamburger__nav-container': thereAreUtilityItems || (!thereAreUtilityItems && thereAreMainItems),
+      'ma__header_slim__header-container ma__container': !thereAreUtilityItems && !thereAreMainItems
+    });
+    wrapperClasses = classNames({
+      'ma__header__hamburger-wrapper': thereAreMainItems || (!thereAreMainItems && thereAreUtilityItems),
+      ma__header_slim__header: (!thereAreUtilityItems && !thereAreMainItems)
+    });
   } else {
     // Desktop
     if (headerType === 'mixed') {
       wrapperClasses = classNames({
-        ma__header__banner: utilityItems.length < 1,
-        'ma__header__hamburger-wrapper': utilityItems.length > 0 && mainItems.length > 0
-      });
-      navContainerClasses = classNames({
-        'ma__header__hamburger__nav-container': true
+        ma__header__banner: !thereAreUtilityItems,
+        'ma__header__hamburger-wrapper': thereAreUtilityItems && thereAreMainItems
       });
     }
     if (headerType === 'hamburger') {
       wrapperClasses = classNames({
-        'ma__header__hamburger-wrapper': utilityItems.length > 0 || mainItems.length > 0
-      });
-      navContainerClasses = classNames({
-        'ma__header__hamburger__nav-container': true
+        'ma__header__hamburger-wrapper': thereAreUtilityItems || thereAreMainItems
       });
     }
+    navContainerClasses = 'ma__header__hamburger__nav-container';
   }
-  // const navContainerClasses = classNames({
-  //   'ma__header__hamburger__nav-container': !isMobileWindow || (isMobileWindow && utilityItems.length > 0),
-  //   'ma__header_slim__header-container ma__container': isMobileWindow && utilityItems.length < 1
-  // });
+
   return(
     <HamburgerContext.Provider value={{
       openMenu,
@@ -285,7 +267,7 @@ const HamburgerNav = ({
     >
       <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation" role="navigation">
         <div className={wrapperClasses}>
-          {((mainItems.length > 0) || (mainItems.length < 1 && utilityItems.length > 0)) && (
+          {((thereAreMainItems) || (!thereAreMainItems && thereAreUtilityItems)) && (
             <div className="ma__header__hamburger__button-container js-sticky-header">
               <button
                 ref={menuButtonRef}
@@ -338,7 +320,9 @@ HamburgerNav.propTypes = {
     }))
   })),
   /** An array of uninstantiated components to render within the utility navigation.  */
-  utilityItems: propTypes.arrayOf(propTypes.elementType)
+  utilityItems: propTypes.arrayOf(propTypes.elementType),
+  /** A string that represents the type of header this component is displayed in. This is needed for figuring out when to display using slim or not. Currently only supports hamburger and mixed. */
+  headerType: propTypes.string
 };
 
 export const HamburgerMainNav = ({ NavItem, items = [] }) => {

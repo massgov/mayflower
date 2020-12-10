@@ -108,7 +108,6 @@ export const useHeaderMainNav = (items) => {
     if (windowWidth <= breakpoint) {
       dispatch({ type: 'show', index });
     } else {
-      
       // @todo animate here!
       dispatch({ type: 'show', index });
     }

@@ -1,223 +1,50 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-import { action } from '@storybook/addon-actions';
-import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
-import MainNavData from 'MayflowerReactMolecules/MainNav/MainNav.knob.options';
-import UtilityNavData from 'MayflowerReactOrganisms/UtilityNav/UtilityNav.knob.options';
-import styles from '@massds/mayflower-assets/build/scss/header.scss';
 import Header from './index';
-import HeaderDocs from './Header.md';
+import mainItems from './main-nav.data';
+import { LoginItem, TranslateItem, StateItem } from './utility-items.data';
 
-const Template = (args) => <Header {...args} />;
-export const HeaderExample = Template.bind({});
-
-HeaderExample.storyName = 'Header with MainNav & UtilityNav';
+export const HeaderExample = (args) => <Header {...args} />;
 HeaderExample.args = {
-  utilityNav: {
-    items: UtilityNavData.items.map((item) => ({
-      text: item.text,
-      ariaLabelText: item.ariaLabelText,
-      closeText: item.closeText,
-      panel: item.panel,
-      icon: item.icon
-    }))
-  },
-  headerSearch: {
-    placeholder: 'Search Mass.gov',
-    buttonSearch: {
-      'aria-label': 'Search',
-      onClick: () => {
-        action('Search button clicked');
-      },
-      usage: 'secondary'
-    },
-    onSubmit: action('Form submitted'),
-    onChange: action('Text input modified')
-  },
-  mainNav: {
-    onNavigateCallBack: action('onNavigateCallBack'),
-    mainNav: MainNavData.mainNav.map((nav) => {
-      let active = false;
-      if (typeof nav.active === 'string') {
-        active = (nav.active.toLowerCase() === 'true');
-      } else if (typeof nav.active === 'boolean') {
-        active = nav.active;
-      } else {
-        active = false;
-      }
-      const storyProps = {
-        href: nav.href,
-        text: nav.text,
-        active,
-        subNav: nav.subNav
-      };
-      return(storyProps);
-    })
-  },
-  hideHeaderSearch: false,
-  hideBackTo: true,
-  siteLogo: {
-    url: {
-      domain: 'https://www.mass.gov/'
-    },
-    image: {
-      src: logo,
-      alt: 'Massachusetts state seal',
-      width: 45,
-      height: 45
-    },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
-  },
-  searchRedirect: {
-    baseUrl: 'https://search.mass.gov',
-    searchTermParam: 'q',
-    queryParams: { page: '1' }
-  }
+  utilityItems: [
+    TranslateItem,
+    StateItem,
+    LoginItem
+  ],
+  mainItems
 };
-export const HeaderWithoutMainNav = Template.bind({});
-HeaderWithoutMainNav.storyName = 'Header without MainNav';
+HeaderExample.storyName = 'Default';
+
+export const HeaderWithoutMainNav = (args) => <Header {...args} />;
 HeaderWithoutMainNav.args = {
-  utilityNav: {
-    items: UtilityNavData.items.map((item) => ({
-      text: item.text,
-      ariaLabelText: item.ariaLabelText,
-      closeText: item.closeText,
-      panel: item.panel,
-      icon: item.icon
-    }))
-  },
-  headerSearch: {
-    placeholder: 'Search Mass.gov',
-    buttonSearch: {
-      'aria-label': 'Search',
-      onClick: () => {
-        action('Search button clicked');
-      },
-      usage: 'secondary'
-    },
-    onSubmit: action('Form submitted'),
-    onChange: action('Text input modified')
-  },
-  hideHeaderSearch: false,
-  hideBackTo: true,
-  siteLogo: {
-    url: {
-      domain: 'https://www.mass.gov/'
-    },
-    image: {
-      src: logo,
-      alt: 'Massachusetts state seal',
-      width: 45,
-      height: 45
-    },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
-  },
-  searchRedirect: {
-    baseUrl: 'https://search.mass.gov',
-    searchTermParam: 'q',
-    queryParams: { page: '1' }
-  }
+  utilityItems: [
+    TranslateItem,
+    StateItem,
+    LoginItem
+  ]
 };
-export const HeaderWithoutUtilityNav = Template.bind({});
-HeaderWithoutUtilityNav.storyName = 'Header without UtilityNav';
+HeaderWithoutMainNav.storyName = 'Header without MainNav';
+
+export const HeaderWithoutMainNavUtilityNav = (args) => <Header {...args} />;
+HeaderWithoutMainNavUtilityNav.storyName = 'Header with NavSearch';
+export const HeaderWithoutUtilityNav = (args) => <Header {...args} />;
 HeaderWithoutUtilityNav.args = {
-  headerSearch: {
-    placeholder: 'Search Mass.gov',
-    buttonSearch: {
-      'aria-label': 'Search',
-      onClick: () => {
-        action('Search button clicked');
-      },
-      usage: 'secondary'
-    },
-    onSubmit: action('Form submitted'),
-    onChange: action('Text input modified')
-  },
-  mainNav: {
-    onNavigateCallBack: action('onNavigateCallBack'),
-    mainNav: MainNavData.mainNav.map((nav) => {
-      let active = false;
-      if (typeof nav.active === 'string') {
-        active = (nav.active.toLowerCase() === 'true');
-      } else if (typeof nav.active === 'boolean') {
-        active = nav.active;
-      } else {
-        active = false;
-      }
-      const storyProps = {
-        href: nav.href,
-        text: nav.text,
-        active,
-        subNav: nav.subNav
-      };
-      return(storyProps);
-    })
-  },
-  hideHeaderSearch: false,
-  hideBackTo: true,
-  siteLogo: {
-    url: {
-      domain: 'https://www.mass.gov/'
-    },
-    image: {
-      src: logo,
-      alt: 'Massachusetts state seal',
-      width: 45,
-      height: 45
-    },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
-  },
-  searchRedirect: {
-    baseUrl: 'https://search.mass.gov',
-    searchTermParam: 'q',
-    queryParams: { page: '1' }
-  }
+  mainItems
 };
-export const HeaderWithoutMainUtilitySearch = Template.bind({});
-HeaderWithoutMainUtilitySearch.storyName = 'Header without MainNav, UtilityNav, & Search';
-HeaderWithoutMainUtilitySearch.args = {
-  headerSearch: {
-    placeholder: 'Search Mass.gov',
-    buttonSearch: {
-      'aria-label': 'Search',
-      onClick: () => {
-        action('Search button clicked');
-      },
-      usage: 'secondary'
-    },
-    onSubmit: action('Form submitted'),
-    onChange: action('Text input modified')
-  },
-  hideHeaderSearch: true,
-  hideBackTo: true,
-  siteLogo: {
-    url: {
-      domain: 'https://www.mass.gov/'
-    },
-    image: {
-      src: logo,
-      alt: 'Massachusetts state seal',
-      width: 45,
-      height: 45
-    },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
-  },
-  searchRedirect: {
-    baseUrl: 'https://search.mass.gov',
-    searchTermParam: 'q',
-    queryParams: { page: '1' }
-  }
+HeaderWithoutUtilityNav.storyName = 'Header without UtilityNav';
+
+export const HeaderWithoutMainUtilityNavAndSearch = (args) => <Header {...args} />;
+HeaderWithoutMainUtilityNavAndSearch.args = {
+  NavSearch: null
 };
+HeaderWithoutMainUtilityNavAndSearch.storyName = 'Header without MainNav, UtilityNav and Search';
+
 export default {
   title: 'organisms/Header',
   component: Header,
   parameters: {
     docs: {
-      page: () => <StoryPage styles={styles} Description={HeaderDocs} />
+      page: () => <StoryPage />
     }
   }
 };
