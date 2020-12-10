@@ -102,5 +102,5 @@ export const parameters = {
     expanded: true,
     hideNoControlsWarning: true
   },
-  layout: 'padding'
+  layout: 'padded'
 };
