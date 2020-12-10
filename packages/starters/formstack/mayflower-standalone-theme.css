@@ -1,0 +1,114 @@
+/* standalone theme */
+
+.fsBody .fsForm .fsSectionHeader > .fsSectionText{
+color: #ffffff;
+}
+
+.fsBody .fsForm .fsOptionLabel {
+font-size:1.1em;
+}
+
+/* DP-19875 Remove the extra character count */
+.fsFieldRow .ma__textarea__wrapper::after {
+    content: '';
+}
+
+/* text */
+.fsRowBody input[type="text"],
+.fsRowBody input[type="email"],
+.fsRowBody input[type="number"],
+.fsRowBody input[type="tel"],
+.fsForm select, .fsForm textarea {
+    font-size: .9rem;
+}
+
+h1 {
+font-size: 1.5rem;
+font-weight: 350;
+}
+
+/* Field labels */
+.fsLabel,
+.fsLabelVertical .fsLabel {
+    margin-bottom: 6px;
+}
+.fsRequiredMarker {
+    font-size: .8rem;
+    color: #CD0D0D;
+}
+
+/* Help text */
+.fsBody .fsSupporting {
+    font-size: .7rem;
+    line-height: 1.4;
+}
+
+/* Buttons */
+input[type=file].fsField,
+input.fsSubmitButton {
+    font-weight: 500;
+    font-size: 1rem !important;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    background-color: #14558f;
+    -webkit-box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,.25);
+    -moz-box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,.25);
+    box-shadow:  0 0.25rem 0.5rem rgba(1,1,1,.25);
+}
+
+.fsForm .fsSubmit {
+    margin-top: 10px;
+    padding: 10px 0;
+}
+
+input[type=file].fsField:hover,
+input[type=file].fsField:hover,
+input.fsSubmitButton:hover,
+input.fsSubmitButton:hover {
+    opacity: .9;
+}
+
+
+/* File upload */
+input[type=file].fsField,
+.fsFileUploadButton,
+.fsFileUploadButton[value="Choose File"] {
+    padding: 0 10px;
+    background-color: #14558f;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: .9rem;
+    transition: all .3s ease;
+}
+
+.fsFileUploadButton[value="Choose File"]:hover {
+    opacity: .9;
+}
+
+.fsFileUploadButton[value="Remove File"] {
+    margin-right: 5px;
+    font-size: .9rem;
+    background-color: #F5F5F5;
+    color: #555555;
+    border: 2px solid #555555;
+    transition: all .3s ease;
+}
+
+.fsFileUploadButton[value="Remove File"]:hover {
+    background-color: #FFFFFF;
+    color: #CD0D0D;
+    border: 2px solid #CD0D0D;
+}
+
+.fsFileUploadName {
+    font-size: .9rem;
+}
+
+/* Callout alert */
+.ma__callout-alert {
+    padding: 20px !important;
+    color: #555555;
+    font-weight: 350;
+    border: 4px solid #fbe28d !important;
+    background-color: #fef9e8;
+}
