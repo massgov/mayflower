@@ -7,7 +7,7 @@ export default {
   }, {
     text: 'State Organizations',
     ariaLabelText: '',
-    icon: 'building',
+    icon: 'Building',
     closeText: 'Close',
     panel: {
       description: {
