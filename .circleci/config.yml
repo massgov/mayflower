@@ -266,12 +266,8 @@ jobs:
           at: ~/code
       - run: |
           # Only sync to S3 for stable tags.
-          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            sudo apt-get update && sudo apt-get -y -qq install awscli
-          fi
-      - run: |
-          # Only sync to S3 for stable tags.
           # if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          sudo apt-get update && sudo apt-get -y -qq install awscli
           cd packages/core
           aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG"
           # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
