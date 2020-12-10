@@ -429,11 +429,8 @@ workflows:
       - core_build_storybook:
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
-      - core_deploy_tag:
-          requires: [core_build_storybook]
 
   # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
-  # Release branch automation every Monday at 3:45 p.m. ET "45 19 * * 1" (temp)
   release:
     jobs:
       - build
@@ -441,7 +438,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "45 19 * * 1"
+          cron: "00 18 * * 1"
           filters:
             branches:
               only:
@@ -505,6 +502,11 @@ workflows:
             tags: { only: /.*/ }
       - site_deploy_tag:
           requires: [site_build]
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - core_deploy_tag:
+          requires: [core_build_storybook]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
