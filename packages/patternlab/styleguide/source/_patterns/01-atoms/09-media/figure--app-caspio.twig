@@ -6,8 +6,8 @@
 {% if figure.caspio %}
   {# Render figure.content, which will be the main content of the figure #}
   {% set content %}
-    {% set id = 'caspio-' ~ random(9999) %}
-    <div id="{{ id }}"></div>
+    {# {% set id = 'caspio-' ~ random(9999) %} #}
+    {# <div id="{{ id }}"></div> #}
     <script type="text/javascript" src="https://c0hbc136.caspio.com/dp/{{ dataId }}/emb"></script>
     <noscript>This feature requires Javascript to be enabled on your browser. Please enable Javascript and refresh the page.</noscript>
   {% endset %}
@@ -18,7 +18,6 @@
 {% include "@atoms/09-media/figure.twig" with {
   figure: figure|merge({
     'align': figure.align|default('left'),
-    'size': figure.size|default('large'),
     'class': 'ma__caspio',
   })
 } %}
