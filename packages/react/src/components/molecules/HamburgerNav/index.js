@@ -20,7 +20,8 @@ const HamburgerNav = ({
   NavSearch,
   Logo,
   mainItems = [],
-  utilityItems = []
+  utilityItems = [],
+  headerType = 'hamburger'
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
@@ -37,7 +38,7 @@ const HamburgerNav = ({
   const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
   let navSearch;
   if (isMobileWindow) {
-    navSearch = (RenderedNavSearch !== null && utilityItems.length > 0 ? <RenderedNavSearch /> : null);
+    navSearch = (RenderedNavSearch !== null && (utilityItems.length > 0 || mainItems.length > 0) ? <RenderedNavSearch /> : null);
   } else {
     navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
   }
@@ -228,15 +229,53 @@ const HamburgerNav = ({
   useHamburgerNavKeydown(closeMenu);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
-  const wrapperClasses = classNames({
-    ma__header__banner: !isMobileWindow && utilityItems.length < 1,
-    'ma__header__hamburger-wrapper': (!isMobileWindow && utilityItems.length > 0) || (isMobileWindow && mainItems.length > 0),
-    ma__header_slim__header: (isMobileWindow && utilityItems.length < 1 && mainItems.length < 1)
-  });
-  const navContainerClasses = classNames({
-    'ma__header__hamburger__nav-container': !isMobileWindow || (isMobileWindow && utilityItems.length > 0),
-    'ma__header_slim__header-container ma__container': isMobileWindow && utilityItems.length < 1
-  });
+  let wrapperClasses;
+  let navContainerClasses;
+  if (isMobileWindow) {
+    if (headerType === 'mixed') {
+      wrapperClasses = classNames({
+        'ma__header__hamburger-wrapper': mainItems.length > 0 || (mainItems.length < 1 && utilityItems.length > 0),
+        ma__header_slim__header: (mainItems.length < 1 && utilityItems.length < 1)
+      });
+      navContainerClasses = classNames({
+        'ma__header__hamburger__nav-container': utilityItems.length > 0 || (utilityItems.length < 1 && mainItems.length > 0),
+        'ma__header_slim__header-container ma__container': utilityItems.length < 1 && mainItems.length < 1
+      });
+    }
+    if (headerType === 'hamburger') {
+      wrapperClasses = classNames({
+        'ma__header__hamburger-wrapper': mainItems.length > 0 || (mainItems.length < 1 && utilityItems.length > 0),
+        ma__header_slim__header: (utilityItems.length < 1 && mainItems.length < 1)
+      });
+      navContainerClasses = classNames({
+        'ma__header__hamburger__nav-container': utilityItems.length > 0 || (utilityItems.length < 1 && mainItems.length > 0),
+        'ma__header_slim__header-container ma__container': utilityItems.length < 1 && mainItems.length < 1
+      });
+    }
+  } else {
+    // Desktop
+    if (headerType === 'mixed') {
+      wrapperClasses = classNames({
+        ma__header__banner: utilityItems.length < 1,
+        'ma__header__hamburger-wrapper': utilityItems.length > 0 && mainItems.length > 0
+      });
+      navContainerClasses = classNames({
+        'ma__header__hamburger__nav-container': true
+      });
+    }
+    if (headerType === 'hamburger') {
+      wrapperClasses = classNames({
+        'ma__header__hamburger-wrapper': utilityItems.length > 0 || mainItems.length > 0
+      });
+      navContainerClasses = classNames({
+        'ma__header__hamburger__nav-container': true
+      });
+    }
+  }
+  // const navContainerClasses = classNames({
+  //   'ma__header__hamburger__nav-container': !isMobileWindow || (isMobileWindow && utilityItems.length > 0),
+  //   'ma__header_slim__header-container ma__container': isMobileWindow && utilityItems.length < 1
+  // });
   return(
     <HamburgerContext.Provider value={{
       openMenu,
@@ -246,7 +285,7 @@ const HamburgerNav = ({
     >
       <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation" role="navigation">
         <div className={wrapperClasses}>
-          {mainItems.length > 0 && (
+          {((mainItems.length > 0) || (mainItems.length < 1 && utilityItems.length > 0)) && (
             <div className="ma__header__hamburger__button-container js-sticky-header">
               <button
                 ref={menuButtonRef}
@@ -543,34 +582,6 @@ HamburgerUtilityNav.propTypes = {
   narrow: propTypes.bool
 };
 
-export const MixedUtilityNav = ({
-  UtilityItem,
-  items = [],
-  narrow = true
-}) => {
-  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-
-  const wrapperClassName = classNames('ma__header__hamburger__utility-nav', {
-    'ma__header__hamburger__utility-nav--narrow js-utility-nav--narrow': narrow,
-    'ma__header_slim__utility': items.length < 1 && !narrow
-  });
-
-  return(
-    <div className={wrapperClassName}>
-      { items.length > 0 && (
-        <div className="ma__utility-nav js-util-nav">
-          <ul className="ma__utility-nav__items">
-            {items.map((ItemComponent, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <RenderedUtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></RenderedUtilityItem>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-};
-
 export const HamburgerNavSearch = () => (
   <div className="ma__header__hamburger__search ma__header__hamburger__search-bar js-header-search-menu">
     <div className="ma__header-search">
@@ -618,27 +629,6 @@ export const HamburgerLogo = ({ mobile = false }) => {
 HamburgerLogo.propTypes = {
   /** A prop that is true when the logo is displayed on a mobile device. */
   mobile: propTypes.bool
-};
-
-export const MixedLogo = () => {
-  const logoProps = {
-    url: {
-      domain: 'https://www.mass.gov/'
-    },
-    image: {
-      src: 'https://unpkg.com/@massds/mayflower-assets/static/images/logo/stateseal.png',
-      alt: 'Massachusetts state seal',
-      width: 45,
-      height: 45
-    },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
-  };
-  return(
-    <div className="ma__header_slim__logo">
-      <SiteLogo {...logoProps} />
-    </div>
-  );
 };
 
 export const HamburgerMobileLogo = () => (

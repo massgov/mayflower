@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import GoogleTranslateElement from 'MayflowerReactButtons/GoogleTranslateElement';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
+import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 
 export const LoginItem = ({ narrow }) => {
   const loginToggleRef = React.useRef();
@@ -315,15 +316,18 @@ LoginItem.propTypes = {
   narrow: propTypes.bool
 };
 
-export const TranslateItem = ({ narrow }) => (
-  <React.Fragment>
-    { !narrow && (
-      <div className="ma__utility-nav__translate">
-        <GoogleTranslateElement id="google-translate-id" />
-      </div>
-    )}
-  </React.Fragment>
-);
+export const TranslateItem = ({ narrow }) => {
+  const windowWidth = useWindowWidth();
+  return(
+    <React.Fragment>
+      { windowWidth && windowWidth > 840 && (
+        <div className="ma__utility-nav__translate">
+          <GoogleTranslateElement id="google-translate-id" />
+        </div>
+      )}
+    </React.Fragment>
+  );
+};
 TranslateItem.propTypes = {
   /** Represents when the component is being displayed on a narrow viewport. */
   narrow: propTypes.bool

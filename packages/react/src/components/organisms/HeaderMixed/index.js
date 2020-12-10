@@ -2,8 +2,6 @@ import React from 'react';
 import propTypes from 'prop-types';
 import classNames from 'classnames';
 import HeaderNav, {
-  HeaderUtilityNav,
-  HeaderUtilityItem,
   HeaderNavSearch
 } from 'MayflowerReactMolecules/HeaderNav';
 import { HeaderMainNav, HeaderNavItem } from 'MayflowerReactMolecules/HeaderNav/main-nav';
@@ -15,14 +13,13 @@ import HamburgerNav, {
   HamburgerLogo,
   HamburgerMobileLogo,
   HamburgerSkipNav,
-  HamburgerNavSearch,
-  MixedUtilityNav,
-  MixedLogo,
+  HamburgerNavSearch
 } from 'MayflowerReactMolecules/HamburgerNav';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
+import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 
 const MixedContainer = ({
   Logo,
@@ -57,7 +54,7 @@ const HeaderMixed = ({
   NavItem,
   MobileNavItem,
   Container,
-  mainItems,
+  mainItems = [],
   utilityItems = []
 }) => {
   const windowWidth = useWindowWidth();
@@ -67,7 +64,7 @@ const HeaderMixed = ({
   if (utilityItems.length > 0) {
     RenderedMobileLogo = getFallbackComponent(MobileLogo, HamburgerMobileLogo);
   } else {
-    RenderedMobileLogo = getFallbackComponent(MobileLogo, MixedLogo);
+    RenderedMobileLogo = getFallbackComponent(MobileLogo, mainItems.length > 0 ? HamburgerMobileLogo : MixedLogo);
   }
   const DesktopLogo = getFallbackComponent(Logo, HamburgerLogo);
 
@@ -76,7 +73,7 @@ const HeaderMixed = ({
   const DesktopNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MixedNavSearch);
 
-  const RenderedUtilityNav = getFallbackComponent(UtilityNav, isMobileWindow && utilityItems.length < 1 ? MixedUtilityNav : HamburgerUtilityNav);
+  const RenderedUtilityNav = getFallbackComponent(UtilityNav, isMobileWindow && (utilityItems.length < 1) ? SlimUtilityNav : HamburgerUtilityNav);
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
   const RenderedMobileMainNav = getFallbackComponent(MobileMainNav, HamburgerMainNav);
   const DesktopMainNav = getFallbackComponent(MainNav, HeaderMainNav);
@@ -93,6 +90,7 @@ const HeaderMixed = ({
       {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
 
       <HamburgerNav
+        headerType="mixed"
         Logo={RenderedMobileLogo}
         UtilityNav={RenderedUtilityNav}
         UtiltyItem={RenderedUtilityItem}
@@ -170,5 +168,63 @@ const MixedNavSearch = () => (
     </div>
   </div>
 );
+
+// Supports displaying the UtilityNav in slim format.
+export const SlimUtilityNav = ({
+  UtilityItem,
+  items = [],
+  narrow = true
+}) => {
+  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+
+  const wrapperClassName = classNames('ma__header__hamburger__utility-nav', {
+    'ma__header__hamburger__utility-nav--narrow js-utility-nav--narrow': narrow,
+    ma__header_slim__utility: items.length < 1 && !narrow
+  });
+
+  return(
+    <div className={wrapperClassName}>
+      { items.length > 0 && (
+        <div className="ma__utility-nav js-util-nav">
+          <ul className="ma__utility-nav__items">
+            {items.map((ItemComponent, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <RenderedUtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></RenderedUtilityItem>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
+SlimUtilityNav.propTypes = {
+  /** An uninstantiated component which handles displaying individual items within the utility nav. */
+  UtilityItem: propTypes.elementType,
+  /** An array of uninstantiated components to render within the utility navigation.  */
+  items: propTypes.arrayOf(propTypes.elementType),
+  /** A boolean representing when the UtilityNav is being displayed within a narrow screen. */
+  narrow: propTypes.bool
+};
+
+export const MixedLogo = () => {
+  const logoProps = {
+    url: {
+      domain: 'https://www.mass.gov/'
+    },
+    image: {
+      src: 'https://unpkg.com/@massds/mayflower-assets/static/images/logo/stateseal.png',
+      alt: 'Massachusetts state seal',
+      width: 45,
+      height: 45
+    },
+    siteName: 'Mass.gov',
+    title: 'Mass.gov homepage'
+  };
+  return(
+    <div className="ma__header_slim__logo">
+      <SiteLogo {...logoProps} />
+    </div>
+  );
+};
 
 export default HeaderMixed;

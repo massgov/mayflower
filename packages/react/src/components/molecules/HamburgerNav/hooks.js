@@ -136,7 +136,9 @@ export const useJumpToSearch = (openMenu) => {
       jumpToSearchButton.addEventListener('click', jumpToSearch);
     }
     return(() => {
-      jumpToSearchButton.removeEventListener('click', jumpToSearch);
+      if (jumpToSearchButton !== null) {
+        jumpToSearchButton.removeEventListener('click', jumpToSearch);
+      }
     });
   }, [jumpToSearch]);
 };

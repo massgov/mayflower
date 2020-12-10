@@ -24,6 +24,9 @@ HeaderMixedWithoutMainNav.args = {
   ]
 };
 HeaderMixedWithoutMainNav.storyName = 'Header Mixed without MainNav';
+
+export const HeaderMixedWithoutMainNavUtilityNav = (args) => <HeaderMixed {...args} />;
+HeaderMixedWithoutMainNavUtilityNav.storyName = 'Header Mixed with NavSearch';
 export const HeaderMixedWithoutUtilityNav = (args) => <HeaderMixed {...args} />;
 HeaderMixedWithoutUtilityNav.args = {
   mainItems
