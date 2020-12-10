@@ -1,6 +1,12 @@
 Added:
   - project: Patternlab
     component: Figure
-    description: Add caspio variation to figure template. (#1298)
+    description: Set up a template for Caspio as a figure variation template. (#1298)
+    issue: DP-20659
+    impact: Patch
+Changed:
+  - project: Patternlab
+    component: Figure
+    description: Adjust the optional title and its visibility in all figure variation templates. (#1298)
     issue: DP-20659
     impact: Patch
