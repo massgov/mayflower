@@ -271,15 +271,14 @@ jobs:
           fi
       - run: |
           # Only sync to S3 for stable tags.
-          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            cd packages/core
-            aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG"
-            if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-              # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-              aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
-            fi
-            aws configure set preview.cloudfront true
-            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*'
+          # if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          cd packages/core
+          aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG"
+          # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
+          aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
+          aws configure set preview.cloudfront true
+          aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*'
+          # fi
 
   auto_changelog:
     <<: *react_defaults
