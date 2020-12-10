@@ -17,7 +17,9 @@
 {% endif %}
 {% include "@atoms/09-media/figure.twig" with {
   figure: figure|merge({
+    'title': figure.title|default('interactive data feature'),
     'align': figure.align|default('left'),
+    'size': 'full',
     'class': 'ma__caspio',
   })
 } %}
