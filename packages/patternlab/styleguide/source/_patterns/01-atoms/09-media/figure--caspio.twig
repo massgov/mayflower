@@ -4,20 +4,19 @@
    inclusions and triggering using its own logic.
 #}
 {% if figure.caspio %}
-  {# Render figure.content, which will be the main content of the figure #}
-  {% set content %}
-    {# {% set id = 'caspio-' ~ random(9999) %} #}
-    {# <div id="{{ id }}"></div> #}
-    <script type="text/javascript" src="https://c0hbc136.caspio.com/dp/{{ dataId }}/emb"></script>
-    <noscript>This feature requires Javascript to be enabled on your browser. Please enable Javascript and refresh the page.</noscript>
-  {% endset %}
+	{# Render figure.content, which will be the main content of the figure #}
+	{% set content %}
+	<script type="text/javascript" src="https://c0hbc136.caspio.com/dp/{{ figure.caspio.dataId }}/emb"></script>
+	<noscript>This feature requires Javascript to be enabled on your browser. Please enable Javascript and refresh the page.</noscript>
+	{% endset %}
   {% set figure = figure|merge({
     'content': content,
   }) %}
 {% endif %}
 {% include "@atoms/09-media/figure.twig" with {
   figure: figure|merge({
-    'title': figure.title|default('interactive data feature'),
+    'title.text': figure.title.text|default('interactive data feature'),
+    'title.visible': false,
     'align': figure.align|default('left'),
     'size': 'full',
     'class': 'ma__caspio',

@@ -1,13 +1,13 @@
 {% set alignmentClass = figure.align ? (figure.size == "x-large" ? "" : " ma__figure--" ~ figure.align) : "" %}
 {% set sizeClass = figure.size ? (figure.size == 'x-large' ? " ma__figure--full ma__figure--" ~ figure.size : " ma__figure--" ~ figure.size) : "" %}
 {% set wrapClass = not figure.wrap ? " ma__figure--no-wrap" : "" %}
-<figure class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}{{ wrapClass }}"{% if figure.title %} aria-label="{{ figure.title }}"{% endif %}>
+<figure class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}{{ wrapClass }}"{% if figure.title %} aria-label="{{ figure.title.text }}"{% endif %}>
 
-  {% if figure.title %}
+{% if figure.title.text and figure.title.visible %}
   {# screen reader or AT users get title from aria-label in figure.
   To avoid them to receive duplicate information, hide this title from them with aria-hidden. #}
   <span class="ma__figure__title" aria-hidden="true">
-    {{ figure.title }}
+    {{ figure.title.text }}
   </span>
   {% endif %}
   {{ figure.content }}

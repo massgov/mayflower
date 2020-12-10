@@ -3,10 +3,12 @@
     "align": "",
     "size": "",
     "caspio": {
-      "id": "",
       "dataId": "ad9b800013fd69aa4b7446efa939"
     },
-    "title": "Sample Data Page",
+    "title": {
+      "text": "Sample Data Page",
+      "visible": false
+    },
     "caption": ""
   }
 }
