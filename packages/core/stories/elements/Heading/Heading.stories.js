@@ -3,8 +3,7 @@ import Heading from '@massds/mayflower-react/dist/Heading';
 import ColoredHeading from '@massds/mayflower-react/dist/ColoredHeading';
 import CompHeading from '@massds/mayflower-react/dist/CompHeading';
 import SidebarHeading from '@massds/mayflower-react/dist/SidebarHeading';
-import { attachHTML } from '../../util/renderCode';
-import { attachCSS } from '../../util/renderCode';
+import { attachHTML, attachCSS } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
@@ -17,7 +16,7 @@ const coloredHeading = (
     />
     <ColoredHeading
       color="green"
-      sidebar={true}
+      sidebar
       level="2"
       text="Colored Heading (Primary Alt)"
     />
@@ -26,8 +25,8 @@ const coloredHeading = (
       level="2"
       text="Colored Heading (Gray)"
     />
-</section>
-)
+  </section>
+);
 
 const compHeading = (
   <section>
@@ -58,31 +57,27 @@ const compHeading = (
       title="Comp Heading (Gray | H5)"
       titleContext=""
     />
-</section>
-)
-
+  </section>
+);
 
 const sidebarHeading = (
   <SidebarHeading
     level={2}
     title="List Heading"
   />
-)
+);
 
+const notesHeadingColored = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/colored-heading.css">`;
 
-const notesHeadingColored = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/colored-heading.css">`
+const notesHeadingComp = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/comp-heading.css">`;
 
-const notesHeadingComp = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/comp-heading.css">`
-
-const notesHeadingSidebar = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/sidebar-heading.css">`
+const notesHeadingSidebar = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/sidebar-heading.css">`;
 
 export const headingColored = () => coloredHeading;
-attachHTML(headingColored, coloredHeading, notesHeadingColored)
-
+attachHTML(headingColored, coloredHeading, notesHeadingColored);
 
 export const headingComp = () => compHeading;
-attachHTML(headingComp, compHeading, notesHeadingComp)
-
+attachHTML(headingComp, compHeading, notesHeadingComp);
 
 export const headingSidebar = () => sidebarHeading;
-attachHTML(headingSidebar, sidebarHeading, notesHeadingSidebar)
+attachHTML(headingSidebar, sidebarHeading, notesHeadingSidebar);

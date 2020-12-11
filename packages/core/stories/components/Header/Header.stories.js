@@ -8,54 +8,86 @@ import IconLatlonglobe from '@massds/mayflower-react/dist/Icon/IconLatlonglobe';
 import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
-const { STORYBOOK_CDN_PATH } = process.env;
-
 import { attachHTML } from '../../util/renderCode';
+
+const { STORYBOOK_CDN_PATH } = process.env;
 
 const headerBasic = (
   <HeaderSlim
-   siteLogo={<SiteLogo
-     url={{
-       domain: 'https://www.mass.gov/'
-     }}
-     image={{
-       src: logo,
-       alt: 'Massachusetts state seal',
-       width: 45,
-       height: 45
-     }}
-     siteName="Mass.gov"
-     title="Mass.gov homepage"
-   />}
+    siteLogo={(
+      <SiteLogo
+        url={{
+          domain: 'https://www.mass.gov/'
+        }}
+        image={{
+          src: logo,
+          alt: 'Massachusetts state seal',
+          width: 45,
+          height: 45
+        }}
+        siteName="Mass.gov"
+        title="Mass.gov homepage"
+      />
+)}
   />
-)
+);
 
 const headerUtil = (
   <HeaderSlim
-    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: logo, width: 45}} siteName="Mass.gov" title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
+    siteLogo={(
+      <SiteLogo
+        image={{
+          alt: 'Massachusetts state seal', height: 45, src: logo, width: 45
+        }}
+        siteName="Mass.gov"
+        title="Mass.gov homepage"
+        url={{ domain: 'https://www.mass.gov/' }}
+      />
+)}
     skipNav={<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>}
-    utilityNav={
+    utilityNav={(
       <>
-        <a className="ma__header_slim__utility-link" href="#main-content"><IconLatlonglobe fill="#fff" />English</a>
-        <a className="ma__header_slim__utility-link" href="#main-content"><IconLogin fill="#fff" />Log in</a>
+        <a className="ma__header_slim__utility-link" href="#main-content">
+          <IconLatlonglobe fill="#fff" />
+          English
+        </a>
+        <a className="ma__header_slim__utility-link" href="#main-content">
+          <IconLogin fill="#fff" />
+          Log in
+        </a>
       </>
-    }
+    )}
   />
-)
+);
 
 const headerUtilSearch = (
   <HeaderSlim
     mainNav={<ButtonWithIcon icon={<IconSearch />} />}
-    siteLogo={<SiteLogo image={{alt: 'Massachusetts state seal', height: 45, src: logo, width: 45}} siteName="Mass.gov" title="Mass.gov homepage" url={{domain: 'https://www.mass.gov/'}}/>}
+    siteLogo={(
+      <SiteLogo
+        image={{
+          alt: 'Massachusetts state seal', height: 45, src: logo, width: 45
+        }}
+        siteName="Mass.gov"
+        title="Mass.gov homepage"
+        url={{ domain: 'https://www.mass.gov/' }}
+      />
+)}
     skipNav={<a className="ma__header__skip-nav" href="#main-content">skip to main content</a>}
-    utilityNav={
+    utilityNav={(
       <>
-        <a className="ma__header_slim__utility-link" href="#main-content"><IconLatlonglobe fill="#fff" />English</a>
-        <a className="ma__header_slim__utility-link" href="#main-content"><IconLogin fill="#fff" />Log in</a>
+        <a className="ma__header_slim__utility-link" href="#main-content">
+          <IconLatlonglobe fill="#fff" />
+          English
+        </a>
+        <a className="ma__header_slim__utility-link" href="#main-content">
+          <IconLogin fill="#fff" />
+          Log in
+        </a>
       </>
-    }
+    )}
   />
-)
+);
 
 const header = (
   <Header
@@ -294,29 +326,29 @@ const header = (
       ]
     }}
   />
-)
+);
 
 const notesHeaderSlim = `
   // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
-`
+`;
 
 const notesHeader = `
   // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
   // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
-`
+`;
 
 export const headerExample = () => headerBasic;
 
 export const headerSlimmest = () => headerBasic;
-attachHTML(headerSlimmest, headerBasic, notesHeaderSlim)
+attachHTML(headerSlimmest, headerBasic, notesHeaderSlim);
 
 export const headerSlimUtil = () => headerUtil;
-attachHTML(headerSlimUtil, headerUtil, notesHeaderSlim)
+attachHTML(headerSlimUtil, headerUtil, notesHeaderSlim);
 
 export const headerSlimUtilSearch = () => headerUtilSearch;
-attachHTML(headerSlimUtilSearch, headerUtilSearch, notesHeaderSlim)
+attachHTML(headerSlimUtilSearch, headerUtilSearch, notesHeaderSlim);
 
 export const headerFullNav = () => header;
-attachHTML(headerFullNav, header, notesHeader)
+attachHTML(headerFullNav, header, notesHeader);
 
 export const headerHamburger = () => 'Header Hamburger Component (WIP)';
