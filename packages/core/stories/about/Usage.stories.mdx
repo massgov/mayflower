@@ -10,11 +10,28 @@ const { STORYBOOK_CDN_PATH, STORYBOOK_CDN, STORYBOOK_PKG } = process.env;
 
 <Meta title={generateTitle('Usage')} />
 
-# Install Mayflower
+# Get Started with Mayflower
+
+<b>{process.env.VERSION}</b>
 
 We encourage all Commonwealth web properties to implement the Mayflower Design System for a consistent look and feel. It’s important that constituents know they are on an official state government website, and the visual cues that come from using a cohesive design help convey that legitimacy.
 
-## Mayflower assets
+## Quick Start
+To kickstart a web page with Mayflower Header, Footer, basic layout and styles:
+<Button theme="c-primary-alt" onClick={linkTo(generateTitle('Template'))}>Start From a Template</Button>
+
+To start building with Mayflower in HTML, start by importing the global styles and then incrementally add the styles and JS for each Mayflower component:
+
+- To import fonts and get started with basic Mayflower styles, link to the compiled `css/global.css` (or the minified version, `css/global.min.css`) from the @massds/mayflower-assets package or the assets CDN.
+
+- To include basic page layout styles from Mayflower, link to the compiled `css/layout.css` (or the minified version, `css/layout.min.css`) from the @massds/mayflower-assets package or the assets CDN.
+
+- To use a Mayflower branding component on your site, go to the documentation of the component and copy and paste the HTML code snippet and link to the CDN version of CSS and JS files in the head of your HTML. You can also host the CSS and JS downloaded from mayflower assets package.
+
+<br />
+
+
+## Mayflower Assets
 
 To enable and ensure the branding and visual cohesion, Mayflower delivers the following static assets and generated artifacts as a version controlled package.
 ```
@@ -27,7 +44,7 @@ To enable and ensure the branding and visual cohesion, Mayflower delivers the fo
        ├── icons
        └── logos
 ```
-### Download the NPM package
+### Download the NPM Package
 
 The package @massds/mayflower-assets is published on NPM. If you use Node.js, you can install it by running:
 
@@ -110,21 +127,6 @@ For examples:
 </table>
 
 <br />
-
-## Build with Mayflower
-
-To start building with Mayflower in HTML, start by importing the global styles and then incrementally add the styles and JS for each Mayflower component:
-
-- To import fonts and get started with basic Mayflower styles, link to the compiled `css/global.css` (or the minified version, `css/global.min.css`) from the @massds/mayflower-assets package or the assets CDN.
-
-- To include basic page layout styles from Mayflower, link to the compiled `css/layout.css` (or the minified version, `css/layout.min.css`) from the @massds/mayflower-assets package or the assets CDN.
-
-- To use a Mayflower branding component on your site, go to the documentation of the component and copy and paste the HTML code snippet and link to the CDN version of CSS and JS files in the head of your HTML. You can also host the CSS and JS downloaded from mayflower assets package.
-
-To kickstart a web page with Mayflower Header, Footer, basic layout and styles:
-<Button theme="c-primary-alt" onClick={linkTo(generateTitle('Template'))}>Start From a Template</Button>
-
-<div className="sp--bottom"/>
 
 ## Configure Your Theme
 
