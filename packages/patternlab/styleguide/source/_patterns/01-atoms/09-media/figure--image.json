@@ -10,7 +10,8 @@
     },
     "title": {
       "text": "This is an option image title",
-      "visible": true,
+      "visible": true
+    },
     "caption": "This is an optional caption that can wrap to multiple lines."
   }
 }
