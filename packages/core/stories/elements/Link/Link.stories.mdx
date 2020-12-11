@@ -14,27 +14,28 @@ import * as stories from './Link.stories.js';
 />
 
 # Links
+
 Links are used to embed actions or pathways to more information in a sentence or on a page.
 
-## Variations
+### Inline Link
 
-#### Inline Link
-**Usage:** Use when you are linking just a few words of text or when you are doing inline links.
-
-**Style:** [To-do: Regular inline links should also have underline decoration.. Look into generating the appropriate CSS]
+- **Usage:** Use when you are linking just a few words of text or when you are doing inline links.
+- **Style:** Inline links take the style of the surrounding text, adding only the blue color and an underline.
 
 <Canvas>
   <Story
     name="link">
-      <a href="#">Inline Link</a>
+      <p>Some content and then an <a href="#">inline link</a>, followed by more content.</p>
   </Story>
   <Story story={stories.linkCSS} />
 </Canvas>
 
-#### Decorative Link
-**Usage:** Used for standalone links that require more emphasis.
+---
 
-**Style:**
+### Decorative Link
+
+- **Usage:** Used for standalone links that require more emphasis, usually inside `ma__section-links`.
+- **Style:** the decorative link is slightly larger in size and appended with an arrow icon.
 
 <Canvas>
   <Story
@@ -46,11 +47,12 @@ Links are used to embed actions or pathways to more information in a sentence or
   <Story story={stories.linkDecorativeCSS} />
 </Canvas>
 
+---
 
-#### Callout Link
-**Usage:** Call to action links that require more emphasis.
+### Callout Link
 
-**Style:**
+- **Usage:** Call to action links that require more emphasis.
+- **Style:** The callout link has the style of a decorative link, but with a slightly larger font-size, and enlosed in a box.
 
 <Canvas>
   <Story
@@ -61,34 +63,37 @@ Links are used to embed actions or pathways to more information in a sentence or
   <Story story={stories.linkCalloutCSS} />
 </Canvas>
 
+---
 
-#### Link styled as a button
-**Usage:** Use when you are linking just a few words of text or when you are doing inline links. In general, we should style buttons as button and style links as links, to provide . [*For material honesty, we shouldn't encourage styling links as buttons, should use callout links instead, unless we can come up with appropriate examples*]
+### Link Styled as a Button
 
-**Style:**
+- **Usage:** If absolutely necessary this can be used for calls-to-action if there are good design reasons not to use Callout Link. In general, links should be styled differently than buttons, to help set expectations of their different behaviors.
+- **Style:** Styled exactly the same as `ma__button`.
 
 <Canvas>
   <Story
     name="link-button-primary"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button href="#" text="Button as a link" usage="" type="submit"/>) } }}>
-      <Button href="#" text="Button as a link" usage="" type="submit"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button href="#" text="Link as a button" usage="primary" />) } }}>
+    	<Button href="#" text="Link as a button" usage="primary" />
   </Story>
   <Story
     name="link-button-secondary"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button href="#" text="Button as a link" usage="secondary"/>) } }}>
-      <Button href="#" text="Button as a link" usage="secondary"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button href="#" text="Link as a button" usage="secondary" />) } }}>
+    	<Button href="#" text="Link as a button" usage="secondary" />
   </Story>
   <Story
     name="link-button-tertiary"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(  <Button href="#" text="Button as a link" usage="tertiary"/>) } }}>
-        <Button href="#" text="Button as a link" usage="tertiary"/>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button href="#" text="Link as a button" usage="tertiary" />) } }}>
+    	<Button href="#" text="Link as a button" usage="tertiary" />
   </Story>
   <Story story={stories.linkButtonCSS} />
 </Canvas>
 
+---
 
-## Accessibility & Best Practices
+### Accessibility & Best Practices
+
 The purpose of a link can be determined from the link text alone or from the text combined with programmatically determined content
 
-* The largest errors usually found here are on article preview links or similar where there may be multiple links on a page stating “read more” or other similar repeatable text, this should be avoided.
-* Additionally links that are not links but items such as files, e-mail to links and phone numbers should be clearly labeled as such.
+- Avoid using language in links that provides no specific information or is repetitive like “read more”.
+- Links that start a process like downloading files, opening your e-mail client, or calling a phone number should be clearly labeled for what they do.

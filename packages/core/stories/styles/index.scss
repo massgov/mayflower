@@ -43,13 +43,14 @@
 @use '@massds/mayflower-assets/scss/01-atoms/place-holder';
 
 // Global
-.sp {
-  &--top {
-    margin-top: 2rem;
-  }
-  &--bottom {
-    margin-bottom: 2rem;
-  }
+hr {
+	margin: 2rem 0;
+}
+
+// Tables
+table,
+table.sbdocs.sbdocs-table {
+  min-width: 100%;
 }
 
 small {
@@ -94,6 +95,11 @@ ul.sg-colors {
   & > *:not(:first-child) {
     margin-left: 1rem;
   }
+}
+
+// Links story
+span.ma__decorative-link  {
+	display: inline;
 }
 
 // Header story

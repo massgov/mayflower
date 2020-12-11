@@ -4,11 +4,12 @@ import ColoredHeading from '@massds/mayflower-react/dist/ColoredHeading';
 import CompHeading from '@massds/mayflower-react/dist/CompHeading';
 import SidebarHeading from '@massds/mayflower-react/dist/SidebarHeading';
 import { attachHTML } from '../../util/renderCode';
+import { attachCSS } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
 const coloredHeading = (
-  <>
+  <section>
     <ColoredHeading
       color="blue"
       level="2"
@@ -21,16 +22,15 @@ const coloredHeading = (
       text="Colored Heading (Primary Alt)"
     />
     <ColoredHeading
-      color=""
+      color="gray"
       level="2"
       text="Colored Heading (Gray)"
     />
-  </>
-
+</section>
 )
 
 const compHeading = (
-  <>
+  <section>
     <CompHeading
       centered={false}
       color=""
@@ -58,7 +58,7 @@ const compHeading = (
       title="Comp Heading (Gray | H5)"
       titleContext=""
     />
-  </>
+</section>
 )
 
 
