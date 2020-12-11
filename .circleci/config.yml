@@ -269,7 +269,7 @@ jobs:
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             sudo apt-get update && sudo apt-get -y -qq install awscli
             cd packages/core
-            aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG"
+            aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG" --delete
             # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
             aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
             aws configure set preview.cloudfront true
@@ -427,6 +427,7 @@ workflows:
             branches: { ignore: /(docs|patternlab\/|react\/|core\/).*/ }
      # core
       - core_build_storybook:
+          requires: [react_build_storybook]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
 
@@ -505,6 +506,10 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
+      - core_build_storybook:
+          requires: [react_build_storybook]
+          filters:
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       - core_deploy_tag:
           requires: [core_build_storybook]
           filters:
