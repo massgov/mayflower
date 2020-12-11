@@ -15,7 +15,7 @@ import * as stories from './Button.stories.js';
 
 Buttons are used in forms and interactive applications, but also as prominent call-to-action links on website pages.
 
-<Canvas>
+<Canvas withSource="none">
   <Story
 		name="button-primary"
     parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Button"/>) } }}>
@@ -23,15 +23,14 @@ Buttons are used in forms and interactive applications, but also as prominent ca
   </Story>
 </Canvas>
 
-Following web best practices buttons have a target area of 45 pixels. To provide more visual affordance that they are clickable—not just text in a box—they have a shadow to appear slightly raised. Small buttons can be used for secondary tasks on forms—for example image upload—and filters on listing pages. Large buttons should be used for form submits or primary calls to action. There should usually be only one  primary button in any UI. Font sizes reduce slightly on mobile.
+Following web best practices buttons have a target area of 45 pixels. To provide more visual affordance that they are clickable—not just text in a box—they have a shadow to appear slightly raised. Small buttons can be used for secondary tasks on forms—for example image upload—and filters on listing pages. Large buttons should be used for form submits or primary calls to action. There should usually be only one primary button in any UI. Font sizes reduce slightly on mobile.
 
 ---
 
 ### Primary Buttons
 
-**Usage:** For the main action in a form, or for a call-to-action link on a page.
-
-**Style:** Default buttons are solid color with contrasting uppercase text. For actions with text longer than two words use the `title-case` class. On hover the Background color becomes lighter.
+- **Usage:** For the main action in a form, or for a call-to-action link on a page.
+- **Style:** Default buttons are solid color with contrasting uppercase text. For actions with text longer than two words use the `title-case` class. On hover the Background color becomes lighter.
 
 <Canvas>
   <Story
@@ -61,9 +60,8 @@ Following web best practices buttons have a target area of 45 pixels. To provide
 
 ### Secondary Buttons
 
-**Usage:** For secondary actions.
-
-**Style:** The outline button has less visual prominence than the primary button so it can be used alongside it as a secondary action, for example "Cancel". The hover state of the secondary button inverts the background and foreground colors.
+- **Usage:** For secondary actions.
+- **Style:** The outline button has less visual prominence than the primary button so it can be used alongside it as a secondary action, for example "Cancel". The hover state of the secondary button inverts the background and foreground colors.
 
 <Canvas>
   <Story
@@ -93,9 +91,8 @@ Following web best practices buttons have a target area of 45 pixels. To provide
 
 ### Tertiary Buttons
 
-**Usage:** For third-level actions on a page.
-
-**Style:** The gray color is even less prominent than outline button to de-emphasize third-level tasks. The hover state inverts the background and text colors.
+- **Usage:** For third-level actions on a page.
+- **Style:** The gray color is even less prominent than outline button to de-emphasize third-level tasks. The hover state inverts the background and text colors.
 
 <Canvas>
   <Story
@@ -110,9 +107,8 @@ Following web best practices buttons have a target area of 45 pixels. To provide
 
 ### Quaternary Buttons
 
-**Usage:** For fourth-level actions or actions.
-
-**Style:** Appears as a link.
+- **Usage:** For fourth-level actions or actions.
+- **Style:** Appears as a link.
 
 <Canvas>
   <Story
@@ -127,9 +123,8 @@ Following web best practices buttons have a target area of 45 pixels. To provide
 
 ### Disabled Buttons
 
-**Usage:** Disabled buttons should not be clickable. The disabled attribute (as opposed to hidden) can be applied for actions where the user should see the action and it's state but may not be able to perform it because they either don't have permission or some other condition in the form has not been met.
-
-**Style:** Disabled buttons have no box shadow (since the box shadow is what suggests clickability). Their opacity is `0.5.`, no hover or focus states are provided and the cursor is set to `not-allowed`.
+- **Usage:** Disabled buttons should not be clickable. The disabled attribute (as opposed to hidden) can be applied for actions where the user should see the action and it's state but may not be able to perform it because they either don't have permission or some other condition in the form has not been met.
+- **Style:** Disabled buttons have no box shadow (since the box shadow is what suggests clickability). Their opacity is `0.5.`, no hover or focus states are provided and the cursor is set to `not-allowed`.
 
 
 <Canvas>
@@ -160,10 +155,10 @@ Following web best practices buttons have a target area of 45 pixels. To provide
 
 ### Accessibility & Best Practices
 
-*** Always** use `<button>` or `<a>` tags,** never** `<div>` or `<img>` tags so they are recognizable to screen readers.
-*** Always** Make sure text and background colors have sufficient contrast to meet WCAG guidelines.
-*** Never** disable or hide the browser focus state so focussed elements always have a visual affordance.
-* When using icons in buttons:
-  1.** Never** use an icon alone without text and always provide text for the icon itself, unlesss the icon is purely decorative.
+- **Always** use `<button>` or `<a>` tags,** never** `<div>` or `<img>` tags so they are recognizable to screen readers.
+- **Always** Make sure text and background colors have sufficient contrast to meet WCAG guidelines.
+- **Never** disable or hide the browser focus state so focussed elements always have a visual affordance.
+- When using icons in buttons:
+  1. **Never** use an icon alone without text and always provide text for the icon itself, unlesss the icon is purely decorative.
   2. If it is decorative, use `aria-hidden="true"`, with an empty alt attribute `alt=""`, and do not use `title` or other aria attributes.
-* When styling links as buttons, remember the keyboard handles links and buttons differently. The** Space** key triggers a button, but the** Enter** key triggers a link. Your UI help text should reflect that.
+- When styling links as buttons, remember the keyboard handles links and buttons differently. The **Space** key triggers a button, but the **Enter** key triggers a link. Your UI help text should reflect that.
