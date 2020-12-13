@@ -297,6 +297,23 @@
           }
         },
         {
+          "path": "@atoms/09-media/figure--caspio.twig",
+          "data": {
+            "figure": {
+              "align": "",
+              "size": "",
+              "caspio": {
+                "dataId": "ad9b8000a2f69eb5f1b844a6a1bb"
+              },
+              "title": {
+                "text": "Sample Data Page",
+                "visible": false
+              },
+              "caption": ""
+            }
+          }
+        },
+        {
           "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
