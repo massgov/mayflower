@@ -58,23 +58,15 @@ const Header = ({
     if (DefaultLogo !== null) {
       DesktopLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
     }
-    if (UtilityNav !== null) {
-      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
-    }
-    if (UtilityItem !== null) {
-      RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-    }
+    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+    RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
   }
   if (isMobileWindow) {
     if (FallbackMobileLogo !== null) {
       RenderedMobileLogo = () => (<FallbackMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
     }
-    if (MobileUtilityNav !== null) {
-      RenderedUtilityNav = getFallbackComponent(MobileUtilityNav, HamburgerUtilityNav);
-    }
-    if (MobileUtilityItem !== null) {
-      RenderedUtilityItem = getFallbackComponent(MobileUtilityItem, HamburgerUtilityItem);
-    }
+    RenderedUtilityNav = getFallbackComponent(MobileUtilityNav, HamburgerUtilityNav);
+    RenderedUtilityItem = getFallbackComponent(MobileUtilityItem, HamburgerUtilityItem);
   }
   return(
     <header className="ma__header__mixed ma__header__hamburger" id="header">
