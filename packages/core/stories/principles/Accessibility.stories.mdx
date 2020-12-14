@@ -6,9 +6,9 @@ import generateTitle from '../util/generateTitle';
 <Meta title={generateTitle('Accessibility')} />
 
 
-# Accessibility
+# Web accessibility and the Commonwealth
 
-## Web accessibility and the Commonwealth
+<br />
 
 The [Americans with Disabilities Act (ADA)](https://www.ada.gov/) mandates that government digital products meet [Web Content Accessibility Guidelines (WCAG) 2.0 and 2.1](https://www.w3.org/WAI/standards-guidelines/wcag/). Mayflower was designed and developed to meet that standard and in most cases simply using the Mayflower components should make your website or app accessible to broad range of users.
 
@@ -16,88 +16,89 @@ There will, however be cases where Mayflower out-of-the-box will not cover all a
 
 ---
 
-### Aria Roles
-
-**Mayflower provides:**
-- Aria roles where appropriate
-- Sane defaults for each element
-
-**In use:**
-- You may need to change Aria roles based on your use case
-
----
-
 ### Structure and layout
 
-**Mayflower provides:**
-- Semantic components like article, section, aside, to build layouts that are readable by assistive technologies.
+Sstructured markup made up of [HTML5 semantic elements](https://www.w3schools.com/html/html5_semantic_elements.asp) like article, section, aside, is how we build layouts that are [machine-readable](https://www.smashingmagazine.com/2020/10/developing-semantic-web/) by assistive technologies.
 
-**In use:**
-- Nest elements properly, eg. a section should be inside an article etc. [Link to guidelines](link)
+**Mayflower provides:**
+- Aria roles where appropriate and sane defaults for each element
+- Many elements and components of Mayflower use HTML5 semantic markup
+
+**You should:**
+- Change Aria roles if neeeded based on your use case
+- Nest elements properly, eg. a section should be inside an article etc. Here are some guidelines on using [semantic markup](https://www.freecodecamp.org/news/semantic-html5-elements/)
 
 ---
 
 ### Colors and contrast
 
+Part of accessibility is making sure users with all types of visual ability can use your site, and color is a big part to that.
+
 **Mayflower provides:**
 - A color palette optimized for all forms of color blindness
 - A variety of tints and shades to choose from
-- Default styles on all elements that already meet WCAG AAA contrast standards
+- Default styles on all elements that already meet WCAG contrast standards
 
-**In use:**
-- If you combine colors from our palette in ways that deviate from component defaults:
-	- Check your UI with a [contrast checker](link).
-	- Check your UI for all types of [color blindness](https://accessgarage.wordpress.com/2013/02/09/458/)
+**You should:**
+- Stick to the default colors provided by Mayflower components wherever possible
+- Check your UI with this [contrast checker](https://contrastchecker.com/).
+- Check your UI for all types of [color blindness](https://accessgarage.wordpress.com/2013/02/09/458/)
 
 ---
 
 ### Typography
 
-**Mayflower provides:**
-- The highly legible and versatile `Noto Sans` font
-- Glyphs that are friendly to readers with learning disabilities such as dyslexia
-- A broad range of weights
-- Default font sizes, weights, and spacing optimized for legibility on all devices
+Like color and contrast, clear legible typography helps the visually impaired, but it alsso iss helpful to users with language or learning issues.
 
-**In use:**
-- If you deviate from Mayflower defaults apply the following rules:
-	- **Never** use weights of `Noto Sans` below `350` at sizes below `1rem`
-	- **Never** use tints or shades as a font color
+**Mayflower provides:**
+- The highly legible and versatile `Noto Sans` variable font
+- Noto glyphs are friendly to readers with learning disabilities such as dyslexia
+- A broad range of weights
+- Default classes for size, weight, and spacing we optimized for legibility on all devices
+
+**You should:**
+- **Never** use a 'custom' font not provides by Mayflower
+- **Never** use weights of `Noto Sans` below `350` at sizes below `1rem`
+- **Never** use tints or shades as a font color
 
 ---
 
 ### Iconography
 
+Icons can be very helpful as visual hints or touchstones in a UI but they should never convey all of the meaning of any action.
+
 **Mayflower provides:**
 - A set of icons that are bold, simple and broadly understood
-- SVG (scalable vector graphics) format so that icons remain crisp when a user increases their text size
-- CSS control over icons so that their color will change when higher contrast is enabled
-- Sane default alt attributes on all icons
+- Icons are in [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) format (with .PNG fallbacks) so that icons remain crisp if a visually impaired user increases their text size
+- Icons inherit the CSS `color` attribute so that their color will change when high-contrast is enabled
 
-**In use:**
-- Choose the icon matches the meaning of the task
-- **Never** use an icon alone without text
-- **Always** provide an alt attribute on icons
+**You should:**
+- **Avoid** adding new icons not in Mayflower if one is neccessary feel free to propose it as an update)
+- Choose the icon matches the meaning of the action, as most broadly understood by users
+- **Avoid** using an icon alone without text unless space demands (eg. in amobile header) and an `alt` attribute is provided
+- **Always** provide an `alt` attribute for icons in the rare case there is no accompanying text
 
 ---
 
 ### Images
 
+We know that all imagess need to be described for the blind or visually impaired, but many users also get meaning from images more readily than text. Use images that are not just 'pretty', but that tell the same story as the text.
+
 **Mayflower provides:**
 - The Image component which adds the `alt` attribute
 - The `ma_image` class that styles images and makes them responsive
 
-**In use:**
+**You should:**
 - **Always** add an `alt` description to an image unless it is purely decorative, in which case add `role="aria-hidden"`.
 - **Never** Make an image the only source of information, for example in an infographic.
-- In general if an image includes text of any kind, *all* of the text should be available in the `alt` sdescription or elsewhere on the page.
+- In general if an image includes text of any kind, *all* of the text should be available in the `alt` sdescription or elsewhere on the page
 
-### Language
+### Content
 
 **Mayflower provides:**
 - Plain-language names and descriptions
 
-**In use:**
-- Don't change menu link names provided by Mayflower that already link to other places on mass.gov
-- Follow the established conventions of mass.gov when creating new links. For example, action links are invitations "Sign up for our newsletter", not destinations "Newsletter sign-up page."
-- Follow the Plain Language guidelines on PlainLanguage.gov
+**You should:**
+- Don't change menu link names provided by Mayflower that already link to other locations on [Mass.gov](http://www.mass.gov)
+- Follow the established conventions established by [Mass.gov](https://www.mass.gov) when creating new links. For example, action links are invitations "Sign up for our newsletter", not destinations "Newsletter sign-up page."
+- Follow the Plain Language guidelines on [PlainLanguage.gov](https://www.PlainLanguage.gov)
