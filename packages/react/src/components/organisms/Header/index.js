@@ -1,6 +1,5 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import classNames from 'classnames';
 import HeaderNav, {
   HeaderNavSearch
 } from 'MayflowerReactMolecules/HeaderNav';
@@ -10,7 +9,6 @@ import HamburgerNav, {
   HamburgerUtilityItem,
   HamburgerMainNav,
   HamburgerUtilityNav,
-  HamburgerSlimUtilityNav,
   HamburgerSkipNav,
   HamburgerNavSearch,
   HamburgerSiteLogo,
@@ -38,58 +36,49 @@ const Header = ({
   MobileNavItem,
   Container,
   mainItems = [],
-  utilityItems = [],
-  slim = false,
-  mobileSlim = false
+  utilityItems = []
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
-  const RenderedContainer = getFallbackComponent(Container, MixedContainer);
-  const FallbackMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
   let RenderedMobileLogo = null;
-  if (isMobileWindow && FallbackMobileLogo !== null) {
-    if (mobileSlim === true) {
-      RenderedMobileLogo = () => (<FallbackMobileLogo Wrapper={SlimLogoWrapper} />);
-    } else {
-      RenderedMobileLogo = () => (<FallbackMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
-    }
-  }
-  const DefaultLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
   let DesktopLogo = null;
-  if (!isMobileWindow && DefaultLogo !== null) {
-    if (slim === true) {
-      DesktopLogo = () => (<DefaultLogo Wrapper={SlimLogoWrapper} />);
-    } else {
-      DesktopLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
-    }
-  }
-  const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
-
-  const DesktopNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
-  const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MixedNavSearch);
   let RenderedUtilityNav;
   let RenderedUtilityItem;
-  if (isMobileWindow) {
-    RenderedUtilityNav = getFallbackComponent(MobileUtilityNav, (mobileSlim === true) ? HamburgerSlimUtilityNav : HamburgerUtilityNav);
-    RenderedUtilityItem = getFallbackComponent(MobileUtilityItem, HamburgerUtilityItem);
-  } else {
-    RenderedUtilityNav = getFallbackComponent(UtilityNav, (slim === true) ? HamburgerSlimUtilityNav : HamburgerUtilityNav);
-    RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-  }
+  const RenderedContainer = getFallbackComponent(Container, MixedContainer);
+  const FallbackMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
+  const DefaultLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
+  const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
+  const DesktopNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
+  const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MixedNavSearch);
   const RenderedMobileMainNav = getFallbackComponent(MobileMainNav, HamburgerMainNav);
   const DesktopMainNav = getFallbackComponent(MainNav, HeaderMainNav);
   const DesktopNavItem = getFallbackComponent(NavItem, HeaderNavItem);
   const RenderedMobileNavItem = getFallbackComponent(MobileNavItem, HamburgerNavItem);
-  // When there are no utility items passed, render using slim classes.
-  const headerClasses = classNames('ma__header__mixed ma__header__hamburger', {
-    ma__header_slim: (slim === true || mobileSlim === true),
-    'ma__header__hamburger--slim': !isMobileWindow && (slim === true)
-  });
+  if (!isMobileWindow) {
+    if (DefaultLogo !== null) {
+      DesktopLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
+    }
+    if (UtilityNav !== null) {
+      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+    }
+    if (UtilityItem !== null) {
+      RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+    }
+  }
+  if (isMobileWindow) {
+    if (FallbackMobileLogo !== null) {
+      RenderedMobileLogo = () => (<FallbackMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
+    }
+    if (MobileUtilityNav !== null) {
+      RenderedUtilityNav = getFallbackComponent(MobileUtilityNav, HamburgerUtilityNav);
+    }
+    if (MobileUtilityItem !== null) {
+      RenderedUtilityItem = getFallbackComponent(MobileUtilityItem, HamburgerUtilityItem);
+    }
+  }
   return(
-    <header className={headerClasses} id="header">
-
+    <header className="ma__header__mixed ma__header__hamburger" id="header">
       {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
-
       <HamburgerNav
         headerType="mixed"
         Logo={RenderedMobileLogo}
@@ -100,12 +89,8 @@ const Header = ({
         NavSearch={RenderedMobileNavSearch}
         mainItems={mainItems}
         utilityItems={utilityItems}
-        slim={slim}
-        mobileSlim={mobileSlim}
       />
-
-      <RenderedContainer slim={slim} mobileSlim={mobileSlim} Logo={DesktopLogo} NavSearch={DesktopNavSearch} />
-
+      <RenderedContainer Logo={DesktopLogo} NavSearch={DesktopNavSearch} />
       <HeaderNav
         ButtonContainer={null}
         Logo={null}
@@ -116,15 +101,11 @@ const Header = ({
         UtiltyItem={null}
         utilityItems={utilityItems}
         mainItems={mainItems}
-        slim={slim}
-        mobileSlim={mobileSlim}
       />
     </header>
   );
 };
 Header.propTypes = {
-  slim: propTypes.bool,
-  mobileSlim: propTypes.bool,
   /** An uninstantiated component which handles displaying the site logo. */
   Logo: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo on mobile. */
@@ -139,8 +120,12 @@ Header.propTypes = {
   SkipNav: propTypes.elementType,
   /** An uninstantiated component which handles displaying the utility navigation at the top of the header. */
   UtilityNav: propTypes.elementType,
+  /** An uninstantiated component which handles displaying the utility navigation at the top of the header on mobile. */
+  MobileUtilityNav: propTypes.elementType,
   /** An uninstantiated component which handles the display of individual utility items. */
   UtilityItem: propTypes.elementType,
+  /** An uninstantiated component which handles the display of individual utility items on mobile. */
+  MobileUtilityItem: propTypes.elementType,
   /** An uninstantiated component which handles the display of the main navigation and its links. */
   MainNav: propTypes.elementType,
   /** An uninstantiated component which handles the display of the main navigation and its links on mobile. */
@@ -164,27 +149,13 @@ Header.propTypes = {
 
 const MixedContainer = ({
   Logo,
-  NavSearch,
-  slim = false,
-  mobileSlim = false
+  NavSearch
 }) => {
-  const windowWidth = useWindowWidth();
-  const isMobileWindow = windowWidth !== null && windowWidth < 840;
   const FallbackLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
   const RenderedLogo = () => (<FallbackLogo Wrapper={HamburgerLogoWrapper} />);
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
-  let containerClasses = '';
-  if (isMobileWindow) {
-    containerClasses = mobileSlim === true ? 'ma__header_slim__header-container ma__container' : 'ma__header__container';
-  } else {
-    containerClasses = slim === true ? 'ma__header_slim__header-container ma__container' : 'ma__header__container';
-  }
-  const containerStyles = {};
-  if (isMobileWindow && mobileSlim === true) {
-    containerStyles.display = 'none';
-  }
   return(
-    <div style={containerStyles} className={containerClasses}>
+    <div className="ma__header__container">
       { FallbackLogo !== null && <RenderedLogo />}
       { (RenderedNavSearch !== null) && <RenderedNavSearch />}
     </div>
@@ -210,45 +181,5 @@ const MixedNavSearch = () => (
     </div>
   </div>
 );
-
-// Supports displaying the UtilityNav in slim format.
-const SlimUtilityNav = ({
-  UtilityItem,
-  items = [],
-  narrow = true
-}) => {
-  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-
-  const wrapperClassName = classNames('ma__header__hamburger__utility-nav', {
-    'ma__header__hamburger__utility-nav--narrow js-utility-nav--narrow': narrow,
-    ma__header_slim__utility: items.length < 1 && !narrow
-  });
-
-  return(
-    <div className={wrapperClassName}>
-      { items.length > 0 && (
-        <div className="ma__utility-nav js-util-nav">
-          <ul className="ma__utility-nav__items">
-            {items.map((ItemComponent, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <RenderedUtilityItem key={`header-hamburger-utility-item-${index}`}><ItemComponent narrow={narrow} /></RenderedUtilityItem>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-};
-
-SlimUtilityNav.propTypes = {
-  /** An uninstantiated component which handles displaying individual items within the utility nav. */
-  UtilityItem: propTypes.elementType,
-  /** An array of uninstantiated components to render within the utility navigation.  */
-  items: propTypes.arrayOf(propTypes.elementType),
-  /** A boolean representing when the UtilityNav is being displayed within a narrow screen. */
-  narrow: propTypes.bool
-};
-// eslint-disable-next-line react/prop-types
-export const SlimLogoWrapper = ({ children }) => (<div className="ma__header_slim__logo">{children}</div>);
 
 export default Header;

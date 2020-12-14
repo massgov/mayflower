@@ -20,15 +20,10 @@ const HamburgerNav = ({
   NavSearch,
   Logo,
   mainItems = [],
-  utilityItems = [],
-  headerType = 'hamburger',
-  slim = false,
-  mobileSlim = false
+  utilityItems = []
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
-  const thereAreUtilityItems = utilityItems.length > 0;
-  const thereAreMainItems = mainItems.length > 0;
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   let RenderedUtilityNav;
   let navSearch = null;
@@ -36,23 +31,15 @@ const HamburgerNav = ({
   let mainNav = null;
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   if (isMobileWindow) {
-    if (mobileSlim === true) {
-      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerSlimUtilityNav);
-    } else {
-      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
-      mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
-      utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
-      navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
-    }
+    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
+    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
+    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
   } else {
-    if (slim === true) {
-      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerSlimUtilityNav);
-    } else {
-      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
-      utilityNav = (RenderedUtilityNav !== null && slim === false ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
-      navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
-      mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
-    }
+    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
+    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
+    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
   }
   const RenderedLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
   // If UtilityItem is undefined, UtilityNav will fallback to HamburgerUtilityItem.
@@ -247,42 +234,6 @@ const HamburgerNav = ({
   useHamburgerNavKeydown(closeMenu);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
-  let wrapperClasses;
-  let navContainerClasses;
-  const navClasses = (!isMobileWindow && slim === true) ? 'ma__header_slim__header' : 'ma__header__hamburger__nav';
-  if (isMobileWindow) {
-    navContainerClasses = classNames({
-      'ma__header__hamburger__nav-container': mobileSlim === false,
-      //'ma__header_slim__header-container ma__container': !thereAreUtilityItems && !thereAreMainItems
-      'ma__header_slim__header-container ma__container': mobileSlim === true
-    });
-    wrapperClasses = classNames({
-      'ma__header__hamburger-wrapper': mobileSlim === false,
-      //ma__header_slim__header: (!thereAreUtilityItems && !thereAreMainItems)
-      ma__header_slim__header: mobileSlim === true
-    });
-  } else {
-    // Desktop
-    if (headerType === 'mixed') {
-      wrapperClasses = classNames({
-        //ma__header__banner: slim === true,
-        'ma__header__hamburger-wrapper': slim === false
-      });
-    }
-    if (headerType === 'hamburger') {
-      wrapperClasses = classNames({
-        'ma__header__hamburger-wrapper': thereAreUtilityItems || thereAreMainItems
-      });
-    }
-    navContainerClasses = 'ma__header__hamburger__nav-container';
-  }
-  const buttonContainerStyles = {};
-  if (isMobileWindow && mobileSlim === true) {
-    buttonContainerStyles.display = 'none';
-  }
-  if (!isMobileWindow && slim === true) {
-    buttonContainerStyles.display = 'none';
-  }
   return(
     <HamburgerContext.Provider value={{
       openMenu,
@@ -290,9 +241,9 @@ const HamburgerNav = ({
       toggleMenu
     }}
     >
-      <nav className={navClasses} aria-label="main navigation" id="main-navigation" role="navigation">
-        <div className={wrapperClasses}>
-          <div style={buttonContainerStyles} className="ma__header__hamburger__button-container js-sticky-header">
+      <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation" role="navigation">
+        <div className="ma__header__hamburger-wrapper">
+          <div className="ma__header__hamburger__button-container js-sticky-header">
             <button
               ref={menuButtonRef}
               type="button"
@@ -313,7 +264,7 @@ const HamburgerNav = ({
             </button>
           </div>
           {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
-          <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className={navContainerClasses} aria-hidden="true" />
+          <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className="ma__header__hamburger__nav-container" aria-hidden="true" />
         </div>
       </nav>
     </HamburgerContext.Provider>
@@ -579,27 +530,6 @@ export const HamburgerUtilityNav = ({
     </div>
   );
 };
-export const HamburgerSlimUtilityNav = ({
-  UtilityItem,
-  items = [],
-  narrow = true
-}) => {
-  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-
-  return(
-    <div className="ma__header_slim__utility">
-      <div className="ma__header_slim__utility-container ma__container">
-        { items.map((ItemComponent, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <RenderedUtilityItem key={`header-hamburger-utility-item-${index}`}>
-            <ItemComponent narrow={narrow} />
-          </RenderedUtilityItem>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 HamburgerUtilityNav.propTypes = {
   /** An uninstantiated component which handles displaying individual items within the utility nav. */
   UtilityItem: propTypes.elementType,

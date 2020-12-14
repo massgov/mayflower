@@ -6,7 +6,6 @@ import HamburgerNav, {
   HamburgerUtilityItem,
   HamburgerMainNav,
   HamburgerUtilityNav,
-  HamburgerSlimUtilityNav,
   HamburgerSkipNav,
   HamburgerNavSearch,
   HamburgerContainer,
@@ -52,7 +51,6 @@ const HeaderHamburger = ({
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
-
   return(
     <header className="ma__header__hamburger" id="header">
       {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
