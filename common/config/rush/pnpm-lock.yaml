@@ -8,6 +8,8 @@ dependencies:
   '@babel/plugin-syntax-dynamic-import': 7.8.3
   '@babel/plugin-transform-runtime': 7.12.1
   '@babel/preset-react': 7.12.7
+  '@massds/mayflower-assets': 10.4.0
+  '@massds/mayflower-react': 10.4.0_@massds+mayflower-assets@10.4.0
   '@proscom/gulp-svgr': 0.1.5
   '@rush-temp/mayflower': 'file:projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:projects/mayflower-assets.tgz'
@@ -2779,6 +2781,89 @@ packages:
     dev: false
     resolution:
       integrity: sha512-MY5KFYUru0y74IsgM/9asDwb3ERxWxXEu3CRCZEvE7DtT86y1bR1XgtlSliMrptjz4qbivNGMQSvUBpEFJDp1A==
+  /@massds/mayflower-assets/10.4.0:
+    dev: false
+    peerDependencies:
+      sass: ^1.26.3
+    resolution:
+      integrity: sha512-QSaw7BN6U8X+L29mGQ46txasy6QJAIy4fffc91fd41Zs3+GCztc5i3AglzkuaPbT582T5OtPbSSmbm8EpAwEUw==
+  /@massds/mayflower-assets/10.4.0_sass@1.30.0:
+    dependencies:
+      sass: 1.30.0
+    dev: false
+    peerDependencies:
+      sass: ^1.26.3
+    resolution:
+      integrity: sha512-QSaw7BN6U8X+L29mGQ46txasy6QJAIy4fffc91fd41Zs3+GCztc5i3AglzkuaPbT582T5OtPbSSmbm8EpAwEUw==
+  /@massds/mayflower-react/10.4.0_@massds+mayflower-assets@10.4.0:
+    dependencies:
+      '@massds/mayflower-assets': 10.4.0
+      airbnb-prop-types: 2.16.0
+      autosuggest-highlight: 3.1.1
+      b-jsonp: 1.2.0
+      classnames: 2.2.6
+      dom-helpers: 3.4.0
+      fuse.js: 3.6.1
+      is: 3.3.0
+      moment: 2.29.1
+      normalize-scss: 7.0.1
+      numbro: 2.3.2
+      object.entries: 1.1.3
+      pikaday: 1.8.2
+      react-autosuggest: 9.4.3
+      react-autowhatever: 10.2.1
+      react-character-counter: 1.0.1
+      react-compound-slider: 0.19.2
+      react-html-parser: 2.0.2
+      react-portal: 4.2.1
+      react-select: 1.3.0
+      react-table: 6.11.5
+      react-transition-group: 2.9.0
+      react-virtualized: 9.22.2
+      shortid: 2.2.16
+    dev: false
+    peerDependencies:
+      '@massds/mayflower-assets': ^0.2.2
+      react: ^16.13.1
+      react-dom: ^16.13.1
+    resolution:
+      integrity: sha512-TBMT8C3S5Soq7/dkDNaOovaSu4G6PRyTRalwWZrVLYX5m/FtzQaNsS7U325I7lMpZdkMeNMCznUD5fAkCEQyPQ==
+  /@massds/mayflower-react/10.4.0_a262394fc87e5849bb70722a2029f488:
+    dependencies:
+      '@massds/mayflower-assets': 10.4.0_sass@1.30.0
+      airbnb-prop-types: 2.16.0_react@16.14.0
+      autosuggest-highlight: 3.1.1
+      b-jsonp: 1.2.0
+      classnames: 2.2.6
+      dom-helpers: 3.4.0
+      fuse.js: 3.6.1
+      is: 3.3.0
+      moment: 2.29.1
+      normalize-scss: 7.0.1
+      numbro: 2.3.2
+      object.entries: 1.1.3
+      pikaday: 1.8.2
+      react: 16.14.0
+      react-autosuggest: 9.4.3_react@16.14.0
+      react-autowhatever: 10.2.1_react@16.14.0
+      react-character-counter: 1.0.1
+      react-compound-slider: 0.19.2_react@16.14.0
+      react-dom: 16.14.0_react@16.14.0
+      react-html-parser: 2.0.2_react@16.14.0
+      react-portal: 4.2.1_react@16.14.0
+      react-select: 1.3.0_react-dom@16.14.0+react@16.14.0
+      react-table: 6.11.5_0106054ed56650b7cf08997e12b36ef5
+      react-transition-group: 2.9.0_react-dom@16.14.0+react@16.14.0
+      react-virtualized: 9.22.2_react-dom@16.14.0+react@16.14.0
+      shortid: 2.2.16
+    dev: false
+    peerDependencies:
+      '@massds/mayflower-assets': ^0.2.2
+      prop-types: '*'
+      react: ^16.13.1
+      react-dom: ^16.13.1
+    resolution:
+      integrity: sha512-TBMT8C3S5Soq7/dkDNaOovaSu4G6PRyTRalwWZrVLYX5m/FtzQaNsS7U325I7lMpZdkMeNMCznUD5fAkCEQyPQ==
   /@mdx-js/loader/1.6.22_react@16.14.0:
     dependencies:
       '@mdx-js/mdx': 1.6.22
@@ -10355,7 +10440,7 @@ packages:
       integrity: sha512-JiK04h0Ht5u/80fdLMCEmV4zkNh2BcoMFBmZ/91WtYZ8qVXSKjiw7fXMgFPnHcSZgOo3XdinHvmnDUeMf5R4wA==
   /domutils/1.5.1:
     dependencies:
-      dom-serializer: 0.1.1
+      dom-serializer: 0.2.2
       domelementtype: 1.3.1
     dev: false
     resolution:
@@ -25807,7 +25892,7 @@ packages:
       integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   /wide-align/1.1.3:
     dependencies:
-      string-width: 1.0.2
+      string-width: 2.1.1
     dev: false
     resolution:
       integrity: sha512-QGkOQc8XL6Bt5PwnsExKBPuMKBxnGxWWW3fU55Xt4feHozMUhdUMaBCk290qpm/wG5u/RSKzwdAC4i51YigihA==
@@ -26529,6 +26614,8 @@ packages:
     version: 0.0.0
   'file:projects/mayflower-site.tgz_13fe6053c740dc31e0c47613a4f26462':
     dependencies:
+      '@massds/mayflower-assets': 10.4.0_sass@1.30.0
+      '@massds/mayflower-react': 10.4.0_a262394fc87e5849bb70722a2029f488
       babel-eslint: 10.1.0_eslint@7.15.0
       bootstrap: 4.5.3_jquery@3.5.1
       classname: 0.0.0
@@ -26570,7 +26657,7 @@ packages:
       jquery: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-wW0DmhjUfBAO7VNz2WJgg++oVyNRIjjYV2eizGDcyckiy0uD2qxa1mlga/ogVI4ZkQ5TKx8q88+YG7i3OSTpUQ==
+      integrity: sha512-SwpcglupcaDpOKf/qIDaTFxIqBOjveFhp14zn2CODCRECUCZujdBtu3sLWj8YxE1ik8B63TSD76g5JN04W0E5A==
       tarball: 'file:projects/mayflower-site.tgz'
     version: 0.0.0
   'file:projects/mayflower.tgz':
@@ -26637,6 +26724,8 @@ specifiers:
   '@babel/plugin-syntax-dynamic-import': ^7.2.0
   '@babel/plugin-transform-runtime': ^7.10.1
   '@babel/preset-react': ^7.10.1
+  '@massds/mayflower-assets': ^10.4.0
+  '@massds/mayflower-react': ^10.4.0
   '@proscom/gulp-svgr': ^0.1.3
   '@rush-temp/mayflower': 'file:./projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:./projects/mayflower-assets.tgz'
