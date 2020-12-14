@@ -40,7 +40,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.0",
-    "react": "~17.0.1"
+    "react": "~17.0.1",
+    "prop-types": "~15.7.2"
   },
   "dependencies": {
     "@massds/mayflower-assets": "^0.2.2",

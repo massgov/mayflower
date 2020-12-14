@@ -1,7 +1,5 @@
 import React from 'react';
-import * as Icon from '@massds/mayflower-react/dist/Icon';
-import { StoryPage } from '../../../.storybook/preview';
-import { assets, svgOptions } from './Icon.knob.options';
+import { assets } from './Icon.knob.options';
 import IconDisplay from './IconDisplay';
 import generateTitle from '../../util/generateTitle';
 

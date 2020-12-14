@@ -1,3 +1,4 @@
+import React from 'react';
 import ColoredHeading from '@massds/mayflower-react/dist/ColoredHeading';
 import CompHeading from '@massds/mayflower-react/dist/CompHeading';
 import SidebarHeading from '@massds/mayflower-react/dist/SidebarHeading';

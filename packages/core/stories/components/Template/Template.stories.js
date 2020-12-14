@@ -1,6 +1,6 @@
 import React from 'react';
-import * as headerStories from '../Header/Header.stories.js';
-import * as footerStories from '../Footer/Footer.stories.js';
+import * as headerStories from '../Header/Header.stories';
+import * as footerStories from '../Footer/Footer.stories';
 
 import { attachHTML } from '../../util/renderCode';
 
