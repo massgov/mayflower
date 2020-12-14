@@ -6,9 +6,6 @@ import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.png';
 import logoBlack from '@massds/mayflower-assets/static/images/logo/stateseal-black.png';
 import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
-import generateTitle from '../../util/generateTitle';
-
-const { STORYBOOK_CDN_PATH } = process.env;
 
 const stateSeal = ({ src, dimension, background }) => (
   <div style={{ background: background || 'none', padding: '5px', lineHeight: 0 }}>

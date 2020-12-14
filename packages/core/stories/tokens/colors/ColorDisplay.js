@@ -32,7 +32,15 @@ ColorSwatch.propTypes = {
   /** Color hex value */
   value: PropTypes.string,
   /** Color variable alias */
-  variable: PropTypes.string
+  variable: PropTypes.string,
+  /** Whether to inline color swatch and hex code */
+  inline: PropTypes.bool,
+  /** Whether to add button copy */
+  copiable: PropTypes.bool,
+  /** Width of the color swatch */
+  width: PropTypes.string,
+  /** Height of the color swatch */
+  height: PropTypes.string
 };
 
 const GradientTile = (props) => {
@@ -51,26 +59,6 @@ const GradientTile = (props) => {
   const { index, effect } = props;
   const firstTile = index === 0;
   const name = firstTile ? props.name : `${index * 10} % ${effect}`;
-  let token;
-  switch (name) {
-    case props.name:
-      token = `$${props.token}`;
-      break;
-    case '50 % tint':
-      token = 'lighter';
-      break;
-    case '90 % tint':
-      token = 'lightest';
-      break;
-    case '30 % shade':
-      token = 'darker';
-      break;
-    case '50 % shade':
-      token = 'darkest';
-      break;
-    default:
-      token = '';
-  }
   const hexValue = rgbToHex(rgb).toUpperCase();
   return(
     <li className={`${props.token}--${effect}`}>
