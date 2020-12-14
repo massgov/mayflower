@@ -7,11 +7,12 @@ export const parameters = {
 				'Overview', [
 					'Introduction',
 					'Get Started',
-          			'Examples'
+          'Examples'
 				],
 				'Principles', [
 					'Brand Pillars',
-					'Accessibility'
+					'Accessibility',
+					'Resources'
 				],
 				'Foundation', [
 					'Logo',

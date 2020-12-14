@@ -1,8 +1,10 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { LinkTo } from '@storybook/addon-links';
-
+import { linkTo } from '@storybook/addon-links';
+import { Button } from '@massds/mayflower-react';
+import generateTitle from '../util/generateTitle';
 
 <Meta title={generateTitle('Accessibility')} />
+
 
 # Accessibility
 
@@ -12,18 +14,16 @@ The [Americans with Disabilities Act (ADA)](https://www.ada.gov/) mandates that 
 
 There will, however be cases where Mayflower out-of-the-box will not cover all accessibility issues, we've outlined those below so you can understand what you get for free and what you need to do yoursself.
 
-<Link theme="c-primary-alt" onClick={linkTo(generateTitle('AccessibilityResources'))}>More accessibility resources.</Link>
-
 ---
 
 ### Aria Roles
 
 **Mayflower provides:**
-- Aria roles on all elements
+- Aria roles where appropriate
 - Sane defaults for each element
 
-- **How to use it:**
-- You may need to change Aria roles based on your use case.
+**In use:**
+- You may need to change Aria roles based on your use case
 
 ---
 
@@ -32,7 +32,7 @@ There will, however be cases where Mayflower out-of-the-box will not cover all a
 **Mayflower provides:**
 - Semantic components like article, section, aside, to build layouts that are readable by assistive technologies.
 
-**How to use it:**
+**In use:**
 - Nest elements properly, eg. a section should be inside an article etc. [Link to guidelines](link)
 
 ---
@@ -44,7 +44,7 @@ There will, however be cases where Mayflower out-of-the-box will not cover all a
 - A variety of tints and shades to choose from
 - Default styles on all elements that already meet WCAG AAA contrast standards
 
-**How to use it:**
+**In use:**
 - If you combine colors from our palette in ways that deviate from component defaults:
 	- Check your UI with a [contrast checker](link).
 	- Check your UI for all types of [color blindness](https://accessgarage.wordpress.com/2013/02/09/458/)
@@ -59,31 +59,45 @@ There will, however be cases where Mayflower out-of-the-box will not cover all a
 - A broad range of weights
 - Default font sizes, weights, and spacing optimized for legibility on all devices
 
-**How to use it:**
+**In use:**
 - If you deviate from Mayflower defaults apply the following rules:
 	- **Never** use weights of `Noto Sans` below `350` at sizes below `1rem`
-	- **Never** use tints or shades as your font color
+	- **Never** use tints or shades as a font color
 
 ---
 
 ### Iconography
 
 **Mayflower provides:**
-- A sset of icons that are bold, simple and broadly understood
+- A set of icons that are bold, simple and broadly understood
 - SVG (scalable vector graphics) format so that icons remain crisp when a user increases their text size
 - CSS control over icons so that their color will change when higher contrast is enabled
 - Sane default alt attributes on all icons
 
-**How to use it:**
+**In use:**
 - Choose the icon matches the meaning of the task
 - **Never** use an icon alone without text
 - **Always** provide an alt attribute on icons
 
 ---
 
+### Images
+
+**Mayflower provides:**
+- The Image component which adds the `alt` attribute
+- The `ma_image` class that styles images and makes them responsive
+
+**In use:**
+- **Always** add an `alt` description to an image unless it is purely decorative, in which case add `role="aria-hidden"`.
+- **Never** Make an image the only source of information, for example in an infographic.
+- In general if an image includes text of any kind, *all* of the text should be available in the `alt` sdescription or elsewhere on the page.
+
 ### Language
 
-### tables
+**Mayflower provides:**
+- Plain-language names and descriptions
 
-* Only use tables for tabular data \(don’t use tables for styling purposes\)
-* All labels within a table must be next to the data they are labeling \(the current examples adhere to this pattern\)
+**In use:**
+- Don't change menu link names provided by Mayflower that already link to other places on mass.gov
+- Follow the established conventions of mass.gov when creating new links. For example, action links are invitations "Sign up for our newsletter", not destinations "Newsletter sign-up page."
+- Follow the Plain Language guidelines on PlainLanguage.gov
