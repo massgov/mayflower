@@ -11,7 +11,6 @@ To use:
 4. If not, copy the entire block for a script, paste it to the command line and enter
 5. Run git status to test if the font files were updated
 
-
 ### woff
 
 ```
