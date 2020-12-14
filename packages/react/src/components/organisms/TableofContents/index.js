@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import componentWithName from 'airbnb-prop-types/src/componentWithName';
+import airPropTypes from 'airbnb-prop-types';
 
 const TableofContents = (props) => (
   <nav className="ma__toc--hierarchy">
@@ -22,8 +22,8 @@ const TableofContents = (props) => (
 TableofContents.propTypes = {
   /** The heading text  */
   heading: PropTypes.oneOfType([
-    componentWithName('ColoredHeading'),
-    componentWithName('SidebarHeading')
+    airPropTypes.componentWithName('ColoredHeading'),
+    airPropTypes.componentWithName('SidebarHeading')
   ])
 };
 

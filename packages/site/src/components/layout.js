@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { HeaderSlim, SiteLogo, FooterSlim } from '@massds/mayflower-react';
+import { Header, HeaderSlim, HamburgerLogoWrapper, HamburgerMobileLogoWrapper, SiteLogo, FooterSlim } from '@massds/mayflower-react';
 import '../styles/_layout.scss';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
@@ -39,12 +39,19 @@ const Layout = ({ children, pre }) => {
     },
     title: description
   };
+  const headerSiteLogoProps = {
+    ...siteLogoProps,
+    siteName: title
+  };
   // Makes sure that header and footer don't use the same
   // SiteLogo component instance.
   const headerProps = {
-    siteLogo: <SiteLogo {...siteLogoProps} siteName={title}/>
+    siteLogo: <SiteLogo {...siteLogoProps} siteName={title} />
   };
 
+  const CustomSiteLogo = ({ Wrapper }) => <SiteLogo {...headerSiteLogoProps} Wrapper={Wrapper} />;
+  //const CustomLogo = () => <HamburgerLogo Logo={CustomSiteLogo} />;
+  const MobileLogo = ({ Wrapper }) => <SiteLogo {...headerSiteLogoProps} Wrapper={Wrapper} />;
   const footerProps = {
     title: 'Executive Office of Technology Security and Services (EOTSS)',
     contact: {
@@ -61,7 +68,14 @@ const Layout = ({ children, pre }) => {
 
   return(
     <>
-      <HeaderSlim {...headerProps} />
+      <Header
+        SkipNav={null}
+        NavSearch={null}
+        MobileNavSearch={null}
+        Logo={CustomSiteLogo}
+        MobileLogo={MobileLogo}
+        MainNav={null}
+      />
       <main id="main-content">
         { children }
       </main>

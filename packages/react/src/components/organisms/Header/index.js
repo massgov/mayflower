@@ -10,16 +10,17 @@ import HamburgerNav, {
   HamburgerUtilityItem,
   HamburgerMainNav,
   HamburgerUtilityNav,
-  HamburgerLogo,
-  HamburgerMobileLogo,
+  HamburgerSlimUtilityNav,
   HamburgerSkipNav,
-  HamburgerNavSearch
+  HamburgerNavSearch,
+  HamburgerSiteLogo,
+  HamburgerLogoWrapper,
+  HamburgerMobileLogoWrapper
 } from 'MayflowerReactMolecules/HamburgerNav';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
-import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 
 const Header = ({
   Logo,
@@ -28,43 +29,61 @@ const Header = ({
   MobileNavSearch,
   SkipNav,
   UtilityNav,
+  MobileUtilityNav,
   UtilityItem,
+  MobileUtilityItem,
   MainNav,
   MobileMainNav,
   NavItem,
   MobileNavItem,
   Container,
   mainItems = [],
-  utilityItems = []
+  utilityItems = [],
+  slim = false,
+  mobileSlim = false
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
-  const thereAreUtilityItems = utilityItems.length > 0;
-  const thereAreMainItems = mainItems.length > 0;
   const RenderedContainer = getFallbackComponent(Container, MixedContainer);
-  let RenderedMobileLogo;
-  if (thereAreUtilityItems) {
-    RenderedMobileLogo = getFallbackComponent(MobileLogo, HamburgerMobileLogo);
-  } else {
-    RenderedMobileLogo = getFallbackComponent(MobileLogo, (thereAreMainItems) ? HamburgerMobileLogo : MixedLogo);
+  const FallbackMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
+  let RenderedMobileLogo = null;
+  if (isMobileWindow && FallbackMobileLogo !== null) {
+    if (mobileSlim === true) {
+      RenderedMobileLogo = () => (<FallbackMobileLogo Wrapper={SlimLogoWrapper} />);
+    } else {
+      RenderedMobileLogo = () => (<FallbackMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
+    }
   }
-  const DesktopLogo = getFallbackComponent(Logo, HamburgerLogo);
-
+  const DefaultLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
+  let DesktopLogo = null;
+  if (!isMobileWindow && DefaultLogo !== null) {
+    if (slim === true) {
+      DesktopLogo = () => (<DefaultLogo Wrapper={SlimLogoWrapper} />);
+    } else {
+      DesktopLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
+    }
+  }
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
 
   const DesktopNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MixedNavSearch);
-
-  const RenderedUtilityNav = getFallbackComponent(UtilityNav, isMobileWindow && (!thereAreUtilityItems) ? SlimUtilityNav : HamburgerUtilityNav);
-  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+  let RenderedUtilityNav;
+  let RenderedUtilityItem;
+  if (isMobileWindow) {
+    RenderedUtilityNav = getFallbackComponent(MobileUtilityNav, (mobileSlim === true) ? HamburgerSlimUtilityNav : HamburgerUtilityNav);
+    RenderedUtilityItem = getFallbackComponent(MobileUtilityItem, HamburgerUtilityItem);
+  } else {
+    RenderedUtilityNav = getFallbackComponent(UtilityNav, (slim === true) ? HamburgerSlimUtilityNav : HamburgerUtilityNav);
+    RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+  }
   const RenderedMobileMainNav = getFallbackComponent(MobileMainNav, HamburgerMainNav);
   const DesktopMainNav = getFallbackComponent(MainNav, HeaderMainNav);
   const DesktopNavItem = getFallbackComponent(NavItem, HeaderNavItem);
   const RenderedMobileNavItem = getFallbackComponent(MobileNavItem, HamburgerNavItem);
   // When there are no utility items passed, render using slim classes.
   const headerClasses = classNames('ma__header__mixed ma__header__hamburger', {
-    ma__header_slim: isMobileWindow && !thereAreUtilityItems,
-    'ma__header__hamburger--slim': !isMobileWindow && !thereAreUtilityItems
+    ma__header_slim: (slim === true || mobileSlim === true),
+    'ma__header__hamburger--slim': !isMobileWindow && (slim === true)
   });
   return(
     <header className={headerClasses} id="header">
@@ -81,9 +100,11 @@ const Header = ({
         NavSearch={RenderedMobileNavSearch}
         mainItems={mainItems}
         utilityItems={utilityItems}
+        slim={slim}
+        mobileSlim={mobileSlim}
       />
 
-      <RenderedContainer Logo={DesktopLogo} NavSearch={DesktopNavSearch} />
+      <RenderedContainer slim={slim} mobileSlim={mobileSlim} Logo={DesktopLogo} NavSearch={DesktopNavSearch} />
 
       <HeaderNav
         ButtonContainer={null}
@@ -95,11 +116,15 @@ const Header = ({
         UtiltyItem={null}
         utilityItems={utilityItems}
         mainItems={mainItems}
+        slim={slim}
+        mobileSlim={mobileSlim}
       />
     </header>
   );
 };
 Header.propTypes = {
+  slim: propTypes.bool,
+  mobileSlim: propTypes.bool,
   /** An uninstantiated component which handles displaying the site logo. */
   Logo: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo on mobile. */
@@ -139,14 +164,29 @@ Header.propTypes = {
 
 const MixedContainer = ({
   Logo,
-  NavSearch
+  NavSearch,
+  slim = false,
+  mobileSlim = false
 }) => {
-  const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
+  const windowWidth = useWindowWidth();
+  const isMobileWindow = windowWidth !== null && windowWidth < 840;
+  const FallbackLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
+  const RenderedLogo = () => (<FallbackLogo Wrapper={HamburgerLogoWrapper} />);
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
+  let containerClasses = '';
+  if (isMobileWindow) {
+    containerClasses = mobileSlim === true ? 'ma__header_slim__header-container ma__container' : 'ma__header__container';
+  } else {
+    containerClasses = slim === true ? 'ma__header_slim__header-container ma__container' : 'ma__header__container';
+  }
+  const containerStyles = {};
+  if (isMobileWindow && mobileSlim === true) {
+    containerStyles.display = 'none';
+  }
   return(
-    <div className="ma__header__container">
-      { RenderedLogo !== null && <RenderedLogo />}
-      { RenderedNavSearch !== null && <RenderedNavSearch />}
+    <div style={containerStyles} className={containerClasses}>
+      { FallbackLogo !== null && <RenderedLogo />}
+      { (RenderedNavSearch !== null) && <RenderedNavSearch />}
     </div>
   );
 };
@@ -208,26 +248,7 @@ SlimUtilityNav.propTypes = {
   /** A boolean representing when the UtilityNav is being displayed within a narrow screen. */
   narrow: propTypes.bool
 };
-
-const MixedLogo = () => {
-  const logoProps = {
-    url: {
-      domain: 'https://www.mass.gov/'
-    },
-    image: {
-      src: 'https://unpkg.com/@massds/mayflower-assets/static/images/logo/stateseal.png',
-      alt: 'Massachusetts state seal',
-      width: 45,
-      height: 45
-    },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
-  };
-  return(
-    <div className="ma__header_slim__logo">
-      <SiteLogo {...logoProps} />
-    </div>
-  );
-};
+// eslint-disable-next-line react/prop-types
+export const SlimLogoWrapper = ({ children }) => (<div className="ma__header_slim__logo">{children}</div>);
 
 export default Header;

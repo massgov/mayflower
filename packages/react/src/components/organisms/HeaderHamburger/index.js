@@ -6,11 +6,13 @@ import HamburgerNav, {
   HamburgerUtilityItem,
   HamburgerMainNav,
   HamburgerUtilityNav,
-  HamburgerLogo,
-  HamburgerMobileLogo,
+  HamburgerSlimUtilityNav,
   HamburgerSkipNav,
   HamburgerNavSearch,
-  HamburgerContainer
+  HamburgerContainer,
+  HamburgerSiteLogo,
+  HamburgerLogoWrapper,
+  HamburgerMobileLogoWrapper
 } from 'MayflowerReactMolecules/HamburgerNav';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
@@ -36,8 +38,16 @@ const HeaderHamburger = ({
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, HamburgerMobileNavSearch);
-  const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
-  const RenderedMobileLogo = (isMobileWindow) ? getFallbackComponent(MobileLogo, HamburgerMobileLogo) : null;
+  const DefaultLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
+  let RenderedLogo;
+  if (DefaultLogo !== null) {
+    RenderedLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
+  }
+  const DefaultMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
+  let RenderedMobileLogo = null;
+  if (DefaultMobileLogo !== null && isMobileWindow) {
+    RenderedMobileLogo = () => (<DefaultMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
+  }
   const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);

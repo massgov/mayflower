@@ -104,8 +104,9 @@ export HamburgerNav, {
   HamburgerUtilityItem,
   HamburgerUtilityNav,
   HamburgerNavSearch,
-  HamburgerLogo,
-  HamburgerMobileLogo,
+  HamburgerSiteLogo,
+  HamburgerLogoWrapper,
+  HamburgerMobileLogoWrapper,
   HamburgerSkipNav,
   HamburgerContainer,
   HamburgerMobileNavSearch
@@ -143,8 +144,8 @@ export RichText from 'MayflowerReactOrganisms/RichText';
 export UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
 export UtilityNav from 'MayflowerReactOrganisms/UtilityNav';
 export Header from 'MayflowerReactOrganisms/Header';
+export { SlimLogoWrapper } from 'MayflowerReactOrganisms/Header';
 export HeaderSlim from 'MayflowerReactOrganisms/HeaderSlim';
-export HeaderMixed from 'MayflowerReactOrganisms/HeaderMixed';
 export HeaderHamburger from 'MayflowerReactOrganisms/HeaderHamburger';
 export ErrorPage from 'MayflowerReactOrganisms/ErrorPage';
 export LinkList from 'MayflowerReactOrganisms/LinkList';
@@ -177,3 +178,8 @@ export Collapse from 'MayflowerReactAnimations/Collapse';
 
 // @dataviz
 export DataTable from 'MayflowerReactDataviz/DataTable';
+
+// @hooks
+export useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
+export useEventListener from 'MayflowerReactComponents/hooks/use-event-listener';
+export useScript from 'MayflowerReactComponents/hooks/use-script';

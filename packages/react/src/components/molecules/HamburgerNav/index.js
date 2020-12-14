@@ -21,29 +21,45 @@ const HamburgerNav = ({
   Logo,
   mainItems = [],
   utilityItems = [],
-  headerType = 'hamburger'
+  headerType = 'hamburger',
+  slim = false,
+  mobileSlim = false
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
   const thereAreUtilityItems = utilityItems.length > 0;
   const thereAreMainItems = mainItems.length > 0;
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
-  const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
-  const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
+  let RenderedUtilityNav;
+  let navSearch = null;
+  let utilityNav = null;
+  let mainNav = null;
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
+  if (isMobileWindow) {
+    if (mobileSlim === true) {
+      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerSlimUtilityNav);
+    } else {
+      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+      mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
+      utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
+      navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
+    }
+  } else {
+    if (slim === true) {
+      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerSlimUtilityNav);
+    } else {
+      RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+      utilityNav = (RenderedUtilityNav !== null && slim === false ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
+      navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
+      mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
+    }
+  }
+  const RenderedLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
   // If UtilityItem is undefined, UtilityNav will fallback to HamburgerUtilityItem.
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-  const utilityNav = ((RenderedUtilityNav !== null && thereAreUtilityItems) ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
   // If NavItem is undefined, HamburgerMainNav falls back to HamburgerNavItem.
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
-  const mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
-  const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
-  let navSearch;
-  if (isMobileWindow) {
-    navSearch = (RenderedNavSearch !== null && (thereAreUtilityItems || thereAreMainItems) ? <RenderedNavSearch /> : null);
-  } else {
-    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
-  }
+  const logo = (RenderedLogo !== null ? <RenderedLogo Wrapper={HamburgerLogoWrapper} /> : null);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
   const openMenu = React.useCallback(() => {
@@ -233,21 +249,24 @@ const HamburgerNav = ({
   useJumpToSearch(openMenu);
   let wrapperClasses;
   let navContainerClasses;
+  const navClasses = (!isMobileWindow && slim === true) ? 'ma__header_slim__header' : 'ma__header__hamburger__nav';
   if (isMobileWindow) {
     navContainerClasses = classNames({
-      'ma__header__hamburger__nav-container': thereAreUtilityItems || (!thereAreUtilityItems && thereAreMainItems),
-      'ma__header_slim__header-container ma__container': !thereAreUtilityItems && !thereAreMainItems
+      'ma__header__hamburger__nav-container': mobileSlim === false,
+      //'ma__header_slim__header-container ma__container': !thereAreUtilityItems && !thereAreMainItems
+      'ma__header_slim__header-container ma__container': mobileSlim === true
     });
     wrapperClasses = classNames({
-      'ma__header__hamburger-wrapper': thereAreMainItems || (!thereAreMainItems && thereAreUtilityItems),
-      ma__header_slim__header: (!thereAreUtilityItems && !thereAreMainItems)
+      'ma__header__hamburger-wrapper': mobileSlim === false,
+      //ma__header_slim__header: (!thereAreUtilityItems && !thereAreMainItems)
+      ma__header_slim__header: mobileSlim === true
     });
   } else {
     // Desktop
     if (headerType === 'mixed') {
       wrapperClasses = classNames({
-        ma__header__banner: !thereAreUtilityItems,
-        'ma__header__hamburger-wrapper': thereAreUtilityItems && thereAreMainItems
+        //ma__header__banner: slim === true,
+        'ma__header__hamburger-wrapper': slim === false
       });
     }
     if (headerType === 'hamburger') {
@@ -257,7 +276,13 @@ const HamburgerNav = ({
     }
     navContainerClasses = 'ma__header__hamburger__nav-container';
   }
-
+  const buttonContainerStyles = {};
+  if (isMobileWindow && mobileSlim === true) {
+    buttonContainerStyles.display = 'none';
+  }
+  if (!isMobileWindow && slim === true) {
+    buttonContainerStyles.display = 'none';
+  }
   return(
     <HamburgerContext.Provider value={{
       openMenu,
@@ -265,30 +290,28 @@ const HamburgerNav = ({
       toggleMenu
     }}
     >
-      <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation" role="navigation">
+      <nav className={navClasses} aria-label="main navigation" id="main-navigation" role="navigation">
         <div className={wrapperClasses}>
-          {((thereAreMainItems) || (!thereAreMainItems && thereAreUtilityItems)) && (
-            <div className="ma__header__hamburger__button-container js-sticky-header">
-              <button
-                ref={menuButtonRef}
-                type="button"
-                aria-expanded="false"
-                aria-label="Open the main menu for mass.gov"
-                className="ma__header__hamburger__menu-button js-header-menu-button"
-              >
-                <span className="ma__header__hamburger__menu-icon" />
-                <span className="ma__header__hamburger__menu-text js-header__menu-text" />
-              </button>
-              <button
-                type="button"
-                aria-expanded="false"
-                className="ma__header__hamburger__search-access-button js-header-search-access-button"
-              >
-                <span className="ma__visually-hidden">Access to search</span>
-                <IconSearch />
-              </button>
-            </div>
-          )}
+          <div style={buttonContainerStyles} className="ma__header__hamburger__button-container js-sticky-header">
+            <button
+              ref={menuButtonRef}
+              type="button"
+              aria-expanded="false"
+              aria-label="Open the main menu for mass.gov"
+              className="ma__header__hamburger__menu-button js-header-menu-button"
+            >
+              <span className="ma__header__hamburger__menu-icon" />
+              <span className="ma__header__hamburger__menu-text js-header__menu-text" />
+            </button>
+            <button
+              type="button"
+              aria-expanded="false"
+              className="ma__header__hamburger__search-access-button js-header-search-access-button"
+            >
+              <span className="ma__visually-hidden">Access to search</span>
+              <IconSearch />
+            </button>
+          </div>
           {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
           <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className={navContainerClasses} aria-hidden="true" />
         </div>
@@ -556,6 +579,26 @@ export const HamburgerUtilityNav = ({
     </div>
   );
 };
+export const HamburgerSlimUtilityNav = ({
+  UtilityItem,
+  items = [],
+  narrow = true
+}) => {
+  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+
+  return(
+    <div className="ma__header_slim__utility">
+      <div className="ma__header_slim__utility-container ma__container">
+        { items.map((ItemComponent, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <RenderedUtilityItem key={`header-hamburger-utility-item-${index}`}>
+            <ItemComponent narrow={narrow} />
+          </RenderedUtilityItem>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 HamburgerUtilityNav.propTypes = {
   /** An uninstantiated component which handles displaying individual items within the utility nav. */
@@ -586,11 +629,10 @@ export const HamburgerNavSearch = () => (
     </div>
   </div>
 );
+// eslint-disable-next-line react/prop-types
+export const HamburgerLogoWrapper = ({ children }) => (<div className="ma__header__hamburger__logo">{children}</div>);
 
-export const HamburgerLogo = ({ mobile = false }) => {
-  const classes = classNames('ma__header__hamburger__logo', {
-    'ma__header__hamburger__logo--mobile': mobile
-  });
+export const HamburgerSiteLogo = ({ Wrapper }) => {
   const logoProps = {
     url: {
       domain: 'https://www.mass.gov/'
@@ -602,31 +644,33 @@ export const HamburgerLogo = ({ mobile = false }) => {
       height: 45
     },
     siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
+    title: 'Mass.gov homepage',
+    Wrapper
   };
   return(
-    <div className={classes}>
-      <SiteLogo {...logoProps} />
-    </div>
+    <SiteLogo {...logoProps} />
   );
 };
-HamburgerLogo.propTypes = {
-  /** A prop that is true when the logo is displayed on a mobile device. */
-  mobile: propTypes.bool
+HamburgerSiteLogo.propTypes = {
+  /** An uninstantiated component which handles displaying the wrapper around the site logo, if any. */
+  Wrapper: propTypes.elementType
 };
 
-export const HamburgerMobileLogo = () => (
-  <HamburgerLogo mobile />
-);
+// eslint-disable-next-line react/prop-types
+export const HamburgerMobileLogoWrapper = ({ children }) => (<div className="ma__header__hamburger__logo--mobile">{children}</div>);
+
 export const HamburgerSkipNav = () => (
   <a className="ma__header__hamburger__skip-nav" href="#main-content">skip to main content</a>
 );
 export const HamburgerContainer = ({ Logo, NavSearch }) => {
-  const RenderedLogo = getFallbackComponent(Logo, HamburgerLogo);
+  let RenderedLogo = null;
+  if (Logo !== null) {
+    RenderedLogo = () => (<Logo Wrapper={HamburgerLogoWrapper} />);
+  }
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   return(
     <div className="ma__header__container">
-      {RenderedLogo !== null && <RenderedLogo mobile={false} />}
+      {RenderedLogo !== null && <RenderedLogo />}
       {RenderedNavSearch !== null && <RenderedNavSearch />}
     </div>
   );

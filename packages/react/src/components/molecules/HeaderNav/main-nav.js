@@ -254,7 +254,7 @@ HeaderNavItem.propTypes = {
   show: propTypes.func,
   text: propTypes.string,
   mainNav: propTypes.shape({
-    current: Element ? propTypes.instanceOf(Element) : propTypes.object
+    current: typeof Element !== 'undefined' ? propTypes.instanceOf(Element) : propTypes.object
     // Element doesn't exist for SSR, so we check for it.
   }),
   subNav: propTypes.arrayOf(propTypes.shape({

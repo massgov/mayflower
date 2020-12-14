@@ -148,14 +148,11 @@ export const HeaderLogo = () => {
       height: 45
     },
     siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
+    title: 'Mass.gov homepage',
+    Wrapper: ({ children }) => (<div className="ma__header__logo">{children}</div>)
   };
   return(
-    <div className="ma__header__logo">
-      <div className="ma__site-logo">
-        <SiteLogo {...logoProps} />
-      </div>
-    </div>
+    <SiteLogo {...logoProps} />
   );
 };
 

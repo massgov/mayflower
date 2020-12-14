@@ -137,6 +137,18 @@ HeaderExample.argTypes = {
     table: {
       category: 'UtilityNav'
     }
+  },
+  MobileUtilityNav: {
+    control: {
+      type: 'inline-radio',
+      options: {
+        Hide: null,
+        Show: undefined
+      }
+    },
+    table: {
+      category: 'UtilityNav'
+    }
   }
 };
 HeaderExample.storyName = 'Default';
