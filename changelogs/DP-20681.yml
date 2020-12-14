@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: Assets
+    description: Add polyfill for includes. (#1304)
+    issue: DP-20681
+    impact: Patch
