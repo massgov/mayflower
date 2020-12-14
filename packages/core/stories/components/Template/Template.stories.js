@@ -1,6 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-
-import generateTitle from '../../util/generateTitle';
+import React from 'react';
 import * as headerStories from '../Header/Header.stories.js';
 import * as footerStories from '../Footer/Footer.stories.js';
 

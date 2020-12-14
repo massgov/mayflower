@@ -1,5 +1,3 @@
-import React from 'react';
-import Button from '@massds/mayflower-react/dist/Button';
 import { attachCSS } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
