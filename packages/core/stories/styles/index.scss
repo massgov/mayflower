@@ -53,6 +53,15 @@ table.sbdocs.sbdocs-table {
   min-width: 100%;
 }
 
+.sp {
+  &--top {
+    margin-top: 2rem;
+  }
+  &--bottom {
+    margin-bottom: 2rem;
+  }
+}
+
 small {
 	font-size: .9rem;
 }
