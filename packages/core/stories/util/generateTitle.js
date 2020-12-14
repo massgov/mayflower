@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { IconArrow } from '@massds/mayflower-react';
 import LinkTo from '@storybook/addon-links/react';
 
@@ -12,3 +14,12 @@ export const StoryLink = ({ metaID, text, inline }) => (
     {!inline && <IconArrow fill="#8AAAC7" height={11} width={11} />}
   </LinkTo>
 );
+
+StoryLink.propTypes = {
+  /** key values in meta.json */
+  metaID: PropTypes.string,
+  /** link text */
+  text: PropTypes.string,
+  /** whether is an inline link */
+  inline: PropTypes.bool
+};
