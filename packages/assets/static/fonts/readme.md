@@ -11,6 +11,7 @@ To use:
 4. If not, copy the entire block for a script, paste it to the command line and enter
 5. Run git status to test if the font files were updated
 
+<<<<<<< HEAD
 To subset eot files upload the ttf to [fontsquirrel](https://www.fontsquirrel.com), use the "expert" tab and change only these values:
 - Font-formats: 			eot compressed
 - Truetype hinting: 	keep existing
@@ -249,6 +250,10 @@ pyftsubset\
 ```
 
 ### Latin
+=======
+
+### woff
+>>>>>>> d66950514... Added the non variable noto sans regualr and italic as woff and woff2
 
 ```
 pyftsubset\
@@ -287,6 +292,28 @@ pyftsubset\
   --flavor=woff2 \
   --layout-features="kern,liga,clig,lnum,tnum" \
   --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D" &&
+<<<<<<< HEAD
+=======
+```
+
+### woff2
+
+```
+pyftsubset\
+  NotoSans-Regular.ttf \
+  --output-file="NotoSans-Regular.woff2" \
+  --flavor=woff2 \
+  --layout-features="kern,liga,clig,lnum,tnum" \
+  --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D" &&
+
+pyftsubset\
+  NotoSans-Italic.ttf \
+  --output-file="NotoSans-Italic.woff2" \
+  --flavor=woff2 \
+  --layout-features="kern,liga,clig,lnum,tnum" \
+  --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D" &&
+
+>>>>>>> d66950514... Added the non variable noto sans regualr and italic as woff and woff2
 pyftsubset\
   NotoSans-VF.ttf \
   --output-file="NotoSans-VF.woff2" \
