@@ -4,3 +4,8 @@ Fixed:
     description: Significantly reduced Noto Sans Latin variable font `.woff` file sizes, from ~900k to ~60k. (#1302)
     issue: DP-20682
     impact: Patch
+  - project: Assets
+    component: Fonts
+    description: Add conditionals to import static fonts and variable fonts `.woff2`, in order to prevent both fonts to be downloaded. (#1302)
+    issue: DP-20682
+    impact: Patch
