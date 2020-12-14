@@ -432,6 +432,7 @@ workflows:
             branches: { ignore: /(docs|patternlab\/|react\/|core\/).*/ }
      # core
       - core_build_storybook:
+          requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
 
@@ -487,6 +488,7 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - react_build_storybook:
+          requires: [build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
@@ -511,7 +513,7 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - core_build_storybook:
-          requires: [react_build_storybook]
+          requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       - core_deploy_tag:
