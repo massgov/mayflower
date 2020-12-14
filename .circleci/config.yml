@@ -251,6 +251,9 @@ jobs:
       - restore_cache:
           keys:
             - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+      - run:
+          name: Mayflower Core Linter
+          command: cd packages/core && node ../../common/scripts/install-run-rushx.js lint
       - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Mayflower Core Storybook Build
