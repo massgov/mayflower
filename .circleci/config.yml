@@ -31,11 +31,11 @@ jobs:
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
           paths:
             - common
             - packages/assets/node_modules
@@ -51,7 +51,7 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
@@ -172,7 +172,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run:
           name: Mayflower React Build
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
@@ -250,8 +250,13 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
-      - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+      - run: 
+          name: Mayflower React NPM Package Build 
+          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
+      - run:
+          name: Mayflower Core Linter
+          command: cd packages/core && node ../../common/scripts/install-run-rushx.js lint
       - run:
           name: Mayflower Core Storybook Build
           command: cd packages/core && node ../../common/scripts/install-run-rushx.js build
@@ -296,7 +301,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -310,7 +315,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -324,7 +329,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: { name: 'Build', command: 'cd packages/assets && node ../../common/scripts/install-run-rushx.js build'}
       - run:
           name: Mayflower Style Linter
@@ -337,7 +342,7 @@ jobs:
       - *configure_npm
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run:
           name: 'Publish mayflower-assets NPM package'
           command: |
@@ -355,7 +360,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-22
+            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Validate Package Build
@@ -427,7 +432,7 @@ workflows:
             branches: { ignore: /(docs|patternlab\/|react\/|core\/).*/ }
      # core
       - core_build_storybook:
-          requires: [react_build_storybook]
+          requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
 
@@ -483,6 +488,7 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - react_build_storybook:
+          requires: [build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
@@ -507,7 +513,7 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - core_build_storybook:
-          requires: [react_build_storybook]
+          requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       - core_deploy_tag:

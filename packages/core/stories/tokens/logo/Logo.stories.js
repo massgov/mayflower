@@ -6,9 +6,6 @@ import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.png';
 import logoBlack from '@massds/mayflower-assets/static/images/logo/stateseal-black.png';
 import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
-import generateTitle from '../../util/generateTitle';
-
-const { STORYBOOK_CDN_PATH } = process.env;
 
 const stateSeal = ({ src, dimension, background }) => (
   <div style={{ background: background || 'none', padding: '5px', lineHeight: 0 }}>
@@ -19,14 +16,13 @@ const stateSeal = ({ src, dimension, background }) => (
       height={dimension}
     />
   </div>
-)
+);
 
 const bgLight = { background: '#F2F2F2' };
 const bgLight1 = { background: '#E7EEF4' };
 const bgDark = { background: '#141414' };
 const bgDark1 = { background: '#14558F' };
 const bgDark2 = { background: '#388557' };
-
 
 // exported story names must be unique
 export const sealExample = () => stateSeal({ src: logoSVG, dimension: '150px' });

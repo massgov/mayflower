@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 import ButtonCopy from '@massds/mayflower-react/dist/ButtonCopy';
 import './_color-display.scss';
 
-const ColorSwatch = ({ name, value, variable, width='200px', height='4rem', copiable=true, inline=false }) => {
+const ColorSwatch = ({
+  name, value, variable, width = '200px', height = '4rem', copiable = true, inline = false
+}) => {
   const hexValue = value.toUpperCase();
   return(
     <div style={{ display: 'flex', flexDirection: inline ? 'row' : 'column' }}>
       { name && <h6>{name}</h6>}
-      <div className="sg-swatch" style={{ background: value, borderRadius: 0, height, width, border: '1px solid #EEEEEE' }} />
+      <div
+        className="sg-swatch"
+        style={{
+          background: value, borderRadius: 0, height, width, border: '1px solid #EEEEEE'
+        }}
+      />
       <div className="sg-info">
         <span>{hexValue}</span>
         {copiable && <ButtonCopy content={hexValue} />}
@@ -25,7 +32,15 @@ ColorSwatch.propTypes = {
   /** Color hex value */
   value: PropTypes.string,
   /** Color variable alias */
-  variable: PropTypes.string
+  variable: PropTypes.string,
+  /** Whether to inline color swatch and hex code */
+  inline: PropTypes.bool,
+  /** Whether to add button copy */
+  copiable: PropTypes.bool,
+  /** Width of the color swatch */
+  width: PropTypes.string,
+  /** Height of the color swatch */
+  height: PropTypes.string
 };
 
 const GradientTile = (props) => {
@@ -44,26 +59,6 @@ const GradientTile = (props) => {
   const { index, effect } = props;
   const firstTile = index === 0;
   const name = firstTile ? props.name : `${index * 10} % ${effect}`;
-  let token;
-  switch (name) {
-    case props.name:
-      token = `$${props.token}`;
-      break;
-    case '50 % tint':
-      token = 'lighter';
-      break;
-    case '90 % tint':
-      token = 'lightest';
-      break;
-    case '30 % shade':
-      token = 'darker';
-      break;
-    case '50 % shade':
-      token = 'darkest';
-      break;
-    default:
-      token = '';
-  }
   const hexValue = rgbToHex(rgb).toUpperCase();
   return(
     <li className={`${props.token}--${effect}`}>
