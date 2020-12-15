@@ -2,10 +2,10 @@ import React from 'react';
 import Image from '@massds/mayflower-react/dist/Image';
 import logoSVG from '@massds/mayflower-assets/static/images/logo/stateseal.svg';
 import logoColorSVG from '@massds/mayflower-assets/static/images/logo/stateseal-color.svg';
-import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
-import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.png';
-import logoBlack from '@massds/mayflower-assets/static/images/logo/stateseal-black.png';
-import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
+import logo from '@massds/mayflower-assets/static/images/logo/stateseal.svg';
+import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.svg';
+import logoBlack from '@massds/mayflower-assets/static/images/logo/stateseal-black.svg';
+import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.svg';
 
 const stateSeal = ({ src, dimension, background }) => (
   <div style={{ background: background || 'none', padding: '5px', lineHeight: 0 }}>
