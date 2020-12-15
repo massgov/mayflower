@@ -40,8 +40,8 @@ const Header = ({
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
-  let RenderedMobileLogo = null;
-  let DesktopLogo = null;
+  let RenderedMobileLogo;
+  let DesktopLogo;
   let RenderedUtilityNav;
   let RenderedUtilityItem;
   const RenderedContainer = getFallbackComponent(Container, MixedContainer);
