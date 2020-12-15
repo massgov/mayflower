@@ -17,44 +17,44 @@ To use:
 
 ```
 pyftsubset\
-  NotoSans.ttf \
-  --output-file="NotoSans.woff" \
+  NotoSans-Regular.ttf \
+  --output-file="NotoSans-Regular.woff" \
   --flavor=woff \
   --layout-features="kern,liga,clig,lnum,tnum"\
-  --unicodes="U+0000-00FF, U+FB00-FB05" &&
+  --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D" &&
 
 pyftsubset\
-  NotoSansItalic.ttf \
-  --output-file="NotoSansItalic.woff" \
+  NotoSans-Italic.ttf \
+  --output-file="NotoSans-Italic.woff" \
   --flavor=woff \
   --layout-features="kern,liga,clig,lnum,tnum"\
-  --unicodes="U+0000-00FF, U+FB00-FB05" &&
+  --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D" &&
 
 pyftsubset\
   NotoSans-VF.ttf \
   --output-file="NotoSans-VF.woff" \
   --flavor=woff \
   --layout-features="kern,liga,clig,lnum,tnum,"\
-  --unicodes="U+0000-00FF, U+FB00-FB05" &&
+  --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D" &&
 
 pyftsubset\
   NotoSansItalic-VF.ttf \
   --output-file="NotoSansItalic-VF.woff" \
   --flavor=woff \
   --layout-features="kern,liga,clig,lnum,tnum"\
-  --unicodes="U+0000-00FF, U+FB00-FB05" &&
+  --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D" &&
 
 pyftsubset\
   NotoSans-VF.ttf \
   --output-file="NotoSans-VF.woff2" \
   --flavor=woff2 \
   --layout-features="kern,liga,clig,lnum,tnum"\
-  --unicodes="U+0000-00FF, U+FB00-FB05" &&
+  --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D" &&
 
 pyftsubset\
   NotoSansItalic-VF.ttf \
   --output-file="NotoSansItalic-VF.woff2" \
   --flavor=woff2 \
   --layout-features="kern,liga,clig,lnum,tnum"\
-  --unicodes="U+0000-00FF, U+FB00-FB05"
+  --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D"
 ```
