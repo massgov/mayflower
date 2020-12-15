@@ -8,6 +8,7 @@ dependencies:
   '@babel/plugin-syntax-dynamic-import': 7.8.3
   '@babel/plugin-transform-runtime': 7.12.10
   '@babel/preset-react': 7.12.10
+  '@massds/mayflower-assets': 0.2.2
   '@proscom/gulp-svgr': 0.1.5
   '@rush-temp/mayflower': 'file:projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:projects/mayflower-assets.tgz'
@@ -2799,6 +2800,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-MY5KFYUru0y74IsgM/9asDwb3ERxWxXEu3CRCZEvE7DtT86y1bR1XgtlSliMrptjz4qbivNGMQSvUBpEFJDp1A==
+  /@massds/mayflower-assets/0.2.2:
+    dev: false
+    peerDependencies:
+      sass: ^1.26.3
+    resolution:
+      integrity: sha512-xS4O1OnHi9VxaXGGKXXgMenBZiWiGKAkoIB4HJG7BcdV8Egyky+d7YIg3MFZ5sqXexqBljR2Cnag+w4Jfs0niw==
+  /@massds/mayflower-assets/0.2.2_sass@1.30.0:
+    dependencies:
+      sass: 1.30.0
+    dev: false
+    peerDependencies:
+      sass: ^1.26.3
+    resolution:
+      integrity: sha512-xS4O1OnHi9VxaXGGKXXgMenBZiWiGKAkoIB4HJG7BcdV8Egyky+d7YIg3MFZ5sqXexqBljR2Cnag+w4Jfs0niw==
   /@massds/mayflower-assets/10.4.0_sass@1.27.2:
     dependencies:
       sass: 1.27.2
@@ -10482,7 +10497,7 @@ packages:
       integrity: sha512-JiK04h0Ht5u/80fdLMCEmV4zkNh2BcoMFBmZ/91WtYZ8qVXSKjiw7fXMgFPnHcSZgOo3XdinHvmnDUeMf5R4wA==
   /domutils/1.5.1:
     dependencies:
-      dom-serializer: 0.1.1
+      dom-serializer: 0.2.2
       domelementtype: 1.3.1
     dev: false
     resolution:
@@ -26118,7 +26133,7 @@ packages:
       integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   /wide-align/1.1.3:
     dependencies:
-      string-width: 1.0.2
+      string-width: 2.1.1
     dev: false
     resolution:
       integrity: sha512-QGkOQc8XL6Bt5PwnsExKBPuMKBxnGxWWW3fU55Xt4feHozMUhdUMaBCk290qpm/wG5u/RSKzwdAC4i51YigihA==
@@ -26737,7 +26752,7 @@ packages:
       style-loader: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-vUYTSTWhMl8NTFZ9TWWJTY4UKKm/nZK84TOs4f6vqTVLq0/fOPvBoY/zz6qJTsUc+4VX2XZHEYGljRArIIXstA==
+      integrity: sha512-HHHleV/01Dwnuy5cwa8IWK5uRt/ZSl1qeId118amVM2XWCf+o5CDEzdzLFUUpapIjp3+dtWezyvccNgPAsFysw==
       tarball: 'file:projects/mayflower-core.tgz'
     version: 0.0.0
   'file:projects/mayflower-react.tgz':
@@ -26753,6 +26768,7 @@ packages:
       '@babel/plugin-transform-runtime': 7.12.10_@babel+core@7.12.10
       '@babel/preset-env': 7.12.10_@babel+core@7.12.10
       '@babel/preset-react': 7.12.10_@babel+core@7.12.10
+      '@massds/mayflower-assets': 0.2.2_sass@1.30.0
       '@proscom/gulp-svgr': 0.1.5
       '@storybook/addon-a11y': 6.1.11_react-dom@16.14.0+react@16.14.0
       '@storybook/addon-actions': 6.1.11_react-dom@16.14.0+react@16.14.0
@@ -26837,7 +26853,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower-react'
     resolution:
-      integrity: sha512-3sEUO0nB2UGUvx8WvzecSSJl0jv9znFetoUls2exVMXzyYQlPRNkgHFrqdS7v6+05gRTaQTTa3YkgGtqgHfNYA==
+      integrity: sha512-2ParCHXeIIRDorhepn4t5iLs8ZxVCr+c8JmDfy5M/hZ2KMd4mSq2FuSDlSDfEBH8iHnVYXXZUbuIMiTVkk6t4Q==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_13fe6053c740dc31e0c47613a4f26462':
@@ -26885,7 +26901,7 @@ packages:
       jquery: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-SwpcglupcaDpOKf/qIDaTFxIqBOjveFhp14zn2CODCRECUCZujdBtu3sLWj8YxE1ik8B63TSD76g5JN04W0E5A==
+      integrity: sha512-Q5k5SX8CxWbJxNzxIcsOE5wS7hbNnxOuz0s5FFdUhxe9Du7m8yHiFhLLayPerLseXeZ7dkeKn2M5W+kGvyhPIg==
       tarball: 'file:projects/mayflower-site.tgz'
     version: 0.0.0
   'file:projects/mayflower.tgz':
@@ -26938,9 +26954,10 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-kKEKw4qckPNNhzAXpjNXg64jdz09KAmInroOAxSGbiD2v7LDv1P7aS/wbbPAD06Beytcq9EfvTIOO60QQCLJxQ==
+      integrity: sha512-5oehBc/L5kT9ycNZ0UWTEy6nVSliVNlAHa3iINNCJFeKl0iaZoMVo2KLzBK1FLTrVvEez8huQALojl8lHS+Ghg==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
+registry: ''
 specifiers:
   '@babel/cli': ^7.10.1
   '@babel/parser': ^7.10.2
@@ -26951,6 +26968,7 @@ specifiers:
   '@babel/plugin-syntax-dynamic-import': ^7.2.0
   '@babel/plugin-transform-runtime': ^7.10.1
   '@babel/preset-react': ^7.10.1
+  '@massds/mayflower-assets': ^0.2.2
   '@proscom/gulp-svgr': ^0.1.3
   '@rush-temp/mayflower': 'file:./projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:./projects/mayflower-assets.tgz'
