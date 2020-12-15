@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 - (Assets) [Fonts] DP-20682: Add conditionals to import static fonts and variable fonts `.woff2`, in order to prevent both fonts to be downloaded. (#1302)
 
 ### Added
-- (Patternlab) [Assets] DP-20682: Add polyfill for includes. (#1304)
+- (Patternlab) [Assets] DP-20681: Add polyfill for includes. (#1304)
 
 ## 10.4.0 (12/7/2020)
 ### Fixed
