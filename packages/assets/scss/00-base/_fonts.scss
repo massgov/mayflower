@@ -17,6 +17,7 @@
 /////////////////////////////////////
 // Import fonts
 /* The fallback non-variable Noto Sans font */
+
 @supports not ( font-variation-settings: normal ) {
 
   @font-face {
