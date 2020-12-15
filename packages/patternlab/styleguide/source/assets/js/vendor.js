@@ -19,9 +19,9 @@ import 'core-js/fn/array/find-index';
 import 'core-js/fn/array/fill';
 import 'core-js/fn/array/from';
 import 'core-js/fn/array/includes';
-import 'mdn-polyfills/String.prototype.includes'
-import 'mdn-polyfills/Element.prototype.closest'
-import 'mdn-polyfills/Element.prototype.matches'
+import 'mdn-polyfills/String.prototype.includes';
+import 'mdn-polyfills/Element.prototype.closest';
+import 'mdn-polyfills/Element.prototype.matches';
 import 'url-search-params-polyfill';
 import svg4everybody from 'svg4everybody'
 import smoothscroll from 'smoothscroll-polyfill';
