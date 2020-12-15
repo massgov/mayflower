@@ -18,7 +18,7 @@
     "backstop:approve": "docker-compose run backstop approve",
     "build": "gulp",
     "build:icons": "gulp cleanIconDir && svgr --out-dir ./src/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js --ext js",
-    "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
+    "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets  --no-manager-cache",
     "start": "rushx build:icons && rushx storybook",
     "lint": "eslint . -c .eslintrc.json",
     "lint-fix": "eslint --fix . && exit 0",

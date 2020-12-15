@@ -1,15 +1,88 @@
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/@massds/mayflower-assets@10.4.0/css/header-slim.css"
-/>
-<div class="ma__header_slim">
-
-  <header class="ma__header_slim__header" id="header">
-    <div class="ma__header_slim__header-container ma__container">
-      The Mayflower React component library is an experimental project created by Mass Digital Services Team. Visit the <a href="https://mayflower.digital.mass.gov/core/">official Mayflower documentation</a></a> to get started.
-    </div>
-  </header>
-  <div class="ma__header_slim__utility">
-    <div class="ma__header_slim__utility-container ma__container"></div>
+<style>
+  .ma__decorative-link {
+  padding-right: 0.8em;
+  display: inline;
+  vertical-align: middle;
+  width: 100%;
+}
+.ma__decorative-link a {
+  border-bottom: 3px solid transparent;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  transition: border 0.4s ease;
+  display: inline;
+}
+.ma__decorative-link a:hover {
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  text-decoration: none;
+}
+.ma__decorative-link a svg {
+  display: inline-block;
+  height: 0.6em;
+  margin-right: -0.8em;
+  width: 0.6em;
+}
+.ma__decorative-link a:hover {
+  border-bottom-color: rgba(20, 85, 143, 0.5);
+}
+.ma__decorative-link a:focus {
+  border-bottom-color: rgba(20, 85, 143, 0.5) !important;
+}
+.ma__decorative-link svg {
+  fill: rgba(20, 85, 143, 0.5);
+}
+.ma__decorative-link.button-link {
+  outline: 1px solid rgba(20, 85, 143, 0.5);
+  display: inline-block;
+  width: auto;
+  padding: 0.5rem 1.8rem 0.5rem 0.8rem;
+  background-color: white;
+}
+.ma__decorative-link.button-link:hover, .ma__decorative-link.button-link:focus {
+  outline: 1px solid #14558f;
+}
+.ma__decorative-link.button-link:hover a, .ma__decorative-link.button-link:focus a {
+  border-bottom-color: transparent;
+}
+.ma__decorative-link.button-link:hover a svg, .ma__decorative-link.button-link:focus a svg {
+  fill: #14558f;
+}
+.ma__decorative-link__details {
+  font-weight: 350;
+}
+.ma__decorative-link a .ma__download-link--icon {
+  display: inline-flex;
+  align-self: center;
+  top: 0.3em;
+  position: relative;
+}
+.ma__decorative-link a .ma__download-link--icon svg {
+  margin-right: 0;
+  width: 29px;
+  height: 30px;
+}
+</style>
+<div style="font-family: 'Noto Sans VF', 'Noto Sans', 'Helvetica', 'Arial', sans-serif; width: 100%">
+  <div style="display:flex; align-items: center; justify-content: center; min-height: 40px; background-color: #E7EEF4;">
+    <p>
+      The Mayflower React component library is an experimental project created by Mass Digital Services Team.
+      <span class="ma__decorative-link">
+        <a href="https://mayflower.digital.mass.gov/core/">
+          Visit the  official Mayflower documentation to get started
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 16 18"
+          >
+            <path
+              d="M12.721 6.28L15.423 9l-2.702 2.72-5.403 5.45-2.701-2.72 3.498-3.53H.443V7.07h7.66L4.617 3.55 7.318.83z"
+            ></path>
+          </svg>
+        </a>
+      </span>
   </div>
+  <div style="min-height: 15px; background-color: #14558F"></div>
 </div>
