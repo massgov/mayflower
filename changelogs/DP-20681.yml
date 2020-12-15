@@ -1,0 +1,12 @@
+Fixed:
+  - project: Patternlab
+    component: Assets
+    description: Fix the format. (#1306)
+    issue: DP-20681
+    impact: Patch
+Added:
+  - project: Patternlab
+    component: Assets
+    description: Add polyfill for includes. (#1304)
+    issue: DP-20681
+    impact: Patch
