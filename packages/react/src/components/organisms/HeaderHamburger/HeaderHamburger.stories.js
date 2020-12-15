@@ -1,5 +1,6 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
+import styles from '@massds/mayflower-assets/build/scss/header-hamburger.scss';
 import mainItems from './main-nav.data';
 import HeaderHamburger from './index';
 import { LoginItem, TranslateItem, StateItem } from './utility-items.data';
@@ -24,7 +25,7 @@ export default {
   component: HeaderHamburger,
   parameters: {
     docs: {
-      page: () => <StoryPage />
+      page: () => <StoryPage styles={styles} />
     }
   }
 };

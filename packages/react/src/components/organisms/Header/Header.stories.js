@@ -1,5 +1,6 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
+import styles from '@massds/mayflower-assets/build/scss/header-mixed.scss';
 import Header from './index';
 import mainItems from './main-nav.data';
 import { LoginItem, TranslateItem, StateItem } from './utility-items.data';
@@ -152,7 +153,11 @@ HeaderExample.argTypes = {
   }
 };
 HeaderExample.storyName = 'Default';
-
+HeaderExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderExample} styles={styles} />
+  }
+};
 export const HeaderWithoutMainNav = Template.bind({});
 HeaderWithoutMainNav.args = {
   utilityItems: [
@@ -162,27 +167,34 @@ HeaderWithoutMainNav.args = {
   ]
 };
 HeaderWithoutMainNav.storyName = 'Header without MainNav';
-
+HeaderWithoutMainNav.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithoutMainNav} styles={styles} />
+  }
+};
 export const HeaderWithoutMainNavUtilityNav = Template.bind({});
-HeaderWithoutMainNavUtilityNav.storyName = 'Header with NavSearch';
+HeaderWithoutMainNavUtilityNav.storyName = 'Header with only NavSearch';
+HeaderWithoutMainNavUtilityNav.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithoutMainNavUtilityNav} styles={styles} />
+  }
+};
 export const HeaderWithoutUtilityNav = Template.bind({});
 HeaderWithoutUtilityNav.args = {
   mainItems
 };
 HeaderWithoutUtilityNav.storyName = 'Header without UtilityNav';
-
-export const HeaderWithoutMainUtilityNavAndSearch = Template.bind({});
-HeaderWithoutMainUtilityNavAndSearch.args = {
-  NavSearch: null
+HeaderWithoutUtilityNav.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithoutUtilityNav} styles={styles} />
+  }
 };
-HeaderWithoutMainUtilityNavAndSearch.storyName = 'Header without MainNav, UtilityNav and Search';
-
 export default {
   title: 'organisms/Header',
   component: Header,
   parameters: {
     docs: {
-      page: () => <StoryPage />
+      page: () => <StoryPage styles={styles} />
     }
   },
   argTypes: {

@@ -14,7 +14,6 @@ import HamburgerNav, {
   HamburgerMobileLogoWrapper
 } from 'MayflowerReactMolecules/HamburgerNav';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
-import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 
 const HeaderHamburger = ({
   Logo,
@@ -30,9 +29,6 @@ const HeaderHamburger = ({
   mainItems,
   utilityItems
 }) => {
-  const windowWidth = useWindowWidth();
-  const isMobileWindow = windowWidth !== null && windowWidth < 840;
-
   const RenderedContainer = getFallbackComponent(Container, HamburgerContainer);
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
@@ -44,7 +40,7 @@ const HeaderHamburger = ({
   }
   const DefaultMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
   let RenderedMobileLogo = null;
-  if (DefaultMobileLogo !== null && isMobileWindow) {
+  if (DefaultMobileLogo !== null) {
     RenderedMobileLogo = () => (<DefaultMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
   }
   const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);

@@ -46,7 +46,7 @@ const HamburgerNav = ({
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
   // If NavItem is undefined, HamburgerMainNav falls back to HamburgerNavItem.
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
-  const logo = (RenderedLogo !== null ? <RenderedLogo Wrapper={HamburgerLogoWrapper} /> : null);
+  const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
   const openMenu = React.useCallback(() => {
@@ -587,7 +587,7 @@ HamburgerSiteLogo.propTypes = {
 };
 
 // eslint-disable-next-line react/prop-types
-export const HamburgerMobileLogoWrapper = ({ children }) => (<div className="ma__header__hamburger__logo--mobile">{children}</div>);
+export const HamburgerMobileLogoWrapper = ({ children }) => (<div className="ma__header__hamburger__logo ma__header__hamburger__logo--mobile">{children}</div>);
 
 export const HamburgerSkipNav = () => (
   <a className="ma__header__hamburger__skip-nav" href="#main-content">skip to main content</a>

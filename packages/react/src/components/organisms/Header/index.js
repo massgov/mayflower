@@ -45,8 +45,8 @@ const Header = ({
   let RenderedUtilityNav;
   let RenderedUtilityItem;
   const RenderedContainer = getFallbackComponent(Container, MixedContainer);
-  const FallbackMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
   const DefaultLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
+  const DefaultMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
   const DesktopNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MixedNavSearch);
@@ -55,18 +55,17 @@ const Header = ({
   const DesktopNavItem = getFallbackComponent(NavItem, HeaderNavItem);
   const RenderedMobileNavItem = getFallbackComponent(MobileNavItem, HamburgerNavItem);
   if (!isMobileWindow) {
-    if (DefaultLogo !== null) {
-      DesktopLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
-    }
     RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
     RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-  }
-  if (isMobileWindow) {
-    if (FallbackMobileLogo !== null) {
-      RenderedMobileLogo = () => (<FallbackMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
-    }
+  } else {
     RenderedUtilityNav = getFallbackComponent(MobileUtilityNav, HamburgerUtilityNav);
     RenderedUtilityItem = getFallbackComponent(MobileUtilityItem, HamburgerUtilityItem);
+  }
+  if (DefaultLogo !== null) {
+    DesktopLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
+  }
+  if (DefaultMobileLogo !== null) {
+    RenderedMobileLogo = () => (<DefaultMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
   }
   return(
     <header className="ma__header__mixed ma__header__hamburger" id="header">
