@@ -28,14 +28,20 @@ export const LoginItem = ({ narrow }) => {
           // Utility button state
           utilButton.setAttribute('aria-expanded', 'false');
           utilButton.setAttribute('aria-pressed', 'false');
-          utilButton.closest('.ma__header__hamburger__nav').classList.toggle('util-nav-content-open');
+          const closestHamburgerNav = utilButton.closest('.ma__header__hamburger__nav');
+          if (closestHamburgerNav) {
+            closestHamburgerNav.classList.toggle('util-nav-content-open');
+          }
         };
         utilButton.addEventListener('click', (e) => {
           const thisWideButton = e.target.closest('.js-util-nav-toggle');
           const thisWideContent = thisWideButton.nextElementSibling;
 
           if (thisWideContent.classList.contains('is-closed')) {
-            thisWideButton.closest('.ma__header__hamburger__nav').classList.add('util-nav-content-open');
+            const closestHamburgerNav = thisWideButton.closest('.ma__header__hamburger__nav');
+            if (closestHamburgerNav) {
+              closestHamburgerNav.classList.add('util-nav-content-open');
+            }
 
             thisWideContent.classList.remove('is-closed');
             thisWideContent.removeAttribute('aria-hidden');
@@ -316,7 +322,7 @@ LoginItem.propTypes = {
   narrow: propTypes.bool
 };
 
-export const TranslateItem = ({ narrow }) => {
+export const TranslateItem = () => {
   const windowWidth = useWindowWidth();
   return(
     <React.Fragment>
@@ -327,10 +333,6 @@ export const TranslateItem = ({ narrow }) => {
       )}
     </React.Fragment>
   );
-};
-TranslateItem.propTypes = {
-  /** Represents when the component is being displayed on a narrow viewport. */
-  narrow: propTypes.bool
 };
 
 export const StateItem = () => (

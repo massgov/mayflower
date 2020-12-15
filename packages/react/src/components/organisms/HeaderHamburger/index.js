@@ -34,12 +34,12 @@ const HeaderHamburger = ({
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, HamburgerMobileNavSearch);
   const DefaultLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
+  const DefaultMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
   let RenderedLogo;
+  let RenderedMobileLogo;
   if (DefaultLogo !== null) {
     RenderedLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
   }
-  const DefaultMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
-  let RenderedMobileLogo = null;
   if (DefaultMobileLogo !== null) {
     RenderedMobileLogo = () => (<DefaultMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
   }

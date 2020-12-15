@@ -1,6 +1,6 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-import styles from '@massds/mayflower-assets/build/scss/header-mixed.scss';
+import styles from '@massds/mayflower-assets/build/scss/header.scss';
 import Header from './index';
 import mainItems from './main-nav.data';
 import { LoginItem, TranslateItem, StateItem } from './utility-items.data';
