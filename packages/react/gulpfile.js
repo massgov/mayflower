@@ -219,6 +219,7 @@ function resolvePath(sourcePath, currentFile, opts) {
         'Base/Icon/',
         'HamburgerNav/hooks',
         'HeaderNav/hooks',
+        'Header/utility-items',
         'HeaderNav/main-nav',
         'hooks/use-script',
         'hooks/use-event-listener',
