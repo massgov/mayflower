@@ -15,7 +15,7 @@ import HamburgerNav, {
   HamburgerSiteLogo,
   HamburgerMobileLogoWrapper
 } from 'MayflowerReactMolecules/HamburgerNav';
-import { LoginItem, TranslateItem, StateItem } from 'MayflowerReactOrganisms/Header/utility-items.data';
+import { LoginItem, TranslateItem, StateItem } from 'MayflowerReactOrganisms/Header/utility-items';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 

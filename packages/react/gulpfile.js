@@ -183,12 +183,13 @@ const aliases = {
 
 const sources = [
   'src/**/*.js',
+  'src/**/utility-items.js',
+  'src/**/main-nav.js',
   '!src/**/*.stories.js',
   '!src/**/*.knobs.options.js',
   '!src/**/*.knob.options.js',
   '!src/**/Colors/**',
   '!src/**/Icon/**',
-  '!src/**/utility-items.data.js',
   '!src/**/main-nav.data.js'
 ];
 

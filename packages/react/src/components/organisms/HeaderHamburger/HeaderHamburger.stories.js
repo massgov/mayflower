@@ -3,7 +3,7 @@ import { StoryPage } from 'StorybookConfig/preview';
 import styles from '@massds/mayflower-assets/build/scss/header-hamburger.scss';
 import mainItems from './main-nav.data';
 import HeaderHamburger from './index';
-import { LoginItem, TranslateItem, StateItem } from './utility-items.data';
+import { LoginItem, TranslateItem, StateItem } from 'MayflowerReactOrganisms/Header/utility-items';
 
 const getUtilityItem = (item) => {
   const items = {

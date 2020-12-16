@@ -6,7 +6,7 @@ import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
 import { HamburgerLogoWrapper } from 'MayflowerReactMolecules/HamburgerNav';
 import Header from './index';
 import mainItems from './main-nav.data';
-import { LoginItem, TranslateItem, StateItem } from './utility-items.data';
+import { LoginItem, TranslateItem, StateItem } from 'MayflowerReactOrganisms/Header/utility-items';
 
 const getUtilityItem = (item) => {
   const items = {
