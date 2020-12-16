@@ -9,6 +9,7 @@
       "text": "Sample Data Page",
       "visible": false
     },
-    "caption": ""
+    "caption": "",
+    "ariaLive": "polite"
   }
 }

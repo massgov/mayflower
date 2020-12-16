@@ -1,7 +1,7 @@
 {% set alignmentClass = figure.align ? (figure.size == "x-large" ? "" : " ma__figure--" ~ figure.align) : "" %}
 {% set sizeClass = figure.size ? (figure.size == 'x-large' ? " ma__figure--full ma__figure--" ~ figure.size : " ma__figure--" ~ figure.size) : "" %}
 {% set wrapClass = not figure.wrap ? " ma__figure--no-wrap" : "" %}
-<figure class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}{{ wrapClass }}"{% if figure.title %} aria-label="{{ figure.title.text }}"{% endif %}>
+<figure class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}{{ wrapClass }}"  {% if figure.title %} aria-label="{{ figure.title.text }}" {% endif %}>
 {% if figure.title.text and figure.title.visible %}
   {# screen reader or AT users get title from aria-label in <figure> in semantic manner.
   To avoid them to receive duplicate information, hide this title from them with aria-hidden. #}
@@ -9,7 +9,10 @@
     {{ figure.title.text }}
   </span>
   {% endif %}
+  {# Container for aria-live. Currently, only implemented with Caspio, but can be extended to any figure variations. #}
+  {{ figure.ariaLive ? '<div aria-live="'~ figure.ariaLive ~'">' : '' }}
   {{ figure.content }}
+  {{ figure.ariaLive ? '</div>' : '' }}
   {% if figure.caption %}
     <figcaption class="ma__figure__caption">
     {{ figure.caption }}
