@@ -10,9 +10,10 @@
   </span>
   {% endif %}
   {# Container for aria-live. Currently, only implemented with Caspio, but can be extended to any figure variations. #}
-  {{ figure.ariaLive ? '<div aria-live="'~ figure.ariaLive ~'">' : '' }}
+  {% if figure.ariaLive %}<div aria-live="{{ figure.ariaLive }}">{% endif %}
   {{ figure.content }}
-  {{ figure.ariaLive ? '</div>' : '' }}
+  {% if figure.ariaLive %}</div>{% endif %}
+
   {% if figure.caption %}
     <figcaption class="ma__figure__caption">
     {{ figure.caption }}
