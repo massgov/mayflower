@@ -10,7 +10,6 @@ import HamburgerNav, {
   HamburgerNavSearch,
   HamburgerContainer,
   HamburgerSiteLogo,
-  HamburgerLogoWrapper,
   HamburgerMobileLogoWrapper
 } from 'MayflowerReactMolecules/HamburgerNav';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
@@ -33,16 +32,9 @@ const HeaderHamburger = ({
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, HamburgerMobileNavSearch);
-  const DefaultLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
-  const DefaultMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
-  let RenderedLogo;
-  let RenderedMobileLogo;
-  if (DefaultLogo !== null) {
-    RenderedLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
-  }
-  if (DefaultMobileLogo !== null) {
-    RenderedMobileLogo = () => (<DefaultMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
-  }
+  const DesktopLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
+  const DefaultMobileLogo = () => (<HamburgerSiteLogo Wrapper={HamburgerMobileLogoWrapper} />);
+  const RenderedMobileLogo = getFallbackComponent(MobileLogo, DefaultMobileLogo);
   const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
@@ -60,7 +52,7 @@ const HeaderHamburger = ({
         mainItems={mainItems}
         utilityItems={utilityItems}
       />
-      <RenderedContainer Logo={RenderedLogo} NavSearch={RenderedNavSearch} />
+      <RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />
     </header>
   );
 };

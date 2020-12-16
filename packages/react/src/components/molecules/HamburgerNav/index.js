@@ -241,7 +241,7 @@ const HamburgerNav = ({
       toggleMenu
     }}
     >
-      <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation" role="navigation">
+      <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="hamburger-main-navigation" role="navigation">
         <div className="ma__header__hamburger-wrapper">
           <div className="ma__header__hamburger__button-container js-sticky-header">
             <button

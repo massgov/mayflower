@@ -33,7 +33,7 @@ const HeaderNav = ({
   const navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch narrow /> : null);
   const buttonContainer = (RenderedButtonContainer !== null ? <RenderedButtonContainer /> : null);
   return(
-    <nav className="ma__header__nav" aria-label="main navigation" id="main-navigation" role="navigation">
+    <nav className="ma__header__nav" aria-label="main navigation" id="header-main-navigation" role="navigation">
       {buttonContainer}
       <NavContainer navSearch={navSearch} logo={logo} mainNav={mainNav} utilityNav={utilityNav} className="ma__header__nav-container" />
     </nav>

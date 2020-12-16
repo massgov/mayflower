@@ -40,13 +40,11 @@ const Header = ({
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
-  let RenderedMobileLogo;
-  let DesktopLogo;
   let RenderedUtilityNav;
   let RenderedUtilityItem;
   const RenderedContainer = getFallbackComponent(Container, MixedContainer);
-  const DefaultLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
-  const DefaultMobileLogo = getFallbackComponent(MobileLogo, HamburgerSiteLogo);
+  const DesktopLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
+  const DefaultMobileLogo = () => (<HamburgerSiteLogo Wrapper={HamburgerMobileLogoWrapper} />);
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
   const DesktopNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MixedNavSearch);
@@ -61,12 +59,7 @@ const Header = ({
     RenderedUtilityNav = getFallbackComponent(MobileUtilityNav, HamburgerUtilityNav);
     RenderedUtilityItem = getFallbackComponent(MobileUtilityItem, HamburgerUtilityItem);
   }
-  if (DefaultLogo !== null) {
-    DesktopLogo = () => (<DefaultLogo Wrapper={HamburgerLogoWrapper} />);
-  }
-  if (DefaultMobileLogo !== null) {
-    RenderedMobileLogo = () => (<DefaultMobileLogo Wrapper={HamburgerMobileLogoWrapper} />);
-  }
+  const RenderedMobileLogo = getFallbackComponent(MobileLogo, DefaultMobileLogo);
   return(
     <header className="ma__header__mixed ma__header__hamburger" id="header">
       {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
@@ -143,12 +136,12 @@ const MixedContainer = ({
   NavSearch
 }) => {
   const FallbackLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
-  const RenderedLogo = () => (<FallbackLogo Wrapper={HamburgerLogoWrapper} />);
+  const RenderedLogo = FallbackLogo !== null ? () => (<FallbackLogo Wrapper={HamburgerLogoWrapper} />) : null;
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   return(
     <div className="ma__header__container">
-      { FallbackLogo !== null && <RenderedLogo />}
-      { (RenderedNavSearch !== null) && <RenderedNavSearch />}
+      { RenderedLogo !== null && <RenderedLogo />}
+      { RenderedNavSearch !== null && <RenderedNavSearch />}
     </div>
   );
 };
@@ -165,8 +158,8 @@ const MixedNavSearch = () => (
     <div className="ma__header-search">
       <form action="#" className="ma__form js-header-search-form" role="search">
         { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="header-search" className="ma__header-search__label">Search terms</label>
-        <input id="header-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
+        <label htmlFor="mobile-header-search" className="ma__header-search__label">Search terms</label>
+        <input id="mobile-header-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
         <ButtonWithIcon usage="secondary" icon={<IconSearch />}>Search</ButtonWithIcon>
       </form>
     </div>

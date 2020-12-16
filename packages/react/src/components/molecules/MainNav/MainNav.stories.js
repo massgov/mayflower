@@ -1,10 +1,8 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-
 import { action } from '@storybook/addon-actions';
-
-import MainNav from './index';
 import { HeaderMainNav } from 'MayflowerReactMolecules/HeaderNav/main-nav';
+import MainNav from './index';
 import MainNavDocs from './MainNav.md';
 import MainNavData from './MainNav.knob.options';
 
