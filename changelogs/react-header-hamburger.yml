@@ -1,0 +1,18 @@
+Added:
+  - project: React
+    component: HeaderHamburger, HamburgerNav, HeaderNav, NavContainer
+    description: Addded HeaderHamburger, HamburgerNav, HeaderNav, NavContainer react components. (#1282)
+    impact: Major
+  - project: React
+    component: useEventListener, useScript, useWindowWidth
+    description: Addded react hooks useEventListener, useScript, useWindowWidth. (#1282)
+    impact: Major
+Changed:
+  - project: Assets
+    component: Header
+    description: Refactored header.scss build assets to use header mixed styles. (#1282)
+    impact: Minor
+  - project: React
+    component: Header
+    description: Refactored Header to support the full functionality of Header Mixed from patternlab. (#1282)
+    impact: Major
