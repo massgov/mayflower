@@ -15,6 +15,7 @@ import HamburgerNav, {
   HamburgerSiteLogo,
   HamburgerMobileLogoWrapper
 } from 'MayflowerReactMolecules/HamburgerNav';
+import { LoginItem, TranslateItem, StateItem } from 'MayflowerReactOrganisms/Header/utility-items.data';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 
@@ -40,6 +41,19 @@ const Header = ({
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
+  const fallbackUtilityItems = React.useMemo(() => {
+    if (utilityItems.length < 1) {
+      const tempItems = [];
+      // Only display google translate item on desktop.
+      if (!isMobileWindow) {
+        tempItems.push(TranslateItem);
+      }
+      tempItems.push(StateItem);
+      tempItems.push(LoginItem);
+      return tempItems;
+    }
+    return utilityItems;
+  }, [utilityItems, isMobileWindow]);
   let RenderedUtilityNav;
   let RenderedUtilityItem;
   const RenderedContainer = getFallbackComponent(Container, HeaderContainer);
@@ -71,7 +85,7 @@ const Header = ({
         NavItem={RenderedMobileNavItem}
         NavSearch={RenderedMobileNavSearch}
         mainItems={mainItems}
-        utilityItems={utilityItems}
+        utilityItems={fallbackUtilityItems}
       />
       <RenderedContainer Logo={DesktopLogo} NavSearch={DesktopNavSearch} />
       <HeaderNav
@@ -82,7 +96,7 @@ const Header = ({
         NavSearch={null}
         UtilityNav={null}
         UtiltyItem={null}
-        utilityItems={utilityItems}
+        utilityItems={fallbackUtilityItems}
         mainItems={mainItems}
       />
     </header>

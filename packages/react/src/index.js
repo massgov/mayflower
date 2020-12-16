@@ -117,9 +117,11 @@ export {
   useMenuButtonEffects
 } from 'MayflowerReactMolecules/HamburgerNav/hooks';
 export HeaderNav, {
+  HeaderContainer,
   HeaderButtonContainer,
   HeaderLogo,
   HeaderNavSearch,
+  HeaderMobileNavSearch,
   HeaderUtilityItem,
   HeaderUtilityNav
 } from 'MayflowerReactMolecules/HeaderNav';
@@ -144,7 +146,6 @@ export RichText from 'MayflowerReactOrganisms/RichText';
 export UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
 export UtilityNav from 'MayflowerReactOrganisms/UtilityNav';
 export Header from 'MayflowerReactOrganisms/Header';
-export { SlimLogoWrapper } from 'MayflowerReactOrganisms/Header';
 export HeaderSlim from 'MayflowerReactOrganisms/HeaderSlim';
 export HeaderHamburger from 'MayflowerReactOrganisms/HeaderHamburger';
 export ErrorPage from 'MayflowerReactOrganisms/ErrorPage';

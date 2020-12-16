@@ -3,6 +3,7 @@ import { StoryPage } from 'StorybookConfig/preview';
 import styles from '@massds/mayflower-assets/build/scss/header.scss';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
+import { HamburgerLogoWrapper } from 'MayflowerReactMolecules/HamburgerNav';
 import Header from './index';
 import mainItems from './main-nav.data';
 import { LoginItem, TranslateItem, StateItem } from './utility-items.data';
@@ -17,7 +18,7 @@ const getUtilityItem = (item) => {
 };
 
 const Template = (args) => {
-  const { utilityItems, useMenuOverlay, ...rest } = args;
+  const { utilityItems = [], useMenuOverlay, ...rest } = args;
   const storyUtilityItems = utilityItems.map((item) => getUtilityItem(item));
   return(
     <React.Fragment>
@@ -29,140 +30,9 @@ const Template = (args) => {
 
 export const HeaderExample = Template.bind({});
 HeaderExample.args = {
-  utilityItems: [
-    'TranslateItem',
-    'StateItem',
-    'LoginItem'
-  ],
   mainItems
 };
-HeaderExample.argTypes = {
-  useMenuOverlay: {
-    name: 'Use Menu Overlay?',
-    type: 'boolean'
-  },
-  utilityItems: {
-    control: {
-      type: 'check',
-      options: [
-        'TranslateItem',
-        'StateItem',
-        'LoginItem'
-      ]
-    },
-    table: {
-      category: 'UtilityNav'
-    }
-  },
-  Logo: {
-    control: {
-      type: 'inline-radio',
-      options: {
-        Hide: null,
-        Show: undefined
-      }
-    },
-    table: {
-      category: 'Logo'
-    }
-  },
-  MobileLogo: {
-    control: {
-      type: 'inline-radio',
-      options: {
-        Hide: null,
-        Show: undefined
-      }
-    },
-    table: {
-      category: 'Logo'
-    }
-  },
-  NavSearch: {
-    control: {
-      type: 'inline-radio',
-      options: {
-        Hide: null,
-        Show: undefined
-      }
-    },
-    table: {
-      category: 'NavSearch'
-    }
-  },
-  MobileNavSearch: {
-    control: {
-      type: 'inline-radio',
-      options: {
-        Hide: null,
-        Show: undefined
-      }
-    },
-    table: {
-      category: 'NavSearch'
-    }
-  },
-  SkipNav: {
-    control: {
-      type: 'inline-radio',
-      options: {
-        Hide: null,
-        Show: undefined
-      }
-    },
-    table: {
-      category: 'SkipNav'
-    }
-  },
-  MainNav: {
-    control: {
-      type: 'inline-radio',
-      options: {
-        Hide: null,
-        Show: undefined
-      }
-    },
-    table: {
-      category: 'MainNav'
-    }
-  },
-  MobileMainNav: {
-    control: {
-      type: 'inline-radio',
-      options: {
-        Hide: null,
-        Show: undefined
-      }
-    },
-    table: {
-      category: 'MainNav'
-    }
-  },
-  UtilityNav: {
-    control: {
-      type: 'inline-radio',
-      options: {
-        Hide: null,
-        Show: undefined
-      }
-    },
-    table: {
-      category: 'UtilityNav'
-    }
-  },
-  MobileUtilityNav: {
-    control: {
-      type: 'inline-radio',
-      options: {
-        Hide: null,
-        Show: undefined
-      }
-    },
-    table: {
-      category: 'UtilityNav'
-    }
-  }
-};
+
 HeaderExample.storyName = 'Default';
 HeaderExample.parameters = {
   docs: {
@@ -171,11 +41,6 @@ HeaderExample.parameters = {
 };
 export const HeaderWithoutMainNav = Template.bind({});
 HeaderWithoutMainNav.args = {
-  utilityItems: [
-    'TranslateItem',
-    'StateItem',
-    'LoginItem'
-  ],
   mainItems,
   MainNav: null,
   MobileMainNav: null
@@ -188,11 +53,6 @@ HeaderWithoutMainNav.parameters = {
 };
 export const HeaderWithoutMainNavUtilityNav = Template.bind({});
 HeaderWithoutMainNavUtilityNav.args = {
-  utilityItems: [
-    'TranslateItem',
-    'StateItem',
-    'LoginItem'
-  ],
   mainItems,
   MainNav: null,
   MobileMainNav: null,
@@ -207,11 +67,6 @@ HeaderWithoutMainNavUtilityNav.parameters = {
 };
 export const HeaderWithoutUtilityNav = Template.bind({});
 HeaderWithoutUtilityNav.args = {
-  utilityItems: [
-    'TranslateItem',
-    'StateItem',
-    'LoginItem'
-  ],
   mainItems,
   UtilityNav: null,
   MobileUtilityNav: null
@@ -225,7 +80,7 @@ HeaderWithoutUtilityNav.parameters = {
 
 export const HeaderWithCustomSiteLogo = (args) => {
   const {
-    utilityItems,
+    utilityItems = [],
     useMenuOverlay,
     siteName,
     ...rest
@@ -245,17 +100,12 @@ export const HeaderWithCustomSiteLogo = (args) => {
     siteName,
     title: 'Mass.gov homepage'
   };
-  const CustomSiteLogo = React.memo(({ Wrapper }) => <SiteLogo {...siteLogoProps} Wrapper={Wrapper} />);
+  const CustomSiteLogo = React.memo(() => <SiteLogo {...siteLogoProps} Wrapper={HamburgerLogoWrapper} />);
   return(
     <Header Logo={CustomSiteLogo} utilityItems={storyUtilityItems} {...rest} />
   );
 };
 HeaderWithCustomSiteLogo.args = {
-  utilityItems: [
-    'TranslateItem',
-    'StateItem',
-    'LoginItem'
-  ],
   mainItems,
   siteName: 'Custom Site Name Here'
 };
@@ -270,6 +120,11 @@ HeaderWithCustomSiteLogo.argTypes = {
     }
   }
 };
+HeaderWithCustomSiteLogo.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithCustomSiteLogo} styles={styles} />
+  }
+};
 export const HeaderWithMenuOverlay = (args) => (
   <React.Fragment>
     <div className="menu-overlay" />
@@ -277,12 +132,12 @@ export const HeaderWithMenuOverlay = (args) => (
   </React.Fragment>
 );
 HeaderWithMenuOverlay.args = {
-  utilityItems: [
-    TranslateItem,
-    StateItem,
-    LoginItem
-  ],
   mainItems
+};
+HeaderWithMenuOverlay.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithMenuOverlay} styles={styles} />
+  }
 };
 
 export default {

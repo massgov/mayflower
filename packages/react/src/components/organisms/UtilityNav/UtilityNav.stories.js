@@ -35,22 +35,20 @@ const NavItemLink = (obj) => {
   const IconComponent = item.icon === 'building' ? IconBuilding : IconLogin;
 
   return(
-    <li className="ma__utility-nav__item js-util-nav-toggle">
-      <a className="ma__utility-nav__link" href={item.href} aria-label={item.ariaLabelText || item.text}>
-        <IconComponent {...iconProps} />
-        <span>{item.text}</span>
-      </a>
-    </li>
+    <a className="ma__utility-nav__link" href={item.href} aria-label={item.ariaLabelText || item.text}>
+      <IconComponent {...iconProps} />
+      <span>{item.text}</span>
+    </a>
   );
 };
 
 export const UtilityNavFromHeader = (args) => <HeaderUtilityNav {...args} />;
-const BudgetItem = () => (<NavItemLink data={UtilityNavData.items[0]} />);
-
+const BudgetItem = React.memo(() => (<NavItemLink data={UtilityNavData.items[0]} />));
+const CustomItem = React.memo(() => (<React.Fragment>Custom Item</React.Fragment>));
 UtilityNavFromHeader.args = {
   narrow: false,
   items: [
-    () => (<React.Fragment>Custom Item</React.Fragment>),
+    CustomItem,
     BudgetItem,
     TranslateItem,
     StateItem,
@@ -63,6 +61,11 @@ UtilityNavFromHeaderLoop.args = {
   narrow: false,
   // Loops over UtilityNavData items array and returns a functional component for each item.
   items: UtilityNavData.items.map((item) => () => <NavItemLink data={item} />)
+};
+UtilityNavFromHeaderLoop.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={UtilityNavFromHeaderLoop} Description={UtilityNavDocs} />
+  }
 };
 
 export default {

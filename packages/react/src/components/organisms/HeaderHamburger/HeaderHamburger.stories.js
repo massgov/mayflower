@@ -15,7 +15,7 @@ const getUtilityItem = (item) => {
 };
 
 const Template = (args) => {
-  const { utilityItems, useMenuOverlay, ...rest } = args;
+  const { utilityItems = [], useMenuOverlay, ...rest } = args;
   const storyUtilityItems = utilityItems.map((item) => getUtilityItem(item));
   return(
     <React.Fragment>
@@ -26,24 +26,24 @@ const Template = (args) => {
 };
 export const HeaderHamburgerExample = Template.bind({});
 HeaderHamburgerExample.args = {
-  utilityItems: [
-    'TranslateItem',
-    'StateItem',
-    'LoginItem'
-  ],
   mainItems
+};
+HeaderHamburgerExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderHamburgerExample} styles={styles} />
+  }
 };
 
 HeaderHamburgerExample.storyName = 'Default';
 export const HeaderHamburgerWithoutUtilityNav = Template.bind({});
 HeaderHamburgerWithoutUtilityNav.args = {
-  utilityItems: [
-    'TranslateItem',
-    'StateItem',
-    'LoginItem'
-  ],
   mainItems,
   UtilityNav: null
+};
+HeaderHamburgerWithoutUtilityNav.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderHamburgerWithoutUtilityNav} styles={styles} />
+  }
 };
 
 HeaderHamburgerWithoutUtilityNav.storyName = 'Header Hamburger without UtilityNav';
