@@ -6,6 +6,7 @@ import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import { HeaderMainNav, HeaderNavItem } from 'MayflowerReactMolecules/HeaderNav/main-nav';
+import { HamburgerNavSearch } from 'MayflowerReactMolecules/HamburgerNav';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 
@@ -174,6 +175,19 @@ export const HeaderNavSearch = ({ narrow = false }) => {
     </div>
   );
 };
+// For whatever reason, Header has a different nav search for mobile.
+export const HeaderMobileNavSearch = () => (
+  <div className="ma__header__nav-search js-header__nav-search">
+    <div className="ma__header-search">
+      <form action="#" className="ma__form js-header-search-form" role="search">
+        { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <label htmlFor="header-mobile-search" className="ma__header-search__label">Search terms</label>
+        <input id="header-mobile-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
+        <ButtonWithIcon usage="secondary" icon={<IconSearch />}>Search</ButtonWithIcon>
+      </form>
+    </div>
+  </div>
+);
 export const HeaderUtilityItem = ({ children }) => (
   <li className="ma__utility-nav__item">
     {children}
@@ -208,6 +222,26 @@ HeaderUtilityNav.propTypes = {
   items: propTypes.arrayOf(propTypes.elementType),
   /** A boolean representing when the UtilityNav is being displayed within a narrow screen. */
   narrow: propTypes.bool
+};
+
+export const HeaderContainer = ({
+  Logo,
+  NavSearch
+}) => {
+  const RenderedLogo = (Logo !== null) ? Logo : null;
+  const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
+  return(
+    <div className="ma__header__container">
+      { RenderedLogo !== null && <RenderedLogo />}
+      { RenderedNavSearch !== null && <RenderedNavSearch />}
+    </div>
+  );
+};
+HeaderContainer.propTypes = {
+  /** An uninstantiated component which handles displaying the site logo. */
+  Logo: propTypes.elementType,
+  /** An uninstantiated component which handles search functionality. */
+  NavSearch: propTypes.elementType
 };
 
 export default HeaderNav;

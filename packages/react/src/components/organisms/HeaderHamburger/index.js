@@ -14,6 +14,8 @@ import HamburgerNav, {
 } from 'MayflowerReactMolecules/HamburgerNav';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 
+const DefaultMobileLogo = React.memo(() => (<HamburgerSiteLogo Wrapper={HamburgerMobileLogoWrapper} />));
+
 const HeaderHamburger = ({
   Logo,
   MobileLogo,
@@ -33,7 +35,6 @@ const HeaderHamburger = ({
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, HamburgerMobileNavSearch);
   const DesktopLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
-  const DefaultMobileLogo = () => (<HamburgerSiteLogo Wrapper={HamburgerMobileLogoWrapper} />);
   const RenderedMobileLogo = getFallbackComponent(MobileLogo, DefaultMobileLogo);
   const RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);

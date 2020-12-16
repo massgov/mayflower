@@ -563,6 +563,7 @@ export const HamburgerNavSearch = () => (
 export const HamburgerLogoWrapper = ({ children }) => (<div className="ma__header__hamburger__logo">{children}</div>);
 
 export const HamburgerSiteLogo = ({ Wrapper }) => {
+  const DefaultWrapper = getFallbackComponent(Wrapper, HamburgerLogoWrapper);
   const logoProps = {
     url: {
       domain: 'https://www.mass.gov/'
@@ -575,7 +576,7 @@ export const HamburgerSiteLogo = ({ Wrapper }) => {
     },
     siteName: 'Mass.gov',
     title: 'Mass.gov homepage',
-    Wrapper
+    Wrapper: DefaultWrapper
   };
   return(
     <SiteLogo {...logoProps} />
@@ -593,10 +594,7 @@ export const HamburgerSkipNav = () => (
   <a className="ma__header__hamburger__skip-nav" href="#main-content">skip to main content</a>
 );
 export const HamburgerContainer = ({ Logo, NavSearch }) => {
-  let RenderedLogo = null;
-  if (Logo !== null) {
-    RenderedLogo = () => (<Logo Wrapper={HamburgerLogoWrapper} />);
-  }
+  const RenderedLogo = (Logo !== null) ? Logo : null;
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
   return(
     <div className="ma__header__container">

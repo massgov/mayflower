@@ -1,7 +1,9 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import HeaderNav, {
-  HeaderNavSearch
+  HeaderNavSearch,
+  HeaderContainer,
+  HeaderMobileNavSearch
 } from 'MayflowerReactMolecules/HeaderNav';
 import { HeaderMainNav, HeaderNavItem } from 'MayflowerReactMolecules/HeaderNav/main-nav';
 import HamburgerNav, {
@@ -10,15 +12,13 @@ import HamburgerNav, {
   HamburgerMainNav,
   HamburgerUtilityNav,
   HamburgerSkipNav,
-  HamburgerNavSearch,
   HamburgerSiteLogo,
-  HamburgerLogoWrapper,
   HamburgerMobileLogoWrapper
 } from 'MayflowerReactMolecules/HamburgerNav';
-import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
-import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
+
+const DefaultMobileLogo = React.memo(() => (<HamburgerSiteLogo Wrapper={HamburgerMobileLogoWrapper} />));
 
 const Header = ({
   Logo,
@@ -42,12 +42,11 @@ const Header = ({
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
   let RenderedUtilityNav;
   let RenderedUtilityItem;
-  const RenderedContainer = getFallbackComponent(Container, MixedContainer);
+  const RenderedContainer = getFallbackComponent(Container, HeaderContainer);
   const DesktopLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
-  const DefaultMobileLogo = () => (<HamburgerSiteLogo Wrapper={HamburgerMobileLogoWrapper} />);
   const RenderedSkipNav = getFallbackComponent(SkipNav, HamburgerSkipNav);
   const DesktopNavSearch = getFallbackComponent(NavSearch, HeaderNavSearch);
-  const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, MixedNavSearch);
+  const RenderedMobileNavSearch = getFallbackComponent(MobileNavSearch, HeaderMobileNavSearch);
   const RenderedMobileMainNav = getFallbackComponent(MobileMainNav, HamburgerMainNav);
   const DesktopMainNav = getFallbackComponent(MainNav, HeaderMainNav);
   const DesktopNavItem = getFallbackComponent(NavItem, HeaderNavItem);
@@ -130,40 +129,5 @@ Header.propTypes = {
   /** An array of uninstantiated components to render within the utility navigation.  */
   utilityItems: propTypes.arrayOf(propTypes.elementType)
 };
-
-const MixedContainer = ({
-  Logo,
-  NavSearch
-}) => {
-  const FallbackLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
-  const RenderedLogo = FallbackLogo !== null ? () => (<FallbackLogo Wrapper={HamburgerLogoWrapper} />) : null;
-  const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
-  return(
-    <div className="ma__header__container">
-      { RenderedLogo !== null && <RenderedLogo />}
-      { RenderedNavSearch !== null && <RenderedNavSearch />}
-    </div>
-  );
-};
-MixedContainer.propTypes = {
-  /** An uninstantiated component which handles displaying the site logo. */
-  Logo: propTypes.elementType,
-  /** An uninstantiated component which handles search functionality. */
-  NavSearch: propTypes.elementType
-};
-
-// For whatever reason, HeaderMixed has its own nav search for header hamburger...
-const MixedNavSearch = () => (
-  <div className="ma__header__nav-search js-header__nav-search">
-    <div className="ma__header-search">
-      <form action="#" className="ma__form js-header-search-form" role="search">
-        { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="mobile-header-search" className="ma__header-search__label">Search terms</label>
-        <input id="mobile-header-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
-        <ButtonWithIcon usage="secondary" icon={<IconSearch />}>Search</ButtonWithIcon>
-      </form>
-    </div>
-  </div>
-);
 
 export default Header;
