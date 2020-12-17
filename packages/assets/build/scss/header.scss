@@ -22,8 +22,20 @@
 
 @use '01-atoms/forms';
 
-@use '03-organisms/header';
 
 @use '03-organisms/utility-nav';
 
 @use '03-organisms/utility-panel';
+
+// For now, header has to come before main-nav-hamburger.
+
+@use '03-organisms/header';
+
+
+// For now, Utility Nav has to come before header-hamburger.
+
+@use '03-organisms/header-hamburger';
+
+@use '02-molecules/main-nav-hamburger';
+
+@use '03-organisms/header-mixed';

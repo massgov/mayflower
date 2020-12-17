@@ -1,223 +1,329 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-import { action } from '@storybook/addon-actions';
-import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
-import MainNavData from 'MayflowerReactMolecules/MainNav/MainNav.knob.options';
-import UtilityNavData from 'MayflowerReactOrganisms/UtilityNav/UtilityNav.knob.options';
 import styles from '@massds/mayflower-assets/build/scss/header.scss';
+import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
+import SiteLogo from 'MayflowerReactAtoms/media/SiteLogo';
+import { HamburgerLogoWrapper } from 'MayflowerReactMolecules/HamburgerNav';
 import Header from './index';
-import HeaderDocs from './Header.md';
+import mainItems from './main-nav.data';
+import { LoginItem, TranslateItem, StateItem } from 'MayflowerReactOrganisms/Header/utility-items';
 
-const Template = (args) => <Header {...args} />;
+const getUtilityItem = (item) => {
+  const items = {
+    TranslateItem,
+    StateItem,
+    LoginItem
+  };
+  return items[item];
+};
+
+const Template = (args) => {
+  const { utilityItems = [], useMenuOverlay, ...rest } = args;
+  const storyUtilityItems = utilityItems.map((item) => getUtilityItem(item));
+  return(
+    <React.Fragment>
+      <Header utilityItems={storyUtilityItems} {...rest} />
+      { useMenuOverlay && <div className="menu-overlay" />}
+    </React.Fragment>
+  );
+};
+
 export const HeaderExample = Template.bind({});
-
-HeaderExample.storyName = 'Header with MainNav & UtilityNav';
 HeaderExample.args = {
-  utilityNav: {
-    items: UtilityNavData.items.map((item) => ({
-      text: item.text,
-      ariaLabelText: item.ariaLabelText,
-      closeText: item.closeText,
-      panel: item.panel,
-      icon: item.icon
-    }))
-  },
-  headerSearch: {
-    placeholder: 'Search Mass.gov',
-    buttonSearch: {
-      'aria-label': 'Search',
-      onClick: () => {
-        action('Search button clicked');
-      },
-      usage: 'secondary'
-    },
-    onSubmit: action('Form submitted'),
-    onChange: action('Text input modified')
-  },
-  mainNav: {
-    onNavigateCallBack: action('onNavigateCallBack'),
-    mainNav: MainNavData.mainNav.map((nav) => {
-      let active = false;
-      if (typeof nav.active === 'string') {
-        active = (nav.active.toLowerCase() === 'true');
-      } else if (typeof nav.active === 'boolean') {
-        active = nav.active;
-      } else {
-        active = false;
-      }
-      const storyProps = {
-        href: nav.href,
-        text: nav.text,
-        active,
-        subNav: nav.subNav
-      };
-      return(storyProps);
-    })
-  },
-  hideHeaderSearch: false,
-  hideBackTo: true,
-  siteLogo: {
-    url: {
-      domain: 'https://www.mass.gov/'
-    },
-    image: {
-      src: logo,
-      alt: 'Massachusetts state seal',
-      width: 45,
-      height: 45
-    },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
-  },
-  searchRedirect: {
-    baseUrl: 'https://search.mass.gov',
-    searchTermParam: 'q',
-    queryParams: { page: '1' }
+  mainItems
+};
+
+HeaderExample.storyName = 'Default';
+HeaderExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderExample} styles={styles} />
   }
 };
 export const HeaderWithoutMainNav = Template.bind({});
-HeaderWithoutMainNav.storyName = 'Header without MainNav';
 HeaderWithoutMainNav.args = {
-  utilityNav: {
-    items: UtilityNavData.items.map((item) => ({
-      text: item.text,
-      ariaLabelText: item.ariaLabelText,
-      closeText: item.closeText,
-      panel: item.panel,
-      icon: item.icon
-    }))
-  },
-  headerSearch: {
-    placeholder: 'Search Mass.gov',
-    buttonSearch: {
-      'aria-label': 'Search',
-      onClick: () => {
-        action('Search button clicked');
-      },
-      usage: 'secondary'
-    },
-    onSubmit: action('Form submitted'),
-    onChange: action('Text input modified')
-  },
-  hideHeaderSearch: false,
-  hideBackTo: true,
-  siteLogo: {
-    url: {
-      domain: 'https://www.mass.gov/'
-    },
-    image: {
-      src: logo,
-      alt: 'Massachusetts state seal',
-      width: 45,
-      height: 45
-    },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
-  },
-  searchRedirect: {
-    baseUrl: 'https://search.mass.gov',
-    searchTermParam: 'q',
-    queryParams: { page: '1' }
+  mainItems,
+  MainNav: null,
+  MobileMainNav: null
+};
+HeaderWithoutMainNav.storyName = 'Header without MainNav';
+HeaderWithoutMainNav.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithoutMainNav} styles={styles} />
+  }
+};
+export const HeaderWithoutMainNavUtilityNav = Template.bind({});
+HeaderWithoutMainNavUtilityNav.args = {
+  mainItems,
+  MainNav: null,
+  MobileMainNav: null,
+  UtilityNav: null,
+  MobileUtilityNav: null
+};
+HeaderWithoutMainNavUtilityNav.storyName = 'Header with only NavSearch';
+HeaderWithoutMainNavUtilityNav.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithoutMainNavUtilityNav} styles={styles} />
   }
 };
 export const HeaderWithoutUtilityNav = Template.bind({});
-HeaderWithoutUtilityNav.storyName = 'Header without UtilityNav';
 HeaderWithoutUtilityNav.args = {
-  headerSearch: {
-    placeholder: 'Search Mass.gov',
-    buttonSearch: {
-      'aria-label': 'Search',
-      onClick: () => {
-        action('Search button clicked');
-      },
-      usage: 'secondary'
-    },
-    onSubmit: action('Form submitted'),
-    onChange: action('Text input modified')
-  },
-  mainNav: {
-    onNavigateCallBack: action('onNavigateCallBack'),
-    mainNav: MainNavData.mainNav.map((nav) => {
-      let active = false;
-      if (typeof nav.active === 'string') {
-        active = (nav.active.toLowerCase() === 'true');
-      } else if (typeof nav.active === 'boolean') {
-        active = nav.active;
-      } else {
-        active = false;
-      }
-      const storyProps = {
-        href: nav.href,
-        text: nav.text,
-        active,
-        subNav: nav.subNav
-      };
-      return(storyProps);
-    })
-  },
-  hideHeaderSearch: false,
-  hideBackTo: true,
-  siteLogo: {
+  mainItems,
+  UtilityNav: null,
+  MobileUtilityNav: null
+};
+HeaderWithoutUtilityNav.storyName = 'Header without UtilityNav';
+HeaderWithoutUtilityNav.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithoutUtilityNav} styles={styles} />
+  }
+};
+
+export const HeaderWithCustomSiteLogo = (args) => {
+  const {
+    utilityItems = [],
+    useMenuOverlay,
+    siteName,
+    ...rest
+  } = args;
+  const storyUtilityItems = utilityItems.map((item) => getUtilityItem(item));
+
+  const siteLogoProps = {
     url: {
       domain: 'https://www.mass.gov/'
     },
     image: {
       src: logo,
-      alt: 'Massachusetts state seal',
+      alt: '',
       width: 45,
       height: 45
     },
-    siteName: 'Mass.gov',
+    siteName,
     title: 'Mass.gov homepage'
-  },
-  searchRedirect: {
-    baseUrl: 'https://search.mass.gov',
-    searchTermParam: 'q',
-    queryParams: { page: '1' }
+  };
+  const CustomSiteLogo = React.memo(() => <SiteLogo {...siteLogoProps} Wrapper={HamburgerLogoWrapper} />);
+  return(
+    <Header Logo={CustomSiteLogo} utilityItems={storyUtilityItems} {...rest} />
+  );
+};
+HeaderWithCustomSiteLogo.args = {
+  mainItems,
+  siteName: 'Custom Site Name Here'
+};
+HeaderWithCustomSiteLogo.argTypes = {
+  siteName: {
+    control: {
+      name: 'SiteLogo: Site Name',
+      type: 'text'
+    },
+    table: {
+      category: 'Story Only'
+    }
   }
 };
-export const HeaderWithoutMainUtilitySearch = Template.bind({});
-HeaderWithoutMainUtilitySearch.storyName = 'Header without MainNav, UtilityNav, & Search';
-HeaderWithoutMainUtilitySearch.args = {
-  headerSearch: {
-    placeholder: 'Search Mass.gov',
-    buttonSearch: {
-      'aria-label': 'Search',
-      onClick: () => {
-        action('Search button clicked');
-      },
-      usage: 'secondary'
-    },
-    onSubmit: action('Form submitted'),
-    onChange: action('Text input modified')
-  },
-  hideHeaderSearch: true,
-  hideBackTo: true,
-  siteLogo: {
-    url: {
-      domain: 'https://www.mass.gov/'
-    },
-    image: {
-      src: logo,
-      alt: 'Massachusetts state seal',
-      width: 45,
-      height: 45
-    },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
-  },
-  searchRedirect: {
-    baseUrl: 'https://search.mass.gov',
-    searchTermParam: 'q',
-    queryParams: { page: '1' }
+HeaderWithCustomSiteLogo.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithCustomSiteLogo} styles={styles} />
   }
 };
+export const HeaderWithMenuOverlay = (args) => (
+  <React.Fragment>
+    <div className="menu-overlay" />
+    <Header {...args} />
+  </React.Fragment>
+);
+HeaderWithMenuOverlay.args = {
+  mainItems
+};
+HeaderWithMenuOverlay.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderWithMenuOverlay} styles={styles} />
+  }
+};
+
 export default {
   title: 'organisms/Header',
   component: Header,
   parameters: {
     docs: {
-      page: () => <StoryPage styles={styles} Description={HeaderDocs} />
+      page: () => <StoryPage styles={styles} />
+    }
+  },
+  argTypes: {
+    useMenuOverlay: {
+      name: 'Use Menu Overlay?',
+      type: 'boolean',
+      table: {
+        category: 'Story Only'
+      }
+    },
+    utilityItems: {
+      control: {
+        type: 'check',
+        options: [
+          'TranslateItem',
+          'StateItem',
+          'LoginItem'
+        ]
+      },
+      table: {
+        category: 'UtilityNav'
+      }
+    },
+    Logo: {
+      control: {
+        type: 'inline-radio',
+        options: {
+          Hide: null,
+          Show: undefined
+        }
+      },
+      table: {
+        category: 'Logo'
+      }
+    },
+    MobileLogo: {
+      control: {
+        type: 'inline-radio',
+        options: {
+          Hide: null,
+          Show: undefined
+        }
+      },
+      table: {
+        category: 'Logo'
+      }
+    },
+    NavSearch: {
+      control: {
+        type: 'inline-radio',
+        options: {
+          Hide: null,
+          Show: undefined
+        }
+      },
+      table: {
+        category: 'NavSearch'
+      }
+    },
+    MobileNavSearch: {
+      control: {
+        type: 'inline-radio',
+        options: {
+          Hide: null,
+          Show: undefined
+        }
+      },
+      table: {
+        category: 'NavSearch'
+      }
+    },
+    SkipNav: {
+      control: {
+        type: 'inline-radio',
+        options: {
+          Hide: null,
+          Show: undefined
+        }
+      },
+      table: {
+        category: 'SkipNav'
+      }
+    },
+    MainNav: {
+      control: {
+        type: 'inline-radio',
+        options: {
+          Hide: null,
+          Show: undefined
+        }
+      },
+      table: {
+        category: 'MainNav'
+      }
+    },
+    MobileMainNav: {
+      control: {
+        type: 'inline-radio',
+        options: {
+          Hide: null,
+          Show: undefined
+        }
+      },
+      table: {
+        category: 'MainNav'
+      }
+    },
+    UtilityNav: {
+      control: {
+        type: 'inline-radio',
+        options: {
+          Hide: null,
+          Show: undefined
+        }
+      },
+      table: {
+        category: 'UtilityNav'
+      }
+    },
+    MobileUtilityNav: {
+      control: {
+        type: 'inline-radio',
+        options: {
+          Hide: null,
+          Show: undefined
+        }
+      },
+      table: {
+        category: 'UtilityNav'
+      }
+    },
+    mainItems: {
+      control: {
+        disable: true
+      },
+      table: {
+        category: 'MainNav'
+      }
+    },
+    Container: {
+      control: {
+        disable: true
+      },
+      table: {
+        category: 'Container'
+      }
+    },
+    UtilityItem: {
+      control: {
+        disable: true
+      },
+      table: {
+        category: 'UtilityNav'
+      }
+    },
+    MobileUtilityItem: {
+      control: {
+        disable: true
+      },
+      table: {
+        category: 'UtilityNav'
+      }
+    },
+    NavItem: {
+      control: {
+        disable: true
+      },
+      table: {
+        category: 'MainNav'
+      }
+    },
+    MobileNavItem: {
+      control: {
+        disable: true
+      },
+      table: {
+        category: 'MainNav'
+      }
     }
   }
 };
