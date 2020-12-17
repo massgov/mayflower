@@ -99,7 +99,6 @@ const header = (
   />
 );
 
-
 const headerHamburger = (
   <HeaderHamburger
     mainItems={mainNavData}
