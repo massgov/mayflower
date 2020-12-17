@@ -1,12 +1,15 @@
 import React from 'react';
 import HeaderSlim from '@massds/mayflower-react/dist/HeaderSlim';
 import Header from '@massds/mayflower-react/dist/Header';
+import HeaderHamburger from '@massds/mayflower-react/dist/HeaderHamburger';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
 import IconSearch from '@massds/mayflower-react/dist/Icon/IconSearch';
 import IconLatlonglobe from '@massds/mayflower-react/dist/Icon/IconLatlonglobe';
 import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
+
+import mainNavData from './main-nav.data';
 
 import { attachHTML } from '../../util/renderCode';
 
@@ -91,154 +94,15 @@ const headerUtilSearch = (
 
 const header = (
   <Header
-    mainItems={[
-      {
-        active: '',
-        subNav: [
-          {
-            href: 'https://mass.gov',
-            text: 'Health & Social Services'
-          },
-          {
-            href: '/patterns/05-pages-topic/05-pages-topic.html',
-            text: 'Family & Children'
-          },
-          {
-            href: '#',
-            text: 'Housing'
-          },
-          {
-            href: '#',
-            text: 'Transportation'
-          },
-          {
-            href: '#',
-            text: 'Legal & Justice'
-          },
-          {
-            href: '#',
-            text: 'Public Safety'
-          },
-          {
-            href: '#',
-            text: 'Voting'
-          },
-          {
-            href: '#',
-            text: 'Taxes'
-          }
-        ],
-        text: 'Living'
-      },
-      {
-        active: '',
-        href: '#',
-        subNav: [
-          {
-            href: '#',
-            text: 'Unemployment'
-          },
-          {
-            href: '#',
-            text: 'Finding a Job'
-          },
-          {
-            href: '#',
-            text: 'Worker’s Rights & Safety'
-          },
-          {
-            href: '#',
-            text: 'Business Services & Resources'
-          },
-          {
-            href: '#',
-            text: 'Professional Licensing & Certification'
-          },
-          {
-            href: '#',
-            text: 'Professional Training'
-          }
-        ],
-        text: 'Working'
-      },
-      {
-        active: '',
-        href: '#',
-        subNav: [
-          {
-            href: '#',
-            text: 'Early Childhood Education'
-          },
-          {
-            href: '#',
-            text: 'K-12 Schools'
-          },
-          {
-            href: '#',
-            text: 'Higher Education'
-          },
-          {
-            href: '#',
-            text: 'Continuing Education'
-          }
-        ],
-        text: 'Learning'
-      },
-      {
-        active: 'true',
-        href: '/patterns/05-pages-section-landing/05-pages-section-landing.html',
-        subNav: [
-          {
-            href: '#',
-            text: 'Recreational Licenses & Permits'
-          },
-          {
-            href: '#',
-            text: 'State Parks & Recreation'
-          },
-          {
-            href: '#',
-            text: 'Travel & Tourism'
-          },
-          {
-            href: '#',
-            text: 'Arts & Culture'
-          }
-        ],
-        text: 'Visiting & Exploring'
-      },
-      {
-        active: '',
-        href: '#',
-        subNav: [
-          {
-            href: '#',
-            text: 'Office of the Governor'
-          },
-          {
-            href: '#',
-            text: 'State Agencies'
-          },
-          {
-            href: '/patterns/05-pages-topic-your-government/05-pages-topic-your-government.html',
-            text: 'Executive Branch'
-          },
-          {
-            href: '#',
-            text: 'Judicial Branch'
-          },
-          {
-            href: '#',
-            text: 'Legislative Branch'
-          },
-          {
-            href: '#',
-            text: 'Local Government'
-          }
-        ],
-        text: 'Your Government'
-      }
-    ]}
+    mainItems={mainNavData}
+    utilityItems={[]}
+  />
+);
+
+
+const headerHamburger = (
+  <HeaderHamburger
+    mainItems={mainNavData}
     utilityItems={[]}
   />
 );
@@ -250,6 +114,11 @@ const notesHeaderSlim = `
 const notesHeader = `
   // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
   // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
+`;
+
+const notesHeaderHamburger = `
+  // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-hamburger.css">
+  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header-hamburger.js" />
 `;
 
 export const headerExample = () => headerBasic;
@@ -266,4 +135,5 @@ attachHTML(headerSlimUtilSearch, headerUtilSearch, notesHeaderSlim);
 export const headerFullNav = () => header;
 attachHTML(headerFullNav, header, notesHeader);
 
-export const headerHamburger = () => 'Header Hamburger Component (WIP)';
+export const headerFullNavHamburger = () => headerHamburger;
+attachHTML(headerFullNavHamburger, headerHamburger, notesHeaderHamburger);
