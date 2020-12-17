@@ -7,7 +7,7 @@
  * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
  * @requires module:@massds/mayflower-assets/scss/01-atoms/site-logo
  * @requires module:@massds/mayflower-assets/scss/02-molecules/main-nav
-* @requires module:@massds/mayflower-assets/scss/03-organisms/utility-nav
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-nav
  * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-panel
  * @requires module:@massds/mayflower-assets/scss/03-organisms/header
  * @requires module:@massds/mayflower-assets/scss/03-organisms/header-hamburger
