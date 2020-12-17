@@ -8,12 +8,14 @@
 @use "00-base/colors" as *;
 
 @use "ma-link-underline" as *;
+@use "ma-link-transition" as *;
 
 @mixin ma-link-decorative {
   padding-right: .8em;
 
   a {
-
+    text-decoration: none;
+    @include ma-link-transition;
     @include ma-link-underline;
     display: inline;
 
