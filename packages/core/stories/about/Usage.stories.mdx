@@ -1,10 +1,8 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { linkTo } from '@storybook/addon-links';
 import { Button } from '@massds/mayflower-react';
-
 import generateTitle from '../util/generateTitle';
 const { STORYBOOK_CDN_PATH, STORYBOOK_CDN, STORYBOOK_PKG } = process.env;
-
 
 <Meta title={generateTitle('Usage')} />
 
@@ -13,7 +11,6 @@ const { STORYBOOK_CDN_PATH, STORYBOOK_CDN, STORYBOOK_PKG } = process.env;
 <br />
 
 We encourage all Commonwealth web properties to implement the Mayflower Design System for a consistent look and feel. It’s important that constituents know they are on an official state government website, and the visual cues that come from using a cohesive design help convey that legitimacy.
-
 
 ## Quick Start
 
@@ -39,7 +36,7 @@ To use a Mayflower branding component on your site, go to the documentation of t
 
 > For a production site, you should always link to the Mayflower CDN at a specific version. That way, you never have to worry about your website getting impacted by any Mayflower breaking updates, and you can upgrade to a new Mayflower version whenever your team is ready. Alternatively, you can host the CSS and JS downloaded from mayflower assets package.
 
-To view a specific version of this documentation, go to https://mayflower.digital.mass.gov/core/v/:version
+To view a specific version of this documentation, go to `https://mayflower.digital.mass.gov/core/v/:version` where `:version` is the version number of Mayflower you are using eg. https://mayflower.digital.mass.gov/core/v/:10.4.1
 
 ---
 
@@ -56,15 +53,44 @@ To enable and ensure the branding and visual cohesion, Mayflower delivers the fo
        ├── icons
        └── logos
 ```
-### Download the NPM Package
 
-The package @massds/mayflower-assets is published on NPM. If you use Node.js, you can install it by running:
+---
+
+## Download the NPM Package
+
+The package [@massds/mayflower-assets](https://www.npmjs.com/package/@massds/mayflower-assets) is published on NPM. If you use Node.js, you can install it by running:
 
 ```
 npm install @massds/mayflower-assets
+
+// or if you use Yarn
+yarn add @massds/mayflower-assets
 ```
 
-### Link to the Mayflower CDN
+To use the uncompiled CSS in your project you will need to install the [Sass](https://www.sass-lang.com) CSS preprocessor. With Sass you can pull all of Mayflower's classes, variables, and mixins and cofigure them for your project. You can compile sass files just by running `$ sass source.scss output.scss` but t's helpful to also install a task runner like [Gulp](https://www.gulpjs.com), (or a moree sophisticated compiler like [Webpack](https://www.webpack.org) to configure compile your CSS.
+
+```
+npm install sass --dev
+npm install gulp --dev
+
+// or if you use Yarn
+yarn add sass -D
+yarn add gulp -D
+```
+
+### Configuration
+
+ We provide SCSS variables and partials for organizations to configure and compile their own Mayflower stylesheets, based on individual branding needs. You can configure all the variables declared in `scss/00-base` with a !default flag, such as `_variables.scss` `_colors.scss` `_color-tokens.scss` `_breakpoints.scss` `_z-index.scss` For example to theme the Mayflower header with your own primary color:
+
+```
+@use "00-base/configure" with (
+  $assets-path: "~@massds/mayflower-assets/static”,
+  $c-primary: #xxxxxx
+);
+@use "03-organism/header"
+```
+
+## Link to the Mayflower CDN specific assets
 
 Mayflower leverages the UNPKG CDN and allows you to load any file in the @massds/mayflower-assets package directly.
 
@@ -75,13 +101,11 @@ unpkg.com/@massds/mayflower-assets@:version/:file
 ```
 
 To explore the whole package for a specific version, you can
-1. browse the `@massds/mayflower-assets` package of the lastest version at:
-<a href={`${STORYBOOK_CDN}browse/${STORYBOOK_PKG}/`}>{`${STORYBOOK_CDN}browse/${STORYBOOK_PKG}/`}</a>
+1. browse the `@massds/mayflower-assets` package for the lastest version <a href={`${STORYBOOK_CDN}browse/${STORYBOOK_PKG}/`}>here</a>
+2. Navigate to the resource you want to link to, e.g. css/global.css
+3. Click “View Raw” and copy the URL in the address bar of your browser
 
-2. Navigate on the resource you want to link to, e.g. css/global.css
-3. Click on “View Raw” and copy the URL for the file.
-
-For examples:
+For example:
 
 <table>
   <tr>
@@ -137,24 +161,3 @@ For examples:
     </td>
   </tr>
 </table>
-
-<br />
-
-## Configure Your Theme
-
-Mayflower style guide is derived from our research, experience, and expertise, and decision making in creating Mass.gov. We recognize that not all aspects of this branding guide will make sense for every organization, and that some organizations have their own distinct branding. We provide SCSS variables and partials for organizations to configure and compile their own Mayflower stylesheets, based on individual branding needs. You can configure all the variables declared in scss/00-base with a !default flag, such as `_variables.scss` `_colors.scss` `_color-tokens.scss` `_breakpoints.scss` _z-index.scss For example to theme the Mayflower header with your own primary color:
-
-```
-@use "00-base/configure" with (
-  $assets-path: "~@massds/mayflower-assets/static”,
-  $c-primary: #xxxxxx
-);
-@use "03-organism/header"
-```
-
-If you use Node.js, you can install Sass using npm by running:
-
-```$ npm install -g sass```
-
-And compile any sass files by running
-```$ sass source.scss output.scss```
