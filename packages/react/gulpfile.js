@@ -6,6 +6,7 @@ const rename = require('gulp-rename');
 const del = require('del');
 const path = require('path');
 const run = require('gulp-run-command').default;
+
 function clean() {
   return del(['dist']);
 }
@@ -177,15 +178,19 @@ const aliases = {
   'MayflowerReactPages/(.*)$': './\\1',
   'MayflowerReactTemplates/(.*)$': './\\1',
   'MayflowerReactUtilities/(.*)$': './\\1',
+  'MayflowerReactHooks/(.*)$': './\\1'
 };
 
 const sources = [
   'src/**/*.js',
+  'src/**/utility-items.js',
+  'src/**/main-nav.js',
   '!src/**/*.stories.js',
   '!src/**/*.knobs.options.js',
   '!src/**/*.knob.options.js',
   '!src/**/Colors/**',
-  '!src/**/Icon/**'
+  '!src/**/Icon/**',
+  '!src/**/main-nav.data.js'
 ];
 
 function resolvePath(sourcePath, currentFile, opts) {
@@ -197,31 +202,36 @@ function resolvePath(sourcePath, currentFile, opts) {
     if (check.test(sourcePath)) {
       const matches = check.exec(sourcePath);
       resolvedPath = `${rootPath}${matches[1]}`;
-      // ES Modules need to list out the extension on the end of the path,
-      // otherwise index.js will be used instead of index.mjs.
-      if (opts.hasOwnProperty('isES5') && opts.isES5 === false) {
-        // List of exports that are files and not directories.
-        const excludes = [
-          'Input/error',
-          'Input/context',
-          'Input/utility',
-          'Input/validate',
-          'TabContainer/tab',
-          'TabContainer/tab-body',
-          'TabContainer/context',
-          'utilities/componentPropTypeCheck',
-          'Breadcrumb/item',
-          'GenTeaser/utils',
-          'Base/Icon/',
-        ];
-        // If the current path is a file and not a directory...
-        if (excludes.some((rule) => sourcePath.includes(rule))) {
-          // Add the .mjs extension.
-          resolvedPath = `${resolvedPath}.mjs`;
-        } else {
-          // Else, add the path to the index.mjs file the ES module needs.
-          resolvedPath = `${resolvedPath}/index.mjs`;
-        }
+      const ext = (opts.hasOwnProperty('isES5') && opts.isES5 === true) ? 'js' : 'mjs';
+      // List of exports that are files and not directories.
+      const excludes = [
+        'Input/error',
+        'Input/context',
+        'Input/utility',
+        'Input/validate',
+        'TabContainer/tab',
+        'TabContainer/tab-body',
+        'TabContainer/context',
+        'utilities/componentPropTypeCheck',
+        'utilities/getFallbackComponent',
+        'Breadcrumb/item',
+        'GenTeaser/utils',
+        'Base/Icon/',
+        'HamburgerNav/hooks',
+        'HeaderNav/hooks',
+        'Header/utility-items',
+        'HeaderNav/main-nav',
+        'hooks/use-script',
+        'hooks/use-event-listener',
+        'hooks/use-window-width'
+      ];
+      // If the current path is a file and not a directory...
+      if (excludes.some((rule) => sourcePath.includes(rule))) {
+        // Add the extension.
+        resolvedPath = `${resolvedPath}.${ext}`;
+      } else {
+        // Else, add the path to the index file.
+        resolvedPath = `${resolvedPath}/index.${ext}`;
       }
     }
   });
