@@ -11,6 +11,15 @@ To use:
 4. If not, copy the entire block for a script, paste it to the command line and enter
 5. Run git status to test if the font files were updated
 
+```
+pyftsubset\
+  NotoSansItalic-VF.ttf \
+  --output-file="NotoSansItalic-VF.woff" \
+  --flavor=woff \
+  --layout-features="kern,liga,clig,lnum,tnum"\
+  --unicodes="U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D"
+```
+
 ### woff
 
 ```
