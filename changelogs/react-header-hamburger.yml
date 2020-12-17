@@ -12,6 +12,10 @@ Changed:
     component: Header
     description: Refactored header.scss build assets to use header mixed styles. (#1282)
     impact: Minor
+  - project: Assets
+    component: 03-organisms/_header-hamburger.scss
+    description: Modified menu-overlay to work with top set to zero. Updated ma__header__hamburger__nav z-index. (#1282)
+    impact: Minor
   - project: React
     component: Header
     description: Refactored Header to support the full functionality of Header Mixed from patternlab. (#1282)
