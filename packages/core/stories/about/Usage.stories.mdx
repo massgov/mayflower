@@ -10,31 +10,38 @@ const { STORYBOOK_CDN_PATH, STORYBOOK_CDN, STORYBOOK_PKG } = process.env;
 
 <h1>Get Started with Mayflower <small>version {process.env.VERSION}</small></h1>
 
-
+<br />
 
 We encourage all Commonwealth web properties to implement the Mayflower Design System for a consistent look and feel. It’s important that constituents know they are on an official state government website, and the visual cues that come from using a cohesive design help convey that legitimacy.
 
 
 ## Quick Start
+
 To kickstart an HTML page with Mayflower Header, Footer, basic layout and styles:
+
 <Button theme="c-primary-alt" onClick={linkTo(generateTitle('Template'))}>Start From a Template</Button>
 
-To start building with Mayflower in HTML, start by importing the global styles and then incrementally add the styles and JS for each Mayflower component:
+To start building with Mayflower in HTML, import the global styles and incrementally add CSS and JS for each Mayflower component:
 
-- To import fonts and get started with basic Mayflower styles, link to the compiled `css/global.css` (or the minified version, `css/global.min.css`) from the @massds/mayflower-assets package or the assets CDN.
-    > <code>{`${STORYBOOK_CDN_PATH}/css/global.css`}</code>
+To get started with basic Mayflower styles and fonts, link to the compiled `css/global.css` (or the minified version, `css/global.min.css`) from the @massds/mayflower-assets package or the assets CDN.
 
-- To include basic page layout styles from Mayflower, link to the compiled `css/layout.css` (or the minified version, `css/layout.min.css`) from the @massds/mayflower-assets package or the assets CDN.
-    > <code>{`${STORYBOOK_CDN_PATH}/css/layout.css`}</code>
+```
+$ {STORYBOOK_CDN_PATH}/css/global.css
+```
 
-- To use a Mayflower branding component on your site, go to the documentation of the component, copy and paste the HTML code snippet, and link to the CDN version of CSS and JS files in the appropriate sections of your HTML.
+To include basic page layout styles from Mayflower, link to the compiled `css/layout.css` (or the minified version, `css/layout.min.css`) from the @massds/mayflower-assets package or the assets CDN.
 
-> For a production site, you should always link to the Mayflower CDN at a specific version. That way, you never have to worry about your website getting impacted by any Mayflower breaking updates, and you can upgrade to a new Mayflower version whenever your team is ready. Alternatively, you can host the CSS and JS downloaded from mayflower assets package. 
+```
+$ {STORYBOOK_CDN_PATH}/css/layout.css`
+```
 
-> To view a specific version of this documentation, go to https://mayflower.digital.mass.gov/core/v/:version
+To use a Mayflower branding component on your site, go to the documentation of the component, copy and paste the HTML code snippet, and link to the CDN version of CSS and JS files in the appropriate sections of your HTML.
 
-<br />
+> For a production site, you should always link to the Mayflower CDN at a specific version. That way, you never have to worry about your website getting impacted by any Mayflower breaking updates, and you can upgrade to a new Mayflower version whenever your team is ready. Alternatively, you can host the CSS and JS downloaded from mayflower assets package.
 
+To view a specific version of this documentation, go to https://mayflower.digital.mass.gov/core/v/:version
+
+---
 
 ## Mayflower Assets and CDN
 
@@ -135,9 +142,7 @@ For examples:
 
 ## Configure Your Theme
 
-Mayflower style guide is derived from our research, experience, and expertise, and decision making in creating Mass.gov. We recognize that not all aspects of this branding guide will make sense for every organization, and that some organizations have their own distinct branding. We provide SCSS variables and partials for organizations to configure and compile their own Mayflower stylesheets, based on individual branding needs.
-You can configure all the variables declared in scss/00-base with a !default flag, such as _variables.scss _colors.scss _color-tokens.scss _breakpoints.scss _z-index.scss
-For example to theme the Mayflower header with your own primary color:
+Mayflower style guide is derived from our research, experience, and expertise, and decision making in creating Mass.gov. We recognize that not all aspects of this branding guide will make sense for every organization, and that some organizations have their own distinct branding. We provide SCSS variables and partials for organizations to configure and compile their own Mayflower stylesheets, based on individual branding needs. You can configure all the variables declared in scss/00-base with a !default flag, such as `_variables.scss` `_colors.scss` `_color-tokens.scss` `_breakpoints.scss` _z-index.scss For example to theme the Mayflower header with your own primary color:
 
 ```
 @use "00-base/configure" with (
