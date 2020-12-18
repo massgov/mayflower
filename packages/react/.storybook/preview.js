@@ -104,8 +104,5 @@ export const parameters = {
     expanded: true,
     hideNoControlsWarning: true
   },
-  layout: 'padded',
-  docs: {
-    theme: mayflowerTheme,
-  }
+  layout: 'padded'
 };

@@ -6,7 +6,10 @@ const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  stories: ['../src/**/*.stories.@(js|mdx)'],
+  stories: [
+    "../src/**/*.stories.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  ],
   addons: [
     {
       name: '@storybook/addon-docs',
