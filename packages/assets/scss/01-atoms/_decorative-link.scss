@@ -1,6 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__decorative-link {
+
   @include ma-link-decorative;
   display: inline-block;
   vertical-align: middle;
