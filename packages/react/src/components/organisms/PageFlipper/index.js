@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import componentWithName from 'airbnb-prop-types/src/componentWithName';
+import airPropTypes from 'airbnb-prop-types';
 
 const PageFlipper = (props) => {
   const blank = (<div className="ma__page-flipper__blank">&nbsp;</div>);
@@ -39,12 +39,12 @@ PageFlipper.propTypes = {
     /** Optional label */
     label: PropTypes.string,
     /** Optional DecorativeLink */
-    introDecorativeLink: componentWithName('DecorativeLink')
+    introDecorativeLink: airPropTypes.componentWithName('DecorativeLink')
   }),
   /** Previous Link (or left button) */
-  previousLink: componentWithName('ArrowNav'),
+  previousLink: airPropTypes.componentWithName('ArrowNav'),
   /** Next Link (or right button) */
-  nextLink: componentWithName('ArrowNav')
+  nextLink: airPropTypes.componentWithName('ArrowNav')
 };
 
 export default PageFlipper;

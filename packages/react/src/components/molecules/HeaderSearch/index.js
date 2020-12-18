@@ -10,7 +10,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
-import componentWithName from 'airbnb-prop-types/src/componentWithName';
+import airPropTypes from 'airbnb-prop-types';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import TypeAheadDropdown from 'MayflowerReactForms/TypeAheadDropdown';
 // eslint-disable-next-line import/no-unresolved
@@ -104,11 +104,11 @@ HeaderSearch.propTypes = {
   /** @molecules/TypeAheadDropdown */
   orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
   /** postInputFilter passable component */
-  postInputFilter: componentWithName('SelectBox'),
+  postInputFilter: airPropTypes.componentWithName('SelectBox'),
   /** A ref object as created by React.createRef(). Will be applied to the input element. */
   inputRef: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any })
+    airPropTypes.ref()
   ])
 };
 

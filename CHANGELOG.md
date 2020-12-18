@@ -1,17 +1,32 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 10.4.1 (12/15/2020)
+### Fixed
+- (Assets) [Fonts] DP-20682: Significantly reduced Noto Sans Latin variable font `.woff` file sizes, from ~900k to ~60k. (#1302)
+- (Assets) [Fonts] DP-20682: Add conditionals to import static fonts and variable fonts `.woff2`, in order to prevent both fonts to be downloaded. (#1302)
+
+### Added
+- (Patternlab) [Assets] DP-20681: Add polyfill for includes. (#1304)
+
+## 10.4.0 (12/7/2020)
+### Fixed
+- (Patternlab) [Figure] DP-19233: Fix the width of small size <figure> and adjust side margins for side by side layout of <figure>s. (#1227)
+
+### Added
+- (Assets) [CSS] Cleaned up general template styles and added layout.css. (#1283)
+
 ## 10.3.0 (11/23/2020)
-### Fixed 
+### Fixed
 - (Patternlab) [RelationshipIndicator] DP-19520: Specify the link color for the second unit. (#1257)
 - (Patternlab) [StickyNav] DP-20499: Align stikcy nav to the top of the page with screen width 780px and less. (#1268)
 
-### Added 
+### Added
 - (Assets) [null] Added support for the generation of static HTML for header, header hamburger, header mixed, header slim, header slim with nav, footer, and footer slim. (#1267)
 - (Assets) [null] Added support for the generation of static JS for header, header hamburger, and header mixed. (#1267)
 - (Assets) [Logos] Added PNG and SVG formats for all official state seal variations `stateseal.[png|svg]`, `stateseal-color.[png|svg]`, `stateseal-black.[png|svg]`, `stateseal-white.[png|svg]`. (#1273)
 
-### Changed 
+### Changed
 - (Assets) [null] Changed global.scss path for static assets to point to unpkg CDN url. (#1267)
 - (Assets) [03-organisms/header-slim] Added missing styles from 01-atoms/button-with-icon, 01-atoms/button-search, and 01-atoms/buttons, needed by 03-organisms/header-slim. (#1267)
 - (Assets) [null] Restructured build directory to contain both js and scss files meant to be used for building static assets. (#1267)
@@ -21,14 +36,14 @@ All notable changes to this project will be documented in this file.
 - (Assets) [Logos] Optimize and standardize existing state seals PNGs in assets to reduce file sizes for web usage without sacrificing qualities. (#1273)
 
 ## 10.2.0 (11/16/2020)
-### Added 
+### Added
 - (React, Patternlab) [iframe] DP-19391: Added raw to iframe templates. (#1199)
 
-### Changed 
+### Changed
 - (Monorepo) [null] Updates Rush, PNPM to their latest stable versions. Allows NodeJS version for rush to be between 12.13.x to 14.x. (#1260)
 
 ## 10.1.2 (11/10/2020)
-### Fixed 
+### Fixed
 - (Assets) [Fonts] DP-20468: Fix font issue on Macs running El Capitan, Yosemite, Mavericks (10.11, 10.10, 10.9) with Firefox and Safari. (#1259)
 
 ## 10.1.1 (11/2/2020)

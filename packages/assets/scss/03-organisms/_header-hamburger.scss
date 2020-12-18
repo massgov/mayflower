@@ -38,7 +38,7 @@ body.show-menu {
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
   background-color: rgba($c-black, 0.4);
-  top: 44px;
+  top: 0px;
   z-index: $z-overlay-shade;
 
   &.overlay-open {
@@ -90,6 +90,7 @@ body.show-menu {
     position: absolute;
     top: 0px;
     width: 100%;
+    z-index: $z-overlay;
   }
 
   &-wrapper {

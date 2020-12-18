@@ -108,44 +108,6 @@ function compileMainNav() {
   .pipe(dest('./js'))
 }
 
-function compileMixedHeader() {
-  return src([
-    require.resolve('jquery/dist/jquery.min.js'),
-    './build/js/header-hamburger-vendor.js',
-    './js/mainNav.js',
-    '../patternlab/styleguide/source/assets/js/modules/mainNavMixed.js',
-    '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
-    '../patternlab/styleguide/source/assets/js/modules/mobileNav.js',
-  ])
-  .pipe(concat('header-mixed.js'))
-  .pipe(babel({
-    presets: [
-      '@babel/preset-env',
-    ]
-  }))
-  .pipe(dest('./js'));
-}
-
-function compileMiniMixedHeader() {
-  return src([
-    require.resolve('jquery/dist/jquery.min.js'),
-    './build/js/header-hamburger-vendor.js',
-    './js/mainNav.js',
-    '../patternlab/styleguide/source/assets/js/modules/mainNavMixed.js',
-    '../patternlab/styleguide/source/assets/js/modules/mainNavHamburger.js',
-    '../patternlab/styleguide/source/assets/js/modules/mobileNav.js',
-  ])
-  .pipe(concat('header-mixed.min.js'))
-  .pipe(babel({
-    presets: [
-      '@babel/preset-env',
-    ]
-  }))
-  .pipe(terser())
-  .pipe(dest('./js'));
-}
-
-
 function compileHeader() {
   return src([
     require.resolve('jquery/dist/jquery.min.js'),
@@ -191,12 +153,9 @@ exports.compileScss = compileScss;
 exports.clean = clean;
 
 const transpileHeader = series(compileMainNav, parallel(compileHeader, compileMiniHeader), deleteMainNav);
-const transpileMixedHeader = series(compileMainNav, parallel(compileMixedHeader, compileMiniMixedHeader), deleteMainNav);
 const transpileHamburgerHeader = parallel(compileHamburgerHeader, compileMiniHamburgerHeader);
-const compileHeaderJS = series(transpileMixedHeader, transpileHamburgerHeader, transpileHeader);
+const compileHeaderJS = series(transpileHamburgerHeader, transpileHeader);
 const build = series(parallel(clean, cleanJS), parallel(compileMiniScss, compileScss), compileHeaderJS);
-
-exports.transpileMixedHeader = transpileMixedHeader;
 
 exports.transpileHamburgerHeader = transpileHamburgerHeader;
 
