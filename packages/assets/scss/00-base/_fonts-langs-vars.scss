@@ -32,7 +32,7 @@ $kannada:					U+0C80-0CFF;
 $kayah:						U+A900-A92F;
 $khmer:						U+1780-17FF, U+19E0-19FF; // Khmer and symbols
 $lao:							U+0E80-0EFF;
-$latin:						U+????;
+$latin:						U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D; // Basic latin block plus ligatures single and double quotes
 $limbu:						U+1900-194F;
 $lisu:						U+A4D0-A4FF;
 $malayalam:				U+0D00-0D7F;

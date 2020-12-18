@@ -88,6 +88,8 @@
 
 @if $fonts-langs-support {
 
+	// Arabic
+
   @supports ( font-variation-settings: normal ) {
 
     @font-face {
@@ -105,6 +107,46 @@
 
     @include ma-font-face(Noto, Sans, Arabic, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$arabic, null, null);
   }
+
+	// Cyrillic
+
+	@supports ( font-variation-settings: normal ) {
+
+		@font-face {
+
+			@include ma-font-face(Noto, Sans, Cyrillic, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$myanmar, null, null);
+		}
+	}
+
+	@font-face {
+
+		@include ma-font-face(Noto, Sans, Cyrillic, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$myanmar, null, null);
+	}
+
+	@font-face {
+
+		@include ma-font-face(Noto, Sans, Cyrillic, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$myanmar, null, null);
+	}
+
+	// Greek
+
+	@supports ( font-variation-settings: normal ) {
+
+		@font-face {
+
+			@include ma-font-face(Noto, Sans, Greek, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$myanmar, null, null);
+		}
+	}
+
+	@font-face {
+
+		@include ma-font-face(Noto, Sans, Greek, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$myanmar, null, null);
+	}
+
+	@font-face {
+
+		@include ma-font-face(Noto, Sans, Greek, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$myanmar, null, null);
+	}
 
   // Hebrew
 
