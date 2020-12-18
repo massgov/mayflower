@@ -149,8 +149,6 @@ pyftsubset\
 
 ### Hebrew
 
-All of the layout features starting with "v" are for language direction (RTL)
-
 ```
 pyftsubset\
   NotoSansHebrew-Regular.ttf \
@@ -360,6 +358,3 @@ pyftsubset\
   --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
   --unicodes="U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF"
 ```
-
-
-``--layout-features="valt,vhal,vpal,vert,vrt2,vrtr,vkrn,ltra,ltrm,rtla,rtlm"` // for RTL
