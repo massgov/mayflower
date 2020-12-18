@@ -20,8 +20,6 @@ import prettier from 'prettier/standalone';
 import parserHtml from 'prettier/parser-html';
 import SyntaxHighlighter, { Renderer, Wrapper } from './syntax-highlighter';
 
-import mayflowerTheme from './mayflowerTheme';
-
 import '../src/components/styles/_index.scss';
 
 const storyKindOrder = [
