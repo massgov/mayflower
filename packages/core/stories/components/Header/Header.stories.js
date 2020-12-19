@@ -1,7 +1,6 @@
 import React from 'react';
 import HeaderSlim from '@massds/mayflower-react/dist/HeaderSlim';
 import Header from '@massds/mayflower-react/dist/Header';
-import HeaderHamburger from '@massds/mayflower-react/dist/HeaderHamburger';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
 import IconSearch from '@massds/mayflower-react/dist/Icon/IconSearch';
