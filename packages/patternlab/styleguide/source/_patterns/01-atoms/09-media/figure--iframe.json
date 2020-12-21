@@ -10,8 +10,12 @@
     },
     "title": {
       "text": "This is an option iframe title",
-      "visible": "true"
+      "visible": true
     },
-    "caption": "This is an optional caption that can wrap to multiple lines."
+    "caption": "This is an optional caption that can wrap to multiple lines.",
+    "skiplink": {
+      "add": true,
+      "text": "iframe content"
+    }
   }
 }
