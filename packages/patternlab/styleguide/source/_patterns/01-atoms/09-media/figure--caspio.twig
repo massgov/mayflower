@@ -1,0 +1,26 @@
+{# Note: in Mayflower, we render the Tableau embed using figure.dataviz, but
+   we recommend using this template by passing in a fully rendered iframe to
+   figure.content instead so the consuming system can handle the javascript
+   inclusions and triggering using its own logic.
+#}
+{% if figure.caspio %}
+	{# Render figure.content, which will be the main content of the figure #}
+	{% set content %}
+	<script type="text/javascript" src="https://c0hbc136.caspio.com/dp/{{ figure.caspio.dataId }}/emb"></script>
+	<noscript>This feature requires Javascript to be enabled on your browser. Please enable Javascript and refresh the page.</noscript>
+	{% endset %}
+  {% set figure = figure|merge({
+    'content': content,
+  }) %}
+{% endif %}
+{% include "@atoms/09-media/figure.twig" with {
+  figure: figure|merge({
+    'title.text': figure.title.text|default('interactive data feature'),
+    'title.visible': figure.title.visible|default(false),
+    'align': '',
+    'wrap': '',
+    'size': 'full',
+    'class': 'ma__caspio',
+    'ariaLive': 'polite'
+  })
+} %}

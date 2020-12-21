@@ -20,6 +20,8 @@
 {% endif %}
 {% include "@atoms/09-media/figure.twig" with {
   figure: figure|merge({
+    'title.text': figure.title.text,
+    'title.visible': figure.title.visible|default(false),
     'align': figure.align|default('left'),
     'size': figure.size|default('large'),
     'class': 'ma__dataviz',
