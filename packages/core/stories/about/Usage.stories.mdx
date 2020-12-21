@@ -1,0 +1,155 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { linkTo } from '@storybook/addon-links';
+import { Button } from '@massds/mayflower-react';
+
+import generateTitle from '../util/generateTitle';
+const { STORYBOOK_CDN_PATH, STORYBOOK_CDN, STORYBOOK_PKG } = process.env;
+
+
+<Meta title={generateTitle('Usage')} />
+
+<h1>Get Started with Mayflower <small>version {process.env.VERSION}</small></h1>
+
+
+
+We encourage all Commonwealth web properties to implement the Mayflower Design System for a consistent look and feel. It’s important that constituents know they are on an official state government website, and the visual cues that come from using a cohesive design help convey that legitimacy.
+
+
+## Quick Start
+To kickstart an HTML page with Mayflower Header, Footer, basic layout and styles:
+<Button theme="c-primary-alt" onClick={linkTo(generateTitle('Template'))}>Start From a Template</Button>
+
+To start building with Mayflower in HTML, start by importing the global styles and then incrementally add the styles and JS for each Mayflower component:
+
+- To import fonts and get started with basic Mayflower styles, link to the compiled `css/global.css` (or the minified version, `css/global.min.css`) from the @massds/mayflower-assets package or the assets CDN.
+    > <code>{`${STORYBOOK_CDN_PATH}/css/global.css`}</code>
+
+- To include basic page layout styles from Mayflower, link to the compiled `css/layout.css` (or the minified version, `css/layout.min.css`) from the @massds/mayflower-assets package or the assets CDN.
+    > <code>{`${STORYBOOK_CDN_PATH}/css/layout.css`}</code>
+
+- To use a Mayflower branding component on your site, go to the documentation of the component, copy and paste the HTML code snippet, and link to the CDN version of CSS and JS files in the appropriate sections of your HTML.
+
+> For a production site, you should always link to the Mayflower CDN at a specific version. That way, you never have to worry about your website getting impacted by any Mayflower breaking updates, and you can upgrade to a new Mayflower version whenever your team is ready. Alternatively, you can host the CSS and JS downloaded from mayflower assets package. 
+
+> To view a specific version of this documentation, go to https://mayflower.digital.mass.gov/core/v/:version
+
+<br />
+
+
+## Mayflower Assets and CDN
+
+To enable and ensure the branding and visual cohesion, Mayflower delivers the following static assets and generated artifacts as a version controlled package.
+```
+├── css
+├── js
+├── scss
+├── static
+   ├── fonts
+   └── images
+       ├── icons
+       └── logos
+```
+### Download the NPM Package
+
+The package @massds/mayflower-assets is published on NPM. If you use Node.js, you can install it by running:
+
+```
+npm install @massds/mayflower-assets
+```
+
+### Link to the Mayflower CDN
+
+Mayflower leverages the UNPKG CDN and allows you to load any file in the @massds/mayflower-assets package directly.
+
+To load any file from the @massds/mayflower-assets package using a URL like:
+
+```
+unpkg.com/@massds/mayflower-assets@:version/:file
+```
+
+To explore the whole package for a specific version, you can
+1. browse the `@massds/mayflower-assets` package of the lastest version at:
+<a href={`${STORYBOOK_CDN}browse/${STORYBOOK_PKG}/`}>{`${STORYBOOK_CDN}browse/${STORYBOOK_PKG}/`}</a>
+
+2. Navigate on the resource you want to link to, e.g. css/global.css
+3. Click on “View Raw” and copy the URL for the file.
+
+For examples:
+
+<table>
+  <tr>
+    <th>Asset</th>
+    <th>CDN</th>
+  </tr>
+  <tr>
+    <td>State Seal</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.png`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.svg`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.svg`}</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Fonts</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-Regular.woff2`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-Italic.woff2`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-VF.woff2`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSansItalic-VF.woff2`}</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Global CSS</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/css/global.css`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/css/global.min.css`}</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Header CSS</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/css/header.css`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/css/header.min.css`}</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Header JS</td>
+    <td>
+      <ul style={{listStyle: 'none'}}>
+        <li>{`${STORYBOOK_CDN_PATH}/js/header.js`}</li>
+        <li>{`${STORYBOOK_CDN_PATH}/js/header.min.js`}</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+## Configure Your Theme
+
+Mayflower style guide is derived from our research, experience, and expertise, and decision making in creating Mass.gov. We recognize that not all aspects of this branding guide will make sense for every organization, and that some organizations have their own distinct branding. We provide SCSS variables and partials for organizations to configure and compile their own Mayflower stylesheets, based on individual branding needs.
+You can configure all the variables declared in scss/00-base with a !default flag, such as _variables.scss _colors.scss _color-tokens.scss _breakpoints.scss _z-index.scss
+For example to theme the Mayflower header with your own primary color:
+
+```
+@use "00-base/configure" with (
+  $assets-path: "~@massds/mayflower-assets/static”,
+  $c-primary: #xxxxxx
+);
+@use "03-organism/header"
+```
+
+If you use Node.js, you can install Sass using npm by running:
+
+```$ npm install -g sass```
+
+And compile any sass files by running
+```$ sass source.scss output.scss```

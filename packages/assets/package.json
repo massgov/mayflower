@@ -1,6 +1,6 @@
 {
   "name": "@massds/mayflower-assets",
-  "version": "0.2.2",
+  "version": "10.4.0",
   "description": "Mayflower Assets",
   "main": "index.js",
   "files": [
@@ -30,7 +30,7 @@
   "author": "Massachusetts Digital Services (MDS)",
   "license": "MIT",
   "peerDependencies": {
-    "sass": "^1.26.3"
+    "sass": "~1.30.0"
   },
   "devDependencies": {
     "stylelint": "^13.3.3",
@@ -40,7 +40,7 @@
     "normalize-scss": "~7.0.1",
     "gulp": "~4.0.2",
     "gulp-rename": "~2.0.0",
-    "sass": "~1.27.0",
+    "sass": "~1.30.0",
     "gulp-sass": "~4.1.0",
     "del": "~6.0.0",
     "@babel/core": "~7.12.3",

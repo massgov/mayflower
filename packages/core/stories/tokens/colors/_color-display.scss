@@ -1,0 +1,99 @@
+@use "00-base/configure" as *;
+@use "sass:color" as *;
+// import color variables
+// import bourbon library "tint" and "shade" functions
+
+// use patternlab color swatches styles
+.sg {
+  &-colors {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 2rem 0;
+    padding: 0;
+
+    li {
+      border-radius: 0;
+      flex-basis: auto;
+      max-width: 14em;
+      min-width: 7rem;
+
+      h6 {
+        font-size: 1rem;
+      }
+    }
+
+    // Align gradient matrix
+    &--gradient {
+      li {
+        &:first-child {
+          width: 150px;
+        }
+      }
+    }
+  }
+  &-swatch {
+    border-radius: 0;
+    display: block;
+    margin-bottom: 0.3em;
+    height: 4rem;
+  }
+
+  &-label {
+    font-size: 90%;
+    line-height: 1;
+  }
+
+  &-info {
+    font-size: $fonts-xsmall;
+    font-family: $fonts-mono;
+    span {
+      background-color: $c-gray-lightest;
+      padding: 0.1em 0.2em;
+    }
+  }
+}
+
+// Programetically generate gradient colors
+$tiles: 10;
+@mixin ma_gradient($class, $color) {
+  .#{$class} {
+    &--tint {
+      @for $i from 0 through $tiles {
+        &:nth-child(#{$i + 1}) {
+          .sg-swatch {
+            background: mix(#fff, $color, 10*$i);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin ma_gradient_dark($class, $color) {
+  .#{$class} {
+    &--shade {
+      @for $i from 0 through $tiles {
+        &:nth-child(#{$i + 1}) {
+          .sg-swatch {
+            background: mix(#000, $color, 10*$i);
+          }
+        }
+      }
+    }
+  }
+}
+
+$colors: (
+  "c-duckling-yellow": $c-duckling-yellow,
+  "c-bay-blue": $c-bay-blue,
+  "c-berkshires-green": $c-berkshires-green,
+  "c-independence-cranberry": $c-independence-cranberry,
+  "c-granite-gray": $c-granite-gray
+);
+
+@each $class, $c in $colors {
+  @include ma_gradient($class, $c);
+  @include ma_gradient_dark($class, $c);
+}

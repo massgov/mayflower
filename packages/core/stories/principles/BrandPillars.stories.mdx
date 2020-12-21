@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import {
+  SectionLinks, DecorativeLink, CalloutLink
+} from '@massds/mayflower-react';
+
+import generateTitle from '../util/generateTitle';
+
+<Meta title={generateTitle('BrandPillars')} />
+
+# Mayflower brand pillars
+
+Our digital brand serves the 7 million people live in Massachusetts, and the millions more who visit or study here. Speaking to those people with a single voice that conveys our shared values requires more than just a logo and some colors, It requires defining some core ideas.
+
+Brand pillars are how we define those critical principles. They are easy to remember and refer to, they outline a few different dimensions of how we want users to think about us. They don't cover every possible sceneario, but they provide a good starting point when we think of new ways to help constituents interact with the Commonwealth online.
+
+Any time you launch a service or make a decision about content, tone, or imagery in an experience, start here.
+
+<div className="row ma__row--two-up">
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Helpful'
+      }}
+      description="We provide our users with the information they need written in plain language and presented in usable interfaces. We make complicated processes simple and understandable. We study what’s most important to our users and respond to their needs."
+      index={0}
+    >
+    </SectionLinks>
+  </div>
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Human'
+      }}
+      description="Our tone is conversational and a warm, not impersonal and bureaucratic. When constituents read our content it should feel like the voice of a real person. We want users to feel comfortable, confident, and supported."
+      index={1}
+      >
+    </SectionLinks>
+  </div>
+</div>
+
+<div className="row ma__row--two-up">
+  <div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Dignified'
+      }}
+      description="We represent our state government with authority and trustworthiness. Our effort to be human never undercuts the importance, or credibility of the information we convey. We are friendly but not flippant; natural but not offhand."
+      index={0}
+      >
+    </SectionLinks>
+  </div>
+	<div className="col-md">
+    <SectionLinks
+      title={{
+        text: 'Modern'
+      }}
+      description="We build living systems under constant review and improvement. We recognize that many tools powering experiences today didn’t exist just a few years ago, and many will soon be eclipsed. To stay relevant to users we work hard to keep pace with technical, stylistic, and social trends."
+      index={1}
+      >
+    </SectionLinks>
+  </div>
+</div>

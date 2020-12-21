@@ -4,7 +4,6 @@
 @use "base/Icon/icon-display";
 @use "base/Colors";
 @use "base/Typography";
-@use "atoms/buttons/ButtonCopy";
 @use "01-atoms/divider";
 @use "01-atoms/arrow-button";
 @use "atoms/buttons/Button";
@@ -14,6 +13,7 @@
 @use "01-atoms/button-toggle";
 @use "01-atoms/button-with-icon";
 @use "01-atoms/button-search";
+@use "01-atoms/button-copy";
 @use "01-atoms/address";
 @use "01-atoms/email";
 @use "01-atoms/event-time";
