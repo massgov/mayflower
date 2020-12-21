@@ -55,7 +55,7 @@ const templateFullNav = template({ renderHeader: headerStories.headerFullNav(), 
 
 const notesTemplateSlim = `
   // Link to CSS:
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">
@@ -63,7 +63,7 @@ const notesTemplateSlim = `
 
 const notesTemplate = `
   // Link to CSS:
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
@@ -75,7 +75,7 @@ const notesTemplate = `
 export const notesTemplateCSS = `
 <head>
   <!-- Mayflower fonts and other basic styles -->
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
   <!-- Mayflower page layout styles -->
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
   <!-- Add Mayflower Header and Footer specific styles -->
