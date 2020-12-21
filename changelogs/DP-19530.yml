@@ -1,0 +1,6 @@
+Added:
+  - project: Core
+    component: All
+    description: Added the new MVP core storybook documentation site. (#1271)
+    issue: DP-19530
+    impact: Major
