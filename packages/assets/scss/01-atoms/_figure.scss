@@ -1,8 +1,47 @@
 @use "00-base/configure" as *;
 
 .ma__figure {
-
   margin: 0 0 20px 0;
+
+  &__skip-link {
+    margin: -30px 0 0.2em 0;
+    padding: 1px 10px;
+    font-size: 0.8em;
+    float: left;
+    background-color: #fff;
+
+    &:not(:focus) {
+
+      @include ma-visually-hidden;
+
+    }
+  }
+
+  &__skip-link_destination {
+    margin: 0.2em 0 -30px 0;
+    padding: 1px 10px;
+    float: left;
+  }
+
+  div[id^='figure-'] {
+    // These margin and padding help the link target visible below the sticky nav in stead of hide under the sticky nav.
+    margin-top: -80px;
+    padding-top: 80px;
+    z-index: -3;
+
+    &:target {
+      display: block;
+    }
+
+    &:not(:target) {
+      display: none;
+    }
+  }
+
+  figure {
+    margin: 0;
+    padding: 0;
+  }
 
   .main-content--full .page-content > & {
 
