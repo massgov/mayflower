@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: Dependencies
-    description: Downgrade react storybook addon versions to fix `.mdx` markdown styling. (#1316)
-    issue: 
-    impact: Patch
