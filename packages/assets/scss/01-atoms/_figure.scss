@@ -304,6 +304,27 @@
   }
 }
 
+.ma__figure.ma__iframe__container {
+// Reset initial syles on elements in iframe container.
+  .ma__figure__skip-link {
+    font-size: $fonts-base;
+    text-decoration: underline;
+    height: auto;
+    width: auto;
+    color: #14558f;
+
+    &:visited {
+      color: #800080;
+    }
+  }
+
+  .ma__figure__skip-link_destination {
+    height: auto;
+    width: auto;
+    font-size: 1.375rem;
+  }
+}
+
 // MARGIN ADJUSTMENT with side by side layout
 
 .no-sidebar { // 1 col layout, no right column
