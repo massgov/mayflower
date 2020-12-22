@@ -64,6 +64,7 @@
                     "MayflowerReactPages": "./src/components/pages",
                     "MayflowerReactTemplates": "./src/components/templates",
                     "MayflowerReactUtilities": "./src/components/utilities",
+                    "MayflowerReactHooks": "./src/components/hooks",
                     "MayflowerReactGenTeaser": "./src/components/organisms/GenTeaser",
                     "SharedAssets": "@massds/mayflower-assets/static"
                 },

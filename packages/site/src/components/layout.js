@@ -13,7 +13,6 @@ import { HeaderSlim, SiteLogo, FooterSlim } from '@massds/mayflower-react';
 import '../styles/_layout.scss';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
-
 const Layout = ({ children, pre }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -42,7 +41,7 @@ const Layout = ({ children, pre }) => {
   // Makes sure that header and footer don't use the same
   // SiteLogo component instance.
   const headerProps = {
-    siteLogo: <SiteLogo {...siteLogoProps} siteName={title}/>
+    siteLogo: <SiteLogo {...siteLogoProps} siteName={title} />
   };
 
   const footerProps = {

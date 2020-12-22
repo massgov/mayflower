@@ -6,7 +6,10 @@
       "id": "",
       "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
     },
-    "title": "This is an option data visualization title",
+    "title": {
+      "text": "This is an option data visualization title",
+      "visible": false
+    },
     "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
   }
 }

@@ -120,6 +120,23 @@
           }
         },
         {
+          "path": "@atoms/09-media/figure--caspio.twig",
+          "data": {
+            "figure": {
+              "align": "",
+              "size": "",
+              "caspio": {
+                "dataId": "ad9b800013fd69aa4b7446efa939"
+              },
+              "title": {
+                "text": "Sample Data Page",
+                "visible": false
+              },
+              "caption": ""
+            }
+          }
+        },
+        {
           "path": "@organisms/by-author/form-downloads.twig",
           "data": {
             "formDownloads": {
@@ -276,6 +293,23 @@
               "title": "Embed page title for accessibility",
               "position": "full",
               "caption": "This is an optional caption for an iframe. This iframe also has the 'full' class to fill the container."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--caspio.twig",
+          "data": {
+            "figure": {
+              "align": "",
+              "size": "",
+              "caspio": {
+                "dataId": "ad9b8000a2f69eb5f1b844a6a1bb"
+              },
+              "title": {
+                "text": "Sample Data Page",
+                "visible": false
+              },
+              "caption": ""
             }
           }
         },

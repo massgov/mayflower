@@ -1,0 +1,61 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import generateTitle from '../../util/generateTitle';
+import * as stories from './Footer.stories.js';
+
+<Meta
+  title={generateTitle('Footer')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Footer
+
+Footers are containers located at the bottom of each page to provide for authorship information, copyright information, contact information, sitemap, back to home and back to top links, and related links.
+
+<Canvas withSource="none" >
+  <Story story={stories.footerExample} />
+</Canvas>
+
+## Overview
+Mayflower footer content are organized in two or more columns:
+- The first column from the left contains
+  - Site logo(s)
+  - Authorship information
+  - Copyright information
+- The other columns(s) contains
+  - Other site navigation
+  - Contact information
+  - Sitemap
+  - Related Links
+
+
+## Variations
+
+For web apps and websites that have a simple sitemap or navigation structure, the footer is used mostly for displaying branding, copyright, and contact information.
+
+
+### Footer (Slim Version)
+A most simplified version of a header contains a blue bar (height: 15px) at the top and a site logo and site name linked to the home of the website, placed on a light gray background ($c-gray-lightest)
+<Canvas>
+  <Story story={stories.footerSlim} />
+</Canvas>
+
+
+### Footer (Slim Version with Duel Logos)
+There are some scenarios where more than one logos need to be displayed in the footer:
+Joint brand with a parent or sibling organization
+Logos available for both the service (application) and the organization
+
+<Canvas>
+  <Story story={stories.footerSlimDuelLogo} />
+</Canvas>
+
+
+
+### Footer (With More Footer Links)
+
+For sites with more complex information architecture, the footer also provides the opportunity for users to explore additional navigation options when they reach the bottom of the page. In this case, top level navigation menu items and other supporting forms and documents can be organized into up to three columns following the first column. For a live example, see the footer used on Mass.gov.
+<Canvas>
+  <Story story={stories.footerFullNav} />
+</Canvas>

@@ -4,7 +4,11 @@
     "wrap": false,
     "size": "",
     "content": "",
-    "title": "This is an option title",
-    "caption": "This is an optional caption that can wrap to multiple lines."
+    "title": {
+      "text": "This is an option title",
+      "visible": "true"
+    },
+    "caption": "This is an optional caption that can wrap to multiple lines.",
+    "ariaLive": ""
   }
 }

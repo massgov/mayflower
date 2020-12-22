@@ -1,12 +1,11 @@
 @use "00-base/configure" as *;
 
+
 .ma__footer-links {
 
   @include clearfix;
 
-  &__items {
-
-    @include ma-reset-list;
+  &__nav {
     margin-left: auto;
     margin-right: auto;
     max-width: 480px;
@@ -29,6 +28,24 @@
 
       @include shift(1 of 9);
     }
+
+    &--heading {
+      border-bottom: none;
+
+      .ma__sidebar-heading {
+        color: $c-gray;
+        font-size: $fonts-xsmall;
+      }
+    }
+
+    @media ($bp-small-max) {
+      border-bottom-color: $c-bd-divider;
+    }
+  }
+
+  &__items {
+
+    @include ma-reset-list;
   }
 
   &__item {
@@ -43,21 +60,7 @@
 
     @include ma-link-underline;
     padding-bottom: 3px;
-  }
-}
 
-//theme
-
-.ma__footer-links {
-
-  &__items {
-
-    @media ($bp-small-max) {
-      border-bottom-color: $c-bd-divider;
-    }
-  }
-
-  &__link {
     color: $c-font-base;
     font-weight: $fonts-normal;
 

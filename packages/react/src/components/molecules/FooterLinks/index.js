@@ -20,11 +20,11 @@ const FooterLinks = (footerLinks) => (
 );
 
 const FooterLinksNav = (footerLinksNav) => (
-  <nav aria-labelledby={footerLinksNav.id} className={`ma__footer-links__items${footerLinksNav.showNavHeading ? ' ma__footer-links__items--heading' : ''}`}>
+  <nav aria-labelledby={footerLinksNav.id} className={`ma__footer-links__nav ${footerLinksNav.showNavHeading ? ' ma__footer-links__nav--heading' : ''}`}>
     {
       footerLinksNav.showNavHeading ? <SidebarHeading title={footerLinksNav.heading} level={2} /> : <h2 className="visually-hidden" id={footerLinksNav.id}>{footerLinksNav.heading}</h2>
     }
-    <ul>
+    <ul className="ma__footer-links__items">
       {
         footerLinksNav.links.map((link, i) => (
           /* eslint-disable-next-line react/no-array-index-key */

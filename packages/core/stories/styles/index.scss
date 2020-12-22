@@ -1,0 +1,176 @@
+@forward "00-base/configure" with (
+  $assets-path: "~@massds/mayflower-assets/static" !default,
+  $fonts-enable-rtl: true !default,
+);
+
+@use "00-base/configure" as *;
+
+@use '~@massds/mayflower-assets/scss/00-base/fonts';
+@use './bootstrap-grid';
+
+@use '~@massds/mayflower-assets/scss/00-base/elements';
+
+@use '@massds/mayflower-react/dist/SectionLinks';
+
+@use '@massds/mayflower-assets/scss/01-atoms/button-copy';
+@use '@massds/mayflower-react/dist/Typography';
+
+@use '@massds/mayflower-react/dist/Button';
+@use '@massds/mayflower-assets/scss/01-atoms/button-with-icon';
+
+@use '@massds/mayflower-assets/scss/01-atoms/colored-heading';
+@use '@massds/mayflower-assets/scss/01-atoms/comp-heading';
+@use '@massds/mayflower-assets/scss/01-atoms/sidebar-heading';
+
+// Links
+@use '@massds/mayflower-assets/scss/01-atoms/decorative-link';
+@use '@massds/mayflower-assets/scss/02-molecules/callout-link';
+
+
+// Header
+@use '@massds/mayflower-assets/scss/01-atoms/site-logo';
+@use '@massds/mayflower-assets/scss/01-atoms/button-search';
+@use '@massds/mayflower-assets/scss/01-atoms/input-typeahead';
+@use '@massds/mayflower-assets/scss/01-atoms/forms';
+@use '@massds/mayflower-assets/scss/02-molecules/header-search';
+
+@use '@massds/mayflower-assets/scss/03-organisms/header-slim';
+
+@use '@massds/mayflower-assets/scss/02-molecules/main-nav';
+@use '@massds/mayflower-assets/scss/03-organisms/utility-nav';
+@use '@massds/mayflower-assets/scss/03-organisms/utility-panel';
+@use '@massds/mayflower-assets/scss/03-organisms/header';
+@use '@massds/mayflower-assets/scss/03-organisms/header-hamburger';
+@use '@massds/mayflower-assets/scss/02-molecules/main-nav-hamburger';
+@use '@massds/mayflower-assets/scss/03-organisms/header-mixed';
+
+// Footer
+@use '@massds/mayflower-assets/scss/03-organisms/footer-slim';
+@use '@massds/mayflower-assets/scss/03-organisms/footer';
+@use '@massds/mayflower-assets/scss/02-molecules/footer-links';
+@use '@massds/mayflower-assets/scss/02-molecules/social-links';
+
+// Others
+@use '@massds/mayflower-assets/scss/00-base/layout';
+@use '@massds/mayflower-assets/scss/01-atoms/place-holder';
+
+// Global
+hr {
+	margin: 2rem 0;
+}
+
+// Tables
+table,
+table.sbdocs.sbdocs-table {
+  min-width: 100%;
+}
+
+.sp {
+  &--top {
+    margin-top: 2rem;
+  }
+  &--bottom {
+    margin-bottom: 2rem;
+  }
+}
+
+small {
+	font-size: .9rem;
+}
+
+.sb-block.borderless {
+	margin: 3rem 0 !important;
+	padding: 0 !important;
+	border: 0 !important;
+}
+
+// Correct margins
+.row.ma__row--three-up,
+.row.ma__row--two-up {
+  margin-left: -15px;
+  margin-right: -15px;
+
+  & > * {
+	  margin-bottom: 2rem;
+  }
+}
+
+// Match row height
+.ma__section-links {
+  height: 100%;
+  &__title {
+    /*margin-bottom: 0;*/
+  }
+}
+
+// Colors story
+ul.sg-colors {
+  list-style: none;
+  padding: 0;
+}
+
+// Button story
+.ma__row {
+  display: flex;
+  flex-direction: row;
+  & > *:not(:first-child) {
+    margin-left: 1rem;
+  }
+}
+
+// Links story
+span.ma__decorative-link  {
+	display: inline;
+}
+
+// Header story
+.ma__header_slim {
+  &__utility-link {
+    font-size: $fonts-small;
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      margin-right: .25rem;
+    }
+  }
+}
+
+// Typography story
+.font-specimen {
+	font-size: 1.7rem !important;
+	line-height: 1.25 !important;
+	word-break: break-all;
+	font-weight: 300;
+
+	&.large {
+		font-size: 2.5rem !important;
+	}
+	& strong {
+		font-weight: 400;
+	}
+}
+
+p.font-specimen {
+	margin: 0 0 .5rem;
+}
+
+p.lang-label {
+	font-weight: 450;
+	margin: 0;
+
+	&.rtl {
+		direction: rtl;
+	}
+}
+
+p.font-specimen,
+p.lang-label {
+	padding: 0 1rem;
+}
+
+.reset-vspace * {
+	line-height: 1.5;
+	margin-block-start: 0;
+  margin-block-end: 0;
+}
