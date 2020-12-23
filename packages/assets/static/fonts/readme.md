@@ -11,6 +11,12 @@ To use:
 4. If not, copy the entire block for a script, paste it to the command line and enter
 5. Run git status to test if the font files were updated
 
+#### Troubleshooting
+
+- The most common error is that the font is not found which means the first line of the command doesnt match a file name in the directory you are in.
+- If the command does not workas one block, try running them one at a time (make sure to exlude the &&).
+- Don't forget to cd into the right direecctory for the script first.
+
 To subset eot files upload the ttf to [fontsquirrel](https://www.fontsquirrel.com), use the "expert" tab and change only these values:
 - Font-formats: 			eot compressed
 - Truetype hinting: 	keep existing
@@ -24,7 +30,7 @@ When your kit downloads, move only the font files into Mayflower and change the 
 
 ### Arabic
 
-All of the layout features starting with "v" are for language direction (RTL)
+All of the layout features starting with "v" or 'rtl" are for language direction (RTL)
 
 ```
 pyftsubset\
@@ -65,29 +71,70 @@ pyftsubset\
   --unicodes="U+0600-06FF, U+0750-077F"
 ```
 
+### Armenian
+
+```
+pyftsubset\
+  NotoSansArmenian-Regular.ttf \
+  --output-file="NotoSansArmenian-Regular-subset.woff" \
+  --flavor=woff \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
+  --unicodes="U+0530-058F" &&
+pyftsubset\
+  NotoSansArmenian-Bold.ttf \
+  --output-file="NotoSansArmenian-Bold-subset.woff" \
+  --flavor=woff \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
+  --unicodes="U+0530-058F" &&
+pyftsubset\
+  NotoSansArmenian-VF.ttf \
+  --output-file="NotoSansArmenian-VF-subset.woff" \
+  --flavor=woff \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar,"\
+  --unicodes="U+0530-058F" &&
+pyftsubset\
+  NotoSansArmenian-Regular.ttf \
+  --output-file="NotoSansArmenian-Regular-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
+  --unicodes="U+0530-058F" &&
+pyftsubset\
+  NotoSansArmenian-Regular.ttf \
+  --output-file="NotoSansArmenian-Regular-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
+  --unicodes="U+0530-058F" &&
+pyftsubset\
+  NotoSansArmenian-VF.ttf \
+  --output-file="NotoSansArmenian-VF-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
+  --unicodes="U+0530-058F"
+```
+
 ### Cyrillic
 
 ```
 pyftsubset\
-  NotoSansCyrillic-Regular.ttf \
+  NotoSans-Regular.ttf \
   --output-file="NotoSansCyrillic-Regular-subset.woff" \
   --flavor=woff \
   --layout-features="smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
   --unicodes="U+0400-04FF, U+0500-052F, U+1C80-1C8F" &&
 pyftsubset\
-  NotoSansCyrillic-Bold.ttf \
-  --output-file="NotoSansCyrillic-Bold-subset.woff" \
-  --flavor=woff \
-  --layout-features="smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
-  --unicodes="U+0400-04FF, U+0500-052F, U+1C80-1C8F" &&
-pyftsubset\
-  NotoSansCyrillic-Regular.ttf \
+  NotoSans-Regular.ttf \
   --output-file="NotoSansCyrillic-Regular-subset.woff2" \
   --flavor=woff2 \
   --layout-features="smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
   --unicodes="U+0400-04FF, U+0500-052F, U+1C80-1C8F" &&
 pyftsubset\
-  NotoSansCyrillic-Bold.ttf \
+  NotoSans-Bold.ttf \
+  --output-file="NotoSansCyrillic-Bold-subset.woff" \
+  --flavor=woff \
+  --layout-features="smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
+  --unicodes="U+0400-04FF, U+0500-052F, U+1C80-1C8F" &&
+pyftsubset\
+  NotoSans-Bold.ttf \
   --output-file="NotoSansCyrillic-Bold-subset.woff2" \
   --flavor=woff2 \
   --layout-features="smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
@@ -110,26 +157,26 @@ pyftsubset\
 
 ```
 pyftsubset\
-  NotoSansGreek-Regular.ttf \
-  --output-file="NotoSansGreek-Regular.woff" \
+  NotoSans-Regular.ttf \
+  --output-file="NotoSansGreek-Regular-subset.woff" \
   --flavor=woff \
   --layout-features="kern,liga,clig,lnum,tnum,smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
   --unicodes="U+0370-03FF, U+1F00-1FFF" &&
 pyftsubset\
-  NotoSansGreek-Bold.ttf \
-  --output-file="NotoSansGreek-Bold.woff" \
-  --flavor=woff \
-  --layout-features="kern,liga,clig,lnum,tnum,smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
-  --unicodes="U+0370-03FF, U+1F00-1FFF" &&
-pyftsubset\
-  NotoSansGreek-Regular.ttf \
-  --output-file="NotoSansGreek-Regular.woff2" \
+  NotoSans-Regular.ttf \
+  --output-file="NotoSansGreek-Regular-subset.woff2" \
   --flavor=woff2 \
   --layout-features="kern,liga,clig,lnum,tnum,smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
   --unicodes="U+0370-03FF, U+1F00-1FFF" &&
 pyftsubset\
-  NotoSansGreek-Italic.ttf \
-  --output-file="NotoSansGreek-Bold.woff2" \
+  NotoSans-Bold.ttf \
+  --output-file="NotoSansGreek-Bold-subsset.woff" \
+  --flavor=woff \
+  --layout-features="kern,liga,clig,lnum,tnum,smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
+  --unicodes="U+0370-03FF, U+1F00-1FFF" &&
+pyftsubset\
+  NotoSans-Bold.ttf \
+  --output-file="NotoSansGreek-Bold-subset.woff2" \
   --flavor=woff2 \
   --layout-features="kern,liga,clig,lnum,tnum,smcp,c2sc,pcap,c2pc,unic,cpsp,case,ital,ordn" \
   --unicodes="U+0370-03FF, U+1F00-1FFF" &&
@@ -148,6 +195,8 @@ pyftsubset\
 ```
 
 ### Hebrew
+
+All of the layout features starting with "v" or 'rtl" are for language direction (RTL)
 
 ```
 pyftsubset\
@@ -337,11 +386,76 @@ pyftsubset\
   --unicodes="U+0020-00FE, U+00A1-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D, U+20AC"
 ```
 
+### Malayalam
+
+```
+pyftsubset\
+  NotoSansMalayalam-Regular.ttf \
+  --output-file="NotoSansMalayalam-Regular-subset.woff" \
+  --flavor=woff \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
+  --unicodes="U+0D00-0D7F" &&
+pyftsubset\
+  NotoSansMalayalam-Regular.ttf \
+  --output-file="NotoSansMalayalam-Regular-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
+  --unicodes="U+0D00-0D7F" &&
+pyftsubset\
+  NotoSansMalayalam-Bold.ttf \
+  --output-file="NotoSansMalayalam-Bold-subset.woff" \
+  --flavor=woff \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
+  --unicodes="U+0D00-0D7F" &&
+pyftsubset\
+  NotoSansMalayalam-Bold.ttf \
+  --output-file="NotoSansMalayalam-Bold-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
+  --unicodes="U+0D00-0D7F" &&
+pyftsubset\
+  NotoSansMalayalam-VF.ttf \
+  --output-file="NotoSansMalayalam-VF-subset.woff" \
+  --flavor=woff \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar,"\
+  --unicodes="U+0D00-0D7F" &&
+pyftsubset\
+  NotoSansMalayalam-VF.ttf \
+  --output-file="NotoSansMalayalam-VF-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
+  --unicodes="U+0D00-0D7F"
+```
+
 ### Mono (Latin)
 
 Todo: make non-variable versions, re-create eot with new unicodes below
 
 ```
+pyftsubset\
+  NotoSansMono-Regular.ttf \
+  --output-file="NotoSansMono-Regular-subset.woff" \
+  --flavor=woff \
+  --layout-features="kern,liga,clig,lnum,tnum" \
+  --unicodes="U+0020-00FE, U+00A1-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D, U+20AC" &&
+pyftsubset\
+  NotoSansMono-Regular.ttf \
+  --output-file="NotoSansMono-Regular-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="kern,liga,clig,lnum,tnum" \
+  --unicodes="U+0020-00FE, U+00A1-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D, U+20AC" &&
+pyftsubset\
+  NotoSansMono-Bold.ttf \
+  --output-file="NotoSansMono-Bold-subset.woff" \
+  --flavor=woff \
+  --layout-features="kern,liga,clig,lnum,tnum" \
+  --unicodes="U+0020-00FE, U+00A1-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D, U+20AC" &&
+pyftsubset\
+  NotoSansMono-Bold.ttf \
+  --output-file="NotoSansMono-Bold-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="kern,liga,clig,lnum,tnum" \
+  --unicodes="U+0020-00FE, U+00A1-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D, U+20AC" &&
 pyftsubset\
   NotoSansMono-VF.ttf \
   --output-file="NotoSansMono-VF-subset.woff" \
@@ -363,7 +477,13 @@ pyftsubset\
   NotoSansMyanmar-Regular.ttf \
   --output-file="NotoSansMyanmar-Regular-subset.woff" \
   --flavor=woff \
-  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
+  --unicodes="U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF" &&
+pyftsubset\
+  NotoSansMyanmar-Regular.ttf \
+  --output-file="NotoSansMyanmar-Regular-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
   --unicodes="U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF" &&
 pyftsubset\
   NotoSansMyanmar-Bold.ttf \
@@ -372,27 +492,21 @@ pyftsubset\
   --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
   --unicodes="U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF" &&
 pyftsubset\
+  NotoSansMyanmar-Bold.ttf \
+  --output-file="NotoSansMyanmar-Bold-subset.woff2" \
+  --flavor=woff2 \
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
+  --unicodes="U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF" &&
+pyftsubset\
   NotoSansMyanmar-VF.ttf \
   --output-file="NotoSansMyanmar-VF-subset.woff" \
   --flavor=woff \
   --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar,"\
   --unicodes="U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF" &&
 pyftsubset\
-  NotoSansMyanmar-Regular.ttf \
-  --output-file="NotoSansMyanmar-Regular-subset.woff2" \
-  --flavor=woff2 \
-  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
-  --unicodes="U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF" &&
-pyftsubset\
-  NotoSansMyanmar-Regular.ttf \
-  --output-file="NotoSansMyanmar-Regular-subset.woff2" \
-  --flavor=woff2 \
-  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
-  --unicodes="U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF" &&
-pyftsubset\
   NotoSansMyanmar-VF.ttf \
   --output-file="NotoSansMyanmar-VF-subset.woff2" \
   --flavor=woff2 \
-  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar"\
+  --layout-features="abvf,abvm,abvs,blwf,blwm,blws,pref,pres,psts,pstf,dist,akhn,haln,half,nukt,rkrf,rphf,vatu,cjct,cfar" \
   --unicodes="U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF"
 ```
