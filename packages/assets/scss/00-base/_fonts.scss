@@ -108,39 +108,31 @@
 
 	// Arabic
   @supports ( font-variation-settings: normal ) {
-
     @font-face {
-
       @include ma-font-face(Noto, Sans, Arabic, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$arabic, null, null);
     }
   }
 
   @font-face {
-
     @include ma-font-face(Noto, Sans, Arabic, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$arabic, null, null);
   }
 
   @font-face {
-
     @include ma-font-face(Noto, Sans, Arabic, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$arabic, null, null);
   }
 
 	// Cyrillic
 	@supports ( font-variation-settings: normal ) {
-
 		@font-face {
-
 			@include ma-font-face(Noto, Sans, Cyrillic, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$cyrillic, null, null);
 		}
 	}
 
 	/*@font-face {
-
 		@include ma-font-face(Noto, Sans, Cyrillic, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$cyrillic, null, null);
 	}
 
 	@font-face {
-
 		@include ma-font-face(Noto, Sans, Cyrillic, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$cyrillic, null, null);
 	}*/
 
@@ -149,75 +141,60 @@
 	@supports ( font-variation-settings: normal ) {
 
 		@font-face {
-
 			@include ma-font-face(Noto, Sans, Greek, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$greek, null, null);
 		}
 	}
 	/*
 	@font-face {
-
 		@include ma-font-face(Noto, Sans, Greek, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$greek, null, null);
 	}
 
 	@font-face {
-
 		@include ma-font-face(Noto, Sans, Greek, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$greek, null, null);
 	}*/
 
   // Hebrew
   @supports ( font-variation-settings: normal ) {
-
     @font-face {
-
       @include ma-font-face(Noto, Sans, Hebrew, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$hebrew, null, null);
     }
   }
 
   @font-face {
-
     @include ma-font-face(Noto, Sans, Hebrew, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$hebrew, null, null);
   }
 
   @font-face {
-
     @include ma-font-face(Noto, Sans, Hebrew, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$hebrew, null, null);
   }
 
   // Khmer
   @supports ( font-variation-settings: normal ) {
-
     @font-face {
-
       @include ma-font-face(Noto, Sans, Khmer, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$khmer, null, null);
     }
   }
 
   @font-face {
-
     @include ma-font-face(Noto, Sans, Khmer, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$khmer, null, null);
   }
 
   @font-face {
-
     @include ma-font-face(Noto, Sans, Khmer, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$khmer, null, null);
   }
 
   // Myanmar
   @supports ( font-variation-settings: normal ) {
-
     @font-face {
-
       @include ma-font-face(Noto, Sans, Myanmar, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$myanmar, null, null);
     }
   }
 
   /*@font-face {
-
     @include ma-font-face(Noto, Sans, Myanmar, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$myanmar, null, null);
   }*/
 
   @font-face {
-
     @include ma-font-face(Noto, Sans, Myanmar, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$myanmar, null, null);
   }
 }
@@ -236,37 +213,30 @@ html {
 @if $fonts-langs-support {
 	// arabic
   * {
-
     @include ma-langlist(langs.$arabic-sans, rtl, langs.$langs-Arab);
   }
 	// Cyrillic
 	* {
-
     @include ma-langlist(langs.$cyrillic-sans, null, langs.$langs-Cyrl);
   }
 	// Greek
 	* {
-
     @include ma-langlist(langs.$greek-sans, null, langs.$langs-Grek);
   }
 	// Hebrew
   * {
-
     @include ma-langlist(langs.$hebrew-sans, rtl, langs.$langs-Hebr);
   }
 	// Khmer
   * {
-
     @include ma-langlist(langs.$khmer-sans, null, langs.$langs-Khmr);
   }
 	// Latin (non-english)
   * {
-
     @include ma-langlist(langs.$latin-sans-ext, null, langs.$langs-Latn);
   }
 	// Myanmar
   * {
-
     @include ma-langlist(langs.$myanmar-sans, null, langs.$langs-Mymr);
   }
 }
