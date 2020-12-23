@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import DecorativeLink from '@massds/mayflower-react/dist/DecorativeLink';
 import Heading from '@massds/mayflower-react/dist/Heading';
 import {
@@ -28,9 +28,7 @@ import generateTitle from '../../util/generateTitle';
 
 ## The typeface of Mayflower is **Noto Sans**
 
-<Canvas withSource="none">
-  <div className="font-specimen large">{letters.toUpperCase()}<br />{letters}<br />{numbers}</div>
-</Canvas>
+<div className="sb-block borderless font-specimen large">{letters.toUpperCase()}<br />{letters}<br />{numbers}</div>
 
 ### Noto Sans was chosen because it's...
 
@@ -46,13 +44,10 @@ Using these fonts for your print and digital assets is a subtle but compelling w
 > Noto Sans is an open source typeface jointly designed and developed by Google and Monotype. It has the most comprehensive language coverage — including more than 800 languages and 100 written scripts. You can directly download the fonts from Google Font, or for web projects, link to the fonts via Mayflower Assets CDN
 
 <div className="sb-block borderless">
-	<h2>Characters<sup>*</sup></h2>
-  <Canvas withSource="none"><div className="font-specimen large">{characters}</div></Canvas>
-	<p>*Latin 1 Block, shown in light weight (350)</p>
+	<h2>Characters<small>*</small></h2>
+  <div lang="Latn" className="font-specimen large">{characters}</div>
+	<p>*Latin extra, shown in light weight (350)</p>
 </div>
-
-
-
 
 <div className="sb-block borderless reset-vspace">
 	<h2>Styles and Usage</h2>
@@ -102,24 +97,22 @@ The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, 
 ### Left-to-right
 
 ---
-
+<!-- @todo add support
 #### Armenian script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Armenian: </p>
 <p lang="hy" className="font-specimen">Բարի գալուստ Մասաչուսեթս</p>
 
 #### Chinese, simplified script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Chinese: </p>
 <p lang="zh-Hans" className="font-specimen">欢迎来到马萨诸塞州</p>
 
 #### Chinese, traditional script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Chinese: </p>
 <p lang="yue-Hant" className="font-specimen">歡迎來到馬薩諸塞州</p>
+-->
 
 #### Cyrillic script
 
@@ -134,45 +127,44 @@ The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, 
 <p className="lang-label">Greek: </p>
 <p lang="gr" className="font-specimen">Καλώς ήλθατε στη Μασαχουσέτη</p>
 
+<!-- @todo add support
 #### Gujarati script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Gujarati: </p>
 <p className="font-specimen" lang="gu">મેસેચ્યુસેટ્સમાં</p>
 
 #### Devanagari script
 
-<!-- @todo investigate why Noto font is not rendereing here -->
 <p className="lang-label">Hindi: </p>
 <p lang="hi" className="font-specimen">मैसाचुसेट्स में आपका स्वागत है</p>
 
 #### Hiragana script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Japanese: </p>
 <p lang="jp" className="font-specimen">マサチューセッツへようこそ</p>
+-->
 
 #### Khmer script
 
 <p className="lang-label">Khmer: </p>
 <p lang="km" className="font-specimen">សូមស្វាគមន៍មកកាន់ម៉ាសាឈូសេត</p>
 
+<!-- @todo add support
 #### Hangul script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Korean: </p>
 <p lang="ko" className="font-specimen">매사추세츠에 오신 것을 환영합니다</p>
 
 #### Lao script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Lao: </p>
 <p lang="lo" className="font-specimen">ຍິນດີຕ້ອນຮັບສູ່ Massachusetts</p>
+-->
 
 #### Latin script
 
 <p className="lang-label">English: </p>
-<p lang="Latn" className="font-specimen">Welcome to Massachusetts</p>
+<p lang="en" className="font-specimen">Welcome to Massachusetts</p>
 
 <p className="lang-label">Filipino: </p>
 <p lang="tl" className="font-specimen">Maligayang pagdating sa Massachusetts</p>
@@ -204,9 +196,14 @@ The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, 
 <p className="lang-label">Vietnamese: </p>
 <p lang="vi" className="font-specimen">Chào mừng đến với Massachusetts</p>
 
+#### Myanmar script
+
+<p className="lang-label">Myanmar: </p>
+<p lang="Mymr" className="font-specimen">လူတိုင်းသည် တူညီ လွတ်လပ်သော ဂုဏ်သိက္ခာ</p>
+
+<!-- @todo add support
 #### Malayalam script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Malayalam: </p>
 <p lang="ml" className="font-specimen">മസാച്ചുസെറ്റ്സിലേക്ക് സ്വാഗതം</p>
 
@@ -224,6 +221,7 @@ The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, 
 
 <p className="lang-label">Thai: </p>
 <p lang="Thai" className="font-specimen">ยินดีต้อนรับสู่แมสซาชูเซตส์</p>
+-->
 
 ### Right-to-Left
 
