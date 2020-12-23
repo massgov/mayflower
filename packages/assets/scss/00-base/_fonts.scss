@@ -37,15 +37,25 @@
   font-display: $fonts-display-global;
 }
 
-/*@font-face {
+@font-face {
 	font-family: 'Noto Sans Mono';
-	src:  url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-subset.eot?#iefix') format('embedded-opentype'),
-				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-subset.woff') format('woff'),
-				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-subset.woff2') format('woff2');
-	font-weight: 100 900;
+	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-subset.eot?#iefix') format('embedded-opentype'),*/
+				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff') format('woff'),
+				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff2') format('woff2');
+	font-weight: $fonts-normal;
 	font-style: normal;
 	font-display: $fonts-display-global;
-}*/
+}
+
+@font-face {
+	font-family: 'Noto Sans Mono';
+	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-subset.eot?#iefix') format('embedded-opentype'),*/
+				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff') format('woff'),
+				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff2') format('woff2');
+	font-weight: $fonts-bold;
+	font-style: normal;
+	font-display: $fonts-display-global;
+}
 
 @supports ( font-variation-settings: normal ) {
 
@@ -171,13 +181,13 @@
     @include ma-font-face(Noto, Sans, Arabic, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$arabic, null, null);
   }
 	// Cyrillic bold
-	/*@font-face {
+	@font-face {
 		@include ma-font-face(Noto, Sans, Cyrillic, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$cyrillic, null, null);
 	}
 	// Cyrillic regular
 	@font-face {
 		@include ma-font-face(Noto, Sans, Cyrillic, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$cyrillic, null, null);
-	}*/
+	}
 	// Devanagari bold
 	@font-face {
 		@include ma-font-face(Noto, Sans, Devanagari, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$devanagari, null, null);
@@ -186,14 +196,14 @@
 	@font-face {
 		@include ma-font-face(Noto, Sans, Devanagari, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$devanagari, null, null);
 	}
-	/* // Greek bold
+	// Greek bold
 	@font-face {
 		@include ma-font-face(Noto, Sans, Greek, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$greek, null, null);
 	}
 	// Greek regular
 	@font-face {
 		@include ma-font-face(Noto, Sans, Greek, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$greek, null, null);
-	}*/
+	}
 	// Gujarati bold
 	@font-face {
 		@include ma-font-face(Noto, Sans, Gujarati, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$gujarati, null, null);
@@ -218,7 +228,6 @@
   @font-face {
     @include ma-font-face(Noto, Sans, Khmer, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$khmer, null, null);
   }
-	/* needs woff2
 	// Malayalam bold
 	@font-face {
 		@include ma-font-face(Noto, Sans, Malayalam, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$malayalam, null, null);
@@ -226,11 +235,11 @@
 	// Malayalam regular
   @font-face {
     @include ma-font-face(Noto, Sans, Malayalam, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$malayalam, null, null);
-  }*/
+  }
   // Myanmar bold
-  /*@font-face {
+  @font-face {
     @include ma-font-face(Noto, Sans, Myanmar, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$myanmar, null, null);
-  }*/
+  }
 	// Myanmar regular
   @font-face {
     @include ma-font-face(Noto, Sans, Myanmar, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$myanmar, null, null);
