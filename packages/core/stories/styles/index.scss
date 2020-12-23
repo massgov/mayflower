@@ -5,7 +5,7 @@
 
 @use "00-base/configure" as *;
 
-// @use '~@massds/mayflower-assets/scss/00-base/fonts';
+@use '~@massds/mayflower-assets/scss/00-base/fonts';
 @use './bootstrap-grid';
 
 @use '~@massds/mayflower-assets/scss/00-base/elements';
@@ -13,7 +13,7 @@
 @use '@massds/mayflower-react/dist/SectionLinks';
 
 @use '@massds/mayflower-assets/scss/01-atoms/button-copy';
-// @use '@massds/mayflower-react/dist/Typography';
+@use '@massds/mayflower-react/dist/Typography';
 
 @use '@massds/mayflower-react/dist/Button';
 @use '@massds/mayflower-assets/scss/01-atoms/button-with-icon';
