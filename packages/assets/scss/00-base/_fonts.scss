@@ -143,6 +143,18 @@
     @font-face {
       @include ma-font-face(Noto, Sans, Myanmar, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$myanmar, null, null);
     }
+		// Tamil VF
+    @font-face {
+      @include ma-font-face(Noto, Sans, Tamil, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$tamil, null, null);
+    }
+		// Telugu VF
+    @font-face {
+      @include ma-font-face(Noto, Sans, Telugu, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$telugu, null, null);
+    }
+		// Thai VF
+    @font-face {
+      @include ma-font-face(Noto, Sans, Thai, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$thai, null, null);
+    }
   }
 
 	// All non-variable fonts
@@ -248,4 +260,16 @@ html {
   * {
     @include ma-langlist(langs.$myanmar-sans, null, langs.$langs-Mymr);
   }
+	// Tamil
+  * {
+    @include ma-langlist(langs.$tamil-sans, null, langs.$langs-Taml);
+  }
+	// Telugu
+  * {
+    @include ma-langlist(langs.$telugu-sans, null, langs.$langs-Telu);
+  }
+	// Thai
+	* {
+		@include ma-langlist(langs.$thai-sans, null, langs.$langs-Thai);
+	}
 }
