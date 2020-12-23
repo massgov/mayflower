@@ -119,6 +119,10 @@
 		@font-face {
 			@include ma-font-face(Noto, Sans, Cyrillic, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$cyrillic, null, null);
 		}
+		// Devanagari VF
+		@font-face {
+			@include ma-font-face(Noto, Sans, Devanagari, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$devanagari, null, null);
+		}
 		// Greek VF
 		@font-face {
 			@include ma-font-face(Noto, Sans, Greek, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$greek, null, null);
@@ -173,15 +177,31 @@
 	// Cyrillic regular
 	@font-face {
 		@include ma-font-face(Noto, Sans, Cyrillic, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$cyrillic, null, null);
+	}*/
+	// Devanagari bold
+	@font-face {
+		@include ma-font-face(Noto, Sans, Devanagari, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$devanagari, null, null);
 	}
-	// Greek bold
+	// Devanagari regular
+	@font-face {
+		@include ma-font-face(Noto, Sans, Devanagari, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$devanagari, null, null);
+	}
+	/* // Greek bold
 	@font-face {
 		@include ma-font-face(Noto, Sans, Greek, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$greek, null, null);
 	}
-	// Cyrillic regular
+	// Greek regular
 	@font-face {
 		@include ma-font-face(Noto, Sans, Greek, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$greek, null, null);
 	}*/
+	// Gujarati bold
+	@font-face {
+		@include ma-font-face(Noto, Sans, Gujarati, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$gujarati, null, null);
+	}
+	// Gujarati regular
+	@font-face {
+		@include ma-font-face(Noto, Sans, Gujarati, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$gujarati, null, null);
+	}
   // Hebrew bold
   @font-face {
     @include ma-font-face(Noto, Sans, Hebrew, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$hebrew, null, null);
@@ -198,6 +218,15 @@
   @font-face {
     @include ma-font-face(Noto, Sans, Khmer, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$khmer, null, null);
   }
+	/* needs woff2
+	// Malayalam bold
+	@font-face {
+		@include ma-font-face(Noto, Sans, Malayalam, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$malayalam, null, null);
+	}
+	// Malayalam regular
+  @font-face {
+    @include ma-font-face(Noto, Sans, Malayalam, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$malayalam, null, null);
+  }*/
   // Myanmar bold
   /*@font-face {
     @include ma-font-face(Noto, Sans, Myanmar, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$myanmar, null, null);
@@ -206,6 +235,30 @@
   @font-face {
     @include ma-font-face(Noto, Sans, Myanmar, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$myanmar, null, null);
   }
+	// Tamil bold
+	@font-face {
+		@include ma-font-face(Noto, Sans, Tamil, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$tamil, null, null);
+	}
+	// Tamil regular
+	@font-face {
+		@include ma-font-face(Noto, Sans, Tamil, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$tamil, null, null);
+	}
+	// Telugu bold
+	@font-face {
+		@include ma-font-face(Noto, Sans, Telugu, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$telugu, null, null);
+	}
+	// Telugu regular
+	@font-face {
+		@include ma-font-face(Noto, Sans, Telugu, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$telugu, null, null);
+	}
+	// Thai bold
+	@font-face {
+		@include ma-font-face(Noto, Sans, Thai, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$thai, null, null);
+	}
+	// Thai regular
+	@font-face {
+		@include ma-font-face(Noto, Sans, Thai, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$thai, null, null);
+	}
 }
 
 
@@ -231,6 +284,10 @@ html {
 	// Cyrillic
 	* {
     @include ma-langlist(langs.$cyrillic-sans, null, langs.$langs-Cyrl);
+  }
+	// Devanagari (Hindi)
+	* {
+    @include ma-langlist(langs.$devanagari-sans, null, langs.$langs-Deva);
   }
 	// Greek
 	* {
