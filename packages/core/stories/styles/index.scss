@@ -1,5 +1,3 @@
-
-
 @forward "00-base/configure" with (
   $assets-path: "~@massds/mayflower-assets/static" !default,
   $fonts-enable-rtl: true !default,
@@ -7,17 +5,15 @@
 
 @use "00-base/configure" as *;
 
+// @use '~@massds/mayflower-assets/scss/00-base/fonts';
 @use './bootstrap-grid';
-@use './markdown';
-
-@use '~@massds/mayflower-assets/scss/00-base/fonts';
 
 @use '~@massds/mayflower-assets/scss/00-base/elements';
 
 @use '@massds/mayflower-react/dist/SectionLinks';
 
 @use '@massds/mayflower-assets/scss/01-atoms/button-copy';
-@use '@massds/mayflower-react/dist/Typography';
+// @use '@massds/mayflower-react/dist/Typography';
 
 @use '@massds/mayflower-react/dist/Button';
 @use '@massds/mayflower-assets/scss/01-atoms/button-with-icon';
@@ -61,6 +57,16 @@
 @use '@massds/mayflower-assets/scss/01-atoms/place-holder';
 
 // Global
+hr {
+	margin: 2rem 0;
+}
+
+// Tables
+table,
+table.sbdocs.sbdocs-table {
+  min-width: 100%;
+}
+
 .sp {
   &--top {
     margin-top: 2rem;
@@ -68,6 +74,10 @@
   &--bottom {
     margin-bottom: 2rem;
   }
+}
+
+small {
+	font-size: .9rem;
 }
 
 .sb-block.borderless {
@@ -101,11 +111,10 @@ ul.sg-colors {
   padding: 0;
 }
 
-// Logo story
+// Button story
 .ma__row {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
   & > *:not(:first-child) {
     margin-left: 1rem;
   }
@@ -162,9 +171,8 @@ p.lang-label {
 	padding: 0 1rem;
 }
 
-.reset-vspace > * {
+.reset-vspace * {
 	line-height: 1.5;
 	margin-block-start: 0;
   margin-block-end: 0;
-  margin: 0 !important;
 }
