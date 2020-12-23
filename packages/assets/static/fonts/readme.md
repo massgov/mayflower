@@ -155,37 +155,37 @@ pyftsubset\
   --output-file="NotoSansHebrew-Regular-subset.woff" \
   --flavor=woff \
   --layout-features="curs,mset,rclt,rlig,isol,init,medi,fina,valt,vhal,vpal,vert,vrt2,vrtr,vkrn,ltra,ltrm,rtla,rtlm" \
-  --unicodes="U+0590-05" &&
+  --unicodes="U+0590-05FF, U+FB1D-FB4F" &&
 pyftsubset\
   NotoSansHebrew-Bold.ttf \
   --output-file="NotoSansHebrew-Bold-subset.woff" \
   --flavor=woff \
   --layout-features="curs,mset,rclt,rlig,isol,init,medi,fina,valt,vhal,vpal,vert,vrt2,vrtr,vkrn,ltra,ltrm,rtla,rtlm" \
-  --unicodes="U+0590-05" &&
+  --unicodes="U+0590-05FF, U+FB1D-FB4F" &&
 pyftsubset\
   NotoSansHebrew-VF.ttf \
   --output-file="NotoSansHebrew-VF-subset.woff" \
   --flavor=woff \
   --layout-features="curs,mset,rclt,rlig,isol,init,medi,fina,valt,vhal,vpal,vert,vrt2,vrtr,vkrn,ltra,ltrm,rtla,rtlm" \
-  --unicodes="U+0590-05" &&
+  --unicodes="U+0590-05FF, U+FB1D-FB4F" &&
 pyftsubset\
   NotoSansHebrew-Regular.ttf \
   --output-file="NotoSansHebrew-Regular-subset.woff2" \
   --flavor=woff2 \
   --layout-features="curs,mset,rclt,rlig,isol,init,medi,fina,valt,vhal,vpal,vert,vrt2,vrtr,vkrn,ltra,ltrm,rtla,rtlm" \
-  --unicodes="U+0590-05" &&
+  --unicodes="U+0590-05FF, U+FB1D-FB4F" &&
 pyftsubset\
   NotoSansHebrew-Bold.ttf \
   --output-file="NotoSansHebrew-Bold-subset.woff2" \
   --flavor=woff2 \
   --layout-features="curs,mset,rclt,rlig,isol,init,medi,fina,valt,vhal,vpal,vert,vrt2,vrtr,vkrn,ltra,ltrm,rtla,rtlm" \
-  --unicodes="U+0590-05" &&
+  --unicodes="U+0590-05FF, U+FB1D-FB4F" &&
 pyftsubset\
   NotoSansHebrew-VF.ttf \
   --output-file="NotoSansHebrew-VF-subset.woff2" \
   --flavor=woff2 \
   --layout-features="curs,mset,rclt,rlig,isol,init,medi,fina,valt,vhal,vpal,vert,vrt2,vrtr,vkrn,ltra,ltrm,rtla,rtlm" \
-  --unicodes="U+0590-05"
+  --unicodes="U+0590-05FF, U+FB1D-FB4F"
 ```
 
 ### Khmer
@@ -338,6 +338,8 @@ pyftsubset\
 ```
 
 ### Mono (Latin)
+
+Todo: make non-variable versions, re-create eot with new unicodes below
 
 ```
 pyftsubset\
