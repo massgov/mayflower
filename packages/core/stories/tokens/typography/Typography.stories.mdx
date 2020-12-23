@@ -44,9 +44,9 @@ Using these fonts for your print and digital assets is a subtle but compelling w
 > Noto Sans is an open source typeface jointly designed and developed by Google and Monotype. It has the most comprehensive language coverage — including more than 800 languages and 100 written scripts. You can directly download the fonts from Google Font, or for web projects, link to the fonts via Mayflower Assets CDN
 
 <div className="sb-block borderless">
-	<h2>Characters<small>*</small></h2>
+	<h2>Characters</h2>
   <div lang="Latn" className="font-specimen large">{characters}</div>
-	<p>*Latin extra, shown in light weight (350)</p>
+	<p>All Latin characters, shown in light weight (350)</p>
 </div>
 
 <div className="sb-block borderless reset-vspace">
@@ -62,9 +62,7 @@ Using these fonts for your print and digital assets is a subtle but compelling w
 
 ### CSS weight classes
 
-<p>Mayflower uses 5 custom weights of Noto Sans: <br /><strong>Lighter</strong> (250); <strong>Light</strong>, (350); <strong>Normal</strong>, (400); <strong>Bold</strong>, (550); and <strong>Bolder</strong>, (650).</p>
-
-<p>Use the following classes to style text with those weights:</p>
+Mayflower uses 5 custom weights of Noto Sans: **Lighter** (250); **Light**, (350); **Normal**, (400); **Bold**, (550); and **Bolder**, (650). Use the following classes to style text with those weights:
 
 <div className="sb-block borderless sb-grid">
   {
@@ -85,16 +83,24 @@ Using these fonts for your print and digital assets is a subtle but compelling w
   }
 </div>
 
-## Languages by Script
+## Language support
 
-The following languages are officially supported by [Mass.gov](https://www.mass.gov). If your project needs to support an addtional language, please [submit a feature request](https://github.com/massgov/mayflower/issues/new/choose) on Github.
+The following languages are officially supported by [Mass.gov](https://www.mass.gov):
+
+Arabic, Armenian, Chinese (Simplified), Filipino, French, German, Greek, Gujarati, Haitian Creole, Hebrew, Hindi, Italian, Japanese, Khmer, Korean, Lao, Malayalam, Persian, Polish, Portuguese, Russian, Spanish, Tamil, Telugu, Thai, Ukrainian, Urdu, and Vietnamese.
+
+The foolowing do not yet have webfont support: Chinese (Simplified), Gujarati, Hindi, Japanese, Korean, Lao, Malayalam, Tamil, Telugu, Thai.
+
+If your project needs to support an addtional language, please [submit a feature request](https://github.com/massgov/mayflower/issues/new/choose) on Github.
 
 <!--
 @todo look into font rendering issues below.
 The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, Arabic and  Hebrew.
 -->
 
-### Left-to-right
+### Languages by script
+
+#### Left-to-right
 
 ---
 <!-- @todo add support
@@ -223,7 +229,7 @@ The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, 
 <p lang="Thai" className="font-specimen">ยินดีต้อนรับสู่แมสซาชูเซตส์</p>
 -->
 
-### Right-to-Left
+#### Right-to-Left
 
 ---
 
