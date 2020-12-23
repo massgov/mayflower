@@ -21,8 +21,8 @@
 @font-face {
   font-family: 'Noto Sans';
   src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.woff2') format('woff2'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.woff') format('woff');
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.woff') format('woff'),
+				url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular.woff2') format('woff2');
   font-style: normal;
   font-display: $fonts-display-global;
 }
