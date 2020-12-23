@@ -111,6 +111,10 @@
 		@font-face {
       @include ma-font-face(Noto, Sans, Arabic, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$arabic, null, null);
     }
+		// Armeneian VF
+		@font-face {
+      @include ma-font-face(Noto, Sans, Armenian, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$armenian, null, null);
+    }
 		// Cyrillic VF
 		@font-face {
 			@include ma-font-face(Noto, Sans, Cyrillic, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$cyrillic, null, null);
@@ -126,6 +130,10 @@
 		// Khmer VF
 		@font-face {
 			@include ma-font-face(Noto, Sans, Khmer, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$khmer, null, null);
+		}
+		// Lao VF
+		@font-face {
+			@include ma-font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$lao, null, null);
 		}
 		// Malayalam VF
     @font-face {
@@ -200,9 +208,13 @@ html {
 // Set language support fonts (conditionally)
 
 @if $fonts-langs-support {
-	// arabic
+	// Arabic
   * {
     @include ma-langlist(langs.$arabic-sans, rtl, langs.$langs-Arab);
+  }
+	// Armenian
+  * {
+    @include ma-langlist(langs.$armenian-sans, null, langs.$langs-Armn);
   }
 	// Cyrillic
 	* {
@@ -219,6 +231,10 @@ html {
 	// Khmer
   * {
     @include ma-langlist(langs.$khmer-sans, null, langs.$langs-Khmr);
+  }
+	// Lao
+  * {
+    @include ma-langlist(langs.$lao-sans, null, langs.$langs-Lao);
   }
 	// Latin (non-english)
   * {

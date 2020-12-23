@@ -31,7 +31,7 @@ $japanese:				U+A5, U+4E00-9FFF, U+30??, U+FF00-FF9F; // Kanji, Hiragana, Kataka
 $kannada:					U+0C80-0CFF;
 $kayah:						U+A900-A92F;
 $khmer:						U+1780-17FF, U+19E0-19FF; // Khmer and symbols
-$lao:							U+0E80-0EFF;
+$lao:							U+????; // U+0E80-0EFF;
 $latin:						U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D; // Basic latin block plus ligatures single and double quotes
 $limbu:						U+1900-194F;
 $lisu:						U+A4D0-A4FF;
@@ -208,6 +208,7 @@ $limbu-sans:						'Noto Sans Limbu';								// Static + VF
 $lisu-sans:							'Noto Sans Lisu';									// Static + VF
 $malayalam-sans:				'Noto Sans Malayalam';						// Static + VF
 $mongolian-sans:				'';																// None
+$malayalam-sans:				'Noto Sans Malayalam';							// Static + VF
 $myanmar-sans:					'Noto Sans Myanmar';							// Static + VF
 $nko-sans:							'Noto Sans NKo';									// Static
 $oriya-sans:						'Noto Sans Oriya';								// Static + VF
