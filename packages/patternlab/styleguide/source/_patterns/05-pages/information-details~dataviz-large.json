@@ -81,7 +81,7 @@
               "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>",
               "skiplink": {
                 "add": true,
-                "text": "Dataviz sample 1"
+                "text": ""
               }
             }
           }
@@ -143,7 +143,7 @@
               "caption": "<b>I am caption.</b> Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.",
               "skiplink": {
                 "add": true,
-                "text": "Dataviz sample 3"
+                "text": ""
               }
             }
           }

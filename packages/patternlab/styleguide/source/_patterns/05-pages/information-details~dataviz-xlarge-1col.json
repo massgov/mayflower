@@ -82,7 +82,7 @@
               "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>",
               "skiplink": {
                 "add": true,
-                "text": "Dataviz sample 1"
+                "text": ""
               }
             }
           }
@@ -200,7 +200,7 @@
         }
       },
       {
-      "path": "@atoms/09-media/figyre--iframe.twig",
+      "path": "@atoms/09-media/figure--iframe.twig",
         "data": {
          "iframe": {
             "src": "https://massgov.github.io",
@@ -212,7 +212,7 @@
             "caption": "This is an optional caption for an iframe. This iframe also has the 'full' class to fill the container.",
             "skiplink": {
               "add": true,
-              "text": "Dataviz sample 2"
+              "text": ""
             }
           }
         }

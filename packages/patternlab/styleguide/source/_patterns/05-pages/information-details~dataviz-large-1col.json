@@ -84,7 +84,7 @@
               "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>",
               "skiplink": {
                 "add": true,
-                "text": "Dataviz sample 1"
+                "text": ""
               }
             }
           }
@@ -146,7 +146,7 @@
               "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>",
               "skiplink": {
                 "add": true,
-                "text": "Dataviz sample 3"
+                "text": ""
               }
             }
           }

@@ -82,7 +82,7 @@
               "caption": "<b>I am caption.</b> Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.",
               "skiplink": {
                 "add": true,
-                "text": "Dataviz sample 1"
+                "text": ""
               }
             }
           }
@@ -230,7 +230,6 @@
         "data": {
          "iframe": {
             "src": "https://massgov.github.io",
-            "title": "Embed page title for accessibility",
             "position": "full",
             "height": "200",
             "title": {
