@@ -75,7 +75,15 @@
                 "id": "",
                 "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
               },
-              "caption": "<b>I am caption.</b> Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+              "title": {
+                "text": "This is an option data visualization title",
+                "visible": false
+              },
+              "caption": "<b>I am caption.</b> Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.",
+              "skiplink": {
+                "add": true,
+                "text": "Dataviz sample 1"
+              }
             }
           }
         },
@@ -192,13 +200,20 @@
         }
       },
       {
-      "path": "@atoms/09-media/iframe.twig",
+      "path": "@atoms/09-media/figure--iframe.twig",
         "data": {
          "iframe": {
             "src": "https://massgov.github.io",
-            "title": "Embed page title for accessibility",
             "position": "full",
-            "caption": "This is an optional caption for an iframe. This iframe also has the 'full' class to fill the container."
+            "title": {
+              "text": "Embed page title for accessibility",
+              "visible": false
+            },
+            "caption": "This is an optional caption for an iframe. This iframe also has the 'full' class to fill the container.",
+            "skiplink": {
+              "add": false,
+              "text": ""
+            }
           }
         }
       },
@@ -218,7 +233,15 @@
             "title": "Embed page title for accessibility",
             "position": "full",
             "height": "200",
-            "caption": "This iframe has a set height of 200."
+            "title": {
+              "text": "Embed page title for accessibility",
+              "visible": false
+            },
+            "caption": "This iframe has a set height of 200.",
+            "skiplink": {
+              "add": false,
+              "text": ""
+            }
           }
         }
       }
