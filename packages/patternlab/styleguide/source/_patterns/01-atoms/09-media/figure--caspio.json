@@ -13,7 +13,7 @@
     "ariaLive": "polite",
     "skiplink": {
       "add": true,
-      "text": "content"
+      "text": ""
     }
   }
 }
