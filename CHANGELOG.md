@@ -1,6 +1,24 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.0.0 (12/21/2020)
+### Added 
+- (Core) [All] DP-19530: Added the new MVP core storybook documentation site. (#1271)
+- (React) [HeaderHamburger, HamburgerNav, HeaderNav, NavContainer] DP-20321: Addded HeaderHamburger, HamburgerNav, HeaderNav, NavContainer react components. (#1282)
+- (React) [useEventListener, useScript, useWindowWidth] DP-20321: Addded react hooks useEventListener, useScript, useWindowWidth. (#1282)
+- (Patternlab) [Figure] DP-20659: Set up a template for Caspio as a figure variation template. (#1298)
+
+### Changed 
+- (Assets) [Header] DP-20321: Refactored header.scss build assets to use header mixed styles. (#1282)
+- (Assets) [03-organisms/_header-hamburger.scss] DP-20321: Modified menu-overlay to work with top set to zero. Updated ma__header__hamburger__nav z-index. (#1282)
+- (React) [Header] DP-20321: Refactored Header to support the full functionality of Header Mixed from patternlab. (#1282)
+- (Patternlab) [Figure] DP-20659: Adjust the optional title and its visibility in all figure variation templates. (#1298)
+
+### Fixed 
+- (React, Patternlab, Assets) [FooterLinks] Sync FooterLinks markup between React and Patternlab, consolidate styles in assets. (#1317)
+- (React) [Dependencies] Downgrade react storybook addon versions to fix `.mdx` markdown styling. (#1316)
+- (Assets) [Fonts] Fix Noto Sans loading on IE. (#1311)
+
 ## 10.4.1 (12/15/2020)
 ### Fixed
 - (Assets) [Fonts] DP-20682: Significantly reduced Noto Sans Latin variable font `.woff` file sizes, from ~900k to ~60k. (#1302)

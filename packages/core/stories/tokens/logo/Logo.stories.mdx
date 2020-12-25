@@ -1,0 +1,129 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
+import IconDownload from '@massds/mayflower-react/dist/Icon/IconDownload';
+import { ColorSwatch } from '../colors/ColorDisplay';
+import * as stories from './Logo.stories.js';
+
+import generateTitle from '../../util/generateTitle';
+const { STORYBOOK_CDN_PATH } = process.env;
+
+<Meta
+  title={generateTitle('Logo')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# The Great Seal
+
+<Canvas withSource="none" withToolbar>
+  <Story story={stories.sealExample} />
+  <Story story={stories.sealColorExample} />
+</Canvas>
+
+The Great Seal of Massachusetts is in the custody of the [Office of the Secretary of the Commonwealth](http://www.sec.state.ma.us), who is the authority on how and when to use it. These guidelines are subject to their review and approval and will be updated as needed.
+
+According the [public records on the Massachusetts state seal](https://www.sec.state.ma.us/pre/presea/sealhis.htm):
+>The great seal of the Commonwealth shall be circular in form, and shall bear upon its face a representation of the arms of the Commonwealth, with an inscription round about such representation, consisting of the words "Sigillum Reipublicae Massachusettensis";
+> The arms, which form the central part of the Great Seal shall consist of a shield, whereof the field or surface is blue, and thereon an Indian dressed in his shirt and moccasins, holding in his right hand a bow, and in his left hand an arrow, point downward, all of gold; and in the upper corner above his right arm, a silver star with five points. The crest shall be a wreath of blue and gold, whereon is a right arm, bent at the elbow, and clothed and ruffled, the hand grasping a broadsword, all of gold. The motto shall be "Ense petit placidam sub libertate quietem."
+
+<br />
+
+## Restrictions
+
+The Great Seal should ***only*** be used for official communications to signify that the communication is from an official department of the Commonwealth. It should ***not*** be used for personal or private materials outside of the jurisdiction of your office, department, or agency, including in contractor, vendor, or third-party communications. By law, it ***cannot*** be used for advertising or commercial purposes. Contact the Public Records Division at [617-727-2832](tel:6177272832) with any questions regarding appropriate uses.
+
+The Great Seal should ***never*** be defaced, altered, skewed, or modified in any way. Please download the approved seal images below or request them directly from  from Office of the Secretary of the Commonwealth.
+
+<br />
+
+## Variations
+
+<div className="ma__row">
+	<h3>Full color</h3>
+  <ColorSwatch value="#00649b" width={20} height={20} copiable={false} inline />
+  <ColorSwatch value="#fdb827" width={20} height={20} copiable={false} inline />
+  <ColorSwatch value="#ffffff" width={20} height={20} copiable={false} inline />
+</div>
+
+This is the primary color use of the Great Seal. Specific parts of the Great Seal are in gold, over a blue shield encapsulated in a blue circular rim, all resting on a white inner-background. The full-color seal can be used on all backgrounds.
+
+<Canvas withSource="none">
+  <Story story={stories.sealColor} />
+  <Story story={stories.sealColorBGLight} />
+  <Story story={stories.sealColorBGDark} />
+	<ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalizedhref={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.png`} download />
+</Canvas>
+
+### Single-color variations
+
+Mochromatic variations of the Great Seal are black, white, and gray. These files have transparent backgrounds, and may be used in areas where a background color will 'show through' the icon, provided there is sufficiant contrast.
+
+<div className="ma__row">
+	<strong>Black</strong>
+  <ColorSwatch value="#000000" width={20} height={20} copiable={false} inline />
+</div>
+
+The black variation should be used on a background that is solid white, or a tint of 90% (the lightest variant) of any brand color.
+
+<Canvas withSource="none">
+  <Story story={stories.sealBlack} />
+  <Story story={stories.sealBlackBGLight} />
+  <Story story={stories.sealBlackBGLight1} />
+	<ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalizedhref={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-black.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-black.png`} download />
+</Canvas>
+
+<div className="ma__row">
+	<strong>White</strong>
+  <ColorSwatch value="#FFFFFF" width={20} height={20} copiable={false} inline />
+</div>
+
+The white variation should be used on a background that is a solid brand color, or a shade of any brand color (with the exception of Ducking Yellow).
+
+<Canvas withSource="none">
+  <Story story={stories.sealWhiteBGDark} />
+  <Story story={stories.sealWhiteBGDark1} />
+  <Story story={stories.sealWhiteBGDark2} />
+	<ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-white.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-white.png`} download />
+</Canvas>
+
+<div className="ma__row">
+	<strong>Gray</strong>
+  <ColorSwatch value="#777777" width={20} height={20} copiable={false} inline />
+</div>
+
+The gray variation should be used only on a background that is solid white, or a tint of 90% (the lightest variant) of any brand color.
+
+<Canvas withSource="none">
+  <Story story={stories.seal} />
+  <Story story={stories.sealBGLight} />
+  <Story story={stories.sealBGLight1} />
+	<ButtonWithIcon text="SVG" icon={<IconDownload />} usage="secondary" size="small" capitalizedhref={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.svg`} download />
+  <ButtonWithIcon text="PNG (200 x 200 px)" icon={<IconDownload />} usage="secondary" size="small" capitalized href={`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.png`} download />
+</Canvas>
+
+<br />
+
+## Accessibility & Best Practices
+
+### Sizing
+
+The state seal must remain proportionate (equal in width and height) and legible relative to its size. It should also not be very large since its use is as an identifier and not a hero image.
+
+| Medium |  Recommended Size | Minimum size | Maximum size |
+|---|---|---|---|
+| **Print (in)** | 1 x 1 | 1 x 1 | 2 x 2 |
+| **Digital (px)** | 45 x 45 | 45 x 45 | 200 x 200 |
+
+<p>
+	<small>
+		<em>*The Great Seal may only be used at less than the minimum size for a website favicon.</em>
+	</small>
+</p>
+
+### Clear space
+
+The Great Seal should never collide or intersect with other images graphics or text. The minimum space around a standalone seal should be 25% of its width, or roughly the width of the shield in the center of the seal.

@@ -13,11 +13,27 @@
   "commands": [
     {
       "commandKind": "global",
+      "name": "build:assets",
+      "summary": "Runs 'rushx build' for the assets package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/assets && rushx build"
+    },
+    {
+      "commandKind": "global",
       "name": "start:react",
       "summary": "Runs 'rushx start' for the react package.",
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/react && rushx start"
+    },
+    {
+      "commandKind": "global",
+      "name": "build:react",
+      "summary": "Runs 'rushx build' for the react package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/react && rushx build"
     },
     {
       "commandKind": "global",
@@ -34,6 +50,22 @@
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/site && rushx start"
+    },
+    {
+      "commandKind": "global",
+      "name": "start:core",
+      "summary": "Runs 'rushx start' for the core storybook site package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/core && rushx start"
+    },
+    {
+      "commandKind": "global",
+      "name": "build:core",
+      "summary": "Runs 'rushx build' for the core storybook site package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/core && rushx build"
     },
     {
       "commandKind": "global",

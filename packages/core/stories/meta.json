@@ -1,0 +1,74 @@
+{
+  "Introduction": {
+    "kind": "Overview",
+    "story": "Introduction"
+  },
+  "Examples": {
+    "kind": "Overview",
+    "story": "Examples"
+  },
+	"Usage": {
+    "kind": "Overview",
+    "story": "Get Started"
+  },
+  "BrandPillars": {
+    "kind": "Principles",
+    "story": "Brand Pillars"
+  },
+  "Accessibility": {
+    "kind": "Principles",
+    "story": "Accessibility"
+  },
+	"Resources": {
+		"kind": "Principles",
+		"story": "Resources"
+	},
+  "Colors": {
+    "kind": "Foundation",
+    "story": "Color"
+  },
+  "Icon": {
+    "kind": "Foundation",
+    "story": "Iconography"
+  },
+  "Logo": {
+    "kind": "Foundation",
+    "story": "Logo"
+  },
+  "Typography": {
+    "kind": "Foundation",
+    "story": "Typography"
+  },
+  "Button": {
+    "kind": "Elements",
+    "story": "Buttons"
+  },
+  "Heading": {
+    "kind": "Elements",
+    "story": "Heading"
+  },
+  "Link": {
+    "kind": "Elements",
+    "story": "Link"
+  },
+  "Headings": {
+    "kind": "Elements",
+    "story": "Headings"
+  },
+  "Links": {
+    "kind": "Elements",
+    "story": "Links"
+  },
+  "Header": {
+    "kind": "Components",
+    "story": "Header"
+  },
+  "Footer": {
+    "kind": "Components",
+    "story": "Footer"
+  },
+  "Template": {
+    "kind": "Components",
+    "story": "Template"
+  }
+}

@@ -1,0 +1,245 @@
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import DecorativeLink from '@massds/mayflower-react/dist/DecorativeLink';
+import Heading from '@massds/mayflower-react/dist/Heading';
+import {
+  characters,
+  letters,
+  numbers,
+  numbersReverse,
+  styles,
+  headings
+} from './typography.json';
+const slugifyStyle = (style) => {
+  const [weight, italic] = style.split(' ');
+  return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
+};
+import generateTitle from '../../util/generateTitle';
+
+<Meta
+  title={generateTitle('Typography')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Typography
+
+<div className="sb-block borderless">
+
+## The typeface of Mayflower is **Noto Sans**
+
+<div className="sb-block borderless font-specimen large">{letters.toUpperCase()}<br />{letters}<br />{numbers}</div>
+
+### Noto Sans was chosen because it's...
+
+- **Accessible** and easy-to-read for users with all levels of language proficiency
+- **Free** and Open-source so agencies can produce print and digital design, without barriers
+- **Multilingual** to cover the languages our constituents speak and read
+- **Modern** and consistent with the principles of the Mass.gov brand
+
+Using these fonts for your print and digital assets is a subtle but compelling way to create a voice that is cohesive and unified with the rest of the Commonwealth digital ecosystem, and to ensure the text is accessible and easy to read.
+
+</div>
+
+> Noto Sans is an open source typeface jointly designed and developed by Google and Monotype. It has the most comprehensive language coverage — including more than 800 languages and 100 written scripts. You can directly download the fonts from Google Font, or for web projects, link to the fonts via Mayflower Assets CDN
+
+<div className="sb-block borderless">
+	<h2>Characters<small>*</small></h2>
+  <div className="font-specimen large">{characters}</div>
+	<p>*Latin 1 Block, shown in light weight (350)</p>
+</div>
+
+<div className="sb-block borderless reset-vspace">
+	<h2>Styles and Usage</h2>
+	<p>Noto Sans is used for all headings and body text. If your HTML is [semantic](https://developer.mozilla.org/en-US/docs/Glossary/Semantics) and uses tags that match the hierarchy of the content on a page, the Mayflower defaults will automatically style your headings with an appropriate amount of contrast.</p>
+  { Object.keys(headings).map((key, keyIndex) => (
+      (key === "Body text") ?
+      (<p>{key}</p>) :
+      (<Heading level={headings[key]} key={`element.key.${keyIndex}`} text={key} />)
+    )
+  )}
+</div>
+
+### CSS weight classes
+
+<p>Mayflower uses 5 custom weights of Noto Sans: <br /><strong>Lighter</strong> (250); <strong>Light</strong>, (350); <strong>Normal</strong>, (400); <strong>Bold</strong>, (550); and <strong>Bolder</strong>, (650).</p>
+
+<p>Use the following classes to style text with those weights:</p>
+
+<div className="sb-block borderless sb-grid">
+  {
+    styles.map((style, styleIndex) => {
+      const className = `ma-fonts-${slugifyStyle(style)}`;
+      return(
+        <React.Fragment key={`style.block.${styleIndex}`}>
+          <span><span>Weight: </span><span className={className}>{style}</span></span>
+					<span>
+							<span>CSS Class: </span>
+		          <span className="markdown-body">
+		            <code>{`.${className}`}</code>
+		          </span>
+					</span>
+        </React.Fragment>
+      );
+    })
+  }
+</div>
+
+## Languages by Script
+
+The following languages are officially supported by [Mass.gov](https://www.mass.gov). If your project needs to support an addtional language, please [submit a feature request](https://github.com/massgov/mayflower/issues/new/choose) on Github.
+
+<!--
+@todo look into font rendering issues below.
+The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, Arabic and  Hebrew.
+-->
+
+### Left-to-right
+
+---
+
+#### Armenian script
+
+<!-- @todo investigate why Note font is not rendereing here -->
+<p className="lang-label">Armenian: </p>
+<p lang="hy" className="font-specimen">Բարի գալուստ Մասաչուսեթս</p>
+
+#### Chinese, simplified script
+
+<!-- @todo investigate why Note font is not rendereing here -->
+<p className="lang-label">Chinese: </p>
+<p lang="zh-Hans" className="font-specimen">欢迎来到马萨诸塞州</p>
+
+#### Chinese, traditional script
+
+<!-- @todo investigate why Note font is not rendereing here -->
+<p className="lang-label">Chinese: </p>
+<p lang="yue-Hant" className="font-specimen">歡迎來到馬薩諸塞州</p>
+
+#### Cyrillic script
+
+<p className="lang-label">Russian: </p>
+<p lang="Cyrl" className="font-specimen">Добро пожаловать в Массачусетс</p>
+
+<p className="lang-label">Ukrainian: </p>
+<p lang="uk" className="font-specimen">Ласкаво просимо до Массачусетсу</p>
+
+#### Greek script
+
+<p className="lang-label">Greek: </p>
+<p lang="gr" className="font-specimen">Καλώς ήλθατε στη Μασαχουσέτη</p>
+
+#### Gujarati script
+
+<!-- @todo investigate why Note font is not rendereing here -->
+<p className="lang-label">Gujarati: </p>
+<p className="font-specimen" lang="gu">મેસેચ્યુસેટ્સમાં</p>
+
+#### Devanagari script
+
+<!-- @todo investigate why Noto font is not rendereing here -->
+<p className="lang-label">Hindi: </p>
+<p lang="hi" className="font-specimen">मैसाचुसेट्स में आपका स्वागत है</p>
+
+#### Hiragana script
+
+<!-- @todo investigate why Note font is not rendereing here -->
+<p className="lang-label">Japanese: </p>
+<p lang="jp" className="font-specimen">マサチューセッツへようこそ</p>
+
+#### Khmer script
+
+<p className="lang-label">Khmer: </p>
+<p lang="km" className="font-specimen">សូមស្វាគមន៍មកកាន់ម៉ាសាឈូសេត</p>
+
+#### Hangul script
+
+<!-- @todo investigate why Note font is not rendereing here -->
+<p className="lang-label">Korean: </p>
+<p lang="ko" className="font-specimen">매사추세츠에 오신 것을 환영합니다</p>
+
+#### Lao script
+
+<!-- @todo investigate why Note font is not rendereing here -->
+<p className="lang-label">Lao: </p>
+<p lang="lo" className="font-specimen">ຍິນດີຕ້ອນຮັບສູ່ Massachusetts</p>
+
+#### Latin script
+
+<p className="lang-label">English: </p>
+<p lang="Latn" className="font-specimen">Welcome to Massachusetts</p>
+
+<p className="lang-label">Filipino: </p>
+<p lang="tl" className="font-specimen">Maligayang pagdating sa Massachusetts</p>
+
+<p className="lang-label">French: </p>
+<p lang="fr" className="font-specimen">Bienvenue au Massachusetts</p>
+
+<p className="lang-label">German: </p>
+<p lang="de" className="font-specimen">Willkommen in Massachusetts</p>
+
+<p className="lang-label">Haitian Creole: </p>
+<p lang="hr" className="font-specimen">Byenveni nan Massachusetts</p>
+
+<p className="lang-label">Arabic: </p>
+<p lang="tl" className="font-specimen">Maligayang pagdating sa Massachusetts</p>
+
+<p className="lang-label">Italian: </p>
+<p lang="it" className="font-specimen">Benvenuto in Massachusetts</p>
+
+<p className="lang-label">Polish: </p>
+<p lang="pl" className="font-specimen">Witamy w Massachusetts</p>
+
+<p className="lang-label">Portuguese: </p>
+<p lang="pt" className="font-specimen">Bem vindo a Massachusetts</p>
+
+<p className="lang-label">Spanish: </p>
+<p lang="es" className="font-specimen">Bienvenido a massachusetts</p>
+
+<p className="lang-label">Vietnamese: </p>
+<p lang="vi" className="font-specimen">Chào mừng đến với Massachusetts</p>
+
+#### Malayalam script
+
+<!-- @todo investigate why Note font is not rendereing here -->
+<p className="lang-label">Malayalam: </p>
+<p lang="ml" className="font-specimen">മസാച്ചുസെറ്റ്സിലേക്ക് സ്വാഗതം</p>
+
+#### Tamil script
+
+<p className="lang-label">Tamil: </p>
+<p lang="ta" className="font-specimen">மாசசூசெட்ஸுக்கு வருக</p>
+
+#### Telugu script
+
+<p className="lang-label">Telugu: </p>
+<p lang="te" className="font-specimen">మసాచుసెట్స్‌కు స్వాగతం</p>
+
+#### Thai script
+
+<p className="lang-label">Thai: </p>
+<p lang="Thai" className="font-specimen">ยินดีต้อนรับสู่แมสซาชูเซตส์</p>
+
+### Right-to-Left
+
+---
+
+#### Arabic script
+
+<p className="lang-label rtl">Arabic: </p>
+<p lang="Arab" className="font-specimen">مرحبا بكم في ماساتشوستس</p>
+
+<p className="lang-label rtl">Persian: </p>
+<p lang="fa" className="font-specimen">به ماساچوست خوش آمدید</p>
+
+<p className="lang-label rtl">Urdu: </p>
+<p lang="ur" className="font-specimen">میساچوسٹس میں آپ کا استقبال ہےد</p>
+
+#### Hebrew script
+
+<p className="lang-label rtl">Hebrew: </p>
+<p lang="Hebr" className="font-specimen">ברוך הבא למסצ'וסט.ס</p>
+
+## License
+
+Noto Sans is an open source font licensed under SIL Open Font License 1.1 (OFL) by the Google team. The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as long as they are not sold by themselves. For more details, refer to the [license](https://github.com/googlefonts/noto-fonts/blob/master/LICENSE).
