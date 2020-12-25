@@ -29,8 +29,8 @@
     {% endif %}
   </figure>
 {% if figure.skiplink.add %}
-  <div class="ma__figure__skip-link_destination" id="{{ skiplinkId }}" aria-label="You skipped the {{ skiplinkText }}, {{ figure.title.text }}." aria-hidden="true">
-    You skipped the above	{{ skiplinkText }}.
+  <div id="{{ skiplinkId }}" aria-label="You skipped the {{ skiplinkText }}, {{ figure.title.text }}.">
+    <span class="ma__figure__skip-link_destination">You skipped the above	{{ skiplinkText }}.</span>
   </div>
 {% endif %}
 </div>

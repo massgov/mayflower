@@ -24,6 +24,7 @@
     margin-top: -80px;
     padding-top: 80px;
     z-index: -3;
+    display: none;
 
     & .ma__figure__skip-link_destination {
       margin: 0.2em 0 -30px 0;
@@ -45,10 +46,6 @@
         border-color: #005fcc;
       }
 
-    }
-
-    &:not(:target) {
-      display: none;
     }
   }
 
