@@ -12,6 +12,10 @@
     font-size: 1.25rem;
     transition: none;
 
+    &:hover {
+      border: none;
+    }
+
     &:not(:focus) {
 
       @include ma-visually-hidden;
