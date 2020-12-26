@@ -8,6 +8,12 @@ document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
     // Find the matched linkTarget.
     let sibling = e.currentTarget.nextElementSibling;
 
+    // Remove inline style when users move backward while the target is still active
+    // to display the link target as the link is clicked.
+    if (linkTarget.hasAttribute("style")) {
+      linkTarget.removeAttribute("style");
+    }
+
     // let figure;
     while (sibling) {
       if (sibling.hasAttribute("id") && sibling.id.includes("figure-")) {
