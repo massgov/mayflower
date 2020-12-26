@@ -6,7 +6,7 @@
 
 <div class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}{{ wrapClass }}">
 {% if figure.skiplink.add %}
-<a class="ma__figure__skip-link" href="#{{ skiplinkId }}" aria-label="Skip the following {{ skiplinkText }}, {{ figure.title.text }}.">Skip this
+<a class="ma__figure__skip-link" href="#{{ skiplinkId }}" aria-label="Skip the following {{ skiplinkText }}{% if figure.title %}, {{ figure.title.text }}{% endif %}.">Skip this
 	{{ skiplinkText }}.</a>
 {% endif %}
   <figure{% if figure.title %} aria-label="{{ figure.title.text }}" {% endif %}>
