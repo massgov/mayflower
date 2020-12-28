@@ -1,119 +1,102 @@
 @use "00-base/configure" as *;
 
-.ma__header {
+.ma__header_slim {
 
-  &__skip-nav {
-    display: block;
-    margin: 0 auto;
-    width: 240px;
-    text-align: center;
+  .ma__container {
 
-    &:not(:focus) {
+    @include ma-container;
+  }
 
-      @include ma-visually-hidden;
-      width: 240px;
+  a {
+    transition: all 0.4s ease;
+    text-decoration: none;
+    font-weight: $fonts-bold;
+  }
+
+  @media (min-width: 1000px) {
+
+    &__logo {
+      float: none;
+      display: inline-block;
+      margin-right: 1.6129%;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
-  &_slim {
+  @media (min-width: 621px) {
 
-    .ma__container {
+    &__logo {
+      float: none;
+      align-self: flex-start;
+      margin-right: 1.6129%;
 
-      @include ma-container;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .ma__site-logo {
+    width: 100%;
+
+    & a {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      & span {
+        font-weight: $fonts-light;
+        color: $c-primary-alt;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $c-primary-alt;
+        font-size: $fonts-2xlarge;
+        display: inline-block;
+        margin-left: 0.4rem;
+        line-height: 1;
+        letter-spacing: $letter-spacing-small;
+        width: 100%;
+      }
+    }
+  }
+
+  &__utility {
+    min-height: 15px;
+    background-color: $c-primary;
+    color: $c-white;
+
+    &-container {
+      display: flex;
+        justify-content: flex-end;
     }
 
     a {
-      transition: all 0.4s ease;
-      text-decoration: none;
-      font-weight: $fonts-bold;
-    }
 
-    @media (min-width: 1000px) {
-
-      &__logo {
-        float: none;
-        display: inline-block;
-        margin-right: 1.6129%;
-
-        &:last-child {
-          margin-right: 0;
-        }
+      &:not(:first-child) {
+        margin-left: 1rem;
       }
-    }
-
-    @media (min-width: 621px) {
-
-      &__logo {
-        float: none;
-        align-self: flex-start;
-        margin-right: 1.6129%;
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
-
-    .ma__site-logo {
-      width: 100%;
-
-      & a {
-        margin: 0;
-        display: flex;
-        align-items: center;
-        width: 100%;
-
-        & span {
-          font-weight: $fonts-light;
-          color: $c-primary-alt;
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: $c-primary-alt;
-          font-size: $fonts-2xlarge;
-          display: inline-block;
-          margin-left: 0.4rem;
-          line-height: 1;
-          letter-spacing: $letter-spacing-small;
-          width: 100%;
-        }
-      }
-    }
-
-    &__utility {
-      min-height: 15px;
-      padding: .25rem 0;
-      background-color: $c-primary;
       color: $c-white;
 
-      &-container {
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
+
+  &__header {
+    background-color: $c-gray-lightest;
+    position: relative;
+
+    &-container {
+        padding-top: 20px;
+        padding-bottom: 20px;
         display: flex;
-          justify-content: flex-end;
+          align-items: center;
+          justify-content: space-between;
       }
-
-      a {
-
-        &:not(:first-child) {
-          margin-left: 1rem;
-        }
-        color: $c-white;
-
-        &:hover {
-          opacity: .7;
-        }
-      }
-    }
-
-    &__header {
-      background-color: $c-gray-lightest;
-      position: relative;
-
-      &-container {
-          padding-top: 20px;
-          padding-bottom: 20px;
-          display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-    }
   }
 
   &__skip-nav {
