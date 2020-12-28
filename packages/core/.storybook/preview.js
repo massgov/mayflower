@@ -24,7 +24,7 @@ export const parameters = {
 		'Components', [
 			'Header',
 			'Footer',
-        'Template'
+        	'Template'
 		]
 	  ]
     },

@@ -8,7 +8,10 @@
       "height": "853",
       "position": ""
     },
-    "title": "This is an option iframe title",
+    "title": {
+      "text": "This is an option iframe title",
+      "visible": "true"
+    },
     "caption": "This is an optional caption that can wrap to multiple lines."
   }
 }

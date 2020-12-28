@@ -7,6 +7,10 @@
       "height": "",
       "width": ""
     },
+    "title": {
+      "text": "This is an option title",
+      "visible": true
+    },
     "caption": "This is an optional caption that can wrap to multiple lines."
   }
 }
