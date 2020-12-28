@@ -11,7 +11,7 @@ dependencies:
   '@proscom/gulp-svgr': 0.1.5
   '@rush-temp/mayflower': 'file:projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:projects/mayflower-assets.tgz'
-  '@rush-temp/mayflower-core': 'file:projects/mayflower-core.tgz_d904222d91dd332e1a97e8de0ecc6d4e'
+  '@rush-temp/mayflower-core': 'file:projects/mayflower-core.tgz_c0aa70f2ebef824f5093131702650ab8'
   '@rush-temp/mayflower-react': 'file:projects/mayflower-react.tgz_react-is@16.13.1'
   '@rush-temp/mayflower-site': 'file:projects/mayflower-site.tgz_13fe6053c740dc31e0c47613a4f26462'
   '@storybook/addon-a11y': 6.0.21
@@ -25,6 +25,7 @@ dependencies:
   '@storybook/cli': 6.0.21
   '@storybook/codemod': 6.0.21
   '@storybook/node-logger': 6.0.21
+  '@storybook/preset-scss': 1.0.2_13d6fb7f5ec40a51fbcd6f7fa48ff352
   '@storybook/react': 6.0.21
   '@storybook/source-loader': 6.0.21
   '@svgr/cli': 5.5.0
@@ -5044,6 +5045,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-DnfMD332J6J/0bx75rE5i3LvlPFGosmkUz1N2opfFV5RQt3gCKVYjm9oAyFpqm1pKx0Hnzhij93QjlTABHWq0w==
+  /@storybook/preset-scss/1.0.2_13d6fb7f5ec40a51fbcd6f7fa48ff352:
+    dependencies:
+      css-loader: 3.6.0_webpack@4.44.2
+      style-loader: 1.3.0_webpack@4.44.2
+    dev: false
+    peerDependencies:
+      css-loader: '*'
+      sass-loader: '*'
+      style-loader: '*'
+    resolution:
+      integrity: sha512-Kq+Y3H7qRBxocLW57V9HtQhrw9ZzmTodFCjf+OelMh1k6SZ7/FvJHb7mtWofafHcqq1tSQlNIgYMtHRDJ64WVg==
   /@storybook/preset-scss/1.0.2_676d7bba63aef161cee7df81d55967e5:
     dependencies:
       css-loader: 3.6.0_webpack@4.44.2
@@ -5056,7 +5068,7 @@ packages:
       style-loader: '*'
     resolution:
       integrity: sha512-Kq+Y3H7qRBxocLW57V9HtQhrw9ZzmTodFCjf+OelMh1k6SZ7/FvJHb7mtWofafHcqq1tSQlNIgYMtHRDJ64WVg==
-  /@storybook/preset-scss/1.0.3_86e6589ad1641e1eae393e6536006f06:
+  /@storybook/preset-scss/1.0.2_86e6589ad1641e1eae393e6536006f06:
     dependencies:
       css-loader: 3.6.0_webpack@4.44.2
       sass-loader: 10.0.5_sass@1.30.0+webpack@4.44.2
@@ -5067,7 +5079,7 @@ packages:
       sass-loader: '*'
       style-loader: '*'
     resolution:
-      integrity: sha512-o9Iz6wxPeNENrQa2mKlsDKynBfqU2uWaRP80HeWp4TkGgf7/x3DVF2O7yi9N0x/PI1qzzTTpxlQ90D62XmpiTw==
+      integrity: sha512-Kq+Y3H7qRBxocLW57V9HtQhrw9ZzmTodFCjf+OelMh1k6SZ7/FvJHb7mtWofafHcqq1tSQlNIgYMtHRDJ64WVg==
   /@storybook/react/6.0.21:
     dependencies:
       '@babel/preset-flow': 7.12.1
@@ -27026,7 +27038,7 @@ packages:
       integrity: sha512-gz7E36db8I9crnNlSBNGOIyOuiTag0+QXdT7SwmMBMsBx0ReWkHBQr8O8zNrfmnH/Xz34roaxF6Uev0Ao2zC9w==
       tarball: 'file:projects/mayflower-assets.tgz'
     version: 0.0.0
-  'file:projects/mayflower-core.tgz_d904222d91dd332e1a97e8de0ecc6d4e':
+  'file:projects/mayflower-core.tgz_c0aa70f2ebef824f5093131702650ab8':
     dependencies:
       '@babel/core': 7.12.10
       '@storybook/addon-actions': 6.0.21_react-dom@17.0.1
@@ -27034,7 +27046,7 @@ packages:
       '@storybook/addon-links': 6.0.21_react-dom@17.0.1+react@17.0.1
       '@storybook/cli': 6.0.21
       '@storybook/node-logger': 6.0.21
-      '@storybook/preset-scss': 1.0.3_86e6589ad1641e1eae393e6536006f06
+      '@storybook/preset-scss': 1.0.2_86e6589ad1641e1eae393e6536006f06
       '@storybook/react': 6.0.21_4499d4579d0b01cd4dafe75021a29d9f
       babel-eslint: 10.1.0_eslint@7.16.0
       babel-loader: 8.2.2_cb0b35cdd86d43ae111e54bfa48070d7
@@ -27056,6 +27068,7 @@ packages:
       react-is: 16.13.1
       sass: 1.30.0
       sass-loader: 10.0.5_sass@1.30.0+webpack@4.44.2
+      style-loader: 1.3.0_webpack@4.44.2
       url-loader: 4.1.1_webpack@4.44.2
     dev: false
     id: 'file:projects/mayflower-core.tgz'
@@ -27063,10 +27076,9 @@ packages:
     peerDependencies:
       babel-plugin-module-resolver: '*'
       css-loader: '*'
-      style-loader: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-b/064ehKnPSBCVGsDL9FpQ/PbriadK4xTvAZkPDv7Y+CA3VDMw79P17s347dKjpKcYiGkiV8+y5FT8M7grr0IA==
+      integrity: sha512-ecakK+dET+0rPBIELNxtCO5x4FvFA1YVKdXvCq2bcg3oa4lEprqUuQFEuRLgTnXAIcsrMlq8CeuTcfhreUu76Q==
       tarball: 'file:projects/mayflower-core.tgz'
     version: 0.0.0
   'file:projects/mayflower-react.tgz_react-is@16.13.1':
@@ -27299,6 +27311,7 @@ specifiers:
   '@storybook/cli': 6.0.21
   '@storybook/codemod': 6.0.21
   '@storybook/node-logger': 6.0.21
+  '@storybook/preset-scss': 1.0.2
   '@storybook/react': 6.0.21
   '@storybook/source-loader': 6.0.21
   '@svgr/cli': ^5.4.0
