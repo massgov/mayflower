@@ -1,6 +1,12 @@
 
 @use "00-base/configure" as *;
 
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1em !important;
+  margin-bottom: 0.2em !important;
+
+}
+
 hr {
   border: 1px solid $c-gray-light;
 	margin: 2rem 0;
