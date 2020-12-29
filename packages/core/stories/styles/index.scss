@@ -1,13 +1,15 @@
+@use './bootstrap-grid';
+@use './markdown';
+
 @forward "00-base/configure" with (
   $assets-path: "~@massds/mayflower-assets/static" !default,
   $fonts-enable-rtl: true !default,
+  $fonts-base: 12px
 );
 
 @use "00-base/configure" as *;
 
 @use '~@massds/mayflower-assets/scss/00-base/fonts';
-@use './bootstrap-grid';
-@use './markdown';
 
 @use '~@massds/mayflower-assets/scss/00-base/elements';
 
