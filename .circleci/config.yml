@@ -435,7 +435,7 @@ workflows:
           requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
-      - core_deploy_storybook:
+      - core_deploy_tag:
           requires: [core_build_storybook]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
