@@ -55,11 +55,7 @@ const templateFullNav = template({ renderHeader: headerStories.headerFullNav(), 
 
 const notesTemplateSlim = `
   // Link to CSS:
-<<<<<<< HEAD
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
-=======
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
->>>>>>> develop
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">
