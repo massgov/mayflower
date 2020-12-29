@@ -4,7 +4,6 @@
 @forward "00-base/configure" with (
   $assets-path: "~@massds/mayflower-assets/static" !default,
   $fonts-enable-rtl: true !default,
-  $fonts-base: 12px
 );
 
 @use "00-base/configure" as *;
