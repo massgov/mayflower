@@ -1,5 +1,4 @@
-@use './bootstrap-grid';
-@use './markdown';
+
 
 @forward "00-base/configure" with (
   $assets-path: "~@massds/mayflower-assets/static" !default,
@@ -7,6 +6,9 @@
 );
 
 @use "00-base/configure" as *;
+
+@use './bootstrap-grid';
+@use './markdown';
 
 @use '~@massds/mayflower-assets/scss/00-base/fonts';
 
@@ -57,16 +59,6 @@
 @use '@massds/mayflower-assets/scss/01-atoms/place-holder';
 
 // Global
-hr {
-	margin: 2rem 0;
-}
-
-// Tables
-table,
-table.sbdocs.sbdocs-table {
-  min-width: 100%;
-}
-
 .sp {
   &--top {
     margin-top: 2rem;
@@ -74,10 +66,6 @@ table.sbdocs.sbdocs-table {
   &--bottom {
     margin-bottom: 2rem;
   }
-}
-
-small {
-	font-size: .9rem;
 }
 
 .sb-block.borderless {
