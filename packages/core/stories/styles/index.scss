@@ -99,10 +99,11 @@ ul.sg-colors {
   padding: 0;
 }
 
-// Button story
+// Logo story
 .ma__row {
   display: flex;
   flex-direction: row;
+  align-items: baseline;
   & > *:not(:first-child) {
     margin-left: 1rem;
   }
