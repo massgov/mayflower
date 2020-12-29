@@ -435,6 +435,10 @@ workflows:
           requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+      - core_deploy_storybook:
+          requires: [core_build_storybook]
+          filters:
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
 
   # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
   release:
