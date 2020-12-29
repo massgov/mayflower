@@ -1,4 +1,4 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import DecorativeLink from '@massds/mayflower-react/dist/DecorativeLink';
 import Heading from '@massds/mayflower-react/dist/Heading';
 import {
@@ -28,7 +28,9 @@ import generateTitle from '../../util/generateTitle';
 
 ## The typeface of Mayflower is **Noto Sans**
 
-<div className="sb-block borderless font-specimen large">{letters.toUpperCase()}<br />{letters}<br />{numbers}</div>
+<Canvas withSource="none">
+  <div className="font-specimen large">{letters.toUpperCase()}<br />{letters}<br />{numbers}</div>
+</Canvas>
 
 ### Noto Sans was chosen because it's...
 
@@ -44,10 +46,13 @@ Using these fonts for your print and digital assets is a subtle but compelling w
 > Noto Sans is an open source typeface jointly designed and developed by Google and Monotype. It has the most comprehensive language coverage — including more than 800 languages and 100 written scripts. You can directly download the fonts from Google Font, or for web projects, link to the fonts via Mayflower Assets CDN
 
 <div className="sb-block borderless">
-	<h2>Characters<small>*</small></h2>
-  <div className="font-specimen large">{characters}</div>
+	<h2>Characters<sup>*</sup></h2>
+  <Canvas withSource="none"><div className="font-specimen large">{characters}</div></Canvas>
 	<p>*Latin 1 Block, shown in light weight (350)</p>
 </div>
+
+
+
 
 <div className="sb-block borderless reset-vspace">
 	<h2>Styles and Usage</h2>
