@@ -9,7 +9,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { HeaderSlim, SiteLogo, FooterSlim } from '@massds/mayflower-react';
+import HeaderSlim from '@massds/mayflower-react/dist/HeaderSlim';
+import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
+import FooterSlim from '@massds/mayflower-react/dist/FooterSlim';
 import '../styles/_layout.scss';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 

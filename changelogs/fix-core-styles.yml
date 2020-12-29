@@ -1,0 +1,12 @@
+Added:
+  - project: Core
+    component: Storybook
+    description: Addded missing markdown styles for core storybook. (#1325)
+    issue: 
+    impact: Patch
+Changed:
+  - project: Core
+    component: Storybook
+    description: Upgraded storybook and addon versions to 6.1.10. (#1325)
+    issue: 
+    impact: Patch

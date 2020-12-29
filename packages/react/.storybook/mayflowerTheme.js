@@ -3,18 +3,17 @@ import logo from './mayflower-react-logo.png';
 export default create({
   base: 'light',
 
-  // colorPrimary: 'hotpink',
+	colorPrimary: '#388557',
   colorSecondary: '#14558F',
 
   // UI
   appBg: '#F2F2F2',
-  // appContentBg: 'silver',
+	appContentBg: '#FFFFFF',
   appBorderColor: '#DCDCDC',
-  appBorderRadius: 6,
+  appBorderRadius: 0,
 
   // Typography
-  // fontBase: '"Texta", "Helvetica", "Arial", sans-serif',
-  // fontCode: '"Source Code Pro", "Monaco", monospace',
+  fontBase: '"Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif',
 
   // Text colors
   textColor: 'black',
@@ -31,7 +30,7 @@ export default create({
   inputTextColor: '#141414',
   inputBorderRadius: 4,
 
-  brandTitle: 'Mayflower React',
-  brandUrl: 'https://github.com/massgov/mayflower',
+  brandTitle: `Mayflower React Component Library`,
+  brandUrl: 'https://mayflower.digital.mass.gov',
   brandImage: logo,
 });
