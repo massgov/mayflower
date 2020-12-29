@@ -515,7 +515,8 @@ workflows:
       - core_build_storybook:
           requires: [build]
           filters:
-            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
       - core_deploy_tag:
           requires: [core_build_storybook]
           filters:
