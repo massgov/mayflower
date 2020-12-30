@@ -228,14 +228,14 @@
   @font-face {
     @include ma-font-face(Noto, Sans, Khmer, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$khmer, null, null);
   }
-	// Malayalam bold
+	/* Malayalam bold
 	@font-face {
 		@include ma-font-face(Noto, Sans, Malayalam, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$malayalam, null, null);
 	}
 	// Malayalam regular
   @font-face {
     @include ma-font-face(Noto, Sans, Malayalam, null, Regular, -subset, $fonts-normal, normal, $fonts-display-global, langs.$malayalam, null, null);
-  }
+  }*/
   // Myanmar bold
   @font-face {
     @include ma-font-face(Noto, Sans, Myanmar, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$myanmar, null, null);
@@ -318,10 +318,10 @@ html {
   * {
     @include ma-langlist(langs.$latin-sans-ext, null, langs.$langs-Latn);
   }
-	// Malayalam
+	/* Malayalam
   * {
     @include ma-langlist(langs.$malayalam-sans, null, langs.$langs-Mlym);
-  }
+  }*/
 	// Myanmar
   * {
     @include ma-langlist(langs.$myanmar-sans, null, langs.$langs-Mymr);
