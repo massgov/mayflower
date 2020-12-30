@@ -39,7 +39,7 @@
 
 @font-face {
 	font-family: 'Noto Sans Mono';
-	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-subset.eot?#iefix') format('embedded-opentype'),*/
+	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.eot?#iefix') format('embedded-opentype'),*/
 				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff') format('woff'),
 				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff2') format('woff2');
 	font-weight: $fonts-normal;
@@ -49,7 +49,7 @@
 
 @font-face {
 	font-family: 'Noto Sans Mono';
-	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-subset.eot?#iefix') format('embedded-opentype'),*/
+	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.eot?#iefix') format('embedded-opentype'),*/
 				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff') format('woff'),
 				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff2') format('woff2');
 	font-weight: $fonts-bold;
