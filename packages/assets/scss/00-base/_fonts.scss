@@ -149,10 +149,10 @@
 		@font-face {
 			@include ma-font-face(Noto, Sans, Lao, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$lao, null, null);
 		}
-		// Malayalam VF
+		/* Malayalam VF
     @font-face {
       @include ma-font-face(Noto, Sans, Malayalam, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$malayalam, null, null);
-    }
+    }*/
 		// Myanmar VF
     @font-face {
       @include ma-font-face(Noto, Sans, Myanmar, null, VF, -subset, 100 900, normal, $fonts-display-global, langs.$myanmar, null, null);
