@@ -15,7 +15,7 @@ import {
   Canvas, Story
 } from '@storybook/addon-docs/blocks';
 import { ActionBar, Source } from '@storybook/components';
-
+import mayflowerTheme from './mayflowerTheme';
 import prettier from 'prettier/standalone';
 import parserHtml from 'prettier/parser-html';
 import SyntaxHighlighter, { Renderer, Wrapper } from './syntax-highlighter';
@@ -102,5 +102,9 @@ export const parameters = {
     expanded: true,
     hideNoControlsWarning: true
   },
-  layout: 'padded'
+  layout: 'padded',
+	viewMode: 'docs',
+  docs: {
+    theme: mayflowerTheme,
+  }
 };
