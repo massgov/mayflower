@@ -1,5 +1,6 @@
 import { create } from '@storybook/theming/create';
 import logo from './mayflower-react-logo.png';
+
 export default create({
   base: 'light',
 
@@ -31,6 +32,6 @@ export default create({
   inputBorderRadius: 4,
 
   brandTitle: `Mayflower React Component Library`,
-  brandUrl: 'https://mayflower.digital.mass.gov',
+  brandUrl: '/',
   brandImage: logo,
 });
