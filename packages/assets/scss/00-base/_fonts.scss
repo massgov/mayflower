@@ -230,7 +230,7 @@
   }
 	// Malayalam bold
 	@font-face {
-		@include ma-font-face(Noto, Sans, Malayalam, null, Bold, -subset, $fonts-normal, normal, $fonts-display-global, langs.$malayalam, null, null);
+		@include ma-font-face(Noto, Sans, Malayalam, null, Bold, -subset, $fonts-bold, normal, $fonts-display-global, langs.$malayalam, null, null);
 	}
 	// Malayalam regular
   @font-face {
