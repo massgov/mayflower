@@ -281,6 +281,20 @@ jobs:
             aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*'
           fi
 
+  core_deploy_branch:
+    <<: *patternlab_defaults
+    steps:
+      - attach_workspace:
+          at: ~/code
+      - run: |
+          sudo apt-get update && sudo apt-get -y -qq install awscli
+          cd packages/core
+          aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/b/$CIRCLE_BRANCH" --delete
+          # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
+          aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
+          aws configure set preview.cloudfront true
+          aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*'
+
   auto_changelog:
     <<: *react_defaults
     steps:
@@ -435,10 +449,10 @@ workflows:
           requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
-      - core_deploy_tag:
+      - core_deploy_branch:
           requires: [core_build_storybook]
           filters:
-            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+            branches: { ignore: /(docs|patternlab\/|site\/|react\/).*/ }
 
   # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
   release:
