@@ -49,6 +49,7 @@ HeaderMainNav.propTypes = {
 
 const MemoArrowBent = React.memo(IconArrowbent);
 export const HeaderNavItem = React.memo(({
+  href,
   text,
   subNav = [],
   index,
@@ -61,6 +62,8 @@ export const HeaderNavItem = React.memo(({
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const breakpoint = 840;
+  // This is the same logic as twig for when covid background displays.
+  const isCovid = text.toLowerCase().includes('covid');
   const {
     items,
     hide,
@@ -77,6 +80,7 @@ export const HeaderNavItem = React.memo(({
     'is-open': isItemOpen,
     'is-closed': !isItemOpen
   });
+
   const onMouseEnter = React.useCallback(() => {
     show({ index });
   }, [show, index]);
@@ -220,11 +224,22 @@ export const HeaderNavItem = React.memo(({
 
   return(
     <li ref={itemRef} role="none" className={classes} tabIndex="-1">
-      <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
-        <span className="visually-hidden show-label">Show the sub topics of </span>
-        {text}
-      </button>
-      {subNav && (
+      {isCovid ? (
+        <a
+          role="menuitem"
+          href={href}
+          className="ma__main-nav__top-link cv-alternate-style"
+          tabIndex="0"
+        >
+          {text}
+        </a>
+      ) : (
+        <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
+          <span className="visually-hidden show-label">Show the sub topics of </span>
+          {text}
+        </button>
+      )}
+      {subNav.length > 0 && (
         <div ref={contentRef} className={contentClasses}>
           <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
             { subNav.map((item, itemIndex) => (
@@ -252,6 +267,7 @@ HeaderNavItem.propTypes = {
   id: propTypes.string,
   hide: propTypes.func,
   show: propTypes.func,
+  href: propTypes.string,
   text: propTypes.string,
   mainNav: propTypes.shape({
     current: typeof Element !== 'undefined' ? propTypes.instanceOf(Element) : propTypes.object
