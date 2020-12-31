@@ -1,0 +1,12 @@
+Changed:
+  - project: Core
+    component: CircleCI
+    description: Fixed tag deploy conditions and added branch deployment to S3. (#1327)
+    issue: 
+    impact: Patch
+Fixed:
+  - project: Core
+    component: Storybook
+    description: Fix MDX docs title extra spacing. (#1327)
+    issue: 
+    impact: Patch
