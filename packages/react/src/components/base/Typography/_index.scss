@@ -33,6 +33,7 @@
   }
 }
 
+
 // Show only the control column for custom preview controls
 #sb-control--preview {
   .docblock-argstable {
@@ -47,49 +48,4 @@
       }
     }
   }
-}
-
-.font-specimen {
-	font-size: 1.7rem !important;
-	line-height: 1.25 !important;
-	word-break: break-all;
-	font-weight: 300;
-
-	&.large {
-		font-size: 2.5rem !important;
-	}
-	& strong {
-		font-weight: 400;
-	}
-}
-
-p.font-specimen {
-	margin: 0 0 .5rem;
-}
-
-p.lang-label {
-	font-weight: 450;
-	margin: 0;
-
-	&.rtl {
-		direction: rtl;
-	}
-}
-
-p.font-specimen,
-p.lang-label {
-	padding: 0 1rem;
-}
-
-.reset-vspace > * {
-	line-height: 1.5;
-	margin-block-start: 0;
-  margin-block-end: 0;
-  margin: 0 !important;
-}
-
-.sb-block.borderless {
-	margin: 3rem 0 !important;
-	padding: 0 !important;
-	border: 0 !important;
 }
