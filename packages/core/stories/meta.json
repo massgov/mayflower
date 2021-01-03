@@ -35,10 +35,6 @@
     "kind": "Foundation",
     "story": "Logo"
   },
-  "Logo": {
-    "group": "Design Tokens",
-    "title": "Logo"
-  },
   "Typography": {
     "kind": "Foundation",
     "story": "Typography"
@@ -54,14 +50,6 @@
   "Link": {
     "kind": "Elements",
     "story": "Link"
-  },
-  "Heading": {
-    "group": "Base Elements",
-    "title": "Heading"
-  },
-  "Link": {
-    "group": "Base Elements",
-    "title": "Link"
   },
   "Headings": {
     "kind": "Elements",
