@@ -2,8 +2,6 @@ import React from 'react';
 import Image from '@massds/mayflower-react/dist/Image';
 import logoSVG from '@massds/mayflower-assets/static/images/logo/stateseal.svg';
 import logoColorSVG from '@massds/mayflower-assets/static/images/logo/stateseal-color.svg';
-import logo from '@massds/mayflower-assets/static/images/logo/stateseal.svg';
-import logoColor from '@massds/mayflower-assets/static/images/logo/stateseal-color.svg';
 import logoBlack from '@massds/mayflower-assets/static/images/logo/stateseal-black.svg';
 import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.svg';
 
