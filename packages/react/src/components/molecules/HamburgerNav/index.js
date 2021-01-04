@@ -333,7 +333,7 @@ export const HamburgerNavItem = ({
   index
 }) => {
   const classes = classNames('ma__main__hamburger-nav__item js-main-nav-hamburger-toggle', {
-    'has-subnav': subNav.length > 0
+    'has-subnav': subNav && subNav.length > 0
   });
   const itemRef = React.useRef();
   const buttonRef = React.useRef();
@@ -504,11 +504,11 @@ export const HamburgerNavItem = ({
               </li>
             ))}
             <li role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-              <a role="menuitem" href={subNav.[0].href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
+              <a role="menuitem" href={subNav[0].href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
                 <IconArrowbent />
                 <span>
                   <span className="visually-hidden">See all topics under </span>
-                  {subNav.[0].text}
+                  {subNav[0].text}
                 </span>
               </a>
             </li>

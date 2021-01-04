@@ -144,5 +144,11 @@ export default [
         text: 'Local Government'
       }
     ]
+  },
+  {
+    "href": "https://www.mass.gov/info-details/covid-19-updates-and-information",
+    "text": "COVID-19",
+    "active": false,
+    "subNav": []
   }
 ];
