@@ -1,6 +1,0 @@
-Added:
-  - project: React, Patternlab
-    component: 
-    description: Added redirect banner on the React Storybook and the Patternlab site. (#1310)
-    issue: DP-20552
-    impact: Patch
