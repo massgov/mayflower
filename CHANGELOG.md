@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.0.2 (1/4/2021)
+### Added 
+- (React) [HeaderNav, HamburgerNav, Header, HeaderHamburger] DP-20435: Added conditionally rendered covid menu item with styling to match Patternlab. (#1328)
+
+### Fixed 
+- (React) [InputTextFuzzy, TypeAheadDropdown] DP-20435: Added conditionally rendered covid menu item with styling to match Patternlab. (#1328)
+
 ## 11.0.1 (1/4/2021)
 ### Added 
 - (React, Patternlab) [null] DP-20552: Added redirect banner on the React Storybook and the Patternlab site. (#1310)
