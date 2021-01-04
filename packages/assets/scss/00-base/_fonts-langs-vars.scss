@@ -32,7 +32,8 @@ $kannada:					U+0C80-0CFF;
 $kayah:						U+A900-A92F;
 $khmer:						U+1780-17FF, U+19E0-19FF; // Khmer and symbols
 $lao:							U+????; // U+0E80-0EFF;
-$latin:						U+0000-00FF, U+FB00-FB05, U+2018-2019, U+201C-201D; // Basic latin block plus ligatures single and double quotes
+$latin:						U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2014, U+2018-2019, U+2026, U+201C-201D, U+20AC;
+// Basic latin, supplemeent, ligatures, single and double quotes, ellipsis, em dash and euro symbol
 $limbu:						U+1900-194F;
 $lisu:						U+A4D0-A4FF;
 $malayalam:				U+0D00-0D7F;
@@ -57,8 +58,7 @@ $thai:						U+0E00-0E7F;
 $tibetan:					U+0F00-0FFF;
 $warang-citi:			U+118A0-118FF;
 $zanabazar:				U+11A00-11A4F;
-$Latin-ext:				U+????;
-// $Latin-ext:				U+0020-FE, U+00A1-FF, U+0100-7F, U+0180-024F, U+1E00-FF; // basic, supplement, extended A, B, additional
+$Latin-ext:				U+0100-017F, U+0180-024F, U+1E00-1EFF; // extended A, B, additional
 
 
 
