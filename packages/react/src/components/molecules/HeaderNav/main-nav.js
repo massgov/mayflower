@@ -249,11 +249,11 @@ export const HeaderNavItem = React.memo(({
               </li>
             ))}
             <li role="none" className="ma__main-nav__subitem">
-              <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={subNav[0].href} className="ma__main-nav__link">
+              <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
                 <MemoArrowBent />
                 <span>
                   <span className="visually-hidden">See all topics under </span>
-                  {subNav[0].text}
+                  {text}
                 </span>
               </a>
             </li>

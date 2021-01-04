@@ -494,7 +494,7 @@ export const HamburgerNavItem = ({
           <span className="toggle-indicator" aria-hidden="true" />
         </button>
       )}
-      {subNav.length > 0 && (
+      {subNav && subNav.length > 0 && (
         <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
           <ul ref={ulRef} id={`menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
             { subNav.map((item, itemIndex) => (
@@ -504,11 +504,11 @@ export const HamburgerNavItem = ({
               </li>
             ))}
             <li role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-              <a role="menuitem" href={subNav[0].href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
+              <a role="menuitem" href={href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
                 <IconArrowbent />
                 <span>
                   <span className="visually-hidden">See all topics under </span>
-                  {subNav[0].text}
+                  {text}
                 </span>
               </a>
             </li>
