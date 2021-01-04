@@ -335,7 +335,7 @@ pyftsubset\
 
 ### Latin
 
-Unicodes include Basic Latin and Latin 1 supplement (except commands), left and right single and double quotes, ellipsis, emdash, euro symbol, and ff, fl, fi ligatures.
+Unicodes include Basic Latin and Latin 1 supplement (except commands), left and right single and double quotes, ellipsis, em dash, en dash, euro symbol, and ff, fl, fi ligatures.
 
 ```
 pyftsubset\
@@ -343,49 +343,49 @@ pyftsubset\
   --output-file="NotoSans-Regular-subset.woff" \
   --flavor=woff \
   --layout-features="kern,liga,clig,lnum,tnum" \
-  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
+  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2013-2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
 pyftsubset\
   NotoSans-Regular.ttf \
   --output-file="NotoSans-Regular-subset.woff2" \
   --flavor=woff2 \
   --layout-features="kern,liga,clig,lnum,tnum" \
-  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
+  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2013-2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
 pyftsubset\
   NotoSans-Italic.ttf \
   --output-file="NotoSans-Italic-subset.woff" \
   --flavor=woff \
   --layout-features="kern,liga,clig,lnum,tnum" \
-  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
+  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2013-2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
 pyftsubset\
   NotoSans-Italic.ttf \
   --output-file="NotoSans-Italic-subset.woff2" \
   --flavor=woff2 \
   --layout-features="kern,liga,clig,lnum,tnum" \
-  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
+  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2013-2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
 pyftsubset\
   NotoSans-VF.ttf \
   --output-file="NotoSans-VF-subset.woff" \
   --flavor=woff \
   --layout-features="kern,liga,clig,lnum,tnum,"\
-  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
+  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2013-2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
 pyftsubset\
   NotoSans-VF.ttf \
   --output-file="NotoSans-VF-subset.woff2" \
   --flavor=woff2 \
   --layout-features="kern,liga,clig,lnum,tnum" \
-  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
+  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2013-2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
 pyftsubset\
   NotoSansItalic-VF.ttf \
   --output-file="NotoSansItalic-VF-subset.woff" \
   --flavor=woff \
   --layout-features="kern,liga,clig,lnum,tnum" \
-  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
+  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2013-2014, U+2018-2019, U+2026, U+201C-201D, U+20AC" &&
 pyftsubset\
   NotoSansItalic-VF.ttf \
   --output-file="NotoSansItalic-VF-subset.woff2" \
   --flavor=woff2 \
   --layout-features="kern,liga,clig,lnum,tnum" \
-  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2014, U+2018-2019, U+2026, U+201C-201D, U+20AC"
+  --unicodes="U+0020-007E, U+00A1-00FF, U+FB00-FB05, U+2013-2014, U+2018-2019, U+2026, U+201C-201D, U+20AC"
 ```
 
 ### Malayalam
