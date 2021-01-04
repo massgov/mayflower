@@ -1,9 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import {
-  IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, SectionLinks, DecorativeLink, CalloutLink
-} from '@massds/mayflower-react';
+import IllustratedHeader from '@massds/mayflower-react/dist/IllustratedHeader';
+import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
+import GenTeaser from '@massds/mayflower-react/dist/GenTeaser';
+import Tabs from '@massds/mayflower-react/dist/Tabs';
+import SectionLinks from '@massds/mayflower-react/dist/SectionLinks';
+import DecorativeLink from '@massds/mayflower-react/dist/DecorativeLink';
+import CalloutLink from '@massds/mayflower-react/dist/CalloutLink';
 import * as Icon from '@massds/mayflower-react/dist/Icon';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
