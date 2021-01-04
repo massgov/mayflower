@@ -49,6 +49,7 @@ HeaderMainNav.propTypes = {
 
 const MemoArrowBent = React.memo(IconArrowbent);
 export const HeaderNavItem = React.memo(({
+  href,
   text,
   subNav = [],
   index,
@@ -61,6 +62,8 @@ export const HeaderNavItem = React.memo(({
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const breakpoint = 840;
+  // This is the same logic as twig for when covid background displays.
+  const isCovid = text.toLowerCase().includes('covid');
   const {
     items,
     hide,
@@ -71,12 +74,13 @@ export const HeaderNavItem = React.memo(({
   const state = items[index];
   const { buttonExpanded, isOpen: isItemOpen } = state;
   const classes = classNames('ma__main-nav__item js-main-nav-toggle', {
-    'has-subnav': subNav.length > 0
+    'has-subnav': subNav && subNav.length > 0
   });
   const contentClasses = classNames('ma__main-nav__subitems js-main-nav-content', {
     'is-open': isItemOpen,
     'is-closed': !isItemOpen
   });
+
   const onMouseEnter = React.useCallback(() => {
     show({ index });
   }, [show, index]);
@@ -220,11 +224,22 @@ export const HeaderNavItem = React.memo(({
 
   return(
     <li ref={itemRef} role="none" className={classes} tabIndex="-1">
-      <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
-        <span className="visually-hidden show-label">Show the sub topics of </span>
-        {text}
-      </button>
-      {subNav && (
+      {isCovid ? (
+        <a
+          role="menuitem"
+          href={href}
+          className="ma__main-nav__top-link cv-alternate-style"
+          tabIndex="0"
+        >
+          {text}
+        </a>
+      ) : (
+        <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
+          <span className="visually-hidden show-label">Show the sub topics of </span>
+          {text}
+        </button>
+      )}
+      {subNav && subNav.length > 0 && (
         <div ref={contentRef} className={contentClasses}>
           <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
             { subNav.map((item, itemIndex) => (
@@ -234,11 +249,11 @@ export const HeaderNavItem = React.memo(({
               </li>
             ))}
             <li role="none" className="ma__main-nav__subitem">
-              <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={subNav.[0].href} className="ma__main-nav__link">
+              <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={subNav[0].href} className="ma__main-nav__link">
                 <MemoArrowBent />
                 <span>
                   <span className="visually-hidden">See all topics under </span>
-                  {subNav.[0].text}
+                  {subNav[0].text}
                 </span>
               </a>
             </li>
@@ -252,6 +267,7 @@ HeaderNavItem.propTypes = {
   id: propTypes.string,
   hide: propTypes.func,
   show: propTypes.func,
+  href: propTypes.string,
   text: propTypes.string,
   mainNav: propTypes.shape({
     current: typeof Element !== 'undefined' ? propTypes.instanceOf(Element) : propTypes.object

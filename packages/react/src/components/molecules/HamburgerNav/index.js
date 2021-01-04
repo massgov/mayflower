@@ -133,10 +133,10 @@ const HamburgerNav = ({
       }
       menuButton.setAttribute('aria-expanded', 'false');
       menuButton.setAttribute('aria-label', 'Open the main menu for mass.gov');
-      if (hamburgerMenuContainer.hasAttribute('style')) {
+      if (hamburgerMenuContainer && hamburgerMenuContainer.hasAttribute('style')) {
         hamburgerMenuContainer.removeAttribute('style');
       }
-      if (searchInput.hasAttribute('autofocus')) {
+      if (searchInput && searchInput.hasAttribute('autofocus')) {
         searchInput.removeAttribute('autofocus');
       }
       if (feedbackButton) {
@@ -326,20 +326,29 @@ HamburgerMainNav.propTypes = {
   }))
 };
 
-export const HamburgerNavItem = ({ text, subNav = [], index }) => {
+export const HamburgerNavItem = ({
+  href,
+  text,
+  subNav = [],
+  index
+}) => {
   const classes = classNames('ma__main__hamburger-nav__item js-main-nav-hamburger-toggle', {
-    'has-subnav': subNav.length > 0
+    'has-subnav': subNav && subNav.length > 0
   });
   const itemRef = React.useRef();
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const ulRef = React.useRef();
   const { closeMenu } = React.useContext(HamburgerContext);
+  // This is the same logic as twig for when covid background displays.
+  const isCovid = text.toLowerCase().includes('covid');
   React.useEffect(() => {
     const item = itemRef.current;
     const itemButton = buttonRef.current;
     const subItems = ulRef.current;
-    subItems.style.opacity = '0';
+    if (subItems) {
+      subItems.style.opacity = '0';
+    }
     const closeNarrowUtilContent = () => {
       const utilNarrowButton = document.querySelector('.ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle');
       const utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
@@ -379,7 +388,7 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
         }
       });
     };
-    itemButton.addEventListener('click', () => {
+    const itemButtonClick = () => {
       anotherCloseSubMenus(item);
 
       if (item.classList.contains('submenu-open')) {
@@ -414,8 +423,9 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
         setTimeout(() => {
           item.querySelector('.js-main-nav-hamburger-content').style.height = height;
           item.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-
-          subItems.style.opacity = '1';
+          if (subItems) {
+            subItems.style.opacity = '1';
+          }
         }, 500);
 
         /** Close Utility menu content when a sub menu is open. */
@@ -427,7 +437,9 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
         }
       } else {
         item.querySelector('.js-main-nav-hamburger-content').style.height = '0';
-        subItems.style.opacity = '0';
+        if (subItems) {
+          subItems.style.opacity = '0';
+        }
 
         // Set a little bit of delay to run
         // The open/close submenu animation is CSS.
@@ -437,12 +449,13 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
           item.querySelector('.js-main-nav-hamburger-content').classList.add('is-closed');
         }, 500);
       }
-    });
-
-    itemButton.addEventListener('keydown', (e) => {
+    };
+    const itemButtonKeyDown = (e) => {
       if (e.code === 'ArrowDown' || e.key === 'ArrowDown') {
-        const first = subItems.getElementsByTagName('li')[0];
-        first.querySelector('.js-main-nav-hamburger__link').focus();
+        if (subItems) {
+          const first = subItems.getElementsByTagName('li')[0];
+          first.querySelector('.js-main-nav-hamburger__link').focus();
+        }
       }
 
       // 'e.key === "Esc"' is for IE11.
@@ -451,16 +464,37 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
           closeMenu();
         }
       }
+    };
+    if (itemButton) {
+      itemButton.addEventListener('click', itemButtonClick);
+      itemButton.addEventListener('keydown', itemButtonKeyDown);
+    }
+    return(() => {
+      if (itemButton) {
+        itemButton.removeEventListener('click', itemButtonClick);
+        itemButton.removeEventListener('keydown', itemButtonKeyDown);
+      }
     });
   }, [itemRef, buttonRef, contentRef, ulRef]);
   return(
     <li ref={itemRef} role="none" className={classes} tabIndex="-1">
-      <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
-        <span className="visually-hidden show-label">Show the sub topics of </span>
-        {text}
-        <span className="toggle-indicator" aria-hidden="true" />
-      </button>
-      {subNav && (
+      {isCovid ? (
+        <a
+          role="menuitem"
+          href={href}
+          className="ma__main__hamburger-nav__top-link cv-alternate-style"
+          tabIndex="0"
+        >
+          {text}
+        </a>
+      ) : (
+        <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
+          <span className="visually-hidden show-label">Show the sub topics of </span>
+          {text}
+          <span className="toggle-indicator" aria-hidden="true" />
+        </button>
+      )}
+      {subNav.length > 0 && (
         <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
           <ul ref={ulRef} id={`menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
             { subNav.map((item, itemIndex) => (
@@ -470,11 +504,11 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
               </li>
             ))}
             <li role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-              <a role="menuitem" href={subNav.[0].href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
+              <a role="menuitem" href={subNav[0].href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
                 <IconArrowbent />
                 <span>
                   <span className="visually-hidden">See all topics under </span>
-                  {subNav.[0].text}
+                  {subNav[0].text}
                 </span>
               </a>
             </li>
@@ -485,6 +519,7 @@ export const HamburgerNavItem = ({ text, subNav = [], index }) => {
   );
 };
 HamburgerNavItem.propTypes = {
+  href: propTypes.string,
   text: propTypes.string,
   subNav: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,

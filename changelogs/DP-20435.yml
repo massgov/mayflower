@@ -1,0 +1,12 @@
+Added:
+  - project: React
+    component: HeaderNav, HamburgerNav, Header, HeaderHamburger
+    description: Added conditionally rendered covid menu item with styling to match Patternlab. (#1328)
+    issue: DP-20435
+    impact: Patch
+Fixed:
+  - project: React
+    component: InputTextFuzzy, TypeAheadDropdown
+    description: Added conditionally rendered covid menu item with styling to match Patternlab. (#1328)
+    issue: DP-20435
+    impact: Patch
