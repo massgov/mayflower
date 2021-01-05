@@ -13,3 +13,8 @@ Changed:
     component: 
     description: Removed the submenu first child and its hidden styles, cleanup style overrides. Target the category link in submenu using className `ma__main__hamburger-nav__subitem--main` instead of `:last-child` (#1333)
     impact: Minor
+Removed:
+  - project: React
+    component: MainNav
+    description: Removed MainNav molecule from storybook and mayflower-react npm package (#1333)
+    impact: Minor
