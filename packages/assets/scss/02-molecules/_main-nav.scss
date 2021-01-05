@@ -243,15 +243,6 @@
   &__subitem {
     border-bottom: 1px solid;
 
-    &:first-child {
-      letter-spacing: letter-spacing-medium;
-      text-transform: uppercase;
-
-      @media ($bp-header-toggle-min) {
-        display: none;
-      }
-    }
-
     &:last-child {
 
       @media ($bp-header-toggle-max) {
@@ -365,11 +356,6 @@
     &:focus {
       background-color: $c-bg-subtle;
     }
-  }
-
-  &__subitem:first-child &__link {
-    color: $c-font-base;
-    font-weight: $fonts-bold;
   }
 
   &__subitem:last-child &__link {

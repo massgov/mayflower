@@ -1,7 +1,8 @@
 export default [
   {
+    href: '#',
     text: 'Living',
-    active: '',
+    active: 'active',
     subNav: [
       {
         href: 'https://mass.gov',
