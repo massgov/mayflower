@@ -100,7 +100,7 @@ class TypeAheadDropdown extends React.Component {
         buttonText: text,
         buttonExpand: false
       });
-      if (typeof this.props.inputText.onChange === 'function') {
+      if (typeof this.props.inputText.onSuggestionClick === 'function') {
         this.props.inputText.onSuggestionClick(event, { suggestion });
       }
     }

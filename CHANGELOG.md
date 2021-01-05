@@ -1,6 +1,25 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.0.2 (1/4/2021)
+### Added 
+- (React) [HeaderNav, HamburgerNav, Header, HeaderHamburger] DP-20435: Added conditionally rendered covid menu item with styling to match Patternlab. (#1328)
+
+### Fixed 
+- (React) [InputTextFuzzy, TypeAheadDropdown] DP-20435: Added conditionally rendered covid menu item with styling to match Patternlab. (#1328)
+
+## 11.0.1 (1/4/2021)
+### Added 
+- (React, Patternlab) [null] DP-20552: Added redirect banner on the React Storybook and the Patternlab site. (#1310)
+- (Core) [Storybook] Addded missing markdown styles for core storybook. (#1325)
+
+### Changed 
+- (Core) [CircleCI] Fixed tag deploy conditions and added branch deployment to S3. (#1327)
+- (Core) [Storybook] Upgraded storybook and addon versions to 6.1.10. (#1325)
+
+### Fixed 
+- (Core) [Storybook] Fix MDX docs title extra spacing. (#1327)
+
 ## 11.0.0 (12/21/2020)
 ### Added 
 - (Core) [All] DP-19530: Added the new MVP core storybook documentation site. (#1271)
