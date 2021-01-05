@@ -11,30 +11,12 @@
       "text": "This is another nested list item in an unordered list"
     },{
       "text": "This is another nested list item in an unordered list",
-      "sublist": [
-        {
-          "text": "3rd level nested list item"
-        },
-        {
-          "text": "4th level nested list",
-          "sublist": [
-            {
-              "text": "Nested list item"
-            },
-            {
-              "text": "Nested list item"
-            },
-            {
-              "text": "Nested list item"
-            }
-          ]
-        },
-        {
-          "text": "Nested list item"
-        }
-      ]
-    }
-  ]
+      "sublist": [{
+        "text": "3rd level nested list item"
+      },{
+        "text": "Nested list item"
+      }]
+    }]
   },{
     "text":"This is the last list item"
   }]
