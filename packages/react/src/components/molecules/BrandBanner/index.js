@@ -21,8 +21,10 @@ const BrandBanner = ({
   });
   return(
     <div className="ma__brand-banner">
-      {hasSeal && <Image className="ma__brand-banner-logo" src={logo}/>}
-      {text}
+      <div className="ma__brand-banner-container">
+        {hasSeal && <Image className="ma__brand-banner-logo" src={logo}/>}
+        {text}
+      </div>
     </div>
   );
 };
