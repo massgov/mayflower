@@ -59,6 +59,8 @@ HeaderNav.propTypes = {
   mainItems: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,
     text: propTypes.string,
+    // Active main nav item eccentuated with an styled underline
+    active: propTypes.bool,
     subNav: propTypes.arrayOf(propTypes.shape({
       href: propTypes.string,
       text: propTypes.string

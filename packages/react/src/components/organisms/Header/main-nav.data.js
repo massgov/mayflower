@@ -2,7 +2,7 @@ export default [
   {
     href: '#',
     text: 'Living',
-    active: 'active',
+    active: true,
     subNav: [
       {
         href: 'https://mass.gov',
@@ -41,7 +41,7 @@ export default [
   {
     href: '#',
     text: 'Working',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -72,7 +72,7 @@ export default [
   {
     href: '#',
     text: 'Learning',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -95,7 +95,7 @@ export default [
   {
     href: '/patterns/05-pages-section-landing/05-pages-section-landing.html',
     text: 'Visiting & Exploring',
-    active: 'true',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -118,7 +118,7 @@ export default [
   {
     href: '#',
     text: 'Your Government',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',

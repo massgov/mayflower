@@ -40,6 +40,8 @@ HeaderMainNav.propTypes = {
   items: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,
     text: propTypes.string,
+    // Active main nav item eccentuated with an styled underline
+    active: propTypes.bool,
     subNav: propTypes.arrayOf(propTypes.shape({
       href: propTypes.string,
       text: propTypes.string
@@ -51,6 +53,7 @@ const MemoArrowBent = React.memo(IconArrowbent);
 export const HeaderNavItem = React.memo(({
   href,
   text,
+  active,
   subNav = [],
   index,
   mainNav,
@@ -73,8 +76,10 @@ export const HeaderNavItem = React.memo(({
   } = mainContext;
   const state = items[index];
   const { buttonExpanded, isOpen: isItemOpen } = state;
+  const hasSubNav = subNav && subNav.length > 0;
   const classes = classNames('ma__main-nav__item js-main-nav-toggle', {
-    'has-subnav': subNav && subNav.length > 0
+    'has-subnav': hasSubNav,
+    'is-active': active
   });
   const contentClasses = classNames('ma__main-nav__subitems js-main-nav-content', {
     'is-open': isItemOpen,
