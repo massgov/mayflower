@@ -41,7 +41,8 @@ export const assets = {
   zoomin: 'zoomin',
   zoomout: 'zoomout',
   github: 'github',
-  slack: 'slack'
+  slack: 'slack',
+  lock: 'lock'
 };
 
 export const svgOptions = {
