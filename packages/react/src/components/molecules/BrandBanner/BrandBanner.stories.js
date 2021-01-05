@@ -9,14 +9,8 @@ export const BrandBannerExample = (args) => <BrandBanner {...args} />;
 BrandBannerExample.storyName = 'Default';
 BrandBannerExample.args = {
   hasSeal: true,
+  hasToggle: true,
   text: 'An official website of the Commonwealth of Massachusetts'
-};
-BrandBannerExample.argTypes = {
-  hasSeal: {
-    control: {
-      type: 'boolean'
-    }
-  }
 };
 
 export default {
