@@ -11,15 +11,12 @@
           </button>
           <div class="ma__main-nav__subitems js-main-nav-content is-closed">
             <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
-              <li role="none" class="ma__main-nav__subitem">
-                <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__link">{{ nav.text }}</a>
-              </li>
               {% for subNav in nav.subNav %}
                 <li role="none" class="ma__main-nav__subitem">
                   <a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a>
                 </li>
               {% endfor %}
-              <li role="none" class="ma__main-nav__subitem">
+              <li role="none" class="ma__main-nav__subitem--main">
                 <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__link">
                   {{ icon('arrow-bent') }}
                   <span>

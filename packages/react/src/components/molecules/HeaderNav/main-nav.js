@@ -40,6 +40,8 @@ HeaderMainNav.propTypes = {
   items: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,
     text: propTypes.string,
+    // Active main nav item eccentuated with an styled underline
+    active: propTypes.bool,
     subNav: propTypes.arrayOf(propTypes.shape({
       href: propTypes.string,
       text: propTypes.string
@@ -51,6 +53,7 @@ const MemoArrowBent = React.memo(IconArrowbent);
 export const HeaderNavItem = React.memo(({
   href,
   text,
+  active,
   subNav = [],
   index,
   mainNav,
@@ -73,8 +76,10 @@ export const HeaderNavItem = React.memo(({
   } = mainContext;
   const state = items[index];
   const { buttonExpanded, isOpen: isItemOpen } = state;
+  const hasSubNav = subNav && subNav.length > 0;
   const classes = classNames('ma__main-nav__item js-main-nav-toggle', {
-    'has-subnav': subNav && subNav.length > 0
+    'has-subnav': hasSubNav,
+    'is-active': active
   });
   const contentClasses = classNames('ma__main-nav__subitems js-main-nav-content', {
     'is-open': isItemOpen,
@@ -239,7 +244,7 @@ export const HeaderNavItem = React.memo(({
           {text}
         </button>
       )}
-      {subNav && subNav.length > 0 && (
+      {hasSubNav && (
         <div ref={contentRef} className={contentClasses}>
           <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
             { subNav.map((item, itemIndex) => (
@@ -248,15 +253,17 @@ export const HeaderNavItem = React.memo(({
                 <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
               </li>
             ))}
-            <li role="none" className="ma__main-nav__subitem">
-              <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={subNav[0].href} className="ma__main-nav__link">
-                <MemoArrowBent />
-                <span>
-                  <span className="visually-hidden">See all topics under </span>
-                  {subNav[0].text}
-                </span>
-              </a>
-            </li>
+            { href && (
+              <li role="none" className="ma__main-nav__subitem--main">
+                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
+                  <MemoArrowBent />
+                  <span>
+                    <span className="visually-hidden">See all topics under </span>
+                    {text}
+                  </span>
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       )}
