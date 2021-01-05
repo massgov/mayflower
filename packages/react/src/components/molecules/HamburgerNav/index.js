@@ -509,7 +509,7 @@ export const HamburgerNavItem = ({
               </li>
             ))}
             { href && (
-              <li role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
+              <li role="none" className="ma__main__hamburger-nav__subitem--main js-main-nav-hamburger__subitem">
                 <a role="menuitem" href={href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
                   <IconArrowbent />
                   <span>
