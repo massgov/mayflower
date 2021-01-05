@@ -274,7 +274,7 @@
 
   &__subitem:last-child &__link {
     font-size: $fonts-smaller;
-    letter-spacing: letter-spacing-medium;
+    letter-spacing: $letter-spacing-medium;
     text-transform: uppercase;
   }
 
