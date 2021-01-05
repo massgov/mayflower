@@ -1,0 +1,12 @@
+Added:
+  - project: React, Patternlab
+    component: UnorderedList
+    description: Set bullet style for nested unordered list. (#1335)
+    issue: DP-9450
+    impact: Minor
+Changed:
+  - project: Patternlab
+    component: RichText
+    description: Remove the existing bullet style for a unordered list in rich text to match _elements.scss and adjust nested lists' top margin for consistent spacing. (#1335)
+    issue: DP-9450
+    impact: Patch
