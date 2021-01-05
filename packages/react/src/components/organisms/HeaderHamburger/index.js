@@ -98,6 +98,7 @@ HeaderHamburger.propTypes = {
   mainItems: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,
     text: propTypes.string,
+    active: propTypes.bool,
     subNav: propTypes.arrayOf(propTypes.shape({
       href: propTypes.string,
       text: propTypes.string

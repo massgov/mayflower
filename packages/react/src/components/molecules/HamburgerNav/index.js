@@ -288,6 +288,7 @@ HamburgerNav.propTypes = {
   mainItems: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,
     text: propTypes.string,
+    active: propTypes.bool,
     subNav: propTypes.arrayOf(propTypes.shape({
       href: propTypes.string,
       text: propTypes.string
@@ -319,6 +320,7 @@ HamburgerMainNav.propTypes = {
   items: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,
     text: propTypes.string,
+    active: propTypes.bool,
     subNav: propTypes.arrayOf(propTypes.shape({
       href: propTypes.string,
       text: propTypes.string
@@ -329,11 +331,14 @@ HamburgerMainNav.propTypes = {
 export const HamburgerNavItem = ({
   href,
   text,
+  active,
   subNav = [],
   index
 }) => {
+  const hasSubNav = subNav && subNav.length > 0;
   const classes = classNames('ma__main__hamburger-nav__item js-main-nav-hamburger-toggle', {
-    'has-subnav': subNav && subNav.length > 0
+    'has-subnav': hasSubNav,
+    'is-active': active
   });
   const itemRef = React.useRef();
   const buttonRef = React.useRef();
@@ -494,7 +499,7 @@ export const HamburgerNavItem = ({
           <span className="toggle-indicator" aria-hidden="true" />
         </button>
       )}
-      {subNav && subNav.length > 0 && (
+      {hasSubNav && (
         <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
           <ul ref={ulRef} id={`menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
             { subNav.map((item, itemIndex) => (
@@ -503,15 +508,17 @@ export const HamburgerNavItem = ({
                 <a role="menuitem" href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
               </li>
             ))}
-            <li role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-              <a role="menuitem" href={href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
-                <IconArrowbent />
-                <span>
-                  <span className="visually-hidden">See all topics under </span>
-                  {text}
-                </span>
-              </a>
-            </li>
+            { href && (
+              <li role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
+                <a role="menuitem" href={href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
+                  <IconArrowbent />
+                  <span>
+                    <span className="visually-hidden">See all topics under </span>
+                    {text}
+                  </span>
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       )}
@@ -521,6 +528,7 @@ export const HamburgerNavItem = ({
 HamburgerNavItem.propTypes = {
   href: propTypes.string,
   text: propTypes.string,
+  active: propTypes.bool,
   subNav: propTypes.arrayOf(propTypes.shape({
     href: propTypes.string,
     text: propTypes.string
