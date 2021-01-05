@@ -1,0 +1,21 @@
+@use "00-base/configure" as *;
+
+.ma__brand-banner {
+
+    @include ma-container;
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: $c-primary-lightest;
+    font-size: $fonts-xsmall;
+    min-height: 44px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &-logo {
+        height: 20px;
+        width: 20px;
+        margin-right: 5px;
+    }
+}
