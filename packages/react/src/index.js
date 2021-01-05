@@ -78,7 +78,6 @@ export IconLink from 'MayflowerReactMolecules/IconLink';
 export CalloutLink from 'MayflowerReactMolecules/CalloutLink';
 export FooterLinks from 'MayflowerReactMolecules/FooterLinks';
 export HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
-export MainNav from 'MayflowerReactMolecules/MainNav';
 export Pagination from 'MayflowerReactMolecules/Pagination';
 export ResultsHeading from 'MayflowerReactMolecules/ResultsHeading';
 export SearchBannerForm from 'MayflowerReactMolecules/SearchBannerForm';
