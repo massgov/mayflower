@@ -243,14 +243,14 @@
   &__subitem {
     border-bottom: 1px solid;
 
-    &:last-child {
+    &--main {
 
       @media ($bp-header-toggle-max) {
         display: none;
       }
     }
 
-    &:last-child {
+    &--main {
       border-bottom: none;
     }
   }
@@ -272,7 +272,7 @@
     }
   }
 
-  &__subitem:last-child &__link {
+  &__subitem--main &__link {
     font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-medium;
     text-transform: uppercase;
@@ -358,7 +358,7 @@
     }
   }
 
-  &__subitem:last-child &__link {
+  &__subitem--main &__link {
     background-color: $c-bg-subtle;
     color: $c-font-link;
     font-weight: $fonts-bold;
@@ -371,6 +371,7 @@
       fill: rgba($c-font-link, .5);
       height: 20px;
       width: 20px;
+      margin-right: 0.1rem;
     }
   }
 }

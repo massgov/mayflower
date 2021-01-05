@@ -248,7 +248,7 @@ export const HeaderNavItem = React.memo(({
                 <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
               </li>
             ))}
-            <li role="none" className="ma__main-nav__subitem">
+            <li role="none" className="ma__main-nav__subitem--main">
               <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
                 <MemoArrowBent />
                 <span>
