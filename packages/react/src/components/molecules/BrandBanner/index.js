@@ -18,7 +18,6 @@ import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 const BrandBanner = ({ 
   hasSeal=true,
   hasToggle=true,
-  toggleText='Learn More',
   text='An official website of the Commonwealth of Massachusetts'
 }) => {
   const [expanded, setExpanded] = useState(false);
@@ -43,13 +42,13 @@ const BrandBanner = ({
               expanded={expanded}
               icon={<IconChevron />}
             >
-              {expanded ? 'Got it' : toggleText}
+              {expanded ? 'Got it' : 'Learn more'}
             </ButtonWithIcon>
           )}
         </span>
       </div>
       {
-        expanded && (
+        (hasToggle && expanded) && (
           <dl className="ma__brand-banner-expansion">
             <div className="ma__brand-banner-expansion-item">
               <IconBuilding width={30} height={30} fill="#14558F" />
@@ -85,7 +84,7 @@ BrandBanner.propTypes = {
   text: PropTypes.string,
   /** Whether to include seal */
   hasSeal: PropTypes.bool,
-  /** Whether to toggle button */
+  /** Whether to render the toggle button and content */
   hasToggle: PropTypes.bool
 };
 
