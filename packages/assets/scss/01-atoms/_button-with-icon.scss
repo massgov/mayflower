@@ -21,7 +21,8 @@ $quaternary-colors: (
 .ma__button-icon {
   background-color: $c-white;
   border: 2px solid $c-gray-light;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-weight: $fonts-bold;
   letter-spacing: $letter-spacing-large;
   padding: 10px 14px;
@@ -74,13 +75,10 @@ $quaternary-colors: (
 
   span {
     display: inline-block;
-    vertical-align: middle;
     padding-right: 5px;
   }
 
   & > svg {
-    display: inline-block;
-    vertical-align: middle;
     fill: $c-gray-dark;
     height: 20px;
     transition: transform .5s, fill .4s;

@@ -31,23 +31,6 @@
         flex-direction: column;
 
         &-item {
-            & + & {
-                margin-top: 1rem;
-            }
-        }
-
-        @media ($bp-small-min) {
-            flex-direction: row;
-
-            &-item {
-                & + & {
-                    margin-left: 1rem;
-                    margin-top: 0;
-                }
-            }
-        }
-
-        &-item {
             display: flex;
             flex-direction: row;
             flex: 0 1 auto;
@@ -63,6 +46,30 @@
 
             dd {
                 margin-left: 0;
+            }
+
+            svg {
+                min-width: 20px;
+        
+                @media ($bp-small-min) {
+                    min-width: 30px;
+                }
+                   
+               }
+            
+            & + & {
+                margin-top: 1rem;
+            }
+        }
+
+        @media ($bp-small-min) {
+            flex-direction: row;
+
+            &-item {
+                & + & {
+                    margin-left: 1rem;
+                    margin-top: 0;
+                }
             }
         }
     }
