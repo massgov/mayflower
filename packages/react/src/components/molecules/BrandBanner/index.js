@@ -1,8 +1,8 @@
 /**
  * BrandBanner module.
  * @module @massds/mayflower-react/BrandBanner
- * @requires module:@massds/mayflower-assets/scss/02-molecules/arrow-nav
- * @requires module:@massds/mayflower-assets/scss/01-atoms/arrow-button
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/brand-banner
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
  */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
