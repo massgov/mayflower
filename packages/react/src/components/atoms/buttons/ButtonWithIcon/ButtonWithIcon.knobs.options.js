@@ -25,6 +25,7 @@ export default {
   theme: {
     'no theme i.e. c-primary-alt (default)': '',
     'c-primary': 'c-primary',
+    'c-primary-alt': 'c-primary-alt',
     'c-highlight': 'c-highlight',
     'c-gray-dark': 'c-gray-dark',
     'c-black': 'c-black'
