@@ -19,14 +19,14 @@ import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-whi
 const BrandBanner = ({
   hasSeal = true,
   hasToggle = true,
-  bgTheme= 'light',
-  bgColor= 'c-primary',
+  bgTheme = 'light',
+  bgColor = 'c-primary',
   text = 'An official website of the Commonwealth of Massachusetts'
 }) => {
   const lightTheme = bgTheme === 'light';
   const brandBannerClasses = classNames('ma__brand-banner', {
     [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
-  })
+  });
   const [expanded, setExpanded] = useState(false);
 
   const handleOnToggle = () => {
@@ -41,7 +41,7 @@ const BrandBanner = ({
           {hasToggle && (
             <ButtonWithIcon
               classes={['ma__brand-banner-button']}
-              theme={lightTheme ? "c-primary" : "c-white"}
+              theme={lightTheme ? 'c-primary' : 'c-white'}
               type="submit"
               usage="quaternary"
               onClick={handleOnToggle}
@@ -57,7 +57,7 @@ const BrandBanner = ({
         (hasToggle && expanded) && (
           <dl className="ma__brand-banner-expansion">
             <div className="ma__brand-banner-expansion-item">
-              <IconBuilding width={30} height={30} fill={lightTheme ? "#14558F" : "#fff"} />
+              <IconBuilding width={30} height={30} fill={lightTheme ? '#14558F' : '#fff'} />
               <div className="ma__brand-banner-expansion-item-content">
                 <dt>
                   Official websites use .mass.gov domain
@@ -68,7 +68,7 @@ const BrandBanner = ({
               </div>
             </div>
             <div className="ma__brand-banner-expansion-item">
-              <IconLock width={30} height={30} fill={lightTheme ? "#388557" : "#fff"} />
+              <IconLock width={30} height={30} fill={lightTheme ? '#388557' : '#fff'} />
               <div className="ma__brand-banner-expansion-item-content">
                 <dt>
                   Secure websites use HTTPS certificate
