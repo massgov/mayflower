@@ -15,6 +15,7 @@
     //     "c-gray": $c-black,
     //     "c-black": $c-black
     // );
+
     @each $class, $c in $lightTheme {
         &--#{$class}-bg-light {
           background-color: $c;
