@@ -25,13 +25,15 @@
         &--#{$class}-bg-dark {
             background-color: $c;
 
-            // @if $class == "c-highlight" {
-            // color: $c-black;
+            @if $class != "c-highlight" {
+            color: white;
 
-            //     & > svg {
-            //         fill: rgba($c-black,.5);
-            //     }
-            // }
+                & > * {
+                    fill: white !important;
+                    color: white !important;
+                    border-color: white !important;
+                }
+            }
         }
     }
 }

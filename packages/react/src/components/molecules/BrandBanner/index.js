@@ -14,6 +14,7 @@ import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLock from 'MayflowerReactBase/Icon/IconLock';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
+import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
 
 const BrandBanner = ({
   hasSeal = true,
@@ -22,6 +23,7 @@ const BrandBanner = ({
   bgColor= 'c-primary',
   text = 'An official website of the Commonwealth of Massachusetts'
 }) => {
+  const lightTheme = bgTheme === 'light';
   const brandBannerClasses = classNames('ma__brand-banner', {
     [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
   })
@@ -33,13 +35,13 @@ const BrandBanner = ({
   return(
     <div className={brandBannerClasses}>
       <div className="ma__brand-banner-container">
-        {hasSeal && <Image className="ma__brand-banner-logo" src={logo} />}
+        {hasSeal && <Image className="ma__brand-banner-logo" src={lightTheme ? logo : logoWhite} />}
         <span>
           {text}
           {hasToggle && (
             <ButtonWithIcon
               classes={['ma__brand-banner-button']}
-              theme="c-primary"
+              theme={lightTheme ? "c-primary" : "c-white"}
               type="submit"
               usage="quaternary"
               onClick={handleOnToggle}
@@ -55,7 +57,7 @@ const BrandBanner = ({
         (hasToggle && expanded) && (
           <dl className="ma__brand-banner-expansion">
             <div className="ma__brand-banner-expansion-item">
-              <IconBuilding width={30} height={30} fill="#14558F" />
+              <IconBuilding width={30} height={30} fill={lightTheme ? "#14558F" : "#fff"} />
               <div className="ma__brand-banner-expansion-item-content">
                 <dt>
                   Official websites use .mass.gov domain
@@ -66,7 +68,7 @@ const BrandBanner = ({
               </div>
             </div>
             <div className="ma__brand-banner-expansion-item">
-              <IconLock width={30} height={30} fill="#388557" />
+              <IconLock width={30} height={30} fill={lightTheme ? "#388557" : "#fff"} />
               <div className="ma__brand-banner-expansion-item-content">
                 <dt>
                   Secure websites use HTTPS certificate
@@ -93,7 +95,7 @@ BrandBanner.propTypes = {
   /** Whether to render the toggle button and content */
   hasToggle: PropTypes.bool,
   /** Background color option */
-  bgColor: PropTypes.oneOf(['', 'c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark']),
+  bgColor: PropTypes.oneOf(['', 'c-primary', 'c-primary-alt', 'c-gray']),
   /** Background color theme */
   bgTheme: PropTypes.oneOf(['', 'light', 'dark'])
 };
