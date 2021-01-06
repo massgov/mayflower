@@ -5,13 +5,13 @@
     width: 100%;
     background-color: $c-primary-lightest;
     font-size: $fonts-xsmall;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
     &-container {
 
         @include ma-container;
         display: flex;
-        padding-top: 5px;
-        padding-bottom: 5px;
     }
     
     &-logo {
@@ -19,4 +19,52 @@
         width: 20px;
         margin-right: 5px;
     }
+
+    &-button {
+       margin-left: 1rem;
+    }
+
+    &-expansion {
+
+        @include ma-container;
+        display: flex;
+        flex-direction: column;
+
+        &-item {
+            & + & {
+                margin-top: 1rem;
+            }
+        }
+
+        @media ($bp-small-min) {
+            flex-direction: row;
+
+            &-item {
+                & + & {
+                    margin-left: 1rem;
+                    margin-top: 0;
+                }
+            }
+        }
+
+        &-item {
+            display: flex;
+            flex-direction: row;
+            flex: 0 1 auto;
+            max-width: 500px;
+
+            &-content {
+                margin-left: 1rem;
+            }
+
+            dt {
+                font-weight: $fonts-bold;
+            }
+
+            dd {
+                margin-left: 0;
+            }
+        }
+    }
+    
 }

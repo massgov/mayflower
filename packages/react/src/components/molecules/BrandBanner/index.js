@@ -4,12 +4,15 @@
  * @requires module:@massds/mayflower-assets/scss/02-molecules/arrow-nav
  * @requires module:@massds/mayflower-assets/scss/01-atoms/arrow-button
  */
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Image from 'MayflowerReactMedia/Image';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
+import IconLock from 'MayflowerReactBase/Icon/IconLock';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
 const BrandBanner = ({ 
@@ -18,22 +21,61 @@ const BrandBanner = ({
   toggleText='Learn More',
   text='An official website of the Commonwealth of Massachusetts'
 }) => {
-  const sectionClasses = classNames({
-    'js-clickable-link': true,
-    'ma__arrow-nav': true
-  });
+  const [expanded, setExpanded] = useState(false);
+
+  const handleOnToggle = () => {
+    setExpanded(!expanded);
+    console.log(expanded)
+  }
   return(
     <div className="ma__brand-banner">
       <div className="ma__brand-banner-container">
         {hasSeal && <Image className="ma__brand-banner-logo" src={logo}/>}
-        {text}
-        {hasToggle && (
-          <button className="ma__brand-banner-button">
-              {toggleText}
-              <IconChevron />
-          </button>
-        )}
+        <span>
+          {text}
+          {hasToggle && (
+            <ButtonWithIcon 
+              classes={["ma__brand-banner-button"]}
+              theme="c-primary"
+              type="submit"
+              usage="quaternary"
+              onClick={handleOnToggle}
+              expanded={expanded}
+              icon={<IconChevron />}
+            >
+              {expanded ? 'Got it' : toggleText}
+            </ButtonWithIcon>
+          )}
+        </span>
       </div>
+      {
+        expanded && (
+          <dl className="ma__brand-banner-expansion">
+            <div className="ma__brand-banner-expansion-item">
+              <IconBuilding width={30} height={30} fill="#14558F" />
+              <div className="ma__brand-banner-expansion-item-content">
+                <dt>
+                  Official websites use .mass.gov domain
+                </dt>
+                <dd>
+                  The .mass.gov domain belongs to the official Massachusetts state government.
+                </dd>
+              </div>
+            </div>
+            <div className="ma__brand-banner-expansion-item">
+              <IconLock width={30} height={30} fill="#388557" />
+              <div className="ma__brand-banner-expansion-item-content">
+                <dt>
+                  Secure websites use HTTPS certificate
+                </dt>
+                <dd>
+                  A lock icon (<IconLock width={12} height={12} />) or https:// means you’ve safely connected to the official website. Share sensitive information only on official, secure websites.
+                </dd>
+              </div>
+            </div>
+          </dl>
+        )
+      }
     </div>
   );
 };
