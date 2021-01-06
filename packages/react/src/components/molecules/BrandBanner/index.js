@@ -6,7 +6,6 @@
  */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 import Image from 'MayflowerReactMedia/Image';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
@@ -15,26 +14,25 @@ import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLock from 'MayflowerReactBase/Icon/IconLock';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
-const BrandBanner = ({ 
-  hasSeal=true,
-  hasToggle=true,
-  text='An official website of the Commonwealth of Massachusetts'
+const BrandBanner = ({
+  hasSeal = true,
+  hasToggle = true,
+  text = 'An official website of the Commonwealth of Massachusetts'
 }) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleOnToggle = () => {
     setExpanded(!expanded);
-    console.log(expanded)
-  }
+  };
   return(
     <div className="ma__brand-banner">
       <div className="ma__brand-banner-container">
-        {hasSeal && <Image className="ma__brand-banner-logo" src={logo}/>}
+        {hasSeal && <Image className="ma__brand-banner-logo" src={logo} />}
         <span>
           {text}
           {hasToggle && (
-            <ButtonWithIcon 
-              classes={["ma__brand-banner-button"]}
+            <ButtonWithIcon
+              classes={['ma__brand-banner-button']}
               theme="c-primary"
               type="submit"
               usage="quaternary"
@@ -68,7 +66,9 @@ const BrandBanner = ({
                   Secure websites use HTTPS certificate
                 </dt>
                 <dd>
-                  A lock icon (<IconLock width={12} height={12} />) or https:// means you’ve safely connected to the official website. Share sensitive information only on official, secure websites.
+                  A lock icon (
+                  <IconLock width={12} height={12} />
+                  ) or https:// means you’ve safely connected to the official website. Share sensitive information only on official, secure websites.
                 </dd>
               </div>
             </div>
@@ -87,6 +87,5 @@ BrandBanner.propTypes = {
   /** Whether to render the toggle button and content */
   hasToggle: PropTypes.bool
 };
-
 
 export default BrandBanner;
