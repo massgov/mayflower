@@ -12,6 +12,31 @@ import * as stories from './BrandBanner.stories.js';
 
 # Brand Banner
 
+The brand banner identifies official websites of the Commonwealth of Massachusetts. It ensures the visitors of getting information or performing transactions on an official and secure government website. 
+
 <Canvas withSource="none" >
   <Story story={stories.brandBannerExample} />
+</Canvas>
+
+It’s required for the mass.gov domain and all its subdomains (mass.gov domain policy), and recommends all other .gov state websites using it as a consistent and trustworthy identifier for the public users.
+
+
+# Overview
+
+The Mayflower brand banner is a thin banner attached to the top of all pages of a site for branding and assurance purposes. It contains:
+- An optional state seal (This is optional when the SiteLogo in Header is also a state seal, to avoid repetition)
+- The text: An official website of the Commonwealth of Massachusetts
+
+## Variations
+
+### Light Theme
+
+<Canvas>
+  <Story story={stories.brandBannerLight} />
+</Canvas>
+
+### Dark Theme
+
+<Canvas>
+  <Story story={stories.brandBannerDark} />
 </Canvas>
