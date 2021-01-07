@@ -4,7 +4,7 @@
  * @requires module:@massds/mayflower-assets/scss/02-molecules/brand-banner
  * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
  */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -26,7 +26,7 @@ const BrandBanner = ({
   const brandBannerClasses = classNames('ma__brand-banner', {
     [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
   });
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = React.useState(false);
 
   const handleOnToggle = () => {
     setExpanded((prevExpanded) => !prevExpanded);
