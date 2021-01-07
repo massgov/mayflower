@@ -28,8 +28,12 @@ const brandBannerDarkTheme = (
 </>
 );
 
+const notesBrandBanner = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/brand-banner.css">`;
+
 export const brandBannerExample = () => brandBannerBasic;
 
 export const brandBannerLight= () => brandBannerLightTheme;
+attachHTML(brandBannerLight, brandBannerLightTheme, notesBrandBanner);
 
 export const brandBannerDark= () => brandBannerDarkTheme;
+attachHTML(brandBannerDark, brandBannerDarkTheme, notesBrandBanner);
