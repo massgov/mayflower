@@ -13,14 +13,13 @@ import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLock from 'MayflowerReactBase/Icon/IconLock';
-import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
-import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
 
 const BrandBanner = ({
   hasSeal = true,
   hasToggle = true,
   bgTheme = 'light',
   bgColor = 'c-primary',
+  seal,
   text = 'An official website of the Commonwealth of Massachusetts'
 }) => {
   const lightTheme = bgTheme === 'light';
@@ -35,7 +34,7 @@ const BrandBanner = ({
   return(
     <div className={brandBannerClasses}>
       <div className="ma__brand-banner-container">
-        {hasSeal && <Image className="ma__brand-banner-logo" src={lightTheme ? logo : logoWhite} />}
+        {hasSeal && <Image className="ma__brand-banner-logo" src={seal} />}
         <span>
           {text}
           {hasToggle && (
@@ -88,6 +87,9 @@ const BrandBanner = ({
 };
 
 BrandBanner.propTypes = {
+  /** Banner state seal src.
+   * To ensure sufficient color contrast, pass in the gray seal for light bgTheme and the white seal for dark bgTheme. */
+  seal: PropTypes.string.isRequired,
   /** Banner text */
   text: PropTypes.string,
   /** Whether to include seal */
