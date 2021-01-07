@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 
 import BrandBanner from './index';
-import seal from '@massds/mayflower-assets/static/images/logo/stateseal.svg';
+import seal from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import sealWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
 
 export const BrandBannerExample = (args) => <BrandBanner {...args} />;
