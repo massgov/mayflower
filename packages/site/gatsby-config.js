@@ -8,7 +8,7 @@ module.exports = {
   pathPrefix: process.env.GATSBY_PATH_PREFIX,
   siteMetadata: {
     title: 'Mayflower',
-    description: 'A design system for the Commonwealth of Massachusetts',
+    description: 'The design system for the Commonwealth of Massachusetts',
     url: 'https://mayflower.digital.mass.gov/'
   },
   plugins: [

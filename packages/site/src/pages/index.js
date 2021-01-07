@@ -34,6 +34,7 @@ const IndexPage = ({ data: { content } }) => {
   };
   return(
     <Layout>
+			<Tabs tabs={tabs} />
       <SEO title="Home" />
       <IllustratedHeader {...headerProps}>
         <span className="ma__page-banner__callout ma__page-banner__callout--primary">
@@ -52,7 +53,6 @@ const IndexPage = ({ data: { content } }) => {
           }
         </div>
       </IllustratedHeader>
-      <Tabs tabs={tabs} />
       <Section>
         <div className="row ma__row--three-up">
           {
@@ -60,7 +60,7 @@ const IndexPage = ({ data: { content } }) => {
               <div className="col-md" key={`link-${sectionLinksProps.title.text}`}>
                 <SectionLinks {...sectionLinksProps}>
                   {
-                    items.map((item) => <CalloutLink key={`item-${item.text}`} {...item} />)
+                    items.map((item) => <DecorativeLink key={`item-${item.text}`} {...item} />)
                   }
                 </SectionLinks>
               </div>
