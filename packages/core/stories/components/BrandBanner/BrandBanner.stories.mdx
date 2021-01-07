@@ -1,0 +1,17 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+import generateTitle from '../../util/generateTitle';
+import * as stories from './BrandBanner.stories.js';
+
+<Meta
+  title={generateTitle('BrandBanner')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Brand Banner
+
+<Canvas withSource="none" >
+  <Story story={stories.brandBannerExample} />
+</Canvas>

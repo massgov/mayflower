@@ -59,6 +59,10 @@
     "kind": "Elements",
     "story": "Links"
   },
+  "BrandBanner": {
+    "kind": "Components",
+    "story": "BrandBanner"
+  },
   "Header": {
     "kind": "Components",
     "story": "Header"
