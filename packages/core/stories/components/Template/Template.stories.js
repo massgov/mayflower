@@ -1,13 +1,15 @@
 import React from 'react';
 import * as headerStories from '../Header/Header.stories';
 import * as footerStories from '../Footer/Footer.stories';
+import * as brandBannerStories from '../BrandBanner/BrandBanner.stories';
 
 import { attachHTML } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
-export const template = ({ renderHeader, renderFooter, reversed }) => (
+export const template = ({ renderBrandBanner, renderHeader, renderFooter, reversed }) => (
   <div id="body-wrapper">
+    {renderBrandBanner}
     {renderHeader}
     <main id="main-content">
       <div className="pre-content sp--bottom">
@@ -49,9 +51,18 @@ export const template = ({ renderHeader, renderFooter, reversed }) => (
   </div>
 );
 
-const templateSlim = template({ renderHeader: headerStories.headerSlimmest(), renderFooter: footerStories.footerSlim() });
+const templateSlim = template({ 
+  renderBrandBanner: brandBannerStories.brandBannerNoSeal(),
+  renderHeader: headerStories.headerSlimmest(),
+  renderFooter: footerStories.footerSlim()
+});
 
-const templateFullNav = template({ renderHeader: headerStories.headerFullNav(), renderFooter: footerStories.footerFullNav(), reversed: true });
+const templateFullNav = template({ 
+  renderBrandBanner: brandBannerStories.brandBannerLight(),
+  renderHeader: headerStories.headerFullNav(),
+  renderFooter: footerStories.footerFullNav(),
+  reversed: true 
+});
 
 const notesTemplateSlim = `
   // Link to CSS:
