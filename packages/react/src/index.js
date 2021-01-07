@@ -71,6 +71,7 @@ export Paragraph from 'MayflowerReactText/Paragraph';
 export PublishState from 'MayflowerReactText/PublishState';
 
 // @molecules
+export BrandBanner from 'MayflowerReactMolecules/BrandBanner';
 export Link from 'MayflowerReactMolecules/Link';
 export LinkDropdown from 'MayflowerReactMolecules/LinkDropdown';
 export ArrowNav from 'MayflowerReactMolecules/ArrowNav';

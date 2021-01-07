@@ -1,0 +1,40 @@
+@use "00-base/variables" as *;
+
+@mixin background-colors ($lightTheme, $darkTheme) {
+    // $lightTheme: (
+    //     "c-primary": $c-primary-lightest,
+    //     "c-primary-alt": $c-primary-alt-lightest,
+    //     "c-highlight": $c-highlight-lightest,
+    //     "c-gray": $c-platinum-gray,
+    //     "c-white": $c-white
+    // );
+    // $darkTheme: (
+    //     "c-primary": $c-primary,
+    //     "c-primary-alt": $c-primary-alt,
+    //     "c-highlight": $c-highlight,
+    //     "c-gray": $c-black,
+    //     "c-black": $c-black
+    // );
+
+    @each $class, $c in $lightTheme {
+        &--#{$class}-bg-light {
+          background-color: $c;
+        }
+      }
+    
+    @each $class, $c in $darkTheme {
+        &--#{$class}-bg-dark {
+            background-color: $c;
+
+            @if $class != "c-highlight" {
+            color: white;
+
+                & > * {
+                    fill: white !important;
+                    color: white !important;
+                    border-color: white !important;
+                }
+            }
+        }
+    }
+}
