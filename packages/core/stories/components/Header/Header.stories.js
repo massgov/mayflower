@@ -15,7 +15,7 @@ import { attachHTML } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
-const headerBasic = (
+export const headerBasic = (
   <HeaderSlim
     siteLogo={(
       <SiteLogo

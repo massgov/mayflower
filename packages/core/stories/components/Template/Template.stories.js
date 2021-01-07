@@ -58,7 +58,7 @@ const templateSlim = template({
 });
 
 const templateFullNav = template({ 
-  renderBrandBanner: brandBannerStories.brandBannerLight(),
+  renderBrandBanner: brandBannerStories.brandBannerNoSeal(),
   renderHeader: headerStories.headerFullNav(),
   renderFooter: footerStories.footerFullNav(),
   reversed: true 

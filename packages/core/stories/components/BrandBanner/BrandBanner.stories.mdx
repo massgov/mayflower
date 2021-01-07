@@ -24,10 +24,17 @@ The brand banner identifies official websites of the Commonwealth of Massachuset
 ## Overview
 
 The Mayflower brand banner is a thin banner attached to the top of all pages of a site for branding and assurance purposes. It contains:
-- An optional state seal (This is optional when the SiteLogo in Header is also a state seal, to avoid repetition)
+- An optional state seal
 - The text: An official website of the Commonwealth of Massachusetts
 
 ## Variations
+### Brand Banner Without the State Seal
+
+In cases where the state seal is being used as the site logo in the Header component, omit the state seal in the brand banner to avoid repetition.
+
+<Canvas withSource="none">
+  <Story story={stories.brandBannerNoSeal} />
+</Canvas>
 
 ### Colors and Themes
 The brand banners are provided in multiple color options in both light and dark theme to work with different adjecent backgrounds and additional branding colors.
@@ -59,3 +66,4 @@ The brand banners are provided in multiple color options in both light and dark 
 <Canvas>
   <Story story={stories.brandBannerDarkGray} />
 </Canvas>
+
