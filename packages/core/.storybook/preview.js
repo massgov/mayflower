@@ -22,6 +22,7 @@ export const parameters = {
 		],
 		'Elements',
 		'Components', [
+			'BrandBanner',
 			'Header',
 			'Footer',
         	'Template'
