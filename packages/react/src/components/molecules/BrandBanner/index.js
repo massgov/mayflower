@@ -30,7 +30,7 @@ const BrandBanner = ({
   const [expanded, setExpanded] = useState(false);
 
   const handleOnToggle = () => {
-    setExpanded(!expanded);
+    setExpanded((prevExpanded) => !prevExpanded);
   };
   return(
     <div className={brandBannerClasses}>
