@@ -162,7 +162,6 @@ $heading-indent: $gutter;
   // List styles
 
   ul {
-    list-style-type: disc;
     margin-bottom: $rich-text-spacing-mobile;
     padding-left: 20px;
 
@@ -173,6 +172,11 @@ $heading-indent: $gutter;
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  ul ul {
+    margin-top: 0.5em;
+    margin-bottom: 0;
   }
 
   ol {

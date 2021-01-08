@@ -1,12 +1,21 @@
 <ul{{ class ? ' class="' ~ class ~ '"' }}>
 	{% for listItem in unorderedList %}
-		<li>{{ listItem.text }}</li>
+		<li>{{ listItem.text }}
 		{% if listItem.sublist %}
-			<ul>
+			<ul>{# 2nd level #}
 				{% for sublist in listItem.sublist %}
-					<li>{{ sublist.text }}</li>
+					<li>{{ sublist.text }}
+					{% if sublist.sublist %}
+						<ul>{# 3rd level #}
+						{% for sublist in sublist.sublist %}
+							<li>{{ sublist.text }}</li>
+						{% endfor %}
+						</ul>
+					{% endif %}
+					</li>
 				{% endfor %}
 			</ul>
 		{% endif %}
+		</li>
 	{% endfor %}
 </ul>
