@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 ### Changed 
 - (Patternlab) [RichText] DP-9450: Remove the existing bullet style for a unordered list in rich text to match _elements.scss and adjust nested lists' top margin for consistent spacing. (#1335)
 - (React, Patternlab, Assets) [null] Removed the submenu first child and its hidden styles, cleanup style overrides. Target the category link in submenu using className `ma__main__hamburger-nav__subitem--main` instead of `:last-child` (#1333)
+- (Site) [Index] Restructured Mayflower homepage, added links to core, and removed the link to gitbook docs. (#1336)
 
 ### Fixed 
 - (React) [HeaderNav, HamburgerNav] Corrected submenu links and fixed category link styles. (#1333)
