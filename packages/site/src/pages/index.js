@@ -18,7 +18,7 @@ import './index.scss';
 
 const IndexPage = ({ data: { content } }) => {
   const {
-    header, projects, channels, tabs, links, intro
+    header, projects, channels, resources, links, intro
   } = content;
   const { paragraph, buttons, ...headerProps } = header;
   headerProps.bgImage = '';
@@ -44,7 +44,7 @@ const IndexPage = ({ data: { content } }) => {
             buttons.map((button) => {
               const { iconName, iconTitle, ...buttonRest } = button;
               const ButtonIcon = Icon[iconName];
-              buttonRest.icon = <ButtonIcon title={iconTitle} height={20} width={20} />;
+              buttonRest.icon = <ButtonIcon title={iconTitle} />;
               return(
                 <ButtonWithIcon key={`button-${iconTitle}`} {...buttonRest} />
               );
@@ -69,8 +69,11 @@ const IndexPage = ({ data: { content } }) => {
       <Section>
         <h2>Experimental packages</h2>
 				<RichText htmlTag="p" rawHtml={intro} transform={transform} />
+        <div className="ma__button-group">
+          {resources.map((resource) => <ButtonWithIcon usage="tertiary" {...resource} icon={<Icon.IconArrow />} />)}
+        </div>
       </Section>
-			<Tabs tabs={tabs} />
+			
       <Section bgColor="primary">
         <h2>See Mayflower in Use</h2>
         <div className="row">
@@ -153,9 +156,8 @@ export const query = graphql`
         }
       }
 			intro
-      tabs {
-        value
-        label
+      resources {
+        text
         href
       }
       projects {

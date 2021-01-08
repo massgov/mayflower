@@ -34,6 +34,10 @@
 
 .ma__illustrated-header {
   margin: 0;
+
+  .ma__button-icon--secondary:hover {
+    border-color: white !important;
+  }
 }
 
 .ma__button-group {

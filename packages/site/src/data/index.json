@@ -2,7 +2,7 @@
   "title": "Homepage",
   "header": {
     "pageHeader": {
-      "title": "The design system for the Commonwealth of Massachusetts"
+      "title": "The Design System for the Commonwealth of Massachusetts"
     },
     "category": "",
     "inverted": true,
@@ -13,8 +13,8 @@
 			{
         "href": "https://mayflower.digital.mass.gov/core",
         "text": "Documentation",
-        "usage": "tertiary",
-        "theme": "",
+        "usage": "secondary",
+        "theme": "c-primary",
         "iconName": "IconArrow",
         "iconTitle": "arrow icon"
       }
@@ -22,7 +22,7 @@
   },
   "links": [{
     "title": {
-      "text": "Accessible & multilingual"
+      "text": "Accessible & Multilingual"
     },
     "description": "All goveernment websites are mandated by the Americans with Disabilities Act to be accessible (WCAG 2.0 and 2.1). Starting a project with Mayflower gives you a solid baseline of accessibility to build on. It's also built to support all of the same languages available on mass.gov.",
 		"items": [{
@@ -34,7 +34,7 @@
   },
   {
     "title": {
-      "text": "Consistent & modern"
+      "text": "Consistent & Modern"
     },
     "description": "Using Mayflower will give your site an out-of-the-box branded look-and-feel that inspiress trust because it's consistent with what costituents see on other Massachusetts sites like Mass.gov. It's also cross-browser tested (to IE10) and resoponsive so it's consistent across modern platforms and devices.",
 		"items": [{
@@ -46,7 +46,7 @@
   },
   {
     "title": {
-      "text": "Modular & stable"
+      "text": "Modular & Stable"
     },
     "description": "Because Mayflower is a modular kit of components that you can mix and match you can use just what you need, make customizations where you want, and generally maintain less code. All of those components can be accessed individually through our version controlled CDN.",
     "items": [{
@@ -57,15 +57,13 @@
     }]
   }],
 	"intro": "Experimental packages are component libraries created by the digital services team to build sites like Mass.gov, Search.mass.gov, and Massachusetts budget sites. There are currently two experimental packages; Mayflower Patternalb (for Drupal), and Mayflower React. They are maintained internally and can be used as reference implementations but are not recommended as dependencies for your projects at this time and are not open for feature requests.",
-	"tabs": [
+	"resources": [
 		{
-			"value": "react",
-			"label": "Mayflower React Documentation",
+			"text": "Mayflower React",
 			"href": "https://mayflower.digital.mass.gov/react"
 		},
 		{
-			"value": "patternlab",
-			"label": "Mayflower Patternlab Documentation",
+			"text": "Mayflower Patternlab",
 			"href": "https://mayflower.digital.mass.gov/patternlab"
 		}
 	],
