@@ -57,11 +57,7 @@ const IndexPage = ({ data: { content } }) => {
           {
             links.map(({ items, ...sectionLinksProps }) => (
               <div className="col-md" key={`link-${sectionLinksProps.title.text}`}>
-                <SectionLinks {...sectionLinksProps}>
-                  {
-                    items.map((item) => <DecorativeLink key={`item-${item.text}`} {...item} />)
-                  }
-                </SectionLinks>
+                <SectionLinks {...sectionLinksProps} seeAll={items[0]} />
               </div>
             ))}
         </div>
