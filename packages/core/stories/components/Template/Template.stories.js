@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as headerStories from '../Header/Header.stories';
 import * as footerStories from '../Footer/Footer.stories';
 import * as brandBannerStories from '../BrandBanner/BrandBanner.stories';
@@ -7,7 +8,9 @@ import { attachHTML } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
-export const Template = ({ renderBrandBanner=brandBannerStories.brandBannerNoSeal(), renderHeader, renderFooter, reversed }) => (
+export const Template = ({
+  renderBrandBanner = brandBannerStories.brandBannerNoSeal(), renderHeader, renderFooter, reversed
+}) => (
   <div id="body-wrapper">
     {renderBrandBanner}
     {renderHeader}
@@ -51,18 +54,29 @@ export const Template = ({ renderBrandBanner=brandBannerStories.brandBannerNoSea
   </div>
 );
 
-const templateSlim = <Template 
-  renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
-  renderHeader={headerStories.headerSlimmest()}
-  renderFooter={footerStories.footerSlim()}
-/>;
+Template.propTypes = {
+  renderBrandBanner: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  renderHeader: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  renderFooter: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  reversed: PropTypes.bool
+};
 
-const templateFullNav = <Template 
-  renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
-  renderHeader={headerStories.headerFullNav()}
-  renderFooter={footerStories.footerFullNav()}
-  reversed={true} 
-/>;
+const templateSlim = (
+  <Template
+    renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
+    renderHeader={headerStories.headerSlimmest()}
+    renderFooter={footerStories.footerSlim()}
+  />
+);
+
+const templateFullNav = (
+  <Template
+    renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
+    renderHeader={headerStories.headerFullNav()}
+    renderFooter={footerStories.footerFullNav()}
+    reversed
+  />
+);
 
 const globalCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.min.css">`;
 const layoutCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.min.css">`;
@@ -110,5 +124,3 @@ attachHTML(templateBasic, templateSlim, notesTemplateSlim);
 
 export const templateFull = () => templateFullNav;
 attachHTML(templateFull, templateFullNav, notesTemplate);
-
- 
