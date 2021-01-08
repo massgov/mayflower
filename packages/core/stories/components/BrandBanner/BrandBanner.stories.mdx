@@ -1,0 +1,68 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+import generateTitle from '../../util/generateTitle';
+import * as stories from './BrandBanner.stories.js';
+
+<Meta
+  title={generateTitle('BrandBanner')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Brand Banner
+
+It assures visitors that they are using an official and secure government website.
+
+<Canvas withSource="none" >
+  <Story story={stories.brandBannerExample} />
+</Canvas>
+
+> According to the Mass.gov domain policy, all sites under the mass.gov domain and its subdomains **must** use the brand banner. Other .gov state websites **should** use it as a consistent and trustworthy identifier. Any entity not directly under the authority of the government of Massachusetts is **prohibited** from using the banner
+
+## Overview
+
+The Mayflower brand banner is a thin banner attached to the top of all pages of a site for branding and assurance purposes. It contains:
+- An optional state seal
+- The text: An official website of the Commonwealth of Massachusetts
+
+## Variations
+### Brand Banner Without the State Seal
+
+In cases where the state seal is being used as the site logo in the Header component, omit the state seal in the brand banner to avoid repetition.
+
+<Canvas withSource="none">
+  <Story story={stories.brandBannerNoSeal} />
+</Canvas>
+
+### Colors and Themes
+The brand banners are provided in multiple color options in both light and dark theme to work with different adjecent backgrounds and additional branding colors.
+
+#### Light Theme
+
+<Canvas>
+  <Story story={stories.brandBannerLight} />
+</Canvas>
+
+<Canvas>
+  <Story story={stories.brandBannerLightPrimaryAlt} />
+</Canvas>
+
+<Canvas>
+  <Story story={stories.brandBannerLightGray} />
+</Canvas>
+
+#### Dark Theme
+
+<Canvas>
+  <Story story={stories.brandBannerDark} />
+</Canvas>
+
+<Canvas>
+  <Story story={stories.brandBannerDarkPrimaryAlt} />
+</Canvas>
+
+<Canvas>
+  <Story story={stories.brandBannerDarkGray} />
+</Canvas>
+

@@ -1,6 +1,11 @@
 Added:
-  - project: React
+  - project: React, Assets
     component: BrandBanner
     description: Added BrandBanner molecule. (#1334)
+    issue: DP-20730
+    impact: Minor
+  - project: Core
+    component: BrandBanner, Template
+    description: Added documentation for BrandBanner. (#1338)
     issue: DP-20730
     impact: Minor
