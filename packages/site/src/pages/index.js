@@ -34,7 +34,6 @@ const IndexPage = ({ data: { content } }) => {
   };
   return(
     <Layout>
-			<Tabs tabs={tabs} />
       <SEO title="Home" />
       <IllustratedHeader {...headerProps}>
         <span className="ma__page-banner__callout ma__page-banner__callout--primary">
@@ -68,8 +67,10 @@ const IndexPage = ({ data: { content } }) => {
         </div>
       </Section>
       <Section>
-        <RichText htmlTag="p" rawHtml={intro} transform={transform} />
+        <h2>Experimental packages</h2>
+				<RichText htmlTag="p" rawHtml={intro} transform={transform} />
       </Section>
+			<Tabs tabs={tabs} />
       <Section bgColor="primary">
         <h2>See Mayflower in Use</h2>
         <div className="row">
@@ -139,16 +140,9 @@ export const query = graphql`
           iconTitle
         }
       }
-      intro
-      tabs {
-        value
-        label
-        href
-      }
       links {
         title {
           text
-          href
         }
         description
         items {
@@ -157,6 +151,12 @@ export const query = graphql`
           description
           theme
         }
+      }
+			intro
+      tabs {
+        value
+        label
+        href
       }
       projects {
         title {

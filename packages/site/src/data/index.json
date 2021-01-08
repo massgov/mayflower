@@ -10,45 +10,22 @@
     "bgInfo": "",
     "bgImage": "",
     "buttons": [
-      {
-        "href": "https://github.com/massgov/mayflower",
-        "text": "Github",
+			{
+        "href": "https://mayflower.digital.mass.gov/core",
+        "text": "Documentation",
         "usage": "tertiary",
         "theme": "",
-        "iconName": "IconGithub",
-        "iconTitle": "github icon"
+        "iconName": "IconArrow",
+        "iconTitle": "arrow icon"
       }
     ]
   },
-  "tabs": [
-    {
-			"value": "Core",
-      "label": "Core Docs",
-      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/overview-get-started--page"
-    },
-    {
-			"value": "react",
-      "label": "React docs (experimental)",
-      "href": "https://mayflower.digital.mass.gov/react"
-    },
-    {
-			"value": "patternlab",
-      "label": "Patternlab docs (experimental)",
-      "href": "https://mayflower.digital.mass.gov/patternlab"
-    }
-  ],
-  "intro": "To create print or digital assets that are cohensive with Mass.gov and belong to the Commonwealth’s information ecosystem, follow the <a href=\"http://mayflower.digital.mass.gov/styleguide/Mayflower_styleguide.pdf\">Mayflower Digital Style Guide</a>.",
   "links": [{
     "title": {
-      "text": "1. Principles"
+      "text": "Accessible & multilingual"
     },
-    "description": "The design thinking behind the Mayflower system and its implementation. Use this when starting design and development of any new project or when contributing to Mayflower.",
-    "items": [{
-      "text": "Brand Pillars",
-      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/principles-brand-pillars--page",
-      "description": "",
-      "theme": ""
-    },{
+    "description": "All goveernment websites are mandated by the Americans with Disabilities Act to be accessible (WCAG 2.0 and 2.1). Starting a project with Mayflower gives you a solid baseline of accessibility to build on. It's also built to support all of the same languages available on mass.gov.",
+		"items": [{
       "text": "Accessibility",
       "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/principles-accessibility--page",
       "description": "",
@@ -57,49 +34,41 @@
   },
   {
     "title": {
-      "text": "2. Foundation"
+      "text": "Consistent & modern"
     },
-    "description": "The raw materials of the Mayflower system. In general you don't need to 'do' anything to appy these since they are baked into all elements and components, but they are helpful if you need to alter, extend or contribute back to the project.",
-    "items": [{
-      "text": "Logo",
-      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/foundation-logo--seal-example",
-      "description": "",
-      "theme": ""
-    }, {
-      "text": "Colors",
-      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/foundation-color--page",
-      "description": "",
-      "theme": ""
-    }, {
-      "text": "Typography",
-      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/foundation-typography--page",
-      "description": "",
-      "theme": ""
-    }, {
-      "text": "Icons",
-      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/foundation-icons--page",
+    "description": "Using Mayflower will give your site an out-of-the-box branded look-and-feel that inspiress trust because it's consistent with what costituents see on other Massachusetts sites like Mass.gov. It's also cross-browser tested (to IE10) and resoponsive so it's consistent across modern platforms and devices.",
+		"items": [{
+      "text": "Brand Pillars",
+      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/principles-brand-pillars--page",
       "description": "",
       "theme": ""
     }]
   },
   {
     "title": {
-      "text": "3. Components",
-      "href": ""
+      "text": "Modular & stable"
     },
-    "description": "The building blocks, in both design and code, for everything from buttons and links to complex components like our responsive headers and a starter template, along with helpful instructions on how to use them.",
+    "description": "Because Mayflower is a modular kit of components that you can mix and match you can use just what you need, make customizations where you want, and generally maintain less code. All of those components can be accessed individually through our version controlled CDN.",
     "items": [{
-      "text": "Elements",
-      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/elements-buttons",
-      "description": "",
-      "theme": ""
-    },{
       "text": "Components",
       "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/components-header",
       "description": "",
       "theme": ""
     }]
   }],
+	"intro": "Experimental packages are component libraries created by the digital services team to build sites like Mass.gov, Search.mass.gov, and Massachusetts budget sites. There are currently two experimental packages; Mayflower Patternalb (for Drupal), and Mayflower React. They are maintained internally and can be used as reference implementations but are not recommended as dependencies for your projects at this time and are not open for feature requests.",
+	"tabs": [
+		{
+			"value": "react",
+			"label": "Mayflower React Documentation",
+			"href": "https://mayflower.digital.mass.gov/react"
+		},
+		{
+			"value": "patternlab",
+			"label": "Mayflower Patternlab Documentation",
+			"href": "https://mayflower.digital.mass.gov/patternlab"
+		}
+	],
   "projects": [
     {
       "title": {
