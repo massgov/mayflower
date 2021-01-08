@@ -20,10 +20,10 @@
 @use "SectionLinks";
 
 
-
 .ma__container {
 
   @include ma-container();
+	
   margin-top: 0px;
 }
 
@@ -32,9 +32,12 @@
   padding-bottom: none;
 }
 
-
 .ma__illustrated-header {
   margin: 0;
+
+  .ma__button-icon--secondary:hover {
+    border-color: white !important;
+  }
 }
 
 .ma__button-group {
@@ -47,6 +50,7 @@
     }
 
    @media($bp-x-small-min) {
+
     flex-direction: row;
     & >  * ~ * {
       margin: 0 0 0 1rem;
@@ -63,40 +67,12 @@
   border-color: $c-gray-lighter;
 }
 
-h2.ma__section-links__title {
+.ma__section-wrapper h2.ma__gen-teaser__title {
   margin-bottom: 0;
 }
 
-.ma__callout-link{
-    line-height: 1.3;
-    @media ($bp-medium-min) {
-        width: 33%;
-    }
-    @media ($bp-large-min) {
-        width: 100%;
-    }
-    @media ($bp-x-large-min) {
-        width: 33%;
-    }
-    @media ($bp-small-min) {
-      padding: 15px 20px;
-    }
-
-    a {
-      display: contents;
-    }
-
-    &__container {
-      font-size: 1.3rem;
-      padding-right: 0;
-    }
-
-    &__description {
-        font-size: 1rem;
-        @media ($bp-x-large-max) {
-            display: none;
-        }
-    }
+.ma__section-links__item + .ma__section-links__item {
+  margin-top: .5em;
 }
 
 // Match row height
@@ -106,4 +82,8 @@ h2.ma__section-links__title {
   .ma__section-links {
     height: 100%;
   }
+}
+
+.ma__footer-slim__info {
+  margin-left: .5rem;
 }
