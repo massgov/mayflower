@@ -4,10 +4,8 @@ import Img from 'gatsby-image';
 import IllustratedHeader from '@massds/mayflower-react/dist/IllustratedHeader';
 import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
 import GenTeaser from '@massds/mayflower-react/dist/GenTeaser';
-import Tabs from '@massds/mayflower-react/dist/Tabs';
 import SectionLinks from '@massds/mayflower-react/dist/SectionLinks';
 import DecorativeLink from '@massds/mayflower-react/dist/DecorativeLink';
-import CalloutLink from '@massds/mayflower-react/dist/CalloutLink';
 import * as Icon from '@massds/mayflower-react/dist/Icon';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -18,7 +16,7 @@ import './index.scss';
 
 const IndexPage = ({ data: { content } }) => {
   const {
-    header, projects, channels, tabs, links, intro
+    header, projects, channels, resources, links, intro
   } = content;
   const { paragraph, buttons, ...headerProps } = header;
   headerProps.bgImage = '';
@@ -44,7 +42,7 @@ const IndexPage = ({ data: { content } }) => {
             buttons.map((button) => {
               const { iconName, iconTitle, ...buttonRest } = button;
               const ButtonIcon = Icon[iconName];
-              buttonRest.icon = <ButtonIcon title={iconTitle} height={20} width={20} />;
+              buttonRest.icon = <ButtonIcon title={iconTitle} />;
               return(
                 <ButtonWithIcon key={`button-${iconTitle}`} {...buttonRest} />
               );
@@ -52,24 +50,24 @@ const IndexPage = ({ data: { content } }) => {
           }
         </div>
       </IllustratedHeader>
-      <Tabs tabs={tabs} />
       <Section>
         <div className="row ma__row--three-up">
           {
             links.map(({ items, ...sectionLinksProps }) => (
               <div className="col-md" key={`link-${sectionLinksProps.title.text}`}>
-                <SectionLinks {...sectionLinksProps}>
-                  {
-                    items.map((item) => <CalloutLink key={`item-${item.text}`} {...item} />)
-                  }
-                </SectionLinks>
+                <SectionLinks {...sectionLinksProps} seeAll={items[0]} />
               </div>
             ))}
         </div>
       </Section>
       <Section>
-        <RichText htmlTag="p" rawHtml={intro} transform={transform} />
+        <h2>Experimental packages</h2>
+				<RichText htmlTag="p" rawHtml={intro} transform={transform} />
+        <div className="ma__button-group">
+          {resources.map((resource) => <ButtonWithIcon usage="tertiary" {...resource} icon={<Icon.IconArrow />} />)}
+        </div>
       </Section>
+			
       <Section bgColor="primary">
         <h2>See Mayflower in Use</h2>
         <div className="row">
@@ -139,16 +137,9 @@ export const query = graphql`
           iconTitle
         }
       }
-      intro
-      tabs {
-        value
-        label
-        href
-      }
       links {
         title {
           text
-          href
         }
         description
         items {
@@ -157,6 +148,11 @@ export const query = graphql`
           description
           theme
         }
+      }
+			intro
+      resources {
+        text
+        href
       }
       projects {
         title {

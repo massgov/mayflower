@@ -2,109 +2,71 @@
   "title": "Homepage",
   "header": {
     "pageHeader": {
-      "title": "A design system for Massachusetts state government"
+      "title": "The Design System for the Commonwealth of Massachusetts"
     },
-    "category": "Commonwealth of Massachusetts",
+    "category": "",
     "inverted": true,
-    "paragraph": "Mayflower makes it easier to build accessible, mobile-friendly websites with a consistent look and feel for the state of Massachusetts.",
+    "paragraph": "Mayflower makes it easy for state agencies to build accessible, mobile-friendly sites or apps consistent with the official Massachusetts brand.",
     "bgInfo": "",
     "bgImage": "",
     "buttons": [
-      {
-        "href": "https://github.com/massgov/mayflower",
-        "text": "Github",
-        "usage": "tertiary",
-        "theme": "",
-        "iconName": "IconGithub",
-        "iconTitle": "github icon"
+			{
+        "href": "https://mayflower.digital.mass.gov/core",
+        "text": "Documentation",
+        "usage": "secondary",
+        "theme": "c-primary",
+        "iconName": "IconArrow",
+        "iconTitle": "arrow icon"
       }
     ]
   },
-  "tabs": [
-    {
-      "value": "react",
-      "label": "Mayflower React",
-      "href": "https://mayflower.digital.mass.gov/react"
-    },
-    {
-      "value": "patternlab",
-      "label": "Mayflower Patternlab",
-      "href": "https://mayflower.digital.mass.gov/patternlab"
-    },
-    {
-      "value": "news",
-      "label": "Documentation",
-      "href": "https://mayflower.digital.mass.gov/docs"
-    }
-  ],
-  "intro": "To create print or digital assets that are cohensive with Mass.gov and belong to the Commonwealth’s information ecosystem, follow the <a href=\"http://mayflower.digital.mass.gov/styleguide/Mayflower_styleguide.pdf\">Mayflower Digital Style Guide</a>.",
   "links": [{
     "title": {
-      "text": "1. Branding and Tokens"
+      "text": "Accessible & Multilingual"
     },
-    "description": "Use these tech agnostic branding assets to create a cohesive look across Commonwealth web properties.",
-    "items": [{
-      "text": "Color Tokens",
-      "href": "https://mayflower.digital.mass.gov/react/index.html?path=/story/brand-colors--colors",
+    "description": "All government websites are mandated by the Americans with Disabilities Act to be accessible (WCAG 2.0 and 2.1). Starting a project with Mayflower gives you a solid baseline of accessibility to build on. It's also built to support all of the same languages available on Mass.gov.",
+		"items": [{
+      "text": "Learn More",
+      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/principles-accessibility--page",
       "description": "",
       "theme": ""
-    },{
-      "text": "Typography",
-      "href": "https://mayflower.digital.mass.gov/react/index.html?path=/story/brand-typography--about",
-      "description": "",
-      "theme": ""
-    },{
-      "text": "Icons",
-      "href": "https://mayflower.digital.mass.gov/react/index.html?path=/story/brand-icons--all-icons",
-      "description": "",
-      "theme": ""
-    },{
-      "text": "Mayflower Tokens NPM Package",
-      "href": "https://www.npmjs.com/package/@massds/mayflower-tokens",
-      "description": "Download the color token SCSS variables, fonts, icons and other imagery for a Mayflower theme.",
-      "theme": "white"
     }]
   },
   {
     "title": {
-      "text": "2. Markup and CSS"
+      "text": "Consistent & Modern"
     },
-    "description": "Implement Mayflower HTML markup and link to the CDN for compiled static assets.",
-    "items": [{
-      "text": "Mayflower HTML Starter",
-      "href": "https://github.com/massgov/mayflower-starters",
-      "description": "Use the Mayflower starters to kick-start builidng a simple webpage.",
+    "description": "Using Mayflower will give your site an out-of-the-box branded look-and-feel that inspires trust because it's consistent with what constituents see on other Massachusetts sites like Mass.gov. It's also cross-browser tested (to IE10) and responsive so it's consistent across modern platforms and devices.",
+		"items": [{
+      "text": "Learn More",
+      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/principles-brand-pillars--page",
+      "description": "",
       "theme": ""
-    }, {
-      "text": "Mayflower Patternlab",
-      "href": "https://mayflower.digital.mass.gov/patternlab",
-      "description": "Explore the Mayflower components and their HTML markup.",
-      "theme": ""
-    }, {
-      "text": "Mayflower static assets CDN",
-      "href": "https://unpkg.com/browse/@massds/mayflower/",
-      "description": "Webfonts, images, compiled CSS and JS are served over the UNPKG CDN. Point to a specific version to go with the markup.",
-      "theme": "white"
     }]
   },
   {
     "title": {
-      "text": "3. Component Libraries",
-      "href": ""
+      "text": "Modular & Stable"
     },
-    "description": "Leverage Mayflower component libraries to build fast, accessible, mobile-friendly, cross-browser compatible web products efficiently.",
+    "description": "Because Mayflower is a modular kit of components that you can mix and match you can use just what you need, make customizations where you want, and generally maintain less code. Mayflower Core components can be accessed individually through our version-controlled CDN.",
     "items": [{
-      "text": "React Component Library",
-      "href": "https://mayflower.digital.mass.gov/react",
-      "description": "Browse Mayflower components built with ReactJS.",
+      "text": "Learn More",
+      "href": "https://mayflower.digital.mass.gov/core/index.html?path=/story/components",
+      "description": "",
       "theme": ""
-    },{
-      "text": "Mayflower React NPM Package",
-      "href": "https://www.npmjs.com/package/@massds/mayflower-react",
-      "description": "Install the package to use Mayflower components in your React APP.",
-      "theme": "white"
     }]
   }],
+	"intro": "Experimental packages are component libraries created by the digital services team to build sites like Mass.gov, Search.mass.gov, and Massachusetts budget sites. There are currently two experimental packages; Mayflower Patternlab (for Drupal), and Mayflower React. They are maintained internally and can be used as reference implementations but are not recommended as dependencies for your projects at this time and are not open for feature requests.",
+	"resources": [
+		{
+			"text": "Mayflower React",
+			"href": "https://mayflower.digital.mass.gov/react"
+		},
+		{
+			"text": "Mayflower Patternlab",
+			"href": "https://mayflower.digital.mass.gov/patternlab"
+		}
+	],
   "projects": [
     {
       "title": {
@@ -113,38 +75,38 @@
         "href": "https://www.mass.gov",
         "showFileIcon": false
       },
-      "description": "",
+      "description": "Built with Mayflower patternlab and Drupal",
       "img": {
         "src": "../images/massgov.png",
-        "alt": "",
+        "alt": "Mass.gov homepage screenshot",
         "shape": "circular"
       }
     },
     {
       "title": {
-        "info": "FY20 summary budget site homepage",
+        "info": "",
         "text": "Massachusetts budget sites",
         "href": "http://budget.digital.mass.gov/summary/fy20/",
         "showFileIcon": false
       },
-      "description": "",
+      "description": "Built with Mayflower React",
       "img": {
         "src": "../images/budget.png",
-        "alt": "",
+        "alt": "Massachusetts budget site screenshot",
         "shape": "circular"
       }
     },
     {
       "title": {
-        "info": "PFML Contribution Calculator",
-        "text": "Paid Family Medical Leave Contribution Calculator",
+        "info": "",
+        "text": "PFML Contribution Calculator",
         "href": "https://calculator.digital.mass.gov/pfml/contribution",
         "showFileIcon": false
       },
-      "description": "",
+      "description": "Built with Mayflower React",
       "img": {
         "src": "../images/pfml-calculator.png",
-        "alt": "",
+        "alt": "PFML Calculator screenshot",
         "shape": "circular"
       }
     }

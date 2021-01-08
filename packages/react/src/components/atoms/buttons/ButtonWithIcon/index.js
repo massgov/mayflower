@@ -59,7 +59,7 @@ ButtonWithIcon.propTypes = {
   /** id for the button */
   id: PropTypes.string,
   /** button or link content rendered in a span */
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   /** When populated with a url, this component renders a <a> vs a <button> */
   href: PropTypes.string,
   // Function to run on click of the button.

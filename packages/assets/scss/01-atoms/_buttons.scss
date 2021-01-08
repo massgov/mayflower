@@ -76,6 +76,7 @@ button {
   color: $c-primary;
   padding: 0;
   text-transform: none;
+  letter-spacing: $letter-spacing-default;
 
   &:hover:not(:disabled) {
    border-bottom: 3px solid $c-primary;
