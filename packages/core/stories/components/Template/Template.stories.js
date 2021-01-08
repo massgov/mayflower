@@ -7,7 +7,7 @@ import { attachHTML } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
-export const Template = ({ renderBrandBanner, renderHeader, renderFooter, reversed }) => (
+export const Template = ({ renderBrandBanner=brandBannerStories.brandBannerNoSeal(), renderHeader, renderFooter, reversed }) => (
   <div id="body-wrapper">
     {renderBrandBanner}
     {renderHeader}
@@ -50,18 +50,6 @@ export const Template = ({ renderBrandBanner, renderHeader, renderFooter, revers
     {renderFooter}
   </div>
 );
-Template.args = {
-  renderBrandBanner: brandBannerStories.brandBannerNoSeal()
-}
-Template.argTypes = {
-  renderBrandBanner: {
-    control: {
-      type: 'select',
-      options: ['1', '2']
-    }
-  }
-};
-
 
 const templateSlim = <Template 
   renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
@@ -76,18 +64,24 @@ const templateFullNav = <Template
   reversed={true} 
 />;
 
+const globalCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.min.css">`;
+const layoutCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.min.css">`;
+const brandBannerCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/brand-banner.min.css">`;
+
 const notesTemplateSlim = `
   // Link to CSS:
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
+  ${globalCSS}
+  ${layoutCSS}
+  ${brandBannerCSS}
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">
 `;
 
 const notesTemplate = `
   // Link to CSS:
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
+  ${globalCSS}
+  ${layoutCSS}
+  ${brandBannerCSS}
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
 
@@ -98,9 +92,11 @@ const notesTemplate = `
 export const notesTemplateCSS = `
 <head>
   <!-- Mayflower fonts and other basic styles -->
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
+  ${globalCSS}
   <!-- Mayflower page layout styles -->
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
+  ${layoutCSS}
+  <!-- Mayflower Brand Banner styles -->
+  ${brandBannerCSS}
   <!-- Add Mayflower Header and Footer specific styles -->
 </head>
 `;
