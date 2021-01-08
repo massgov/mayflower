@@ -12,7 +12,6 @@ export const Icons = (args) => (
       }
   </ul>
 );
-Icons.storyName = 'All Icons';
 Icons.args = {
   width: 40,
   height: 50,

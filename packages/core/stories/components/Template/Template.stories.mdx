@@ -22,7 +22,7 @@ The templates demostrates how to assemble a page with a Mayflower Header, Footer
   `
   ${stories.notesTemplateCSS}
 <body>
-  ${renderReactMarkup(stories.template({renderHeader: '// Insert Header HTML here', renderFooter: '// Insert Footer HTML here'}))}
+  ${renderReactMarkup(<stories.Template renderHeader='// Insert Header HTML here' renderFooter = '// Insert Footer HTML here' />)}
   ${stories.notesTemplateJS}
 </body>
   `

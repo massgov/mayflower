@@ -7,7 +7,7 @@ import { attachHTML } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
-export const template = ({ renderBrandBanner, renderHeader, renderFooter, reversed }) => (
+export const Template = ({ renderBrandBanner, renderHeader, renderFooter, reversed }) => (
   <div id="body-wrapper">
     {renderBrandBanner}
     {renderHeader}
@@ -50,19 +50,31 @@ export const template = ({ renderBrandBanner, renderHeader, renderFooter, revers
     {renderFooter}
   </div>
 );
+Template.args = {
+  renderBrandBanner: brandBannerStories.brandBannerNoSeal()
+}
+Template.argTypes = {
+  renderBrandBanner: {
+    control: {
+      type: 'select',
+      options: ['1', '2']
+    }
+  }
+};
 
-const templateSlim = template({ 
-  renderBrandBanner: brandBannerStories.brandBannerNoSeal(),
-  renderHeader: headerStories.headerSlimmest(),
-  renderFooter: footerStories.footerSlim()
-});
 
-const templateFullNav = template({ 
-  renderBrandBanner: brandBannerStories.brandBannerNoSeal(),
-  renderHeader: headerStories.headerFullNav(),
-  renderFooter: footerStories.footerFullNav(),
-  reversed: true 
-});
+const templateSlim = <Template 
+  renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
+  renderHeader={headerStories.headerSlimmest()}
+  renderFooter={footerStories.footerSlim()}
+/>;
+
+const templateFullNav = <Template 
+  renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
+  renderHeader={headerStories.headerFullNav()}
+  renderFooter={footerStories.footerFullNav()}
+  reversed={true} 
+/>;
 
 const notesTemplateSlim = `
   // Link to CSS:
@@ -102,3 +114,5 @@ attachHTML(templateBasic, templateSlim, notesTemplateSlim);
 
 export const templateFull = () => templateFullNav;
 attachHTML(templateFull, templateFullNav, notesTemplate);
+
+ 
