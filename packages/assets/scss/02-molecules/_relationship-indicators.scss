@@ -1,6 +1,7 @@
 @use "00-base/configure" as *;
 
-.ma__relationship-indicators {
+.ma__relationship-indicators,
+&.primary {
 
   @include clearfix;
   display: flex;
