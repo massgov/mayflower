@@ -47,8 +47,6 @@
     margin-bottom: .25em;
     white-space: nowrap;
 
-    background-color: lightgreen; // TEST CODE
-
     @media ($bp-x-small-min) {
       min-width: 6.5em;
     }
@@ -127,17 +125,6 @@
           }
         }
       }
-
-      // THIS IS CAUSING THE IE ISSUE.
-      // &.tags-open {
-
-      //   background-color: purple;
-      //   // flex-direction: column;
-
-      // //   @media ($bp-x-small-min) {
-      // //     flex-direction: initial;
-      // //   }
-      // }
 
       // Only hide tags if secondary tags present.
 
@@ -265,8 +252,6 @@
     margin-bottom: 0;
     padding-bottom: 0;
     padding-inline-start: 0;
-
-    background-color: lightsalmon;
 
     @media ($bp-x-small-min) {
       flex-flow: row wrap;
