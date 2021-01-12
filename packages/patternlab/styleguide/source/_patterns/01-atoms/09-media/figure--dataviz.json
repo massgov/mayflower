@@ -10,6 +10,10 @@
       "text": "This is an option data visualization title",
       "visible": false
     },
-    "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
+    "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>",
+    "skiplink": {
+      "add": true,
+      "text": "data visualization content"
+    }
   }
 }

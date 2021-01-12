@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: Figure
+    description: Add a skip link to figure component as an accessibility improvement. (#1324)
+    issue: DP-20555
+    impact: Patch
