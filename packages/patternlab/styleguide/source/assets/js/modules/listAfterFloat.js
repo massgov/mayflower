@@ -5,8 +5,9 @@ const figureElements = document.querySelectorAll(".ma__rich-text .ma__figure");
 
 figureElements.forEach(function (figure) {
   let floatValue = window.getComputedStyle(figure, null).float;
-  if(floatValue === "left" && figure.nextElementSibling.tagName !== "FIGURE") {
-    // figure.style.
+
+  if(floatValue === "left" && !figure.nextElementSibling.classList.contains(".ma__figure")) {
+  //   // figure.style.
     console.log(figure.nextElementSibling.tagName);
   }
   // console.log(figure.nextElementSibling.tagName);
