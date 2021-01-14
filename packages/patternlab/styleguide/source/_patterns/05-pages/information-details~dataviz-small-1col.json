@@ -88,40 +88,10 @@
           }
         },
         {
-          "path": "@atoms/09-media/figure--dataviz.twig",
-          "data": {
-            "figure": {
-              "align": "left",
-              "wrap": true,
-              "size": "small",
-              "dataviz": {
-                "id": "1234",
-                "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
-              },
-              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
-            }
-          }
-        },
-        {
-          "path": "@atoms/09-media/figure--dataviz.twig",
-          "data": {
-            "figure": {
-              "align": "left",
-              "wrap": true,
-              "size": "small",
-              "dataviz": {
-                "id": "1234",
-                "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
-              },
-              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
-            }
-          }
-        },
-        {
           "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
-              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. "
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu."
             }
           }
         },
@@ -129,7 +99,7 @@
           "path": "@atoms/09-media/figure--dataviz.twig",
           "data": {
             "figure": {
-              "align": "left",
+              "align": "right",
               "wrap": true,
               "size": "small",
               "dataviz": {
@@ -152,116 +122,8 @@
           "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
-              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit."
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu."
             }
-          }
-        },
-        {
-          "path": "@atoms/08-lists/unordered-list.twig",
-          "data": {
-            "unorderedList": [
-              {
-                "text": "This is a list item in an ordered list"
-              },
-              {
-                "text": "An ordered list is a list in which the sequence of items is important. Top level item counters are digits"
-              },
-              {
-                "text": "Lists can be nested inside of each other"
-              },
-              {
-                "text": "This is a list item in an ordered list"
-              },
-              {
-                "text": "An ordered list is a list in which the sequence of items is important. Top level item counters are digits"
-              },
-              {
-                "text": "Lists can be nested inside of each other"
-              },
-              {
-                "text": "This is a list item in an ordered list"
-              },
-              {
-                "text": "An ordered list is a list in which the sequence of items is important. Top level item counters are digits"
-              },
-              {
-                "text": "Lists can be nested inside of each other"
-              },
-              {
-                "text": "This is the last list item"
-              }
-            ]
-          }
-        },
-        {
-          "path": "@atoms/09-media/figure--image.twig",
-          "data": {
-            "figure": {
-              "align": "left",
-              "size": "small",
-              "image": {
-                "alt": "alt text",
-                "src": "../../assets/images/placeholder/245x328.png",
-                "height": "",
-                "width": ""
-              },
-              "title": {
-                "text": "This is an option image title",
-                "visible": true
-              },
-              "caption": "This is an optional caption that can wrap to multiple lines."
-            }
-          }
-        },
-        {
-          "path": "@atoms/11-text/paragraph.twig",
-          "data": {
-            "paragraph": {
-              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit."
-            }
-          }
-        },
-        {
-          "path": "@atoms/08-lists/ordered-list.twig",
-          "data": {
-            "orderedList": [
-              {
-                "text": "This is a list item in an ordered list"
-              },
-              {
-                "text": "An ordered list is a list in which the sequence of items is important. Top level item counters are digits"
-              },
-              {
-                "text": "Lists can be nested inside of each other",
-                "sublist": [
-                  {
-                    "text": "This is a nested list item. After digits list items counters are lower-alpha."
-                  },
-                  {
-                    "text": "This is another nested list item in an ordered list",
-                    "sublist": [
-                      {
-                        "text": "This is a nested list item. After lower-alpha counters, lower-roman counters are used.",
-                        "sublist": [
-                          {
-                            "text": "This is a nested list item. After lower-roman counters, the counters loop back to digits."
-                          },
-                          {
-                            "text": "This is another nested list item in an ordered list"
-                          }
-                        ]
-                      },
-                      {
-                        "text": "This is another nested list item in an ordered list"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "text": "This is the last list item"
-              }
-            ]
           }
         },
         {
