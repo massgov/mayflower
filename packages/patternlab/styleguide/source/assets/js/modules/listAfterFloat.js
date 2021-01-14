@@ -10,12 +10,31 @@
 
 const figureElements = document.querySelectorAll(".ma__rich-text .ma__figure");
 
-figureElements.forEach(function (figure) {
-  if (!figure.previousElementSibling.classList.contains("ma__figure")) {
-    let floatDirection = window.getComputedStyle(figure, null).float;
+if (window.screen.width > 620) {
+  addInlineMargin ();
+}
 
-    if(floatDirection === "left" && !figure.nextElementSibling.classList.contains("ma__figure")) {
-      figure.style.cssText = "margin-right: 50px;";
-    }
+window.addEventListener('resize', () => {
+  if (window.screen.width > 620) {
+    addInlineMargin ();
+  } else {
+    // Remove the inline style with no float with screen width under 620px.
+    figureElements.forEach( (figure) => {
+      if (figure.hasAttribute("style")) {
+        figure.removeAttribute("style");
+      }
+    });
   }
 });
+
+function addInlineMargin () {
+  figureElements.forEach( (figure) => {
+    if (!figure.previousElementSibling.classList.contains("ma__figure")) {
+      let floatDirection = window.getComputedStyle(figure, null).float;
+
+      if(floatDirection === "left" && !figure.nextElementSibling.classList.contains("ma__figure")) {
+        figure.style.cssText = "margin-right: 50px;";
+      }
+    }
+  });
+}
