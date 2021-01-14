@@ -1,22 +1,36 @@
 {% set alignmentClass = figure.align ? (figure.size == "x-large" ? "" : " ma__figure--" ~ figure.align) : "" %}
 {% set sizeClass = figure.size ? (figure.size == 'x-large' ? " ma__figure--full ma__figure--" ~ figure.size : " ma__figure--" ~ figure.size) : "" %}
 {% set wrapClass = not figure.wrap ? " ma__figure--no-wrap" : "" %}
-<figure class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}{{ wrapClass }}"  {% if figure.title %} aria-label="{{ figure.title.text }}" {% endif %}>
-{% if figure.title.text and figure.title.visible %}
-  {# screen reader or AT users get title from aria-label in <figure> in semantic manner.
-  To avoid them to receive duplicate information, hide this title from them with aria-hidden. #}
-  <span class="ma__figure__title" aria-hidden="true">
-    {{ figure.title.text }}
-  </span>
-  {% endif %}
-  {# Container for aria-live. Currently, only implemented with Caspio, but can be extended to any figure variations. #}
-  {% if figure.ariaLive %}<div aria-live="{{ figure.ariaLive }}">{% endif %}
-  {{ figure.content }}
-  {% if figure.ariaLive %}</div>{% endif %}
+{% set skiplinkId = figure.skiplink ? "figure-" ~ random(9999) : "" %}
+{% set skiplinkText = figure.skiplink.text ? figure.skiplink.text : "graphic presentation" %}
 
-  {% if figure.caption %}
-    <figcaption class="ma__figure__caption">
-    {{ figure.caption }}
-    </figcaption>
-  {% endif %}
-</figure>
+<div class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}{{ wrapClass }}">
+{% if figure.skiplink.add %}
+<a class="ma__figure__skip-link" href="#{{ skiplinkId }}" aria-label="Skip the following {{ skiplinkText }}{% if figure.title %}, {{ figure.title.text }}{% endif %}.">Skip this
+	{{ skiplinkText }}.</a>
+{% endif %}
+  <figure{% if figure.title %} aria-label="{{ figure.title.text }}" {% endif %}>
+  {% if figure.title.text and figure.title.visible %}
+    {# screen reader or AT users get title from aria-label in <figure> in semantic manner.
+    To avoid them to receive duplicate information, hide this title from them with aria-hidden. #}
+    <span class="ma__figure__title" aria-hidden="true">
+      {{ figure.title.text }}
+    </span>
+    {% endif %}
+    {# Container for aria-live. Currently, only implemented with Caspio, but can be extended to any figure variations. #}
+    {% if figure.ariaLive %}<div aria-live="{{ figure.ariaLive }}">{% endif %}
+    {{ figure.content }}
+    {% if figure.ariaLive %}</div>{% endif %}
+
+    {% if figure.caption %}
+      <figcaption class="ma__figure__caption">
+      {{ figure.caption }}
+      </figcaption>
+    {% endif %}
+  </figure>
+{% if figure.skiplink.add %}
+  <div id="{{ skiplinkId }}" aria-label="You skipped the {{ skiplinkText }}, {{ figure.title.text }}.">
+    <span class="ma__figure__skip-link_destination">You skipped the	{{ skiplinkText }}.</span>
+  </div>
+{% endif %}
+</div>

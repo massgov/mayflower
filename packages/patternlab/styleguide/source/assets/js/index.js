@@ -43,6 +43,7 @@ import responsiveTable from "./modules/responsiveTable.js";
 import responsiveVideo from "./modules/responsiveVideo.js";
 import resultsHeading from "./modules/resultsHeading.js";
 import scrollAnchors from "./modules/scrollAnchors.js";
+import skipLinkTarget from "./modules/skipLinkTarget.js";
 import teaserListingGroup from "./modules/teaserListingGroup";
 import truncateTitle from "./modules/truncateTitle.js";
 import formInputs from "./modules/formInputs.js";
