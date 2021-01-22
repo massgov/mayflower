@@ -3,13 +3,17 @@
     "align": "",
     "size": "",
     "caspio": {
-      "dataId": "ad9b800013fd69aa4b7446efa939"
+      "dataId": "ad9b80008b0af121c1994daf9fbb"
     },
     "title": {
       "text": "Sample Data Page",
       "visible": false
     },
     "caption": "",
-    "ariaLive": "polite"
+    "ariaLive": "polite",
+    "skiplink": {
+      "add": true,
+      "text": ""
+    }
   }
 }
