@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Caspio
+    description: Change Caspio dataId in Patternlab to use the dedicated testing example to avoid breakage. (#1344)
+    issue: DP-20986
+    impact: Patch
