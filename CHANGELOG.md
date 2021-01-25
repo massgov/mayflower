@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.1.1 (1/25/2021)
+### Added 
+- (Patternlab) [Figure] DP-20555: Add a skip link to figure component as an accessibility improvement. (#1324)
+
+### Fixed 
+- (Patternlab) [Caspio] DP-20986: Change Caspio dataId in Patternlab to use the dedicated testing example to avoid breakage. (#1344)
+
 ## 11.1.0 (1/8/2021)
 ### Added 
 - (React, Assets) [BrandBanner] DP-20730: Added BrandBanner molecule. (#1334)
