@@ -452,7 +452,7 @@ workflows:
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/|react\/).*/ }
 
-  # Release branch automation every Monday at 2:00 p.m. ET "00 18 * * 1"
+  # Release branch automation every Monday at 1:00 p.m. ET "00 18 * * 1"
   release:
     jobs:
       - build
