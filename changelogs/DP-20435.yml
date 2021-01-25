@@ -1,6 +1,0 @@
-Fixed:
-  - project: React, Assets
-    component: FilterBox
-    description: Fix filters alignment and move styles into assets. (#1345)
-    issue: DP-20435
-    impact: Patch

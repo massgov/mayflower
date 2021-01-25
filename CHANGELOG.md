@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed 
 - (Patternlab) [Caspio] DP-20986: Change Caspio dataId in Patternlab to use the dedicated testing example to avoid breakage. (#1344)
+- (React, Assets) [FilterBox] DP-20435: Fix filters alignment and move styles into assets. (#1345)
+- (Core) [Logo] Hotfix svg download links. (#1346)
+
 
 ## 11.1.0 (1/8/2021)
 ### Added 
