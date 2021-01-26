@@ -8,7 +8,7 @@ export default (function (window, document, $, undefined) {
 
   function mediaWidth() {
     // Define wrapper width for use.
-    var wrapperWidth = $("#main-content > .main-content").width();
+    var wrapperWidth = $("#main-content > .main-content--two").width();
 
     $(".ma__figure--full, .ma__iframe--full").each(function () {
       var $thisMedia = $(this);
