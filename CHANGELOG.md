@@ -1,6 +1,34 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.1.1 (1/25/2021)
+### Added 
+- (Patternlab) [Figure] DP-20555: Add a skip link to figure component as an accessibility improvement. (#1324)
+
+### Fixed 
+- (Patternlab) [Caspio] DP-20986: Change Caspio dataId in Patternlab to use the dedicated testing example to avoid breakage. (#1344)
+- (React, Assets) [FilterBox] DP-20435: Fix filters alignment and move styles into assets. (#1345)
+- (Core) [Logo] Hotfix svg download links. (#1346)
+
+
+## 11.1.0 (1/8/2021)
+### Added 
+- (React, Assets) [BrandBanner] DP-20730: Added BrandBanner molecule. (#1334)
+- (Core) [BrandBanner, Template] DP-20730: Added documentation for BrandBanner. (#1338)
+- (React, Patternlab) [UnorderedList] DP-9450: Set bullet style for nested unordered list. (#1335)
+- (React) [HeaderNav, HamburgerNav] Added ability to conditionally render active menu item. (#1333)
+
+### Changed 
+- (Patternlab) [RichText] DP-9450: Remove the existing bullet style for a unordered list in rich text to match _elements.scss and adjust nested lists' top margin for consistent spacing. (#1335)
+- (React, Patternlab, Assets) [null] Removed the submenu first child and its hidden styles, cleanup style overrides. Target the category link in submenu using className `ma__main__hamburger-nav__subitem--main` instead of `:last-child` (#1333)
+- (Site) [Index] Restructured Mayflower homepage, added links to core, and removed the link to gitbook docs. (#1336)
+
+### Fixed 
+- (React) [HeaderNav, HamburgerNav] Corrected submenu links and fixed category link styles. (#1333)
+
+### Removed 
+- (React) [MainNav] Removed MainNav molecule from storybook and mayflower-react npm package (#1333)
+
 ## 11.0.2 (1/4/2021)
 ### Added 
 - (React) [HeaderNav, HamburgerNav, Header, HeaderHamburger] DP-20435: Added conditionally rendered covid menu item with styling to match Patternlab. (#1328)

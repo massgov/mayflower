@@ -28,7 +28,7 @@ ColoredHeading.propTypes = {
   /** The heading level */
   level: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** The color of the heading */
-  color: PropTypes.oneOf(['', 'green', 'blue'])
+  color: PropTypes.oneOf(['', 'green', 'blue', 'gray'])
 };
 
 ColoredHeading.defaultProps = {

@@ -61,6 +61,7 @@
 @use "forms/SelectBox";
 @use "02-molecules/accordion-item";
 @use "02-molecules/arrow-nav";
+@use "02-molecules/brand-banner";
 @use "02-molecules/breadcrumb";
 @use "02-molecules/callout-link";
 @use "02-molecules/contact-group";
@@ -83,7 +84,7 @@
 @use "organisms/CalloutAlert";
 @use "organisms/EmergencyAlerts";
 @use "03-organisms/error-page";
-@use "organisms/FilterBox";
+@use "03-organisms/filter-box";
 @use "03-organisms/utility-nav";
 @use "03-organisms/utility-panel";
 @use "~@massds/mayflower-assets/build/scss/footer";

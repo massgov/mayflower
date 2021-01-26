@@ -1,13 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as headerStories from '../Header/Header.stories';
 import * as footerStories from '../Footer/Footer.stories';
+import * as brandBannerStories from '../BrandBanner/BrandBanner.stories';
 
 import { attachHTML } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
-export const template = ({ renderHeader, renderFooter, reversed }) => (
+export const Template = ({
+  renderBrandBanner = brandBannerStories.brandBannerNoSeal(), renderHeader, renderFooter, reversed
+}) => (
   <div id="body-wrapper">
+    {renderBrandBanner}
     {renderHeader}
     <main id="main-content">
       <div className="pre-content sp--bottom">
@@ -49,22 +54,48 @@ export const template = ({ renderHeader, renderFooter, reversed }) => (
   </div>
 );
 
-const templateSlim = template({ renderHeader: headerStories.headerSlimmest(), renderFooter: footerStories.footerSlim() });
+Template.propTypes = {
+  renderBrandBanner: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  renderHeader: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  renderFooter: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  reversed: PropTypes.bool
+};
 
-const templateFullNav = template({ renderHeader: headerStories.headerFullNav(), renderFooter: footerStories.footerFullNav(), reversed: true });
+const templateSlim = (
+  <Template
+    renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
+    renderHeader={headerStories.headerSlimmest()}
+    renderFooter={footerStories.footerSlim()}
+  />
+);
+
+const templateFullNav = (
+  <Template
+    renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
+    renderHeader={headerStories.headerFullNav()}
+    renderFooter={footerStories.footerFullNav()}
+    reversed
+  />
+);
+
+const globalCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.min.css">`;
+const layoutCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.min.css">`;
+const brandBannerCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/brand-banner.min.css">`;
 
 const notesTemplateSlim = `
   // Link to CSS:
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
+  ${globalCSS}
+  ${layoutCSS}
+  ${brandBannerCSS}
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">
 `;
 
 const notesTemplate = `
   // Link to CSS:
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
+  ${globalCSS}
+  ${layoutCSS}
+  ${brandBannerCSS}
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
 
@@ -75,9 +106,11 @@ const notesTemplate = `
 export const notesTemplateCSS = `
 <head>
   <!-- Mayflower fonts and other basic styles -->
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.css">
+  ${globalCSS}
   <!-- Mayflower page layout styles -->
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout.css">
+  ${layoutCSS}
+  <!-- Mayflower Brand Banner styles -->
+  ${brandBannerCSS}
   <!-- Add Mayflower Header and Footer specific styles -->
 </head>
 `;

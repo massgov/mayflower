@@ -1,10 +1,12 @@
 @use "00-base/configure" as *;
 //include form styles here to export input styling
 //$assets-path: '../../../assets';
+
 @use "01-atoms/forms" as *;
 
-.ma__filter-box{
+.ma__filter-box {
 		z-index: 10;
+
 	  &__form {
 	     box-sizing: border-box;
 	     border: 1px solid #8AAAC7;
@@ -17,37 +19,46 @@
 			 &--active {
 				 box-shadow: 0 0 1.25rem rgba(1, 1, 1, 0.25);
 			 }
-			 .main-content--two{
+
+			 .main-content--two {
 				 display: flex;
 				 flex-direction: column;
 				 justify-content: flex-start;
-				 @media($bp-x-large-min){
+
+				 @media ($bp-x-large-min) {
 						flex-flow: row wrap;
 						justify-content: space-between;
 						align-items: flex-end;
 				 }
 			 }
 	  }
-    &__filters, &__controls{
+
+    &__filters, &__controls {
 			display: flex;
-			@media($bp-medium-min){
+
+			@media ($bp-medium-min) {
 				 flex-flow: row wrap;
 			}
 			 flex-direction: column;
-       align-items: baseline;
 			 justify-content: flex-start;
 			 margin: 1rem 0;
 
 			 > div {
-				 @media($bp-medium-max){
+
+				 @media ($bp-medium-max) {
 					 width: 100%;
 				 }
 					 margin: 0.5rem 1rem 0.5rem 0;
 			 }
-    }
+	}
+	
+	&__controls {
+		align-items: baseline;
+	}
 
 		&--desktop-hidden {
-			@media($bp-medium-min){
+
+			@media ($bp-medium-min) {
 				display: none;
 			}
 		}
@@ -55,9 +66,11 @@
 	  &__button {
 	  	 margin: 0;
 	  }
-	  &__clear{
+
+	  &__clear {
 			margin-top: 10px;
-			@media($bp-medium-min){
+
+			@media ($bp-medium-min) {
 	  		margin-left: 20px;
 			}
     	font-size: $fonts-smaller;
@@ -72,20 +85,25 @@
     	color: $c-font-base;
     	padding: 0px;
     	border-bottom-color: $c-font-base;
+
 		&:hover {
       		border-bottom-width: 3px;
     	}
 	  }
-  .ma__date-range{
-		&__label{
+
+  .ma__date-range {
+
+		&__label {
   		margin-bottom: 0.25em;
 		}
 	}
-  .ma__select-box{
+
+  .ma__select-box {
     display: block;
   }
 
 	.ma-visually-hidden {
+
 		@include ma-visually-hidden;
 	}
 }

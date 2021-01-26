@@ -3,6 +3,7 @@
 $colors: (
   "c-highlight": $c-highlight,
   "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
   "c-black": $c-black,
   "c-gray-dark": $c-gray-dark,
   "c-white": $c-white
@@ -10,6 +11,7 @@ $colors: (
 
 $quaternary-colors: (
   "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
   "c-black": $c-black,
   "c-gray-dark": $c-gray-dark,
   "c-white": $c-white
@@ -19,7 +21,8 @@ $quaternary-colors: (
 .ma__button-icon {
   background-color: $c-white;
   border: 2px solid $c-gray-light;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-weight: $fonts-bold;
   letter-spacing: $letter-spacing-large;
   padding: 10px 14px;
@@ -72,13 +75,10 @@ $quaternary-colors: (
 
   span {
     display: inline-block;
-    vertical-align: middle;
     padding-right: 5px;
   }
 
   & > svg {
-    display: inline-block;
-    vertical-align: middle;
     fill: $c-gray-dark;
     height: 20px;
     transition: transform .5s, fill .4s;
@@ -133,31 +133,32 @@ $quaternary-colors: (
   }
 
   &--quaternary, &--expanded.ma__button-icon--quaternary, &:hover.ma__button-icon--quaternary {
-    min-height: 30px;
+    min-height: 0px;
     background-color: transparent;
     box-shadow: none;
     border: none;
     padding: 0;
     text-transform: none;
-    border-bottom: 2px solid rgba($c-primary-alt,0.75);
-    color: $c-primary-alt;
+    border-bottom: 2px solid rgba($c-primary, 0.5);
+    color: $c-primary;
+    letter-spacing: $letter-spacing-default;
 
     svg {
-      fill: rgba($c-primary-alt,0.75);
+      fill: rgba($c-primary, 0.5);
     }
 
     &:hover {
-      border-bottom: 3px solid $c-primary-alt;
-      background-color: transparent;
+      border-color: $c-primary;
+      background-color: transparent !important;
     }
 
     @each $class, $c in $quaternary-colors {
       &.ma__button-icon--#{$class} {
-        border-bottom-color: rgba($c,0.75);
+        border-bottom-color: rgba($c,0.5);
         color: $c;
 
         svg {
-          fill: rgba($c,0.75);
+          fill: rgba($c,0.5);
         }
 
         &:hover {

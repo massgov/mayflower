@@ -75,7 +75,15 @@
                 "id": "1234",
                 "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
               },
-              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
+              "title": {
+                "text": "This is an option data visualization title",
+                "visible": false
+              },
+              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>",
+              "skiplink": {
+                "add": true,
+                "text": ""
+              }
             }
           }
         },
@@ -98,7 +106,15 @@
                 "id": "4567",
                 "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
               },
-              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
+              "title": {
+                "text": "This is an option data visualization title",
+                "visible": false
+              },
+              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>",
+              "skiplink": {
+                "add": true,
+                "text": "Dataviz sample 2"
+              }
             }
           }
         },
@@ -121,7 +137,15 @@
                 "id": "6789",
                 "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
               },
-              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
+              "title": {
+                "text": "This is an option data visualization title",
+                "visible": false
+              },
+              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>",
+              "skiplink": {
+                "add": true,
+                "text": ""
+              }
             }
           }
         },
@@ -135,132 +159,143 @@
         }
       ]
     },
+    "section2": {
+      "compHeading": {
+        "title": "History of the Massachusetts landscape",
+        "titleContext": "",
+        "level": 2,
+        "color": "",
+        "id": "section2",
+        "centered": ""
+      },
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Open habitats (grasslands, shrublands and young forest) were part of the New England landscape for centuries prior to European colonization due to:"
+            }
+          }
+        },
+        {
+          "path": "@atoms/08-lists/ordered-list.twig",
+          "data": {
+            "orderedList": [
+              {
+                "text": "ubiquitous beaver activity"
+              },
+              {
+                "text": "spring flooding and ice scouring along rivers and major streams"
+              },
+              {
+                "text": "wildfires and fires set by Native Americans in coastal areas and major river valleys"
+              },
+              {
+                "text": "occasional catastrophic windstorms"
+              }
+            ]
+          }
+        },
+        {
+          "path": "@organisms/by-author/pullquote.twig",
+          "data": {
+            "pullquoteCallout": {
+              "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "These open habitats started to decline after European colonization due to:"
+            }
+          }
+        },
+        {
+          "path": "@molecules/callout-stats.twig",
+          "data": {
+            "statsCallout": {
+              "pull": "right",
+              "stat": "$75+",
+              "content": "this includes a title and registration fee"
+            }
+          }
+        },
+        {
+          "path": "@atoms/08-lists/ordered-list.twig",
+          "data": {
+            "orderedList": [
+              {
+                "text": "extirpation of beaver from Massachusetts"
+              },
+              {
+                "text": "extensive development  of roads and buildings in portions of the landscape that formerly supported abundant beaver activity"
+              },
+              {
+                "text": "flood control"
+              },
+              {
+                "text": "fire suppression (especially in portions of the landscape that supported fire-associated natural communities like pitch pine/scrub oak)."
+              }
+            ]
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human activity has also reduced the impact of wind storms across the landscape. Today’s forests are relatively young (75-90 year-old) compared to the old growth that once existed, which means that trees are more pliant and resistant to wind disturbance than original old growth forests. Forests are also fragmented by development in many portions of the landscape, which means that when wind disturbance does occur on forested lands, it is typically interrupted by adjacent development."
+            }
+          }
+        },
+        {
+        "path": "@atoms/09-media/figure--iframe.twig",
+          "data": {
+            "figure": {
+              "align": "",
+              "size": "",
+              "iframe": {
+                "src": "https://massgov.github.io",
+                "title": "Embed page title for accessibility",
+                "position": "full"
+              },
+              "title": {
+                "text": "This is an option iframe title",
+                "visible": false
+              },
+              "caption": "This is an optional caption for an iframe. This iframe also has the 'full' class to fill the container.",
+              "skiplink": {
+                "add": false,
+                "text": ""
+              }
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "MassWildlife uses active management to provide a range of grassland, shrubland, and young forest habitats that are no longer created frequently enough by natural processes. Forestry practices, along with mowing, prescribed burning, and invasive plant control are often used to manage sites."
+            }
+          }
+        },
+        {
+        "path": "@atoms/09-media/iframe.twig",
+          "data": {
+            "iframe": {
+              "src": "https://massgov.github.io",
+              "title": "Embed page title for accessibility",
+              "position": "full",
+              "height": "200"
+            }
+          }
+        }
+      ]
+    },
     "pullquoteCallout": {
       "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
     }
-  },
-  "section2": {
-    "compHeading": {
-      "title": "History of the Massachusetts landscape",
-      "titleContext": "",
-      "level": 2,
-      "color": "",
-      "id": "section2",
-      "centered": ""
-    },
-    "rteElements": [
-      {
-        "path": "@atoms/11-text/paragraph.twig",
-        "data": {
-          "paragraph": {
-            "text": "Open habitats (grasslands, shrublands and young forest) were part of the New England landscape for centuries prior to European colonization due to:"
-          }
-        }
-      },
-      {
-        "path": "@atoms/08-lists/ordered-list.twig",
-        "data": {
-          "orderedList": [
-            {
-              "text": "ubiquitous beaver activity"
-            },
-            {
-              "text": "spring flooding and ice scouring along rivers and major streams"
-            },
-            {
-              "text": "wildfires and fires set by Native Americans in coastal areas and major river valleys"
-            },
-            {
-              "text": "occasional catastrophic windstorms"
-            }
-          ]
-        }
-      },
-      {
-        "path": "@organisms/by-author/pullquote.twig",
-        "data": {
-          "pullquoteCallout": {
-            "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
-          }
-        }
-      },
-      {
-        "path": "@atoms/11-text/paragraph.twig",
-        "data": {
-          "paragraph": {
-            "text": "These open habitats started to decline after European colonization due to:"
-          }
-        }
-      },
-      {
-        "path": "@molecules/callout-stats.twig",
-        "data": {
-          "statsCallout": {
-            "pull": "right",
-            "stat": "$75+",
-            "content": "this includes a title and registration fee"
-          }
-        }
-      },
-      {
-        "path": "@atoms/08-lists/ordered-list.twig",
-        "data": {
-          "orderedList": [
-            {
-              "text": "extirpation of beaver from Massachusetts"
-            },
-            {
-              "text": "extensive development  of roads and buildings in portions of the landscape that formerly supported abundant beaver activity"
-            },
-            {
-              "text": "flood control"
-            },
-            {
-              "text": "fire suppression (especially in portions of the landscape that supported fire-associated natural communities like pitch pine/scrub oak)."
-            }
-          ]
-        }
-      },
-      {
-        "path": "@atoms/11-text/paragraph.twig",
-        "data": {
-          "paragraph": {
-            "text": "Human activity has also reduced the impact of wind storms across the landscape. Today’s forests are relatively young (75-90 year-old) compared to the old growth that once existed, which means that trees are more pliant and resistant to wind disturbance than original old growth forests. Forests are also fragmented by development in many portions of the landscape, which means that when wind disturbance does occur on forested lands, it is typically interrupted by adjacent development."
-          }
-        }
-      },
-      {
-      "path": "@atoms/09-media/iframe.twig",
-        "data": {
-         "iframe": {
-            "src": "https://massgov.github.io",
-            "title": "Embed page title for accessibility",
-            "position": "full",
-            "caption": "This is an optional caption for an iframe. This iframe also has the 'full' class to fill the container."
-          }
-        }
-      },
-      {
-        "path": "@atoms/11-text/paragraph.twig",
-        "data": {
-          "paragraph": {
-            "text": "MassWildlife uses active management to provide a range of grassland, shrubland, and young forest habitats that are no longer created frequently enough by natural processes. Forestry practices, along with mowing, prescribed burning, and invasive plant control are often used to manage sites."
-          }
-        }
-      },
-      {
-      "path": "@atoms/09-media/iframe.twig",
-        "data": {
-         "iframe": {
-            "src": "https://massgov.github.io",
-            "title": "Embed page title for accessibility",
-            "position": "full",
-            "height": "200",
-            "caption": "This iframe has a set height of 200."
-          }
-        }
-      }
-    ]
   },
   "postContent": {
     "contactList": {
