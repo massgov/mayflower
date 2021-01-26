@@ -1,10 +1,6 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
-## 11.1.2 (1/26/2021)
-### Changed 
-- (Patternlab) [Assets] DP-20768: Set fillImage.js to get the page content container width for full size elements. (#1337)
-
 ## 11.1.1 (1/25/2021)
 ### Added 
 - (Patternlab) [Figure] DP-20555: Add a skip link to figure component as an accessibility improvement. (#1324)

@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Assets
+    description: Set fillImage.js to get the page content container width for full size elements. (#1337)
+    issue: DP-20768
+    impact: Patch
