@@ -54,6 +54,14 @@
   }
 }
 
+// Full page display 
+
+.ma__figure--full.ma__iframe__container,
+.ma__figure--full .ma__iframe__container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 //theme
 
 .ma__iframe {
