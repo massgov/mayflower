@@ -269,4 +269,11 @@
       padding-top: 45px;
     }
   }
+
+  // IE11 adjustment - remove when we drop IE 11 support.
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ma__relationship-indicators--terms {
+      padding-left: 10px;
+    }
+  }
 }
