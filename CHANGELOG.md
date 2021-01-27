@@ -1,6 +1,20 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.1.2 (1/26/2021)
+### Changed 
+- (Patternlab) [Assets] DP-20768: Set fillImage.js to get the page content container width for full size elements. (#1337)
+
+## 11.1.1 (1/25/2021)
+### Added 
+- (Patternlab) [Figure] DP-20555: Add a skip link to figure component as an accessibility improvement. (#1324)
+
+### Fixed 
+- (Patternlab) [Caspio] DP-20986: Change Caspio dataId in Patternlab to use the dedicated testing example to avoid breakage. (#1344)
+- (React, Assets) [FilterBox] DP-20435: Fix filters alignment and move styles into assets. (#1345)
+- (Core) [Logo] Hotfix svg download links. (#1346)
+
+
 ## 11.1.0 (1/8/2021)
 ### Added 
 - (React, Assets) [BrandBanner] DP-20730: Added BrandBanner molecule. (#1334)
