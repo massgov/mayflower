@@ -8,7 +8,7 @@
 //        Solving the issue by adding extra right margin to left float figure
 //        components without affecting the wrapping of following elements.
 
-const figureElements = document.querySelectorAll(".ma__rich-text .ma__figure");
+const leftFloatFigures = document.querySelectorAll(".ma__rich-text .ma__figure--left");
 
 if (window.screen.width > 620) {
   addInlineMargin ();
@@ -19,7 +19,7 @@ window.addEventListener('resize', () => {
     addInlineMargin ();
   } else {
     // Remove the inline style with no float with screen width under 620px.
-    figureElements.forEach( (figure) => {
+    leftFloatFigures.forEach( (figure) => {
       if (figure.hasAttribute("style")) {
         figure.removeAttribute("style");
       }
@@ -28,11 +28,22 @@ window.addEventListener('resize', () => {
 });
 
 function addInlineMargin () {
-  figureElements.forEach( (figure) => {
-    if (!figure.previousElementSibling.classList.contains("ma__figure")) {
-      let floatDirection = window.getComputedStyle(figure, null).float;
+  leftFloatFigures.forEach( (figure) => {
+    //  Check if no another figure component is a previous sibling.
+    
+    // In Drupal, rich text elements are spreaded into multiple .ma__rich-text
+    // containers. Figure components are in their own .ma__rich-text containers.
+    // They are never be with other components like lists and paragraphs in a
+    // same container.
+    if (!figure.parentElement.previousElementSibling.classList.contains("ma__figure")) {
+      figure.style.cssText = "margin-right: 50px;";
+    }
 
-      if(floatDirection === "left" && !figure.nextElementSibling.classList.contains("ma__figure")) {
+    // This is for Mayflower samples.
+    // In Mayflower samples, one .ma__rich-text container contains all rich
+    // text components in a section.
+    if (!figure.previousElementSibling.classList.contains("ma__figure")) {
+      if(!figure.nextElementSibling.classList.contains("ma__figure")) {
         figure.style.cssText = "margin-right: 50px;";
       }
     }
