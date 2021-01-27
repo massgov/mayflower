@@ -29,8 +29,8 @@ window.addEventListener('resize', () => {
 
 function addInlineMargin () {
   leftFloatFigures.forEach( (figure) => {
-    //  Check if no another figure component is a previous sibling.
-    
+    //  Check if the previous sibling is not figure component.
+
     // In Drupal, rich text elements are spreaded into multiple .ma__rich-text
     // containers. Figure components are in their own .ma__rich-text containers.
     // They are never be with other components like lists and paragraphs in a
