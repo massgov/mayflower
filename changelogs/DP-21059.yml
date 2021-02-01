@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Figure
+    description: Make a skip link target to be displayed only when its associated skip link is clicked. (#1352)
+    issue: DP-21059
+    impact: Patch
