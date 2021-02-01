@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.1.3 (2/1/2021)
+### Changed 
+- (Patternlab) [Relationship Indicator] DP-19859: Fix the Relationship Indicator display at the show all state in IE. (#1341)
+
+### Fixed 
+- (Patternlab) [Figure] DP-21059: Make a skip link target to be displayed only when its associated skip link is clicked. (#1352)
+
 ## 11.1.2 (1/26/2021)
 ### Changed 
 - (Patternlab) [Assets] DP-20768: Set fillImage.js to get the page content container width for full size elements with figure component. (#1337)
