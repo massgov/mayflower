@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Relationship Indicator
+    description: Fix the Relationship Indicator display at the show all state in IE. (#1341)
+    issue: DP-19859
+    impact: Patch

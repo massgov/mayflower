@@ -57,7 +57,6 @@
   }
 
   &--term {
-    // margin-bottom: 2px;
     margin-right: 10px;
     line-height: 22px;
     padding-right: 5px;
@@ -78,10 +77,6 @@
     @media ($bp-x-small-min) {
         flex-flow: row nowrap;
     }
-
-    // &:first-child {
-    //   padding: 15px 0;
-    // }
 
     .ma__relationship-indicators--term,
     .ma__relationship-indicators__expand-indicators {
@@ -123,14 +118,6 @@
           &:nth-child(n+2) {
             display: none;
           }
-        }
-      }
-
-      &.tags-open {
-        flex-direction: column;
-
-        @media ($bp-x-small-min) {
-          flex-direction: initial;
         }
       }
 
@@ -280,6 +267,15 @@
 
     @media ($bp-large-min) {
       padding-top: 45px;
+    }
+  }
+
+  // IE11 adjustment - remove when we drop IE 11 support.
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+    .ma__relationship-indicators--terms {
+      padding-left: 10px;
     }
   }
 }
