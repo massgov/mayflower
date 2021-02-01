@@ -1,6 +1,6 @@
 Fixed:
   - project: Patternlab
     component: Assets
-    description: Fix left floated figure components and images to cover list style elements in rich text containers. (#1342)
+    description: Fix left floated figure components and images to cover list style elements in rich text containers.  (#1342)
     issue: DP-20381
     impact: Patch
