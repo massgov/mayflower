@@ -24,6 +24,7 @@ import imageFill from "./modules/imageFill.js";
 import inpageAlert from "./modules/inpageAlert.js";
 import keywordSearch from "./modules/keywordSearch.js";
 import linkListToggle from "./modules/linkListToggle.js";
+import listAfterFloat from "./modules/listAfterFloat.js";
 import locationListing from "./modules/locationListing.js";
 import locationFilters from "./modules/locationFilters.js";
 import mainNav from "./modules/mainNav.js";
