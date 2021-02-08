@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.1.4 (2/8/2021)
+### Fixed 
+- (Patternlab) [Assets] DP-20381: Fix left floated figure components and images to cover list style elements in rich text containers.  (#1342)
+
 ## 11.1.3 (2/1/2021)
 ### Changed 
 - (Patternlab) [Relationship Indicator] DP-19859: Fix the Relationship Indicator display at the show all state in IE. (#1341)
