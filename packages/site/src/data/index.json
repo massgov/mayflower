@@ -56,7 +56,7 @@
       "theme": ""
     }]
   }],
-	"intro": "Experimental packages are component libraries created by the digital services team to build sites like Mass.gov, Search.mass.gov, and Massachusetts budget sites. There are currently two experimental packages: Mayflower Patternlab (for Drupal), and Mayflower React. They are maintained internally and can be used as reference implementations but are not recommended as dependencies for your projects at this time and are not open for feature requests.",
+	"intro": "Experimental packages are component libraries created by Massachusetts Digital Service to build sites like Mass.gov, Search.mass.gov, and Massachusetts budget sites. There are currently two experimental packages: Mayflower Patternlab (for Drupal), and Mayflower React. They are maintained internally and can be used as reference implementations but are not recommended as dependencies for your projects at this time and are not open for feature requests.",
 	"resources": [
 		{
 			"text": "Mayflower React",
