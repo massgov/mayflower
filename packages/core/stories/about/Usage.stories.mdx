@@ -3,12 +3,12 @@ import { linkTo } from '@storybook/addon-links';
 import Button from '@massds/mayflower-react/dist/Button';
 
 import generateTitle from '../util/generateTitle';
-const { STORYBOOK_CDN_PATH, STORYBOOK_CDN, STORYBOOK_PKG } = process.env;
+const { STORYBOOK_CDN_PATH, STORYBOOK_CDN, STORYBOOK_PKG, PKG, VERSION } = process.env;
 
 
 <Meta title={generateTitle('Usage')} />
 
-<h1>Get Started with Mayflower <small>version {process.env.VERSION}</small></h1>
+<h1>Get Started with Mayflower <small>version {VERSION}</small></h1>
 
 
 
@@ -57,6 +57,13 @@ The package @massds/mayflower-assets is published on NPM. If you use Node.js, yo
 npm install @massds/mayflower-assets
 ```
 
+If you are not using NPM, you can also directly <a href={`https://registry.npmjs.org/${PKG}/-/mayflower-assets-${VERSION}.tgz`}>download a compressed package for the latest version</a>, or specify a version in the URL:
+<pre>
+  <code>
+  {`https://registry.npmjs.org/${PKG}/-/mayflower-assets-[version].tgz`}
+  </code>
+</pre>
+
 ### Link to the Mayflower CDN
 
 Mayflower leverages the UNPKG CDN and allows you to load any file in the @massds/mayflower-assets package directly.
@@ -64,7 +71,7 @@ Mayflower leverages the UNPKG CDN and allows you to load any file in the @massds
 To load any file from the @massds/mayflower-assets package using a URL like:
 
 ```
-unpkg.com/@massds/mayflower-assets@:version/:file
+unpkg.com/@massds/mayflower-assets@[version]/[file]
 ```
 
 To explore the whole package for a specific version, you can
