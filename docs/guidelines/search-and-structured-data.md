@@ -16,9 +16,9 @@ Below is a dictionary describing the metatag standards implemented in mass.gov w
 | **Metatag** | **Description** |
 | :--- | :--- |
 | mg\_organization | One or more entities responsible for making the resource available such as a publishing house, a government agency or department, or a corporate entity. |
-| category | A classification scheme that categorizes content into context specific groupings. The available options for this field are from a controlled vocabulary managed by the digital services team. Refer to the [controlled vocabulary for category](search-and-structured-data.md#category-vocabulary). |
+| category | A classification scheme that categorizes content into context specific groupings. The available options for this field are from a controlled vocabulary managed by Massachusetts Digital Service (Mass Digital). Refer to the [controlled vocabulary for category](search-and-structured-data.md#category-vocabulary). |
 | mg\_date | A point in time  associated with the resource. |
-| mg\_type | A very specific classification scheme that categorizes content into context specific types. The available options for this field are from a controlled vocabulary managed by the digital services team.  Refer to the [mg\_type controlled vocabulary](search-and-structured-data.md#mg_type-vocabulary). |
+| mg\_type | A very specific classification scheme that categorizes content into context specific types. The available options for this field are from a controlled vocabulary managed by Mass Digital.  Refer to the [mg\_type controlled vocabulary](search-and-structured-data.md#mg_type-vocabulary). |
 | mg\_phone\_number | The main phone number for contacting a specific entity. |
 | mg\_contact\_details | Contact details related to the main phone number such as hours of operation. |
 | mg\_location\_listing\_url | An object containing the name and url to access a list of locations for an entity. |
@@ -43,7 +43,7 @@ In order for the above metatags to be consumed and leveraged consistently in the
 
 ### Controlled Vocabularies
 
-Controlled vocabularies provide a way to organize knowledge for subsequent retrieval. Controlled vocabulary schemes mandate the use of predefined, authorised terms that have been preselected by the designers of the schemes. The vocabularies below are maintained by the digital services team. If you would like to include an additional term in a vocabulary for use in the search application, please contact the digital services team.
+Controlled vocabularies provide a way to organize knowledge for subsequent retrieval. Controlled vocabulary schemes mandate the use of predefined, authorised terms that have been preselected by the designers of the schemes. The vocabularies below are maintained by Mass Digital. If you would like to include an additional term in a vocabulary for use in the search application, please contact Mass Digital.
 
 #### category vocabulary
 
