@@ -8,6 +8,7 @@
 * [For Developers](for-developers/README.md)
   * [Atomic Design](for-developers/atomic-design.md)
   * [Changelog Instructions](for-developers/changelog-instructions.md)
+  * [Release](for-developers/release.md)
   * [Versioning](for-developers/versioning.md)
 * [Guidelines](guidelines/README.md)
   * [Accessibility](guidelines/accessibility/README.md)
