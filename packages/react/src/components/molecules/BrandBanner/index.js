@@ -59,10 +59,10 @@ const BrandBanner = ({
               <IconBuilding width={30} height={30} fill={lightTheme ? '#14558F' : '#fff'} />
               <div className="ma__brand-banner-expansion-item-content">
                 <dt>
-                  Official websites use .mass.gov domain
+                  Official websites use .mass.gov
                 </dt>
                 <dd>
-                  The .mass.gov domain belongs to the official Massachusetts state government.
+                  A .mass.gov website belongs to an official government organization in Massachusetts.
                 </dd>
               </div>
             </div>
