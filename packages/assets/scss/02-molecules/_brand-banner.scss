@@ -35,6 +35,10 @@
         height: 20px;
         width: 20px;
         margin-right: 5px;
+
+        &--dark {
+            filter: brightness(0) invert(1);
+        }
     }
 
     &-button {

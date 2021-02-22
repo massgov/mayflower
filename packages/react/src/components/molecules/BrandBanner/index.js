@@ -34,7 +34,7 @@ const BrandBanner = ({
   return(
     <div className={brandBannerClasses}>
       <div className="ma__brand-banner-container">
-        {hasSeal && <Image className="ma__brand-banner-logo" src={seal} />}
+        {hasSeal && <Image className="ma__brand-banner-logo" src={seal} alt="Massachusetts State Seal" />}
         <span>
           {text}
           {hasToggle && (
