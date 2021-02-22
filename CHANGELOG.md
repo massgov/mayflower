@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.1.5 (2/22/2021)
+### Added 
+- (Core) [Usage] DP-21186: Added documentation on downloading the mayflower assets package without using npm. (#1357)
+
 ## 11.1.4 (2/8/2021)
 ### Fixed 
 - (Patternlab) [Assets] DP-20381: Fix left floated figure components and images to cover list style elements in rich text containers.  (#1342)

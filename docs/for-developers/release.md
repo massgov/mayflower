@@ -35,7 +35,7 @@ To do a hotfix directly into `master`:
 1. Commit the changes and push up to the remote hotfix branch.
 1. **Once all the Circle tests are passed in the PR, review and "Squash and merge" the PR into master.**
 1. **Upon approving the release PR, release the "hold" on `github_tag` in CircleCI.**
-![approve tag release hold](../.gitbook/assets/release-auto.png)
+![approve tag release hold](../assets/release-auto.png)
 1. A release will be cut for Mayflower.
 1. Merge `master` back into `develop`.
 
@@ -47,7 +47,7 @@ In a case that a manual release from `develop` is needed:
 1. Push up the branch and create a PR into `master`, add the newly compiled changelogs to the description as the PR description.
 1. **Once all the Circle tests are passed in the PR, review and "Merge" the PR into master.**
 1. **Upon approving the release PR, release the "hold" on `github_tag` in CircleCI.**
-![approve tag release hold](../.gitbook/assets/release-auto.png)
+![approve tag release hold](../assets/release-auto.png)
 1. A release will be cut for Mayflower.
 1. Merge `master` back into `develop`.
 
