@@ -3,8 +3,8 @@
   {# Important: we wrap this in an `if` statement to allow consuming systems
      to either use figure.image or figure.content (if they prefer to externally
      render figure.content
-   #}
-  {% set wrap = figure.align == "" ? false : true %}
+  #}
+  {% set wrap = figure.wrap == "" ? false : true %}
   {% set content %}
     {% include "@atoms/09-media/image.twig" with {
       'image': figure.image
@@ -19,7 +19,7 @@
     'title.text': figure.title.text,
     'title.visible': figure.title.visible|default(false),
     'wrap': wrap,
-    'class': '',
+    'class': 'ma__image',
     'skiplink': {
       'add': figure.skiplink.add|default(false),
       'text': figure.skiplink.text|default("image content")

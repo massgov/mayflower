@@ -68,7 +68,7 @@
 
     // support pre-existing figure elements besides dataviz.
 
-    &--left:not(.ma__dataviz),
+    &--left:not(.ma__dataviz):not(.ma__image),
     &--align-left,
     &.align-left {
       float: left;
@@ -76,7 +76,7 @@
       width: 50%;
     }
 
-    &--right:not(.ma__dataviz),
+    &--right:not(.ma__dataviz):not(.ma__image),
     &--align-right,
     &.align-right {
       float: right;
@@ -107,7 +107,7 @@
   }
 
   // Size - Extra large
-  // Always 100% of the paretnt container width
+  // Always 100% of the parent container width
   // No side margins
 
   &--x-large {
@@ -115,6 +115,63 @@
     margin-right: 0;
     margin-left: 0;
   }
+
+  // Size - x-small
+
+  @media ($bp-x-large-min) {
+
+    .no-sidebar &--x-small {
+      width: calc(100% / 3 - 20px);
+    }
+  }
+
+  @media ($bp-large-min) {
+    .no-sidebar &--x-small {
+      width: calc(100% / 3 - 20px);
+    }
+  }
+
+  @media ($bp-medium-min) {
+    .no-sidebar &--x-small {
+      width: calc(100% / 3 - 20px);
+    }
+  }
+
+  @media ($bp-x-small-min) {
+    .no-sidebar &--x-small {
+      width: calc(50% - 15px);
+    }
+  }
+
+  @media ($bp-x-small-max) {
+    .no-sidebar &--x-small {
+      width: 100%;
+    }
+  }
+
+  .page-content:not(.no-sidebar) &--x-small {
+
+    @media ($bp-x-large-min) {
+      width: calc(100% / 3 - 20px);
+    }
+
+    @media ($bp-large-min) and ($bp-x-large-max) {
+      width: calc(50% - 15px);
+    }
+
+    @media ($bp-medium-min) and ($bp-large-max) {
+      width: calc(100% / 3 - 20px);
+    }
+
+    @media ($bp-x-small-min) and ($bp-medium-max) {
+      width: calc(50% - 15px);
+    }
+
+    @media ($bp-x-small-max) {
+      width: 100%;
+    }
+  }
+
 
   // Size - Small
 
@@ -137,14 +194,14 @@
 
   .page-content:not(.no-sidebar) &--small {
 
-    @media (max-width: 1024px) {
+    @media ($bp-large-extended) {
 
       float: none;
       margin-right: 0;
       margin-left: 0;
     }
 
-    @media (min-width: 1025px) {
+    @media ($bp-large-extended-min) {
 
       width: calc(50% - 15px);
     }
@@ -163,7 +220,7 @@
 
   .page-content:not(.no-sidebar) &--medium {
 
-    @media (max-width: 1024px) {
+    @media ($bp-large-extended) {
 
       width: 100%;
       margin-right: 0 !important;
@@ -171,7 +228,7 @@
       float: none;
     }
 
-    @media (min-width: 1025px) {
+    @media ($bp-large-extended-min) {
 
       width: calc(50% - 15px);
     }
@@ -198,7 +255,7 @@
   }
 
   .page-content:not(.no-sidebar) &--large {// with right column
-    // Always 100% of the paretnt container width
+    // Always 100% of the parent container width
     // No side margins
     margin-right: 0;
     margin-left: 0;
@@ -320,7 +377,7 @@
 }
 
 .ma__figure.ma__iframe__container {
-// Reset initial syles on elements in iframe container.
+// Reset initial styles on elements in iframe container.
 
   .ma__figure__skip-link {
     font-size: 1.25rem;
@@ -436,12 +493,11 @@
 
 .page-content:not(.no-sidebar) {// with right column
 
-  @media (min-width: 1025px) {
+  @media ($bp-large-extended-min) {
 
-    // Small size - 50% width for 1024 px <
+    // Small size - 50% width for 1050 px <
 
     // left align --- 3rd item, 5th item, 7th item
-
     .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
     .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
     .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left {
