@@ -26,7 +26,12 @@ const BrandBanner = ({
   const brandBannerClasses = classNames('ma__brand-banner', {
     [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
   });
+  
   const [expanded, setExpanded] = React.useState(false);
+
+  const brandBannerExpansionClasses = classNames('ma__brand-banner-expansion', {
+    'ma__brand-banner-expansion--expanded': expanded
+  });
 
   const handleOnToggle = () => {
     setExpanded((prevExpanded) => !prevExpanded);
@@ -53,8 +58,8 @@ const BrandBanner = ({
         </span>
       </div>
       {
-        (hasToggle && expanded) && (
-          <dl className="ma__brand-banner-expansion">
+        hasToggle && (
+          <dl className={brandBannerExpansionClasses}>
             <div className="ma__brand-banner-expansion-item">
               <IconBuilding width={30} height={30} fill={lightTheme ? '#14558F' : '#fff'} />
               <div className="ma__brand-banner-expansion-item-content">
