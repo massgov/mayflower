@@ -11,9 +11,9 @@ bannerCredit: {
     type: boolean,
   hasToggle: 
     type: boolean,
-  bgColor:
+  bgColor (default: 'c-primary'):
     options: '', 'c-primary', 'c-primary-alt', 'c-gray'
-  bgTheme:
-    '', 'light', 'dark'
+  bgTheme (default: 'light'):
+    options: '', 'light', 'dark' 
 }
 ~~~

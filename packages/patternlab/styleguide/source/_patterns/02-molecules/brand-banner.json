@@ -1,7 +1,8 @@
 {
   "brandBanner": {
-    "bgTheme": "light",
-    "bgColor": "c-primary-alt",
-    "hasSeal": true
+    "bgTheme": "",
+    "bgColor": "",
+    "hasSeal": true,
+    "hasToggle": true
   }
 }
