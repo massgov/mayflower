@@ -81,7 +81,6 @@ input::-webkit-outer-spin-button {
 
 blockquote,
 details,
-dl,
 ol,
 p,
 pre,
@@ -102,23 +101,6 @@ blockquote>:first-child {
 
 blockquote>:last-child {
   margin-bottom: 0;
-}
-
-dl {
-  padding: 0;
-}
-
-dl dt {
-  padding: 0;
-  margin-top: 16px;
-  font-size: 1em;
-  font-style: italic;
-  font-weight: 600;
-}
-
-dl dd {
-  padding: 0 16px;
-  margin-bottom: 16px;
 }
 
 table th {
