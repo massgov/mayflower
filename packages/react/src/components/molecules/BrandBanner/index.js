@@ -26,7 +26,7 @@ const BrandBanner = ({
   const brandBannerClasses = classNames('ma__brand-banner', {
     [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
   });
-  
+
   const [expanded, setExpanded] = React.useState(false);
 
   const brandBannerExpansionClasses = classNames('ma__brand-banner-expansion', {
