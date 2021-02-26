@@ -170,6 +170,7 @@ function compileMiniBrandBanner() {
       '@babel/preset-env',
     ]
   }))
+  .pipe(terser())
   .pipe(dest('./js'))
 }
 
