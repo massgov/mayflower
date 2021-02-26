@@ -9,7 +9,7 @@ import { attachHTML } from '../../util/renderCode';
 const { STORYBOOK_CDN_PATH } = process.env;
 
 const brandBannerWithoutSeal = (
-  <BrandBanner seal={logo} hasToggle={true} hasSeal={false} />
+  <BrandBanner seal={logo} hasToggle hasSeal={false} />
 );
 
 const brandBannerWithoutSealWithHeader = (
@@ -21,28 +21,28 @@ const brandBannerWithoutSealWithHeader = (
 
 // Light
 const brandBannerBasic = (
-  <BrandBanner seal={logo} hasToggle={true} />
+  <BrandBanner seal={logo} hasToggle />
 );
 
 const brandBannerLightThemePrimaryAlt = (
-  <BrandBanner seal={logo} hasToggle={true} bgTheme="light" bgColor="c-primary-alt" />
+  <BrandBanner seal={logo} hasToggle bgTheme="light" bgColor="c-primary-alt" />
 );
 
 const brandBannerLightThemeGray = (
-  <BrandBanner seal={logo} hasToggle={true} bgTheme="light" bgColor="c-gray" />
+  <BrandBanner seal={logo} hasToggle bgTheme="light" bgColor="c-gray" />
 );
 
 // Dark
 const brandBannerDarkTheme = (
-  <BrandBanner seal={logoWhite} hasToggle={true} bgTheme="dark" />
+  <BrandBanner seal={logoWhite} hasToggle bgTheme="dark" />
 );
 
 const brandBannerDarkThemePrimaryAlt = (
-  <BrandBanner seal={logoWhite} hasToggle={true} bgTheme="dark" bgColor="c-primary-alt" />
+  <BrandBanner seal={logoWhite} hasToggle bgTheme="dark" bgColor="c-primary-alt" />
 );
 
 const brandBannerDarkThemeGray = (
-  <BrandBanner seal={logoWhite} hasToggle={true} bgTheme="dark" bgColor="c-gray" />
+  <BrandBanner seal={logoWhite} hasToggle bgTheme="dark" bgColor="c-gray" />
 );
 
 const notesBrandBanner = `
