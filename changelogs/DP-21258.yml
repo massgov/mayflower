@@ -1,0 +1,12 @@
+Added:
+  - project: Patternlab, Core
+    component: BrandBanner
+    description: Add BrandBanner molecule in Patternlab and generate the HTML, CSS and JS for Mayflower core documentation. (#1362)
+    issue: DP-21258
+    impact: Minor
+Changed:
+  - project: React
+    component: BrandBanner
+    description: Change toggle rendering logic in React to match Patternlab. (#1362)
+    issue: DP-21258
+    impact: Patch
