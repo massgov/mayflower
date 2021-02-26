@@ -1,12 +1,13 @@
 {% if brandBanner.bgTheme == 'dark' %}
   {% set buttonClass = 'ma__button-icon--c-white' %}
+  {% set sealImage = sealWhiteImage %}
 {% endif %}
 
 <div class="ma__brand-banner ma__brand-banner--{{ brandBanner.bgColor ? brandBanner.bgColor : 'c-primary' }}-bg-{{ brandBanner.bgTheme ? brandBanner.bgTheme : 'light' }}">
   <div class="ma__brand-banner-container">
     {% if brandBanner.hasSeal %}
       <img class="ma__brand-banner-logo ma__brand-banner-logo--{{ brandBanner.bgTheme }}"
-           src="{{ brandBanner.bgTheme == 'dark' ? sealWhiteImage : sealImage }}"
+           src="{{ sealImage }}"
            alt="Massachusetts State Seal" />
     {% endif %}
     <span>
