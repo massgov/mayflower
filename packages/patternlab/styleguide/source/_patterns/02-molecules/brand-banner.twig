@@ -1,6 +1,8 @@
 {% if brandBanner.bgTheme == 'dark' %}
   {% set buttonClass = 'ma__button-icon--c-white' %}
-  {% set sealImage = sealWhiteImage %}
+  {% if sealWhiteImage %}
+    {% set sealImage = sealWhiteImage %}
+  {% endif %}
 {% endif %}
 
 <div class="ma__brand-banner ma__brand-banner--{{ brandBanner.bgColor ? brandBanner.bgColor : 'c-primary' }}-bg-{{ brandBanner.bgTheme ? brandBanner.bgTheme : 'light' }}">
