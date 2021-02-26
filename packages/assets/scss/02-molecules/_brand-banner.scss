@@ -37,6 +37,7 @@
         margin-right: 5px;
 
         &--dark {
+            // Filter is not supported in IE. When use the dark theme, you should use the white version of seal instead. 
             filter: brightness(0) invert(1);
         }
     }
