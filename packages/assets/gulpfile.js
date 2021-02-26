@@ -166,8 +166,9 @@ function compileMiniBrandBanner() {
   ])
   .pipe(concat('brand-banner.min.js'))
   .pipe(babel({
-    presets: [
-      '@babel/preset-env',
+    plugins: [
+      'babel-plugin-rewire-exports',
+      'babel-plugin-remove-import-export'
     ]
   }))
   .pipe(terser())
