@@ -45,7 +45,10 @@ const brandBannerDarkThemeGray = (
   <BrandBanner seal={logoWhite} hasToggle={true} bgTheme="dark" bgColor="c-gray" />
 );
 
-const notesBrandBanner = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/brand-banner.css">`;
+const notesBrandBanner = `
+  // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/brand-banner.css">
+  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/brand-banner.js" />
+`;
 
 export const brandBannerExample = () => brandBannerBasic;
 
