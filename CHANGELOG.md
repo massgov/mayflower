@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.2.0 (3/1/2021)
+### Added 
+- (Patternlab, Core) [BrandBanner] DP-21258: Add BrandBanner molecule in Patternlab and generate the HTML, CSS and JS for Mayflower core documentation. (#1362)
+
+### Changed 
+- (React) [BrandBanner] DP-21258: Change toggle rendering logic in React to match Patternlab. (#1362)
+
 ## 11.1.5 (2/22/2021)
 ### Added 
 - (Core) [Usage] DP-21186: Added documentation on downloading the mayflower assets package without using npm. (#1357)
