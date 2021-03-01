@@ -291,7 +291,7 @@ jobs:
           cd packages/core
           aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/b/$CIRCLE_BRANCH" --delete
           aws configure set preview.cloudfront true
-          aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core/b/$CIRCLE_BRANCH'
+          aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths "/core/b*"
 
   auto_changelog:
     <<: *react_defaults
