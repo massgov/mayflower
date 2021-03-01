@@ -7,6 +7,7 @@ import accordions from "./modules/accordions.js";
 import activateBodyTextTruncation from "./modules/activateBodyTextTruncation.js";
 import googleMap from "./modules/googleMap.js";
 import back2top from "./modules/back2top.js";
+import brandBanner from "./modules/brandBanner.js";
 import clickable from "./modules/clickable.js";
 import contactAccordion from "./modules/contactAccordion.js";
 import dropdown from "./modules/dropdown.js";

@@ -146,16 +146,48 @@ function compileMiniHeader() {
 }
 
 
+function compileBrandBanner() {
+  return src([
+    '../patternlab/styleguide/source/assets/js/modules/brandBanner.js'
+  ])
+  .pipe(concat('brand-banner.js'))
+  .pipe(babel({
+    plugins: [
+      'babel-plugin-rewire-exports',
+      'babel-plugin-remove-import-export'
+    ]
+  }))
+  .pipe(dest('./js'))
+}
+
+function compileMiniBrandBanner() {
+  return src([
+    '../patternlab/styleguide/source/assets/js/modules/brandBanner.js'
+  ])
+  .pipe(concat('brand-banner.min.js'))
+  .pipe(babel({
+    plugins: [
+      'babel-plugin-rewire-exports',
+      'babel-plugin-remove-import-export'
+    ]
+  }))
+  .pipe(terser())
+  .pipe(dest('./js'))
+}
+
 exports.deleteMainNav = deleteMainNav;
 exports.compileMainNav = compileMainNav;
 exports.compileMiniScss = compileMiniScss;
 exports.compileScss = compileScss;
 exports.clean = clean;
+exports.compileBrandBanner = compileBrandBanner;
+exports.compileMiniBrandBanner = compileMiniBrandBanner;
 
 const transpileHeader = series(compileMainNav, parallel(compileHeader, compileMiniHeader), deleteMainNav);
 const transpileHamburgerHeader = parallel(compileHamburgerHeader, compileMiniHamburgerHeader);
+const transpileBrandBanner = parallel(compileBrandBanner, compileMiniBrandBanner);
 const compileHeaderJS = series(transpileHamburgerHeader, transpileHeader);
-const build = series(parallel(clean, cleanJS), parallel(compileMiniScss, compileScss), compileHeaderJS);
+const build = series(parallel(clean, cleanJS), parallel(compileMiniScss, compileScss), compileHeaderJS, transpileBrandBanner);
 
 exports.transpileHamburgerHeader = transpileHamburgerHeader;
 
