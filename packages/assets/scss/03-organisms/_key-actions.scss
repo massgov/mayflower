@@ -39,6 +39,13 @@
     height: auto;
     width: 100%;
 
+    @media ($bp-medium-max) {
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
     @media ($bp-medium-min) {
       flex-grow: 0;
       flex-shrink: 1;
