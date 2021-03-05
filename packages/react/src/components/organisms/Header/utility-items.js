@@ -25,7 +25,6 @@ UtilityLink.propTypes = {
   children: propTypes.node
 };
 
-
 const PanelItem = ({
   narrow,
   title = '',
@@ -239,7 +238,7 @@ export const LoginItem = ({
       description={description}
       ariaLabel={ariaLabel}
     />
-  )
+  );
 };
 LoginItem.propTypes = {
   data: propTypes.shape({
@@ -269,12 +268,13 @@ export const StateItem = ({
   data = UtilityNavData.stateItem
 }) => {
   const { link, ariaLabel, text } = data;
-  return (
-  <a className="ma__utility-nav__link direct-link" href={link} aria-label={ariaLabel}>
-    <IconBuilding />
-    <span>{text}</span>
-  </a>
-)};
+  return(
+    <a className="ma__utility-nav__link direct-link" href={link} aria-label={ariaLabel}>
+      <IconBuilding />
+      <span>{text}</span>
+    </a>
+  );
+};
 
 StateItem.propTypes = {
   data: propTypes.shape({
