@@ -31,7 +31,7 @@ const PanelItem = ({
   title = '',
   CustomIcon,
   description = '',
-  ariaLabelText = '',
+  ariaLabel = '',
   links = []
 }) => {
   const windowWidth = useWindowWidth();
@@ -181,7 +181,7 @@ const PanelItem = ({
         type="button"
         className="ma__utility-nav__link js-util-nav-toggle"
         aria-haspopup="true"
-        aria-label={ariaLabelText}
+        aria-label={ariaLabel}
         aria-expanded="false"
       >
         {CustomIcon && <CustomIcon />}
@@ -228,16 +228,16 @@ PanelItem.propTypes = {
 };
 
 export const LoginItem = ({
-  data = UtilityNavData.items[1]
+  data = UtilityNavData.loginItem
 }) => {
-  const { panel: { links, description }, text, ariaLabelText } = data;
+  const { panel: { links, description }, text, ariaLabel } = data;
   return(
     <PanelItem
       links={links}
       title={text}
       CustomIcon={IconLogin}
       description={description}
-      ariaLabelText={ariaLabelText}
+      ariaLabel={ariaLabel}
     />
   )
 };
@@ -248,7 +248,7 @@ LoginItem.propTypes = {
       links: propTypes.array
     }),
     text: propTypes.string,
-    ariaLabelText: propTypes.string
+    ariaLabel: propTypes.string
   })
 };
 
@@ -266,10 +266,20 @@ export const TranslateItem = () => {
 };
 
 export const StateItem = ({
-  data
-}) => (
-  <a className="ma__utility-nav__link direct-link" href="#">
+  data = UtilityNavData.stateItem
+}) => {
+  const { link, ariaLabel, text } = data;
+  return (
+  <a className="ma__utility-nav__link direct-link" href={link} aria-label={ariaLabel}>
     <IconBuilding />
-    <span>State Organizations</span>
+    <span>{text}</span>
   </a>
-);
+)};
+
+StateItem.propTypes = {
+  data: propTypes.shape({
+    link: propTypes.string,
+    text: propTypes.string,
+    ariaLabel: propTypes.string
+  })
+};

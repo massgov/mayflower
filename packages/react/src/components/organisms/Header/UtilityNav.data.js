@@ -1,12 +1,13 @@
 export default {
-  items: [{
+  stateItem: {
     text: 'State Organizations',
-    ariaLabelText: '',
+    ariaLabel: '',
     icon: 'building',
     link: 'https://www.mass.gov/info-details/massachusetts-state-organizations-a-to-z'
-  }, {
+  },
+  loginItem: {
     text: 'Log in to...',
-    ariaLabelText: 'Log in to one of Mass.gov\'s most frequently accessed services',
+    ariaLabel: 'Log in to one of Mass.gov\'s most frequently accessed services',
     icon: 'login',
     closeText: 'Close',
     panel: {
@@ -25,5 +26,5 @@ export default {
         type: 'external'
       }]
     }
-  }]
+  }
 };
