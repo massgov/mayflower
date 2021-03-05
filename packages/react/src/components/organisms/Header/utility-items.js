@@ -223,6 +223,7 @@ PanelItem.propTypes = {
   title: propTypes.string,
   CustomIcon: propTypes.elementType,
   description: propTypes.string,
+  ariaLabel: propTypes.string,
   links: propTypes.arrayOf(propTypes.object)
 };
 
@@ -244,7 +245,7 @@ LoginItem.propTypes = {
   data: propTypes.shape({
     panel: propTypes.shape({
       description: propTypes.string,
-      links: propTypes.array
+      links: propTypes.arrayOf(propTypes.object)
     }),
     text: propTypes.string,
     ariaLabel: propTypes.string
