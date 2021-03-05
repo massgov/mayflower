@@ -230,16 +230,26 @@ PanelItem.propTypes = {
 export const LoginItem = ({
   data = UtilityNavData.items[1]
 }) => {
-  const { panel, text, ariaLabelText, description } = data;
+  const { panel: { links, description }, text, ariaLabelText } = data;
   return(
     <PanelItem
-      links={panel.links}
+      links={links}
       title={text}
       CustomIcon={IconLogin}
       description={description}
       ariaLabelText={ariaLabelText}
     />
   )
+};
+LoginItem.propTypes = {
+  data: propTypes.shape({
+    panel: propTypes.shape({
+      description: propTypes.string,
+      links: propTypes.array
+    }),
+    text: propTypes.string,
+    ariaLabelText: propTypes.string
+  })
 };
 
 export const TranslateItem = () => {
@@ -255,7 +265,9 @@ export const TranslateItem = () => {
   );
 };
 
-export const StateItem = () => (
+export const StateItem = ({
+  data
+}) => (
   <a className="ma__utility-nav__link direct-link" href="#">
     <IconBuilding />
     <span>State Organizations</span>
