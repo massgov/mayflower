@@ -35,6 +35,8 @@ import { LoginItem, TranslateItem, StateItem } from 'MayflowerReactOrganisms/Hea
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 
+import UtilityNavData from './UtilityNav.data';
+
 const DefaultMobileLogo = React.memo(() => (<HamburgerSiteLogo Wrapper={HamburgerMobileLogoWrapper} />));
 
 const Header = ({
@@ -65,7 +67,7 @@ const Header = ({
         tempItems.push(TranslateItem);
       }
       tempItems.push(StateItem);
-      tempItems.push(LoginItem);
+      tempItems.push(<LoginItem data={UtilityNavData.items[1]} />);
       return tempItems;
     }
     return utilityItems;
