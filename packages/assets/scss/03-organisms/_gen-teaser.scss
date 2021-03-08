@@ -170,7 +170,7 @@
 
     .ma__decorative-link {
       font-size: $fonts-small;
-      line-height: 1.4rem;
+      line-height: 1.25;
       font-style: italic;
     }
 
@@ -178,6 +178,7 @@
       font-size: $fonts-xsmall;
       line-height: 1rem;
       margin-bottom: 0px;
+      margin-top: 0.3rem;
     }
 
     &-item {
