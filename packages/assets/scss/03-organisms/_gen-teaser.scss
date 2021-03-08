@@ -146,10 +146,8 @@
 
   &__org {
 
-    .ma__button-icon--quaternary-simple,
-    .ma__button-icon--expanded.ma__button-icon--quaternary-simple,
-    .ma__button-icon:hover.ma__button-icon--quaternary-simple:hover {
-      background-color: transparent;
+    &__show-more {
+      background-color: transparent !important;
       margin-left: 0.5rem;
       position: relative;
     }
