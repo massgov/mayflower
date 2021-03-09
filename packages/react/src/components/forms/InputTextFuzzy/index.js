@@ -19,7 +19,7 @@ class InputTextFuzzy extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: this.props.selected || '',
       suggestions: []
     };
     const fuseOptions = this.props.fuseOptions;

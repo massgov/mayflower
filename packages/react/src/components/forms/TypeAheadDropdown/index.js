@@ -134,10 +134,6 @@ TypeAheadDropdown.propTypes = {
   defaultValue: '',
   /** Custom keydown callback */
   onKeyDown: PropTypes.func,
-  /** Custom onFocus callback */
-  onFocus: PropTypes.func,
-  /** Custom onBlur callback */
-  onBlur: PropTypes.func,
   /** Custom suggestion onClick callback */
   onSuggestionClick: PropTypes.func,
 
