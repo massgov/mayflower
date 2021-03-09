@@ -9,10 +9,15 @@
 //        without affecting the wrapping feature of their following elements.
 
 const leftFloatFigures = document.querySelectorAll(".ma__rich-text .ma__figure--left");
+const leftFloatImageFigures = document.querySelectorAll(".ma__rich-text .ma__figure--left.ma__image");
 const leftFloatImages = document.querySelectorAll(".ma__rich-text article.align-left");
 
 if (window.screen.width > 620) {
   addInlineMargin ();
+}
+
+if (window.screen.width > 481) {
+  addInlineImageMargin ();
 }
 
 window.addEventListener('resize', () => {
@@ -33,6 +38,24 @@ window.addEventListener('resize', () => {
       }
     });
   }
+
+  if (window.screen.width > 481) {
+    addInlineImageMargin();
+  } else {
+    // Remove the inline style with no float with screen width under 481px.
+
+    leftFloatImageFigures.forEach( (figure) => {
+      if (figure.hasAttribute("style")) {
+        figure.removeAttribute("style");
+      }
+    });
+
+    leftFloatImageFigures.forEach( (image) => {
+      if (image.hasAttribute("style")) {
+        image.removeAttribute("style");
+      }
+    });
+  }
 });
 
 function addInlineMargin () {
@@ -46,6 +69,21 @@ function addInlineMargin () {
 
   // article image embed
   leftFloatImages.forEach( (image) => {
+    image.style.cssText = "margin-right: 50px;";
+  });
+}
+
+function addInlineImageMargin () {
+  // Figure components
+  leftFloatImageFigures.forEach( (figure) => {
+    //  Check if the previous sibling is not figure component.
+    if (figure.parentElement.previousElementSibling !== null && !figure.parentElement.previousElementSibling.classList.contains("ma__figure")) {
+      figure.style.cssText = "margin-right: 50px;";
+    }
+  });
+
+  // article image embed
+  leftFloatImageFigures.forEach( (image) => {
     image.style.cssText = "margin-right: 50px;";
   });
 }
