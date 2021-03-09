@@ -15,36 +15,12 @@ import InputTextFuzzy from 'MayflowerReactForms/InputTextFuzzy';
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 const TypeAheadDropdown = (props) => {
-    const [buttonExpand, setButtonExpand] = useState(false);
-    const [buttonText, setButtonText] = useState(props.dropdownButton.text);
-    const [buttonClicked, setButtonClicked] = useState();
-    const buttonRef = useRef();
-    const wrapperRef = useRef();
+  const [buttonExpand, setButtonExpand] = useState(false);
+  const [buttonText, setButtonText] = useState(props.dropdownButton.text);
+  const [buttonClicked, setButtonClicked] = useState();
+  const buttonRef = useRef();
+  const wrapperRef = useRef();
 
-    // this.wrapperRef = React.createRef();
-    // this.setDropDownButtonRef = this.setDropDownButtonRef.bind(this);
-    // this.handleRefMouseDown = this.handleRefMouseDown.bind(this);
-
-    // closeDropdown = closeDropdown.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
-    // this.handleKeyDown = this.handleKeyDown.bind(this);
-    // this.handleInputBlur = this.handleInputBlur.bind(this);
-    // this.handleSelect = this.handleSelect.bind(this);
-    // handleClickOutside = handleClickOutside.bind(this);
-  
-
-  // componentDidMount() {
-  //   this.buttonClicked = false;
-  // }
-
-  // eslint-disable-next-line camelcase
-  // UNSAFE_componentWillReceiveProps(nextProps) {
-  //   const selectedValue = nextProps.inputText.selected;
-  //   if (selectedValue !== undefined) {
-  //     setButtonText(selectedValue);
-  //     setButtonExpand(false);
-  //   }
-  // }
   const handleRefMouseDown = () => {
     setButtonClicked(true);
   }
@@ -119,8 +95,6 @@ const TypeAheadDropdown = (props) => {
       buttonRef.current.removeEventListener('mousedown', handleRefMouseDown);
     };
   });
-
-
 
   const dropdownButton = {
     onClick: handleClick,
