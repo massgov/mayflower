@@ -80,12 +80,12 @@ const TypeAheadDropdown = (props) => {
 
   // update state from prop
   React.useEffect(() => {
-    const selectedValue = props.inputText.selected;
-    if (selectedValue !== undefined) {
-      setButtonText(selectedValue);
+    const { defaultValue } = props;
+    if (defaultValue !== undefined) {
+      setButtonText(defaultValue);
       setButtonExpand(false);
     }
-  }, [props.inputText.selected]);
+  }, [props.defaultValue]);
 
   React.useEffect(() => {
     setButtonClicked(false);
@@ -130,8 +130,17 @@ TypeAheadDropdown.propTypes = {
   dropdownButton: PropTypes.shape(ButtonWithIcon.propTypes).isRequired,
   /** The props to set up the inputTextFuzzy */
   inputText: PropTypes.shape(InputTextFuzzy.propTypes).isRequired,
+  /** Default text value for the selection */
+  defaultValue: '',
   /** Custom keydown callback */
-  onKeyDown: PropTypes.func
+  onKeyDown: PropTypes.func,
+  /** Custom onFocus callback */
+  onFocus: PropTypes.func,
+  /** Custom onBlur callback */
+  onBlur: PropTypes.func,
+  /** Custom suggestion onClick callback */
+  onSuggestionClick: PropTypes.func,
+
 };
 
 export default TypeAheadDropdown;
