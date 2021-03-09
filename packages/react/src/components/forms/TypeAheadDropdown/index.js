@@ -7,7 +7,7 @@
  * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
  * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
  */
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import InputTextFuzzy from 'MayflowerReactForms/InputTextFuzzy';
@@ -15,11 +15,11 @@ import InputTextFuzzy from 'MayflowerReactForms/InputTextFuzzy';
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 const TypeAheadDropdown = (props) => {
-  const [buttonExpand, setButtonExpand] = useState(false);
-  const [buttonText, setButtonText] = useState(props.dropdownButton.text);
-  const [buttonClicked, setButtonClicked] = useState();
-  const buttonRef = useRef();
-  const wrapperRef = useRef();
+  const [buttonExpand, setButtonExpand] = React.useState(false);
+  const [buttonText, setButtonText] = React.useState(props.dropdownButton.text);
+  const [buttonClicked, setButtonClicked] = React.useState();
+  const buttonRef = React.useRef();
+  const wrapperRef = React.useRef();
 
   const handleRefMouseDown = () => {
     setButtonClicked(true);
@@ -78,7 +78,8 @@ const TypeAheadDropdown = (props) => {
     setButtonExpand(false);
   };
 
-  useEffect(() => {
+  // update state from prop
+  React.useEffect(() => {
     const selectedValue = props.inputText.selected;
     if (selectedValue !== undefined) {
       setButtonText(selectedValue);
@@ -86,7 +87,7 @@ const TypeAheadDropdown = (props) => {
     }
   }, [props.inputText.selected]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setButtonClicked(false);
     document.addEventListener('mousedown', handleClickOutside);
     buttonRef.current.addEventListener('mousedown', handleRefMouseDown);
