@@ -131,7 +131,7 @@ TypeAheadDropdown.propTypes = {
   /** The props to set up the inputTextFuzzy */
   inputText: PropTypes.shape(InputTextFuzzy.propTypes).isRequired,
   /** Default text value for the selection */
-  defaultValue: '',
+  defaultValue: PropTypes.string,
   /** Custom keydown callback */
   onKeyDown: PropTypes.func,
   /** Custom suggestion onClick callback */
