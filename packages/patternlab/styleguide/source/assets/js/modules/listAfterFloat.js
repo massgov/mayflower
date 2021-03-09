@@ -9,81 +9,66 @@
 //        without affecting the wrapping feature of their following elements.
 
 const leftFloatFigures = document.querySelectorAll(".ma__rich-text .ma__figure--left");
-const leftFloatImageFigures = document.querySelectorAll(".ma__rich-text .ma__figure--left.ma__image");
+const leftFloatImageFigures = document.querySelectorAll(".ma__rich-text .ma__figure--left.ma__image.ma__figure--x-small");
+const rightFloatFigures = document.querySelectorAll(".ma__rich-text .ma__figure--right");
 const leftFloatImages = document.querySelectorAll(".ma__rich-text article.align-left");
 
 if (window.screen.width > 620) {
-  addInlineMargin ();
+  addInlineImageMargin (leftFloatFigures, "right");
+  addInlineImageMargin (leftFloatImages, "right");
 }
 
-if (window.screen.width > 481) {
-  addInlineImageMargin ();
+if (window.screen.width > 480) {
+  addInlineImageMargin (leftFloatImageFigures, "right");
+  addInlineImageMargin (rightFloatFigures, "left");
 }
 
 window.addEventListener('resize', () => {
   if (window.screen.width > 620) {
-    addInlineMargin ();
+    addInlineImageMargin (leftFloatFigures, "right");
+    addInlineImageMargin (leftFloatImages, "right");
   } else {
     // Remove the inline style with no float with screen width under 620px.
-
-    leftFloatFigures.forEach( (figure) => {
-      if (figure.hasAttribute("style")) {
-        figure.removeAttribute("style");
-      }
-    });
-
-    leftFloatImages.forEach( (image) => {
-      if (image.hasAttribute("style")) {
-        image.removeAttribute("style");
-      }
-    });
+    removeInlineImageMargin(leftFloatFigures);
+    removeInlineImageMargin(leftFloatImages);
   }
 
-  if (window.screen.width > 481) {
-    addInlineImageMargin();
+  if (window.screen.width > 480) {
+    addInlineImageMargin(leftFloatImageFigures, "right");
+    addInlineImageMargin(rightFloatFigures, "left");
   } else {
     // Remove the inline style with no float with screen width under 481px.
+    removeInlineImageMargin(leftFloatImageFigures);
+    removeInlineImageMargin(rightFloatFigures);
 
-    leftFloatImageFigures.forEach( (figure) => {
-      if (figure.hasAttribute("style")) {
-        figure.removeAttribute("style");
-      }
-    });
-
-    leftFloatImageFigures.forEach( (image) => {
-      if (image.hasAttribute("style")) {
-        image.removeAttribute("style");
-      }
-    });
   }
 });
 
-function addInlineMargin () {
+function addInlineImageMargin (el, direction) {
   // Figure components
-  leftFloatFigures.forEach( (figure) => {
+  el.forEach( (figure) => {
     //  Check if the previous sibling is not figure component.
-    if (!figure.parentElement.previousElementSibling.classList.contains("ma__figure")) {
-      figure.style.cssText = "margin-right: 50px;";
+    if (figure.parentElement.previousElementSibling !== null && !figure.parentElement.previousElementSibling.classList.contains("ma__figure")) {
+      figure.style.cssText = "margin-" + direction + ": 50px;";
     }
   });
 
   // article image embed
-  leftFloatImages.forEach( (image) => {
-    image.style.cssText = "margin-right: 50px;";
+  el.forEach( (image) => {
+    image.style.cssText = "margin-" + direction + ": 50px;";
   });
 }
 
-function addInlineImageMargin () {
-  // Figure components
-  leftFloatImageFigures.forEach( (figure) => {
-    //  Check if the previous sibling is not figure component.
-    if (figure.parentElement.previousElementSibling !== null && !figure.parentElement.previousElementSibling.classList.contains("ma__figure")) {
-      figure.style.cssText = "margin-right: 50px;";
+function removeInlineImageMargin (el) {
+  el.forEach( (figure) => {
+    if (figure.hasAttribute("style")) {
+      figure.removeAttribute("style");
     }
   });
 
-  // article image embed
-  leftFloatImageFigures.forEach( (image) => {
-    image.style.cssText = "margin-right: 50px;";
+  el.forEach( (image) => {
+    if (image.hasAttribute("style")) {
+      image.removeAttribute("style");
+    }
   });
 }
