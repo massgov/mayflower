@@ -23,11 +23,11 @@ const TypeAheadDropdown = (props) => {
 
   const handleRefMouseDown = () => {
     setButtonClicked(true);
-  }
+  };
 
   const handleClick = () => {
     setButtonExpand(!buttonExpand);
-  }
+  };
 
   const handleKeyDown = (event) => {
     // If the user pressed escape, or pressed enter with nothing selected close
@@ -42,13 +42,13 @@ const TypeAheadDropdown = (props) => {
     if (typeof props.onKeyDown === 'function') {
       props.onKeyDown(event);
     }
-  }
+  };
 
   const handleInputBlur = () => {
     if (buttonClicked) {
       closeDropdown();
     }
-  }
+  };
 
   const handleSelect = (event, { suggestion }) => {
     // Stop the filters form submission if enter is pressed in the selector.
@@ -62,7 +62,7 @@ const TypeAheadDropdown = (props) => {
         props.inputText.onSuggestionClick(event, { suggestion });
       }
     }
-  }
+  };
 
   const handleClickOutside = (event) => {
     // Close the panel if the user clicks outside the component.
@@ -72,11 +72,11 @@ const TypeAheadDropdown = (props) => {
         setButtonExpand(false);
       }
     }
-  }
+  };
 
   const closeDropdown = () => {
     setButtonExpand(false);
-  }
+  };
 
   useEffect(() => {
     const selectedValue = props.inputText.selected;
@@ -90,7 +90,7 @@ const TypeAheadDropdown = (props) => {
     setButtonClicked(false);
     document.addEventListener('mousedown', handleClickOutside);
     buttonRef.current.addEventListener('mousedown', handleRefMouseDown);
-    return () => {
+    return() => {
       document.removeEventListener('mousedown', handleClickOutside);
       buttonRef.current.removeEventListener('mousedown', handleRefMouseDown);
     };
@@ -122,7 +122,7 @@ const TypeAheadDropdown = (props) => {
       )}
     </div>
   );
-}
+};
 
 TypeAheadDropdown.propTypes = {
   /** The props to set up the dropdown button */
