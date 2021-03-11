@@ -135,7 +135,7 @@ TypeAheadDropdown.propTypes = {
   /** Custom keydown callback */
   onKeyDown: PropTypes.func,
   /** Custom suggestion onClick callback */
-  onSuggestionClick: PropTypes.func,
+  onSuggestionClick: PropTypes.func
 
 };
 
