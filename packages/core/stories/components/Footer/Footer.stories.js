@@ -5,6 +5,9 @@ import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import { attachHTML } from '../../util/renderCode';
 
+import footerLinks from './Footer.data';
+console.log(footerLinks)
+
 const { STORYBOOK_CDN_PATH } = process.env;
 
 const footerBasic = (
@@ -88,64 +91,7 @@ const footerDuelLogo = (
 const footer = (
   <Footer
     backToTopButton={false}
-    footerLinks={{
-      items: [
-        {
-          heading: 'FooterLinks1',
-          id: 'FooterLinks1',
-          links: [
-            {
-              href: 'https://mass.gov/topics/living',
-              text: 'Living'
-            },
-            {
-              href: 'https://mass.gov/topics/working',
-              text: 'Working'
-            },
-            {
-              href: 'https://mass.gov/topics/learning',
-              text: 'Learning'
-            },
-            {
-              href: 'https://mass.gov/topics/visiting-exploring',
-              text: 'Visiting & Exploring'
-            },
-            {
-              href: 'https://mass.gov/topics/your-government',
-              text: 'Your Government'
-            }
-          ]
-        },
-        {
-          heading: 'FooterLinks2',
-          id: 'FooterLinks2',
-          links: [
-            {
-              href: 'https://www.mass.gov/site-policies',
-              text: 'Site Policies'
-            },
-            {
-              href: 'http://www.mass.gov/opendata/#/',
-              text: 'State Data'
-            },
-            {
-              href: 'https://www.mass.gov/topics/public-records-requests',
-              text: 'Public Records Requests'
-            }
-          ]
-        },
-        {
-          heading: 'FooterLinks3',
-          id: 'FooterLinks3',
-          links: [
-            {
-              href: 'https://www.mass.gov/feedback',
-              text: 'Feedback'
-            }
-          ]
-        }
-      ]
-    }}
+    footerLinks={footerLinks}
     footerLogo={{
       src: logo
     }}
