@@ -6,7 +6,6 @@ import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import { attachHTML } from '../../util/renderCode';
 
 import footerLinks from './Footer.data';
-console.log(footerLinks)
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
