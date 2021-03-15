@@ -1,5 +1,5 @@
 {
-  "no_sidebar": false,
+  "no_sidebar": true,
   "details": {
     "contentTitle": "",
     "titleContext": ""
@@ -107,8 +107,9 @@
           "path": "@atoms/09-media/figure--image.twig",
           "data": {
             "figure": {
-              "align": "full",
-              "wrap": false,
+              "align": "left",
+              "size": "small",
+              "wrap": true,
               "image": {
                 "alt": "alt text",
                 "src": "../../assets/images/placeholder/1600x600.png",
@@ -120,206 +121,124 @@
           }
         },
         {
-          "path": "@atoms/09-media/figure--caspio.twig",
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "left",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "left",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+                {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
           "data": {
             "figure": {
               "align": "",
-              "size": "",
-              "caspio": {
-                "dataId": "ad9b80008b0af121c1994daf9fbb"
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
               },
-              "title": {
-                "text": "Sample Data Page",
-                "visible": false
-              },
-              "caption": ""
-            }
-          }
-        },
-        {
-          "path": "@organisms/by-author/form-downloads.twig",
-          "data": {
-            "formDownloads": {
-              "compHeading": {
-                "title": "Additional resources",
-                "sub": false,
-                "titleContext": "",
-                "level": 3
-              },
-              "downloadLinks": [
-                {
-                  "downloadLink": {
-                    "iconSize": "",
-                    "icon": "doc-pdf",
-                    "decorativeLink": {
-                      "text": "PDF resource item",
-                      "href": "#",
-                      "info": "",
-                      "property": ""
-                    },
-                    "size": "30kb",
-                    "format": "PDF"
-                  }
-                },
-                {
-                  "downloadLink": {
-                    "iconSize": "",
-                    "icon": "laptop",
-                    "decorativeLink": {
-                      "text": "Link to an online form",
-                      "href": "#",
-                      "info": "",
-                      "property": ""
-                    },
-                    "size": "",
-                    "format": "form"
-                  }
-                },
-                {
-                  "downloadLink": {
-                    "iconSize": "",
-                    "icon": "",
-                    "decorativeLink": {
-                      "text": "Link to another page",
-                      "href": "#",
-                      "info": "",
-                      "property": ""
-                    },
-                    "size": "",
-                    "format": "form"
-                  }
-                }
-              ]
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
             }
           }
         }
       ]
-    },
-    "section2": {
-      "compHeading": {
-        "title": "History of the Massachusetts landscape",
-        "titleContext": "",
-        "level": 2,
-        "color": "",
-        "id": "section2",
-        "centered": ""
-      },
-      "rteElements": [
-        {
-          "path": "@atoms/11-text/paragraph.twig",
-          "data": {
-            "paragraph": {
-              "text": "Open habitats (grasslands, shrublands and young forest) were part of the New England landscape for centuries prior to European colonization due to:"
-            }
-          }
-        },
-        {
-          "path": "@atoms/08-lists/ordered-list.twig",
-          "data": {
-            "orderedList": [
-              {
-                "text": "ubiquitous beaver activity"
-              },
-              {
-                "text": "spring flooding and ice scouring along rivers and major streams"
-              },
-              {
-                "text": "wildfires and fires set by Native Americans in coastal areas and major river valleys"
-              },
-              {
-                "text": "occasional catastrophic windstorms"
-              }
-            ]
-          }
-        },
-        {
-          "path": "@organisms/by-author/pullquote.twig",
-          "data": {
-            "pullquoteCallout": {
-              "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
-            }
-          }
-        },
-        {
-          "path": "@atoms/11-text/paragraph.twig",
-          "data": {
-            "paragraph": {
-              "text": "These open habitats started to decline after European colonization due to:"
-            }
-          }
-        },
-        {
-          "path": "@molecules/callout-stats.twig",
-          "data": {
-            "statsCallout": {
-              "pull": "right",
-              "stat": "$75+",
-              "content": "this includes a title and registration fee"
-            }
-          }
-        },
-        {
-          "path": "@atoms/08-lists/ordered-list.twig",
-          "data": {
-            "orderedList": [
-              {
-                "text": "extirpation of beaver from Massachusetts"
-              },
-              {
-                "text": "extensive development  of roads and buildings in portions of the landscape that formerly supported abundant beaver activity"
-              },
-              {
-                "text": "flood control"
-              },
-              {
-                "text": "fire suppression (especially in portions of the landscape that supported fire-associated natural communities like pitch pine/scrub oak)."
-              }
-            ]
-          }
-        },
-        {
-          "path": "@atoms/11-text/paragraph.twig",
-          "data": {
-            "paragraph": {
-              "text": "Human activity has also reduced the impact of wind storms across the landscape. Today’s forests are relatively young (75-90 year-old) compared to the old growth that once existed, which means that trees are more pliant and resistant to wind disturbance than original old growth forests. Forests are also fragmented by development in many portions of the landscape, which means that when wind disturbance does occur on forested lands, it is typically interrupted by adjacent development."
-            }
-          }
-        },
-        {
-          "path": "@atoms/09-media/iframe.twig",
-          "data": {
-            "iframe": {
-              "src": "https://massgov.github.io",
-              "title": "Embed page title for accessibility",
-              "position": "full",
-              "caption": "This is an optional caption for an iframe. This iframe also has the 'full' class to fill the container."
-            }
-          }
-        },
-        {
-          "path": "@atoms/11-text/paragraph.twig",
-          "data": {
-            "paragraph": {
-              "text": "MassWildlife uses active management to provide a range of grassland, shrubland, and young forest habitats that are no longer created frequently enough by natural processes. Forestry practices, along with mowing, prescribed burning, and invasive plant control are often used to manage sites."
-            }
-          }
-        },
-        {
-          "path": "@atoms/09-media/iframe.twig",
-          "data": {
-            "iframe": {
-              "src": "https://massgov.github.io",
-              "title": "Embed page title for accessibility",
-              "position": "full",
-              "height": "200",
-              "caption": "This iframe has a set height of 200."
-            }
-          }
-        }
-      ]
-    },
-    "pullquoteCallout": {
-      "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
     }
   },
   "postContent": {
