@@ -1,5 +1,0 @@
-Fixed:
-  - project: Core
-    component: Footer
-    description: Update footer data to match Mass.gov. (#1372 )
-    issue: DP-21433
