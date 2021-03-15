@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.2.1 (3/15/2021)
+### Fixed 
+- (Core) [Footer] DP-21433: Update footer data to match Mass.gov. (#1372 )
+
 ## 11.2.0 (3/1/2021)
 ### Added 
 - (Patternlab, Core) [BrandBanner] DP-21258: Add BrandBanner molecule in Patternlab and generate the HTML, CSS and JS for Mayflower core documentation. (#1362)
