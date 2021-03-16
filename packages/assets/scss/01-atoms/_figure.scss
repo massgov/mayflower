@@ -284,7 +284,7 @@
 
     @media ($bp-small-min) {
 
-        padding-left: 50%;
+      padding-left: 50%;
     }
   }
 
@@ -364,7 +364,7 @@
 }
 
 .ma__figure.ma__iframe__container {
-// Reset initial styles on elements in iframe container.
+  // Reset initial styles on elements in iframe container.
 
   .ma__figure__skip-link {
     font-size: 1.25rem;
@@ -401,15 +401,15 @@
 .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
 .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left {
 
-    @media ($bp-x-small-min) {// 480px <
+  @media ($bp-x-small-min) {// 480px <
 
     margin-right: 20px;
-    }
+  }
 
-    @media ($bp-medium-min) {// 780px <
+  @media ($bp-medium-min) {// 780px <
 
     margin-right: 30px;
-    }
+  }
 }
 
 // right align --- 3rd item, 5th item, 7th item, 9th item

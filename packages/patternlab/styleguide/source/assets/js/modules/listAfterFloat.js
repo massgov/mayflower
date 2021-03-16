@@ -20,6 +20,7 @@ window.addEventListener('resize', () => {
     addInlineMargin ();
   } else {
     // Remove the inline style with no float with screen width under 620px.
+
     leftFloatFigures.forEach( (figure) => {
       if (figure.hasAttribute("style")) {
         figure.removeAttribute("style");
@@ -34,11 +35,14 @@ window.addEventListener('resize', () => {
   }
 });
 
-function addInlineImageMargin () {
+function addInlineMargin () {
   // Figure components
-  if (!figure.parentElement.previousElementSibling.classList.contains("ma__figure")) {
-    figure.style.cssText = "margin-right: 50px;";
-  }
+  leftFloatFigures.forEach( (figure) => {
+    //  Check if the previous sibling is not figure component.
+    if (!figure.parentElement.previousElementSibling.classList.contains("ma__figure")) {
+      figure.style.cssText = "margin-right: 50px;";
+    }
+  });
 
   // article image embed
   leftFloatImages.forEach( (image) => {
