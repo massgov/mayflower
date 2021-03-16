@@ -154,19 +154,11 @@
             }
           }
         },
-                {
-          "path": "@atoms/11-text/paragraph.twig",
-          "data": {
-            "paragraph": {
-              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
-            }
-          }
-        },
         {
           "path": "@atoms/09-media/figure--image.twig",
           "data": {
             "figure": {
-              "align": "right",
+              "align": "left",
               "size": "small",
               "wrap": true,
               "image": {
@@ -183,7 +175,7 @@
           "path": "@atoms/09-media/figure--image.twig",
           "data": {
             "figure": {
-              "align": "right",
+              "align": "left",
               "size": "small",
               "wrap": true,
               "image": {
@@ -200,7 +192,7 @@
           "path": "@atoms/09-media/figure--image.twig",
           "data": {
             "figure": {
-              "align": "right",
+              "align": "left",
               "size": "small",
               "wrap": true,
               "image": {
@@ -214,10 +206,70 @@
           }
         },
         {
-          "path": "@atoms/11-text/paragraph.twig",
+          "path": "@atoms/09-media/figure--image.twig",
           "data": {
-            "paragraph": {
-              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+            "figure": {
+              "align": "left",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "left",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "left",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "left",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
             }
           }
         },
@@ -226,6 +278,251 @@
           "data": {
             "figure": {
               "align": "",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
+              "size": "small",
+              "wrap": true,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "right",
               "size": "small",
               "wrap": true,
               "image": {
