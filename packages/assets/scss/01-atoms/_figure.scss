@@ -128,7 +128,9 @@
     &--x-small {
       width: calc(50% - 10px);
     }
+  }
 
+  @media ($bp-x-small-min) and ($bp-small-max) {
     // .no-sidebar
     &--small {
       width: 100%;
@@ -143,11 +145,6 @@
     &--small {
       width: calc(50% - 15px);
     }
-
-    // .no-sidebar &--x-small,
-    // .no-sidebar &--small {
-    //   width: calc(50% - 15px);
-    // }
   }
 
   @media ($bp-medium-min) {// 781~
@@ -183,27 +180,6 @@
       width: calc(100% / 3 - 20px);
     }
   }
-
-
-
-  // with right column
-
-  // .page-content:not(.no-sidebar) &--x-small,
-  // .page-content:not(.no-sidebar) &--small {
-
-  //   @media ($bp-small-min) and ($bp-medium-max) {// 621 - 780
-  //     width: calc(50% - 15px);
-  //   }
-
-  //   @media ($bp-medium-min) and ($bp-large-max) {// 781 - 910
-  //     width: calc(100% / 3 - 20px);
-  //   }
-
-  //   @media ($bp-large-min) and ($bp-large-extended) {// 911 - 1050
-  //     width: 100%;
-  //   }
-
-  // }
 
   // Size - Medium
 
@@ -412,82 +388,164 @@
 
 // MARGIN ADJUSTMENT with side by side layout
 
-.no-sidebar { // 1 col layout, no right column
+// x-small and small have the common layout pattern.
+// Small + x-small sizes - 50% width
+// left align --- 3rd item, 5th item, 7th item, 9th item
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
 
-  @media ($bp-small-min) and ($bp-medium-max) {// 620px <  > 780px
+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left {
 
-    // In this breakpoint, x-small and small have the common layout pattern.
-    // Small & X-small sizes - 50% width for 621 - 780
+    @media ($bp-x-small-min) {// 480px <
 
-    // left align --- 3rd item, 5th item, 7th item
+    margin-right: 20px;
+    }
 
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
+    @media ($bp-medium-min) {// 780px <
+
+    margin-right: 30px;
+    }
+}
+
+// right align --- 3rd item, 5th item, 7th item, 9th item
+
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+
+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right {
+
+  @media ($bp-x-small-min) {// 480px <
+
+    margin-left: 20px;
+  }
+
+  @media ($bp-medium-min) {// 780px <
+
+    margin-left: 30px;
+  }
+}
+
+// right side items --- 2nd item, 4th item, 6th item, 8th item, 10th item
+
+.ma__figure--x-small+.ma__figure--x-small,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
+
+.ma__figure--small+.ma__figure--small,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small,
+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small {
+
+  @media ($bp-x-small-min) {// 480px <
+
+    margin: 0 0 20px 0;
+  }
+
+  @media ($bp-medium-min) {// 780px <
+
+    margin: 0 0 30px 0;
+  }
+}
+
+@media ($bp-x-large-min) {// 1200px <
+
+  .page-content:not(.no-sidebar) {// This selector is necessary to override above styles.
+
+    // x-small sizes - 33% width
+
+    // left align --- 2nd item, 4th item, 5th item, 7th item, 8th item
+
+    .ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-
-    .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left {
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left {
       margin-right: 30px;
     }
 
-    // right align --- 3rd item, 5th item, 7th item
+    // right align --- 2nd item, 4th item, 5th item, 7th item, 8th item
 
-    .ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-
-    .ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right {
+    .ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right {
       margin-left: 30px;
     }
 
-    // right side items --- 2nd item, 4th item, 6th item
+    // right side items --- 3rd item, 6th item, 9th item
 
-    .ma__figure--x-small+.ma__figure--x-small,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
-
-    .ma__figure--small + .ma__figure--small,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small {
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small {
       margin: 0 0 30px 0;
     }
   }
+
+
+
+}
+
+.no-sidebar { // 1 col layout, no right column
 
   @media ($bp-medium-min) {// 780px <
 
     // In this breakpoint, x-small and small have the common layout pattern.
     // Small + x-small sizes - 33% width for 780 <
 
-    // left align --- 4th + 5th itmes, 7th + 8th items
-
+    // left align --- 2nd item, 4th item, 5th item, 7th item, 8th item
+    .ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
 
+    .ma__figure--small+.ma__figure--small.ma__figure--left,
     .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left {
+    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
+    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--mall.ma__figure--left,
+    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left {
       margin-right: 30px;
     }
 
-    // right align ---  4th + 5th itmes, 7th + 8th items
+    // right align --- 2nd item, 4th item, 5th item, 7th item, 8th item
 
+    .ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
 
+    .ma__figure--small+.ma__figure--small.ma__figure--right,
     .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right {
+    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
+    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--mall.ma__figure--right,
+    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right {
       margin-left: 30px;
     }
 
-    // right side items --- 3rd item, 6th item
+    // right side items --- 3rd item, 6th item, 9th item
 
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
+    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
 
     .ma__figure--small+.ma__figure--small+.ma__figure--small,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small {
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small,
+    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small {
       margin: 0 0 30px 0;
     }
   }
@@ -499,109 +557,26 @@
   // Apply to layout with/without a right column.
 
   // left align --- 3rd item, 5th item, 7th item
-
-  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--left,
-  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--left,
-  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--left {
+  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--left,
+  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--left,
+  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--left {
     margin-right: 30px;
   }
 
   // right align --- 3rd item, 5th item, 7th item
 
-  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--right,
-  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--right,
-  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--right {
+  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--right,
+  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--right,
+  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--right {
     margin-left: 30px;
   }
 
   // right side items --- 2nd item, 4th item, 6th item
 
-  .ma__figure--medium + .ma__figure--medium,
-  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium,
-  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium {
+  .ma__figure--medium+.ma__figure--medium,
+  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium,
+  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium {
     margin: 0 0 30px 0;
-  }
-}
-
-@media ($bp-x-small-min) {// 480px <
-  // X-small size - 50% width for 481 - 780, margin 20px
-  // left align --- 3rd item, 5th item, 7th item
-  .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
-  .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
-  .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left {
-    margin-right: 20px;
-  }
-
-  // right align --- 3rd item, 5th item, 7th item
-
-  .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
-  .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
-  .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right {
-    margin-left: 20px;
-  }
-
-  // right side items --- 2nd item, 4th item, 6th item
-
-  .ma__figure--x-small + .ma__figure--x-small,
-  .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
-  .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small {
-    margin: 0 0 20px 0;
-  }
-}
-
-.page-content:not(.no-sidebar) {// with right column
-
-  @media ($bp-large-extended-min) {// 1050px <
-
-    // Small + x-small sizes - 50% width for 1050 px <
-
-    // left align --- 3rd item, 5th item, 7th item
-    .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left {
-      margin-right: 30px;
-    }
-
-    // right align --- 3rd item, 5th item, 7th item
-
-    .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right {
-      margin-left: 30px;
-    }
-
-    // right side items --- 2nd item, 4th item, 6th item
-
-    .ma__figure--small + .ma__figure--small,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small,
-    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small {
-      margin: 0 0 30px 0;
-    }
-
-    // Extra Small size - 50% width for 1050 px <
-
-    // left align --- 3rd item, 5th item, 7th item
-    // .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
-    // .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
-    // .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left {
-    //   margin-right: 30px;
-    // }
-
-    // // right align --- 3rd item, 5th item, 7th item
-
-    // .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
-    // .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
-    // .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right {
-    //   margin-left: 30px;
-    // }
-
-    // // right side items --- 2nd item, 4th item, 6th item
-
-    // .ma__figure--x-small + .ma__figure--x-small,
-    // .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
-    // .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small {
-    //   margin: 0 0 30px 0;
-    // }
   }
 }
 
