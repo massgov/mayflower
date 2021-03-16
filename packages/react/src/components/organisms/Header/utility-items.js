@@ -1,29 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import GoogleTranslateElement from 'MayflowerReactButtons/GoogleTranslateElement';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
 import UtilityNavData from './UtilityNav.data';
-
-const UtilityLink = ({ href, children }) => (
-  <li className="ma__utility-panel__item js-clickable">
-    <span className="ma__decorative-link">
-      <a
-        href={href}
-        className="js-clickable-link"
-      >
-        {children}
-        <svg aria-hidden="true" focusable="false"><use xlinkHref="#7d83e994275beeb5601876202075c2b3.422" /></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}><symbol xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" version="1.1" viewBox="0 0 16 18" id="7d83e994275beeb5601876202075c2b3.422"><path d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)" /></symbol></svg>
-      </a>
-    </span>
-  </li>
-);
-UtilityLink.propTypes = {
-  href: propTypes.string,
-  children: propTypes.node
-};
 
 const PanelItem = ({
   narrow,
@@ -208,7 +190,9 @@ const PanelItem = ({
               )}
               <ul className="ma__utility-panel__items">
                 { links.length > 0 && links.map((link) => (
-                  <UtilityLink key={`utility-link.${link.href}.${link.text}`} href={link.href}>{link.text}</UtilityLink>
+                  <li className="ma__utility-panel__item js-clickable">
+                    <DecorativeLink {...link} />
+                  </li>
                 ))}
               </ul>
             </div>
