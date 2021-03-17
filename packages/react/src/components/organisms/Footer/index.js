@@ -8,50 +8,62 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 
 import FooterLinks from 'MayflowerReactMolecules/FooterLinks';
 import SocialLinks from 'MayflowerReactMolecules/SocialLinks';
 // eslint-disable-next-line import/no-unresolved
 import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
+const today = new Date();
+const year = today.getFullYear();
+
 const Footer = ({
-  footerLinks, socialLinks, backToTopButton, footerText, footerLogo, showNavHeading
-}) => (
-  <footer className="ma__footer js-footer" id="footer">
-    <div className="ma__footer__container">
-      <section className="ma__footer__info">
-        <div className="ma__footer__logo">
-          <a href={footerLogo.domain} title={footerLogo.title}>
-            <img src={footerLogo.src} alt="" width="100" height="100" />
-          </a>
+  footerLinks, socialLinks, backToTopButton,
+  footerText: {
+    copyright=`${year} Commonwealth of Massachusetts.`,
+    description='Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
+    privacyPolicy={
+      text: 'Mass.gov Privacy Policy',
+      url: 'https://www.mass.gov/privacypolicy'
+    }
+  },
+  footerLogo, showNavHeading
+}) => {
+  return(
+    <footer className="ma__footer js-footer" id="footer">
+      <div className="ma__footer__container">
+        <section className="ma__footer__info">
+          <div className="ma__footer__logo">
+            <a href={footerLogo.domain} title={footerLogo.title}>
+              <img src={footerLogo.src} alt="" width="100" height="100" />
+            </a>
+          </div>
+          <div className="ma__footer__social">
+            <SocialLinks {...socialLinks} />
+          </div>
+          <div className="ma__footer__copyright">
+            <p className="ma__footer__copyright--date">
+              {copyright}
+            </p>
+            <p>{description}</p>
+            <a href={privacyPolicy.url}>{privacyPolicy.text}</a>
+          </div>
+        </section>
+        <div className="ma__footer__nav">
+          <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
         </div>
-        <div className="ma__footer__social">
-          <SocialLinks {...socialLinks} />
-        </div>
-        <div className="ma__footer__copyright">
-          <p className="ma__footer__copyright--date">
-            &copy;
-            {footerText.copyright}
-          </p>
-          <p>{footerText.description}</p>
-          <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
-        </div>
-      </section>
-      <div className="ma__footer__nav">
-        <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
       </div>
-    </div>
-    { backToTopButton
-    && (
-    <button type="button" className="ma__footer__back2top js-back2top is-hidden">
-      <IconArrow />
-      <span aria-hidden="true">Top</span>
-      <span className="visually-hidden">Go to the top of the page</span>
-    </button>
-    ) }
-  </footer>
-);
+      { backToTopButton
+      && (
+      <button type="button" className="ma__footer__back2top js-back2top is-hidden">
+        <IconArrow />
+        <span aria-hidden="true">Top</span>
+        <span className="visually-hidden">Go to the top of the page</span>
+      </button>
+      ) }
+    </footer>
+  )
+}
 
 Footer.propTypes = {
   /** `@molecules/FooterLinks` */
@@ -95,7 +107,7 @@ Footer.defaultProps = {
     title: 'Mass.gov homepage'
   },
   footerText: {
-    copyright: `${moment().year()} Commonwealth of Massachusetts.`,
+    copyright: `${year} Commonwealth of Massachusetts.`,
     description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
     privacyPolicy: {
       text: 'Mass.gov Privacy Policy',

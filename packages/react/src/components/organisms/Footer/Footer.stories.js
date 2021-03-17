@@ -20,14 +20,6 @@ FooterExample.args = {
     domain: 'https://www.mass.gov/',
     src: stateSeal,
     title: 'Mass.gov homepage'
-  },
-  footerText: {
-    copyright: '2020 Commonwealth of Massachusetts.',
-    description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-    privacyPolicy: {
-      text: 'Mass.gov Privacy Policy',
-      url: 'https://www.mass.gov/privacypolicy'
-    }
   }
 };
 
@@ -39,14 +31,6 @@ FooterLiveData.args = {
   socialLinks: SocialLinksLiveData,
   footerLogo: {
     src: stateSeal
-  },
-  footerText: {
-    copyright: '2020 Commonwealth of Massachusetts.',
-    description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-    privacyPolicy: {
-      text: 'Mass.gov Privacy Policy',
-      url: 'https://www.mass.gov/privacypolicy'
-    }
   }
 };
 
