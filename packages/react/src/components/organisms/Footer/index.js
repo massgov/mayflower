@@ -17,16 +17,18 @@ import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 const today = new Date();
 const year = today.getFullYear();
 
+const defaultFooterText = {
+  copyright: `${year} Commonwealth of Massachusetts.`,
+  description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
+  privacyPolicy: {
+    text: 'Mass.gov Privacy Policy',
+    url: 'https://www.mass.gov/privacypolicy'
+  }
+};
+
 const Footer = ({
   footerLinks, socialLinks,
-  footerText: {
-    copyright = `${year} Commonwealth of Massachusetts.`,
-    description = 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-    privacyPolicy = {
-      text: 'Mass.gov Privacy Policy',
-      url: 'https://www.mass.gov/privacypolicy'
-    }
-  },
+  footerText = defaultFooterText,
   footerLogo: {
     domain = '/',
     title = 'Mass.gov homepage',
@@ -50,10 +52,10 @@ const Footer = ({
           <p className="ma__footer__copyright--date">
             &copy;
             {' '}
-            {copyright}
+            {footerText.copyright}
           </p>
-          <p>{description}</p>
-          <a href={privacyPolicy.url}>{privacyPolicy.text}</a>
+          <p>{footerText.description}</p>
+          <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
         </div>
       </section>
       <div className="ma__footer__nav">
