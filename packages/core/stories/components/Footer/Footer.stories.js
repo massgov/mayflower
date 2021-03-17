@@ -19,7 +19,7 @@ const footerBasic = (
       },
       phone: '(617) 988-6600'
     }}
-    description="The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
+    description="The Department of Early Education and Care's mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
     links={[
       {
         href: '#',
@@ -53,7 +53,7 @@ const footerDuelLogo = (
       },
       phone: '(617) 988-6600'
     }}
-    description="The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
+    description="The Department of Early Education and Care's mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
     links={[
       {
         href: '#',
@@ -89,20 +89,10 @@ const footerDuelLogo = (
 
 const footer = (
   <Footer
-    backToTopButton={false}
     footerLinks={footerLinks}
     footerLogo={{
       src: logo
     }}
-    footerText={{
-      copyright: '2020 Commonwealth of Massachusetts.',
-      description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-      privacyPolicy: {
-        text: 'Mass.gov Privacy Policy',
-        url: 'https://www.mass.gov/privacypolicy'
-      }
-    }}
-    showNavHeading={false}
     socialLinks={{
       items: [
         {
