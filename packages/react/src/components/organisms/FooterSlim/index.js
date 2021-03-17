@@ -16,16 +16,15 @@ import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
 // eslint-disable-next-line import/no-unresolved
 import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
-
 const today = new Date();
 const year = today.getFullYear();
 
 const FooterSlim = ({
   title, description, siteLogo,
-  stackedLogo=false,
-  links=null,
-  contact=null,
-  copyright=`${year} Commonwealth of Massachusetts.`
+  stackedLogo = false,
+  links = null,
+  contact = null,
+  copyright = `${year} Commonwealth of Massachusetts.`
 }) => {
   const logoWrapperClasses = classNames({
     'ma__footer-slim__container__logos': true,

@@ -20,48 +20,47 @@ const year = today.getFullYear();
 const Footer = ({
   footerLinks, socialLinks,
   footerText: {
-    copyright=`${year} Commonwealth of Massachusetts.`,
-    description='Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-    privacyPolicy={
+    copyright = `${year} Commonwealth of Massachusetts.`,
+    description = 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
+    privacyPolicy = {
       text: 'Mass.gov Privacy Policy',
       url: 'https://www.mass.gov/privacypolicy'
     }
   },
   footerLogo: {
-    domain='/',
-    title='Mass.gov homepage',
+    domain = '/',
+    title = 'Mass.gov homepage',
     src
   },
-  showNavHeading=false,
-  backToTopButton=false
-}) => {
-  return(
-    <footer className="ma__footer js-footer" id="footer">
-      <div className="ma__footer__container">
-        <section className="ma__footer__info">
-          <div className="ma__footer__logo">
-            <a href={domain} title={title}>
-              <img src={src} alt="" width="100" height="100" />
-            </a>
-          </div>
-          <div className="ma__footer__social">
-            <SocialLinks {...socialLinks} />
-          </div>
-          <div className="ma__footer__copyright">
-            <p className="ma__footer__copyright--date">
-              &copy;
-              {' '}
-              {copyright}
-            </p>
-            <p>{description}</p>
-            <a href={privacyPolicy.url}>{privacyPolicy.text}</a>
-          </div>
-        </section>
-        <div className="ma__footer__nav">
-          <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
+  showNavHeading = false,
+  backToTopButton = false
+}) => (
+  <footer className="ma__footer js-footer" id="footer">
+    <div className="ma__footer__container">
+      <section className="ma__footer__info">
+        <div className="ma__footer__logo">
+          <a href={domain} title={title}>
+            <img src={src} alt="" width="100" height="100" />
+          </a>
         </div>
+        <div className="ma__footer__social">
+          <SocialLinks {...socialLinks} />
+        </div>
+        <div className="ma__footer__copyright">
+          <p className="ma__footer__copyright--date">
+            &copy;
+            {' '}
+            {copyright}
+          </p>
+          <p>{description}</p>
+          <a href={privacyPolicy.url}>{privacyPolicy.text}</a>
+        </div>
+      </section>
+      <div className="ma__footer__nav">
+        <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
       </div>
-      { backToTopButton
+    </div>
+    { backToTopButton
       && (
       <button type="button" className="ma__footer__back2top js-back2top is-hidden">
         <IconArrow />
@@ -69,9 +68,8 @@ const Footer = ({
         <span className="visually-hidden">Go to the top of the page</span>
       </button>
       ) }
-    </footer>
-  )
-}
+  </footer>
+);
 
 Footer.propTypes = {
   /** `@molecules/FooterLinks` */
