@@ -23,7 +23,7 @@ const siteLogoProps = {
 };
 FooterSlimExample.args = {
   title: 'Massachusetts Executive Office of Eductation (EDU)',
-  description: "The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families",
+  description: "The Department of Early Education and Care\'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families",
   links: [
     { href: '#', title: 'Lead Agencies Policies' },
     { href: '#', title: 'Child Care Licensing Procedures' }
@@ -69,7 +69,7 @@ const siteLogo2Props = {
 
 FooterSlimMultiLogos.args = {
   title: 'Massachusetts Executive Office of Eductation (EDU)',
-  description: "The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families",
+  description: "The Department of Early Education and Care\'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families",
   links: [
     { href: '#', title: 'Lead Agencies Policies' },
     { href: '#', title: 'Child Care Licensing Procedures' }

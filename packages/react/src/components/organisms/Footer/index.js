@@ -49,6 +49,8 @@ const Footer = ({
           </div>
           <div className="ma__footer__copyright">
             <p className="ma__footer__copyright--date">
+              &copy;
+              {' '}
               {copyright}
             </p>
             <p>{description}</p>
