@@ -92,6 +92,8 @@ const FooterSlim = ({
 FooterSlim.propTypes = {
   /** The main title to be displayed in the footer */
   title: PropTypes.string.isRequired,
+  /** Bolded copyright info starting with © (Defaults to matching Mass.gov) */
+  copyright: PropTypes.string,
   /** A short description */
   description: PropTypes.string.isRequired,
   /** Additional links for key information */

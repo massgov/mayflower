@@ -80,17 +80,17 @@ Footer.propTypes = {
   socialLinks: PropTypes.shape(SocialLinks.propTypes).isRequired,
   /** A floating button on the lower right corner which onClick takes user to the top of the page. */
   backToTopButton: PropTypes.bool,
-  /** Adds footer logo. <br />
+  /** Adds footer logo. (Defaults to matching Mass.gov) <br />
    * `src:` logo image source url <br />
    * `domain:` The URL for the site root <br />
    * `title:` The title of the logo link
   */
   footerLogo: PropTypes.shape({
-    src: PropTypes.string,
+    src: PropTypes.string.isRequired,
     domain: PropTypes.string,
     title: PropTypes.string
   }),
-  /** Adds footer info section. <br />
+  /** Adds footer info section. (Defaults to matching Mass.gov) <br />
    * `copyright:` Bolded copyright info starting with © <br />
    * `description:` Descriptive info below copyright <br />
    * `privacyPolicy:` A link to the privacy policy page of the site

@@ -93,6 +93,7 @@ const footer = (
     footerLogo={{
       src: logo
     }}
+    footerText={{}}
     socialLinks={{
       items: [
         {
