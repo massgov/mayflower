@@ -18,7 +18,7 @@ const today = new Date();
 const year = today.getFullYear();
 
 const Footer = ({
-  footerLinks, socialLinks, backToTopButton,
+  footerLinks, socialLinks,
   footerText: {
     copyright=`${year} Commonwealth of Massachusetts.`,
     description='Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
@@ -27,15 +27,21 @@ const Footer = ({
       url: 'https://www.mass.gov/privacypolicy'
     }
   },
-  footerLogo, showNavHeading
+  footerLogo: {
+    domain='/',
+    title='Mass.gov homepage',
+    src
+  },
+  showNavHeading=false,
+  backToTopButton=false
 }) => {
   return(
     <footer className="ma__footer js-footer" id="footer">
       <div className="ma__footer__container">
         <section className="ma__footer__info">
           <div className="ma__footer__logo">
-            <a href={footerLogo.domain} title={footerLogo.title}>
-              <img src={footerLogo.src} alt="" width="100" height="100" />
+            <a href={domain} title={title}>
+              <img src={src} alt="" width="100" height="100" />
             </a>
           </div>
           <div className="ma__footer__social">
@@ -97,23 +103,6 @@ Footer.propTypes = {
       url: PropTypes.string
     })
   })
-};
-
-Footer.defaultProps = {
-  showNavHeading: false,
-  backToTopButton: false,
-  footerLogo: {
-    domain: '/',
-    title: 'Mass.gov homepage'
-  },
-  footerText: {
-    copyright: `${year} Commonwealth of Massachusetts.`,
-    description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-    privacyPolicy: {
-      text: 'Mass.gov Privacy Policy',
-      url: 'https://www.mass.gov/privacypolicy'
-    }
-  }
 };
 
 export default Footer;

@@ -17,10 +17,9 @@ FooterExample.args = {
   showNavHeading: true,
   socialLinks: SocialLinksData,
   footerLogo: {
-    domain: 'https://www.mass.gov/',
-    src: stateSeal,
-    title: 'Mass.gov homepage'
-  }
+    src: stateSeal
+  },
+  footerText: {}
 };
 
 export const FooterLiveData = (args) => <Footer {...args} />;
@@ -31,7 +30,8 @@ FooterLiveData.args = {
   socialLinks: SocialLinksLiveData,
   footerLogo: {
     src: stateSeal
-  }
+  },
+  footerText: {}
 };
 
 export default {
