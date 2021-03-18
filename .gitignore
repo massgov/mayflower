@@ -66,3 +66,7 @@ common/autoinstallers/*/.npmrc
 
 # Distribution folder
 dist
+
+# yalc - used to symlink to and test local packages
+.yalc/
+yalc.lock
