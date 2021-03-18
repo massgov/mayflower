@@ -1,6 +1,17 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.2.2 (3/18/2021)
+### Fixed 
+- (Assets) [CalloutLink] DP-20435: Fix Callout Links alignment in key actions (promoted results in search.mass.gov). (#1366)
+- (React) [HamburgerNav] DP-20435: fix hamburger nav search icon rendering mobile conditional. (#1369)
+- (Assets) [GenTeaser] DP-20435: Fix GenTeaser component spacing and line heights. (#1370)
+- (React) [GenTeaser.Email] DP-20435: Fix email proptype. (#1373)
+
+### Changed 
+- (React) [TranslateItem, StateItem, LoginItem] DP-20435: Refactor utility items in Header/utility-items.js for reuse. (#1368)
+- (React) [TypeAheadDropdown] DP-20435: Convert TypeAheadDropdown into a functional component, and allow setting default value props separately for the TypeAheadDropDown and its child InputTextFuzzy component (#1371)
+
 ## 11.2.1 (3/15/2021)
 ### Fixed 
 - (Core) [Footer] DP-21433: Update footer data to match Mass.gov. (#1372 )
