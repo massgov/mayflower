@@ -4,7 +4,8 @@ import { action } from '@storybook/addon-actions';
 
 import InputTextFuzzy from './index';
 import InputTextFuzzyDocs from './InputTextFuzzy.md';
-import inputOptions from './InputTextFuzzy.knobs.options';
+// import inputOptions from './InputTextFuzzy.knobs.options';
+import { orgs } from './orgsData.json';
 
 export const InputTextFuzzyExample = (args) => (
   <InputTextFuzzy {...args} />
@@ -16,7 +17,7 @@ InputTextFuzzyExample.args = {
   disabled: false,
   label: 'State Organization',
   keys: ['text'],
-  options: inputOptions.options.orgSelector.filter((option) => option.text !== ''),
+  options: orgs,
   placeholder: 'All Organizations',
   id: 'org-typeahead',
   inputId: 'input-org-typeahead',
@@ -40,7 +41,7 @@ InputTextFuzzyExample.argTypes = {
   selected: {
     control: {
       type: 'select',
-      options: inputOptions.options.orgSelector.map((option) => option.text)
+      options: orgs.map((option) => option.text)
     }
   }
 };
