@@ -29,7 +29,6 @@ class InputTextFuzzy extends React.Component {
 
   onSuggestionsFetchRequested = ({ value }) => {
     const suggestions = is.empty(value) ? this.optionsToSuggestions(this.props.options) : this.fuse.search(value);
-    console.log(suggestions)
     this.setState({
       suggestions
     });
@@ -135,8 +134,7 @@ class InputTextFuzzy extends React.Component {
               start, Number(end) + 1
             ];
           });
-          const parts = parse(item.text, ranges);
-          console.log(parts)
+          const parts = parse(match.value, ranges);
           renderItems = parts.filter((part) => part.text.length > 0).map((part, index) => {
             const className = part.highlight === true ? 'highlight' : null;
             const key = `${match.key}.suggestion_${index}`;
