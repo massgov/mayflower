@@ -15,10 +15,7 @@ InputTextFuzzyExample.args = {
   boxed: false,
   disabled: false,
   label: 'State Organization',
-  keys: ['text', {
-    name: 'abbr',
-    weight: 2
-  }],
+  keys: ['text', 'abbr'],
   options: orgs,
   placeholder: 'All Organizations',
   id: 'org-typeahead',
