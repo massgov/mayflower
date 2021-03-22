@@ -1,6 +1,6 @@
 {
     "orgs": [
-        { "value": "", "text": "All Organizations" },
+        { "value": "", "text": "All Organizations", "abbr": "" },
         {
           "text": "495/MetroWest Suburban Edge Community Commission",
           "abbr": "",
