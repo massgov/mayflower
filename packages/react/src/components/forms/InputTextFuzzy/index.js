@@ -219,12 +219,12 @@ InputTextFuzzy.propTypes = {
   ])).isRequired,
   /** An array of objects representing all searchable values. */
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
-  /** Any Fusejs options to override the default options set in this component. 
+  /** Any Fusejs options to override the default options set in this component.
    * API doc: https://fusejs.io/api/options.html
-   * 
+   *
   */
   /* eslint-disable-next-line  react/forbid-prop-types */
-  fuseOptions: PropTypes.object, 
+  fuseOptions: PropTypes.object,
   /** Disables input. */
   disabled: PropTypes.bool,
   /** Function that runs after changes to the input happen. */
