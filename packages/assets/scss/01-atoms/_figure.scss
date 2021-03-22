@@ -263,8 +263,8 @@
 
   @media ($bp-small-max) {
 
-    &--left:not(.ma__image),
-    &--right:not(.ma__image) {
+    &--left:not(.ma__figure-image),
+    &--right:not(.ma__figure-image) {
       float: none;
       margin-right: 0;
       margin-left: 0;
