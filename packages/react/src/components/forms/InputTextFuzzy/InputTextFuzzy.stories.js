@@ -16,7 +16,7 @@ InputTextFuzzyExample.args = {
   boxed: false,
   disabled: false,
   label: 'State Organization',
-  keys: ['text'],
+  keys: ['text', 'abbr'],
   options: orgs,
   placeholder: 'All Organizations',
   id: 'org-typeahead',
@@ -28,7 +28,8 @@ InputTextFuzzyExample.args = {
     includeMatches: true,
     threshold: 0.3,
     minMatchCharLength: 1,
-    maxPatternLength: 300
+    maxPatternLength: 300,
+    includeScore: true
   },
   onKeyDown: action('onKeyDown event'),
   onChange: action('onChange event'),
