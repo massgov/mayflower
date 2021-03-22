@@ -22,7 +22,7 @@ class InputTextFuzzy extends React.Component {
       value: this.props.selected || '',
       suggestions: []
     };
-    const fuseOptions = this.props.fuseOptions;
+    const { fuseOptions } = this.props;
     fuseOptions.keys = this.props.keys;
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
@@ -51,12 +51,14 @@ class InputTextFuzzy extends React.Component {
 
   getSuggestionValue = (suggestion) => suggestion.item.text;
 
-  handleChange = (event, { newValue, method }) => {
+  handleChange = (event) => {
     if (event && event.persist) {
       event.persist();
     }
 
-    const value = newValue;
+    const { value, method } = event.target;
+
+    console.log(value)
     this.setState({
       value
     }, () => {
@@ -121,6 +123,7 @@ class InputTextFuzzy extends React.Component {
 
   renderItem = (suggestion) => {
     const { item, matches } = suggestion;
+    console.log(suggestion)
     let renderItems = [];
     if (is.empty(this.state.value)) {
       renderItems = this.props.keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
@@ -196,7 +199,14 @@ class InputTextFuzzy extends React.Component {
           </Label>
         )}
         <div className={inputTextTypeAheadClasses}>
-          <Autosuggest {...autoProps} />
+          {//<Autosuggest {...autoProps} />
+          }
+          <input {...autoProps.inputProps} />
+          <ul>{
+          this.fuse.search(this.state.value).map(el => (
+            <li key={el.item.value}>{el.item.text} <mark>{el.score}</mark></li>
+          ))
+        }</ul>
         </div>
       </>
     );
