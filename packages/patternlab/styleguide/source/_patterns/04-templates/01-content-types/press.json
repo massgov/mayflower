@@ -86,7 +86,7 @@
 
     "figure": {
       "align": "",
-      "wrap": false,
+      "wrap": true,
       "image": {
         "alt": "alt text",
         "src": "../../assets/images/placeholder/820x460.png",
