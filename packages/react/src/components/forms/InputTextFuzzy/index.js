@@ -58,7 +58,6 @@ class InputTextFuzzy extends React.Component {
 
     const { value, method } = event.target;
 
-    console.log(value)
     this.setState({
       value
     }, () => {
@@ -123,7 +122,7 @@ class InputTextFuzzy extends React.Component {
 
   renderItem = (suggestion) => {
     const { item, matches } = suggestion;
-    console.log(suggestion)
+    // console.log(suggestion)
     let renderItems = [];
     if (is.empty(this.state.value)) {
       renderItems = this.props.keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
@@ -161,6 +160,7 @@ class InputTextFuzzy extends React.Component {
     const {
       inputId, id, placeholder, disabled, label, boxed, autoFocusInput
     } = this.props;
+    console.log(this.state.suggestions)
     const autoProps = {
       suggestions: this.state.suggestions,
       renderSuggestionsContainer: this.renderItemsContainer,
@@ -199,14 +199,7 @@ class InputTextFuzzy extends React.Component {
           </Label>
         )}
         <div className={inputTextTypeAheadClasses}>
-          {//<Autosuggest {...autoProps} />
-          }
-          <input {...autoProps.inputProps} />
-          <ul>{
-          this.fuse.search(this.state.value).map(el => (
-            <li key={el.item.value}>{el.item.text} <mark>{el.score}</mark></li>
-          ))
-        }</ul>
+          <Autosuggest {...autoProps} />
         </div>
       </>
     );
@@ -261,7 +254,7 @@ InputTextFuzzy.defaultProps = {
     shouldSort: true,
     /** Prevents matching from stopping at the first match found. */
     findAllMatches: true,
-    /** Lets the matches found be included in the result set. */
+    /** Lets the matches found be included in the result set. This field must be true for the highlight to work. */
     includeMatches: true,
     /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches. */
     threshold: 0.3,

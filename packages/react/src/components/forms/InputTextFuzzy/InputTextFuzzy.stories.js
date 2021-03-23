@@ -24,6 +24,7 @@ InputTextFuzzyExample.args = {
   fuseOptions: {
     keys: ['text'],
     shouldSort: true,
+    includeMatches: true,
     includeScore: true,
     minMatchCharLength: 1,
     ignoreLocation: true,
