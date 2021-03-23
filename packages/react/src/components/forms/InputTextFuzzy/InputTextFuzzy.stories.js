@@ -22,7 +22,6 @@ InputTextFuzzyExample.args = {
   inputId: 'input-org-typeahead',
   selected: '',
   fuseOptions: {
-    keys: ['text'],
     shouldSort: true,
     includeMatches: true,
     includeScore: true,

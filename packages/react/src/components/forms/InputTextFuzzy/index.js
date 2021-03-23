@@ -23,7 +23,7 @@ class InputTextFuzzy extends React.Component {
       suggestions: []
     };
     const { fuseOptions } = this.props;
-    if (this.props.keys) { fuseOptions.keys = this.props.keys; }
+    fuseOptions.keys = this.props.keys;
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
 
@@ -261,9 +261,7 @@ InputTextFuzzy.defaultProps = {
     /** Prevents matches against empty strings. */
     minMatchCharLength: 1,
     /** Allows more characters for long queries. */
-    maxPatternLength: 300,
-    /** The keys within options that will be searched. */
-    keys: ['text']
+    maxPatternLength: 300
   },
   autoFocusInput: false,
   disabled: false,
