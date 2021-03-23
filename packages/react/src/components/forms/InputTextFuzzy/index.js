@@ -122,7 +122,6 @@ class InputTextFuzzy extends React.Component {
 
   renderItem = (suggestion) => {
     const { item, matches } = suggestion;
-    // console.log(suggestion)
     let renderItems = [];
     if (is.empty(this.state.value)) {
       renderItems = this.props.keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
@@ -160,7 +159,6 @@ class InputTextFuzzy extends React.Component {
     const {
       inputId, id, placeholder, disabled, label, boxed, autoFocusInput
     } = this.props;
-    console.log(this.state.suggestions)
     const autoProps = {
       suggestions: this.state.suggestions,
       renderSuggestionsContainer: this.renderItemsContainer,
