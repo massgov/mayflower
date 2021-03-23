@@ -10,3 +10,9 @@ Added:
     description: Simulate real orgs data to test out abbreviation search. (#1380)
     issue: DP-20435
     impact: Patch
+Changed:
+  - project: React
+    component: InputTextFuzzy, Dependency
+    description: Upgrade `fuse.js` to v6.4.6. (#1380)
+    issue: DP-20435
+    impact: Patch
