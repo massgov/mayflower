@@ -23,7 +23,7 @@ class InputTextFuzzy extends React.Component {
       suggestions: []
     };
     const { fuseOptions } = this.props;
-    fuseOptions.keys = this.props.keys;
+    if (this.props.keys) { fuseOptions.keys = this.props.keys; }
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
 
@@ -213,7 +213,9 @@ InputTextFuzzy.propTypes = {
   placeholder: PropTypes.string,
   /** Style the input with a box outline. */
   boxed: PropTypes.bool,
-  /** The keys within options to use with search (part of fuseOptions). */
+  /** The keys within options that will be searched (part of fuseOptions). 
+   * https://fusejs.io/api/options.html#keys
+  */
   keys: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object
@@ -259,7 +261,9 @@ InputTextFuzzy.defaultProps = {
     /** Prevents matches against empty strings. */
     minMatchCharLength: 1,
     /** Allows more characters for long queries. */
-    maxPatternLength: 300
+    maxPatternLength: 300,
+    /** The keys within options that will be searched. */
+    keys: ['text']
   },
   autoFocusInput: false,
   disabled: false,
