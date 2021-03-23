@@ -213,7 +213,7 @@ InputTextFuzzy.propTypes = {
   placeholder: PropTypes.string,
   /** Style the input with a box outline. */
   boxed: PropTypes.bool,
-  /** The keys within options that will be searched (part of fuseOptions). 
+  /** The keys within options that will be searched (part of fuseOptions).
    * https://fusejs.io/api/options.html#keys
   */
   keys: PropTypes.arrayOf(PropTypes.oneOfType([
