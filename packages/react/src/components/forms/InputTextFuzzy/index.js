@@ -51,12 +51,12 @@ class InputTextFuzzy extends React.Component {
 
   getSuggestionValue = (suggestion) => suggestion.item.text;
 
-  handleChange = (event) => {
+  handleChange = (event, { newValue, method }) => {
     if (event && event.persist) {
       event.persist();
     }
 
-    const { value, method } = event.target;
+    const value = newValue;
 
     this.setState({
       value
