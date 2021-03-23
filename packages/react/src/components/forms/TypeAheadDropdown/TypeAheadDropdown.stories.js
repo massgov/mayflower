@@ -32,11 +32,11 @@ TypeAheadDropdownExample.args = {
       minMatchCharLength: 1,
       maxPatternLength: 300
     },
+    defaultValue: '',
     onKeyDown: action('onKeyDown event'),
     onFocus: action('onFocus event'),
     onBlur: action('onBlur event'),
-    onSuggestionClick: action('onSuggestionClick called'),
-    renderDefaultSuggestion: true
+    onSuggestionClick: action('onSuggestionClick called')
   }
 };
 

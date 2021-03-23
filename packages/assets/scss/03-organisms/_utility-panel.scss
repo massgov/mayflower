@@ -66,10 +66,14 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       opacity: .8;
     }
 
-    .ma__decorative-link {
+    & > .ma__decorative-link {
       line-height: 1.125;
       padding: 10px;
       padding-right: 28px;
+
+      svg {
+        fill: $c-font-inverse;
+      }
     }
 
     a {
@@ -87,10 +91,6 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       &:hover {
         border: none;
       }
-    }
-
-    svg {
-      fill: $c-font-inverse;
     }
   }
 }

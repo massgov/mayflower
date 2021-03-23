@@ -145,6 +145,11 @@ export FooterSlim from 'MayflowerReactOrganisms/FooterSlim';
 export RichText from 'MayflowerReactOrganisms/RichText';
 export UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
 export UtilityNav from 'MayflowerReactOrganisms/UtilityNav';
+export {
+  TranslateItem,
+  StateItem,
+  LoginItem
+} from 'MayflowerReactOrganisms/Header/utility-items';
 export Header from 'MayflowerReactOrganisms/Header';
 export HeaderSlim from 'MayflowerReactOrganisms/HeaderSlim';
 export HeaderHamburger from 'MayflowerReactOrganisms/HeaderHamburger';
