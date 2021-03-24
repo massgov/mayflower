@@ -18,13 +18,14 @@ import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
 const today = new Date();
 const year = today.getFullYear();
+const copyrightText = `${year} Commonwealth of Massachusetts.`;
 
 const FooterSlim = ({
   title, description, siteLogo,
   stackedLogo = false,
   links = null,
   contact = null,
-  copyright = `${year} Commonwealth of Massachusetts.`
+  copyright = copyrightText
 }) => {
   const logoWrapperClasses = classNames({
     'ma__footer-slim__container__logos': true,
