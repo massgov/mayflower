@@ -1,57 +1,93 @@
 {# if maxItems was set by parent component, use it.  Otherwise set it to all. #}
 {% set  maxItems = maxItems ? maxItems : googleMap.markers|length %}
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
 <div
-  class="ma__google-map"
-  {{ googleMap.static ? "" : 'aria-hidden="true" role="presentation"' }}>
+        class="ma__google-map"
+        {{ googleMap.static ? "" : 'aria-hidden="true" role="presentation"' }}>
   {# for static maps #}
   {% if googleMap.static %}
-  <div class="ma__google-map__map static-image">
-    <a href="{{ googleMap.link.href }}">
-      {% set picture = googleMap.picture %}
-      {% include "@atoms/09-media/picture-element.twig" %}
-      <div class="ma__google-maps__directions-link">
-        <span>Get Directions<span class="ma__visually-hidden"> to {{ googleMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
-      </div>
-    </a>
-  </div>
+    <div class="ma__google-map__map static-image">
+      <a href="{{ googleMap.link.href }}">
+          center {{ googleMap.map.center.lat }}
+        {% set picture = googleMap.picture %}
+        {% include "@atoms/09-media/picture-element.twig" %}
+        <div class="ma__google-maps__directions-link" style="height:360px;">
+          <span>Get Directions<span class="ma__visually-hidden"> to {{ googleMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
+        </div>
+      </a>
+    </div>
   {% else %}
-  {# for google maps #}
-  <div class="ma__google-map__map js-google-map"></div>
-  {# user editable data used in this specific map #}
-  <script>
-    // Make googleMap data object available in google map module js.
-    var ma = ma || {};
-    ma.googleMapData = ma.googleMapData || [];
-    ma.googleMapData.push({
-      map: {
-        center: {
-          lat: {{googleMap.map.center.lat}},
-          lng: {{googleMap.map.center.lng}}
-        },
-        zoom: {{googleMap.map.zoom}}
-      },
-      maxItems: {{ maxItems }},
-      markers: [
-      {% for marker in googleMap.markers %}
-        {
-          position: {
-            lat: {{marker.position.lat}},
-            lng: {{marker.position.lng}}
-          },
-          label: "{{ marker.label }}", // single character only
-          infoWindow: {
-            name: "{{ marker.infoWindow.name|e('js') }}",
-            link: "{{ marker.infoWindow.link|e('js') }}",
-            phone: "{{ marker.infoWindow.phone|e('js') }}",
-            fax: "{{ marker.infoWindow.fax|e('js') }}",
-            email: "{{ marker.infoWindow.email|e('js') }}",
-            address: "{{ marker.infoWindow.address|replace({'\n': '<br>'})|e('js') }}",
-            directions: "{{ marker.infoWindow.directions|e('js') }}"
+    {# for google maps #}
+    <div class="ma__google-map__map js-google-map" id="mapid"></div>
+    {# user editable data used in this specific map #}
+    <script>
+      // Make Map data object using
+      var mymap = L.map('mapid').setView([{{ googleMap.map.center.lat }}, {{ googleMap.map.center.lng }}], 8);
+      L.tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
+          attribution: '<a href ="https://www.mass.gov/service-details/about-massgis">MassGIS (Bureau of Geographic Information)</a>, Commonwealth of Massachusetts EOTSS',
+          maxZoom: 19,
+          minZoom: 7,
+          //tileSize: 256,
+      }).addTo(mymap);
+
+      {% for marker in googleMap.markers %} {
+        var content = `
+          <section class="ma__info-window">
+            <h3 class="ma__info-window__name">
+            {% if marker.infoWindow.link %}
+              <span class="ma__decorative-link"><a href="{{ marker.infoWindow.link }}">{{ marker.infoWindow.name}} <svg aria-hidden="true" id="SvgjsSvg1000" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="16" height="18" viewBox="0 0 16 18"><defs id="SvgjsDefs1001"></defs><path id="SvgjsPath1007" d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)"></path></svg></a></span>
+            {% else %}
+              {{ marker.infoWindow.name}}
+            {% endif %}
+            </h3>
+
+            <div class="ma__info-window__address">
+              {{marker.infoWindow.address}}
+            </div>
+            {% if marker.infoWindow.phone %}
+              <div class="ma__info-window__phone">
+                <span class="ma__info-window__label">Phone:</span>
+                <a class="ma__info-window__phone" href="tel:{{marker.infoWindow.phone}}">{{marker.infoWindow.phone}}</a>
+              </div>
+            {% endif %}
+            {% if marker.infoWindow.fax %}
+              <div class="ma__info-window__phone">
+                <span class="ma__info-window__label">Fax:</span>
+                <a class="ma__info-window__phone"  href="tel:{{marker.infoWindow.fax}}">{{marker.infoWindow.fax}}</a>
+              </div>
+            {% endif %}
+            {% if marker.infoWindow.email %}
+              <div class="ma__info-window__email">
+                <span class="ma__info-window__label">Email:</span>
+                <a class="ma__info-window__email-link" href="mailto:{{marker.infoWindow.email}}">{{marker.infoWindow.email}}</a>
+              </div>
+            {% endif %}
+            {% if marker.infoWindow.directions %}
+              <div class="ma__info-window__directions">
+                <span class="ma__decorative-link">
+                  <a href="{{marker.infoWindow.directions}}">
+                    Directions&nbsp;<svg aria-hidden="true" id="SvgjsSvg1000" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="16" height="18" viewBox="0 0 16 18"><defs id="SvgjsDefs1001"></defs><path id="SvgjsPath1007" d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)"></path></svg>
+                  </a>
+                </span>
+              </div>
+            {% endif %}
+          </section>
+        `;
+
+          if (!isNaN({{marker.position.lat}}) && !isNaN({{marker.position.lng}})) {var marker = L.marker(
+            L.latLng(
+              parseFloat({{marker.position.lat}}),
+              parseFloat({{marker.position.lng}})
+            )).addTo(mymap).bindPopup(content);
           }
-        }{{ loop.last ? '' : ',' }}
+      }
       {% endfor %}
-      ]
-    });
-  </script>
+    </script>
+
+
+
+
   {% endif %}
 </div>
