@@ -2,6 +2,8 @@ export default (function (window, document) {
 
   const tocs = Array.from(document.getElementsByClassName("ma__sticky-toc"));
   tocs.forEach((toc) => {
+    const isTocDisplayed= window.getComputedStyle(toc, null).display !== 'none';
+    console.log(isTocDisplayed);
     // The container for the links in the table of contents.
     const tocContent = toc.querySelector(".ma__sticky-toc__links");
     // The parent that should be checked for sections.
@@ -39,6 +41,7 @@ export default (function (window, document) {
 
     // Initialize the TOC by creating links and target spans.
     function initializeToc() {
+      console.log('hey!');
       // Add a class to the parent to help with consistent handling across applications.
       tocParent.classList.add("toc-parent");
       // Use headers to fill TOC.
@@ -271,7 +274,7 @@ export default (function (window, document) {
       stuckMenu.setAttribute("tabindex", "0");
       stuckMenu.focus();
     }
-    if (tocs && tocs.length > 0) {
+    if (isTocDisplayed) {
       initializeToc();
     }
     
