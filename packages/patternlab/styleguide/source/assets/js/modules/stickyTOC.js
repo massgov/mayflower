@@ -1,7 +1,6 @@
 export default (function (window, document) {
 
   const tocs = Array.from(document.getElementsByClassName("ma__sticky-toc"));
-  console.log(tocs)
   tocs.forEach((toc) => {
     // The container for the links in the table of contents.
     const tocContent = toc.querySelector(".ma__sticky-toc__links");
