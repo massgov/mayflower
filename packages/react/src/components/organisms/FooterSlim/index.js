@@ -20,6 +20,14 @@ const today = new Date();
 const year = today.getFullYear();
 
 const FooterSlim = (props) => {
+  const {
+    title, description, siteLogo,
+    stackedLogo = false,
+    links = null,
+    contact = null,
+    copyright = `${year} Commonwealth of Massachusetts.`
+  } = props;
+
   const logoWrapperClasses = classNames({
     'ma__footer-slim__container__logos': true,
     'ma__footer-slim__container__logos--stacked': stackedLogo
@@ -29,14 +37,6 @@ const FooterSlim = (props) => {
     'ma__footer-slim__container__inner': true,
     'ma__footer-slim__container__inner--stacked': stackedLogo
   });
-
-  const {
-    title, description, siteLogo,
-    stackedLogo = false,
-    links = null,
-    contact = null,
-    copyright = `${year} Commonwealth of Massachusetts.`
-  } = props;
 
   return(
     <footer className="ma__footer-slim" id="footer">
