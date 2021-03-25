@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: stickyTOC
+    description: Add check to see if TOC is actually displayed before initializing. (#909)
+    issue: DP-21549
+    impact: Patch
