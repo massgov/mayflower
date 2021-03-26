@@ -1,0 +1,18 @@
+Fixed:
+  - project: React, Core
+    component: Footer
+    description: Fix default props for Footer component. This change would require `footerText` prop to be an object, to fallback to the defaults, pass in empty object `{}`. (#1377)
+    issue: DP-21453
+    impact: Minor
+Added:
+  - project: React, Core
+    component: FooterSlim
+    description: Add `copyright` prop to allow overrides. (#1377)
+    issue: DP-21453
+    impact: Minor
+Changed:
+  - project: Assets
+    component: FooterSlim
+    description: Update copyright text style to differentiate it from the description text. (#1377)
+    issue: DP-21453
+    impact: Minor
