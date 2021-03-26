@@ -16,11 +16,17 @@ import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
 // eslint-disable-next-line import/no-unresolved
 import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
-const FooterSlim = ({
-  title, description, siteLogo, stackedLogo = false, links = null, contact = null
-}) => {
-  const today = new Date();
-  const year = today.getFullYear();
+const today = new Date();
+const year = today.getFullYear();
+
+const FooterSlim = (props) => {
+  const {
+    title, description, siteLogo,
+    stackedLogo = false,
+    links = null,
+    contact = null,
+    copyright = `${year} Commonwealth of Massachusetts.`
+  } = props;
 
   const logoWrapperClasses = classNames({
     'ma__footer-slim__container__logos': true,
@@ -45,9 +51,7 @@ const FooterSlim = ({
             <p className="ma__footer-slim__copyright">
               &copy;
               {' '}
-              {year}
-              {' '}
-              Commonwealth of Massachusetts
+              {copyright}
             </p>
           </div>
           <div className="ma__footer-slim__details">
@@ -91,6 +95,8 @@ const FooterSlim = ({
 FooterSlim.propTypes = {
   /** The main title to be displayed in the footer */
   title: PropTypes.string.isRequired,
+  /** Bolded copyright info starting with © (Defaults to matching Mass.gov) */
+  copyright: PropTypes.string,
   /** A short description */
   description: PropTypes.string.isRequired,
   /** Additional links for key information */

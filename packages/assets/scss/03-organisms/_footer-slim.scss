@@ -72,6 +72,11 @@
     font-size: $fonts-small;
   }
 
+  &__copyright {
+    font-size: $fonts-xsmall;
+    font-weight: $fonts-bold;
+  }
+
   &__details {
     margin-top: 2rem;
 
