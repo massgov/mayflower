@@ -102,6 +102,7 @@
           "data": {
             "figure": {
               "align": "align-left",
+              "wrap": true,
               "image": {
                 "alt": "alt text",
                 "src": "../../assets/images/placeholder/400x300.png",
