@@ -125,13 +125,16 @@
   @media ($bp-x-small-min) {
 
     // .no-sidebar
+
     &--x-small {
       width: calc(50% - 10px);
     }
   }
 
   @media ($bp-x-small-min) and ($bp-small-max) {
+
     // .no-sidebar
+
     &--small {
       width: 100%;
       margin-right: 0;
@@ -391,6 +394,7 @@
 // x-small and small have the common layout pattern.
 // Small + x-small sizes - 50% width
 // left align --- 3rd item, 5th item, 7th item, 9th item
+
 .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
 .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
 .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
@@ -507,6 +511,7 @@
     // Small + x-small sizes - 33% width for 780 <
 
     // left align --- 2nd item, 4th item, 5th item, 7th item, 8th item
+
     .ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
     .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
@@ -557,6 +562,7 @@
   // Apply to layout with/without a right column.
 
   // left align --- 3rd item, 5th item, 7th item
+
   .ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--left,
   .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--left,
   .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--left {
