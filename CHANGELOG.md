@@ -1,6 +1,22 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.3.0 (3/29/2021)
+### Fixed 
+- (React) [InputTextFuzzy] DP-20435: Fix `key` proptype to allow advanced weighted search. (#1380)
+- (React, Core) [Footer] DP-21453: Fix default props for Footer component. This change would require `footerText` prop to be an object, to fallback to the defaults, pass in empty object `{}`. (#1377)
+- (Patternlab) [stickyTOC] DP-21549: Add check to see if TOC is actually displayed before initializing. (#1382)
+
+### Added 
+- (React) [InputTextFuzzy] DP-20435: Simulate real orgs data to test out abbreviation search. (#1380)
+- (React, Core) [FooterSlim] DP-21453: Add `copyright` prop to allow overrides. (#1377)
+- (Patternlab) [rush] DP-21549: Add `rush build:patternlab` global command. (#1382)
+
+### Changed 
+- (React) [InputTextFuzzy, Dependency] DP-20435: Upgrade `fuse.js` to v6.4.6. (#1380)
+- (Patternlab) [Figure] DP-20722: Changed figure image atom to work similar to dataviz.
+- (Assets) [FooterSlim] DP-21453: Update copyright text style to differentiate it from the description text. (#1377)
+
 ## 11.2.2 (3/18/2021)
 ### Fixed 
 - (Assets) [CalloutLink] DP-20435: Fix Callout Links alignment in key actions (promoted results in search.mass.gov). (#1366)
