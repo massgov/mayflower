@@ -189,8 +189,8 @@ const PanelItem = ({
                 </div>
               )}
               <ul className="ma__utility-panel__items">
-                { links.length > 0 && links.map((link) => (
-                  <li className="ma__utility-panel__item js-clickable">
+                { links.length > 0 && links.map((link, i) => (
+                  <li className="ma__utility-panel__item js-clickable" key={`util_panel_item_${i}`}>
                     <DecorativeLink {...link} />
                   </li>
                 ))}

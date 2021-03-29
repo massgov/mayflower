@@ -2,6 +2,7 @@ export default (function (window, document) {
 
   const tocs = Array.from(document.getElementsByClassName("ma__sticky-toc"));
   tocs.forEach((toc) => {
+    const isTocDisplayed= window.getComputedStyle(toc, null).display !== 'none';
     // The container for the links in the table of contents.
     const tocContent = toc.querySelector(".ma__sticky-toc__links");
     // The parent that should be checked for sections.
@@ -272,7 +273,11 @@ export default (function (window, document) {
       stuckMenu.focus();
     }
 
-    initializeToc();
+    // Check to see if toc is actually displayed and not hidden by css
+    if (isTocDisplayed) {
+      initializeToc();
+    }
+    
     handleResize();
     if (tocSectionCount > 0) {
       setEventListeners();
