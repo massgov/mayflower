@@ -22,7 +22,7 @@ class InputTextFuzzy extends React.Component {
       value: this.props.selected || '',
       suggestions: []
     };
-    const fuseOptions = this.props.fuseOptions;
+    const { fuseOptions } = this.props;
     fuseOptions.keys = this.props.keys;
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
@@ -57,6 +57,7 @@ class InputTextFuzzy extends React.Component {
     }
 
     const value = newValue;
+
     this.setState({
       value
     }, () => {
@@ -212,11 +213,19 @@ InputTextFuzzy.propTypes = {
   placeholder: PropTypes.string,
   /** Style the input with a box outline. */
   boxed: PropTypes.bool,
-  /** The keys within options to use with search. */
-  keys: PropTypes.arrayOf(PropTypes.string).isRequired,
+  /** The keys within options that will be searched (part of fuseOptions).
+   * https://fusejs.io/api/options.html#keys
+  */
+  keys: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ])).isRequired,
   /** An array of objects representing all searchable values. */
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
-  /** Any Fusejs options to override the default options set in this component. */
+  /** Any Fusejs options to override the default options set in this component.
+   * API doc: https://fusejs.io/api/options.html
+   *
+  */
   /* eslint-disable-next-line  react/forbid-prop-types */
   fuseOptions: PropTypes.object,
   /** Disables input. */
@@ -245,7 +254,7 @@ InputTextFuzzy.defaultProps = {
     shouldSort: true,
     /** Prevents matching from stopping at the first match found. */
     findAllMatches: true,
-    /** Lets the matches found be included in the result set. */
+    /** Lets the matches found be included in the result set. This field must be true for the highlight to work. */
     includeMatches: true,
     /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches. */
     threshold: 0.3,

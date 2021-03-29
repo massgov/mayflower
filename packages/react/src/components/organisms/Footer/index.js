@@ -8,22 +8,39 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 
 import FooterLinks from 'MayflowerReactMolecules/FooterLinks';
 import SocialLinks from 'MayflowerReactMolecules/SocialLinks';
 // eslint-disable-next-line import/no-unresolved
 import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
+const today = new Date();
+const year = today.getFullYear();
+
 const Footer = ({
-  footerLinks, socialLinks, backToTopButton, footerText, footerLogo, showNavHeading
+  footerLinks, socialLinks,
+  footerText: {
+    copyright = `${year} Commonwealth of Massachusetts.`,
+    description = 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
+    privacyPolicy = {
+      text: 'Mass.gov Privacy Policy',
+      url: 'https://www.mass.gov/privacypolicy'
+    }
+  },
+  footerLogo: {
+    domain = '/',
+    title = 'Mass.gov homepage',
+    src
+  },
+  showNavHeading = false,
+  backToTopButton = false
 }) => (
   <footer className="ma__footer js-footer" id="footer">
     <div className="ma__footer__container">
       <section className="ma__footer__info">
         <div className="ma__footer__logo">
-          <a href={footerLogo.domain} title={footerLogo.title}>
-            <img src={footerLogo.src} alt="" width="100" height="100" />
+          <a href={domain} title={title}>
+            <img src={src} alt="" width="100" height="100" />
           </a>
         </div>
         <div className="ma__footer__social">
@@ -32,10 +49,11 @@ const Footer = ({
         <div className="ma__footer__copyright">
           <p className="ma__footer__copyright--date">
             &copy;
-            {footerText.copyright}
+            {' '}
+            {copyright}
           </p>
-          <p>{footerText.description}</p>
-          <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
+          <p>{description}</p>
+          <a href={privacyPolicy.url}>{privacyPolicy.text}</a>
         </div>
       </section>
       <div className="ma__footer__nav">
@@ -43,13 +61,13 @@ const Footer = ({
       </div>
     </div>
     { backToTopButton
-    && (
-    <button type="button" className="ma__footer__back2top js-back2top is-hidden">
-      <IconArrow />
-      <span aria-hidden="true">Top</span>
-      <span className="visually-hidden">Go to the top of the page</span>
-    </button>
-    ) }
+      && (
+      <button type="button" className="ma__footer__back2top js-back2top is-hidden">
+        <IconArrow />
+        <span aria-hidden="true">Top</span>
+        <span className="visually-hidden">Go to the top of the page</span>
+      </button>
+      ) }
   </footer>
 );
 
@@ -62,17 +80,17 @@ Footer.propTypes = {
   socialLinks: PropTypes.shape(SocialLinks.propTypes).isRequired,
   /** A floating button on the lower right corner which onClick takes user to the top of the page. */
   backToTopButton: PropTypes.bool,
-  /** Adds footer logo. <br />
+  /** Adds footer logo. (Defaults to matching Mass.gov) <br />
    * `src:` logo image source url <br />
    * `domain:` The URL for the site root <br />
    * `title:` The title of the logo link
   */
   footerLogo: PropTypes.shape({
-    src: PropTypes.string,
+    src: PropTypes.string.isRequired,
     domain: PropTypes.string,
     title: PropTypes.string
   }),
-  /** Adds footer info section. <br />
+  /** Adds footer info section. (Defaults to matching Mass.gov) <br />
    * `copyright:` Bolded copyright info starting with © <br />
    * `description:` Descriptive info below copyright <br />
    * `privacyPolicy:` A link to the privacy policy page of the site
@@ -85,23 +103,6 @@ Footer.propTypes = {
       url: PropTypes.string
     })
   })
-};
-
-Footer.defaultProps = {
-  showNavHeading: false,
-  backToTopButton: false,
-  footerLogo: {
-    domain: '/',
-    title: 'Mass.gov homepage'
-  },
-  footerText: {
-    copyright: `${moment().year()} Commonwealth of Massachusetts.`,
-    description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
-    privacyPolicy: {
-      text: 'Mass.gov Privacy Policy',
-      url: 'https://www.mass.gov/privacypolicy'
-    }
-  }
 };
 
 export default Footer;
