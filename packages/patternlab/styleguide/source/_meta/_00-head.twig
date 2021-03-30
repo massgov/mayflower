@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="../../assets/css/index-generated.css?{{ cacheBuster }}" media="all" />
 
     <script src="../../assets/js/vendor/modernizr.js"></script>
-
+q
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     {{ patternLabHead | raw }}
     <!-- this file is just for pattern lab style guide styling -->
     <link rel="stylesheet" href="../../assets/css/pattern-scaffolding-generated.css?{{ cacheBuster }}" media="all" />
     <!-- End Pattern Lab -->
+    <link rel="stylesheet" media="all" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 {#
   SITE LEVEL DATA:
   WEBSITE
@@ -89,5 +90,6 @@
           "@id": "https://mayflower.digital.mass.gov/patternlab#main-navigation'}}"
         }
     </script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   </head>
   <body class="{{ bodyClass }}" vocab="http://schema.org/" typeof="WebPage">
