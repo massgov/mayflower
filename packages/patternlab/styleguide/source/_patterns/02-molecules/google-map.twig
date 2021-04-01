@@ -22,7 +22,7 @@
     // Make googleMap data object available in google map module js.
     var ma = ma || {};
     ma.googleMapData = ma.googleMapData || [];
-    ma.googleMapData.push({
+    ma.googleMapData.push({ // why need to remap the data object?
       map: {
         center: {
           lat: {{googleMap.map.center.lat}},
@@ -32,7 +32,7 @@
       },
       maxItems: {{ maxItems }},
       markers: [
-      {% for marker in googleMap.markers %}
+      {% for marker in googleMap.markers %} 
         {
           position: {
             lat: {{marker.position.lat}},
