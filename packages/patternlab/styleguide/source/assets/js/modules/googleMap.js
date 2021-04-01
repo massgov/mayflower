@@ -21,7 +21,7 @@ export default (function (window,document,$,undefined) {
     }
   }, 100);
 
-  // Stop checking for google maps library after 2 minutes.
+  // Stop checking for google maps library after 2 minutes. ? why wait for 2 mins to clear interval?
   let stopChecking = setTimeout(function() {
     clearInterval(checkForGoogleMaps);
   }, 2 * 60 * 1000);
@@ -42,7 +42,7 @@ export default (function (window,document,$,undefined) {
 
     $(".js-google-map").each(function(i) {
       const $el = $(this);
-      max = ma.googleMapData[i].maxItems ? ma.googleMapData[i].maxItems : ma.googleMapData[i].markers.length;
+      max = ma.googleMapData[i].maxItems || ma.googleMapData[i].markers.length;
 
       // Get the maps data (this could be replaced with an api)
       const rawData = ma.googleMapData[i]; // Data object created in @molecules/google-map.twig
