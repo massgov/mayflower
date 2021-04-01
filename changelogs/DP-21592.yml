@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: stickyTOC
+    description: Fix logic for comparing `data-min-to-show` with the number of sections to conditionally initiate or render TOCs. (#909)
+    issue: DP-21592
+    impact: Patch
