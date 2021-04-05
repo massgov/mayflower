@@ -47,16 +47,22 @@ export default (function (window,document,$) {
     $(".js-google-map").each(function(i) {
       
       // Get the maps data (this could be replaced with an api)
-      const rawData = ma.googleMapData[i]; // Data object created in @molecules/google-map.twig
+      const { map, markers } = ma.googleMapData[i]; // Data object created in @molecules/google-map.twig
 
 
-      let mymap = window.L.map('mapid').setView([rawData.map.center.lat, rawData.map.center.lng], rawData.map.zoom);
-      window.L.tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
+      const markerArray = markers.map((el) => [el.position.lat, el.position.lng]) ;
+
+      let mymap = window.L.map('mapid').setView([map.center.lat, map.center.lng], map.zoom);
+      mymap.fitBounds(markerArray);
+
+      window.L
+      .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
           attribution: '<a href ="https://www.mass.gov/service-details/about-massgis">MassGIS (Bureau of Geographic Information)</a>, Commonwealth of Massachusetts EOTSS'
-      }).addTo(mymap);
+      })
+      .addTo(mymap);
 
       
-      rawData.markers.forEach(({ position, infoWindow}) => {
+      markers.forEach(({ position, infoWindow}) => {
         L.marker(
           L.latLng(
             +position.lat,
