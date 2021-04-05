@@ -5,7 +5,6 @@ export default (function (window,document,$) {
   if(!$('.js-google-map').length || typeof ma.googleMapData === 'undefined'){
     return;
   }
-  console.log('!!!')
 
   // Initialize global (at component scope) map properties
   let max = false, // Maximum number of map markers per map, can be updated instance
@@ -18,7 +17,6 @@ export default (function (window,document,$) {
    */
   let checkForGoogleMaps = setInterval(function() {
     if (!mapsInitialized) {
-      console.log('leaflet?!')
       initMaps();
     }
   }, 100);
@@ -44,22 +42,32 @@ export default (function (window,document,$) {
     console.log(ma.googleMapData)
     console.log(L)
 
+    const compiledTemplate = getTemplate('googleMapInfo');
+
     $(".js-google-map").each(function(i) {
       
       // Get the maps data (this could be replaced with an api)
       const rawData = ma.googleMapData[i]; // Data object created in @molecules/google-map.twig
 
-      var mymap = window.L.map('mapid').setView([rawData.map.center.lat, rawData.map.center.lng], rawData.map.zoom);
+
+      let mymap = window.L.map('mapid').setView([rawData.map.center.lat, rawData.map.center.lng], rawData.map.zoom);
       window.L.tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
-          attribution: '<a href ="https://www.mass.gov/service-details/about-massgis">MassGIS (Bureau of Geographic Information)</a>, Commonwealth of Massachusetts EOTSS',
-          maxZoom: 19,
-          minZoom: 7,
-          //tileSize: 256,
+          attribution: '<a href ="https://www.mass.gov/service-details/about-massgis">MassGIS (Bureau of Geographic Information)</a>, Commonwealth of Massachusetts EOTSS'
       }).addTo(mymap);
-  
-      console.log(mymap)
+
+      
+      rawData.markers.forEach(({ position, infoWindow}) => {
+        L.marker(
+          L.latLng(
+            +position.lat,
+            +position.lng
+          ))
+        .addTo(mymap)
+        .bindPopup(compiledTemplate(infoWindow));
+      })
 
     })
   }
+
 
 })(window,document,jQuery);
