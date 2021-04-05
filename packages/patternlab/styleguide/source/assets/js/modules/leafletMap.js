@@ -1,11 +1,11 @@
 import getTemplate from "../helpers/getHandlebarTemplate.js";
 
-export default (function (window,document,$) {
+export default (function (window,document,$,undefined) {
+  // console.log('leaflet!!!!!')
   // Only run this code if there is a google map component on the page.
   if(!$('.js-google-map').length || typeof ma.googleMapData === 'undefined'){
     return;
   }
-  console.log('!!!')
 
   // Initialize global (at component scope) map properties
   let max = false, // Maximum number of map markers per map, can be updated instance
@@ -17,8 +17,8 @@ export default (function (window,document,$) {
    * @todo set up config to pull in dynamic api key
    */
   let checkForGoogleMaps = setInterval(function() {
-    if (!mapsInitialized) {
-      console.log('leaflet?!')
+    if (window.google && window.google.maps && !mapsInitialized) {
+      // console.log('leaflet!!!!!')
       initMaps();
     }
   }, 100);
@@ -41,23 +41,11 @@ export default (function (window,document,$) {
     mapsInitialized = true;
     clearInterval(checkForGoogleMaps);
     clearTimeout(stopChecking);
-    console.log(ma.googleMapData)
-    console.log(L)
 
     $(".js-google-map").each(function(i) {
       
-      // Get the maps data (this could be replaced with an api)
-      const rawData = ma.googleMapData[i]; // Data object created in @molecules/google-map.twig
 
-      var mymap = window.L.map('mapid').setView([rawData.map.center.lat, rawData.map.center.lng], rawData.map.zoom);
-      window.L.tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
-          attribution: '<a href ="https://www.mass.gov/service-details/about-massgis">MassGIS (Bureau of Geographic Information)</a>, Commonwealth of Massachusetts EOTSS',
-          maxZoom: 19,
-          minZoom: 7,
-          //tileSize: 256,
-      }).addTo(mymap);
-  
-      console.log(mymap)
+      var mymap = L.map('mapid').setView([ma.googleMap.map.center.lat, ma.googleMap.map.center.lng], googleMap.map.zoom);
 
     })
   }
