@@ -1,6 +1,7 @@
 import getTemplate from "../helpers/getHandlebarTemplate.js";
 
 export default (function (window,document,$) {
+  console.log('render google map!')
   // Only run this code if there is a google map component on the page.
   if(!$('.js-google-map').length || typeof ma.googleMapData === 'undefined'){
     return;

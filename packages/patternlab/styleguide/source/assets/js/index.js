@@ -6,6 +6,7 @@ import ajaxPatternOverride from "./modules/ajaxPatternOverride.js";
 import accordions from "./modules/accordions.js";
 import activateBodyTextTruncation from "./modules/activateBodyTextTruncation.js";
 import googleMap from "./modules/googleMap.js";
+import leafletMap from "./modules/leafletMap.js";
 import back2top from "./modules/back2top.js";
 import brandBanner from "./modules/brandBanner.js";
 import clickable from "./modules/clickable.js";
