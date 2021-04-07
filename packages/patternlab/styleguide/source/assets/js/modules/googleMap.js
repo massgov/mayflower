@@ -43,7 +43,7 @@ export default (function (window,document,$) {
     console.log(ma.googleMapData)
     console.log(L)
 
-    const compiledTemplate = getTemplate('googleMapInfo');
+    const compiledTemplate = getTemplate('mapMarkerInfo');
 
     $(".js-google-map").each(function(i) {
       

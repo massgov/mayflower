@@ -11,7 +11,7 @@ export default (function (window,document,$) {
   // Initialize the map
   function initMaps () {
 
-    const compiledTemplate = getTemplate('googleMapInfo');
+    const compiledTemplate = getTemplate('mapMarkerInfo');
 
     document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
       
