@@ -13,14 +13,14 @@ export default (function (window,document,$) {
 
     const compiledTemplate = getTemplate('mapMarkerInfo');
 
-    document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
+    document.getElementsByClassName("js-leaflet-map").forEach(function(el, i) {
       
       // Get the maps data (this could be replaced with an api)
       const { map, markers } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
 
       const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]) ;
-      console.log(i)
+      console.log(map.zoom)
 
       let mymap = L.map(el).setView([map.center.lat, map.center.lng], map.zoom);
       mymap.fitBounds(markerArray);
@@ -31,13 +31,24 @@ export default (function (window,document,$) {
       })
       .addTo(mymap);
 
-      
+
+      // custom marker icon 
+      var markerIcon = L.icon({
+        iconUrl: `${ma.iconPath}marker.svg`,
+        iconSize: [38, 95],
+        iconAnchor: [22, 94],
+        popupAnchor: [-3, -76],
+        shadowUrl: '',
+        shadowSize: [0, 0],
+        shadowAnchor: [22, 94]
+    });
+
       markers.forEach(({ position, infoWindow}) => {
         L.marker(
           L.latLng(
             +position.lat,
             +position.lng
-          ))
+          ), {icon: markerIcon})
         .addTo(mymap)
         .bindPopup(compiledTemplate(infoWindow));
       })
