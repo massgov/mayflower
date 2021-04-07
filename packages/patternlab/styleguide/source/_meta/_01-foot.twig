@@ -37,15 +37,6 @@
     <script src="../../assets/js/index-generated.js"></script>
 
     <script type="text/javascript">
-      (function() {
-        // Set a flag that the library has loaded, in case google maps js misses event.
-        window.googleMapsLoaded = true;
-        // Emit an event that the library has loaded.
-        $(document).trigger('ma:LibrariesLoaded:GoogleMaps');
-      })()
-    </script>
-
-    <!-- <script type="text/javascript">
       window.initGoogleMaps = function() {
         // Set a flag that the library has loaded, in case google maps js misses event.
         window.googleMapsLoaded = true;
@@ -53,7 +44,7 @@
         $(document).trigger('ma:LibrariesLoaded:GoogleMaps');
         console.log('googlemaps')
       }
-    </script> -->
+    </script>
 
     {% set mapLibraries = 'geometry,places,geocoder' %}
     <!-- Set google map libraries for event page -->
@@ -61,7 +52,7 @@
       {% set mapLibraries = 'places' %}
     {% endif %}
 
-    <!-- <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyD5HXUVAA4VyRXVX50taVe2hDY8hy2JSdA&v=3&libraries={{ mapLibraries }}&callback=initGoogleMaps"></script> -->
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyD5HXUVAA4VyRXVX50taVe2hDY8hy2JSdA&v=3&libraries={{ mapLibraries }}&callback=initGoogleMaps"></script>
 
     <!-- Set Tableau libraries -->
     <script src="https://public.tableau.com/javascripts/api/tableau-2.3.0.min.js"></script>

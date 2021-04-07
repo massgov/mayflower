@@ -2,18 +2,18 @@ import getTemplate from "../helpers/getHandlebarTemplate.js";
 import * as L from 'leaflet/dist/leaflet-src.js';
 
 export default (function (window,document,$) {
-  console.log('render leaflet map!')
   // Only run this code if there is a leaflet map component on the page.
   if(!$('.js-leaflet-map').length){
     return;
   }
+  console.log('render leaflet map!')
 
   // Initialize the map
   function initMaps () {
 
     const compiledTemplate = getTemplate('mapMarkerInfo');
 
-    document.getElementsByClassName("js-leaflet-map").forEach(function(el, i) {
+    document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
       
       // Get the maps data (this could be replaced with an api)
       const { map, markers } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
@@ -22,7 +22,7 @@ export default (function (window,document,$) {
       const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]) ;
       console.log(map.zoom)
 
-      let mymap = L.map(el).setView([map.center.lat, map.center.lng], map.zoom);
+      let mymap = L.map(el).setView([map.center.lat, map.center.lng], 1);
       mymap.fitBounds(markerArray);
 
       window.L
