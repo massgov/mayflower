@@ -1,6 +1,6 @@
 {
   "leafletMap": {
-    "isStatic": 0,
+    "isStatic": 1,
     "map": {
       "center": {
         "lat": 42.366565,

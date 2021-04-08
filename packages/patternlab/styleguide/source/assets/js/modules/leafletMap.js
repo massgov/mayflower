@@ -31,7 +31,7 @@ export default (function (window,document,$) {
         });
       
       mymap.fitBounds(markerArray, {
-        padding: [50, 50]
+        padding: [20, 20]
       });
 
       if (isStatic) {
@@ -45,8 +45,6 @@ export default (function (window,document,$) {
         el.style.cursor='default';
       }
 
-
-      
 
       L
         .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
