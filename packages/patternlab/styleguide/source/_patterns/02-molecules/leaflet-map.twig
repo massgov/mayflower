@@ -2,28 +2,15 @@
 {% set  maxItems = maxItems ? maxItems : leafletMap.markers|length %}
 
 <div
-  class="ma__leaflet-map"
-  {{ leafletMap.static ? "" : 'aria-hidden="true" role="presentation"' }}>
-  {# for static maps #}
-  {% if leafletMap.static %}
-  <div class="ma__leaflet-map__map static-image">
-    <a href="{{ leafletMap.link.href }}">
-      {% set picture = leafletMap.picture %}
-      {% include "@atoms/09-media/picture-element.twig" %}
-      <div class="ma__leaflet-maps__directions-link">
-        <span>Get Directions<span class="ma__visually-hidden"> to {{ leafletMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
-      </div>
-    </a>
-  </div>
-  {% else %}
-  {# for google maps #}
-  <div class="ma__leaflet-map__map js-leaflet-map" id="mapid"></div>
+  class="ma__leaflet-map">
+  <div class="ma__leaflet-map__map js-leaflet-map"></div>
   {# user editable data used in this specific map #}
   <script>
     // Make leafletMap data object available in google map module js.
     var ma = ma || {};
     ma.leafletMapData = ma.leafletMapData || [];
     ma.leafletMapData.push({ // why need to remap the data object?
+      isStatic: {{leafletMap.isStatic}},
       map: {
         center: {
           lat: {{leafletMap.map.center.lat}},
@@ -54,5 +41,4 @@
       ]
     });
   </script>
-  {% endif %}
 </div>

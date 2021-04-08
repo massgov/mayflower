@@ -1,17 +1,19 @@
 ### Description
-A google map with multiple markers and info windows
+A leaflet map with multiple markers and info windows
 
 ### Status
 * Stable as of 5.0.0
 
 
 ### JavaScript Used
-* Google's API (//maps.googleapis.com/maps/api/js)
-* The rendering of the map (js/modules/googleMap.js)
+* Leaflet's API (https://leafletjs.com/)
+* The rendering of the map (js/modules/leafletMap.js)
 
 ### Variables
 ~~~
-googleMap: {
+leafletMap: {
+  isStatic: 
+    type: boolean (1 or 0) / optional,
   map: {
     center: {
       lat:
