@@ -548,10 +548,10 @@ const GenTeaserEmail = (props) => {
 };
 
 GenTeaserEmail.propTypes = {
-  /** An email object */
-  email: PropTypes.shape(Email.propTypes).isRequired,
-  /** Any details related to the email */
-  details: PropTypes.string
+  /** The email address. */
+  email: PropTypes.string.isRequired,
+  /** Details around contacting the provided email. */
+  details: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
 GenTeaser.Email = GenTeaserEmail;

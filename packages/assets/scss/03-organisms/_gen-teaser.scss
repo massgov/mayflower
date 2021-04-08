@@ -125,7 +125,8 @@
   }
 
   &__emphasis {
-    line-height: 1.1
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
   }
 
   &__date,
@@ -146,13 +147,11 @@
 
   &__org {
 
-    .ma__button-icon--quaternary-simple,
-    .ma__button-icon--expanded.ma__button-icon--quaternary-simple,
-    .ma__button-icon:hover.ma__button-icon--quaternary-simple:hover {
-      background-color: transparent;
-      padding: 0px 0px 0px 0.5rem;
+    &__show-more {
+      background-color: transparent !important;
+      margin-left: 0.5rem;
       position: relative;
-      top: -3px;
+      padding: 0 0.25rem !important;
     }
   }
 
@@ -171,7 +170,7 @@
 
     .ma__decorative-link {
       font-size: $fonts-small;
-      line-height: 1.4rem;
+      line-height: 1.25;
       font-style: italic;
     }
 
@@ -179,6 +178,7 @@
       font-size: $fonts-xsmall;
       line-height: 1rem;
       margin-bottom: 0px;
+      margin-top: 0.3rem;
     }
 
     &-item {
