@@ -71,7 +71,10 @@ export default (function (window,document,$) {
           L.latLng(
             +position.lat,
             +position.lng
-          ), {icon: markerIcon})
+          ), {
+            icon: markerIcon,
+            interactive: !isStatic
+          })
         .addTo(mymap)
         .bindPopup(compiledTemplate(infoWindow));
       })
