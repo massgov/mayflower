@@ -3,8 +3,16 @@
 
 <div
   class="ma__leaflet-map">
-  <div class="ma__leaflet-map__map js-leaflet-map"></div>
-  {# user editable data used in this specific map #}
+  {% if leafletMap.link.href %}
+    <a href="{{ leafletMap.link.href }}">
+      <div class="ma__leaflet-map__map js-leaflet-map"></div>
+      <div class="ma__leaflet-map__directions-link">
+        <span>Get Directions<span class="ma__visually-hidden"> to {{ leafletMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
+      </div>
+    </a>
+  {% else %}
+    <div class="ma__leaflet-map__map js-leaflet-map"></div>
+  {% endif %}
   <script>
     // Make leafletMap data object available in leaflet map module js.
     var ma = ma || {};

@@ -31,7 +31,7 @@ export default (function (window,document,$) {
         });
       
       mymap.fitBounds(markerArray, {
-        padding: [20, 20]
+        padding: [30, 30]
       });
 
       if (isStatic) {
