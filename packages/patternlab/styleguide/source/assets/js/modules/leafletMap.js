@@ -30,7 +30,9 @@ export default (function (window,document,$) {
           zoomControl: !isStatic
         });
       
-      mymap.fitBounds(markerArray);
+      mymap.fitBounds(markerArray, {
+        padding: [50, 50]
+      });
 
       if (isStatic) {
         mymap.dragging.disable();
