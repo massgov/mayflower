@@ -16,7 +16,7 @@ export default (function (window,document,$) {
     document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
       
       // Get the maps data (this could be replaced with an api)
-      const { map, markers, isStatic } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
+      const { map, markers, isStatic } = ma.leafletMapData && ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
 
 

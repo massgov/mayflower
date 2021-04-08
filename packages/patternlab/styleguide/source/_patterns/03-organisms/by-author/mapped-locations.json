@@ -14,7 +14,8 @@
       "href": "#",
       "text":"All Locations"
     },
-    "googleMap": {
+    "leafletMap": {
+      "isStatic": 1,
       "map": {
         "center": {
           "lat": 42.366565,
