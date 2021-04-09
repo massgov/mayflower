@@ -14,7 +14,6 @@ export default (function (window,document,$) {
     const compiledTemplate = getTemplate('mapMarkerInfo');
 
     document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
-      console.log(ma.leafletMapData)
       // Get the maps data (this could be replaced with an api)
       const { map, markers, isStatic=0, hideAttribution } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
@@ -24,14 +23,25 @@ export default (function (window,document,$) {
           zoom: map.zoom || 0,
           zoomControl: !isStatic
         });
+
+      console.log(map.zoom)
       
       const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
 
-      if (!map.zoom) {
+      //if (!map.zoom) {
+
+      //}
+      function setMapBounds() {
+        console.log(window.innerWidth)
+        const bounds = mymap.getBounds();
+        console.log(bounds)
         mymap.fitBounds(markerArray, {
           padding: [50, 50]
         });
       }
+
+
+      window.addEventListener('resize', setMapBounds);
 
       if (hideAttribution) {
         el.querySelector('.leaflet-control-attribution').style.display = 'none';
