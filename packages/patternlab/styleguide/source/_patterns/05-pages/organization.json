@@ -1293,8 +1293,8 @@
                 "text": "Location Details"
               },
               "leafletMap": {
-                "isStatic": 1,
-                "hideAttribution": 1,
+                "isStatic": 0,
+                "hideAttribution": 0,
                 "map": {
                   "center": {
                     "lat": 42.366565,

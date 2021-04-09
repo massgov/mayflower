@@ -765,7 +765,9 @@
       "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
       "text": "All Locations"
     },
-    "googleMap": {
+    "leafletMap": {
+      "isStatic": 0,
+      "hideAttribution": 0,
       "map": {
         "center": {
           "lat": 42.366565,

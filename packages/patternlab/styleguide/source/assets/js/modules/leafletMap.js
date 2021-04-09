@@ -40,7 +40,7 @@ export default (function (window,document,$) {
         });
       }
 
-
+      setMapBounds();
       window.addEventListener('resize', setMapBounds);
 
       if (hideAttribution) {
