@@ -16,6 +16,7 @@
     },
     "leafletMap": {
       "isStatic": 1,
+      "hideAttribution": 1,
       "map": {
         "center": {
           "lat": 42.366565,

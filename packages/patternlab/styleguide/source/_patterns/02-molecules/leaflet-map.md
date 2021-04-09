@@ -13,9 +13,9 @@ A leaflet map with multiple markers and info windows
 ~~~
 leafletMap: {
   isStatic: 
-    type: boolean (1 or 0) / optional,
+    type: boolean (1 or 0) / required,
   hideAttribution: 
-    type: boolean (1 or 0) / optional,
+    type: boolean (1 or 0) / required,
   map: {
     center: {
       lat:
