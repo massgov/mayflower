@@ -3,7 +3,7 @@
 
 <div
   class="ma__leaflet-map">
-  {% if leafletMap.link.href %}
+  {% if leafletMap.link.href and leafletMap.isStatic %}
     <a class="ma__leaflet-map__link" href="{{ leafletMap.link.href }}">
       <div class="ma__leaflet-map__map js-leaflet-map"></div>
       <div class="ma__leaflet-map__directions-link">

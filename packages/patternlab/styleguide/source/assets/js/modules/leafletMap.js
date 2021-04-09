@@ -18,11 +18,6 @@ export default (function (window,document,$) {
       // Get the maps data (this could be replaced with an api)
       const { map, markers, isStatic } = ma.leafletMapData && ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
-
-
-      const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]) ;
-      console.log(isStatic)
-
       let mymap = L
         .map(el, {
           center: [map.center.lat, map.center.lng],
@@ -30,6 +25,7 @@ export default (function (window,document,$) {
           zoomControl: !isStatic
         });
       
+      const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
       mymap.fitBounds(markerArray, {
         padding: [30, 30]
       });

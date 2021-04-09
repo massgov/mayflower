@@ -4,7 +4,7 @@
     "bgNarrow": "../../assets/images/placeholder/800x400.png",
     "id": "GUID24872901570",
     "leafletMap": {
-      "isStatic": 0,
+      "isStatic": 1,
       "map": {
         "center": {
           "lat": 42.594129,
