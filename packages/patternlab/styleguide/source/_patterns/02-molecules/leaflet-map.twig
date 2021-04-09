@@ -4,7 +4,7 @@
 <div
   class="ma__leaflet-map">
   {% if leafletMap.link.href %}
-    <a href="{{ leafletMap.link.href }}">
+    <a class="ma__leaflet-map__link" href="{{ leafletMap.link.href }}">
       <div class="ma__leaflet-map__map js-leaflet-map"></div>
       <div class="ma__leaflet-map__directions-link">
         <span>Get Directions<span class="ma__visually-hidden"> to {{ leafletMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
