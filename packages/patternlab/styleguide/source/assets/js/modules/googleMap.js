@@ -5,7 +5,6 @@ export default (function (window,document,$,undefined) {
   if(!$('.js-google-map').length || typeof ma.googleMapData === 'undefined'){
     return;
   }
-  console.log('render google map!')
 
   // Initialize global (at component scope) map properties
   let max = false, // Maximum number of map markers per map, can be updated instance

@@ -21,14 +21,17 @@ export default (function (window,document,$) {
       let mymap = L
         .map(el, {
           center: [map.center.lat, map.center.lng],
-          zoom: 0,
+          zoom: map.zoom || 0,
           zoomControl: !isStatic
         });
       
       const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
-      mymap.fitBounds(markerArray, {
-        padding: [50, 50]
-      });
+
+      if (!map.zoom) {
+        mymap.fitBounds(markerArray, {
+          padding: [50, 50]
+        });
+      }
 
       if (hideAttribution) {
         el.querySelector('.leaflet-control-attribution').style.display = 'none';
