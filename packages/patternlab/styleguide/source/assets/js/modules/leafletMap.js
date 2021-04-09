@@ -16,7 +16,9 @@ export default (function (window,document,$) {
     document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
       
       // Get the maps data (this could be replaced with an api)
-      const { map, markers, isStatic } = ma.leafletMapData && ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
+      const { map, markers, isStatic=0, hideAttribution } = ma.leafletMapData && ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
+
+      console.log(isStatic, hideAttribution)
 
       let mymap = L
         .map(el, {
@@ -29,6 +31,11 @@ export default (function (window,document,$) {
       mymap.fitBounds(markerArray, {
         padding: [30, 30]
       });
+
+      if (hideAttribution) {
+        el.querySelector('.leaflet-control-attribution').style.display = 'none';
+      }
+      
 
       if (isStatic) {
         mymap.dragging.disable();

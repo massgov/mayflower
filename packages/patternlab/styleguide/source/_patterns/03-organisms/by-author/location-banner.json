@@ -5,6 +5,7 @@
     "id": "GUID24872901570",
     "leafletMap": {
       "isStatic": 1,
+      "hideAttribution": 1,
       "map": {
         "center": {
           "lat": 42.594129,
