@@ -1,5 +1,7 @@
 @use "00-base/configure" as *;
 
+$banner-height: 400px;
+
 .ma__location-banner {
 
   @include ma-container;
@@ -18,7 +20,7 @@
   &__image {
     background-position: center top;
     background-repeat: no-repeat;
-    height: 400px;
+    height: $banner-height;
 
     @media ($bp-large-min) {
       float: left;
@@ -46,28 +48,11 @@
       padding: 0;
 
       &__map {
-        height: 400px;
+        height: $banner-height;
+      }
 
-        &.static-image {
-          height: auto;
-
-          @media ($bp-large-min) {
-            position: relative;
-            height: 400px;
-
-            img {
-              height: 400px;
-              object-fit: none;
-              object-position: center;
-
-              // IE 10 and 11 don't support object declarations so we pull the image over some for better centering.
-
-              @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-                margin-left: -15%;
-              }
-            }
-          }
-        }
+      &__link > &__map {
+        height: $banner-height - 37.3px !important;
       }
     }
   }
