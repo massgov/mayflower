@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Figure Caspio
+    description: Modified Caspio embed functionality to have flexible hostname.
+    issue: DP-21332
+    impact: Minor
