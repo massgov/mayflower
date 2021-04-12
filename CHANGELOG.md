@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.4.0 (4/12/2021)
+### Changed 
+- (Patternlab) [Figure Caspio] DP-21332: Modified Caspio embed functionality to have flexible hostname.
+
+### Fixed 
+- (Patternlab) [stickyTOC] DP-21592: Fix logic for comparing `data-min-to-show` with the number of sections to conditionally initiate or render TOCs. (#909)
+
 ## 11.3.0 (3/29/2021)
 ### Fixed 
 - (React) [InputTextFuzzy] DP-20435: Fix `key` proptype to allow advanced weighted search. (#1380)
