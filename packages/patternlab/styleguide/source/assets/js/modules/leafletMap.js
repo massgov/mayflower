@@ -18,8 +18,8 @@ export default (function (window,document,$) {
       const { map, markers, isStatic=0, hideAttribution } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
       // max bounds
-      const corner1 = L.latLng(43.25487715669311, -69.63780641555788);
-      const corner2 = L.latLng(41.2217127572528, -74.26305055618288);
+      const corner1 = L.latLng(43.12916191721289, -67.40279674530031); //northEast
+      const corner2 = L.latLng(41.09188542307055, -76.28524303436281); //southWest
       const maxBounds = L.latLngBounds(corner1, corner2);
       console.log(maxBounds)
 
@@ -29,12 +29,11 @@ export default (function (window,document,$) {
           zoom: 0,
           zoomControl: !isStatic,
           minZoom: 8,
-          // maxBounds ,
- 
+          maxBounds,
         });
 
       
-      mymap.on('zoomend', function() {
+      mymap.on('moveend', function() {
         const bounds = mymap.getBounds();
         const zoom = mymap.getZoom();
         console.log(bounds, zoom)
