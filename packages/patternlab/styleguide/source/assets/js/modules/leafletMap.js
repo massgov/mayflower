@@ -32,7 +32,7 @@ export default (function (window,document,$) {
         const bounds = mymap.getBounds();
         console.log(bounds)
         mymap.fitBounds(markerArray, {
-          padding: [50, 50]
+          padding: [60, 60]
         });
       }
 
