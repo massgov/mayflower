@@ -17,23 +17,43 @@ export default (function (window,document,$) {
       // Get the maps data (this could be replaced with an api)
       const { map, markers, isStatic=0, hideAttribution } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
+      // max bounds
+      const corner1 = L.latLng(43.25487715669311, -69.63780641555788);
+      const corner2 = L.latLng(41.2217127572528, -74.26305055618288);
+      const maxBounds = L.latLngBounds(corner1, corner2);
+      console.log(maxBounds)
+
       let mymap = L
         .map(el, {
           center: [map.center.lat, map.center.lng],
           zoom: 0,
-          zoomControl: !isStatic
+          zoomControl: !isStatic,
+          // maxBounds 
         });
 
+      
+      mymap.on('zoomend', function() {
+        const bounds = mymap.getBounds();
+        console.log(bounds)
+      });
+  
+
+      // add tile layer image to map
+      L
+      .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
+          attribution: '<a href ="https://www.mass.gov/service-details/about-massgis">MassGIS (Bureau of Geographic Information)</a>, Commonwealth of Massachusetts EOTSS'
+      })
+      .addTo(mymap);
       
       const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
 
       function setMapBounds() {
-        console.log(window.innerWidth)
+        //console.log(window.innerWidth)
         const bounds = mymap.getBounds();
-        console.log(bounds)
+        //console.log(bounds)
         mymap.fitBounds(markerArray, {
           padding: [60, 60]
-        });
+        })
       }
 
       setMapBounds();
@@ -44,6 +64,8 @@ export default (function (window,document,$) {
       }
       
 
+
+      // disable map interactions
       if (isStatic) {
         mymap.dragging.disable();
         mymap.touchZoom.disable();
@@ -54,13 +76,6 @@ export default (function (window,document,$) {
         if (mymap.tap) map.tap.disable();
         el.style.cursor='default';
       }
-
-
-      L
-        .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
-            attribution: '<a href ="https://www.mass.gov/service-details/about-massgis">MassGIS (Bureau of Geographic Information)</a>, Commonwealth of Massachusetts EOTSS'
-        })
-        .addTo(mymap);
 
 
       // custom marker icon 
@@ -75,6 +90,7 @@ export default (function (window,document,$) {
         shadowUrl: ''
     });
 
+      // add markers to map 
       markers.forEach(({ position, infoWindow}) => {
         L.marker(
           L.latLng(
