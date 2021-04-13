@@ -28,13 +28,16 @@ export default (function (window,document,$) {
           center: [map.center.lat, map.center.lng],
           zoom: 0,
           zoomControl: !isStatic,
-          // maxBounds 
+          minZoom: 8,
+          // maxBounds ,
+ 
         });
 
       
       mymap.on('zoomend', function() {
         const bounds = mymap.getBounds();
-        console.log(bounds)
+        const zoom = mymap.getZoom();
+        console.log(bounds, zoom)
       });
   
 
