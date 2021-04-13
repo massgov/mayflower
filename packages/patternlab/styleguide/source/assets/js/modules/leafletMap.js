@@ -70,12 +70,13 @@ export default (function (window,document,$) {
       // custom marker icon 
       var markerIcon = L.icon({
         iconUrl: `${ma.iconPath}marker-blue.svg`,
-        iconSize: [38, 95],
-        iconAnchor: [22, 94],
-        popupAnchor: [-3, -76],
-        shadowUrl: '',
-        shadowSize: [0, 0],
-        shadowAnchor: [22, 94]
+        iconSize: [60, 60],
+        iconAnchor: [30, 60], 
+        /* The coordinates of the "tip" of the icon (relative to its top left corner). The icon will be aligned so that this point is at the marker's geographical location. Centered by default if size is specified, also can be set in CSS with negative margins.
+         see leaflet docs: https://leafletjs.com/reference-1.7.1.html#icon-iconanchor
+        */
+        popupAnchor: [0, 0],
+        shadowUrl: ''
     });
 
       markers.forEach(({ position, infoWindow}) => {
