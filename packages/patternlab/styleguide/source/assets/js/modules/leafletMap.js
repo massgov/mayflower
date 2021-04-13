@@ -21,7 +21,6 @@ export default (function (window,document,$) {
       const corner1 = L.latLng(43.12916191721289, -67.40279674530031); //northEast
       const corner2 = L.latLng(41.09188542307055, -76.28524303436281); //southWest
       const maxBounds = L.latLngBounds(corner1, corner2);
-      console.log(maxBounds)
 
       let mymap = L
         .map(el, {
@@ -32,27 +31,20 @@ export default (function (window,document,$) {
           maxBounds,
         });
 
-      
-      mymap.on('moveend', function() {
-        const bounds = mymap.getBounds();
-        const zoom = mymap.getZoom();
-        console.log(bounds, zoom)
-      });
-  
-
       // add tile layer image to map
       L
       .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
           attribution: '<a href ="https://www.mass.gov/service-details/about-massgis">MassGIS (Bureau of Geographic Information)</a>, Commonwealth of Massachusetts EOTSS'
       })
       .addTo(mymap);
+
+      if (hideAttribution) {
+        el.querySelector('.leaflet-control-attribution').style.display = 'none';
+      }
       
       const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
 
       function setMapBounds() {
-        //console.log(window.innerWidth)
-        const bounds = mymap.getBounds();
-        //console.log(bounds)
         mymap.fitBounds(markerArray, {
           padding: [60, 60]
         })
@@ -60,11 +52,6 @@ export default (function (window,document,$) {
 
       setMapBounds();
       window.addEventListener('resize', setMapBounds);
-
-      if (hideAttribution) {
-        el.querySelector('.leaflet-control-attribution').style.display = 'none';
-      }
-      
 
 
       // disable map interactions
