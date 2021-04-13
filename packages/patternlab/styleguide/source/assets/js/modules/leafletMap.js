@@ -75,7 +75,7 @@ export default (function (window,document,$) {
         /* The coordinates of the "tip" of the icon (relative to its top left corner). The icon will be aligned so that this point is at the marker's geographical location. Centered by default if size is specified, also can be set in CSS with negative margins.
          see leaflet docs: https://leafletjs.com/reference-1.7.1.html#icon-iconanchor
         */
-        popupAnchor: [0, 0],
+        popupAnchor: [0, -60],
         shadowUrl: ''
     });
 
