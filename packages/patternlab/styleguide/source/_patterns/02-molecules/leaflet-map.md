@@ -22,9 +22,7 @@ leafletMap: {
         type: float / required
       lng:
         type: float / required
-      },
-      zoom:
-        type: integer / required
+      }
     },
     markers: [{
       position: {

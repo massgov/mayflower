@@ -20,17 +20,13 @@ export default (function (window,document,$) {
       let mymap = L
         .map(el, {
           center: [map.center.lat, map.center.lng],
-          zoom: map.zoom || 0,
+          zoom: 0,
           zoomControl: !isStatic
         });
 
-      console.log(map.zoom)
       
       const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
 
-      //if (!map.zoom) {
-
-      //}
       function setMapBounds() {
         console.log(window.innerWidth)
         const bounds = mymap.getBounds();

@@ -342,6 +342,11 @@
     "leafletMap": {
       "isStatic": 1,
       "hideAttribution": 1,
+      "link": {
+        "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
+        "text": "Get Directions",
+        "info": "Department of Conservation and Recreation"
+      },
       "map": {
         "center": {
           "lat": 42.594129,
