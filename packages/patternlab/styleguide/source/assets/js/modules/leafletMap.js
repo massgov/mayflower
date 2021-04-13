@@ -1,12 +1,11 @@
 import getTemplate from "../helpers/getHandlebarTemplate.js";
 import * as L from 'leaflet/dist/leaflet-src.js';
 
-export default (function (window,document,$) {
+export default (function (window,document) {
   // Only run this code if there is a leaflet map component on the page.
-  if(!$('.js-leaflet-map').length){
+  if(!document.querySelectorAll('.js-leaflet-map').length){
     return;
   }
-  console.log('render leaflet map!')
 
   // Initialize the map
   function initMaps () {
@@ -42,19 +41,18 @@ export default (function (window,document,$) {
         el.querySelector('.leaflet-control-attribution').style.display = 'none';
       }
       
+      // set bounds by markers
       const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
-
       function setMapBounds() {
         mymap.fitBounds(markerArray, {
           padding: [60, 60]
         })
       }
-
       setMapBounds();
       window.addEventListener('resize', setMapBounds);
 
 
-      // disable map interactions
+      // disable map interactions if is static 
       if (isStatic) {
         mymap.dragging.disable();
         mymap.touchZoom.disable();
@@ -98,4 +96,4 @@ export default (function (window,document,$) {
 
   initMaps();
 
-})(window,document,jQuery);
+})(window,document);
