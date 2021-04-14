@@ -325,14 +325,13 @@
       ]
     },
     "leafletMap": {
-      "isStatic": 0,
-      "hideAttribution": 0,
+      "isStatic": 1,
+      "hideAttribution": 1,
       "map": {
         "center": {
           "lat": 42.594129,
           "lng": -73.183715
-        },
-        "zoom": 12
+        }
       },
       "markers": [
         {
