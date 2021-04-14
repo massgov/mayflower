@@ -11,7 +11,7 @@ This page [extends](https://twig.symfony.com/doc/2.x/tags/extends.html) the loca
 * Contact List
 * Key Actions
 * Rich Text
-* Google Map
+* Leaflet Map
 * Image Promo
 * Event Listing
 
