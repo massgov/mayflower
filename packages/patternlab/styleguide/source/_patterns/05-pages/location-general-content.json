@@ -143,21 +143,6 @@
             "address": "30 Rockwell Road\nLanesborough, MA 01237",
             "directions": "https://www.google.com/maps/place/30+Rockwell+Rd,+Cheshire,+MA+01225"
           }
-        },
-        {
-          "position": {
-            "lat": 42.636875,
-            "lng": -73.166921
-          },
-          "label": "B",
-          "infoWindow": {
-            "name": "Bascom Lodge",
-            "phone": "14137431591",
-            "fax": "",
-            "email": "mail@bascomlodge.net",
-            "address": "30 Rockwell Road\nLanesborough, MA 01237",
-            "directions": "https://www.google.com/maps/place/30+Rockwell+Rd,+Cheshire,+MA+01225"
-          }
         }
       ]
     }
