@@ -9,7 +9,7 @@
   <div class="ma__location-banner__map">
     {% block map %}
       {% set leafletMap = locationBanner.actionMap ? locationBanner.actionMap : locationBanner.leafletMap %}
-      {% include "@molecules/leaflet-map.twig" %}
+      {% include "@molecules/map-leaflet.twig" %}
     {% endblock %}
   </div>
   <div
