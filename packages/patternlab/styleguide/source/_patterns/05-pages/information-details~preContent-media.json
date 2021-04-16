@@ -76,28 +76,113 @@
     "post_header_media": {
       "rteElements": [
         {
-          "path": "@atoms/09-media/video.twig",
+          "path": "@atoms/09-media/iframe.twig",
           "data": {
-            "video": {
-              "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
-              "label": "Using a gas grill safely",
-              "width": "853",
-              "height": "480",
-              "position": "",
-              "link": {
-                "href": "/patterns/05-pages-GEN-Building-Energy-Codes/05-pages-GEN-Building-Energy-Codes.html",
-                "text": "View transcript",
-                "info": "View transcript of Using a gas grill safely",
-                "property": ""
-              }
+            "iframe": {
+              "src": "https://massgov.github.io",
+              "title": "Embed page title for accessibility",
+              "caption": "This is an optional caption"
             }
           }
         }
       ]
     }
   },
-  "pageContent": [
-    {
+  "pageContent": {
+    "section1": {
+      "compHeading": {
+        "title": "Human infrastructure and wildlife",
+        "titleContext": "",
+        "level": 2,
+        "color": "",
+        "id": "section1",
+        "centered": ""
+      },
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure--image.twig",
+          "data": {
+            "figure": {
+              "align": "full",
+              "wrap": false,
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/form-downloads.twig",
+          "data": {
+            "formDownloads": {
+              "compHeading": {
+                "title": "Additional resources",
+                "sub": false,
+                "titleContext": "",
+                "level": 3
+              },
+              "downloadLinks": [
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-pdf",
+                    "decorativeLink": {
+                      "text": "PDF resource item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "30kb",
+                    "format": "PDF"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "laptop",
+                    "decorativeLink": {
+                      "text": "Link to an online form",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "",
+                    "decorativeLink": {
+                      "text": "Link to another page",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "section2": {
       "compHeading": {
         "title": "History of the Massachusetts landscape",
         "titleContext": "",
@@ -188,10 +273,10 @@
           }
         }
       ]
+    },
+    "pullquoteCallout": {
+      "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
     }
-  ],
-  "pullquoteCallout": {
-    "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
   },
   "postContent": {
     "contactList": {
