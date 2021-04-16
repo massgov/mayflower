@@ -12,6 +12,11 @@
     </a>
   {% else %}
     <div class="ma__leaflet-map__map js-leaflet-map"></div>
+    {% if leafletMap.link.href %}
+    <a class="ma__leaflet-map__directions-link" href="{{ leafletMap.link.href }}">
+      <span>Get Directions<span class="ma__visually-hidden"> to {{ leafletMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
+    </a>
+    {% endif %}
   {% endif %}
   <script>
     // Make leafletMap data object available in leaflet map module js.
