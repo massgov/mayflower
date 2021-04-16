@@ -6,28 +6,47 @@
     "leafletMap": {
       "isStatic": 1,
       "hideAttribution": 1,
+      "map": {
+        "center": {
+          "lat": 42.594129,
+          "lng": -73.183715
+        }
+      },
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
         "text": "Get Directions",
-        "info": "Get Directions"
+        "info": "Department of Conservation and Recreation"
       },
-      "picture": {
-        "defaultImage": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
-        "srcSets": [
-          {
-            "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=600x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=ZfVgzAGuHDGCUTdazkS3WBiiOWY",
-            "width": "1050"
+      "markers": [
+        {
+          "position": {
+            "lat": 42.554129,
+            "lng": -73.213715
           },
-          {
-            "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=900x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=AyfGhMXOhfcl8477bpZjzEOyslE",
-            "width": "780"
-          },
-          {
-            "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
-            "width": "620"
+          "label": "",
+          "infoWindow": {
+            "name": "Visitor's Center",
+            "phone": "14134994262",
+            "fax": "",
+            "email": "mass.parks@state.ma.us",
+            "address": "30 Rockwell Road\nLanesborough, MA 01237"
           }
-        ]
-      }
+        },
+        {
+          "position": {
+            "lat": 42.636875,
+            "lng": -73.166921
+          },
+          "label": "",
+          "infoWindow": {
+            "name": "Bascom Lodge",
+            "phone": "14137431591",
+            "fax": "",
+            "email": "mail@bascomlodge.net",
+            "address": "30 Rockwell Road\nLanesborough, MA 01237"
+          }
+        }
+      ]
     }
   }
 }
