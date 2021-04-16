@@ -1,6 +1,16 @@
 @use "00-base/configure" as *;
 @use "leaflet/dist/leaflet.css";
 
+// temp fix until perm fix gets released --> https://github.com/Leaflet/Leaflet/pull/7259
+.leaflet-container :focus {
+  outline: -webkit-focus-ring-color auto thin !important; /* Fallback for some browsers that don't support `revert`. */
+  /* Longhand properties:
+  outline-color: -webkit-focus-ring-color !important;
+  outline-style: auto !important;
+  outline-width: thin !important;
+  */
+  outline: revert !important;
+}
 
 .ma__leaflet-map {
 
