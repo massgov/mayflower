@@ -270,13 +270,12 @@ export default (function (window, document) {
     // Do not render or intialize the TOC if sections don't reach the mininum requirement.
     if (tocSectionCount >= minSectionsToShow) {
       initializeToc();
+      handleResize();
+      if (tocSectionCount > 0) {
+        setEventListeners();
+      }
     } else {
       toc.style.display = "none";
-    }
-    
-    handleResize();
-    if (tocSectionCount > 0) {
-      setEventListeners();
     }
   });
 })(window, document);
