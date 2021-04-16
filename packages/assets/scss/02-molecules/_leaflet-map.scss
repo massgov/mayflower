@@ -6,6 +6,21 @@
   background-image: url('#{$assets-path}/images/icons/marker.svg') !important;
 }
 
+<<<<<<< Updated upstream:packages/assets/scss/02-molecules/_leaflet-map.scss
+=======
+// temp fix until perm fix gets released --> https://github.com/Leaflet/Leaflet/pull/7259
+.leaflet-container :focus {
+  outline: -webkit-focus-ring-color auto thin !important; /* Fallback for some browsers that don't support `revert`. */
+  /* Longhand properties:
+  outline-color: -webkit-focus-ring-color !important;
+  outline-style: auto !important;
+  outline-width: thin !important;
+  */
+  outline: revert !important;
+}
+
+.ma__leaflet-map {
+>>>>>>> Stashed changes:packages/assets/scss/02-molecules/_map-leaflet.scss
 
 .ma__leaflet-map {
 
