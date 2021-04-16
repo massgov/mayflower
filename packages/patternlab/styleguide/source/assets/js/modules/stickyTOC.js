@@ -271,9 +271,7 @@ export default (function (window, document) {
     if (tocSectionCount >= minSectionsToShow) {
       initializeToc();
       handleResize();
-      if (tocSectionCount > 0) {
-        setEventListeners();
-      }
+      setEventListeners();
     } else {
       toc.style.display = "none";
     }
