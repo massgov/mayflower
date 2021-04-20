@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.4.1 (4/20/2021)
+### Fixed 
+- (Patternlab) [stickyTOC] DP-21686: Fix stickyTOC JS console error, which addresses the issue causing video fitwidth JS malfunction on info details page when TOC is not initiated. (#1392)
+
 ## 11.4.0 (4/12/2021)
 ### Changed 
 - (Patternlab) [Figure Caspio] DP-21332: Modified Caspio embed functionality to have flexible hostname.
