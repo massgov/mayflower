@@ -45,8 +45,8 @@
       }]
     }
   },
-  "pageContent": {
-    "section1": {
+  "pageContent": [
+    {
       "compHeading": {
         "title": "Tableau sample 1",
         "titleContext": "",
@@ -79,7 +79,7 @@
                 "text": "This is an option data visualization title",
                 "visible": false
               },
-              "caption": "<b>I am caption.</b> Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.",
+              "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>",
               "skiplink": {
                 "add": true,
                 "text": ""
@@ -104,11 +104,8 @@
           }
         }
       ]
-    },
-    "pullquoteCallout": {
-      "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
     }
-  },
+  ],
   "section2": {
     "compHeading": {
       "title": "History of the Massachusetts landscape",
