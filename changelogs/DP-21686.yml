@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: stickyTOC
+    description: Fix stickyTOC JS console error, which addresses the issue causing video fitwidth JS malfunction on info details page when TOC is not initiated. (#1392)
+    issue: DP-21686
+    impact: Patch
