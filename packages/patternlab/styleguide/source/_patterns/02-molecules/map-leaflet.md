@@ -22,7 +22,9 @@ leafletMap: {
         type: float / required
       lng:
         type: float / required
-      }
+      },
+    zoom: 
+      type: float / optional (If a zoom is not specificied, the zoom and center will be set automatically by the markers)
     },
     markers: [{
       position: {
