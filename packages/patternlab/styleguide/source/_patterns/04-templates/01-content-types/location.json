@@ -124,7 +124,7 @@
     "bgNarrow":"../../assets/images/placeholder/800x400.png",
     "id": "GUID24872901570",
     "leafletMap": {
-      "isStatic": 1,
+      "isStatic": 0,
       "hideAttribution": 1,
       "map": {
         "center": {
@@ -148,19 +148,6 @@
           "phone": "14134994262",
           "fax": "",
           "email": "mass.parks@state.ma.us",
-          "address": "30 Rockwell Road\nLanesborough, MA 01237"
-        }
-      },{
-        "position": {
-          "lat": 42.636875,
-          "lng": -73.166921
-        },
-        "label": "B",
-        "infoWindow": {
-          "name": "Bascom Lodge",
-          "phone": "14137431591",
-          "fax": "",
-          "email": "mail@bascomlodge.net",
           "address": "30 Rockwell Road\nLanesborough, MA 01237"
         }
       }]

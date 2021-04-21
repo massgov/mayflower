@@ -114,7 +114,7 @@
     "bgNarrow": "../../assets/images/placeholder/800x400.png",
     "id": "GUID24872901570",
     "leafletMap": {
-      "isStatic": 1,
+      "isStatic": 0,
       "hideAttribution": 1,
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
