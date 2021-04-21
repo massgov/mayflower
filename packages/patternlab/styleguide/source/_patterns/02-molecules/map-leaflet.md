@@ -13,9 +13,9 @@ A leaflet map with multiple markers and info windows
 ~~~
 leafletMap: {
   isStatic: 
-    type: boolean / required,
+    type: boolean / optional (default to false),
   hideAttribution: 
-    type: boolean / required,
+    type: boolean / optional (default to false),
   map: {
     center: {
       lat:
@@ -33,8 +33,6 @@ leafletMap: {
         lng:
           type: float / required
       },
-      label:
-        type: string / required
       infoWindow: {
         name:
           type: string / required

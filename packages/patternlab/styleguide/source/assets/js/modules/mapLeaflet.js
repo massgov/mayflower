@@ -14,7 +14,7 @@ export default (function (window,document) {
 
     document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
       // Get the maps data (this could be replaced with an api)
-      const { map, markers, isStatic=0, hideAttribution } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
+      const { map, markers, isStatic=0, hideAttribution=0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
       // max bounds
       const corner1 = L.latLng(43.12916191721289, -67.40279674530031); //northEast
