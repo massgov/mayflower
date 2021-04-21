@@ -12,7 +12,7 @@ This page [extends](https://twig.symfony.com/doc/2.x/tags/extends.html) the loca
 * Contact List
 * Key Actions
 * Rich Text
-* Leaflet Map
+* Map Leaflet
 * Image Promo
 * Event Listing
 * Suggested Pages
