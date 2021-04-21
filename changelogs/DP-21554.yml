@@ -1,0 +1,22 @@
+Added:
+  - project: Patternlab
+    component: MapLeaflet
+    description: Added MapLeaflet molecule and variants. (#1391)
+    issue: DP-21554
+    impact: Minor
+Changed:
+  - project: Patternlab
+    component: LocationBanner, MappedLocations, Location template and pages, Organization and Sevices template and pages
+    description: Switch out interative and static google maps with leaflet maps. (#1391)
+    issue: DP-21554
+    impact: Minor
+  - project: Patternlab
+    component: MapGoogle, MapLeaflet
+    description: Change JS file name from `googleMap.js` to `mapGoogle.js`. (#1391)
+    issue: DP-21554
+    impact: Minor
+  - project: Assets
+    component: MapGoogle, MapLeaflet
+    description: Change scss file name from `_google-map.scss` to `_map-google.scss`. (#1391)
+    issue: DP-21554
+    impact: Minor
