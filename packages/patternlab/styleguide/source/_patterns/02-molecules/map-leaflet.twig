@@ -22,6 +22,6 @@
     // Make leafletMap data object available in leaflet map module js.
     var ma = ma || {};
     ma.leafletMapData = ma.leafletMapData || [];
-    ma.leafletMapData.push({{ leafletMap|json_encode() }});
+    ma.leafletMapData.push({{ leafletMap|json_encode()|raw }});
   </script>
 </div>
