@@ -13,16 +13,18 @@ A leaflet map with multiple markers and info windows
 ~~~
 leafletMap: {
   isStatic: 
-    type: boolean (1 or 0) / required,
+    type: boolean / optional (default to false),
   hideAttribution: 
-    type: boolean (1 or 0) / required,
+    type: boolean / optional (default to false),
   map: {
     center: {
       lat:
         type: float / required
       lng:
         type: float / required
-      }
+      },
+    zoom: 
+      type: float / optional (If a zoom is not specificied, the zoom and center will be set automatically by the markers)
     },
     markers: [{
       position: {
@@ -31,8 +33,6 @@ leafletMap: {
         lng:
           type: float / required
       },
-      label:
-        type: string / required
       infoWindow: {
         name:
           type: string / required

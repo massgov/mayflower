@@ -106,8 +106,8 @@
         "text": "All locations"
       },
       "leafletMap": {
-        "isStatic": 0,
-        "hideAttribution": 0,
+        "isStatic": false,
+        "hideAttribution": false,
         "map": {
           "center": {
             "lat": 42.366565,

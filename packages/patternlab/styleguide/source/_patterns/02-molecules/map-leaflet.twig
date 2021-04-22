@@ -2,9 +2,9 @@
 {% set  maxItems = maxItems ? maxItems : leafletMap.markers|length %}
 
 <div
-  class="ma__leaflet-map">
+  class="ma__leaflet-map {{ leafletMap.link.href ? 'ma__leaflet-map__link' : '' }}">
   {% if leafletMap.link.href and leafletMap.isStatic %}
-    <a class="ma__leaflet-map__link" href="{{ leafletMap.link.href }}">
+    <a href="{{ leafletMap.link.href }}">
       <div class="ma__leaflet-map__map js-leaflet-map"></div>
       <div class="ma__leaflet-map__directions-link">
         <span>Get Directions<span class="ma__visually-hidden"> to {{ leafletMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
@@ -12,6 +12,11 @@
     </a>
   {% else %}
     <div class="ma__leaflet-map__map js-leaflet-map"></div>
+    {% if leafletMap.link.href %}
+    <a class="ma__leaflet-map__directions-link" href="{{ leafletMap.link.href }}">
+      <span>Get Directions<span class="ma__visually-hidden"> to {{ leafletMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
+    </a>
+    {% endif %}
   {% endif %}
   <script>
     // Make leafletMap data object available in leaflet map module js.

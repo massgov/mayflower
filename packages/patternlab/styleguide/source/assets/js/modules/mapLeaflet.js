@@ -14,7 +14,7 @@ export default (function (window,document) {
 
     document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
       // Get the maps data (this could be replaced with an api)
-      const { map, markers, isStatic=0, hideAttribution } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
+      const { map, markers, isStatic=0, hideAttribution=0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
       // max bounds
       const corner1 = L.latLng(43.12916191721289, -67.40279674530031); //northEast
@@ -24,7 +24,7 @@ export default (function (window,document) {
       let mymap = L
         .map(el, {
           center: [map.center.lat, map.center.lng],
-          zoom: 0,
+          zoom: map.zoom || 0,
           zoomControl: !isStatic,
           minZoom: 8,
           maxBounds,
@@ -41,16 +41,18 @@ export default (function (window,document) {
         el.querySelector('.leaflet-control-attribution').style.display = 'none';
       }
       
-      // set bounds by markers
-      const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
-      function setMapBounds() {
-        mymap.fitBounds(markerArray, {
-          padding: [60, 60]
-        })
+      // if zoom is not specified, set map bounds automatically by markers
+      if (!map.zoom) {
+        // set bounds by markers
+        const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
+        function setMapBounds() {
+          mymap.fitBounds(markerArray, {
+            padding: [60, 60]
+          })
+        }
+        setMapBounds();
+        window.addEventListener('resize', setMapBounds);
       }
-      setMapBounds();
-      window.addEventListener('resize', setMapBounds);
-
 
       // disable map interactions if is static 
       if (isStatic) {

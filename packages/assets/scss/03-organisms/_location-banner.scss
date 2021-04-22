@@ -51,7 +51,7 @@ $banner-height: 400px;
         height: $banner-height;
       }
 
-      &__link > .ma__leaflet-map__map {
+      &__link .ma__leaflet-map__map {
         height: $banner-height - 37.3px;
       }
     }

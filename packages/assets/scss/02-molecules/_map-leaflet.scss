@@ -14,6 +14,9 @@
 
 .ma__leaflet-map {
 
+  display: flex;
+  flex-direction: column;
+
   &__map {
     height: 360px;
 
@@ -40,8 +43,7 @@
     }
   }
 
-  &:hover {
-
+  a:hover {
     span {
       text-decoration: underline;
     }
