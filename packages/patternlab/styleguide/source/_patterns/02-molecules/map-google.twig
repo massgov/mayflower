@@ -22,7 +22,7 @@
     // Make googleMap data object available in google map module js.
     var ma = ma || {};
     ma.googleMapData = ma.googleMapData || [];
-    ma.googleMapData.push({{ googleMap|json_encode() }});
+    ma.googleMapData.push({{ googleMap|json_encode()|raw }});
   </script>
   {% endif %}
 </div>
