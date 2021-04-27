@@ -1,6 +1,10 @@
 {
   "generalTeaser" : {
     "eyebrow": "Eyebrow",
+    "upperRight": {
+      "icon": "laptop",
+      "label": "Featured"
+    },
     "title" : {
       "href": "#",
       "text": "Link field for a title or name",

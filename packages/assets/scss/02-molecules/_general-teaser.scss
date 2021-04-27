@@ -68,6 +68,23 @@
     }
   }
 
+  &__upperRight {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    
+    font-size: $fonts-xsmall;
+    font-weight: $fonts-bold;
+
+    svg {
+      height: $fonts-small;
+      width: $fonts-small;
+      margin-right: 5px;
+    }
+  }
+
   &__title {
     font-size: $fonts-larger;
     line-height: 1.2em;
