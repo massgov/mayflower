@@ -1,8 +1,8 @@
 {
   "generalTeaser" : {
     "eyebrow": {
-      "icon": "marker",
-      "label": "Eyebrow"    
+      "icon": "catalog",
+      "label": "Data Catalog"    
     },
     "upperRight": {
       "icon": "marker",
