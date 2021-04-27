@@ -1,8 +1,11 @@
 {
   "generalTeaser" : {
-    "eyebrow": "Eyebrow",
+    "eyebrow": {
+      "icon": "marker",
+      "label": "Eyebrow"    
+    },
     "upperRight": {
-      "icon": "laptop",
+      "icon": "marker",
       "label": "Featured"
     },
     "title" : {

@@ -61,10 +61,19 @@
     margin-bottom: 5px;
 
     span {
+      display: inline-flex;
       font-size: $fonts-3xsmall;
       letter-spacing: $letter-spacing-large;
       padding: 5px 7px;
       text-transform: uppercase;
+      background-color: $c-bg-section;
+      font-weight: $fonts-bold;
+
+      svg {
+        height: $fonts-small;
+        width: $fonts-small;
+        margin-right: 5px;
+      }
     }
   }
 
@@ -129,11 +138,6 @@
 
   & + & {
     border-top-color: $c-bd-divider;
-  }
-
-  &__eyebrow span {
-    background-color: $c-bg-section;
-    font-weight: $fonts-bold;
   }
 
   &__emph-text {

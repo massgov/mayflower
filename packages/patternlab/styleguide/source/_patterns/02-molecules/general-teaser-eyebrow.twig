@@ -1,3 +1,12 @@
 <div class="ma__general-teaser__eyebrow">
-  <span>{{ eyebrow }}</span>
+  {% if eyebrow is iterable %}
+    <span>
+      {% if eyebrow.icon %}
+        {{ icon(eyebrow.icon) }}
+      {% endif %}
+      {{ eyebrow.label }}
+    </span>
+  {% else %}
+    <span>{{ eyebrow }}</span>
+  {% endif %}
 </div>

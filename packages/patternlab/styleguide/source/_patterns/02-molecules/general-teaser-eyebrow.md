@@ -7,8 +7,9 @@ Eyebrow field in block wrapper for the [General Teaser](/?p=molecules-general-te
 ### Variables
 ~~~
 generalTeaser : {
-  emphasizedText: [
-    type: array of string / optional,
-  ],
+  eyebrow: {
+    icon: string / optional,
+    label: string,
+  }
 }
 ~~~
