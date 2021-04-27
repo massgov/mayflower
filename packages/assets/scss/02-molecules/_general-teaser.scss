@@ -124,4 +124,17 @@
     font-weight: $fonts-bold;
     border-left-color: $c-bd-divider;
   }
+
+  &__tag {
+    color: $c-gray;
+    font-size: $fonts-2xsmall;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid $c-gray-light;
+    background-color: $c-white;
+    padding: 0px 5px;
+    min-width: 60px;
+    display: inline-block;
+    margin-right: 0.5em;
+  }
 }

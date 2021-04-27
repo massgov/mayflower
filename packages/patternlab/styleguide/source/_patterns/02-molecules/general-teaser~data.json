@@ -1,11 +1,5 @@
 {
   "generalTeaser" : {
-    "image": {
-      "src": "../../assets/images/placeholder/172x228.png",
-      "alt": "placeholder image",
-      "width": "172",
-      "height": "228"
-    },
     "eyebrow": "Eyebrow",
     "title" : {
       "href": "#",
