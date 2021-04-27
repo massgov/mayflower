@@ -71,8 +71,8 @@
       font-weight: $fonts-bold;
 
       svg {
-        height: $fonts-small;
-        width: $fonts-small;
+        max-height: 18px;
+        max-width: 18px;
         margin-right: 5px;
       }
     }
@@ -89,8 +89,8 @@
     font-weight: $fonts-bold;
 
     svg {
-      height: $fonts-small;
-      width: $fonts-small;
+      max-height: 20px;
+      max-width: 20px;
       margin-right: 5px;
     }
   }
