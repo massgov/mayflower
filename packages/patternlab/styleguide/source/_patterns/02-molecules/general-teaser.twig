@@ -77,4 +77,12 @@
     </div>
   {% endif %}
 
+  {% if generalTeaser.tags %}
+    <div class="ma__gen-teaser__tags">
+      {% for tag in generalTeaser.tags %}
+      <span class="ma__gen-teaser__tag">kml</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+
 </section>
