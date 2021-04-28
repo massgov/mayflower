@@ -170,7 +170,7 @@ export default (function (window,document,$,undefined) {
       };
       let marker =  new google.maps.Marker(markerData);
       let infoData = infoTransform(markerData.infoWindow);
-      let compiledTemplate = getTemplate('googleMapInfo');
+      let compiledTemplate = getTemplate('mapMarkerInfo');
       let template = compiledTemplate(infoData);
       let infoWindow = new google.maps.InfoWindow({
         content: template
