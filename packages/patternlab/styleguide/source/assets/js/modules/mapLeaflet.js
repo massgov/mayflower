@@ -69,7 +69,7 @@ export default (function (window,document) {
 
       // custom marker icon 
       var markerIcon = L.icon({
-        iconUrl: `${ma.iconPath}marker-blue.svg`,
+        iconUrl: `${ma.iconPath}/marker-blue.svg`,
 
         iconSize: [60, 60],
         iconAnchor: [30, 60], 
