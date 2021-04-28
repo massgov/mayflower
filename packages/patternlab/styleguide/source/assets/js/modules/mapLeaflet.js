@@ -69,7 +69,8 @@ export default (function (window,document) {
 
       // custom marker icon 
       var markerIcon = L.icon({
-        iconUrl: `${ma.iconPath}/marker-blue.svg`,
+        iconUrl: `${ma.iconPath}marker-blue.svg`,
+
         iconSize: [60, 60],
         iconAnchor: [30, 60], 
         /* The coordinates of the "tip" of the icon (relative to its top left corner). The icon will be aligned so that this point is at the marker's geographical location. Centered by default if size is specified, also can be set in CSS with negative margins.
