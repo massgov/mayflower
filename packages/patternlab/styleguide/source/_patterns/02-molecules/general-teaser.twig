@@ -73,7 +73,9 @@
 
   {% if generalTeaser.upperRight %}
   <div class="ma__general-teaser__upperRight">
-    {{ icon(generalTeaser.upperRight.icon) }}
+    {% if generalTeaser.upperRight.icon %}
+      {{ icon(generalTeaser.upperRight.icon) }}
+    {% endif %}
     <span>{{generalTeaser.upperRight.label}}</span>
   </div>
   {% endif %}
