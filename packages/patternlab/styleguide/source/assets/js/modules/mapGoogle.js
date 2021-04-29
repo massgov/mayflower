@@ -247,8 +247,8 @@ export default (function (window,document,$,undefined) {
    *    (508) 222-5900
    */
   function formatPhone(phone) {
-    let phoneTemp = phone[0] === '1' ? phone.substring(1) : phone;
-    return phoneTemp.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+    let phoneTemp = phone && phone[0] === '1' ? phone.substring(1) : phone;
+    return phoneTemp ? phoneTemp.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') : null;
   }
 
   /**
