@@ -33,7 +33,7 @@ export default (function (window,document) {
       // add tile layer image to map
       L
       .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
-          attribution: '<a href ="https://www.mass.gov/service-details/about-massgis">MassGIS (Bureau of Geographic Information)</a>, Commonwealth of Massachusetts EOTSS'
+          attribution: 'Source: <a href ="https://www.mass.gov/service-details/about-massgis">MassGIS</a>'
       })
       .addTo(mymap);
 
