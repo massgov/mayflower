@@ -1,6 +1,6 @@
 import getTemplate from "../helpers/getHandlebarTemplate.js";
-// import * as L from 'leaflet/dist/leaflet-src.js';
-import * as L from '../vendor/leaflet-src.js';
+// import * as L from 'leaflet/dist/leaflet-src.js'; // safari bug exists in this version https://github.com/Leaflet/Leaflet/issues/7255
+import * as L from '../vendor/leaflet-src.js'; // wait for the bug fix to get into a released version to remove this local JS file and import from the leaflet package
 
 export default (function (window,document) {
   // Only run this code if there is a leaflet map component on the page.
