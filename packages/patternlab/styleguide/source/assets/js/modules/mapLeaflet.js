@@ -1,5 +1,6 @@
 import getTemplate from "../helpers/getHandlebarTemplate.js";
-import * as L from 'leaflet/dist/leaflet-src.js';
+// import * as L from 'leaflet/dist/leaflet-src.js';
+import * as L from '../vendor/leaflet-src.js';
 
 export default (function (window,document) {
   // Only run this code if there is a leaflet map component on the page.
@@ -10,6 +11,7 @@ export default (function (window,document) {
   // Initialize the map
   function initMaps () {
 
+    console.log('testing new leaflet JS')
     const compiledTemplate = getTemplate('mapMarkerInfo');
 
     document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
