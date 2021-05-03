@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: InfomationDetails
+    description: Change info details page content data from object to array for flexibility, cleanup unused data and render video in preContent-media variant page (#1393)
+    issue: DP-21686
+    impact: Patch

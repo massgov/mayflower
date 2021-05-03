@@ -72,8 +72,8 @@
       ]
     }
   },
-  "pageContent": {
-    "section1": {
+  "pageContent": [
+    {
       "compHeading": {
         "title": "Human infrastructure and wildlife",
         "titleContext": "",
@@ -93,7 +93,7 @@
         }
       ]
     },
-    "section2": {
+    {
       "compHeading": {
         "title": "History of the Massachusetts landscape",
         "titleContext": "",
@@ -156,7 +156,7 @@
         }
       ]
     },
-    "section3": {
+    {
       "compHeading": {
         "title": "Three Ipsum dolor sit amet",
         "titleContext": "",
@@ -176,7 +176,7 @@
         }
       ]
     },
-    "section4": {
+    {
       "compHeading": {
         "title": "Four At vero eos et accusamus et iusto. At vero eos et accusamus et iusto. At vero eos et accusamus et iusto. At vero eos et accusamus et iusto",
         "titleContext": "",
@@ -196,7 +196,7 @@
         }
       ]
     },
-    "section5": {
+    {
       "compHeading": {
         "title": "Five Ut enim ad minima veniam",
         "titleContext": "",
@@ -216,7 +216,7 @@
         }
       ]
     },
-    "section6": {
+    {
       "compHeading": {
         "title": "Six Ipsum dolor sit amet",
         "titleContext": "",
@@ -236,7 +236,7 @@
         }
       ]
     },
-    "section7": {
+    {
       "compHeading": {
         "title": "Seven At vero eos et accusamus et iusto",
         "titleContext": "",
@@ -256,7 +256,7 @@
         }
       ]
     },
-    "section8": {
+    {
       "compHeading": {
         "title": "Eight Ut enim ad minima veniam",
         "titleContext": "",
@@ -276,7 +276,7 @@
         }
       ]
     },
-    "section9": {
+    {
       "compHeading": {
         "title": "Nine Ipsum dolor sit amet",
         "titleContext": "",
@@ -296,7 +296,7 @@
         }
       ]
     },
-    "section10": {
+    {
       "compHeading": {
         "title": "Ten At vero eos et accusamus et iusto",
         "titleContext": "",
@@ -316,7 +316,7 @@
         }
       ]
     },
-    "section11": {
+    {
       "compHeading": {
         "title": "Eleven Ut enim ad minima veniam",
         "titleContext": "",
@@ -336,7 +336,7 @@
         }
       ]
     }
-  },
+  ],
   "postContent": {
     "contactList": {
       "compHeading": {
