@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Main nav
-    description: Organize the labeling for the main nav component. (#1401)
-    issue: DP-21691
-    impact: Minor
