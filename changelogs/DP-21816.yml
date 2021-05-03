@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
     component: Utility nav panel
-    description: Remove h2 from utility nav panel title. (#1401)
+    description: Remove h2 from utility nav panel title. (#1407)
     issue: DP-21816
     impact: Minor
