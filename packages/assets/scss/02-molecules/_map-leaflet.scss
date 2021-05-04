@@ -19,6 +19,7 @@
 
   &__map {
     height: 360px;
+    z-index: 10;
 
     @media ($bp-x-small-min) {
       height: 500px;
