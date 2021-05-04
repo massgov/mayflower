@@ -64,7 +64,7 @@ export default (function (window,document) {
         mymap.scrollWheelZoom.disable();
         mymap.boxZoom.disable();
         mymap.keyboard.disable();
-        if (mymap.tap) map.tap.disable();
+        if (mymap.tap) mymap.tap.disable();
         el.style.cursor='default';
       }
 
@@ -84,6 +84,7 @@ export default (function (window,document) {
 
       // add markers to map 
       markers.forEach(({ position, infoWindow}) => {
+        console.log(markers)
         L.marker(
           L.latLng(
             +position.lat,
