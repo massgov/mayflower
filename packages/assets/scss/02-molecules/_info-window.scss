@@ -6,8 +6,9 @@
 .ma__info-window {
   font-size: $fonts-small;
   line-height: 1.4;
-  padding: 20px;
+  padding: 10px;
   padding-right: 0;
+  text-align: left;
 
   &__name {
     font-size: $fonts-large;
