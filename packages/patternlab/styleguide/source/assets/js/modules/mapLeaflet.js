@@ -27,10 +27,18 @@ export default (function (window,document) {
         .map(el, {
           center: [map.center.lat, map.center.lng],
           zoom: map.zoom || 0,
-          zoomControl: !isStatic,
+          zoomControl: false,
           minZoom: 8,
           // maxBounds,
         });
+      
+      // if map is not static, add zoom control with custom position
+      if (!isStatic) {
+        L.control.zoom({
+            position: 'bottomleft'
+        })
+        .addTo(mymap);
+      }
 
       // add tile layer image to map
       L
@@ -84,7 +92,6 @@ export default (function (window,document) {
 
       // add markers to map 
       markers.forEach(({ position, infoWindow}) => {
-        console.log(markers)
         L.marker(
           L.latLng(
             +position.lat,
