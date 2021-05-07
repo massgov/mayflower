@@ -13,6 +13,10 @@
 }
 .leaflet-popup-content {
   margin: 0;
+
+  &-wrapper {
+    padding: 6px;
+  }
 }
 
 .ma__leaflet-map {
