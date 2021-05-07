@@ -28,6 +28,7 @@ export default (function (window,document) {
           zoom: map.zoom || 0,
           zoomControl: false,
           minZoom: 8,
+          scrollWheelZoom: false
           // maxBounds,
         });
       
@@ -63,16 +64,22 @@ export default (function (window,document) {
         window.addEventListener('resize', setMapBounds);
       }
 
+
+
       // disable map interactions if is static 
       if (isStatic) {
         mymap.dragging.disable();
         mymap.touchZoom.disable();
         mymap.doubleClickZoom.disable();
-        mymap.scrollWheelZoom.disable();
         mymap.boxZoom.disable();
         mymap.keyboard.disable();
         if (mymap.tap) mymap.tap.disable();
         el.style.cursor='default';
+      } else {
+        /* Prevent scolling/swiping ambiguity
+        ** Only enable scrollWheelZoom if map is in focus, and disable it on blur */
+        mymap.on('focus', function() { mymap.scrollWheelZoom.enable(); });
+        mymap.on('blur', function() { mymap.scrollWheelZoom.disable(); });
       }
 
 
