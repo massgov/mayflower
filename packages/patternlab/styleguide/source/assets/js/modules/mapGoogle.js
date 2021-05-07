@@ -159,6 +159,12 @@ export default (function (window,document,$,undefined) {
   function initMarkers(map, markers) {
     let initializedMarkers = [];
     markers.forEach(function(data) {
+      let markerIcon = {
+          url: `${ma.iconPath}/marker-blue.svg`, // url
+          scaledSize: new google.maps.Size(50, 50), // scaled size
+          origin: new google.maps.Point(0,0), // origin
+          anchor: new google.maps.Point(25, 30) // anchor
+      };
       let markerData = {
         position: new google.maps.LatLng({
           lat: data.position.lat,
@@ -166,9 +172,11 @@ export default (function (window,document,$,undefined) {
         }),
         label: data.label,
         infoWindow: data.infoWindow,
-        title: 'Marker: ' + sanitizeText(data.infoWindow.name)
+        title: 'Marker: ' + sanitizeText(data.infoWindow.name),
+        icon: markerIcon
       };
       let marker =  new google.maps.Marker(markerData);
+      
       let infoData = infoTransform(markerData.infoWindow);
       let compiledTemplate = getTemplate('mapMarkerInfo');
       let template = compiledTemplate(infoData);
