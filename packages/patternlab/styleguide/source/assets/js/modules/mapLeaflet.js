@@ -28,7 +28,8 @@ export default (function (window,document) {
           zoom: map.zoom || 0,
           zoomControl: false,
           minZoom: 8,
-          scrollWheelZoom: false
+          scrollWheelZoom: false,
+          dragging: false
           // maxBounds,
         });
       
@@ -64,11 +65,48 @@ export default (function (window,document) {
         window.addEventListener('resize', setMapBounds);
       }
 
+      let locked = true;
 
+      var customControl =  L.Control.extend({
+
+        options: {
+          position: 'topleft'
+        },
+      
+        onAdd: function (map) {
+          var container = L.DomUtil.create('input');
+          container.type="button";
+          container.id="lockButton"
+          container.title="lock map interaction";
+          container.value = locked ? "locked" : "unlocked";
+      
+          //container.style.backgroundColor = 'white';     
+          container.style.backgroundImage = `${ma.iconPath}/marker-blue.svg`;
+          container.style.backgroundSize = "30px 30px";
+          container.style.width = '30px';
+          container.style.height = '30px';
+          
+          container.onmouseover = function(){
+            container.style.backgroundColor = 'pink'; 
+          }
+          container.onmouseout = function(){
+            container.style.backgroundColor = 'white'; 
+          }
+      
+          container.onclick = function(){
+            console.log('buttonClicked');
+            locked = !locked;
+            console.log(locked);
+          }
+      
+          return container;
+        }
+      });
+
+      mymap.addControl(new customControl());
 
       // disable map interactions if is static 
       if (isStatic) {
-        mymap.dragging.disable();
         mymap.touchZoom.disable();
         mymap.doubleClickZoom.disable();
         mymap.boxZoom.disable();
@@ -77,9 +115,21 @@ export default (function (window,document) {
         el.style.cursor='default';
       } else {
         /* Prevent scolling/swiping ambiguity
-        ** Only enable scrollWheelZoom if map is in focus, and disable it on blur */
-        mymap.on('focus', function() { mymap.scrollWheelZoom.enable(); });
-        mymap.on('blur', function() { mymap.scrollWheelZoom.disable(); });
+        ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
+        mymap.on('focus', function() { 
+          locked = false;
+          const button = L.DomUtil.get('lockButton');
+          button.value = locked ? "locked" : "unlocked";
+          mymap.scrollWheelZoom.enable(); 
+          mymap.dragging.enable();
+        });
+        mymap.on('blur', function() { 
+          locked = true;
+          const button = L.DomUtil.get('lockButton');
+          button.value = locked ? "locked" : "unlocked";
+          mymap.scrollWheelZoom.disable(); 
+          mymap.dragging.disable();
+        });
       }
 
 
