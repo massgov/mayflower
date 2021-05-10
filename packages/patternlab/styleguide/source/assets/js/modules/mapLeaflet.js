@@ -2,6 +2,10 @@ import getTemplate from "../helpers/getHandlebarTemplate.js";
 // import * as L from 'leaflet/dist/leaflet-src.js'; // safari bug exists in this version https://github.com/Leaflet/Leaflet/issues/7255
 import * as L from '../vendor/leaflet-src.js'; // wait for the bug fix to get into a released version to remove this local JS file and import from the leaflet package
 
+const escapeURL = (string) => {
+  return string.replaceAll('/', '\/').replaceAll("'", "\'").replaceAll('"', '\"');
+}
+
 export default (function (window,document) {
   // Only run this code if there is a leaflet map component on the page.
   if(!document.querySelectorAll('.js-leaflet-map').length){
@@ -70,34 +74,37 @@ export default (function (window,document) {
       var customControl =  L.Control.extend({
 
         options: {
-          position: 'topleft'
+          position: 'bottomleft'
         },
       
         onAdd: function (map) {
-          var container = L.DomUtil.create('input');
-          container.type="button";
+
+          var container = L.DomUtil.create('div');
+          // container.type="button";
           container.id="lockButton"
-          container.title="lock map interaction";
+          container.title="tab on the map to unlock the interactivity, tab off the map to lock interactivity";
           container.value = locked ? "locked" : "unlocked";
+          // container.innerHTML = locked ? '<img src=\"..\/..\/assets\/images\/icons\/lock.svg\">' : '<img src=\"..\/..\/assets\/images\/icons\/unlock.svg\">'
+
       
-          //container.style.backgroundColor = 'white';     
-          container.style.backgroundImage = `${ma.iconPath}/marker-blue.svg`;
-          container.style.backgroundSize = "30px 30px";
-          container.style.width = '30px';
-          container.style.height = '30px';
+          // container.style.backgroundColor = '#F2F2F2';   
+          container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
+          container.style.backgroundSize = "20px";
+          container.style.width = '20px';
+          container.style.height = '24px';
+          container.style.margin = '10px 18px';
           
-          container.onmouseover = function(){
-            container.style.backgroundColor = 'pink'; 
-          }
-          container.onmouseout = function(){
-            container.style.backgroundColor = 'white'; 
-          }
-      
-          container.onclick = function(){
-            console.log('buttonClicked');
-            locked = !locked;
-            console.log(locked);
-          }
+          // container.onmouseover = function(){
+          //   container.style.backgroundColor = '#F2F2F2'; 
+          // }
+          // container.onmouseout = function(){
+          //   container.style.backgroundColor = 'white'; 
+          // }
+
+          // container.onclick = function(){
+          //   locked = !locked;
+          //   container.value = locked ? "locked" : "unlocked";
+          // }
       
           return container;
         }
@@ -114,19 +121,20 @@ export default (function (window,document) {
         if (mymap.tap) mymap.tap.disable();
         el.style.cursor='default';
       } else {
+        const container = L.DomUtil.get('lockButton');
         /* Prevent scolling/swiping ambiguity
         ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
         mymap.on('focus', function() { 
           locked = false;
-          const button = L.DomUtil.get('lockButton');
-          button.value = locked ? "locked" : "unlocked";
+          container.value = "unlocked";
+          container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
           mymap.scrollWheelZoom.enable(); 
           mymap.dragging.enable();
         });
         mymap.on('blur', function() { 
           locked = true;
-          const button = L.DomUtil.get('lockButton');
-          button.value = locked ? "locked" : "unlocked";
+          container.value = "locked";
+          container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
           mymap.scrollWheelZoom.disable(); 
           mymap.dragging.disable();
         });
