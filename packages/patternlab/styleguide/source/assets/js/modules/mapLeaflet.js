@@ -2,9 +2,11 @@ import getTemplate from "../helpers/getHandlebarTemplate.js";
 // import * as L from 'leaflet/dist/leaflet-src.js'; // safari bug exists in this version https://github.com/Leaflet/Leaflet/issues/7255
 import * as L from '../vendor/leaflet-src.js'; // wait for the bug fix to get into a released version to remove this local JS file and import from the leaflet package
 
-const escapeURL = (string) => {
-  return string.replaceAll('/', '\/').replaceAll("'", "\'").replaceAll('"', '\"');
-}
+const isTouchDevice = () => {
+  return (('ontouchstart' in window)
+       || (window.navigator.msPointerEnabled)
+       || ('ontouchstart' in document.documentElement));
+ }
 
 export default (function (window,document) {
   // Only run this code if there is a leaflet map component on the page.
@@ -69,34 +71,6 @@ export default (function (window,document) {
         window.addEventListener('resize', setMapBounds);
       }
 
-      let locked = true;
-
-      var customControl =  L.Control.extend({
-
-        options: {
-          position: 'topleft'
-        },
-      
-        onAdd: function (map) {
-
-          var container = L.DomUtil.create('div');
-          // container.type="button";
-          container.id="lockButton"
-          container.title="tab on the map to unlock the interactivity, tab off the map to lock interactivity";
-          container.value = locked ? "locked" : "unlocked";
-          container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
-
-      
-          container.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';   
-          // container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
-          // container.style.backgroundSize = "20px";
-          container.style.padding = '3px';
-      
-          return container;
-        }
-      });
-
-      mymap.addControl(new customControl());
 
       // disable map interactions if is static 
       if (isStatic) {
@@ -107,7 +81,32 @@ export default (function (window,document) {
         if (mymap.tap) mymap.tap.disable();
         el.style.cursor='default';
       } else {
+        let locked = true;
+        const customControl =  L.Control.extend({
+          options: {
+            position: 'topleft'
+          }, 
+          onAdd: function (map) {
+            var container = L.DomUtil.create('div', 'leaflet-control-attribution');
+            container.id="lockButton"
+            container.title="tab on the map to unlock the interactivity, tab off the map to lock interactivity";
+            container.value = locked ? "locked" : "unlocked";
+            container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
+
+        
+            container.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';   
+            // container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
+            // container.style.backgroundSize = "20px";
+            container.style.padding = '3px';
+        
+            return container;
+          }
+        });
+
+        mymap.addControl(new customControl());
+
         const container = L.DomUtil.get('lockButton');
+        console.log(isTouchDevice ? 'touch device': 'desktop')
         /* Prevent scolling/swiping ambiguity
         ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
         mymap.on('focus', function() { 
