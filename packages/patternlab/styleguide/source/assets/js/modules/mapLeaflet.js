@@ -74,7 +74,7 @@ export default (function (window,document) {
       var customControl =  L.Control.extend({
 
         options: {
-          position: 'bottomleft'
+          position: 'topleft'
         },
       
         onAdd: function (map) {
@@ -84,27 +84,13 @@ export default (function (window,document) {
           container.id="lockButton"
           container.title="tab on the map to unlock the interactivity, tab off the map to lock interactivity";
           container.value = locked ? "locked" : "unlocked";
-          // container.innerHTML = locked ? '<img src=\"..\/..\/assets\/images\/icons\/lock.svg\">' : '<img src=\"..\/..\/assets\/images\/icons\/unlock.svg\">'
+          container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
 
       
-          // container.style.backgroundColor = '#F2F2F2';   
-          container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
-          container.style.backgroundSize = "20px";
-          container.style.width = '20px';
-          container.style.height = '24px';
-          container.style.margin = '10px 18px';
-          
-          // container.onmouseover = function(){
-          //   container.style.backgroundColor = '#F2F2F2'; 
-          // }
-          // container.onmouseout = function(){
-          //   container.style.backgroundColor = 'white'; 
-          // }
-
-          // container.onclick = function(){
-          //   locked = !locked;
-          //   container.value = locked ? "locked" : "unlocked";
-          // }
+          container.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';   
+          // container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
+          // container.style.backgroundSize = "20px";
+          container.style.padding = '3px';
       
           return container;
         }
@@ -127,14 +113,14 @@ export default (function (window,document) {
         mymap.on('focus', function() { 
           locked = false;
           container.value = "unlocked";
-          container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
+          container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
           mymap.scrollWheelZoom.enable(); 
           mymap.dragging.enable();
         });
         mymap.on('blur', function() { 
           locked = true;
           container.value = "locked";
-          container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
+          container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
           mymap.scrollWheelZoom.disable(); 
           mymap.dragging.disable();
         });
