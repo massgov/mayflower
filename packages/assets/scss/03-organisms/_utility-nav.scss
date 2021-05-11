@@ -377,7 +377,7 @@ $utility-nav-height: 43px;
 
   &__content-title {
 
-    h2 {
+    h2, div {
       display: inline-block;
       vertical-align: middle;
       font-size: $fonts-larger;
