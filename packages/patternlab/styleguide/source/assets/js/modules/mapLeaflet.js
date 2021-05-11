@@ -2,12 +2,6 @@ import getTemplate from "../helpers/getHandlebarTemplate.js";
 // import * as L from 'leaflet/dist/leaflet-src.js'; // safari bug exists in this version https://github.com/Leaflet/Leaflet/issues/7255
 import * as L from '../vendor/leaflet-src.js'; // wait for the bug fix to get into a released version to remove this local JS file and import from the leaflet package
 
-const isTouchDevice = () => {
-  return (('ontouchstart' in window)
-       || (window.navigator.msPointerEnabled)
-       || ('ontouchstart' in document.documentElement));
- }
-
 export default (function (window,document) {
   // Only run this code if there is a leaflet map component on the page.
   if(!document.querySelectorAll('.js-leaflet-map').length){
@@ -106,7 +100,6 @@ export default (function (window,document) {
         mymap.addControl(new customControl());
 
         const container = L.DomUtil.get('lockButton');
-        console.log(isTouchDevice ? 'touch device': 'desktop')
         /* Prevent scolling/swiping ambiguity
         ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
         mymap.on('focus', function() { 
@@ -141,16 +134,22 @@ export default (function (window,document) {
 
       // add markers to map 
       markers.forEach(({ position, infoWindow}) => {
-        L.marker(
+        const mymarker = L.marker(
           L.latLng(
             +position.lat,
             +position.lng
           ), {
             icon: markerIcon,
-            interactive: !isStatic
+            interactive: !isStatic,
+            // When true, a mouse event on this marker will trigger the same event on the map (unless L.DomEvent.stopPropagation is used).
+            bubblingMouseEvents: true
           })
         .addTo(mymap)
         .bindPopup(compiledTemplate(infoWindow));
+
+        mymarker.on('focus', function() { 
+          console.log('test test marker')
+        });
       })
 
     })
