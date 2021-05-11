@@ -1,6 +1,11 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.4.2 (5/10/2021)
+### Fixed 
+- (Patternlab) [InfomationDetails] DP-21686: Change info details page content data from object to array for flexibility, cleanup unused data and render video in preContent-media variant page (#1393)
+- (Patternlab) [LocationListing] DP-21770: Align text and icon for the directions link. (#1408)
+
 ## 11.4.1 (4/20/2021)
 ### Fixed 
 - (Patternlab) [stickyTOC] DP-21686: Fix stickyTOC JS console error, which addresses the issue causing video fitwidth JS malfunction on info details page when TOC is not initiated. (#1392)
