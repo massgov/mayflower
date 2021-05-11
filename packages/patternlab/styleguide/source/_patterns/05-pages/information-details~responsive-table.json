@@ -66,8 +66,8 @@
       ]
     }
   },
-  "pageContent": {
-    "section1": {
+  "pageContent": [
+    {
       "compHeading": {
         "title": "A table with a header rows",
         "titleContext": "",
@@ -577,7 +577,7 @@
         }
       ]
     }
-  },
+  ],
   "postContent": {
     "contactList": {
       "compHeading": {
