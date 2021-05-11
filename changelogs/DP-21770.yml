@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: LocationListing
-    description: Align text and icon for the directions link. (#1408)
-    issue: DP-21770
-    impact: Patch
