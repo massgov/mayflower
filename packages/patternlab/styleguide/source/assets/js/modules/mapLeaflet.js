@@ -65,6 +65,46 @@ export default (function (window,document) {
         window.addEventListener('resize', setMapBounds);
       }
 
+       // custom marker icon 
+       var markerIcon = L.icon({
+        iconUrl: `${ma.iconPath}/marker-blue.svg`,
+
+        iconSize: [50, 50],
+        iconAnchor: [25, 50], 
+        /* The coordinates of the "tip" of the icon (relative to its top left corner). The icon will be aligned so that this point is at the marker's geographical location. Centered by default if size is specified, also can be set in CSS with negative margins.
+         see leaflet docs: https://leafletjs.com/reference-1.7.1.html#icon-iconanchor
+        */
+        popupAnchor: [0, -50],
+        shadowUrl: ''
+    });
+
+      // add markers to map 
+      markers.forEach(({ position, infoWindow}) => {
+        const mymarker = L.marker(
+          L.latLng(
+            +position.lat,
+            +position.lng
+          ), {
+            icon: markerIcon,
+            interactive: !isStatic,
+            // When true, a mouse event on this marker will trigger the same event on the map (unless L.DomEvent.stopPropagation is used).
+            bubblingMouseEvents: true
+          })
+        .addTo(mymap)
+        .bindPopup(compiledTemplate(infoWindow));
+
+        L.DomEvent.addListener(mymarker, 'focus', () => {
+          console.log(mymarker)
+        })
+
+        // mymarker.on('focus', function() { 
+        //   console.log('test test marker')
+        // });
+        // mymarker.addEventListener('focus', function() { 
+        //   console.log('test test marker')
+        // } );
+      })
+
 
       // disable map interactions if is static 
       if (isStatic) {
@@ -100,57 +140,38 @@ export default (function (window,document) {
         mymap.addControl(new customControl());
 
         const container = L.DomUtil.get('lockButton');
-        /* Prevent scolling/swiping ambiguity
-        ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
-        mymap.on('focus', function() { 
+
+        const unlockMove = () => {
           locked = false;
           container.value = "unlocked";
           container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
           mymap.scrollWheelZoom.enable(); 
           mymap.dragging.enable();
-        });
-        mymap.on('blur', function() { 
+        }
+
+        const lockMove = () => {
           locked = true;
           container.value = "locked";
           container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
           mymap.scrollWheelZoom.disable(); 
           mymap.dragging.disable();
-        });
+          const focusClass = document.activeElement.className;
+          const markerClass = 'ma__leaflet-map__map';
+          const mapInFocus = focusClass.indexOf(markerClass) == -1;
+          mymap.on('popupopen', function() { console.log('popup open')})
+          mymap.on('popupclose', function() { console.log('popup close')})
+
+          console.log(focusClass, markerClass, mapInFocus)
+        }
+        /* Prevent scolling/swiping ambiguity
+        ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
+        mymap.on('focus', unlockMove);
+        mymap.on('blur', lockMove);
+
       }
 
 
-      // custom marker icon 
-      var markerIcon = L.icon({
-        iconUrl: `${ma.iconPath}/marker-blue.svg`,
-
-        iconSize: [50, 50],
-        iconAnchor: [25, 50], 
-        /* The coordinates of the "tip" of the icon (relative to its top left corner). The icon will be aligned so that this point is at the marker's geographical location. Centered by default if size is specified, also can be set in CSS with negative margins.
-         see leaflet docs: https://leafletjs.com/reference-1.7.1.html#icon-iconanchor
-        */
-        popupAnchor: [0, -50],
-        shadowUrl: ''
-    });
-
-      // add markers to map 
-      markers.forEach(({ position, infoWindow}) => {
-        const mymarker = L.marker(
-          L.latLng(
-            +position.lat,
-            +position.lng
-          ), {
-            icon: markerIcon,
-            interactive: !isStatic,
-            // When true, a mouse event on this marker will trigger the same event on the map (unless L.DomEvent.stopPropagation is used).
-            bubblingMouseEvents: true
-          })
-        .addTo(mymap)
-        .bindPopup(compiledTemplate(infoWindow));
-
-        mymarker.on('focus', function() { 
-          console.log('test test marker')
-        });
-      })
+     
 
     })
   }
