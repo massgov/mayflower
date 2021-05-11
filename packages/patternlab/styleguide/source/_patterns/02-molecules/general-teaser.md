@@ -25,14 +25,23 @@ generalTeaser : {
     type: string / optional
   image:
     type: image / optional
-  eyebrow:
-    type: string / optional
+  eyebrow: {
+    icon: string / optional,
+    label: string,
+  }, 
+  upperRight: {
+    icon: string / optional,
+    label: string,
+  }, 
   title : {
     type: decorativeLink / required
   },
   level:
     type: number / optional
   emphasizedText: [
+    type: array of string / optional,
+  ],
+  tags: [
     type: array of string / optional,
   ],
   contents: (optional) [{

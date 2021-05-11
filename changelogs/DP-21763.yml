@@ -1,0 +1,12 @@
+Added:
+  - project: Patternlab
+    component: GeneralTeaser
+    description: Extended the GeneralTeaser component to render tags, icon in eyebrow, and upperRight content. Added the `general-teaser-data` variant in Patternlab. (#1402)
+    issue: DP-21763
+    impact: Minor
+Added:
+  - project: Assets
+    component: Icons
+    description: Added `pin.svg`, `data.svg` and `catalog.svg`. (#1402)
+    issue: DP-21763
+    impact: Minor
