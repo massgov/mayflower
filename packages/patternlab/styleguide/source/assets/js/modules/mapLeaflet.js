@@ -86,8 +86,7 @@ export default (function (window,document) {
             +position.lng
           ), {
             icon: markerIcon,
-            interactive: !isStatic,
-            bubblingMouseEvents: true
+            interactive: !isStatic
           })
         .addTo(mymap)
         .bindPopup(compiledTemplate(infoWindow));
@@ -151,6 +150,7 @@ export default (function (window,document) {
         document.onclick = (e) => {
           const { target } = e;
           const inMap = el.contains(target)
+          console.log(target, inMap)
           if (!inMap) {
             lockMove();
           }
