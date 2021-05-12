@@ -59,6 +59,8 @@
     <div class="ma__general-teaser__details">
   {% endif %}
 
+
+
     {% if generalTeaser.contents and layout != 'contents-stacked' %}
       <div class="ma__general-teaser__contents">
         {% for content in generalTeaser.contents %}
@@ -69,10 +71,27 @@
 
     </div><!-- ma__general-teaser__details -->
 
+  {% if generalTeaser.upperRight %}
+  <div class="ma__general-teaser__upperRight">
+    {% if generalTeaser.upperRight.icon %}
+      {{ icon(generalTeaser.upperRight.icon) }}
+    {% endif %}
+    <span>{{generalTeaser.upperRight.label}}</span>
+  </div>
+  {% endif %}
+
   {% if generalTeaser.contents and layout == 'contents-stacked' %}
     <div class="ma__general-teaser__contents">
       {% for content in generalTeaser.contents %}
         {% include content.path with content.data %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if generalTeaser.tags %}
+    <div class="ma__general-teaser__tags">
+      {% for tag in generalTeaser.tags %}
+      <span class="ma__general-teaser__tag">{{ tag }}</span>
       {% endfor %}
     </div>
   {% endif %}
