@@ -109,20 +109,18 @@ export default (function (window,document) {
         el.style.cursor='default';
       } else {
         let locked = true;
+        const containerID = 'lockStatus';
+        const setStatusText = (status) => status ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
         const customControl =  L.Control.extend({
           options: {
             position: 'topleft'
           }, 
           onAdd: function (map) {
             var container = L.DomUtil.create('div', 'leaflet-control-attribution');
-            container.id="lockButton"
-            container.title="tab on the map to unlock the interactivity, tab off the map to lock interactivity";
-            container.value = locked ? "locked" : "unlocked";
-            container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
-
-        
+            container.id=containerID;
             container.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';   
             container.style.padding = '3px';
+            container.innerHTML = setStatusText(status)
         
             return container;
           }
@@ -130,20 +128,18 @@ export default (function (window,document) {
 
         mymap.addControl(new customControl());
 
-        const container = L.DomUtil.get('lockButton');
+        const container = L.DomUtil.get(containerID);
 
         const unlockMove = () => {
           locked = false;
-          container.value = "unlocked";
-          container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
+          container.innerHTML = setStatusText(status);
           mymap.scrollWheelZoom.enable(); 
           mymap.dragging.enable();
         }
 
         const lockMove = () => {
           locked = true;
-          container.value = "locked";
-          container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
+          container.innerHTML = setStatusText(status);
           mymap.scrollWheelZoom.disable(); 
           mymap.dragging.disable();
         }
@@ -158,7 +154,7 @@ export default (function (window,document) {
             lockMove();
           }
         }
-        
+
         document.onclick = (e) => {
           const { target } = e;
           customBlur(target)
