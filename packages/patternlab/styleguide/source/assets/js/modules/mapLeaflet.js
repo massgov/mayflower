@@ -87,19 +87,19 @@ export default (function (window,document) {
           ), {
             icon: markerIcon,
             interactive: !isStatic,
-            // When true, a mouse event on this marker will trigger the same event on the map (unless L.DomEvent.stopPropagation is used).
             bubblingMouseEvents: true
           })
         .addTo(mymap)
         .bindPopup(compiledTemplate(infoWindow));
 
-        L.DomEvent.addListener(mymarker, 'focus', () => {
-          console.log(mymarker)
-        })
+        // L.DomEvent.addListener(mymarker, 'focus', () => {
+        //   console.log(mymarker)
+        // })
 
-        // mymarker.on('focus', function() { 
-        //   console.log('test test marker')
-        // });
+        mymarker.on('click', function() { 
+          console.log('marker click')
+          mymap.fire('focus')
+        });
         // mymarker.addEventListener('focus', function() { 
         //   console.log('test test marker')
         // } );
@@ -147,6 +147,8 @@ export default (function (window,document) {
           container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
           mymap.scrollWheelZoom.enable(); 
           mymap.dragging.enable();
+          const focusClass = document.activeElement.className;
+          console.log(focusClass)
         }
 
         const lockMove = () => {
@@ -157,22 +159,28 @@ export default (function (window,document) {
           mymap.dragging.disable();
           const focusClass = document.activeElement.className;
           const markerClass = 'ma__leaflet-map__map';
-          const mapInFocus = focusClass.indexOf(markerClass) == -1;
-          mymap.on('popupopen', function() { console.log('popup open')})
-          mymap.on('popupclose', function() { console.log('popup close')})
+          //const mapInFocus = focusClass.indexOf(markerClass) == -1;
+          // mymap.on('popupopen', function() { console.log('popup open')})
+          // mymap.on('popupclose', function() { console.log('popup close')})
 
-          console.log(focusClass, markerClass, mapInFocus)
+          // console.log(focusClass, markerClass, mapInFocus)
         }
         /* Prevent scolling/swiping ambiguity
         ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
         mymap.on('focus', unlockMove);
-        mymap.on('blur', lockMove);
-
+        // const mapWrapper = document.getElementsByClassName('ma__leaflet-map')[0]
+        // mymap.on('blur', lockMove);
+        document.onclick = (e) => {
+          const { target } = e;
+          const inMap = el.contains(target)
+          if (!inMap) {
+            lockMove();
+          }
+        };
+        // mymap.on('focus', function() { console.log(document.activeElement)});
+        // mymap.on('blur', function() { console.log(document.activeElement)});
+        // mymap.on('click', function() { console.log(document.activeElement)})
       }
-
-
-     
-
     })
   }
 
