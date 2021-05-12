@@ -90,6 +90,12 @@ export default (function (window,document) {
           })
         .addTo(mymap)
         .bindPopup(compiledTemplate(infoWindow));
+
+        // popup close onclick is not recognized as a click event inside of the map in order to regain focus
+        // Fire the map focus callback on popup close
+        mymarker.on('popupclose', function(e) {
+          mymap.fire('focus');
+        });
       })
 
 
@@ -147,6 +153,7 @@ export default (function (window,document) {
         ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
         mymap.on('focus', unlockMove);
 
+        // Markers and popup are not recognized as part of the map object on events, hence needs custom events to simulate onblur on the map and its children elements.
         document.onclick = (e) => {
           const { target } = e;
           const inMap = el.contains(target)
