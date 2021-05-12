@@ -120,7 +120,7 @@ export default (function (window,document) {
             container.id=containerID;
             container.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';   
             container.style.padding = '3px';
-            container.innerHTML = setStatusText(status)
+            container.innerHTML = setStatusText(locked)
         
             return container;
           }
@@ -132,14 +132,14 @@ export default (function (window,document) {
 
         const unlockMove = () => {
           locked = false;
-          container.innerHTML = setStatusText(status);
+          container.innerHTML = setStatusText(locked);
           mymap.scrollWheelZoom.enable(); 
           mymap.dragging.enable();
         }
 
         const lockMove = () => {
           locked = true;
-          container.innerHTML = setStatusText(status);
+          container.innerHTML = setStatusText(locked);
           mymap.scrollWheelZoom.disable(); 
           mymap.dragging.disable();
         }
