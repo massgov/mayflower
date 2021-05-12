@@ -161,9 +161,18 @@ $heading-indent: $gutter;
 
   // List styles
 
+  ul, ol {
+    margin-left: -40px;
+    list-style-position: inside;
+
+    ul, ol {
+      margin-left: -40px;
+    }
+  }
+
   ul {
     margin-bottom: $rich-text-spacing-mobile;
-    padding-left: 20px;
+    padding-left: 30px;
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
