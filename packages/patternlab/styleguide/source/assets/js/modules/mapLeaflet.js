@@ -138,8 +138,6 @@ export default (function (window,document) {
           container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
           mymap.scrollWheelZoom.enable(); 
           mymap.dragging.enable();
-          const focusClass = document.activeElement.className;
-          console.log(focusClass)
         }
 
         const lockMove = () => {
