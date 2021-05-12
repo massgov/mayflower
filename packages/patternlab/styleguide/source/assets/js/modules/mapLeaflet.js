@@ -155,7 +155,6 @@ export default (function (window,document) {
 
         const customBlur = (target) => {
           const inMap = el.contains(target)
-          console.log(target, inMap)
           if (!inMap) {
             lockMove();
           }
@@ -168,7 +167,6 @@ export default (function (window,document) {
         };
 
         document.onkeyup = (e) => {
-          console.log(e.key)
           if (e.key == 'Tab') {
           const target = document.activeElement;
           customBlur(target)
