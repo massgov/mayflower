@@ -91,18 +91,6 @@ export default (function (window,document) {
           })
         .addTo(mymap)
         .bindPopup(compiledTemplate(infoWindow));
-
-        // L.DomEvent.addListener(mymarker, 'focus', () => {
-        //   console.log(mymarker)
-        // })
-
-        mymarker.on('click', function() { 
-          console.log('marker click')
-          mymap.fire('focus')
-        });
-        // mymarker.addEventListener('focus', function() { 
-        //   console.log('test test marker')
-        // } );
       })
 
 
@@ -129,8 +117,6 @@ export default (function (window,document) {
 
         
             container.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';   
-            // container.style.backgroundImage = locked ? `url('${ma.iconPath}/lock.svg')` : `url('${ma.iconPath}/unlock.svg')`;
-            // container.style.backgroundSize = "20px";
             container.style.padding = '3px';
         
             return container;
@@ -157,19 +143,11 @@ export default (function (window,document) {
           container.innerHTML = locked ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
           mymap.scrollWheelZoom.disable(); 
           mymap.dragging.disable();
-          const focusClass = document.activeElement.className;
-          const markerClass = 'ma__leaflet-map__map';
-          //const mapInFocus = focusClass.indexOf(markerClass) == -1;
-          // mymap.on('popupopen', function() { console.log('popup open')})
-          // mymap.on('popupclose', function() { console.log('popup close')})
-
-          // console.log(focusClass, markerClass, mapInFocus)
         }
         /* Prevent scolling/swiping ambiguity
         ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
         mymap.on('focus', unlockMove);
-        // const mapWrapper = document.getElementsByClassName('ma__leaflet-map')[0]
-        // mymap.on('blur', lockMove);
+
         document.onclick = (e) => {
           const { target } = e;
           const inMap = el.contains(target)
@@ -177,9 +155,6 @@ export default (function (window,document) {
             lockMove();
           }
         };
-        // mymap.on('focus', function() { console.log(document.activeElement)});
-        // mymap.on('blur', function() { console.log(document.activeElement)});
-        // mymap.on('click', function() { console.log(document.activeElement)})
       }
     })
   }
