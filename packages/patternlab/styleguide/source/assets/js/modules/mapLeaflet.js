@@ -57,12 +57,15 @@ export default (function (window,document) {
         // set bounds by markers
         const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
         function setMapBounds() {
+          console.log('reset bounds')
           mymap.fitBounds(markerArray, {
             padding: [60, 60]
           })
         }
         setMapBounds();
-        window.addEventListener('resize', setMapBounds);
+
+        // window resize is being triggered unexpectedly on mobile devices 
+        // window.addEventListener('resize', setMapBounds);
       }
 
        // custom marker icon 
@@ -133,7 +136,7 @@ export default (function (window,document) {
         const unlockMove = () => {
           locked = false;
           container.innerHTML = setStatusText(locked);
-          mymap.scrollWheelZoom.enable(); 
+          //mymap.scrollWheelZoom.enable(); 
           mymap.dragging.enable();
         }
 
