@@ -27,11 +27,13 @@ export default (function (window,document) {
           center: [map.center.lat, map.center.lng],
           zoom: map.zoom || 0,
           zoomControl: false,
-          minZoom: 8,
+          minZoom: 7,
           scrollWheelZoom: false,
           dragging: false
           // maxBounds,
         });
+
+        mymap.on('zoom', function() {console.log(mymap.getZoom())})
       
       // if map is not static, add zoom control with custom position
       if (!isStatic) {
@@ -43,7 +45,7 @@ export default (function (window,document) {
 
       // add tile layer image to map
       L
-      .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
+      .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGIS_Basemap_MassGovTest/MapServer/tile/{z}/{y}/{x}', {
           attribution: 'Source: <a href ="https://www.mass.gov/service-details/about-massgis">MassGIS</a>'
       })
       .addTo(mymap);
