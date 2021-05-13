@@ -1295,6 +1295,7 @@
               "leafletMap": {
                 "isStatic": false,
                 "hideAttribution": false,
+                "id": "leaflet-map1",
                 "map": {
                   "center": {
                     "lat": 42.366565,

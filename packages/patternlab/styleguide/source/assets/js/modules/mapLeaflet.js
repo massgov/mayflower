@@ -164,6 +164,7 @@ export default (function (window,document) {
         // Markers and popup are not recognized as part of the map object on events, hence needs custom events to simulate onblur on the map and its children elements.
         const customBlur = (target) => {
           const inMap = el.contains(target)
+          console.log(el, target, inMap)
           if (!inMap) {
             lockMove();
           }
@@ -171,6 +172,7 @@ export default (function (window,document) {
 
         document.onclick = (e) => {
           const { target } = e;
+          // console.log(target)
           customBlur(target)
         };
 

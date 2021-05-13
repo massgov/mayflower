@@ -7,6 +7,7 @@
       "text": "Get Directions",
       "info": "Department of Conservation and Recreation"
     },
+    "id": "leaflet-map1",
     "map": {
       "center": {
         "lat": 42.366565,
