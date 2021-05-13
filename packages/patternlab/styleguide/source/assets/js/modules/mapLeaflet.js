@@ -8,14 +8,16 @@ export default (function (window,document) {
     return;
   }
 
+
+
   // Initialize the map
-  function initMaps () {
+  function initMaps (el, i) {
+    console.log(el)
 
     const compiledTemplate = getTemplate('mapMarkerInfo');
 
-    document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
       // Get the maps data (this could be replaced with an api)
-      const { map, markers, isStatic=0, hideAttribution=0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
+      const { id, map, markers, isStatic=0, hideAttribution=0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
       // max bounds
       // const corner1 = L.latLng(43.12916191721289, -67.40279674530031); //northEast
@@ -164,7 +166,7 @@ export default (function (window,document) {
         // Markers and popup are not recognized as part of the map object on events, hence needs custom events to simulate onblur on the map and its children elements.
         const customBlur = (target) => {
           const inMap = el.contains(target)
-          console.log(el, target, inMap)
+          console.log(id, el, target, inMap)
           if (!inMap) {
             lockMove();
           }
@@ -183,9 +185,14 @@ export default (function (window,document) {
         };
         }
       }
-    })
   }
 
-  initMaps();
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
+      initMaps(el, i);
+    })
+  })
+
+  
 
 })(window,document);
