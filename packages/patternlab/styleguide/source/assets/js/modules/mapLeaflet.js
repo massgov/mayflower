@@ -8,8 +8,6 @@ export default (function (window,document) {
     return;
   }
 
-
-
   // Initialize the map
   function initMaps (el, i) {
     console.log(el)
@@ -125,7 +123,7 @@ export default (function (window,document) {
         el.style.cursor='default';
       } else {
         let locked = true;
-        const containerID = 'lockStatus';
+        const containerID = id + '_lockStatus';
         const setStatusText = (status) => status ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
         const customControl =  L.Control.extend({
           options: {
@@ -192,7 +190,5 @@ export default (function (window,document) {
       initMaps(el, i);
     })
   })
-
-  
 
 })(window,document);
