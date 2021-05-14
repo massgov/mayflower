@@ -31,7 +31,9 @@ export default (function (window,document) {
         minZoom: 8,
         scrollWheelZoom: false,
         dragging: false
-        // maxBounds,
+        // maxBounds is disabled due to unexpected shifting when popups are hitting the boundaries.
+        // This can be turned back on when the tiles are large enough so that the min zoom level shows the whole state and have enough tiles padded for popups.
+        // maxBounds, 
       });
       
     // if map is not static, add zoom control with custom position
