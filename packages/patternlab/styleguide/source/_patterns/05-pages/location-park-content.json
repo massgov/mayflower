@@ -135,7 +135,6 @@
     "leafletMap": {
       "isStatic": false,
       "hideAttribution": true,
-      "id": "leaflet-map1",
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
         "text": "Get Directions",
@@ -347,7 +346,6 @@
     "leafletMap": {
       "isStatic": false,
       "hideAttribution": false,
-      "id": "leaflet-map2",
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
         "text": "Get Directions",

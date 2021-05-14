@@ -6,7 +6,6 @@
     "leafletMap": {
       "isStatic": true,
       "hideAttribution": true,
-      "id": "leaflet-map1",
       "map": {
         "center": {
           "lat": 42.594129,

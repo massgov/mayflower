@@ -16,8 +16,6 @@ leafletMap: {
     type: boolean / optional (default to false),
   hideAttribution: 
     type: boolean / optional (default to false),
-  id: 
-    type: string / required (A unique ID for the map)
   map: {
     center: {
       lat:
