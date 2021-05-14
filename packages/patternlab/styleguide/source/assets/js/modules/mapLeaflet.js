@@ -59,25 +59,22 @@ export default (function (window,document) {
       // set bounds by markers
       const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
       function setMapBounds() {
-        console.log('reset bounds')
         mymap.fitBounds(markerArray, {
           padding: [60, 60]
         })
       }
       setMapBounds();
 
-      document.addEventListener('DOMContentLoaded', function() {
-        // Store the window width
-        let windowWidth = window.innerWidth
-        // Resize Event
-        window.addEventListener("resize", function() {
-            // Check window width has actually changed and it's not just iOS triggering a resize event on scroll
-            if (window.innerWidth != windowWidth) {
-                // Update the window width for next time
-                windowWidth = window.innerWidth
-                window.addEventListener('resize', setMapBounds);
-            }
-          })
+      // Store the window width
+      let windowWidth = window.innerWidth
+      // Resize Event
+      window.addEventListener("resize", function() {
+          // Check window width has actually changed and it's not just iOS triggering a resize event on scroll
+          if (window.innerWidth != windowWidth) {
+              // Update the window width for next time
+              windowWidth = window.innerWidth
+              window.addEventListener('resize', setMapBounds);
+          }
       })
     }
 
