@@ -127,7 +127,7 @@ export default (function (window,document) {
       mapWrapper.style.cursor='default';
     } else {
       let locked = true;
-      const containerID = id + '_lockStatus';
+      const containerID = `map${i}_lockStatus`;
       const setStatusText = (status) => status ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
       const customControl =  L.Control.extend({
         options: {
