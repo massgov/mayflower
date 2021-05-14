@@ -20,3 +20,9 @@ Changed:
     description: Change scss file name from `_google-map.scss` to `_map-google.scss`. (#1388, #1391)
     issue: DP-21554
     impact: Minor
+Removed:
+  - project: Patternlab
+    component: LocationGeneralPage
+    description: Remove MapLeaflet from the Location General Page. (#1388)
+    issue: DP-21554
+    impact: Minor
