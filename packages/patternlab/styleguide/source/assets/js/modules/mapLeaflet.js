@@ -10,7 +10,9 @@ export default (function (window,document) {
 
   // Initialize the map
   function initMaps (el, i) {
-    console.log(el)
+
+    const mapWrapper = el;
+    console.log(mapWrapper)
 
     const compiledTemplate = getTemplate('mapMarkerInfo');
 
@@ -23,7 +25,7 @@ export default (function (window,document) {
     // const maxBounds = L.latLngBounds(corner1, corner2);
 
     const mymap = L
-      .map(el, {
+      .map(mapWrapper, {
         center: [map.center.lat, map.center.lng],
         zoom: map.zoom || 0,
         zoomControl: false,
@@ -49,7 +51,7 @@ export default (function (window,document) {
     .addTo(mymap);
 
     if (hideAttribution) {
-      el.querySelector('.leaflet-control-attribution').style.display = 'none';
+      mapWrapper.querySelector('.leaflet-control-attribution').style.display = 'none';
     }
     
     // if zoom is not specified, set map bounds automatically by markers
@@ -122,7 +124,7 @@ export default (function (window,document) {
       mymap.boxZoom.disable();
       mymap.keyboard.disable();
       if (mymap.tap) mymap.tap.disable();
-      el.style.cursor='default';
+      mapWrapper.style.cursor='default';
     } else {
       let locked = true;
       const containerID = id + '_lockStatus';
@@ -147,6 +149,7 @@ export default (function (window,document) {
       const container = L.DomUtil.get(containerID);
 
       const unlockMove = () => {
+        console.log(id)
         locked = false;
         container.innerHTML = setStatusText(locked);
         //mymap.scrollWheelZoom.enable(); 
@@ -155,6 +158,7 @@ export default (function (window,document) {
 
       const lockMove = () => {
         locked = true;
+        console.log(id)
         container.innerHTML = setStatusText(locked);
         mymap.scrollWheelZoom.disable(); 
         mymap.dragging.disable();
@@ -165,8 +169,8 @@ export default (function (window,document) {
 
       // Markers and popup are not recognized as part of the map object on events, hence needs custom events to simulate onblur on the map and its children elements.
       const customBlur = (target) => {
-        const inMap = el.contains(target)
-        console.log(id, el, target, inMap)
+        const inMap = mapWrapper.contains(target)
+        // console.log(id, mapWrapper, target, inMap)
         if (!inMap) {
           lockMove();
         }
