@@ -12,12 +12,11 @@ export default (function (window,document) {
   function initMaps (el, i) {
 
     const mapWrapper = el;
-    console.log(mapWrapper)
 
     const compiledTemplate = getTemplate('mapMarkerInfo');
 
     // Get the maps data (this could be replaced with an api)
-    const { id, map, markers, isStatic=0, hideAttribution=0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
+    const { map, markers, isStatic=0, hideAttribution=0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
     // max bounds
     // const corner1 = L.latLng(43.12916191721289, -67.40279674530031); //northEast
@@ -146,7 +145,6 @@ export default (function (window,document) {
       const container = L.DomUtil.get(containerID);
 
       const unlockMove = () => {
-        console.log(id)
         locked = false;
         container.innerHTML = setStatusText(locked);
         //mymap.scrollWheelZoom.enable(); 
@@ -155,7 +153,6 @@ export default (function (window,document) {
 
       const lockMove = () => {
         locked = true;
-        console.log(id)
         container.innerHTML = setStatusText(locked);
         mymap.scrollWheelZoom.disable(); 
         mymap.dragging.disable();
@@ -167,7 +164,6 @@ export default (function (window,document) {
       // Markers and popup are not recognized as part of the map object on events, hence needs custom events to simulate onblur on the map and its children elements.
       const customBlur = (target) => {
         const inMap = mapWrapper.contains(target)
-        // console.log(id, mapWrapper, target, inMap)
         if (!inMap) {
           lockMove();
         }
@@ -175,7 +171,6 @@ export default (function (window,document) {
 
       document.onclick = (e) => {
         const { target } = e;
-        // console.log(target)
         customBlur(target)
       };
 
