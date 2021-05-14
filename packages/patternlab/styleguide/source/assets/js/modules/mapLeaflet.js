@@ -14,175 +14,177 @@ export default (function (window,document) {
 
     const compiledTemplate = getTemplate('mapMarkerInfo');
 
-      // Get the maps data (this could be replaced with an api)
-      const { id, map, markers, isStatic=0, hideAttribution=0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
+    // Get the maps data (this could be replaced with an api)
+    const { id, map, markers, isStatic=0, hideAttribution=0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
-      // max bounds
-      // const corner1 = L.latLng(43.12916191721289, -67.40279674530031); //northEast
-      // const corner2 = L.latLng(41.09188542307055, -76.28524303436281); //southWest
-      // const maxBounds = L.latLngBounds(corner1, corner2);
+    // max bounds
+    // const corner1 = L.latLng(43.12916191721289, -67.40279674530031); //northEast
+    // const corner2 = L.latLng(41.09188542307055, -76.28524303436281); //southWest
+    // const maxBounds = L.latLngBounds(corner1, corner2);
 
-      let mymap = L
-        .map(el, {
-          center: [map.center.lat, map.center.lng],
-          zoom: map.zoom || 0,
-          zoomControl: false,
-          minZoom: 8,
-          scrollWheelZoom: false,
-          dragging: false
-          // maxBounds,
-        });
+    const mymap = L
+      .map(el, {
+        center: [map.center.lat, map.center.lng],
+        zoom: map.zoom || 0,
+        zoomControl: false,
+        minZoom: 8,
+        scrollWheelZoom: false,
+        dragging: false
+        // maxBounds,
+      });
       
-      // if map is not static, add zoom control with custom position
-      if (!isStatic) {
-        L.control.zoom({
-            position: 'bottomleft'
-        })
-        .addTo(mymap);
-      }
-
-      // add tile layer image to map
-      L
-      .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
-          attribution: 'Source: <a href ="https://www.mass.gov/service-details/about-massgis">MassGIS</a>'
+    // if map is not static, add zoom control with custom position
+    if (!isStatic) {
+      L.control.zoom({
+          position: 'bottomleft'
       })
       .addTo(mymap);
+    }
 
-      if (hideAttribution) {
-        el.querySelector('.leaflet-control-attribution').style.display = 'none';
-      }
-      
-      // if zoom is not specified, set map bounds automatically by markers
-      if (!map.zoom) {
-        // set bounds by markers
-        const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
-        function setMapBounds() {
-          console.log('reset bounds')
-          mymap.fitBounds(markerArray, {
-            padding: [60, 60]
-          })
-        }
-        setMapBounds();
+    // add tile layer image to map
+    L
+    .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Source: <a href ="https://www.mass.gov/service-details/about-massgis">MassGIS</a>'
+    })
+    .addTo(mymap);
 
-        document.addEventListener('DOMContentLoaded', function() {
-          // Store the window width
-          let windowWidth = window.innerWidth
-          // Resize Event
-          window.addEventListener("resize", function() {
-              // Check window width has actually changed and it's not just iOS triggering a resize event on scroll
-              if (window.innerWidth != windowWidth) {
-                  // Update the window width for next time
-                  windowWidth = window.innerWidth
-                  window.addEventListener('resize', setMapBounds);
-              }
-            })
+    if (hideAttribution) {
+      el.querySelector('.leaflet-control-attribution').style.display = 'none';
+    }
+    
+    // if zoom is not specified, set map bounds automatically by markers
+    if (!map.zoom) {
+      // set bounds by markers
+      const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
+      function setMapBounds() {
+        console.log('reset bounds')
+        mymap.fitBounds(markerArray, {
+          padding: [60, 60]
         })
       }
+      setMapBounds();
 
-       // custom marker icon 
-       var markerIcon = L.icon({
-        iconUrl: `${ma.iconPath}/marker-blue.svg`,
+      document.addEventListener('DOMContentLoaded', function() {
+        // Store the window width
+        let windowWidth = window.innerWidth
+        // Resize Event
+        window.addEventListener("resize", function() {
+            // Check window width has actually changed and it's not just iOS triggering a resize event on scroll
+            if (window.innerWidth != windowWidth) {
+                // Update the window width for next time
+                windowWidth = window.innerWidth
+                window.addEventListener('resize', setMapBounds);
+            }
+          })
+      })
+    }
 
-        iconSize: [50, 50],
-        iconAnchor: [25, 50], 
-        /* The coordinates of the "tip" of the icon (relative to its top left corner). The icon will be aligned so that this point is at the marker's geographical location. Centered by default if size is specified, also can be set in CSS with negative margins.
-         see leaflet docs: https://leafletjs.com/reference-1.7.1.html#icon-iconanchor
-        */
-        popupAnchor: [0, -50],
-        shadowUrl: ''
+    // custom marker icon 
+    var markerIcon = L.icon({
+      iconUrl: `${ma.iconPath}/marker-blue.svg`,
+
+      iconSize: [50, 50],
+      iconAnchor: [25, 50], 
+      /* The coordinates of the "tip" of the icon (relative to its top left corner). The icon will be aligned so that this point is at the marker's geographical location. Centered by default if size is specified, also can be set in CSS with negative margins.
+        see leaflet docs: https://leafletjs.com/reference-1.7.1.html#icon-iconanchor
+      */
+      popupAnchor: [0, -50],
+      shadowUrl: ''
     });
 
-      // add markers to map 
-      markers.forEach(({ position, infoWindow}) => {
-        const mymarker = L.marker(
-          L.latLng(
-            +position.lat,
-            +position.lng
-          ), {
-            icon: markerIcon,
-            interactive: !isStatic
-          })
-        .addTo(mymap)
-        .bindPopup(compiledTemplate(infoWindow));
+    // add markers to map 
+    markers.forEach(({ position, infoWindow}) => {
+      const mymarker = L.marker(
+        L.latLng(
+          +position.lat,
+          +position.lng
+        ), {
+          icon: markerIcon,
+          interactive: !isStatic
+        })
+      .addTo(mymap)
+      .bindPopup(compiledTemplate(infoWindow));
 
+      if (!isStatic) {
         // popup close onclick is not recognized as a click event inside of the map in order to regain focus
         // Fire the map focus callback on popup close
-        mymarker.on('popupclose', function(e) {
+        mymarker.on('popupclose', function() {
           mymap.fire('focus');
         });
-      })
+      }
+    })
 
 
-      // disable map interactions if is static 
-      if (isStatic) {
-        mymap.touchZoom.disable();
-        mymap.doubleClickZoom.disable();
-        mymap.boxZoom.disable();
-        mymap.keyboard.disable();
-        if (mymap.tap) mymap.tap.disable();
-        el.style.cursor='default';
-      } else {
-        let locked = true;
-        const containerID = id + '_lockStatus';
-        const setStatusText = (status) => status ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
-        const customControl =  L.Control.extend({
-          options: {
-            position: 'topleft'
-          }, 
-          onAdd: function (map) {
-            var container = L.DomUtil.create('div', 'leaflet-control-attribution');
-            container.id=containerID;
-            container.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';   
-            container.style.padding = '3px';
-            container.innerHTML = setStatusText(locked)
-        
-            return container;
-          }
-        });
-
-        mymap.addControl(new customControl());
-
-        const container = L.DomUtil.get(containerID);
-
-        const unlockMove = () => {
-          locked = false;
-          container.innerHTML = setStatusText(locked);
-          //mymap.scrollWheelZoom.enable(); 
-          mymap.dragging.enable();
+    // disable map interactions if is static 
+    if (isStatic) {
+      mymap.touchZoom.disable();
+      mymap.doubleClickZoom.disable();
+      mymap.boxZoom.disable();
+      mymap.keyboard.disable();
+      if (mymap.tap) mymap.tap.disable();
+      el.style.cursor='default';
+    } else {
+      let locked = true;
+      const containerID = id + '_lockStatus';
+      const setStatusText = (status) => status ? 'Click or tap INSIDE map to move the map' : 'Click or tap OUTSIDE map to scroll the page';
+      const customControl =  L.Control.extend({
+        options: {
+          position: 'topleft'
+        }, 
+        onAdd: function (map) {
+          var container = L.DomUtil.create('div', 'leaflet-control-attribution');
+          container.id=containerID;
+          container.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';   
+          container.style.padding = '3px';
+          container.innerHTML = setStatusText(locked)
+      
+          return container;
         }
+      });
 
-        const lockMove = () => {
-          locked = true;
-          container.innerHTML = setStatusText(locked);
-          mymap.scrollWheelZoom.disable(); 
-          mymap.dragging.disable();
-        }
-        /* Prevent scolling/swiping ambiguity
-        ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
-        mymap.on('focus', unlockMove);
+      mymap.addControl(new customControl());
 
-        // Markers and popup are not recognized as part of the map object on events, hence needs custom events to simulate onblur on the map and its children elements.
-        const customBlur = (target) => {
-          const inMap = el.contains(target)
-          console.log(id, el, target, inMap)
-          if (!inMap) {
-            lockMove();
-          }
-        }
+      const container = L.DomUtil.get(containerID);
 
-        document.onclick = (e) => {
-          const { target } = e;
-          // console.log(target)
-          customBlur(target)
-        };
+      const unlockMove = () => {
+        locked = false;
+        container.innerHTML = setStatusText(locked);
+        //mymap.scrollWheelZoom.enable(); 
+        mymap.dragging.enable();
+      }
 
-        document.onkeyup = (e) => {
-          if (e.key == 'Tab') {
-          const target = document.activeElement;
-          customBlur(target)
-        };
+      const lockMove = () => {
+        locked = true;
+        container.innerHTML = setStatusText(locked);
+        mymap.scrollWheelZoom.disable(); 
+        mymap.dragging.disable();
+      }
+      /* Prevent scolling/swiping ambiguity
+      ** Only enable scroll zoom and pane if map is in focus, and disable after user click outside of the map */
+      mymap.on('focus', unlockMove);
+
+      // Markers and popup are not recognized as part of the map object on events, hence needs custom events to simulate onblur on the map and its children elements.
+      const customBlur = (target) => {
+        const inMap = el.contains(target)
+        console.log(id, el, target, inMap)
+        if (!inMap) {
+          lockMove();
         }
       }
+
+      document.onclick = (e) => {
+        const { target } = e;
+        // console.log(target)
+        customBlur(target)
+      };
+
+      document.onkeyup = (e) => {
+        if (e.key == 'Tab') {
+          const target = document.activeElement;
+          customBlur(target)
+        }
+      }
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function() {
