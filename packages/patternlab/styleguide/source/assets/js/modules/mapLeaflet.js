@@ -10,6 +10,8 @@ export default (function (window,document) {
 
   // Initialize the map
   function initMaps (el, i) {
+    // Timestamp for testing purposes
+    console.log(new Date().toLocaleTimeString())
 
     const mapWrapper = el;
 
