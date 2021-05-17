@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [MapGoogle, MapLeaflet] DP-21554: Change JS file name from `googleMap.js` to `mapGoogle.js`. (#1388,
 - (Assets) [MapGoogle, MapLeaflet] DP-21554: Change scss file name from `_google-map.scss` to `_map-google.scss`. (#1388,
 - (Patternlab) [Utility nav panel] DP-21816: Remove h2 from utility nav panel title. (#1407)
-- (React, Patternlab) [Fonts] DP-21883: Addded a query string with a version to -VF.woff2 fonts for caching. (#1410)
+- (React, Patternlab) [Fonts] DP-21883: Added a query string with a version to -VF.woff2 fonts for caching. (#1410)
 
 ### Removed 
 - (Patternlab) [LocationGeneralPage] DP-21554: Remove MapLeaflet from the Location General Page. (#1388)
