@@ -161,18 +161,9 @@ $heading-indent: $gutter;
 
   // List styles
 
-  ul, ol {
-    margin-left: -40px;
-    list-style-position: inside;
-
-    ul, ol {
-      margin-left: -40px;
-    }
-  }
-
   ul {
     margin-bottom: $rich-text-spacing-mobile;
-    padding-left: 30px;
+    padding-left: 20px;
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
@@ -253,6 +244,19 @@ $heading-indent: $gutter;
   & > :last-child {
     margin-bottom: 0 !important;
   }
+}
+
+// Fix display issue after left floated image.
+.page-content .ma__rich-text {
+    // @media all and (-ms-high-contrast:none) {
+      // IE11 fix
+
+      ul,
+      ol {
+        margin-left: -40px;
+        list-style-position: inside;
+      }
+    // }
 }
 
 //theme
