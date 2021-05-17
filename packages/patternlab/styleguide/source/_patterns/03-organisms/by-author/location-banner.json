@@ -3,13 +3,19 @@
     "bgTitle": "Mt Greylock State Park",
     "bgNarrow": "../../assets/images/placeholder/800x400.png",
     "id": "GUID24872901570",
-    "googleMap": {
+    "leafletMap": {
+      "isStatic": false,
+      "hideAttribution": true,
       "map": {
         "center": {
           "lat": 42.594129,
           "lng": -73.183715
-        },
-        "zoom": 12
+        }
+      },
+      "link": {
+        "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
+        "text": "Get Directions",
+        "info": "Department of Conservation and Recreation"
       },
       "markers": [
         {

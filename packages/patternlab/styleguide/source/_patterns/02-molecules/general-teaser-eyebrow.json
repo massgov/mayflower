@@ -1,3 +1,6 @@
 {
-  "eyebrow": "Eyebrow"
+  "eyebrow": {
+    "icon": "data",
+    "label": "Eyebrow"    
+  }
 }

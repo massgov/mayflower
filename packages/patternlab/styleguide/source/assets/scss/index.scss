@@ -89,7 +89,6 @@
 @use "02-molecules/footer-links";
 @use "02-molecules/footnote";
 @use "02-molecules/general-teaser";
-@use "02-molecules/google-map";
 @use "02-molecules/header-contact";
 @use "02-molecules/header-search";
 @use "02-molecules/header-tags";
@@ -106,6 +105,8 @@
 @use "02-molecules/location-icons";
 @use "02-molecules/main-nav";
 @use "02-molecules/main-nav-hamburger";
+@use "02-molecules/map-google";
+@use "02-molecules/map-leaflet";
 @use "02-molecules/org-info";
 @use "02-molecules/org-selector";
 @use "02-molecules/page-intro";
