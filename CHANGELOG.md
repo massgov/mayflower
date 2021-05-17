@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 - (Assets) [Icons] DP-21763: Added `pin.svg`, `data.svg` and `catalog.svg`. (#1402)
 
 ### Changed 
-- (Patternlab) [LocationBanner, MappedLocations, Location template and pages, Organization and Sevices template and pages] DP-21554: Switch out interative and static google maps with leaflet maps. (#1388,
+- (Patternlab) [LocationBanner, MappedLocations, Location template and pages, Organization and Sevices template and pages] DP-21554: Switch out interactive and static google maps with leaflet maps. (#1388,
 - (Patternlab) [MapGoogle, MapLeaflet] DP-21554: Change JS file name from `googleMap.js` to `mapGoogle.js`. (#1388,
 - (Assets) [MapGoogle, MapLeaflet] DP-21554: Change scss file name from `_google-map.scss` to `_map-google.scss`. (#1388,
 - (Patternlab) [Utility nav panel] DP-21816: Remove h2 from utility nav panel title. (#1407)
