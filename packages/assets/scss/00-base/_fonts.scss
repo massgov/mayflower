@@ -38,7 +38,11 @@
 }
 
 @supports ( font-variation-settings: normal ) {
-  /* The variable font of Noto Sans */
+  /* The variable font of Noto Sans.
+   *
+   * Update the version '?version=1' in openmass when changes occurs to the font files for caching.
+   * See https://github.com/massgov/openmass/blob/develop/docroot/themes/custom/mass_theme/templates/layout/html.html.twig#L38
+  */
 
   @font-face {
     font-family: 'Noto Sans VF';
@@ -50,7 +54,11 @@
     font-style: normal;
     font-display: $fonts-display-global;
   }
-  /* The variable font of Noto Sans Italic */
+  /* The variable font of Noto Sans Italic.
+   *
+   * Update the version '?version=1' in openmass when changes occurs to the font files for caching.
+   * See https://github.com/massgov/openmass/blob/develop/docroot/themes/custom/mass_theme/templates/layout/html.html.twig#L38
+  */
 
   @font-face {
     font-family: 'Noto Sans VF';
