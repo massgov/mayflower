@@ -1,6 +1,0 @@
-Changed:
-  - project: React, Patternlab
-    component: Fonts
-    description: Addded a query string with a version to -VF.woff2 fonts for caching. (#1410)
-    issue: DP-21883
-    impact: Minor

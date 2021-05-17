@@ -1,6 +1,22 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.5.0 (5/17/2021)
+### Added 
+- (Patternlab) [MapLeaflet] DP-21554: Added MapLeaflet molecule and variants. (#1388,
+- (Patternlab) [GeneralTeaser] DP-21763: Extended the GeneralTeaser component to render tags, icon in eyebrow, and upperRight content. Added the `general-teaser-data` variant in Patternlab. (#1402)
+- (Assets) [Icons] DP-21763: Added `pin.svg`, `data.svg` and `catalog.svg`. (#1402)
+
+### Changed 
+- (Patternlab) [LocationBanner, MappedLocations, Location template and pages, Organization and Sevices template and pages] DP-21554: Switch out interactive and static google maps with leaflet maps. (#1388,
+- (Patternlab) [MapGoogle, MapLeaflet] DP-21554: Change JS file name from `googleMap.js` to `mapGoogle.js`. (#1388,
+- (Assets) [MapGoogle, MapLeaflet] DP-21554: Change scss file name from `_google-map.scss` to `_map-google.scss`. (#1388,
+- (Patternlab) [Utility nav panel] DP-21816: Remove h2 from utility nav panel title. (#1407)
+- (React, Patternlab) [Fonts] DP-21883: Added a query string with a version to -VF.woff2 fonts for caching. (#1410)
+
+### Removed 
+- (Patternlab) [LocationGeneralPage] DP-21554: Remove MapLeaflet from the Location General Page. (#1388)
+
 ## 11.4.2 (5/10/2021)
 ### Fixed 
 - (Patternlab) [InfomationDetails] DP-21686: Change info details page content data from object to array for flexibility, cleanup unused data and render video in preContent-media variant page (#1393)
