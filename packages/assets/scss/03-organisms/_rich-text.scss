@@ -246,17 +246,17 @@ $heading-indent: $gutter;
   }
 }
 
-// Fix display issue after left floated image.
-.page-content .ma__rich-text {
-    // @media all and (-ms-high-contrast:none) {
-      // IE11 fix
+// Fix display issue after left floated image in IE11.
 
-      ul,
-      ol {
-        margin-left: -40px;
-        list-style-position: inside;
-      }
-    // }
+@media all and (-ms-high-contrast:none) {
+
+  .page-content .ma__rich-text {
+    ul,
+    ol {
+      margin-left: -40px;
+      list-style-position: inside;
+    }
+  }
 }
 
 //theme
