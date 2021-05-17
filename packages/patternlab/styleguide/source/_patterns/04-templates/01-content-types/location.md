@@ -9,13 +9,14 @@ This Pattern is a variant of the [details](./?p=templates-details) template that
 * Page Header
 * Location Banner
 * Colored Heading
+* Map Leaflet
 * Sticky Nav
 * Contact List
 * This template contains [Twig Blocks](https://twig.symfony.com/doc/2.x/tags/extends.html) that can be used to populated the Page Content, Right Rail, or Post Content sections with patterns found in Mayflower
 
 ### JavaScript Used
 * Contact List Accordion (js/modules/accordions.js)
-* Google Map (js/modules/googleMap.js)
+* Map Leaflet (js/modules/mapLeaflet.js)
 * Sticky Nav (js/modules/scrollAnchors.js)
 
 ### Variables

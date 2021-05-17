@@ -132,30 +132,37 @@
     "bgWide": "../../assets/images/placeholder/1600x400.png",
     "bgNarrow": "../../assets/images/placeholder/800x400.png",
     "id": "GUID24872901570",
-    "googleMap": {
-      "static": true,
+    "leafletMap": {
+      "isStatic": false,
+      "hideAttribution": true,
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
         "text": "Get Directions",
-        "info": "Mt Greylock State Park"
+        "info": "Department of Conservation and Recreation"
       },
-      "picture": {
-        "defaultImage": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
-        "srcSets": [
-          {
-            "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=600x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=ZfVgzAGuHDGCUTdazkS3WBiiOWY",
-            "width": "1050"
+      "map": {
+        "center": {
+          "lat": 42.594129,
+          "lng": -73.183715
+        }
+      },
+      "markers": [
+        {
+          "position": {
+            "lat": 42.554129,
+            "lng": -73.213715
           },
-          {
-            "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=900x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=AyfGhMXOhfcl8477bpZjzEOyslE",
-            "width": "780"
-          },
-          {
-            "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
-            "width": "620"
+          "label": "V",
+          "infoWindow": {
+            "name": "Visitor's Center",
+            "phone": "14134994262",
+            "fax": "",
+            "email": "mass.parks@state.ma.us",
+            "address": "30 Rockwell Road\nLanesborough, MA 01237",
+            "directions": "https://www.google.com/maps/place/30+Rockwell+Rd,+Cheshire,+MA+01225"
           }
-        ]
-      }
+        }
+      ]
     }
   },
   "stickyNav": {
@@ -336,13 +343,19 @@
         }
       ]
     },
-    "googleMap": {
+    "leafletMap": {
+      "isStatic": false,
+      "hideAttribution": false,
+      "link": {
+        "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
+        "text": "Get Directions",
+        "info": "Department of Conservation and Recreation"
+      },
       "map": {
         "center": {
           "lat": 42.594129,
           "lng": -73.183715
-        },
-        "zoom": 12
+        }
       },
       "markers": [
         {

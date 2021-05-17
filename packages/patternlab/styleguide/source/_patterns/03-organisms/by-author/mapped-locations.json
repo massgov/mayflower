@@ -14,13 +14,14 @@
       "href": "#",
       "text":"All Locations"
     },
-    "googleMap": {
+    "leafletMap": {
+      "isStatic": false,
+      "hideAttribution": false,
       "map": {
         "center": {
           "lat": 42.366565,
           "lng": -71.058940
-        },
-        "zoom": 16
+        }
       },
       "markers": [{
         "position": {

@@ -7,10 +7,10 @@
       {% endif %}
     </div>
   {% endif %}
-  {% if mappedLocations.googleMap %}
+  {% if mappedLocations.leafletMap %}
     <div class="ma__mapped-locations__map">
-      {% set googleMap = mappedLocations.googleMap %}
-      {% include "@molecules/google-map.twig" %}
+      {% set leafletMap = mappedLocations.leafletMap %}
+      {% include "@molecules/map-leaflet.twig" %}
     </div>
   {% endif %}
   {% if mappedLocations.paragraph or mappedLocations.button %}

@@ -159,6 +159,12 @@ export default (function (window,document,$,undefined) {
   function initMarkers(map, markers) {
     let initializedMarkers = [];
     markers.forEach(function(data) {
+      let markerIcon = {
+          url: `${ma.iconPath}/marker-blue.svg`, // url
+          scaledSize: new google.maps.Size(50, 50), // scaled size
+          origin: new google.maps.Point(0,0), // origin
+          anchor: new google.maps.Point(25, 30) // anchor
+      };
       let markerData = {
         position: new google.maps.LatLng({
           lat: data.position.lat,
@@ -166,11 +172,13 @@ export default (function (window,document,$,undefined) {
         }),
         label: data.label,
         infoWindow: data.infoWindow,
-        title: 'Marker: ' + sanitizeText(data.infoWindow.name)
+        title: 'Marker: ' + sanitizeText(data.infoWindow.name),
+        icon: markerIcon
       };
       let marker =  new google.maps.Marker(markerData);
+      
       let infoData = infoTransform(markerData.infoWindow);
-      let compiledTemplate = getTemplate('googleMapInfo');
+      let compiledTemplate = getTemplate('mapMarkerInfo');
       let template = compiledTemplate(infoData);
       let infoWindow = new google.maps.InfoWindow({
         content: template
@@ -247,8 +255,8 @@ export default (function (window,document,$,undefined) {
    *    (508) 222-5900
    */
   function formatPhone(phone) {
-    let phoneTemp = phone[0] === '1' ? phone.substring(1) : phone;
-    return phoneTemp.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+    let phoneTemp = phone && phone[0] === '1' ? phone.substring(1) : phone;
+    return phoneTemp ? phoneTemp.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') : null;
   }
 
   /**
