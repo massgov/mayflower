@@ -8,7 +8,7 @@ A google map with a title, paragraph, and see all button
 * Comp Heading
 * Paragraph
 * Button
-* Google Map
+* Map Leaflet
 
 ### Variant options
 * Wrapped in a colored [container](./?p=organisms-mapped-locations-contained)

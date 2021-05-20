@@ -778,13 +778,12 @@
       "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
       "text": "All Locations"
     },
-    "googleMap": {
+    "leafletMap": {
       "map": {
         "center": {
           "lat": 42.366565,
           "lng": -71.058940
-        },
-        "zoom": 16
+        }
       },
       "markers": [
         {
@@ -792,7 +791,6 @@
             "lat": 42.366565,
             "lng": -71.058940
           },
-          "label": "A",
           "infoWindow": {
             "name": "Department of Conservation and Recreation",
             "phone": "16176261250",
@@ -806,7 +804,6 @@
             "lat": 42.358795,
             "lng": -71.063858
           },
-          "label": "B",
           "infoWindow": {
             "name": "Department of Recreation and Fun",
             "phone": "16176261250",

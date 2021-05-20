@@ -97,6 +97,7 @@ dependencies:
   jquery: 3.5.1
   jscodeshift: 0.10.0
   lazypipe: 1.0.2
+  leaflet: 1.7.1
   markdown-it: 10.0.0
   mdn-polyfills: 5.20.0
   merge-stream: 1.0.1
@@ -16857,6 +16858,10 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-bxT5mje+Op3XhPVJVpDlkDRm7kI=
+  /leaflet/1.7.1:
+    dev: false
+    resolution:
+      integrity: sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw==
   /leven/3.1.0:
     dev: false
     engines:
@@ -26843,6 +26848,7 @@ packages:
       handlebars: 4.7.6
       jquery: 3.5.1
       lazypipe: 1.0.2
+      leaflet: 1.7.1
       mdn-polyfills: 5.20.0
       merge-stream: 1.0.1
       moment: 2.29.1
@@ -26862,7 +26868,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-FEwFJMovCJbz36YZHWgSj1Ubtok/M22HJPHfxttUb6HEX6ElQ99KqAJW5USSWaWcKLiy0hkbSeAPiPQUIThW5w==
+      integrity: sha512-tNCaAaUG+raFnB2SaiODirrQUwBxN0MwB8Bwy67MxGIarbF63qblIZ650MhvoozTIsmnxt9UhfJ/GFjAqzSqng==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
 registry: ''
@@ -26965,6 +26971,7 @@ specifiers:
   jquery: ~3.5.1
   jscodeshift: ^0.10.0
   lazypipe: ^1.0.1
+  leaflet: ~1.7.1
   markdown-it: ^10.0.0
   mdn-polyfills: ^5.16.0
   merge-stream: ^1.0.1

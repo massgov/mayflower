@@ -123,13 +123,19 @@
     "bgWide":"../../assets/images/placeholder/1600x400.png",
     "bgNarrow":"../../assets/images/placeholder/800x400.png",
     "id": "GUID24872901570",
-    "googleMap": {
+    "leafletMap": {
+      "isStatic": false,
+      "hideAttribution": true,
       "map": {
         "center": {
           "lat": 42.594129,
           "lng": -73.183715
-        },
-        "zoom": 12
+        }
+      },
+      "link": {
+        "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
+        "text": "Get Directions",
+        "info": "Department of Conservation and Recreation"
       },
       "markers": [{
         "position": {
@@ -142,19 +148,6 @@
           "phone": "14134994262",
           "fax": "",
           "email": "mass.parks@state.ma.us",
-          "address": "30 Rockwell Road\nLanesborough, MA 01237"
-        }
-      },{
-        "position": {
-          "lat": 42.636875,
-          "lng": -73.166921
-        },
-        "label": "B",
-        "infoWindow": {
-          "name": "Bascom Lodge",
-          "phone": "14137431591",
-          "fax": "",
-          "email": "mail@bascomlodge.net",
           "address": "30 Rockwell Road\nLanesborough, MA 01237"
         }
       }]
