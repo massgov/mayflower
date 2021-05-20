@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: List
+    description: Fix bullets and list numbers overwrapped with left floated elements in IE11. (#1412)
+    issue: DP-21660
+    impact: Patch
