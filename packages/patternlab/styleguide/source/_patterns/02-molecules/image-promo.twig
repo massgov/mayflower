@@ -7,7 +7,7 @@
         {% if imagePromo.image.width %}
           style="flex-basis: {{ imagePromo.image.width }}px"
         {% endif %}
-        {{ imagePromos.ariaHidden ? 'aria-hidden="true"' : '' }}>
+        {{ imagePromo.image.ariaHidden ? 'aria-hidden="true"' : '' }}>
         {% if imagePromo.image.href %}
           <a href="{{ imagePromo.image.href }}">
         {% endif %}
