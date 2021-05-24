@@ -7,6 +7,7 @@
     },
     "level": "",
     "tags": null,
+    "ariaHidden": false,
     "image": {
       "src":"../../assets/images/placeholder/190x107.png",
       "alt": "placeholder image",
