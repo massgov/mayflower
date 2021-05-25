@@ -1,7 +1,7 @@
 Changed:
   - project: React, Patternlab
     component: FooterLinks
-    description: Correct semantics of footer navigation. (#)
+    description: Correct semantics of footer navigation. (#1421)
     issue: DP-7874
     impact: Minor
     
