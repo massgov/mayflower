@@ -1,6 +1,11 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.5.1 (5/24/2021)
+### Fixed 
+- (Patternlab) [List] DP-21660: Fix bullets and list numbers overwrapped with left floated elements in IE11. (#1412)
+- (Patternlab) [LocationListing] DP-22079: Fixed location listing pagination error, and fixed auto complete. (#1416)
+
 ## 11.5.0 (5/17/2021)
 ### Added 
 - (Patternlab) [MapLeaflet] DP-21554: Added MapLeaflet molecule and variants. (#1388,
