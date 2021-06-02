@@ -51,7 +51,6 @@
   max-width: 480px;
 
   @media ($bp-small-max) {
-    border-bottom: 1px solid;
     margin-bottom: 20px;
     padding-bottom: 20px;
     text-align: center;
@@ -67,9 +66,5 @@
     @include span-columns(2 of 9);
 
     @include shift(1 of 9);
-  }
-
-  @media ($bp-small-max) {
-    border-bottom-color: $c-bd-divider;
   }
 }
