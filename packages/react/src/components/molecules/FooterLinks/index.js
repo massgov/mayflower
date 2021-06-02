@@ -7,6 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+import Heading from 'MayflowerReactHeadings/Heading';
 
 const FooterLinks = (footerLinks) => (
   <nav className="ma__footer-links" aria-label="Footer navigation">
@@ -22,7 +23,7 @@ const FooterLinks = (footerLinks) => (
 const FooterLinksNav = (footerLinksNav) => (
   <div className={`ma__footer-links__nav ${footerLinksNav.showNavHeading ? ' ma__footer-links__nav--heading' : ''}`}>
     {
-      footerLinksNav.showNavHeading ? <SidebarHeading title={footerLinksNav.heading} level={2} /> : <h2 className="visually-hidden">{footerLinksNav.heading}</h2>
+      footerLinksNav.showNavHeading ? <SidebarHeading title={footerLinksNav.heading} level={footerLinksNav.headingLevel || 2} /> : <Heading text={footerLinksNav.heading} level={footerLinksNav.headingLevel || 2} class="visually-hidden" />
     }
     <ul className="ma__footer-links__items">
       {
@@ -49,10 +50,10 @@ FooterLink.propTypes = {
 };
 
 FooterLinksNav.propTypes = {
-  /** The unique ID for the column of links */
-  id: PropTypes.string.isRequired,
   /** The text for the heading above the column of links, visually hidden from users */
   heading: PropTypes.string.isRequired,
+  /** The heading level above the column of links, default to 2 */
+  headingLevel: PropTypes.number,
   /** The links in the column */
   links: PropTypes.arrayOf(PropTypes.shape(FooterLink.propTypes)).isRequired
 };
