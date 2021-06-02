@@ -24,7 +24,7 @@ const FooterLinksNav = (footerLinksNav) => (
     {
       footerLinksNav.showNavHeading ? <SidebarHeading title={footerLinksNav.heading} level={2} /> : <h2 className="visually-hidden">{footerLinksNav.heading}</h2>
     }
-    <ul className="ma__footer-links__items" >
+    <ul className="ma__footer-links__items">
       {
         footerLinksNav.links.map((link, i) => (
           /* eslint-disable-next-line react/no-array-index-key */
