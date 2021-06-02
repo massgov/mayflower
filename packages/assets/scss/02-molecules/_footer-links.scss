@@ -51,9 +51,17 @@
   max-width: 480px;
 
   @media ($bp-small-max) {
+    border-bottom: 1px solid $c-bd-divider;
     margin-bottom: 20px;
     padding-bottom: 20px;
     text-align: center;
+  }
+
+  &--heading {
+
+    @media ($bp-small-max) {
+      border-bottom: 0;
+    }
   }
 
   @media ($bp-small-min) {
