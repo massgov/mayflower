@@ -1,0 +1,21 @@
+Changed:
+  - project: React, Patternlab
+    component: FooterLinks
+    description: Correct semantics of footer navigation. (#1421)
+    issue: DP-7874
+    impact: Minor
+Removed:
+  - project: React
+    component: FooterLinks
+    description: Remove unused `id` prop. (#1421)
+    issue: DP-7874
+    impact: Minor
+Added:
+  - project: React
+    component: FooterLinks
+    description: Added `headingLevel` prop to allow changing footer links column heading level. (#1421)
+    issue: DP-7874
+    impact: Minor
+
+
+    

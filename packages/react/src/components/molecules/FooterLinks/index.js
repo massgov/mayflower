@@ -7,22 +7,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+import Heading from 'MayflowerReactHeadings/Heading';
 
 const FooterLinks = (footerLinks) => (
-  <section className="ma__footer-links">
+  <nav className="ma__footer-links" aria-label="Footer navigation">
     {
       footerLinks.items.map((footerLinksNav, i) => (
         /* eslint-disable-next-line react/no-array-index-key */
         <FooterLinksNav {...footerLinksNav} showNavHeading={footerLinks.showNavHeading} key={`footerLinksNav_${i}`} index={i} />
       ))
     }
-  </section>
+  </nav>
 );
 
 const FooterLinksNav = (footerLinksNav) => (
-  <nav aria-labelledby={footerLinksNav.id} className={`ma__footer-links__nav ${footerLinksNav.showNavHeading ? ' ma__footer-links__nav--heading' : ''}`}>
+  <div className={`ma__footer-links__nav ${footerLinksNav.showNavHeading ? ' ma__footer-links__nav--heading' : ''}`}>
     {
-      footerLinksNav.showNavHeading ? <SidebarHeading title={footerLinksNav.heading} level={2} /> : <h2 className="visually-hidden" id={footerLinksNav.id}>{footerLinksNav.heading}</h2>
+      footerLinksNav.showNavHeading ? <SidebarHeading title={footerLinksNav.heading} level={footerLinksNav.headingLevel || 2} /> : <Heading text={footerLinksNav.heading} level={footerLinksNav.headingLevel || 2} class="visually-hidden" />
     }
     <ul className="ma__footer-links__items">
       {
@@ -32,7 +33,7 @@ const FooterLinksNav = (footerLinksNav) => (
         ))
       }
     </ul>
-  </nav>
+  </div>
 );
 
 const FooterLink = (footerLink) => (
@@ -49,10 +50,10 @@ FooterLink.propTypes = {
 };
 
 FooterLinksNav.propTypes = {
-  /** The unique ID for the column of links */
-  id: PropTypes.string.isRequired,
   /** The text for the heading above the column of links, visually hidden from users */
   heading: PropTypes.string.isRequired,
+  /** The heading level above the column of links, default to 2 */
+  headingLevel: PropTypes.number,
   /** The links in the column */
   links: PropTypes.arrayOf(PropTypes.shape(FooterLink.propTypes)).isRequired
 };
