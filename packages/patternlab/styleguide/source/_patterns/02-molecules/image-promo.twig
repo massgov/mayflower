@@ -8,9 +8,12 @@
         {% if imagePromo.image.width %}
           style="flex-basis: {{ imagePromo.image.width }}px"
         {% endif %}
-        {{ imagePromo.image.ariaHidden ? 'aria-hidden="true"' : '' }}>
+        {{ imagePromo.image.ariaHidden ? 'aria-hidden="true"' : '' }}
+      >
         {% if imagePromo.image.href %}
-          <a href="{{ imagePromo.image.href }}">
+          <a href="{{ imagePromo.image.href }}"
+          {{ imagePromo.image.ariaHidden ? 'tabindex="-1"' : '' }}
+          >
         {% endif %}
           {% set image = imagePromo.image %}
           {% include "@atoms/09-media/image.twig" %}
