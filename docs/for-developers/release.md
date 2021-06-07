@@ -22,7 +22,7 @@ Mayflower releases are automated using CircleCI and it's scheduled for every **M
 1. A pull request gets created into master with descriptions
 1. **Once all the Circle tests are passed in the PR, review and "Merge" the PR into master.**
 1. **Upon approving the release PR, release the "hold" on `github_tag` in CircleCI.**
-![approve tag release hold](../.gitbook/assets/release-auto.png)
+![approve tag release hold](../assets/release-auto.png)
 1. A release will be cut for Mayflower.
 1. Merge `master` back into `develop`.
 
