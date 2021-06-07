@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: LocationListing
-    description: Add labelContext to assets/js/templates/locationListingRow.html. (#1420)
-    issue: DP-21782
-    impact: Patch
