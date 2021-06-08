@@ -1,6 +1,0 @@
-Added:
-  - project: Patternlab
-    component: HeaderAlert
-    description: Add extra data attributes
-    issue: DP-22191
-    impact: Minor
