@@ -23,5 +23,9 @@ headerAlert: {
     type: string (url) / optional
   info: 
     type: string / required with href
+  title:
+    type: string / optional
+  timestamp:
+    type: date / optional
 }
 ~~~
