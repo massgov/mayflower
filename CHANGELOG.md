@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.8.0 (6/21/2021)
+### Added 
+- (Patternlab) [HeaderAlert] DP-22191: Add extra data attributes
+
 ## 11.6.0 (6/7/2021)
 ### Changed 
 - (Patternlab) [LocationListing] DP-21782: Add labelContext to assets/js/templates/locationListingRow.html. (#1420)
