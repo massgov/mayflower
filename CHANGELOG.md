@@ -1,6 +1,21 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.7.0 (6/8/2021)
+### Added 
+- (Patternlab) [HeaderAlert] DP-22191: Add extra data attributes. (#1422)
+
+## 11.6.0 (6/7/2021)
+### Changed 
+- (Patternlab) [LocationListing] DP-21782: Add labelContext to assets/js/templates/locationListingRow.html. (#1420)
+- (React, Patternlab) [FooterLinks] DP-7874: Correct semantics of footer navigation. (#1421)
+
+### Removed 
+- (React) [FooterLinks] DP-7874: Remove unused `id` prop. (#1421)
+
+### Added 
+- (React) [FooterLinks] DP-7874: Added `headingLevel` prop to allow changing footer links column heading level. (#1421)
+
 ## 11.5.1 (5/24/2021)
 ### Fixed 
 - (Patternlab) [List] DP-21660: Fix bullets and list numbers overwrapped with left floated elements in IE11. (#1412)
