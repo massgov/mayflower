@@ -70,11 +70,15 @@ p {
   margin-bottom: 1rem;
 }
 
+ul ul,
+ol ul {
+  padding-left: 30px;
+  margin-bottom: 1em;
+}
+
 ul ul:not([type]),
 ol ul:not([type]) {
   list-style-type: circle;
-  padding-left: 30px;
-  margin-bottom: 1em;
 }
 
 ul ul ul:not([type]) {
