@@ -1,6 +1,0 @@
-Added:
-  - project: Patternlab
-    component: ImagePromo
-    description: Added aria-hidden to hide duplicate content from screen readers. (#1417)
-    issue: DP-22122
-    impact: Patch
