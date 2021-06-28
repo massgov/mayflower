@@ -1,4 +1,4 @@
-<div class="ma__page-flipper">
+{# <div class="ma__page-flipper">
   {% if pageFlipper.context %}
   <div class="ma__page-flipper__context">
     <span class="ma__page-flipper__context-label">{{pageFlipper.context.label}}</span>
@@ -20,5 +20,29 @@
       <div class="ma__page-flipper__blank">&nbsp;</div>
     {% endif %}
   </div>
-</div>
+</div> #}
 
+<!-- -->
+<nav class="ma__page-flipper" aria-label="pagenation">
+  {% if pageFlipper.context %}
+  <div class="ma__page-flipper__context">
+    <span class="ma__page-flipper__context-label">{{pageFlipper.context.label}}</span>
+    {% set decorativeLink = pageFlipper.context.link %}
+    {% include "@atoms/decorative-link.twig" %}
+  </div>
+  {% endif %}
+  <ul class="ma__page-flipper__container">
+  {% if pageFlipper.prev %}
+    {% set arrowNav = pageFlipper.prev %}
+    {% include "@molecules/arrow-nav.twig" %}
+  {% else %}
+    <li class="ma__page-flipper__blank">&nbsp;</li>
+  {% endif %}
+  {% if pageFlipper.next %}
+    {% set arrowNav = pageFlipper.next %}
+    {% include "@molecules/arrow-nav.twig" %}
+  {% else %}
+    <li class="ma__page-flipper__blank">&nbsp;</li>
+  {% endif %}
+  </div>
+</nav>
