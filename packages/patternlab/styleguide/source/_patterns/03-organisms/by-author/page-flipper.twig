@@ -1,7 +1,7 @@
 <nav class="ma__page-flipper" aria-label="pagenation">
   {% if pageFlipper.context %}
   <div class="ma__page-flipper__context">
-    <span class="ma__page-flipper__context-label">{{pageFlipper.context.label}}</span>
+    <span class="ma__page-flipper__context-label" aria-hidden="true">{{pageFlipper.context.label}}</span>
     {% set decorativeLink = pageFlipper.context.link %}
     {% include "@atoms/decorative-link.twig" %}
   </div>
