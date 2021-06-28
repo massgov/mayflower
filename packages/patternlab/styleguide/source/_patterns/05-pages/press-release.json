@@ -395,6 +395,7 @@
           },
           "tags": null,
           "image": {
+            "ariaHidden": true,
             "src": "../../assets/images/placeholder/100x100.png",
             "alt": "placeholder image",
             "height": "100",
@@ -431,6 +432,7 @@
           },
           "tags": null,
           "image": {
+            "ariaHidden": true,
             "src": "../../assets/images/placeholder/190x107.png",
             "alt": "placeholder image",
             "height": "107",
