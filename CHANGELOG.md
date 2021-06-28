@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.7.1 (6/28/2021)
+### Added 
+- (Patternlab) [ImagePromo] DP-22122: Added aria-hidden to hide duplicate content from screen readers. (#1417)
+
 ## 11.7.0 (6/8/2021)
 ### Added 
 - (Patternlab) [HeaderAlert] DP-22191: Add extra data attributes. (#1422)
