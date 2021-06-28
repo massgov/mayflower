@@ -94,6 +94,8 @@ export default (function (window,document) {
       shadowUrl: ''
     });
 
+    window.leafletMarkers = [];
+
     // add markers to map 
     markers.forEach(({ position, infoWindow}) => {
       const mymarker = L.marker(
@@ -114,8 +116,9 @@ export default (function (window,document) {
           mymap.fire('focus');
         });
       }
-    })
 
+      window.leafletMarkers.push(mymarker);
+    })
 
     // disable map interactions if is static 
     if (isStatic) {
