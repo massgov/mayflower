@@ -1,6 +1,6 @@
 Changed:
-  - project: Patternlab
+  - project: Assets, Patternlab
     component: Elements
-    description: Changed ul/ol elements styling behavior to respect type attribute.
+    description: Changed ul/ol elements styling behavior to respect type attribute. (#1429)
     issue: DP-22255
-    impact: Minor
+    impact: Patch
