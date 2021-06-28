@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Elements
-    description: Changed ul/ol elements styling behavior to respect type attribute.
-    issue: DP-22255
-    impact: Minor
