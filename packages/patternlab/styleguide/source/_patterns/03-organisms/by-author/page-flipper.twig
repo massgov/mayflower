@@ -8,16 +8,17 @@
   {% endif %}
   <ul class="ma__page-flipper__container">
   {% if pageFlipper.prev %}
+  {# <h2 style="color: red;"></h2> #}
     {% set arrowNav = pageFlipper.prev %}
     {% include "@molecules/arrow-nav.twig" %}
   {% else %}
-    <li class="ma__page-flipper__blank">&nbsp;</li>
+    <li class="ma__page-flipper__blank">&nbsp;<span class="ma__visually-hidden">No page to navigate</span></li>
   {% endif %}
   {% if pageFlipper.next %}
     {% set arrowNav = pageFlipper.next %}
     {% include "@molecules/arrow-nav.twig" %}
   {% else %}
-    <li class="ma__page-flipper__blank">&nbsp;</li>
+<li class="ma__page-flipper__blank">&nbsp;<span class="ma__visually-hidden">No page to navigate</span></li>
   {% endif %}
   </div>
 </nav>
