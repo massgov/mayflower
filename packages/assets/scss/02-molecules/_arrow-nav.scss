@@ -71,7 +71,7 @@
 
     @media ($bp-small-max) {
 
-      @include ma-visually-hidden;
+      display: none;
     }
   }
 
