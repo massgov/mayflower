@@ -220,7 +220,7 @@
         "prev": {
           "arrowButton": {
             "href": "#",
-            "info": "",
+            "info": "Previous page, Rule 99: A Rule About Something",
             "direction": "left",
             "hide": true
           },
@@ -236,7 +236,7 @@
         "next": {
           "arrowButton": {
             "href": "#",
-            "info": "",
+            "info": "Next page, Rule 101: A Rule About Something",
             "direction": "right",
             "hide": true
           },
