@@ -3,6 +3,6 @@
     "href": "#",
     "info": "Navigation to previous page",
     "direction": "left",
-    "hide": false
+    "hidden": false
   }
 }

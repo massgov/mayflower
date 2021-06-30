@@ -1,10 +1,8 @@
 {% set arrowButton = arrowNav.arrowButton %}
 
 <li class="ma__arrow-nav {{ arrowButton.direction ? 'ma__arrow-nav--' ~ arrowButton.direction : '' }}">
-<span aria-hidden="true">
 	{% include "@atoms/01-buttons/arrow-button.twig" %}
-</span>
-<div class="ma__arrow-nav__title" data-label="{{ arrowNav.label }}" aria-hidden="true">
+	<div class="ma__arrow-nav__title" data-label="{{ arrowNav.label }}" aria-hidden="true">
 		<span>{{ arrowNav.title }}</span>
 	</div>
 	<div class="ma__arrow-nav__link">

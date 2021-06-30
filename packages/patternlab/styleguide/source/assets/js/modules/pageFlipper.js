@@ -1,29 +1,30 @@
-let arrowNavItems = document.querySelectorAll(".ma__arrow-nav");
+// let arrowNavItems = document.querySelectorAll(".ma__arrow-nav");
+let arrowButtons = document.querySelectorAll(".ma__arrow-button");
 
 function switchVisibility() {
   let width = document.querySelector("body").clientWidth;
   // Make arrow buttons visible to keyboard and screen readers.
   if (width < 621) {
-    arrowNavItems.forEach(item => {
-      if(item.querySelector("span").hasAttribute("aria-hidden")) {
-        item.querySelector("span").removeAttribute("aria-hidden");
+    arrowButtons.forEach(button => {
+      if(button.hasAttribute("aria-hidden")) {
+        button.removeAttribute("aria-hidden");
       }
 
-      if (item.querySelector(".ma__arrow-button").getAttribute("tabindex") == "-1") {
-        item.querySelector(".ma__arrow-button").setAttribute("tabindex", "0");
+      if (button.getAttribute("tabindex") == "-1") {
+        button.setAttribute("tabindex", "0");
       }
     });
   }
 
   // Hide arrow buttons to keyboard and screen readers.
   if (width > 620) {
-    arrowNavItems.forEach(item => {
-      if(!item.querySelector("span").hasAttribute("aria-hidden")) {
-        item.querySelector("span").setAttribute("aria-hidden", "true");
+    arrowButtons.forEach(button => {
+      if(!button.hasAttribute("aria-hidden")) {
+        button.setAttribute("aria-hidden", "true");
       }
 
-      if (item.querySelector(".ma__arrow-button").getAttribute("tabindex") == "0") {
-        item.querySelector(".ma__arrow-button").setAttribute("tabindex", "-1");
+      if (button.getAttribute("tabindex") == "0") {
+        button.setAttribute("tabindex", "-1");
       }
     });
   }
