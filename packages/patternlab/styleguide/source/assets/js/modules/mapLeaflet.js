@@ -95,6 +95,7 @@ export default (function (window,document) {
     });
 
     window.leafletMarkers = [];
+    window.leafletMap = mymap;
 
     // add markers to map 
     markers.forEach(({ position, infoWindow}) => {

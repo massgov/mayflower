@@ -12,7 +12,13 @@ export default (function (window, document, $) {
         e.preventDefault();
         let parent = $(this).parents('.ma__image-promo');
         let index = parent.index();
-        window.leafletMarkers[index].openPopup();
+        $('html, body').animate({
+          scrollTop: $mapCol.offset().top,
+        });
+
+        let maker = window.leafletMarkers[index];
+        window.leafletMap.flyTo(maker.getLatLng());
+        maker.openPopup();
       });
     });
   }
