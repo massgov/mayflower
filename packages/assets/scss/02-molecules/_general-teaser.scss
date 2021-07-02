@@ -134,6 +134,14 @@
 
   &__contents {
     font-size: $fonts-small;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    .ma__decorative-link {
+      font-style: italic;
+    }
   }
 
   &__tag {
@@ -148,59 +156,4 @@
     display: inline-block;
     margin-right: 0.5em;
   }
-
-  &__key-action {
-    margin-top: 0;
-    margin-bottom: 0.25rem;
-
-    display: flex;
-      flex-flow: column wrap;
-      justify-content: flex-start;
-      align-content: flex-start;
-
-    @media ($bp-small-min) {
-      flex-flow: row;
-    }
-
-    .ma__decorative-link {
-      font-size: $fonts-small;
-      line-height: 1.25;
-      font-style: italic;
-    }
-
-    p {
-      font-size: $fonts-xsmall;
-      line-height: 1rem;
-      margin-bottom: 0px;
-      margin-top: 0.3rem;
-    }
-
-    &-item {
-      margin-bottom: 0.5rem;
-      line-height: 1;
-    }
-
-    &-col {
-      padding-right: .75em;
-      display: inline-flex;
-      flex: 1 40%;
-      flex-flow: column;
-    }
-
-    &-col + &-col {
-      display: inline-flex;
-      flex-flow: column;
-      flex: 1 1 100%;
-      padding-left: 0;
-
-      @media ($bp-small-min) {
-        flex: 1 50%;
-        align-content: flex-start;
-        border-left: 1px solid $c-bd-divider;
-        margin-left: .75em;
-        padding-left: .75em;
-      }
-    }
-  }
-
 }
