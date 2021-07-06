@@ -39,7 +39,7 @@ export default (function (window,document,$,undefined) {
     let key = (e.keyCode ? e.keyCode : e.witch);
     if (key == "27" && $(containerClass).hasClass('is-open')) {
       // Close the overlay.
-      $('.ma__  toc--overlay__container').removeClass('is-open');
+      $('.ma__toc--overlay__container').removeClass('is-open');
       // Set focus on the toggle GamepadButton.
       toggleClass.focus();
     }
