@@ -17,6 +17,6 @@
   class="ma__content-link {{ classChevron ? 'ma__content-link--chevron' : '' }}"
   href="{{ link.href }}"
   {% if link.info %} title="{{ link.info }}"{% endif %}
-  {% if link.srLabel %} aria-label="{{ link.srLabel }}"{% endif %}><span>{{ link.text }}</span>
+  {% if link.ariaLabel %} aria-label="{{ link.ariaLabel }}"{% endif %}><span>{{ link.text }}</span>
   {% if link.labelContext %}<span class="ma__visually-hidden"> {{ link.labelContext }}</span>{% endif %}
 </a>

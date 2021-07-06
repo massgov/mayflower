@@ -11,9 +11,9 @@
       "title": "previous page's title",
       "link": {
         "href": "#",
-        "text": "previous page's titlee",
+        "text": "previous page's title",
         "info": "",
-        "srLabel": "Previous page, Page description from the previous page to this one"
+        "ariaLabel": "Previous page, Page description from the previous page to this one"
       }
     },
     "next": {
@@ -29,7 +29,7 @@
         "href": "#",
         "text": "next page's title",
         "info": "",
-        "srLabel": "Next page, next page's title"
+        "ariaLabel": "Next page, next page's title"
       }
     }
   }

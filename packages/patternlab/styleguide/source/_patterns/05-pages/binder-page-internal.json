@@ -214,7 +214,7 @@
             "href": "#",
             "info": "",
             "text": "Rules of Criminal Procedure",
-            "srLabel": "This page is part of Rules of Criminal Procedure category."
+            "ariaLabel": "This page is part of Rules of Criminal Procedure category."
           }
         },
         "prev": {
@@ -230,7 +230,7 @@
             "href": "#",
             "text": "Rule 99: A Rule About Something",
             "info": "",
-            "srLabel": "Previous page, Rule 99: A Rule About Something"
+            "ariaLabel": "Previous page, Rule 99: A Rule About Something"
           }
         },
         "next": {
@@ -246,7 +246,7 @@
             "href": "#",
             "text": "Rule 101: A Rule About Something",
             "info": "",
-            "srLabel": "Next page, Rule 101: A Rule About Something"
+            "ariaLabel": "Next page, Rule 101: A Rule About Something"
           }
         }
       }
