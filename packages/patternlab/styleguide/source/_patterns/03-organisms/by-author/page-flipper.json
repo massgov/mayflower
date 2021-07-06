@@ -5,7 +5,7 @@
         "href": "#",
         "info": "",
         "direction": "left",
-        "hide": ""
+        "ariaHidden": ""
       },
       "label": "Previous Section",
       "title": "previous page's title",
@@ -21,7 +21,7 @@
         "href": "#",
         "info": "",
         "direction": "right",
-        "hide": ""
+        "ariaHidden": ""
       },
       "label": "Next Section",
       "title": "next page's title",
