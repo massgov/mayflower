@@ -72,50 +72,46 @@ p {
 
 ul ul,
 ol ul {
+  list-style-type: circle;
   padding-left: 30px;
   margin-bottom: 1em;
 }
 
-ul ul:not([type]),
-ol ul:not([type]) {
-  list-style-type: circle;
-}
-
-ul ul ul:not([type]) {
+ul ul ul {
   list-style-type: square;
 }
 
 // Custom ol list style types out to 9 levels
 // All decimals after that
 
-ol:not([type]) {
+ol {
   list-style-type: decimal;
 
-  ol:not([type]) {
+  ol {
     list-style-type: lower-alpha;
 
-    ol:not([type]) {
+    ol {
       list-style-type: lower-roman;
 
-        ol:not([type]) {
+        ol {
           list-style-type: decimal;
 
-          ol:not([type]) {
+          ol {
             list-style-type: lower-alpha;
 
-            ol:not([type]) {
+            ol {
               list-style-type: lower-roman;
 
-              ol:not([type]) {
+              ol {
                 list-style-type: decimal;
 
-                ol:not([type]) {
+                ol {
                   list-style-type: lower-alpha;
 
-                  ol:not([type]) {
+                  ol {
                     list-style-type: lower-roman;
 
-                    ol:not([type]) {
+                    ol {
                       list-style-type: decimal;
                     }
                   }
