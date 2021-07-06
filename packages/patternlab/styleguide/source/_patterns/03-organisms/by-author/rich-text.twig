@@ -11,6 +11,12 @@
 
     <div class="ma__rich-text {{headerIndent}}">
     {# use this block to render your own content (see pattern docs) #}
+    <ol start="3" type="I">
+      <li>This is the first item of a list starting at 3</li>
+      <li>This is the second item of a list starting at 3</li>
+      <li>This is the third item of a list starting at 3</li>
+    </ol>
+
     {% block rteElements %}
       {% for element in richText.rteElements %}
         {% include element.path with element.data %}

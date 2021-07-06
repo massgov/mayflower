@@ -6,6 +6,26 @@ $heading-indent: $gutter;
 
 .ma__rich-text {
 
+  ol[type="a"] {
+    list-style-type: lower-latin;
+  }
+
+  ol[type="A"] {
+    list-style-type: upper-latin;
+  }
+
+  ol[type="i"] {
+    list-style-type: lower-roman;
+  }
+
+  ol[type="I"] {
+    list-style-type: upper-roman;
+  }
+
+  ol[type="1"] {
+    list-style-type: decimal;
+  }
+
   @include clearfix;
 
   &__flame {
@@ -244,6 +264,7 @@ $heading-indent: $gutter;
   & > :last-child {
     margin-bottom: 0 !important;
   }
+  
 }
 
 // Fix display issue after left floated image in IE11.
