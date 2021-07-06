@@ -12,10 +12,28 @@
     <div class="ma__rich-text {{headerIndent}}">
     {# use this block to render your own content (see pattern docs) #}
     <ol start="3" type="I">
-      <li>This is the first item of a list starting at 3</li>
+      <li>This is the first item of a list starting at 3
+        <ol start="1" type="a">
+          <li>This is the first item of a list starting at 3</li>
+          <li>This is the second item of a list starting at 3</li>
+          <li>This is the third item of a list starting at 3</li>
+        </ol>
+      </li>
       <li>This is the second item of a list starting at 3</li>
       <li>This is the third item of a list starting at 3</li>
     </ol>
+
+    <ul>
+			<li>This is a list item in an unordered list</li>
+			<li>An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line.</li>
+			<li>Lists can be nested inside of each other
+					<ul>
+            <li>This is a nested list item</li>
+						<li>This is another nested list item in an unordered list</li>
+					</ul>
+				</li>
+			<li>This is the last list item</li>
+	  </ul>
 
     {% block rteElements %}
       {% for element in richText.rteElements %}
