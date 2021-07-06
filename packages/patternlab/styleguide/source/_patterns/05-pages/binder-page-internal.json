@@ -238,7 +238,7 @@
             "href": "#",
             "info": "Next page, Rule 101: A Rule About Something",
             "direction": "right",
-            "hidden": true
+            "ariaHidden": true
           },
           "label": "Next",
           "title": "",
