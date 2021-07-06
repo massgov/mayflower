@@ -1,5 +1,5 @@
 // let arrowNavItems = document.querySelectorAll(".ma__arrow-nav");
-let arrowButtons = document.querySelectorAll(".ma__arrow-button");
+let arrowButtons = document.querySelectorAll(".ma__arrow-nav > .ma__arrow-button");
 
 function switchVisibility() {
   let width = document.querySelector("body").clientWidth;
