@@ -9,6 +9,7 @@ export default (function (window,document,$,undefined) {
   let tocFocusableElements = $('.js-inline-overlay').find(':focusable');
   let firstFocusableElement = tocFocusableElements[0];
   let lastFocusableElement = tocFocusableElements[tocFocusableElements.length - 1];
+  const mainPageToggleButtton = $(".js-inline-overlay-title .js-inline-overlay-toggle");
 
   function initialize () {
     // Add random ID if no ID present.
@@ -41,7 +42,7 @@ export default (function (window,document,$,undefined) {
       // Close the overlay.
       $('.ma__toc--overlay__container').removeClass('is-open');
       // Set focus on the toggle GamepadButton.
-      toggleClass.focus();
+      mainPageToggleButtton.focus();
     }
   });
 
@@ -50,7 +51,7 @@ export default (function (window,document,$,undefined) {
   $(lastFocusableElement).keydown(function(e) {
     let key = (e.keyCode ? e.keyCode : e.witch);
     // When tab key is hit on the last ficusable element,
-    if (key == '9') {
+    if (key == "9") {
       // Set focus on the first focusable element in the overlay.
       firstFocusableElement.focus();
     }
