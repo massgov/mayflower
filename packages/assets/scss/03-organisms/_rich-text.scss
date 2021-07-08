@@ -10,7 +10,7 @@ $heading-indent: $gutter;
     list-style-type: lower-latin;
   }
 
-  ol[type="A"] {
+  ol[type="A" s] {
     list-style-type: upper-latin;
   }
 
@@ -18,24 +18,25 @@ $heading-indent: $gutter;
     list-style-type: lower-roman;
   }
 
-  ol[type="I"] {
+  ol[type="I" s] {
     list-style-type: upper-roman;
   }
+  
   
 
   ol[type="1"] {
     list-style-type: decimal;
   }
 
-  ul[type="circle"]{
+  ul[type="circle"] {
     list-style-type: circle;
   }
 
-  ul[type="disc"]{
+  ul[type="disc"] {
     list-style-type: disc;
   }
 
-  ul[type="square"]{
+  ul[type="square"] {
     list-style-type: square;
   }
 
