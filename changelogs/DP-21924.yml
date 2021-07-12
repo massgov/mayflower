@@ -51,36 +51,9 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Added:
-  - project: React, Patternlab
-    component: Color
-    description: Add Color stories and color gradients. (#909)
-    issue: DP-17253
+Changed:
+  - project: Patternlab
+    component: ContentTypes
+    description: Changed Twig syntax for drupal-9
+    issue: DP-21924
     impact: Minor
-
-#___EXAMPLE WITH MULTIPLE ITEMS___
-Changed:
-  - project: React
-    component: Storybook
-    description: Render welcome page to Mayflower-react. (#916)
-    issue: DP-17338
-    impact: Patch
-  - project: React
-    component: Storybook
-    description: Display `Color` in category "Brand". (#916)
-    issue: DP-17338
-    impact: Patch
-
-#___EXAMPLE WITH MULTIPLE CHANGE TYPES___
-Added:
-  - project: React
-    component: Storybook
-    description: Add welcome page to Mayflower-react. (#916)
-    issue: DP-17338
-    impact: Patch
-Changed:
-  - project: React
-    component: Storybook
-    description: Display `Color` in category "Brand". (#916)
-    issue: DP-17338
-    impact: Patch

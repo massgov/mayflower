@@ -134,6 +134,14 @@
 
   &__contents {
     font-size: $fonts-small;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    .ma__decorative-link {
+      font-style: italic;
+    }
   }
 
   &__tag {
@@ -148,5 +156,4 @@
     display: inline-block;
     margin-right: 0.5em;
   }
-
 }
