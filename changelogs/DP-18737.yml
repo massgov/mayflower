@@ -1,4 +1,4 @@
-Added:
+Changed:
   - project: Patternlab
     component: Table
     description: Target regular richtext table more specifically. (#1439)
