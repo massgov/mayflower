@@ -25,6 +25,32 @@
           "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
         }
       }
-    }]
+    },{
+      "path": "@atoms/decorative-link.twig",
+      "data": {
+        "decorativeLink": {
+          "href": "#",
+          "text": "Quick action link 1",
+          "chevron": true,
+          "label": ""
+        }
+      }
+    },{
+      "path": "@atoms/decorative-link.twig",
+      "data": {
+        "decorativeLink": {
+          "href": "#",
+          "text": "Quick action link 2",
+          "chevron": true,
+          "label": ""
+        }
+      }
+    }],
+    "tags": [
+      "tag 1",
+      "tag 2",
+      "tag 3",
+      "tag 4"
+    ]
   }
 }
