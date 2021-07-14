@@ -1,6 +1,9 @@
 {
   "emergencyHeader": {
-    "title": "The State is experiencing severe weather due to the winter storm Paula.",
+    "alerts": "3",
+    "hideText": "Hide",
+    "showText": "Show",
+    "title": "Coronavirus Update",
     "prefix": ""
   }
 }

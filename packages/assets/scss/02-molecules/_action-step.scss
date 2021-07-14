@@ -57,6 +57,16 @@
     @include ma-h5;
     margin-bottom: 0;
     min-height: 32px;
+
+
+    span {
+      font-size: $fonts-smaller;
+      font-style: italic;
+      font-weight: $fonts-light;
+      border-left: 1px solid;
+      padding-left: 12px;
+      margin-left: 12px;
+    }
   }
 
   &__content {

@@ -1,0 +1,39 @@
+@use "00-base/configure" as *;
+.ma__header-alerts {
+
+  &__header {
+    cursor: pointer;
+    background-color: $c-warning;
+    padding: 12px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 6px;
+
+    &__title {
+      font-weight: $fonts-bold;
+    }
+
+    &__toggle {
+      margin-left: auto;
+      font-size: $fonts-small;
+      text-decoration: underline;
+    }
+
+    &__hide {
+      display: none;
+    }
+
+    .is-open & {
+      border-radius: 0;
+
+      &__hide {
+        display: inline;
+      }
+
+      &__show {
+        display: none;
+      }
+
+    }
+  }
+}

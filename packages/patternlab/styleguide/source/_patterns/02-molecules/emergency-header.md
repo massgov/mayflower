@@ -7,6 +7,8 @@ Content describing the overall emergency.
 ### Variables
 ~~~
 emergencyHeader: {
+  alerts:
+    type: number / required,
   title:
     type: string / required,
   prefix:

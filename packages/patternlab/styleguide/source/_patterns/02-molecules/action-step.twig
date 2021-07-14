@@ -1,4 +1,5 @@
 {% set accordion = actionStep.accordion %}
+{% set suffix = actionStep.suffix %}
 
 <section
   class="ma__action-step {{ accordion ? 'js-accordion ma__action-step--accordion' : '' }} {{ actionStep.isExpanded ? 'is-open':'' }}">
@@ -15,7 +16,12 @@
       </div>
     {% endif %}
     {% set headingLevel = actionStep.level ? : 2 %}
-    <h{{ headingLevel }} class="ma__action-step__title">{{ actionStep.title }}</h{{ headingLevel }}>
+    <h{{ headingLevel }} class="ma__action-step__title">
+      {{ actionStep.title }}
+      {% if suffix %}
+        <span>{{suffix}}</span>
+      {% endif %}
+    </h{{ headingLevel }}>
   {% if accordion %}
     </button>
   {% else %}

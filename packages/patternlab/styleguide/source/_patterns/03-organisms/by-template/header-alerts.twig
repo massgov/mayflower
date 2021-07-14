@@ -1,5 +1,19 @@
-<section class="ma__header-alerts">
-  {% for headerAlert in headerAlerts %}
-    {% include "@organisms/by-template/header-alert.twig" %}
-  {% endfor %}
+{% if headerAlerts %}
+<section data-nosnippet="true" class="ma__header-alerts js-accordion js-header-alerts is-open">
+  <div class="ma__header-alerts__header js-accordion-link">
+    <div class="ma__header-alerts__header__title">{{ headerTitle.text }}</div>
+    <div class="ma__header-alerts__header__toggle">
+      <span class="ma__header-alerts__header__hide">{{headerTitle.hideText}}</span>
+      <span class="ma__header-alerts__header__show">{{headerTitle.showText}}</span> 
+      <span class="ma__header-alerts__header__text">{{headerTitle.text}}</span>
+    </div>
+  </div>
+  <div class="ma__header-alerts__content js-accordion-content">
+    <div class="ma__header-alerts__container">
+      {% for headerAlert in headerAlerts %}
+        {% include "@organisms/by-template/header-alert.twig" %}
+      {% endfor %}
+    </div>
+  </div>
 </section>
+{% endif %}

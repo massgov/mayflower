@@ -1,10 +1,6 @@
 @use "00-base/configure" as *;
 
 .ma__header-alert {
-  display: none;
-  font-size: 0;
-  position: relative;
-  z-index:1;
 
   &__hide {
 
@@ -13,8 +9,8 @@
     line-height: .65;
     overflow: hidden;
     position: absolute;
-      top: 50%;
-      right: 10px;
+    top: 50%;
+    right: 10px;
     transform: translateY(-50%) rotate(45deg);
   }
 
@@ -25,55 +21,17 @@
     text-align: center;
   }
 
-  &__label,
-  &__message {
-    display: inline-block;
-    overflow: hidden;
-    max-width: 100%;
-    vertical-align: baseline;
-  }
-
-  &__label {
-    font-size: $fonts-xsmall;
-    letter-spacing: $letter-spacing-large;
-    line-height: 1em;
-    margin-right: .4em;
-    padding-bottom: 6px;
-    text-transform: uppercase;
-  }
-
-  &__message {
-    font-size: $fonts-large;
-    line-height: 1.3em;
-
-    .ma__decorative-link, a {
-      display: inline;
-    }
-  }
-}
-
-//theme
-
-.ma__header-alert {
-  background-color: $c-warning;
-
-  &__hide {
-    font-weight: $fonts-bold;
-  }
-
-  &__label {
-    color: rgba($c-font-base, .7);
-    font-weight: $fonts-bold;
-  }
-
-  &__message {
-
-    a {
-      color: $c-font-base;
-
+  .ma__action-step {
+    &__icon {
       svg {
-        fill: rgba($c-font-base, .5);
+        width: 20px;
+        height: 20px;
       }
+    }
+
+    &__title {
+      font-size: $fonts-large;
+      line-height: 29px;
     }
   }
 }
