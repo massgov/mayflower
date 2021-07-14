@@ -13,6 +13,16 @@
       font-weight: $fonts-bold;
     }
 
+    &___icon {
+      margin-right: 12px;
+      height: 22px;
+      margin-top: 3px;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
     &__toggle {
       margin-left: auto;
       font-size: $fonts-small;

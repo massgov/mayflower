@@ -1,5 +1,6 @@
 {
   "headerTitle": {
+    "icon": "warning",
     "text": "Notice & Alerts",
     "hideText": "Hide",
     "showText": "Expand"
