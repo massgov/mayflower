@@ -9,7 +9,22 @@
   padding-bottom: 10px;
   margin-bottom: 0;
 
+  & + & {
+    border-top: 1px solid mix(#fff, $c-warning, 50%);
+  }
+
+  &__time-stamp {
+    font-size: $fonts-smaller;
+    font-style: italic;
+    font-weight: $fonts-normal;
+  }
+
   &__link {
+
+    @media ($bp-small-min) {
+      display: inline-block;
+    }
+
     .ma__content-link {
 
       span {
@@ -29,6 +44,28 @@
         }
       }
     }
+  }
+
+  &--pt + &--pt {
+    border-top: 0;
+  }
+
+  &--pt {
+
+    .ma__content-link {
+
+      span {
+
+        &:hover {
+          border-bottom-width: 1px;
+        }
+
+        &:after {
+          border-bottom: 0px
+        }
+      }
+    }
+
   }
 
   &__message {

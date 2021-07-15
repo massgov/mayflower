@@ -1,8 +1,10 @@
 {% if emergencyAlert.link %}
-  <p class="ma__emergency-alert" tabindex="0">
+  {% set link = emergencyAlert.link %}
+  <p class="ma__emergency-alert ma__emergency-alert--pt" tabindex="0">
     <span class="ma__emergency-alert__link">
-      {% set link = emergencyAlert.link %}
-      {% include "@atoms/11-text/link.twig" %}
+      <a  class="ma__content-link ma__content-link--chevron" href="{{ link.href }}">
+        <span>{{ link.text }}</span>{% if emergencyAlert.timeStamp %}<span class="ma__emergency-alert__time-stamp"> {{ emergencyAlert.timeStamp }}</span>{% endif %}
+      </a>
     </span>
   </p>
 {% endif %}
