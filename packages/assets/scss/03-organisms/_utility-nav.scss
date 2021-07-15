@@ -188,6 +188,8 @@ $utility-nav-height: 43px;
 
       @include ma-chevron;
       color: $c-font-base;
+      transform: none;
+      border: 0;
 
       @media ($bp-header-toggle-min) {
         color: $c-font-inverse;
@@ -198,12 +200,14 @@ $utility-nav-height: 43px;
       }
 
       @media ($bp-header-toggle-max) {
+
+        @include ma-accordion-icon;
         display: block;
         width: 100%;
 
         &:after {
-          border-right-color: $c-primary-alt;
-          border-bottom-color: $c-primary-alt;
+
+          border: 0;
         }
       }
 
@@ -213,6 +217,10 @@ $utility-nav-height: 43px;
 
       & > :first-child {
         display: inline;
+
+        @media ($bp-header-toggle-max) {
+          text-transform: uppercase;
+        }
       }
 
       &:after {
@@ -220,9 +228,10 @@ $utility-nav-height: 43px;
         transform: rotate(45deg) translateY(-45%);
 
         @media ($bp-header-toggle-max) {
-          position: absolute;
-            top: 45%;
-            right: 10px;
+          border: 0;
+          transform: none;
+          margin: 0;
+          right: 20px;
         }
       }
     }
