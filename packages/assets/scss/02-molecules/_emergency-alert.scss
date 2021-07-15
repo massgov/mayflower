@@ -32,7 +32,6 @@
         font-size: $fonts-small;
         border-bottom-color: rgba($c-font-base, .5);
         color: $c-font-base;
-        font-weight: $fonts-normal;
 
         &:hover {
           border-bottom-width: 3px;
@@ -55,6 +54,8 @@
     .ma__content-link {
 
       span {
+
+        font-weight: $fonts-normal;
 
         &:hover {
           border-bottom-width: 1px;
