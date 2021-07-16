@@ -66,6 +66,13 @@
       border-left: 1px solid;
       padding-left: 12px;
       margin-left: 12px;
+
+      @media ($bp-x-small-max) {
+        display: block;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
     }
   }
 

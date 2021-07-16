@@ -122,7 +122,6 @@ $page-banner-height: 330px;
     @include ma-container;
     height: 100%;
     position: relative;
-    padding-right: 0;
   }
 
   &--columns &__container {

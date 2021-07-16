@@ -2,6 +2,10 @@
 
 .ma__header-alerts {
 
+  @media ($bp-x-small-max) {
+    margin-bottom: 20px;
+  }
+
   &__header {
     cursor: pointer;
     background-color: $c-warning;
@@ -29,6 +33,10 @@
       margin-left: auto;
       font-size: $fonts-small;
       text-decoration: underline;
+
+      @media ($bp-x-small-max) {
+        margin-left: 0;
+      }
     }
 
     &__hide {
