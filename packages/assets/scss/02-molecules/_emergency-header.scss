@@ -15,7 +15,7 @@
 
   @media ($bp-large-min) {
     display: flex;
-      align-items: center;
+    align-items: center;
   }
 
   &__label {
@@ -116,6 +116,17 @@
       }
     }
 
+  }
+
+  &:not(&--pt) {
+
+    .ma__emergency-header__title {
+      display: block;
+      font-size: $fonts-large;
+      line-height: 1.4;
+      margin-bottom: 0;
+      font-weight: $fonts-bold;
+    }
   }
 
   &__title {
