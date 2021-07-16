@@ -100,7 +100,8 @@
 
   &__title {
     color: rgba($c-font-link, .7);
-    font-weight: 550;
+    font-weight: $fonts-bold;
+
   }
 
   &__link {
