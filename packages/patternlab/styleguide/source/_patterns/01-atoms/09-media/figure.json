@@ -6,7 +6,8 @@
     "content": "",
     "title": {
       "text": "This is an option title",
-      "visible": true
+      "visible": true,
+      "level": ""
     },
     "caption": "This is an optional caption that can wrap to multiple lines.",
     "ariaLive": "",
