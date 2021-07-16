@@ -35,6 +35,7 @@
       align-items: stretch;
     overflow: hidden;
     width: 100%;
+    padding-inline-start: 0;// reset user agent style for UL.
   }
 
   &__blank,
