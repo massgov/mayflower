@@ -122,6 +122,11 @@ $page-banner-height: 330px;
     @include ma-container;
     height: 100%;
     position: relative;
+    padding-right: 0;
+
+    .mass-alerts-block & {
+      padding-left: 40px;
+    }
   }
 
   &--columns &__container {
