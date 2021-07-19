@@ -8,14 +8,21 @@
     background-color: $c-warning;
     padding: 12px 24px;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
+    
+    @media ($bp-x-small-max) {
+      flex-direction: column;
+    }
     color: $c-black;
     font-weight: $fonts-light;
     border: 0;
-    width: 100%;;
+    width: 100%;
 
 
     &__title {
+      display: inline-flex;
+      align-items: center;
       font-weight: $fonts-bold;
     }
 
