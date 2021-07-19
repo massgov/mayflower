@@ -3,14 +3,11 @@
 
   "emergencyAlerts": {
     "id":"GUID18378923w38789",
-    "buttonAlert": {
+    "emergencyHeader": {
       "hideText": "Hide",
       "showText": "Show",
-      "text": "Updates"
-    },
-    "emergencyHeader": {
-      "title": "The State is experiencing severe weather due to the winter storm Paula."
-    },
+      "title": "2 travel-related updates and 1 update for the state employees."
+    },   
     "alerts": [{
       "timeStamp": "02.15.16, 5:00 p.m.",
       "link": {

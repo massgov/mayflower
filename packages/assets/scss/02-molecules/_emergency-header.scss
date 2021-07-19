@@ -67,6 +67,8 @@
 
   &__toggle {
     cursor: pointer;
+    color: $c-black;
+    font-weight: $fonts-light; 
 
     @include ma-chevron;
 

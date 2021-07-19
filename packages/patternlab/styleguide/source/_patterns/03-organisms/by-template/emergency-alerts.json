@@ -2,10 +2,9 @@
   "emergencyAlerts": {
     "id":"GUID18378923w38789",
     "emergencyHeader": {
-      "alerts": "3",
       "hideText": "Hide",
       "showText": "Show",
-      "title": "Coronavirus Update"
+      "title": "3 Coronavirus Update"
     },
     "alerts": [{
       "timeStamp": "02.15.16, 5:00 p.m.",

@@ -1,5 +1,5 @@
 {% set alertsExist = emergencyAlerts.alerts ? true : false %}
-{% set accordionClass = alertsExist ? 'js-accordion' : '' %}
+{% set accordionClass = alertsExist ? 'js-accordion js-emergency-alerts' : '' %}
 
 {% if emergencyAlerts.alerts or emergencyAlerts.emergencyHeader %}
   <section data-nosnippet="true" class="ma__emergency-alerts ma__emergency-alerts {{ accordionClass }}" data-id="{{emergencyAlerts.id}}">

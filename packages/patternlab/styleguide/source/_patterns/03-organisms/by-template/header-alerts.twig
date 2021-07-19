@@ -1,6 +1,6 @@
 {% if headerAlerts %}
 <section data-nosnippet="true" class="ma__header-alerts js-accordion js-header-alerts is-open">
-  <div class="ma__header-alerts__header js-accordion-link">
+  <a class="ma__header-alerts__header js-accordion-link" href="#">
     {% if headerTitle.icon %}
       <div class="ma__header-alerts__header___icon">
         {{ icon(headerTitle.icon) }}
@@ -14,11 +14,14 @@
       <span class="ma__header-alerts__header__show">{{headerTitle.showText}}</span> 
       <span class="ma__header-alerts__header__text">{{headerTitle.text}}</span>
     </div>
-  </div>
+  </a>
   <div class="ma__header-alerts__content js-accordion-content">
     <div class="ma__header-alerts__container">
       {% for headerAlert in headerAlerts %}
-        {% include "@organisms/by-template/header-alert.twig" %}
+        <section class="ma__header-alert" role="alert">
+          {% set actionStep = headerAlert %}
+          {% include "@molecules/action-step.twig" %}
+        </section>
       {% endfor %}
     </div>
   </div>

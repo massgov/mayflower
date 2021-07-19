@@ -1,10 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__header-alerts {
-
-  @media ($bp-x-small-max) {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 30px;
 
   &__header {
     cursor: pointer;
@@ -12,7 +9,9 @@
     padding: 12px 24px;
     display: flex;
     flex-wrap: wrap;
-    border-radius: 6px;
+    color: $c-black;
+    font-weight: $fonts-light;
+
 
     &__title {
       font-weight: $fonts-bold;
@@ -44,7 +43,6 @@
     }
 
     .is-open & {
-      border-radius: 0;
 
       &__hide {
         display: inline;

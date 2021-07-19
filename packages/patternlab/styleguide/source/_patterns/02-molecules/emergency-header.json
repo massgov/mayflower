@@ -1,9 +1,8 @@
 {
   "emergencyHeader": {
-    "alerts": "3",
     "hideText": "Hide",
     "showText": "Show",
-    "title": "Coronavirus Update",
+    "title": "3 Coronavirus Update",
     "prefix": ""
   }
 }
