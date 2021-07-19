@@ -1,6 +1,6 @@
 {% if headerAlerts %}
 <section data-nosnippet="true" class="ma__header-alerts js-accordion js-header-alerts is-open">
-  <a class="ma__header-alerts__header js-accordion-link" href="#">
+  <button class="ma__header-alerts__header js-accordion-link">
     {% if headerTitle.icon %}
       <div class="ma__header-alerts__header___icon">
         {{ icon(headerTitle.icon) }}
@@ -14,7 +14,7 @@
       <span class="ma__header-alerts__header__show">{{headerTitle.showText}}</span> 
       <span class="ma__header-alerts__header__text">{{headerTitle.text}}</span>
     </div>
-  </a>
+  </button>
   <div class="ma__header-alerts__content js-accordion-content">
     <div class="ma__header-alerts__container">
       {% for headerAlert in headerAlerts %}
