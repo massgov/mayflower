@@ -52,8 +52,8 @@
 
 #___EXAMPLE___
 Fixed:
-  - project: React, Patternlab
-    component: Header
-    description: Fixed javascript error regarding moved element.
+  - project: Patternlab
+    component: MainNavHamburger
+    description: Fixed javascript error regarding moved element. (#1445)
     issue: DP-22559
-    impact: Minor
+    impact: Patch
