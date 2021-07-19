@@ -46,7 +46,12 @@ figure: {
       type: string (url) / required
   }
   title:
-    type: string
+    text: 
+      type: string / optional
+    visible: 
+      type: boolean / optional
+    level:
+      number / optional
   caption:
     type: string
 }
