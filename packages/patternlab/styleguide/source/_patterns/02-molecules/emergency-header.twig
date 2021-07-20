@@ -1,8 +1,12 @@
 {% set alertPrefix = emergencyHeader.prefix ?: 'Emergency Alerts' %}
-<h2 class="ma__emergency-header">
+<div class="ma__emergency-header ma__emergency-header--pt">
   <span class="ma__emergency-header__label">
     {{ icon('alert') }}
     <span>{{ alertPrefix }}</span>
   </span>
-  <span class="ma__emergency-header__title">{{ emergencyHeader.title }}</span>
-</h2>
+  <button class="ma__emergency-header__toggle js-accordion-link">
+    <span class="ma__emergency-header__toggle__hide">{{emergencyHeader.hideText}}</span>
+    <span class="ma__emergency-header__toggle__show">{{emergencyHeader.showText}}</span> 
+    <span class="ma__emergency-header__title">{{ emergencyHeader.title }}</span>
+  </button>
+</div>

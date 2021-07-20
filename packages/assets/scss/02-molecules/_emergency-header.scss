@@ -15,7 +15,7 @@
 
   @media ($bp-large-min) {
     display: flex;
-      align-items: center;
+    align-items: center;
   }
 
   &__label {
@@ -65,12 +65,75 @@
     }
   }
 
+  &__toggle {
+    cursor: pointer;
+    color: $c-black;
+    font-weight: $fonts-light;
+    border: 0;
+    background: transparent;
+
+    @include ma-chevron;
+
+    &:after {
+      border-width: 3px;
+      height: 8px;
+      margin-top: 3px;
+      margin-left: 3px;
+      transform: translateY(-50%) rotate(45deg);
+      transform-origin: 65% 65%;
+      transition: transform .5s;
+      width: 8px;
+    }
+
+    // If the parent of the button-alert is an open accordion, then flip the arrow up
+
+    .js-accordion.is-open & {
+
+      &:after {
+        transform: translateY(-50%) rotate(-135deg);
+      }
+    }
+
+    // This is used in mayflower-react specifically, `is-open` class is moved down a level from patternlab
+
+    &.is-open {
+
+      &:after {
+        transform: translateY(-50%) rotate(-135deg);
+      }
+    }
+
+
+    &__hide {
+      display: none;
+
+      .is-open & {
+        display: inline;
+      }
+    }
+
+    &__show {
+      display: inline;
+
+      .is-open & {
+        display: none;
+      }
+    }
+
+  }
+
+  &:not(&--pt) {
+
+    .ma__emergency-header__title {
+      display: block;
+      font-size: $fonts-large;
+      line-height: 1.4;
+      margin-bottom: 0;
+      font-weight: $fonts-bold;
+    }
+  }
+
   &__title {
-    display: block;
-    font-size: $fonts-large;
-    line-height: 1.4;
-    margin-bottom: 0;
-    font-weight: $fonts-bold;
 
     .ma__decorative-link {
       display: inline;

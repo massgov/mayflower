@@ -27,7 +27,7 @@ export default (function (window,document,$,undefined) {
    * Initialize the emergency alert.
    */
   function init() {
-    let open = true,
+    let open = $('body').hasClass('is-front'),
         id = $(this).data('id'),
         cookieName = 'emergency-alerts' + id,
         cookieValue = cookie.getCookie(cookieName),
