@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: EmergencyAlert, EmergencyHeader, HeaderAlerts
-    description: Fixed the google translate element for mobile.
-    issue: DP-22395
-    impact: Minor
