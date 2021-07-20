@@ -1,10 +1,14 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
-## 11.8.1 (7/19/2021)
+## 11.9.0 (7/19/2021)
 ### Changed 
 - (Patternlab) [PageFlipper] DP-22292: Hide duplicate links in the component from assistive technology and keyboard users. (#1433)
 - (Patternlab) [TableOfContentsOverlay] DP-22292: Set up keeping focus in the overaly while it's open. (#1433)
+- (Patternlab) [EmergencyAlert, EmergencyHeader, HeaderAlerts] DP-22395: Implement new designs for EmergencyAlerts. Added HeaderAlerts to replace HeaderAlert.  (#1444)
+
+### Fixed 
+- (Patternlab) [MainNavHamburger] DP-22559: Fixed javascript error regarding moved element. (#1445)
 
 ## 11.8.0 (7/12/2021)
 ### Changed 
