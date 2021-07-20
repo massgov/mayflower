@@ -1,14 +1,58 @@
 {
-  "headerAlerts":[{
-    "id": "GUID09058070135",
-    "text": "Lots of Bears.",
-    "href": "#",
-    "info": ""
-  },{
-    "id": "GUID23562308783",
-    "prefix": "notice",
-    "text": "Lots of Bunnies too.",
-    "href": "#",
-    "info": ""
-  }]
+  "headerTitle": {
+    "icon": "warning",
+    "text": "Notice & Alerts",
+    "hideText": "Hide",
+    "showText": "Expand"
+  },
+  "headerAlerts": [
+    {
+      "accordion": true,
+      "isExpanded": false,
+      "accordionLabel": "Expand Actualizaciones sobre el desempleo",
+      "icon": "input-warning",
+      "title": "Actualizaciones sobre el desempleo",
+      "suffix": "Updated: Mar. 17th, 2021, 11:10 am",
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Lorem ipsum dolor sit amet, consectetur <a href=\"#\">adipisicing elit</a>. Ducimus deleniti nisi at adipisci sequi consequuntur qui, corporis pariatur eos laborum nostrum itaque, facere. Doloremque qui temporibus repellendus incidunt in nam provident, aliquam."
+            }
+          }
+        }]
+      },
+      "decorativeLink": {
+        "href": "#",
+        "text": "Learn more",
+        "info": "Learn more about Actualizaciones sobre el desempleo",
+        "property": ""
+      }
+    },
+    {
+      "accordion": true,
+      "isExpanded": false,
+      "accordionLabel": "Expand DUA warns about phising scam",
+      "icon": "input-error",
+      "title": "DUA warns about phising scam",
+      "suffix": "Updated: Mar. 23rd, 2021, 9:50 am",
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Lorem ipsum dolor sit amet, consectetur <a href=\"#\">adipisicing elit</a>. Ducimus deleniti nisi at adipisci sequi consequuntur qui, corporis pariatur eos laborum nostrum itaque, facere. Doloremque qui temporibus repellendus incidunt in nam provident, aliquam."
+            }
+          }
+        }]
+      },
+      "decorativeLink": {
+        "href": "#",
+        "text": "Learn more",
+        "info": "Learn more about DUA warns about phising scam",
+        "property": ""
+      }
+    }
+  ]
 }
