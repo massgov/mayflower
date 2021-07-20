@@ -45,6 +45,38 @@
     }
   }
 
+  &--pt + &--pt {
+    border-top: 0;
+  }
+
+  &--pt {
+
+    .ma__content-link {
+
+      span {
+
+        font-weight: $fonts-normal;
+
+        &:hover {
+          border-bottom-width: 1px;
+        }
+
+        &:after {
+          border-bottom: 0px
+        }
+      }
+
+      &:hover {
+
+        span {
+          border-bottom-width: 3px;
+          border-bottom-color: rgba($c-font-base, .5);
+        }
+      }
+    }
+
+  }
+
   &__message {
 
     @media ($bp-small-min) {
