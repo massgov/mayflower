@@ -71,6 +71,7 @@
     font-weight: $fonts-light;
     
     @include ma-button-reset;
+
     @include ma-chevron;
 
     &:after {
