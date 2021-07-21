@@ -1,11 +1,24 @@
-<picture class="ma__picture">
-  {% if picture.srcSets %}
-    {% for src in picture.srcSets %}
-    <source srcset="{{ src.url }}" media="(min-width: {{ src.width }}px)">
-    {% endfor %}
-  {% endif %}
+{% if picture.srcSets or picture.defaultImage %}
+  <picture class="ma__picture">
+    {% if picture.srcSets %}
+      {% for src in picture.srcSets %}
+        {% set media = "" %}
+        {% set source = src.url %}
 
-  {% if picture.defaultImage %}
-    <img src="{{ picture.defaultImage }}">
-  {% endif %}
-</picture>
+        {% if src.width is not empty %}
+          {% set media = '(min-width: ' ~ src.width ~ 'px)' %}
+        {% elseif src.mediaQuery starts with '(' %}
+          {% set media = src.mediaQuery %}
+        {% elseif src.mediaQuery ends with 'w' %}
+          {% set source = src.url ~ " " ~ src.mediaQuery %}
+        {% endif %}
+
+        <source srcset="{{ source }}" {% if(media is not empty) %} media="{{ media }}" {% endif %} >
+      {% endfor %}
+    {% endif %}
+
+    {% if picture.defaultImage %}
+      <img src="{{ picture.defaultImage }}">
+    {% endif %}
+  </picture>
+{% endif %}
