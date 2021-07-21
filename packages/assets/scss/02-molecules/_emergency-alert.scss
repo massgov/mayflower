@@ -67,14 +67,23 @@
       }
 
       &:hover {
-
         span {
           border-bottom-width: 3px;
           border-bottom-color: rgba($c-font-base, .5);
         }
       }
-    }
 
+      &--chevron {
+
+        &:after {
+          height: .5em;
+          width: .5em;
+          border-right: 3px solid;
+          border-bottom: 3px solid;
+          border-color: $c-black;
+        }
+      }
+    }
   }
 
   &__message {
