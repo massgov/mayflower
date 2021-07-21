@@ -28,8 +28,10 @@
     </header>
   {% endif %}
   <div class="ma__action-step__content {{ accordion ? 'js-accordion-content' : '' }}">
-  {% set richText = actionStep.richText %}
-  {% include "@organisms/by-author/rich-text.twig" %}
+  {% if actionStep.richText %}
+    {% set richText = actionStep.richText %}
+    {% include "@organisms/by-author/rich-text.twig" %}
+  {% endif %}
   {% block formDownloads %}
     {% if actionStep.downloadLinks %}
       {% set formDownloads = { "downloadLinks": actionStep.downloadLinks } %}
