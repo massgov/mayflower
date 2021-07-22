@@ -108,12 +108,12 @@ export const useHamburgerNavKeydown = (closeMenu) => {
   }, [keyDown]);
 };
 export const useJumpToSearch = (openMenu) => {
+  const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
   const jumpToSearch = React.useCallback((e) => {
     e.preventDefault();
     const body = document.querySelector('body');
     const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
     const searchInput = document.querySelector('.ma__header__hamburger__nav-container .ma__header-search__input');
-    const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
 
     if (body.classList.contains('show-menu')) {
       // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
@@ -123,22 +123,16 @@ export const useJumpToSearch = (openMenu) => {
       hamburgerMenuContainer.removeAttribute('aria-hidden');
       openMenu();
       setTimeout(() => {
-        jumpToSearchButton.setAttribute('aria-pressed', 'true');
+        jumpToSearchButton && jumpToSearchButton.setAttribute('aria-pressed', 'true');
         searchInput.setAttribute('autofocus', '');
         searchInput.focus();
       }, 200);
     }
   }, [openMenu]);
   React.useEffect(() => {
-    const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
-
-    if (jumpToSearchButton !== null) {
-      jumpToSearchButton.addEventListener('click', jumpToSearch);
-    }
+    jumpToSearchButton && jumpToSearchButton.addEventListener('click', jumpToSearch);
     return(() => {
-      if (jumpToSearchButton !== null) {
-        jumpToSearchButton.removeEventListener('click', jumpToSearch);
-      }
+        jumpToSearchButton && jumpToSearchButton.removeEventListener('click', jumpToSearch);
     });
   }, [jumpToSearch]);
 };
