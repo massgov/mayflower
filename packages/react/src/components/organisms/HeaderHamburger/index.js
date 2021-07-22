@@ -57,6 +57,7 @@ const HeaderHamburger = ({
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
   return(
+    <>
     <header className="ma__header__hamburger" id="header">
       {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
       <HamburgerNav
@@ -71,6 +72,8 @@ const HeaderHamburger = ({
       />
       <RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />
     </header>
+    <div className="menu-overlay" />
+    </>
   );
 };
 HeaderHamburger.propTypes = {
