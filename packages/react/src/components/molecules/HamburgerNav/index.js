@@ -82,7 +82,9 @@ const HamburgerNav = ({
       if (feedbackButton) {
         feedbackButton.classList.add('hide-button');
       }
-      jumpToSearchButton.setAttribute('aria-expanded', 'true');
+      if (jumpToSearchButton) {
+        jumpToSearchButton.setAttribute('aria-expanded', 'true');
+      }
       menuButton.setAttribute('aria-pressed', 'true');
       const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
       body.style.position = 'fixed';
