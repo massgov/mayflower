@@ -118,7 +118,7 @@ export const useJumpToSearch = (openMenu) => {
     if (body.classList.contains('show-menu')) {
       // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
       hamburgerMenuContainer.setAttribute('aria-hidden', '');
-      searchInput.focus();
+      searchInput && searchInput.focus();
     } else {
       hamburgerMenuContainer.removeAttribute('aria-hidden');
       openMenu();
