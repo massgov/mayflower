@@ -82,9 +82,7 @@ const HamburgerNav = ({
       if (feedbackButton) {
         feedbackButton.classList.add('hide-button');
       }
-      if (jumpToSearchButton) {
-        jumpToSearchButton.setAttribute('aria-expanded', 'true');
-      }
+      jumpToSearchButton && jumpToSearchButton.setAttribute('aria-expanded', 'true');
       menuButton.setAttribute('aria-pressed', 'true');
       const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
       body.style.position = 'fixed';
@@ -144,7 +142,7 @@ const HamburgerNav = ({
       if (feedbackButton) {
         feedbackButton.classList.remove('hide-button');
       }
-      jumpToSearchButton.setAttribute('aria-expanded', 'false');
+      jumpToSearchButton && jumpToSearchButton.setAttribute('aria-expanded', 'false');
       if (menuOverlay) {
         menuOverlay.classList.remove('overlay-open');
       }
