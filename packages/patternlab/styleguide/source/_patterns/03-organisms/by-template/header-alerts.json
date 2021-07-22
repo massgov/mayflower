@@ -37,6 +37,19 @@
         "info": "Learn more about DUA warns about phising scam",
         "property": ""
       }
+    },
+    {
+      "accordionLabel": "Expand DUA warns about phising scam",
+      "icon": "input-error",
+      "title": "DUA warns about phising scam",
+      "suffix": "Updated: Mar. 23rd, 2021, 9:50 am"
+    },
+    {
+      "accordionLabel": "Expand Actualizaciones sobre el desempleo",
+      "icon": "input-warning",
+      "title": "Actualizaciones sobre el desempleo",
+      "suffix": "Updated: Mar. 17th, 2021, 11:10 am",
+      "link": "#"
     }
   ]
 }

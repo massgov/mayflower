@@ -18,10 +18,8 @@
   <div class="ma__header-alerts__content js-accordion-content">
     <div class="ma__header-alerts__container">
       {% for headerAlert in headerAlerts %}
-        <section class="ma__header-alert" role="alert">
-          {% set actionStep = headerAlert %}
-          {% include "@molecules/action-step.twig" %}
-        </section>
+        {% set actionStep = headerAlert %}
+        {% include "@molecules/action-step.twig" %}
       {% endfor %}
     </div>
   </div>

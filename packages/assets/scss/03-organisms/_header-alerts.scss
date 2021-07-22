@@ -62,4 +62,43 @@
 
     }
   }
+
+  .ma__action-step {
+
+    border-color: $c-bd-divider;
+    border-width: 2px;
+    border-style: solid;
+
+    &__header {
+      border: none;
+      display: block;
+      padding: 20px 40px 20px 60px;
+      text-align: left;
+      width: 100%;
+      background-color: $c-bg-section;
+    }
+
+    &__more {
+      margin-top: 0;
+    }
+
+    &__icon {
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__title {
+      font-size: $fonts-large;
+      line-height: 29px;
+
+      a {
+
+        padding-right: 0.8rem;
+      }
+    }
+  }
+
 }
