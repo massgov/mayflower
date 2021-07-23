@@ -6,8 +6,7 @@
   class="ma__action-step {{ accordion ? 'js-accordion ma__action-step--accordion' : '' }} {{ actionStep.isExpanded ? 'is-open':'' }}">
   {% if accordion %}
     <button
-      class="ma__action-step__header js-accordion-link"
-      aria-label="{{ actionStep.accordionLabel }}">
+      class="ma__action-step__header js-accordion-link">
   {% else %}
     <header class="ma__action-step__header">
   {% endif %}
