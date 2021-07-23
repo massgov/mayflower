@@ -1,4 +1,5 @@
 import React from 'react';
+import focusTrapping from 'MayflowerReactComponents/utilities/focusTrapping';
 
 export const useHamburgerNavKeydown = (closeMenu) => {
   // Define this using useCallback so this event listener
@@ -48,6 +49,8 @@ export const useHamburgerNavKeydown = (closeMenu) => {
         }, 500);
       }
     }
+
+    focusTrapping({focusableSelectors:'[role="menuitem"]', modalSelector:'#hamburger-main-navigation', keyEvent: e})
     // ESC to close menus.
     // 'e.key === "Esc"' is necessary for IE11.
     if (e.key === 'Escape' || e.key === 'Esc' || e.code === 'Escape') {
@@ -78,6 +81,8 @@ export const useHamburgerNavKeydown = (closeMenu) => {
           }
         }
       }
+
+
       // Main nav elements
       const openSubmenu = document.querySelector('.submenu-open .js-main-nav-hamburger__top-link');
       if (openSubmenu !== document.activeElement) {
