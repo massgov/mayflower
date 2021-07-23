@@ -58,7 +58,8 @@ $bp-section-3up-large-max: "max-width:950px";
     }
   }
 
-  &--compact{
+  &--compact {
+    
     .ma__sections-3up__container {
 
       @include ma-container;
