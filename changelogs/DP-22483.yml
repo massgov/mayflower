@@ -1,0 +1,6 @@
+Changed:
+  - project: React,PatternLab
+    component: 3up
+    description: Adjusting section 3up to support a compact version.
+    issue: DP-22483
+    impact: Minor
