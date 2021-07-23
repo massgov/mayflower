@@ -5,6 +5,12 @@ export const useHamburgerNavKeydown = (closeMenu) => {
   // Define this using useCallback so this event listener
   // can be deleted when the parent component unmounts.
   const keyDown = React.useCallback((e) => {
+    focusTrapping({
+      focusableSelectors:'[role="menuitem"],.ma__utility-nav__link > a, .ma__utility-nav__item > button, .ma__utility-panel__item > span > a',
+      modalSelector:'.ma__header__hamburger__nav-container',
+      keyEvent: e
+    })
+
     const utilNavWide = document.querySelector('.js-utility-nav--wide');
     const utilNarrowNav = document.querySelector('.ma__header__hamburger__utility-nav--narrow');
     const utilNarrowButton = document.querySelector('.ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle');
@@ -50,7 +56,7 @@ export const useHamburgerNavKeydown = (closeMenu) => {
       }
     }
 
-    focusTrapping({focusableSelectors:'[role="menuitem"]', modalSelector:'#hamburger-main-navigation', keyEvent: e})
+
     // ESC to close menus.
     // 'e.key === "Esc"' is necessary for IE11.
     if (e.key === 'Escape' || e.key === 'Esc' || e.code === 'Escape') {

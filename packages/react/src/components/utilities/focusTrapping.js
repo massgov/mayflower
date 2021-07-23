@@ -11,7 +11,7 @@ export default ({
     const focusableContent = modal && modal.querySelectorAll(focusableElements);
     const firstFocusableElement = focusableContent[0]; // get first element to be focused inside modal
     const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
-
+console.log(firstFocusableElement)
     let isTabPressed = e.key === 'Tab';
 
     if (!isTabPressed) {
@@ -27,7 +27,7 @@ export default ({
     } else { // if tab key is pressed
         console.log('tab')
         console.log(document.activeElement)
-        console.log(firstFocusableElement)
+        console.log(lastFocusableElement)
         if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
             firstFocusableElement.focus(); // add focus for the first focusable element
             e.preventDefault();
