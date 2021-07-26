@@ -6,12 +6,13 @@
   class="ma__action-step {{ accordion ? 'js-accordion ma__action-step--accordion' : '' }} {{ actionStep.isExpanded ? 'is-open':'' }}">
   {% if accordion %}
     <button
-      class="ma__action-step__header js-accordion-link">
+      class="ma__action-step__header js-accordion-link"
+      {{ actionStep.accordionLabel ? aria-label="{{ actionStep.accordionLabel }}" : '' }}>
   {% else %}
     <header class="ma__action-step__header">
   {% endif %}
     {% if actionStep.icon %}
-      <div class="ma__action-step__icon" aria-label="{{actionStep.icon_label}}">
+      <div class="ma__action-step__icon" aria-label="{{actionStep.iconLabel}}">
         {{ icon(actionStep.icon) }}
       </div>
     {% endif %}
@@ -33,7 +34,7 @@
   {% else %}
     </header>
   {% endif %}
-  {% if actionStep.richText or actionStep.decorativeLink %}
+  {% if actionStep.richText or actionStep.decorativeLink or actionStep.downloadLinks %}
     <div class="ma__action-step__content {{ accordion ? 'js-accordion-content' : '' }}">
     {% if actionStep.richText %}
       {% set richText = actionStep.richText %}
