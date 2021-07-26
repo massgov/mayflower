@@ -1,3 +1,15 @@
+const isDisplayed = (el) => {
+    const style = window.getComputedStyle(el);
+    return ((style.display !== 'none') && (style.visibility !== 'hidden'))
+}
+
+const filterDisplayedElements = (elements) => {
+    console.log(elements)
+    if (elements.length > 0) {
+        return elements.filter((el) => isDisplayed(el))
+    }
+}
+
 export default ({
     focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
     modalSelector, // e.g. '#exampleModal',
@@ -8,10 +20,11 @@ export default ({
     const modal = document.querySelector(modalSelector); // select the modal by it's id
     const e = keyEvent;
 
-    const focusableContent = modal && modal.querySelectorAll(focusableElements);
+    const focusableContent = modal && filterDisplayedElements(modal.querySelectorAll(focusableElements));
     const firstFocusableElement = focusableContent[0]; // get first element to be focused inside modal
     const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
-console.log(firstFocusableElement)
+
+    console.log(lastFocusableElement)
     let isTabPressed = e.key === 'Tab';
 
     if (!isTabPressed) {
