@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.10.0 (7/26/2021)
+### Changed 
+- (Patternlab) [EmergencyAlert, EmergencyHeader, HeaderAlerts] DP-22395: Implement new designs for EmergencyAlerts and HeaderAlerts (replacing HeaderAlert). (#1449)
+
 ## 11.9.0 (7/19/2021)
 ### Changed 
 - (Patternlab) [PageFlipper] DP-22292: Hide duplicate links in the component from assistive technology and keyboard users. (#1433)
