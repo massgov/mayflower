@@ -69,8 +69,8 @@
     cursor: pointer;
     color: $c-black;
     font-weight: $fonts-light;
-    border: 0;
-    background: transparent;
+    
+    @include ma-button-reset;
 
     @include ma-chevron;
 
