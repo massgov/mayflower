@@ -7,7 +7,7 @@
   {% if accordion %}
     <button
       class="ma__action-step__header js-accordion-link"
-      {{ actionStep.accordionLabel ? aria-label="{{ actionStep.accordionLabel }}" : '' }}>
+      {% if actionStep.accordionLabel %}aria-label="{{ actionStep.accordionLabel }}"{% endif %}>
   {% else %}
     <header class="ma__action-step__header">
   {% endif %}
