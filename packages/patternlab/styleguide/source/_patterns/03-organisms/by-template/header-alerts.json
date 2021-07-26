@@ -11,6 +11,8 @@
       "isExpanded": false,
       "accordionLabel": "Expand Actualizaciones sobre el desempleo",
       "icon": "input-warning",
+      "icon_label": "notice",
+      "level": "3",
       "title": "Actualizaciones sobre el desempleo",
       "suffix": "Updated: Mar. 17th, 2021, 11:10 am",
       "richText": {
@@ -29,6 +31,8 @@
       "isExpanded": false,
       "accordionLabel": "Expand DUA warns about phising scam",
       "icon": "input-error",
+      "icon_label": "alert",
+      "level": "3",
       "title": "DUA warns about phising scam",
       "suffix": "Updated: Mar. 23rd, 2021, 9:50 am",
       "decorativeLink": {
@@ -41,12 +45,16 @@
     {
       "accordionLabel": "Expand DUA warns about phising scam",
       "icon": "input-error",
+      "icon_label": "alert",
+      "level": "3",
       "title": "DUA warns about phising scam",
       "suffix": "Updated: Mar. 23rd, 2021, 9:50 am"
     },
     {
       "accordionLabel": "Expand Actualizaciones sobre el desempleo",
       "icon": "input-warning",
+      "icon_label": "notice",
+      "level": "3",
       "title": "Actualizaciones sobre el desempleo",
       "suffix": "Updated: Mar. 17th, 2021, 11:10 am",
       "link": "#"

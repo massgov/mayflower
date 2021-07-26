@@ -11,7 +11,7 @@
     <header class="ma__action-step__header">
   {% endif %}
     {% if actionStep.icon %}
-      <div class="ma__action-step__icon">
+      <div class="ma__action-step__icon" aria-label="{{actionStep.icon_label}}">
         {{ icon(actionStep.icon) }}
       </div>
     {% endif %}
