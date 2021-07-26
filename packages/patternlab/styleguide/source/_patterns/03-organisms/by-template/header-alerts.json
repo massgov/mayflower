@@ -9,7 +9,6 @@
     {
       "accordion": true,
       "isExpanded": false,
-      "accordionLabel": "Expand Actualizaciones sobre el desempleo",
       "icon": "input-warning",
       "iconLabel": "notice",
       "level": "3",
@@ -29,7 +28,6 @@
     {
       "accordion": true,
       "isExpanded": false,
-      "accordionLabel": "Expand DUA warns about phising scam",
       "icon": "input-error",
       "iconLabel": "alert",
       "level": "3",
@@ -43,7 +41,6 @@
       }
     },
     {
-      "accordionLabel": "Expand DUA warns about phising scam",
       "icon": "input-error",
       "iconLabel": "alert",
       "level": "3",
@@ -51,7 +48,6 @@
       "suffix": "Updated: Mar. 23rd, 2021, 9:50 am"
     },
     {
-      "accordionLabel": "Expand Actualizaciones sobre el desempleo",
       "icon": "input-warning",
       "iconLabel": "notice",
       "level": "3",
