@@ -20,7 +20,8 @@ export default ({
     const modal = document.querySelector(modalSelector); // select the modal by it's id
     const e = keyEvent;
 
-    const focusableContent = modal && filterDisplayedElements(modal.querySelectorAll(focusableElements));
+    const focusableNodeArray = Array.from(modal.querySelectorAll(focusableElements));
+    const focusableContent = modal && filterDisplayedElements(focusableNodeArray);
     const firstFocusableElement = focusableContent[0]; // get first element to be focused inside modal
     const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
 
