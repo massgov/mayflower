@@ -31,10 +31,12 @@ export default ({
     }
 
     if (e.shiftKey) { // if shift key pressed for shift + tab combination
-        if (document.activeElement === firstFocusableElement) {
-            lastFocusableElement.focus(); // add focus for the last focusable element
-            e.preventDefault();
-        }
+        return;
+        // Disable auto focus on the last nav element, to match current Mass.gov global nav keyboard behavior
+        // if (document.activeElement === firstFocusableElement) {
+        //     lastFocusableElement.focus(); // add focus for the last focusable element
+        //     e.preventDefault();
+        // }
     } else { // if tab key is pressed
         if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
             firstFocusableElement.focus(); // add focus for the first focusable element
