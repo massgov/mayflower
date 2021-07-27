@@ -127,23 +127,33 @@ export const useJumpToSearch = (openMenu) => {
     if (body.classList.contains('show-menu')) {
       // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
       hamburgerMenuContainer.setAttribute('aria-hidden', '');
-      searchInput && searchInput.focus();
+      if (searchInput) {
+        searchInput.focus();
+      }
     } else {
       hamburgerMenuContainer.removeAttribute('aria-hidden');
       openMenu();
       setTimeout(() => {
-        jumpToSearchButton && jumpToSearchButton.setAttribute('aria-pressed', 'true');
-        searchInput.setAttribute('autofocus', '');
-        searchInput.focus();
+        if (jumpToSearchButton) {
+          jumpToSearchButton.setAttribute('aria-pressed', 'true');
+        }
+        if (searchInput) {
+          searchInput.setAttribute('autofocus', '');
+          searchInput.focus();
+        }
       }, 200);
     }
   }, [openMenu]);
   React.useEffect(() => {
     const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
 
-    jumpToSearchButton && jumpToSearchButton.addEventListener('click', jumpToSearch);
+    if (jumpToSearchButton) {
+      jumpToSearchButton.addEventListener('click', jumpToSearch);
+    }
     return(() => {
-      jumpToSearchButton && jumpToSearchButton.removeEventListener('click', jumpToSearch);
+      if (jumpToSearchButton) {
+        jumpToSearchButton.removeEventListener('click', jumpToSearch);
+      }
     });
   }, [jumpToSearch]);
 };
