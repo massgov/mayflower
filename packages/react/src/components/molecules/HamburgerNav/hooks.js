@@ -6,10 +6,10 @@ export const useHamburgerNavKeydown = (closeMenu) => {
   // can be deleted when the parent component unmounts.
   const keyDown = React.useCallback((e) => {
     focusTrapping({
-      focusableSelectors:'[role="menuitem"],.ma__utility-nav__link > a, .ma__utility-nav__item > button, .ma__utility-panel__item > span > a',
-      modalSelector:'.ma__header__hamburger__nav-container',
+      focusableSelectors: '[role="menuitem"],.ma__utility-nav__link > a, .ma__utility-nav__item > button, .ma__utility-panel__item > span > a',
+      modalSelector: '.ma__header__hamburger__nav-container',
       keyEvent: e
-    })
+    });
 
     const utilNavWide = document.querySelector('.js-utility-nav--wide');
     const utilNarrowNav = document.querySelector('.ma__header__hamburger__utility-nav--narrow');
@@ -56,7 +56,6 @@ export const useHamburgerNavKeydown = (closeMenu) => {
       }
     }
 
-
     // ESC to close menus.
     // 'e.key === "Esc"' is necessary for IE11.
     if (e.key === 'Escape' || e.key === 'Esc' || e.code === 'Escape') {
@@ -87,7 +86,6 @@ export const useHamburgerNavKeydown = (closeMenu) => {
           }
         }
       }
-
 
       // Main nav elements
       const openSubmenu = document.querySelector('.submenu-open .js-main-nav-hamburger__top-link');
@@ -125,7 +123,7 @@ export const useJumpToSearch = (openMenu) => {
     const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
     const searchInput = document.querySelector('.ma__header__hamburger__nav-container .ma__header-search__input');
     const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
-  
+
     if (body.classList.contains('show-menu')) {
       // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
       hamburgerMenuContainer.setAttribute('aria-hidden', '');
@@ -145,7 +143,7 @@ export const useJumpToSearch = (openMenu) => {
 
     jumpToSearchButton && jumpToSearchButton.addEventListener('click', jumpToSearch);
     return(() => {
-        jumpToSearchButton && jumpToSearchButton.removeEventListener('click', jumpToSearch);
+      jumpToSearchButton && jumpToSearchButton.removeEventListener('click', jumpToSearch);
     });
   }, [jumpToSearch]);
 };

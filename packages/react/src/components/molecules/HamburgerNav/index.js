@@ -107,7 +107,7 @@ const HamburgerNav = ({
         menuOverlay.classList.add('overlay-open');
         menuOverlay.onclick = () => {
           closeMenu();
-        }
+        };
       }
       if (alertOverlay) {
         if (document.querySelector('.ma__emergency-alerts')) {
