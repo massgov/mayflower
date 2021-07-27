@@ -705,6 +705,7 @@ body.show-menu {
         display: none;
 
         // focusTrapping.js reply on this setting to determine the last focusable item in the nav
+
         & .ma__utility-nav__link {
           display: none;
         }
