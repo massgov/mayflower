@@ -3,11 +3,7 @@ const isDisplayed = (el) => {
   return((style.display !== 'none') && (style.visibility !== 'hidden'));
 };
 
-const filterDisplayedElements = (elements) => {
-  if (elements.length > 0) {
-    return elements.filter((el) => isDisplayed(el));
-  }
-};
+const filterDisplayedElements = (elements) => (elements.length > 0) && elements.filter((el) => isDisplayed(el));
 
 export default ({
   focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
@@ -37,10 +33,9 @@ export default ({
     //     lastFocusableElement.focus(); // add focus for the last focusable element
     //     e.preventDefault();
     // }
-  } else { // if tab key is pressed
-    if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-      firstFocusableElement.focus(); // add focus for the first focusable element
-      e.preventDefault();
-    }
+  } else if (document.activeElement === lastFocusableElement) { // if tab key is pressed
+    // if focused has reached to last focusable element then focus first focusable element after pressing tab
+    firstFocusableElement.focus(); // add focus for the first focusable element
+    e.preventDefault();
   }
 };
