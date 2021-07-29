@@ -37,8 +37,8 @@
 #    issue: DP-19843
 #
 Changed:
-  - project: React, Patternlab
-    component: keyMessage
-    description: Adjusted key message component and picture component to accomodate for responsive images.
+  - project: Patternlab
+    component: PictureElement, KeyMessage
+    description: Adjusted key message component and picture component to accommodate for responsive images. (#1450)
     issue: DP-22263
     impact: Minor
