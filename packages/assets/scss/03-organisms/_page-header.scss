@@ -11,9 +11,9 @@ $page-header-widget-width: 350px;
   &__tags {
     clear: both;
     display: flex;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
     overflow: hidden;
     margin-bottom: 20px;
     padding-top: 18px;
@@ -92,6 +92,10 @@ $page-header-widget-width: 350px;
     padding: 30px 0;
   }
 
+  &--has-optional-content &__content {
+    padding-bottom: 0
+  }
+
   &__tags ~ &__content {
     padding-top: 30px;
 
@@ -110,69 +114,6 @@ $page-header-widget-width: 350px;
 
   .ma__page-banner ~ & &__content {
     padding-top: 20px;
-  }
-
-  &--has-widgets &__content {
-
-    @media ($bp-medium-min) {
-      padding-bottom: 45px;
-    }
-
-    @media ($bp-large-min) {
-      float: left;
-      padding-right: $column;
-      max-width: 820px;
-      width: calc(100% - #{$page-header-widget-width});
-    }
-  }
-
-  &__widgets {
-    padding-bottom: 40px;
-
-    @media ($bp-large-min) {
-      float: right;
-      padding-top: 75px;
-      padding-bottom: 60px;
-      width: $page-header-widget-width;
-    }
-
-    @media ($bp-x-large-min) {
-      padding-top: 85px;
-    }
-
-    & > * {
-      margin-top: 30px;
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-
-    .ma__image {
-
-      @media ($bp-large-min) {
-        clear: both;
-        float: right;
-      }
-    }
-  }
-
-  &__tags ~ &__widgets {
-
-    @media ($bp-large-min) {
-      padding-top: 50px;
-    }
-
-    @media ($bp-x-large-min) {
-      padding-top: 60px;
-    }
-  }
-
-  .ma__page-banner ~ & &__widgets {
-
-    @media ($bp-large-min) {
-      padding-top: 20px;
-    }
   }
 
   &__publish-state {
@@ -194,6 +135,10 @@ $page-header-widget-width: 350px;
 
     &:last-child {
       margin-bottom: 0;
+
+      .ma__page-header--has-optional-content  & {
+        margin-bottom: .4em;
+      }
     }
 
     .ma__page-header__sub-title {
@@ -233,103 +178,6 @@ $page-header-widget-width: 350px;
 
   &__sub-title .ma__rich-text__container {
     margin-bottom: 0;
-  }
-
-
-  &--has-widgets &__sub-title {
-
-    @media ($bp-large-min) {
-      padding-right: 0;
-      width: 100%;
-    }
-  }
-
-  &__optional-content {
-
-    .main-content {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-
-      .page-content {
-        padding-bottom: 0;
-      }
-    }
-
-    .ma__contact-us {
-
-      &.js-accordion {
-
-        @include clearfix;
-
-        // controls for when to activate accordion
-
-        &:before {
-          content: "true";
-        }
-
-        @media ($bp-small-min) {
-
-          &:before {
-            content: "false";
-          }
-        }
-      }
-
-      & > .ma__contact-group:first-child {
-
-        @media ($bp-small-min) {
-          clear: both;
-          padding-bottom: 20px;
-        }
-      }
-
-      // more than two contacts
-
-      .ma__contact-group:nth-child(2):nth-last-child(3) {
-
-        @media ($bp-small-min) {
-          border-right-width: 1px;
-          border-right-style: solid;
-          float: left;
-          height: 100%;
-          padding-right: 45px;
-          padding-top: 0;
-          width: 50%;
-        }
-      }
-
-      &__extra {
-
-        @media ($bp-small-min) {
-          border-left-width: 1px;
-          border-left-style: solid;
-          display: block;
-          float: left;
-          height: 100%;
-          margin-left: -1px;
-          padding-left: 45px;
-          padding-top: 0;
-          width: 50%;
-        }
-      }
-
-      &__expand {
-        clear: both;
-
-        @media ($bp-small-min) {
-          display: none;
-        }
-      }
-    }
-  }
-
-  &--has-widgets &__optional-content {
-
-    .page-content {
-      padding: 0;
-      width: 100%;
-    }
   }
 
   &__divider {
@@ -375,21 +223,6 @@ $page-header-widget-width: 350px;
   &__sub-title {
     color: $c-font-heading;
     font-weight: $fonts-bold;
-  }
-
-  &__optional-content {
-
-    @media ($bp-small-min) {
-
-      .ma__contact-us > .ma__contact-group:nth-child(2):nth-last-child(3),
-      .ma__contact-us > .ma__contact-us__extra {
-        border-color: $c-bd-divider;
-      }
-    }
-
-    .ma__contact-us__expand {
-      border-top-color: $c-bd-divider;
-    }
   }
 
 }
