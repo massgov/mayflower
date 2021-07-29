@@ -9,12 +9,14 @@
   <div class="pre-content">
     {% block preContent %}
       {% include "@molecules/relationship-indicators.twig" %}
-      {# Use ajax pattern to render page alerts if data present. #}
-      {% if ajaxHeaderAlerts %}
-        {% set ajaxPattern = ajaxHeaderAlerts %}
-        {% include "@organisms/by-template/ajax-pattern.twig" %}
-      {% endif %}
       {% include "@organisms/by-template/page-header.twig" %}
+
+      <div class="ma__page-banner__container">
+        {% set headerTitle = alerts.headerTitle %}
+        {% set headerAlerts = alerts.headerAlerts %}
+        {% include "@organisms/by-template/header-alerts.twig" %}
+      </div>
+
       {% if locationBanner %}
         {% include "@organisms/by-author/location-banner.twig" %}
       {% endif %}

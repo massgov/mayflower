@@ -1,6 +1,31 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.10.0 (7/26/2021)
+### Changed 
+- (Patternlab) [EmergencyAlert, EmergencyHeader, HeaderAlerts] DP-22395: Implement new designs for EmergencyAlerts and HeaderAlerts (replacing HeaderAlert). (#1449)
+
+## 11.9.0 (7/19/2021)
+### Changed 
+- (Patternlab) [PageFlipper] DP-22292: Hide duplicate links in the component from assistive technology and keyboard users. (#1433)
+- (Patternlab) [TableOfContentsOverlay] DP-22292: Set up keeping focus in the overaly while it's open. (#1433)
+- (Patternlab) [EmergencyAlert, EmergencyHeader, HeaderAlerts] DP-22395: Implement new designs for EmergencyAlerts. Added HeaderAlerts to replace HeaderAlert.  (#1444)
+
+### Fixed 
+- (Patternlab) [MainNavHamburger] DP-22559: Fixed javascript error regarding moved element. (#1445)
+
+## 11.8.0 (7/12/2021)
+### Changed 
+- (Patternlab) [ContentTypes] DP-21924: Changed Twig syntax for drupal-9 (#1434)
+- (Patternlab) [Table] DP-18737: Target regular richtext table more specifically. (#1439)
+
+### Added 
+- (Patternlab) [GeneralTeaser] DP-22334: Add quick action links to GeneralTeaser component. (#1435)
+
+### Fixed 
+- (Assets, Patternlab) [Elements] DP-22506: Reverted globally changed ul/ol elements styling targeting types, fix the listing regressions in navs. (#1440)
+- (React, Patternlab) [GoogleTranslateElement] DP-22281: Fixed the google translate element for mobile. (#1438)
+
 ## 11.7.1 (6/28/2021)
 ### Added 
 - (Patternlab) [ImagePromo] DP-22122: Added aria-hidden to hide duplicate content from screen readers. (#1417)

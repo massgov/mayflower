@@ -1,0 +1,112 @@
+@use "00-base/configure" as *;
+
+.ma__header-alerts {
+  margin-bottom: 30px;
+
+  &__header {
+    cursor: pointer;
+    background-color: $c-warning;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    @media ($bp-x-small-max) {
+      flex-direction: column;
+    }
+    color: $c-black;
+    font-weight: $fonts-light;
+    border: 0;
+    width: 100%;
+
+    &__title {
+      display: inline-flex;
+      align-items: center;
+      font-weight: $fonts-bold;
+      font-size: $fonts-medium;
+      margin-bottom: 0;
+    }
+
+    &___icon {
+      margin-right: 12px;
+      height: 22px;
+      margin-top: 3px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__toggle {
+      margin-left: auto;
+      font-size: $fonts-small;
+      text-decoration: underline;
+
+      @media ($bp-x-small-max) {
+        margin-left: 0;
+      }
+    }
+
+    &__hide {
+      display: none;
+    }
+
+    .is-open & {
+
+      &__hide {
+        display: inline;
+      }
+
+      &__show {
+        display: none;
+      }
+
+    }
+  }
+
+  &__container {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ma__action-step {
+
+    border-color: $c-bd-divider;
+    border-width: 2px;
+    border-style: solid;
+
+    &__header {
+      border: none;
+      display: block;
+      padding: 20px 40px 20px 60px;
+      text-align: left;
+      width: 100%;
+      background-color: $c-bg-section;
+    }
+
+    &__more {
+      margin-top: 0;
+    }
+
+    &__icon {
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__title {
+      font-size: $fonts-large;
+      line-height: 29px;
+
+      a {
+
+        padding-right: 0.8rem;
+      }
+    }
+  }
+
+}

@@ -3,6 +3,7 @@
 {% set wrapClass = not figure.wrap ? " ma__figure--no-wrap" : "" %}
 {% set skiplinkId = figure.skiplink ? "figure-" ~ random(9999) : "" %}
 {% set skiplinkText = figure.skiplink.text ? figure.skiplink.text : "graphic presentation" %}
+{% set titleLevel = figure.title.level ? : 3 %}
 
 <div class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}{{ wrapClass }}">
 {% if figure.skiplink.add %}
@@ -13,9 +14,15 @@
   {% if figure.title.text and figure.title.visible %}
     {# screen reader or AT users get title from aria-label in <figure> in semantic manner.
     To avoid them to receive duplicate information, hide this title from them with aria-hidden. #}
-    <span class="ma__figure__title" aria-hidden="true">
-      {{ figure.title.text }}
-    </span>
+      {% if figure.title.level %}
+        <h{{ titleLevel }} class="ma__figure__title" aria-hidden="true">
+            {{ figure.title.text }}
+        </h{{ titleLevel}}>
+      {% else %}
+        <span class="ma__figure__title" aria-hidden="true">
+          {{ figure.title.text }}
+        </span>
+      {% endif %}
     {% endif %}
     {# Container for aria-live. Currently, only implemented with Caspio, but can be extended to any figure variations. #}
     {% if figure.ariaLive %}<div aria-live="{{ figure.ariaLive }}">{% endif %}
