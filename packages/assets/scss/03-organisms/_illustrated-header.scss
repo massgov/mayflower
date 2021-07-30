@@ -87,7 +87,8 @@ $bp-illustrated-header-image-width: 360px;
     text-transform: uppercase;
   }
 
-  .ma__page-header {
+  .ma__page-header,
+  .ma__page-header-addons {
     padding: 0;
 
     &__content {
@@ -108,7 +109,8 @@ $bp-illustrated-header-image-width: 360px;
     content: none;
   }
 
-  .ma__page-header {
+  .ma__page-header,
+  .ma__page-header-addons {
     width: 100%;
   }
 
