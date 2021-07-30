@@ -31,14 +31,12 @@ $page-header-widget-width: 350px;
     padding-bottom: 40px;
 
     @media ($bp-large-min) {
-      margin-top: -.7em;
       float: right;
       padding-bottom: 60px;
       width: $page-header-widget-width;
     }
 
     @media ($bp-x-large-min) {
-      margin-top: -.75em;
     }
 
     & > * {
