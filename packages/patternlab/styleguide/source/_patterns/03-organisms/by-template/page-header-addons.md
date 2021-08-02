@@ -1,5 +1,5 @@
 ### Description
-This pattern adds addons elements to the main page header component.
+This pattern appends additional elements to the main page header component - optional contents in the main well, and widgets in the right sidebar.
 
 ### Status
 * New as of 11.11.0
@@ -25,4 +25,5 @@ pageHeader: {
       type: object / contains data object of pattern to include
     }
   }]
+}
 ~~~

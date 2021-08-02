@@ -6,6 +6,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 // import child components
 import Paragraph from 'MayflowerReactText/Paragraph';
@@ -16,14 +17,12 @@ const PageHeader = (pageHeader) => {
     category, title, subTitle, optionalContents, publishState
   } = pageHeader;
 
-  let mainClass = 'ma__page-header';
-
-  if (optionalContents) {
-    mainClass += ' ma__page-header--has-optional-content';
-  }
+  const pageHeaderClasses = classNames('ma__page-header', {
+    'ma__page-header--has-optional-content': optionalContents
+  });
 
   return(
-    <section className={mainClass}>
+    <section className={pageHeaderClasses}>
       <div className="ma__page-header__content">
 
         { publishState && (
