@@ -16,6 +16,10 @@ $bp-illustrated-header-image-width: 360px;
     margin-bottom: 1.625rem;
   }
 
+  .ma__page-header--has-optional-content .ma__page-header__title:last-child {
+    margin-bottom: 1.625rem;
+  }
+
   &__image {
     background-position: center;
     background-size: cover;
@@ -87,7 +91,8 @@ $bp-illustrated-header-image-width: 360px;
     text-transform: uppercase;
   }
 
-  .ma__page-header {
+  .ma__page-header,
+  .ma__page-header-addons {
     padding: 0;
 
     &__content {
@@ -108,7 +113,8 @@ $bp-illustrated-header-image-width: 360px;
     content: none;
   }
 
-  .ma__page-header {
+  .ma__page-header,
+  .ma__page-header-addons {
     width: 100%;
   }
 

@@ -3,6 +3,7 @@
  * @module @massds/mayflower-react/IllustratedHeader
  * @requires module:@massds/mayflower-assets/scss/03-organisms/illustrated-header
  * @requires module:@massds/mayflower-assets/scss/03-organisms/page-header
+ * * @requires module:@massds/mayflower-assets/scss/03-organisms/page-header-addons
  * @requires module:@massds/mayflower-assets/scss/01-atoms/publish-state
  */
 import React from 'react';
@@ -10,6 +11,7 @@ import PropTypes from 'prop-types';
 
 // import child components
 import PageHeader from 'MayflowerReactOrganisms/PageHeader';
+import PageHeaderAddons from 'MayflowerReactOrganisms/PageHeaderAddons';
 import PublishState from 'MayflowerReactText/PublishState';
 
 const IllustratedHeader = (illustratedHeader) => {
@@ -32,6 +34,7 @@ const IllustratedHeader = (illustratedHeader) => {
             {category}
           </div>
           <PageHeader {...pageHeaderProps} />
+          <PageHeaderAddons {...pageHeaderProps} />
           {
             // Allows IllustratedHeader to render custom children component (this feature is used in rideshare report and it's not in Mayflower PatternLab)
             children

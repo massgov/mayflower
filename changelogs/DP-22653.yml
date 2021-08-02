@@ -1,0 +1,12 @@
+Added:
+  - project: React, Patternlab
+    component: PageHeaderAddons
+    description: Adds PageHeaderAddons component to render additional contents below PageHeader. (#1456)
+    issue: DP-22653
+    impact: Minor
+Changed:
+  - project: React, Patternlab
+    component: PageHeader
+    description: Takes out optionalContents and widgets from the PageHeader component. Add PageHeaderAddons to the template to render those instead (no change to the PageHeader data object structure). (#1456)
+    issue: DP-22653
+    impact: Minor
