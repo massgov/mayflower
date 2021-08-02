@@ -11,7 +11,7 @@
     &:first-child {
 
       @media ($bp-large-min) {
-        padding-top: 20px;
+        margin-top: -5px;
       }
     }
   }

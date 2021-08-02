@@ -15,8 +15,15 @@ const PageHeader = (pageHeader) => {
   const {
     category, title, subTitle, optionalContents, publishState
   } = pageHeader;
+
+  let mainClass = 'ma__page-header';
+
+  if (optionalContents) {
+    mainClass += ' ma__page-header--has-optional-content';
+  }
+
   return(
-    <section className="ma__page-header">
+    <section className={mainClass}>
       <div className="ma__page-header__content">
 
         { publishState && (
@@ -40,18 +47,6 @@ const PageHeader = (pageHeader) => {
         </h1>
         { subTitle && (
           <div className="ma__page-header__sub-title">{subTitle}</div>
-        )}
-        { optionalContents && (
-          <div className="ma__page-header__optional-content">
-            <div className="main-content main-content--two">
-              <div className="page-content">
-                {
-                  /* eslint-disable react/no-array-index-key */
-                  optionalContents.map((p, index) => (<Paragraph key={`page-header-optional-content${index}`} {...p.paragraph} />))
-                }
-              </div>
-            </div>
-          </div>
         )}
       </div>
     </section>
