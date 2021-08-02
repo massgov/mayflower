@@ -1,0 +1,32 @@
+{% set widgetsClass = pageHeader.widgets ? " ma__page-header-addons--has-widgets" : "" %}
+
+{% if pageHeader.optionalContents or  pageHeader.widgets %}
+  <section class="ma__page-header-addons{{widgetsClass}}">
+    {% if pageHeader.optionalContents %}
+      <div class="ma__page-header-addons__content">
+        <div class="ma__page-header-addons__optional-content">
+          <div class="main-content main-content--two">
+            <div class="page-content">
+              {% for content in pageHeader.optionalContents %}
+                {% include content.path with content.data %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% if pageHeader.widgets %}
+      <div class="ma__page-header-addons__widgets">
+        {% for widget in pageHeader.widgets %}
+          {% include widget.path with widget.data %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if pageHeader.divider %}
+      <div class="ma__page-header__divider">
+        {% include "@atoms/divider.twig" %}
+      </div>
+    {% endif %}
+  </section>
+{% endif %}
