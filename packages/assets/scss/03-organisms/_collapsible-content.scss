@@ -4,11 +4,21 @@
 
   @include clearfix;
 
+  width: 100%;
+
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
 
     @include ma-container;
+  }
+
+  &--light {
+    .ma__collapsible-content__items,
+    .ma__collapsible-header__button {
+      background: $c-white;
+    }
+
   }
 
   &__item {
