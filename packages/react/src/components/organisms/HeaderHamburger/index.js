@@ -57,20 +57,23 @@ const HeaderHamburger = ({
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
   return(
-    <header className="ma__header__hamburger" id="header">
-      {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
-      <HamburgerNav
-        MainNav={RenderedMainNav}
-        NavItem={RenderedNavItem}
-        UtilityItem={RenderedUtilityItem}
-        UtilityNav={RenderedUtilityNav}
-        Logo={RenderedMobileLogo}
-        NavSearch={RenderedMobileNavSearch}
-        mainItems={mainItems}
-        utilityItems={fallbackUtilityItems}
-      />
-      <RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />
-    </header>
+    <>
+      <header className="ma__header__hamburger" id="header">
+        {RenderedSkipNav !== null ? <RenderedSkipNav /> : null}
+        <HamburgerNav
+          MainNav={RenderedMainNav}
+          NavItem={RenderedNavItem}
+          UtilityItem={RenderedUtilityItem}
+          UtilityNav={RenderedUtilityNav}
+          Logo={RenderedMobileLogo}
+          NavSearch={RenderedMobileNavSearch}
+          mainItems={mainItems}
+          utilityItems={fallbackUtilityItems}
+        />
+        <RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />
+      </header>
+      <div className="menu-overlay" />
+    </>
   );
 };
 HeaderHamburger.propTypes = {
