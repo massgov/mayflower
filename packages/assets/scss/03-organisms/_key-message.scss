@@ -69,7 +69,7 @@ $colors: (
       height: 425px;
     }
 
-    @media ($bp-large-min) {
+    @media ($bp-medium-min) {
       position: absolute;
       height: 100%;
       top: 0;
