@@ -54,36 +54,31 @@ $colors: (
   }
 
   &__inline-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
     z-index: 0;
     width: 100%;
-    height: 100%;
+    height: 215px;
 
     picture, source, img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-   // height: 215px;
 
     @media ($bp-small-min) {
-      //height: 425px;
+      height: 425px;
     }
 
-    @media ($bp-medium-min) {
-      /*height: 0px;
-      display: none;*/
+    @media ($bp-large-min) {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
-  }
 
-  &__inline-image, &--image {
-   // background-position: center;
-  //  background-size: cover;
-   // background-repeat: no-repeat;
+
   }
 
   &__content {
