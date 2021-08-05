@@ -160,7 +160,6 @@
 @use "03-organisms/header";
 @use "03-organisms/header-hamburger";
 @use "03-organisms/header-mixed";
-@use "03-organisms/header-alert";
 @use "03-organisms/header-alerts";
 @use "03-organisms/helpful-links";
 
@@ -184,6 +183,7 @@
 @use "03-organisms/page-discourse";
 @use "03-organisms/page-flipper";
 @use "03-organisms/page-header";
+@use "03-organisms/page-header-addons";
 @use "03-organisms/personal-message";
 @use "03-organisms/person-card";
 @use "03-organisms/press-filters";

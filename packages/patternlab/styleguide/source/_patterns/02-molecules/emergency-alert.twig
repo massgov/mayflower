@@ -2,9 +2,17 @@
   {% set link = emergencyAlert.link %}
   <p class="ma__emergency-alert ma__emergency-alert--pt">
     <span class="ma__emergency-alert__link">
-      <a  class="ma__content-link ma__content-link--chevron" href="{{ link.href }}">
-        <span>{{ link.text }}</span>{% if emergencyAlert.timeStamp %}<span class="ma__emergency-alert__time-stamp"> {{ emergencyAlert.timeStamp }}</span>{% endif %}
-      </a>
+      {% if link.href %}
+        <a  class="ma__content-link ma__content-link--chevron" href="{{ link.href }}">
+      {% else %}
+        <span class="ma__content-link ma__content-link--nolink">
+      {% endif %}
+          <span>{{ link.text }}</span>{% if emergencyAlert.timeStamp %}<span class="ma__emergency-alert__time-stamp"> {{ emergencyAlert.timeStamp }}</span>{% endif %}
+      {% if link.href %}
+        </a>
+      {% else %}
+        </span>
+      {% endif %}
     </span>
   </p>
 {% endif %}

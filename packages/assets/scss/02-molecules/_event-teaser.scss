@@ -96,7 +96,8 @@
   &__time {
     font-size: $fonts-smaller;
 
-    .ma__page-header & {
+    .ma__page-header &,
+    .ma__page-header-addons & {
       font-size: $fonts-larger;
       line-height: 1.3;
     }

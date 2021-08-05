@@ -55,7 +55,7 @@
 
       span {
 
-        font-weight: $fonts-normal;
+        font-weight: $fonts-light;
 
         &:hover {
           border-bottom-width: 1px;
@@ -73,8 +73,26 @@
           border-bottom-color: rgba($c-font-base, .5);
         }
       }
-    }
 
+      &--nolink {
+
+        &:hover {
+          border-bottom-width: 0;
+          border-bottom-color: transparent;
+        }
+      }
+
+      &--chevron {
+
+        &:after {
+          height: .5em;
+          width: .5em;
+          border-right: 3px solid;
+          border-bottom: 3px solid;
+          border-color: $c-black;
+        }
+      }
+    }
   }
 
   &__message {
