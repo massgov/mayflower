@@ -10,13 +10,14 @@
     {% block preContent %}
       {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
-
-      <div class="ma__page-banner__container">
-        {% set headerTitle = alerts.headerTitle %}
-        {% set headerAlerts = alerts.headerAlerts %}
-        {% include "@organisms/by-template/header-alerts.twig" %}
+      <div class="mass-alerts-block">
+        <div class="ma__page-banner__container">
+          {% set headerTitle = alerts.headerTitle %}
+          {% set headerAlerts = alerts.headerAlerts %}
+          {% include "@organisms/by-template/header-alerts.twig" %}
+        </div>
       </div>
-
+      {% include "@organisms/by-template/page-header-addons.twig" %}
       {% if locationBanner %}
         {% include "@organisms/by-author/location-banner.twig" %}
       {% endif %}

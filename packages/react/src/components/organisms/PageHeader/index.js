@@ -6,6 +6,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 // import child components
 import Paragraph from 'MayflowerReactText/Paragraph';
@@ -15,8 +16,13 @@ const PageHeader = (pageHeader) => {
   const {
     category, title, subTitle, optionalContents, publishState
   } = pageHeader;
+
+  const pageHeaderClasses = classNames('ma__page-header', {
+    'ma__page-header--has-optional-content': optionalContents
+  });
+
   return(
-    <section className="ma__page-header">
+    <section className={pageHeaderClasses}>
       <div className="ma__page-header__content">
 
         { publishState && (
@@ -40,18 +46,6 @@ const PageHeader = (pageHeader) => {
         </h1>
         { subTitle && (
           <div className="ma__page-header__sub-title">{subTitle}</div>
-        )}
-        { optionalContents && (
-          <div className="ma__page-header__optional-content">
-            <div className="main-content main-content--two">
-              <div className="page-content">
-                {
-                  /* eslint-disable react/no-array-index-key */
-                  optionalContents.map((p, index) => (<Paragraph key={`page-header-optional-content${index}`} {...p.paragraph} />))
-                }
-              </div>
-            </div>
-          </div>
         )}
       </div>
     </section>

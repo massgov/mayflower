@@ -1,6 +1,6 @@
-{% set widgetsClass = pageHeader.widgets ? " ma__page-header--has-widgets" : "" %}
-
 {% set prefix = pageHeader.category|default(pageHeader.prefix) %}
+{% set optClass = pageHeader.optionalContents ? " ma__page-header--has-optional-content" : "" %}
+
 
 {# Replace page header tag presentation with relatinship indicator. #}
 {% if pageHeader.headerTags.taxonomyTerms %}
@@ -26,7 +26,7 @@
   {% endembed %}
 {% endif %}
 
-<section class="ma__page-header{{ widgetsClass }}">
+<section class="ma__page-header{{optClass}}">
   {% if pageHeader.socialLinks.items %}
   {# {% if pageHeader.headerTags.taxonomyTerms or pageHeader.socialLinks.items %} #}
     <div class="ma__page-header__tags">
@@ -75,29 +75,5 @@
         <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
       {% endif %}
     {% endif %}
-    {% if pageHeader.optionalContents %}
-      <div class="ma__page-header__optional-content">
-        <div class="main-content main-content--two">
-          <div class="page-content">
-            {% for content in pageHeader.optionalContents %}
-              {% include content.path with content.data %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    {% endif %}
   </div>
-  {% if pageHeader.widgets %}
-    <div class="ma__page-header__widgets">
-      {% for widget in pageHeader.widgets %}
-        {% include widget.path with widget.data %}
-      {% endfor %}
-    </div>
-  {% endif %}
-
-  {% if pageHeader.divider %}
-    <div class="ma__page-header__divider">
-      {% include "@atoms/divider.twig" %}
-    </div>
-  {% endif %}
 </section>
