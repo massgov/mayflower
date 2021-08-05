@@ -20,6 +20,7 @@
       {% set pageHeader = illustratedHeader.pageHeader %}
       {% set pageHeader = pageHeader|merge({ 'prefix': illustratedHeader.category }) %}
       {% include "@organisms/by-template/page-header.twig" %}
+      {% include "@organisms/by-template/page-header-addons.twig" %}
     </div>
   </div>
   {% if illustratedHeader.bgImage %}

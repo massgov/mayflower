@@ -1,0 +1,20 @@
+{
+  "pageHeader": {
+    "optionalContents": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text": "Optional Content"
+        }
+      }      
+    }],
+    "widgets": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text": "Optional widgets"
+        }
+      }      
+    }]
+  }
+}
