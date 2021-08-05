@@ -54,7 +54,7 @@
 Added:
   - project: React, Patternlab
     component: Color
-    description: Addded Color stories and color gradients. (#909)
+    description: Add Color stories and color gradients. (#909)
     issue: DP-17253
     impact: Minor
 

@@ -123,6 +123,13 @@ $page-banner-height: 330px;
     height: 100%;
     position: relative;
     padding-right: 0;
+
+    .mass-alerts-block & {
+
+      @media ($bp-medium-max) {
+        padding-right: 20px;
+      }
+    }
   }
 
   &--columns &__container {

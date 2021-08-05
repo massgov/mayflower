@@ -19,10 +19,15 @@ export default (function (window,document,$,undefined) {
   });
 
   function init(index) {
-    let $el = $(this),
-        $link = $el.find('.js-accordion-link'),
-        $content = $el.find('.js-accordion-content'),
-        $status = $el.find('.js-accordion-status'),
+    let $el = $(this);
+    let ind = '';
+    if ($el.hasClass('ma__header-alerts')) {
+      ind = '>';
+    }
+
+    let $link = $el.find(`${ind} .js-accordion-link`),
+        $content = $el.find(`${ind} .js-accordion-content`),
+        $status = $el.find(`${ind} .js-accordion-status`),
         id = $content.attr('id') || 'accordion' + (index + 1),
         active = checkActive($el),
         open = $el.hasClass('is-open');

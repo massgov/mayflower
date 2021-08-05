@@ -82,7 +82,9 @@ const HamburgerNav = ({
       if (feedbackButton) {
         feedbackButton.classList.add('hide-button');
       }
-      jumpToSearchButton.setAttribute('aria-expanded', 'true');
+      if (jumpToSearchButton) {
+        jumpToSearchButton.setAttribute('aria-expanded', 'true');
+      }
       menuButton.setAttribute('aria-pressed', 'true');
       const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
       body.style.position = 'fixed';
@@ -105,6 +107,9 @@ const HamburgerNav = ({
         }
         menuOverlay.style.top = `${overlayOffset}px`;
         menuOverlay.classList.add('overlay-open');
+        menuOverlay.onclick = () => {
+          closeMenu();
+        };
       }
       if (alertOverlay) {
         if (document.querySelector('.ma__emergency-alerts')) {
@@ -142,7 +147,9 @@ const HamburgerNav = ({
       if (feedbackButton) {
         feedbackButton.classList.remove('hide-button');
       }
-      jumpToSearchButton.setAttribute('aria-expanded', 'false');
+      if (jumpToSearchButton) {
+        jumpToSearchButton.setAttribute('aria-expanded', 'false');
+      }
       if (menuOverlay) {
         menuOverlay.classList.remove('overlay-open');
       }
