@@ -6,7 +6,7 @@
         {% set source = src.url %}
 
         {% if src.width is not empty %}
-          {% set media = '(min-width: ' ~ src.width ~ 'px)' %}
+          {% set media = '(max-width: ' ~ src.width ~ 'px)' %}
         {% elseif src.mediaQuery starts with '(' %}
           {% set media = src.mediaQuery %}
         {% elseif src.mediaQuery ends with 'w' %}
