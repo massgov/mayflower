@@ -4,11 +4,13 @@
       {% for src in picture.srcSets %}
         {% set media = "" %}
         {% set source = src.url %}
-
+        {# Numeric max width, i.e. '480' #}
         {% if src.width is not empty %}
           {% set media = '(max-width: ' ~ src.width ~ 'px)' %}
+        {# Media query, i.e. '(max-width: 480px)' #}
         {% elseif src.mediaQuery starts with '(' %}
           {% set media = src.mediaQuery %}
+        {# Fixed width, i.e. '1670w' #}
         {% elseif src.mediaQuery ends with 'w' %}
           {% set source = src.url ~ " " ~ src.mediaQuery %}
         {% endif %}
