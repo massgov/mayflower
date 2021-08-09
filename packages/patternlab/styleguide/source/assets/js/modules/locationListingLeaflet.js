@@ -26,11 +26,14 @@ export default (function (window, document, $) {
       }).on("mouseenter focusin", function (e) {
         let index = $(this).index();
         let maker = window.leafletMarkers[index];
+        maker._icon.style.transform += ' scale(1.5)';
         $(maker._icon).addClass('ma-highlighted');
 
       }).on("mouseleave", function (e) {
         let index = $(this).index();
         let maker = window.leafletMarkers[index];
+        let original = maker._icon.style.transform;
+        maker._icon.style.transform = maker._icon.style.transform.replace(' scale(1.5)', '');
         $(maker._icon).removeClass('ma-highlighted');
       });
     });
