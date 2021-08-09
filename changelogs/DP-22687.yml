@@ -1,6 +1,0 @@
-Added:
-  - project: Assets, Patternlab
-    component: Icon
-    description: Add "demographics" icon. (#1459)
-    issue: DP-22687
-    impact: Minor
