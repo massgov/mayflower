@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.12.0 (8/9/2021)
+### Fixed 
+- (React) [HeaderHamburger] DP-22392: Bug fix and keyboard accessibility fixes of the hamburger sidebar nav. (#1451)
+
+### Added 
+- (Assets, Patternlab) [Icon] DP-22687: Add "demographics" icon. (#1459)
+
 ## 11.11.0 (8/2/2021)
 ### Added 
 - (React, Patternlab) [PageHeaderAddons] DP-22653: Adds PageHeaderAddons component to render additional contents below PageHeader. (#1456)
