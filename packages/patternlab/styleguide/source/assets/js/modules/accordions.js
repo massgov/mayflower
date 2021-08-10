@@ -14,26 +14,79 @@ export default (function (window,document,$,undefined) {
         let offset = 100;
         let offsetIndex = offset + index;
         init.apply(this, [offsetIndex]);
-      })
+      });
     }
   });
+
+  $('.ma__collapsible-content__toggle-all').on("click",function(e){
+    let $toggleLink = $(this);
+    let toggleStatus = 'open';
+
+    if($toggleLink.hasClass('ma__collapsible-content__toggle-all--expanded')) {
+      $toggleLink.addClass('ma__collapsible-content__toggle-all--collapsed');
+      $toggleLink.removeClass('ma__collapsible-content__toggle-all--expanded');
+      toggleStatus =  'close';
+
+    } else {
+      $toggleLink.addClass('ma__collapsible-content__toggle-all--expanded');
+      $toggleLink.removeClass('ma__collapsible-content__toggle-all--collapsed');
+    }
+
+    $('.js-accordion').each(function(index){
+      accordionToggle($(this), toggleStatus);
+    });
+
+    e.preventDefault();
+  });
+
+  function accordionToggle($el, toggleStatus = 'default') {
+    let ind = '';
+
+    if ($el.hasClass('ma__header-alerts')) {
+      ind = '>';
+    }
+
+    let $link = $el.find(`${ind} .js-accordion-link`),
+      $content = $el.find(`${ind} .js-accordion-content`),
+      $status = $el.find(`${ind} .js-accordion-status`),
+      open = $el.hasClass('is-open');
+
+    if(toggleStatus != 'default') {
+      open = toggleStatus == 'open'?false:true;
+    }
+
+    if(open){
+      $content.stop(true,true).slideUp();
+      $status.attr('aria-label', 'click to show info');
+      $el.removeClass('is-open');
+    } else {
+      $content.stop(true,true).slideDown();
+      $status.attr('aria-label', 'click to hide info');
+      $el.addClass('is-open');
+    }
+    $link.attr('aria-expanded',!open);
+  }
 
   function init(index) {
     let $el = $(this);
     let ind = '';
+    const isExtended = $el.parents('.ma__collapsible-content--extended').length;
+
     if ($el.hasClass('ma__header-alerts')) {
       ind = '>';
     }
 
     let $link = $el.find(`${ind} .js-accordion-link`),
         $content = $el.find(`${ind} .js-accordion-content`),
-        $status = $el.find(`${ind} .js-accordion-status`),
         id = $content.attr('id') || 'accordion' + (index + 1),
         active = checkActive($el),
         open = $el.hasClass('is-open');
 
     $content.attr('id', id);
     $link.attr('aria-expanded',open).attr('aria-controls', id);
+
+    let childs = $el.find('.ma__decorative-link').length;
+    $el.find('.ma__collapsible-header__title').append( `<div class="header__title__counter">(${childs})</div>`);
 
     if(open) {
       // setup the inline display block
@@ -43,16 +96,7 @@ export default (function (window,document,$,undefined) {
     $link.on('click',function(e){
       if(active) {
         e.preventDefault();
-        open = $el.hasClass('is-open');
-        if(open){
-          $content.stop(true,true).slideUp();
-          $status.attr('aria-label', 'click to show info');
-        } else {
-          $content.stop(true,true).slideDown();
-          $status.attr('aria-label', 'click to hide info');
-        }
-        $link.attr('aria-expanded',!open);
-        $el.toggleClass('is-open');
+        accordionToggle($el);
       }
     });
 
