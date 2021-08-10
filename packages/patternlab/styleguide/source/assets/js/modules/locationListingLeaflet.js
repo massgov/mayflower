@@ -27,7 +27,7 @@ export default (function (window, document, $) {
         let index = $(this).index();
         let maker = window.leafletMarkers[index];
         // The marker have a transform for position in the map so we need to use +=
-        maker._icon.style.transform += ' scale(1.5)';
+        maker._icon.style.transform += ' scale(1.25)';
         $(maker._icon).addClass('ma-highlighted');
 
       }).on("mouseleave", function (e) {
