@@ -7,6 +7,15 @@ $location-listin--map-min-width: 315px;
 .ma__location-listing {
   position: relative;
 
+  .ma-highlighted {
+    z-index: 9999!important;
+    filter: brightness(150%);
+    transform-origin: center bottom;
+    transition: transform 0.1s;
+    transition-timing-function: ease-in-out;
+  }
+
+
   &__container {
 
     @include ma-container;

@@ -68,7 +68,7 @@
         "outline": false
       }] 
     },
-    "googleMap": {
+    "leafletMap": {
       "map": {
         "center": {
           "lat": 42.4072107,

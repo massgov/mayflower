@@ -16,7 +16,7 @@ const CalloutLink = (calloutLink) => {
 
   return(
     <div className={classNames}>
-      <a href={calloutLink.href} title={calloutLink.text}>
+      <a href={calloutLink.href} title={calloutLink.info}>
         { (calloutLink.eyebrow || calloutLink.time) && (
           <div className="ma__callout-link__header">
             <span className="ma__callout-link__eyebrow">{calloutLink.eyebrow}</span>

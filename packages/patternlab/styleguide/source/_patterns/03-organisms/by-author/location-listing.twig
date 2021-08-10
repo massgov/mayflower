@@ -1,8 +1,8 @@
 {# set max number of items / markers to render per listing page / map if passed one, default to all #}
 {% set maxItems = locationListing.maxItems ?: locationListing.imagePromos.items.length %}
-<section class="ma__location-listing js-location-listing">
+<section class="ma__location-listing js-location-listing leaflet">
   {% if locationListing.locationFilters %}
-    <div class="ma__location-listing__filters">
+    <div class="ma__location-listing__filters leaflet">
       {% set locationFilters = locationListing.locationFilters %}
       {% include "@molecules/location-filters.twig" %}
     </div>
@@ -11,8 +11,8 @@
     <div class="ma__location-listing__container">
       <div class="ma__location-listing__map">
         <div class="ma__location-listing__sticky js-location-listing-map">
-          {% set googleMap = locationListing.googleMap %}
-          {% include "@molecules/map-google.twig" %}
+          {% set leafletMap = locationListing.leafletMap %}
+          {% include "@molecules/map-leaflet.twig" %}
         </div>
       </div>
       <div class="ma__location-listing__results js-location-listing-results">
