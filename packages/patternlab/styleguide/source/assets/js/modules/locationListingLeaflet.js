@@ -26,6 +26,7 @@ export default (function (window, document, $) {
       }).on("mouseenter focusin", function (e) {
         let index = $(this).index();
         let maker = window.leafletMarkers[index];
+        // The marker have a transform for position in the map so we need to use +=
         maker._icon.style.transform += ' scale(1.5)';
         $(maker._icon).addClass('ma-highlighted');
 
