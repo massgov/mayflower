@@ -1,9 +1,7 @@
 @use "00-base/configure" as *;
 
-body {background: green;}
-
 .ma__social-links-bar {
-background: red;
+
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +17,4 @@ background: red;
       }
     }
   }
-}
-body {
-  background: blue;
 }
