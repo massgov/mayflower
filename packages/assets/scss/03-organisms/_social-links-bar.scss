@@ -1,0 +1,25 @@
+@use "00-base/configure" as *;
+
+body {background: green;}
+
+.ma__social-links-bar {
+background: red;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    li {
+
+      margin: 0 1rem 0 0;
+
+      &:last-of-type {
+
+        margin: 0;
+      }
+    }
+  }
+}
+body {
+  background: blue;
+}

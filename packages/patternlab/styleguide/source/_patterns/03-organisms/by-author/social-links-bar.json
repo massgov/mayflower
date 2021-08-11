@@ -1,0 +1,33 @@
+{
+  "socialLinksBar": {
+    "id": "social-links-bar",
+    "pageContent": [
+      {
+        "path": "@molecules/icon-link-item.twig",
+        "data": {
+          "item": {
+            "icon": "",
+            "link": {
+              "href": "/",
+              "text": "Twitter",
+              "info": ""
+            }
+          }
+        }
+      },
+      {
+        "path": "@molecules/icon-link-item.twig",
+        "data": {
+          "item": {
+            "icon": "",
+            "link": {
+              "href": "/",
+              "text": "Facebook",
+              "info": ""
+            }
+          }
+        }
+      }
+    ]
+  }
+}

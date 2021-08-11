@@ -1,0 +1,11 @@
+<section class="ma__social-links-bar">
+  <div class="main-content main-content--two">
+    <div class="page-content">
+      {% block sectionContent %}
+        {% for content in socialLinksBar.pageContent %}
+          {% include content.path with content.data %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+  </div>
+</section>
