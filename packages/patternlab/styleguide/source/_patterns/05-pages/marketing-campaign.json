@@ -12,19 +12,19 @@
         "path": "@atoms/09-media/picture-element.twig",
         "data": {
           "picture": {
-            "defaultImage": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
+            "defaultImage": "../../assets/images/placeholder/1600x600.png",
             "srcSets": [
               {
-                "url": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
-                "width": "1050"
+                "url": "../../assets/images/placeholder/500x300.png",
+                "width": "480"
               },
               {
-                "url": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
-                "width": "780"
+                "url": "../../assets/images/placeholder/900x700.png",
+                "width": "910"
               },
               {
-                "url": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
-                "width": "620"
+                "url": "../../assets/images/placeholder/1600x600.png",
+                "width": "1200"
               }
             ]
           }
