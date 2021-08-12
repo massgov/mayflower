@@ -42,8 +42,6 @@ export default (function (window,document,$,undefined) {
   });  
 
   document.addEventListener('DOMContentLoaded', function() {
-    console.log('Filters map')
-    console.log(window.googleMapsLoaded);
     if (window.googleMapsLoaded) {
       initFilters();
     }
