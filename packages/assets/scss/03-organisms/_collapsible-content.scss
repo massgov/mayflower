@@ -15,6 +15,7 @@
   }
 
   &--extended {
+
     .ma__collapsible-content__toggle-all {
       background: none;
       border: 0;
@@ -32,14 +33,17 @@
       &__collapse {
         display: inline;
       }
+
       &__expand {
         display: none;
       }
 
       &--collapsed {
+
         .ma__collapsible-content__toggle-all__collapse {
           display: none;
         }
+
         .ma__collapsible-content__toggle-all__expand {
           display: inline;
         }
@@ -55,9 +59,6 @@
     }
 
     .header__title__counter {
-     /* position:  absolute;
-      right: 0;
-      top: 0;*/
 
       color: $c-primary-alt;
       font-weight: $fonts-bolder;
@@ -106,12 +107,6 @@
 
     .js & {
       display: none;
-    }
-  }
-
-  &:first-of-type {
-    .ma__collapsible-content__item {
-     // margin-top: 0;
     }
   }
 }
