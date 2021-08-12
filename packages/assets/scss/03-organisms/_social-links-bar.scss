@@ -8,13 +8,15 @@
     justify-content: flex-start;
 
     li {
-
       margin: 0 1rem 0 0;
 
       &:last-of-type {
-
         margin: 0;
       }
     }
+  }
+
+  .ma__decorative-link svg {
+    display: none;
   }
 }
