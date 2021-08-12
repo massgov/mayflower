@@ -3,31 +3,27 @@
     "id": "social-links-bar",
     "pageContent": [
       {
-        "path": "@molecules/icon-link-item.twig",
+        "path": "@molecules/icon-links.twig",
         "data": {
-          "item": {
-            "icon": "",
-            "link": {
-              "href": "/",
-              "text": "Twitter",
-              "info": ""
-            }
+          "iconLinks": {
+            "items": [{
+              "icon": "twitter",
+              "link": {
+                "href": "/",
+                "text": "MassHealth on Twitter",
+                "info": ""
+              }
+            },
+            {
+              "icon": "facebook",
+              "link": {
+                "href": "/",
+                "text": "MassHealth on Facebook",
+                "info": ""
+              }
+            }]}
           }
         }
-      },
-      {
-        "path": "@molecules/icon-link-item.twig",
-        "data": {
-          "item": {
-            "icon": "",
-            "link": {
-              "href": "/",
-              "text": "Facebook",
-              "info": ""
-            }
-          }
-        }
-      }
     ]
   }
 }
