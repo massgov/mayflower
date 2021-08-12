@@ -3,6 +3,9 @@ import sticky from "../helpers/sticky.js";
 export default (function (window, document, $) {
 
   function initListing (el, i) {
+
+    let currentMarker = null;
+
     $(el).each(function(i){
       let $el = $(this),
       $mapCol = $el.find(".js-location-listing-map");
@@ -20,22 +23,24 @@ export default (function (window, document, $) {
           scrollTop: $mapCol.offset().top,
         });
 
-        let maker = window.leafletMarkers[index];
-        window.leafletMap.flyTo(maker.getLatLng());
-        maker.openPopup();
+        let marker = window.leafletMarkers[index];
+        $(marker._icon).addClass('ma-transition');
+        marker._icon.style.transform = marker._icon.style.transform.replace(' scale(1.25)', '');
+        window.leafletMap.flyTo(marker.getLatLng());
+        marker.openPopup();
       }).on("mouseenter focusin", function (e) {
         let index = $(this).index();
-        let maker = window.leafletMarkers[index];
+        let marker = window.leafletMarkers[index];
         // The marker have a transform for position in the map so we need to use +=
-        maker._icon.style.transform += ' scale(1.25)';
-        $(maker._icon).addClass('ma-highlighted');
+        $(marker._icon).removeClass('ma-transition');
+        marker._icon.style.transform += ' scale(1.25)';
+        $(marker._icon).addClass('ma-highlighted');
 
       }).on("mouseleave", function (e) {
         let index = $(this).index();
-        let maker = window.leafletMarkers[index];
-        let original = maker._icon.style.transform;
-        maker._icon.style.transform = maker._icon.style.transform.replace(' scale(1.5)', '');
-        $(maker._icon).removeClass('ma-highlighted');
+        let marker = window.leafletMarkers[index];
+        marker._icon.style.transform = marker._icon.style.transform.replace(' scale(1.25)', '');
+        $(marker._icon).removeClass('ma-highlighted');
       });
     });
   }
