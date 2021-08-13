@@ -1,0 +1,29 @@
+{
+  "socialLinksBar": {
+    "id": "social-links-bar",
+    "pageContent": [
+      {
+        "path": "@molecules/icon-links.twig",
+        "data": {
+          "iconLinks": {
+            "items": [{
+              "icon": "twitter",
+              "link": {
+                "href": "/",
+                "text": "MassHealth on Twitter",
+                "info": ""
+              }
+            },
+            {
+              "icon": "facebook",
+              "link": {
+                "href": "/",
+                "text": "MassHealth on Facebook",
+                "info": ""
+              }
+            }]}
+          }
+        }
+    ]
+  }
+}
