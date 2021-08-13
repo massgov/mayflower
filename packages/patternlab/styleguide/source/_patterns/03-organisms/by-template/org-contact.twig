@@ -1,0 +1,19 @@
+<div class="ma__org-contact-us">
+
+  {% if orgContact.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" with {"compHeading": orgContact.compHeading}  %}
+  {% endif %}
+
+  <div class="ma__org-contact-us__first">
+    {% block contact_first %}
+      {% include "@organisms/by-author/contact-row.twig" with {"contactRow": orgContact} %}
+    {% endblock %}
+  </div>
+
+  <div class="ma__org-contact-us__last">
+    {% block contact_last %}
+      {% include "@atoms/09-media/image.twig" with {"image": orgContact.logo} %}
+    {% endblock %}
+  </div>
+
+</div>
