@@ -1,4 +1,4 @@
-<section class="ma__collapsible-content">
+<section class="ma__collapsible-content ma__collapsible-content--{{ collapsibleContent.extended?'extended':'default' }}">
   {% if collapsibleContent.compHeading %}
     {% set compHeading = collapsibleContent.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
@@ -6,7 +6,13 @@
   {% if collapsibleContent.description %}
     {% set richText = collapsibleContent.description %}
     {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}  
+  {% endif %}
+  {% if collapsibleContent.extended %}
+    <button class='ma__collapsible-content__toggle-all ma__collapsible-content__toggle-all--collapsed'>
+      <span class="ma__collapsible-content__toggle-all__expand">Expand all</span>
+      <span class="ma__collapsible-content__toggle-all__collapse">Collapse all</span>
+    </button>
+  {% endif %}
   <div class="ma__collapsible-content__items">
     {% for item in collapsibleContent.items %}
       <div class="ma__collapsible-content__item js-accordion {{ item.expanded ? 'is-open' : '' }}">

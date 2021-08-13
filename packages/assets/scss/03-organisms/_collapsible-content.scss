@@ -4,6 +4,9 @@
 
   @include clearfix;
 
+  position: relative;
+  width: 100%;
+
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
@@ -11,10 +14,78 @@
     @include ma-container;
   }
 
+  &--extended {
+
+    .ma__collapsible-content__toggle-all {
+      background: none;
+      border: 0;
+      color: $c-font-detail;
+      display: block;
+      margin-left: auto;
+      margin-right: 0;
+      right: 0;
+
+      span {
+        text-decoration: underline;
+        font-weight: $fonts-bold;
+      }
+
+      &__collapse {
+        display: inline;
+      }
+
+      &__expand {
+        display: none;
+      }
+
+      &--collapsed {
+
+        .ma__collapsible-content__toggle-all__collapse {
+          display: none;
+        }
+
+        .ma__collapsible-content__toggle-all__expand {
+          display: inline;
+        }
+      }
+    }
+
+
+    .ma__collapsible-header__title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header__title__counter {
+
+      color: $c-primary-alt;
+      font-weight: $fonts-bolder;
+      font-style: italic;
+      font-size: $fonts-small;
+    }
+
+    .ma__collapsible-content__item,
+    .ma__collapsible-header__button {
+      background: $c-white;
+    }
+
+  }
+
   &__item {
     border-style: solid;
     border-width: 2px;
     margin-top: 20px;
+
+    ul {
+      margin: 0;
+      padding-left: 25px;
+    }
+
+    li {
+      list-style: none;
+    }
   }
 
   &__body {
