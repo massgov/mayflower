@@ -1,6 +1,6 @@
 {% set linkHeading = 2 %}
 
-<section class="ma__sections-3up {{ sectionThreeUp.compact?"ma__sections-3up--compact":""  }}" >
+<section class="ma__sections-3up {{ sectionThreeUp.compact ? "ma__sections-3up--compact" : ""  }}" >
   {% if sectionThreeUp.compHeading %}
     {# render sections links with an h3 if the title is present #}
     {% set linkHeading = (compHeading.level ? : linkHeading) + 1 %}
