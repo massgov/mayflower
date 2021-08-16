@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.13.0 (8/16/2021)
+### Changed 
+- (Patternlab) [PictureElement, KeyMessage] DP-22263: Adjusted key message component and picture component to accommodate for responsive images. (#1450)
+
 ## 11.12.0 (8/9/2021)
 ### Fixed 
 - (React) [HeaderHamburger] DP-22392: Bug fix and keyboard accessibility fixes of the hamburger sidebar nav. (#1451)
