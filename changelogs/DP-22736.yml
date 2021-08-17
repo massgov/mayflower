@@ -37,7 +37,7 @@
 #    issue: DP-19843
 #
 Added:
-  - project: Patternlab
+  - project: Patternlab, React, Assets
     component: Icon
     description: Add report icon to Patternlab. (#1469)
     issue: DP-22736
