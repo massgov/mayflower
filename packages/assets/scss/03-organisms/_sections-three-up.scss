@@ -16,13 +16,13 @@ $bp-section-3up-large-max: "max-width:950px";
 
     @include clearfix;
     display: flex;
-      align-items: stretch;
-      flex-wrap: wrap;
-      flex-direction: column;
+    align-items: stretch;
+    flex-wrap: wrap;
+    flex-direction: column;
 
-      @media ($bp-small-min) {
-        flex-flow: row wrap;
-      }
+    @media ($bp-small-min) {
+      flex-flow: row wrap;
+    }
 
     & > * {
 
@@ -59,7 +59,7 @@ $bp-section-3up-large-max: "max-width:950px";
   }
 
   &--compact {
-    
+
     .ma__sections-3up__container {
 
       @include ma-container;
@@ -75,14 +75,11 @@ $bp-section-3up-large-max: "max-width:950px";
       }
 
       & > * {
+        margin-bottom: $gutter;
 
-        @media ($bp-x-small-min) {
+        @media ($bp-large-min) {
           margin-bottom: 0;
-        }
-
-
-        @media ($bp-medium-min) {
-          margin-bottom: 0;
+          margin-top: $gutter;
         }
       }
     }
