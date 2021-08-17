@@ -107,6 +107,29 @@
         padding-right: 0.8rem;
       }
     }
+
+    &__content > div{
+
+      margin-bottom: 20px;
+
+      &:after {
+        content: "";
+        border-color: $c-bd-divider;
+        border-width: 1px;
+        border-style: solid;
+        margin-top: 20px;
+        width: 80px;
+        display: block;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
   }
 
 }
