@@ -123,7 +123,7 @@
     }
 
     &.js-accordion-link {
-      
+
       @media ($bp-x-small-max) {
         padding-right: 1em;
 
@@ -275,6 +275,21 @@
 
     &:hover {
       border-bottom-color: rgba($c-primary,.5);
+    }
+  }
+
+  &--compact {
+    .ma__section-links__title {
+
+      @include ma-h5;
+
+      @media ($bp-x-small-max) {
+        font-size: $fonts-larger;
+      }
+    }
+
+    .ma__section-links__content {
+      padding: 10px 20px;
     }
   }
 }

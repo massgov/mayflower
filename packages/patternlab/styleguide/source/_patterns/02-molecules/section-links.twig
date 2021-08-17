@@ -13,12 +13,13 @@
       {% set sectionLinks = sectionLinks|merge({"level": 3}) %}
     {% endif %}
 
-    {% set headingLevel = sectionLinks.level ? : 2 %}
-    <h{{ headingLevel }} class="ma__section-links__title {{ not sectionLinks.compact ? "js-accordion-link" }}" id="{{ titleId }}">
-      {% set decorativeLink = sectionLinks.title %}
-      {% include "@atoms/decorative-link.twig" %}
-    </h{{ headingLevel}}>
     {% if not sectionLinks.compact %}
+      {% set headingLevel = sectionLinks.level ? : 2 %}
+      <h{{ headingLevel }} class="ma__section-links__title {{ not sectionLinks.compact ? "js-accordion-link" }}" id="{{ titleId }}">
+        {% set decorativeLink = sectionLinks.title %}
+        {% include "@atoms/decorative-link.twig" %}
+      </h{{ headingLevel}}>
+
       <nav class="ma__section-links__toggle-content js-accordion-content" aria-labelledby="{{ titleId }}">
         {% if sectionLinks.description %}
           <p class="ma__section-links__description">{{sectionLinks.description}}</p>
@@ -51,6 +52,11 @@
           {% endblock %}
         </ul>
       </nav>
+    {% else %}
+      <span class="ma__section-links__title">
+        {% set decorativeLink = sectionLinks.title %}
+        {% include "@atoms/decorative-link.twig" %}
+      </span>
     {% endif %}
   </div>
   {% if sectionLinks.seeAll %}
