@@ -1306,7 +1306,7 @@
           "path": "@organisms/by-author/sections-three-up.twig",
           "data": {
             "sectionThreeUp": {
-              "compact": "true",
+              "compact": true,
               "sections": [
                 {
                   "id": "GUIDasjdhf1",
