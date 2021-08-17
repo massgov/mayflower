@@ -1,6 +1,6 @@
 {
   "sectionThreeUp" : {
-    "compact": "True",
+    "compact": true,
     "compHeading": {
       "title": "Featured Topics",
       "sub": "",
