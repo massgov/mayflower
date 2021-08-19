@@ -75,8 +75,10 @@ $bp-section-3up-large-max: "max-width:950px";
       }
 
       & > * {
-        margin-bottom: $gutter;
-
+        @media ($bp-x-small-min) {
+          margin-bottom: $gutter;
+        }
+        
         @media ($bp-large-min) {
           margin-bottom: 0;
           margin-top: $gutter;
