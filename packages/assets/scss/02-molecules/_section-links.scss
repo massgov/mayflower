@@ -279,10 +279,14 @@
   }
 
   &--compact {
-    
+
     .ma__section-links__title {
 
       @include ma-h5;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
 
       @media ($bp-x-small-max) {
         font-size: $fonts-larger;
