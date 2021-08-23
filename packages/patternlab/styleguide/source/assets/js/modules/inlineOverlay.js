@@ -9,7 +9,7 @@ export default (function (window,document,$,undefined) {
   let tocFocusableElements = $('.js-inline-overlay').find(':focusable');
   let firstFocusableElement = tocFocusableElements[0];
   let lastFocusableElement = tocFocusableElements[tocFocusableElements.length - 1];
-  const mainPageToggleButtton = $(".js-inline-overlay-title .js-inline-overlay-toggle");
+  const mainPageToggleButtton = $(".js-inline-overlay-mainpage-toggle");
 
   function initialize () {
     // Add random ID if no ID present.
@@ -37,7 +37,7 @@ export default (function (window,document,$,undefined) {
   // allow esc key to dismiss overlay
   $(document).keydown(function(e) {
     // ESCAPE key pressed
-    let key = (e.keyCode ? e.keyCode : e.witch);
+    let key = e.keyCode || e.witch;
     if (key == "27" && $(containerClass).hasClass('is-open')) {
       // Close the overlay.
       $('.ma__toc--overlay__container').removeClass('is-open');
@@ -47,14 +47,26 @@ export default (function (window,document,$,undefined) {
   });
 
   // Keep the focus in the overlay while it's open. Don't let it go on the main page.
-  // console.log(tocFocusableElements[lastIndex]);
-  $(lastFocusableElement).keydown(function(e) {
-    let key = (e.keyCode ? e.keyCode : e.witch);
-    // When tab key is hit on the last ficusable element,
-    if (key == "9") {
-      // Set focus on the first focusable element in the overlay.
-      firstFocusableElement.focus();
-    }
-  });
+  // $(lastFocusableElement).keydown(function(e) {
+  //   let key = e.keyCode || e.witch;
+  //   // When tab key is hit on the last ficusable element,
+  //   if (key == "9") {
+  //     // Set focus on the first focusable element in the overlay.
+  //     firstFocusableElement.focus();
+  //   }
+  // });
+
+  // $(firstFocusableElement).keydown(function(e) {
+  // // $(tocTitle).keydown(function(e) {
+  // // $(toggleClass).keydown(function(e) {
+  //   let key = e.keyCode || e.witch;
+  //   // When shift + tab keys are hit on the close button,
+  //   if (key == "9") {
+  //     if (e.shiftKey) {
+  //       // Set focus on the last focusable element in the overlay.
+  //      lastFocusableElement.focus();
+  //     }
+  //   }
+  // });
 
 })(window,document,jQuery);
