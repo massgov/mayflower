@@ -6,7 +6,8 @@ export const useHamburgerNavKeydown = (closeMenu) => {
   // can be deleted when the parent component unmounts.
   const keyDown = React.useCallback((e) => {
     focusTrapping({
-      focusableSelectors: '[role="menuitem"],.ma__utility-nav__link > a, .ma__utility-nav__item > button, .ma__utility-panel__item > span > a',
+      focusableSelectors: '[role="menuitem"], .ma__utility-nav__link > a, .ma__utility-nav__item > button, .ma__utility-panel__item > span > a',
+      closeButtonSelector: '.ma__header__hamburger__menu-button',
       modalSelector: '.ma__header__hamburger__nav-container',
       keyEvent: e
     });
