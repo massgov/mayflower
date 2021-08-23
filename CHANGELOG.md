@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.13.0 (8/23/2021)
+### Added 
+- (Patternlab, React, Assets) [Icon] DP-22736: Add report icon to Patternlab. (#1469)
+
+### Fixed 
+- (React, Patternlab) [CircleCI] DP-22787: Fixed CircleCI job installing AWS CLI. (#1471)
+
 ## 11.12.0 (8/9/2021)
 ### Fixed 
 - (React) [HeaderHamburger] DP-22392: Bug fix and keyboard accessibility fixes of the hamburger sidebar nav. (#1451)
