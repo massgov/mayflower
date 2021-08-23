@@ -34,8 +34,10 @@
   {% else %}
     </header>
   {% endif %}
-  {% if actionStep.richText or actionStep.decorativeLink or actionStep.downloadLinks %}
+  {% if actionStep.richText or actionStep.decorativeLink or actionStep.downloadLinks or actionStep.content %}
     <div class="ma__action-step__content {{ accordion ? 'js-accordion-content' : '' }}">
+
+
     {% if actionStep.richText %}
       {% set richText = actionStep.richText %}
       {% include "@organisms/by-author/rich-text.twig" %}
@@ -54,5 +56,21 @@
       </div>
     {% endif %}
     {% endblock %}
+
+    {% if actionStep.content%}
+      {% for content in actionStep.content %}
+        {% if content.richText %}
+          {% set richText = content.richText %}
+          {% include "@organisms/by-author/rich-text.twig" %}
+        {% endif %}
+
+        {% if content.decorativeLink %}
+          <div class="ma__action-step__more">
+            {% set decorativeLink = content.decorativeLink %}
+            {% include "@atoms/decorative-link.twig" %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   {% endif %}
 </section>

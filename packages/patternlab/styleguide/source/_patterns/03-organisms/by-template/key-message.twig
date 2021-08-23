@@ -55,9 +55,10 @@
 </script>
 {% endif %}
 
-<section {% if id %}id="{{ id }}" {% endif %}class="ma__key-message{{ msgClass }}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay and bgImage %} ma__key-message--image-overlay{% endif %}{% if positionTop %} ma__key-message--top{% endif %}">
-  {% if bgImage.path and bgImage.data %}
-    <div id="img{{ id }}"  class="ma__key-message__inline-image">{% include bgImage.path with bgImage.data %}</div>
+<section {% if id %}id="{{ id }}" {% endif %}class="ma__key-message{{ msgClass }}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay and bgImage %} ma__key-message--image-overlay{% endif %}{% if positionTop %} ma__key-message--top{% endif %}"{% if bgImage %} style="background-image: url('{{ bgImage }}')"{% endif %}>
+  {% if bgImage and positionTop %}
+    <div id="img{{ id }}"  class="ma__key-message__inline-image" {% if keyMessage.mobileBgImage and positionTop %} style="background-image: url('{{ keyMessage.mobileBgImage }}')"{% endif %}>
+    </div>
   {% endif %}
   <div class="ma__key-message__wrapper{{ wrapperClass }}{% if positionTop %} ma__key-message__wrapper--top{% endif %}">
     <div id="blck{{ id }}" class="ma__key-message__block{{ blockClass }}">
