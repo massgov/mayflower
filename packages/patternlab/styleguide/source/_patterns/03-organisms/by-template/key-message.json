@@ -7,29 +7,7 @@
       "level": "1"
     },
     "textOverlay": "c-gray-lightest",
-    "bgImage":
-    {
-      "path": "@atoms/09-media/picture-element.twig",
-      "data": {
-        "picture": {
-          "defaultImage": "../../assets/images/placeholder/1600x600.png",
-          "srcSets": [
-            {
-              "url": "../../assets/images/placeholder/500x300.png",
-              "width": "480"
-            },
-            {
-              "url": "../../assets/images/placeholder/900x700.png",
-              "width": "910"
-            },
-            {
-              "url": "../../assets/images/placeholder/1600x600.png",
-              "width": "1200"
-            }
-          ]
-        }
-      }
-    },
+    "bgImage": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
     "mobileBgImage": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
     "subtitle": "From education, to healthcare and beyond, the work of more than 150 agencies across Massachusetts touches every aspect of our lives. We are a diverse team of mission-driven IT professionals supporting this vital work.",
     "description": {
