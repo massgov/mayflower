@@ -9,6 +9,10 @@
   &-item {
     display: inline-block;
 
+    a {
+      text-decoration: none;
+    }
+
     &:last-child {
 
       a {

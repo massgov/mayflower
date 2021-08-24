@@ -1,0 +1,21 @@
+# Every PR must have a changelog. To create a changelog:
+# 1. Make a copy of this file and name it with the ticket number.
+# 2. Keep the original format of one of the examples at the bottom, and override each element of it using ___TEMPLATE___ for reference
+# 3. Remove all comments from the copied file
+
+#___CHANGE TYPES___
+# - Added for new features.
+# - Changed for changes in existing functionality.
+# - Deprecated for soon-to-be removed features.
+# - Removed for now removed features.
+# - Fixed for any bug fixes.
+# - Security in case of vulnerabilities.
+# e.g. Added
+
+#___EXAMPLE WITH MULTIPLE ITEMS___
+Changed:
+  - project: Assets, Core, React, Patternlab
+    component: Link
+    description: Add text underline for all inline links. (#1468)
+    issue: DP-21342
+    impact: Minor
