@@ -293,40 +293,6 @@ if (menuButton !== null) {
       narrowUtilContentLinks[i].focus();
     });
   });
-
-  // NOTE: KEEPING BELOW FOR MORE KEYBOARD NAVIGATION WORK AFTER ACCESSIBILITY TEST.
-  // =============== exisiting code below
-  // menuButton.addEventListener("keydown", function (e) {
-
-    // if (e.code == 'ArrowDown') {
-    //   event.preventDefault();
-    //   openMenu();
-
-    //   if (window.innerWidth > 620) {
-    //     setTimeout(function timeoutFunction() {
-    //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
-    //     }, 500);
-    //   } else {
-    //     setTimeout(function timeoutFunction() {
-    //       document.querySelector('.js-header__nav-search input').focus();
-    //     }, 500);
-    //   }
-    // }
-
-    // NOTE: This causes a keyboard trap at the menu open/close button.
-    // if (e.code == 'Tab') {
-    //   e.preventDefault();
-    //   document.querySelector('.ma__header__hamburger-search__input').focus();
-    // }
-
-    // if (e.shiftKey && e.code == "Tab") {
-    //   closeMenu();
-    // }
-
-    // if (e.code == "Escape" || e.key == "Escape"|| e.key === "Esc") {
-    //   closeMenu();
-    // }
-  // });
 }
 
 
@@ -349,13 +315,19 @@ function toggleMenu() {
       setTimeout(function timeoutFunction() {
         document.querySelector(".js-header-menu-button").focus();
       }, 100);
+
+      // Set buttons between menu button and hamburger menu focusable.
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate a.goog-te-menu-value").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").removeAttribute("tabindex");
     } else {
       hamburgerMenuContainer.removeAttribute("aria-hidden");
       openMenu();
 
       // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate a.goog-te-menu-value").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").setAttribute("tabindex", "-1");
     }
   }
 }
