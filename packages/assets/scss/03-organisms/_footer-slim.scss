@@ -92,6 +92,7 @@
     a {
       color: $c-primary;
       font-weight: 600;
+      text-decoration: none;
 
       &:after {
         content: "|";
@@ -110,6 +111,7 @@
 
     a {
       font-weight: $fonts-normal;
+      text-decoration: none;
     }
 
     &__item {

@@ -102,6 +102,7 @@ $utility-nav-height: 43px;
   &__link {
     border: 0;
     background-color: transparent;
+    text-decoration: none;
 
     @media ($bp-header-toggle-max) {
       padding: 11px 20px 9px 45px;
