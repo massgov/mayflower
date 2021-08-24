@@ -17,6 +17,6 @@
 Changed:
   - project: Patternlab
     component: LocationListing
-    description: Replace googlemaps with leaftlet map, remove filter logic.
+    description: Replace googlemaps with leaftlet map, remove filter logic. (#1430)
     issue: DP-22215
-    impact: Major
+    impact: Minor 
