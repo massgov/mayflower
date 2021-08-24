@@ -112,7 +112,8 @@
             }
           }
         }
-      ]
+      ],
+      "sideBar": []
     },
     {
       "title": "",
@@ -254,7 +255,8 @@
             }
           }
         }
-      ]
+      ],
+      "sideBar": []
     },
     {
       "title": "About Us",
@@ -713,7 +715,7 @@
           }
         }
       ],
-      "sideBar": null
+      "sideBar": []
     },
     {
       "title": "",
@@ -775,7 +777,7 @@
           }
         }
       ],
-      "sidebar": null
+      "sideBar": []
     },
     {
       "title": "",
@@ -837,7 +839,8 @@
             }
           }
         }
-      ]
+      ],
+      "sideBar": []
     },
     {
       "title": "",
@@ -1401,7 +1404,8 @@
             }
           }
         }
-      ]
+      ],
+      "sideBar": []
     }
   ],
   "schema": {
