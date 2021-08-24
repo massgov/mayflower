@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: GlobalNav
+    description: Adjust focus order between the menu button and the menu container when the menu is open. (#1479)
+    issue: DP-22679
+    impact: Patch
