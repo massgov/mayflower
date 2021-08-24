@@ -14,13 +14,8 @@
 
 #___EXAMPLE WITH MULTIPLE ITEMS___
 Changed:
-  - project: React
+  - project: Assets, Core, React, Patternlab
     component: Link
-    description: Add text underline for all inline links.
-    issue: DP-21342
-    impact: Minor
-  - project: Patternlab
-    component: Link
-    description: Add text underline for all inline links.
+    description: Add text underline for all inline links. (#1468)
     issue: DP-21342
     impact: Minor
