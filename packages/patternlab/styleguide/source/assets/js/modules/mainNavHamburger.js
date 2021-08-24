@@ -315,19 +315,9 @@ function toggleMenu() {
       setTimeout(function timeoutFunction() {
         document.querySelector(".js-header-menu-button").focus();
       }, 100);
-
-      // Set buttons between menu button and hamburger menu focusable.
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate a.goog-te-menu-value").removeAttribute("tabindex");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").removeAttribute("tabindex");
     } else {
       hamburgerMenuContainer.removeAttribute("aria-hidden");
       openMenu();
-
-      // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate a.goog-te-menu-value").setAttribute("tabindex", "-1");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").setAttribute("tabindex", "-1");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").setAttribute("tabindex", "-1");
     }
   }
 }
@@ -341,7 +331,8 @@ function closeMenu() {
     document.querySelector(".js-header-menu-button").focus();
   }, 100);
 
-  if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")) {
+  if (document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")) {
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item a.goog-te-menu-value").removeAttribute("tabindex");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").removeAttribute("tabindex");
     document.querySelector(".js-header-search-access-button").removeAttribute("tabindex");
@@ -368,10 +359,6 @@ function commonCloseMenuTasks() {
   if (hamburgerMenuContainer.hasAttribute("style")) {
     hamburgerMenuContainer.removeAttribute("style");
   }
-
-  // if (hamburgerMenuContainer.hasAttribute("tabindex")) {
-  //   hamburgerMenuContainer.removeAttribute("tabindex");
-  // }
 
   if(searchInput.hasAttribute("autofocus")) {
     searchInput.removeAttribute("autofocus");
@@ -423,6 +410,11 @@ function openMenu() {
   menuButton.setAttribute("aria-pressed", "true");
   let alertsHeader = document.querySelector(".ma__emergency-alerts__header");
   document.querySelector("body").style.position = "fixed";
+
+  // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
+  document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate a.goog-te-menu-value").setAttribute("tabindex", "-1");
+  document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").setAttribute("tabindex", "-1");
+  document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").setAttribute("tabindex", "-1");
 
   if (alertsHeader !== null) {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
