@@ -53,8 +53,8 @@
 #___EXAMPLE___
 
 Changed:
-  - project: React, Patternlab
-    component: Collapsible Content
+  - project: Patternlab
+    component: CollapsibleContent
     description: Added modifier for background style and adjusted width.
     issue: DP-22561
     impact: Minor

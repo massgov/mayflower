@@ -52,8 +52,8 @@
 
 #___EXAMPLE___
 Added:
-  - project: React, Patternlab
-    component: Social Links Bar
-    description: Display an horizontal bar of links.
+  - project: Patternlab
+    component: SocialLinksBar
+    description: Display an horizontal bar of links. (#1466)
     issue: DP-22652
     impact: Minor

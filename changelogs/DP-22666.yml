@@ -52,8 +52,8 @@
 
 #___EXAMPLE___
 Added:
-  - project: React, Patternlab
-    component: Org Contact
+  - project: Patternlab
+    component: OrgContact
     description: Added Organization Content section
     issue: DP-22666
     impact: Minor
