@@ -12,7 +12,10 @@ A section for displaying a horizontal list of social links.
 ~~~
 socialLinksBar: {
   pageContent:[{
-    type: icon links
+    "path": "@molecules/icon-links.twig",
+    "data": {
+        type: iconLinksData
+    }
   }]
 }
 ~~~
