@@ -31,12 +31,8 @@ export default ({
     return;
   }
 
-  console.log(document.activeElement)
-
   if (e.shiftKey) { // if shift key pressed for shift + tab combination
-
     if (document.activeElement === firstFocusableElement) {
-      console.log('first item')
         lastFocusableElement.focus(); // add focus for the last focusable element
         e.preventDefault();
     }
