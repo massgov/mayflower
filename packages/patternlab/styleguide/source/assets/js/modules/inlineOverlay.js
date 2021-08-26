@@ -1,27 +1,27 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
 export default (function (document,$) {
-  let tocContainerClass = '.js-toc-container';
-  let containerClass = '.js-inline-overlay';
-  let contentClass = '.js-inline-overlay-content';
-  let toggleClass = '.js-inline-overlay-toggle';
-  let titleClass  = '.js-inline-overlay-title';
-  let feedbackButton = $('body').find('.ma__fixed-feedback-button');
+  const tocContainerClass = '.js-toc-container';
+  const containerClass = '.js-inline-overlay';
+  const contentClass = '.js-inline-overlay-content';
+  const toggleClass = '.js-inline-overlay-toggle';
+  const titleClass  = '.js-inline-overlay-title';
+  const feedbackButton = $('body').find('.ma__fixed-feedback-button');
   const mainPageToggleButtton = $(".js-inline-overlay-title .js-inline-overlay-toggle");
 
   function initialize () {
     // Add random ID if no ID present.
-    let contentID = $(contentClass).attr('id');
+    const contentID = $(contentClass).attr('id');
     if(!contentID) {
-      let id = `overlay-${Math.floor(Math.random()*100000)}`;
+      const id = `overlay-${Math.floor(Math.random()*100000)}`;
        $(containerClass).attr('id', id);
-       $(toggleClass).attr('aria-controls, id');
+       $(toggleClass).attr('aria-controls', id);
     }
   }
 
   function toggleOverlay() {
-    let $containerEl = $(this).closest(tocContainerClass).find(containerClass);
-    let isOpen = $containerEl.hasClass('is-open');
+    const $containerEl = $(this).closest(tocContainerClass).find(containerClass);
+    const isOpen = $containerEl.hasClass('is-open');
     $('body').toggleClass('scroll-disabled', !isOpen);
     $containerEl.toggleClass('is-open', !isOpen);
 
