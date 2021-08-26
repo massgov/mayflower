@@ -135,6 +135,11 @@
 
   &__title {
 
+    .ma__content-link {
+      text-decoration: none;  
+    }
+    
+
     .ma__decorative-link {
       display: inline;
       vertical-align: baseline;

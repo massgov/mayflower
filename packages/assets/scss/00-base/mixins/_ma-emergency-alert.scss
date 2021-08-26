@@ -20,7 +20,8 @@
     }
 
     .ma__content-link {
-
+      text-decoration: none;
+      
       span {
         display: inline;
         border-bottom: 1px solid rgba($c-font-base, .5);
