@@ -182,28 +182,6 @@
                 ]
               }
             ]
-          },
-          {
-            "title": {
-              "text": "Appendix"
-            },
-            "sections": [
-              {
-                "text": "Appendix as a link to a page",
-                "href": "#"
-              },
-              {
-                "iconSize": "",
-                "icon": "doc-docx",
-                "decorativeLink": {
-                  "text": "Appendix item as a download",
-                  "href": "#",
-                  "info": ""
-                },
-                "size": "1mb",
-                "format": "PDF"
-              }
-            ]
           }
         ]
       },
