@@ -34,24 +34,22 @@ export default (function (document,$) {
   $(document).on('click', toggleClass, toggleOverlay);
   $(document).keydown(function(e) {
     // check if menu open
-    // const body = document.querySelector('body');
-    // if(body.classList.value.indexOf('show-menu') > 0) {
-      // trap focus only when menu is open
+    if ($(containerClass).hasClass('is-open')) {
       focusTrapping({
         focusableSelectors: 'a, button',
         modalSelector: '.ma__toc--overlay__container.is-open',
         keyEvent: e
       });
-    //}
 
-    // press ESC key to dismiss overlay
-    const key = (e.key || e.code);
-    const escapeKeyPressed = (key === 'Escape' || key === 'Esc')
-    if (escapeKeyPressed && $(containerClass).hasClass('is-open')) {
-      // Close the overlay.
-      $('.ma__toc--overlay__container').removeClass('is-open');
-      // Set focus on the toggle GamepadButton.
-      mainPageToggleButtton.focus();
+      // press ESC key to dismiss overlay
+      const key = (e.key || e.code);
+      const escapeKeyPressed = (key === 'Escape' || key === 'Esc')
+      if (escapeKeyPressed) {
+        // Close the overlay.
+        $('.ma__toc--overlay__container').removeClass('is-open');
+        // Set focus on the toggle GamepadButton.
+        mainPageToggleButtton.focus();
+      }
     }
   });
 
