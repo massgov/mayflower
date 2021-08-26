@@ -1,7 +1,7 @@
 {
   "socialLinksBar": {
     "id": "social-links-bar",
-    "pageContent": [
+    "links": [
       {
         "path": "@molecules/icon-links.twig",
         "data": {
