@@ -18,8 +18,6 @@ export const useHamburgerNavKeydown = (closeMenu) => {
       });
     }
 
-
-
     const utilNavWide = document.querySelector('.js-utility-nav--wide');
     const utilNarrowNav = document.querySelector('.ma__header__hamburger__utility-nav--narrow');
     const utilNarrowButton = document.querySelector('.ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle');
@@ -178,43 +176,15 @@ export const useMenuButtonEffects = (menuButtonRef, toggleMenu) => {
       toggleMenu();
     }
   }, [menuButtonRef, toggleMenu]);
-  const onButtonKeyDown = React.useCallback((e) => {
-    const width = document.querySelector('body').clientWidth;
-    if (e.key === 'Tab' || e.code === 'Tab') {
-      if (width < 621) {
-        e.preventDefault();
-        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
-        const focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
-        focusable[0].focus();
-      }
-    }
-  }, []);
 
-  const onLogoKeyDown = React.useCallback((e) => {
-    if ((e.shiftKey && e.key === 'Tab') || (e.shiftKey && e.code === 'Tab')) {
-      setTimeout(() => {
-        document.querySelector('.js-header-menu-button').focus();
-      }, 100);
-    }
-  }, []);
   React.useEffect(() => {
     const menuButton = menuButtonRef.current;
     if (menuButton) {
       menuButton.addEventListener('click', onClick);
-      menuButton.addEventListener('keydown', onButtonKeyDown);
-      const logoLink = document.querySelector('.ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a');
-      if (logoLink) {
-        logoLink.addEventListener('keydown', onLogoKeyDown);
-      }
     }
     return(() => {
       if (menuButton) {
         menuButton.removeEventListener('click', onClick);
-        menuButton.removeEventListener('keydown', onButtonKeyDown);
-        const logoLink = document.querySelector('.ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a');
-        if (logoLink) {
-          logoLink.removeEventListener('keydown', onLogoKeyDown);
-        }
       }
     });
   }, [menuButtonRef, toggleMenu]);
