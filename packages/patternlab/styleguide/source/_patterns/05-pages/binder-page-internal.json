@@ -70,8 +70,8 @@
   },
   "binderNavigationSections": [
     {
-      "id": "first-binder-nav",
       "tableOfContents": {
+        "id": "first-binder-nav",
         "title": {
           "text": "The Rules of Criminal Procedure",
           "href": "#",
