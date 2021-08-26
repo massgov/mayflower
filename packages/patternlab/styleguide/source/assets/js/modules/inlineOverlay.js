@@ -1,3 +1,4 @@
+import focusTrapping from "../helpers/focusTrapping.js";
 
 export default (function (window,document,$,undefined) {
   let tocContainerClass = '.js-toc-container';
@@ -36,8 +37,19 @@ export default (function (window,document,$,undefined) {
   $(document).on('click', toggleClass, toggleOverlay);
   // allow esc key to dismiss overlay
   $(document).keydown(function(e) {
+    // check if menu open
+    // const body = document.querySelector('body');
+    // if(body.classList.value.indexOf('show-menu') > 0) {
+      // trap focus only when menu is open
+      focusTrapping({
+        focusableSelectors: 'a, button',
+        modalSelector: '.ma__toc--overlay__container.is-open',
+        keyEvent: e
+      });
+    //}
+
     // ESCAPE key pressed
-    let key = (e.keyCode ? e.keyCode : e.witch);
+    let key = (e.keyCode || e.switch);
     if (key == "27" && $(containerClass).hasClass('is-open')) {
       // Close the overlay.
       $('.ma__toc--overlay__container').removeClass('is-open');
@@ -46,15 +58,5 @@ export default (function (window,document,$,undefined) {
     }
   });
 
-  // Keep the focus in the overlay while it's open. Don't let it go on the main page.
-  // console.log(tocFocusableElements[lastIndex]);
-  $(lastFocusableElement).keydown(function(e) {
-    let key = (e.keyCode ? e.keyCode : e.witch);
-    // When tab key is hit on the last ficusable element,
-    if (key == "9") {
-      // Set focus on the first focusable element in the overlay.
-      firstFocusableElement.focus();
-    }
-  });
 
 })(window,document,jQuery);
