@@ -1,15 +1,12 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
-export default (function (window,document,$,undefined) {
+export default (function (document,$) {
   let tocContainerClass = '.js-toc-container';
   let containerClass = '.js-inline-overlay';
   let contentClass = '.js-inline-overlay-content';
   let toggleClass = '.js-inline-overlay-toggle';
   let titleClass  = '.js-inline-overlay-title';
   let feedbackButton = $('body').find('.ma__fixed-feedback-button');
-  let tocFocusableElements = $('.js-inline-overlay').find(':focusable');
-  let firstFocusableElement = tocFocusableElements[0];
-  let lastFocusableElement = tocFocusableElements[tocFocusableElements.length - 1];
   const mainPageToggleButtton = $(".js-inline-overlay-title .js-inline-overlay-toggle");
 
   function initialize () {
@@ -59,4 +56,4 @@ export default (function (window,document,$,undefined) {
   });
 
 
-})(window,document,jQuery);
+})(document,jQuery);
