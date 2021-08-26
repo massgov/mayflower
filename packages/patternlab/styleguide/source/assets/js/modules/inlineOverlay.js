@@ -32,7 +32,6 @@ export default (function (document,$) {
 
   initialize();
   $(document).on('click', toggleClass, toggleOverlay);
-  // allow esc key to dismiss overlay
   $(document).keydown(function(e) {
     // check if menu open
     // const body = document.querySelector('body');
@@ -45,9 +44,10 @@ export default (function (document,$) {
       });
     //}
 
-    // ESCAPE key pressed
-    let key = (e.keyCode || e.switch);
-    if (key == "27" && $(containerClass).hasClass('is-open')) {
+    // press ESC key to dismiss overlay
+    const key = (e.key || e.code);
+    const escapeKeyPressed = (key === 'Escape' || key === 'Esc')
+    if (escapeKeyPressed && $(containerClass).hasClass('is-open')) {
       // Close the overlay.
       $('.ma__toc--overlay__container').removeClass('is-open');
       // Set focus on the toggle GamepadButton.
