@@ -11,11 +11,9 @@ A section for displaying a horizontal list of social links.
 ### Variables
 ~~~
 socialLinksBar: {
-  links:[{
-    "path": "@molecules/icon-links.twig",
-    "data": {
-        type: iconLinksData
-    }
+  items:[{
+   "icon": text,
+   "link": linkData
   }]
 }
 ~~~

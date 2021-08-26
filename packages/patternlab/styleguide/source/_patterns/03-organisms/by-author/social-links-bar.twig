@@ -2,9 +2,7 @@
   <div class="main-content main-content--two">
     <div class="page-content">
       {% block sectionContent %}
-        {% for content in socialLinksBar.links %}
-          {% include content.path with content.data %}
-        {% endfor %}
+        {% include "@molecules/icon-links.twig" with {"iconLinks": {"items": socialLinksBar.items} } %}
       {% endblock %}
     </div>
   </div>
