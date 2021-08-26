@@ -7,7 +7,7 @@ const filterDisplayedElements = (elements) => (elements.length > 0) && elements.
 
 export default ({
   focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-  closeButtonSelector, //e.g. menu close button that's outside of modal
+  closeButtonSelector, // e.g. menu close button that's outside of modal
   modalSelector, // e.g. '#exampleModal',
   keyEvent
 }) => {
@@ -33,8 +33,8 @@ export default ({
 
   if (e.shiftKey) { // if shift key pressed for shift + tab combination
     if (document.activeElement === firstFocusableElement) {
-        lastFocusableElement.focus(); // add focus for the last focusable element
-        e.preventDefault();
+      lastFocusableElement.focus(); // add focus for the last focusable element
+      e.preventDefault();
     }
   } else if (document.activeElement === lastFocusableElement) { // if tab key is pressed
     // if focused has reached to last focusable element then focus first focusable element after pressing tab
