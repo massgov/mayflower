@@ -3,7 +3,6 @@ import focusTrapping from "../helpers/focusTrapping.js";
 export default (function (document,$) {
   const tocContainerClass = '.js-toc-container';
   const containerClass = '.js-inline-overlay';
-  const contentClass = '.js-inline-overlay-content';
   const toggleClass = '.js-inline-overlay-toggle';
   const titleClass  = '.js-inline-overlay-title';
   const feedbackButton = $('body').find('.ma__fixed-feedback-button');
@@ -11,8 +10,8 @@ export default (function (document,$) {
 
   function initialize () {
     // Add random ID if no ID present.
-    const contentID = $(contentClass).attr('id');
-    if(!contentID) {
+    const containerID = $(containerClass).attr('id');
+    if(!containerID) {
       const id = `overlay-${Math.floor(Math.random()*100000)}`;
        $(containerClass).attr('id', id);
        $(toggleClass).attr('aria-controls', id);
