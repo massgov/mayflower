@@ -3,7 +3,7 @@ import focusTrapping from "../helpers/focusTrapping.js";
 export default (function (document,$) {
   const tocContainerClass = '.js-toc-container';
   const containerClass = '.js-inline-overlay';
-  const toggleClass = '.js-inline-overlay-toggle';
+  const toggleClassName = '.js-inline-overlay-toggle';
   const titleClass  = '.js-inline-overlay-title';
   const feedbackButton = $('body').find('.ma__fixed-feedback-button');
   const mainPageToggleButtton = $(".js-inline-overlay-title .js-inline-overlay-toggle");
@@ -14,7 +14,7 @@ export default (function (document,$) {
     if(!containerID) {
       const id = `overlay-${Math.floor(Math.random()*100000)}`;
        $(containerClass).attr('id', id);
-       $(toggleClass).attr('aria-controls', id);
+       $(toggleClassName).attr('aria-controls', id);
     }
   }
 
@@ -24,13 +24,13 @@ export default (function (document,$) {
     $('body').toggleClass('scroll-disabled', !isOpen);
     $containerEl.toggleClass('is-open', !isOpen);
 
-    $(`${toggleClass}[aria-expanded=${!isOpen}]`).parents(titleClass).focus();
+    $(`${toggleClassName}[aria-expanded=${!isOpen}]`).parents(titleClass).focus();
 
     feedbackButton.toggleClass('hide-button');
   }
 
   initialize();
-  $(document).on('click', toggleClass, toggleOverlay);
+  $(document).on('click', toggleClassName, toggleOverlay);
   $(document).keydown(function(e) {
     // check if menu open
     if ($(containerClass).hasClass('is-open')) {
