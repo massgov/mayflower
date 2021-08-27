@@ -1,8 +1,18 @@
+/**
+ * focusTrapping: Trap keyboard focus inside of a modal
+ * @param {string} focusableSelectors(requied): css selectors for all the focusable elements inside of the modal
+ * @param {string} modalSelector(requied): css selector for the modal container
+ * @param {string} closeButtonSelector(optional): If the modal close button is outside of the modal container, add the css selector for it to be included as the first focusable element
+ * @param {event} keyEvent(requied): keydown event
+ */
+
+// check if an element is visibly displayed using computed style
 const isDisplayed = (el) => {
   const style = window.getComputedStyle(el);
   return((style.display !== 'none') && (style.visibility !== 'hidden'));
 };
 
+// filter out elements from array which are not visibly displayed
 const filterDisplayedElements = (elements) => (elements.length > 0) && elements.filter((el) => isDisplayed(el));
 
 export default ({
