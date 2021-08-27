@@ -55,10 +55,10 @@ Changed:
   - project: React, Patternlab
     component: Key Message
     description: Adjusted to support reponsive images (picture)
-    issue: DP-22640
+    issue: DP-22263
     impact: Minor
   - project: React, Patternlab
     component: Marketing page
     description: Adjusted to support reponsive images (picture)
-    issue: DP-22640
+    issue: DP-22263
     impact: Minor
