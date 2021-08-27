@@ -29,13 +29,14 @@ export default (function (document,$) {
     feedbackButton.toggleClass('hide-button');
   }
 
+
   initialize();
   $(document).on('click', toggleClassName, toggleOverlay);
   $(document).keydown(function(e) {
     // check if menu open
     if ($(containerClass).hasClass('is-open')) {
       focusTrapping({
-        focusableSelectors: 'a, button',
+        focusableSelectors: '.js-accordion.is-open>ul>li a, button, .js-inline-overlay-title a',
         modalSelector: '.ma__toc--overlay__container.is-open',
         keyEvent: e
       });
