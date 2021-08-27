@@ -13,7 +13,7 @@
 # e.g. Added
 
 #___EXAMPLE WITH MULTIPLE ITEMS___
-Changed:
+Fixed:
   - project: Patternlab
     component: inlineOverlay, TableOfContentsOverlay
     description: Fix keyboard accessibility and aria-controls. (#1482)
