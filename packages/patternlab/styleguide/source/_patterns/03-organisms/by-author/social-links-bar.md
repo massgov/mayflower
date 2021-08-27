@@ -11,10 +11,11 @@ A section for displaying a horizontal list of social links.
 ### Variables
 ~~~
 socialLinksBar: {
-  pageContent:[{
-    "path": "@molecules/icon-links.twig",
-    "data": {
-        type: iconLinksData
+  items: [{
+    icon:
+      type: string (SVG icon name) / required
+    link: {
+      type: decorativeLink / required
     }
   }]
 }
