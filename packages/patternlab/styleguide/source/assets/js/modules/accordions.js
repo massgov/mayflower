@@ -19,7 +19,6 @@ export default (function (window,document,$,undefined) {
   });
 
   function init(index) {
-    console.log('init!!!')
     let $el = $(this);
     let ind = '';
     if ($el.hasClass('ma__header-alerts')) {
@@ -53,10 +52,7 @@ export default (function (window,document,$,undefined) {
           $content.stop(true,true).slideUp();
           $status.attr('aria-label', 'click to show info');
         }
-        console.log(isOpen)
         $link.attr('aria-expanded',isOpen);
-        $content.attr('aria-hidden', !isOpen);
-        $content.css('opacity', isOpen ? 1 : 0);
       }
     });
 
