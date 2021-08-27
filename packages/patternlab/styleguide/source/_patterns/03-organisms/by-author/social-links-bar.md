@@ -11,9 +11,12 @@ A section for displaying a horizontal list of social links.
 ### Variables
 ~~~
 socialLinksBar: {
-  items:[{
-   "icon": text,
-   "link": linkData
+  items: [{
+    icon:
+      type: string (SVG icon name) / required
+    link: {
+      type: decorativeLink / required
+    }
   }]
 }
 ~~~
