@@ -19,3 +19,8 @@ Fixed:
     description: Fix keyboard accessibility and aria-controls. (#1482)
     issue: DP-22608
     impact: Patch
+  - project: Patternlab
+    component: accordions
+    description: Fix variable logic. (#1482)
+    issue: DP-22608
+    impact: Patch
