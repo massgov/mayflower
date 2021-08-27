@@ -19,6 +19,7 @@ export default (function (window,document,$,undefined) {
   });
 
   function init(index) {
+    console.log('init!!!')
     let $el = $(this);
     let ind = '';
     if ($el.hasClass('ma__header-alerts')) {
@@ -30,12 +31,12 @@ export default (function (window,document,$,undefined) {
         $status = $el.find(`${ind} .js-accordion-status`),
         id = $content.attr('id') || 'accordion' + (index + 1),
         active = checkActive($el),
-        open = $el.hasClass('is-open');
+        isOpen = $el.hasClass('is-open');
 
     $content.attr('id', id);
-    $link.attr('aria-expanded',open).attr('aria-controls', id);
+    $link.attr('aria-expanded',isOpen).attr('aria-controls', id);
 
-    if(open) {
+    if(isOpen) {
       // setup the inline display block
       $content.stop(true,true).slideDown();
     }
@@ -43,16 +44,19 @@ export default (function (window,document,$,undefined) {
     $link.on('click',function(e){
       if(active) {
         e.preventDefault();
-        open = $el.hasClass('is-open');
-        if(open){
-          $content.stop(true,true).slideUp();
-          $status.attr('aria-label', 'click to show info');
-        } else {
+        $el.toggleClass('is-open');
+        isOpen = !isOpen;
+        if(isOpen){
           $content.stop(true,true).slideDown();
           $status.attr('aria-label', 'click to hide info');
+        } else {
+          $content.stop(true,true).slideUp();
+          $status.attr('aria-label', 'click to show info');
         }
-        $link.attr('aria-expanded',!open);
-        $el.toggleClass('is-open');
+        console.log(isOpen)
+        $link.attr('aria-expanded',isOpen);
+        $content.attr('aria-hidden', !isOpen);
+        $content.css('opacity', isOpen ? 1 : 0);
       }
     });
 
