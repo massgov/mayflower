@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.14.0 (8/30/2021)
+### Changed 
+- (Assets, Core, React, Patternlab) [Link] DP-21342: Add text underline for all inline links. (#1468)
+
 ## 11.13.0 (8/23/2021)
 ### Added 
 - (Patternlab, React, Assets) [Icon] DP-22736: Add report icon to Patternlab. (#1469)
