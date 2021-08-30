@@ -84,6 +84,7 @@ const HamburgerNav = ({
       }
       if (jumpToSearchButton) {
         jumpToSearchButton.setAttribute('aria-expanded', 'true');
+        jumpToSearchButton.setAttribute('tabIndex', -1);
       }
       menuButton.setAttribute('aria-pressed', 'true');
       const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
