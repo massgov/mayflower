@@ -4,6 +4,54 @@ export default (function (window, document, $, undefined) {
   let $panel = "";
   let $utilityButtons = $('.js-util-nav-toggle');
 
+  let $navContanier = $(".js-utility-nav--wide .js-util-nav-content");
+  let $focusableElements = $navContanier.find(':focusable');
+  const $containerCloseButton = $navContanier.find('.js-close-util-nav');
+
+  // console.log($focusableElements[0]);
+  // console.log($focusableElements[$focusableElements.length -1]);
+  // $containerCloseButton.css("background-color", "pink");
+
+  // Log in to on blue nav bar (wide)
+  $($focusableElements[$focusableElements.length -1]).keydown(function(e) {
+    // console.log(e);
+    // $(this).css("background-color", "orange ");
+    // if ($(this).hasFocus()) {
+      $(this).css("background-color", "pink");
+      let key = (e.keyCode ? e.keyCode : e.witch);
+      // When tab key is hit on the last ficusable element,
+      if (key == "9") {
+        $(this).css("background-color", "purple");
+        // Set focus on the first focusable element in the overlay.
+        // $focusableElements[0].focus();
+        $containerCloseButton.focus();
+      }
+    // }
+  });
+
+  // $($containerCloseButton).keydown(function(e) {
+  //   // console.log(e);
+  //   $(this).css("background-color", "orange");
+
+  //   if ($(this).hasFocus()) {
+  //     $(this).css("background-color", "orange");
+
+  //     let key = (e.keyCode ? e.keyCode : e.witch);
+  //     // When tab key is hit on the last ficusable element,
+  //     if (key == "9") {
+  //       if(e.shiftKey) {
+  //         // Set focus on the first focusable element in the overlay.
+  //         // $focusableElements[0].focus();
+  //         $focusableElements[$focusableElements.length -1].focus();
+  //       }
+  //     }
+  //   }
+  // });
+
+
+
+
+
   $panels.each(function () {
     if ($(this).closest(".ma__header__hamburger__utility-nav--narrow") !== true) {
       $panel = $(this);
