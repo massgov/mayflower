@@ -30,12 +30,12 @@ export default (function (window,document,$,undefined) {
         $status = $el.find(`${ind} .js-accordion-status`),
         id = $content.attr('id') || 'accordion' + (index + 1),
         active = checkActive($el),
-        isOpen = $el.hasClass('is-open');
+        open = $el.hasClass('is-open');
 
     $content.attr('id', id);
-    $link.attr('aria-expanded',isOpen).attr('aria-controls', id);
+    $link.attr('aria-expanded',open).attr('aria-controls', id);
 
-    if(isOpen) {
+    if(open) {
       // setup the inline display block
       $content.stop(true,true).slideDown();
     }
@@ -43,16 +43,16 @@ export default (function (window,document,$,undefined) {
     $link.on('click',function(e){
       if(active) {
         e.preventDefault();
-        $el.toggleClass('is-open');
-        isOpen = !isOpen;
-        if(isOpen){
-          $content.stop(true,true).slideDown();
-          $status.attr('aria-label', 'click to hide info');
-        } else {
+        open = $el.hasClass('is-open');
+        if(open){
           $content.stop(true,true).slideUp();
           $status.attr('aria-label', 'click to show info');
+        } else {
+          $content.stop(true,true).slideDown();
+          $status.attr('aria-label', 'click to hide info');
         }
-        $link.attr('aria-expanded',isOpen);
+        $link.attr('aria-expanded',!open);
+        $el.toggleClass('is-open');
       }
     });
 
