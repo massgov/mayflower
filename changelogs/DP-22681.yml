@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: UtilityNav
+    description: Replace the existing keyboard navigation functioin with the new common function, focusTrapping. (#916)
+    issue: DP-22681
+    impact: Patch
