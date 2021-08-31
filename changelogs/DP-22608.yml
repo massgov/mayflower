@@ -1,0 +1,26 @@
+# Every PR must have a changelog. To create a changelog:
+# 1. Make a copy of this file and name it with the ticket number.
+# 2. Keep the original format of one of the examples at the bottom, and override each element of it using ___TEMPLATE___ for reference
+# 3. Remove all comments from the copied file
+
+#___CHANGE TYPES___
+# - Added for new features.
+# - Changed for changes in existing functionality.
+# - Deprecated for soon-to-be removed features.
+# - Removed for now removed features.
+# - Fixed for any bug fixes.
+# - Security in case of vulnerabilities.
+# e.g. Added
+
+#___EXAMPLE WITH MULTIPLE ITEMS___
+Fixed:
+  - project: Patternlab
+    component: inlineOverlay, TableOfContentsOverlay
+    description: Fix keyboard accessibility and aria-controls. (#1482)
+    issue: DP-22608
+    impact: Patch
+  - project: Patternlab
+    component: accordions
+    description: Fix variable logic. (#1482)
+    issue: DP-22608
+    impact: Patch
