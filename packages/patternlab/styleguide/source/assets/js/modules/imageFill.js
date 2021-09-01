@@ -21,6 +21,12 @@ export default (function (window, document, $, undefined) {
 
         // Make the image the full width of the wrapper.
         $thisMedia.css("width", wrapperWidth);
+        let iframe = $thisMedia.find('iframe');
+        if (iframe.length) {
+          setTimeout( function() {
+            iframe[0].contentWindow.postMessage('update', '*');
+          }, 300);
+        }
       }
     });
 
