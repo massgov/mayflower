@@ -2,7 +2,7 @@ import getTemplate from "../helpers/getHandlebarTemplate.js";
 // import * as L from 'leaflet/dist/leaflet-src.js'; // safari bug exists in this version https://github.com/Leaflet/Leaflet/issues/7255
 import * as L from '../vendor/leaflet-src.js'; // wait for the bug fix to get into a released version to remove this local JS file and import from the leaflet package
 
-export default (function (window,document) {
+export default (function (window,document, $) {
   // Only run this code if there is a leaflet map component on the page.
   if(!document.querySelectorAll('.js-leaflet-map').length){
     return;
@@ -29,6 +29,7 @@ export default (function (window,document) {
       .map(mapWrapper, {
         center: [map.center.lat, map.center.lng],
         zoom: map.zoom || 0,
+        keyboard: false,
         zoomControl: false,
         minZoom: 8,
         scrollWheelZoom: false,
@@ -97,6 +98,8 @@ export default (function (window,document) {
     window.leafletMarkers = [];
     window.leafletMap = mymap;
 
+    let listingLocations = $(mapWrapper).parents('.ma__location-listing__map');
+
     // add markers to map 
     markers.forEach(({ position, infoWindow}) => {
       const mymarker = L.marker(
@@ -110,7 +113,11 @@ export default (function (window,document) {
       .addTo(mymap)
       .bindPopup(compiledTemplate(infoWindow));
 
-      if (!isStatic) {
+      if (listingLocations) {
+        mymarker.on('popupclose', function() {
+          $(mymarker._icon).focus();
+        });
+      } else if (!isStatic) {
         // popup close onclick is not recognized as a click event inside of the map in order to regain focus
         // Fire the map focus callback on popup close
         mymarker.on('popupclose', function() {
@@ -197,4 +204,4 @@ export default (function (window,document) {
     })
   })
 
-})(window,document);
+})(window,document, jQuery);
