@@ -36,7 +36,11 @@ document.addEventListener("DOMContentLoaded", toggleGoogleTranslate);
 function toggleGoogleTranslate() {
   if (mfIsMobile() && m === false) {
     m = true;
-    document.querySelector('.ma__header__hamburger__nav-container .ma__utility-nav__item').appendChild(translateElement);
+
+    var container = document.querySelector('.ma__header__hamburger__nav-container .ma__utility-nav__item');
+    if (container) {
+      container.appendChild(translateElement);
+    }
 
   } else if (!mfIsMobile() && m === true) {
     m = false;
