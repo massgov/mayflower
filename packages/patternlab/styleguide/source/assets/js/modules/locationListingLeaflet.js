@@ -31,12 +31,17 @@ export default (function (window, document, $) {
       }).on("mouseenter focusin", function (e) {
         let index = $(this).index();
         let marker = window.leafletMarkers[index];
+
+        if ($(marker._icon).hasClass('ma-highlighted')) {
+          return;
+        }
+
         // The marker have a transform for position in the map so we need to use +=
         $(marker._icon).removeClass('ma-transition');
         marker._icon.style.transform += ' scale(1.25)';
         $(marker._icon).addClass('ma-highlighted');
-
-      }).on("mouseleave", function (e) {
+        marker._focusin = true;
+      }).on("mouseleave focusout", function (e) {
         let index = $(this).index();
         let marker = window.leafletMarkers[index];
         marker._icon.style.transform = marker._icon.style.transform.replace(' scale(1.25)', '');
