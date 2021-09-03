@@ -6,23 +6,25 @@ import {forEach} from "../../../../../../core/storybook-static/vendors~main.047e
 export default (function (window,document,$,undefined) {
   let $jsAccordion = $('.js-accordion');
 
+
   $jsAccordion.each(function(index){
     init.apply(this, [index]);
   });
 
   // In case that all paragraphs are expanded by default, change the "expand all" link to "collapse all".
-  let allExpanded = true;
+  if($(".ma__collapsible-content--extended").length) {
+    let allExpanded = true;
 
-  $('.ma__collapsible-content--extended .js-accordion').each(function(index){
-    if(! $(this).hasClass('is-open')) {
-      allExpanded = false;
+    $('.ma__collapsible-content--extended .js-accordion').each(function(index){
+      if(! $(this).hasClass('is-open')) {
+        allExpanded = false;
+      }
+    });
+
+    if(allExpanded) {
+      toggleAll();
     }
-  });
-
-  if(allExpanded) {
-    toggleAll();
   }
-
 
   $(document).on('ma:AjaxPattern:Render', function(e,data){
     let $context = data.el;
@@ -106,8 +108,11 @@ export default (function (window,document,$,undefined) {
     $content.attr('id', id);
     $link.attr('aria-expanded',open).attr('aria-controls', id);
 
-    let childs = $el.find('.ma__link-list__item').length;
-    $el.find('.ma__collapsible-header__title').append( `<div class="header__title__counter">(${childs})</div>`);
+    if(isExtended) {
+      let childs = $el.find('.ma__link-list__item, .ma__collapsible-content__body-item').length;
+      $el.find('.ma__collapsible-header__title').append( `<div class="header__title__counter">(${childs})</div>`);
+    }
+
 
     if(open) {
       // setup the inline display block

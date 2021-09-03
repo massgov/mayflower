@@ -15,12 +15,12 @@
   {% endif %}
   <div class="ma__collapsible-content__items">
     {% for item in collapsibleContent.items %}
-      <div class="ma__collapsible-content__item js-accordion {{ item.expanded ? 'is-open' : '' }}">
+      <div class="ma__collapsible-content__item js-accordion {{ item.expanded ? ' is-open' : '' }}">
         {% set collapsibleHeader = item.collapsibleHeader %}
         {% include "@molecules/collapsible-header.twig" %}
-        <div class="ma__collapsible-content__body js-accordion-content {{ collapsibleHeader.icon ? '' : 'ma__collapsible-content__body--without-icon' }}">
+        <div class="ma__collapsible-content__body js-accordion-content  {{ collapsibleHeader.icon ? '' : ' ma__collapsible-content__body--without-icon' }}">
           {% for pattern in item.includes %}
-            {% include pattern.path with pattern.data %}
+           <span class="ma__collapsible-content__body-item">{% include pattern.path with pattern.data %}</span>
           {% endfor %}
           {% if item.more %}
             <div class="ma__collapsible-content__link">
