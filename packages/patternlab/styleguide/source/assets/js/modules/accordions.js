@@ -1,7 +1,4 @@
-// noinspection JSVoidFunctionReturnValueUsed
-
 import checkActive from "../helpers/cssControlCode.js";
-import {forEach} from "../../../../../../core/storybook-static/vendors~main.047e28ac683eee78436e.bundle";
 
 export default (function (window,document,$,undefined) {
   let $jsAccordion = $('.js-accordion');
