@@ -1,7 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__collapsible-header {
-  
+
   &__button {
     border: none;
     display: block;
@@ -22,7 +22,9 @@
       transition: transform .2s ease;
 
       .is-open & {
-        transform: rotate(135deg);
+        content: "|";
+        transform: rotate(90deg) scale(0.8);
+        font-weight: $fonts-bold;
       }
     }
   }

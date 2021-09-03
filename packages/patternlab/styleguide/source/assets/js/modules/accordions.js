@@ -1,10 +1,28 @@
+// noinspection JSVoidFunctionReturnValueUsed
+
 import checkActive from "../helpers/cssControlCode.js";
+import {forEach} from "../../../../../../core/storybook-static/vendors~main.047e28ac683eee78436e.bundle";
 
 export default (function (window,document,$,undefined) {
+  let $jsAccordion = $('.js-accordion');
 
-  $('.js-accordion').each(function(index){
+  $jsAccordion.each(function(index){
     init.apply(this, [index]);
   });
+
+  // In case that all paragraphs are expanded by default, change the "expand all" link to "collapse all".
+  let allExpanded = true;
+
+  $('.ma__collapsible-content--extended .js-accordion').each(function(index){
+    if(! $(this).hasClass('is-open')) {
+      allExpanded = false;
+    }
+  });
+
+  if(allExpanded) {
+    toggleAll();
+  }
+
 
   $(document).on('ma:AjaxPattern:Render', function(e,data){
     let $context = data.el;
@@ -19,8 +37,13 @@ export default (function (window,document,$,undefined) {
   });
 
   $('.ma__collapsible-content__toggle-all').on("click",function(e){
-    let $toggleLink = $(this);
-    let toggleStatus = 'open';
+    toggleAll();
+
+    e.preventDefault();
+  });
+
+  function toggleAll(toggleStatus = 'open') {
+    let $toggleLink = $('.ma__collapsible-content__toggle-all');
 
     if($toggleLink.hasClass('ma__collapsible-content__toggle-all--expanded')) {
       $toggleLink.addClass('ma__collapsible-content__toggle-all--collapsed');
@@ -35,9 +58,7 @@ export default (function (window,document,$,undefined) {
     $('.js-accordion').each(function(index){
       accordionToggle($(this), toggleStatus);
     });
-
-    e.preventDefault();
-  });
+  }
 
   function accordionToggle($el, toggleStatus = 'default') {
     let ind = '';
@@ -85,7 +106,7 @@ export default (function (window,document,$,undefined) {
     $content.attr('id', id);
     $link.attr('aria-expanded',open).attr('aria-controls', id);
 
-    let childs = $el.find('.ma__decorative-link').length;
+    let childs = $el.find('.ma__link-list__item').length;
     $el.find('.ma__collapsible-header__title').append( `<div class="header__title__counter">(${childs})</div>`);
 
     if(open) {
