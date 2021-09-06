@@ -6,5 +6,6 @@
   "directory": "assets",
   "googleLanguages": "ar,es,fr,pt,ht,it,km,ko,ru,vi,zh-CN",
   "sealImage": "../../assets/images/logo/stateseal.png",
+  "sealWhiteImage": "../../assets/images/logo/stateseal-white.png",
   "comment": "See \\PatternLab\\DynamicDataListener for further dynamic properties."
 }

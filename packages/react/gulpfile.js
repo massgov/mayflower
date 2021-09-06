@@ -214,6 +214,7 @@ function resolvePath(sourcePath, currentFile, opts) {
         'TabContainer/context',
         'utilities/componentPropTypeCheck',
         'utilities/getFallbackComponent',
+        'utilities/focusTrapping',
         'Breadcrumb/item',
         'GenTeaser/utils',
         'Base/Icon/',

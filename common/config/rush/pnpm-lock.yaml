@@ -69,7 +69,7 @@ dependencies:
   eslint-plugin-react-hooks: 2.5.1_eslint@7.16.0
   esm: 3.2.25
   fitvids: 2.1.1
-  fuse.js: 3.6.1
+  fuse.js: 6.4.6
   gatsby: 2.25.4
   gatsby-image: 2.8.0
   gatsby-plugin-manifest: 2.9.1_gatsby@2.25.4
@@ -97,6 +97,7 @@ dependencies:
   jquery: 3.5.1
   jscodeshift: 0.10.0
   lazypipe: 1.0.2
+  leaflet: 1.7.1
   markdown-it: 10.0.0
   mdn-polyfills: 5.20.0
   merge-stream: 1.0.1
@@ -12860,6 +12861,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-hT9yh/tiinkmirKrlv4KWOjztdoZo1mx9Qh4KvWqC7isoXwdUY3PNWUxceF4/qO9R6riA2C29jdTOeQOIROjgw==
+  /fuse.js/6.4.6:
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-/gYxR/0VpXmWSfZOIPS3rWwU8SHgsRTwWuXhyb2O6s7aRuVtHtxCkR33bNYu3wyLyNx/Wpv0vU7FZy8Vj53VNw==
   /gatsby-cli/2.16.2:
     dependencies:
       '@babel/code-frame': 7.12.11
@@ -16851,6 +16858,10 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-bxT5mje+Op3XhPVJVpDlkDRm7kI=
+  /leaflet/1.7.1:
+    dev: false
+    resolution:
+      integrity: sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw==
   /leven/3.1.0:
     dev: false
     engines:
@@ -26715,7 +26726,7 @@ packages:
       eslint-plugin-jsx-a11y: 6.4.1_eslint@7.16.0
       eslint-plugin-react: 7.21.5_eslint@7.16.0
       eslint-plugin-react-hooks: 2.5.1_eslint@7.16.0
-      fuse.js: 3.6.1
+      fuse.js: 6.4.6
       gulp: 4.0.2
       gulp-babel: 8.0.0_@babel+core@7.12.10
       gulp-rename: 2.0.0
@@ -26757,7 +26768,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-K6aYyjAmI10pJYSYmpI5jhULxo8tJ2dk1OpPPa69lkBpBRuwft4N5FZPMeLxSc6yPIksONmMmm1XonhNxTA/Xg==
+      integrity: sha512-yQgQMlu6yBu6QdukH0B90eqBrF+Xnd3Tmk9/X8ilWr4e8/CWQeIHK4FPwOKLqyYVxL1cCDXbZnxaLpcPtTC9sw==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_13fe6053c740dc31e0c47613a4f26462':
@@ -26837,6 +26848,7 @@ packages:
       handlebars: 4.7.6
       jquery: 3.5.1
       lazypipe: 1.0.2
+      leaflet: 1.7.1
       mdn-polyfills: 5.20.0
       merge-stream: 1.0.1
       moment: 2.29.1
@@ -26856,7 +26868,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-FEwFJMovCJbz36YZHWgSj1Ubtok/M22HJPHfxttUb6HEX6ElQ99KqAJW5USSWaWcKLiy0hkbSeAPiPQUIThW5w==
+      integrity: sha512-tNCaAaUG+raFnB2SaiODirrQUwBxN0MwB8Bwy67MxGIarbF63qblIZ650MhvoozTIsmnxt9UhfJ/GFjAqzSqng==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
 registry: ''
@@ -26931,7 +26943,7 @@ specifiers:
   eslint-plugin-react-hooks: ^2.5.0
   esm: ^3.2.25
   fitvids: ^2.0.0
-  fuse.js: ^3.4.5
+  fuse.js: ^6.4.6
   gatsby: ~2.25.0
   gatsby-image: ^2.2.43
   gatsby-plugin-manifest: ^2.2.39
@@ -26959,6 +26971,7 @@ specifiers:
   jquery: ~3.5.1
   jscodeshift: ^0.10.0
   lazypipe: ^1.0.1
+  leaflet: ~1.7.1
   markdown-it: ^10.0.0
   mdn-polyfills: ^5.16.0
   merge-stream: ^1.0.1

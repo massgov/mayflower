@@ -77,6 +77,7 @@ export default (function(window, document, undefined, $, moment){
       });
     }
 
+    data.pagination = {};
     data.pagination.prev = {
       text: "Previous",
       disabled: targetPage === 1

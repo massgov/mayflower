@@ -26,7 +26,12 @@ const BrandBanner = ({
   const brandBannerClasses = classNames('ma__brand-banner', {
     [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
   });
+
   const [expanded, setExpanded] = React.useState(false);
+
+  const brandBannerExpansionClasses = classNames('ma__brand-banner-expansion', {
+    'ma__brand-banner-expansion--expanded': expanded
+  });
 
   const handleOnToggle = () => {
     setExpanded((prevExpanded) => !prevExpanded);
@@ -34,7 +39,7 @@ const BrandBanner = ({
   return(
     <div className={brandBannerClasses}>
       <div className="ma__brand-banner-container">
-        {hasSeal && <Image className="ma__brand-banner-logo" src={seal} />}
+        {hasSeal && <Image className="ma__brand-banner-logo" src={seal} alt="Massachusetts State Seal" />}
         <span>
           {text}
           {hasToggle && (
@@ -53,16 +58,16 @@ const BrandBanner = ({
         </span>
       </div>
       {
-        (hasToggle && expanded) && (
-          <dl className="ma__brand-banner-expansion">
+        hasToggle && (
+          <dl className={brandBannerExpansionClasses}>
             <div className="ma__brand-banner-expansion-item">
               <IconBuilding width={30} height={30} fill={lightTheme ? '#14558F' : '#fff'} />
               <div className="ma__brand-banner-expansion-item-content">
                 <dt>
-                  Official websites use .mass.gov domain
+                  Official websites use .mass.gov
                 </dt>
                 <dd>
-                  The .mass.gov domain belongs to the official Massachusetts state government.
+                  A .mass.gov website belongs to an official government organization in Massachusetts.
                 </dd>
               </div>
             </div>

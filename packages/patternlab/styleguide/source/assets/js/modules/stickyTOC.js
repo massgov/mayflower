@@ -27,8 +27,10 @@ export default (function (window, document) {
     const tocColumn = toc.querySelector(".ma__sticky-toc__column");
     // Container in the sticky header to hold the current sections header.
     const stickyToc = toc.querySelector(".ma__sticky-toc__current-section");
-    // The minimum number of sections required on the page to display the table of contents.
-    const minSectionsToShow = toc.dataset["min-to-show"] ? toc.dataset["min-to-show"] : 2;
+    // The minimum number of sections set by data
+    const minToShow = Number(toc.getAttribute('data-min-to-show'))
+    // The minimum number of sections required on the page to display the table of contents, default to 2.
+    const minSectionsToShow = minToShow || 2;
     // The overlay div that shows when the stuck menu is shown.
     const stuckOverlay = toc.querySelector(".ma__sticky-toc__overlay");
     // The stuck header.
@@ -39,6 +41,9 @@ export default (function (window, document) {
 
     // Initialize the TOC by creating links and target spans.
     function initializeToc() {
+      // To set an overflow rule for jumpy IE wrapping
+      document.documentElement.classList.add("stickyTOC");
+      toc.style.display = "block";
       // Add a class to the parent to help with consistent handling across applications.
       tocParent.classList.add("toc-parent");
       // Use headers to fill TOC.
@@ -93,16 +98,6 @@ export default (function (window, document) {
       // Get the final count of sections we'll use to determine if we display.
       if ((tocSectionCount >= 1) && (additionalCount >= 1)) {
         tocSectionCount = tocSectionCount + additionalCount;
-      }
-
-      // Remove wrapper if not enough links.
-      if (tocSectionCount < minSectionsToShow) {
-        toc.style.display = "none";
-      }
-      else {
-        // To set an overflow rule for jumpy IE wrapping
-        document.documentElement.classList.add("stickyTOC");
-        toc.style.display = "block";
       }
 
       // Show expander when more than 10 links.
@@ -173,7 +168,12 @@ export default (function (window, document) {
           const stuckNavDemensions = stuckNav.getBoundingClientRect();
           const stuckNavBottom = stuckNavDemensions.top + stuckNavDemensions.height;
           // The text of the last heading.
-          const lastHeading = tocSections.headings[tocSectionCount - 1].innerHTML;
+
+          const lastSection = tocSections.headings[tocSectionCount - 1];
+          let lastHeading = null;
+          if (lastSection) {
+           lastHeading = lastSection.innerHTML;
+          }
 
           // Active Sticky TOC when on page TOC scrolls past.
           if (stickyNavActive > 0) {
@@ -272,10 +272,13 @@ export default (function (window, document) {
       stuckMenu.focus();
     }
 
-    initializeToc();
-    handleResize();
-    if (tocSectionCount > 0) {
+    // Do not render or intialize the TOC if sections don't reach the mininum requirement.
+    if (tocSectionCount >= minSectionsToShow) {
+      initializeToc();
+      handleResize();
       setEventListeners();
+    } else {
+      toc.style.display = "none";
     }
   });
 })(window, document);

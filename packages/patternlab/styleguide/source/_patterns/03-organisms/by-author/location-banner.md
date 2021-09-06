@@ -1,15 +1,15 @@
 ### Description
-This is an banner pattern that combines an image an a google map.
+This is an banner pattern that combines an image an a leafletMap map.
 
 ### Status
 * Stable as of 5.0.0
 
 ### Pattern Contains
-* Google Map
+* LeafletMap Map
 
 
 ### JavaScript Used
-* Google Map (js/modules/googleMap.js)
+* LeafletMap Map (js/modules/leafletMapMap.js)
 
 ### Variables
 ~~~
@@ -22,8 +22,8 @@ locationBanner: {
     type: string (image path) / required,
   id: 
     type: string (unique) / required,
-  googleMap: {
-    type: googleMap / required
+  leafletMapMap: {
+    type: leafletMapMap / required
   }
 }
 ~~~

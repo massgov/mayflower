@@ -82,7 +82,10 @@ const HamburgerNav = ({
       if (feedbackButton) {
         feedbackButton.classList.add('hide-button');
       }
-      jumpToSearchButton.setAttribute('aria-expanded', 'true');
+      if (jumpToSearchButton) {
+        jumpToSearchButton.setAttribute('aria-expanded', 'true');
+        jumpToSearchButton.setAttribute('tabIndex', -1);
+      }
       menuButton.setAttribute('aria-pressed', 'true');
       const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
       body.style.position = 'fixed';
@@ -105,6 +108,9 @@ const HamburgerNav = ({
         }
         menuOverlay.style.top = `${overlayOffset}px`;
         menuOverlay.classList.add('overlay-open');
+        menuOverlay.onclick = () => {
+          closeMenu();
+        };
       }
       if (alertOverlay) {
         if (document.querySelector('.ma__emergency-alerts')) {
@@ -142,7 +148,9 @@ const HamburgerNav = ({
       if (feedbackButton) {
         feedbackButton.classList.remove('hide-button');
       }
-      jumpToSearchButton.setAttribute('aria-expanded', 'false');
+      if (jumpToSearchButton) {
+        jumpToSearchButton.setAttribute('aria-expanded', 'false');
+      }
       if (menuOverlay) {
         menuOverlay.classList.remove('overlay-open');
       }
@@ -254,14 +262,18 @@ const HamburgerNav = ({
               <span className="ma__header__hamburger__menu-icon" />
               <span className="ma__header__hamburger__menu-text js-header__menu-text" />
             </button>
-            <button
-              type="button"
-              aria-expanded="false"
-              className="ma__header__hamburger__search-access-button js-header-search-access-button"
-            >
-              <span className="ma__visually-hidden">Access to search</span>
-              <IconSearch />
-            </button>
+            {
+              navSearch && (
+                <button
+                  type="button"
+                  aria-expanded="false"
+                  className="ma__header__hamburger__search-access-button js-header-search-access-button"
+                >
+                  <span className="ma__visually-hidden">Access to search</span>
+                  <IconSearch />
+                </button>
+              )
+            }
           </div>
           {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
           <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className="ma__header__hamburger__nav-container" aria-hidden="true" />

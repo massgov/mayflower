@@ -57,16 +57,28 @@
 }
 
 @supports ( font-variation-settings: normal ) {
+  /* The variable font of Noto Sans.
+   *
+   * Update the version '?version=1' in openmass when changes occurs to the font files for caching.
+   * See https://github.com/massgov/openmass/blob/develop/docroot/themes/custom/mass_theme/templates/layout/html.html.twig#L38
+  */
 
 	@font-face { // The variable font of Noto Sans for basic latin
     font-family: 'Noto Sans VF';
     src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF-subset.eot?#iefix') format('embedded-opentype'),
           url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF-subset.woff') format('woff'),
-					url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF-subset.woff2') format('woff2');
+					url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF-subset.woff2?version=1') format('woff2'),
+          url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
     font-display: $fonts-display-global;
   }
+
+  /* The variable font of Noto Sans Italic.
+   *
+   * Update the version '?version=1' in openmass when changes occurs to the font files for caching.
+   * See https://github.com/massgov/openmass/blob/develop/docroot/themes/custom/mass_theme/templates/layout/html.html.twig#L38
+  */
 
 	@font-face { // The variable font of Noto Sans for latin extended
     font-family: 'Noto Sans Latin VF';
@@ -83,7 +95,8 @@
     font-family: 'Noto Sans VF';
     src:  url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF-subset.eot?#iefix') format('embedded-opentype'),
           url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF-subset.woff') format('woff'),
-					url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF-subset.woff2') format('woff2');
+					url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF-subset.woff2?version=1') format('woff2'),
+          url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.ttf') format('truetype');
     font-weight: 100 900;
     font-style: italic;
     font-display: $fonts-display-global;

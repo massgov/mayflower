@@ -3,14 +3,48 @@
     "contentTitle": "The Details",
     "titleContext": ""
   },
-
-  "headerAlerts": [{
-    "guid": "GUID09058070136",
-    "text": "Alert Message",
-    "href": "#",
-    "target": ""
-  }],
-
+  "alerts": {
+    "headerTitle": {
+      "icon": "warning",
+      "text": "Notice & Alerts",
+      "hideText": "Hide",
+      "showText": "Expand"
+    },
+    "headerAlerts": [
+      {
+        "accordion": true,
+        "isExpanded": false,
+        "accordionLabel": "Expand Actualizaciones sobre el desempleo",
+        "icon": "input-warning",
+        "title": "Actualizaciones sobre el desempleo",
+        "suffix": "Updated: Mar. 17th, 2021, 11:10 am",
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph": {
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus deleniti nisi at adipisci sequi consequuntur qui, corporis pariatur eos laborum nostrum itaque, facere. Doloremque qui temporibus repellendus incidunt in nam provident, aliquam."
+              }
+            }
+          }]
+        }
+      },
+      {
+        "accordion": true,
+        "isExpanded": false,
+        "accordionLabel": "Expand DUA warns about phising scam",
+        "icon": "input-error",
+        "title": "DUA warns about phising scam",
+        "suffix": "Updated: Mar. 23rd, 2021, 9:50 am",
+        "decorativeLink": {
+          "href": "#",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus deleniti nisi at adipisci sequi consequuntur qui, corporis pariatur eos laborum nostrum itaque, facere. Doloremque qui temporibus repellendus incidunt in nam provident, aliquam.",
+          "info": "Learn more about DUA warns about phising scam",
+          "property": ""
+        }
+      }
+    ]
+  },
   "pageHeader": {
     "divider": false,
     "title": "Page Title",
@@ -123,13 +157,19 @@
     "bgWide":"../../assets/images/placeholder/1600x400.png",
     "bgNarrow":"../../assets/images/placeholder/800x400.png",
     "id": "GUID24872901570",
-    "googleMap": {
+    "leafletMap": {
+      "isStatic": false,
+      "hideAttribution": true,
       "map": {
         "center": {
           "lat": 42.594129,
           "lng": -73.183715
-        },
-        "zoom": 12
+        }
+      },
+      "link": {
+        "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
+        "text": "Get Directions",
+        "info": "Department of Conservation and Recreation"
       },
       "markers": [{
         "position": {
@@ -142,19 +182,6 @@
           "phone": "14134994262",
           "fax": "",
           "email": "mass.parks@state.ma.us",
-          "address": "30 Rockwell Road\nLanesborough, MA 01237"
-        }
-      },{
-        "position": {
-          "lat": 42.636875,
-          "lng": -73.166921
-        },
-        "label": "B",
-        "infoWindow": {
-          "name": "Bascom Lodge",
-          "phone": "14137431591",
-          "fax": "",
-          "email": "mail@bascomlodge.net",
           "address": "30 Rockwell Road\nLanesborough, MA 01237"
         }
       }]

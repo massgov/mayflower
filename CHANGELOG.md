@@ -1,6 +1,164 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.14.0 (8/30/2021)
+
+### Changed 
+- (Assets, Core, React, Patternlab) [Link] DP-21342: Add text underline for all inline links. (#1468)
+
+### Fixed 
+- (React) [HamburgerNav] DP-22741: A11y fix keyboard navigation. (#1478)
+- (Patternlab) [responsiveTable] DP-22857: Disable pointer-events to avoid colliding with other content. (#1483)
+- (Patternlab) [imageFill] DP-22859: Detect iframe in full width figure element, and post an update message to the iframe to update iframe dimension for the responsive iframe height javascript. (#1486)
+
+## 11.13.0 (8/23/2021)
+### Added 
+- (Patternlab, React, Assets) [Icon] DP-22736: Add report icon to Patternlab. (#1469)
+- (Patternlab) [HeaderAlerts, ActionSteps] DP-27720: Add `content` to ActionSteps to allow rendering multiple items in the content area of a HeaderAlerts accordion. (#1472)
+
+### Fixed 
+- (React, Patternlab) [CircleCI] DP-22787: Fixed CircleCI job installing AWS CLI. (#1471)
+
+## 11.12.0 (8/9/2021)
+### Fixed 
+- (React) [HeaderHamburger] DP-22392: Bug fix and keyboard accessibility fixes of the hamburger sidebar nav. (#1451)
+
+### Added 
+- (Assets, Patternlab) [Icon] DP-22687: Add "demographics" icon. (#1459)
+
+## 11.11.0 (8/2/2021)
+### Added 
+- (React, Patternlab) [PageHeaderAddons] DP-22653: Adds PageHeaderAddons component to render additional contents below PageHeader. (#1456)
+
+### Changed 
+- (React, Patternlab) [PageHeader] DP-22653: Takes out optionalContents and widgets from the PageHeader component. Add PageHeaderAddons to the template to render those instead (no change to the PageHeader data object structure). (#1456)
+
+## 11.10.0 (7/26/2021)
+### Changed 
+- (Patternlab) [EmergencyAlert, EmergencyHeader, HeaderAlerts] DP-22395: Implement new designs for EmergencyAlerts and HeaderAlerts (replacing HeaderAlert). (#1449)
+
+## 11.9.0 (7/19/2021)
+### Changed 
+- (Patternlab) [PageFlipper] DP-22292: Hide duplicate links in the component from assistive technology and keyboard users. (#1433)
+- (Patternlab) [TableOfContentsOverlay] DP-22292: Set up keeping focus in the overaly while it's open. (#1433)
+- (Patternlab) [EmergencyAlert, EmergencyHeader, HeaderAlerts] DP-22395: Implement new designs for EmergencyAlerts. Added HeaderAlerts to replace HeaderAlert.  (#1444)
+
+### Fixed 
+- (Patternlab) [MainNavHamburger] DP-22559: Fixed javascript error regarding moved element. (#1445)
+
+## 11.8.0 (7/12/2021)
+### Changed 
+- (Patternlab) [ContentTypes] DP-21924: Changed Twig syntax for drupal-9 (#1434)
+- (Patternlab) [Table] DP-18737: Target regular richtext table more specifically. (#1439)
+
+### Added 
+- (Patternlab) [GeneralTeaser] DP-22334: Add quick action links to GeneralTeaser component. (#1435)
+
+### Fixed 
+- (Assets, Patternlab) [Elements] DP-22506: Reverted globally changed ul/ol elements styling targeting types, fix the listing regressions in navs. (#1440)
+- (React, Patternlab) [GoogleTranslateElement] DP-22281: Fixed the google translate element for mobile. (#1438)
+
+## 11.7.1 (6/28/2021)
+### Added 
+- (Patternlab) [ImagePromo] DP-22122: Added aria-hidden to hide duplicate content from screen readers. (#1417)
+
+### Changed 
+- (Assets, Patternlab) [Elements] DP-22255: Changed ul/ol elements styling behavior to respect type attribute. (#1429)
+
+## 11.7.0 (6/8/2021)
+### Added 
+- (Patternlab) [HeaderAlert] DP-22191: Add extra data attributes. (#1422)
+
+## 11.6.0 (6/7/2021)
+### Changed 
+- (Patternlab) [LocationListing] DP-21782: Add labelContext to assets/js/templates/locationListingRow.html. (#1420)
+- (React, Patternlab) [FooterLinks] DP-7874: Correct semantics of footer navigation. (#1421)
+
+### Removed 
+- (React) [FooterLinks] DP-7874: Remove unused `id` prop. (#1421)
+
+### Added 
+- (React) [FooterLinks] DP-7874: Added `headingLevel` prop to allow changing footer links column heading level. (#1421)
+
+## 11.5.1 (5/24/2021)
+### Fixed 
+- (Patternlab) [List] DP-21660: Fix bullets and list numbers overwrapped with left floated elements in IE11. (#1412)
+- (Patternlab) [LocationListing] DP-22079: Fixed location listing pagination error, and fixed auto complete. (#1416)
+
+## 11.5.0 (5/17/2021)
+### Added 
+- (Patternlab) [MapLeaflet] DP-21554: Added MapLeaflet molecule and variants. (#1388,
+- (Patternlab) [GeneralTeaser] DP-21763: Extended the GeneralTeaser component to render tags, icon in eyebrow, and upperRight content. Added the `general-teaser-data` variant in Patternlab. (#1402)
+- (Assets) [Icons] DP-21763: Added `pin.svg`, `data.svg` and `catalog.svg`. (#1402)
+
+### Changed 
+- (Patternlab) [LocationBanner, MappedLocations, Location template and pages, Organization and Sevices template and pages] DP-21554: Switch out interactive and static google maps with leaflet maps. (#1388,
+- (Patternlab) [MapGoogle, MapLeaflet] DP-21554: Change JS file name from `googleMap.js` to `mapGoogle.js`. (#1388,
+- (Assets) [MapGoogle, MapLeaflet] DP-21554: Change scss file name from `_google-map.scss` to `_map-google.scss`. (#1388,
+- (Patternlab) [Utility nav panel] DP-21816: Remove h2 from utility nav panel title. (#1407)
+- (React, Patternlab) [Fonts] DP-21883: Added a query string with a version to -VF.woff2 fonts for caching. (#1410)
+
+### Removed 
+- (Patternlab) [LocationGeneralPage] DP-21554: Remove MapLeaflet from the Location General Page. (#1388)
+
+## 11.4.2 (5/10/2021)
+### Fixed 
+- (Patternlab) [InfomationDetails] DP-21686: Change info details page content data from object to array for flexibility, cleanup unused data and render video in preContent-media variant page (#1393)
+- (Patternlab) [LocationListing] DP-21770: Align text and icon for the directions link. (#1408)
+
+## 11.4.1 (4/20/2021)
+### Fixed 
+- (Patternlab) [stickyTOC] DP-21686: Fix stickyTOC JS console error, which addresses the issue causing video fitwidth JS malfunction on info details page when TOC is not initiated. (#1392)
+
+## 11.4.0 (4/12/2021)
+### Changed 
+- (Patternlab) [Figure Caspio] DP-21332: Modified Caspio embed functionality to have flexible hostname.
+
+### Fixed 
+- (Patternlab) [stickyTOC] DP-21592: Fix logic for comparing `data-min-to-show` with the number of sections to conditionally initiate or render TOCs. (#909)
+
+## 11.3.0 (3/29/2021)
+### Fixed 
+- (React) [InputTextFuzzy] DP-20435: Fix `key` proptype to allow advanced weighted search. (#1380)
+- (React, Core) [Footer] DP-21453: Fix default props for Footer component. This change would require `footerText` prop to be an object, to fallback to the defaults, pass in empty object `{}`. (#1377)
+- (Patternlab) [stickyTOC] DP-21549: Add check to see if TOC is actually displayed before initializing. (#1382)
+
+### Added 
+- (React) [InputTextFuzzy] DP-20435: Simulate real orgs data to test out abbreviation search. (#1380)
+- (React, Core) [FooterSlim] DP-21453: Add `copyright` prop to allow overrides. (#1377)
+- (Patternlab) [rush] DP-21549: Add `rush build:patternlab` global command. (#1382)
+
+### Changed 
+- (React) [InputTextFuzzy, Dependency] DP-20435: Upgrade `fuse.js` to v6.4.6. (#1380)
+- (Patternlab) [Figure] DP-20722: Changed figure image atom to work similar to dataviz.
+- (Assets) [FooterSlim] DP-21453: Update copyright text style to differentiate it from the description text. (#1377)
+
+## 11.2.2 (3/18/2021)
+### Fixed 
+- (Assets) [CalloutLink] DP-20435: Fix Callout Links alignment in key actions (promoted results in search.mass.gov). (#1366)
+- (React) [HamburgerNav] DP-20435: fix hamburger nav search icon rendering mobile conditional. (#1369)
+- (Assets) [GenTeaser] DP-20435: Fix GenTeaser component spacing and line heights. (#1370)
+- (React) [GenTeaser.Email] DP-20435: Fix email proptype. (#1373)
+
+### Changed 
+- (React) [TranslateItem, StateItem, LoginItem] DP-20435: Refactor utility items in Header/utility-items.js for reuse. (#1368)
+- (React) [TypeAheadDropdown] DP-20435: Convert TypeAheadDropdown into a functional component, and allow setting default value props separately for the TypeAheadDropDown and its child InputTextFuzzy component (#1371)
+
+## 11.2.1 (3/15/2021)
+### Fixed 
+- (Core) [Footer] DP-21433: Update footer data to match Mass.gov. (#1372 )
+
+## 11.2.0 (3/1/2021)
+### Added 
+- (Patternlab, Core) [BrandBanner] DP-21258: Add BrandBanner molecule in Patternlab and generate the HTML, CSS and JS for Mayflower core documentation. (#1362)
+
+### Changed 
+- (React) [BrandBanner] DP-21258: Change toggle rendering logic in React to match Patternlab. (#1362)
+
+## 11.1.5 (2/22/2021)
+### Added 
+- (Core) [Usage] DP-21186: Added documentation on downloading the mayflower assets package without using npm. (#1357)
+
 ## 11.1.4 (2/8/2021)
 ### Fixed 
 - (Patternlab) [Assets] DP-20381: Fix left floated figure components and images to cover list style elements in rich text containers.  (#1342)
