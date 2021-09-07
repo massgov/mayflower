@@ -1,6 +1,16 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.14.0 (8/30/2021)
+
+### Changed 
+- (Assets, Core, React, Patternlab) [Link] DP-21342: Add text underline for all inline links. (#1468)
+
+### Fixed 
+- (React) [HamburgerNav] DP-22741: A11y fix keyboard navigation. (#1478)
+- (Patternlab) [responsiveTable] DP-22857: Disable pointer-events to avoid colliding with other content. (#1483)
+- (Patternlab) [imageFill] DP-22859: Detect iframe in full width figure element, and post an update message to the iframe to update iframe dimension for the responsive iframe height javascript. (#1486)
+
 ## 11.13.0 (8/23/2021)
 ### Added 
 - (Patternlab, React, Assets) [Icon] DP-22736: Add report icon to Patternlab. (#1469)
