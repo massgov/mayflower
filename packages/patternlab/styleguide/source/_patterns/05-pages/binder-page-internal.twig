@@ -11,11 +11,11 @@
     {% include "@organisms/by-template/table-of-contents-overlay.twig" %}
   {% endfor %}
   {% if illustratedHeader %}
-    {% include "@organisms/by-template/illustrated-header.twig" %}
+    {% include "@organisms/page-headers/illustrated-header.twig" %}
   {% endif %}
   {% if pageHeader %}
-    {% include "@organisms/by-template/page-header.twig" %}
-    {% include "@organisms/by-template/page-header-addons.twig" %}
+    {% include "@organisms/page-headers/page-header.twig" %}
+    {% include "@organisms/page-headers/page-header-addons.twig" %}
   {% endif %}
 {% endblock %}
 
