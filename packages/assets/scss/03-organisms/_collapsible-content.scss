@@ -16,46 +16,60 @@
 
   &--extended {
 
-    .ma__collapsible-content__toggle-all {
-      background: none;
-      border: 0;
-      color: $c-font-detail;
-      display: block;
-      margin-left: auto;
-      margin-right: 0;
-      right: 0;
+    .ma__collapsible-content {
 
-      span {
-        text-decoration: underline;
-        font-weight: $fonts-bold;
-      }
+      &__toggle-all {
+        background: none;
+        border: 0;
+        color: $c-font-detail;
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+        right: 0;
 
-      &__collapse {
-        display: inline;
-      }
+        span {
+          text-decoration: underline;
+          font-weight: $fonts-bold;
+        }
 
-      &__expand {
-        display: none;
-      }
+        &__collapse {
+          display: inline;
+        }
 
-      &--collapsed {
-
-        .ma__collapsible-content__toggle-all__collapse {
+        &__expand {
           display: none;
         }
 
-        .ma__collapsible-content__toggle-all__expand {
-          display: inline;
+        &--collapsed {
+
+          .ma__collapsible-content__toggle-all__collapse {
+            display: none;
+          }
+
+          .ma__collapsible-content__toggle-all__expand {
+            display: inline;
+          }
         }
+      }
+
+      &__item {
+        background: $c-white;
       }
     }
 
+    .ma__collapsible-header {
 
-    .ma__collapsible-header__title {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      &__title {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &__button {
+        background: $c-white;
+        padding-right: 45px;
+      }
     }
 
     .header__title__counter {
@@ -65,18 +79,16 @@
       font-style: italic;
       font-size: $fonts-small;
     }
-
-    .ma__collapsible-content__item,
-    .ma__collapsible-header__button {
-      background: $c-white;
-    }
-
   }
 
   &__item {
     border-style: solid;
     border-width: 2px;
     margin-top: 20px;
+
+    &:first-of-type {
+      margin-top: 10px;
+    }
 
     ul {
       margin: 0;
