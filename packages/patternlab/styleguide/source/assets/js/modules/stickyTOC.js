@@ -168,7 +168,12 @@ export default (function (window, document) {
           const stuckNavDemensions = stuckNav.getBoundingClientRect();
           const stuckNavBottom = stuckNavDemensions.top + stuckNavDemensions.height;
           // The text of the last heading.
-          const lastHeading = tocSections.headings[tocSectionCount - 1].innerHTML;
+
+          const lastSection = tocSections.headings[tocSectionCount - 1];
+          let lastHeading = null;
+          if (lastSection) {
+           lastHeading = lastSection.innerHTML;
+          }
 
           // Active Sticky TOC when on page TOC scrolls past.
           if (stickyNavActive > 0) {

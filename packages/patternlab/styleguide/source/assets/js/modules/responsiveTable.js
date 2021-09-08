@@ -63,6 +63,7 @@ export default (function (window, document, $) {
       let tableLeft = $element.offset().left;
       $stickyHeader
         .css({
+          "pointer-events": "none",
           "position": "fixed",
           "left": tableLeft,
           "top": getAdditionalOffset(),
@@ -164,12 +165,14 @@ export default (function (window, document, $) {
         rt.$stickyHeader.css("opacity", 1);
         rt.$stickyHeader.css("-webkit-box-shadow", "");
         rt.$stickyHeader.css("box-shadow", "");
+        rt.$stickyHeader.css("pointer-events", "all");
       }
       else if (rt.headerStuck && (elementTop > stuckTop || tableBottom < stuckBottom)) {
         responsiveTables[rt.index].headerStuck = false;
         rt.$stickyHeader.css("opacity", 0);
         rt.$stickyHeader.css("-webkit-box-shadow", "none");
         rt.$stickyHeader.css("box-shadow", "none");
+        rt.$stickyHeader.css("pointer-events", "none");
       }
     }
 
