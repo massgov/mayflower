@@ -1,6 +1,6 @@
 Fixed:
   - project: Assets
     component: Fonts
-    description: Fix Noto Sans loading on IE. (#1311)
+    description: Fix and optimize Noto Sans multi-language fonts. (#1322)
     issue: 
     impact: Patch
