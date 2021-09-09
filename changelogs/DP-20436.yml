@@ -1,6 +1,6 @@
 Fixed:
-  - project: Assets
-    component: Fonts
+  - project: Assets, Core
+    component: Fonts, Typography
     description: Fix and optimize Noto Sans multi-language fonts. (#1322)
-    issue: 
+    issue: DP-20436
     impact: Patch
