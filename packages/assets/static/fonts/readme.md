@@ -13,9 +13,9 @@ To use:
 
 #### Troubleshooting
 
-- The most common error is that the font is not found which means the first line of the command doesnt match a file name in the directory you are in.
-- If the command does not workas one block, try running them one at a time (make sure to exlude the &&).
-- Don't forget to cd into the right direecctory for the script first.
+- The most common error is that the font is not found which means the first line of the command doesn't match a file name in the directory you are in.
+- If the command does not work as one block, try running them one at a time (make sure to exclude the `&&`).
+- Don't forget to cd into the right directory for the script first.
 
 To subset eot files upload the ttf to [fontsquirrel](https://www.fontsquirrel.com), use the "expert" tab and change only these values:
 - Font-formats: 			eot compressed
