@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import DecorativeLink from '@massds/mayflower-react/dist/DecorativeLink';
 import Heading from '@massds/mayflower-react/dist/Heading';
 import {
@@ -28,9 +28,7 @@ import generateTitle from '../../util/generateTitle';
 
 ## The typeface of Mayflower is **Noto Sans**
 
-<Canvas withSource="none">
-  <div className="font-specimen large">{letters.toUpperCase()}<br />{letters}<br />{numbers}</div>
-</Canvas>
+<div className="sb-block borderless font-specimen large">{letters.toUpperCase()}<br />{letters}<br />{numbers}</div>
 
 ### Noto Sans was chosen because it's...
 
@@ -46,13 +44,10 @@ Using these fonts for your print and digital assets is a subtle but compelling w
 > Noto Sans is an open source typeface jointly designed and developed by Google and Monotype. It has the most comprehensive language coverage — including more than 800 languages and 100 written scripts. You can directly download the fonts from Google Font, or for web projects, link to the fonts via Mayflower Assets CDN
 
 <div className="sb-block borderless">
-	<h2>Characters<sup>*</sup></h2>
-  <Canvas withSource="none"><div className="font-specimen large">{characters}</div></Canvas>
-	<p>*Latin 1 Block, shown in light weight (350)</p>
+	<h2>Characters</h2>
+  <div lang="Latn" className="font-specimen large">{characters}</div>
+	<small>*Latin 1 Block, shown in light weight (350). To load all charachters and accent marks specify <code>lang="Latn"</code> in your HTML. For English use <code>lang="en"</code> to load a much smaller file.</small>
 </div>
-
-
-
 
 <div className="sb-block borderless reset-vspace">
 	<h2>Styles and Usage</h2>
@@ -67,9 +62,7 @@ Using these fonts for your print and digital assets is a subtle but compelling w
 
 ### CSS weight classes
 
-<p>Mayflower uses 5 custom weights of Noto Sans: <br /><strong>Lighter</strong> (250); <strong>Light</strong>, (350); <strong>Normal</strong>, (400); <strong>Bold</strong>, (550); and <strong>Bolder</strong>, (650).</p>
-
-<p>Use the following classes to style text with those weights:</p>
+Mayflower uses 5 custom weights of Noto Sans: **Lighter** (250); **Light**, (350); **Normal**, (400); **Bold**, (550); and **Bolder**, (650). Use the following classes to style text with those weights:
 
 <div className="sb-block borderless sb-grid">
   {
@@ -90,22 +83,24 @@ Using these fonts for your print and digital assets is a subtle but compelling w
   }
 </div>
 
-## Languages by Script
+## Language Support
 
-The following languages are officially supported by [Mass.gov](https://www.mass.gov). If your project needs to support an addtional language, please [submit a feature request](https://github.com/massgov/mayflower/issues/new/choose) on Github.
+The following languages are officially supported by [Mass.gov](https://www.mass.gov):
 
-<!--
-@todo look into font rendering issues below.
-The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, Arabic and  Hebrew.
--->
+Arabic, Armenian, Chinese (Simplified), Filipino, French, German, Greek, Gujarati, Haitian Creole, Hebrew, Hindi, Italian, Japanese, Khmer, Korean, Lao, Malayalam, Persian, Polish, Portuguese, Russian, Spanish, Tamil, Telugu, Thai, Ukrainian, Urdu, and Vietnamese.
 
-### Left-to-right
+The following do not yet have Noto Sans webfont support: Chinese (simplified), Chinese (traditional), and Japanese.
+
+If your project needs to support an addtional language, please [submit a feature request](https://github.com/massgov/mayflower/issues/new/choose) on Github.
+
+### Languages by Script
 
 ---
 
+### Left-to-right
+
 #### Armenian script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Armenian: </p>
 <p lang="hy" className="font-specimen">Բարի գալուստ Մասաչուսեթս</p>
 
@@ -136,19 +131,16 @@ The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, 
 
 #### Gujarati script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Gujarati: </p>
 <p className="font-specimen" lang="gu">મેસેચ્યુસેટ્સમાં</p>
 
 #### Devanagari script
 
-<!-- @todo investigate why Noto font is not rendereing here -->
 <p className="lang-label">Hindi: </p>
 <p lang="hi" className="font-specimen">मैसाचुसेट्स में आपका स्वागत है</p>
 
 #### Hiragana script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Japanese: </p>
 <p lang="jp" className="font-specimen">マサチューセッツへようこそ</p>
 
@@ -159,13 +151,11 @@ The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, 
 
 #### Hangul script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Korean: </p>
 <p lang="ko" className="font-specimen">매사추세츠에 오신 것을 환영합니다</p>
 
 #### Lao script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Lao: </p>
 <p lang="lo" className="font-specimen">ຍິນດີຕ້ອນຮັບສູ່ Massachusetts</p>
 
@@ -199,14 +189,13 @@ The only fonts that are rendering with Noto are: Latin, Greek, Cyrillic, Khmer, 
 <p lang="pt" className="font-specimen">Bem vindo a Massachusetts</p>
 
 <p className="lang-label">Spanish: </p>
-<p lang="es" className="font-specimen">Bienvenido a massachusetts</p>
+<p lang="es" className="font-specimen">Bienvenido a Massachusetts</p>
 
 <p className="lang-label">Vietnamese: </p>
 <p lang="vi" className="font-specimen">Chào mừng đến với Massachusetts</p>
 
 #### Malayalam script
 
-<!-- @todo investigate why Note font is not rendereing here -->
 <p className="lang-label">Malayalam: </p>
 <p lang="ml" className="font-specimen">മസാച്ചുസെറ്റ്സിലേക്ക് സ്വാഗതം</p>
 
