@@ -21,7 +21,8 @@ export default (function (document,$) {
     // check if menu open
     if (!$(narrowContainerClass).hasClass('is-closed')) {
       focusTrapping({
-        focusableSelectors: '.js-utility-nav--narrow .js-util-nav-content a, .js-utility-nav--narrow .js-util-nav-content button',
+        focusableSelectors: 'a, button',
+
         modalSelector: '.js-utility-nav--narrow .js-util-nav-content',
         keyEvent: e
       });
