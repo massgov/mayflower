@@ -18,16 +18,6 @@ export default (function (document,$) {
         keyEvent: e
       });
     }
-
-    // check if menu open
-    if (!$(narrowContainerClass).hasClass('is-closed')) {
-      focusTrapping({
-        focusableSelectors: 'a, button',
-
-        modalSelector: '.js-utility-nav--narrow .js-util-nav-content',
-        keyEvent: e
-      });
-    }
   });
 
   // In the hamburger menu container.
