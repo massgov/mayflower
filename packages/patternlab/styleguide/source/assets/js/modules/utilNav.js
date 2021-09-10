@@ -12,7 +12,7 @@ export default (function (document,$) {
     // check if menu open
     if (!$(wideContainerClass).hasClass('is-closed')) {
       focusTrapping({
-        focusableSelectors: '.js-utility-nav--wide .js-util-nav-content a, .js-utility-nav--wide .js-util-nav-content button',
+        focusableSelectors: 'a, button',
         modalSelector: '.js-utility-nav--wide .js-util-nav-content',
         keyEvent: e
       });
