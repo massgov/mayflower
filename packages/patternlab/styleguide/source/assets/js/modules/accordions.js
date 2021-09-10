@@ -54,7 +54,7 @@ export default (function (window,document,$,undefined) {
       $toggleLink.removeClass('ma__collapsible-content__toggle-all--collapsed');
     }
 
-    $('.js-accordion').each(function(index){
+    $('.ma__collapsible-content--extended .js-accordion').each(function(index){
       accordionToggle($(this), toggleStatus);
     });
   }
@@ -106,7 +106,7 @@ export default (function (window,document,$,undefined) {
     $link.attr('aria-expanded',open).attr('aria-controls', id);
 
     if(isExtended) {
-      let childs = $el.find('.ma__link-list__item, .ma__collapsible-content__body-item').length;
+      let childs = $el.find('.ma__collapsible-content__body-item a').length;
       $el.find('.ma__collapsible-header__title').append( `<div class="header__title__counter">(${childs})</div>`);
     }
 
