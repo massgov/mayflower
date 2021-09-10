@@ -13,7 +13,8 @@ export default (function (document,$) {
     if (!$(wideContainerClass).hasClass('is-closed')) {
       focusTrapping({
         focusableSelectors: 'a, button',
-        modalSelector: '.js-utility-nav--wide .js-util-nav-content',
+        modalSelector: wideContainerClass,
+
         keyEvent: e
       });
     }
