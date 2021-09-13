@@ -1,6 +1,11 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.14.1 (9/6/2021)
+### Fixed 
+- (Patternlab) [inlineOverlay, TableOfContentsOverlay] DP-22608: Fix keyboard accessibility and aria-controls. (#1482)
+- (Patternlab) [accordions] DP-22608: Fix variable logic. (#1482)
+
 ## 11.14.0 (8/30/2021)
 
 ### Changed 
