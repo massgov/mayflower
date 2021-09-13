@@ -12,7 +12,7 @@
         "path": "@atoms/09-media/picture-element.twig",
         "data": {
           "picture": {
-            "defaultImage": "../../assets/images/placeholder/1600x600.png",
+            "defaultImage": "../../assets/images/placeholder/460x220.png",
             "srcSets": [
               {
                 "url": "../../assets/images/placeholder/1600x600.png",
