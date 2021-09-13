@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.14.2 (9/13/2021)
+### Fixed 
+- (Assets, Core) [Fonts, Typography] DP-20436: Fix and optimize Noto Sans multi-language fonts. (#1322)
+
 ## 11.14.1 (9/6/2021)
 ### Fixed 
 - (Patternlab) [inlineOverlay, TableOfContentsOverlay] DP-22608: Fix keyboard accessibility and aria-controls. (#1482)
