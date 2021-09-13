@@ -52,13 +52,8 @@
 
 #___EXAMPLE___
 Changed:
-  - project: React, Patternlab
-    component: Key Message
-    description: Adjusted to support reponsive images (picture)
-    issue: DP-22263
-    impact: Minor
-  - project: React, Patternlab
-    component: Marketing page
-    description: Adjusted to support reponsive images (picture)
+  - project: Patternlab
+    component: Picture, KeyMessage, MarketingCampaign
+    description: Adjusted components to support responsive images. (#1484)
     issue: DP-22263
     impact: Minor
