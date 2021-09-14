@@ -30,7 +30,7 @@ export default (function (window,document) {
         center: [map.center.lat, map.center.lng],
         zoom: map.zoom || 0,
         zoomControl: false,
-        minZoom: 8,
+        minZoom: 7,
         scrollWheelZoom: false,
         dragging: false
         // maxBounds is disabled due to unexpected shifting when popups are hitting the boundaries.
