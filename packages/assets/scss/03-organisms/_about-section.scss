@@ -5,11 +5,13 @@
 
 .ma__about-section {
 
+  position: relative;
+
   @include ma-container();
 
   @media ($bp-large-extended-min) {
     max-width: none;
-    min-height: 500px;
+    min-height: 298px;
   }
 
   &__title {

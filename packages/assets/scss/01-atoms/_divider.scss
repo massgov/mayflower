@@ -18,6 +18,21 @@
     transform: skew(-30deg);
     width: 100%;
   }
+
+  &--thin {
+    width: 100%;
+    //margin-top: 0 !important;
+
+
+    &:after {
+      height: 1px;
+      margin-left: 4px;
+      margin-right: 4px;
+      transform: none;
+      width: 100%;
+    }
+
+  }
 }
 
 //theme
@@ -26,5 +41,12 @@
 
   &:after {
     background-color: $c-primary-alt;
+  }
+
+  &--thin {
+
+    &:after {
+      background-color: $c-overcast-gray;
+    }
   }
 }
