@@ -32,10 +32,10 @@ export default (function (window,document) {
         zoomControl: false,
         minZoom: 7,
         scrollWheelZoom: false,
-        dragging: false,
+        dragging: false /*,
         // maxBounds is disabled due to unexpected shifting when popups are hitting the boundaries.
         // This can be turned back on when the tiles are large enough so that the min zoom level shows the whole state and have enough tiles padded for popups.
-        maxBounds 
+        maxBounds */
       });
       
     // if map is not static, add zoom control with custom position
@@ -48,7 +48,7 @@ export default (function (window,document) {
 
     // add tile layer image to map
     L
-    .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap/MapServer/tile/{z}/{y}/{x}', {
+    .tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGIS_Basemap_MassGovTest/MapServer/tile/{z}/{y}/{x}', {
         attribution: 'Source: <a href ="https://www.mass.gov/service-details/about-massgis">MassGIS</a>'
     })
     .addTo(mymap);
