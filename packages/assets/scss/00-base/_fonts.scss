@@ -39,8 +39,7 @@
 
 @font-face {
 	font-family: 'Noto Sans Mono';
-	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.eot?#iefix') format('embedded-opentype'),*/
-				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff2') format('woff2'),
+	src:  url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff2') format('woff2'),
 				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff') format('woff');
 	font-weight: $fonts-normal;
 	font-style: normal;
@@ -49,8 +48,7 @@
 
 @font-face {
 	font-family: 'Noto Sans Mono';
-	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.eot?#iefix') format('embedded-opentype'),*/
-				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff2') format('woff2'),
+	src:  url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff2') format('woff2'),
 				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff') format('woff');
 	font-weight: $fonts-bold;
 	font-style: normal;
@@ -93,9 +91,8 @@
 	@font-face { // The variable font of Noto Sans for latin extended
     font-family: 'Noto Sans Latin VF';
     src:  url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.eot?#iefix') format('embedded-opentype'),
-          url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.woff') format('woff')/*,
-					url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.woff2') format('woff2')*/
-					;
+          // url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.woff2') format('woff2'),
+          url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.woff') format('woff');
     font-weight: 100 900;
     font-style: normal;
     font-display: $fonts-display-global;
