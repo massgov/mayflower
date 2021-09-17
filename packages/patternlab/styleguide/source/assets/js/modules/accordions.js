@@ -1,27 +1,36 @@
 import checkActive from "../helpers/cssControlCode.js";
 
 export default (function (window,document,$,undefined) {
-  let $jsAccordion = $('.js-accordion');
-
+  let $jsAccordion = $('.ma__collapsible-content .js-accordion');
+  var $toggleLink = $('.ma__collapsible-content__toggle-all');
 
   $jsAccordion.each(function(index){
     init.apply(this, [index]);
   });
 
-  // In case that all paragraphs are expanded by default, change the "expand all" link to "collapse all".
-  if($(".ma__collapsible-content--extended").length) {
-    let allExpanded = true;
-
-    $('.ma__collapsible-content--extended .js-accordion').each(function(index){
-      if(! $(this).hasClass('is-open')) {
-        allExpanded = false;
-      }
-    });
-
-    if(allExpanded) {
-      toggleAll();
+  function checkAccordionsSameStatus(){
+    let isOpen = $('.ma__collapsible-content--extended .js-accordion.is-open').length;
+    if (isOpen === 0) {
+      collapseLinkToggle('expand');
+      return "open";
+    } else if (isOpen == $(".ma__collapsible-content--extended .js-accordion").length) {
+      collapseLinkToggle('collapse');
+      return "close";
     }
   }
+
+  function collapseLinkToggle(status){
+    if(status == "collapse") {
+      $toggleLink.addClass('ma__collapsible-content__toggle-all--expanded');
+      $toggleLink.removeClass('ma__collapsible-content__toggle-all--collapsed');
+    } else {
+      $toggleLink.addClass('ma__collapsible-content__toggle-all--collapsed');
+      $toggleLink.removeClass('ma__collapsible-content__toggle-all--expanded');
+    }
+  }
+
+  // In case that all paragraphs are expanded by default, change the "expand all" link to "collapse all".
+  checkAccordionsSameStatus();
 
   $(document).on('ma:AjaxPattern:Render', function(e,data){
     let $context = data.el;
@@ -35,31 +44,20 @@ export default (function (window,document,$,undefined) {
     }
   });
 
-  $('.ma__collapsible-content__toggle-all').on("click",function(e){
-    toggleAll();
+  // Toggle button.
+  $toggleLink.on("click",function(e){
+    let status = $toggleLink.hasClass('ma__collapsible-content__toggle-all--expanded')?"close":"open";
 
+    $('.ma__collapsible-content--extended .js-accordion').each(function(index){
+      accordionToggle($(this), status);
+    });
+
+    checkAccordionsSameStatus();
     e.preventDefault();
   });
 
-  function toggleAll(toggleStatus = 'open') {
-    let $toggleLink = $('.ma__collapsible-content__toggle-all');
-
-    if($toggleLink.hasClass('ma__collapsible-content__toggle-all--expanded')) {
-      $toggleLink.addClass('ma__collapsible-content__toggle-all--collapsed');
-      $toggleLink.removeClass('ma__collapsible-content__toggle-all--expanded');
-      toggleStatus =  'close';
-
-    } else {
-      $toggleLink.addClass('ma__collapsible-content__toggle-all--expanded');
-      $toggleLink.removeClass('ma__collapsible-content__toggle-all--collapsed');
-    }
-
-    $('.ma__collapsible-content--extended .js-accordion').each(function(index){
-      accordionToggle($(this), toggleStatus);
-    });
-  }
-
-  function accordionToggle($el, toggleStatus = 'default') {
+  // Toggle each individual accordion.
+  function accordionToggle($el, toggleStatus = 'default'){
     let ind = '';
 
     if ($el.hasClass('ma__header-alerts')) {
@@ -85,9 +83,10 @@ export default (function (window,document,$,undefined) {
       $el.addClass('is-open');
     }
     $link.attr('aria-expanded',!open);
+
   }
 
-  function init(index) {
+  function init(index){
     let $el = $(this);
     let ind = '';
     const isExtended = $el.parents('.ma__collapsible-content--extended').length;
@@ -107,7 +106,7 @@ export default (function (window,document,$,undefined) {
 
     if(isExtended) {
       let childs = $el.find('.ma__collapsible-content__body-item a').length;
-      $el.find('.ma__collapsible-header__title').append( `<div class="header__title__counter">(${childs})</div>`);
+      $el.find('.ma__collapsible-header__button').append( `<div class="header__title__counter">(${childs})</div>`);
     }
 
 
@@ -116,10 +115,12 @@ export default (function (window,document,$,undefined) {
       $content.stop(true,true).slideDown();
     }
 
+    // + and - clicks.
     $link.on('click',function(e){
       if(active) {
         e.preventDefault();
         accordionToggle($el);
+        checkAccordionsSameStatus();
       }
     });
 

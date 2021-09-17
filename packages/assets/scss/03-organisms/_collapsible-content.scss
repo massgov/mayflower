@@ -68,12 +68,14 @@
 
       &__button {
         background: $c-white;
-        padding-right: 45px;
+        padding-right: 66px;
       }
     }
 
     .header__title__counter {
-
+      position: absolute;
+      top: 24px;
+      right: 40px;
       color: $c-primary-alt;
       font-weight: $fonts-bolder;
       font-style: italic;
