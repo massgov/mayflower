@@ -53,33 +53,52 @@ $colors: (
     margin-top: 40px;
   }
 
-  &__inline-image {
-    position: relative;
-    z-index: 0;
-    width: 100%;
-    height: 215px;
-
-    picture, source, img {
+  &--top  {
+    .ma__key-message__inline-image {
+      position: relative;
+      z-index: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 215px;
+
+      picture, source, img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media ($bp-small-min) {
+        height: 425px;
+      }
+
+      @media ($bp-medium-min) {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        object-fit: cover;
+      }
     }
-
-    @media ($bp-small-min) {
-      height: 425px;
-    }
-
-    @media ($bp-medium-min) {
-      position: absolute;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-
-
   }
+
+  &:not(&--top ) {
+    .ma__key-message__inline-image {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+      picture, source, img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
 
   &__content {
     margin-top: 20px;
