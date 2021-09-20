@@ -53,7 +53,7 @@
 #___EXAMPLE___
 Fixed:
   - project: Patternlab
-    component: Key Message
-    description: Adjusted it to fix regression issue.
+    component: KeyMessage
+    description: Adjusted it to fix regression issue. (#1503)
     issue: DP-22974
-    impact: Minor
+    impact: Patch
