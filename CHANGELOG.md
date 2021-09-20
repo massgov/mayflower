@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.15.1 (9/20/2021)
+### Fixed 
+- (Patternlab) [KeyMessage] DP-22974: Adjusted it to fix regression issue. (#1503)
+
 ## 11.15.0 (9/13/2021)
 ### Fixed 
 - (Assets, Core) [Fonts, Typography] DP-20436: Fix and optimize Noto Sans multi-language fonts. (#1322)
