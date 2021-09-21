@@ -2,7 +2,7 @@
 This is a row of content used in the Stacked Row Template
 
 ### Status
-* Obsolute as of 5.7.0
+* New as of 11.x.x
 * This code was added to the Stacked Row Template
 
 ### Pattern Contains

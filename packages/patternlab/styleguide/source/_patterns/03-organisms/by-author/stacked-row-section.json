@@ -1,5 +1,6 @@
 {
   "stackedRowSection": {
+    "borderless": true,
     "title":"Title for the Row of Content",
     "id":"row-title-double-column",
     "pageContent": [{
