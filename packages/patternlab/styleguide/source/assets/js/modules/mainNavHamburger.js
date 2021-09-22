@@ -89,12 +89,10 @@ if (menuButton !== null) {
       //   if (width > 840) {
       //     if (!this.hasAttribute("aria-expanded")) {// For link
       //       // setFocusOnFirstTopMenu();
-      //       e.style.backgroundColor = "purple";
       //     }
       //     else {// For buttons
       //       if(this.getAttribute("aria-expanded") === "false") {
-      //         // setFocusOnFirstTopMenu();
-      //         e.style.backgroundColor = "orange";
+              // setFocusOnFirstTopMenu();
       //       }
       //     }
       //   }
