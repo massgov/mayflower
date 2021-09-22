@@ -9,43 +9,43 @@
 {% endif %}
 
 <section class="ma__stacked-row__section {{ stackedRowBorderless }}{{ stackedRowRestriction }}">
-      <div class="ma__stacked-row__container{{ mainContentClass }}">
-        {% if stackedRowSection.title %}
-          {% block stackRowTitle %}
-            <div class="ma__stacked-row__title">
-              {% set compHeading = {
-                  "title": stackedRowSection.title,
-                  "sub": "",
-                  "color": "",
-                  "id": stackedRowSection.id
-                }
-              %}
-              {% include "@atoms/04-headings/comp-heading.twig" %}
-            </div>
-          {% endblock %}
-        {% endif %}
-        {% block stackedRowContentOverride %}
-          {% if stackedRowSection.sideBar|length or stackedRowSection.overrideSideBar %}
-              <div class="page-content">
-                {% for content in stackedRowSection.pageContent %}
-                  {% include content.path with content.data %}
-                {% endfor %}
-              </div>
-              <aside class="sidebar">
-                {% block sidebar %}
-                  {% for sidebar in stackedRowSection.sideBar %}
-                    {% include sidebar.path with sidebar.data %}
-                  {% endfor %}
-                {% endblock %}
-              </aside>
-          {% else %}
-              {% for content in stackedRowSection.pageContent %}
-                {% include content.path with content.data %}
-              {% endfor %}
-          {% endif %}
-        {% endblock %}
-       
-
+  {% block stackRowTitle %}
+    {% if stackedRowSection.title %}
+      <div class="ma__stacked-row__container">
+        <div class="ma__stacked-row__title">
+          {% set compHeading = {
+              "title": stackedRowSection.title,
+              "sub": "",
+              "color": "",
+              "id": stackedRowSection.id
+            }
+          %}
+          {% include "@atoms/04-headings/comp-heading.twig" %}
+        </div>
       </div>
+    {% endif %}
+  {% endblock %}
+  {% block stackedRowContentOverride %}
+    <div class="ma__stacked-row__container{{ mainContentClass }}"></div>
+      {% if stackedRowSection.sideBar|length or stackedRowSection.overrideSideBar %}
+        <div class="page-content">
+          {% for content in stackedRowSection.pageContent %}
+            {% include content.path with content.data %}
+          {% endfor %}
+        </div>
+        <aside class="sidebar">
+          {% block sidebar %}
+            {% for sidebar in stackedRowSection.sideBar %}
+              {% include sidebar.path with sidebar.data %}
+            {% endfor %}
+          {% endblock %}
+        </aside>
+      {% else %}
+        {% for content in stackedRowSection.pageContent %}
+          {% include content.path with content.data %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  {% endblock %}
 </section>
 
