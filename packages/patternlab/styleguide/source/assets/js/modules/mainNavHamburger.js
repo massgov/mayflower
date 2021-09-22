@@ -55,6 +55,7 @@ if (menuButton !== null) {
   //   }
   // });
 
+  // Skip the magnifier icon button (skip to search)
   const logoLink = document.querySelector(".ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a");
   if(logoLink) {
     logoLink.addEventListener("keydown", function (e) {
@@ -121,8 +122,7 @@ if (menuButton !== null) {
     // lastUtilMenuItem.addEventListener("keydown", function (e) {
     //   if (e.key === "Tab" || e.code === "Tab") {
     //     if (width < 841 && (this.getAttribute("aria-expanded") === "false")) {
-    //       // setFocusOnFirstTopMenu();
-    //       this.style.backgroundColor = "red";
+    //       setFocusOnFirstTopMenu();
     //     }
     //   }
     // });
