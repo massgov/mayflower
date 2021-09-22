@@ -188,9 +188,10 @@ if (menuButton !== null) {
         }
       }
 
-      // Main nav elements
       let openSubmenu = document.querySelector(".submenu-open .js-main-nav-hamburger__top-link");
-      if (openSubmenu !== document.activeElement) {
+      let openTopMenuUnit = document.querySelector(".submenu-open");
+      // Main nav elements
+      if (!openTopMenuUnit || openSubmenu !== document.activeElement) {
         // To prevent to set focus on another top menu button with open submenu.
         const menus = document.querySelectorAll(".ma__main__hamburger-nav__top-link");
         for(let i = 0; i < menus.length; i++) {
@@ -204,6 +205,17 @@ if (menuButton !== null) {
         for(let i = 0; i < openSubmenuItems.length; i++) {
           if (openSubmenuItems[i] === document.activeElement) {
             openSubmenu.focus();
+            // Close sub menu
+            openTopMenuUnit.classList.remove("submenu-open");
+            openTopMenuUnit.querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
+            openTopMenuUnit.style.pointerEvents = "none";
+            /** Slide up. */
+            openTopMenuUnit.querySelector(".js-main-nav-hamburger-content").style.height = "0";
+            openTopMenuUnit.querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
+            setTimeout(function timeoutFunction() {
+              openTopMenuUnit.removeAttribute("style");
+              openTopMenuUnit.querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+            }, 500);
           }
         }
       }
