@@ -26,8 +26,8 @@
     {% endif %}
   {% endblock %}
   {% block stackedRowContentOverride %}
-    <div class="ma__stacked-row__container{{ mainContentClass }}"></div>
       {% if stackedRowSection.sideBar|length or stackedRowSection.overrideSideBar %}
+      <div class="ma__stacked-row__container{{ mainContentClass }}">
         <div class="page-content">
           {% for content in stackedRowSection.pageContent %}
             {% include content.path with content.data %}
@@ -40,12 +40,14 @@
             {% endfor %}
           {% endblock %}
         </aside>
+      </div>
       {% else %}
-        {% for content in stackedRowSection.pageContent %}
-          {% include content.path with content.data %}
-        {% endfor %}
+      <div class="ma__stacked-row__container{{ mainContentClass }}">
+          {% for content in stackedRowSection.pageContent %}
+            {% include content.path with content.data %}
+          {% endfor %}
+      </div>
       {% endif %}
-    </div>
   {% endblock %}
 </section>
 
