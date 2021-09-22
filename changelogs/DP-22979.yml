@@ -50,10 +50,11 @@
 #    issue: Add a Jira ticket or issue number, e.g. DP-12345 or 124
 #    impact: Enter a valid impact, e.g. Minor
 
-#___EXAMPLE___
+
+#___EXAMPLE WITH MULTIPLE ITEMS___
 Fixed:
-  - project: Patternlab
-    component: KeyMessage
-    description: Adjusted it to fix regression issue. (#1503)
-    issue: DP-22974
+  - project: Assets
+    component: Fonts
+    description: Fix webfonts `woff2` and `woff` fallback order, to avoid duplicated loading. (#1501)
+    issue: DP-22979
     impact: Patch
