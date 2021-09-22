@@ -42,19 +42,6 @@ if (menuButton !== null) {
     toggleMenu();
   });
 
-  // menuButton.addEventListener("keydown", function (e) {
-  //   if (e.key === "Tab" || e.code === "Tab") {
-  //     if (width < 621) {
-  //       e.preventDefault();
-
-  //       const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
-  //       let focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
-
-  //       focusable[0].focus();
-  //     }
-  //   }
-  // });
-
   // Skip the magnifier icon button (skip to search)
   const logoLink = document.querySelector(".ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a");
   if(logoLink) {
@@ -66,94 +53,6 @@ if (menuButton !== null) {
       }
     });
   }
-
-  // const firstTopMenuItem = document.querySelector(".ma__header__hamburger__nav .ma__main__hamburger-nav__item:first-of-type .js-main-nav-hamburger__top-link");
-  // To accomodate both button and link as the last top menu item, use 'ma__' classes instead of 'js-'.
-  // const lastTopMenuItem = document.querySelector(".ma__main__hamburger-nav__item:last-of-type .ma__main__hamburger-nav__top-link");
-  // const lastSubmenuLink = document.querySelector(".js-main-nav-hamburger-toggle:last-of-type .js-main-nav-hamburger-content .js-main-nav-hamburger__subitem:last-of-type .js-main-nav-hamburger__link");
-  // const lastUtilMenuItem = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-nav__link");
-  // const lastUtilMenuContentLink = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-panel:last-of-type .js-clickable:last-of-type .js-clickable-link");
-
-  // no utility nav, sub menu closed
-  // if (lastTopMenuItem) {
-    // lastTopMenuItem.addEventListener("keydown", function (e) {
-    //   // Without this, sift + tab set focus on the first top menu button.
-    //   if ((e.shiftKey && e.key === "Tab") || (e.shiftKey && e.code === "Tab")) {
-    //     if (width < 841) {
-    //       setTimeout(function timeOutFunction () {
-    //         this.closest(".js-main-nav-hamburger-toggle").previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
-    //       }, 1);
-    //     }
-    //   }
-      // else if (e.key === "Tab" || e.code === "Tab") {
-      //   if (width > 840) {
-      //     if (!this.hasAttribute("aria-expanded")) {// For link
-      //       // setFocusOnFirstTopMenu();
-      //     }
-      //     else {// For buttons
-      //       if(this.getAttribute("aria-expanded") === "false") {
-              // setFocusOnFirstTopMenu();
-      //       }
-      //     }
-      //   }
-      // }
-    // });
-
-    // no utility nav, last sub menu open
-    // if(lastTopMenuItem === document.querySelector(".ma__main__hamburger-nav__item:last-of-type button")) {
-    //   lastSubmenuLink.addEventListener("keydown", function (e) {
-    //     const subMenuContainer = this.closest(".js-main-nav-hamburger-content");
-    //     if ((e.key === "Tab" || e.code === "Tab") && !subMenuContainer.classList.contains(".is-closed")) {
-    //       // Close the submenu and move focus to the first top menu button.
-    //       if (width > 840) {
-    //         setTimeout(function timeOutFunction () {
-    //           subMenuContainer.querySelector(".js-main-nav-hamburger__subitem:first-of-type .js-main-nav-hamburger__link").focus();
-    //         }, 1);
-    //       }
-    //     }
-    //   });
-    // }
-  // }
-
-  // if (lastUtilMenuItem) {
-    // with utility nav, utility nav content closed
-    // lastUtilMenuItem.addEventListener("keydown", function (e) {
-    //   if (e.key === "Tab" || e.code === "Tab") {
-    //     if (width < 841 && (this.getAttribute("aria-expanded") === "false")) {
-    //       setFocusOnFirstTopMenu();
-    //     }
-    //   }
-    // });
-
-    // with utility nav, last utility nav content open
-    // lastUtilMenuContentLink.addEventListener("keydown", function (e) {
-    //   // Without this, sift + tab set focus on the first top menu button.
-    //   if ((e.shiftKey && e.key === "Tab") || (e.shiftKey && e.code === "Tab")) {
-    //     if (width < 841) {
-    //       setTimeout(function timeOutFunction () {
-    //         e.target.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
-    //       }, 1);
-    //     }
-    //   }
-      // else if (e.key === "Tab" || e.code === "Tab") {
-      //   // Close the nav content and move focus to the first top menu button.
-      //   if (width < 841) {
-      //     // setTimeout(function timeOutFunction () {
-      //     //   e.target.closest(".js-util-nav-content").querySelector("a:first-of-type").focus();
-      //     // }, 1);
-
-      //   }
-      // }
-    // });
-  // }
-
-
-  // const setFocusOnFirstTopMenu = function () {
-  //   // Timeout function is necessary to set focus on the first top menu button. Otherwise, focus is set on next focusable element outside the menu.
-  //   setTimeout(function timeOutFunction () {
-  //     firstTopMenuItem.focus();
-  //   }, 1);
-  // };
 
   document.addEventListener("keydown", function (e) {
     // ESC to close menus.
@@ -523,40 +422,6 @@ function anotherCloseSubMenus(item) {
     }
   });
 }
-// function closeSubMenus(item) {
-//   //Close other open submenus
-//   let siblings = [];
-//   let thisSibling = item.parentNode.firstChild;
-
-//   while (thisSibling) {
-//     if (thisSibling !== item && thisSibling.nodeType === Node.ELEMENT_NODE)
-//       siblings.push(thisSibling);
-//     thisSibling = thisSibling.nextElementSibling || thisSibling.nextSibling;
-//   }
-
-//   for (let i = 0; i < siblings.length; i++) {
-
-//     if (siblings[i].classList.contains("submenu-open")) {
-
-//       siblings[i].classList.remove("submenu-open");
-//       siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
-//       siblings[i].style.pointerEvents = "none";
-
-//       //setTimeout(function timeoutFunction() {
-//       //}, 700);
-
-//       /** Slide up. */
-//       siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
-//       siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
-//       siblings[i].removeAttribute("style");
-
-//       //setTimeout(function timeoutFunction() {
-//         siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
-
-//       //}, 500);
-//     }
-//   }
-// }
 
 // Close menu when utility nav is clicked
 if ((utilNavWide !== null) && body.classList.contains("show-menu")) {
@@ -817,30 +682,9 @@ menuItems.forEach((item) => {
   });
 
   itemButton.addEventListener("keydown", function (e) {
-
     if (e.code == "ArrowDown" || e.key == "ArrowDown") {
       let first = subItems.getElementsByTagName("li")[0];
       first.querySelector(".js-main-nav-hamburger__link").focus();
-    }
-
-    // 'e.key === "Esc"' is for IE11.
-    if (e.code == "Escape" || e.key == "Escape" || e.key === "Esc") {
-      if (item.classList.contains("submenu-open")) {
-        // NOTE: KEEP BELOW COMMENTED LINES UNTIL THE DESIGN TEAM FINALIZES THE BEHAVIOR.
-
-        // subItems.style.opacity = "0";
-        // subMenu.style.height = "0";
-        // itemButton.parentElement.classList.remove("submenu-open");
-        // itemButton.setAttribute("aria-expanded", "false");
-
-        // setTimeout(function timeoutFunction() {
-        //   subMenu.classList.add("is-closed");
-        // }, 500);
-
-      // }
-      // else {
-        closeMenu();
-      }
     }
   });
 
