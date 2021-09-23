@@ -5,7 +5,7 @@
 {% if externalSidebar is defined and externalSidebar == true %}
   {% set mainContentClass = '' %}
 {% else %}
-  {% set mainContentClass = stackedRowSection.sideBar|length or stackedRowSection.contained ? ' main-content--two' : ' main-content--full' %}
+  {% set mainContentClass = stackedRowSection.sideBar|length ? ' main-content--two' : ' main-content--full' %}
 {% endif %}
 
 <section class="ma__stacked-row__section {{ stackedRowBorderless }}{{ stackedRowRestriction }}">
@@ -26,7 +26,7 @@
     {% endif %}
   {% endblock %}
   <div class="main-content{{ mainContentClass }}">
-    <div class={{ contained ? "page-content"}}>
+    <div class="page-content">
       {% block stackedRowContentOverride %}
         {% for content in stackedRowSection.pageContent %}
           {% include content.path with content.data %}

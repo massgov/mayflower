@@ -2,7 +2,6 @@
   "stackedRowSection": {
     "title":"Title for the Row of Content",
     "id":"row-title-single-column",
-    "contained": true,
     "pageContent": [{
       "path": "@base/placeholder.twig",
       "data": {
