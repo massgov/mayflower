@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.15.2 (9/21/2021)
+### Fixed 
+- (Assets) [Fonts] DP-22979: Fix webfonts `woff2` and `woff` fallback order, to avoid duplicated loading. (#1501)
+
 ## 11.15.1 (9/20/2021)
 ### Fixed 
 - (Patternlab) [KeyMessage] DP-22974: Adjusted it to fix regression issue. (#1503)
