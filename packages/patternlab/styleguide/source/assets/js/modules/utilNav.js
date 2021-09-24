@@ -2,7 +2,6 @@ import focusTrapping from "../helpers/focusTrapping.js";
 
 export default (function (document,$) {
   const wideContainerClass = '.js-utility-nav--wide .js-util-nav-content';
-  const narrowContainerClass = '.js-utility-nav--narrow .js-util-nav-content';
   let $panels = $('.js-util-nav-content');
   let $panel = "";
   let $utilityButtons = $('.js-util-nav-toggle');
