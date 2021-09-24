@@ -41,6 +41,7 @@ export default (function (document,$) {
       $panel.css('top', '-' + height + 'px');
       $panel.toggleClass('is-closed');
       $panel.attr("aria-hidden", "true");
+      $utilityButtons.focus();
     });
 
     $panel.on('keydown', function (e) {
