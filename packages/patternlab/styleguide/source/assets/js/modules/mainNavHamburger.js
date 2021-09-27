@@ -45,10 +45,20 @@ if (menuButton !== null) {
   // Skip the magnifier icon button (skip to search)
   const logoLink = document.querySelector(".ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a");
   if(logoLink) {
+    menuButton.addEventListener("keydown", function (e) {
+      if (((e.key === "Tab") && !(e.shiftKey && e.key === "Tab")) || ((e.code === "Tab") && !(e.shiftKey && e.code === "Tab"))) {
+        if(menuButton.getAttribute("aria-expanded") === "true") {
+          setTimeout(function timeoutFunction() {
+            logoLink.focus();
+          }, 100);
+        }
+      }
+    });
+
     logoLink.addEventListener("keydown", function (e) {
       if ((e.shiftKey && e.key === "Tab") || (e.shiftKey && e.code === "Tab")) {
         setTimeout(function timeoutFunction() {
-          document.querySelector(".js-header-menu-button").focus();
+          menuButton.focus();
         }, 100);
       }
     });
@@ -217,7 +227,7 @@ if (menuButton !== null) {
 document.addEventListener("keydown", function (e) {
   if (menuButton.getAttribute("aria-expanded") === "true") {
     focusTrapping({
-      focusableSelectors: "a, button",
+      focusableSelectors: "[role='menuitem'], .ma__utility-nav__item .ma__utility-nav__link, .ma__utility-nav__item .ma__utility-nav__container a",
       closeButtonSelector: ".js-header-menu-button",
       modalSelector: ".ma__header__hamburger__nav-container",
       keyEvent: e
@@ -342,7 +352,7 @@ function openMenu() {
   document.querySelector("body").style.position = "fixed";
 
   // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-  if (width > 620 && utilWideGTranslate) {// Google translate elements aren't rendered screen width under 840px, and the object is null.
+  if ((width > 620) && utilWideGTranslate) {// Google translate elements aren't rendered screen width under 840px, and the object is null.
     utilWideGTranslate.querySelector("a").setAttribute("tabindex", "-1");
   }
   document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").setAttribute("tabindex", "-1");
