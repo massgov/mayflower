@@ -98,7 +98,7 @@ export default (function (window,document, $) {
     window.leafletMarkers = [];
     window.leafletMap = mymap;
 
-    let listingLocations = $(mapWrapper).parents('.ma__location-listing__map');
+    window.stopFocus = false;
 
     // add markers to map 
     markers.forEach(({ position, infoWindow}) => {
@@ -113,17 +113,23 @@ export default (function (window,document, $) {
       .addTo(mymap)
       .bindPopup(compiledTemplate(infoWindow));
 
-      if (listingLocations) {
-        mymarker.on('popupclose', function() {
-          $(mymarker._icon).focus();
-        });
-      } else if (!isStatic) {
-        // popup close onclick is not recognized as a click event inside of the map in order to regain focus
-        // Fire the map focus callback on popup close
-        mymarker.on('popupclose', function() {
-          mymap.fire('focus');
-        });
-      }
+      $(mymarker._icon).on('focus', function(){
+
+        if (window.stopFocus) {
+          return;
+        }
+
+        mymarker.openPopup();
+        setTimeout(function(){
+          $('.leaflet-popup a').first().focus();
+        }, 200);
+      });
+
+      mymarker.on('popupclose', function() {
+        window.stopFocus = true;
+        $(mymarker._icon).focus()
+        window.stopFocus = false;
+      });
 
       window.leafletMarkers.push(mymarker);
     })
