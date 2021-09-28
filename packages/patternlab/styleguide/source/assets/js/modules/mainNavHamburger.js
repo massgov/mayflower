@@ -352,8 +352,11 @@ function openMenu() {
   document.querySelector("body").style.position = "fixed";
 
   // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-  if ((width > 620) && utilWideGTranslate) {// Google translate elements aren't rendered screen width under 840px, and the object is null.
+  if (utilWideGTranslate) {// Google translate elements aren't rendered screen width under 840px, and the object is null.
     utilWideGTranslate.querySelector("a").setAttribute("tabindex", "-1");
+  }
+  if(body.clientWidth < 621) {// ensure Google Translate in the menu container doesn't have tabindex.
+    document.querySelector(".ma__utility-nav__item .ma__utility-nav__translate a").removeAttribute("tabindex");
   }
   document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").setAttribute("tabindex", "-1");
   document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").setAttribute("tabindex", "-1");
