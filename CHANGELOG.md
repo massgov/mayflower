@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.15.3 (9/27/2021)
+### Changed 
+- (Patternlab) [UtilityNav] DP-22681: Replace the existing keyboard navigation function with the new common function, focusTrapping.js for desktop. (#1489)
+
 ## 11.15.2 (9/21/2021)
 ### Fixed 
 - (Assets) [Fonts] DP-22979: Fix webfonts `woff2` and `woff` fallback order, to avoid duplicated loading. (#1501)
