@@ -51,10 +51,15 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE WITH MULTIPLE ITEMS___
-Changed:
-  - project: React, Patternlab
-    component: Collapsible Content
-    description: Adjusted to use a minus "-" for collapsing instead of a cross "x".
+Added:
+  - project: Patternlab
+    component: CollapsibleContent
+    description: Added Collapsible Content Extended variant to allow expand/collapse all accordions. (#1491, #1502)
     issue: DP-22657
     impact: Minor
-
+Changed:
+  - project: Patternlab
+    component: CollapsibleContent
+    description: Adjusted accordions to use a minus "-" for collapsing instead of a cross "x". (#1491, #1502)
+    issue: DP-22657
+    impact: Minor
