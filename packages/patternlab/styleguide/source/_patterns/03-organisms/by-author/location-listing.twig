@@ -17,7 +17,7 @@
           {% include "@molecules/map-leaflet.twig" %}
         </div>
       </div>
-      <div class="ma__location-listing__results js-location-listing-results">
+      <div id="location-listing-results" class="ma__location-listing__results js-location-listing-results">
         {% set resultsHeading = locationListing.resultsHeading %}
         {% include "@molecules/results-heading.twig" %}
         {% set promoHeading = locationListing.imagePromos.promoHeading %}

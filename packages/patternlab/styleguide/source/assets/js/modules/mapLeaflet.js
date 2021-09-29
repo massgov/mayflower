@@ -29,7 +29,6 @@ export default (function (window,document, $) {
       .map(mapWrapper, {
         center: [map.center.lat, map.center.lng],
         zoom: map.zoom || 0,
-        keyboard: false,
         zoomControl: false,
         minZoom: 8,
         scrollWheelZoom: false,
@@ -99,6 +98,7 @@ export default (function (window,document, $) {
     window.leafletMap = mymap;
 
     window.stopFocus = false;
+    window.stopOffFocus = false;
 
     // add markers to map 
     markers.forEach(({ position, infoWindow}) => {
@@ -113,8 +113,12 @@ export default (function (window,document, $) {
       .addTo(mymap)
       .bindPopup(compiledTemplate(infoWindow));
 
-      $(mymarker._icon).on('focus', function(){
+      $(mymarker._icon).on('click', function(e){
+        e.stopPropagation();
+        e.preventDefault();
+      });
 
+      $(mymarker._icon).on('focus', function(e){
         if (window.stopFocus) {
           return;
         }
@@ -125,7 +129,7 @@ export default (function (window,document, $) {
         }, 200);
       });
 
-      mymarker.on('popupclose', function() {
+      mymarker.on('popupclose', function(e) {
         window.stopFocus = true;
         $(mymarker._icon).focus()
         window.stopFocus = false;
