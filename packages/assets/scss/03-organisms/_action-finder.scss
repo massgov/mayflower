@@ -322,4 +322,8 @@ $action-finder-border-color: mix(#fff, $c-primary,50%);
       }
     }
   }
+
+  &--compact {
+    background: none;
+  }
 }

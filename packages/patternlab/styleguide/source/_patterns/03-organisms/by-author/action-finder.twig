@@ -5,10 +5,14 @@
   {% set noBgClass = "ma__action-finder--no-background" %}
 {% endif %}
 
+{% if actionFinder.compact %}
+  {% set modifierClass = "ma__action-finder--compact" %}
+{% endif %}
+
 {% if actionFinder.color %}
   {% set colorClass = "ma__action-finder--" ~ actionFinder.color %}
 {% endif %}
-<section class="ma__action-finder {{ noBgClass }} {{ colorClass }}" id="{{ actionFinder.id }}">
+<section class="ma__action-finder {{ noBgClass }} {{ colorClass }} {{ modifierClass }}" id="{{ actionFinder.id }}">
   {% if actionFinder.bgWide %}
     <style>
       #{{ actionFinder.id }} {
@@ -16,19 +20,21 @@
       }
 
       @media (min-width: 801px) {
-        #{{ actionFinder.id }} {
-          background-image: url('{{actionFinder.bgWide}}');
-        }
+      #{{ actionFinder.id }} {
+        background-image: url('{{actionFinder.bgWide}}');
+      }
       }
     </style>
   {% endif %}
   <div class="ma__action-finder__container">
-    <header class="ma__action-finder__header">
-      <h2 class="ma__action-finder__title">
-        {{ actionFinder.title }}
-        {% if actionFinder.contextPositionTop and actionFinder.titleContext %}<span class="visually-hidden"> {{ actionFinder.titleContext }}</span>{% endif %}
-      </h2>
-    </header>
+    {% if not actionFinder.compact %}
+      <header class="ma__action-finder__header">
+        <h2 class="ma__action-finder__title">
+          {{ actionFinder.title }}
+          {% if actionFinder.contextPositionTop and actionFinder.titleContext %}<span class="visually-hidden"> {{ actionFinder.titleContext }}</span>{% endif %}
+        </h2>
+      </header>
+    {% endif %}
     {% if actionFinder.featuredLinks %}
       {% if actionFinder.featuredHeading %}
         <h3 class="ma__action-finder__category">{{ actionFinder.featuredHeading }}{% if actionFinder.contextPositionTop == false and actionFinder.titleContext %}<span class="visually-hidden"> {{ actionFinder.titleContext }}</span>{% endif %}</h3>

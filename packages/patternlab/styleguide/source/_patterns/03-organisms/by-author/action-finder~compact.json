@@ -1,0 +1,24 @@
+{
+  "actionFinder": {
+    "id": "GUID831741781374893",
+    "compact":true,
+
+    "featuredLinks": [{
+      "image": "../../assets/images/placeholder/130x160.png",
+      "text": "Getting Outdoors",
+      "type": "",
+      "href": "#",
+      "label": "Guide:"
+    },{
+      "image": "",
+      "text": "Cancel or Transfer a Campsite Reservation",
+      "type": "external",
+      "href": "#"
+    },{
+      "image": "",
+      "text": "Find Horseback Riding Trails",
+      "type": "",
+      "href": "#"
+    }]
+  }
+}
