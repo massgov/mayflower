@@ -20,8 +20,9 @@
 @font-face { // The fallback non-variable Noto Sans font
   font-family: 'Noto Sans';
   src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular-subset.eot?#iefix') format('embedded-opentype'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular-subset.woff') format('woff'),
-				url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular-subset.woff2') format('woff2');
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular-subset.woff2') format('woff2'),
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Regular-subset.woff') format('woff');
+
   font-style: normal;
   font-display: $fonts-display-global;
 }
@@ -30,17 +31,16 @@
 @font-face { // The fallback non-variable Noto Sans Italic font
   font-family: 'Noto Sans';
   src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic-subset.eot?#iefix') format('embedded-opentype'),
-        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic-subset.woff') format('woff'),
-				url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic-subset.woff2') format('woff2');
+        url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic-subset.woff2') format('woff2'),
+				url('#{$assets-path}/fonts/noto/Latin/NotoSans-Italic-subset.woff') format('woff');
   font-style: italic;
   font-display: $fonts-display-global;
 }
 
 @font-face {
 	font-family: 'Noto Sans Mono';
-	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.eot?#iefix') format('embedded-opentype'),*/
-				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff') format('woff'),
-				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff2') format('woff2');
+	src:  url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff2') format('woff2'),
+				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Regular-subset.woff') format('woff');
 	font-weight: $fonts-normal;
 	font-style: normal;
 	font-display: $fonts-display-global;
@@ -48,9 +48,8 @@
 
 @font-face {
 	font-family: 'Noto Sans Mono';
-	src:  /*url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.eot?#iefix') format('embedded-opentype'),*/
-				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff') format('woff'),
-				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff2') format('woff2');
+	src:  url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff2') format('woff2'),
+				url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-Bold-subset.woff') format('woff');
 	font-weight: $fonts-bold;
 	font-style: normal;
 	font-display: $fonts-display-global;
@@ -66,8 +65,8 @@
 	@font-face { // The variable font of Noto Sans for basic latin
     font-family: 'Noto Sans VF';
     src:  url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF-subset.eot?#iefix') format('embedded-opentype'),
+          url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF-subset.woff2?version=1') format('woff2'),
           url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF-subset.woff') format('woff'),
-					url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF-subset.woff2?version=1') format('woff2'),
           url('#{$assets-path}/fonts/noto/Latin/NotoSans-VF.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
@@ -80,33 +79,32 @@
    * See https://github.com/massgov/openmass/blob/develop/docroot/themes/custom/mass_theme/templates/layout/html.html.twig#L38
   */
 
-	@font-face { // The variable font of Noto Sans for latin extended
-    font-family: 'Noto Sans Latin VF';
-    src:  url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.eot?#iefix') format('embedded-opentype'),
-          url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.woff') format('woff')/*,
-					url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.woff2') format('woff2')*/
-					;
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: $fonts-display-global;
-  }
-
   @font-face { // The variable font of Noto Sans Italic
     font-family: 'Noto Sans VF';
     src:  url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF-subset.eot?#iefix') format('embedded-opentype'),
+          url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF-subset.woff2?version=1') format('woff2'),
           url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF-subset.woff') format('woff'),
-					url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF-subset.woff2?version=1') format('woff2'),
           url('#{$assets-path}/fonts/noto/Latin/NotoSansItalic-VF.ttf') format('truetype');
     font-weight: 100 900;
     font-style: italic;
     font-display: $fonts-display-global;
   }
 
+	@font-face { // The variable font of Noto Sans for latin extended
+    font-family: 'Noto Sans Latin VF';
+    src:  url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.eot?#iefix') format('embedded-opentype'),
+          // url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.woff2') format('woff2'),
+          url('#{$assets-path}/fonts/noto/Latin-ext/NotoSans-VF.woff') format('woff');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: $fonts-display-global;
+  }
+
   @font-face {    // The variable font of Noto Sans Mono
     font-family: 'Noto Sans Mono VF';
     src:  url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-VF-subset.eot?#iefix') format('embedded-opentype'),
-					url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-VF-subset.woff') format('woff'),
-					url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-VF-subset.woff2') format('woff2');
+					url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-VF-subset.woff2') format('woff2'),
+					url('#{$assets-path}/fonts/noto/Mono/NotoSansMono-VF-subset.woff') format('woff');
     font-weight: 100 900;
     font-style: normal;
     font-display: $fonts-display-global;
