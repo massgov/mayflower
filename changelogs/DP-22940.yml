@@ -4,6 +4,6 @@
 # 3. Remove all comments from the copied file
   - project: Patternlab
     component: Sidebar
-    description: Fix the horizontal alignment on sidebar for locations. Fix small text-underline on locations.
+    description: Fix the horizontal alignment on sidebar for locations. Fix small text-underline on locations. #1513
     issue: DP-22940
     impact: Patch
