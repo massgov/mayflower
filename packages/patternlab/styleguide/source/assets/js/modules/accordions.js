@@ -2,10 +2,11 @@ import checkActive from "../helpers/cssControlCode.js";
 
 export default (function (window,document,$,undefined) {
   let $jsAccordion = $('.js-accordion');
+  let accordionIds = "";
 
-
+  // Initialize the accordions
   $jsAccordion.each(function(index){
-    init.apply(this, [index]);
+   init.apply(this, [index]);
   });
 
   // In case that all paragraphs are expanded by default, change the "expand all" link to "collapse all".
@@ -16,11 +17,15 @@ export default (function (window,document,$,undefined) {
       if(! $(this).hasClass('is-open')) {
         allExpanded = false;
       }
+      accordionIds += 'accordion' + (index + 1) + ' ';
     });
 
     if(allExpanded) {
       toggleAll();
     }
+
+    // Add aria labels to togle all
+    $('.ma__collapsible-content__toggle-all').attr("aria-controls", accordionIds);
   }
 
   $(document).on('ma:AjaxPattern:Render', function(e,data){
@@ -134,6 +139,8 @@ export default (function (window,document,$,undefined) {
 
       active = temp;
     }).resize();
+
+    return id;
   }
 
 })(window,document,jQuery);
