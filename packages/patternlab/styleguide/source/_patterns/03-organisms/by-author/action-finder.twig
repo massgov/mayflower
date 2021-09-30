@@ -5,6 +5,10 @@
   {% set noBgClass = "ma__action-finder--no-background" %}
 {% endif %}
 
+{% if actionFinder.noBgClass %}
+  {% set noBgClass = actionFinder.noBgClass %}
+{% endif %}
+
 {% if actionFinder.color %}
   {% set colorClass = "ma__action-finder--" ~ actionFinder.color %}
 {% endif %}
@@ -23,12 +27,14 @@
     </style>
   {% endif %}
   <div class="ma__action-finder__container">
-    <header class="ma__action-finder__header">
-      <h2 class="ma__action-finder__title">
-        {{ actionFinder.title }}
-        {% if actionFinder.contextPositionTop and actionFinder.titleContext %}<span class="visually-hidden"> {{ actionFinder.titleContext }}</span>{% endif %}
-      </h2>
-    </header>
+    {% if actionFinder.title %}
+      <header class="ma__action-finder__header">
+        <h2 class="ma__action-finder__title">
+          {{ actionFinder.title }}
+          {% if actionFinder.contextPositionTop and actionFinder.titleContext %}<span class="visually-hidden"> {{ actionFinder.titleContext }}</span>{% endif %}
+        </h2>
+      </header>
+    {% endif %}
     {% if actionFinder.featuredLinks %}
       {% if actionFinder.featuredHeading %}
         <h3 class="ma__action-finder__category">{{ actionFinder.featuredHeading }}{% if actionFinder.contextPositionTop == false and actionFinder.titleContext %}<span class="visually-hidden"> {{ actionFinder.titleContext }}</span>{% endif %}</h3>
