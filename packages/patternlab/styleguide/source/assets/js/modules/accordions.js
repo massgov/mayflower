@@ -3,10 +3,18 @@ import checkActive from "../helpers/cssControlCode.js";
 export default (function (window,document,$,undefined) {
   let $jsAccordion = $('.ma__collapsible-content .js-accordion');
   var $toggleLink = $('.ma__collapsible-content__toggle-all');
+  let accordionIds = "";
 
   $jsAccordion.each(function(index){
     init.apply(this, [index]);
   });
+
+  // Set up aria label for collapse / expand button.
+  $('.ma__collapsible-content--extended .js-accordion').each(function(index){
+    accordionIds += 'accordion' + (index + 1) + ' ';
+  });
+  // Add aria labels to toggle all
+  $toggleLink.attr("aria-controls", accordionIds);
 
   function checkAccordionsSameStatus(){
     let isOpen = $('.ma__collapsible-content--extended .js-accordion.is-open').length;
