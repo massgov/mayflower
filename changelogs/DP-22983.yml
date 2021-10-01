@@ -1,6 +1,6 @@
 Changed:
   - project: PatternLab
     component: ActionFinder
-    description: Adjusting action finder to not render the heading if there isn't a title and adds a background option.
+    description: Adjusting action finder to not render the heading if there isn't a title and adds a background option. (#1514)
     issue: DP-22983
     impact: Minor
