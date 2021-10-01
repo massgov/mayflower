@@ -9,7 +9,7 @@ export default (function (window,document,$,undefined) {
     init.apply(this, [index]);
   });
 
-  // Set up aria label for collapse / expand button.
+  // Gather the ids for all the accordions.
   $('.ma__collapsible-content--extended .js-accordion').each(function(index){
     accordionIds += 'accordion' + (index + 1) + ' ';
   });
