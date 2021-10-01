@@ -5,13 +5,18 @@ export default (function (window,document,$,undefined) {
   var $toggleLink = $('.ma__collapsible-content__toggle-all');
   let accordionIds = "";
 
+  // Get or generates an ID for an element.
+  function getId($el, $fallbackId) {
+    return $el.attr('id') || 'accordion' + $fallbackId;
+  }
+
   $jsAccordion.each(function(index){
     init.apply(this, [index]);
   });
 
   // Set up aria label for collapse / expand button.
   $('.ma__collapsible-content--extended .js-accordion').each(function(index){
-    accordionIds += 'accordion' + (index + 1) + ' ';
+    accordionIds += getId($(this), index + 1) + ' ';
   });
   // Add aria labels to toggle all
   $toggleLink.attr("aria-controls", accordionIds);
@@ -90,10 +95,23 @@ export default (function (window,document,$,undefined) {
       $status.attr('aria-label', 'click to hide info');
       $el.addClass('is-open');
     }
-    $link.attr('aria-expanded',!open);
+    accordionAriaToggle($link, !open);
 
   }
 
+  // Set and update aria labels depending on the accordion status.
+  function accordionAriaToggle($link, open) {
+    let statusText = "Expand ";
+    $link.attr('aria-expanded',open);
+
+    if(open) {
+      statusText = "Collapse ";
+    }
+
+    $link.attr('aria-label', statusText + $link.children('h2').text());
+  }
+
+  // Initialize each accordion item.
   function init(index){
     let $el = $(this);
     let ind = '';
@@ -105,12 +123,13 @@ export default (function (window,document,$,undefined) {
 
     let $link = $el.find(`${ind} .js-accordion-link`),
         $content = $el.find(`${ind} .js-accordion-content`),
-        id = $content.attr('id') || 'accordion' + (index + 1),
+        id = getId($el, index + 1),
         active = checkActive($el),
         open = $el.hasClass('is-open');
 
     $content.attr('id', id);
-    $link.attr('aria-expanded',open).attr('aria-controls', id);
+    $link.attr('aria-controls', id);
+    accordionAriaToggle($link, open);
 
     if(isExtended) {
       let childs = $el.find('.ma__collapsible-content__body-item a').length;
