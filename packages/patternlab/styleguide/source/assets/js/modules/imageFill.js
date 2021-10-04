@@ -8,7 +8,7 @@ export default (function (window, document, $, undefined) {
 
   function mediaWidth() {
     // Define wrapper width for use.
-    var wrapperWidth = $("#main-content > .main-content--two").width();
+    var wrapperWidth = $("#main-content > .main-content--two").width(); console.log('restored');
 
     $(".ma__figure--full, .ma__iframe--full").each(function () {
       var $thisMedia = $(this);
@@ -20,7 +20,12 @@ export default (function (window, document, $, undefined) {
       if (thisPosition > sidebarHeight) {
 
         // Make the image the full width of the wrapper.
-        $thisMedia.css("width", wrapperWidth);
+        if (wrapperWidth) {
+          $thisMedia.css("width", wrapperWidth);
+        } else {
+          $thisMedia.parent('.ma__rich-text').css('padding-right', '0');
+        }
+
         let iframe = $thisMedia.find('iframe');
         if (iframe.length) {
           setTimeout( function() {
