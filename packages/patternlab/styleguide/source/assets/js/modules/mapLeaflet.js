@@ -21,9 +21,12 @@ export default (function (window,document) {
     const { map, markers, isStatic=0, hideAttribution=0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
     // max bounds
-    const corner1 = L.latLng(46.694667307773116, -64.05029296875001); //northEast
-    const corner2 = L.latLng(38.634036452919226, -80.39794921875001); //southWest
+    const corner1 = L.latLng(44.06390660801779,  -67.58789062500001); //northEast
+    const corner2 = L.latLng(39.985538414809746,  -75.76171875000001); //southWest
     const maxBounds = L.latLngBounds(corner1, corner2);
+
+
+
 
     const mymap = L
       .map(mapWrapper, {
