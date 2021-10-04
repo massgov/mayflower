@@ -61,6 +61,12 @@ export default (function (window,document,$,undefined) {
   $toggleLink.on("click",function(e){
     let status = $toggleLink.hasClass('ma__collapsible-content__toggle-all--expanded')?"close":"open";
 
+    if (status == 'close') {
+      $toggleLink.attr('aria-expanded', false);
+    } else {
+      $toggleLink.attr('aria-expanded', true);
+    }
+
     $('.ma__collapsible-content--extended .js-accordion').each(function(index){
       accordionToggle($(this), status);
     });
