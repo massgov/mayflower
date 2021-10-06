@@ -19,7 +19,6 @@ let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const utilWideGTranslate = document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate");
 let utilNarrowNav = document.querySelector(".ma__header__hamburger__utility-nav--narrow");
-// const utilNarrowNavGTranslate = utilNarrowNav.querySelector(".ma__utility-nav__item .ma__utility-nav__translate a");
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
 let utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
 let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".ma__utility-nav__container") : null;
@@ -273,9 +272,6 @@ function closeMenu() {
   if (document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")) {
     if (utilWideGTranslate) {// Google translate elements aren't rendered screen width under 840px and the object is null.
       utilWideGTranslate.querySelector("a").removeAttribute("tabindex");
-      // if (utilNarrowNavGTranslate) {
-      //   utilNarrowNavGTranslate.removeAttribute("tabindex");
-      // }
     }
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").removeAttribute("tabindex");
@@ -359,17 +355,6 @@ function openMenu() {
   if (utilWideGTranslate && (body.clientWidth > 840)) {// Google translate elements aren't rendered screen width under 840px, and the object is null.
       utilWideGTranslate.querySelector("a").setAttribute("tabindex", "-1");
   }
-  // if(body.clientWidth < 841) {// ensure Google Translate in the menu container doesn't have tabindex.
-    // When the page is rendered, Google Translate in the hamburger menu is null.
-    // setTimeout(function timeoutFunction() {
-    //   const utilNarrowNavGTranslate = utilNarrowNav.querySelector(".ma__utility-nav__item .ma__utility-nav__translate a");
-    //   console.log(utilNarrowNavGTranslate);
-    //   console.log(utilNarrowNavGTranslate.hasAttribute('tabindex'));
-    // }, 200);
-
-
-    // document.querySelector(".ma__utility-nav__item .ma__utility-nav__translate a").removeAttribute("tabindex");
-  // }
   document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").setAttribute("tabindex", "-1");
   document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").setAttribute("tabindex", "-1");
 
