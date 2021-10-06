@@ -72,7 +72,7 @@
 
     // support pre-existing figure elements besides dataviz.
 
-    &--left:not(.ma__dataviz),
+    &--left:not(.ma__dataviz):not(.ma__iframe__container),
     &--align-left,
     &.align-left {
       float: left;
@@ -80,7 +80,7 @@
       width: 50%;
     }
 
-    &--right:not(.ma__dataviz),
+    &--right:not(.ma__dataviz):not(.ma__iframe__container),
     &--align-right,
     &.align-right {
       float: right;
@@ -164,7 +164,10 @@
 
     .page-content:not(.no-sidebar) &--x-small,
     .page-content:not(.no-sidebar) &--small {
-      width: calc(50% - 15px);
+
+      &:not(.ma__dataviz):not(.ma__iframe__container) {
+        width: calc(50% - 15px);
+      }
     }
   }
 
@@ -206,7 +209,7 @@
     }
 
     @media ($bp-small-min) and ($bp-large-max) {
-      width: calc(50% - 15px);
+        width: calc(50% - 15px);
     }
 
     @media ($bp-small-max) {
@@ -218,7 +221,9 @@
 
     @media ($bp-large-extended-min) {
 
-      width: calc(50% - 15px);
+      &:not(.ma__dataviz):not(.ma__iframe__container) {
+        width: calc(50% - 15px);
+      }
     }
   }
 
@@ -228,7 +233,9 @@
     width: 100%;
   }
 
-  .no-sidebar &--large {
+  .no-sidebar &--large,
+  &--large.ma__dataviz,
+  &--large.ma__iframe__container {
 
     @media ($bp-large-max) {
       width: 100%;
@@ -238,8 +245,10 @@
     }
 
     @media ($bp-large-min) {
-      width: 66.66%;
-      width: calc(100% / 3 * 2);
+      //&:not(.ma__dataviz):not(.ma__iframe__container) {
+        width: 66.66%;
+        width: calc(100% / 3 * 2);
+     // }
     }
   }
 
@@ -293,7 +302,9 @@
 
   // NO WRAP - Small
 
-  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small {
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small,
+  &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz,
+  &--no-wrap.ma__figure--right.ma__figure--small.ma__iframe__container {
 
     @media ($bp-small-min) {// 621~
 
@@ -304,7 +315,10 @@
 
   // NO WRAP - Medium
 
-  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium {
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium,
+  &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz,
+  &--no-wrap.ma__figure--right.ma__figure--medium.ma__iframe__container {
+
 
     @media ($bp-small-min) {// 621~
 
@@ -320,6 +334,13 @@
 
       padding-left: 66.66%;
       padding-left: calc(100% / 3 * 2);
+    }
+  }
+
+  &--no-wrap.ma__figure--right.ma__figure--large.ma__dataviz,
+  &--no-wrap.ma__figure--right.ma__figure--large.ma__iframe__container {
+    @media ($bp-large-min) {
+      padding-left: calc(100% / 3);
     }
   }
 
