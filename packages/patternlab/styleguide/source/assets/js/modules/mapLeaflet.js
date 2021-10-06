@@ -100,6 +100,17 @@ export default (function (window,document, $) {
     window.stopFocus = false;
     window.stopOffFocus = false;
 
+
+    $('.ma__leaflet-map').on('keydown', function(e){
+      if (e.keyCode == 27 && $('.leaflet-popup-content-wrapper').length == 0) {
+        e.preventDefault();
+        const $a = $('.ma__location-listing__map > a');
+        if ($a) {
+          $a.trigger('click');
+        }
+      }
+    });
+
     // add markers to map 
     markers.forEach(({ position, infoWindow}) => {
       const mymarker = L.marker(
@@ -113,26 +124,54 @@ export default (function (window,document, $) {
       .addTo(mymap)
       .bindPopup(compiledTemplate(infoWindow));
 
-      $(mymarker._icon).on('click', function(e){
-        e.stopPropagation();
-        e.preventDefault();
-      });
+      $(mymarker._icon).on('keydown', function(e){
 
-      $(mymarker._icon).on('focus', function(e){
-        if (window.stopFocus) {
+        if (e.keyCode == 16 || e.keyCode == 9) {
+          if (e.keyCode == 9) {
+            mymarker.closePopup();
+          }
           return;
         }
 
-        mymarker.openPopup();
-        setTimeout(function(){
-          $('.leaflet-popup a').first().focus();
-        }, 200);
-      });
+        e.preventDefault();
 
-      mymarker.on('popupclose', function(e) {
-        window.stopFocus = true;
-        $(mymarker._icon).focus()
-        window.stopFocus = false;
+        switch(e.keyCode) {
+          case 32:
+          case 13:
+            mymarker.openPopup();
+            $('.leaflet-popup-content-wrapper').attr('tabindex', 1);
+            $('.leaflet-popup-content-wrapper').focus();
+
+            $('.leaflet-popup-content-wrapper').on('keydown', function(e){
+
+              if (e.keyCode == 27) {
+                mymarker.closePopup();
+                $(mymarker._icon).focus();
+              }
+
+              if (e.keyCode == 9) {
+                if ($(this).is(e.target)) {
+                  e.preventDefault()
+                  $('.leaflet-popup-content-wrapper a').first().focus();
+                }
+              }
+            });
+
+            $('.leaflet-popup-close-button').on('keydown', function(e){
+              if (e.keyCode == 32 || e.keyCode == 13) {
+                e.preventDefault()
+                mymarker.closePopup();
+                $(mymarker._icon).focus();
+              }
+
+              if (e.keyCode == 9) {
+                e.preventDefault();
+                $(mymarker._icon).focus();
+              }
+            });
+
+            break;
+        }
       });
 
       window.leafletMarkers.push(mymarker);
