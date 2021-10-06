@@ -245,10 +245,8 @@
     }
 
     @media ($bp-large-min) {
-      //&:not(.ma__dataviz):not(.ma__iframe__container) {
-        width: 66.66%;
-        width: calc(100% / 3 * 2);
-     // }
+      width: 66.66%;
+      width: calc(100% / 3 * 2);
     }
   }
 
@@ -339,6 +337,7 @@
 
   &--no-wrap.ma__figure--right.ma__figure--large.ma__dataviz,
   &--no-wrap.ma__figure--right.ma__figure--large.ma__iframe__container {
+    
     @media ($bp-large-min) {
       padding-left: calc(100% / 3);
     }
