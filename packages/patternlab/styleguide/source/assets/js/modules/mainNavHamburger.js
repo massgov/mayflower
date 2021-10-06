@@ -699,3 +699,21 @@ menuItems.forEach((item) => {
   });
 
 });
+
+
+// Close Google Translate option container with ESC.
+// Set focus on the (closest/visible) Google Translate button whether it's on the blue bar or in the hamburger menu.
+setTimeout(function timeoutFunction() {// This prevents GT elements get null.
+  let gTranslateButtons = document.querySelectorAll(".ma__utility-nav__translate #google_translate_element a");
+  const gTranslateOptionContainer = document.querySelector("iframe.goog-te-menu-frame.skiptranslate");
+
+  if (gTranslateOptionContainer) {
+    gTranslateOptionContainer.contentWindow.document.addEventListener("keydown", function (e) {
+      let key = e.code ? e.code : e.key;
+      if (key == "Escape" || key === "Esc" ) {
+        gTranslateOptionContainer.style.display = "none";
+        gTranslateButtons[0].focus();
+      }
+    });
+  }
+}, 500);
