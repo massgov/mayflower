@@ -77,7 +77,7 @@
     &.align-left {
       float: left;
       margin-left: 0;
-      width: 50%;
+      width: 47%;
     }
 
     &--right:not(.ma__dataviz):not(.ma__iframe__container),
@@ -85,7 +85,7 @@
     &.align-right {
       float: right;
       margin-right: 0;
-      width: 50%;
+      width: 47%;
     }
   }
 
@@ -222,7 +222,7 @@
     width: 100%;
   }
 
-  .no-sidebar &--large,
+
   &--large.ma__dataviz,
   &--large.ma__iframe__container {
 
@@ -246,6 +246,20 @@
     margin-right: 0;
     margin-left: 0;
     float: none;
+  }
+
+  .page-content .no-sidebar &--large {
+    @media ($bp-large-max) {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      float: none;
+    }
+
+    @media ($bp-large-min) {
+      width: 66.66%;
+      width: calc(100% / 3 * 2);
+    }
   }
 
   // Alignment
@@ -329,6 +343,7 @@
 
     @media ($bp-large-min) {
       padding-left: calc(100% / 3);
+      width: 100%
     }
   }
 
