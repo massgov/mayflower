@@ -147,6 +147,13 @@
     &--x-small,
     &--small {
       width: calc(50% - 15px);
+
+      &.ma__figure--no-wrap.ma__figure--right {
+        @media ($bp-small-min) {// 621~
+          margin-left: 50%;
+          padding-left: 0;
+        }
+      }
     }
   }
 
@@ -182,6 +189,13 @@
 
     @media ($bp-small-min) {// 621~
       width: calc(50% - 15px);
+    }
+
+   &.ma__figure--no-wrap.ma__figure--right {
+      @media ($bp-small-min) {// 621~
+        margin-left: 50%;
+        padding-left: 0;
+      }
     }
 
   }
@@ -221,7 +235,6 @@
   &--large {
     width: 100%;
   }
-
 
   &--large.ma__dataviz,
   &--large.ma__iframe__container {
