@@ -40,6 +40,15 @@ export default (function (window,document) {
         // This can be turned back on when the tiles are large enough so that the min zoom level shows the whole state and have enough tiles padded for popups.
         maxBounds
       });
+
+    /*
+    // Function to get the bounds of the tiles
+    // Disable the minZoon and the maxBounds to get an accurate bounds
+
+    window.getMapBounds = function() {
+      console.log(mymap.getBounds());
+    };
+    */
       
     // if map is not static, add zoom control with custom position
     if (!isStatic) {
