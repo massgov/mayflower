@@ -44,6 +44,13 @@
   display: flex;
   flex-direction: column;
 
+  &__link {
+
+    a {
+      text-decoration: none;
+    }
+  }
+
   &__map {
     height: 360px;
     z-index: 10;

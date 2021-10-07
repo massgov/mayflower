@@ -2,15 +2,14 @@
 
 Mayflower Release involves cutting a Github tag following [Semantic Versioning](./versioning.md) leveraging CircleCI with these [scripts](/scripts). The release entails:
 
-- Build and publish the [@massds/mayflower-tokens](https://www.npmjs.com/package/@massds/mayflower-tokens) NPM packages
-- Build and publish the [@massds/mayflower](https://www.npmjs.com/package/@massds/mayflower) NPM package
-- Build and publish the [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) NPM package
+- Build and publish the [@massds/mayflower-assets](https://www.npmjs.com/package/@massds/mayflower-assets) NPM packages
 - Build and publish the [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) NPM package
 - Build and publish the [massgov/mayflower-artifacts](https://packagist.org/packages/massgov/mayflower-artifacts) PHP package
+- Build and publish the [@massds/mayflower](https://www.npmjs.com/package/@massds/mayflower) NPM package (deprecated)
 - Build, test and deploy the [Mayflower homepage site](https://mayflower.digital.mass.gov/)
 - Build, test and deploy the [Patternlab site](https://mayflower.digital.mass.gov/patternlab)
-- Build, test and deploy the [Storybook site](https://mayflower.digital.mass.gov/react)
-- Deploy to documentation to the [Mayflower Gitbook](https://mayflower.digital.mass.gov/docs)
+- Build, test and deploy the [React Storybook site](https://mayflower.digital.mass.gov/react)
+- Build, test and deploy the [Core documentation site](https://mayflower.digital.mass.gov/core)
 
 
 ## Auto Release
