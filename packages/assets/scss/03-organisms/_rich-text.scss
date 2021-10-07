@@ -40,7 +40,12 @@ $heading-indent: $gutter;
   .ma__comp-heading + & {
     margin-top: 0;
   }
- 
+  
+  .main-content--full .no-sidebar .page-content > & {
+
+    @include ma-container();
+  }
+
   .page-content.ma__announcement__page-content &__container & {
 
     @include ma-component-spacing;
