@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
-    component: Leaftlet Map
-    description: Update min zoom so tha map can zoom out on mobile. 
+    component: LeaftletMap
+    description: Update min zoom so the map can zoom out on mobile. (#1499) 
     issue: DP-22028
     impact: Minor
