@@ -152,6 +152,7 @@ export default (function (window,document, $) {
 
         switch(key) {
           case 'Space':
+          case 'Spacebar': // IE
           case 'Enter':
             mymarker.openPopup();
             $('.leaflet-popup-content-wrapper').attr('tabindex', 1);
@@ -186,7 +187,7 @@ export default (function (window,document, $) {
 
             $('.leaflet-popup-close-button').on('keydown', function(e){
               var key = e.key || String.fromCharCode(e.keyCode);
-              if (key == 'Space' || key == 'Enter') {
+              if (key == 'Space' || key == 'Spacebar' || key == 'Enter') {
                 e.preventDefault()
                 mymarker.closePopup();
                 $(mymarker._icon).focus();
