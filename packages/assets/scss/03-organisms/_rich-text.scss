@@ -26,7 +26,14 @@ $heading-indent: $gutter;
   .main-content--full .page-content > &__container,
   .main-content--full .page-content > & {
 
+    // By default richt text have a right padding, unless a .no-sidebar class is added to the section container.
     @include ma-container('restricted');
+  }
+
+  .main-content--full .no-sidebar .page-content > & {
+    
+    // Use the .no-sidebar class to overide the right padding.
+    @include ma-container();
   }
 
   .ma__split-columns__column > &__container,
@@ -39,11 +46,6 @@ $heading-indent: $gutter;
 
   .ma__comp-heading + & {
     margin-top: 0;
-  }
-  
-  .main-content--full .no-sidebar .page-content > & {
-
-    @include ma-container();
   }
 
   .page-content.ma__announcement__page-content &__container & {
