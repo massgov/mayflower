@@ -12,6 +12,7 @@ export default (function (window, document, $) {
       sticky.init($mapCol);
 
       $el.find(".ma__image-promo").on('click', function(e){
+
         if (e.target.href) {
           e.stopImmediatePropagation();
           return;

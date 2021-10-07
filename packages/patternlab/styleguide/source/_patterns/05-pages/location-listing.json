@@ -168,6 +168,7 @@
                 ]
               },
               "leafletMap": {
+                "title" : "Map for Executive Office of Health and Human Services",
                 "map": {
                   "center": {
                     "lat": 42.4072107,
@@ -199,6 +200,7 @@
                     "label": "",
                     "infoWindow": {
                       "name": "Barnstable District Court",
+                      "link": "#",
                       "phone": "15087478512",
                       "email": "courts@state.ma.us",
                       "address": "3195 Main Street\nBarnstable, MA 02630",
@@ -229,6 +231,7 @@
                     "label": "",
                     "infoWindow": {
                       "name": "Brookline District Court",
+                      "link": "#",
                       "phone": "16172324660",
                       "fax": "15082233706",
                       "email": "courts@state.ma.us",
@@ -244,6 +247,7 @@
                     "label": "",
                     "infoWindow": {
                       "name": "Cambridge District Court",
+                      "link": "#",
                       "phone": "15082225900",
                       "fax": "15082233706",
                       "email": "courts@state.ma.us",
@@ -258,6 +262,7 @@
                     "label": "",
                     "infoWindow": {
                       "name": "Concord District Court",
+                      "link": "#",
                       "phone": "15082225900",
                       "fax": "15082233706",
                       "email": "courts@state.ma.us",
@@ -287,6 +292,7 @@
                     "label": "",
                     "infoWindow": {
                       "name": "Lowell District Court",
+                      "link": "#",
                       "phone": "15082225900",
                       "fax": "15082233706",
                       "email": "courts@state.ma.us",
@@ -301,6 +307,7 @@
                     "label": "",
                     "infoWindow": {
                       "name": "Marlborough District Court",
+                      "link": "#",
                       "phone": "15082225900",
                       "fax": "15082233706",
                       "email": "courts@state.ma.us",
@@ -316,6 +323,7 @@
                     "label": "",
                     "infoWindow": {
                       "name": "Salem District Court",
+                      "link": "#",
                       "phone": "15082225900",
                       "fax": "15082233706",
                       "email": "courts@state.ma.us",
@@ -345,6 +353,7 @@
                     "label": "",
                     "infoWindow": {
                       "name": "Taunton District Court",
+                      "link": "#",
                       "phone": "15082225900",
                       "fax": "15082233706",
                       "email": "courts@state.ma.us",
