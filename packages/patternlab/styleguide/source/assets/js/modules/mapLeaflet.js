@@ -98,7 +98,10 @@ export default (function (window,document, $) {
     window.leafletMap = mymap;
 
     $('.ma__leaflet-map').on('keydown', function(e){
-      if (e.code == 'Escape' && $('.leaflet-popup-content-wrapper').length == 0) {
+
+      var key = e.key || String.fromCharCode(e.keyCode);
+
+      if (key == 'Escape' && $('.leaflet-popup-content-wrapper').length == 0) {
         e.preventDefault();
         const $a = $('.ma__location-listing__map > a');
         if ($a) {
@@ -125,13 +128,14 @@ export default (function (window,document, $) {
       .bindPopup(compiledTemplate(infoData));
 
       $(mymarker._icon).on('keydown', function(e){
+        var key = e.key || String.fromCharCode(e.keyCode);
 
-        if (e.code == 'Tab') {
+        if (key == 'Tab') {
           mymarker.closePopup();
           return;
         }
 
-        if (e.code == 'Escape') {
+        if (key == 'Escape') {
           e.preventDefault();
           if  ($('.leaflet-popup-content-wrapper').length == 0) {
             const $a = $('.ma__location-listing__map > a');
@@ -146,7 +150,7 @@ export default (function (window,document, $) {
 
         e.preventDefault();
 
-        switch(e.code) {
+        switch(key) {
           case 'Space':
           case 'Enter':
             mymarker.openPopup();
@@ -154,12 +158,13 @@ export default (function (window,document, $) {
             $('.leaflet-popup-content-wrapper').focus();
 
             $('.leaflet-popup-content-wrapper').on('keydown', function(e){
-              if (e.code == 'Escape') {
+              var key = e.key || String.fromCharCode(e.keyCode);
+              if (key == 'Escape') {
                 mymarker.closePopup();
                 $(mymarker._icon).focus();
               }
 
-              if (e.code == 'Tab') {
+              if (key == 'Tab') {
                 if ($(this).is(e.target)) {
                   e.preventDefault()
                   if (e.shiftKey) {
@@ -172,20 +177,22 @@ export default (function (window,document, $) {
             });
 
             $('.leaflet-popup-content-wrapper a').first().on('keydown', function(e){
-              if (e.code == 'Tab' && e.shiftKey) {
+              var key = e.key || String.fromCharCode(e.keyCode);
+              if (key == 'Tab' && e.shiftKey) {
                 e.preventDefault();
                 $('.leaflet-popup-content-wrapper').focus();
               }
             });
 
             $('.leaflet-popup-close-button').on('keydown', function(e){
-              if (e.code == 'Space' || e.code == 'Enter') {
+              var key = e.key || String.fromCharCode(e.keyCode);
+              if (key == 'Space' || key == 'Enter') {
                 e.preventDefault()
                 mymarker.closePopup();
                 $(mymarker._icon).focus();
               }
 
-              if (e.code == 'Tab') {
+              if (key == 'Tab') {
                 e.preventDefault();
                 $(mymarker._icon).focus();
               }

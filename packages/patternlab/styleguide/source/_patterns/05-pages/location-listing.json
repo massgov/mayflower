@@ -168,6 +168,7 @@
                 ]
               },
               "leafletMap": {
+                "title" : "Map for Executive Office of Health and Human Services",
                 "map": {
                   "center": {
                     "lat": 42.4072107,
