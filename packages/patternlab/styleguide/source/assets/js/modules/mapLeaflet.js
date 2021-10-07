@@ -97,12 +97,8 @@ export default (function (window,document, $) {
     window.leafletMarkers = [];
     window.leafletMap = mymap;
 
-    window.stopFocus = false;
-    window.stopOffFocus = false;
-
-
     $('.ma__leaflet-map').on('keydown', function(e){
-      if (e.keyCode == 27 && $('.leaflet-popup-content-wrapper').length == 0) {
+      if (e.code == 'Escape' && $('.leaflet-popup-content-wrapper').length == 0) {
         e.preventDefault();
         const $a = $('.ma__location-listing__map > a');
         if ($a) {
@@ -113,6 +109,10 @@ export default (function (window,document, $) {
 
     // add markers to map 
     markers.forEach(({ position, infoWindow}) => {
+
+      let infoData = infoTransform(infoWindow);
+
+
       const mymarker = L.marker(
         L.latLng(
           +position.lat,
@@ -122,12 +122,23 @@ export default (function (window,document, $) {
           interactive: !isStatic
         })
       .addTo(mymap)
-      .bindPopup(compiledTemplate(infoWindow));
+      .bindPopup(compiledTemplate(infoData));
 
       $(mymarker._icon).on('keydown', function(e){
 
-        if (e.keyCode == 16 || e.keyCode == 9) {
-          if (e.keyCode == 9) {
+        if (e.code == 'Tab') {
+          mymarker.closePopup();
+          return;
+        }
+
+        if (e.code == 'Escape') {
+          e.preventDefault();
+          if  ($('.leaflet-popup-content-wrapper').length == 0) {
+            const $a = $('.ma__location-listing__map > a');
+            if ($a) {
+              $a.trigger('click');
+            }
+          } else {
             mymarker.closePopup();
           }
           return;
@@ -135,36 +146,46 @@ export default (function (window,document, $) {
 
         e.preventDefault();
 
-        switch(e.keyCode) {
-          case 32:
-          case 13:
+        switch(e.code) {
+          case 'Space':
+          case 'Enter':
             mymarker.openPopup();
             $('.leaflet-popup-content-wrapper').attr('tabindex', 1);
             $('.leaflet-popup-content-wrapper').focus();
 
             $('.leaflet-popup-content-wrapper').on('keydown', function(e){
-
-              if (e.keyCode == 27) {
+              if (e.code == 'Escape') {
                 mymarker.closePopup();
                 $(mymarker._icon).focus();
               }
 
-              if (e.keyCode == 9) {
+              if (e.code == 'Tab') {
                 if ($(this).is(e.target)) {
                   e.preventDefault()
-                  $('.leaflet-popup-content-wrapper a').first().focus();
+                  if (e.shiftKey) {
+                    $(mymarker._icon).focus();
+                  } else {
+                    $('.leaflet-popup-content-wrapper a').first().focus();
+                  }
                 }
               }
             });
 
+            $('.leaflet-popup-content-wrapper a').first().on('keydown', function(e){
+              if (e.code == 'Tab' && e.shiftKey) {
+                e.preventDefault();
+                $('.leaflet-popup-content-wrapper').focus();
+              }
+            });
+
             $('.leaflet-popup-close-button').on('keydown', function(e){
-              if (e.keyCode == 32 || e.keyCode == 13) {
+              if (e.code == 'Space' || e.code == 'Enter') {
                 e.preventDefault()
                 mymarker.closePopup();
                 $(mymarker._icon).focus();
               }
 
-              if (e.keyCode == 9) {
+              if (e.code == 'Tab') {
                 e.preventDefault();
                 $(mymarker._icon).focus();
               }
@@ -246,6 +267,44 @@ export default (function (window,document, $) {
       }
     }
   }
+
+  /**
+   * Return formatted marker infowindow data.
+   *
+   * @param data
+   *   Infowindow data object:
+   *   "infoWindow": {
+   *      "name": "Attleboro District Court",
+   *      "phone": "15082225900",
+   *      "fax": "15082233706",
+   *      "email": "courts@state.ma.us",
+   *      "address": "88 North Main Street\nAttleboro, MA 02703"
+   *   }
+   *
+   * @returns {*}
+   *   Object with passed data and new infoData property.
+   */
+  function infoTransform(data) {
+    let infoData = {
+      phoneFormatted: formatPhone(data.phone),
+      faxFormatted: formatPhone(data.fax)
+    };
+    return Object.assign({},data,infoData);
+  }
+
+  /**
+   * Return phone number data formatted for map marker.
+   *
+   * @param phone
+   *   "15082225900",
+   * @returns {string}
+   *    (508) 222-5900
+   */
+  function formatPhone(phone) {
+    let phoneTemp = phone && phone[0] === '1' ? phone.substring(1) : phone;
+    return phoneTemp ? phoneTemp.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') : null;
+  }
+
 
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
