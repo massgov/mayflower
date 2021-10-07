@@ -16,6 +16,6 @@
 Changed:
   - project: Patternlab
     component: Leaflet
-    description: Fixing focus issues when navigating with keyboard.
+    description: Fixing focus issues when navigating with keyboard. (#1490)
     issue: DP-22210
     impact: Minor
