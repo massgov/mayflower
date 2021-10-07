@@ -1,0 +1,11 @@
+Changed:
+  - project: PatternLab
+    component: StackedRowSection
+    description: Adding new modifier class option.
+    issue: DP-22982
+    impact: Minor
+  - project: PatternLab
+    component: RichText
+    description: Removing right padding if container has a .no-sidebar class.
+    issue: DP-22982
+    impact: Minor
