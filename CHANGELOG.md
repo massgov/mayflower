@@ -1,6 +1,30 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.15.3 (9/27/2021)
+### Changed 
+- (Patternlab) [UtilityNav] DP-22681: Replace the existing keyboard navigation function with the new common function, focusTrapping.js for desktop. (#1489)
+
+## 11.15.2 (9/21/2021)
+### Fixed 
+- (Assets) [Fonts] DP-22979: Fix webfonts `woff2` and `woff` fallback order, to avoid duplicated loading. (#1501)
+
+## 11.15.1 (9/20/2021)
+### Fixed 
+- (Patternlab) [KeyMessage] DP-22974: Adjusted it to fix regression issue. (#1503)
+
+## 11.15.0 (9/13/2021)
+### Fixed 
+- (Assets, Core) [Fonts, Typography] DP-20436: Fix and optimize Noto Sans multi-language fonts. (#1322)
+
+### Changed 
+- (Patternlab) [Picture, KeyMessage, MarketingCampaign] DP-22263: Adjusted components to support responsive images. (#1484)
+
+## 11.14.1 (9/6/2021)
+### Fixed 
+- (Patternlab) [inlineOverlay, TableOfContentsOverlay] DP-22608: Fix keyboard accessibility and aria-controls. (#1482)
+- (Patternlab) [accordions] DP-22608: Fix variable logic. (#1482)
+
 ## 11.14.0 (8/30/2021)
 
 ### Changed 
