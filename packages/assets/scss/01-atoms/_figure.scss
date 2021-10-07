@@ -249,6 +249,7 @@
   }
 
   .page-content .no-sidebar &--large {
+
     @media ($bp-large-max) {
       width: 100%;
       margin-right: 0;
