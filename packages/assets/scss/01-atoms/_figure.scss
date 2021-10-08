@@ -247,7 +247,6 @@
     }
 
     @media ($bp-large-min) {
-      width: 66.66%;
       width: calc(100% / 3 * 2);
     }
   }
@@ -261,6 +260,8 @@
     float: none;
   }
 
+  // The block above makes large images to be 100% width which is the same as extra large.
+  // This block applies when .no-sidebar is applied to the parent of the component page-content.
   .page-content .no-sidebar &--large {
 
     @media ($bp-large-max) {
@@ -271,7 +272,6 @@
     }
 
     @media ($bp-large-min) {
-      width: 66.66%;
       width: calc(100% / 3 * 2);
     }
   }
