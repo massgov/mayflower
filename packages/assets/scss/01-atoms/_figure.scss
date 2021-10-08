@@ -225,14 +225,17 @@
     }
     // No wrapping
     &--no-wrap.ma__figure {
-        float: none !important;
+        float: none;
         margin-right: 0;
         margin-left: 0;
-    }
-    &--no-wrap.ma__figure--right {
-        width: 100%;
-        @media ($bp-small-min) {
-            padding-left: 50%;
+        &--right {
+            width: 100%;
+            @media ($bp-small-min) {
+                padding-left: 50%;
+            }
+        }
+        &--left {
+            float: none !important;
         }
     }
     /* NO sidebar - used in org pages stacked row sections
