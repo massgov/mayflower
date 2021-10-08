@@ -249,7 +249,11 @@
             padding-left: 50%;
         }
     }
-    // NO WRAP - Small
+    /* NO sidebar - used in org pages stacked row sections
+       NO wrap - no text wrapping
+       Right aligned
+    */
+    // Small
     .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small {
         &,
         &.ma__dataviz,
@@ -260,7 +264,7 @@
             }
         }
     }
-    // NO WRAP - Medium
+    // Medium
     .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium {
         &,
         &.ma__dataviz,
@@ -272,7 +276,7 @@
             }
         }
     }
-    // NO WRAP - Large
+    // Large
     .no-sidebar &--no-wrap.ma__figure--right.ma__figure--large {
         &,
         &.ma__dataviz,
