@@ -225,7 +225,7 @@
     }
     // No wrapping
     &--no-wrap.ma__figure {
-        float: none !important;
+        float: none;
         margin-right: 0;
         margin-left: 0;
     }
@@ -264,7 +264,13 @@
     // Large
     .no-sidebar &--no-wrap.ma__figure--large {
         width: 100%;
+
+        @media ($bp-large-min) {
+          width: calc(100% / 3 * 2);
+        }
+
         &.ma__dataviz {
+
             @media ($bp-large-max) {
                 width: 100%;
                 margin-right: 0;
@@ -276,6 +282,8 @@
         &.ma__figure--right {
             &,
             &.ma__iframe__container {
+              width: 100%;
+
                 @media ($bp-large-min) {
                     padding-left: calc(100% / 3); //33.33%
                 }
