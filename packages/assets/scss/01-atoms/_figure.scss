@@ -261,7 +261,7 @@
   }
 
   // The block above makes large images to be 100% width which is the same as extra large.
-  // This block applies when .no-sidebar is applied to the parent of the component page-content.
+  // This block overrides the override above when the figure component is wrapped inside of a stacked row section with a  .no-sidebar class.
   // This specific use case is for stacked row section component on organization pages.
   .ma__stacked-row__section.no-sidebar &--large {
 
