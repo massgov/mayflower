@@ -3,12 +3,13 @@
 .ma__figure {
   margin: 0 0 20px 0;
 
-  .ma__rich-text &__skip-link, &__skip-link {
+  .ma__rich-text &__skip-link,
+  &__skip-link {
     margin: -29px 0 0 0;
     padding: 0 10px 2px 10px;
     float: left;
     display: block;
-    border-bottom: 0;// Reset the link underline from .ma__rich-text a.
+    border-bottom: 0; // Reset the link underline from .ma__rich-text a.
     font-size: 1.25rem;
     transition: none;
 
@@ -19,11 +20,11 @@
     &:not(:focus) {
 
       @include ma-visually-hidden;
-
     }
   }
 
   div[id^='figure-'] {
+
     // These margin and padding help the link target visible below the sticky nav in stead of hide under the sticky nav.
     margin-top: -80px;
     padding-top: 80px;
@@ -37,7 +38,6 @@
       float: left;
       font-size: 1.25rem;
       font-weight: 550;
-
       border: 3px solid transparent;
       border-radius: 6px;
       transition: border 0.4s ease;
@@ -49,7 +49,6 @@
         // The border is added to be more recognizable.
         border-color: #005fcc;
       }
-
     }
   }
 
@@ -69,7 +68,6 @@
 
   @media ($bp-small-min) {
     margin: 0 30px 30px 30px;
-
     // support pre-existing figure elements besides dataviz.
 
     &--left:not(.ma__dataviz):not(.ma__iframe__container),
@@ -123,7 +121,6 @@
   // Size - Small + X-small
 
   @media ($bp-x-small-min) {
-
     // .no-sidebar
 
     &--x-small {
@@ -132,7 +129,6 @@
   }
 
   @media ($bp-x-small-min) and ($bp-small-max) {
-
     // .no-sidebar
 
     &--small {
@@ -142,14 +138,17 @@
     }
   }
 
-  @media ($bp-small-min) {// 621~
+  @media ($bp-small-min) {
+    // 621~
 
     &--x-small,
     &--small {
       width: calc(50% - 15px);
 
-      &.ma__figure--no-wrap.ma__figure--right {
-        @media ($bp-small-min) {// 621~
+      &.ma__figure--no-wrap.ma__figure--right:not(.ma__dataviz):not(.ma__iframe__container) {
+
+        @media ($bp-small-min) {
+          // 621~
           margin-left: 50%;
           padding-left: 0;
         }
@@ -157,8 +156,8 @@
     }
   }
 
-  @media ($bp-medium-min) {// 781~
-
+  @media ($bp-medium-min) {
+    // 781~
     // default size with BP 780<
 
     &--x-small,
@@ -167,7 +166,8 @@
     }
   }
 
-  @media ($bp-large-min) and ($bp-large-extended) {// 911-1050
+  @media ($bp-large-min) and ($bp-large-extended) {
+    // 911-1050
 
     .page-content:not(.no-sidebar) &--small {
       width: 100%;
@@ -176,28 +176,30 @@
     }
   }
 
-  @media ($bp-x-large-min) {// 1200<
+  @media ($bp-x-large-min) {
+    // 1200<
 
     .page-content:not(.no-sidebar) &--x-small {
       width: calc(100% / 3 - 20px);
     }
   }
-
   // Size - Medium
 
   &--medium {
 
-    @media ($bp-small-min) {// 621~
+    @media ($bp-small-min) {
+      // 621~
       width: calc(50% - 15px);
     }
 
-   &.ma__figure--no-wrap.ma__figure--right {
-      @media ($bp-small-min) {// 621~
+    &.ma__figure--no-wrap.ma__figure--right:not(.ma__dataviz):not(.ma__iframe__container) {
+
+      @media ($bp-small-min) {
+        // 621~
         margin-left: 50%;
         padding-left: 0;
       }
     }
-
   }
 
   // with right column
@@ -212,7 +214,7 @@
     }
 
     @media ($bp-small-min) and ($bp-large-max) {
-        width: calc(50% - 15px);
+      width: calc(50% - 15px);
     }
 
     @media ($bp-small-max) {
@@ -251,30 +253,14 @@
     }
   }
 
-  .page-content:not(.no-sidebar) &--large {// with right column
+  .page-content:not(.no-sidebar) &--large {
+    // with right column
     // Always 100% of the parent container width
     // No side margins
     width: 100%;
     margin-right: 0;
     margin-left: 0;
     float: none;
-  }
-
-  // The block above makes large images to be 100% width which is the same as extra large.
-  // This block overrides the override above when the figure component is wrapped inside of a stacked row section with a  .no-sidebar class.
-  // This specific use case is for stacked row section component on organization pages.
-  .ma__stacked-row__section.no-sidebar &--large {
-
-    @media ($bp-large-max) {
-      width: 100%;
-      margin-right: 0;
-      margin-left: 0;
-      float: none;
-    }
-
-    @media ($bp-large-min) {
-      width: calc(100% / 3 * 2);
-    }
   }
 
   // Alignment
@@ -298,74 +284,97 @@
       margin-left: 0;
     }
   }
-
   // No wrapping
 
   &--no-wrap.ma__figure {
     float: none;
     margin-right: 0;
     margin-left: 0;
+
+    &--right {
+      width: 100%;
+
+      @media ($bp-small-min) {
+        padding-left: 50%;
+      }
+    }
+
+    &--left {
+      float: none !important;
+    }
   }
 
-  &--no-wrap.ma__figure--right {
+  /* NO sidebar - used in org pages stacked row sections
+     NO wrap - no text wrapping
+  */
+  // Small
+
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small {
+
+    &,
+    &.ma__dataviz,
+    &.ma__iframe__container {
+
+      @media ($bp-small-min) {
+        // 621~
+        padding-left: calc(100% / 3 * 2); //66.66%
+      }
+    }
+  }
+
+  // Medium
+
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium {
+
+    &,
+    &.ma__dataviz,
+    &.ma__iframe__container {
+
+      @media ($bp-small-min) {
+        // 621~
+        width: 100%;
+        padding-left: 50%;
+      }
+    }
+  }
+
+  // Large
+
+  .no-sidebar &--no-wrap.ma__figure--large {
     width: 100%;
 
-    @media ($bp-small-min) {
-
-      padding-left: 50%;
-    }
-  }
-
-  // NO WRAP - Small
-
-  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small,
-  &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz,
-  &--no-wrap.ma__figure--right.ma__figure--small.ma__iframe__container {
-
-    @media ($bp-small-min) {// 621~
-
-      padding-left: 66.66%;
-      padding-left: calc(100% / 3 * 2);
-    }
-  }
-
-  // NO WRAP - Medium
-
-  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium,
-  &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz,
-  &--no-wrap.ma__figure--right.ma__figure--medium.ma__iframe__container {
-
-
-    @media ($bp-small-min) {// 621~
-      width: 100%;
-      padding-left: 50%;
-    }
-  }
-
-  // NO WRAP - Large
-
-  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--large {
-
     @media ($bp-large-min) {
-
-      padding-left: 66.66%;
-      padding-left: calc(100% / 3 * 2);
+      width: calc(100% / 3 * 2);
     }
-  }
 
-  &--no-wrap.ma__figure--right.ma__figure--large.ma__dataviz,
-  &--no-wrap.ma__figure--right.ma__figure--large.ma__iframe__container {
+    &.ma__dataviz {
 
-    @media ($bp-large-min) {
-      padding-left: calc(100% / 3);
-      width: 100%
+      @media ($bp-large-max) {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        float: none;
+      }
+    }
+
+    // Align right
+
+    &.ma__figure--right {
+
+      &,
+      &.ma__iframe__container {
+        width: 100%;
+
+        @media ($bp-large-min) {
+          padding-left: calc(100% / 3); //33.33%
+        }
+      }
     }
   }
 
   // caption
 
   &__caption {
-
     color: $c-font-detail;
     font-weight: bold;
     font-style: normal;
@@ -406,6 +415,7 @@
 }
 
 .ma__figure.ma__iframe__container {
+
   // Reset initial styles on elements in iframe container.
 
   .ma__figure__skip-link {
@@ -429,198 +439,188 @@
 }
 
 // MARGIN ADJUSTMENT with side by side layout
-
 // x-small and small have the common layout pattern.
 // Small + x-small sizes - 50% width
 // left align --- 3rd item, 5th item, 7th item, 9th item
 
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+.ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left {
 
-.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left {
-
-  @media ($bp-x-small-min) {// 480px <
-
+  @media ($bp-x-small-min) {
+    // 480px <
     margin-right: 20px;
   }
 
-  @media ($bp-medium-min) {// 780px <
-
+  @media ($bp-medium-min) {
+    // 780px <
     margin-right: 30px;
   }
 }
 
 // right align --- 3rd item, 5th item, 7th item, 9th item
 
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+.ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right {
 
-.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right {
-
-  @media ($bp-x-small-min) {// 480px <
-
+  @media ($bp-x-small-min) {
+    // 480px <
     margin-left: 20px;
   }
 
-  @media ($bp-medium-min) {// 780px <
-
+  @media ($bp-medium-min) {
+    // 780px <
     margin-left: 30px;
   }
 }
 
 // right side items --- 2nd item, 4th item, 6th item, 8th item, 10th item
 
-.ma__figure--x-small+.ma__figure--x-small,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
-.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
+.ma__figure--x-small + .ma__figure--x-small,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
+.ma__figure--small + .ma__figure--small,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small {
 
-.ma__figure--small+.ma__figure--small,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small,
-.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small {
-
-  @media ($bp-x-small-min) {// 480px <
-
+  @media ($bp-x-small-min) {
+    // 480px <
     margin: 0 0 20px 0;
   }
 
-  @media ($bp-medium-min) {// 780px <
-
+  @media ($bp-medium-min) {
+    // 780px <
     margin: 0 0 30px 0;
   }
 }
 
-@media ($bp-x-large-min) {// 1200px <
+@media ($bp-x-large-min) {
+  // 1200px <
 
-  .page-content:not(.no-sidebar) {// This selector is necessary to override above styles.
-
+  .page-content:not(.no-sidebar) {
+    // This selector is necessary to override above styles.
     // x-small sizes - 33% width
-
     // left align --- 2nd item, 4th item, 5th item, 7th item, 8th item
 
-    .ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left {
+    .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left {
       margin-right: 30px;
     }
 
     // right align --- 2nd item, 4th item, 5th item, 7th item, 8th item
 
-    .ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right {
+    .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right {
       margin-left: 30px;
     }
 
     // right side items --- 3rd item, 6th item, 9th item
 
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small {
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small {
       margin: 0 0 30px 0;
     }
   }
-
-
-
 }
 
-.no-sidebar { // 1 col layout, no right column
+.no-sidebar {
+  // 1 col layout, no right column
 
-  @media ($bp-medium-min) {// 780px <
+  @media ($bp-medium-min) {
 
+    // 780px <
     // In this breakpoint, x-small and small have the common layout pattern.
     // Small + x-small sizes - 33% width for 780 <
-
     // left align --- 2nd item, 4th item, 5th item, 7th item, 8th item
 
-    .ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--left,
-
-    .ma__figure--small+.ma__figure--small.ma__figure--left,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--mall.ma__figure--left,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--left {
+    .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--left,
+    .ma__figure--small + .ma__figure--small.ma__figure--left,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--mall.ma__figure--left,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--left {
       margin-right: 30px;
     }
 
     // right align --- 2nd item, 4th item, 5th item, 7th item, 8th item
 
-    .ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small.ma__figure--right,
-
-    .ma__figure--small+.ma__figure--small.ma__figure--right,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--mall.ma__figure--right,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small.ma__figure--right {
+    .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small.ma__figure--right,
+    .ma__figure--small + .ma__figure--small.ma__figure--right,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--mall.ma__figure--right,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small.ma__figure--right {
       margin-left: 30px;
     }
 
     // right side items --- 3rd item, 6th item, 9th item
 
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
-    .ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small+.ma__figure--x-small,
-
-    .ma__figure--small+.ma__figure--small+.ma__figure--small,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
+    .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small,
+    .ma__figure--small + .ma__figure--small + .ma__figure--small,
     .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small,
-    .ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small+.ma__figure--small {
+    .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__figure--small {
       margin: 0 0 30px 0;
     }
   }
 }
 
-@media ($bp-small-min) {// 620px <
-
+@media ($bp-small-min) {
+  // 620px <
   // Medium size - 50% width for 620 <
   // Apply to layout with/without a right column.
-
   // left align --- 3rd item, 5th item, 7th item
 
-  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--left,
-  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--left,
-  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--left {
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--left,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--left,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--left {
     margin-right: 30px;
   }
 
   // right align --- 3rd item, 5th item, 7th item
 
-  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--right,
-  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--right,
-  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium.ma__figure--right {
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--right,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--right,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium.ma__figure--right {
     margin-left: 30px;
   }
 
   // right side items --- 2nd item, 4th item, 6th item
 
-  .ma__figure--medium+.ma__figure--medium,
-  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium,
-  .ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium+.ma__figure--medium {
+  .ma__figure--medium + .ma__figure--medium,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium,
+  .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium + .ma__figure--medium {
     margin: 0 0 30px 0;
   }
 }
@@ -630,6 +630,7 @@
 .ma__figure {
 
   &__caption {
+
     font-weight: $fonts-lighter;
   }
 }
