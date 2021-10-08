@@ -1,0 +1,70 @@
+@use "00-base/configure" as *;
+
+@use "leaflet/dist/leaflet.css";
+
+// temp fix until perm fix gets released --> https://github.com/Leaflet/Leaflet/pull/7259
+
+.leaflet-container :focus {
+  outline: -webkit-focus-ring-color auto thin !important; /* Fallback for some browsers that don't support `revert`. */
+  /* Longhand properties:
+  outline-color: -webkit-focus-ring-color !important;
+  outline-style: auto !important;
+  outline-width: thin !important;
+  */
+  outline: revert !important;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+
+  &-wrapper {
+    padding: 6px;
+  }
+}
+
+.ma__leaflet-map {
+
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__map {
+    height: 360px;
+    z-index: 10;
+
+    @media ($bp-x-small-min) {
+      height: 500px;
+    }
+  }
+
+  &__directions-link {
+    width: 100%;
+    background-color: $c-primary-alt;
+    padding: 0.2rem 0.9rem;
+    font-size: $fonts-large;
+
+    span {
+      color: $c-white;
+
+      svg {
+        fill: rgba($c-white, 0.7);
+        width: 12px;
+        height: 12px;
+        margin-bottom: -1px;
+      }
+    }
+  }
+
+  a:hover {
+
+    span {
+      text-decoration: underline;
+    }
+  }
+}

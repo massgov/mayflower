@@ -47,7 +47,6 @@ body {
 a {
 
   @include ma-link-transition;
-  text-decoration: none;
   font-weight: $fonts-bold;
   color: $c-font-link;
 }

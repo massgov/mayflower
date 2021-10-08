@@ -8,6 +8,7 @@
     "level": "",
     "tags": null,
     "image": {
+      "ariaHidden": false,
       "src":"../../assets/images/placeholder/190x107.png",
       "alt": "placeholder image",
       "width": "190",

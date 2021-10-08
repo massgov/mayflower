@@ -23,7 +23,8 @@ $event-listing-bp-show-grid: $bp-medium-min;
     font-size: $fonts-large;
     margin-bottom: .25em;
 
-    .ma__page-header & {
+    .ma__page-header &,
+    .ma__page-header-addons & {
       font-size: $fonts-xlarge;
     }
   }

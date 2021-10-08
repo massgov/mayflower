@@ -1,12 +1,20 @@
+{# imagePromos.ariaHidden: When the linked heading and the linked image point to the same destination,
+
+   hide the linked image from the screen reader to prevent duplicate content. #}
+
 <section class="ma__image-promo{{ imagePromo.location.map ? ' js-location-listing-link' : '' }}">
   {% block imagePromoImage %}
     {% if imagePromo.image %}
       <div class="ma__image-promo__image"
         {% if imagePromo.image.width %}
           style="flex-basis: {{ imagePromo.image.width }}px"
-        {% endif %}>
+        {% endif %}
+        {{ imagePromo.image.ariaHidden ? 'aria-hidden="true"' : '' }}
+      >
         {% if imagePromo.image.href %}
-          <a href="{{ imagePromo.image.href }}">
+          <a href="{{ imagePromo.image.href }}"
+          {{ imagePromo.image.ariaHidden ? 'tabindex="-1"' : '' }}
+          >
         {% endif %}
           {% set image = imagePromo.image %}
           {% include "@atoms/09-media/image.twig" %}

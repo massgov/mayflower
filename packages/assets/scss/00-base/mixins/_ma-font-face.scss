@@ -5,8 +5,8 @@
 
 @use "variables" as *;
 
-$oneSpace: 	' ';
-$oneDash:		'-';
+$oneSpace: ' ';
+$oneDash: '-';
 
 @mixin ma-font-face ($family: "Noto", $type: "Sans", $script: "Cyrillic", $suffix: "UI", $weight: "VF", $subset: "-subset", $fontWeight: "100 900", $fontStyle: "normal", $fontDisplay: $fonts-display-global, $unicodeRange: "cyrillic", $space: $oneSpace, $dash: $oneDash) {
 
@@ -15,11 +15,9 @@ $oneDash:		'-';
 	} @else {
 		font-family: '#{$family} #{$type} #{$script}#{$space}#{$suffix}';
 	}
-	src:	url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$oneDash}#{$weight}#{$subset}.woff2') format('woff2'),
-				url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$oneDash}#{$weight}#{$subset}.woff') format('woff'),
-				// url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$weight}#{$subset}.eot?#iefix') format('embedded-opentype'),
-				// url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$weight}#{$subset}.svg') format('svg'),
-				;
+	src:	// url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$weight}#{$subset}.eot?#iefix') format('embedded-opentype'),
+			url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$oneDash}#{$weight}#{$subset}.woff2') format('woff2'),
+			url('#{$assets-path}#{$fonts-path}#{$script}/#{$family}#{$type}#{$script}#{$dash}#{$suffix}#{$oneDash}#{$weight}#{$subset}.woff') format('woff');
 	font-weight: $fontWeight;
 	font-style: $fontStyle;
 	font-display: $fontDisplay;

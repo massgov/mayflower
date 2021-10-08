@@ -9,6 +9,7 @@
 
   {% set pageHeader = preContent.pageHeader %}
   {% include "@organisms/by-template/page-header.twig" %}
+  {% include "@organisms/by-template/page-header-addons.twig" %}
 
   {% block overview %}
     {% if preContent.overview.rteElements %}
@@ -29,61 +30,10 @@
 {% endblock %}
 
 {% block pageContent %}
-
-  {% if pageContent.section1 %}
-    {% set richText = pageContent.section1 %}
+  {% for section in pageContent %}
+    {% set richText = section %}
     {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section2 %}
-    {% set richText = pageContent.section2 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section3 %}
-    {% set richText = pageContent.section3 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section4 %}
-    {% set richText = pageContent.section4 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section5 %}
-    {% set richText = pageContent.section5 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section6 %}
-    {% set richText = pageContent.section6 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section7 %}
-    {% set richText = pageContent.section7 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section8 %}
-    {% set richText = pageContent.section8 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section9 %}
-    {% set richText = pageContent.section9 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section10 %}
-    {% set richText = pageContent.section10 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
-
-  {% if pageContent.section11 %}
-    {% set richText = pageContent.section11 %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endif %}
+  {% endfor %}
 
   {% if postContent.contactList %}
     {% set contactList = postContent.contactList %}

@@ -1,7 +1,7 @@
 {
   "items": [{
     "heading": "FooterLinks1",
-    "id": "FooterLinks1",
+    "headingLevel": 3,
     "links": [{
       "href": "#",
       "text": "Living"
@@ -20,7 +20,7 @@
     }]
   },{
     "heading": "FooterLinks2",
-    "id": "FooterLinks2",
+    "headingLevel": 3,
     "links": [{
       "href": "#",
       "text": "Contact Us"
@@ -33,7 +33,7 @@
     }]
   },{
     "heading": "FooterLinks3",
-    "id": "FooterLinks3",
+    "headingLevel": 3,
     "links": [{
       "href": "#",
       "text": "Sitemap"

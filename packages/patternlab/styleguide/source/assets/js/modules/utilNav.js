@@ -1,9 +1,25 @@
-export default (function (window, document, $, undefined) {
+import focusTrapping from "../helpers/focusTrapping.js";
 
+export default (function (document,$) {
+  const wideContainerClass = '.js-utility-nav--wide .js-util-nav-content';
   let $panels = $('.js-util-nav-content');
   let $panel = "";
   let $utilityButtons = $('.js-util-nav-toggle');
 
+  // Keyboard navigation.
+  $(document).keydown(function(e) {
+    // check if menu open
+    if (!$(wideContainerClass).hasClass('is-closed')) {
+      focusTrapping({
+        focusableSelectors: 'a, button',
+        modalSelector: wideContainerClass,
+
+        keyEvent: e
+      });
+    }
+  });
+
+  // In the hamburger menu container.
   $panels.each(function () {
     if ($(this).closest(".ma__header__hamburger__utility-nav--narrow") !== true) {
       $panel = $(this);
@@ -25,6 +41,7 @@ export default (function (window, document, $, undefined) {
       $panel.css('top', '-' + height + 'px');
       $panel.toggleClass('is-closed');
       $panel.attr("aria-hidden", "true");
+      $utilityButtons.focus();
     });
 
     $panel.on('keydown', function (e) {
@@ -85,4 +102,4 @@ export default (function (window, document, $, undefined) {
       $(window).trigger('resized');
     }, 150);
   });
-})(window, document, jQuery);
+})(document,jQuery);

@@ -1,0 +1,37 @@
+{
+  "generalTeaser" : {
+    "eyebrow": {
+      "icon": "catalog",
+      "label": "Data Catalog"    
+    },
+    "upperRight": {
+      "icon": "pin",
+      "label": "Featured"
+    },
+    "title" : {
+      "href": "#",
+      "text": "Link field for a title or name",
+      "info": "",
+      "property": ""
+    },
+    "level": "",
+    "emphasizedText": [
+      "An emphasized text field",
+      "Another emphasized text field"
+    ],
+    "tags": [
+      "kml",
+      "xls",
+      "json",
+      "csv"
+    ],
+    "contents": [{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+        }
+      }
+    }]
+  }
+}

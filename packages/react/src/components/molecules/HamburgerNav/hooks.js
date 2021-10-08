@@ -1,9 +1,22 @@
 import React from 'react';
+import focusTrapping from 'MayflowerReactComponents/utilities/focusTrapping';
 
 export const useHamburgerNavKeydown = (closeMenu) => {
   // Define this using useCallback so this event listener
   // can be deleted when the parent component unmounts.
   const keyDown = React.useCallback((e) => {
+    // check if menu open
+    const body = document.querySelector('body');
+    if (body.classList.value.indexOf('show-menu') > 0) {
+      // trap focus only when menu is open
+      focusTrapping({
+        focusableSelectors: '[role="menuitem"], .ma__utility-nav__link > a, .ma__utility-nav__item > button, .ma__utility-panel__item > span > a',
+        closeButtonSelector: '.ma__header__hamburger__menu-button',
+        modalSelector: '.ma__header__hamburger__nav-container',
+        keyEvent: e
+      });
+    }
+
     const utilNavWide = document.querySelector('.js-utility-nav--wide');
     const utilNarrowNav = document.querySelector('.ma__header__hamburger__utility-nav--narrow');
     const utilNarrowButton = document.querySelector('.ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle');
@@ -48,6 +61,7 @@ export const useHamburgerNavKeydown = (closeMenu) => {
         }, 500);
       }
     }
+
     // ESC to close menus.
     // 'e.key === "Esc"' is necessary for IE11.
     if (e.key === 'Escape' || e.key === 'Esc' || e.code === 'Escape') {
@@ -78,6 +92,7 @@ export const useHamburgerNavKeydown = (closeMenu) => {
           }
         }
       }
+
       // Main nav elements
       const openSubmenu = document.querySelector('.submenu-open .js-main-nav-hamburger__top-link');
       if (openSubmenu !== document.activeElement) {
@@ -118,25 +133,31 @@ export const useJumpToSearch = (openMenu) => {
     if (body.classList.contains('show-menu')) {
       // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
       hamburgerMenuContainer.setAttribute('aria-hidden', '');
-      searchInput.focus();
+      if (searchInput) {
+        searchInput.focus();
+      }
     } else {
       hamburgerMenuContainer.removeAttribute('aria-hidden');
       openMenu();
       setTimeout(() => {
-        jumpToSearchButton.setAttribute('aria-pressed', 'true');
-        searchInput.setAttribute('autofocus', '');
-        searchInput.focus();
+        if (jumpToSearchButton) {
+          jumpToSearchButton.setAttribute('aria-pressed', 'true');
+        }
+        if (searchInput) {
+          searchInput.setAttribute('autofocus', '');
+          searchInput.focus();
+        }
       }, 200);
     }
   }, [openMenu]);
   React.useEffect(() => {
     const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
 
-    if (jumpToSearchButton !== null) {
+    if (jumpToSearchButton) {
       jumpToSearchButton.addEventListener('click', jumpToSearch);
     }
     return(() => {
-      if (jumpToSearchButton !== null) {
+      if (jumpToSearchButton) {
         jumpToSearchButton.removeEventListener('click', jumpToSearch);
       }
     });
@@ -154,43 +175,15 @@ export const useMenuButtonEffects = (menuButtonRef, toggleMenu) => {
       toggleMenu();
     }
   }, [menuButtonRef, toggleMenu]);
-  const onButtonKeyDown = React.useCallback((e) => {
-    const width = document.querySelector('body').clientWidth;
-    if (e.key === 'Tab' || e.code === 'Tab') {
-      if (width < 621) {
-        e.preventDefault();
-        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
-        const focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
-        focusable[0].focus();
-      }
-    }
-  }, []);
 
-  const onLogoKeyDown = React.useCallback((e) => {
-    if ((e.shiftKey && e.key === 'Tab') || (e.shiftKey && e.code === 'Tab')) {
-      setTimeout(() => {
-        document.querySelector('.js-header-menu-button').focus();
-      }, 100);
-    }
-  }, []);
   React.useEffect(() => {
     const menuButton = menuButtonRef.current;
     if (menuButton) {
       menuButton.addEventListener('click', onClick);
-      menuButton.addEventListener('keydown', onButtonKeyDown);
-      const logoLink = document.querySelector('.ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a');
-      if (logoLink) {
-        logoLink.addEventListener('keydown', onLogoKeyDown);
-      }
     }
     return(() => {
       if (menuButton) {
         menuButton.removeEventListener('click', onClick);
-        menuButton.removeEventListener('keydown', onButtonKeyDown);
-        const logoLink = document.querySelector('.ma__header__hamburger__nav-container .ma__header__hamburger__logo--mobile a');
-        if (logoLink) {
-          logoLink.removeEventListener('keydown', onLogoKeyDown);
-        }
       }
     });
   }, [menuButtonRef, toggleMenu]);

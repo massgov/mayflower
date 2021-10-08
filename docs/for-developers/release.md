@@ -2,15 +2,14 @@
 
 Mayflower Release involves cutting a Github tag following [Semantic Versioning](./versioning.md) leveraging CircleCI with these [scripts](/scripts). The release entails:
 
-- Build and publish the [@massds/mayflower-tokens](https://www.npmjs.com/package/@massds/mayflower-tokens) NPM packages
-- Build and publish the [@massds/mayflower](https://www.npmjs.com/package/@massds/mayflower) NPM package
-- Build and publish the [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) NPM package
+- Build and publish the [@massds/mayflower-assets](https://www.npmjs.com/package/@massds/mayflower-assets) NPM packages
 - Build and publish the [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) NPM package
 - Build and publish the [massgov/mayflower-artifacts](https://packagist.org/packages/massgov/mayflower-artifacts) PHP package
+- Build and publish the [@massds/mayflower](https://www.npmjs.com/package/@massds/mayflower) NPM package (deprecated)
 - Build, test and deploy the [Mayflower homepage site](https://mayflower.digital.mass.gov/)
 - Build, test and deploy the [Patternlab site](https://mayflower.digital.mass.gov/patternlab)
-- Build, test and deploy the [Storybook site](https://mayflower.digital.mass.gov/react)
-- Deploy to documentation to the [Mayflower Gitbook](https://mayflower.digital.mass.gov/docs)
+- Build, test and deploy the [React Storybook site](https://mayflower.digital.mass.gov/react)
+- Build, test and deploy the [Core documentation site](https://mayflower.digital.mass.gov/core)
 
 
 ## Auto Release
@@ -22,7 +21,7 @@ Mayflower releases are automated using CircleCI and it's scheduled for every **M
 1. A pull request gets created into master with descriptions
 1. **Once all the Circle tests are passed in the PR, review and "Merge" the PR into master.**
 1. **Upon approving the release PR, release the "hold" on `github_tag` in CircleCI.**
-![approve tag release hold](../.gitbook/assets/release-auto.png)
+![approve tag release hold](../assets/release-auto.png)
 1. A release will be cut for Mayflower.
 1. Merge `master` back into `develop`.
 
@@ -35,7 +34,7 @@ To do a hotfix directly into `master`:
 1. Commit the changes and push up to the remote hotfix branch.
 1. **Once all the Circle tests are passed in the PR, review and "Squash and merge" the PR into master.**
 1. **Upon approving the release PR, release the "hold" on `github_tag` in CircleCI.**
-![approve tag release hold](../.gitbook/assets/release-auto.png)
+![approve tag release hold](../assets/release-auto.png)
 1. A release will be cut for Mayflower.
 1. Merge `master` back into `develop`.
 
@@ -47,7 +46,7 @@ In a case that a manual release from `develop` is needed:
 1. Push up the branch and create a PR into `master`, add the newly compiled changelogs to the description as the PR description.
 1. **Once all the Circle tests are passed in the PR, review and "Merge" the PR into master.**
 1. **Upon approving the release PR, release the "hold" on `github_tag` in CircleCI.**
-![approve tag release hold](../.gitbook/assets/release-auto.png)
+![approve tag release hold](../assets/release-auto.png)
 1. A release will be cut for Mayflower.
 1. Merge `master` back into `develop`.
 

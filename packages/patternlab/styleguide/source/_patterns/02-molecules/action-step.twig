@@ -1,41 +1,76 @@
 {% set accordion = actionStep.accordion %}
+{% set suffix = actionStep.suffix %}
+{% set link = actionStep.link %}
 
 <section
   class="ma__action-step {{ accordion ? 'js-accordion ma__action-step--accordion' : '' }} {{ actionStep.isExpanded ? 'is-open':'' }}">
   {% if accordion %}
     <button
       class="ma__action-step__header js-accordion-link"
-      aria-label="{{ actionStep.accordionLabel }}">
+      {% if actionStep.accordionLabel %}aria-label="{{ actionStep.accordionLabel }}"{% endif %}>
   {% else %}
     <header class="ma__action-step__header">
   {% endif %}
     {% if actionStep.icon %}
-      <div class="ma__action-step__icon">
+      <div class="ma__action-step__icon" aria-label="{{actionStep.iconLabel}}">
         {{ icon(actionStep.icon) }}
       </div>
     {% endif %}
     {% set headingLevel = actionStep.level ? : 2 %}
-    <h{{ headingLevel }} class="ma__action-step__title">{{ actionStep.title }}</h{{ headingLevel }}>
+    <h{{ headingLevel }} class="ma__action-step__title {{ link ? 'ma__decorative-link' : ''}}">
+      {% if link %}
+        <a href="{{link}}" class="js-clickable-link">
+          {{ actionStep.title }} &nbsp;{{ icon('arrow') }}
+        </a>
+      {% else %}
+        {{ actionStep.title }}
+      {% endif %}
+      {% if suffix %}
+        <span>{{suffix}}</span>
+      {% endif %}
+    </h{{ headingLevel }}>
   {% if accordion %}
     </button>
   {% else %}
     </header>
   {% endif %}
-  <div class="ma__action-step__content {{ accordion ? 'js-accordion-content' : '' }}">
-  {% set richText = actionStep.richText %}
-  {% include "@organisms/by-author/rich-text.twig" %}
-  {% block formDownloads %}
-    {% if actionStep.downloadLinks %}
-      {% set formDownloads = { "downloadLinks": actionStep.downloadLinks } %}
-      {% include "@organisms/by-author/form-downloads.twig" %}
-      {% endif %}
-  {% endblock %}
-  {% block decorativeLink %}
-  {% if actionStep.decorativeLink %}
-    <div class="ma__action-step__more">
-      {% set decorativeLink = actionStep.decorativeLink %}
-      {% include "@atoms/decorative-link.twig" %}
-    </div>
+  {% if actionStep.richText or actionStep.decorativeLink or actionStep.downloadLinks or actionStep.content %}
+    <div class="ma__action-step__content {{ accordion ? 'js-accordion-content' : '' }}">
+
+
+    {% if actionStep.richText %}
+      {% set richText = actionStep.richText %}
+      {% include "@organisms/by-author/rich-text.twig" %}
+    {% endif %}
+    {% block formDownloads %}
+      {% if actionStep.downloadLinks %}
+        {% set formDownloads = { "downloadLinks": actionStep.downloadLinks } %}
+        {% include "@organisms/by-author/form-downloads.twig" %}
+        {% endif %}
+    {% endblock %}
+    {% block decorativeLink %}
+    {% if actionStep.decorativeLink %}
+      <div class="ma__action-step__more">
+        {% set decorativeLink = actionStep.decorativeLink %}
+        {% include "@atoms/decorative-link.twig" %}
+      </div>
+    {% endif %}
+    {% endblock %}
+
+    {% if actionStep.content%}
+      {% for content in actionStep.content %}
+        {% if content.richText %}
+          {% set richText = content.richText %}
+          {% include "@organisms/by-author/rich-text.twig" %}
+        {% endif %}
+
+        {% if content.decorativeLink %}
+          <div class="ma__action-step__more">
+            {% set decorativeLink = content.decorativeLink %}
+            {% include "@atoms/decorative-link.twig" %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   {% endif %}
-  {% endblock %}
 </section>

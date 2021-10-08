@@ -8,7 +8,28 @@
         "level": "1"
       },
       "textOverlay": "c-gray-lightest",
-      "bgImage": "../../assets/images/placeholder/1920x1080-sign.jpg",
+      "bgImage": {
+        "path": "@atoms/09-media/picture-element.twig",
+        "data": {
+          "picture": {
+            "defaultImage": "../../assets/images/placeholder/460x220.png",
+            "srcSets": [
+              {
+                "url": "../../assets/images/placeholder/1600x600.png",
+                "width": "1201"
+              },
+              {
+                "url": "../../assets/images/placeholder/900x700.png",
+                "width": "911"
+              },
+              {
+                "url": "../../assets/images/placeholder/500x300.png",
+                "width": "481"
+              }
+            ]
+          }
+        }
+      },
       "mobileBgImage": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
       "subtitle": "From education, to healthcare and beyond, the work of more than 150 agencies across Massachusetts touches every aspect of our lives. We are a diverse team of mission-driven IT professionals supporting this vital work.",
       "description": {
@@ -86,7 +107,28 @@
         "title": "Benefits of working for the Commonwealth",
         "level": "2"
       },
-      "bgImage": "",
+      "bgImage": {
+        "path": "@atoms/09-media/picture-element.twig",
+        "data": {
+          "picture": {
+            "defaultImage": "../../assets/images/placeholder/460x220.png",
+            "srcSets": [
+              {
+                "url": "../../assets/images/placeholder/1600x600.png",
+                "width": "1201"
+              },
+              {
+                "url": "../../assets/images/placeholder/900x700.png",
+                "width": "911"
+              },
+              {
+                "url": "../../assets/images/placeholder/500x300.png",
+                "width": "481"
+              }
+            ]
+          }
+        }
+      },
       "mobileBgImage": "",
       "subtitle": "",
       "description": {

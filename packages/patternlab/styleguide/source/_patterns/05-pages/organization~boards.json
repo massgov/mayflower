@@ -1318,13 +1318,14 @@
                 "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
                 "text": "Location Details"
               },
-              "googleMap": {
+              "leafletMap": {
+                "isStatic": false,
+                "hideAttribution": false,
                 "map": {
                   "center": {
                     "lat": 42.366565,
                     "lng": -71.058940
-                  },
-                  "zoom": 16
+                  }
                 },
                 "markers": [
                   {
