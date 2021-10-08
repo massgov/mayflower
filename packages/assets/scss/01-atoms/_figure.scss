@@ -206,20 +206,6 @@
         margin-left: 0;
         float: none;
     }
-    // The block above makes large images to be 100% width which is the same as extra large.
-    // This block overrides the override above when the figure component is wrapped inside of a stacked row section with a  .no-sidebar class.
-    // This specific use case is for stacked row section component on organization pages.
-    .ma__stacked-row__section.no-sidebar &--large {
-        @media ($bp-large-max) {
-            width: 100%;
-            margin-right: 0;
-            margin-left: 0;
-            float: none;
-        }
-        @media ($bp-large-min) {
-            width: calc(100% / 3 * 2);
-        }
-    }
     // Alignment
     &--left {
         float: left;
@@ -278,8 +264,18 @@
     }
     // Large
     .no-sidebar &--no-wrap.ma__figure--right.ma__figure--large {
+        &.ma__dataviz {
+            @media ($bp-large-max) {
+                width: 100%;
+                margin-right: 0;
+                margin-left: 0;
+                float: none;
+            }
+            @media ($bp-large-min) {
+                width: calc(100% / 3 * 2);
+            }
+        }
         &,
-        &.ma__dataviz,
         &.ma__iframe__container {
             @media ($bp-large-min) {
                 padding-left: calc(100% / 3); //33.33%
