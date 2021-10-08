@@ -262,6 +262,7 @@
 
   // The block above makes large images to be 100% width which is the same as extra large.
   // This block applies when .no-sidebar is applied to the parent of the component page-content.
+  // This specific use case is for stacked row section component on organization pages.
   .page-content .no-sidebar &--large {
 
     @media ($bp-large-max) {
