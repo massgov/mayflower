@@ -24,6 +24,11 @@
       }
     }
 
+    & .main-content {
+      // override default .main-content bottom spacing
+      margin-bottom: 0px;
+    }
+
     & .main-content .page-content {
 
       > .ma__action-finder,
