@@ -24,11 +24,6 @@
       }
     }
 
-    & .main-content {
-      // override default .main-content bottom spacing
-      margin-bottom: 0px;
-    }
-
     & .main-content .page-content {
 
       > .ma__action-finder,
@@ -51,6 +46,11 @@
     & .main-content.main-content--full .page-content > .ma__key-actions {
 
       @include ma-component-spacing('small');
+    }
+
+    & .ma__social-links-bar > .main-content {
+      // override default .main-content bottom spacing
+      margin-bottom: 0px;
     }
 
   }
