@@ -31,7 +31,7 @@
       > .ma__event-listing,
       > .ma__mapped-locations {
 
-        @include ma-component-spacing('large');
+        @include ma-component-spacing('small');
       }
     }
 
@@ -45,7 +45,7 @@
 
     & .main-content.main-content--full .page-content > .ma__key-actions {
 
-      @include ma-component-spacing('large');
+      @include ma-component-spacing('small');
     }
 
   }
