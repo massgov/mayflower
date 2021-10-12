@@ -1,0 +1,6 @@
+Changed:
+  - project: PatternLab
+    component: SectionsThreeUp
+    description: Adjusting section 3up spacing top on mobile. (#1522)
+    issue: DP-23128
+    impact: Patch
