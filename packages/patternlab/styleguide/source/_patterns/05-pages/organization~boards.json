@@ -1303,6 +1303,64 @@
           }
         },
         {
+          "path": "@organisms/by-author/sections-three-up.twig",
+          "data": {
+            "sectionThreeUp": {
+              "compact": true,
+              "sections": [
+                {
+                  "id": "GUIDasjdhf1",
+                  "catIcon": null,
+                  "title": {
+                    "href": "#",
+                    "text": "MassHealth"
+                  }
+                },
+                {
+                  "id": "GUIDasjdhf2",
+                  "catIcon": null,
+                  "title": {
+                    "href": "#",
+                    "text": "MassHealth Health Plans"
+                  }
+                },
+                {
+                  "id": "GUIDasjdhf3",
+                  "catIcon": null,
+                  "title": {
+                    "href": "#",
+                    "text": "Information for MassHealth Providers"
+                  }
+                },
+                {
+                  "id": "GUIDasjdh4",
+                  "catIcon": null,
+                  "title": {
+                    "href": "#",
+                    "text": "MassHealth Initiatives"
+                  }
+                },
+                {
+                  "id": "GUIDasjdhf5",
+                  "catIcon": null,
+                  "title": {
+                    "href": "#",
+                    "text": "MassHealth Publications"
+                  }
+                },
+                {
+                  "id": "GUIDasjdhf6",
+                  "catIcon": null,
+                  "title": {
+                    "href": "#",
+                    "text": "Senior Care Options (SCO)"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
           "path": "@organisms/by-author/mapped-locations.twig",
           "data": {
             "mappedLocations": {

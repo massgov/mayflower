@@ -204,6 +204,13 @@ $action-finder-bp: 900px;
     text-align: left;
   }
 
+  &--clear-background {
+    background: none;
+
+    &:after {
+      content: none;
+    }
+  }
 }
 
 //theme
