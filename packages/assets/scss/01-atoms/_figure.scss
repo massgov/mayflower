@@ -85,6 +85,10 @@
       margin-right: 0;
       width: 50%;
     }
+
+    &--no-wrap {
+      float: none !important;
+    }
   }
 
   &--full {
@@ -146,12 +150,8 @@
       width: calc(50% - 15px);
 
       &.ma__figure--no-wrap.ma__figure--right:not(.ma__dataviz):not(.ma__iframe__container) {
-
-        @media ($bp-small-min) {
-          // 621~
-          margin-left: 50%;
-          padding-left: 0;
-        }
+        margin-left: 50%;
+        padding-left: 0;
       }
     }
   }
@@ -296,6 +296,10 @@
 
       @media ($bp-small-min) {
         padding-left: 50%;
+
+        &.ma__figure--large {
+          padding-left: 0;
+        }
       }
     }
 
