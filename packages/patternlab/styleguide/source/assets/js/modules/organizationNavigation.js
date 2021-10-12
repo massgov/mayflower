@@ -6,7 +6,7 @@ export default (function (window, document, $, undefined) {
     const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
     const $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
 
-    // Page wrapper and fillers. 
+    // Page wrapper and fillers.
     const $pageWrapper = $orgNav.parent().next();
     let $newsLink = $pageWrapper.find('.ma__press-listing');
     let $eventsLink = $pageWrapper.find('.ma__event-listing');
@@ -28,7 +28,7 @@ export default (function (window, document, $, undefined) {
     const $orgNavSearchInput = $orgNav.find('#organization-navigation-search');
     const $searchToggle = $orgNav.find('.ma__organization-navigation__search .js-search-toggle');
 
-    // Subnav buttons. 
+    // Subnav buttons.
     let $menuButton = $orgNav.find('.subnav-toggle');
 
     // I want to section.
@@ -54,7 +54,7 @@ export default (function (window, document, $, undefined) {
       });
     }
 
-    // Mobile toggle. 
+    // Mobile toggle.
     $mobileToggle.on('click', function () {
 
       if (!$orgNav.hasClass('stuck')) {
@@ -64,7 +64,7 @@ export default (function (window, document, $, undefined) {
       $mobileToggle.add($menuWrapper).toggleClass('menu-open');
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
-      // Remove cloned button if present. 
+      // Remove cloned button if present.
       $('.section-toggle').remove();
 
       // Lock body scroll on mobile open/close.
@@ -94,7 +94,7 @@ export default (function (window, document, $, undefined) {
       let $buttonParent = $button.parent('.has-subnav');
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
       let $otherMenus = $('.ma__organization-navigation__subitems').not($thisMenu);
-      let menuHeight = $menuWrapper.outerHeight();
+      // let menuHeight = $menuWrapper.outerHeight();
 
       $buttonParent.on('mouseenter mouseleave', function () {
         let windowWidth = $(window).width();
@@ -102,51 +102,51 @@ export default (function (window, document, $, undefined) {
         if (windowWidth > mobileBreak) {
           $('.section-toggle').remove();
           $buttonParent.toggleClass('item-open');
-          $thisMenu.css('top', menuHeight);
+          // $thisMenu.css('top', menuHeight);
         }
         else {
           return false;
         };
       });
 
-      $button.on('focus', function () {
-        $thisMenu.find("a[href]").attr("tabindex", -1);
-        $otherMenus.find("a[href]").attr("tabindex", -1);
+      // $button.on('focus', function () {
+      //   $thisMenu.find("a[href]").attr("tabindex", -1);
+      //   $otherMenus.find("a[href]").attr("tabindex", -1);
 
-        $button.keyup(function (e) {
+      //   $button.keyup(function (e) {
 
-          $('.item-open').removeClass('item-open');
+      //     $('.item-open').removeClass('item-open');
 
-          if (e.keyCode == 13 || e.keyCode == 32) {
-            $('.section-toggle').remove();
+      //     if (e.keyCode == 13 || e.keyCode == 32) {
+      //       $('.section-toggle').remove();
 
-            $thisMenu.find("a[href]").attr("tabindex", 0);
-            $buttonParent.toggleClass('item-open');
-            $thisMenu.css('top', menuHeight);
+      //       $thisMenu.find("a[href]").attr("tabindex", 0);
+      //       $buttonParent.toggleClass('item-open');
+      //       $thisMenu.css('top', menuHeight);
 
-            $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
-              return false;
-            });
-          }
-        });
-      });
+      //       // $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
+      //       //   return false;
+      //       // });
+      //     }
+      //   });
+      // });
 
-      $button.on('click', function () {
-        let windowWidth = $(window).width();
+    //   $button.on('click', function () {
+    //     let windowWidth = $(window).width();
 
-        if (windowWidth < mobileBreak) {
-          $buttonParent.toggleClass('item-open');
-          let $buttonClone = $button.clone(true);
+    //     if (windowWidth < mobileBreak) {
+    //       $buttonParent.toggleClass('item-open');
+    //       let $buttonClone = $button.clone(true);
 
-          // Copy the link as a close button inside the menu section.
-          if (!$('.section-toggle').length) {
-            $buttonClone.addClass('section-toggle').prependTo($thisMenu);
-          }
-        }
-        else {
-          return false;
-        };
-      });
+    //       // Copy the link as a close button inside the menu section.
+    //       if (!$('.section-toggle').length) {
+    //         $buttonClone.addClass('section-toggle').prependTo($thisMenu);
+    //       }
+    //     }
+    //     else {
+    //       return false;
+    //     };
+    //   });
 
     });
 
@@ -247,4 +247,28 @@ export default (function (window, document, $, undefined) {
 
     }).resize();
   });
+
+
+  // DP-23099  5
+  // Close a menu container with ESC.
+  // Set focus on its toggle button.
+
+// li --- ma__organization-navigation__item i-want-to has-subnav
+// button --- .subnav-toggle
+
+  // let subItems = document.querySelectorAll(".ma__organization-navigation__subitem");
+
+  // subItems.forEach(item => {
+  //   let navItem = item.closest(".ma__organization-navigation__item");
+  //   if (navItem.classList.contains(".item-open")) {
+  //     item.addEventListener("keydown", (e) => {
+  //       let key = e.key ? e.key : e.code;
+  //       if (key === "Escape" || "Esc") {
+  //         navItem.removeClass('item-open');
+  //         navItem.querySelector(".subnav-toggle").focus();
+  //       }
+  //     });
+  //   }
+  // });
+
 })(window, document, jQuery);
