@@ -24,7 +24,8 @@
       }
     }
 
-    & .main-content .page-content > * {
+    & .main-content .page-content > *,
+    & .main-content--full .page-content > * {
 
       @include ma-component-spacing;
     }
