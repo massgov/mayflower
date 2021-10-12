@@ -1,0 +1,6 @@
+Fixed:
+  - project: PatternLab
+    component: StackedRowSection
+    description: Adjust vertical spacing around the component. (#1525)
+    issue: DP-23128
+    impact: Patch
