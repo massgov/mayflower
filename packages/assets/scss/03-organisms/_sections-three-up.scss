@@ -26,6 +26,8 @@ $bp-section-3up-large-max: "max-width:950px";
 
     & > * {
 
+      margin-bottom: 80px;
+
       @media ($bp-x-small-min) {
         margin-bottom: 20px;
       }
@@ -34,11 +36,6 @@ $bp-section-3up-large-max: "max-width:950px";
         flex-grow: 0;
         flex-shrink: 0;
         flex-basis: auto;
-        margin-bottom: 80px;
-      }
-
-      @media ($bp-medium-min) {
-        margin-bottom: 80px;
       }
 
       @media ($bp-small-min) and ($bp-section-3up-large-max) {
@@ -49,7 +46,6 @@ $bp-section-3up-large-max: "max-width:950px";
       }
 
       @media ($bp-section-3up-large-min) {
-          margin-bottom: 60px;
 
           @include span-columns(4 of 12);
 
