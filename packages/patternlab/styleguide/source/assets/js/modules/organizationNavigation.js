@@ -248,27 +248,22 @@ export default (function (window, document, $, undefined) {
     }).resize();
   });
 
-
-  // DP-23099  5
-  // Close a menu container with ESC.
-  // Set focus on its toggle button.
-
-// li --- ma__organization-navigation__item i-want-to has-subnav
-// button --- .subnav-toggle
-
-  // let subItems = document.querySelectorAll(".ma__organization-navigation__subitem");
-
-  // subItems.forEach(item => {
-  //   let navItem = item.closest(".ma__organization-navigation__item");
-  //   if (navItem.classList.contains(".item-open")) {
-  //     item.addEventListener("keydown", (e) => {
-  //       let key = e.key ? e.key : e.code;
-  //       if (key === "Escape" || "Esc") {
-  //         navItem.removeClass('item-open');
-  //         navItem.querySelector(".subnav-toggle").focus();
-  //       }
-  //     });
-  //   }
-  // });
-
 })(window, document, jQuery);
+
+
+// DP-23099  5
+// Close a menu container with ESC.
+// Set focus on its toggle button.
+let subItems = document.querySelectorAll(".ma__organization-navigation__subitem");
+
+subItems.forEach(subItem => {
+  subItem.addEventListener("keydown", (e) => {
+    let key = e.key ? e.key : e.code;
+    let navItem = subItem.closest(".ma__organization-navigation__item");
+
+    if (key === "Escape" || "Esc") {
+      navItem.classList.remove("item-open");
+      navItem.querySelector(".subnav-toggle").focus();
+    }
+  });
+});
