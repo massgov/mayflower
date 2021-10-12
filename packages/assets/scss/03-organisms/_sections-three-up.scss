@@ -37,9 +37,6 @@ $bp-section-3up-large-max: "max-width:950px";
         margin-bottom: 80px;
       }
 
-      @media ($bp-medium-min) {
-        margin-bottom: 80px;
-      }
 
       @media ($bp-small-min) and ($bp-section-3up-large-max) {
 
@@ -49,7 +46,6 @@ $bp-section-3up-large-max: "max-width:950px";
       }
 
       @media ($bp-section-3up-large-min) {
-          margin-top: 60px;
 
           @include span-columns(4 of 12);
 
