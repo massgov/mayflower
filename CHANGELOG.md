@@ -4,23 +4,23 @@ All notable changes to this project will be documented in this file.
 ## 11.16.0 (10/13/2021)
 ### Changed 
 - (PatternLab) [SectionsThreeUp] DP-22483: Adjusting section 3up to support a compact version. (#1452)
-- (Patternlab) [CollapsibleContent] DP-22561: Added modifier for background style and adjusted width.
-- (Patternlab) [CollapsibleContent] DP-22657: Adjusted accordions to use a minus "-" for collapsing instead of a cross "x". (#1491,
+- (Patternlab) [CollapsibleContent] DP-22561: Added modifier for background style and adjusted width. (#1460)
+- (Patternlab) [CollapsibleContent] DP-22657: Adjusted accordions to use a minus "-" for collapsing instead of a cross "x". (#1491)
 - (Patternlab) [AboutSection] DP-22689: Added a condition to only show the title if it is defined. (#1461)
-- (PatternLab) [Figure] DP-22981: Fixing image displaying when right aligned.
+- (PatternLab) [Figure] DP-22981: Fixing image displaying when right aligned. (#1515)
 - (PatternLab) [StackedRowSection] DP-22982: Adding new modifier class option. (#1518)
-- (PatternLab) [RichText] DP-22982: Removing right padding if container has a .no-sidebar class. (#1518)
+- (PatternLab) [RichText] DP-22982: Removing right padding if container has a `.no-sidebar` class. (#1518)
 - (PatternLab) [ActionFinder] DP-22983: Adjusting action finder to not render the heading if there isn't a title and adds a background option. (#1514)
 - (PatternLab) [SectionsThreeUp] DP-23128: Adjusting section 3up spacing top on mobile. (#1522)
 - (PatternLab) [SectionsLinks] DP-23128: Fix SectionLinks with icon overlapping issue. (#1522)
 
 ### Added 
 - (Patternlab) [SocialLinksBar] DP-22652: Display an horizontal bar of links. (#1466)
-- (Patternlab) [CollapsibleContent] DP-22657: Added Collapsible Content Extended variant to allow expand/collapse all accordions. (#1491,
-- (Patternlab) [OrgContact] DP-22666: Added Organization Content section
+- (Patternlab) [CollapsibleContent] DP-22657: Added Collapsible Content Extended variant to allow expand/collapse all accordions. (#1491)
+- (Patternlab) [OrgContact] DP-22666: Added Org Contact organism. (#1467)
 
 ### Fixed 
-- (Patternlab) [Sidebar] DP-22940: Fix the horizontal alignment on sidebar for locations. Fix small text-underline on locations.
+- (Patternlab) [Sidebar] DP-22940: Fix the horizontal alignment on sidebar for locations. Fix small text-underline on locations. (#1513)
 - (PatternLab) [StackedRowSection] DP-23128: Adjust vertical spacing around the component. (#1525)
 
 ## 11.15.3 (9/27/2021)
