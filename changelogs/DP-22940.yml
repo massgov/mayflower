@@ -1,9 +1,0 @@
-# Every PR must have a changelog. To create a changelog:
-# 1. Make a copy of this file and name it with the ticket number.
-# 2. Keep the original format of one of the examples at the bottom, and override each element of it using ___TEMPLATE___ for reference
-# 3. Remove all comments from the copied file
-  - project: Patternlab
-    component: Sidebar
-    description: Fix the horizontal alignment on sidebar for locations. Fix small text-underline on locations. #1513
-    issue: DP-22940
-    impact: Patch
