@@ -1,6 +1,0 @@
-Changed:
-  - project: PatternLab
-    component: SectionsThreeUp
-    description: Adjusting section 3up to support a compact version. (#1452)
-    issue: DP-22483
-    impact: Minor
