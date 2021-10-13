@@ -3,6 +3,7 @@
 .ma__stacked-row {
   position: relative;
 
+
   &__section {
 
     & ~ & {
@@ -24,28 +25,15 @@
       }
     }
 
-    & .main-content .page-content {
+    & .main-content .page-content > *,
+    & .main-content--full .page-content > * {
 
-      > .ma__action-finder,
-      > .ma__divider,
-      > .ma__event-listing,
-      > .ma__mapped-locations {
-
-        @include ma-component-spacing('large');
-      }
+      @include ma-component-spacing;
     }
 
-    & .main-content .page-content {
-
-      > .ma__split-columns {
-
-        @include ma-component-spacing;
-      }
-    }
-
-    & .main-content.main-content--full .page-content > .ma__key-actions {
-
-      @include ma-component-spacing('large');
+    & .ma__social-links-bar > .main-content {
+      // override default .main-content bottom spacing
+      margin-bottom: 0px;
     }
 
   }

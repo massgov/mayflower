@@ -179,6 +179,7 @@
 @use "03-organisms/mass-feedback-form";
 @use "03-organisms/organization-navigation-item";
 @use "03-organisms/organization-navigation";
+@use "03-organisms/_organization-contact.scss";
 @use "03-organisms/page-banner";
 @use "03-organisms/page-discourse";
 @use "03-organisms/page-flipper";
@@ -198,6 +199,7 @@
 @use "03-organisms/short-description";
 @use "03-organisms/sidebar-promo";
 @use "03-organisms/sidebar-widget";
+@use "03-organisms/social-links-bar";
 @use "03-organisms/split50";
 @use "03-organisms/split-columns";
 @use "03-organisms/sticky-toc";

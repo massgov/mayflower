@@ -103,6 +103,10 @@
 .page-content + .sidebar {
   padding-top: 40px;
 
+  > .sidebar {
+    padding-top: 0;
+  }
+
   @media ($bp-small-min) {
     padding-top: 65px;
   }
