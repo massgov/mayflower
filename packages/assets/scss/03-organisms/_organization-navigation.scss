@@ -190,6 +190,7 @@ $menu-transition-time: 0.3s;
         max-width: 0;
         pointer-events: none;
         opacity: 0;
+        visibility: hidden;
         transition: 0s;
 
         .form-open & {
@@ -197,6 +198,7 @@ $menu-transition-time: 0.3s;
           width: 100%;
           pointer-events: auto;
           opacity: 1;
+          visibility: visible;
           transition: $menu-transition-time;
           margin-right: 15px;
         }
