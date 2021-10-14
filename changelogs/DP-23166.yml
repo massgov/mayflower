@@ -54,6 +54,6 @@
 Fixed:
   - project: Patternlab
     component: Accordions
-    description: Fixing accordions.
+    description: Fixing accordions. (#1528)
     issue: DP-23166
-    impact: Minor
+    impact: Patch
