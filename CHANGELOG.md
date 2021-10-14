@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.16.1 (10/14/2021)
+### Fixed 
+- (Patternlab) [Accordions] DP-23166: Fixing accordions. (#1528)
+
 ## 11.16.0 (10/13/2021)
 ### Changed 
 - (PatternLab) [SectionsThreeUp] DP-22483: Adjusting section 3up to support a compact version. (#1452)
