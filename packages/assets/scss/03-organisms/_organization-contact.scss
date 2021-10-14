@@ -1,0 +1,38 @@
+@use "00-base/configure" as *;
+
+
+.ma__org-contact-us {
+
+  @include ma-container();
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .ma__comp-heading {
+    width: 100%;
+  }
+
+  &__first, &__second {
+    flex-basis: 100%;
+    order: 2;
+  }
+
+  .ma__contact-row .ma__contact-row__columns {
+    width: 100%;
+    order: 1;
+  }
+
+  @media ($bp-large-min) {
+
+    &__first {
+      flex-basis: 70%;
+      order: 0;
+    }
+
+    &__second {
+      flex-basis: 30%;
+      order: 0;
+    }
+  }
+}

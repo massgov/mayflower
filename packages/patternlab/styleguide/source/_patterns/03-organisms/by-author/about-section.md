@@ -17,7 +17,7 @@ An about section for the Elected Officials
 ~~~
 about: {
   title:
-    type: string /required
+    type: string
 
   content:
     type: richtext / required

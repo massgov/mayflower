@@ -10,15 +10,15 @@
     margin-top: 40px;
 
     @media ($bp-small-min) {
-      margin-top: 60px;
+      margin-top: 50px;
     }
 
     @media ($bp-medium-min) {
-      margin-top: 70px;
+      margin-top: 60px;
     }
 
     @media ($bp-large-min) {
-      margin-top: 90px
+      margin-top: 70px
     }
   } @else {
     margin-top: 30px;

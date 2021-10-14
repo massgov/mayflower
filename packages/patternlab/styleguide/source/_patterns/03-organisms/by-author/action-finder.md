@@ -30,6 +30,8 @@ actionFinder: {
     type: string / required
   generalHeading:
     type: string / required
+  noBgClass:
+    type: string / optional, defaults to `ma__action-finder--no-background` which shows up as a light gray background, to remove the background colors, pass in `ma__action-finder--clear-background`.
 
   seeAll: {
     type: decorativeLink / optional

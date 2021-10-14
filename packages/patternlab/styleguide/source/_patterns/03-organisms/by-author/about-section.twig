@@ -1,8 +1,10 @@
 <div class="ma__about-section">
+  {% if about.title is defined %}
   <div class="ma__about-section__title">
     {% set compHeading = about.title %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
   </div>
+  {% endif %}
   <div class="ma__about-section__content">
     <div class="ma__about-section__content-container">
       <div class="ma__about-section__content-text">
@@ -44,4 +46,3 @@
     </div>
   {% endif %}
 </div>
-<div class="ma__divider"></div>
