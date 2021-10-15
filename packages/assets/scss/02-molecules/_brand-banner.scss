@@ -59,7 +59,6 @@
             margin-bottom: 1em;
         }
 
-
         &-item {
             display: flex;
             flex-direction: row;
@@ -105,18 +104,19 @@
             }
         }
 
-        .dark {
-            fill: #fff;
-        }
-
         // Icon color
-        
+
         #official > svg {
             fill: #14558F;
         }
 
         #secure > svg {
             fill: #388557;
+        }
+
+        #official.dark > svg,
+        #secure.dark > svg {
+            fill: #fff;
         }
     }
 
