@@ -1,0 +1,21 @@
+{
+  "socialLinksBar": {
+    "id": "social-links-bar",
+    "items": [{
+      "icon": "twitter",
+      "link": {
+        "href": "/",
+        "text": "MassHealth on Twitter",
+        "info": ""
+      }
+    },
+      {
+        "icon": "facebook",
+        "link": {
+          "href": "/",
+          "text": "MassHealth on Facebook",
+          "info": ""
+        }
+      }]
+  }
+}
