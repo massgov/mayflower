@@ -109,6 +109,31 @@ export default (function (window, document, $, undefined) {
         };
       });
 
+    // ID 13
+    // Open/close a submenu container with ENTER or SPACE.
+    $button.keydown ((e) => {
+      let key = e.key ? e.key : e.code;
+
+      if (key === "31" || "32") {
+        let windowWidth = $(window).width();
+
+        if (windowWidth > mobileBreak) {
+          $('.section-toggle').remove();
+          $buttonParent.toggleClass("item-open");
+        }
+        else {
+          return false;
+        };
+
+        if (!$buttonParent.hasClass("item-open")) {
+          console.log("PANDA");
+          console.log($button);
+          $button.focus();
+        }
+      }
+    });
+
+
       // $button.on('focus', function () {
       //   $thisMenu.find("a[href]").attr("tabindex", -1);
       //   $otherMenus.find("a[href]").attr("tabindex", -1);
@@ -262,7 +287,9 @@ subItems.forEach(subItem => {
     let navItem = subItem.closest(".ma__organization-navigation__item");
 
     if (key === "Escape" || "Esc") {
+      subItem.style.backgroundColor = "alice blue";
       navItem.classList.remove("item-open");
+      // subItem.addAttribute("aria-hidden", "true");
       navItem.querySelector(".subnav-toggle").focus();
     }
   });

@@ -124,9 +124,11 @@
   &__subitems {
     -ms-overflow-style: none;
     visibility: hidden;
+    // display: none;
 
     .item-open & {
       visibility: visible;
+      // display: block;
     }
 
     @media ($bp-large-max) {
