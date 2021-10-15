@@ -28,15 +28,14 @@
   </div>
   {% if brandBanner.hasToggle %}
   <ul class="ma__brand-banner-expansion">
-    <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : '' }}" id="official">
+  <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : 'light-c-primary' }}">
       {{ icon('building') }}
       <div class="ma__brand-banner-expansion-item-content">
         <p>Official websites use .mass.gov</p>
         <p>A .mass.gov website belongs to an official government organization in Massachusetts.</dd>
       </div>
     </li>
-    <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : '' }}" id="secure">
-
+  <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : 'light-c-primary-alt' }}">
       {# Unable to use icon function.  CSS doesn't set the icon size matching to above one. It appears to be smaller. #}
       {# {{ icon('lock') }} #}
       <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 25">

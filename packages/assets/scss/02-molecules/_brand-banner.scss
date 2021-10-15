@@ -79,6 +79,20 @@
                 }
                }
 
+            // Icon colors
+
+            &.light-c-primary > svg {
+                fill: $c-primary; //#14558F;
+            }
+
+            &.light-c-primary-alt>svg {
+                fill: $c-primary-alt; //#388557;
+            }
+
+            &.dark > svg {
+                fill: #fff;
+            }
+
             & + & {
                 margin-top: 1rem;
             }
@@ -102,21 +116,6 @@
                     margin-top: 0;
                 }
             }
-        }
-
-        // Icon color
-
-        #official > svg {
-            fill: #14558F;
-        }
-
-        #secure > svg {
-            fill: #388557;
-        }
-
-        #official.dark > svg,
-        #secure.dark > svg {
-            fill: #fff;
         }
     }
 
