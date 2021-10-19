@@ -1,6 +1,6 @@
 {% set stackedRowRestriction = stackedRowSection.sideBar|length ? '' : ' ma__stacked-row--restricted' %}
 {% set stackedRowBorderless = stackedRow.borderless ? ' ma__stacked-row__section--borderless' : ''  %}
-
+{% set stackedRowModifier = stackedRow.modifier ? ' ' ~ stackedRow.modifier : ''  %}
 {# Allow overriding the content container classes as needed. #}
 {% if externalSidebar is defined and externalSidebar == true %}
   {% set mainContentClass = '' %}
@@ -8,7 +8,7 @@
   {% set mainContentClass = stackedRowSection.sideBar|length ? ' main-content--two' : ' main-content--full' %}
 {% endif %}
 
-<section class="ma__stacked-row__section {{ stackedRowBorderless }}{{ stackedRowRestriction }}">
+<section class="ma__stacked-row__section {{ stackedRowBorderless }}{{ stackedRowRestriction }}{{ stackedRowModifier }}">
   {% block stackRowTitle %}
     {% if stackedRowSection.title %}
       <div class="ma__stacked-row__container">

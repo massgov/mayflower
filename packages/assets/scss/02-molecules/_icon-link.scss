@@ -2,12 +2,12 @@
 
 .ma__icon-link {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   &__icon {
     font-size: 0;
-    position: absolute;
-      top: 8px;
-      left: 0;
 
     & > svg {
       height: 18px;
@@ -22,7 +22,7 @@
   &__link {
     font-size: $fonts-small;
     display: block;
-    padding-left: 30px;
+    padding-left: 11px;
   }
 
   .ma__decorative-link {

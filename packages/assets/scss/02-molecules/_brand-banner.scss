@@ -30,14 +30,14 @@
         @include ma-container;
         display: flex;
     }
-    
+
     &-logo {
         height: 20px;
         width: 20px;
         margin-right: 5px;
 
         &--dark {
-            // Filter is not supported in IE. When use the dark theme, you should use the white version of seal instead. 
+            // Filter is not supported in IE. When use the dark theme, you should use the white version of seal instead.
             filter: brightness(0) invert(1);
         }
     }
@@ -54,8 +54,10 @@
         &--expanded {
             display: flex;
             flex-direction: column;
-        }
 
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
 
         &-item {
             display: flex;
@@ -67,25 +69,40 @@
                 margin-left: 1rem;
             }
 
-            dt {
-                font-weight: $fonts-bold;
-            }
-
-            dd {
-                margin-left: 0;
-            }
-
             & > svg {
+                width: 30px;
+                height: 30px;
                 min-width: 20px;
-        
+
                 @media ($bp-small-min) {
                     min-width: 30px;
                 }
-                   
                }
-            
+
+            // Icon colors
+
+            &.light-c-primary > svg {
+                fill: $c-primary; //#14558F;
+            }
+
+            &.light-c-primary-alt>svg {
+                fill: $c-primary-alt; //#388557;
+            }
+
+            &.dark > svg {
+                fill: #fff;
+            }
+
             & + & {
                 margin-top: 1rem;
+            }
+
+            p {
+                margin-bottom: 0;
+            }
+
+            p:first-of-type {
+                font-weight: $fonts-bold;
             }
         }
 
@@ -101,5 +118,5 @@
             }
         }
     }
-    
+
 }

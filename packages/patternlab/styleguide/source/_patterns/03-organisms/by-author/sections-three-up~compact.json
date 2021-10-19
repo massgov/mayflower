@@ -1,0 +1,53 @@
+{
+  "sectionThreeUp" : {
+    "compact": true,
+    "compHeading": {
+      "title": "Featured Topics",
+      "sub": "",
+      "color": "",
+      "id": ""
+    },
+    "sections": [{
+      "id": "GUIDasjdhf1",
+      "title" : {
+        "href" : "#",
+        "text" : "Recreational Licenses & Permits"
+      }
+    },
+    {
+      "id": "GUIDasjdhf2",
+      "title" : {
+        "href" : "#",
+        "text" : "State Parks & Recreation"
+      }
+    },
+    {
+      "id": "GUIDasjdhf3",
+      "title" : {
+        "href" : "#",
+        "text" : "Travel & Tourism"
+      }
+    },
+    {
+      "id": "GUIDasjdhf4",
+      "title" : {
+        "href" : "#",
+        "text" : "MassHealth"
+      }
+    },
+    {
+      "id": "GUIDasjdhf5",
+      "title" : {
+        "href" : "#",
+        "text" : "MassHealth Health Plans"
+      }
+    },
+    {
+      "id": "GUIDasjdhf6",
+      "title" : {
+        "href" : "#",
+        "text" : "Information for MassHealth Providers"
+      }
+    }]
+  }
+}
