@@ -93,6 +93,11 @@ if (menuButton !== null) {
             }
           }
         }
+
+        // Google Translage in the hamburger menu
+        if (document.querySelector(".ma__header__hamburger__utility-nav--narrow .ma__utility-nav__translate #google_translate_element a") === document.activeElement) {
+          closeMenu();
+        }
       }
 
       let openSubmenu = document.querySelector(".submenu-open .js-main-nav-hamburger__top-link");
@@ -227,7 +232,7 @@ if (menuButton !== null) {
 document.addEventListener("keydown", function (e) {
   if (menuButton.getAttribute("aria-expanded") === "true") {
     focusTrapping({
-      focusableSelectors: "[role='menuitem'], .ma__utility-nav__item .ma__utility-nav__link, .ma__utility-nav__item .ma__utility-nav__container a",
+      focusableSelectors: "[role='menuitem'], .js-utility-nav--narrow .ma__utility-nav__item .ma__utility-nav__link, .ma__utility-nav__item .ma__utility-nav__container a",
       closeButtonSelector: ".js-header-menu-button",
       modalSelector: ".ma__header__hamburger__nav-container",
       keyEvent: e
@@ -701,19 +706,36 @@ menuItems.forEach((item) => {
 });
 
 
-// Close Google Translate option container with ESC.
+// Keyboard navigation with Google Translate widget
 // Set focus on the (closest/visible) Google Translate button whether it's on the blue bar or in the hamburger menu.
 setTimeout(function timeoutFunction() {// This prevents GT elements get null.
   let gTranslateButtons = document.querySelectorAll(".ma__utility-nav__translate #google_translate_element a");
   const gTranslateOptionContainer = document.querySelector("iframe.goog-te-menu-frame.skiptranslate");
 
   if (gTranslateOptionContainer) {
-    gTranslateOptionContainer.contentWindow.document.addEventListener("keydown", function (e) {
+    gTranslateOptionContainer.contentWindow.document.addEventListener("keydown", (e) => {
       let key = e.code ? e.code : e.key;
-      if (key == "Escape" || key === "Esc" ) {
+      let firstGTOption = gTranslateOptionContainer.contentWindow.document.querySelector("a.goog-te-menu2-item-selected");
+      let lastGTOption = gTranslateOptionContainer.contentWindow.document.querySelector("td:last-child a.goog-te-menu2-item:last-child");
+      let currentFocusInIframe = gTranslateOptionContainer.contentWindow.document.activeElement;
+
+      // Set focus on the menu button when SHIFT + TAB are hit on the first Google Translate focusable element.
+      if ((currentFocusInIframe === firstGTOption) && (e.shiftKey && key === "Tab")) {
+        e.preventDefault();
+        gTranslateButtons[0].focus();
+      }
+
+      // Set focus on the menu button when TAB is hit on the last Google Translate focusable element.
+      if ((currentFocusInIframe === lastGTOption) && (key === "Tab")) {
+        e.preventDefault();
+        gTranslateButtons[0].focus();
+      }
+
+      // Close the container with ESC and set focus on the menu button.
+      if (key === "Escape" || key === "Esc" ) {
         gTranslateOptionContainer.style.display = "none";
         gTranslateButtons[0].focus();
       }
     });
   }
-}, 500);
+}, 1000);// When it's less than 1000, the iframe is null in full screen display.
