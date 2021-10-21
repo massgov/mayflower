@@ -3,28 +3,28 @@
 {% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
 
 {% set linkedClass = pageBanner.primaryLink ? "ma__page-banner--linked" : '' %}
+{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{linkedClass}" %}
 
-<section class="ma__page-banner {{ sizeClass }} {{ colorClass }} {{ linkedClass }}">
-  {% if pageBanner.size == "columns" or linkedClass %}
+<section class="{{ sectionClass }}">
+  {% set classBgImage =
+    (pageBanner.size == "columns" or linkedClass) ?
+      '.ma__page-banner__image' : '.ma__page-banner'
+  %}
+
+  {# Optional pageBanner.bgNarrow #}
+  {% if pageBanner.bgNarrow %}
     <style>
-      .ma__page-banner__image {
-        background-image: url('{{ pageBanner.bgNarrow }}');
-      }
-
-      @media (min-width: 801px) {
-        .ma__page-banner__image {
-          background-image: url('{{ pageBanner.bgWide }}');
-        }
-      }
+    {{ classBgImage }} {
+      background-image: url('{{ pageBanner.bgNarrow }}');
+    }
     </style>
-  {% else %}
-    <style>
-      .ma__page-banner {
-        background-image: url('{{ pageBanner.bgNarrow }}');
-      }
+  {% endif %}
 
+  {# Optional pageBanner.bgWide #}
+  {% if pageBanner.bgWide %}
+    <style>
       @media (min-width: 801px) {
-        .ma__page-banner {
+        {{ classBgImage }} {
           background-image: url('{{ pageBanner.bgWide }}');
         }
       }
