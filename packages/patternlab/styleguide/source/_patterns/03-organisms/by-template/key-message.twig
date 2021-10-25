@@ -18,6 +18,11 @@
 {% set blockClass = theme ? " ma__key-message__block--" ~ theme : "" %}
 {% set wrapperClass = keyMessage.textOverlay ? " ma__key-message__wrapper--overlay" : "" %}
 
+{# Half Image classes #}
+{% set halfImageClassSection = keyMessage.halfImage ? " ma__key-message--half-image " : "" %}
+{% set halfImageClassWrapper = keyMessage.halfImage ? " ma__key-message__wrapper--half-image " : "" %}
+{% set halfImageBlockClass = keyMessage.halfImage ? " ma__key-message__block--half-image " : "" %}
+
 {% if ( theme == "c-primary" ) or ( theme == "c-primary-alt" ) or ( theme == "c-primary-alt-dark" ) %}
   {% set buttontheme = { theme: "c-white" } %}
 {% elseif ( theme == "c-primary-alt-lightest" ) %}
@@ -32,9 +37,25 @@
 <script type="text/javascript">
   var id = "{{ id }}";
   var blckid = "blck{{ id }}";
+  var halfImage = "{{ keyMessage.halfImage }}";
+
   function marginSet() {
-    var blckHeight = document.getElementById(blckid) ? document.getElementById(blckid).clientHeight : 0;
-    var mrgWrapper = document.getElementById("main-content") ? blckHeight * (1/3) + 60 : 60;
+    var block = document.getElementById(blckid);
+    var mainContent = document.getElementById("main-content");
+    var keyMessage = document.getElementById(id)
+    var blockHeight = block ? block.clientHeight : 0;
+    var separationAtBottom = 60;
+    var mrgWrapper = mainContent ? blockHeight * (1/3) + separationAtBottom : separationAtBottom;
+
+    // Get the height difference between the wrapper and the block.
+    // The block is usually bigger than its wrapper.
+    // The block is usually moved a few pixels from top.
+    // separationAtBottom is the distance from the content below the key message.
+    if (halfImage) {
+      var sectionHeight = keyMessage ? keyMessage.clientHeight : 0;
+      mrgWrapper = Math.abs(blockHeight - sectionHeight) + block.parentNode.offsetTop + separationAtBottom;
+    }
+
     var style = document.createElement('style');
     style.innerHTML =
     `#${id} {` +
@@ -55,7 +76,7 @@
 </script>
 {% endif %}
 
-<section {% if id %}id="{{ id }}" {% endif %}class="ma__key-message{{ msgClass }}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay and bgImage %} ma__key-message--image-overlay{% endif %}{% if positionTop %} ma__key-message--top{% endif %}">
+<section {% if id %}id="{{ id }}" {% endif %}class="ma__key-message{{ msgClass }}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay and bgImage %} ma__key-message--image-overlay{% endif %}{% if positionTop %} ma__key-message--top{% endif %} {{ halfImageClassSection }}">
   {% if bgImage%}
     <div id="img{{ id }}"  class="ma__key-message__inline-image">
       {# Images can be received in two ways: As an array with a component path and data, when included from PL #}
@@ -67,8 +88,8 @@
       {% endif %}
     </div>
   {% endif %}
-  <div class="ma__key-message__wrapper{{ wrapperClass }}{% if positionTop %} ma__key-message__wrapper--top{% endif %}">
-    <div id="blck{{ id }}" class="ma__key-message__block{{ blockClass }}">
+  <div class="ma__key-message__wrapper{{ wrapperClass }}{{ halfImageClassWrapper }}{% if positionTop %} ma__key-message__wrapper--top{% endif %}">
+    <div id="blck{{ id }}" class="ma__key-message__block {{ blockClass }} {{ halfImageBlockClass }}">
       {% if keyMessage.compHeading.title or keyMessage.subtitle %}
         <header>
         {% if keyMessage.compHeading.title %}
