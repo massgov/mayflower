@@ -6,7 +6,7 @@ export default (function (window, document, $, undefined) {
     const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
     const $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
 
-    // Page wrapper and fillers. 
+    // Page wrapper and fillers.
     const $pageWrapper = $orgNav.parent().next();
     let $newsLink = $pageWrapper.find('.ma__press-listing');
     let $eventsLink = $pageWrapper.find('.ma__event-listing');
@@ -28,7 +28,7 @@ export default (function (window, document, $, undefined) {
     const $orgNavSearchInput = $orgNav.find('#organization-navigation-search');
     const $searchToggle = $orgNav.find('.ma__organization-navigation__search .js-search-toggle');
 
-    // Subnav buttons. 
+    // Subnav buttons.
     let $menuButton = $orgNav.find('.subnav-toggle');
 
     // I want to section.
@@ -54,7 +54,7 @@ export default (function (window, document, $, undefined) {
       });
     }
 
-    // Mobile toggle. 
+    // Mobile toggle.
     $mobileToggle.on('click', function () {
 
       if (!$orgNav.hasClass('stuck')) {
@@ -64,7 +64,7 @@ export default (function (window, document, $, undefined) {
       $mobileToggle.add($menuWrapper).toggleClass('menu-open');
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
-      // Remove cloned button if present. 
+      // Remove cloned button if present.
       $('.section-toggle').remove();
 
       // Lock body scroll on mobile open/close.
@@ -96,40 +96,40 @@ export default (function (window, document, $, undefined) {
       let $otherMenus = $('.ma__organization-navigation__subitems').not($thisMenu);
       let menuHeight = $menuWrapper.outerHeight();
 
-      $buttonParent.on('mouseenter mouseleave', function () {
-        let windowWidth = $(window).width();
+      // $buttonParent.on('mouseenter mouseleave', function () {
+      //   let windowWidth = $(window).width();
 
-        if (windowWidth > mobileBreak) {
-          $('.section-toggle').remove();
-          $buttonParent.toggleClass('item-open');
-          $thisMenu.css('top', menuHeight);
-        }
-        else {
-          return false;
-        };
-      });
+      //   if (windowWidth > mobileBreak) {
+      //     $('.section-toggle').remove();
+      //     $buttonParent.toggleClass('item-open');
+      //     $thisMenu.css('top', menuHeight);
+      //   }
+      //   else {
+      //     return false;
+      //   };
+      // });
 
-      $button.on('focus', function () {
-        $thisMenu.find("a[href]").attr("tabindex", -1);
-        $otherMenus.find("a[href]").attr("tabindex", -1);
+      // $button.on('focus', function () {
+      //   $thisMenu.find("a[href]").attr("tabindex", -1);
+      //   $otherMenus.find("a[href]").attr("tabindex", -1);
 
-        $button.keyup(function (e) {
+      //   $button.keyup(function (e) {
 
-          $('.item-open').removeClass('item-open');
+      //     $('.item-open').removeClass('item-open');
 
-          if (e.keyCode == 13 || e.keyCode == 32) {
-            $('.section-toggle').remove();
+      //     if (e.keyCode == 13 || e.keyCode == 32) {
+      //       $('.section-toggle').remove();
 
-            $thisMenu.find("a[href]").attr("tabindex", 0);
-            $buttonParent.toggleClass('item-open');
-            $thisMenu.css('top', menuHeight);
+      //       $thisMenu.find("a[href]").attr("tabindex", 0);
+      //       $buttonParent.toggleClass('item-open');
+      //       $thisMenu.css('top', menuHeight);
 
-            $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
-              return false;
-            });
-          }
-        });
-      });
+      //       $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
+      //         return false;
+      //       });
+      //     }
+      //   });
+      // });
 
       $button.on('click', function () {
         let windowWidth = $(window).width();
@@ -144,11 +144,45 @@ export default (function (window, document, $, undefined) {
           }
         }
         else {
-          return false;
+          // Desktop version
+          $buttonParent.toggleClass('item-open');
+          // Open
+          if ($buttonParent.hasClass('item-open')) {
+            $button.attr('aria-expanded', 'true');
+            $thisMenu.css('top', menuHeight);
+            $thisMenu.removeAttr('aria-hidden');
+            $thisMenu.css('visibility','visible');
+          }
+          else {
+            closeMenuTasks();
+          }
+
+
+
+
+          // console.log($thisMenu);
+
+
+          // return false;
         };
       });
 
+      // $thisMenu.on('keypress', function(e) {
+      //   if (e.key === 'Escape' || 'Esc') {
+      //     console.log("ESCAPE");
+      //     if ($buttonParent.hasClass('item-open')) {
+      //       closeMenuTasks();
+      //     }
+      //   }
+      // });
     });
+
+    function closeMenuTasks () {
+      $button.attr('aria-expanded', 'false');
+      $thisMenu.attr('aria-hidden', 'true');
+      $thisMenu.removeAttr('style');
+      $button.focus();
+    }
 
     $('body').on('click', '.section-toggle', function () {
       $('.section-toggle').remove();

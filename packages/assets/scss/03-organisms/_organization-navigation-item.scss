@@ -124,27 +124,30 @@
   &__subitems {
     -ms-overflow-style: none;
 
+    // display: none;
+    visibility: hidden;
+
     @media ($bp-large-max) {
       height: 200vh;
       width: 100%;
-      overflow-y: auto;
+      // overflow-y: auto;
       position: absolute;
-      top: 0;
-      right: -100vw;
+      // top: 0;
+      // right: -100vw;
       transition: right 0.5s ease;
       z-index: $z-dropdown;
       background-color: $c-white;
 
-      .item-open & {
-        right: 0;
-      }
+      // .item-open & {
+      //   right: 0;
+      // }
     }
 
     @media ($bp-large-min) {
       position: absolute;
       left: 0;
       max-height: 0;
-      top: -100vh;
+      // top: -100vh;
       overflow-y: hidden;
       transition: 0.2s ease-in-out;
       width: auto;
