@@ -37,13 +37,6 @@ $bp-section-3up-large-max: "max-width:950px";
         margin-bottom: 80px;
       }
 
-<<<<<<< HEAD
-      @media ($bp-medium-min) {
-        margin-bottom: 80px;
-      }
-=======
->>>>>>> develop
-
       @media ($bp-small-min) and ($bp-section-3up-large-max) {
 
         @include span-columns(4 of 8);
@@ -52,10 +45,6 @@ $bp-section-3up-large-max: "max-width:950px";
       }
 
       @media ($bp-section-3up-large-min) {
-<<<<<<< HEAD
-          margin-top: 60px;
-=======
->>>>>>> develop
 
           @include span-columns(4 of 12);
 
