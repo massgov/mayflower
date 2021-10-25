@@ -52,7 +52,7 @@ const BrandBanner = ({
               expanded={expanded}
               icon={<IconChevron />}
             >
-              How you know
+              Here's how you know
             </ButtonWithIcon>
           )}
         </span>
