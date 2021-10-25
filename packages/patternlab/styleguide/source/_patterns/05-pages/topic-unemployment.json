@@ -1,0 +1,122 @@
+{
+  "pageBanner": {
+    "icon": "lg-state-house",
+    "title": "Unemployment",
+    "description": "If you're unemployed in Massachusetts, you may be eligible for resources to help you get back on your feet. Employers can also find information about the contributions they must make by law for their employees."
+  },
+  "mainContent": {
+    "mainList": {
+      "sections": [
+        {
+          "text": "Unemployment Insurance (UI) for Workers",
+          "href": "#"
+        },
+        {
+          "text": "Pandemic Unemployment Assistance (PUA)",
+          "href": "#"
+        },
+        {
+          "text": "DUA Multilingual Services",
+          "href": "#"
+        },
+        {
+          "text": "Training & Assistance",
+          "linkItems": [
+            {
+              "text": "Unemployment Insurance (UI) for Employers",
+              "href": "#"
+            },
+            {
+              "text": "WorkShare for Employers",
+              "href": "#"
+            }
+          ]
+        }
+      ]
+    },
+    "forWorkers": {
+      "title": {
+        "text": "For Workers",
+        "colored": false
+      },
+      "sections": [
+        {
+          "text": "Unemployment Insurance (UI) for Workers",
+          "href": "#"
+        },
+        {
+          "text": "Pandemic Unemployment Assistance (PUA)",
+          "href": "#"
+        },
+        {
+          "text": "DUA Multilingual Services",
+          "href": "#"
+        },
+        {
+          "text": "WorkShare for Workers",
+          "href": "#"
+        }
+      ]
+    },
+    "forEmployers": {
+      "title": {
+        "text": "For Employers",
+        "colored": false
+      },
+      "sections": [
+        {
+          "text": "Unemployment Information for Employers",
+          "linkItems": [
+            {
+              "text": "Unemployment Insurance (UI) for Employers",
+              "href": "#"
+            },
+            {
+              "text": "WorkShare for Employers",
+              "href": "#"
+            }
+          ]
+        }
+      ]
+    },
+    "training": {
+      "title": {
+        "text": "Training",
+        "colored": false
+      },
+      "sections": [
+        {
+          "text": "Training & Assistance",
+          "linkItems": [
+            {
+              "title": "For Workers",
+              "subItems": [
+                {
+                  "text": "Training Opportunities Program (TOP)",
+                  "href": "#"
+                },
+                {
+                  "text": "MassHire Career Centers",
+                  "href": "#"
+                },
+                {
+                  "text": "Vocational Rehabilitation",
+                  "href": "#"
+                }
+              ]
+            },
+            {
+              "title": "For Employers",
+              "subItems": [
+                {
+                  "text": "Prevent layoffs with Rapid Response",
+                  "href": "#"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

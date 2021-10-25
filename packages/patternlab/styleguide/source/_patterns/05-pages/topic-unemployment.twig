@@ -1,0 +1,23 @@
+{% extends '@templates/single-column.twig' %}
+
+{% block preContent %}
+  {% include "@organisms/by-template/page-banner.twig" %}
+{% endblock %}
+
+{% block pageContent %}
+
+  {% set tableOfContentsHierarchy = mainContent.mainList %}
+  {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
+
+  {% set tableOfContentsHierarchy = mainContent.forWorkers %}
+  {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
+
+  {% set tableOfContentsHierarchy = mainContent.forEmployers %}
+  {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
+
+  {% set tableOfContentsHierarchy = mainContent.training %}
+  {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
+
+{% endblock %}
+
+{% block postContent %}{% endblock %}
