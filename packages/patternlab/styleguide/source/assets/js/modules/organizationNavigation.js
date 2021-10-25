@@ -95,6 +95,7 @@ export default (function (window, document, $, undefined) {
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
       let $otherMenus = $('.ma__organization-navigation__subitems').not($thisMenu);
       let menuHeight = $menuWrapper.outerHeight();
+      let $firstSubmenuItem = $thisMenu.find('.ma__organization-navigation__subitem a:first');
 
       // $buttonParent.on('mouseenter mouseleave', function () {
       //   let windowWidth = $(window).width();
@@ -144,45 +145,45 @@ export default (function (window, document, $, undefined) {
           }
         }
         else {
-          // Desktop version
+        // Desktop version
           $buttonParent.toggleClass('item-open');
-          // Open
+          // Open submenu
           if ($buttonParent.hasClass('item-open')) {
             $button.attr('aria-expanded', 'true');
             $thisMenu.css('top', menuHeight);
             $thisMenu.removeAttr('aria-hidden');
             $thisMenu.css('visibility','visible');
+
+            // Close submenu with ESC.
+            $thisMenu.on('keyup', function(e) {
+              if (e.key === "Escape") {
+                closeMenuTasks();
+                $button.focus();
+              }
+            });
+
+            // Close submenu with Shift + Tab on the first focusable element in the submenu.
+            $firstSubmenuItem.on('keydown', (e) => {
+              if (e.shiftKey && e.key == "Tab") {
+                closeMenuTasks();
+              }
+            });
           }
           else {
             closeMenuTasks();
           }
 
-
-
-
-          // console.log($thisMenu);
-
-
           // return false;
         };
       });
 
-      // $thisMenu.on('keypress', function(e) {
-      //   if (e.key === 'Escape' || 'Esc') {
-      //     console.log("ESCAPE");
-      //     if ($buttonParent.hasClass('item-open')) {
-      //       closeMenuTasks();
-      //     }
-      //   }
-      // });
+      function closeMenuTasks () {
+        $buttonParent.removeClass('item-open');
+        $button.attr('aria-expanded', 'false');
+        $thisMenu.attr('aria-hidden', 'true');
+        $thisMenu.removeAttr('style');
+      }
     });
-
-    function closeMenuTasks () {
-      $button.attr('aria-expanded', 'false');
-      $thisMenu.attr('aria-hidden', 'true');
-      $thisMenu.removeAttr('style');
-      $button.focus();
-    }
 
     $('body').on('click', '.section-toggle', function () {
       $('.section-toggle').remove();
