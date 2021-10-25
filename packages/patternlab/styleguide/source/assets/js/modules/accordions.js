@@ -1,7 +1,11 @@
 import checkActive from "../helpers/cssControlCode.js";
 
 export default (function (window,document,$,undefined) {
+<<<<<<< HEAD
   let $jsAccordion = $('.ma__collapsible-content .js-accordion');
+=======
+  let $jsAccordion = $('.js-accordion');
+>>>>>>> develop
   var $toggleLink = $('.ma__collapsible-content__toggle-all');
   let accordionIds = "";
 
