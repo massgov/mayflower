@@ -266,22 +266,29 @@ $menu-transition-time: 0.3s;
         padding-left: 40px;
       }
 
+      :not(.form-open) &--icon {
+        display: none;
+      }
+
       .form-open & {
         font-size: $fonts-smaller;
         padding-right: 1.5rem;
         padding-left: 1rem;
         font-weight: $fonts-normal;
 
-        &::after {
+        // &::after {
+        &--icon {
+          display: block;
           color: $c-primary-alt;
-          content: $close-icon;
+          // content: $close-icon;
           font-size: $fonts-2xlarge;
           font-weight: 600;
           line-height: 0;
           position: absolute;
           right: 0;
           transform: translateY(-50%);
-          top: 50%;
+          padding-top: 5px;
+          top: 40%;
         }
 
         svg {
