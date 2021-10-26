@@ -3,7 +3,13 @@
 {% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
 
 {% set linkedClass = pageBanner.primaryLink ? "ma__page-banner--linked" : '' %}
-{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{linkedClass}" %}
+{% set bgNarrowClass = pageBanner.bgNarrow ? "ma__page-banner--bg-narrow" : "" %}
+{% set bgWideClass = pageBanner.bgWide ? "ma__page-banner--bg-wide" : "" %}
+{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{linkedClass} #{bgNarrowClass} #{bgWideClass}" %}
+
+{% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
+{% set bgWideWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
+{% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass}" %}
 
 <section class="{{ sectionClass }}">
   {% set classBgImage =
@@ -12,7 +18,7 @@
   %}
 
   {# Optional pageBanner.bgNarrow #}
-  {% if pageBanner.bgNarrow %}
+  {% if bgNarrowClasss %}
     <style>
     {{ classBgImage }} {
       background-image: url('{{ pageBanner.bgNarrow }}');
@@ -21,7 +27,7 @@
   {% endif %}
 
   {# Optional pageBanner.bgWide #}
-  {% if pageBanner.bgWide %}
+  {% if bgWideClass %}
     <style>
       @media (min-width: 781px) {
         {{ classBgImage }} {
@@ -35,7 +41,7 @@
       <div class="ma__page-banner__image"></div>
     {% endif %}
     <div class="ma__page-banner__content" property="mainEntityOfPage">
-      <div class="ma__page-banner__content-wrapper">
+      <div class="{{ wrapperClass }}">
         {% if pageBanner.icon %}
           <div class="ma__page-banner__icon">
             {{ icon(pageBanner.icon) }}

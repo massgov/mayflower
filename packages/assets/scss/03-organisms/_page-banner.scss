@@ -36,13 +36,24 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &--overlay {
-
-    @media ($bp-large-min) {
-      height: 400px;
-    }
+    height: auto;
 
     .ma__page-banner__content-wrapper {
       transform: none;
+    }
+  }
+
+  &.ma__page-banner--overlay.ma__page-banner--bg-wide {
+    @media ($bp-medium-min) {
+      height: 400px;
+    }
+
+    .ma__page-banner__container {
+      .ma__page-banner__content {
+        @media ($bp-medium-min) {
+          transform: translateY(-50%);
+        }
+      }
     }
   }
 
@@ -173,9 +184,19 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       margin-right: 70px;
       padding-top: 50px;
       padding-right: 80px;
-      position: absolute;
       top: 50%;
       transform: translateY(-50%) skew(-30deg);
+    }
+
+    .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
+    .ma__page-banner--overlay.ma__page-banner--bg-wide & {
+      position: static;
+      transform: translateY(0%);
+
+      @media ($bp-medium-min) {
+        position: absolute;
+        transform: translateY(-50%);
+      }
     }
 
     &:before {
@@ -237,7 +258,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 25px 20px 25px 0;
 
     @media ($bp-x-small-min) {
-      transform: translateY(-50%);
+      transform: translateY(0%);
       padding-right: 0;
     }
 
@@ -469,6 +490,8 @@ $page-banner-inner-width: 612px;
 
   &--overlay &__content {
     background-image: none;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   &--columns &__content {
