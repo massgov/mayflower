@@ -482,13 +482,11 @@ function openMenu() {
     if (width > 840) {
       overlayOffset = overlayOffset -1;
     }
-    menuOverlay.style.top = overlayOffset + "px";
     menuOverlay.classList.add("overlay-open");
   }
   if (alertOverlay) {
     if (document.querySelector(".ma__emergency-alerts")) {
       alertOverlay.classList.add("overlay-open");
-      alertOverlay.style.height = alertOffsetAdjusted + "px";
     }
   }
 }
