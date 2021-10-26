@@ -80,6 +80,8 @@ export default (function (window, document, $, undefined) {
 
       let $buttonLabel = $searchToggle.find('.search-label');
       $buttonLabel.text($buttonLabel.text() == "Close" ? "Search this organization" : "Close");
+      $searchToggle.attr('aria-expanded', (_, attr) => attr == 'false' ? 'true' : 'false');
+      $searchToggle.attr('aria-label', (_, attr) => attr == 'open the search box for the organization specific search' ? 'close the organization specific search component' : 'open the search box for the organization specific search');
     });
 
     $orgNavSearchForm.on('submit', function () {
@@ -93,7 +95,7 @@ export default (function (window, document, $, undefined) {
       let $button = $(this);
       let $buttonParent = $button.parent('.has-subnav');
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
-      let $otherMenus = $('.ma__organization-navigation__subitems').not($thisMenu);
+      // let $otherMenus = $('.ma__organization-navigation__subitems').not($thisMenu);
       let menuHeight = $menuWrapper.outerHeight();
       let $firstSubmenuItem = $thisMenu.find('.ma__organization-navigation__subitem a:first');
 

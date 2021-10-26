@@ -172,6 +172,10 @@ $menu-transition-time: 0.3s;
       }
     }
 
+    #org-search-note {// Hide aria-describedby content
+      display: none;
+    }
+
     .ma__form {
       display: flex;
       width: 100%;
