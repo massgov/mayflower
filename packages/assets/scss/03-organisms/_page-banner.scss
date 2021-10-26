@@ -510,6 +510,8 @@ $page-banner-inner-width: 612px;
   &__description {
     color: $c-font-inverse;
     font-weight: $fonts-normal;
+    font-size: $fonts-large;
+    line-height: 1.4;
 
     .ma__page-banner__descriptionSubText {
       display: block;
