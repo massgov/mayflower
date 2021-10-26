@@ -177,6 +177,21 @@ export default (function (window, document, $, undefined) {
 
           // return false;
         };
+
+        // When focus moves to another menu item, close the open menu container.
+        // Only one menu container opens at a time.
+        $('.ma__organization-navigation__items .has-subnav').each(function () {
+          let $orgNavMenuButton = $(this).find('.subnav-toggle');
+
+          if ($(this).hasClass('item-open')) {
+            if($(this).find(':focus').length === 0){
+              $(this).removeClass('item-open');
+              $orgNavMenuButton.attr('aria-expanded', 'false');
+              $(this).find('.ma__organization-navigation__subitems').attr('aria-hidden', 'true');
+              $(this).find('.ma__organization-navigation__subitems').removeAttr('style');
+            }
+          }
+        });
       });
 
       function closeMenuTasks () {
