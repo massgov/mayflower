@@ -305,8 +305,11 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &__title {
+    color: $c-font-inverse;
     flex-grow: 1;
-    line-height: 1.05;
+    font-size: $fonts-6xlarge;
+    font-weight: $fonts-normal;
+    line-height: 1.25;
     margin-bottom: 0;
     vertical-align: middle;
     z-index: 1;
@@ -502,11 +505,6 @@ $page-banner-inner-width: 612px;
     svg > g {
       fill: rgba($c-font-inverse,.5);
     }
-  }
-
-  &__title {
-    font-weight: $fonts-light;
-    color: $c-font-inverse;
   }
 
   &__description {
