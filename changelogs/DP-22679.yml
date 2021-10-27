@@ -1,0 +1,18 @@
+Changed:
+  - project: Patternlab
+    component: GlobalNav
+    description: Adjust focus order between the menu button and the menu container when the menu is open. (#1479)
+    issue: DP-22679
+    impact: Patch
+Added:
+  - project: Patternlab
+    component: GlobalNav
+    description: Add a feature to close Google Translate option container with ESC key. (#1479)
+    issue: DP-22679
+    impact: Patch
+  - project: Patternlab
+    component: GlobalNav
+    description: Add focus trap to the global menu dropdown. (#1479)
+    issue: DP-22680
+    impact: Patch
+
