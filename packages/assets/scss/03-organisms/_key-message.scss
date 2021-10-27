@@ -134,7 +134,7 @@ $colors: (
     z-index: 0;
 
     &.ma__key-message--half-image {
-      @media ($bp-large-min) {
+      @media ($bp-medium-min) {
         height: 300px;
       }
     }
