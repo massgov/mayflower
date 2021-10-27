@@ -53,7 +53,8 @@
     // separationAtBottom is the distance from the content below the key message.
     if (halfImage) {
       var sectionHeight = keyMessage ? keyMessage.clientHeight : 0;
-      mrgWrapper = Math.abs(blockHeight - sectionHeight) + block.parentNode.offsetTop + separationAtBottom;
+      var blockSectionDiff = blockHeight - sectionHeight + block.parentNode.offsetTop;
+      mrgWrapper = blockSectionDiff < 0 ? 0 : blockSectionDiff + separationAtBottom;
     }
 
     var style = document.createElement('style');
