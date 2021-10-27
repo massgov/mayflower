@@ -13,25 +13,25 @@
         "path": "@atoms/09-media/picture-element.twig",
         "data": {
           "picture": {
-            "defaultImage": "../../assets/images/placeholder/460x220.png",
+            "defaultImage": "../../assets/images/placeholder/460x110.png",
             "srcSets": [
               {
-                "url": "../../assets/images/placeholder/1600x600.png",
+                "url": "../../assets/images/placeholder/1600x300.png",
                 "width": "1201"
               },
               {
-                "url": "../../assets/images/placeholder/900x700.png",
+                "url": "../../assets/images/placeholder/900x350.png",
                 "width": "911"
               },
               {
-                "url": "../../assets/images/placeholder/500x300.png",
+                "url": "../../assets/images/placeholder/500x150.png",
                 "width": "481"
               }
             ]
           }
         }
       },
-      "mobileBgImage": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
+      "mobileBgImage": "../../assets/images/placeholder/1600x300.png",
       "description": {
         "rteElements": [{
           "path": "@atoms/11-text/paragraph.twig",
