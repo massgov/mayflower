@@ -1,0 +1,11 @@
+Changed:
+  - project: Patternlab
+    component: Page Banner
+    description: |-
+      Makes the background image optional.
+      When there are no BG image the banner height becomes fluid.
+      Update fonts for header and the text below it.
+      Adds a variant for banners without image (organisms-page-banner-as-overlay-no-image)
+      Other overlay banner variants are not affected. (#1534)
+    issue: DP-23065
+    impact: Minor
