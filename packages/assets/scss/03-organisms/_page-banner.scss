@@ -175,7 +175,14 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     align-items: center;
     flex-wrap: wrap;
     font-size: $fonts-xsmall;
-    max-width: 1050px;
+
+    .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
+    .ma__page-banner--overlay.ma__page-banner--bg-wide & {
+      @media ($bp-large-min) {
+        max-width: 1050px;
+      }
+    }
+
     padding: 30px 25px 45px 0;
     z-index: 1;
     top: -50%;
@@ -216,11 +223,18 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &__content-wrapper {
     z-index: 1;
 
+
      @media ($bp-x-small-min) {
       transform: skew(30deg);
-      width: 55vw;
       display: flex;
       flex-wrap: wrap;
+    }
+
+    .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
+    .ma__page-banner--overlay.ma__page-banner--bg-wide & {
+      @media ($bp-large-min) {
+        width: 55vw;
+      }
     }
 
     .ma__page-banner--overlay &--bg-wide {
@@ -392,8 +406,15 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     top: $page-banner-height;
 
     @media ($bp-large-min) {
-      max-width: 820px;
     }
+
+    .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
+    .ma__page-banner--overlay.ma__page-banner--bg-wide & {
+      @media ($bp-large-min) {
+      max-width: 820px;
+      }
+    }
+
   }
 
   .ma__decorative-link a,
