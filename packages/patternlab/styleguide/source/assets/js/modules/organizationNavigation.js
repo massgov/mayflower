@@ -1,3 +1,4 @@
+import focusTrapping from "../helpers/focusTrapping.js";
 export default (function (window, document, $, undefined) {
 
   $('.ma__organization-navigation').each(function () {
@@ -62,6 +63,8 @@ export default (function (window, document, $, undefined) {
       }
 
       $mobileToggle.add($menuWrapper).toggleClass('menu-open');
+      $mobileToggle.attr('aria-expanded', (_, attr) => attr == 'false' ? 'true' : 'false');
+
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
       // Remove cloned button if present.
@@ -71,6 +74,52 @@ export default (function (window, document, $, undefined) {
       $('body').toggleClass('scroll-disabled');
 
       feedbackButton.toggle();
+
+      // Mobile nav menu items.
+      let $mobileOpenMenuButton = $('.item-open').find('.subnav-toggle');
+      let $mobileOpenSubMenu = $('.item-open').find('.ma__organization-navigation__subitems');
+      let $mobileOpenSubnavToggle = $mobileOpenSubMenu.find('.subnav-toggle');
+
+      $mobileOpenMenuButton.attr('aria-expanded', (_, attr) => attr == 'false' ? 'true' : 'false');
+      $mobileOpenSubMenu.attr('aria-hidden', (_, attr) => attr == 'false' ? 'true' : 'false');
+      // $mobileOpenSubMenu.toggleClass('visuallyhidden');
+
+
+
+      // $mobileOpenMenuButton.on('click', () => {
+      //   if ($mobileOpenMenuButton.attr('aria-expanded') === 'true') {
+      //     $mobileOpenSubMenu.css('visibility', 'visible');
+      //   }
+      //   else {
+      //     $mobileOpenSubMenu.removeAttr('style');
+      //   }
+      // });
+
+        // $searchToggle.attr('aria-expanded', (_, attr) => attr == 'false' ? 'true' : 'false');
+
+
+
+        // if ($('.item-open').hasClass('item-open')) {
+        //   $mobileOpenMenuButton.attr('aria-expanded', 'true');
+        //   $mobileOpenSubMenu.attr('aria-hidden', 'false');
+        //   $mobileOpenSubMenu.css('visibility','visible');
+
+
+        //         // Open submenu
+        // if ($buttonParent.hasClass('item-open')) {
+        //   $button.attr('aria-expanded', 'true');
+        //   $thisMenu.css('top', menuHeight);
+        //   $thisMenu.removeAttr('aria-hidden');
+        //   $thisMenu.css('visibility','visible');
+
+        //     function closeMenuTasks () {
+        //   $buttonParent.removeClass('item-open');
+        //   $button.attr('aria-expanded', 'false');
+        //   $thisMenu.attr('aria-hidden', 'true');
+        //   $thisMenu.removeAttr('style');
+        // }
+
+        // }
 
     });
 
@@ -90,7 +139,7 @@ export default (function (window, document, $, undefined) {
       $(this).attr('action', searchAction + searchParams);
     });
 
-    // Open the dropdowns.
+    // Manage org submenus.
     $menuButton.each(function () {
       let $button = $(this);
       let $buttonParent = $button.parent('.has-subnav');
@@ -99,45 +148,11 @@ export default (function (window, document, $, undefined) {
       let menuHeight = $menuWrapper.outerHeight();
       let $firstSubmenuItem = $thisMenu.find('.ma__organization-navigation__subitem a:first');
 
-      // $buttonParent.on('mouseenter mouseleave', function () {
-      //   let windowWidth = $(window).width();
-
-      //   if (windowWidth > mobileBreak) {
-      //     $('.section-toggle').remove();
-      //     $buttonParent.toggleClass('item-open');
-      //     $thisMenu.css('top', menuHeight);
-      //   }
-      //   else {
-      //     return false;
-      //   };
-      // });
-
-      // $button.on('focus', function () {
-      //   $thisMenu.find("a[href]").attr("tabindex", -1);
-      //   $otherMenus.find("a[href]").attr("tabindex", -1);
-
-      //   $button.keyup(function (e) {
-
-      //     $('.item-open').removeClass('item-open');
-
-      //     if (e.keyCode == 13 || e.keyCode == 32) {
-      //       $('.section-toggle').remove();
-
-      //       $thisMenu.find("a[href]").attr("tabindex", 0);
-      //       $buttonParent.toggleClass('item-open');
-      //       $thisMenu.css('top', menuHeight);
-
-      //       $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
-      //         return false;
-      //       });
-      //     }
-      //   });
-      // });
-
       $button.on('click', function () {
         let windowWidth = $(window).width();
 
         if (windowWidth < mobileBreak) {
+        // Mobile version
           $buttonParent.toggleClass('item-open');
           let $buttonClone = $button.clone(true);
 
@@ -149,12 +164,14 @@ export default (function (window, document, $, undefined) {
         else {
         // Desktop version
           $buttonParent.toggleClass('item-open');
+          $thisMenu.toggleClass('visuallyhidden');
           // Open submenu
           if ($buttonParent.hasClass('item-open')) {
             $button.attr('aria-expanded', 'true');
             $thisMenu.css('top', menuHeight);
             $thisMenu.removeAttr('aria-hidden');
-            $thisMenu.css('visibility','visible');
+            // $thisMenu.css('visibility','visible');
+            // $thisMenu.removeClass('visuallyhidden');
 
             // Close submenu with ESC.
             $thisMenu.on('keyup', function(e) {
@@ -165,6 +182,7 @@ export default (function (window, document, $, undefined) {
             });
 
             // Close submenu with Shift + Tab on the first focusable element in the submenu.
+            // Has to be 'keydown'. 'keyup' doesn't work with shift key.
             $firstSubmenuItem.on('keydown', (e) => {
               if (e.shiftKey && e.key == "Tab") {
                 closeMenuTasks();
@@ -174,9 +192,7 @@ export default (function (window, document, $, undefined) {
           else {
             closeMenuTasks();
           }
-
-          // return false;
-        };
+        }
 
         // When focus moves to another menu item, close the open menu container.
         // Only one menu container opens at a time.
@@ -188,7 +204,8 @@ export default (function (window, document, $, undefined) {
               $(this).removeClass('item-open');
               $orgNavMenuButton.attr('aria-expanded', 'false');
               $(this).find('.ma__organization-navigation__subitems').attr('aria-hidden', 'true');
-              $(this).find('.ma__organization-navigation__subitems').removeAttr('style');
+              // $(this).find('.ma__organization-navigation__subitems').removeAttr('style');
+              $(this).find('.ma__organization-navigation__subitems').toggleClass('visuallyhidden');
             }
           }
         });
@@ -198,7 +215,8 @@ export default (function (window, document, $, undefined) {
         $buttonParent.removeClass('item-open');
         $button.attr('aria-expanded', 'false');
         $thisMenu.attr('aria-hidden', 'true');
-        $thisMenu.removeAttr('style');
+        // $thisMenu.removeAttr('style');
+        $thisMenu.toggleClass('visuallyhidden');
       }
     });
 
@@ -244,8 +262,10 @@ export default (function (window, document, $, undefined) {
     $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
 
     $(".internal-link").on('focus', function (e) {
-      $('.item-open').removeClass('item-open');
+      closeOpenMenu ();
     });
+
+    $('.item-open .ma__organization-navigation__subitems').focusout(closeOpenMenu());
 
     $(".internal-link").on('click', function (e) {
       // Close open menus and reset markup.
@@ -262,6 +282,14 @@ export default (function (window, document, $, undefined) {
         feedbackButton.show();
       }
     });
+
+    function closeOpenMenu () {
+      $('.item-open .subnav-toggle').attr('aria-expanded', 'false');
+      $('.item-open .ma__organization-navigation__subitems').attr('aria-hidden', 'true');
+      // $('.item-open .ma__organization-navigation__subitems').removeAttr('style');
+      $('.item-open .ma__organization-navigation__subitems').toggleClass('visuallyhidden');
+      $('.item-open').removeClass('item-open');
+    }
 
     $(window).on("resize", function () {
       let windowWidth = $(window).width();
@@ -300,3 +328,16 @@ export default (function (window, document, $, undefined) {
     }).resize();
   });
 })(window, document, jQuery);
+
+$(document).keydown(function(e) {
+  if (document.querySelector('.ma__organization-navigation__item.has-subnav')) {
+    if (document.querySelector('.ma__organization-navigation__item.has-subnav').classList.contains('item-open')) {
+      focusTrapping({
+        focusableSelectors: 'a',
+        closeButtonSelector: '.subnav-toggle',
+        modalSelector: '.ma__organization-navigation__subitems',
+        keyEvent: e
+      });
+    }
+  }
+});
