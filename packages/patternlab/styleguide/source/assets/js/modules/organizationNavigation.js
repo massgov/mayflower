@@ -58,6 +58,14 @@ export default (function (window, document, $, undefined) {
     // Mobile toggle.
     $mobileToggle.on('click', function () {
 
+      if (window.pageYOffset < 40) {
+        // Prevent overwraping with the blue menu bar at the top of the page.
+        $orgNav.attr('style', 'top: 40px;');
+      }
+      else {
+        $orgNav.removeAttr('style');
+      }
+
       if (!$orgNav.hasClass('stuck')) {
         $orgNav.addClass('stuck')
       }
@@ -74,52 +82,6 @@ export default (function (window, document, $, undefined) {
       $('body').toggleClass('scroll-disabled');
 
       feedbackButton.toggle();
-
-      // Mobile nav menu items.
-      let $mobileOpenMenuButton = $('.item-open').find('.subnav-toggle');
-      let $mobileOpenSubMenu = $('.item-open').find('.ma__organization-navigation__subitems');
-      let $mobileOpenSubnavToggle = $mobileOpenSubMenu.find('.subnav-toggle');
-
-      $mobileOpenMenuButton.attr('aria-expanded', (_, attr) => attr == 'false' ? 'true' : 'false');
-      $mobileOpenSubMenu.attr('aria-hidden', (_, attr) => attr == 'false' ? 'true' : 'false');
-      // $mobileOpenSubMenu.toggleClass('visuallyhidden');
-
-
-
-      // $mobileOpenMenuButton.on('click', () => {
-      //   if ($mobileOpenMenuButton.attr('aria-expanded') === 'true') {
-      //     $mobileOpenSubMenu.css('visibility', 'visible');
-      //   }
-      //   else {
-      //     $mobileOpenSubMenu.removeAttr('style');
-      //   }
-      // });
-
-        // $searchToggle.attr('aria-expanded', (_, attr) => attr == 'false' ? 'true' : 'false');
-
-
-
-        // if ($('.item-open').hasClass('item-open')) {
-        //   $mobileOpenMenuButton.attr('aria-expanded', 'true');
-        //   $mobileOpenSubMenu.attr('aria-hidden', 'false');
-        //   $mobileOpenSubMenu.css('visibility','visible');
-
-
-        //         // Open submenu
-        // if ($buttonParent.hasClass('item-open')) {
-        //   $button.attr('aria-expanded', 'true');
-        //   $thisMenu.css('top', menuHeight);
-        //   $thisMenu.removeAttr('aria-hidden');
-        //   $thisMenu.css('visibility','visible');
-
-        //     function closeMenuTasks () {
-        //   $buttonParent.removeClass('item-open');
-        //   $button.attr('aria-expanded', 'false');
-        //   $thisMenu.attr('aria-hidden', 'true');
-        //   $thisMenu.removeAttr('style');
-        // }
-
-        // }
 
     });
 
@@ -151,9 +113,10 @@ export default (function (window, document, $, undefined) {
       $button.on('click', function () {
         let windowWidth = $(window).width();
 
+        $buttonParent.toggleClass('item-open');
+
         if (windowWidth < mobileBreak) {
         // Mobile version
-          $buttonParent.toggleClass('item-open');
           let $buttonClone = $button.clone(true);
 
           // Copy the link as a close button inside the menu section.
@@ -161,37 +124,31 @@ export default (function (window, document, $, undefined) {
             $buttonClone.addClass('section-toggle').prependTo($thisMenu);
           }
         }
+
+        // Open submenu
+        if ($buttonParent.hasClass('item-open')) {
+          $button.attr('aria-expanded', 'true');
+          $thisMenu.removeAttr('aria-hidden');
+          $thisMenu.css('visibility','visible');
+
+          // Close submenu with ESC.
+          $thisMenu.on('keyup', function(e) {
+            if (e.key === "Escape") {
+              closeMenuTasks();
+              $button.focus();
+            }
+          });
+
+          // Close submenu with Shift + Tab on the first focusable element in the submenu.
+          // Has to be 'keydown'. 'keyup' doesn't work with shift key.
+          $firstSubmenuItem.on('keydown', (e) => {
+            if (e.shiftKey && e.key == "Tab") {
+              closeMenuTasks();
+            }
+          });
+        }
         else {
-        // Desktop version
-          $buttonParent.toggleClass('item-open');
-          $thisMenu.toggleClass('visuallyhidden');
-          // Open submenu
-          if ($buttonParent.hasClass('item-open')) {
-            $button.attr('aria-expanded', 'true');
-            $thisMenu.css('top', menuHeight);
-            $thisMenu.removeAttr('aria-hidden');
-            // $thisMenu.css('visibility','visible');
-            // $thisMenu.removeClass('visuallyhidden');
-
-            // Close submenu with ESC.
-            $thisMenu.on('keyup', function(e) {
-              if (e.key === "Escape") {
-                closeMenuTasks();
-                $button.focus();
-              }
-            });
-
-            // Close submenu with Shift + Tab on the first focusable element in the submenu.
-            // Has to be 'keydown'. 'keyup' doesn't work with shift key.
-            $firstSubmenuItem.on('keydown', (e) => {
-              if (e.shiftKey && e.key == "Tab") {
-                closeMenuTasks();
-              }
-            });
-          }
-          else {
-            closeMenuTasks();
-          }
+          closeMenuTasks();
         }
 
         // When focus moves to another menu item, close the open menu container.
@@ -204,8 +161,7 @@ export default (function (window, document, $, undefined) {
               $(this).removeClass('item-open');
               $orgNavMenuButton.attr('aria-expanded', 'false');
               $(this).find('.ma__organization-navigation__subitems').attr('aria-hidden', 'true');
-              // $(this).find('.ma__organization-navigation__subitems').removeAttr('style');
-              $(this).find('.ma__organization-navigation__subitems').toggleClass('visuallyhidden');
+              $(this).find('.ma__organization-navigation__subitems').removeAttr('style');
             }
           }
         });
@@ -215,8 +171,7 @@ export default (function (window, document, $, undefined) {
         $buttonParent.removeClass('item-open');
         $button.attr('aria-expanded', 'false');
         $thisMenu.attr('aria-hidden', 'true');
-        // $thisMenu.removeAttr('style');
-        $thisMenu.toggleClass('visuallyhidden');
+        $thisMenu.removeAttr('style');
       }
     });
 
@@ -232,7 +187,7 @@ export default (function (window, document, $, undefined) {
       $button.on('click', function () {
         let windowWidth = $(window).width();
         if (windowWidth < mobileBreak) {
-          $button.toggleClass('item-open');
+          // $button.toggleClass('item-open');
           $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
         }
       });
@@ -262,10 +217,11 @@ export default (function (window, document, $, undefined) {
     $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
 
     $(".internal-link").on('focus', function (e) {
-      closeOpenMenu ();
+      $('.item-open .subnav-toggle').attr('aria-expanded', 'false');
+      $('.item-open .ma__organization-navigation__subitems').attr('aria-hidden', 'true');
+      $('.item-open .ma__organization-navigation__subitems').removeAttr('style');
+      $('.item-open').removeClass('item-open');
     });
-
-    $('.item-open .ma__organization-navigation__subitems').focusout(closeOpenMenu());
 
     $(".internal-link").on('click', function (e) {
       // Close open menus and reset markup.
@@ -282,14 +238,6 @@ export default (function (window, document, $, undefined) {
         feedbackButton.show();
       }
     });
-
-    function closeOpenMenu () {
-      $('.item-open .subnav-toggle').attr('aria-expanded', 'false');
-      $('.item-open .ma__organization-navigation__subitems').attr('aria-hidden', 'true');
-      // $('.item-open .ma__organization-navigation__subitems').removeAttr('style');
-      $('.item-open .ma__organization-navigation__subitems').toggleClass('visuallyhidden');
-      $('.item-open').removeClass('item-open');
-    }
 
     $(window).on("resize", function () {
       let windowWidth = $(window).width();
@@ -330,14 +278,27 @@ export default (function (window, document, $, undefined) {
 })(window, document, jQuery);
 
 $(document).keydown(function(e) {
-  if (document.querySelector('.ma__organization-navigation__item.has-subnav')) {
-    if (document.querySelector('.ma__organization-navigation__item.has-subnav').classList.contains('item-open')) {
+  let orgSubMenus = document.querySelectorAll('.ma__organization-navigation__item.has-subnav');
+  orgSubMenus.forEach((menu) => {
+    if (menu.classList.contains('item-open')) {
+      // It picks up an open menu, but only works with the first menu item.
       focusTrapping({
-        focusableSelectors: 'a',
+        focusableSelectors: '.ma__organization-navigation__subitem a, .custom-options__get-updates a',
         closeButtonSelector: '.subnav-toggle',
         modalSelector: '.ma__organization-navigation__subitems',
         keyEvent: e
       });
     }
-  }
+  });
+});
+
+// Mobile version
+let mobileOrgNav = document.querySelector('.ma__organization-navigation.stuck');
+mobileOrgNav.querySelector('.ma__organization-navigation__mobile-toggle').addEventListener('click', () => {
+  focusTrapping({
+    focusableSelectors: 'button.subnav-toggle, a.internal-link, input.js-organization-navigation__search-input, button.ma__button-search--secondary',
+    closeButtonSelector: '.ma__organization-navigation__mobile-toggle',
+    modalSelector: '.ma__organization-navigation--inner-wrapper.menu-open',
+    keyEvent: e
+  });
 });
