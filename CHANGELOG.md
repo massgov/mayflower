@@ -1,6 +1,14 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.16.3 (10/25/2021)
+### Changed 
+- (React, Patternlab, Core) [BrandBanner] Update BrandBanner toggle button text (#1535)
+
+## 11.16.2 (10/18/2021)
+### Fixed 
+- (React, Patternlab) [BrandBanner] DP-23034: Changed HTML semantic from `dl``dt` to `ul``li` for better screen reader experience. (#1516)
+
 ## 11.16.1 (10/14/2021)
 ### Fixed 
 - (Patternlab) [Accordions] DP-23166: Fixing accordions. (#1528)
