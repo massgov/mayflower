@@ -20,7 +20,7 @@ $menu-transition-time: 0.3s;
     left: 0;
     width: 100%;
     margin-top: 0;
-    z-index: $z-dropdown;
+    z-index: $z-modal;
 
     .show-menu & {
       opacity: 0;
@@ -150,13 +150,11 @@ $menu-transition-time: 0.3s;
 
   &__search {
     border-bottom: 1px solid $c-gray-light;
-    order: 1;
     padding: 20px;
 
     @media ($bp-large-min) {
       display: flex;
       flex-direction: row-reverse;
-      order: 2;
       border-bottom: 0;
       padding: 0;
 

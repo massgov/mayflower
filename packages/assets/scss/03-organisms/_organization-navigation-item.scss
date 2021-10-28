@@ -6,10 +6,8 @@
     position: relative;
     padding: 0 20px;
     margin-bottom: 0;
-    order: 2;
 
     @media ($bp-large-min) {
-      order: 1;
       display: flex;
       padding: 0;
       border-bottom: 0;

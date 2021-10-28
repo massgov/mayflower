@@ -6,7 +6,7 @@ export default (function (window, document, $, undefined) {
     const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
     const $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
 
-    // Page wrapper and fillers. 
+    // Page wrapper and fillers.
     const $pageWrapper = $orgNav.parent().next();
     let $newsLink = $pageWrapper.find('.ma__press-listing');
     let $eventsLink = $pageWrapper.find('.ma__event-listing');
@@ -24,47 +24,52 @@ export default (function (window, document, $, undefined) {
     const mobileBreak = 910;
 
     // Search Wrapper vars.
+    const $orgNavSearch = $orgNav.find('.ma__organization-navigation__search');
     const $orgNavSearchForm = $orgNav.find('.js-organization-navigation__search');
     const $orgNavSearchInput = $orgNav.find('#organization-navigation-search');
     const $searchToggle = $orgNav.find('.ma__organization-navigation__search .js-search-toggle');
 
-    // Subnav buttons. 
+    // Subnav buttons.
     let $menuButton = $orgNav.find('.subnav-toggle');
 
     // I want to section.
     let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
 
     // Sticky on scroll.
-    if ($('.pre-content').length) {
-      const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
-      let menuHeight = $orgNav.height();
-      $(window).scroll(function () {
-        const orgWindowTop = $(window).scrollTop();
-        let windowWidth = $(window).width();
+    const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
+    const menuHeight = $orgNav.height();
 
-        // Active Sticky TOC when on page TOC scrolls past.
-        if (bannerBottom > orgWindowTop) {
-          $('.pre-content').removeAttr('style');
-          $orgNav.removeClass('stuck');
-        }
-        else {
-          $('.pre-content').css('padding-top', menuHeight);
-          $orgNav.addClass('stuck');
-        }
+    function stickyOnScroll() {
+      const orgWindowTop = $(window).scrollTop();
+
+      // Active Sticky TOC when on page TOC scrolls past.
+      if (bannerBottom > orgWindowTop) {
+        $('.pre-content').removeAttr('style');
+        $orgNav.removeClass('stuck');
+      }
+      else {
+        $('.pre-content').css('padding-top', menuHeight);
+        $orgNav.addClass('stuck');
+      }
+    }
+
+    if ($('.pre-content').length) {
+      $(window).scroll(function () {
+        stickyOnScroll();
       });
     }
 
-    // Mobile toggle. 
-    $mobileToggle.on('click', function () {
+    // Mobile toggle.
+    function mobileToggleClick() {
 
       if (!$orgNav.hasClass('stuck')) {
-        $orgNav.addClass('stuck')
+        $orgNav.addClass('stuck');
       }
 
       $mobileToggle.add($menuWrapper).toggleClass('menu-open');
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
-      // Remove cloned button if present. 
+      // Remove cloned button if present.
       $('.section-toggle').remove();
 
       // Lock body scroll on mobile open/close.
@@ -72,6 +77,19 @@ export default (function (window, document, $, undefined) {
 
       feedbackButton.toggle();
 
+      if($mobileToggle.hasClass('menu-open')) {
+        $orgNavSearch.prependTo($menuWrapper);
+      } else {
+        $orgNavSearch.appendTo($menuWrapper);
+        stickyOnScroll();
+      }
+    }
+    // Capture click, spacebar and enter keys.
+    $mobileToggle.keypress(function() {
+      if (event.which == 13 || event.which == 32) mobileToggleClick();
+    });
+    $mobileToggle.on('click', function () {
+      mobileToggleClick()
     });
 
     // Search form swing open/closed.
