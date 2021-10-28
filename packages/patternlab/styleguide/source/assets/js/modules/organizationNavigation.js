@@ -1,4 +1,18 @@
+import focusTrapping from "../helpers/focusTrapping.js";
 export default (function (window, document, $, undefined) {
+
+  // Keyboard navigation.
+  $(document).keydown(function(e) {
+    // check if menu open
+    if ($('.ma__organization-navigation__mobile-toggle').hasClass('menu-open')) {
+      console.log('yes');
+      focusTrapping({
+        focusableSelectors: '.ma__organization-navigation__mobile-toggle, .ma__organization-navigation--inner-wrapper li, .ma__organization-navigation--inner-wrapper input',
+        modalSelector: '.ma__organization-navigation',
+        keyEvent: e
+      });
+    }
+  });
 
   $('.ma__organization-navigation').each(function () {
     // Org Nav Wrapper.
@@ -84,12 +98,16 @@ export default (function (window, document, $, undefined) {
         stickyOnScroll();
       }
     }
+
     // Capture click, spacebar and enter keys.
-    $mobileToggle.keypress(function() {
-      if (event.which == 13 || event.which == 32) mobileToggleClick();
+    $mobileToggle.keypress(function(e) {
+      if (event.which == 13 || event.which == 32) {
+        mobileToggleClick();
+      }
     });
-    $mobileToggle.on('click', function () {
-      mobileToggleClick()
+
+    $mobileToggle.on('click', function (e) {
+      mobileToggleClick();
     });
 
     // Search form swing open/closed.
