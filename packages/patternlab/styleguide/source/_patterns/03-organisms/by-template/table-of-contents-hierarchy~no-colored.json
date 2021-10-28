@@ -1,0 +1,78 @@
+{
+  "tableOfContentsHierarchy": {
+    "title": {
+      "text": "Table of Contents",
+      "colored": false
+    },
+    "sections": [
+      {
+        "text": "Executive Summary",
+        "href": "#"
+      },
+      {
+        "text": "1. Scope of Rules",
+        "linkItems": [
+          {
+            "text": "Thing One",
+            "href": "#"
+          },
+          {
+            "text": "Thing Two",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "text": "Training & Assistance",
+        "linkItems": [
+          {
+            "text": "Unemployment Insurance (UI) for Employers",
+            "href": "#"
+          },
+          {
+            "text": "WorkShare for Employers",
+            "href": "#"
+          },
+          {
+            "title": "For Workers",
+            "subItems": [
+              {
+                "text": "Training Opportunities Program (TOP)",
+                "href": "#"
+              },
+              {
+                "text": "MassHire Career Centers",
+                "href": "#"
+              },
+              {
+                "text": "Vocational Rehabilitation",
+                "href": "#"
+              }
+            ]
+          },
+          {
+            "title": "For Employers",
+            "subItems": [
+              {
+                "text": "Prevent layoffs with Rapid Response",
+                "href": "#"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "iconSize": "",
+        "icon": "doc-docx",
+        "decorativeLink": {
+          "text": "Link to a file for download",
+          "href": "#",
+          "info": ""
+        },
+        "size": "40kb",
+        "format": "DOCX"
+      }
+    ]
+
+  }
+}
