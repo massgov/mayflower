@@ -109,12 +109,17 @@
 
     li:hover {
       cursor: pointer;
+    }
 
-      a {
-        border-bottom-width: 3px;
-        border-bottom-style: solid;
-        border-bottom-color: rgba(20,85,143,0.5);
-      }
+    a:hover {
+      border-bottom-width: 3px;
+      border-bottom-style: solid;
+      border-bottom-color: rgba(20,85,143,0.5);
+    }
+
+    li {
+      list-style: none;
+      padding: 10px 0 10px 20px;
     }
   }
 

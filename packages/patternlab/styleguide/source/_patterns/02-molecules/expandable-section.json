@@ -1,14 +1,40 @@
 {
   "expandableSection" : {
-    "text": "1. Scope of Rules",
+    "text": "Training & Assistance",
     "linkItems": [
       {
-        "text": "Thing One",
+        "text": "Unemployment Insurance (UI) for Employers",
         "href": "#"
       },
       {
-        "text": "Thing Two",
+        "text": "WorkShare for Employers",
         "href": "#"
+      },
+      {
+        "title": "For Workers",
+        "subItems": [
+          {
+            "text": "Training Opportunities Program (TOP)",
+            "href": "#"
+          },
+          {
+            "text": "MassHire Career Centers",
+            "href": "#"
+          },
+          {
+            "text": "Vocational Rehabilitation",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "title": "For Employers",
+        "subItems": [
+          {
+            "text": "Prevent layoffs with Rapid Response",
+            "href": "#"
+          }
+        ]
       }
     ]
   }
