@@ -6,5 +6,8 @@ This is a simple horizontal divider.  It is typically used at the bottom of the 
 
 ### Variables
 ~~~
-none
+divider {
+  thin:
+    type: boolean / optional (variant for thiner divider)
+}
 ~~~
