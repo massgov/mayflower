@@ -10,7 +10,8 @@
           "text":"Page content"
         }
       }
-    }]
+    }],
+    "sideBar": []
   },{
     "title": "Stacked row",
     "id": "",
@@ -22,6 +23,7 @@
           "text":"Page content"
         }
       }
-    }]
+    }],
+    "sideBar": []
   }]
 }
