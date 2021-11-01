@@ -99,7 +99,6 @@ export default (function (window, document, $, undefined) {
         if ($mobileToggle.hasClass(classMainNavOpen)) {
           const $subNavOpen = $orgNavItems.find(`.${classSubNavOpen}`)
           const hasSubNavOpen = $subNavOpen.length > 0;
-          console.log(hasSubNavOpen)
           if (hasSubNavOpen) {
             focusTrapping({
               focusableSelectors: '.ma__organization-navigation__mobile-toggle, .ma__organization-navigation__item.item-open button, .ma__organization-navigation__item.item-open [role="button"], .ma__organization-navigation__item.item-open a',
@@ -120,7 +119,7 @@ export default (function (window, document, $, undefined) {
 
     // Capture click, spacebar and enter keys.
     $mobileToggle.keypress(function(e) {
-      if (event.which == 13 || event.which == 32) {
+      if (e.which == 13 || e.which == 32) {
         mobileToggleClick();
       }
     });
@@ -217,10 +216,8 @@ export default (function (window, document, $, undefined) {
         let windowWidth = $(window).width();
         if (windowWidth < mobileBreak) {
           const $heading = $button.parent();
-          console.log($heading)
           const $wrapper = $heading.parent();
           $heading.toggleClass(classSubNavOpen);
-          console.log($wrapper.find('.ma__link-list__container'))
           $wrapper.find('.ma__link-list__container').toggleClass(classSubNavOpen);
           $wrapper.find('.ma__link-list__see-all').toggleClass(classSubNavOpen);
         }
