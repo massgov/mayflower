@@ -4,13 +4,13 @@ export default (function (window, document, $, undefined) {
 
   $('.ma__organization-navigation').each(function () {
     // Toggle classname
-    const classMainNavOpen = "classMainNavOpen";
-    const classSubNavOpen = "classSubNavOpen";
+    const classMainNavOpen = "menu-open";
+    const classSubNavOpen = "item-open";
 
     // Org Nav Wrapper.
     const $orgNav = $(this);
-    const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
     const $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
+    const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
 
     // Page wrapper and fillers.
     const $pageWrapper = $orgNav.parent().next();
@@ -72,9 +72,9 @@ export default (function (window, document, $, undefined) {
         $orgNav.addClass('stuck');
       }
 
-      $mobileToggle.add($menuWrapper).toggleClass('classMainNavOpen');
+      $mobileToggle.add($menuWrapper).toggleClass(classMainNavOpen);
       // Close items when closing menu.
-      $('.classSubNavOpen').removeClass('classSubNavOpen');
+      $('.classSubNavOpen').removeClass(classSubNavOpen);
       // Remove cloned button if present.
       $('.section-toggle').remove();
 
@@ -83,7 +83,7 @@ export default (function (window, document, $, undefined) {
 
       feedbackButton.toggle();
 
-      if($mobileToggle.hasClass('classMainNavOpen')) {
+      if($mobileToggle.hasClass(classMainNavOpen)) {
         $orgNavSearch.prependTo($menuWrapper);
       } else {
         $orgNavSearch.appendTo($menuWrapper);
@@ -95,12 +95,23 @@ export default (function (window, document, $, undefined) {
       // Keyboard focus trapping.
       $(document).keydown(function(e) {
         // check if main menu open
-        if ($mobileToggle.hasClass('classMainNavOpen')) {
-          focusTrapping({
-            focusableSelectors: '.ma__organization-navigation__mobile-toggle, button.ma__organization-navigation__search--toggle, .ma__organization-navigation__items > li > button',
-            modalSelector: '.ma__organization-navigation',
-            keyEvent: e
-          });
+        if ($mobileToggle.hasClass(classMainNavOpen)) {
+          const $subNavOpen = $orgNavItems.find(`.${classSubNavOpen}`)
+          const hasSubNavOpen = $subNavOpen.length > 0;
+          console.log(hasSubNavOpen)
+          if (hasSubNavOpen) {
+            focusTrapping({
+              focusableSelectors: '.ma__organization-navigation__mobile-toggle, .ma__organization-navigation__item.item-open button, .ma__organization-navigation__item.item-open a',
+              modalSelector: '.ma__organization-navigation',
+              keyEvent: e
+            });
+          } else {
+            focusTrapping({
+              focusableSelectors: '.ma__organization-navigation__mobile-toggle, button.ma__organization-navigation__search--toggle, .ma__organization-navigation__items > li > button',
+              modalSelector: '.ma__organization-navigation',
+              keyEvent: e
+            });
+          }
         }
 
       });
@@ -144,7 +155,7 @@ export default (function (window, document, $, undefined) {
 
         if (windowWidth > mobileBreak) {
           $('.section-toggle').remove();
-          $buttonParent.toggleClass('classSubNavOpen');
+          $buttonParent.toggleClass(classSubNavOpen);
           $thisMenu.css('top', menuHeight);
         }
         else {
@@ -152,33 +163,33 @@ export default (function (window, document, $, undefined) {
         };
       });
 
-      $button.on('focus', function () {
-        $thisMenu.find("a[href]").attr("tabindex", -1);
-        $otherMenus.find("a[href]").attr("tabindex", -1);
+      // $button.on('focus', function () {
+      //   $thisMenu.find("a[href]").attr("tabindex", -1);
+      //   $otherMenus.find("a[href]").attr("tabindex", -1);
 
-        $button.keyup(function (e) {
+      //   $button.keyup(function (e) {
 
-          $('.classSubNavOpen').removeClass('classSubNavOpen');
+      //     $('.classSubNavOpen').removeClass(classSubNavOpen);
 
-          if (e.keyCode == 13 || e.keyCode == 32) {
-            $('.section-toggle').remove();
+      //     if (e.keyCode == 13 || e.keyCode == 32) {
+      //       $('.section-toggle').remove();
 
-            $thisMenu.find("a[href]").attr("tabindex", 0);
-            $buttonParent.toggleClass('classSubNavOpen');
-            $thisMenu.css('top', menuHeight);
+      //       $thisMenu.find("a[href]").attr("tabindex", 0);
+      //       $buttonParent.toggleClass(classSubNavOpen);
+      //       $thisMenu.css('top', menuHeight);
 
-            $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
-              return false;
-            });
-          }
-        });
-      });
+      //       $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
+      //         return false;
+      //       });
+      //     }
+      //   });
+      // });
 
       $button.on('click', function () {
         let windowWidth = $(window).width();
 
         if (windowWidth < mobileBreak) {
-          $buttonParent.toggleClass('classSubNavOpen');
+          $buttonParent.toggleClass(classSubNavOpen);
           let $buttonClone = $button.clone(true);
 
           // Copy the link as a close button inside the menu section.
@@ -205,8 +216,8 @@ export default (function (window, document, $, undefined) {
       $button.on('click', function () {
         let windowWidth = $(window).width();
         if (windowWidth < mobileBreak) {
-          $button.toggleClass('classSubNavOpen');
-          $button.next('.ma__link-list__container').add($seeAll).toggleClass('classSubNavOpen');
+          $button.toggleClass(classSubNavOpen);
+          $button.next('.ma__link-list__container').add($seeAll).toggleClass(classSubNavOpen);
         }
       });
 
@@ -235,13 +246,13 @@ export default (function (window, document, $, undefined) {
     $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
 
     $(".internal-link").on('focus', function (e) {
-      $('.classSubNavOpen').removeClass('classSubNavOpen');
+      $('.classSubNavOpen').removeClass(classSubNavOpen);
     });
 
     $(".internal-link").on('click', function (e) {
       // Close open menus and reset markup.
-      $(`.${classMainNavOpen}`).removeClass('classMainNavOpen');
-      $(`.${classSubNavOpen}`).removeClass('classSubNavOpen');
+      $(`.${classMainNavOpen}`).removeClass(classMainNavOpen);
+      $(`.${classSubNavOpen}`).removeClass(classSubNavOpen);
       $('.form-open').removeClass('form-open');
       $('.section-toggle').remove();
 
