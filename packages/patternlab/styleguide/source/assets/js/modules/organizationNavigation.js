@@ -3,6 +3,10 @@ export default (function (window, document, $, undefined) {
 
 
   $('.ma__organization-navigation').each(function () {
+    // Toggle classname
+    const classMainNavOpen = "classMainNavOpen";
+    const classSubNavOpen = "classSubNavOpen";
+
     // Org Nav Wrapper.
     const $orgNav = $(this);
     const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
@@ -68,9 +72,9 @@ export default (function (window, document, $, undefined) {
         $orgNav.addClass('stuck');
       }
 
-      $mobileToggle.add($menuWrapper).toggleClass('menu-open');
+      $mobileToggle.add($menuWrapper).toggleClass('classMainNavOpen');
       // Close items when closing menu.
-      $('.item-open').removeClass('item-open');
+      $('.classSubNavOpen').removeClass('classSubNavOpen');
       // Remove cloned button if present.
       $('.section-toggle').remove();
 
@@ -79,25 +83,28 @@ export default (function (window, document, $, undefined) {
 
       feedbackButton.toggle();
 
-      if($mobileToggle.hasClass('menu-open')) {
+      if($mobileToggle.hasClass('classMainNavOpen')) {
         $orgNavSearch.prependTo($menuWrapper);
       } else {
         $orgNavSearch.appendTo($menuWrapper);
-        stickyOnScroll();
+      stickyOnScroll();
+
       }
     }
 
       // Keyboard focus trapping.
       $(document).keydown(function(e) {
-        // check if menu open
-        if ($mobileToggle.hasClass('menu-open')) {
+        // check if main menu open
+        if ($mobileToggle.hasClass('classMainNavOpen')) {
           focusTrapping({
             focusableSelectors: '.ma__organization-navigation__mobile-toggle, button.ma__organization-navigation__search--toggle, .ma__organization-navigation__items > li > button',
             modalSelector: '.ma__organization-navigation',
             keyEvent: e
           });
         }
+
       });
+
 
     // Capture click, spacebar and enter keys.
     $mobileToggle.keypress(function(e) {
@@ -137,7 +144,7 @@ export default (function (window, document, $, undefined) {
 
         if (windowWidth > mobileBreak) {
           $('.section-toggle').remove();
-          $buttonParent.toggleClass('item-open');
+          $buttonParent.toggleClass('classSubNavOpen');
           $thisMenu.css('top', menuHeight);
         }
         else {
@@ -151,13 +158,13 @@ export default (function (window, document, $, undefined) {
 
         $button.keyup(function (e) {
 
-          $('.item-open').removeClass('item-open');
+          $('.classSubNavOpen').removeClass('classSubNavOpen');
 
           if (e.keyCode == 13 || e.keyCode == 32) {
             $('.section-toggle').remove();
 
             $thisMenu.find("a[href]").attr("tabindex", 0);
-            $buttonParent.toggleClass('item-open');
+            $buttonParent.toggleClass('classSubNavOpen');
             $thisMenu.css('top', menuHeight);
 
             $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
@@ -171,7 +178,7 @@ export default (function (window, document, $, undefined) {
         let windowWidth = $(window).width();
 
         if (windowWidth < mobileBreak) {
-          $buttonParent.toggleClass('item-open');
+          $buttonParent.toggleClass('classSubNavOpen');
           let $buttonClone = $button.clone(true);
 
           // Copy the link as a close button inside the menu section.
@@ -198,8 +205,8 @@ export default (function (window, document, $, undefined) {
       $button.on('click', function () {
         let windowWidth = $(window).width();
         if (windowWidth < mobileBreak) {
-          $button.toggleClass('item-open');
-          $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
+          $button.toggleClass('classSubNavOpen');
+          $button.next('.ma__link-list__container').add($seeAll).toggleClass('classSubNavOpen');
         }
       });
 
@@ -228,13 +235,13 @@ export default (function (window, document, $, undefined) {
     $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
 
     $(".internal-link").on('focus', function (e) {
-      $('.item-open').removeClass('item-open');
+      $('.classSubNavOpen').removeClass('classSubNavOpen');
     });
 
     $(".internal-link").on('click', function (e) {
       // Close open menus and reset markup.
-      $('.menu-open').removeClass('menu-open');
-      $('.item-open').removeClass('item-open');
+      $(`.${classMainNavOpen}`).removeClass('classMainNavOpen');
+      $(`.${classSubNavOpen}`).removeClass('classSubNavOpen');
       $('.form-open').removeClass('form-open');
       $('.section-toggle').remove();
 
