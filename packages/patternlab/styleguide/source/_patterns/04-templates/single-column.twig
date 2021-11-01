@@ -1,4 +1,13 @@
 {% block header %}
+  {% include "@molecules/brand-banner.twig" with {
+      "brandBanner": {
+          "bgTheme": "dark",
+          "bgColor": "c-primary-alt",
+          "hasSeal": true,
+          "hasToggle": true
+      }
+      }
+  %}
   {% include "@organisms/by-template/emergency-alerts.twig" %}
   {% include "@organisms/by-template/header-hamburger.twig" %}
 {% endblock %}
