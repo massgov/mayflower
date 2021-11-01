@@ -1,18 +1,6 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 export default (function (window, document, $, undefined) {
 
-  // Keyboard navigation.
-  $(document).keydown(function(e) {
-    // check if menu open
-    if ($('.ma__organization-navigation__mobile-toggle').hasClass('menu-open')) {
-      console.log('yes');
-      focusTrapping({
-        focusableSelectors: '.ma__organization-navigation__mobile-toggle, .ma__organization-navigation--inner-wrapper li, .ma__organization-navigation--inner-wrapper input',
-        modalSelector: '.ma__organization-navigation',
-        keyEvent: e
-      });
-    }
-  });
 
   $('.ma__organization-navigation').each(function () {
     // Org Nav Wrapper.
@@ -98,6 +86,18 @@ export default (function (window, document, $, undefined) {
         stickyOnScroll();
       }
     }
+
+      // Keyboard focus trapping.
+      $(document).keydown(function(e) {
+        // check if menu open
+        if ($mobileToggle.hasClass('menu-open')) {
+          focusTrapping({
+            focusableSelectors: '.ma__organization-navigation__mobile-toggle, button.ma__organization-navigation__search--toggle, .ma__organization-navigation__items > li > button',
+            modalSelector: '.ma__organization-navigation',
+            keyEvent: e
+          });
+        }
+      });
 
     // Capture click, spacebar and enter keys.
     $mobileToggle.keypress(function(e) {

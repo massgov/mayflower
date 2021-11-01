@@ -34,6 +34,9 @@ export default ({
   }
   const firstFocusableElement = focusableContent[0]; // get first element to be focused inside modal
   const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+  console.log(firstFocusableElement)
+  console.log(lastFocusableElement)
+  console.log(document.activeElement)
 
   const isTabPressed = e.key === 'Tab';
 

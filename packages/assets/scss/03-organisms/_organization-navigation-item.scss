@@ -132,9 +132,11 @@
       transition: right 0.5s ease;
       z-index: $z-dropdown;
       background-color: $c-white;
+      display: none;
 
       .item-open & {
         right: 0;
+        display: block;
       }
     }
 
