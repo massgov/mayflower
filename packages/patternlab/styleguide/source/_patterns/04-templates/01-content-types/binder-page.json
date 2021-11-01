@@ -115,7 +115,8 @@
         "sections": [
           {
             "text": "Executive Summary",
-            "href": "#"
+            "href": "#",
+            "linkItems": []
           },
           {
             "text": "1. Scope of Rules",
@@ -142,6 +143,7 @@
               "href": "#",
               "info": ""
             },
+            "linkItems": [],
             "size": "40kb",
             "format": "DOCX"
           }
@@ -155,7 +157,8 @@
         "sections": [
           {
             "text": "Appendix as link",
-            "href": "#"
+            "href": "#",
+            "linkItems": []
           },
           {
             "iconSize": "",
@@ -166,7 +169,8 @@
               "info": ""
             },
             "size": "1MB",
-            "format": "PDF"
+            "format": "PDF",
+            "linkItems": []
           }
         ]
       }
