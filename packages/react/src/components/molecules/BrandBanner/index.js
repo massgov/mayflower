@@ -52,39 +52,39 @@ const BrandBanner = ({
               expanded={expanded}
               icon={<IconChevron />}
             >
-              {expanded ? 'Got it' : 'Learn more'}
+              Here&apos;s how you know
             </ButtonWithIcon>
           )}
         </span>
       </div>
       {
         hasToggle && (
-          <dl className={brandBannerExpansionClasses}>
-            <div className="ma__brand-banner-expansion-item">
+          <ul className={brandBannerExpansionClasses}>
+            <li className="ma__brand-banner-expansion-item">
               <IconBuilding width={30} height={30} fill={lightTheme ? '#14558F' : '#fff'} />
               <div className="ma__brand-banner-expansion-item-content">
-                <dt>
+                <p>
                   Official websites use .mass.gov
-                </dt>
-                <dd>
+                </p>
+                <p>
                   A .mass.gov website belongs to an official government organization in Massachusetts.
-                </dd>
+                </p>
               </div>
-            </div>
-            <div className="ma__brand-banner-expansion-item">
+            </li>
+            <li className="ma__brand-banner-expansion-item">
               <IconLock width={30} height={30} fill={lightTheme ? '#388557' : '#fff'} />
               <div className="ma__brand-banner-expansion-item-content">
-                <dt>
+                <p>
                   Secure websites use HTTPS certificate
-                </dt>
-                <dd>
+                </p>
+                <p>
                   A lock icon (
                   <IconLock width={12} height={12} />
                   ) or https:// means you’ve safely connected to the official website. Share sensitive information only on official, secure websites.
-                </dd>
+                </p>
               </div>
-            </div>
-          </dl>
+            </li>
+          </ul>
         )
       }
     </div>
