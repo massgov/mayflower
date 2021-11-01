@@ -55,6 +55,20 @@ $colors: (
 
   &--top {
 
+    &.ma__key-message--half-image  {
+      .ma__key-message__inline-image {
+        height: 107.5px;
+
+        @media ($bp-small-min) {
+          height: 212.5px;
+        }
+
+        @media ($bp-medium-min) {
+          height: 300px;
+        }
+      }
+    }
+
     .ma__key-message__inline-image {
       position: relative;
       z-index: 0;
