@@ -53,7 +53,8 @@
             }
           }
         }
-      ]
+      ],
+      "sideBar": []
     },
     {
       "title": "This is an H2",
