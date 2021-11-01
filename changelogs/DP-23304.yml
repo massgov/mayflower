@@ -56,4 +56,4 @@ Fixed:
     component: CalloutMessage
     description: Fixing float issue. (#1540)
     issue: DP-23304
-    impact: Minor
+    impact: Patch
