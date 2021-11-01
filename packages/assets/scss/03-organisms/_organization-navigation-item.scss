@@ -31,11 +31,11 @@
       box-shadow: 0;
       transition: 0.8s ease-out;
 
-      button {
+      .subnav-toggle {
 
         @include ma-chevron;
 
-        &::after {
+        &:after {
           float: right;
           border-color: $c-primary-alt;
           transition: 0.5s ease-out;
@@ -181,37 +181,56 @@
 
   @media ($bp-large-min) {
     display: flex;
+
+    .ma__comp-heading {
+      display: block;
+
+      &--mobile {
+        display: none;
+      }
+
+    }
   }
 
-  .ma__comp-heading {
+  @media ($bp-large-max) {
+    .ma__comp-heading {
+      display: none;
 
-    @media ($bp-large-max) {
+
+    &--mobile {
+      display: block;
       font-size: $fonts-medium;
       font-weight: $fonts-normal;
       color: $c-primary;
       margin-bottom: 0;
       padding-bottom: 1rem;
 
-      &::after {
-        display: none;
-      }
 
-      &::before {
-        content: $close-icon;
-        font-size: $fonts-2xlarge;
-        font-weight: 200;
-        line-height: 0;
-        position: absolute;
-        top: 35%;
-        right: 0;
-        transform: translate(-50%, -50%) rotate(135deg);
-        transition: 0.2s ease-out;
-      }
+      & > button {
+        @include ma-button-reset;
+        color: $c-primary;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
 
-      &.item-open::before {
+        &:after {
+          content: $close-icon;
+          font-size: $fonts-2xlarge;
+          line-height: 0;
+          // position: absolute;
+          // top: 35%;
+          // right: 0;
+          transform: translate(-50%, -50%) rotate(135deg);
+          transition: 0.2s ease-out;
+        }
+      }
+      &.item-open >  button:after {
         transform: translate(-50%, -50%) rotate(90deg);
       }
     }
+    }
+
   }
 
   &-section {

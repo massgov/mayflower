@@ -39,7 +39,8 @@ export default (function (window, document, $, undefined) {
     let $menuButton = $orgNav.find('.subnav-toggle');
 
     // I want to section.
-    let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
+    let $sectionIWantTo= $orgNav.find('.ma__org-nav-i-want-to-section');
+    let $sectionButton = $sectionIWantTo.find('.ma__comp-heading--mobile > button');
 
     // Sticky on scroll.
     const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
@@ -101,7 +102,7 @@ export default (function (window, document, $, undefined) {
           console.log(hasSubNavOpen)
           if (hasSubNavOpen) {
             focusTrapping({
-              focusableSelectors: '.ma__organization-navigation__mobile-toggle, .ma__organization-navigation__item.item-open button, .ma__organization-navigation__item.item-open a',
+              focusableSelectors: '.ma__organization-navigation__mobile-toggle, .ma__organization-navigation__item.item-open button, .ma__organization-navigation__item.item-open [role="button"], .ma__organization-navigation__item.item-open a',
               modalSelector: '.ma__organization-navigation',
               keyEvent: e
             });
@@ -212,12 +213,16 @@ export default (function (window, document, $, undefined) {
     $sectionButton.each(function () {
 
       let $button = $(this);
-      let $seeAll = $button.parent().find('.ma__link-list__see-all');
       $button.on('click', function () {
         let windowWidth = $(window).width();
         if (windowWidth < mobileBreak) {
-          $button.toggleClass(classSubNavOpen);
-          $button.next('.ma__link-list__container').add($seeAll).toggleClass(classSubNavOpen);
+          const $heading = $button.parent();
+          console.log($heading)
+          const $wrapper = $heading.parent();
+          $heading.toggleClass(classSubNavOpen);
+          console.log($wrapper.find('.ma__link-list__container'))
+          $wrapper.find('.ma__link-list__container').toggleClass(classSubNavOpen);
+          $wrapper.find('.ma__link-list__see-all').toggleClass(classSubNavOpen);
         }
       });
 
