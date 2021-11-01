@@ -29,7 +29,6 @@
   }
 
   @media ($bp-large-min) {
-    float:left;
     margin-right: $column;
     width: calc(100% - #{$layout-sidebar-width} - #{$column});
   }
