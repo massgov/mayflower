@@ -55,5 +55,5 @@ Fixed:
   - project: Patternlab
     component: Divider
     description: Adds divider as a component, adds variant for thin, converts it to hr. (#1541)
-    issue: DP-17253
+    issue: DP-23183
     impact: Minor
