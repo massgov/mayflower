@@ -124,7 +124,7 @@ export default (function (window, document, $, undefined) {
       }
     });
 
-    $mobileToggle.on('click', function (e) {
+    $mobileToggle.on('click', function () {
       mobileToggleClick();
     });
 
