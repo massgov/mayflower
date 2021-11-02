@@ -1,8 +1,8 @@
 ### Description
-This is a simple horizontal divider.  It is typically used at the bottom of the Page Header.
+This is a simple horizontal divider.  It is typically used at the bottom of a section.
 
 ### Status
-* Stable as of 5.0.0
+* Stable as of 11.18.0
 
 ### Variables
 ~~~
