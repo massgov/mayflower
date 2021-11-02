@@ -101,7 +101,7 @@ export default (function (window, document, $, undefined) {
           const hasSubNavOpen = $subNavOpen.length > 0;
           if (hasSubNavOpen) {
             focusTrapping({
-              focusableSelectors: '.ma__organization-navigation__mobile-toggle, .ma__organization-navigation__item.item-open button, .ma__organization-navigation__item.item-open [role="button"], .ma__organization-navigation__item.item-open a',
+              focusableSelectors: '.ma__organization-navigation__mobile-toggle, .ma__organization-navigation__item.item-open button, .ma__organization-navigation__item.item-open a',
               modalSelector: '.ma__organization-navigation',
               keyEvent: e
             });
