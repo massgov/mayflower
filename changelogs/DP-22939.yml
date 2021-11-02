@@ -52,8 +52,8 @@
 
 #___EXAMPLE___
 Changed:
-  - project: React, Patternlab
-    component: Color
-    description: Add Color stories and color gradients. (#909)
-    issue: DP-17253
+  - project: Patternlab
+    component: LocationBanner
+    description: Implmenting responsive images. (#1545)
+    issue: DP-22939
     impact: Minor
