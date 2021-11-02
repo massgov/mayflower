@@ -82,7 +82,6 @@ export default (function (window, document, $, undefined) {
       $('body').toggleClass('scroll-disabled');
 
       feedbackButton.toggle();
-
     });
 
     // Search form swing open/closed.
@@ -110,20 +109,10 @@ export default (function (window, document, $, undefined) {
       let menuHeight = $menuWrapper.outerHeight();
       let $firstSubmenuItem = $thisMenu.find('.ma__organization-navigation__subitem a:first');
 
-      $button.on('click', function () {
+      $button.on('click', function (e) {
         let windowWidth = $(window).width();
 
         $buttonParent.toggleClass('item-open');
-
-        if (windowWidth < mobileBreak) {
-        // Mobile version
-          let $buttonClone = $button.clone(true);
-
-          // Copy the link as a close button inside the menu section.
-          if (!$('.section-toggle').length) {
-            $buttonClone.addClass('section-toggle').prependTo($thisMenu);
-          }
-        }
 
         // Open submenu
         if ($buttonParent.hasClass('item-open')) {
@@ -151,20 +140,54 @@ export default (function (window, document, $, undefined) {
           closeMenuTasks();
         }
 
-        // When focus moves to another menu item, close the open menu container.
-        // Only one menu container opens at a time.
-        $('.ma__organization-navigation__items .has-subnav').each(function () {
-          let $orgNavMenuButton = $(this).find('.subnav-toggle');
+        if (windowWidth < mobileBreak) {
+        // Mobile version
+          let $buttonClone = $button.clone(true);
+          let $accordionButtons = $('.ma__organization-navigation__subitem .ma__comp-heading');
 
-          if ($(this).hasClass('item-open')) {
-            if($(this).find(':focus').length === 0){
-              $(this).removeClass('item-open');
-              $orgNavMenuButton.attr('aria-expanded', 'false');
-              $(this).find('.ma__organization-navigation__subitems').attr('aria-hidden', 'true');
-              $(this).find('.ma__organization-navigation__subitems').removeAttr('style');
-            }
+          // Copy the link as a close button inside the menu section.
+          if (!$('.section-toggle').length) {
+            $buttonClone.addClass('section-toggle').prependTo($thisMenu);
           }
-        });
+
+          // Mobile sub menu accordion
+          $accordionButtons.attr('role', 'button');
+          $accordionButtons.attr('aria-haspopup', 'true');
+          $accordionButtons.attr('aria-expanded', 'false');
+          $.each($accordionButtons, (i) => {
+            if ($accordionButtons[i].hasAttribute('tabindex')) {
+              // $ instead of jQuery causes an error.
+              jQuery($accordionButtons[i]).attr('tabindex', (_, attr) => attr == '-1' ? '0' : '-1');
+            }
+            else {
+              jQuery($accordionButtons[i]).attr('tabindex', '0');
+            }
+          });
+
+          // Set focus on cloned button.
+          if ($buttonParent.hasClass('item-open')) {
+            $buttonClone.focus();
+          }
+          else {
+            $button.focus();
+          }
+        }
+        else {
+          // When focus moves to another menu item, close the open menu container.
+          // Only one menu container opens at a time.
+          $('.ma__organization-navigation__items .has-subnav').each(function () {
+            let $orgNavMenuButton = $(this).find('.subnav-toggle');
+
+            if ($(this).hasClass('item-open')) {
+              if($(this).find(':focus').length === 0){
+                $(this).removeClass('item-open');
+                $orgNavMenuButton.attr('aria-expanded', 'false');
+                $(this).find('.ma__organization-navigation__subitems').attr('aria-hidden', 'true');
+                $(this).find('.ma__organization-navigation__subitems').removeAttr('style');
+              }
+            }
+          });
+        }
       });
 
       function closeMenuTasks () {
@@ -278,27 +301,34 @@ export default (function (window, document, $, undefined) {
 })(window, document, jQuery);
 
 $(document).keydown(function(e) {
-  let orgSubMenus = document.querySelectorAll('.ma__organization-navigation__item.has-subnav');
-  orgSubMenus.forEach((menu) => {
-    if (menu.classList.contains('item-open')) {
-      // It picks up an open menu, but only works with the first menu item.
-      focusTrapping({
-        focusableSelectors: '.ma__organization-navigation__subitem a, .custom-options__get-updates a',
-        closeButtonSelector: '.subnav-toggle',
-        modalSelector: '.ma__organization-navigation__subitems',
-        keyEvent: e
-      });
-    }
-  });
-});
+  // Desktop
+  if(document.querySelector('.item-open')) {
+    focusTrapping({
+      focusableSelectors: '.item-open .ma__organization-navigation__subitem a, .item-open .custom-options__get-updates a',
+      closeButtonSelector: '.item-open .subnav-toggle',
+      modalSelector: '.item-open .ma__organization-navigation__subitems',
+      keyEvent: e
+    });
+  }
 
-// Mobile version
-let mobileOrgNav = document.querySelector('.ma__organization-navigation.stuck');
-mobileOrgNav.querySelector('.ma__organization-navigation__mobile-toggle').addEventListener('click', () => {
-  focusTrapping({
-    focusableSelectors: 'button.subnav-toggle, a.internal-link, input.js-organization-navigation__search-input, button.ma__button-search--secondary',
-    closeButtonSelector: '.ma__organization-navigation__mobile-toggle',
-    modalSelector: '.ma__organization-navigation--inner-wrapper.menu-open',
-    keyEvent: e
-  });
+  // Mobile
+  // Top menu
+  if(document.querySelector('.ma__organization-navigation.stuck .menu-open')) {
+    focusTrapping({
+      focusableSelectors: '.menu-open button.subnav-toggle, .menu-open a.internal-link, .menu-open .js-organization-navigation__search-input, .menu-open .ma__button-search--secondary',
+      closeButtonSelector: '.ma__organization-navigation__mobile-toggle.menu-open',
+      modalSelector: '.ma__organization-navigation--inner-wrapper.menu-open',
+      keyEvent: e
+    });
+  }
+  // Sub menu
+  // Close button is cloned one.
+  if(document.querySelector('.ma__organization-navigation.stuck .item-open')) {
+    focusTrapping({
+      focusableSelectors: '.item-open .ma__comp-heading[role="button"], .item-open .ma__organization-navigation__subitem a, .item-open .custom-options__get-updates a',
+      closeButtonSelector: '.item-open .ma__organization-navigation__subitems > .subnav-toggle.section-toggle',
+      modalSelector: '.item-open .ma__organization-navigation__subitem',
+      keyEvent: e
+    });
+  }
 });
