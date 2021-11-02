@@ -107,7 +107,7 @@ export default (function (window, document, $, undefined) {
             });
           } else {
             focusTrapping({
-              focusableSelectors: '.ma__organization-navigation__mobile-toggle, button.ma__organization-navigation__search--toggle, .ma__organization-navigation__items > li > button',
+              focusableSelectors: '.ma__organization-navigation__mobile-toggle, button.ma__organization-navigation__search--toggle, .ma__organization-navigation__items > li > button, .ma__organization-navigation__items > li > a',
               modalSelector: '.ma__organization-navigation',
               keyEvent: e
             });
