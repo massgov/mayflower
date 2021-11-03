@@ -95,12 +95,7 @@ $colors: (
   }
 
   &__container {
-
     @include ma-container;
-
-    @media ($bp-small-max) {
-      padding-bottom: 10px;
-    }
   }
 
   &__header &__container {
