@@ -4,7 +4,8 @@
     "emergencyHeader": {
       "hideText": "Hide",
       "showText": "Show",
-      "title": "3 Coronavirus Update"
+      "title": "3 Coronavirus Update",
+      "prefix": "Emergency"
     },
     "alerts": [{
       "timeStamp": "02.15.16, 5:00 p.m.",
