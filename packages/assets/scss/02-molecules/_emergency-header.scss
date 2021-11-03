@@ -27,7 +27,7 @@
       display: none;
     }
 
-    @media ($bp-large-min) {
+    @media ($bp-medium-min) {
       border-right-width: 1px;
       border-right-style: solid;
       border-right-color: rgba($c-font-base,.3);
@@ -57,14 +57,14 @@
     // text
 
     & > span {
+      display: inline-flex;
       font-size: $fonts-xsmall;
       line-height: 1.13;
       text-transform: uppercase;
       vertical-align: middle;
-      display: none;
-  
-      @media ($bp-large-min) {
-        display: inline-flex;
+
+      @media ($bp-medium-max) {
+        @include ma-visually-hidden;
       }
     }
   }
