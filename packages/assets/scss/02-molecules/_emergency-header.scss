@@ -1,6 +1,8 @@
 @use "00-base/configure" as *;
 
 .ma__emergency-header {
+  display: flex;
+    align-items: center;
 
   @include ma-container;
   margin: 0;
@@ -13,13 +15,7 @@
     text-align: center;
   }
 
-  @media ($bp-large-min) {
-    display: flex;
-    align-items: center;
-  }
-
   &__label {
-    display: block;
     flex-shrink: 0;
     flex-basis: auto;
     letter-spacing: $letter-spacing-large;
@@ -27,8 +23,8 @@
     color: rgba($c-font-base,.8);
     font-weight: $fonts-bold;
 
-    @media ($bp-large-max) {
-      margin-bottom: 10px;
+    & > span {
+      display: none;
     }
 
     @media ($bp-large-min) {
@@ -37,6 +33,10 @@
       border-right-color: rgba($c-font-base,.3);
       padding-right: 18px;
       margin-right: 18px;
+
+      & > span {
+        display: inline-flex;
+      }
     }
 
     // icon
@@ -56,12 +56,16 @@
 
     // text
 
-    span {
-      display: inline-block;
+    & > span {
       font-size: $fonts-xsmall;
       line-height: 1.13;
       text-transform: uppercase;
       vertical-align: middle;
+      display: none;
+  
+      @media ($bp-large-min) {
+        display: inline-flex;
+      }
     }
   }
 
