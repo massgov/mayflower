@@ -22,34 +22,30 @@
     white-space: nowrap;
     color: rgba($c-font-base,.8);
     font-weight: $fonts-bold;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgba($c-font-base,.3);
+    padding-right: .5rem;
+    margin-right: .5rem;
 
-    & > span {
-      display: none;
-    }
-
-    @media ($bp-large-min) {
-      border-right-width: 1px;
-      border-right-style: solid;
-      border-right-color: rgba($c-font-base,.3);
+    @media ($bp-small-min) {
       padding-right: 18px;
       margin-right: 18px;
-
-      & > span {
-        display: inline-flex;
-      }
     }
 
     // icon
 
     & > svg {
+      width: 1.6rem;
       height: 24px;
-      margin-right: 7px;
+      margin-right: 0;
       vertical-align: middle;
-      width: 27px;
+
 
       @media ($bp-small-min) {
         height: 32px;
-        width: 36px;
+        width: 2.2rem;
+        margin-right: 7px;
       }
 
     }
@@ -61,11 +57,7 @@
       line-height: 1.13;
       text-transform: uppercase;
       vertical-align: middle;
-      display: none;
-  
-      @media ($bp-large-min) {
-        display: inline-flex;
-      }
+      display: inline-flex;
     }
   }
 
@@ -73,6 +65,10 @@
     cursor: pointer;
     color: $c-black;
     font-weight: $fonts-light;
+
+    @media ($bp-small-max) {
+      font-size: 1.2rem;
+    }
     
     @include ma-button-reset;
 
