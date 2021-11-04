@@ -128,7 +128,6 @@ export default (function (window, document, $, undefined) {
         if (windowWidth < mobileBreak) {
         // Mobile version
           let $buttonClone = $button.clone(true);
-          let $accordionButtons = $('.ma__organization-navigation__subitem .ma__comp-heading');
           // let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
 
           // Copy the link as a close button inside the menu section.
@@ -136,7 +135,7 @@ export default (function (window, document, $, undefined) {
             $buttonClone.addClass('section-toggle').prependTo($thisMenu);
           }
 
-          // Mobile sub menu accordion
+          // Mobile 'i want to' menu accordion
           $sectionButton.attr('role', 'button');
           $sectionButton.attr('aria-haspopup', 'true');
           $sectionButton.attr('aria-expanded', 'false');
@@ -144,6 +143,9 @@ export default (function (window, document, $, undefined) {
 
           // Set focus on cloned button.
           if ($buttonParent.hasClass('item-open')) {
+            // Ensure the vaiable points cloned button.
+            // Without this, the value changes to original button.
+            $buttonClone = $buttonParent.find('.section-toggle');
             $buttonClone.focus();
             // With tabindex='-1', the button still gets focus.
             $button.attr('style', 'display: none;');
@@ -152,6 +154,43 @@ export default (function (window, document, $, undefined) {
             $button.removeAttr('style');
             $button.focus();
           }
+
+          // Close menu with ESC.
+          // It cover all levels of menu container closure with ESC.
+
+          // Submenus
+          $('.ma__organization-navigation__subitems').on('keyup', function(e) {
+            if (e.key === "Escape") {
+              let $currentFocus = $(':focus');
+              if ($currentFocus.hasClass('js-clickable-link')) {
+                // Mobile 'i want to' menu accordion
+                $sectionButton.attr('role', 'button');
+                $sectionButton.attr('aria-expanded', 'false');
+                // $sectionButton.attr('tabindex', (_, attr) => attr == '-1' ? '0' : '-1');
+                if ($sectionButton.hasClass('item-open')) {
+                  $sectionButton.removeClass('item-open');
+                }
+                // Close any open menu containers.
+                if ($('.ma__link-list__container').hasClass('item-open')) {
+                  $('.ma__link-list__container').removeClass('item-open');
+                }
+                if ($('.ma__link-list__see-all').hasClass('item-open')) {
+                  $('.ma__link-list__see-all').removeClass('item-open');
+                }
+                $currentFocus.closest('.ma__org-nav-i-want-to-section').find('.ma__comp-heading').focus();
+                console.log($currentFocus.closest('.ma__org-nav-i-want-to-section').find('.ma__comp-heading').text());
+              }
+              else {
+                if ($currentFocus.hasClass('item-open')) {
+                  $currentFocus.removeClass('item-open');
+                }
+
+                closeMenuTasks();
+                // Set focusn on original button, not cloned one.
+                $buttonParent.find('.subnav-toggle:not(.section-toggle)').removeAttr('style').focus();
+              }
+            }
+          });
         }
         else {
           // When focus moves to another menu item, close the open menu container.
@@ -326,7 +365,7 @@ export default (function (window, document, $, undefined) {
 
 $(document).keydown(function(e) {
   // Desktop
-  if(document.querySelector('.item-open')) {
+  if(document.querySelector('.item-open') && (document.windowWidth < 910)) {
     focusTrapping({
       focusableSelectors: '.item-open .ma__organization-navigation__subitem a, .item-open .custom-options__get-updates a',
       closeButtonSelector: '.item-open .subnav-toggle',
