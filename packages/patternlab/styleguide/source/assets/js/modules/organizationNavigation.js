@@ -119,31 +119,17 @@ export default (function (window, document, $, undefined) {
           $button.attr('aria-expanded', 'true');
           $thisMenu.removeAttr('aria-hidden');
           $thisMenu.css('visibility','visible');
-
-          // Close submenu with ESC.
-          $thisMenu.on('keyup', function(e) {
-            if (e.key === "Escape") {
-              closeMenuTasks();
-              $button.focus();
-            }
-          });
-
-          // Close submenu with Shift + Tab on the first focusable element in the submenu.
-          // Has to be 'keydown'. 'keyup' doesn't work with shift key.
-          $firstSubmenuItem.on('keydown', (e) => {
-            if (e.shiftKey && e.key == "Tab") {
-              closeMenuTasks();
-            }
-          });
         }
         else {
           closeMenuTasks();
+          $button.focus();
         }
 
         if (windowWidth < mobileBreak) {
         // Mobile version
           let $buttonClone = $button.clone(true);
           let $accordionButtons = $('.ma__organization-navigation__subitem .ma__comp-heading');
+          // let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
 
           // Copy the link as a close button inside the menu section.
           if (!$('.section-toggle').length) {
@@ -151,24 +137,19 @@ export default (function (window, document, $, undefined) {
           }
 
           // Mobile sub menu accordion
-          $accordionButtons.attr('role', 'button');
-          $accordionButtons.attr('aria-haspopup', 'true');
-          $accordionButtons.attr('aria-expanded', 'false');
-          $.each($accordionButtons, (i) => {
-            if ($accordionButtons[i].hasAttribute('tabindex')) {
-              // $ instead of jQuery causes an error.
-              jQuery($accordionButtons[i]).attr('tabindex', (_, attr) => attr == '-1' ? '0' : '-1');
-            }
-            else {
-              jQuery($accordionButtons[i]).attr('tabindex', '0');
-            }
-          });
+          $sectionButton.attr('role', 'button');
+          $sectionButton.attr('aria-haspopup', 'true');
+          $sectionButton.attr('aria-expanded', 'false');
+          $sectionButton.attr('tabindex', (_, attr) => attr == '-1' ? '0' : '-1');
 
           // Set focus on cloned button.
           if ($buttonParent.hasClass('item-open')) {
             $buttonClone.focus();
+            // With tabindex='-1', the button still gets focus.
+            $button.attr('style', 'display: none;');
           }
           else {
+            $button.removeAttr('style');
             $button.focus();
           }
         }
@@ -187,6 +168,22 @@ export default (function (window, document, $, undefined) {
               }
             }
           });
+
+          // Close submenu with ESC.
+          $('.ma__organization-navigation').on('keyup', function(e) {
+            if (e.key === "Escape") {
+              closeMenuTasks();
+              $button.focus();
+            }
+          });
+
+          // Close submenu with Shift + Tab on the first focusable element in the submenu.
+          // Has to be 'keydown'. 'keyup' doesn't work with shift key.
+          $firstSubmenuItem.on('keydown', (e) => {
+            if (e.shiftKey && e.key == "Tab") {
+              closeMenuTasks();
+            }
+          });
         }
       });
 
@@ -203,19 +200,46 @@ export default (function (window, document, $, undefined) {
     });
 
     // Mobile view open the "I want to sections".
-    $sectionButton.each(function () {
-
+    $sectionButton.each(function (i) {
+      let windowWidth = $(window).width();
       let $button = $(this);
-      let $seeAll = $button.parent().find('.ma__link-list__see-all');
-      $button.on('click', function () {
-        let windowWidth = $(window).width();
-        if (windowWidth < mobileBreak) {
-          // $button.toggleClass('item-open');
-          $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
-        }
-      });
+      let $menuContainer = $button.parent().find('.ma__link-list__container');
+      let $seeAll = $menuContainer.next().hasClass('ma__link-list__see-all') ? $menuContainer.next() : null;
 
+      if (windowWidth < mobileBreak) {
+        let $menuContainerId = 'menubox-' + (i + 1);
+
+        $menuContainer.attr('id', $menuContainerId);
+        if ($seeAll) {
+          let $menuSeeAllId = 'seeall-' + (i + 1);
+          let $containerIds = $menuContainerId + ' ' + $menuSeeAllId;
+
+          $seeAll.attr('id', $menuSeeAllId);
+          $button.attr('aria-controls', $containerIds);
+        }
+        else {
+          $button.attr('aria-controls', $menuContainerId);
+        }
+
+        $button.on('click', function () {
+          toggleLinkContainer ();
+        });
+
+        // h3 button is not responding click event listener with ENTER.
+        $button.on('keyup', (e) => {
+          if (e.key == "Enter") {
+            toggleLinkContainer ();
+          }
+        });
+      }
+
+      function toggleLinkContainer () {
+        $button.toggleClass('item-open');
+        $button.attr('aria-expanded', (_, attr) => attr == 'false' ? 'true' : 'false');
+        $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
+      }
     });
+
 
     if ($relatedOrgs.length) {
       $relatedOrgs.attr('id', 'organizations');
