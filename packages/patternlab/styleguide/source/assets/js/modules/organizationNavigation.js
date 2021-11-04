@@ -135,20 +135,18 @@ export default (function (window, document, $, undefined) {
             $buttonClone.addClass('section-toggle').prependTo($thisMenu);
           }
 
-          // Mobile 'i want to' menu accordion
-          $sectionButton.attr('role', 'button');
-          $sectionButton.attr('aria-haspopup', 'true');
-          $sectionButton.attr('aria-expanded', 'false');
-          $sectionButton.attr('tabindex', (_, attr) => attr == '-1' ? '0' : '-1');
-
-          // Set focus on cloned button.
           if ($buttonParent.hasClass('item-open')) {
-            // Ensure the vaiable points cloned button.
-            // Without this, the value changes to original button.
+            // Ensure $buttonClone points cloned button.
+            // Without this, it points original button.
             $buttonClone = $buttonParent.find('.section-toggle');
+            // Set focus on cloned button.
             $buttonClone.focus();
             // With tabindex='-1', the button still gets focus.
             $button.attr('style', 'display: none;');
+            // Make sub submenu focusable.
+            if ($buttonParent.hasClass('i-want-to')) {
+              $sectionButton.attr('tabindex', '0');
+            }
           }
           else {
             $button.removeAttr('style');
@@ -163,7 +161,7 @@ export default (function (window, document, $, undefined) {
             if (e.key === "Escape") {
               let $currentFocus = $(':focus');
               if ($currentFocus.hasClass('js-clickable-link')) {
-                // Mobile 'i want to' menu accordion
+              // Mobile 'i want to' menu accordion
                 $sectionButton.attr('role', 'button');
                 $sectionButton.attr('aria-expanded', 'false');
                 // $sectionButton.attr('tabindex', (_, attr) => attr == '-1' ? '0' : '-1');
@@ -246,6 +244,17 @@ export default (function (window, document, $, undefined) {
       let $seeAll = $menuContainer.next().hasClass('ma__link-list__see-all') ? $menuContainer.next() : null;
 
       if (windowWidth < mobileBreak) {
+        // Mobile 'i want to' menu accordion button set up
+        $button.attr('role', 'button');
+        if(!$button.attr('tabindex')) {
+          $button.attr('tabindex', '-1');
+        }
+
+        $button.attr('aria-haspopup', 'true');
+        $button.attr('aria-expanded', 'false');
+
+
+
         let $menuContainerId = 'menubox-' + (i + 1);
 
         $menuContainer.attr('id', $menuContainerId);
@@ -264,7 +273,6 @@ export default (function (window, document, $, undefined) {
           toggleLinkContainer ();
         });
 
-        // h3 button is not responding click event listener with ENTER.
         $button.on('keyup', (e) => {
           if (e.key == "Enter") {
             toggleLinkContainer ();
