@@ -53,6 +53,6 @@
 Changed:
   - project: Patternlab
     component: EmergencyHeader, EmergencyAlerts
-    description: Adjusted vertical spacing, prevent alert header to wrap on smaller screensizes. (#1546)
+    description: Adjusted vertical spacing, prevent alert header to wrap on smaller screensizes. (#1547)
     issue: DP-23317
     impact: Patch
