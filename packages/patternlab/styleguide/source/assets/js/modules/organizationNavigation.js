@@ -128,7 +128,6 @@ export default (function (window, document, $, undefined) {
         if (windowWidth < mobileBreak) {
         // Mobile version
           let $buttonClone = $button.clone(true);
-          // let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
 
           // Copy the link as a close button inside the menu section.
           if (!$('.section-toggle').length) {
@@ -157,14 +156,15 @@ export default (function (window, document, $, undefined) {
           // It cover all levels of menu container closure with ESC.
 
           // Submenus
-          $('.ma__organization-navigation__subitems').on('keyup', function(e) {
+          $('.ma__organization-navigation__subitem a').on('keyup', function(e) {
             if (e.key === "Escape") {
               let $currentFocus = $(':focus');
-              if ($currentFocus.hasClass('js-clickable-link')) {
-              // Mobile 'i want to' menu accordion
+
+              // Submenu flyout
+              if ($buttonParent.hasClass('i-want-to')) {
+              // 'i want to' menu accordion (sub sub menu)
                 $sectionButton.attr('role', 'button');
                 $sectionButton.attr('aria-expanded', 'false');
-                // $sectionButton.attr('tabindex', (_, attr) => attr == '-1' ? '0' : '-1');
                 if ($sectionButton.hasClass('item-open')) {
                   $sectionButton.removeClass('item-open');
                 }
@@ -176,21 +176,28 @@ export default (function (window, document, $, undefined) {
                   $('.ma__link-list__see-all').removeClass('item-open');
                 }
                 $currentFocus.closest('.ma__org-nav-i-want-to-section').find('.ma__comp-heading').focus();
-                console.log($currentFocus.closest('.ma__org-nav-i-want-to-section').find('.ma__comp-heading').text());
               }
               else {
-                if ($currentFocus.hasClass('item-open')) {
-                  $currentFocus.removeClass('item-open');
-                }
-
+              // about, contact us
+                $thisMenu.removeAttr('style');
                 closeMenuTasks();
-                // Set focusn on original button, not cloned one.
+                $buttonClone.attr('aria-expanded', 'false');
                 $buttonParent.find('.subnav-toggle:not(.section-toggle)').removeAttr('style').focus();
               }
             }
           });
+
+          // 'i want to' h3 buttons
+          $('.ma__organization-navigation__subitems .ma__comp-heading').on('keyup', function(e) {
+            if (e.key === "Escape") {
+              $thisMenu.removeAttr('style');
+              closeMenuTasks();
+              $buttonParent.find('.subnav-toggle:not(.section-toggle)').removeAttr('style').focus();
+            }
+          });
         }
         else {
+        // Desktop
           // When focus moves to another menu item, close the open menu container.
           // Only one menu container opens at a time.
           $('.ma__organization-navigation__items .has-subnav').each(function () {
