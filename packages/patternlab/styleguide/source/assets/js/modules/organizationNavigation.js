@@ -195,6 +195,17 @@ export default (function (window, document, $, undefined) {
               $('.section-toggle').remove();
             }
           });
+
+          // Top menus
+          // NOT WORKING
+          $('.ma__organization-navigation__items .subnav-toggle:not(.section-toggle)').on('keyup', function(e) {
+            if (e.key === "Escape") {
+              $('.ma__organization-navigation--inner-wrapper').removeClass('menu-open');
+              $mobileToggle.removeClass('menu-open');
+              $mobileToggle.attr('aria-expanded', 'false');
+              $mobileToggle.focus();
+            }
+          });
         }
         else {
         // Desktop
