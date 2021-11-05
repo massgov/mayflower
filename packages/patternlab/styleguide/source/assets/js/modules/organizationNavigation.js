@@ -133,7 +133,6 @@ export default (function (window, document, $, undefined) {
           if (!$('.section-toggle').length) {
             $buttonClone.addClass('section-toggle').prependTo($thisMenu);
           }
-
           if ($buttonParent.hasClass('item-open')) {
             // Ensure $buttonClone points cloned button.
             // Without this, it points original button.
@@ -141,7 +140,7 @@ export default (function (window, document, $, undefined) {
             // Set focus on cloned button.
             $buttonClone.focus();
             // With tabindex='-1', the button still gets focus.
-            $button.attr('style', 'display: none;');
+            // $button.attr('style', 'display: none;');
             // Make sub submenu focusable.
             if ($buttonParent.hasClass('i-want-to')) {
               $sectionButton.attr('tabindex', '0');
@@ -183,6 +182,7 @@ export default (function (window, document, $, undefined) {
                 closeMenuTasks();
                 $buttonClone.attr('aria-expanded', 'false');
                 $buttonParent.find('.subnav-toggle:not(.section-toggle)').removeAttr('style').focus();
+                $('.section-toggle').remove();
               }
             }
           });
@@ -193,6 +193,7 @@ export default (function (window, document, $, undefined) {
               $thisMenu.removeAttr('style');
               closeMenuTasks();
               $buttonParent.find('.subnav-toggle:not(.section-toggle)').removeAttr('style').focus();
+              $('.section-toggle').remove();
             }
           });
         }
