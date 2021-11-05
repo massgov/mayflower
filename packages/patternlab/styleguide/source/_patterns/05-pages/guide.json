@@ -564,7 +564,7 @@
           }
         }
       ],
-      "sideBar": null
+      "sideBar": []
     },
     {
       "title": "Another Section Name",
@@ -1046,7 +1046,7 @@
           }
         }
       ],
-      "sideBar": null
+      "sideBar": []
     }
   ],
   "COMMENT": "****POSTCONTENT COMPONENTS****",
