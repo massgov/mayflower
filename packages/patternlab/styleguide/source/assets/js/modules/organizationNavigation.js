@@ -105,7 +105,6 @@ export default (function (window, document, $, undefined) {
       let $button = $(this);
       let $buttonParent = $button.parent('.has-subnav');
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
-      // let $otherMenus = $('.ma__organization-navigation__subitems').not($thisMenu);
       let menuHeight = $menuWrapper.outerHeight();
       let $firstSubmenuItem = $thisMenu.find('.ma__organization-navigation__subitem a:first');
 

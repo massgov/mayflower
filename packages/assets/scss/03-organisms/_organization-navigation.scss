@@ -57,8 +57,6 @@ $menu-transition-time: 0.3s;
 
   &__mobile-toggle {
 
-    width: 100%; // test code
-
     @include ma-container;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -278,11 +276,9 @@ $menu-transition-time: 0.3s;
         padding-left: 1rem;
         font-weight: $fonts-normal;
 
-        // &::after {
         &--icon {
           display: block;
           color: $c-primary-alt;
-          // content: $close-icon;
           font-size: $fonts-2xlarge;
           font-weight: 600;
           line-height: 0;
