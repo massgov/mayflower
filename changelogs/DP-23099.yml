@@ -1,0 +1,6 @@
+Changed:
+  - project: Mayflower
+    component: OrganizationNavigation
+    description: Keyboard navigation fix for accessibility. (#1548)
+    issue: DP-23099
+    impact: Patch
