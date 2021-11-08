@@ -20,6 +20,7 @@
 
   &--thin {
     width: 100%;
+
     &:after {
       height: 1px;
       transform: none;
@@ -46,6 +47,7 @@
 }
 
 .ma__org-page .ma__divider,
-.ma__organization-detail .ma__divider{
+.ma__organization-detail .ma__divider {
+
   @include ma-container;
 }
