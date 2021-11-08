@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.18.0 (11/8/2021)
+### Fixed 
+- (Patternlab) [Divider] DP-23183: Adds divider as a component, adds variant for thin, converts it to hr. (#1541)
+
 ## 11.17.0 (11/1/2021)
 ### Changed 
 - (Patternlab) [Leaflet] DP-22210: Fixing focus issues when navigating with keyboard. (#1490)
