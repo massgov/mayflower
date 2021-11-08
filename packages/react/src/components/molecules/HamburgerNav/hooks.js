@@ -6,12 +6,10 @@ export const useHamburgerNavKeydown = (closeMenu) => {
   // can be deleted when the parent component unmounts.
   const keyDown = React.useCallback((e) => {
     // check if menu open
-    console.log('!!!!!!!')
-    const menuOpenClass = 'show-menu'
+    const menuOpenClass = 'show-menu';
     const body = document.querySelector('body');
     const menuOpen = body.classList.value.indexOf(menuOpenClass) > 0 || body.classList.value === menuOpenClass;
     if (menuOpen) {
-      console.log('focus trap!')
       // trap focus only when menu is open
       focusTrapping({
         focusableSelectors: '[role="menuitem"], .ma__utility-nav__link > a, .ma__utility-nav__item > button, .ma__utility-panel__item > span > a',
