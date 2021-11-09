@@ -7,12 +7,6 @@
       {% endif %}
     </div>
   {% endif %}
-  {% if mappedLocations.leafletMap %}
-    <div class="ma__mapped-locations__map">
-      {% set leafletMap = mappedLocations.leafletMap %}
-      {% include "@molecules/map-leaflet.twig" %}
-    </div>
-  {% endif %}
   {% if mappedLocations.paragraph or mappedLocations.button %}
     <div class="ma__mapped-locations__aside">
       {% if mappedLocations.paragraph %}
@@ -27,6 +21,12 @@
           {% include "@atoms/01-buttons/button.twig" %}
         </div>
       {% endif %}
+    </div>
+  {% endif %}
+  {% if mappedLocations.leafletMap %}
+    <div class="ma__mapped-locations__map">
+      {% set leafletMap = mappedLocations.leafletMap %}
+      {% include "@molecules/map-leaflet.twig" %}
     </div>
   {% endif %}
 </section>
