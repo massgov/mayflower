@@ -1,4 +1,5 @@
-<nav class="ma__toc--hierarchy">
+{% set backgroundModifier =  (tableOfContentsHierarchy.background == "none") ? "ma__toc--hierarchy--no-background" : "" %}
+<nav class="ma__toc--hierarchy {{ backgroundModifier }}">
   {% if tableOfContentsHierarchy.title.colored %}
     {% set coloredHeading = { "text": tableOfContentsHierarchy.title.text, "color": "green" } %}
     {% include "@atoms/04-headings/colored-heading.twig" %}

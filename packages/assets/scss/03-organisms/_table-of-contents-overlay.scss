@@ -41,30 +41,6 @@
     margin-bottom: 0;
   }
 
-  .ma__toc--hierarchy__accordion {
-
-    .ma__toc--hierarchy__title {
-      padding-left: 16px;
-      border-left: 10px solid transparent;
-
-      &:focus {
-        border-left-color: transparent !important;
-      }
-    }
-  }
-
-  .ma__toc--hierarchy .ma__toc--hierarchy__container {
-    padding-top: 0;
-    top: 0;
-    background-color: transparent;
-    border: 0;
-    margin-bottom: 0;
-  }
-
-  .ma__toc--hierarchy {
-    margin-top: 4rem;
-  }
-
   .ma__toc--overlay__container {
     position: fixed;
       top: -100vh;
@@ -154,25 +130,6 @@
 
   }
 
-  // current page indicator
-
-  .ma__toc--hierarchy__container li {
-    position: relative;
-
-    &.is-current:before {
-      content: "";
-      position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 10px;
-        height:100%;
-    }
-
-    .ma__toc--hierarchy__accordion-content .is-current:before {
-      left: -20px;
-    }
-  }
 }
 
 //theme
@@ -182,10 +139,6 @@
   .ma__toc__toc__title {
     background: $c-gray-lightest;
     color: $c-primary;
-  }
-
-  .ma__toc--hierarchy {
-    border-bottom: 1px solid $c-gray-light;
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
@@ -199,17 +152,6 @@
 
   .ma__toc__subtitle {
     color: $c-gray-dark;
-  }
-
-  .ma__toc--hierarchy__accordion {
-
-    .ma__toc--hierarchy__title {
-      border-left-color: transparent;
-    }
-
-    .ma__toc--hierarchy__title.is-current {
-      border-left-color: rgba($c-primary-alt, 0.5) !important;
-    }
   }
 
   .ma__toc--overlay__container {

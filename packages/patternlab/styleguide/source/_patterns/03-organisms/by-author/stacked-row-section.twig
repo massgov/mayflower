@@ -5,7 +5,7 @@
 {% if externalSidebar is defined and externalSidebar == true %}
   {% set mainContentClass = '' %}
 {% else %}
-  {% set mainContentClass = stackedRowSection.sideBar|length ? ' main-content--two' : ' main-content--full' %}
+  {% set mainContentClass = (stackedRowSection.sideBar|length or stackedRowSection.narrow) ? ' main-content--two' : ' main-content--full' %}
 {% endif %}
 
 <section class="ma__stacked-row__section {{ stackedRowBorderless }}{{ stackedRowRestriction }}{{ stackedRowModifier }}">

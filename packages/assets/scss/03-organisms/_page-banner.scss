@@ -314,6 +314,10 @@ $page-banner-height: 330px;
     }
   }
 
+  &--white &__icon {
+    padding-right: 0;
+  }
+
   &--small &__icon {
 
     @media ($bp-medium-min) {
@@ -348,8 +352,7 @@ $page-banner-height: 330px;
     }
   }
 
-  &--overlay &__title,
-  &--full &__container{
+  &--overlay &__title {
 
     @media ($bp-x-small-min) {
       width: calc(100% - 75px);
@@ -431,6 +434,7 @@ $page-banner-height: 330px;
 
   &--white &__description {
     padding-left: $page-banner-icon-width;
+    font-size: $fonts-large;
   }
 
   &--columns &__image {
@@ -587,7 +591,7 @@ $page-banner-inner-width: 612px;
   }
 
   &--white  &__description {
-    color: $c-font-base;
+    color: $c-granite-gray;
     font-weight: $fonts-normal;
 
     .ma__page-banner__descriptionSubText {
