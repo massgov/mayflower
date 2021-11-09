@@ -1,6 +1,24 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.18.0 (11/8/2021)
+### Fixed 
+- (Patternlab) [Divider] DP-23183: Adds divider as a component, adds variant for thin, converts it to hr. (#1541)
+
+## 11.17.0 (11/1/2021)
+### Changed 
+- (Patternlab) [Leaflet] DP-22210: Fixing focus issues when navigating with keyboard. (#1490)
+- (Patternlab) [LocationListing] DP-22215: Replace googlemaps with leaftlet map, remove filter logic. (#1430)
+- (Patternlab) [GlobalNav] DP-22679: Adjust focus order between the menu button and the menu container when the menu is open. (#1479)
+
+### Added 
+- (Patternlab) [GlobalNav] DP-22679: Add a feature to close Google Translate option container with ESC key. (#1479)
+- (Patternlab) [GlobalNav] DP-22680: Add focus trap to the global menu dropdown. (#1479)
+
+### Fixed 
+- (React, Patternlab) [mainNavHamburger, HamburgerNav] DP-23268: Fix main nav overlay positioning. (#1539)
+- (Patternlab) [CalloutMessage] DP-23304: Fixing float issue. (#1540)
+
 ## 11.16.3 (10/25/2021)
 ### Changed 
 - (React, Patternlab, Core) [BrandBanner] Update BrandBanner toggle button text (#1535)
