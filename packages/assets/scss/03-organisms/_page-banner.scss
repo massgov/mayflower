@@ -45,6 +45,28 @@ $page-banner-height: 330px;
     }
   }
 
+  &--full &__content-wrapper {
+    transform: none;
+
+    &:after {
+      content: "";
+      height: 6px;
+      position: absolute;
+      bottom: -1rem;
+      left: $page-banner-icon-width;
+      transform: skew(-30deg);
+      width: 105px;
+      background-color: $c-primary-alt;
+      margin-top: 1rem;
+
+      @media print {
+        display: none;
+      }
+
+    }
+
+  }
+
   &--columns {
     height: auto;
     min-height: 350px;
@@ -146,7 +168,8 @@ $page-banner-height: 330px;
     }
   }
 
-  &--overlay &__container {
+  &--overlay &__container,
+  &--full &__container{
 
     &:before {
       content: '';
@@ -226,7 +249,8 @@ $page-banner-height: 330px;
     }
   }
 
-  &--overlay &__content {
+  &--overlay &__content,
+  &--full &__content{
     padding: 25px 20px 25px 0;
 
     @media ($bp-x-small-min) {
@@ -324,7 +348,8 @@ $page-banner-height: 330px;
     }
   }
 
-  &--overlay &__title {
+  &--overlay &__title,
+  &--full &__container{
 
     @media ($bp-x-small-min) {
       width: calc(100% - 75px);
@@ -345,7 +370,7 @@ $page-banner-height: 330px;
   &--small &__icon + &__title {
 
     @media ($bp-medium-min) {
-      width: calc(100% - $column);
+      width: calc(100% - #{$column});
     }
   }
 
@@ -404,6 +429,10 @@ $page-banner-height: 330px;
     }
   }
 
+  &--white &__description {
+    padding-left: $page-banner-icon-width;
+  }
+
   &--columns &__image {
     background-position: 50% 50%;
     background-size: cover;
@@ -434,6 +463,13 @@ $page-banner-inner-width: 612px;
     }
   }
 
+  &--white &__container {
+
+    &:before {
+      content: none;
+    }
+  }
+
   &--blue &__container {
 
     &:before {
@@ -457,7 +493,8 @@ $page-banner-inner-width: 612px;
     }
   }
 
-  &--overlay &__content {
+  &--overlay &__content,
+  &--full &__content {
     background-image: none;
   }
 
@@ -535,5 +572,27 @@ $page-banner-inner-width: 612px;
   &--columns &__description {
     color: $c-font-base;
     font-weight: $fonts-light;
+  }
+
+  &--white &__icon {
+    svg,
+    svg > g {
+      fill: $c-primary-alt;
+    }
+  }
+
+  &--white &__title {
+    font-weight: $fonts-bolder;
+    color: $c-font-base;
+  }
+
+  &--white  &__description {
+    color: $c-font-base;
+    font-weight: $fonts-normal;
+
+    .ma__page-banner__descriptionSubText {
+      display: block;
+      font-weight: $fonts-lighter;
+    }
   }
 }
