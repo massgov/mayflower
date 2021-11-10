@@ -55,7 +55,8 @@ $colors: (
 
   &--top {
 
-    &.ma__key-message--half-image  {
+    &.ma__key-message--half-image {
+
       .ma__key-message__inline-image {
         height: 107.5px;
 
@@ -148,6 +149,7 @@ $colors: (
     z-index: 0;
 
     &.ma__key-message--half-image {
+
       @media ($bp-medium-min) {
         height: 300px;
       }
@@ -232,6 +234,7 @@ $colors: (
       }
 
       &--half-image {
+
         @media ($bp-medium-min) {
           display: flex;
           justify-content: flex-start;
