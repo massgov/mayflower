@@ -218,7 +218,10 @@
       background-color: transparent;
       border: 0;
       margin-bottom: 0;
-      padding-left: $standard-spacing--xsmall;
+
+      @media ($bp-medium-min) {
+        padding-left: $standard-spacing--xsmall;
+      }
 
       .ma__decorative-link,
       .ma__download-link {

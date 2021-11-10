@@ -1,6 +1,6 @@
 @use "00-base/configure" as *;
 
-$page-banner-icon-width: $column + $gutter;
+$page-banner-icon-width: $column;
 $page-banner-height: 330px;
 
 .ma__page-banner {
@@ -49,11 +49,11 @@ $page-banner-height: 330px;
     transform: none;
 
     &:after {
+      left: 0;
       content: "";
       height: 6px;
       position: absolute;
-      bottom: -1rem;
-      left: $page-banner-icon-width;
+      bottom: 0;
       transform: skew(-30deg);
       width: 105px;
       background-color: $c-primary-alt;
@@ -61,6 +61,11 @@ $page-banner-height: 330px;
 
       @media print {
         display: none;
+      }
+
+      @media ($bp-large-min) {
+        left: $page-banner-icon-width;
+        bottom: -1rem;
       }
 
     }
@@ -314,10 +319,6 @@ $page-banner-height: 330px;
     }
   }
 
-  &--white &__icon {
-    padding-right: 0;
-  }
-
   &--small &__icon {
 
     @media ($bp-medium-min) {
@@ -432,11 +433,6 @@ $page-banner-height: 330px;
     }
   }
 
-  &--white &__description {
-    padding-left: $page-banner-icon-width;
-    font-size: $fonts-large;
-  }
-
   &--columns &__image {
     background-position: 50% 50%;
     background-size: cover;
@@ -453,6 +449,47 @@ $page-banner-height: 330px;
       width: 62.12903%; // @include span(8 of 12) was too big
     }
   }
+
+  // White variation.
+
+  &--white &__icon {
+    padding-right: $standard-spacing--xxsmall;
+  }
+
+  &--white &__description {
+    font-size: $fonts-large;
+    width: 100%;
+    margin-bottom: $standard-spacing--xsmall ;
+
+    @media ($bp-medium-max) {
+      float: left;
+    }
+
+    @media ($bp-large-min) {
+      padding-left: $page-banner-icon-width;
+    }
+  }
+
+  &--white &__icon {
+    display: block;
+    width: 37px;
+
+    @media ($bp-medium-max) {
+      float: left;
+    }
+
+    @media ($bp-large-min) {
+      width: $page-banner-icon-width;
+    }
+
+    > svg {
+      height: 4rem;
+    }
+  }
+
+  &--white &__content-wrapper {
+    position: relative;
+  }
 }
 
 //theme
@@ -464,13 +501,6 @@ $page-banner-inner-width: 612px;
 
     &:before {
       background-color: rgba($c-primary-alt, 0.8);
-    }
-  }
-
-  &--white &__container {
-
-    &:before {
-      content: none;
     }
   }
 
@@ -576,6 +606,15 @@ $page-banner-inner-width: 612px;
   &--columns &__description {
     color: $c-font-base;
     font-weight: $fonts-light;
+  }
+
+  // White variation.
+
+  &--white &__container {
+
+    &:before {
+      content: none;
+    }
   }
 
   &--white &__icon {
