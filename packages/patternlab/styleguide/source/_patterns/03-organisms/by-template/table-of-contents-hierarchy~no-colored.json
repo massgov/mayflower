@@ -1,26 +1,26 @@
 {
   "tableOfContentsHierarchy": {
     "title": {
-      "text": "Table of Contents",
+      "text": "For Workers",
       "colored": false
     },
+    "background" : "none",
     "sections": [
       {
-        "text": "Executive Summary",
+        "text": "Unemployment Insurance (UI) for Workers ",
         "href": "#"
       },
       {
-        "text": "1. Scope of Rules",
-        "linkItems": [
-          {
-            "text": "Thing One",
-            "href": "#"
-          },
-          {
-            "text": "Thing Two",
-            "href": "#"
-          }
-        ]
+        "text": "Pandemic Unemployment Assistance (PUA) ",
+        "href": "#"
+      },
+      {
+        "text": "DUA Multilingual Services",
+        "href": "#"
+      },
+      {
+        "text": "WorkShare for Workers",
+        "href": "#"
       },
       {
         "text": "Training & Assistance",
