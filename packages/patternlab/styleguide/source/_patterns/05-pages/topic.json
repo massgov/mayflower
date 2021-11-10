@@ -55,10 +55,9 @@
     }
   },
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/820x460.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "size": "columns",
+    "size": "full",
     "icon": "lg-picnic-table",
+    "color": "white",
     "title": "State Parks & Recreation",
     "description": "First line of this Topic that feeds description on cards.  This description can span multiple lines."
   },
