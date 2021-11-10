@@ -25,7 +25,7 @@ $page-banner-height: 330px;
       font-size: $fonts-2xlarge;
 
       @media ($bp-small-min) {
-        font-size: $fonts-medium;
+        font-size: $fonts-xlarge;
       }
     }
 
@@ -216,6 +216,7 @@ $page-banner-height: 330px;
     display: flex;
     align-items: center;
     height: 100%;
+    max-width: 640px;
     position: relative;
 
     @media ($bp-x-small-min) {
@@ -358,6 +359,10 @@ $page-banner-height: 330px;
     margin-bottom: 0;
     margin-top: .8em;
     top: $page-banner-height;
+
+    @media ($bp-large-min) {
+      max-width: 820px;
+    }
   }
 
   .ma__decorative-link a,
@@ -493,7 +498,7 @@ $page-banner-inner-width: 612px;
   }
 
   &__title {
-    font-weight: $fonts-medium;
+    font-weight: $fonts-light;
     color: $c-font-inverse;
   }
 
