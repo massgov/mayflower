@@ -272,119 +272,80 @@
       }
     ]
   },
-  "expandableContent": {
-    "mainList": {
-      "sections": [
-        {
-          "text": "Unemployment Insurance (UI) for Workers",
-          "href": "#"
-        },
-        {
-          "text": "Pandemic Unemployment Assistance (PUA)",
-          "href": "#"
-        },
-        {
-          "text": "DUA Multilingual Services",
-          "href": "#"
-        },
-        {
-          "text": "Training & Assistance",
-          "linkItems": [
-            {
-              "text": "Unemployment Insurance (UI) for Employers",
-              "href": "#"
-            },
-            {
-              "text": "WorkShare for Employers",
-              "href": "#"
-            }
-          ]
-        }
-      ]
+  "tableOfContentsHierarchy": {
+    "title": {
+      "text": "For Workers",
+      "colored": false
     },
-    "forWorkers": {
-      "title": {
-        "text": "For Workers",
-        "colored": false
+    "background" : "none",
+    "sections": [
+      {
+        "text": "Unemployment Insurance (UI) for Workers ",
+        "href": "#"
       },
-      "sections": [
-        {
-          "text": "Unemployment Insurance (UI) for Workers",
-          "href": "#"
-        },
-        {
-          "text": "Pandemic Unemployment Assistance (PUA)",
-          "href": "#"
-        },
-        {
-          "text": "DUA Multilingual Services",
-          "href": "#"
-        },
-        {
-          "text": "WorkShare for Workers",
-          "href": "#"
-        }
-      ]
-    },
-    "forEmployers": {
-      "title": {
-        "text": "For Employers",
-        "colored": false
+      {
+        "text": "Pandemic Unemployment Assistance (PUA) ",
+        "href": "#"
       },
-      "sections": [
-        {
-          "text": "Unemployment Information for Employers",
-          "linkItems": [
-            {
-              "text": "Unemployment Insurance (UI) for Employers",
-              "href": "#"
-            },
-            {
-              "text": "WorkShare for Employers",
-              "href": "#"
-            }
-          ]
-        }
-      ]
-    },
-    "training": {
-      "title": {
-        "text": "Training",
-        "colored": false
+      {
+        "text": "DUA Multilingual Services",
+        "href": "#"
       },
-      "sections": [
-        {
-          "text": "Training & Assistance",
-          "linkItems": [
-            {
-              "title": "For Workers",
-              "subItems": [
-                {
-                  "text": "Training Opportunities Program (TOP)",
-                  "href": "#"
-                },
-                {
-                  "text": "MassHire Career Centers",
-                  "href": "#"
-                },
-                {
-                  "text": "Vocational Rehabilitation",
-                  "href": "#"
-                }
-              ]
-            },
-            {
-              "title": "For Employers",
-              "subItems": [
-                {
-                  "text": "Prevent layoffs with Rapid Response",
-                  "href": "#"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
+      {
+        "text": "WorkShare for Workers",
+        "href": "#"
+      },
+      {
+        "text": "Training & Assistance",
+        "linkItems": [
+          {
+            "text": "Unemployment Insurance (UI) for Employers",
+            "href": "#"
+          },
+          {
+            "text": "WorkShare for Employers",
+            "href": "#"
+          },
+          {
+            "title": "For Workers",
+            "subItems": [
+              {
+                "text": "Training Opportunities Program (TOP)",
+                "href": "#"
+              },
+              {
+                "text": "MassHire Career Centers",
+                "href": "#"
+              },
+              {
+                "text": "Vocational Rehabilitation",
+                "href": "#"
+              }
+            ]
+          },
+          {
+            "title": "For Employers",
+            "subItems": [
+              {
+                "text": "Prevent layoffs with Rapid Response",
+                "href": "#"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "iconSize": "",
+        "icon": "doc-docx",
+        "decorativeLink": {
+          "text": "Link to a file for download",
+          "href": "#",
+          "info": ""
+        },
+        "size": "40kb",
+        "format": "DOCX"
+      }
+    ]
+
   }
 }

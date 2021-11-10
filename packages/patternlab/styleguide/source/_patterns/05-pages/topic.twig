@@ -18,20 +18,10 @@
   {% embed "@organisms/by-author/stacked-row-section.twig" with  {
     "stackedRowSection": {
       "title":"Title for the Row of Content",
-      "stackedRowModifier": "ma__stacked-row__section--restricted"
+      "narrow": true
     }
   } %}
     {% block stackedRowContentOverride %}
-      {% set tableOfContentsHierarchy = expandableContent.mainList %}
-      {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
-
-      {% set tableOfContentsHierarchy = expandableContent.forWorkers %}
-      {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
-
-      {% set tableOfContentsHierarchy = expandableContent.forEmployers %}
-      {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
-
-      {% set tableOfContentsHierarchy = expandableContent.training %}
       {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
     {% endblock %}
   {% endembed %}

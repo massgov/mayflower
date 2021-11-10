@@ -1,6 +1,6 @@
 @use "00-base/configure" as *;
 
-$page-banner-icon-width: $column;
+$page-banner-icon-width: $column + $gutter;
 $page-banner-height: 330px;
 
 .ma__page-banner {
@@ -174,7 +174,7 @@ $page-banner-height: 330px;
   }
 
   &--overlay &__container,
-  &--full &__container{
+  &--full &__container {
 
     &:before {
       content: '';
@@ -255,7 +255,7 @@ $page-banner-height: 330px;
   }
 
   &--overlay &__content,
-  &--full &__content{
+  &--full &__content {
     padding: 25px 20px 25px 0;
 
     @media ($bp-x-small-min) {
@@ -466,7 +466,7 @@ $page-banner-height: 330px;
     }
 
     @media ($bp-large-min) {
-      padding-left: $page-banner-icon-width;
+      padding-left: $page-banner-icon-width - $gutter;
     }
   }
 
@@ -479,7 +479,7 @@ $page-banner-height: 330px;
     }
 
     @media ($bp-large-min) {
-      width: $page-banner-icon-width;
+      width: $page-banner-icon-width - $gutter;
     }
 
     > svg {
@@ -618,6 +618,7 @@ $page-banner-inner-width: 612px;
   }
 
   &--white &__icon {
+
     svg,
     svg > g {
       fill: $c-primary-alt;
