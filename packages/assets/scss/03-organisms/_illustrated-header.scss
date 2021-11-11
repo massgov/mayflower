@@ -37,13 +37,6 @@ $bp-illustrated-header-image-width: 360px;
     @media ($bp-page-width-min) {
       width: calc(50vw - 220px);
     }
-
-    &--empty {
-
-      @media ($bp-illustrated-header-columns-max) {
-        display: none;
-      }
-    }
   }
 
   &__container {
@@ -103,6 +96,18 @@ $bp-illustrated-header-image-width: 360px;
     .page-content {
       padding: 0;
       width: 100%;
+    }
+  }
+
+  &--no-image {
+    .ma__illustrated-header__image {
+      display: none;
+    }
+
+    .ma__illustrated-header__content {
+      @media ($bp-page-width-min) {
+        width: 935px;
+      }
     }
   }
 }
