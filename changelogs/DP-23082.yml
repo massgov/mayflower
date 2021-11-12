@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Key Message
+    description: Add half image option for Key messages. (#1538)
+    issue: DP-23082
+    impact: Minor
