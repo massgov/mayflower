@@ -108,6 +108,18 @@ $bp-illustrated-header-image-width: 360px;
       @media ($bp-page-width-min) {
         width: 935px;
       }
+
+      &:after {
+        content: none;
+      }
+    }
+
+    &.ma__illustrated-header {
+      margin-top: 0;
+
+      @media ($bp-illustrated-header-columns-min) {
+        margin-bottom: 0;
+      }
     }
   }
 }
