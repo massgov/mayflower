@@ -18,8 +18,6 @@ $banner-height: 400px;
   }
 
   &__image {
-    background-position: center top;
-    background-repeat: no-repeat;
     height: $banner-height;
 
     @media ($bp-large-min) {
@@ -29,6 +27,12 @@ $banner-height: 400px;
 
     @media ($bp-x-large-min) {
       width: 63.5%;
+    }
+
+    * {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
   }
 
