@@ -55,11 +55,27 @@ $colors: (
 
   &--top {
 
+    &.ma__key-message--half-image {
+
+      .ma__key-message__inline-image {
+        height: 107.5px;
+
+        @media ($bp-small-min) {
+          height: 212.5px;
+        }
+
+        @media ($bp-medium-min) {
+          height: 300px;
+        }
+      }
+    }
+
     .ma__key-message__inline-image {
       position: relative;
       z-index: 0;
       width: 100%;
       height: 215px;
+      order: 2;
 
       picture, source, img {
         width: 100%;
@@ -79,6 +95,10 @@ $colors: (
         right: 0;
         bottom: 0;
         object-fit: cover;
+      }
+
+      @media ($bp-large-min) {
+        order: -1;
       }
     }
   }
@@ -121,11 +141,19 @@ $colors: (
 
   &--image {
 
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
     height: fit-content;
     z-index: 0;
+
+    &.ma__key-message--half-image {
+
+      @media ($bp-medium-min) {
+        height: 300px;
+      }
+    }
 
     &:after {
       content:'';
@@ -168,6 +196,7 @@ $colors: (
         display: block;
         height: fit-content;
         padding: 0px;
+        top: 50%;
 
         .ma__key-message__block {
           padding: 20px 20px;
@@ -186,7 +215,7 @@ $colors: (
           display: flex;
           flex-flow: column;
           justify-content: flex-end;
-          height: 100%;
+          height: 50%;
           position: relative;
 
           .ma__key-message__block {
@@ -196,7 +225,20 @@ $colors: (
             margin-right: auto;
             transform: translateY(33%);
             box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,0.25);
+
+            &--half-image {
+              transform: translateY(0%);
+            }
           }
+        }
+      }
+
+      &--half-image {
+
+        @media ($bp-medium-min) {
+          display: flex;
+          justify-content: flex-start;
+          top: 100px;
         }
       }
 
