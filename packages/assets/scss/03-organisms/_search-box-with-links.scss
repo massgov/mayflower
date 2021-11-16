@@ -151,12 +151,6 @@
       list-style: none;
       margin: 0 45px 10px 0;
 
-      a {
-        display: flex;
-        justify-content: start;
-        line-height: 1.1;
-      }
-
       @media (max-width: 910px) {
         margin: 0 20px 10px 0;
       }
