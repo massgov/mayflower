@@ -26,10 +26,12 @@
         {% include "@atoms/decorative-link.twig" %}
       </li>
 
-      <li>
-        {% set decorativeLink = searchBoxWithLinks.secondary.secondLink %}
-        {% include "@atoms/decorative-link.twig" %}
-      </li>
+      {% set decorativeLink = searchBoxWithLinks.secondary.secondLink %}
+      {% if decorativeLink %}
+        <li>
+          {% include "@atoms/decorative-link.twig" %}
+        </li>
+      {% endif %}
 		</ul>
 	</div>
 </div>
