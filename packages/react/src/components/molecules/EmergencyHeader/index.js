@@ -14,7 +14,7 @@ import IconAlert from 'MayflowerReactBase/Icon/IconAlert';
 
 const EmergencyHeader = (props) => {
   const {
-    title, icon, prefix, theme
+    title, icon, prefix, theme, noWrap
   } = props;
   const linkArgs = {
     theme,
@@ -22,7 +22,8 @@ const EmergencyHeader = (props) => {
   };
   const h2Classes = classNames({
     'ma__emergency-header': true,
-    [`ma__emergency-header--${theme}`]: theme
+    [`ma__emergency-header--${theme}`]: theme,
+    [`ma__emergency-header--mobile-wrap`]: !noWrap,
   });
   return(
     <h2 className={h2Classes}>

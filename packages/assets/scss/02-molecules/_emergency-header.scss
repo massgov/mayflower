@@ -4,6 +4,16 @@
   display: flex;
     align-items: center;
 
+    &--mobile-wrap {
+      @media ($bp-small-max) {
+        flex-direction: column;
+
+        .ma__emergency-header__label {
+          border-right: none;
+        }
+      }
+    }
+
   @include ma-container;
   margin: 0;
   padding: 8px;
