@@ -48,7 +48,9 @@ EmergencyHeader.propTypes = {
   /** A SVG icon to display to the left of the prefix text. */
   icon: PropTypes.element,
   /** An optional string displayed to the left of the divider bar. */
-  prefix: PropTypes.string
+  prefix: PropTypes.string,
+  /** Not to wrap alerts header prefix and text into two lines on mobile, this can save vertical space when the alert header is short and can fit in one line on mobible */
+  noWrap: PropTypes.bool
 };
 EmergencyHeader.defaultProps = {
   theme: 'c-warning',
