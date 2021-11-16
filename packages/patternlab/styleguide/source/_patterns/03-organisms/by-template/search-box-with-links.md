@@ -1,18 +1,33 @@
 ### Description
-This Pattern shows searchbox for Collections.
+This Pattern shows a Search box with links.
 
 ### Usage Guidelines
-*
+* TODO.
 
 ### Variables
 ~~~
 {
-  "searchCollection": {
-    "title": "Table of Contents",
-    "links": [{
-      "text": "Section Header",
-      "href": "sectionLink"
-    }]
+  "searchBoxWithLinks": {
+    "form": {
+      "headingText": "Search for data",
+      "submitText": "SEARCH",
+      "visuallyHiddenText": "Enter a subject or search term",
+      "actionUrl": "/"
+    },
+
+    "secondary": {
+      "heading": "Didn't find what you were looking for?",
+
+      "firstLink": {
+        "url": "/",
+        "text": "See all options"
+      },
+
+      "secondLink": {
+        "url": "/",
+        "text": "Another link"
+      }
+    }
   }
 }
 ~~~
