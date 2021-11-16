@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 ## 11.19.1 (11/16/2021)
+### Added 
+- (React, Assets) [AlertsHeader] DP-23427: Add a style variant to allow wrapping on mobile. (#1557)
+
 ### Changed 
 - (Patternlab) [EmergencyHeader, EmergencyAlerts] DP-23317: Adjusted vertical spacing, prevent alert header to wrap on smaller screensizes. (#1547)
 

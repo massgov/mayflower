@@ -95,6 +95,7 @@ $colors: (
   }
 
   &__container {
+
     @include ma-container;
   }
 
