@@ -122,81 +122,80 @@
     .ma__decorative-link a:visited {
       border-bottom-width: 0;
     }
+  }
+
+  &__social {
+    flex-basis: 40%;
+    background-color: #f2f2f2;
+    padding: 40px;
+
+    @media (max-width: 910px) {
+      padding: 30px;
+    }
+
+    @media (max-width: 620px) {
+      padding: 20px;
+    }
+
+
+    h3 {
+      margin-bottom: 20px;
+      padding-bottom: 0 !important;
+
+      &:after {
+        background: none;
+      }
+    }
+
+
+    ul {
+      display: block;
+      padding: 0;
+      margin-bottom: 15px;
+    }
+
+    li {
+      list-style: none;
+      margin: 0 45px 30px 0;
+
+      a {
+        display: flex;
+        justify-content: start;
+        line-height: 1.1;
+      }
+
+      @media (max-width: 910px) {
+        margin: 0 20px 30px 0;
+      }
+    }
+
+
+    svg {
+      margin-right: 10px;
+    }
+
+    p {
+      margin: 0 0 10px 0;
+      line-height: 1.1;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active,
+    a:focus {
+      border-bottom-width: 0;
+    }
 
 
   }
 
 }
 
-
-
-.ma__search-collection-row__social {
-  flex-basis: 40%;
-  background-color: #f2f2f2;
-  padding: 40px;
-}
-
-@media (max-width: 910px) {
-  .ma__search-collection-row__social {
-    padding: 30px;
-  }
-}
-
-@media (max-width: 620px) {
-  .ma__search-collection-row__social {
-    padding: 20px;
-  }
-}
-
-.ma__search-collection-row__social h3 {
-  margin-bottom: 20px;
-  padding-bottom: 0 !important;
-}
-.ma__search-collection-row__social h3:after {
-  background: none;
-}
-
-
-.ma__search-collection-row__social ul {
-  display: block;
-  padding: 0;
-  margin-bottom: 15px;
-}
-
-.ma__search-collection-row__social li {
-  list-style: none;
-  margin: 0 45px 30px 0;
-}
-
-@media (max-width: 910px) {
-  .ma__search-collection-row__social li {
-    margin: 0 20px 30px 0;
-  }
-}
-
-
-.ma__search-collection-row__social li a {
-  display: flex;
-  justify-content: start;
-  line-height: 1.1;
-}
-
-.ma__search-collection-row__social svg {
-  margin-right: 10px;
-}
-
-.ma__search-collection-row__social p {
-  margin: 0 0 10px 0;
-  line-height: 1.1;
-}
-
-.ma__search-collection-row__social p:last-child {
-  margin-bottom: 0;
-}
-
-.ma__search-collection-row__social a:link, .ma__search-collection-row__social a:visited, .ma__search-collection-row__social a:hover, .ma__search-collection-row__social a:active, .ma__search-collection-row__social a:focus {
-  border-bottom-width: 0;
-}
 
 .ma__link-icon-arrow {
   fill: rgba(20, 85, 143, 0.5);
