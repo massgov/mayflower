@@ -5,7 +5,9 @@
     align-items: center;
 
     // for longer alerts header, see examples in mayflower react
+
     &--mobile-wrap {
+
       @media ($bp-small-max) {
         flex-direction: column;
 
