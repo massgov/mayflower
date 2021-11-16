@@ -1,10 +1,23 @@
 @use "00-base/configure" as *;
 
 .ma__emergency-header {
+  display: flex;
+    align-items: center;
+
+    // for longer alerts header, see examples in mayflower react
+    &--mobile-wrap {
+      @media ($bp-small-max) {
+        flex-direction: column;
+
+        .ma__emergency-header__label {
+          border-right: none;
+        }
+      }
+    }
 
   @include ma-container;
   margin: 0;
-  padding: 12px;
+  padding: 8px;
   font-size: inherit;
   line-height: inherit;
   background-color: $c-warning;
@@ -13,28 +26,20 @@
     text-align: center;
   }
 
-  @media ($bp-large-min) {
-    display: flex;
-    align-items: center;
-  }
-
   &__label {
-    display: block;
     flex-shrink: 0;
     flex-basis: auto;
     letter-spacing: $letter-spacing-large;
     white-space: nowrap;
     color: rgba($c-font-base,.8);
     font-weight: $fonts-bold;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgba($c-font-base,.3);
+    padding-right: .5rem;
+    margin-right: .5rem;
 
-    @media ($bp-large-max) {
-      margin-bottom: 10px;
-    }
-
-    @media ($bp-large-min) {
-      border-right-width: 1px;
-      border-right-style: solid;
-      border-right-color: rgba($c-font-base,.3);
+    @media ($bp-small-min) {
       padding-right: 18px;
       margin-right: 18px;
     }
@@ -42,26 +47,28 @@
     // icon
 
     & > svg {
+      width: 1.6rem;
       height: 24px;
-      margin-right: 7px;
+      margin-right: 0;
       vertical-align: middle;
-      width: 27px;
+
 
       @media ($bp-small-min) {
         height: 32px;
-        width: 36px;
+        width: 2rem;
+        margin-right: 7px;
       }
 
     }
 
     // text
 
-    span {
-      display: inline-block;
+    & > span {
       font-size: $fonts-xsmall;
       line-height: 1.13;
       text-transform: uppercase;
       vertical-align: middle;
+      display: inline-flex;
     }
   }
 
@@ -69,6 +76,10 @@
     cursor: pointer;
     color: $c-black;
     font-weight: $fonts-light;
+
+    @media ($bp-small-max) {
+      font-size: 1.2rem;
+    }
     
     @include ma-button-reset;
 
