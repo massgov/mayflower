@@ -11,13 +11,13 @@
       "heading": "Didn't find what you were looking for?",
 
       "firstLink": {
-        "href": "https://yahoo.com",
+        "href": "/#first",
         "text": "See all options"
       },
 
       "secondLink": {
-        "href": "https://google.com",
-        "text": "Another link"
+        "href": "/#second",
+        "text": "Another (optional) link"
       }
     }
   }
