@@ -23,7 +23,7 @@ const EmergencyHeader = (props) => {
   const h2Classes = classNames({
     'ma__emergency-header': true,
     [`ma__emergency-header--${theme}`]: theme,
-    [`ma__emergency-header--mobile-wrap`]: !noWrap,
+    'ma__emergency-header--mobile-wrap': !noWrap
   });
   return(
     <h2 className={h2Classes}>
