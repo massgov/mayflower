@@ -1,3 +1,6 @@
+@use "00-base/configure" as *;
+
+
 .ma__search-collection-row {
   margin-right: auto;
   margin-left: auto;
@@ -9,18 +12,18 @@
   margin: 60px auto;
 
 
-  @media (min-width: 781px) {
+  @media ($bp-medium-min) {
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
   }
 
-  @media (min-width: 911px) {
+  @media ($bp-large-min) {
     padding-left: 40px;
     padding-right: 40px;
   }
 
-  @media (max-width: 620px) {
+  @media ($bp-small-max) {
     margin: 40px auto;
   }
 
@@ -42,7 +45,7 @@
       padding: 30px;
     }
 
-    @media (max-width: 620px) {
+    @media ($bp-small-max) {
       padding: 20px;
     }
 
@@ -90,7 +93,7 @@
     }
 
 
-    @media (max-width: 620px) {
+    @media ($bp-small-max) {
       .ma__button-search__label {
         position: absolute;
         overflow: hidden;
@@ -133,7 +136,7 @@
       padding: 30px;
     }
 
-    @media (max-width: 620px) {
+    @media ($bp-small-max) {
       padding: 20px;
     }
 
