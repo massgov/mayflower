@@ -1,8 +1,9 @@
 ### Description
 This Pattern shows a Search box with links.
 
-### Usage Guidelines
-* TODO.
+### Pattern Contains
+* Decorated Link
+* Button search
 
 ### Variables
 ~~~
@@ -19,13 +20,13 @@ This Pattern shows a Search box with links.
       "heading": "Didn't find what you were looking for?",
 
       "firstLink": {
-        "url": "/",
+        "href": "/#first",
         "text": "See all options"
       },
 
       "secondLink": {
-        "url": "/",
-        "text": "Another link"
+        "href": "/#second",
+        "text": "Another (optional) link"
       }
     }
   }
