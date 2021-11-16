@@ -1,9 +1,9 @@
-<div class="ma__search-collection-row">
-	<form role="search" class="ma__search-collection-row__form" action="{{ searchCollection.form.ActionUrl }}" method="get">
+<div class="ma__search-box-with-links">
+	<form role="search" class="ma__search-box-with-links__form" action="{{ searchCollection.form.ActionUrl }}" method="get">
 		<h3>{{ searchCollection.form.headingText }}</h3>
 
 		<div class="ma__keyword-search js-keyword-search">
-			<label for="campaign-hr-keywords" class="ma__visually-hidden">
+			<label class="ma__visually-hidden">
         {{ searchCollection.form.visuallyHiddenText }}
       </label>
 
@@ -18,7 +18,7 @@
 
 	</form>
 
-	<div class="ma__search-collection-row__secondary">
+	<div class="ma__search-box-with-links__secondary">
 		<h3>{{ searchCollection.secondary.heading }}</h3>
 		<ul>
       <li>
