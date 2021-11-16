@@ -87,7 +87,7 @@ ButtonWithIcon.propTypes = {
    * button's functionality. */
   'aria-label': PropTypes.string,
   /** Themes correspond to site color scheme i.e. sass variables */
-  theme: PropTypes.oneOf(['', 'c-primary', 'c-highlight', 'c-gray-dark', 'c-black']),
+  theme: PropTypes.oneOf(['', 'c-primary', 'c-highlight', 'c-gray-dark', 'c-black', 'c-white']),
   /** Button usage */
   usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary', 'quaternary-simple', 'alert']),
   /** Whether the button has a popup or not */
