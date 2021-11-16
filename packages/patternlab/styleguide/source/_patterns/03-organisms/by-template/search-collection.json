@@ -3,15 +3,21 @@
     "form": {
       "headingText": "Search for data",
       "submitText": "SEARCH",
-      "visuallyHiddenText": "Enter a subject or search term"
+      "visuallyHiddenText": "Enter a subject or search term",
+      "actionUrl": "/"
     },
 
     "secondary": {
       "heading": "Didn't find what you were looking for?",
 
-      "link": {
+      "firstLink": {
         "url": "/",
         "text": "See all options"
+      },
+
+      "secondLink": {
+        "url": "/",
+        "text": "Another link"
       }
     }
   }
