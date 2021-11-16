@@ -1,4 +1,4 @@
-.ma__campaign-page-hr-row {
+.ma__search-collection-row {
   margin-right: auto;
   margin-left: auto;
   max-width: 1320px;
@@ -7,188 +7,194 @@
   justify-content: space-between;
   align-items: stretch;
   margin: 60px auto;
-}
 
-@media (min-width: 781px) {
-  .ma__campaign-page-hr-row {
+
+  @media (min-width: 781px) {
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
   }
-}
 
-@media (min-width: 911px) {
-  .ma__campaign-page-hr-row {
+  @media (min-width: 911px) {
     padding-left: 40px;
     padding-right: 40px;
   }
-}
 
-@media (max-width: 620px) {
-  .ma__campaign-page-hr-row {
+  @media (max-width: 620px) {
     margin: 40px auto;
   }
-}
 
-.ma__campaign-page-hr-row h3 {
-  padding: 0 !important;
-}
-
-.ma__campaign-page-hr-row h3::after {
-  content: none !important;
-}
-
-.ma__campaign-page-hr-row__form {
-  padding: 40px;
-  background-color: #14558f;
-  flex-basis: 60%;
-}
-
-@media (max-width: 910px) {
-  .ma__campaign-page-hr-row__form {
-    padding: 30px;
+  h3 {
+    padding: 0 !important;
   }
-}
 
-@media (max-width: 620px) {
-  .ma__campaign-page-hr-row__form {
-    padding: 20px;
+  h3::after {
+    content: none !important;
   }
-}
 
-.ma__campaign-page-hr-row__form h3 {
-  color: white;
-  margin-bottom: 30px;
-  display: block;
-}
+  &__form {
+    padding: 40px;
+    background-color: #14558f;
+    flex-basis: 60%;
 
-@media (max-width: 910px) {
-  .ma__campaign-page-hr-row__form h3 {
-    margin-bottom: 20px;
+
+    @media (max-width: 910px) {
+      padding: 30px;
+    }
+
+    @media (max-width: 620px) {
+      padding: 20px;
+    }
+
+    h3 {
+      color: white;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    @media (max-width: 910px) {
+      h3 {
+        margin-bottom: 20px;
+      }
+    }
+
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active,
+    a:focus {
+      color: white;
+      border-bottom-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .ma__keyword-search {
+      display: flex;
+      max-width: 620px;
+
+      input {
+        flex-grow: 1;
+        flex-shrink: 1;
+        border-right: 0;
+      }
+
+      input::placeholder {
+        color: #707070;
+      }
+
+      button {
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+    }
+
+
+    @media (max-width: 620px) {
+      .ma__button-search__label {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+      }
+    }
+
+    .ma__decorative-link {
+      margin-top: 30px;
+    }
+
+    @media (max-width: 910px) {
+     .ma__decorative-link {
+        margin-top: 20px;
+      }
+    }
+
+
+    .ma__decorative-link svg {
+      fill: rgba(255, 255, 255, 0.5);
+    }
+
+    .ma__decorative-link a:link,
+    .ma__decorative-link a:visited {
+      border-bottom-width: 0;
+    }
+
+
   }
+
 }
 
-.ma__campaign-page-hr-row__form a:link, .ma__campaign-page-hr-row__form a:visited, .ma__campaign-page-hr-row__form a:hover, .ma__campaign-page-hr-row__form a:active, .ma__campaign-page-hr-row__form a:focus {
-  color: white;
-  border-bottom-color: rgba(255, 255, 255, 0.5);
-}
 
-.ma__campaign-page-hr-row__form .ma__keyword-search {
-  display: flex;
-  max-width: 620px;
-}
 
-.ma__campaign-page-hr-row__form .ma__keyword-search input {
-  flex-grow: 1;
-  flex-shrink: 1;
-  border-right: 0;
-}
-
-.ma__campaign-page-hr-row__form .ma__keyword-search input::placeholder {
-  color: #707070;
-}
-
-.ma__campaign-page-hr-row__form .ma__keyword-search button {
-  flex-grow: 0;
-  flex-shrink: 0;
-}
-
-@media (max-width: 620px) {
-  .ma__campaign-page-hr-row__form .ma__button-search__label {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-  }
-}
-
-.ma__campaign-page-hr-row__form .ma__decorative-link {
-  margin-top: 30px;
-}
-
-@media (max-width: 910px) {
-  .ma__campaign-page-hr-row__form .ma__decorative-link {
-    margin-top: 20px;
-  }
-}
-
-.ma__campaign-page-hr-row__form .ma__decorative-link svg {
-  fill: rgba(255, 255, 255, 0.5);
-}
-
-.ma__campaign-page-hr-row__form .ma__decorative-link a:link, .ma__campaign-page-hr-row__form .ma__decorative-link a:visited {
-  border-bottom-width: 0;
-}
-
-.ma__campaign-page-hr-row__social {
+.ma__search-collection-row__social {
   flex-basis: 40%;
   background-color: #f2f2f2;
   padding: 40px;
 }
 
 @media (max-width: 910px) {
-  .ma__campaign-page-hr-row__social {
+  .ma__search-collection-row__social {
     padding: 30px;
   }
 }
 
 @media (max-width: 620px) {
-  .ma__campaign-page-hr-row__social {
+  .ma__search-collection-row__social {
     padding: 20px;
   }
 }
 
-.ma__campaign-page-hr-row__social h3 {
+.ma__search-collection-row__social h3 {
   margin-bottom: 20px;
   padding-bottom: 0 !important;
 }
-.ma__campaign-page-hr-row__social h3:after {
+.ma__search-collection-row__social h3:after {
   background: none;
 }
 
 
-.ma__campaign-page-hr-row__social ul {
+.ma__search-collection-row__social ul {
   display: block;
   padding: 0;
   margin-bottom: 15px;
 }
 
-.ma__campaign-page-hr-row__social li {
+.ma__search-collection-row__social li {
   list-style: none;
   margin: 0 45px 30px 0;
 }
 
 @media (max-width: 910px) {
-  .ma__campaign-page-hr-row__social li {
+  .ma__search-collection-row__social li {
     margin: 0 20px 30px 0;
   }
 }
 
 
-.ma__campaign-page-hr-row__social li a {
+.ma__search-collection-row__social li a {
   display: flex;
   justify-content: start;
   line-height: 1.1;
 }
 
-.ma__campaign-page-hr-row__social svg {
+.ma__search-collection-row__social svg {
   margin-right: 10px;
 }
 
-.ma__campaign-page-hr-row__social p {
+.ma__search-collection-row__social p {
   margin: 0 0 10px 0;
   line-height: 1.1;
 }
 
-.ma__campaign-page-hr-row__social p:last-child {
+.ma__search-collection-row__social p:last-child {
   margin-bottom: 0;
 }
 
-.ma__campaign-page-hr-row__social a:link, .ma__campaign-page-hr-row__social a:visited, .ma__campaign-page-hr-row__social a:hover, .ma__campaign-page-hr-row__social a:active, .ma__campaign-page-hr-row__social a:focus {
+.ma__search-collection-row__social a:link, .ma__search-collection-row__social a:visited, .ma__search-collection-row__social a:hover, .ma__search-collection-row__social a:active, .ma__search-collection-row__social a:focus {
   border-bottom-width: 0;
 }
 
