@@ -14,7 +14,7 @@ import IconAlert from 'MayflowerReactBase/Icon/IconAlert';
 
 const EmergencyHeader = (props) => {
   const {
-    title, icon, prefix, theme
+    title, icon, prefix, theme, noWrap
   } = props;
   const linkArgs = {
     theme,
@@ -22,7 +22,8 @@ const EmergencyHeader = (props) => {
   };
   const h2Classes = classNames({
     'ma__emergency-header': true,
-    [`ma__emergency-header--${theme}`]: theme
+    [`ma__emergency-header--${theme}`]: theme,
+    'ma__emergency-header--mobile-wrap': !noWrap
   });
   return(
     <h2 className={h2Classes}>
@@ -47,7 +48,9 @@ EmergencyHeader.propTypes = {
   /** A SVG icon to display to the left of the prefix text. */
   icon: PropTypes.element,
   /** An optional string displayed to the left of the divider bar. */
-  prefix: PropTypes.string
+  prefix: PropTypes.string,
+  /** Not to wrap alerts header prefix and text into two lines on mobile, this can save vertical space when the alert header is short and can fit in one line on mobible */
+  noWrap: PropTypes.bool
 };
 EmergencyHeader.defaultProps = {
   theme: 'c-warning',
