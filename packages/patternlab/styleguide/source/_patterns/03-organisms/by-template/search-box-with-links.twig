@@ -1,16 +1,16 @@
 <div class="ma__search-box-with-links">
-	<form role="search" class="ma__search-box-with-links__form" action="{{ searchCollection.form.ActionUrl }}" method="get">
-		<h3>{{ searchCollection.form.headingText }}</h3>
+	<form role="search" class="ma__search-box-with-links__form" action="{{ searchBoxWithLinks.form.ActionUrl }}" method="get">
+		<h3>{{ searchBoxWithLinks.form.headingText }}</h3>
 
 		<div class="ma__keyword-search js-keyword-search">
 			<label class="ma__visually-hidden">
-        {{ searchCollection.form.visuallyHiddenText }}
+        {{ searchBoxWithLinks.form.visuallyHiddenText }}
       </label>
 
-			<input class="ma__keyword-search__input" name="title" id="q" type="text" placeholder="{{ searchCollection.form.headingText }}">
+			<input class="ma__keyword-search__input" name="title" id="q" type="text" placeholder="{{ searchBoxWithLinks.form.headingText }}">
 
         {% set buttonSearch = {
-          'text' : searchCollection.form.submitText,
+          'text' : searchBoxWithLinks.form.submitText,
           'usage': 'secondary'
         } %}
         {% include "@atoms/01-buttons/button-search.twig" %}
@@ -19,15 +19,15 @@
 	</form>
 
 	<div class="ma__search-box-with-links__secondary">
-		<h3>{{ searchCollection.secondary.heading }}</h3>
+		<h3>{{ searchBoxWithLinks.secondary.heading }}</h3>
 		<ul>
       <li>
-        {% set decorativeLink = searchCollection.secondary.firstLink %}
+        {% set decorativeLink = searchBoxWithLinks.secondary.firstLink %}
         {% include "@atoms/decorative-link.twig" %}
       </li>
 
       <li>
-        {% set decorativeLink = searchCollection.secondary.secondLink %}
+        {% set decorativeLink = searchBoxWithLinks.secondary.secondLink %}
         {% include "@atoms/decorative-link.twig" %}
       </li>
 		</ul>
