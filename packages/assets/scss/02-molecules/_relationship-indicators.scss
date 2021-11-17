@@ -5,10 +5,10 @@
   @include clearfix;
   display: flex;
   flex-direction: column;
-  padding: 20px 0 15px 0;
+  padding: 20px 0 0 0;
   font-weight: 600;
-  border-bottom: 1px solid $c-bd-divider;
-  margin: 0 20px 10px;
+  border-bottom: 0;
+  margin: 0 20px 0 10px;
   font-size: $fonts-smaller;
 
   @media ($bp-small-min) {
@@ -16,7 +16,7 @@
   }
 
   @media ($bp-x-small-min) {
-    padding-top: 23px;
+    padding-top: 40px;
   }
 
   @media ($bp-medium-min) {
@@ -61,6 +61,10 @@
     line-height: 22px;
     padding-right: 5px;
     list-style: none;
+
+    &--fold {
+      display: none;
+    }
   }
 
   &__expand-indicators {
@@ -254,6 +258,19 @@
 
     @media ($bp-x-small-min) {
       flex-flow: row wrap;
+    }
+  }
+
+  &--icon {
+    padding-right: 7px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+
+      path {
+        fill: $c-font-detail;
+      }
     }
   }
 

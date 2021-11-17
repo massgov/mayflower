@@ -1,14 +1,36 @@
-
 <section class="ma__breadcrumbs {{breadcrumbs.light ? 'ma__breadcrumbs--light' : ''}}">
-  <nav class="ma__breadcrumbs__container">
-    <div class="ma__breadcrumbs__label">
-      More in:
-    </div>
+  <nav aria-label="Breadcrumbs" class="ma__breadcrumbs__container">
     <ol class="ma__breadcrumbs__items">
-      <li class="ma__breadcrumbs__item"><a href="/">Home</a></li>
+      {% if breadcrumbs.links|length <= 2 %}
+        <li class="ma__breadcrumbs__item ma__breadcrumbs__chevron-back" aria-hidden="true"></li>
+      {% endif %}
       {% for link in breadcrumbs.links %}
-        <li class="ma__breadcrumbs__item"><a href="{{link.href}}">{{link.text}}</a></li>
+        {% if link.url %}
+          <li class="ma__breadcrumbs__item">
+            {% if loop.first %}
+              <a href="{{link.url}}" aria-label="Home">{{ icon("home") }}</a>
+            {% else %}
+              <a href="{{link.url}}">{{link.text}}</a>
+            {% endif %}
+          </li>
+        {% endif %}
       {% endfor %}
     </ol>
   </nav>
 </section>
+<script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {% for link in breadcrumbs.links %}
+      {
+        "@type": "ListItem",
+        "position": "{{ loop.index }}",
+        "name": "{{ link.text }}",
+        "item": "{{ link.url }}"
+      }
+      {% endfor %}
+    ]
+  }]
+</script>

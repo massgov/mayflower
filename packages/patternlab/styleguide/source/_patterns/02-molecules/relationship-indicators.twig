@@ -18,11 +18,20 @@
   {% endif %}
 
   {% if relationshipIndicators.secondary is not empty %}
-    <div class="ma__relationship-indicators--section {{ relationshipIndicators.primary ? 'secondary' : 'single' }}">
+    {% set secondaryClass = "" %}
+    {% set groupByData = '' %}
+    {% if relationshipIndicators.secondary.groupAfter is not empty %}
+      {% set groupClass = "ma__relationship-indicators--section-group" %}
+      {% set groupByData = "data-group-after="~relationshipIndicators.secondary.groupAfter %}
+    {% endif %}
+
+    <div class="ma__relationship-indicators--section {{ relationshipIndicators.primary ? 'secondary' : 'single ' ~ groupClass }}" {{ groupByData }}>
+      {% if relationshipIndicators.secondary.icon  %}
+        <div class="ma__relationship-indicators--icon">{{ icon(relationshipIndicators.secondary.icon) }}</div>
+      {% endif %}
       <span class="ma__relationship-indicators--label" id="secondary">
       <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
         {{ relationshipIndicators.secondary.label }}
-      </span>
       </span>
       <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
       {% block secondaryRelationship %}
