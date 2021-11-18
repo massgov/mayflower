@@ -18,19 +18,3 @@
     </ol>
   </nav>
 </section>
-<script type="application/ld+json">
-  [{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {% for link in breadcrumbs.links %}
-      {
-        "@type": "ListItem",
-        "position": "{{ loop.index }}",
-        "name": "{{ link.text }}",
-        "item": "{{ link.url }}"
-      }
-      {% endfor %}
-    ]
-  }]
-</script>

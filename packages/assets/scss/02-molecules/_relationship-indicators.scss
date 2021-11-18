@@ -16,7 +16,7 @@
   }
 
   @media ($bp-x-small-min) {
-    padding-top: 40px;
+    padding-top: 50px;
   }
 
   @media ($bp-medium-min) {
@@ -44,7 +44,7 @@
     text-transform: uppercase;
     letter-spacing: $letter-spacing-large;
     margin-right: 10px;
-    margin-bottom: .25em;
+    margin-top: 2px;
     white-space: nowrap;
 
     @media ($bp-x-small-min) {
@@ -246,6 +246,37 @@
         }
       }
     }
+
+    &-group {
+      button {
+        color: $c-primary-alt;
+      }
+
+      .ma__relationship-indicators--term {
+        margin: 0 5px 0 5px;
+        padding-right: 0;
+
+        a {
+          padding-right: 10px;
+          position: relative;
+
+          &:after {
+            content: "";
+            width: 10px;
+            position: absolute;
+            height: 90%;
+            right: 0;
+            bottom: -1px;
+            background: $c-white;
+            border-right: 1px solid $c-gray-light;
+          }
+        }
+      }
+
+      .ma__relationship-indicators__expand-indicators {
+        margin: 0 5px 0 5px;
+      }
+    }
   }
 
   &--terms {
@@ -263,12 +294,13 @@
 
   &--icon {
     padding-right: 7px;
+    margin-top: 2px;
 
     svg {
       width: 14px;
       height: 14px;
 
-      path {
+      path, use {
         fill: $c-font-detail;
       }
     }

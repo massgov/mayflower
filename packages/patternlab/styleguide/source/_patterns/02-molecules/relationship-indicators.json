@@ -31,7 +31,6 @@
       }]
     },
     "secondary": {
-      "icon": "building",
       "position": "",
       "label": "offered by",
       "tags": [{
