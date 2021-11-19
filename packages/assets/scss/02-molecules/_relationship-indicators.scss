@@ -5,10 +5,10 @@
   @include clearfix;
   display: flex;
   flex-direction: column;
-  padding: 20px 0 0 0;
+  padding: 20px 0 15px 0;
   font-weight: 600;
   border-bottom: 0;
-  margin: 0 20px 0 10px;
+  margin: 0 20px 10px;
   font-size: $fonts-smaller;
 
   @media ($bp-small-min) {
@@ -16,7 +16,7 @@
   }
 
   @media ($bp-x-small-min) {
-    padding-top: 50px;
+    padding-top: 23px;
   }
 
   @media ($bp-medium-min) {
@@ -248,6 +248,13 @@
     }
 
     &-group {
+      padding: 20px 0 0 0;
+      margin: 0 20px 0 10px;
+
+      @media ($bp-x-small-min) {
+        padding-top: 50px;
+      }
+
       button {
         color: $c-primary-alt;
       }
@@ -270,6 +277,10 @@
             background: $c-white;
             border-right: 1px solid $c-gray-light;
           }
+        }
+
+        &:last-of-type a:after {
+          border-right: 0;
         }
       }
 
