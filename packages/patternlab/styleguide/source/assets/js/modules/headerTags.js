@@ -41,6 +41,16 @@ export default (function (window,document,$,undefined) {
     let $button = $tagWrapper.find('.js-relationship-indicator-button');
     let $buttonCounter = $button.find('.tag-count');
     let $hiddenTag = $tagWrapper.find('.js-term:hidden');
+
+
+    let $group = $('.ma__relationship-indicators--section-group');
+
+    let groupAfter = parseInt($group.data('group-after')) -1 ;
+    if ($group.length && !$hiddenTag.length) {
+      $hiddenTag = $tagWrapper.find('.js-term:gt('+ groupAfter +')');
+      $hiddenTag.addClass('ma__relationship-indicators--term--fold');
+    }
+
     let $focusTag = $hiddenTag.first().find('a');
     let tagCount = $hiddenTag.length;
     let $tagState = $button.find('.tag-state');
@@ -78,6 +88,7 @@ export default (function (window,document,$,undefined) {
 
         // recount the hidden tags.
         $hiddenTag = $tagWrapper.find('.ma__relationship-indicators--term:hidden');
+
         tagCount = $hiddenTag.length;
 
         // Update button text.
