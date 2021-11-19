@@ -5,7 +5,7 @@
   @include clearfix;
   display: flex;
   flex-direction: column;
-  padding: 20px 0 15px 0;
+  padding: 0 0 15px 0;
   font-weight: 600;
   border-bottom: 0;
   margin: 0 20px 10px;
@@ -13,10 +13,6 @@
 
   @media ($bp-small-min) {
     font-size: $fonts-xsmall;
-  }
-
-  @media ($bp-x-small-min) {
-    padding-top: 23px;
   }
 
   @media ($bp-medium-min) {
@@ -76,10 +72,12 @@
     width: 100%;
     min-width: 50%;
     display: flex;
+    padding-top: 20px;
     flex-direction: column;
 
     @media ($bp-x-small-min) {
-        flex-flow: row nowrap;
+      padding-top: 23px;
+      flex-flow: row nowrap;
     }
 
     .ma__relationship-indicators--term,
@@ -248,11 +246,10 @@
     }
 
     &-group {
-      padding: 20px 0 0 0;
-      margin: 0 20px 0 10px;
+      margin: 0 20px 0 2px;
 
       @media ($bp-x-small-min) {
-        padding-top: 32px;
+        padding-top: 10px;
       }
 
       button {
@@ -278,9 +275,13 @@
             border-right: 1px solid $c-gray-light;
           }
         }
-
-        &:last-of-type a:after {
+        // Remove the border from the last element
+        &--last a:after {
           border-right: 0;
+        }
+        // Unless terms are folded, in that case leave the border.
+        &--fold a:after {
+          border-right: 1px solid $c-gray-light;
         }
       }
 

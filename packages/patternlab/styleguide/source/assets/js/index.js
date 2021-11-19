@@ -51,3 +51,4 @@ import teaserListingGroup from "./modules/teaserListingGroup";
 import truncateTitle from "./modules/truncateTitle.js";
 import formInputs from "./modules/formInputs.js";
 import utilNav from "./modules/utilNav.js";
+import breadcrumbs from "./modules/breadcrumbs.js";

@@ -5,11 +5,23 @@
       "text": "Home",
       "url": "/"
     },{
-      "text": "Unemployment",
+      "text": "Legal & Justice",
       "url": "/"
     },
       {
-        "text": "Training & Assistance",
+        "text": "Court Resources",
+        "url": "/"
+      },
+      {
+        "text": "Court Forms",
+        "url": "/"
+      },
+      {
+        "text": "Translated Court Forms & Information",
+        "url": "/"
+      },
+      {
+        "text": "Formularios e información en español",
         "url": "/"
       }]
   }

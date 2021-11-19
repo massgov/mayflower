@@ -36,6 +36,9 @@
       <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
       {% block secondaryRelationship %}
         {% for item in relationshipIndicators.secondary.tags %}
+          {% if loop.last %}
+            {% set item = item|merge({'class': item.class ~" ma__relationship-indicators--term--last"}) %}
+          {% endif %}
           {% set itemLink = item %}
           {% include "@atoms/item-link.twig" %}
         {% endfor %}

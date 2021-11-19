@@ -6,7 +6,7 @@
       {% endif %}
       {% for link in breadcrumbs.links %}
         {% if link.url %}
-          <li class="ma__breadcrumbs__item">
+          <li class="ma__breadcrumbs__item" id="ma__breadcrumbs__item--{{ loop.index }}">
             {% if loop.first %}
               <a href="{{link.url}}" aria-label="Home">{{ icon("home") }}</a>
             {% else %}
@@ -15,6 +15,9 @@
           </li>
         {% endif %}
       {% endfor %}
+      <li class="ma__breadcrumbs__item ma__breadcrumbs__item__expand-indicators">
+        <button type="button" class="js-breadcrumbs-button" aria-label="Show all Breadcrumbs" title="Show all Breadcrumbs" aria-pressed="false">…</button>
+      </li>
     </ol>
   </nav>
 </section>
