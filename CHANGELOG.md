@@ -1,6 +1,24 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.19.1 (11/16/2021)
+### Added 
+- (React, Assets) [AlertsHeader] DP-23427: Add a style variant to allow wrapping on mobile. (#1557)
+
+### Changed 
+- (Patternlab) [EmergencyHeader, EmergencyAlerts] DP-23317: Adjusted vertical spacing, prevent alert header to wrap on smaller screensizes. (#1547)
+
+### Fixed 
+- (React) [ButtonWithIcon, BrandBanner] DP-23413: fix proptype check. (#1555)
+
+## 11.19.0 (11/15/2021)
+### Changed 
+- (Patternlab) [LocationBanner] DP-22939: Implmenting responsive images. (#1545)
+- (Patternlab) [Key Message] DP-23082: Add half image option for Key messages. (#1538)
+
+### Fixed 
+- (React) [HamburgerNav] DP-23008: Fixed menu open conditional. (#1551)
+
 ## 11.18.0 (11/8/2021)
 ### Fixed 
 - (Patternlab) [Divider] DP-23183: Adds divider as a component, adds variant for thin, converts it to hr. (#1541)
