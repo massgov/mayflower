@@ -121,7 +121,8 @@ export default (function (window, document, $, undefined) {
 
     // Capture click, spacebar and enter keys.
     $mobileToggle.keypress(function(keyboardEvent) {
-      if (keyboardEvent.code == "Enter" || keyboardEvent.code == "Space") {
+      // if (keyboardEvent.code == "Enter" || keyboardEvent.code == "Space") {
+      if (keyboardEvent.key == "Enter" || keyboardEvent.key == "Space") {
         mobileToggleClick();
       }
     });
