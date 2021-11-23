@@ -121,6 +121,7 @@
 
   &__subitems {
     -ms-overflow-style: none;
+    visibility: hidden;
 
     @media ($bp-large-max) {
       height: 200vh;
@@ -132,11 +133,11 @@
       transition: right 0.5s ease;
       z-index: $z-dropdown;
       background-color: $c-white;
-      display: none;
+      // display: none;
 
       .item-open & {
         right: 0;
-        display: block;
+        // display: block;
       }
     }
 
@@ -144,7 +145,7 @@
       position: absolute;
       left: 0;
       max-height: 0;
-      top: -100vh;
+      // top: -100vh;
       overflow-y: hidden;
       transition: 0.2s ease-in-out;
       width: auto;

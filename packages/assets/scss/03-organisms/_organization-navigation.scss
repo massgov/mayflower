@@ -57,6 +57,7 @@ $menu-transition-time: 0.3s;
 
   &__mobile-toggle {
 
+    width: 100%;
     @include ma-container;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -67,6 +68,7 @@ $menu-transition-time: 0.3s;
     font-weight: $fonts-bold;
     line-height: 1.2;
     color: $c-font-dark;
+    border: 0;// Reset default button borders.
     border-bottom: 1px solid $c-gray-light;
     background-color: $c-gray-lightest;
     z-index: $z-dropdown;
@@ -80,6 +82,7 @@ $menu-transition-time: 0.3s;
       max-width: 90%;
       margin-right: -1em;
       padding-right: 1em;
+      text-align: left;
 
       &::before {
         content: '...';
@@ -168,6 +171,11 @@ $menu-transition-time: 0.3s;
           background-color: $c-gray-lightest;
         }
       }
+    }
+
+    #org-search-note {
+      // Hide aria-describedby content
+      display: none;
     }
 
     .ma__form {
@@ -262,22 +270,29 @@ $menu-transition-time: 0.3s;
         padding-left: 40px;
       }
 
+      :not(.form-open) &--icon {
+        display: none;
+      }
+
       .form-open & {
         font-size: $fonts-smaller;
         padding-right: 1.5rem;
         padding-left: 1rem;
         font-weight: $fonts-normal;
 
-        &::after {
+        // &::after {
+        &--icon {
+          display: block;
           color: $c-primary-alt;
-          content: $close-icon;
+          // content: $close-icon;
           font-size: $fonts-2xlarge;
           font-weight: 600;
           line-height: 0;
           position: absolute;
           right: 0;
           transform: translateY(-50%);
-          top: 50%;
+          top: 40%;
+          padding-top: 5px;
         }
 
         svg {
