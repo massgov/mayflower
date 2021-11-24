@@ -174,13 +174,6 @@ export default (function (window, document, $, undefined) {
         });
       });
 
-      // Toggle submenu with ENTER SPACE.
-      // $mobileToggle.keypress(function(e) {
-      //   if (e.key == "Enter" || e.key == "Space") {
-      //     toggleMenu ();
-      //   }
-      // });
-
       // Close container with ESC.
       $("body").on("keyup", function(e) {
         if (e.key === "Escape") {
@@ -191,17 +184,8 @@ export default (function (window, document, $, undefined) {
             $button.focus();
           }
 
-          // Close mobile menu container.
-          // if ($mobileToggle.hasClass(classMainNavOpen)) {
-          //   let focusedItem = $(":focus");
+          // TO DO: Close mobile menu container.
 
-          //   if (!$(focusedItem).hasClass("js-clickable-link") ||
-          //       !$(focusedItem).hasClass("ma__content-link") ||
-          //       !$(focusedItem).hasClass("section-toggle")) {
-          //       console.log("not SUBMENU ITEM");
-          //       mobileToggleClick();
-          //   }
-          // }
         }
       });
 
@@ -239,46 +223,7 @@ export default (function (window, document, $, undefined) {
         // Desktop
         if (windowWidth > mobileBreak) {
           $(".section-toggle").remove();
-          // $buttonParent.toggleClass(classSubNavOpen);
-          // $button.attr("aria-expanded", (_, attr) => attr == "false" ? "true" : "false");
-          // $thisMenu.css('top', menuHeight); <-- With this, the sub menu contaner doesn't line up with the top menu container.
-
-          // // Open submenu
-          // if ($buttonParent.hasClass(classSubNavOpen)) {
-          //   $thisMenu.removeAttr("aria-hidden");
-          //   $thisMenu.css("visibility","visible");
-          // }
-          // else {
-          //   closeMenuTasks();
-          // }
         }
-
-      // });
-
-      // $button.on('focus', function () {
-      //   $thisMenu.find("a[href]").attr("tabindex", -1);
-      //   $otherMenus.find("a[href]").attr("tabindex", -1);
-
-      //   $button.keyup(function (e) {
-
-      //     $('.classSubNavOpen').removeClass(classSubNavOpen);
-
-      //     if (e.keyCode == 13 || e.keyCode == 32) {
-      //       $('.section-toggle').remove();
-
-      //       $thisMenu.find("a[href]").attr("tabindex", 0);
-      //       $buttonParent.toggleClass(classSubNavOpen);
-      //       $thisMenu.css('top', menuHeight);
-
-      //       $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
-      //         return false;
-      //       });
-      //     }
-      //   });
-      // });
-
-      // $button.on('click', function () {
-      //   let windowWidth = $(window).width();
 
         // Mobile
         if (windowWidth < mobileBreak) {
