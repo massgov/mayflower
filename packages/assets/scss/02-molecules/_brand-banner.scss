@@ -26,9 +26,10 @@
     );
 
     &-container {
-
-        @include ma-container;
-        display: flex;
+        @include ma-button-reset;
+        // @include ma-container;
+        // display: flex;
+        width: 100%;
     }
 
     &-logo {

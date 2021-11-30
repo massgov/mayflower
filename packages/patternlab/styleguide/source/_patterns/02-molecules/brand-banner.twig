@@ -6,7 +6,7 @@
 {% endif %}
 
 <div class="ma__brand-banner ma__brand-banner--{{ brandBanner.bgColor ? brandBanner.bgColor : 'c-primary' }}-bg-{{ brandBanner.bgTheme ? brandBanner.bgTheme : 'light' }}">
-  <div class="ma__brand-banner-container">
+  <button class="ma__brand-banner-container">
     {% if brandBanner.hasSeal %}
       <img class="ma__brand-banner-logo ma__brand-banner-logo--{{ brandBanner.bgTheme }}"
            src="{{ sealImage }}"
@@ -15,17 +15,17 @@
     <span>
       An official website of the Commonwealth of Massachusetts
       {% if brandBanner.hasToggle %}
-        <button
+        <span
           class="ma__button-icon ma__icon-small ma__button-icon--quaternary ma__brand-banner-button {{ buttonClass }}"
           tabindex="0" aria-expanded="false">
           <span>Here's how you know</span>
           <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 59 38" xmlns="http://www.w3.org/2000/svg">
             <path d="M29.414 37.657L.344 8.586 8.828.102l20.586 20.584L50 .1l8.484 8.485-29.07 29.072"></path>
           </svg>
-        </button>
+        </span>
       {% endif %}
     </span>
-  </div>
+  </button>
   {% if brandBanner.hasToggle %}
   <ul class="ma__brand-banner-expansion">
   <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : 'light-c-primary' }}">

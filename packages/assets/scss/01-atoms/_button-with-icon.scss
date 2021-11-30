@@ -147,7 +147,7 @@ $quaternary-colors: (
       fill: rgba($c-primary, 0.5);
     }
 
-    &:hover {
+    &:hover, &.active {
       border-color: $c-primary;
       background-color: transparent !important;
     }
