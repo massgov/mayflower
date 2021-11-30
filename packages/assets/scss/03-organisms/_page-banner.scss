@@ -326,12 +326,6 @@ $page-banner-height: 330px;
     }
   }
 
-  &--no-icon &__title {
-    @media ($bp-medium-min) {
-      margin-left: 82px;
-    }
-  }
-
   &__title {
     flex-grow: 1;
     line-height: 1.05;
@@ -494,6 +488,12 @@ $page-banner-height: 330px;
 
     > svg {
       height: 4rem;
+    }
+  }
+
+  &--white.ma__page-banner--no-icon &__title {
+    @media ($bp-medium-min) {
+      margin-left: 82px;
     }
   }
 
