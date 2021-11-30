@@ -52,6 +52,7 @@
 
         @include ma-container;
         display: none;
+        margin-bottom: 0;
 
         &--expanded {
             display: flex;
