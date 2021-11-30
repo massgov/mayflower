@@ -165,8 +165,12 @@
         padding-left: 0;
         padding-top: 3px;
         padding-bottom: 1px;
-        font-size: $fonts-2xlarge;
+        font-size: $fonts-xlarge;
         font-weight: $fonts-normal;
+
+        @media ($bp-medium-min) {
+          font-size: $fonts-2xlarge;
+        }
 
         &:focus {
           border-left-color: transparent !important;
@@ -228,8 +232,12 @@
         padding: 0;
 
         a {
-          font-size: $fonts-2xlarge;
+          font-size: $fonts-xlarge;
           font-weight: $fonts-normal;
+
+          @media ($bp-medium-min) {
+            font-size: $fonts-2xlarge;
+          }
         }
       }
 
@@ -258,6 +266,14 @@
         .ma__toc--hierarchy__accordion-content .is-current:before {
           left: -20px;
         }
+      }
+    }
+  }
+
+  &--no-title {
+    .ma__toc--hierarchy__container {
+      @media ($bp-medium-min) {
+        padding-left: 0;
       }
     }
   }

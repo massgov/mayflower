@@ -64,7 +64,7 @@ $page-banner-height: 330px;
       }
 
       @media ($bp-large-min) {
-        left: $page-banner-icon-width;
+        left: $page-banner-icon-width - $gutter;
         bottom: -1rem;
       }
 
@@ -164,7 +164,7 @@ $page-banner-height: 330px;
     @include clearfix;
     height: auto;
     min-height: 500px;
-    padding-right: 0px; //fix gap on mobile
+    padding-right: 0; //fix gap on mobile
 
     &:after {
       clear: both;
@@ -326,6 +326,12 @@ $page-banner-height: 330px;
     }
   }
 
+  &--no-icon &__title {
+    @media ($bp-medium-min) {
+      margin-left: 82px;
+    }
+  }
+
   &__title {
     flex-grow: 1;
     line-height: 1.05;
@@ -452,6 +458,10 @@ $page-banner-height: 330px;
 
   // White variation.
 
+  &--white {
+    height: auto;
+  }
+
   &--white &__icon {
     padding-right: $standard-spacing--xxsmall;
   }
@@ -489,6 +499,25 @@ $page-banner-height: 330px;
 
   &--white &__content-wrapper {
     position: relative;
+  }
+
+  &--white &__content {
+    align-items: flex-start;
+    padding: 0 25px 24px 0;
+    top: 0;
+
+    @media ($bp-x-small-min) {
+      margin-right: 0;
+      padding-top: 25px;
+      padding-right: 0;
+      position: relative;
+      top: 0;
+      transform: none;
+    }
+
+    &:before {
+      content: none;
+    }
   }
 }
 

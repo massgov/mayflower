@@ -1,9 +1,12 @@
 {% set backgroundModifier =  (tableOfContentsHierarchy.background == "none") ? "ma__toc--hierarchy--no-background" : "" %}
-<nav class="ma__toc--hierarchy {{ backgroundModifier }}">
+
+{% set titleClass = not tableOfContentsHierarchy.title.text? 'ma__toc--hierarchy--no-title' %}
+
+<nav class="ma__toc--hierarchy {{ backgroundModifier }} {{ titleClass }}">
   {% if tableOfContentsHierarchy.title.colored %}
     {% set coloredHeading = { "text": tableOfContentsHierarchy.title.text, "color": "green" } %}
     {% include "@atoms/04-headings/colored-heading.twig" %}
-  {% else %}
+  {% elseif tableOfContentsHierarchy.title.text %}
     {% set sidebarHeading = { "title": tableOfContentsHierarchy.title.text } %}
     {% include "@atoms/04-headings/sidebar-heading.twig" %}
   {% endif %}

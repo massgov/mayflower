@@ -4,7 +4,9 @@
 
 {% set linkedClass = pageBanner.primaryLink ? "ma__page-banner--linked" : '' %}
 
-<section class="ma__page-banner {{ sizeClass }} {{ colorClass }} {{ linkedClass }}">
+{% set iconClass = not pageBanner.icon ? "ma__page-banner--no-icon" : '' %}
+
+<section class="ma__page-banner {{ sizeClass }} {{ colorClass }} {{ linkedClass }} {{ iconClass }}">
   {% if pageBanner.size == "columns" or linkedClass %}
     <style>
       .ma__page-banner__image {
