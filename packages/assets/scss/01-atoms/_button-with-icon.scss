@@ -161,7 +161,7 @@ $quaternary-colors: (
           fill: rgba($c,0.5);
         }
 
-        &:hover {
+        &:hover, &.active {
           border-bottom-color: $c;
         }
       }
