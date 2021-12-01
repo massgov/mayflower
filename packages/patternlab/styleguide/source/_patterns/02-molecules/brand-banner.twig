@@ -4,9 +4,11 @@
     {% set sealImage = sealWhiteImage %}
   {% endif %}
 {% endif %}
+{% set hasToggle = brandBanner.hasToggle %}
+{% set brandBannerContainerTag = hasToggle ? "button" : "div" %}
 
 <div class="ma__brand-banner ma__brand-banner--{{ brandBanner.bgColor ? brandBanner.bgColor : 'c-primary' }}-bg-{{ brandBanner.bgTheme ? brandBanner.bgTheme : 'light' }}">
-  <button class="ma__brand-banner-container">
+  <{{ brandBannerContainerTag }} class="ma__brand-banner-container">
     {% if brandBanner.hasSeal %}
       <img class="ma__brand-banner-logo ma__brand-banner-logo--{{ brandBanner.bgTheme }}"
            src="{{ sealImage }}"
@@ -14,7 +16,7 @@
     {% endif %}
     <span class="ma__brand-banner-text">
       An official website of the Commonwealth of Massachusetts
-      {% if brandBanner.hasToggle %}
+      {% if hasToggle %}
         <span
           class="ma__button-icon ma__icon-small ma__button-icon--quaternary ma__brand-banner-button {{ buttonClass }}">
           <span>Here's how you know</span>
@@ -25,7 +27,7 @@
       {% endif %}
     </span>
   </button>
-  {% if brandBanner.hasToggle %}
+  {% if hasToggle %}
   <ul class="ma__brand-banner-expansion">
   <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : 'light-c-primary' }}">
       {{ icon('building') }}
