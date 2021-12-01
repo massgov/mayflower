@@ -29,11 +29,14 @@
 
         @include ma-container;
         display: flex;
-        align-items: center;
         width: 100%;
         padding-top: 5px;
         padding-bottom: 5px;
         text-align: left;
+
+        @media ($bp-x-small-min)  {
+          align-items: center;
+        }
     }
 
     &-logo {
