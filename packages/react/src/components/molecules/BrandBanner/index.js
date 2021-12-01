@@ -106,7 +106,7 @@ const BrandBanner = ({
 BrandBanner.propTypes = {
   /** Banner state seal src.
    * To ensure sufficient color contrast, pass in the gray seal for light bgTheme and the white seal for dark bgTheme. */
-  seal: PropTypes.string.isRequired,
+  seal: PropTypes.string,
   /** Banner text */
   text: PropTypes.string,
   /** Whether to include seal */
