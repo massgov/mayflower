@@ -44,9 +44,11 @@ const BrandBanner = ({
   const handleOnToggle = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
+
+  const contentId = 'ma__brand-banner-content'
   if (hasToggle) {
     containerProps.onClick = handleOnToggle;
-    containerProps['aria-controls'] = 'ma__banner-content';
+    containerProps['aria-controls'] = contentId;
     containerProps['aria-expanded'] = expanded;
   }
   return(
@@ -66,7 +68,7 @@ const BrandBanner = ({
       </ContainerTag>
       {
         hasToggle && (
-          <ul className={brandBannerExpansionClasses} id="ma__banner-content">
+          <ul className={brandBannerExpansionClasses} id={contentId}>
             <li className="ma__brand-banner-expansion-item">
               <IconBuilding width={30} height={30} fill={lightTheme ? '#14558F' : '#fff'} />
               <div className="ma__brand-banner-expansion-item-content">
