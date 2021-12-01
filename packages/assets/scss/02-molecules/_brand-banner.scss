@@ -24,7 +24,9 @@
     );
 
     &-container {
+
         @include ma-button-reset;
+
         @include ma-container;
         display: flex;
         align-items: center;
