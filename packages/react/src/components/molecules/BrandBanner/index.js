@@ -28,12 +28,14 @@ const BrandBanner = ({
     [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
   });
   const ContainerTag = hasToggle ? 'button' : 'div';
+  const containerProps = {
+    className: "ma__brand-banner-container"
+  }
   const brandBannerToggleColor = bgTheme === 'light' ? bgColor : 'c-white'
   const brandBannerToggleClasses = classNames('ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary', {
     [`ma__button-icon--${brandBannerToggleColor}`]: bgColor && bgTheme
   });
-  console.log(bgTheme === 'light')
-  console.log(brandBannerToggleColor)
+
   const [expanded, setExpanded] = React.useState(false);
   const brandBannerExpansionClasses = classNames('ma__brand-banner-expansion', {
     'ma__brand-banner-expansion--expanded': expanded
@@ -42,11 +44,12 @@ const BrandBanner = ({
   const handleOnToggle = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
+  if (hasToggle) {
+    containerProps.onClick = handleOnToggle
+  }
   return(
     <div className={brandBannerClasses}>
-      <ContainerTag 
-        className="ma__brand-banner-container"
-        onClick={handleOnToggle}>
+      <ContainerTag {...containerProps}>
         {hasSeal && <Image className="ma__brand-banner-logo" src={seal} alt="Massachusetts State Seal" />}
         <span className="ma__brand-banner-text">
           {text}
