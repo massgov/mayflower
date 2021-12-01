@@ -8,7 +8,7 @@
         {% if link.url %}
           <li class="ma__breadcrumbs__item" id="ma__breadcrumbs__item--{{ loop.index }}">
             {% if loop.first %}
-              <a href="{{link.url}}" aria-label="Home">{{ icon("home") }}</a>
+              <a href="{{link.url}}" aria-label="Home" class="ma__breadcrumbs__item__icon-link">{{ icon("home") }}</a>
             {% else %}
               <a href="{{link.url}}">{{link.text}}</a>
             {% endif %}

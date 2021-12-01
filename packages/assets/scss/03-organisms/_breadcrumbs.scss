@@ -69,14 +69,6 @@
       &:after {
         margin-left: 0;
       }
-
-      a{
-        box-shadow: none;
-
-        &:hover {
-          box-shadow: none;
-        }
-      }
     }
 
     &:last-child {
@@ -161,17 +153,32 @@
 
     a {
       box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
+      svg {
+        fill: $c-primary;
+        stroke: $c-primary;
+        transition: fill 0.4s, stroke 0.4s;
+        will-change: fill, stroke;
+      }
 
       &:hover {
         box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary, 0.7);
 
         svg {
-          // Once SVG's are compiled, the `<use>` object inside `<svg>` can't have it's `fill` property modified.
-          opacity: 0.5;
+          fill: $c-bay-blue-50-tint;
+          stroke: $c-bay-blue-50-tint;
+        }
+      }
+
+
+
+      &.ma__breadcrumbs__item__icon-link {
+        box-shadow: none;
+
+        &:hover {
+          box-shadow: none;
         }
       }
     }
-
   }
 
   &__chevron-back {
