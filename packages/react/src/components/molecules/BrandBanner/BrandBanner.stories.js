@@ -31,3 +31,5 @@ export default {
     }
   }
 };
+
+export const Dark = () => <BrandBanner bgTheme="dark" bgColor="c-primary-alt" seal={sealWhite} />

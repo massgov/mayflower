@@ -9,17 +9,18 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Image from 'MayflowerReactMedia/Image';
-import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLock from 'MayflowerReactBase/Icon/IconLock';
+import seal from '@massds/mayflower-assets/static/images/logo/stateseal.png';
+
 
 const BrandBanner = ({
   hasSeal = true,
   hasToggle = true,
   bgTheme = 'light',
   bgColor = 'c-primary',
-  seal,
+  seal = seal,
   text = 'An official website of the Commonwealth of Massachusetts'
 }) => {
   const lightTheme = bgTheme === 'light';
@@ -27,10 +28,12 @@ const BrandBanner = ({
     [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
   });
   const ContainerTag = hasToggle ? 'button' : 'div';
+  const brandBannerToggleColor = bgTheme === 'light' ? bgColor : 'c-white'
   const brandBannerToggleClasses = classNames('ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary', {
-    [`ma__button-icon--${bgColor}`]: bgTheme === 'light' ? bgColor : 'c-white'
+    [`ma__button-icon--${brandBannerToggleColor}`]: bgColor && bgTheme
   });
-
+  console.log(bgTheme === 'light')
+  console.log(brandBannerToggleColor)
   const [expanded, setExpanded] = React.useState(false);
   const brandBannerExpansionClasses = classNames('ma__brand-banner-expansion', {
     'ma__brand-banner-expansion--expanded': expanded
@@ -43,8 +46,7 @@ const BrandBanner = ({
     <div className={brandBannerClasses}>
       <ContainerTag 
         className="ma__brand-banner-container"
-        onClick={handleOnToggle}
-        expanded={expanded}>
+        onClick={handleOnToggle}>
         {hasSeal && <Image className="ma__brand-banner-logo" src={seal} alt="Massachusetts State Seal" />}
         <span className="ma__brand-banner-text">
           {text}
