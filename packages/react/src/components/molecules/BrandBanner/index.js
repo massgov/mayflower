@@ -14,7 +14,6 @@ import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLock from 'MayflowerReactBase/Icon/IconLock';
 import seal from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
-
 const BrandBanner = ({
   hasSeal = true,
   hasToggle = true,
@@ -29,9 +28,9 @@ const BrandBanner = ({
   });
   const ContainerTag = hasToggle ? 'button' : 'div';
   const containerProps = {
-    className: "ma__brand-banner-container"
-  }
-  const brandBannerToggleColor = bgTheme === 'light' ? bgColor : 'c-white'
+    className: 'ma__brand-banner-container'
+  };
+  const brandBannerToggleColor = bgTheme === 'light' ? bgColor : 'c-white';
 
   const [hovered, setHovered] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
@@ -44,10 +43,10 @@ const BrandBanner = ({
 
   const brandBannerToggleClasses = classNames('ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary', {
     [`ma__button-icon--${brandBannerToggleColor}`]: bgColor && bgTheme,
-    'active': hovered
+    active: hovered
   });
 
-  const contentId = 'ma__brand-banner-content'
+  const contentId = 'ma__brand-banner-content';
   if (hasToggle) {
     containerProps.onClick = handleOnToggle;
     containerProps.onMouseEnter = () => setHovered(true);
@@ -64,7 +63,7 @@ const BrandBanner = ({
           &nbsp;&nbsp;&nbsp;
           {hasToggle && (
             <span className={brandBannerToggleClasses}>
-              <span>Here's how you know</span>
+              <span>Here&apos;s how you know</span>
               <IconChevron />
             </span>
           )}
