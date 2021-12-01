@@ -32,22 +32,26 @@ const BrandBanner = ({
     className: "ma__brand-banner-container"
   }
   const brandBannerToggleColor = bgTheme === 'light' ? bgColor : 'c-white'
-  const brandBannerToggleClasses = classNames('ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary', {
-    [`ma__button-icon--${brandBannerToggleColor}`]: bgColor && bgTheme
-  });
 
+  const [hovered, setHovered] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
   const brandBannerExpansionClasses = classNames('ma__brand-banner-expansion', {
     'ma__brand-banner-expansion--expanded': expanded
   });
-
   const handleOnToggle = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
 
+  const brandBannerToggleClasses = classNames('ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary', {
+    [`ma__button-icon--${brandBannerToggleColor}`]: bgColor && bgTheme,
+    'active': hovered
+  });
+
   const contentId = 'ma__brand-banner-content'
   if (hasToggle) {
     containerProps.onClick = handleOnToggle;
+    containerProps.onMouseEnter = () => setHovered(true);
+    containerProps.onMouseLeave = () => setHovered(false);
     containerProps['aria-controls'] = contentId;
     containerProps['aria-expanded'] = expanded;
   }
