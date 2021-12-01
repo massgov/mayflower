@@ -1,7 +1,7 @@
 export default (function (document) {
     const button = document.getElementsByClassName('ma__brand-banner-container')[0];
-    const toggle = button.getElementsByClassName('ma__brand-banner-button')[0];
-    if(button && toggle) {
+    const toggle = button && button.getElementsByClassName('ma__brand-banner-button')[0];
+    if(toggle) {
         button.onmouseover = function() {
             toggle.classList.add("active");
         }
