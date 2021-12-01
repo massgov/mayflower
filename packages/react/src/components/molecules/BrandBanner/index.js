@@ -28,7 +28,7 @@ const BrandBanner = ({
   });
   const ContainerTag = hasToggle ? 'button' : 'div';
   const brandBannerToggleClasses = classNames('ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary', {
-    [`ma__button-icon--${bgColor}`]: lightTheme ? bgColor : 'c-white'
+    [`ma__button-icon--${bgColor}`]: bgTheme === 'light' ? bgColor : 'c-white'
   });
 
   const [expanded, setExpanded] = React.useState(false);

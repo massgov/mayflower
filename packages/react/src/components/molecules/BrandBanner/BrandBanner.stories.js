@@ -5,6 +5,7 @@ import BrandBanner from './index';
 import seal from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import sealWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
 
+
 export const BrandBannerExample = (args) => <BrandBanner {...args} />;
 
 BrandBannerExample.storyName = 'Default';
