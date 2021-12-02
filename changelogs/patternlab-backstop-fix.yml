@@ -54,6 +54,6 @@
 Fixed:
   - project: Patternlab
     component: MappedLocations, LocationListing
-    description: Update Backstop reference images due to GIS map tile changes. (#)
+    description: Update Backstop reference images due to GIS map tile changes. (#1563)
     issue: 
     impact: Patch
