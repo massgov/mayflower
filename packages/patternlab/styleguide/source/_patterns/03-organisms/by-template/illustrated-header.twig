@@ -11,7 +11,7 @@
   {% set illustratedHeaderClass = "ma__illustrated-header ma__illustrated-header--centered" %}
 {% endif %}
 
-{% set bgImageClass = (illustratedHeader.bgImage)?"":"ma__illustrated-header--no-image" %}
+{% set bgImageClass = (illustratedHeader.noImage)?"ma__illustrated-header--no-image":"" %}
 
 <section class="{{illustratedHeaderClass}} {{bgImageClass}}">
   <div class="ma__illustrated-header__container">
