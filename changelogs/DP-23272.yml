@@ -53,6 +53,6 @@
 Changed:
   - project: PatternLab
     component: IllustratedHeader
-    description: Adding a new white variant. (#1561)
+    description: Add a no-background variant. (#1561)
     issue: DP-23272
-    impact: Minnor
+    impact: Minor
