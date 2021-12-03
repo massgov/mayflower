@@ -19,6 +19,8 @@ This is displays a Page Header pattern with an optional image off to the right
 illustratedHeader: {
   bgTitle:
     type: string / optional (required with image)
+  noImage:
+    type: boolean / optional
   bgImage:
     type: string (image path) / optional
   retinaBgImage:
@@ -26,7 +28,7 @@ illustratedHeader: {
   bgCentered:
     type: bollean / optional
   category:
-    type: string / required,
+    type: string / optional
   pageHeader: {
     type: pageHeader / required
   }
