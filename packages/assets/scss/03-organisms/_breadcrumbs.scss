@@ -1,6 +1,47 @@
 @use "00-base/configure" as *;
 
+$breadcrumbs-fade-width: 50px;
+
 .ma__breadcrumbs {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: $breadcrumbs-fade-width;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    will-change: opacity, z-index;
+    transition: opacity .4s, z-index .4s;
+    opacity: 0;
+  }
+
+  &:before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%);
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0, rgba(255,255,255,1) 80%);
+  }
+
+  &--fade-left {
+    &:before {
+      opacity: 1;
+      z-index: 3;
+    }
+  }
+
+  &--fade-right {
+    &:after {
+      opacity: 1;
+      z-index: 3;
+    }
+  }
 
   .pre-content & {
 
@@ -20,8 +61,14 @@
   }
 
   &__container {
-
     @include ma-container;
+    z-index: 2;
+    position: relative;
+
+    @media ($bp-medium-max) {
+      white-space: nowrap;
+      overflow-x: scroll;
+    }
   }
 
   &__label {
