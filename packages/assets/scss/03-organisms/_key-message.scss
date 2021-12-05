@@ -196,7 +196,10 @@ $colors: (
         display: block;
         height: fit-content;
         padding: 0px;
-        top: 50%;
+
+        @media ($bp-medium-min) {
+          top: 50%;
+        }
 
         .ma__key-message__block {
           padding: 20px 20px;
