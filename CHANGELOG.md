@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.20.0 (12/6/2021)
+### Changed 
+- (PatternLab) [IllustratedHeader] DP-23272: Add a no-background variant. (#1561)
+
+### Fixed 
+- (Patternlab) [MappedLocations, LocationListing] Update Backstop reference images due to GIS map tile changes. (#1563)
+
 ## 11.19.1 (11/16/2021)
 ### Added 
 - (React, Assets) [AlertsHeader] DP-23427: Add a style variant to allow wrapping on mobile. (#1557)
