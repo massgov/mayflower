@@ -55,4 +55,4 @@ Changed:
     component: KeyMessage
     description: Only set top on key message wrapper when on larger breakpoints. (#1567)
     issue: DP-23552
-    impact: Minor
+    impact: Patch
