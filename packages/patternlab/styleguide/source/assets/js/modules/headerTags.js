@@ -109,7 +109,7 @@ export default (function (window,document,$,undefined) {
 
 
 
-    }, 500);
+    }, 50);
 
   });
 

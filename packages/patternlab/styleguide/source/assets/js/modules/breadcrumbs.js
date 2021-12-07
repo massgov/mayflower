@@ -77,7 +77,7 @@ export default (function (window, document, $) {
     $(window).resize(function () {
       setTimeout(function(){
         drawBreadcrumbs();
-      }, 500);
+      }, 50);
     });
   }
 

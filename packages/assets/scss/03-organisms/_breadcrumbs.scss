@@ -76,12 +76,12 @@ $breadcrumbs-scrollbar-height: 12px;
 
       /* Track */
       &::-webkit-scrollbar-track {
-        background: $c-overcast-gray ;
+        background: mix(#fff, $c-granite-gray, 80);
       }
 
       /* Handle */
       &::-webkit-scrollbar-thumb {
-        background: $c-atlantic-gray;
+        background: mix(#fff, $c-granite-gray, 50);
       }
     }
   }
