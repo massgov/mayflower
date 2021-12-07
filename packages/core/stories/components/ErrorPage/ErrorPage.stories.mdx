@@ -1,0 +1,20 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+import generateTitle from '../../util/generateTitle';
+import * as stories from './ErrorPage.stories.js';
+
+<Meta
+  title={generateTitle('ErrorPage')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Brand Banner
+
+It assures visitors that they are using an official and secure government website.
+
+<Canvas>
+  <Story story={stories.brandBannerExample} />
+</Canvas>
+
