@@ -39,8 +39,8 @@ const err500 = (
 );
 const notesErrorPage = `
   // Link to CSS: 
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/general.css">
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/error-page.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.min.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/error-page.min.css">
 `;
 
 export const errorPage404 = () => err404;
