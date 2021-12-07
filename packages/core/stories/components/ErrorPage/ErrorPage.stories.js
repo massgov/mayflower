@@ -5,7 +5,6 @@ import Error404 from '@massds/mayflower-react/dist/Error404';
 import Error403 from '@massds/mayflower-react/dist/Error403';
 import Error500 from '@massds/mayflower-react/dist/Error500';
 
-
 import { attachHTML } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
@@ -24,7 +23,7 @@ const siteLogo = () => (
     siteName="Mass.gov"
     title="Mass.gov homepage"
   />
-)
+);
 
 const err404 = (
   <Error404 siteLogo={siteLogo} />
