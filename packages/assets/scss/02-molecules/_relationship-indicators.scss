@@ -35,6 +35,27 @@
     margin-right: auto;
   }
 
+  &__heading {
+    list-style: none;
+    margin: 0 5px 0 5px;
+    padding-right: 0;
+    display: flex;
+  }
+
+  &--icon {
+    padding-right: 7px;
+    margin-top: 2px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+
+      path, use {
+        fill: $c-font-detail;
+      }
+    }
+  }
+
   &--label {
     color: $c-font-detail;
     text-transform: uppercase;
@@ -292,20 +313,6 @@
 
     @media ($bp-x-small-min) {
       flex-flow: row wrap;
-    }
-  }
-
-  &--icon {
-    padding-right: 7px;
-    margin-top: 2px;
-
-    svg {
-      width: 14px;
-      height: 14px;
-
-      path, use {
-        fill: $c-font-detail;
-      }
     }
   }
 

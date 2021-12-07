@@ -1,6 +1,7 @@
 @use "00-base/configure" as *;
 
 $breadcrumbs-fade-width: 50px;
+$breadcrumbs-scrollbar-height: 12px;
 
 .ma__breadcrumbs {
   position: relative;
@@ -11,7 +12,7 @@ $breadcrumbs-fade-width: 50px;
     position: absolute;
     top: 0;
     width: $breadcrumbs-fade-width;
-    height: 100%;
+    height: calc(100% - #{$breadcrumbs-scrollbar-height});
     background: transparent;
     z-index: 1;
     will-change: opacity, z-index;
@@ -65,9 +66,23 @@ $breadcrumbs-fade-width: 50px;
     z-index: 2;
     position: relative;
 
-    @media ($bp-medium-max) {
+    @media ($bp-large-max) {
       white-space: nowrap;
       overflow-x: scroll;
+
+      &::-webkit-scrollbar {
+       height: $breadcrumbs-scrollbar-height;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: $c-overcast-gray ;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: $c-atlantic-gray;
+      }
     }
   }
 
@@ -120,12 +135,16 @@ $breadcrumbs-fade-width: 50px;
 
     &:last-child {
 
+      @media ($bp-large-max) {
+        padding-right: 20px;
+      }
+
       &:after {
         display: none;
       }
     }
 
-    @media ($bp-medium-max) {
+    @media ($bp-large-max) {
 
       .pre-content & {
 
@@ -294,7 +313,7 @@ $breadcrumbs-fade-width: 50px;
 
   &__item {
 
-    @media ($bp-medium-max) {
+    @media ($bp-large-max) {
 
       .pre-content & {
 

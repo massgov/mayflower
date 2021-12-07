@@ -35,78 +35,83 @@ export default (function (window,document,$,undefined) {
       });
   });
 
-  $('.ma__relationship-indicators--terms').each(function() {
+  /**
+   * Handles relationship indicators dropdown grouping for desktop and mobile.
+   *
+   * @param groupAfter optional, if it's not specified it will look at data-group-after on the section group.
+   *0
+   */
+  function groupIndicators(groupAfter = null) {
 
-    let $tagWrapper = $(this);
-    let $button = $tagWrapper.find('.js-relationship-indicator-button');
-    let $buttonCounter = $button.find('.tag-count');
-    let $hiddenTag = $tagWrapper.find('.js-term:hidden');
+    $('.ma__relationship-indicators--terms').each(function() {
 
+      let $tagWrapper = $(this);
+      let $button = $tagWrapper.find('.js-relationship-indicator-button');
+      let $buttonCounter = $button.find('.tag-count');
+      let $hiddenTag = $tagWrapper.find('.js-term:hidden');
 
-    let $group = $('.ma__relationship-indicators--section-group');
+      // Start by making visible all the relationship indicators.
+      $hiddenTag.show();
 
-    let groupAfter = parseInt($group.data('group-after')) -1 ;
-    if ($group.length && !$hiddenTag.length) {
-      $hiddenTag = $tagWrapper.find('.js-term:gt('+ groupAfter +')');
-      $hiddenTag.addClass('ma__relationship-indicators--term--fold');
-    }
+      // Determines the grouping number.
+      let $group = $('.ma__relationship-indicators--section-group');
+       groupAfter = (groupAfter != null)?groupAfter:parseInt($group.data('group-after')) -1;
 
-    let $focusTag = $hiddenTag.first().find('a');
-    let tagCount = $hiddenTag.length;
-    let $tagState = $button.find('.tag-state');
+      if ($group.length && !$hiddenTag.length) {
+        $hiddenTag = $tagWrapper.find('.js-term:gt('+ groupAfter +')');
+        $hiddenTag.addClass('ma__relationship-indicators--term--fold');
+        $hiddenTag.hide();
+      }
 
-    // If hidden  tags exist, show button.
-    if (tagCount) {
-      $button.toggle();
-    }
+      let tagCount = $hiddenTag.length;
+      let $tagState = $button.find('.tag-state');
 
-    // Use hidden tags to populate button label.
-    $buttonCounter.text(tagCount);
+      // If hidden tags exist, show button.
+      if (tagCount) {
+        $button.show();
+      } else {
+        $button.hide();
+      }
 
-    $button.on('click', function() {
-      let $tagStateText = $tagState.text();
+      // Use hidden tags to populate button label.
+      $buttonCounter.text(tagCount);
 
-      // Open hidden tags.
-      $tagWrapper.parent().toggleClass('tags-open');
-      $button.toggleClass('is-open');
-      $hiddenTag.toggle();
+      $button.on('click', function() {
+        let $tagStateText = $tagState.text();
 
-      // Change button text.
-      $tagState.text($tagStateText === 'fewer' ? 'more' : 'fewer');
+        // Open hidden tags.
+        $tagWrapper.parent().toggleClass('tags-open');
+        $button.toggleClass('is-open');
+        $hiddenTag.toggle();
 
-      $button.attr('aria-pressed', function(_, attr) { return !(attr == 'true') });
+        // Change button text.
+        $tagState.text($tagStateText === 'fewer' ? 'more' : 'fewer');
 
+        $button.attr('aria-pressed', function(_, attr) { return !(attr == 'true') });
+
+      });
     });
+  }
 
-    $(window).resize(function () {
-      // Remove all the screen width specific styles.
-      $buttonCounter.removeAttr('style');
-      $hiddenTag.removeAttr('style');
+  //groupIndicators();
 
-      setTimeout(function(){
-        let windowWidth = $(window).width();
+  $(window).resize(function () {
+    let windowWidth = $(window).width();
 
-        // recount the hidden tags.
-        $hiddenTag = $tagWrapper.find('.ma__relationship-indicators--term:hidden');
+    setTimeout(function(){
+      // Reset the button visibility.
+      if(windowWidth < 910){
+        groupIndicators(0);
+      }
+      else {
+        groupIndicators();
+      }
 
-        tagCount = $hiddenTag.length;
 
-        // Update button text.
-        $buttonCounter.text(tagCount);
-        $tagState.text('more');
 
-        // Reset the button visibility.
-        if(tagCount >= 1 && windowWidth < 910) {
-          $button.show();
-        }
-        else if (tagCount == 0) {
-          $button.hide();
-        }
-
-      }, 500);
-
-    });
+    }, 500);
 
   });
+
 
 })(window,document,jQuery);
