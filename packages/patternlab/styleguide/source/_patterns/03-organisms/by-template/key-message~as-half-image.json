@@ -1,0 +1,51 @@
+{
+  "keyMessage": {
+    "id": "abc1",
+    "positionTop": true,
+    "compHeading": {
+      "title": "Technology Careers at the Commonwealth of Massachusetts",
+      "level": "1"
+    },
+    "textOverlay": "c-gray-lightest",
+    "halfImage": true,
+    "bgImage":
+    {
+      "path": "@atoms/09-media/picture-element.twig",
+      "data": {
+        "picture": {
+          "defaultImage": "../../assets/images/placeholder/480x120.png",
+          "srcSets": [
+            {
+              "url": "../../assets/images/placeholder/2560x640.png",
+              "width": "1201"
+            },
+            {
+              "url": "../../assets/images/placeholder/1200x300.png",
+              "width": "911"
+            },
+            {
+              "url": "../../assets/images/placeholder/910x225.png",
+              "width": "481"
+            }
+          ]
+        }
+      }
+    },
+    "mobileBgImage": "../../assets/images/placeholder/1600x300.png",
+    "subtitle": "",
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "This is an optional text area."
+          }
+        }
+      }]
+    },
+    "button":{
+      "text":"Find your job",
+      "href":"#"
+    }
+  }
+}

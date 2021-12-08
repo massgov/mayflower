@@ -12,6 +12,6 @@ emergencyHeader: {
   title:
     type: string / required,
   prefix:
-    type: string / optional (default "Emergency Alerts")
+    type: string / optional (default "Alerts")
 }
 ~~~

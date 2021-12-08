@@ -1,12 +1,11 @@
 # Mayflower
 
-Mayflower is the enterprise design system for the Commonwealth of Massachusetts.
+Mayflower is the enterprise design system for the state government of Massachusetts.
 
-* *[Documentation](/docs)*: Documentation for the overall design system, including guiding principals.
-* *Implementations*: Implementations of Mayflower in various languages and technologies. Each implementation has its own documentation explaining how to use and work with it.
-  - *[Mayflower Patternlab](/patternlab)* [![GitHub version][patternlab-github-badge]](/patternlab)
-  - *[Mayflower React](/react)* [![npm package][react-npm-badge]](npm)
-* *[Mayflower Site](/site)*: Static homepage site that is built with Mayflower React and Gatsby. Live at [mayflower.digital.mass.gov](https://mayflower.digital.mass.gov)
+- [Core Documentation](/packages/core): The official documentation of Mayflower design system, live at [mayflower.digital.mass.gov/core](https://mayflower.digital.mass.gov/core)
+- Experimental component libraries: component libraries created by Massachusetts Digital Service to build sites like Mass.gov, Search.mass.gov, and Massachusetts budget sites.
+  - [Mayflower Patternlab](/packages/patternlab) [![GitHub version][patternlab-github-badge]](/patternlab)
+  - [Mayflower React](/packages/react) [![npm package][react-npm-badge]](npm)
 
 ## License
 
@@ -40,15 +39,17 @@ To start developing mayflower site:
 #### Monorepo Structure
 All uses of `npm` or `yarn` have been replaced by `rushx`. `rushx` uses `pnpm run` behind the scenes to execute scripts within a package. For the moment, the following are defined as packages for the mayflower monorepo:
 
+- Mayflower Core (located under `packages/core/`)
 - Mayflower Assets (located under `packages/assets/`)
 - Mayflower React (located under `packages/react/`)
-- Mayflower Artifacts (located under `packages/patternlab/styleguide/`)
-- `packages/site/`
+- Mayflower Patternlab (located under `packages/patternlab/`)
+- Mayflower Homepage (located under `packages/site/`)
 ```
 // Mayflower monorepo
 
 ├── docs
 ├── packages
+|  ├── core *
 |  ├── assets *
 |  |   ├── scss
 |  |   └── static
@@ -83,6 +84,7 @@ When needing to run other commands for a package (such as starting up developmen
 
 ### Custom Commands
 Custom commands for rush are defined within `common/config/rush/command-line.json`. The following custom commands exist:
+- `rush start:core` - Starts storybook in development mode for Mayflower Core.
 - `rush start:react` - Starts storybook in development mode for Mayflower React.
 - `rush start:patternlab` - Starts patternlab in development mode for Mayflower Artifacts
 - `rush start:site` - Starts gatsby in development mode for `packages/site`.
@@ -95,7 +97,8 @@ For efficiency purposes, we allow CircleCI to bypass certain jobs based on the p
 
 | Branch name prefix  | Rule | Scenario |
 |---|---|---|
-| `react/`  | This will bypass Patternlab build, deploy and tests | This prefix should only be used if all your changes are in the [react](/react) folder, and nothing in the shared [assets](/assets) folder that could potentially impact the build of the Patternlab implementation  |
-| `pattern/`  | This will bypass React Storybook build and tests | This prefix should only be used if all your changes are in the [patternlab](/patternlab) folder, and nothing in the shared [assets](/assets) folder that could potentially impact the build of the React implementation  |
-| `site/`  | This will bypass all React and Patternlab and assets build, deploy and tests. |  Only use this prefix if all the changes are in the [site](/site) folder. e.g. Content changes to the homepage site that won't impact React, Patternlab and shared assets. |
-| `docs`  | This will bypass all React and Patternlab and assets build, deploy and tests, as well as Mayflower site build and tests. | Only use this prefix if all the changes are in the [docs](/docs) folder. e.g. Documentation changes for the repo and the Mayflower Gitbook that won't impact React, Patternlab, shared assets and the homepage static site. |
+| `core/`  | This will bypass Patternlab build, deploy and tests | This prefix should only be used if all your changes are in the [core](/packages/core) folder
+| `react/`  | This will bypass Patternlab build, deploy and tests | This prefix should only be used if all your changes are in the [react](/packages/react) folder, and nothing in the shared [assets](/packages/assets) folder that could potentially impact the build of the Patternlab implementation  |
+| `pattern/`  | This will bypass React Storybook build and tests | This prefix should only be used if all your changes are in the [patternlab](/packages/patternlab) folder, and nothing in the shared [assets](/packages/assets) folder that could potentially impact the build of the React implementation  |
+| `site/`  | This will bypass all React and Patternlab and assets build, deploy and tests. |  Only use this prefix if all the changes are in the [site](/packages/site) folder. e.g. Content changes to the homepage site that won't impact React, Patternlab and shared assets. |
+| `docs`  | This will bypass all React and Patternlab and assets build, deploy and tests, as well as Mayflower site build and tests. | Only use this prefix if all the changes are in the [docs](/docs) folder. e.g. Documentation changes for the repo that won't impact React, Patternlab, shared assets and the homepage static site. |

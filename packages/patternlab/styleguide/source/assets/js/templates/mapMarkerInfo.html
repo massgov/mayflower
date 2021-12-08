@@ -10,16 +10,20 @@
     {{{address}}}
   </div>
   {{#if phone}}
-    <div class="ma__info-window__phone">
-      <span class="ma__info-window__label">Phone:</span>
-      <a class="ma__info-window__phone" href="tel:{{phone}}">{{phoneFormatted}}</a>
-    </div>
+    {{#if phoneFormatted}}
+      <div class="ma__info-window__phone">
+        <span class="ma__info-window__label">Phone:</span>
+        <a class="ma__info-window__phone" href="tel:{{phone}}">{{phoneFormatted}}</a>
+      </div>
+    {{/if}}
   {{/if}}
   {{#if fax}}
-    <div class="ma__info-window__phone">
-      <span class="ma__info-window__label">Fax:</span>
-      <a class="ma__info-window__phone"  href="tel:{{fax}}">{{faxFormatted}}</a>
-    </div>
+    {{#if faxFormatted}}
+      <div class="ma__info-window__phone">
+        <span class="ma__info-window__label">Fax:</span>
+        <a class="ma__info-window__phone"  href="tel:{{fax}}">{{faxFormatted}}</a>
+      </div>
+    {{/if}}
   {{/if}}
   {{#if email}}
     <div class="ma__info-window__email">

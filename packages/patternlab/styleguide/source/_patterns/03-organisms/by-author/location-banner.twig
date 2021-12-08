@@ -1,21 +1,19 @@
 {% set locationBannerId = locationBanner.id ? locationBanner.id : 'banner-id' %}
 
 <section class="ma__location-banner">
-  <style>
-    #{{ locationBannerId }} {
-      background-image: url('{{ locationBanner.bgNarrow }}');
-    }
-  </style>
   <div class="ma__location-banner__map">
     {% block map %}
       {% set leafletMap = locationBanner.actionMap ? locationBanner.actionMap : locationBanner.leafletMap %}
       {% include "@molecules/map-leaflet.twig" %}
     {% endblock %}
   </div>
-  <div
-    class="ma__location-banner__image"
-    id="{{ locationBannerId }}"
-    role="image"
-    title="{{ locationBanner.bgTitle }}">
+  <div class="ma__location-banner__image" id="{{ locationBannerId }}">
+    {# Images can be received in two ways: As an array with a component path and data, when included from PL #}
+    {% if locationBanner.bgNarrow.path %}
+      {% include locationBanner.bgNarrow.path with locationBanner.bgNarrow.data %}
+      {# Or as a rendered picture object when this component is called from OpenMass #}
+    {% else %}
+      {{ locationBanner.bgNarrow }}
+    {% endif %}
   </div>
 </section>

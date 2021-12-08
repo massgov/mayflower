@@ -65,8 +65,11 @@
 {% endblock %}
 
 {% block sidebar %}
-  {% set linkList = sidebar.linkList %}
-  {% include "@organisms/by-author/link-list.twig" %}
+  {% if sidebar.linkList %}
+    {% set linkList = sidebar.linkList %}
+    {% include "@organisms/by-author/link-list.twig" %}
+  {% endif %}
+
   {% set contactList = sidebar.contactList %}
   {% include "@organisms/by-author/contact-list.twig" %}
 {% endblock %}

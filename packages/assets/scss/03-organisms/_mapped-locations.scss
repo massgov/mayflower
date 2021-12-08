@@ -14,6 +14,7 @@
   &__map {
     flex: 0 1 auto;
     width: 100%;
+    order: 1;
 
     @media ($bp-large-extended) {
       text-align: center;
@@ -41,6 +42,7 @@
     justify-content: center;
     padding: 2rem 1rem;
     width: 100%;
+    order: 2;
 
     @media ($bp-large-extended) {
       text-align: center;

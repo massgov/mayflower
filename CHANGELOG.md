@@ -1,6 +1,54 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.20.0 (12/8/2021)
+### Changed 
+- (PatternLab) [IllustratedHeader] DP-23272: Add a no-background variant. (#1561)
+- (PatternLab) [KeyMessage] DP-23552: Only set top on key message wrapper when on larger breakpoints. (#1567)
+
+### Added 
+- (Assets) [ErrorPage] DP-23562: Build and export error page css in mayflower-assets package. (#1568)
+- (Core) [ErrorPage] DP-23562: Add ErrorPage component examples. (#1568)
+
+### Fixed 
+- (Patternlab) [MappedLocations, LocationListing] Update Backstop reference images due to GIS map tile changes. (#1563)
+
+## 11.19.1 (11/16/2021)
+### Added 
+- (React, Assets) [AlertsHeader] DP-23427: Add a style variant to allow wrapping on mobile. (#1557)
+
+### Changed 
+- (Patternlab) [EmergencyHeader, EmergencyAlerts] DP-23317: Adjusted vertical spacing, prevent alert header to wrap on smaller screensizes. (#1547)
+
+### Fixed 
+- (React) [ButtonWithIcon, BrandBanner] DP-23413: fix proptype check. (#1555)
+
+## 11.19.0 (11/15/2021)
+### Changed 
+- (Patternlab) [LocationBanner] DP-22939: Implmenting responsive images. (#1545)
+- (Patternlab) [Key Message] DP-23082: Add half image option for Key messages. (#1538)
+
+### Fixed 
+- (React) [HamburgerNav] DP-23008: Fixed menu open conditional. (#1551)
+
+## 11.18.0 (11/8/2021)
+### Fixed 
+- (Patternlab) [Divider] DP-23183: Adds divider as a component, adds variant for thin, converts it to hr. (#1541)
+
+## 11.17.0 (11/1/2021)
+### Changed 
+- (Patternlab) [Leaflet] DP-22210: Fixing focus issues when navigating with keyboard. (#1490)
+- (Patternlab) [LocationListing] DP-22215: Replace googlemaps with leaftlet map, remove filter logic. (#1430)
+- (Patternlab) [GlobalNav] DP-22679: Adjust focus order between the menu button and the menu container when the menu is open. (#1479)
+
+### Added 
+- (Patternlab) [GlobalNav] DP-22679: Add a feature to close Google Translate option container with ESC key. (#1479)
+- (Patternlab) [GlobalNav] DP-22680: Add focus trap to the global menu dropdown. (#1479)
+
+### Fixed 
+- (React, Patternlab) [mainNavHamburger, HamburgerNav] DP-23268: Fix main nav overlay positioning. (#1539)
+- (Patternlab) [CalloutMessage] DP-23304: Fixing float issue. (#1540)
+
 ## 11.16.3 (10/25/2021)
 ### Changed 
 - (React, Patternlab, Core) [BrandBanner] Update BrandBanner toggle button text (#1535)
