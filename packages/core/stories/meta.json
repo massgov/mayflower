@@ -74,5 +74,9 @@
   "Template": {
     "kind": "Components",
     "story": "Template"
+  },
+  "ErrorPage": {
+    "kind": "Components",
+    "story": "ErrorPages"
   }
 }

@@ -100,11 +100,13 @@ $bp-illustrated-header-image-width: 360px;
   }
 
   &--no-image {
+
     .ma__illustrated-header__image {
       display: none;
     }
 
     .ma__illustrated-header__content {
+
       @media ($bp-page-width-min) {
         width: 935px;
       }
