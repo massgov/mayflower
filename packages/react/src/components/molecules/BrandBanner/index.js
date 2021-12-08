@@ -9,57 +9,69 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Image from 'MayflowerReactMedia/Image';
-import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLock from 'MayflowerReactBase/Icon/IconLock';
+import sealDefault from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
 const BrandBanner = ({
   hasSeal = true,
   hasToggle = true,
   bgTheme = 'light',
   bgColor = 'c-primary',
-  seal,
+  seal = sealDefault,
   text = 'An official website of the Commonwealth of Massachusetts'
 }) => {
   const lightTheme = bgTheme === 'light';
   const brandBannerClasses = classNames('ma__brand-banner', {
     [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
   });
+  const ContainerTag = hasToggle ? 'button' : 'div';
+  const containerProps = {
+    className: 'ma__brand-banner-container'
+  };
+  const brandBannerToggleColor = bgTheme === 'light' ? bgColor : 'c-white';
 
+  const [hovered, setHovered] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
-
   const brandBannerExpansionClasses = classNames('ma__brand-banner-expansion', {
     'ma__brand-banner-expansion--expanded': expanded
   });
-
   const handleOnToggle = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
+
+  const brandBannerToggleClasses = classNames('ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary', {
+    [`ma__button-icon--${brandBannerToggleColor}`]: bgColor && bgTheme,
+    active: hovered
+  });
+
+  const contentId = 'ma__brand-banner-content';
+  if (hasToggle) {
+    containerProps.onClick = handleOnToggle;
+    containerProps.onMouseEnter = () => setHovered(true);
+    containerProps.onMouseLeave = () => setHovered(false);
+    containerProps['aria-controls'] = contentId;
+    containerProps['aria-expanded'] = expanded;
+  }
   return(
     <div className={brandBannerClasses}>
-      <div className="ma__brand-banner-container">
+      <ContainerTag {...containerProps}>
         {hasSeal && <Image className="ma__brand-banner-logo" src={seal} alt="Massachusetts State Seal" />}
-        <span>
+        <span className="ma__brand-banner-text">
           {text}
+          &nbsp;&nbsp;&nbsp;
           {hasToggle && (
-            <ButtonWithIcon
-              classes={['ma__brand-banner-button']}
-              theme={lightTheme ? 'c-primary' : 'c-white'}
-              type="submit"
-              usage="quaternary"
-              onClick={handleOnToggle}
-              expanded={expanded}
-              icon={<IconChevron />}
-            >
-              Here&apos;s how you know
-            </ButtonWithIcon>
+            <span className={brandBannerToggleClasses}>
+              <span>Here&apos;s how you know</span>
+              <IconChevron />
+            </span>
           )}
         </span>
-      </div>
+      </ContainerTag>
       {
         hasToggle && (
-          <ul className={brandBannerExpansionClasses}>
+          <ul className={brandBannerExpansionClasses} id={contentId}>
             <li className="ma__brand-banner-expansion-item">
               <IconBuilding width={30} height={30} fill={lightTheme ? '#14558F' : '#fff'} />
               <div className="ma__brand-banner-expansion-item-content">
@@ -94,7 +106,7 @@ const BrandBanner = ({
 BrandBanner.propTypes = {
   /** Banner state seal src.
    * To ensure sufficient color contrast, pass in the gray seal for light bgTheme and the white seal for dark bgTheme. */
-  seal: PropTypes.string.isRequired,
+  seal: PropTypes.string,
   /** Banner text */
   text: PropTypes.string,
   /** Whether to include seal */
