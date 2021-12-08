@@ -2,14 +2,12 @@
 
 
 .ma__search-box-with-links {
-  margin-right: auto;
-  margin-left: auto;
   max-width: $max-width;
   padding-left: 20px;
   padding-right: 20px;
   justify-content: space-between;
   align-items: stretch;
-  margin: 60px auto;
+  margin: 60px auto 60px auto;
 
   @media ($bp-medium-min) {
     padding-left: 30px;
@@ -28,6 +26,7 @@
 
   h3 {
     padding: 0 !important;
+
     &::after {
       content: none !important;
     }
@@ -53,6 +52,7 @@
     }
 
     @media (max-width: 910px) {
+
       h3 {
         margin-bottom: 20px;
       }
@@ -80,7 +80,9 @@
     }
 
     @media ($bp-small-max) {
+
       .ma__button-search__label {
+
         @include ma-visually-hidden;
       }
     }
