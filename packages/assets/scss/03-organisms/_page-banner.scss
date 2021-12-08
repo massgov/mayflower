@@ -44,12 +44,15 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &.ma__page-banner--overlay.ma__page-banner--bg-wide {
+
     @media ($bp-medium-min) {
       height: 400px;
     }
 
     .ma__page-banner__container {
+
       .ma__page-banner__content {
+
         @media ($bp-medium-min) {
           transform: translateY(-50%);
         }
@@ -178,6 +181,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
     .ma__page-banner--overlay.ma__page-banner--bg-wide & {
+
       @media ($bp-large-min) {
         max-width: 1050px;
       }
@@ -232,12 +236,14 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
     .ma__page-banner--overlay.ma__page-banner--bg-wide & {
+
       @media ($bp-large-min) {
         width: 55vw;
       }
     }
 
     .ma__page-banner--overlay &--bg-wide {
+
       @media ($bp-medium-min) {
         text-shadow: $text-shadow;
       }
@@ -402,14 +408,12 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
     margin-bottom: 0;
-    margin-top: .8em;
+    margin-top: 0.8em;
     top: $page-banner-height;
-
-    @media ($bp-large-min) {
-    }
 
     .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
     .ma__page-banner--overlay.ma__page-banner--bg-wide & {
+
       @media ($bp-large-min) {
       max-width: 820px;
       }
