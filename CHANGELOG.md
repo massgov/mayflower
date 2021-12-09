@@ -1,6 +1,18 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.20.0 (12/8/2021)
+### Changed 
+- (PatternLab) [IllustratedHeader] DP-23272: Add a no-background variant. (#1561)
+- (PatternLab) [KeyMessage] DP-23552: Only set top on key message wrapper when on larger breakpoints. (#1567)
+
+### Added 
+- (Assets) [ErrorPage] DP-23562: Build and export error page css in mayflower-assets package. (#1568)
+- (Core) [ErrorPage] DP-23562: Add ErrorPage component examples. (#1568)
+
+### Fixed 
+- (Patternlab) [MappedLocations, LocationListing] Update Backstop reference images due to GIS map tile changes. (#1563)
+
 ## 11.19.1 (11/16/2021)
 ### Added 
 - (React, Assets) [AlertsHeader] DP-23427: Add a style variant to allow wrapping on mobile. (#1557)

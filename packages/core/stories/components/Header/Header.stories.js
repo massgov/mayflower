@@ -31,7 +31,7 @@ export const headerBasic = (
         siteName="Mass.gov"
         title="Mass.gov homepage"
       />
-)}
+    )}
   />
 );
 
