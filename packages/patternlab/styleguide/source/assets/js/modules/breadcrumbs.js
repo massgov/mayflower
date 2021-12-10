@@ -6,13 +6,17 @@ export default (function (window, document, $) {
   let $breadcrumbs = $(".ma__breadcrumbs");
   let $breadcrumbItemsSlice = null;
 
-  // Mobile display.
   function drawBreadcrumbs() {
     let windowWidth = $(window).width();
-    if (windowWidth < 910) {
-      // Start by adding a right fading if there are more items than the viewport allows.
-      if ($breadcrumbsContainer[0].scrollWidth > $(".ma__breadcrumbs").width() + 40) {
-        $breadcrumbs.addClass("ma__breadcrumbs--fade-right");
+
+    // Mobile display.
+    if (windowWidth < 910 && !$breadcrumbs.hasClass('ma__breadcrumbs--mobile')) {
+      $breadcrumbs.addClass('ma__breadcrumbs--mobile');
+      $breadcrumbs.removeClass('ma__breadcrumbs--desktop');
+
+      // Start by scrolling right if there are more items than the viewport allows.
+      if ($breadcrumbsContainer[0].scrollWidth > $breadcrumbs.width() + 40) {
+        $breadcrumbsContainer.scrollLeft($breadcrumbsContainer.width());
       }
 
       // On breadcrumb scrolling, add or remove the left / right fading.
@@ -35,8 +39,11 @@ export default (function (window, document, $) {
         }
       });
 
-    } else {
-      //Desktop display.
+    //Desktop display.
+    } else if (windowWidth >= 910 && !$breadcrumbs.hasClass('ma__breadcrumbs--desktop')){
+      $breadcrumbs.removeClass('ma__breadcrumbs--mobile');
+      $breadcrumbs.addClass('ma__breadcrumbs--desktop');
+
       $breadcrumbItemsSlice = $breadcrumbItems.slice(2, $breadcrumbItems.length - 3);
 
       if ($breadcrumbItemsSlice.length) {

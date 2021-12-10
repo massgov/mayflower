@@ -1,6 +1,8 @@
 export default (function (window,document,$,undefined) {
   "use strict";
 
+  let $relationshipIndicators = $('.ma__relationship-indicators');
+
   $('.js-header-tag-link').each(function(index) {
 
     let $el = $(this),
@@ -39,7 +41,7 @@ export default (function (window,document,$,undefined) {
    * Handles relationship indicators dropdown grouping for desktop and mobile.
    *
    * @param groupAfter optional, if it's not specified it will look at data-group-after on the section group.
-   *0
+   *
    */
   function groupIndicators(groupAfter = null) {
 
@@ -100,10 +102,14 @@ export default (function (window,document,$,undefined) {
 
     setTimeout(function(){
       // Reset the button visibility.
-      if(windowWidth < 910){
+      if(windowWidth < 910 && !$relationshipIndicators.hasClass('.ma__relationship-indicators--mobile')){
+        $relationshipIndicators.addClass('.ma__relationship-indicators--mobile');
+        $relationshipIndicators.removeClass('.ma__relationship-indicators--desktop');
         groupIndicators(0);
       }
-      else {
+      else if(windowWidth >= 910 && !$relationshipIndicators.hasClass('.ma__relationship-indicators--desktop')) {
+        $relationshipIndicators.removeClass('.ma__relationship-indicators--mobile');
+        $relationshipIndicators.addClass('.ma__relationship-indicators--desktop');
         groupIndicators();
       }
 
