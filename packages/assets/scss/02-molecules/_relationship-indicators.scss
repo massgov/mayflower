@@ -287,9 +287,7 @@
         }
 
         // Remove the border from the last element
-        &--last a:after {
-          border-right: 0;
-        }
+
 
         // Unless terms are folded, in that case leave the border.
         &--fold a:after {
@@ -297,23 +295,36 @@
         }
       }
 
+      .ma__relationship-indicators--term--last a:after {
+        border-right: 0;
+      }
+
+      // On mobile remove the border when elements aren't expanded.
+      &:not(.tags-open) {
+        @media ($bp-large-max) {
+          a:after {
+            border-right: 0;
+          }
+        }
+      }
+
       .ma__relationship-indicators__expand-indicators {
         margin: 0 5px 0 5px;
+
+        @media ($bp-large-max) {
+          width: 100%;
+        }
       }
     }
   }
 
   &--terms {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
     margin-bottom: 0;
     padding-bottom: 0;
     padding-inline-start: 0;
-
-    @media ($bp-x-small-min) {
-      flex-flow: row wrap;
-    }
   }
 
   & + .ma__illustrated-header,
