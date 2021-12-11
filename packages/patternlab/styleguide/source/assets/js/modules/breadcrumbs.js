@@ -16,7 +16,9 @@ export default (function (window, document, $) {
 
       // Start by scrolling right if there are more items than the viewport allows.
       if ($breadcrumbsContainer[0].scrollWidth > $breadcrumbs.width() + 40) {
-        $breadcrumbsContainer.scrollLeft($breadcrumbs.width());
+        $breadcrumbsContainer.scrollLeft($breadcrumbsContainer[0].scrollWidth);
+        console.log('b ' + $breadcrumbs.width());
+        console.log('c ' + $breadcrumbsContainer.width());
       }
 
       // On breadcrumb scrolling, add or remove the left / right fading.
