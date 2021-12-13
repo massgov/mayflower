@@ -37,7 +37,7 @@
 <script type="text/javascript">
   var id = "{{ id }}";
   var blckid = "blck{{ id }}";
-  var halfImage = {{ keyMessage.halfImage }};
+  var halfImage = {{ keyMessage.halfImage ?: "false" }};
 
   function marginSet() {
     var block = document.getElementById(blckid);
