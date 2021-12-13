@@ -56,4 +56,4 @@ Fixed:
     component: Key message
     description: Fix key message margin bottom. (#1571)
     issue: DP-23620
-    impact: Minor
+    impact: Patch
