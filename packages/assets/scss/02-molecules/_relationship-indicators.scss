@@ -271,16 +271,16 @@
         padding-right: 0;
 
         a {
-          padding-right: 10px;
+          margin-right: 10px;
           position: relative;
 
           &:after {
             content: "";
             width: 10px;
             position: absolute;
-            height: 90%;
-            right: 0;
-            bottom: -1px;
+            height: $fonts-smaller;;
+            right: -10px;
+            bottom: 1px;
             border-right: 1px solid $c-gray-light;
           }
         }
@@ -292,10 +292,6 @@
         &--fold a:after {
           border-right: 1px solid $c-gray-light;
         }
-      }
-
-      .ma__relationship-indicators--term--last a:after {
-        border-right: 0;
       }
 
       // On mobile remove the border when elements aren't expanded.
