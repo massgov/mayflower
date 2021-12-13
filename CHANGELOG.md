@@ -1,6 +1,16 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.21.0 (12/13/2021)
+### Added 
+- (React, Patternlab) [BrandBanner] DP-23414: Add `aria-controls` and `aria-expanded`. (#1562)
+- (React) [BrandBanner] DP-23414: Add dark story. (#1562)
+- (Assets) [ErrorPage] DP-23562: Build and export error page css in mayflower-assets package. (#1568)
+- (Core) [ErrorPage] DP-23562: Add ErrorPage component examples. (#1568)
+
+### Changed 
+- (React, Patternlab) [BrandBanner] DP-23414: Make the whole banner clickable on mobile when hasToggle is set to true. (#1562)
+
 ## 11.20.0 (12/8/2021)
 ### Changed 
 - (PatternLab) [IllustratedHeader] DP-23272: Add a no-background variant. (#1561)
