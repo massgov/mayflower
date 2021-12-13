@@ -1,6 +1,17 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.20.1 (12/13/2021)
+### Added 
+- (React, Patternlab) [BrandBanner] DP-23414: Add `aria-controls` and `aria-expanded`. (#1562)
+- (React) [BrandBanner] DP-23414: Add dark story. (#1562)
+
+### Changed 
+- (React, Patternlab) [BrandBanner] DP-23414: Make the whole banner clickable on mobile when hasToggle is set to true. (#1562)
+
+### Fixed 
+- (Patternlab) [Key message] DP-23620: Fix key message margin bottom. (#1571)
+
 ## 11.20.0 (12/8/2021)
 ### Changed 
 - (PatternLab) [IllustratedHeader] DP-23272: Add a no-background variant. (#1561)
