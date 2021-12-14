@@ -284,31 +284,10 @@
             border-right: 1px solid $c-gray-light;
           }
         }
-
-        // Remove the border from the last element
-
-
-        // Unless terms are folded, in that case leave the border.
-        &--fold a:after {
-          border-right: 1px solid $c-gray-light;
-        }
-      }
-
-      // On mobile remove the border when elements aren't expanded.
-      &:not(.tags-open) {
-        @media ($bp-large-max) {
-          a:after {
-            border-right: 0;
-          }
-        }
       }
 
       .ma__relationship-indicators__expand-indicators {
         margin: 0 5px 0 5px;
-
-        @media ($bp-large-max) {
-          width: 100%;
-        }
       }
     }
   }
