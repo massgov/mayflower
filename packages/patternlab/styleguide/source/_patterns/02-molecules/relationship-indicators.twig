@@ -28,9 +28,9 @@
       <div
         class="ma__relationship-indicators--section {{ relationshipIndicators.primary ? 'secondary' : 'single ' ~ groupClass }}" {{ groupByData }}>
         <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
-          <li class="ma__relationship-indicators__heading">
+          <li class="ma__relationship-indicators__heading ma__relationship-indicators--term">
             {% if relationshipIndicators.secondary.icon %}
-              <div class="ma__relationship-indicators--icon">{{ icon(relationshipIndicators.secondary.icon) }}</div>
+              <span class="ma__relationship-indicators--icon">{{ icon(relationshipIndicators.secondary.icon) }}</span>
             {% endif %}
             <span class="ma__relationship-indicators--label" id="secondary">
               <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>

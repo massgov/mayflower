@@ -22,12 +22,12 @@ $breadcrumbs-scrollbar-height: 12px;
 
   &:before {
     left: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%);
   }
 
   &:after {
     right: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) 80%);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0, rgba(255,255,255,1) 80%);
   }
 
   &--fade-left {
@@ -71,7 +71,7 @@ $breadcrumbs-scrollbar-height: 12px;
       overflow-x: scroll;
 
       &::-webkit-scrollbar {
-        height: $breadcrumbs-scrollbar-height;
+       height: $breadcrumbs-scrollbar-height;
       }
 
       /* Track */
@@ -98,9 +98,7 @@ $breadcrumbs-scrollbar-height: 12px;
   }
 
   &__items {
-
     @include ma-reset-list;
-    line-height: 2em;
     padding: 10px 0;
     position: relative;
 
@@ -203,7 +201,7 @@ $breadcrumbs-scrollbar-height: 12px;
       text-decoration: none;
 
       &:hover {
-        text-shadow: 0px 0px 0px $c-primary;
+        text-shadow: 0px 0px 0px $c-primary ;
       }
     }
 
@@ -219,7 +217,6 @@ $breadcrumbs-scrollbar-height: 12px;
 
     a {
       box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
-
       svg {
         fill: $c-primary;
         stroke: $c-primary;
@@ -235,6 +232,7 @@ $breadcrumbs-scrollbar-height: 12px;
           stroke: $c-bay-blue-50-tint;
         }
       }
+
 
 
       &.ma__breadcrumbs__item__icon-link {
@@ -279,12 +277,20 @@ $breadcrumbs-scrollbar-height: 12px;
 
   &__sub-item {
     display: block;
-    white-space: nowrap;
+    white-space:nowrap;
   }
 
   &--light &__items {
-    border-top: none;
-    border-bottom: 1px solid;
+      @media ($bp-medium-min) {
+        border-top: none;
+        border-bottom: 1px solid;
+      }
+  }
+
+  &--light &__container {
+    @media ($bp-medium-max) {
+      border-bottom: 1px solid;
+    }
   }
 }
 
@@ -334,8 +340,13 @@ $breadcrumbs-scrollbar-height: 12px;
   }
 
   &--light &__items {
-
     @media ($bp-medium-min) {
+      border-bottom-color: $c-bd-divider;
+    }
+  }
+
+  &--light &__container {
+    @media ($bp-medium-max) {
       border-bottom-color: $c-bd-divider;
     }
   }

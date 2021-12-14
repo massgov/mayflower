@@ -48,12 +48,13 @@ export default (function (window, document, $, undefined) {
       let $tagWrapper = $(this);
       let $button = $tagWrapper.find(".js-relationship-indicator-button");
       let $buttonCounter = $button.find(".tag-count");
-      let $hiddenTags = $tagWrapper.find(".js-term:hidden");
+      let $hiddenTags = $tagWrapper.find(".js-term[hidden]");
       let hiddenIds = "";
       let groupId = "ma-rig" + index;
 
       // Start by making visible all the relationship indicators.
       $hiddenTags.show();
+      $hiddenTags.removeAttr("hidden");
 
       // Determines the folding number of items, either as a parameter or and attribute.
       let $group = $(".ma__relationship-indicators--section-group");
