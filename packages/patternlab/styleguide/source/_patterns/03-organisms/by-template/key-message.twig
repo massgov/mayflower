@@ -52,9 +52,14 @@
     // The block is usually moved a few pixels from top.
     // separationAtBottom is the distance from the content below the key message.
     if (keyMessage.halfImage) {
+      console.log('halfImage!')
       var sectionHeight = keyMessageSection ? keyMessageSection.clientHeight : 0;
+      console.log('sectionHeight: '+sectionHeight)
+      console.log('blockHeight: '+blockHeight)
       var blockSectionDiff = blockHeight - sectionHeight + block.parentNode.offsetTop;
+      console.log('blockSectionDiff: '+blockSectionDiff)
       mrgWrapper = blockSectionDiff < 0 ? 0 : blockSectionDiff + separationAtBottom;
+      console.log('mrgWrapper: '+mrgWrapper)
     }
 
     var style = document.createElement('style');
