@@ -35,13 +35,15 @@
 
 {% if bgImage and positionTop %}
 <script type="text/javascript">
+
   var id = "{{ id }}";
   var blckid = "blck{{ id }}";
+  var halfImage = `{{ keyMessage.halfImage }}`
 
   function marginSet() {
     var block = document.getElementById(blckid);
     var mainContent = document.getElementById("main-content");
-    var keyMessage = document.getElementById(id)
+    var keyMessageSection = document.getElementById(id)
     var blockHeight = block ? block.clientHeight : 0;
     var separationAtBottom = 60;
     var mrgWrapper = mainContent ? blockHeight * (1/3) + separationAtBottom : separationAtBottom;
@@ -50,10 +52,11 @@
     // The block is usually bigger than its wrapper.
     // The block is usually moved a few pixels from top.
     // separationAtBottom is the distance from the content below the key message.
-    if (keyMessage.halfImage) {
-      var sectionHeight = keyMessage ? keyMessage.clientHeight : 0;
-      var blockSectionDiff = blockHeight - sectionHeight + block.parentNode.offsetTop;
-      mrgWrapper = blockSectionDiff < 0 ? 0 : blockSectionDiff + separationAtBottom;
+    if (halfImage) {
+      var sectionHeight = keyMessageSection ? keyMessageSection.clientHeight : 0;
+      const blockBottomOffset = blockHeight + block.parentNode.offsetTop
+      const isBlockBottomLower = blockBottomOffset > sectionHeight;
+      mrgWrapper = isBlockBottomLower ? blockBottomOffset - sectionHeight + separationAtBottom : separationAtBottom;
     }
 
     var style = document.createElement('style');
