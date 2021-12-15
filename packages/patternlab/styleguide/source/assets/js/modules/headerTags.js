@@ -68,7 +68,6 @@ export default (function (window, document, $, undefined) {
         // Generate ids for hidden items.
         $hiddenTags.each(function (itemIndex) {
           let $hiddenTagItem = $(this);
-          console.log($hiddenTagItem);
           let itemId = groupId + itemIndex;
           $hiddenTagItem.attr("id", itemId);
           hiddenIds += itemId + " ";
@@ -125,13 +124,13 @@ export default (function (window, document, $, undefined) {
 
     setTimeout(function () {
       // Reset the button visibility.
-      if (windowWidth < 910 && !$relationshipIndicators.hasClass(".ma__relationship-indicators--mobile")) {
-        $relationshipIndicators.addClass(".ma__relationship-indicators--mobile");
-        $relationshipIndicators.removeClass(".ma__relationship-indicators--desktop");
+      if (windowWidth < 910 && !$relationshipIndicators.hasClass("ma__relationship-indicators--mobile")) {
+        $relationshipIndicators.addClass("ma__relationship-indicators--mobile");
+        $relationshipIndicators.removeClass("ma__relationship-indicators--desktop");
         groupIndicators(0);
-      } else if (windowWidth >= 910 && !$relationshipIndicators.hasClass(".ma__relationship-indicators--desktop")) {
-        $relationshipIndicators.removeClass(".ma__relationship-indicators--mobile");
-        $relationshipIndicators.addClass(".ma__relationship-indicators--desktop");
+      } else if (windowWidth >= 910 && !$relationshipIndicators.hasClass("ma__relationship-indicators--desktop")) {
+        $relationshipIndicators.removeClass("ma__relationship-indicators--mobile");
+        $relationshipIndicators.addClass("ma__relationship-indicators--desktop");
         groupIndicators();
       }
 

@@ -69,20 +69,6 @@ $breadcrumbs-scrollbar-height: 12px;
     @media ($bp-large-max) {
       white-space: nowrap;
       overflow-x: scroll;
-
-      &::-webkit-scrollbar {
-       height: $breadcrumbs-scrollbar-height;
-      }
-
-      /* Track */
-      &::-webkit-scrollbar-track {
-        background: mix(#fff, $c-granite-gray, 80);
-      }
-
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
-        background: mix(#fff, $c-granite-gray, 50);
-      }
     }
   }
 
@@ -131,11 +117,14 @@ $breadcrumbs-scrollbar-height: 12px;
       }
     }
 
-    &:last-child {
-
+    &__expand-indicators {
       @media ($bp-large-max) {
         padding-right: 20px;
       }
+    }
+
+    &--last {
+      padding-right: 20px;
 
       &:after {
         display: none;
@@ -284,12 +273,34 @@ $breadcrumbs-scrollbar-height: 12px;
       @media ($bp-medium-min) {
         border-top: none;
         border-bottom: 1px solid;
+        box-sizing: border-box;
       }
   }
 
   &--light &__container {
     @media ($bp-medium-max) {
       border-bottom: 1px solid;
+    }
+  }
+
+  &--mobile-scroll {
+    .ma__breadcrumbs__container {
+      @media ($bp-large-max) {
+
+        &::-webkit-scrollbar {
+          height: $breadcrumbs-scrollbar-height;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+          background: mix(#fff, $c-granite-gray, 80);
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background: mix(#fff, $c-granite-gray, 50);
+        }
+      }
     }
   }
 }

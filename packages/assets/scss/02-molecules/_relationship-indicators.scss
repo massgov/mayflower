@@ -5,10 +5,10 @@
   @include clearfix;
   display: flex;
   flex-direction: column;
-  padding: 0 0 15px 0;
+  padding: 0;
   font-weight: 600;
   border-bottom: 0;
-  margin: 0 20px 10px;
+  margin: 10px 20px 0;
   font-size: $fonts-smaller;
 
   @media ($bp-small-min) {
@@ -16,6 +16,7 @@
   }
 
   @media ($bp-medium-min) {
+    margin-top: 20px;
     margin-left: 30px;
     margin-right: 30px;
   }
@@ -274,7 +275,7 @@
           margin-right: 10px;
           position: relative;
 
-          &:after {
+          &:before {
             content: "";
             width: 10px;
             position: absolute;
