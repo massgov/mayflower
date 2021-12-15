@@ -35,12 +35,13 @@
 
 {% if bgImage and positionTop %}
 <script type="text/javascript">
+
   var id = "{{ id }}";
   var blckid = "blck{{ id }}";
   var halfImage = `{{ keyMessage.halfImage }}`
-  console.log(halfImage)
 
   function marginSet() {
+    debugger;
     var block = document.getElementById(blckid);
     var mainContent = document.getElementById("main-content");
     var keyMessageSection = document.getElementById(id)
@@ -53,14 +54,10 @@
     // The block is usually moved a few pixels from top.
     // separationAtBottom is the distance from the content below the key message.
     if (halfImage) {
-      console.log('halfImage!')
       var sectionHeight = keyMessageSection ? keyMessageSection.clientHeight : 0;
-      var blockSectionDiff = blockHeight - sectionHeight + block.parentNode.offsetTop;
-      mrgWrapper = blockSectionDiff < 0 ? 0 : blockSectionDiff + separationAtBottom;
-      console.log('sectionHeight: '+sectionHeight)
-      console.log('blockHeight: '+blockHeight)
-      console.log('blockSectionDiff: '+blockSectionDiff)
-      console.log('mrgWrapper: '+mrgWrapper)
+      const blockBottomOffset = blockHeight + block.parentNode.offsetTop
+      const isBlockBottomLower = blockBottomOffset > sectionHeight;
+      mrgWrapper = isBlockBottomLower ? blockBottomOffset - sectionHeight + separationAtBottom : separationAtBottom;
     }
 
     var style = document.createElement('style');
