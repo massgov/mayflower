@@ -74,7 +74,9 @@
     }
 
     &__title {
-      font-size: $fonts-medium;
+      @media ($bp-medium-min) {
+        font-size: $fonts-large;
+      }
     }
   }
 
@@ -165,11 +167,11 @@
         padding-left: 0;
         padding-top: 3px;
         padding-bottom: 1px;
-        font-size: $fonts-xlarge;
-        font-weight: $fonts-normal;
+       // font-size: $fonts-xlarge;
+       // font-weight: $fonts-normal;
 
         @media ($bp-medium-min) {
-          font-size: $fonts-2xlarge;
+          font-size: $fonts-large;
         }
 
         &:focus {
@@ -204,8 +206,9 @@
         .ma__download-link {
 
           a {
-            font-size: $fonts-large;
-            font-weight: $fonts-normal;
+            @media ($bp-medium-min) {
+              font-size: $fonts-large;
+            }
           }
         }
       }
@@ -232,11 +235,11 @@
         padding: 0;
 
         a {
-          font-size: $fonts-xlarge;
-          font-weight: $fonts-normal;
+          //font-size: $fonts-xlarge;
+         // font-weight: $fonts-normal;
 
           @media ($bp-medium-min) {
-            font-size: $fonts-2xlarge;
+            font-size: $fonts-large;
           }
         }
       }

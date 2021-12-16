@@ -1,6 +1,6 @@
 @use "00-base/configure" as *;
 
-$page-banner-icon-width: $column + $gutter;
+$page-banner-icon-width: 50px + $gutter;
 $page-banner-height: 330px;
 
 .ma__page-banner {
@@ -64,7 +64,7 @@ $page-banner-height: 330px;
       }
 
       @media ($bp-large-min) {
-        left: $page-banner-icon-width - $gutter;
+        left: 57px;
         bottom: -1rem;
       }
 
@@ -470,30 +470,20 @@ $page-banner-height: 330px;
     }
 
     @media ($bp-large-min) {
-      padding-left: $page-banner-icon-width - $gutter;
+      padding-left: 57px;
     }
   }
 
   &--white &__icon {
     display: block;
-    width: 37px;
+    width: 50px;
 
     @media ($bp-medium-max) {
       float: left;
     }
 
-    @media ($bp-large-min) {
-      width: $page-banner-icon-width - $gutter;
-    }
-
     > svg {
       height: 4rem;
-    }
-  }
-
-  &--white.ma__page-banner--no-icon &__title {
-    @media ($bp-medium-min) {
-      margin-left: 82px;
     }
   }
 
@@ -519,6 +509,27 @@ $page-banner-height: 330px;
       content: none;
     }
   }
+
+  &--white.ma__page-banner--no-icon {
+    .ma__page-banner__title {
+      @media ($bp-medium-min) {
+        margin-left: 0;
+      }
+    }
+
+    .ma__page-banner__description {
+      @media ($bp-medium-min) {
+        padding-left: 0;
+      }
+    }
+
+    .ma__page-banner__content-wrapper:after {
+      @media ($bp-medium-min) {
+        left: 0;
+      }
+    }
+  }
+
 }
 
 //theme
