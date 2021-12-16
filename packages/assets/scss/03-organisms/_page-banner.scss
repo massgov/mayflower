@@ -52,7 +52,7 @@ $page-banner-height: 330px;
       content: "";
       height: 6px;
       position: absolute;
-      bottom: 0;
+      bottom: -1rem;
       transform: skew(-30deg);
       width: 105px;
       background-color: $c-primary-alt;
@@ -63,7 +63,6 @@ $page-banner-height: 330px;
       }
 
       @media ($bp-large-min) {
-        bottom: -1rem;
         left: 57px;
       }
 
@@ -331,6 +330,7 @@ $page-banner-height: 330px;
     margin-bottom: 0;
     vertical-align: middle;
     z-index: 1;
+    width: 100%;
 
     & > abbr {
       font-size: .4em;
@@ -453,28 +453,35 @@ $page-banner-height: 330px;
 
   &--white {
     height: auto;
+
+    .ma__page-banner__description {
+      font-size: $fonts-large;
+      margin-bottom: $standard-spacing--xsmall ;
+
+      @media ($bp-medium-max) {
+        float: left;
+      }
+
+      @media ($bp-medium-min) {
+        width: 55vw;
+      }
+
+      @media ($bp-large-min) {
+        padding-left: 57px;
+      }
+    }
+
+    &:not(.ma__page-banner--no-icon) {
+      .ma__page-banner__description {
+        @media ($bp-medium-max) {
+          margin-top: 0;
+        }
+      }
+    }
   }
 
   &--white &__icon {
     padding-right: $standard-spacing--xxsmall;
-  }
-
-  &--white &__description {
-    font-size: $fonts-large;
-    margin-bottom: $standard-spacing--xsmall ;
-
-    @media ($bp-medium-max) {
-      margin-top: 0;
-      float: left;
-    }
-
-    @media ($bp-medium-min) {
-      width: 55vw;
-    }
-
-    @media ($bp-large-min) {
-      padding-left: 57px;
-    }
   }
 
   &--white &__icon {
