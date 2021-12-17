@@ -93,7 +93,7 @@ $page-banner-height: 330px;
     @media ($bp-large-extended) {
       max-height: none;
 
-       &:after {
+      &:after {
         content: '';
         display: block;
         height: 50vw;
@@ -220,7 +220,7 @@ $page-banner-height: 330px;
   &__content-wrapper {
     z-index: 1;
 
-     @media ($bp-x-small-min) {
+    @media ($bp-x-small-min) {
       transform: skew(30deg);
       width: 55vw;
       display: flex;
@@ -279,7 +279,7 @@ $page-banner-height: 330px;
 
     @media ($bp-medium-min) {
       height: 100%;
-        top: 50px;
+      top: 50px;
       transform: skew(-30deg);
     }
   }
