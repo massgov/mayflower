@@ -21,6 +21,11 @@ export default (function(window, document, $) {
         const { map, markers, isStatic = 0, hideAttribution = 0 } = ma.leafletMapData[i]; // Data object created in @molecules/leaflet-map.twig
 
         // max bounds
+            // Function to get the bounds of the tiles
+            // Disable the minZoon and the maxBounds to get an accurate bounds
+            // window.getMapBounds = function() {
+            //     console.log(mymap.getBounds());
+            // };
         // const corner1 = L.latLng(43.12916191721289, -67.40279674530031); //northEast
         // const corner2 = L.latLng(41.09188542307055, -76.28524303436281); //southWest
         // const maxBounds = L.latLngBounds(corner1, corner2);
