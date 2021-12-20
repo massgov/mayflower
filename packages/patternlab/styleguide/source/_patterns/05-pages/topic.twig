@@ -12,12 +12,8 @@
 {% endblock %}
 
 {% block pageContent %}
-  {% include "@organisms/by-author/sections-three-up.twig" %}
-  {% include "@organisms/by-author/related-orgs-and-topics.twig" %}
-
   {% embed "@organisms/by-author/stacked-row-section.twig" with  {
     "stackedRowSection": {
-      "title":"Title for the Row of Content",
       "narrow": true
     }
   } %}
@@ -25,6 +21,8 @@
       {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
     {% endblock %}
   {% endembed %}
+  {% include "@organisms/by-author/related-orgs-and-topics.twig" %}
+
 {% endblock %}
 
 {% block postContent %}{% endblock %}
