@@ -4,56 +4,57 @@
     {% set sealImage = sealWhiteImage %}
   {% endif %}
 {% endif %}
+{% set hasToggle = brandBanner.hasToggle %}
+{% set brandBannerContainerTag = hasToggle ? "button" : "div" %}
 
 <div class="ma__brand-banner ma__brand-banner--{{ brandBanner.bgColor ? brandBanner.bgColor : 'c-primary' }}-bg-{{ brandBanner.bgTheme ? brandBanner.bgTheme : 'light' }}">
-  <div class="ma__brand-banner-container">
+  <{{ brandBannerContainerTag }} class="ma__brand-banner-container">
     {% if brandBanner.hasSeal %}
       <img class="ma__brand-banner-logo ma__brand-banner-logo--{{ brandBanner.bgTheme }}"
            src="{{ sealImage }}"
            alt="Massachusetts State Seal" />
     {% endif %}
-    <span>
-      An official website of the Commonwealth of Massachusetts
-      {% if brandBanner.hasToggle %}
-        <button
-          class="ma__button-icon ma__icon-small ma__button-icon--quaternary ma__brand-banner-button {{ buttonClass }}"
-          tabindex="0" aria-expanded="false">
+    <span class="ma__brand-banner-text">
+      An official website of the Commonwealth of Massachusetts&nbsp;&nbsp;&nbsp;
+      {% if hasToggle %}
+        <span
+          class="ma__button-icon ma__icon-small ma__button-icon--quaternary ma__brand-banner-button {{ buttonClass }}">
           <span>Here's how you know</span>
           <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 59 38" xmlns="http://www.w3.org/2000/svg">
             <path d="M29.414 37.657L.344 8.586 8.828.102l20.586 20.584L50 .1l8.484 8.485-29.07 29.072"></path>
           </svg>
-        </button>
+        </span>
       {% endif %}
     </span>
-  </div>
-  {% if brandBanner.hasToggle %}
-  <ul class="ma__brand-banner-expansion">
-  <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : 'light-c-primary' }}">
-      {{ icon('building') }}
-      <div class="ma__brand-banner-expansion-item-content">
-        <p>Official websites use .mass.gov</p>
-        <p>A .mass.gov website belongs to an official government organization in Massachusetts.</dd>
-      </div>
-    </li>
-  <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : 'light-c-primary-alt' }}">
-      {# Unable to use icon function.  CSS doesn't set the icon size matching to above one. It appears to be smaller. #}
-      {# {{ icon('lock') }} #}
-      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 25">
-        <path
-          d="M10.399 0a6.491 6.491 0 016.487 6.258l.004.233-.001 3.853h2.077c.952 0 1.724.773 1.724 1.725v11.207c0 .952-.772 1.724-1.724 1.724H1.724A1.724 1.724 0 010 23.276V12.069c0-.952.772-1.724 1.724-1.724l2.184-.001V6.491l.004-.233A6.491 6.491 0 0110.4 0zm0 1.517A4.974 4.974 0 005.43 6.275l-.005.216v3.853h9.947V6.491l-.004-.216a4.974 4.974 0 00-4.97-4.758z"
-          fill-rule="evenodd"></path>
-      </svg>
-      <div class="ma__brand-banner-expansion-item-content">
-        <p>Secure websites use HTTPS certificate</p>
-        <p>A lock icon (
-          <svg aria-hidden="true" width="12" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 25">
-            <path
-              d="M10.399 0a6.491 6.491 0 016.487 6.258l.004.233-.001 3.853h2.077c.952 0 1.724.773 1.724 1.725v11.207c0 .952-.772 1.724-1.724 1.724H1.724A1.724 1.724 0 010 23.276V12.069c0-.952.772-1.724 1.724-1.724l2.184-.001V6.491l.004-.233A6.491 6.491 0 0110.4 0zm0 1.517A4.974 4.974 0 005.43 6.275l-.005.216v3.853h9.947V6.491l-.004-.216a4.974 4.974 0 00-4.97-4.758z"
-              fill-rule="evenodd"></path>
-          </svg>
-          ) or https:// means you’ve safely connected to the official website. Share sensitive information only on official, secure websites.</p>
-      </div>
-    </li>
-  </ul>
+  </button>
+  {% if hasToggle %}
+    <ul class="ma__brand-banner-expansion" id="ma__brand-banner-content">
+      <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : 'light-c-primary' }}">
+        {{ icon('building') }}
+        <div class="ma__brand-banner-expansion-item-content">
+          <p>Official websites use .mass.gov</p>
+          <p>A .mass.gov website belongs to an official government organization in Massachusetts.</dd>
+        </div>
+      </li>
+      <li class="ma__brand-banner-expansion-item {{ brandBanner.bgTheme == 'dark' ? 'dark' : 'light-c-primary-alt' }}">
+        {# Unable to use icon function.  CSS doesn't set the icon size matching to above one. It appears to be smaller. #}
+        {# {{ icon('lock') }} #}
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 25">
+          <path
+            d="M10.399 0a6.491 6.491 0 016.487 6.258l.004.233-.001 3.853h2.077c.952 0 1.724.773 1.724 1.725v11.207c0 .952-.772 1.724-1.724 1.724H1.724A1.724 1.724 0 010 23.276V12.069c0-.952.772-1.724 1.724-1.724l2.184-.001V6.491l.004-.233A6.491 6.491 0 0110.4 0zm0 1.517A4.974 4.974 0 005.43 6.275l-.005.216v3.853h9.947V6.491l-.004-.216a4.974 4.974 0 00-4.97-4.758z"
+            fill-rule="evenodd"></path>
+        </svg>
+        <div class="ma__brand-banner-expansion-item-content">
+          <p>Secure websites use HTTPS certificate</p>
+          <p>A lock icon (
+            <svg aria-hidden="true" width="12" height="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 25">
+              <path
+                d="M10.399 0a6.491 6.491 0 016.487 6.258l.004.233-.001 3.853h2.077c.952 0 1.724.773 1.724 1.725v11.207c0 .952-.772 1.724-1.724 1.724H1.724A1.724 1.724 0 010 23.276V12.069c0-.952.772-1.724 1.724-1.724l2.184-.001V6.491l.004-.233A6.491 6.491 0 0110.4 0zm0 1.517A4.974 4.974 0 005.43 6.275l-.005.216v3.853h9.947V6.491l-.004-.216a4.974 4.974 0 00-4.97-4.758z"
+                fill-rule="evenodd"></path>
+            </svg>
+            ) or https:// means you’ve safely connected to the official website. Share sensitive information only on official, secure websites.</p>
+        </div>
+      </li>
+    </ul>
   {% endif %}
 </div>
