@@ -10,6 +10,7 @@
         "linkList": {
           "compHeading": {
             "title": "Organizations",
+            "sidebar": true,
             "level": "3"
           },
           "stacked": true,
@@ -70,6 +71,7 @@
         "linkList": {
           "compHeading": {
             "title": "Topics",
+            "sidebar": true,
             "level": "3"
           },
           "stacked": true,
