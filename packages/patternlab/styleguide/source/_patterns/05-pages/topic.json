@@ -188,7 +188,7 @@
       {
         "column_title": "Organizations",
         "linkList": {
-          "sidebarHeading": {
+          "compHeading": {
             "title": "Organizations",
             "level": "3"
           },
@@ -248,7 +248,7 @@
       {
         "column_title": "Topics",
         "linkList": {
-          "sidebarHeading": {
+          "compHeading": {
             "title": "Topics",
             "level": "3"
           },
