@@ -12,7 +12,6 @@ $page-banner-height: 330px;
   position: relative;
 
   @media ($bp-x-small-min) {
-    height: 300px;
     margin-bottom: 40px;
   }
 
@@ -121,6 +120,7 @@ $page-banner-height: 330px;
 
     @include ma-container;
     height: 100%;
+    min-height: $page-banner-height;
     position: relative;
     padding-right: 0;
 
@@ -164,6 +164,7 @@ $page-banner-height: 330px;
     flex-wrap: wrap;
     font-size: $fonts-xsmall;
     max-width: 1050px;
+    min-height: $page-banner-height;
     padding: 30px 25px 45px 0;
     z-index: 1;
     top: -50%;
@@ -372,9 +373,10 @@ $page-banner-height: 330px;
 
   .ma__decorative-link + &__description,
   &__unlinked-title + &__description {
-    margin-top: 0;
-    font-weight: lighter;
+    margin-top: .5rem;
+    font-weight: $fonts-normal;
     width: 100%;
+    font-size: $fonts-large;
   }
 
   &__content-wrapper &__description {
@@ -442,7 +444,8 @@ $page-banner-inner-width: 612px;
   }
 
   &__content {
-    background-image: linear-gradient(-90deg, rgba($c-primary-alt, .7), $c-primary-alt 95%);
+    background-color: $c-primary-alt;
+    background-image: none;
 
     &:before {
       background-color: $c-primary-alt;
@@ -480,11 +483,6 @@ $page-banner-inner-width: 612px;
     @media ($bp-large-extended) {
       background-color: $c-primary-alt;
     }
-  }
-
-  &--linked &__content {
-    background-color: $c-primary-alt;
-    background-image: none;
   }
 
 
