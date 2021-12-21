@@ -8,9 +8,9 @@
       {
         "column_title": "Organizations",
         "linkList": {
-          "compHeading": {
+          "sidebarHeading": {
             "title": "Organizations",
-            "level": "3"
+            "level": 3
           },
           "stacked": true,
           "links": [
@@ -68,9 +68,9 @@
       {
         "column_title": "Topics",
         "linkList": {
-          "compHeading": {
+          "sidebarHeading": {
             "title": "Topics",
-            "level": "3"
+            "level": 3
           },
           "stacked": true,
           "links": [
