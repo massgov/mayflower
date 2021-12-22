@@ -1,6 +1,6 @@
 @use "00-base/configure" as *;
 
-$page-banner-icon-width: $column + $gutter;
+$page-banner-icon-width: 50px + $gutter;
 $page-banner-height: 330px;
 
 .ma__page-banner {
@@ -43,6 +43,31 @@ $page-banner-height: 330px;
     .ma__page-banner__content-wrapper {
       transform: none;
     }
+  }
+
+  &--full &__content-wrapper {
+    transform: none;
+
+    &:after {
+      content: "";
+      height: 6px;
+      position: absolute;
+      bottom: -1rem;
+      transform: skew(-30deg);
+      width: 105px;
+      background-color: $c-primary-alt;
+      margin-top: 1rem;
+
+      @media print {
+        display: none;
+      }
+
+      @media ($bp-large-min) {
+        left: 57px;
+      }
+
+    }
+
   }
 
   &--columns {
@@ -137,7 +162,7 @@ $page-banner-height: 330px;
     @include clearfix;
     height: auto;
     min-height: 500px;
-    padding-right: 0px; //fix gap on mobile
+    padding-right: 0; //fix gap on mobile
 
     &:after {
       clear: both;
@@ -146,7 +171,8 @@ $page-banner-height: 330px;
     }
   }
 
-  &--overlay &__container {
+  &--overlay &__container,
+  &--full &__container {
 
     &:before {
       content: '';
@@ -226,7 +252,8 @@ $page-banner-height: 330px;
     }
   }
 
-  &--overlay &__content {
+  &--overlay &__content,
+  &--full &__content {
     padding: 25px 20px 25px 0;
 
     @media ($bp-x-small-min) {
@@ -303,6 +330,7 @@ $page-banner-height: 330px;
     margin-bottom: 0;
     vertical-align: middle;
     z-index: 1;
+    width: 100%;
 
     & > abbr {
       font-size: .4em;
@@ -345,7 +373,7 @@ $page-banner-height: 330px;
   &--small &__icon + &__title {
 
     @media ($bp-medium-min) {
-      width: calc(100% - $column);
+      width: calc(100% - #{$column});
     }
   }
 
@@ -420,6 +448,96 @@ $page-banner-height: 330px;
       width: 62.12903%; // @include span(8 of 12) was too big
     }
   }
+
+  // White variation.
+
+  &--white {
+    height: auto;
+
+    .ma__page-banner__description {
+      font-size: $fonts-large;
+      margin-bottom: $standard-spacing--xsmall ;
+
+      @media ($bp-medium-max) {
+        float: left;
+      }
+
+      @media ($bp-medium-min) {
+        width: 55vw;
+      }
+
+      @media ($bp-large-min) {
+        padding-left: 57px;
+      }
+    }
+
+    &:not(.ma__page-banner--no-icon) {
+      .ma__page-banner__description {
+        @media ($bp-medium-max) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  &--white &__icon {
+    padding-right: $standard-spacing--xxsmall;
+  }
+
+  &--white &__icon {
+    display: block;
+    width: 50px;
+    float: left;
+
+    @media ($bp-medium-max) {
+      height: 80px;
+    }
+
+    > svg {
+      height: 4rem;
+    }
+  }
+
+  &--white &__content-wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &--white &__content {
+    align-items: flex-start;
+    padding: 0 25px 30px 0;
+    top: 0;
+
+    @media ($bp-x-small-min) {
+      margin-right: 0;
+      padding-top: 10px;
+      padding-right: 0;
+      position: relative;
+      top: 0;
+      transform: none;
+    }
+
+    &:before {
+      content: none;
+    }
+  }
+
+  &--white.ma__page-banner--no-icon {
+    .ma__page-banner__title {
+      margin-left: 0;
+    }
+
+    .ma__page-banner__description {
+      padding-left: 0;
+    }
+
+    .ma__page-banner__content-wrapper:after {
+      left: 0;
+    }
+  }
+
 }
 
 //theme
@@ -457,7 +575,8 @@ $page-banner-inner-width: 612px;
     }
   }
 
-  &--overlay &__content {
+  &--overlay &__content,
+  &--full &__content {
     background-image: none;
   }
 
@@ -535,5 +654,39 @@ $page-banner-inner-width: 612px;
   &--columns &__description {
     color: $c-font-base;
     font-weight: $fonts-light;
+  }
+
+  // White variation.
+
+  &--white &__container {
+
+    &:before {
+      content: none;
+    }
+  }
+
+  &--white &__icon {
+
+    svg,
+    svg > g {
+      fill: $c-primary-alt;
+    }
+  }
+
+  &--white &__title {
+    font-weight: $fonts-bolder;
+    color: $c-font-base;
+    max-width: calc(100% - 50px);
+    overflow-wrap: break-word;
+  }
+
+  &--white  &__description {
+    color: $c-granite-gray;
+    font-weight: $fonts-normal;
+
+    .ma__page-banner__descriptionSubText {
+      display: block;
+      font-weight: $fonts-lighter;
+    }
   }
 }
