@@ -1,5 +1,5 @@
 ### Description
-This Pattern shows an expantable table of contents which can contain simple links, download links, or expandable sections.
+This Pattern shows an expandable table of contents which can contain simple links, download links, or expandable sections.
 
 
 ### Status
