@@ -5,8 +5,6 @@
     width: 100%;
     background-color: $c-primary-lightest;
     font-size: $fonts-xsmall;
-    padding-top: 5px;
-    padding-bottom: 5px;
 
     @include background-colors(
         $lightTheme: (
@@ -27,8 +25,18 @@
 
     &-container {
 
+        @include ma-button-reset;
+
         @include ma-container;
         display: flex;
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: left;
+
+        @media ($bp-x-small-min) {
+          align-items: center;
+        }
     }
 
     &-logo {
@@ -42,21 +50,17 @@
         }
     }
 
-    &-button {
-       margin-left: 1rem;
-    }
-
     &-expansion {
 
         @include ma-container;
         display: none;
+        margin-bottom: 0;
 
         &--expanded {
             display: flex;
             flex-direction: column;
-
-            margin-top: 1em;
-            margin-bottom: 1em;
+            padding-bottom: 5px;
+            padding-top: 10px;
         }
 
         &-item {
