@@ -12,6 +12,7 @@ $page-banner-height: 330px;
   position: relative;
 
   @media ($bp-x-small-min) {
+    height: 300px;
     margin-bottom: 40px;
   }
 
@@ -120,7 +121,6 @@ $page-banner-height: 330px;
 
     @include ma-container;
     height: 100%;
-    min-height: $page-banner-height;
     position: relative;
     padding-right: 0;
 
@@ -129,6 +129,19 @@ $page-banner-height: 330px;
       @media ($bp-medium-max) {
         padding-right: 20px;
       }
+    }
+  }
+
+  &--large {
+    @media ($bp-x-small-min) {
+      height: 100%;
+    }
+  }
+
+  &--large &__container {
+    @media ($bp-x-small-min) {
+      height: 100%;
+      min-height: $page-banner-height;
     }
   }
 
@@ -164,7 +177,6 @@ $page-banner-height: 330px;
     flex-wrap: wrap;
     font-size: $fonts-xsmall;
     max-width: 1050px;
-    min-height: $page-banner-height;
     padding: 30px 25px 45px 0;
     z-index: 1;
     top: -50%;
@@ -219,11 +231,14 @@ $page-banner-height: 330px;
     height: 100%;
     max-width: 640px;
     position: relative;
+    background-color: $c-primary-alt;
+    background-image: none;
 
     @media ($bp-x-small-min) {
       margin-right: 105px;
       top: 0;
       transform: skew(-30deg);
+      min-height: $page-banner-height;
     }
   }
 
@@ -444,8 +459,7 @@ $page-banner-inner-width: 612px;
   }
 
   &__content {
-    background-color: $c-primary-alt;
-    background-image: none;
+    background-image: linear-gradient(-90deg, rgba($c-primary-alt, .7), $c-primary-alt 95%);
 
     &:before {
       background-color: $c-primary-alt;
@@ -476,6 +490,11 @@ $page-banner-inner-width: 612px;
         background-color: transparent;
       }
     }
+  }
+
+  &--linked &__content {
+    background-color: $c-primary-alt;
+    background-image: none;
   }
 
   &--linked &__container {
