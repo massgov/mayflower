@@ -25,13 +25,34 @@ export default (function (window,document,$,undefined) {
             bounds: defaultBounds,
             strictBounds: true,
             types: ['geocode'],
+            fields: ['formatted_address', 'geometry', 'name'],
             componentRestrictions: {country: 'us'},
           };
 
           ma.autocomplete = new google.maps.places.Autocomplete(locationInput, options);
 
+          google.maps.event.addListener(ma.autocomplete, 'place_changed', () => {
+              let place = ma.autocomplete.getPlace();
+              console.log(place); // You will get complete data
+              // If you want to move your map center to the searched lat long position. Use below any one
+              // (with animation)
+              // this.gmap.panTo({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }); 
+              // // (without animation)
+              // this.gmap.setCenter({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }); 
+          });
+
+
           ma.autocomplete.addListener('place_changed', function() {
+            console.log('changed')
+
             const place = ma.autocomplete.getPlace();
+            if (!place.geometry || !place.geometry.location) {
+              // User entered the name of a Place that was not suggested and
+              // pressed the Enter key, or the Place Details request failed.
+              window.alert("No details available for input: '" + place.name + "'");
+              return;
+            }
+            console.log(place)
             $(document).trigger('ma:GoogleMaps:placeChanged', place);
           }); 
         }
