@@ -50,9 +50,7 @@
     {% if mainContent.eventListingInteractive %}
       {% set mapLibraries = 'places' %}
     {% endif %}
-    <script
-        src="https://maps.googleapis.com/maps/api/js">
-    </script>
+
     <script async
         src="https://maps.googleapis.com/maps/api/js?key={{ google_places_api }}&libraries=places&callback=initGoogleMaps">
     </script>

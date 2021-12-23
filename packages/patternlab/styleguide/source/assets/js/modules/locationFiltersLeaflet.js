@@ -1,16 +1,18 @@
 export default (function (window,document,$,undefined) {
 
   function initFilters () {
-    $('.js-location-filters.leaflet').each(function() {
+    $('.js-location-filters').each(function() {
       let $el = $(this);
       let $resultHeading = $('.js-results-heading'),
         $clearAllButton = '.js-results-heading-clear', // events triggered on parent
         $filterButton = '.js-results-heading-tag'; // events triggered on parent
         let $locationFilterParent = $('.js-filter-by-location', $el);
         let $locationFilter = $locationFilterParent.find('input');
+
         if ($locationFilter.length) {
           // Create the google places autocomplete object and associate it with the zip code text input.
           let locationInput = document.getElementById($locationFilter.attr('id'));
+          console.log(locationInput)
           let swLat = $locationFilterParent.data('maPlaceBoundsSwLat');
           let swLng = $locationFilterParent.data('maPlaceBoundsSwLng');
           let neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
