@@ -13,3 +13,4 @@ source/_data/url.json
 /artifact
 /dist
 .env
+**/*/secrete.json
