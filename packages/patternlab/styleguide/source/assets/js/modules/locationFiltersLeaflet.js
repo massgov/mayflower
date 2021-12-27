@@ -1,18 +1,37 @@
+
 export default (function (window,document,$,undefined) {
 
   function initFilters () {
     $('.js-location-filters').each(function() {
       let $el = $(this);
+
       let $resultHeading = $('.js-results-heading'),
         $clearAllButton = '.js-results-heading-clear', // events triggered on parent
-        $filterButton = '.js-results-heading-tag'; // events triggered on parent
+        $filterButton = '.js-results-heading-tag' // events triggered on parent
+        let $submitButton = $('.js-location-filters__submit')
         let $locationFilterParent = $('.js-filter-by-location', $el);
         let $locationFilter = $locationFilterParent.find('input');
+
+        
+
+        // $el.onsubmit = (e) => {
+        //   console.log('submit!')
+        //   e.preventDefault();
+        // }
+
+        // $submitButton.onclick = (e) => e.preventDefault;
+        // $el.addEventListener("keypress", function(event) {
+        //   console.log('key pressed')
+        //   if (event.key === "Enter") {
+        //     alert(event.key  + " " + event.which);
+        //     event.preventDefault();
+        //   }
+        // });
 
         if ($locationFilter.length) {
           // Create the google places autocomplete object and associate it with the zip code text input.
           let locationInput = document.getElementById($locationFilter.attr('id'));
-          console.log(locationInput)
+
           let swLat = $locationFilterParent.data('maPlaceBoundsSwLat');
           let swLng = $locationFilterParent.data('maPlaceBoundsSwLng');
           let neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
@@ -31,30 +50,30 @@ export default (function (window,document,$,undefined) {
 
           ma.autocomplete = new google.maps.places.Autocomplete(locationInput, options);
 
-          google.maps.event.addListener(ma.autocomplete, 'place_changed', () => {
-              let place = ma.autocomplete.getPlace();
-              console.log(place); // You will get complete data
-              // If you want to move your map center to the searched lat long position. Use below any one
-              // (with animation)
-              // this.gmap.panTo({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }); 
-              // // (without animation)
-              // this.gmap.setCenter({ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }); 
-          });
-
 
           ma.autocomplete.addListener('place_changed', function() {
             console.log('changed')
 
             const place = ma.autocomplete.getPlace();
             if (!place.geometry || !place.geometry.location) {
+              console.log('no valid address')
               // User entered the name of a Place that was not suggested and
               // pressed the Enter key, or the Place Details request failed.
               window.alert("No details available for input: '" + place.name + "'");
               return;
             }
-            console.log(place)
+
             $(document).trigger('ma:GoogleMaps:placeChanged', place);
+            console.log(place)
           }); 
+
+          locationInput.onkeyup = (e) => {
+            // console.log(e)
+            const matches = document.querySelectorAll('.pac-item-query');
+            const matchNodes = Array.from(matches)
+            const suggestions = matchNodes.map((match) => match.innerText)
+            console.log(suggestions)
+          }
         }
     });
   };
