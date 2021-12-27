@@ -7,7 +7,8 @@
         "id": "find-nearby",
         "name": "find-nearby",
         "type": "text",
-        "placeholder": "City, town, or ZIP code"
+        "placeholder": "City, town, or ZIP code",
+        "errorMsg": "You entered an invalid address. Please select an option in the suggesions."
       },
       "placeAutocomplete": {
         "bounds": {

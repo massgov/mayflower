@@ -4,12 +4,13 @@ export default (function (window,document,$,undefined) {
   function initFilters () {
     $('.js-location-filters').each(function() {
       let $el = $(this);
-
+      debugger;
       let $resultHeading = $('.js-results-heading'),
         $clearAllButton = '.js-results-heading-clear', // events triggered on parent
         $filterButton = '.js-results-heading-tag' // events triggered on parent
-        let $submitButton = $('.js-location-filters__submit')
+        let $submitButton = $('.js-location-filters__submit');
         let $locationFilterParent = $('.js-filter-by-location', $el);
+        const errorMessage = $locationFilterParent.find('.ma__error-msg')
         let $locationFilter = $locationFilterParent.find('input');
 
         
@@ -59,9 +60,12 @@ export default (function (window,document,$,undefined) {
               console.log('no valid address')
               // User entered the name of a Place that was not suggested and
               // pressed the Enter key, or the Place Details request failed.
+              errorMessage.addClass('has-error');
               window.alert("No details available for input: '" + place.name + "'");
               return;
             }
+
+            errorMessage.removeClass('has-error');
 
             $(document).trigger('ma:GoogleMaps:placeChanged', place);
             console.log(place)
