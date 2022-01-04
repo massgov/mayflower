@@ -50,14 +50,10 @@
 #    issue: Add a Jira ticket or issue number, e.g. DP-12345 or 124
 #    impact: Enter a valid impact, e.g. Minor
 
-Added:
-  - project: Assets
-    component: ErrorPage
-    description: Build and export error page css in mayflower-assets package. (#1568)
-    issue: DP-23562
-    impact: Minor
-  - project: Core
-    component: ErrorPage
-    description: Add ErrorPage component examples. (#1568)
-    issue: DP-23562
-    impact: Minor
+#___EXAMPLE___
+Fixed:
+  - project: Patternlab
+    component: KeyMessage
+    description: Fix halfImage check. (#1575)
+    issue: DP-23651
+    impact: Patch
