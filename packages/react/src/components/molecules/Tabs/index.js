@@ -21,23 +21,28 @@ const Tabs = ({ handleClick, tabs, selectedTab }) => {
   };
   return(
     <div className="ma__search--tabs">
+
       <div className="main-content--two">
-        <div className="ma__tabs">
+        <div className="ma__tabs" role="tablist" aria-orientation="horizontal">
           {
             tabs.map((tab) => {
               const {
                 value, label, ariaLabel, href
               } = tab;
               const isSelected = selectedTab === value ? 'is-selected' : '';
+              const ariaSelected = selectedTab === value ? 'true' : 'false';
               if (isClickFunction) {
                 return(
                   <button
                     type="button"
+                    role="tab"
                     key={`tab_${value}`}
                     className={`ma__tabs-item ${isSelected}`}
                     name={value}
                     onClick={(e) => handleAllClick(e)}
                     aria-label={ariaLabel || value}
+                    aria-selected={ariaSelected}
+                    aria-controls="search-results"
                   >
                     {label}
                   </button>
@@ -45,6 +50,7 @@ const Tabs = ({ handleClick, tabs, selectedTab }) => {
               }
               return(
                 <a
+                  role="tab"
                   key={`tab_${value}`}
                   href={href}
                   className={`ma__tabs-item ${isSelected}`}
