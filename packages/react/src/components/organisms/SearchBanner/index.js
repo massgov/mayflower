@@ -76,23 +76,25 @@ class SearchBanner extends React.Component {
           <h2 className="visually-hidden">Search Form</h2>
           <HeaderSearch {...searchBox} />
         </div>
-        {tabs && <Tabs {...tabs} />}
-        <div className="ma_search-banner__filter-box-container">
-          {filterBox && (
-            <div className="main-content--two ma__search-banner__filter-box-toggle-container">
-              <button
-                onClick={this.toggleFilterBox}
-                type="button"
-                className={toggleButtonClasses}
-                aria-controls={this.props.filterBox.id}
-                aria-expanded={this.state.filterBoxExpanded}
-              >
-                {filterToggleText}
-                <IconChevron width={20} height={20} />
-              </button>
-            </div>
-          )}
-          { filterBox && this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
+        <div className="ma_search-banner__filter" aria-label="Search result filter">
+          {tabs && <Tabs {...tabs} />}
+          <div className="ma_search-banner__filter-box-container">
+            {filterBox && (
+              <div className="main-content--two ma__search-banner__filter-box-toggle-container">
+                <button
+                  onClick={this.toggleFilterBox}
+                  type="button"
+                  className={toggleButtonClasses}
+                  aria-controls={this.props.filterBox.id}
+                  aria-expanded={this.state.filterBoxExpanded}
+                >
+                  {filterToggleText}
+                  <IconChevron width={20} height={20} />
+                </button>
+              </div>
+            )}
+            { filterBox && this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
+          </div>
         </div>
       </div>
     );
