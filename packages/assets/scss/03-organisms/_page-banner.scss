@@ -494,6 +494,13 @@ $page-banner-inner-width: 612px;
   &--blue &__container {
 
     &:before {
+      background-color: rgba($c-primary, 1);
+    }
+  }
+
+  &--blue.ma__page-banner--bg-narrow.ma__page-banner--bg-wide &__container {
+
+    &:before {
       background-color: rgba($c-primary, 0.8);
     }
   }
