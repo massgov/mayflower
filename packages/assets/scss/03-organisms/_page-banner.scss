@@ -503,7 +503,9 @@ $page-banner-inner-width: 612px;
   }
 
   &--blue.ma__page-banner--bg-narrow &__container {
+
     @media ($bp-medium-max) {
+
       &:before {
         background-color: rgba($c-primary, 1);
       }
@@ -511,7 +513,9 @@ $page-banner-inner-width: 612px;
   }
 
   &--blue.ma__page-banner--bg-wide &__container {
+
     @media ($bp-medium-min) {
+
       &:before {
         background-color: rgba($c-primary, 0.8);
       }
