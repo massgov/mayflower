@@ -8,7 +8,7 @@
 {% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{linkedClass} #{bgNarrowClass} #{bgWideClass}" %}
 
 {% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
-{% set bgWideWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
+{% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
 {% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass}" %}
 
 <section class="{{ sectionClass }}">
