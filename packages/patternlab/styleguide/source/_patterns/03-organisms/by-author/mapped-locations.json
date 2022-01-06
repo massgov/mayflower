@@ -12,44 +12,384 @@
     },
     "button": {
       "href": "#",
-      "text":"All Locations"
+      "text": "All Locations"
     },
     "leafletMap": {
       "isStatic": false,
       "hideAttribution": false,
       "map": {
+        "zoom": false,
         "center": {
-          "lat": 42.366565,
-          "lng": -71.058940
+          "lat": 42.256022924867,
+          "lng": -71.43490842387938
         }
       },
-      "markers": [{
-        "position": {
-          "lat": 42.366565,
-          "lng": -71.058940 
+      "markers": [
+        {
+          "position": {
+            "lat": 41.944055,
+            "lng": -71.281167
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/attleboro-rmv-service-center\" hreflang=\"en\">Attleboro RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "75 Park Street, Attleboro, MA 02703",
+            "directions": "https://maps.google.com/?q=75+Park+Street%2C+Attleboro%2C+MA+02703"
+          }
         },
-        "label": "A",
-        "infoWindow": {
-          "name": "Department of Conservation and Recreation",
-          "phone": "16176261250",
-          "fax": "16176261351",
-          "email": "mass.parks@state.ma.us",
-          "address": "251 Causeway Street, Suite 900\nBoston, MA 02114-2104"
-        }
-      },{
-        "position": {
-          "lat": 42.358795,
-          "lng": -71.063858 
+        {
+          "position": {
+            "lat": 42.362121,
+            "lng": -71.05732
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/boston-haymarket-rmv-service-center\" hreflang=\"en\">Boston (Haymarket) RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "136 Blackstone St., Boston, MA 02109",
+            "directions": "https://maps.google.com/?q=136+Blackstone+St.%2C+Boston%2C+MA+02109"
+          }
         },
-        "label": "B",
-        "infoWindow": {
-          "name": "Department of Recreation and Fun",
-          "phone": "16176261250",
-          "fax": "",
-          "email": "mass.parks@state.ma.us",
-          "address": "24 Beacon St\nBoston, MA 02133"
+        {
+          "position": {
+            "lat": 42.196885,
+            "lng": -71.003625
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/braintree-rmv-service-center\" hreflang=\"en\">Braintree RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "10 Plain St., Braintree, MA 02184",
+            "directions": "https://maps.google.com/?q=10+Plain+St.%2C+Braintree%2C+MA+02184"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.070232,
+            "lng": -71.041576
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/brockton-rmv-service-center\" hreflang=\"en\">Brockton RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "490 Forest Ave., Brockton, MA 02301",
+            "directions": "https://maps.google.com/?q=490+Forest+Ave.%2C+Brockton%2C+MA+02301"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.151415,
+            "lng": -72.608517
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/chicopee-rmv-service-center-business-to-business-transactions-only\" hreflang=\"en\">Chicopee RMV Service Center - Business to Business Transactions Only</a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "1011 Chicopee St., Chicopee, MA 01013",
+            "directions": "https://maps.google.com/?q=1011+Chicopee+St.%2C+Chicopee%2C+MA+01013"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.272063,
+            "lng": -72.664546
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/easthampton-rmv-service-center\" hreflang=\"en\">Easthampton RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "116 Pleasant St., Easthampton, MA 01027",
+            "directions": "https://maps.google.com/?q=116+Pleasant+St.%2C+Easthampton%2C+MA+01027"
+          }
+        },
+        {
+          "position": {
+            "lat": 41.723399,
+            "lng": -71.144037
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/fall-river-rmv-service-center\" hreflang=\"en\">Fall River RMV Service Center</a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "1794 North Main St., Fall River, MA 02720",
+            "directions": "https://maps.google.com/?q=1794+North+Main+St.%2C+Fall+River%2C+MA+02720"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.586016,
+            "lng": -72.620083
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/greenfield-rmv-service-center\" hreflang=\"en\">Greenfield RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "18 Miner St., Greenfield, MA 01301",
+            "directions": "https://maps.google.com/?q=18+Miner+St.%2C+Greenfield%2C+MA+01301"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.763801,
+            "lng": -71.039267
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/haverhill-rmv-service-center\" hreflang=\"en\">Haverhill RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "229c Lincoln Avenue, Haverhill, MA 01830",
+            "directions": "https://maps.google.com/?q=229c+Lincoln+Avenue%2C+Haverhill%2C+MA+01830"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.689491,
+            "lng": -71.151035
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/lawrence-rmv-service-center\" hreflang=\"en\">Lawrence RMV Service Center</a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "73 Winthrop Ave., Lawrence, MA 01843",
+            "directions": "https://maps.google.com/?q=73+Winthrop+Ave.%2C+Lawrence%2C+MA+01843"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.480921,
+            "lng": -71.755798
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/leominster-rmv-service-center\" hreflang=\"en\">Leominster RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "500 Research Drive, Leominster, MA 01453",
+            "directions": "https://maps.google.com/?q=500+Research+Drive%2C+Leominster%2C+MA+01453"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.641705,
+            "lng": -71.310377
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/lowell-rmv-service-center\" hreflang=\"en\">Lowell RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "77 Middlesex St., Lowell, MA 01852",
+            "directions": "https://maps.google.com/?q=77+Middlesex+St.%2C+Lowell%2C+MA+01852"
+          }
+        },
+        {
+          "position": {
+            "lat": 41.391033,
+            "lng": -70.604778
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/marthas-vineyard-rmv-service-center\" hreflang=\"en\">Martha&#039;s Vineyard RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "11 A St., Edgartown, MA 02539",
+            "directions": "https://maps.google.com/?q=11+A+St.%2C+Edgartown%2C+MA+02539"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.142383,
+            "lng": -71.511684
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/milford-rmv-service-center\" hreflang=\"en\">Milford RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "14 Beach St., Milford, MA 01757",
+            "directions": "https://maps.google.com/?q=14+Beach+St.%2C+Milford%2C+MA+01757"
+          }
+        },
+        {
+          "position": {
+            "lat": 41.285066,
+            "lng": -70.099046
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/nantucket-rmv-service-center\" hreflang=\"en\">Nantucket RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "16 Broad St., Nantucket, MA 02554",
+            "directions": "https://maps.google.com/?q=16+Broad+St.%2C+Nantucket%2C+MA+02554"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.311393,
+            "lng": -71.364583
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/natick-rmv-service-center-closed\" hreflang=\"en\">Natick RMV Service Center - CLOSED</a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "Massachusetts Turnpike Natick Eastbound Service Center, Natick, MA 01760",
+            "directions": "https://maps.google.com/?q=Massachusetts+Turnpike+Natick+Eastbound+Service+Center%2C+Natick%2C+MA+01760"
+          }
+        },
+        {
+          "position": {
+            "lat": 41.72652,
+            "lng": -70.951263
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/new-bedford-rmv-service-center\" hreflang=\"en\">New Bedford RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "212 Theodore H. Rice Blvd., New Bedford, MA 02740",
+            "directions": "https://maps.google.com/?q=212+Theodore+H.+Rice+Blvd.%2C+New+Bedford%2C+MA+02740"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.69961,
+            "lng": -73.113385
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/north-adams-rmv-service-center\" hreflang=\"en\">North Adams RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "33 Main St., North Adams, MA 01247",
+            "directions": "https://maps.google.com/?q=33+Main+St.%2C+North+Adams%2C+MA+01247"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.448134,
+            "lng": -73.2471
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/pittsfield-rmv-service-center\" hreflang=\"en\">Pittsfield RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "333 East St., Pittsfield, MA 01201",
+            "directions": "https://maps.google.com/?q=333+East+St.%2C+Pittsfield%2C+MA+01201"
+          }
+        },
+        {
+          "position": {
+            "lat": 41.959285,
+            "lng": -70.700445
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/plymouth-rmv-service-center\" hreflang=\"en\">Plymouth RMV Service Center</a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "40 Industrial Park Rd., Plymouth, MA 02360",
+            "directions": "https://maps.google.com/?q=40+Industrial+Park+Rd.%2C+Plymouth%2C+MA+02360"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.410754,
+            "lng": -71.000417
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/revere-rmv-service-center\" hreflang=\"en\">Revere RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "9c Everett St., Revere, MA 02151",
+            "directions": "https://maps.google.com/?q=9c+Everett+St.%2C+Revere%2C+MA+02151"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.286522,
+            "lng": -71.12766
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/roslindale-rmv-service-center-closed\" hreflang=\"en\">Roslindale RMV Service Center - CLOSED</a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "4210 Washington St., Roslindale, MA 02131",
+            "directions": "https://maps.google.com/?q=4210+Washington+St.%2C+Roslindale%2C+MA+02131"
+          }
+        },
+        {
+          "position": {
+            "lat": 41.66186,
+            "lng": -70.202782
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/south-yarmouth-rmv-service-center\" hreflang=\"en\">South Yarmouth RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "1084 Route 28, South Yarmouth, MA 02664",
+            "directions": "https://maps.google.com/?q=1084+Route+28%2C+South+Yarmouth%2C+MA+02664"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.077079,
+            "lng": -72.03284
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/southbridge-rmv-service-center\" hreflang=\"en\">Southbridge RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "6 Larochelle Way, Southbridge, MA 01550",
+            "directions": "https://maps.google.com/?q=6+Larochelle+Way%2C+Southbridge%2C+MA+01550"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.13698,
+            "lng": -72.580085
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/springfield-rmv-service-center\" hreflang=\"en\">Springfield RMV Service Center</a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "1250 St. James Ave, Springfield, MA 01104",
+            "directions": "https://maps.google.com/?q=1250+St.+James+Ave%2C+Springfield%2C+MA+01104"
+          }
+        },
+        {
+          "position": {
+            "lat": 41.903462,
+            "lng": -71.096296
+          },
+          "infoWindow": {
+            "name": "<a href=\"/locations/taunton-rmv-service-center\" hreflang=\"en\">Taunton RMV Service Center </a>",
+            "phone": "",
+            "fax": "",
+            "email": "",
+            "address": "1 Washington St., Taunton, MA 02780",
+            "directions": "https://maps.google.com/?q=1+Washington+St.%2C+Taunton%2C+MA+02780"
+          }
         }
-      }]
+      ]
     }
   }
 }
