@@ -1,12 +1,12 @@
 <section class="ma__breadcrumbs {{breadcrumbs.light ? 'ma__breadcrumbs--light' : ''}}">
   <nav aria-label="Breadcrumbs" class="ma__breadcrumbs__container">
     <ol class="ma__breadcrumbs__items">
-      {% if breadcrumbs.links|length <= 2 %}
+      {% if breadcrumbs.links|length <= 1 %}
         <li class="ma__breadcrumbs__item ma__breadcrumbs__chevron-back" aria-hidden="true"></li>
       {% endif %}
       {% for link in breadcrumbs.links %}
         {% if link.url %}
-          <li class="ma__breadcrumbs__item {{ loop.index == (loop.length - 1)?'ma__breadcrumbs__item--last':'test' }}" id="ma__breadcrumbs__item--{{ loop.index }}">
+          <li class="ma__breadcrumbs__item {{ loop.index == loop.length ? 'ma__breadcrumbs__item--last':'' }}" id="ma__breadcrumbs__item--{{ loop.index }}">
             {% if loop.first %}
               <a href="{{link.url}}" aria-label="Home" class="ma__breadcrumbs__item__icon-link">{{ icon("home") }}</a>
             {% else %}

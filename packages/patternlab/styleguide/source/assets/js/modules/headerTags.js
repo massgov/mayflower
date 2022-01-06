@@ -84,8 +84,10 @@ export default (function (window, document, $, undefined) {
       // If hidden tags exist, show button.
       if (tagCount) {
         $button.show();
+        $tagWrapper.removeClass('ma__relationship-indicators--terms--without-fold');
       } else {
         $button.hide();
+        $tagWrapper.addClass('ma__relationship-indicators--terms--without-fold');
       }
 
       // Use hidden tags to populate button label.
@@ -136,6 +138,6 @@ export default (function (window, document, $, undefined) {
 
     }, 50);
 
-  });
+  }).resize();
 
 })(window, document, jQuery);
