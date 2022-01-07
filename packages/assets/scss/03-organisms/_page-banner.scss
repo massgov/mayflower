@@ -11,7 +11,7 @@ $page-banner-height: 330px;
   overflow: hidden;
   position: relative;
 
-  @media ($bp-x-small-min) {
+  @media ($bp-medium-min) {
     height: 300px;
     margin-bottom: 40px;
   }
@@ -24,7 +24,7 @@ $page-banner-height: 330px;
     h1 {
       font-size: $fonts-2xlarge;
 
-      @media ($bp-small-min) {
+      @media ($bp-medium-min) {
         font-size: $fonts-xlarge;
       }
     }
@@ -80,7 +80,7 @@ $page-banner-height: 330px;
       position: absolute;
       top: 0;
       right: 0;
-      bottom: 0;
+      bottom: 1px;
       left: 500px;
       background-size: cover;
       background-position: center;
@@ -133,7 +133,7 @@ $page-banner-height: 330px;
   }
 
   &--large {
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       height: 100%;
     }
   }
@@ -181,7 +181,7 @@ $page-banner-height: 330px;
     z-index: 1;
     top: -50%;
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       margin-right: 70px;
       padding-top: 50px;
       padding-right: 80px;
@@ -194,11 +194,11 @@ $page-banner-height: 330px;
       content: "";
       height: 100%;
       top: 0;
-      right: 100%;
+      right: 99%;
       position: absolute;
       width: 50vw;
 
-      @media ($bp-x-small-min) {
+      @media ($bp-medium-min) {
         right: 99%; // weird gap when skewed is shown
       }
     }
@@ -207,7 +207,7 @@ $page-banner-height: 330px;
   &__content-wrapper {
     z-index: 1;
 
-     @media ($bp-x-small-min) {
+     @media ($bp-medium-min) {
       transform: skew(30deg);
       width: 55vw;
       display: flex;
@@ -219,7 +219,7 @@ $page-banner-height: 330px;
     font-size: $fonts-2xsmall;
     padding: 25px 25px 40px 0;
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       padding-top: 45px;
       padding-right: 80px;
     }
@@ -229,23 +229,26 @@ $page-banner-height: 330px;
     display: flex;
     align-items: center;
     height: 100%;
-    max-width: 640px;
     position: relative;
     background-color: $c-primary-alt;
     background-image: none;
 
     @media ($bp-x-small-min) {
+      min-height: $page-banner-height;
+    }
+
+    @media ($bp-medium-min) {
       margin-right: 105px;
       top: 0;
       transform: skew(-30deg);
-      min-height: $page-banner-height;
+      max-width: 640px;
     }
   }
 
   &--overlay &__content {
     padding: 25px 20px 25px 0;
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       transform: translateY(-50%);
       padding-right: 0;
     }
@@ -261,7 +264,7 @@ $page-banner-height: 330px;
     position: relative;
     top: 0;
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       position: relative;
       top: calc(#{$page-banner-height} / 2);
     }
@@ -331,7 +334,7 @@ $page-banner-height: 330px;
   &--large &__title,
   &--small &__title {
 
-    @media ($bp-small-min) {
+    @media ($bp-medium-min) {
       font-size: $fonts-7xlarge;
     }
 
@@ -342,14 +345,14 @@ $page-banner-height: 330px;
 
   &--overlay &__title {
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       width: calc(100% - 75px);
     }
   }
 
   &__icon + &__title {
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       width: calc(100% - 75px);
     }
 
@@ -484,7 +487,7 @@ $page-banner-inner-width: 612px;
       background-color: rgba($c-primary-alt,.7);
     }
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
 
       &:after {
         background-color: transparent;
