@@ -57,11 +57,10 @@ export default (function (window,document,$,undefined) {
 
             const place = ma.autocomplete.getPlace();
             if (!place.geometry || !place.geometry.location) {
-              console.log('no valid address')
               // User entered the name of a Place that was not suggested and
               // pressed the Enter key, or the Place Details request failed.
               errorMessage.addClass('has-error');
-              window.alert("No details available for input: '" + place.name + "'");
+              console.log("Not a valid input: '" + place.name + "'");
               return;
             }
 
