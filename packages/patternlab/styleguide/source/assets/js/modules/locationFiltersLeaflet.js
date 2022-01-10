@@ -13,22 +13,6 @@ export default (function (window,document,$,undefined) {
         const errorMessage = $locationFilterParent.find('.ma__error-msg')
         let $locationFilter = $locationFilterParent.find('input');
 
-        
-
-        // $el.onsubmit = (e) => {
-        //   console.log('submit!')
-        //   e.preventDefault();
-        // }
-
-        // $submitButton.onclick = (e) => e.preventDefault;
-        // $el.addEventListener("keypress", function(event) {
-        //   console.log('key pressed')
-        //   if (event.key === "Enter") {
-        //     alert(event.key  + " " + event.which);
-        //     event.preventDefault();
-        //   }
-        // });
-
         if ($locationFilter.length) {
           // Create the google places autocomplete object and associate it with the zip code text input.
           const locationFilterID = $locationFilter.attr('id');
@@ -73,7 +57,6 @@ export default (function (window,document,$,undefined) {
           }); 
 
           locationInput.onkeyup = (e) => {
-            // console.log(e)
             const matches = document.querySelectorAll('.pac-item-query');
             const matchNodes = Array.from(matches)
             const suggestions = matchNodes.map((match) => match.innerText)
