@@ -34,12 +34,7 @@ export default (function (window,document,$,undefined) {
             $(document).trigger('ma:GoogleMaps:placeChanged', place);
           }); 
 
-          
-
-          var input= document.getElementById('filter-by-location');
-          console.log(input)
-          console.log(locationInput)
-          
+          // Fix google places autocomplete use enter key to select - separating form submit action from option selection while pressing the enter key.
           google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
               if (e.key == 'Enter' && $('.pac-container:visible').length) { 
                   e.preventDefault(); 
