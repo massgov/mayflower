@@ -54,6 +54,7 @@
     "secondary": {
       "position": "",
       "label": "offered by",
+      "groupAfter": 1,
       "tags": [
         {
           "class": "",

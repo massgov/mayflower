@@ -1,6 +1,50 @@
 @use "00-base/configure" as *;
 
+$breadcrumbs-fade-width: 50px;
+$breadcrumbs-scrollbar-height: 12px;
+
 .ma__breadcrumbs {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: $breadcrumbs-fade-width;
+    height: calc(100% - #{$breadcrumbs-scrollbar-height});
+    background: transparent;
+    z-index: 1;
+    will-change: opacity, z-index;
+    transition: opacity .4s, z-index .4s;
+    opacity: 0;
+  }
+
+  &:before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%);
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0, rgba(255,255,255,1) 80%);
+  }
+
+  &--fade-left {
+
+    &:before {
+      opacity: 1;
+      z-index: 3;
+    }
+  }
+
+  &--fade-right {
+
+    &:after {
+      opacity: 1;
+      z-index: 3;
+    }
+  }
 
   .pre-content & {
 
@@ -22,6 +66,13 @@
   &__container {
 
     @include ma-container;
+    z-index: 2;
+    position: relative;
+
+    @media ($bp-large-max) {
+      white-space: nowrap;
+      overflow-x: scroll;
+    }
   }
 
   &__label {
@@ -38,7 +89,6 @@
   &__items {
 
     @include ma-reset-list;
-    line-height: 2em;
     padding: 10px 0;
     position: relative;
 
@@ -66,19 +116,28 @@
     }
 
     &:first-child {
+
       &:after {
         margin-left: 0;
       }
     }
 
-    &:last-child {
+    &__expand-indicators {
+
+      @media ($bp-large-max) {
+        padding-right: 20px;
+      }
+    }
+
+    &--last {
+      padding-right: 20px;
 
       &:after {
         display: none;
       }
     }
 
-    @media ($bp-medium-max) {
+    @media ($bp-large-max) {
 
       .pre-content & {
 
@@ -153,6 +212,7 @@
 
     a {
       box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
+
       svg {
         fill: $c-primary;
         stroke: $c-primary;
@@ -182,6 +242,7 @@
   }
 
   &__chevron-back {
+
     @include ma-chevron("left");
 
     &:before {
@@ -221,7 +282,40 @@
       @media ($bp-medium-min) {
         border-top: none;
         border-bottom: 1px solid;
+        box-sizing: border-box;
       }
+  }
+
+  &--light &__container {
+
+    @media ($bp-medium-max) {
+      border-bottom: 1px solid;
+    }
+  }
+
+  &--mobile-scroll {
+
+    .ma__breadcrumbs__container {
+
+      @media ($bp-large-max) {
+
+        &::-webkit-scrollbar {
+          height: $breadcrumbs-scrollbar-height;
+        }
+
+        /* Track */
+
+        &::-webkit-scrollbar-track {
+          background: mix(#fff, $c-granite-gray, 80);
+        }
+
+        /* Handle */
+
+        &::-webkit-scrollbar-thumb {
+          background: mix(#fff, $c-granite-gray, 50);
+        }
+      }
+    }
   }
 }
 
@@ -247,7 +341,7 @@
 
   &__item {
 
-    @media ($bp-medium-max) {
+    @media ($bp-large-max) {
 
       .pre-content & {
 
@@ -273,6 +367,13 @@
   &--light &__items {
 
     @media ($bp-medium-min) {
+      border-bottom-color: $c-bd-divider;
+    }
+  }
+
+  &--light &__container {
+
+    @media ($bp-medium-max) {
       border-bottom-color: $c-bd-divider;
     }
   }

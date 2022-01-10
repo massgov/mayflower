@@ -44,6 +44,7 @@
     "secondary": {
       "position": "",
       "label": "related to",
+      "groupAfter": 1,
       "tags": [{
         "class": "",
         "href": "#",

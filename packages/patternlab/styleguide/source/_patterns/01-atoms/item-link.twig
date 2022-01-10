@@ -5,7 +5,7 @@
 {# Add the button after the first item as the second item in the list for accessibility purpose. Managing focus order with JS doesn't work in VoiceOver. #}
 {% if loop.first %}
 <li class="ma__relationship-indicators__expand-indicators">
-  <button type="button" class="js-relationship-indicator-button" aria-label="show more" aria-pressed="false">
+  <button type="button" class="js-relationship-indicator-button" aria-label="show more" aria-pressed="false" aria-expanded="false">
     show <span class="tag-count"></span> <span class="tag-state">more</span>
   </button>
 </li>
