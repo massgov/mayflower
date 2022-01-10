@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.20.2 (1/10/2022)
+### Changed 
+- (Patternlab) [LeaftletMap] DP-22028: Update min zoom so the map is showing the whole state on mobile. (#1576)
+
+### Fixed 
+- (Patternlab) [KeyMessage] DP-23651: Fix halfImage check. (#1575)
+
 ## 11.20.1 (12/13/2021)
 ### Added 
 - (React, Patternlab) [BrandBanner] DP-23414: Add `aria-controls` and `aria-expanded`. (#1562)
