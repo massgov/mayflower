@@ -31,8 +31,8 @@ export default (function (window,document,$,undefined) {
 
         if ($locationFilter.length) {
           // Create the google places autocomplete object and associate it with the zip code text input.
-          let locationInput = document.getElementById($locationFilter.attr('id'));
-
+          const locationFilterID = $locationFilter.attr('id');
+          let locationInput = document.getElementById(locationFilterID);
           let swLat = $locationFilterParent.data('maPlaceBoundsSwLat');
           let swLng = $locationFilterParent.data('maPlaceBoundsSwLng');
           let neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
@@ -77,6 +77,12 @@ export default (function (window,document,$,undefined) {
             const suggestions = matchNodes.map((match) => match.innerText)
             console.log(suggestions)
           }
+
+          google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
+              if (e.key == 'Enter' && $('.pac-container:visible').length) { 
+                  e.preventDefault(); 
+              }
+          }); 
         }
     });
   };
