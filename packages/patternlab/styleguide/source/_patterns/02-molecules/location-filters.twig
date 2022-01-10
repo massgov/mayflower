@@ -5,7 +5,7 @@
 {% set neLng = locationFilters.zipcode.placeAutocomplete.bounds.ne.lng ? locationFilters.zipcode.placeAutocomplete.bounds.ne.lng : -69.845299 %}
 
 <section class="ma__location-filters">
-  <form class="js-location-filters" onsubmit="return false;">
+  <form class="js-location-filters">
     <div class="ma__location-filters__row">
       <div class="ma__location-filters__by-location js-filter-by-location" data-ma-place-bounds-sw-lat="{{ swLat }}" data-ma-place-bounds-sw-lng="{{ swLng }}" data-ma-place-bounds-ne-lat="{{ neLat }}" data-ma-place-bounds-ne-lng="{{ neLng }}">
         {% set inputText = locationFilters.zipcode.inputText %}

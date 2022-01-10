@@ -52,6 +52,7 @@ export default (function (window,document,$,undefined) {
           ma.autocomplete = new google.maps.places.Autocomplete(locationInput, options);
 
 
+          var placeChanged = false;
           ma.autocomplete.addListener('place_changed', function() {
             console.log('changed')
 
@@ -64,6 +65,7 @@ export default (function (window,document,$,undefined) {
               return;
             }
 
+            placeChanged = true;
             errorMessage.removeClass('has-error');
 
             $(document).trigger('ma:GoogleMaps:placeChanged', place);
@@ -79,8 +81,12 @@ export default (function (window,document,$,undefined) {
           }
 
           google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
-              if (e.key == 'Enter' && $('.pac-container:visible').length) { 
-                  e.preventDefault(); 
+              if (e.key == 'Enter') {
+                  //only submits when the autocomplete dropdown is closed and a valid place is selected
+                  if ($('.pac-container:visible').length || !placeChanged) {
+                    e.preventDefault(); 
+                  } 
+                  placeChanged = false; 
               }
           }); 
         }
