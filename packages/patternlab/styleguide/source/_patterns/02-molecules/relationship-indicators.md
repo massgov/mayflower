@@ -8,7 +8,8 @@ This is a set of related links for Organization pages to inculded the Organizati
 
 ### Notes
 
-Primary: at least one tag required Secondary: optional
+Primary: at least one tag required.
+Secondary: optional, by default all secondary tags will be shown. To display less items, use the `groupAfter` variable.
 
 ### Variables
 
@@ -26,6 +27,7 @@ relationshipIndicators: {
   secondary: {
     icon: string / optional,
     label: string / required,
+    groupAfter: integer / optional,
     tags: [{
       class: string / optional,
       href: url / required,

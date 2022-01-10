@@ -6,7 +6,6 @@
       "position": "single",
       "label": "offered by",
       "groupAfter": 3,
-      "icon": "building",
       "tags": [{
         "class": "",
         "href": "#",

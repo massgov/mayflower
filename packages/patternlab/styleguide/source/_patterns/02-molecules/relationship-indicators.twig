@@ -25,8 +25,7 @@
         {% set groupByData = "data-group-after="~relationshipIndicators.secondary.groupAfter %}
       {% endif %}
 
-      <div
-        class="ma__relationship-indicators--section {{ relationshipIndicators.primary ? 'secondary' : 'single ' ~ groupClass }}" {{ groupByData }}>
+      <div class="ma__relationship-indicators--section {{ (relationshipIndicators.primary ? 'secondary'  : 'single') ~ ' ' ~ groupClass }}" {{ groupByData }}>
         <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
           <li class="ma__relationship-indicators__heading ma__relationship-indicators--term">
             {% if relationshipIndicators.secondary.icon %}
