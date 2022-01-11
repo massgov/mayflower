@@ -8,10 +8,10 @@ export default (function (window,document,$,undefined) {
       let $resultHeading = $('.js-results-heading'),
         $clearAllButton = '.js-results-heading-clear', // events triggered on parent
         $filterButton = '.js-results-heading-tag' // events triggered on parent
-        let $submitButton = $('.js-location-filters__submit');
         let $locationFilterParent = $('.js-filter-by-location', $el);
-        const errorMessage = $locationFilterParent.find('.ma__error-msg')
         let $locationFilter = $locationFilterParent.find('input');
+        const errorMessage = $locationFilterParent.find('.ma__error-msg')
+        const $submitButton = $el.find('.js-location-filters__submit');
 
         if ($locationFilter.length) {
           // Create the google places autocomplete object and associate it with the zip code text input.
@@ -65,13 +65,26 @@ export default (function (window,document,$,undefined) {
 
           google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
               if (e.key == 'Enter') {
+                  console.log('place changed: '+ placeChanged)
                   //only submits when the autocomplete dropdown is closed and a valid place is selected
                   if ($('.pac-container:visible').length || !placeChanged) {
                     e.preventDefault(); 
-                  } 
-                  placeChanged = false; 
+                  } else {
+                    placeChanged = false; 
+                  }
               }
           }); 
+
+          $submitButton.click(function(e) {
+            console.log('place changed: '+ placeChanged +' clicked')
+            if ($('.pac-container:visible').length || !placeChanged) {
+              console.log('don\'t submit')
+              e.preventDefault(); 
+            } else {
+              console.log('submit')
+              placeChanged = false; 
+            }
+          })
         }
     });
   };
