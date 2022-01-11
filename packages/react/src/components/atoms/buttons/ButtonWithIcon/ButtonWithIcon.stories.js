@@ -42,6 +42,7 @@ ButtonWithIconExample.args = {
   capitalized: true,
   'arial-label': '',
   'aria-haspopup': false,
+  'aria-describedby': '',
   icon: 'IconChevron',
   width: 20,
   height: 20

@@ -117,6 +117,7 @@ const TypeAheadDropdown = (props) => {
 
   return(
     <div ref={wrapperRef}>
+      <span className="ma__visually-hidden" id="toggle-org-filter">Click the button to show/hide organizataion options for an organization specific search.</span>
       <ButtonWithIcon {...dropdownButton} />
       {buttonExpand && (
         <InputTextFuzzy {...inputTextFuzzyProps} />
