@@ -40,12 +40,13 @@ export default (function (window,document,$,undefined) {
           ma.autocomplete.addListener('place_changed', function() {
             console.log('changed')
 
-            const place = ma.autocomplete.getPlace();
+            const place = ma.autocomplete.getPlace() || {};
             if (!place.geometry || !place.geometry.location) {
               // User entered the name of a Place that was not suggested and
               // pressed the Enter key, or the Place Details request failed.
               errorMessage.addClass('has-error');
               console.log("Not a valid input: '" + place.name + "'");
+              placeChanged = false;
               return;
             }
 
@@ -63,20 +64,17 @@ export default (function (window,document,$,undefined) {
             console.log(suggestions)
           }
 
-          // google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
-          //     if (e.key == 'Enter') {
-          //         console.log('place changed: '+ placeChanged)
-          //         //only submits when the autocomplete dropdown is closed and a valid place is selected
-          //         if ($('.pac-container:visible').length || !placeChanged) {
-          //           e.preventDefault(); 
-          //         } else {
-          //           placeChanged = false; 
-          //         }
-          //     }
-          // }); 
+          google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
+              if (e.key == 'Enter') {
+                  console.log('place changed: '+ placeChanged +' enter')
+                  //only submits when the autocomplete dropdown is closed and a valid place is selected
+                  if ($('.pac-container:visible').length) {
+                    e.preventDefault(); 
+                  }
+              }
+          }); 
 
           $submitButton.click(function(e) {
-            console.log(e)
             console.log('place changed: '+ placeChanged +' clicked')
             if ($('.pac-container:visible').length || !placeChanged) {
               console.log('don\'t submit')
