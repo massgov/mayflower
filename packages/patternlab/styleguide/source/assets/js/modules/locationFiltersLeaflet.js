@@ -63,19 +63,20 @@ export default (function (window,document,$,undefined) {
             console.log(suggestions)
           }
 
-          google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
-              if (e.key == 'Enter') {
-                  console.log('place changed: '+ placeChanged)
-                  //only submits when the autocomplete dropdown is closed and a valid place is selected
-                  if ($('.pac-container:visible').length || !placeChanged) {
-                    e.preventDefault(); 
-                  } else {
-                    placeChanged = false; 
-                  }
-              }
-          }); 
+          // google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
+          //     if (e.key == 'Enter') {
+          //         console.log('place changed: '+ placeChanged)
+          //         //only submits when the autocomplete dropdown is closed and a valid place is selected
+          //         if ($('.pac-container:visible').length || !placeChanged) {
+          //           e.preventDefault(); 
+          //         } else {
+          //           placeChanged = false; 
+          //         }
+          //     }
+          // }); 
 
           $submitButton.click(function(e) {
+            console.log(e)
             console.log('place changed: '+ placeChanged +' clicked')
             if ($('.pac-container:visible').length || !placeChanged) {
               console.log('don\'t submit')
