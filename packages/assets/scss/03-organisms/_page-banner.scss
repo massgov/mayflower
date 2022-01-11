@@ -63,7 +63,7 @@ $page-banner-height: 330px;
       }
 
       @media ($bp-large-min) {
-        left: 57px;
+        left: 54px;
       }
 
     }
@@ -325,10 +325,11 @@ $page-banner-height: 330px;
   }
 
   &__title {
+    display: flex;
+    align-items: center;
     flex-grow: 1;
     line-height: 1.05;
     margin-bottom: 0;
-    vertical-align: middle;
     z-index: 1;
     width: 100%;
 
@@ -467,15 +468,7 @@ $page-banner-height: 330px;
       }
 
       @media ($bp-large-min) {
-        padding-left: 57px;
-      }
-    }
-
-    &:not(.ma__page-banner--no-icon) {
-      .ma__page-banner__description {
-        @media ($bp-medium-max) {
-          margin-top: 0;
-        }
+        padding-left: 51px;
       }
     }
   }
@@ -488,10 +481,6 @@ $page-banner-height: 330px;
     display: block;
     width: 50px;
     float: left;
-
-    @media ($bp-medium-max) {
-      height: 80px;
-    }
 
     > svg {
       height: 4rem;
