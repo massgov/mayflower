@@ -34,14 +34,14 @@
       </div>
     {% endif %}
     <div class="ma__location-filters__buttons">
-      {% for button in locationFilters.buttons %}
-        {% include "@atoms/01-buttons/button.twig" %}
-      {% endfor %}
-      {# backward compatible with v6.2 that uses submitButton #}
-      {% if locationFilters.submitButton %}
-      <button class="ma_button ma__location-filters__submit js-location-filters__submit" type="submit">
-        {{ locationFilters.submitButton }}
-      </button>
+      {% if locationFilters.buttons %}
+        {% for button in locationFilters.buttons %}
+          {% include "@atoms/01-buttons/button.twig" %}
+        {% endfor %}
+      {% else %}
+        <div class="ma__location-filters__buttons">
+          <button class="ma_button ma__location-filters__submit js-location-filters__submit" type="submit">Submit</button>
+        </div>
       {% endif %}
     </div>
   </form>
