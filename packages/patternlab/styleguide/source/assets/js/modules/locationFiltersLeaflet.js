@@ -4,7 +4,6 @@ export default (function (window,document,$,undefined) {
   function initFilters () {
     $('.js-location-filters').each(function() {
       let $el = $(this);
-      debugger;
       let $resultHeading = $('.js-results-heading'),
         $clearAllButton = '.js-results-heading-clear', // events triggered on parent
         $filterButton = '.js-results-heading-tag' // events triggered on parent
@@ -38,14 +37,12 @@ export default (function (window,document,$,undefined) {
 
           var placeChanged = false;
           ma.autocomplete.addListener('place_changed', function() {
-            console.log('changed')
 
             const place = ma.autocomplete.getPlace() || {};
             if (!place.geometry || !place.geometry.location) {
               // User entered the name of a Place that was not suggested and
               // pressed the Enter key, or the Place Details request failed.
               errorMessage.addClass('has-error');
-              console.log("Not a valid input: '" + place.name + "'");
               placeChanged = false;
               return;
             }
@@ -66,8 +63,7 @@ export default (function (window,document,$,undefined) {
 
           google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
               if (e.key == 'Enter') {
-                  console.log('place changed: '+ placeChanged +' enter')
-                  //only submits when the autocomplete dropdown is closed and a valid place is selected
+                  //only submits when the autocomplete dropdown is closed
                   if ($('.pac-container:visible').length) {
                     e.preventDefault(); 
                   }
@@ -75,12 +71,10 @@ export default (function (window,document,$,undefined) {
           }); 
 
           $submitButton.click(function(e) {
-            console.log('place changed: '+ placeChanged +' clicked')
+            //only submits the form when the autocomplete dropdown is closed and a valid place is selected
             if ($('.pac-container:visible').length || !placeChanged) {
-              console.log('don\'t submit')
               e.preventDefault(); 
             } else {
-              console.log('submit')
               placeChanged = false; 
             }
           })
