@@ -325,8 +325,6 @@ $page-banner-height: 330px;
   }
 
   &__title {
-    display: flex;
-    align-items: center;
     flex-grow: 1;
     line-height: 1.05;
     margin-bottom: 0;
@@ -475,6 +473,11 @@ $page-banner-height: 330px;
 
   &--white &__icon {
     padding-right: $standard-spacing--xxsmall;
+  }
+
+  &--white &__title {
+    display: flex;
+    align-items: center;
   }
 
   &--white &__icon {
