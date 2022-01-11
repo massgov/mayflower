@@ -12,6 +12,7 @@ export const TypeAheadDropdownExample = (args) => (
 TypeAheadDropdownExample.storyName = 'Default';
 TypeAheadDropdownExample.args = {
   dropdownButton: {
+    'aria-describedby': 'toggle-org-filter',
     text: 'All Organizations',
     capitalized: true
   },
