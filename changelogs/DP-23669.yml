@@ -54,6 +54,6 @@
 Added:
   - project: PatternLab
     component: TBD
-    description: TBD. (#)
+    description: TBD. (#1581)
     issue: DP-23669
     impact: Minor
