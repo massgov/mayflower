@@ -120,16 +120,15 @@
         font-weight: $fonts-normal;
 
         .ma__decorative-link {
-          padding: 10px 0;
+          padding: 10px 0 10px 1rem;
         }
 
         .ma__download-link {
-          padding: 10px 0;
+          padding: 10px 0 10px 1rem;
         }
 
         .ma__sidebar-heading {
-          margin-top: 1rem;
-          margin-bottom: 1rem;
+          margin: 1rem 0 1rem 1rem;
         }
       }
     }
