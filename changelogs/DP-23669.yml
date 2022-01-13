@@ -53,7 +53,7 @@
 #___EXAMPLE___
 Added:
   - project: PatternLab
-    component: TBD
-    description: TBD. (#1581)
+    component: InlineLinks
+    description: Adds a new component for displaying a list of links one next to the other. (#1581)
     issue: DP-23669
     impact: Minor
