@@ -1,0 +1,15 @@
+{% if inlineLinks.links %}
+  <section class="ma__inline-links">
+    <nav class="ma__inline-links__container" role="navigation" {% if inlineLinks.ariaLabel %} aria-label="{{ inlineLinks.ariaLabel }} {% endif %}">
+      {% for link in inlineLinks.links %}
+        <div class="ma__inline-links__item">
+          {% if link.href %}
+            <a href="{{ link.href }}" title="{{ link.info }}">{{ link.text }}</a>
+          {% else %}
+            <span> {{ link.text }} </span>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </nav>
+  </section>
+{% endif %}
