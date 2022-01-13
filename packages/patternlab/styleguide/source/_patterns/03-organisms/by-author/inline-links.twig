@@ -1,5 +1,5 @@
 {% if inlineLinks.links %}
-  <section class="ma__inline-links">
+  <section class="ma__inline-links {{ (inlineLinks.background)?"ma__inline-links--"~inlineLinks.background:"" }}">
     <nav class="ma__inline-links__container" role="navigation" {% if inlineLinks.ariaLabel %} aria-label="{{ inlineLinks.ariaLabel }} {% endif %}">
       {% for link in inlineLinks.links %}
         <div class="ma__inline-links__item">

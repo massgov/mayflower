@@ -62,4 +62,18 @@
       color: $c-font-detail;
     }
   }
+
+  &--alternative {
+    background: $c-gray-lightest;
+
+    .ma__inline-links_item {
+      &:after {
+        background: $c-gray;
+      }
+
+      span {
+        color: $c-font-base;
+      }
+    }
+  }
 }
