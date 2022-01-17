@@ -577,6 +577,11 @@ $page-banner-inner-width: 612px;
     }
   }
 
+  &__title {
+    font-weight: $fonts-light;
+    color: $c-font-inverse;
+  }
+
   &__description {
     color: $c-font-inverse;
     font-weight: $fonts-normal;
