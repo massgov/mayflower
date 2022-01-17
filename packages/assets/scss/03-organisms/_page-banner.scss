@@ -351,11 +351,8 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &__title {
-    color: $c-font-inverse;
     flex-grow: 1;
-    font-size: $fonts-6xlarge;
-    font-weight: $fonts-normal;
-    line-height: 1.25;
+    line-height: 1.05;
     margin-bottom: 0;
     vertical-align: middle;
     z-index: 1;
