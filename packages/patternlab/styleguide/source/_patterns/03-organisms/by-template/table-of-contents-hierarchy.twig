@@ -7,8 +7,14 @@
     {% set coloredHeading = { "text": tableOfContentsHierarchy.title.text, "color": "green" } %}
     {% include "@atoms/04-headings/colored-heading.twig" %}
   {% elseif tableOfContentsHierarchy.title.text %}
-    {% set sidebarHeading = { "title": tableOfContentsHierarchy.title.text } %}
-    {% include "@atoms/04-headings/sidebar-heading.twig" %}
+
+    {% set compHeading = {
+      "title": tableOfContentsHierarchy.title.text,
+      "level": tableOfContentsHierarchy.title.level,
+      "sidebar": true
+    }
+    %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
   {% endif %}
   <ul class="ma__toc--hierarchy__container">
     {% block binderSection %}
