@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: OrganizationNavigation
+    description: Change visibility of sub menu containers when they are close. (#)
+    issue: DP-23099
+    impact: Patch
