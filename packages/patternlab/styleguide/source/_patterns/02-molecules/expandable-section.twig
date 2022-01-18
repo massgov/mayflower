@@ -8,13 +8,18 @@
         <li{{ (link.subItems|length > 0) ? ' class="ma__toc--hierarchy__accordion-content__subitems-container"' : '' }}>
           {% if link.subItems|length > 0 %}
 
-            {% set sidebarHeading = { "title": link.title} %}
-            {% include "@atoms/04-headings/sidebar-heading.twig" %}
+            {% set compHeading = {
+              "title": link.title,
+              "level": link.level,
+              "sidebar": true
+            }
+            %}
+            {% include "@atoms/04-headings/comp-heading.twig" %}
             <ul>
-            {% for subItem in link.subItems %}
-              {% set decorativeLink = subItem %}
-              <li>{% include "@atoms/decorative-link.twig" %}</li>
-            {% endfor %}
+              {% for subItem in link.subItems %}
+                {% set decorativeLink = subItem %}
+                <li>{% include "@atoms/decorative-link.twig" %}</li>
+              {% endfor %}
             </ul>
           {% elseif link.icon %}
             {% set downloadLink = link %}
