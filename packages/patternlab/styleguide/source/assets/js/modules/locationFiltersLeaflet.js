@@ -7,21 +7,21 @@ export default (function (window,document,$,undefined) {
       let $resultHeading = $('.js-results-heading'),
         $clearAllButton = '.js-results-heading-clear', // events triggered on parent
         $filterButton = '.js-results-heading-tag' // events triggered on parent
-        let $locationFilterParent = $('.js-filter-by-location', $el);
-        let $locationFilter = $locationFilterParent.find('input');
+        const $locationFilterParent = $('.js-filter-by-location', $el);
+        const $locationFilter = $locationFilterParent.find('input');
         const errorMessage = $locationFilterParent.find('.ma__error-msg')
         const $submitButton = $el.find('.js-location-filters__submit');
 
         if ($locationFilter.length) {
           // Create the google places autocomplete object and associate it with the zip code text input.
           const locationFilterID = $locationFilter.attr('id');
-          let locationInput = document.getElementById(locationFilterID);
-          let swLat = $locationFilterParent.data('maPlaceBoundsSwLat');
-          let swLng = $locationFilterParent.data('maPlaceBoundsSwLng');
-          let neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
-          let neLng = $locationFilterParent.data('maPlaceBoundsNeLng');
+          const locationInput = document.getElementById(locationFilterID);
+          const swLat = $locationFilterParent.data('maPlaceBoundsSwLat');
+          const swLng = $locationFilterParent.data('maPlaceBoundsSwLng');
+          const neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
+          const neLng = $locationFilterParent.data('maPlaceBoundsNeLng');
 
-          let defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(swLat,swLng), new google.maps.LatLng(neLat,neLng));
+          const defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(swLat,swLng), new google.maps.LatLng(neLat,neLng));
 
           // See options: https://developers.google.com/maps/documentation/javascript/places-autocomplete#add_autocomplete
           let options = {
