@@ -48,15 +48,7 @@ export default (function (window,document,$,undefined) {
           errorMessage.removeClass('has-error');
 
           $(document).trigger('ma:GoogleMaps:placeChanged', place);
-          console.log(place)
         }); 
-
-        locationInput.onkeyup = (e) => {
-          const matches = document.querySelectorAll('.pac-item-query');
-          const matchNodes = Array.from(matches)
-          const suggestions = matchNodes.map((match) => match.innerText)
-          console.log(suggestions)
-        }
 
         google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
             if (e.key == 'Enter') {
