@@ -15,7 +15,12 @@ export default (function (window,document,$,undefined) {
   });
 
   $(document).on('ma:AjaxPattern:Render', function(e,data){
-    let $context = data.el;
+    // document.dispatchEvents does not pass the data parameter as jQuery does.
+    // Thus, data was bundled into the e object previously.
+    let $context =
+      typeof data === "undefined" ?
+        $(e.originalEvent.el) : data.el;
+
     if ($context.find('.js-emergency-alerts').length) {
       $context.find('.js-emergency-alerts').each(function(){
         init.apply(this);
