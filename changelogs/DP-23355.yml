@@ -52,7 +52,7 @@
 
 #___EXAMPLE___
 Added:
-  - project: React, Patternlab
+  - project: Patternlab, Assets
     component: Search box with links
     description: Adds a search box with links. (#1559)
     issue: DP-23355
