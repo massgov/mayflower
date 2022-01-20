@@ -38,7 +38,7 @@
   {% endif %}
 
   <div class="ma__page-banner__container {{ imageOnMobileClass }}">
-    {% if (pageBanner.size and pageBanner.size == "columns") or linkedClass %}
+    {% if ((pageBanner.size and pageBanner.size == "columns") or linkedClass) and bgWideWrapperClass %}
       <div class="ma__page-banner__image"></div>
     {% endif %}
     <div class="ma__page-banner__content" property="mainEntityOfPage">
