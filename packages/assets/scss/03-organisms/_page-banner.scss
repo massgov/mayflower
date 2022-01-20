@@ -139,12 +139,14 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &--large {
+
     @media ($bp-medium-min) {
       height: 100%;
     }
   }
 
   &--large &__container {
+
     @media ($bp-large-min) {
       height: 100%;
       min-height: $page-banner-height;
@@ -487,6 +489,7 @@ $page-banner-inner-width: 612px;
   }
 
   &--blue &__content-wrapper { 
+
     @media ($bp-medium-min) {
       text-shadow: $text-shadow;
     }
