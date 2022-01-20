@@ -1,0 +1,37 @@
+<div class="ma__search-box-with-links">
+	<form role="search" class="ma__search-box-with-links__form" action="{{ searchBoxWithLinks.form.actionUrl }}" method="get">
+		<h3>{{ searchBoxWithLinks.form.headingText }}</h3>
+
+		<div class="ma__keyword-search js-keyword-search">
+			<label class="ma__visually-hidden">
+        {{ searchBoxWithLinks.form.visuallyHiddenText }}
+      </label>
+
+			<input class="ma__keyword-search__input" name="title" id="q" type="text" placeholder="{{ searchBoxWithLinks.form.headingText }}">
+
+        {% set buttonSearch = {
+          'text' : searchBoxWithLinks.form.submitText,
+          'usage': 'secondary'
+        } %}
+        {% include "@atoms/01-buttons/button-search.twig" %}
+		</div>
+
+	</form>
+
+	<div class="ma__search-box-with-links__secondary">
+		<h3>{{ searchBoxWithLinks.secondary.heading }}</h3>
+		<ul>
+      <li>
+        {% set decorativeLink = searchBoxWithLinks.secondary.firstLink %}
+        {% include "@atoms/decorative-link.twig" %}
+      </li>
+
+      {% set decorativeLink = searchBoxWithLinks.secondary.secondLink %}
+      {% if decorativeLink %}
+        <li>
+          {% include "@atoms/decorative-link.twig" %}
+        </li>
+      {% endif %}
+		</ul>
+	</div>
+</div>
