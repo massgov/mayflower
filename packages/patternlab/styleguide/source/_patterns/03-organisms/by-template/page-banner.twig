@@ -17,18 +17,18 @@
       '.ma__page-banner__image' : '.ma__page-banner'
   %}
 
-  {# Optional pageBanner.bgNarrow #}
-  {% if bgNarrowClasss %}
-    <style>
-    {{ classBgImage }} {
-      background-image: url('{{ pageBanner.bgNarrow }}');
-    }
-    </style>
-  {% endif %}
-
-  {# Optional pageBanner.bgWide #}
+  {# pageBanner.bgWide #}
   {% if bgWideClass %}
     <style>
+      {% if pageBanner.renderImageOnMobile %}
+        {# Optional pageBanner.bgNarrow #}
+        {{ classBgImage }} {
+          background-image: url('{{ (bgNarrowClass) ? pageBanner.bgNarrow : pageBanner.bgWide }}');
+        }
+      {% else %}
+         {% set imageOnMobileClass = "ma__page-banner__container-wrapper--no-mobile-image" %}
+      {% endif %}
+
       @media (min-width: 781px) {
         {{ classBgImage }} {
           background-image: url('{{ pageBanner.bgWide }}');
@@ -36,7 +36,8 @@
       }
     </style>
   {% endif %}
-  <div class="ma__page-banner__container">
+
+  <div class="ma__page-banner__container {{ imageOnMobileClass }}">
     {% if (pageBanner.size and pageBanner.size == "columns") or linkedClass %}
       <div class="ma__page-banner__image"></div>
     {% endif %}

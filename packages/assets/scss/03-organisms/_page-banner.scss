@@ -1,7 +1,7 @@
 @use "00-base/configure" as *;
 
 $page-banner-icon-width: $column + $gutter;
-$page-banner-height: 330px;
+$page-banner-height: 273px;
 $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .ma__page-banner {
@@ -12,7 +12,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   position: relative;
 
-  @media ($bp-x-small-min) {
+  @media ($bp-medium-min) {
     height: 300px;
     margin-bottom: 40px;
   }
@@ -25,7 +25,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     h1 {
       font-size: $fonts-2xlarge;
 
-      @media ($bp-small-min) {
+      @media ($bp-medium-min) {
         font-size: $fonts-xlarge;
       }
     }
@@ -36,26 +36,17 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &--overlay {
-    height: auto;
 
-    .ma__page-banner__content-wrapper {
-      transform: none;
-    }
-  }
-
-  &.ma__page-banner--overlay.ma__page-banner--bg-wide {
-
-    @media ($bp-medium-min) {
+    @media ($bp-large-min) {
       height: 400px;
     }
 
-    .ma__page-banner__container {
-
-      .ma__page-banner__content {
-
-        @media ($bp-medium-min) {
-          transform: translateY(-50%);
-        }
+    .ma__page-banner__content-wrapper {
+      width: 100%;
+      transform: none;
+      
+      @media ($bp-large-min) {
+        width: calc(100% - 295px);
       }
     }
   }
@@ -95,7 +86,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       position: absolute;
       top: 0;
       right: 0;
-      bottom: 0;
+      bottom: 1px;
       left: 500px;
       background-size: cover;
       background-position: center;
@@ -147,6 +138,19 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 
+  &--large {
+    @media ($bp-medium-min) {
+      height: 100%;
+    }
+  }
+
+  &--large &__container {
+    @media ($bp-large-min) {
+      height: 100%;
+      min-height: $page-banner-height;
+    }
+  }
+
   &--columns &__container {
 
     @include clearfix;
@@ -178,52 +182,29 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     align-items: center;
     flex-wrap: wrap;
     font-size: $fonts-xsmall;
-
-    .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
-    .ma__page-banner--overlay.ma__page-banner--bg-wide & {
-
-      @media ($bp-large-min) {
-        max-width: 1050px;
-      }
-    }
-
+    max-width: 1050px;
     padding: 30px 25px 45px 0;
     z-index: 1;
     top: -50%;
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       margin-right: 70px;
       padding-top: 50px;
       padding-right: 80px;
+      position: absolute;
       top: 50%;
       transform: translateY(-50%) skew(-30deg);
-      position: relative;
-    }
-
-    .ma__page-banner--overlay.ma__page-banner--bg-narrow & {
-      position: static;
-      transform: translateY(0%);
-    }
-
-    .ma__page-banner--overlay.ma__page-banner--bg-wide & {
-      position: static;
-      transform: translateY(0%);
-
-      @media ($bp-medium-min) {
-        position: absolute;
-        transform: translateY(-50%);
-      }
     }
 
     &:before {
       content: "";
       height: 100%;
       top: 0;
-      right: 100%;
+      right: 99%;
       position: absolute;
       width: 50vw;
 
-      @media ($bp-x-small-min) {
+      @media ($bp-medium-min) {
         right: 99%; // weird gap when skewed is shown
       }
     }
@@ -232,26 +213,10 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &__content-wrapper {
     z-index: 1;
 
-
-     @media ($bp-x-small-min) {
+     @media ($bp-medium-min) {
       transform: skew(30deg);
       display: flex;
       flex-wrap: wrap;
-    }
-
-    .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
-    .ma__page-banner--overlay.ma__page-banner--bg-wide & {
-
-      @media ($bp-large-min) {
-        width: 55vw;
-      }
-    }
-
-    .ma__page-banner--overlay &--bg-wide {
-
-      @media ($bp-medium-min) {
-        text-shadow: $text-shadow;
-      }
     }
   }
 
@@ -259,7 +224,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: $fonts-2xsmall;
     padding: 25px 25px 40px 0;
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       padding-top: 45px;
       padding-right: 80px;
     }
@@ -269,21 +234,27 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
     height: 100%;
-    max-width: 640px;
     position: relative;
+    background-color: $c-primary-alt;
+    background-image: none;
 
-    @media ($bp-x-small-min) {
+    @media ($bp-large-min) {
+      min-height: $page-banner-height;
+    }
+
+    @media ($bp-medium-min) {
       margin-right: 105px;
       top: 0;
       transform: skew(-30deg);
+      max-width: 640px;
     }
   }
 
   &--overlay &__content {
-    padding: 25px 20px 25px 0;
+    padding: 40px 20px 40px 0;
 
-    @media ($bp-x-small-min) {
-      transform: translateY(0%);
+    @media ($bp-medium-min) {
+      transform: translateY(-50%);
       padding-right: 0;
     }
 
@@ -298,7 +269,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     position: relative;
     top: 0;
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       position: relative;
       top: calc(#{$page-banner-height} / 2);
     }
@@ -368,7 +339,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &--large &__title,
   &--small &__title {
 
-    @media ($bp-small-min) {
+    @media ($bp-medium-min) {
       font-size: $fonts-7xlarge;
     }
 
@@ -379,14 +350,14 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &--overlay &__title {
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       width: calc(100% - 75px);
     }
   }
 
   &__icon + &__title {
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
       width: calc(100% - 75px);
     }
 
@@ -413,14 +384,9 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-top: 0.8em;
     top: $page-banner-height;
 
-    .ma__page-banner--overlay.ma__page-banner--bg-narrow &,
-    .ma__page-banner--overlay.ma__page-banner--bg-wide & {
-
-      @media ($bp-large-min) {
+    @media ($bp-large-min) {
       max-width: 820px;
-      }
     }
-
   }
 
   .ma__decorative-link a,
@@ -430,9 +396,10 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   .ma__decorative-link + &__description,
   &__unlinked-title + &__description {
-    margin-top: 0;
-    font-weight: lighter;
+    margin-top: .5rem;
+    font-weight: $fonts-normal;
     width: 100%;
+    font-size: $fonts-large;
   }
 
   &__content-wrapper &__description {
@@ -519,6 +486,12 @@ $page-banner-inner-width: 612px;
     }
   }
 
+  &--blue &__content-wrapper { 
+    @media ($bp-medium-min) {
+      text-shadow: $text-shadow;
+    }
+  }
+
   &__content {
     background-image: linear-gradient(-90deg, rgba($c-primary-alt, .7), $c-primary-alt 95%);
 
@@ -537,8 +510,6 @@ $page-banner-inner-width: 612px;
 
   &--overlay &__content {
     background-image: none;
-    padding-top: 40px;
-    padding-bottom: 40px;
   }
 
   &--columns &__content {
@@ -547,7 +518,7 @@ $page-banner-inner-width: 612px;
       background-color: rgba($c-primary-alt,.7);
     }
 
-    @media ($bp-x-small-min) {
+    @media ($bp-medium-min) {
 
       &:after {
         background-color: transparent;
@@ -555,16 +526,16 @@ $page-banner-inner-width: 612px;
     }
   }
 
+  &--linked &__content {
+    background-color: $c-primary-alt;
+    background-image: none;
+  }
+
   &--linked &__container {
 
     @media ($bp-large-extended) {
       background-color: $c-primary-alt;
     }
-  }
-
-  &--linked &__content {
-    background-color: $c-primary-alt;
-    background-image: none;
   }
 
 
@@ -585,8 +556,6 @@ $page-banner-inner-width: 612px;
   &__description {
     color: $c-font-inverse;
     font-weight: $fonts-normal;
-    font-size: $fonts-large;
-    line-height: 1.4;
 
     .ma__page-banner__descriptionSubText {
       display: block;
