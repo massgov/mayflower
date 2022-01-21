@@ -361,7 +361,7 @@ $breadcrumbs-scrollbar-height: 12px;
   }
 
   &--light {
-    background-color: transparent;
+    background-color: $c-white;
   }
 
   &--light &__items {
