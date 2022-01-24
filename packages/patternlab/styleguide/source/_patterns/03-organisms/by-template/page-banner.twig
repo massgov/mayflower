@@ -5,7 +5,8 @@
 {% set linkedClass = pageBanner.primaryLink ? "ma__page-banner--linked" : '' %}
 {% set bgNarrowClass = pageBanner.bgNarrow ? "ma__page-banner--bg-narrow" : "" %}
 {% set bgWideClass = pageBanner.bgWide ? "ma__page-banner--bg-wide" : "" %}
-{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{linkedClass} #{bgNarrowClass} #{bgWideClass}" %}
+{% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner--no-img-mobile" %}
+{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{linkedClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass}" %}
 
 {% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
 {% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
@@ -25,8 +26,6 @@
         {{ classBgImage }} {
           background-image: url('{{ (bgNarrowClass) ? pageBanner.bgNarrow : pageBanner.bgWide }}');
         }
-      {% else %}
-         {% set imageOnMobileClass = " ma__page-banner__container-wrapper--no-mobile-image" %}
       {% endif %}
 
       @media (min-width: 781px) {
@@ -37,7 +36,7 @@
     </style>
   {% endif %}
 
-  <div class="ma__page-banner__container  {{ imageOnMobileClass }}">
+  <div class="ma__page-banner__container">
     {% if ((pageBanner.size and pageBanner.size == "columns") or linkedClass) and bgWideWrapperClass %}
       <div class="ma__page-banner__image"></div>
     {% endif %}

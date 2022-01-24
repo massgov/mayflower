@@ -185,6 +185,19 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 
+  &--no-img-mobile {
+    
+    @media ($bp-large-extended) {
+      &:after {
+        display: none;
+      }
+  
+      .ma__page-banner__image{
+        display: none;
+      }
+    }
+  }
+
   &--large {
 
     @media ($bp-medium-min) {
@@ -212,6 +225,12 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       clear: both;
       content: "";
       display: table;
+    }
+  }
+
+  &--small &__container {
+    @media ($bp-medium-max) {
+      background-color: $c-primary-alt;
     }
   }
 
