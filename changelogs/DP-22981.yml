@@ -1,6 +1,0 @@
-Changed:
-  - project: PatternLab
-    component: Figure
-    description: Fixing image displaying when right aligned.
-    issue: DP-22981
-    impact: Minor
