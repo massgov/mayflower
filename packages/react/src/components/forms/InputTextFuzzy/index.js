@@ -189,6 +189,8 @@ class InputTextFuzzy extends React.Component {
       'ma__input-typeahead--disabled': disabled,
       'ma__input-typeahead--boxed': boxed
     });
+
+    const inputTextTypeAheadId = 'org-typeahed-input';
     return(
       <>
         {label && (
@@ -196,7 +198,7 @@ class InputTextFuzzy extends React.Component {
             {label}
           </Label>
         )}
-        <div className={inputTextTypeAheadClasses}>
+        <div className={inputTextTypeAheadClasses} id={inputTextTypeAheadId}>
           <Autosuggest {...autoProps} />
         </div>
       </>

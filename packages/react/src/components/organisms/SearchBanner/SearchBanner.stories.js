@@ -30,6 +30,8 @@ export const SearchBannerExample = (args) => {
     props.searchBox.orgDropdown = {
       dropdownButton: {
         text: ('All Organizations'),
+        'aria-describedby': 'toggle-org-filter',
+        'aria-controls': 'org-typeahed-input',
         capitalized: true
       },
       inputText: {
