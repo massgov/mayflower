@@ -1,6 +1,6 @@
 {
   "breadcrumbs":{
-    "light": "true",
+    "light": true,
     "links": [{
       "text": "Home",
       "url": "/"
