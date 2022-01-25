@@ -5,6 +5,9 @@
 <main id="main-content" class="ma__policy-advisory" tabindex="-1">
   <div class="pre-content">
     {% block preContent %}
+      {% if breadcrumbs %}
+        {% include "@organisms/by-template/breadcrumbs.twig" %}
+      {% endif %}
       {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
       {% include "@organisms/by-template/page-header-addons.twig" %}

@@ -87,44 +87,37 @@
     "parent": ".ma__policy-advisory__content",
     "sections": ".page-content h2.ma__comp-heading"
   },
+  "breadcrumbs":{
+    "light": true,
+    "links": [
+      {
+        "url": "#",
+        "text": "Snowmobile in the Parks"
+      },
+      {
+        "url": "#",
+        "text": "Cross-Country Skiing"
+      },
+      {
+        "url": "#",
+        "text": "Accessible Hiking"
+      },
+      {
+        "url": "#",
+        "text": "Scenic Viewing Areas"
+      },
+      {
+        "url": "#",
+        "text": "Hunting"
+      },
+      {
+        "url": "#",
+        "text": "Biking"
+      }
+    ]
+  },
   "relationshipIndicators": {
     "pageTitle": "Department of Public Health v. Deli Market",
-    "primary": {
-      "position": "primary",
-      "label": "part of",
-      "tags": [
-        {
-          "class": "",
-          "href": "#",
-          "title": "Snowmobile in the Parks"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Cross-Country Skiing"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Accessible Hiking"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Scenic Viewing Areas"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Hunting"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Biking"
-        }
-      ]
-    },
     "secondary": {
       "position": "",
       "label": "offered by",
