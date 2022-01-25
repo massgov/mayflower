@@ -1,22 +1,20 @@
 {
+  "breadcrumbs":{
+    "light": true,
+    "links": [{
+      "text": "Home",
+      "url": "/"
+    },{
+      "text": "Unemployment",
+      "url": "/"
+    },
+    {
+      "text": "Training & Assistance",
+      "url": "/"
+    }]
+  },
   "relationshipIndicators": {
     "pageTitle": "",
-    "primary": {
-      "position": "primary",
-      "label": "offered by",
-      "tags": [
-        {
-          "class": "",
-          "href": "#",
-          "title": "Department of Conservation and Recreation"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Other agency or organization"
-        }
-      ]
-    },
     "secondary": {
       "position": "",
       "label": "related to",
