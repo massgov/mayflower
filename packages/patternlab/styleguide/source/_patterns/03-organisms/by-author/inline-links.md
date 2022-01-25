@@ -7,7 +7,7 @@ It provides an alternative background using the "background" variable.
 ~~~
 inlineLinks: {
   ariaLabel: string / optional
-  background: [{null, "alternative"}] / optional
+  background: [{null, "gray"}] / optional
   links: [{
     text:
       type: string / required,

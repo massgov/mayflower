@@ -1,6 +1,6 @@
 {% if inlineLinks.links %}
-  <section class="ma__inline-links {{ (inlineLinks.background)?"ma__inline-links--"~inlineLinks.background:"" }}">
-    <nav class="ma__inline-links__container" role="navigation" {% if inlineLinks.ariaLabel %} aria-label="{{ inlineLinks.ariaLabel }} {% endif %}">
+  <div class="ma__inline-links {{ (inlineLinks.background)?"ma__inline-links--bg-"~inlineLinks.background:"" }}">
+    <nav class="ma__inline-links__container" {% if inlineLinks.ariaLabel %} aria-label="{{ inlineLinks.ariaLabel }} {% endif %}">
       {% for link in inlineLinks.links %}
         <div class="ma__inline-links__item">
           {% if link.href %}
@@ -11,5 +11,5 @@
         </div>
       {% endfor %}
     </nav>
-  </section>
+  </div>
 {% endif %}

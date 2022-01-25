@@ -20,6 +20,7 @@
 
     &:after {
       content: "";
+      background: $c-gray-light;
       margin: 0 10px;
       width: 1px;
       height: $fonts-xsmall;
@@ -33,6 +34,7 @@
       line-height: 1rem;
       text-decoration: none;
       box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
+      font-weight: $fonts-normal;
 
       &:hover {
         box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary, 0.7);
@@ -41,29 +43,11 @@
 
     span {
       white-space: nowrap;
-    }
-  }
-}
-
-//theme
-
-.ma__inline-links {
-  &__item {
-
-    &:after {
-      background: $c-gray-light;
-    }
-
-    a {
-      font-weight: $fonts-normal;
-    }
-
-    span {
       color: $c-font-detail;
     }
   }
 
-  &--alternative {
+  &--bg-gray {
     background: $c-gray-lightest;
 
     .ma__inline-links_item {
