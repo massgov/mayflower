@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block preContent %}
+  {% include "@organisms/by-template/breadcrumbs.twig" %}
   {% include "@molecules/relationship-indicators.twig" %}
   {% for navSection in binderNavigationSections %}
     {% set tableOfContentsOverlay = navSection.tableOfContents %}
