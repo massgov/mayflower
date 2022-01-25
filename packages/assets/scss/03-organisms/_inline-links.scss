@@ -7,12 +7,14 @@
 
   &__container {
     @include ma-container;
+    margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
   }
 
   &__item {
+    list-style: none;
     font-size: $fonts-xsmall;
     display: flex;
     align-items: center;
