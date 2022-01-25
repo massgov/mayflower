@@ -1,42 +1,20 @@
 {
   "flexibleLinkGroup": 1,
-  "relationshipIndicators": {
-    "primary": {
-      "position": "primary",
-      "label": "part of",
-      "tags": [
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Snowmobile in the Parks"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Cross-Country Skiing"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Accessible Hiking"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Scenic Viewing Areas"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Hunting"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Biking"
-        }
-      ]
+  "breadcrumbs":{
+    "light": true,
+    "links": [{
+      "text": "Home",
+      "url": "/"
+    },{
+      "text": "Unemployment",
+      "url": "/"
     },
+    {
+      "text": "Training & Assistance",
+      "url": "/"
+    }]
+  },
+  "relationshipIndicators": {
     "secondary": {
       "position": "",
       "label": "offered by",
