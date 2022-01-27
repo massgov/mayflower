@@ -1,0 +1,65 @@
+@use "00-base/configure" as *;
+
+.ma__inline-links {
+  @media print {
+    display: none;
+  }
+
+  &__container {
+    @include ma-container;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  &__item {
+    list-style: none;
+    font-size: $fonts-xsmall;
+    display: flex;
+    align-items: center;
+    min-height: 1.9rem;
+
+    &:after {
+      content: "";
+      background: $c-gray-light;
+      margin: 0 10px;
+      width: 1px;
+      height: $fonts-xsmall;
+    }
+
+    &:last-of-type:after {
+      content: none;
+    }
+
+    a {
+      line-height: 1rem;
+      text-decoration: none;
+      box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
+      font-weight: $fonts-normal;
+
+      &:hover {
+        box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary, 0.7);
+      }
+    }
+
+    span {
+      white-space: nowrap;
+      color: $c-font-detail;
+    }
+  }
+
+  &--bg-gray {
+    background: $c-gray-lightest;
+
+    .ma__inline-links_item {
+      &:after {
+        background: $c-gray;
+      }
+
+      span {
+        color: $c-font-base;
+      }
+    }
+  }
+}
