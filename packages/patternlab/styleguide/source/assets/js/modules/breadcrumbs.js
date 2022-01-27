@@ -16,8 +16,10 @@ export default (function (window, document, $) {
 
       // Start by scrolling right if there are more items than the viewport allows.
       if ($breadcrumbsContainer[0].scrollWidth > $breadcrumbs.width() + 40) {
-        $breadcrumbsContainer.scrollLeft($breadcrumbsContainer[0].scrollWidth);
-        $breadcrumbs.addClass('ma__breadcrumbs--mobile-scroll');
+        setTimeout(() => {
+          $breadcrumbsContainer.scrollLeft($breadcrumbsContainer[0].scrollWidth);
+          $breadcrumbs.addClass('ma__breadcrumbs--mobile-scroll');
+        }, 10);
       }
 
       // On breadcrumb scrolling, add or remove the left / right fading.
@@ -33,7 +35,7 @@ export default (function (window, document, $) {
         var newScrollLeft = $breadcrumbsContainer.scrollLeft(),
           width = $breadcrumbsContainer.outerWidth(),
           scrollWidth = $breadcrumbsContainer.get(0).scrollWidth;
-        if (scrollWidth - newScrollLeft == width) {
+        if (scrollWidth - newScrollLeft - width < 1) { 
           $breadcrumbs.removeClass("ma__breadcrumbs--fade-right");
         } else {
           $breadcrumbs.addClass("ma__breadcrumbs--fade-right");
