@@ -1,11 +1,13 @@
 @use "00-base/configure" as *;
 
 .ma__inline-links {
+
   @media print {
     display: none;
   }
 
   &__container {
+
     @include ma-container;
     margin-bottom: 0;
     display: flex;
@@ -53,6 +55,7 @@
     background: $c-gray-lightest;
 
     .ma__inline-links_item {
+
       &:after {
         background: $c-gray;
       }
