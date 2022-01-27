@@ -14,13 +14,13 @@ export default (function (window, document, $) {
       $breadcrumbs.addClass('ma__breadcrumbs--mobile');
       $breadcrumbs.removeClass('ma__breadcrumbs--desktop');
 
-      // Start by scrolling right if there are more items than the viewport allows.
-      if ($breadcrumbsContainer[0].scrollWidth > $breadcrumbs.width() + 40) {
-        setTimeout(() => {
-          $breadcrumbsContainer.scrollLeft($breadcrumbsContainer[0].scrollWidth);
+      // Start by scrolling right if there are more items than the viewport allows. 
+      window.addEventListener("load", (event) => {
+        if($breadcrumbsContainer[0].offsetWidth < $breadcrumbsContainer[0].scrollWidth ) {
+          $breadcrumbsContainer[0].scrollLeft = $breadcrumbsContainer[0].scrollWidth;
           $breadcrumbs.addClass('ma__breadcrumbs--mobile-scroll');
-        }, 10);
-      }
+        }
+      });     
 
       // On breadcrumb scrolling, add or remove the left / right fading.
       $breadcrumbsContainer.on("scroll", function () {
