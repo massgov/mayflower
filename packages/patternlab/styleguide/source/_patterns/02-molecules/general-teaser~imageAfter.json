@@ -1,10 +1,11 @@
 {
   "generalTeaser" : {
+    "imageAfter": true,
     "image": {
-      "src": "../../assets/images/placeholder/172x228.png",
+      "src": "../../assets/images/placeholder/400x225.png",
       "alt": "placeholder image",
-      "width": "172",
-      "height": "228"
+      "width": "400",
+      "height": "225"
     },
     "eyebrow": "Eyebrow",
     "title" : {
