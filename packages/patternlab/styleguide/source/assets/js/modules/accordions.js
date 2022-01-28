@@ -135,12 +135,6 @@ export default (function (window,document,$,undefined) {
   function init(index){
     let $el = $(this);
 
-    // Avoids applying the same behavior twice.
-    if ($el.data('mayflowerAccordionProcessed')) {
-      return;
-    }
-    $el.data('mayflowerAccordionProcessed', 1);
-
     let ind = '';
     const isExtended = $el.parents('.ma__collapsible-content--extended').length;
 
