@@ -134,7 +134,6 @@ export default (function (window,document,$,undefined) {
   // Initialize each accordion item.
   function init(index){
     let $el = $(this);
-
     let ind = '';
     const isExtended = $el.parents('.ma__collapsible-content--extended').length;
 
