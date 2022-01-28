@@ -11,6 +11,15 @@ export default (function (window,document,$,undefined) {
   }
 
   $jsAccordion.each(function(index){
+
+    // To ensure applying js-accordion only once.
+    // Also to identify when this behavior has been
+    // applied from external scripts.
+    if ($(this).data("js-accordion")) {
+      return;
+    }
+    $(this).data("js-accordion", 1);
+
     init.apply(this, [index]);
   });
 
@@ -125,6 +134,13 @@ export default (function (window,document,$,undefined) {
   // Initialize each accordion item.
   function init(index){
     let $el = $(this);
+
+    // Avoids applying the same behavior twice.
+    if ($el.data('mayflowerAccordionProcessed')) {
+      return;
+    }
+    $el.data('mayflowerAccordionProcessed', 1);
+
     let ind = '';
     const isExtended = $el.parents('.ma__collapsible-content--extended').length;
 
