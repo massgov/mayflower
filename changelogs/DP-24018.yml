@@ -51,7 +51,7 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Changed:
+Fixed:
   - project: Patternlab
     component: KeyMessage
     description: Fix the halfImage check that result in overlapping content on promo page. (#1588) 
