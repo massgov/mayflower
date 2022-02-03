@@ -2,29 +2,31 @@
 {% set layout = generalTeaser.layout ?: 'side-by-side' %}
 
 <section class="ma__general-teaser {{ imageClass }} {{ layout }}">
-  {% block teaserImage %}
-    {% if generalTeaser.image.src %}
+  {% if generalTeaser.imageAfter != true %}
+    {% block teaserImage %}
+      {% if generalTeaser.image.src %}
 
-      {% if generalTeaser.title.href %}
-        <a
-        class="ma__general-teaser__image-wrapper"
-        href="{{ generalTeaser.title.href }}"
-        title="{{ generalTeaser.title.text }}">
-      {% else %}
-        <span class="ma__general-teaser__image-wrapper">
+        {% if generalTeaser.title.href %}
+          <a
+          class="ma__general-teaser__image-wrapper"
+          href="{{ generalTeaser.title.href }}"
+          title="{{ generalTeaser.title.text }}">
+        {% else %}
+          <span class="ma__general-teaser__image-wrapper">
+        {% endif %}
+
+        {% set image = generalTeaser.image %}
+        {% include "@atoms/09-media/image.twig" %}
+
+        {% if generalTeaser.title.href %}
+          </a>
+        {% else %}
+          </span>
+        {% endif %}
+
       {% endif %}
-
-      {% set image = generalTeaser.image %}
-      {% include "@atoms/09-media/image.twig" %}
-
-      {% if generalTeaser.title.href %}
-        </a>
-      {% else %}
-        </span>
-      {% endif %}
-
-    {% endif %}
-  {% endblock %}
+    {% endblock %}
+  {% endif %}
 
   {% if layout == 'inline-image' %}
     <div class="ma__general-teaser__header">
@@ -94,6 +96,10 @@
       <span class="ma__general-teaser__tag">{{ tag }}</span>
       {% endfor %}
     </div>
+  {% endif %}
+
+  {% if generalTeaser.imageAfter %}
+    {{ block('teaserImage') }}
   {% endif %}
 
 </section>

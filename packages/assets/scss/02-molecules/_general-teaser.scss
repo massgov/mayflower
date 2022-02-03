@@ -51,6 +51,7 @@
     font-size: 0;
     margin-right: 30px;
     margin-bottom: 10px;
+    max-width: 100%;
   }
 
   &__image-wrapper + &__details {
@@ -144,6 +145,10 @@
     }
   }
 
+  &__tags {
+    width: 100%;
+  }
+
   &__tag {
     color: $c-gray;
     font-size: $fonts-2xsmall;
@@ -155,5 +160,6 @@
     min-width: 60px;
     display: inline-block;
     margin-right: 0.5em;
+    margin-bottom: 0.5em;
   }
 }
