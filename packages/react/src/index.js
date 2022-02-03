@@ -169,7 +169,6 @@ export TabContext from 'MayflowerReactOrganisms/TabContainer/context';
 export TeaserListing from 'MayflowerReactOrganisms/TeaserListing';
 export CalloutAlert from 'MayflowerReactOrganisms/CalloutAlert';
 export HelpTip from 'MayflowerReactOrganisms/HelpTip';
-export EmergencyAlerts from 'MayflowerReactOrganisms/EmergencyAlerts';
 
 // @templates
 export NarrowTemplate from 'MayflowerReactTemplates/NarrowTemplate';
