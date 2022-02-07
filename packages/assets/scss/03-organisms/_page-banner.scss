@@ -56,7 +56,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &--large &__container {
 
-    @media ($bp-large-min) {
+    @media ($bp-large-extended-min) {
       height: 100%;
       min-height: $page-banner-height;
       display: flex;
@@ -76,10 +76,10 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     align-items: center;
     flex-wrap: wrap;
     font-size: $fonts-xsmall;
-    max-width: 1050px;
     padding: 30px 25px 45px 0;
     z-index: 1;
     top: -50%;
+    transform: none;
 
     @media ($bp-large-extended-min) {
       margin-right: 70px;
@@ -98,7 +98,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       position: absolute;
       width: 50vw;
 
-      @media ($bp-medium-min) {
+      @media ($bp-large-extended-min) {
         right: 99%; // weird gap when skewed is shown
       }
     }
@@ -107,7 +107,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &__content-wrapper {
     z-index: 1;
 
-     @media ($bp-medium-min) {
+     @media ($bp-large-extended-min) {
       transform: skew(30deg);
       display: flex;
       flex-wrap: wrap;
@@ -118,7 +118,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: $fonts-2xsmall;
     padding: 25px 25px 40px 0;
 
-    @media ($bp-medium-min) {
+    @media ($bp-large-extended-min) {
       padding-top: 45px;
       padding-right: 80px;
     }
@@ -133,14 +133,11 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-image: none;
     width: 100%;
 
-    @media ($bp-medium-min) {
+    @media ($bp-large-extended-min) {
       margin-right: 105px;
       top: 0;
       transform: skew(-30deg);
       padding: 30px 25px 45px 0;
-    }
-
-    @media ($bp-large-extended-min) {
       min-height: $page-banner-height;
       max-width: 640px;
       margin-right: 70px;
@@ -235,13 +232,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 
-  &--overlay &__title {
-
-    @media ($bp-medium-min) {
-      width: calc(100% - 75px);
-    }
-  }
-
   &__icon + &__title {
 
     @media ($bp-medium-min) {
@@ -292,10 +282,21 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           display: flex;
           align-items: stretch;
         }
+
+        &:before {
+          content: '';
+          height: 100%;
+          left: 50%;
+          position: absolute;
+          transform: translateX(-50%);
+          width: 100vw;
+        }
       }
 
       .ma__page-banner__content-wrapper {
         height: 100%;
+        width: 100%;
+        transform: none;
 
         @media ($bp-large-extended-min) {
           display: flex;
@@ -315,26 +316,9 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
 
-    .ma__page-banner__container {
-
-      &:before {
-        content: '';
-        height: 100%;
-        left: 50%;
-        position: absolute;
-        transform: translateX(-50%);
-        width: 100vw;
-      }
-    }
-
-    .ma__page-banner__content-wrapper {
-      width: 100%;
-      transform: none;
-    }
-
     .ma__page-banner__description {
 
-      @media ($bp-large-min) {
+      @media ($bp-large-extended-min) {
         max-width:  100%;
       }
     }
@@ -405,10 +389,18 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 
+  &--overlay &__title {
+
+    @media ($bp-medium-min) {
+      width: calc(100% - 75px);
+    }
+  }
+
   &--linked &__content {
     position: static;
     height: auto;
   }
+
   // end of linked variant
 
 
