@@ -1,16 +1,18 @@
 {% set sizeClass = pageBanner.size ? "ma__page-banner--" ~ pageBanner.size : '' %}
-
 {% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
 
 {% set linkedClass = pageBanner.primaryLink ? "ma__page-banner--linked" : '' %}
-{% set bgNarrowClass = pageBanner.bgNarrow ? "ma__page-banner--bg-narrow" : "" %}
-{% set bgWideClass = pageBanner.bgWide ? "ma__page-banner--bg-wide" : "" %}
 {% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner--no-img-mobile" %}
-{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{linkedClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass}" %}
 
 {% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
 {% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
+{% set bgNarrowClass = pageBanner.bgNarrow ? "ma__page-banner--bg-narrow" : "" %}
+{% set bgWideClass = pageBanner.bgWide ? "ma__page-banner--bg-wide" : "" %}
+{% set noImage = (pageBanner.bgWide or pageBanner.bgNarrow) ? "" : "ma__page-banner--no-img" %}
+
 {% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass}" %}
+{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{linkedClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage}" %}
+
 
 <section class="{{ sectionClass }}">
   {% set classBgImage =
