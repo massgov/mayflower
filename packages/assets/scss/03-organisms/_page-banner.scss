@@ -52,22 +52,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
 
-  // blue background
-  &--blue {
-    background-color: $c-primary;
-
-    &:before {
-      background-color: $c-primary;
-    }
-
-    .ma__page-banner__content {
-      &:before {
-        background-color: $c-primary;
-      }
-    }
-  }
-
-
   // Do not render image on mobile
   &--no-img-mobile {
     
@@ -553,9 +537,28 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 //theme
+
+
 $page-banner-inner-width: 612px;
 
 .ma__page-banner {
+
+  // blue background
+  &--blue {
+    background-color: $c-primary;
+
+    &:before {
+      background-color: $c-primary;
+    }
+
+    &.ma__page-banner--small .ma__page-banner__content,
+    &.ma__page-banner--large .ma__page-banner__content {
+      background-color: $c-primary;
+      &:before {
+        background-color: $c-primary;
+      }
+    }
+  }
 
   &--columns &__content {
 
