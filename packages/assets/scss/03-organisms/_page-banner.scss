@@ -11,11 +11,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 20px;
   overflow: hidden;
   position: relative;
-  background-color: $c-primary-alt;
-
-  &:before {
-    background-color: $c-primary-alt;
-  }
 
   @media ($bp-large-extended-min) {
     margin-bottom: 40px;
@@ -381,15 +376,12 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
 
-
-
   &--small &__icon {
 
     @media ($bp-large-extended-min) {
       width: $column;
     }
   }
-
 
   // end of skewed background variant
 
@@ -464,6 +456,19 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &--columns &__content {
+
+    background-color: $c-primary-alt;
+
+    &:before {
+      content: "";
+      height: 100%;
+      top: 0;
+      right: 100%;
+      position: absolute;
+      width: 50vw;
+      background-color: $c-primary-alt;
+    }
+
     height: $page-banner-height;
     max-width: 700px;
     position: relative;
