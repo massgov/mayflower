@@ -261,119 +261,26 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &--large {
 
-    @media ($bp-large-extended-min) {
-      height: 100%;
-    }
-  }
-
-  &--large &__container {
-
-    padding-right: 0;
-
-    @media ($bp-large-extended-min) {
-      height: 100%;
-      min-height: $page-banner-height;
-      display: flex;
-    }
-  }
-
-  // &--small &__container {
-
-  //   @media ($bp-large-extended) {
-  //     background-color: $c-primary-alt;
-  //   }
-  // }
-
-  &--small &__content-wrapper,
-  &--large &__content-wrapper {
-    z-index: 1;
-
-      @media ($bp-large-extended-min) {
-      transform: skew(30deg);
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-
-  @mixin skewBG {
-      z-index: 1;
-      top: -50%;
-      transform: none;
-      background-color: $c-primary-alt;
-  
-      @media ($bp-large-extended-min) {
-        margin-right: 70px;
-        padding-top: 50px;
-        padding-right: 80px;
-        transform: skew(-30deg);
-
-        &::before {
-          content: "";
-          height: 100%;
-          top: 0;
-          right: 99%;
-          position: absolute;
-          width: 50vw;
-          right: 99%; // weird gap when skewed is shown
-        }
-      }
-  }
-
-  &--small &__content {
-
-    @include skewBG();
-    font-size: $fonts-2xsmall;
-    padding: 25px 25px 40px 0;
-
-
-    @media ($bp-large-extended-min) {
-      padding-top: 45px;
-      padding-right: 80px;
-    }
-  }
-
-  &--large &__content {
-
-    display: flex;
-    align-items: center;
-    height: 100%;
-    position: relative;
-    background-color: $c-primary-alt;
-    background-image: none;
-    width: 100%;
-
-    @media ($bp-large-extended-min) {
-      position: absolute;
-      top: 0;
-      transform: skew(-30deg);
-      padding: 30px 25px 45px 0;
-      min-height: $page-banner-height;
-      max-width: 640px;
-      margin-right: 70px;
-      padding-top: 50px;
-    }
-  }
-
-  &--small &__icon {
-
-    @media ($bp-large-extended-min) {
-      width: $column;
-    }
-  }
-  // end of skewed background variant
-
-  // Linked variant
-
-  &--large {
     position: relative;
     overflow: hidden;
     height: auto;
+
+    @media ($bp-large-extended-min) {
+      height: 100%;
+    }
   }
 
   &--large &__container {
+    padding-right: 0;
+    display: flex;
+
+    @media ($bp-large-extended-min) {
+      height: 100%;
+      min-height: $page-banner-height;
+    }
 
     @media ($bp-large-extended) {
-      display: flex;
+
       flex-direction: column-reverse;
       padding-left: 0;
       background-color: $c-primary-alt;
@@ -401,19 +308,90 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     .ma__page-banner__content {
-      position: static;
-      height: auto;
+      position: relative;
+      display: flex;
+      align-items: center;
       background-color: $c-primary-alt;
       background-image: none;
+      height: 100%;
+      width: 100%;
 
       @media ($bp-large-extended) {
         @include ma-container();
       }
+
+      @media ($bp-large-extended-min) {
+        top: 0;
+        transform: skew(-30deg);
+        padding: 30px 25px 45px 0;
+        min-height: $page-banner-height;
+        max-width: 640px;
+        margin-right: 70px;
+        padding-top: 50px;
+      }
     }    
   }
 
+  @mixin skewBG {
+    z-index: 1;
+    top: -50%;
+    transform: none;
+    background-color: $c-primary-alt;
 
-  // end of linked variant
+    @media ($bp-large-extended-min) {
+      margin-right: 70px;
+      padding-top: 50px;
+      padding-right: 80px;
+      transform: skew(-30deg);
+
+      &::before {
+        content: "";
+        height: 100%;
+        top: 0;
+        right: 99%;
+        position: absolute;
+        width: 50vw;
+        right: 99%; // weird gap when skewed is shown
+      }
+    }
+  }
+
+  &--small &__content {
+
+    @include skewBG();
+    font-size: $fonts-2xsmall;
+    padding: 25px 25px 40px 0;
+
+
+    @media ($bp-large-extended-min) {
+      padding-top: 45px;
+      padding-right: 80px;
+    }
+  }
+
+  &--small &__content-wrapper,
+  &--large &__content-wrapper {
+    z-index: 1;
+
+      @media ($bp-large-extended-min) {
+      transform: skew(30deg);
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+
+
+
+  &--small &__icon {
+
+    @media ($bp-large-extended-min) {
+      width: $column;
+    }
+  }
+
+
+  // end of skewed background variant
 
 
   // column variant (to be deprecated)
