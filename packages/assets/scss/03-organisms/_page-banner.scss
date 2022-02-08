@@ -53,22 +53,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
 
-  // Do not render image on mobile
-
-  &--no-img-mobile {
-    
-    @media ($bp-large-extended) {
-
-      &:after {
-        display: none;
-      }
-  
-      .ma__page-banner__image {
-        display: none;
-      }
-    }
-  }
-
   .ma__decorative-link a,
   &__unlinked-title {
     font-weight: $fonts-normal;
@@ -380,18 +364,19 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   // Linked variant
 
-  &--linked {
+  &--large {
     position: relative;
     overflow: hidden;
     height: auto;
   }
 
-  &--linked &__container {
+  &--large &__container {
 
     @media ($bp-large-extended) {
       display: flex;
       flex-direction: column-reverse;
       padding-left: 0;
+      background-color: $c-primary-alt;
     }
 
     .ma__page-banner__image {
@@ -408,7 +393,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
 
       @media ($bp-large-extended) {
-        display: block;
         position: relative;
         width: 100%;
         height: 50vw;
@@ -419,12 +403,15 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     .ma__page-banner__content {
       position: static;
       height: auto;
+      background-color: $c-primary-alt;
+      background-image: none;
 
       @media ($bp-large-extended) {
         @include ma-container();
       }
     }    
   }
+
 
   // end of linked variant
 
@@ -537,12 +524,24 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 }
 
-//theme
-
-
-$page-banner-inner-width: 612px;
+// config
 
 .ma__page-banner {
+  // Do not render image on mobile
+
+  &--no-img-mobile {
+  
+    @media ($bp-large-extended) {
+
+      &:after {
+        display: none;
+      }
+  
+      .ma__page-banner__image {
+        display: none;
+      }
+    }
+  }
 
   // blue background
 
@@ -576,19 +575,6 @@ $page-banner-inner-width: 612px;
       }
     }
   }
-
-  &--linked &__content {
-    background-color: $c-primary-alt;
-    background-image: none;
-  }
-
-  &--linked &__container {
-
-    @media ($bp-large-extended) {
-      background-color: $c-primary-alt;
-    }
-  }
-
 
 
   &__icon {
