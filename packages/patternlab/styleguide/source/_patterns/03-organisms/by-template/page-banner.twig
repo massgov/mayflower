@@ -1,7 +1,7 @@
 {% set sizeClass = pageBanner.size ? "ma__page-banner--" ~ pageBanner.size : '' %}
 {% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
 
-{% set linkedClass = pageBanner.primaryLink ? "ma__page-banner--linked" : '' %}
+{% set linkedClass = pageBanner.size == "large" ? "ma__page-banner--linked" : '' %}
 {% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner--no-img-mobile" %}
 
 {% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}

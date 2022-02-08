@@ -322,17 +322,14 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         padding-top: 50px;
         padding-right: 80px;
         transform: skew(-30deg);
-      }
-  
-      &:before {
-        content: "";
-        height: 100%;
-        top: 0;
-        right: 99%;
-        position: absolute;
-        width: 50vw;
-  
-        @media ($bp-large-extended-min) {
+
+        &::before {
+          content: "";
+          height: 100%;
+          top: 0;
+          right: 99%;
+          position: absolute;
+          width: 50vw;
           right: 99%; // weird gap when skewed is shown
         }
       }
@@ -353,7 +350,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &--large &__content {
 
-    @include skewBG();
     display: flex;
     align-items: center;
     height: 100%;
@@ -388,6 +384,15 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
     height: auto;
+  }
+
+  &--linked &__container {
+
+    @media ($bp-large-extended) {
+      display: flex;
+      flex-direction: column-reverse;
+      padding-left: 0;
+    }
 
     .ma__page-banner__image {
       position: absolute;
@@ -403,23 +408,22 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
 
       @media ($bp-large-extended) {
-        left: 0;
-        top: 100%;
+        display: block;
+        position: relative;
+        width: 100%;
         height: 50vw;
+        left: 0;
       }
     }
-  }
 
-  &--linked &__container {
-
-    @media ($bp-large-extended) {
+    .ma__page-banner__content {
+      position: static;
       height: auto;
-    }
-  }
 
-  &--linked &__content {
-    position: static;
-    height: auto;
+      @media ($bp-large-extended) {
+        @include ma-container();
+      }
+    }    
   }
 
   // end of linked variant
