@@ -1,7 +1,6 @@
 {% set sizeClass = pageBanner.size ? "ma__page-banner--" ~ pageBanner.size : '' %}
 {% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
 
-{% set linkedClass = pageBanner.size == "large" ? "ma__page-banner--linked" : '' %}
 {% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner--no-img-mobile" %}
 
 {% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
@@ -11,12 +10,12 @@
 {% set noImage = (pageBanner.bgWide or pageBanner.bgNarrow) ? "" : "ma__page-banner--no-img" %}
 
 {% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass}" %}
-{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{linkedClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage}" %}
+{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage}" %}
 
 
 <section class="{{ sectionClass }}">
   {% set classBgImage =
-    (pageBanner.size == "columns" or linkedClass) ?
+    (pageBanner.size == "columns" or pageBanner.size == "large" or pageBanner.size == "small") ?
       '.ma__page-banner__image' : '.ma__page-banner'
   %}
 
@@ -39,7 +38,7 @@
   {% endif %}
 
   <div class="ma__page-banner__container">
-    {% if ((pageBanner.size and pageBanner.size == "columns") or linkedClass) and bgWideWrapperClass %}
+    {% if ((pageBanner.size and pageBanner.size == "columns") or pageBanner.size == "large" or pageBanner.size == "small") and bgWideWrapperClass %}
       <div class="ma__page-banner__image"></div>
     {% endif %}
     <div class="ma__page-banner__content" property="mainEntityOfPage">

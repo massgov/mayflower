@@ -265,6 +265,29 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 
+  @mixin skewBG {
+    z-index: 1;
+    top: -50%;
+    transform: none;
+    background-color: $c-primary-alt;
+
+    @media ($bp-large-extended-min) {
+      margin-right: 70px;
+      padding-top: 50px;
+      padding-right: 80px;
+      transform: skew(-30deg);
+
+      &::before {
+        content: "";
+        height: 100%;
+        top: 0;
+        position: absolute;
+        width: 50vw;
+        right: 99%; // weird gap when skewed is shown
+      }
+    }
+  }
+
   &--large &__container {
     padding-right: 0;
     display: flex;
@@ -311,6 +334,8 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       height: 100%;
       width: 100%;
 
+      @include skewBG();
+
       @media ($bp-large-extended) {
         @include ma-container();
       }
@@ -325,29 +350,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         padding-top: 50px;
       }
     }    
-  }
-
-  @mixin skewBG {
-    z-index: 1;
-    top: -50%;
-    transform: none;
-    background-color: $c-primary-alt;
-
-    @media ($bp-large-extended-min) {
-      margin-right: 70px;
-      padding-top: 50px;
-      padding-right: 80px;
-      transform: skew(-30deg);
-
-      &::before {
-        content: "";
-        height: 100%;
-        top: 0;
-        position: absolute;
-        width: 50vw;
-        right: 99%; // weird gap when skewed is shown
-      }
-    }
   }
 
   &--small &__content {
