@@ -4,7 +4,7 @@
   "pageBanner": {
     "bgWide":"../../assets/images/placeholder/1600x400.png",
     "bgNarrow":"../../assets/images/placeholder/800x400.png",
-    "size":"small",
+    "size":"large",
     "icon":"lg-park",
     "title":"Visiting & Exploring"
   },
