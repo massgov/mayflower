@@ -343,7 +343,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         content: "";
         height: 100%;
         top: 0;
-        right: 99%;
         position: absolute;
         width: 50vw;
         right: 99%; // weird gap when skewed is shown
@@ -458,6 +457,10 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &--columns &__content {
 
     background-color: $c-primary-alt;
+    height: $page-banner-height;
+    max-width: 700px;
+    position: relative;
+    top: 0;
 
     &:before {
       content: "";
@@ -469,20 +472,24 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       background-color: $c-primary-alt;
     }
 
-    height: $page-banner-height;
-    max-width: 700px;
-    position: relative;
-    top: 0;
-
     @media ($bp-medium-min) {
       position: relative;
       top: calc(#{$page-banner-height} / 2);
-    }
-
-    @media ($bp-medium-min) {
       height: 100%;
-        top: 50px;
+      top: 50px;
       transform: skew(-30deg);
+
+      &:before {
+        right: 99%;
+      }
+    }
+  }
+
+  &--columns &__content-wrapper {
+    @media ($bp-medium-min) {
+      display: flex;
+      align-items: center;
+      transform: skew(30deg);
     }
   }
   // end of column variant
