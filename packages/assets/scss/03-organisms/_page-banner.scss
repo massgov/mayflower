@@ -22,6 +22,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &__container {
+
     @include ma-container;
     height: 100%;
     position: relative;
@@ -53,6 +54,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 
   // Do not render image on mobile
+
   &--no-img-mobile {
     
     @media ($bp-large-extended) {
@@ -173,6 +175,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   
 
   // Overlay variant
+
   &--overlay {
 
 
@@ -192,6 +195,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     .ma__page-banner__container {
+
       &:before {
         background-color: rgba($c-primary-alt, 0.8);
       }
@@ -270,6 +274,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   // end of overlay variant
 
   // Skew background variant
+
   &--large {
 
     @media ($bp-large-extended-min) {
@@ -334,6 +339,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &--small &__content {
+
     @include skewBG();
     font-size: $fonts-2xsmall;
     padding: 25px 25px 40px 0;
@@ -346,6 +352,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &--large &__content {
+
     @include skewBG();
     display: flex;
     align-items: center;
@@ -376,6 +383,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   // end of skewed background variant
 
   // Linked variant
+
   &--linked {
     position: relative;
     overflow: hidden;
@@ -430,6 +438,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 
   // column variant (to be deprecated)
+
   &--columns {
     height: auto;
     min-height: 350px;
@@ -544,6 +553,7 @@ $page-banner-inner-width: 612px;
 .ma__page-banner {
 
   // blue background
+
   &--blue {
     background-color: $c-primary;
 
@@ -554,6 +564,7 @@ $page-banner-inner-width: 612px;
     &.ma__page-banner--small .ma__page-banner__content,
     &.ma__page-banner--large .ma__page-banner__content {
       background-color: $c-primary;
+
       &:before {
         background-color: $c-primary;
       }
