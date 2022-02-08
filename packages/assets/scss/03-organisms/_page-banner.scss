@@ -19,10 +19,17 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &__container {
 
-    @include ma-container;
     height: 100%;
     position: relative;
     padding-right: 0;
+
+    @media ($bp-large-extended-min) {
+      padding-right: 0;
+    }
+
+    &:before {
+      background-color: rgba($c-primary-alt, 0.8);
+    }
 
     .mass-alerts-block & {
 
@@ -31,6 +38,27 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
   }
+
+  &__content {
+    @include ma-container;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: $fonts-xsmall;
+    padding: 30px 25px 45px 0;
+    background-color: $c-primary-alt;
+
+    &:before {
+      background-color: $c-primary-alt;
+    }
+  }
+
+  &--blue &__container {
+    &:before {
+      background-color: rgba($c-primary, 1);
+    }
+  }
+
 
   // Do not render image on mobile
   &--no-img-mobile {
@@ -44,105 +72,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       .ma__page-banner__image {
         display: none;
       }
-    }
-  }
-
-  &--large {
-
-    @media ($bp-large-extended-min) {
-      height: 100%;
-    }
-  }
-
-  &--large &__container {
-
-    @media ($bp-large-extended-min) {
-      height: 100%;
-      min-height: $page-banner-height;
-      display: flex;
-    }
-  }
-
-
-  &--small &__container {
-
-    @media ($bp-large-extended) {
-      background-color: $c-primary-alt;
-    }
-  }
-
-  &__content {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: $fonts-xsmall;
-    padding: 30px 25px 45px 0;
-    z-index: 1;
-    top: -50%;
-    transform: none;
-
-    @media ($bp-large-extended-min) {
-      margin-right: 70px;
-      padding-top: 50px;
-      padding-right: 80px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%) skew(-30deg);
-    }
-
-    &:before {
-      content: "";
-      height: 100%;
-      top: 0;
-      right: 99%;
-      position: absolute;
-      width: 50vw;
-
-      @media ($bp-large-extended-min) {
-        right: 99%; // weird gap when skewed is shown
-      }
-    }
-  }
-
-  &__content-wrapper {
-    z-index: 1;
-
-     @media ($bp-large-extended-min) {
-      transform: skew(30deg);
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-
-  &--small &__content {
-    font-size: $fonts-2xsmall;
-    padding: 25px 25px 40px 0;
-
-    @media ($bp-large-extended-min) {
-      padding-top: 45px;
-      padding-right: 80px;
-    }
-  }
-
-  &--large &__content {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    position: relative;
-    background-color: $c-primary-alt;
-    background-image: none;
-    width: 100%;
-
-    @media ($bp-large-extended-min) {
-      margin-right: 105px;
-      top: 0;
-      transform: skew(-30deg);
-      padding: 30px 25px 45px 0;
-      min-height: $page-banner-height;
-      max-width: 640px;
-      margin-right: 70px;
-      padding-top: 50px;
-      padding-right: 80px;
     }
   }
 
@@ -195,13 +124,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     a {
       display: inline-block;
-    }
-  }
-
-  &--small &__icon {
-
-    @media ($bp-large-extended-min) {
-      width: $column;
     }
   }
 
@@ -262,11 +184,23 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 
+  
+
   // Overlay variant
   &--overlay {
 
     @media ($bp-large-extended-min) {
-      height: auto;
+      height: 100%;
+      text-shadow: $text-shadow;
+    }
+
+    .ma__page-banner--bg-narrow &__container {
+      @media ($bp-large-extended) {
+  
+        &:before {
+          background-color: rgba($c-primary, 1);
+        }
+      }
     }
 
     &.ma__page-banner--bg-wide {
@@ -277,6 +211,10 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           min-height: $page-banner-height;
           display: flex;
           align-items: stretch;
+
+          &:before {
+            background-color: rgba($c-primary, 0.8);
+          }
         }
       }
 
@@ -335,6 +273,110 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
   // end of overlay variant
+
+  // Skew background variant
+  &--large {
+
+    @media ($bp-large-extended-min) {
+      height: 100%;
+    }
+  }
+
+  &--large &__container {
+
+    @media ($bp-large-extended-min) {
+      height: 100%;
+      min-height: $page-banner-height;
+      display: flex;
+    }
+  }
+
+  &--small &__container {
+
+    @media ($bp-large-extended) {
+      background-color: $c-primary-alt;
+    }
+  }
+
+  &--small &__content-wrapper,
+  &--large &__content-wrapper {
+    z-index: 1;
+
+      @media ($bp-large-extended-min) {
+      transform: skew(30deg);
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  @mixin skewBG {
+      z-index: 1;
+      top: -50%;
+      transform: none;
+  
+      @media ($bp-large-extended-min) {
+        margin-right: 70px;
+        padding-top: 50px;
+        padding-right: 80px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) skew(-30deg);
+      }
+  
+      &:before {
+        content: "";
+        height: 100%;
+        top: 0;
+        right: 99%;
+        position: absolute;
+        width: 50vw;
+  
+        @media ($bp-large-extended-min) {
+          right: 99%; // weird gap when skewed is shown
+        }
+      }
+  }
+
+  &--small &__content {
+    @include skewBG();
+    font-size: $fonts-2xsmall;
+    padding: 25px 25px 40px 0;
+
+
+    @media ($bp-large-extended-min) {
+      padding-top: 45px;
+      padding-right: 80px;
+    }
+  }
+
+  &--large &__content {
+    @include skewBG();
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    background-color: $c-primary-alt;
+    background-image: none;
+    width: 100%;
+
+    @media ($bp-large-extended-min) {
+      top: 0;
+      transform: skew(-30deg);
+      padding: 30px 25px 45px 0;
+      min-height: $page-banner-height;
+      max-width: 640px;
+      margin-right: 70px;
+      padding-top: 50px;
+    }
+  }
+
+  &--small &__icon {
+
+    @media ($bp-large-extended-min) {
+      width: $column;
+    }
+  }
+  // end of skewed background variant
 
   // Linked variant
   &--linked {
@@ -501,59 +543,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 $page-banner-inner-width: 612px;
 
 .ma__page-banner {
-
-  &__container {
-
-    &:before {
-      background-color: rgba($c-primary-alt, 0.8);
-    }
-  }
-
-  &--blue &__container {
-
-    &:before {
-      background-color: rgba($c-primary, 1);
-    }
-  }
-
-  &--blue.ma__page-banner--bg-narrow &__container {
-
-    @media ($bp-large-extended) {
-
-      &:before {
-        background-color: rgba($c-primary, 1);
-      }
-    }
-  }
-
-  &--blue.ma__page-banner--bg-wide &__container {
-
-    @media ($bp-large-extended-min) {
-
-      &:before {
-        background-color: rgba($c-primary, 0.8);
-      }
-    }
-  }
-
-  &--blue &__content-wrapper { 
-
-    @media ($bp-large-extended-min) {
-      text-shadow: $text-shadow;
-    }
-  }
-
-  &__content {
-    background-color: $c-primary-alt;
-
-    &:before {
-      background-color: $c-primary-alt;
-    }
-  }
-
-  // &--overlay &__content {
-  //   background-image: none;
-  // }
 
   &--columns &__content {
 
