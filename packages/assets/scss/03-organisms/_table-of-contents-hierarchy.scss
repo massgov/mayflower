@@ -26,7 +26,13 @@
     }
   }
 
-  .ma__toc--hierarchy__container {
+  &__accordion {
+    &-content {
+      margin-left: 1rem;
+    }
+  }
+
+  &__container {
     position: relative;
     top: -20px;
     padding: 0;
@@ -95,7 +101,7 @@
 
   &__accordion {
 
-    .ma__toc--hierarchy__accordion-content {
+    &-content {
       list-style: none;
       margin-bottom: 0;
       display: none;
@@ -119,16 +125,21 @@
         list-style: none;
         font-weight: $fonts-normal;
 
+        .ma__comp-heading,
+        .ma__comp-heading--sidebar {
+          margin-top: 1rem;
+        }
+
         .ma__decorative-link {
-          padding: 10px 0 10px 1rem;
+          padding: 1rem 0;
         }
 
         .ma__download-link {
-          padding: 10px 0 10px 1rem;
+          padding: 1rem 0;
         }
 
         .ma__sidebar-heading {
-          margin: 1rem 0 1rem 1rem;
+          margin: 1rem 0;
         }
       }
     }
