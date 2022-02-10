@@ -60,6 +60,6 @@ Changed:
     impact: Minor
   - project: Patternlab
     component: TableOfContentsHierarchy
-    description: Consolidating styling, adding a background modifier. (#1537)
+    description: Consolidate styling, add a `background` modifier. (#1537)
     issue: DP-22640
     impact: Minor
