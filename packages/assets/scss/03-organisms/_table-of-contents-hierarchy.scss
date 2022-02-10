@@ -26,6 +26,12 @@
     }
   }
 
+  .ma__comp-heading,
+  .ma__comp-heading--sidebar {
+    margin-bottom: 0;
+  }
+
+  // top level links
   &__container {
     position: relative;
     top: -20px;
@@ -60,6 +66,7 @@
     }
   }
 
+  // second level links
   &__accordion {
 
     &-content {
