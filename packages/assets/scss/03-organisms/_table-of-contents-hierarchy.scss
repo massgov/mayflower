@@ -26,12 +26,6 @@
     }
   }
 
-  &__accordion {
-    &-content {
-      margin-left: 1rem;
-    }
-  }
-
   &__container {
     position: relative;
     top: -20px;
@@ -66,39 +60,6 @@
     }
   }
 
-  //react
-
-  .ma__accordion-header {
-
-    &__button {
-      padding-left: 20px;
-      padding-right: 20px;
-
-      &--solid.is-open {
-        margin-bottom: unset;
-      }
-    }
-
-    &__title {
-      font-size: $fonts-medium;
-    }
-  }
-
-  .ma__accordion-content__body {
-    background: $c-white;
-    list-style: none;
-    margin-bottom: unset;
-    padding: 10px 0 10px 20px;
-
-    & a {
-      transition: none;
-    }
-
-    &.collapsed {
-      padding: unset;
-    }
-  }
-
   &__accordion {
 
     &-content {
@@ -122,6 +83,7 @@
       }
 
       li {
+        margin-left: 1rem;
         list-style: none;
         font-weight: $fonts-normal;
 
@@ -229,6 +191,38 @@
 
     .ma__toc--hierarchy__container > li > span > a {
       font-weight: $fonts-bolder;
+    }
+  }
+
+  //react
+  .ma__accordion-header {
+
+    &__button {
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &--solid.is-open {
+        margin-bottom: unset;
+      }
+    }
+
+    &__title {
+      font-size: $fonts-medium;
+    }
+  }
+
+  .ma__accordion-content__body {
+    background: $c-white;
+    list-style: none;
+    margin-bottom: unset;
+    padding: 10px 0 10px 20px;
+
+    & a {
+      transition: none;
+    }
+
+    &.collapsed {
+      padding: unset;
     }
   }
 }
