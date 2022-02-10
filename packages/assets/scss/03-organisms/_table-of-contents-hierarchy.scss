@@ -113,7 +113,7 @@
       }
     }
 
-    .ma__toc--hierarchy__title {
+    &-title {
       background: transparent;
       border: none;
       display: block;
@@ -139,7 +139,7 @@
       }
     }
 
-    &.is-open .ma__toc--hierarchy__title:after {
+    &.is-open &-title:after {
       content: "|";
       transform: rotate(90deg) scale(0.8);
       font-weight: $fonts-bold;
