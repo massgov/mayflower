@@ -16,6 +16,7 @@ If a teaser image is provided, it will link to the title's href, if set.
 * [General Teaser Title](/?p=molecules-general-teaser-title)
 * [General Teaser Eyebrow](/?p=molecules-general-teaser-eyebrow)
 * [General Teaser Emphasized Text ](/?p=molecules-general-teaser-emphasizedText)
+* [General Teaser Image After ](/?p=molecules-general-teaser-imageAfter) - render the teaser image at the bottom of the teaser
 
 
 ### Variables
@@ -23,6 +24,8 @@ If a teaser image is provided, it will link to the title's href, if set.
 generalTeaser : {
   layout:
     type: string / optional
+  imageAfter:
+    type: boolean / optional (default false)
   image:
     type: image / optional
   eyebrow: {
