@@ -9,7 +9,7 @@ $menu-transition-time: 0.3s;
   opacity: 1;
   transition: opacity $menu-transition-time;
 
-  @media ($bp-x-small-min) {
+  @media ($bp-large-extended-min) {
     margin-top: -40px;
     margin-bottom: 40px;
   }
