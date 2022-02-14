@@ -38,7 +38,7 @@
 
   var id = "{{ id }}";
   var blckid = "blck{{ id }}";
-  var halfImage = `{{ keyMessage.halfImage }}`
+  var halfImage = `{{ keyMessage.halfImage }}` // this returns '1' for true, '' or '0' for false or undefined. 
 
   function marginSet() {
     var block = document.getElementById(blckid);
@@ -52,7 +52,7 @@
     // The block is usually bigger than its wrapper.
     // The block is usually moved a few pixels from top.
     // separationAtBottom is the distance from the content below the key message.
-    if (halfImage) {
+    if (halfImage && halfImage !== '0') {
       var sectionHeight = keyMessageSection ? keyMessageSection.clientHeight : 0;
       const blockBottomOffset = blockHeight + block.parentNode.offsetTop
       const isBlockBottomLower = blockBottomOffset > sectionHeight;
@@ -76,6 +76,7 @@
     marginSet();
   };
   window.addEventListener("resize", marginSet);
+
 </script>
 {% endif %}
 
