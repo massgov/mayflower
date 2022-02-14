@@ -44,7 +44,6 @@ export default (function (window, document, $) {
 
     //Desktop display.
     } else if (windowWidth >= 910 && !$breadcrumbs.hasClass('ma__breadcrumbs--desktop')){
-      $breadcrumbsIndicator.removeAttr('hidden');
       $breadcrumbs.removeClass('ma__breadcrumbs--mobile');
       $breadcrumbs.addClass('ma__breadcrumbs--desktop');
 
