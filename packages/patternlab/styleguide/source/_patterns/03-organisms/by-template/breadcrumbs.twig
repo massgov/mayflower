@@ -18,12 +18,14 @@
       {% if breadcrumbs.currentPage %}
          <li class="ma__breadcrumbs__item--current ma__visually-hidden" aria-current="location">{{ breadcrumbs.currentPage }}</li>
       {% endif %}
-      <li class="ma__breadcrumbs__item ma__breadcrumbs__item__expand-indicators" hidden="">
+      <li class="ma__breadcrumbs__item ma__breadcrumbs__item__expand-indicators">
         <button 
           type="button"
           class="js-breadcrumbs-button"
           aria-label="Show all Breadcrumbs"
+          aria-describedby="button-description"
         >…</button>
+        <div id="button-description" class="ma__visually-hidden">This page locates deeper than 5th levels of the topic. The pages between the third level and the last two levels to the current page are currently hidden. Use the button to show and access all levels.</div>
       </li>
     </ol>
   </nav>
