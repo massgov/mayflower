@@ -51,7 +51,7 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Fixed:
+Changed:
   - project: Patternlab
     component: GeneralTeaser
     description: Make teaser image link optional to avoid duplicated link for accessiblity. To link the image, pass `href` in the `image` object. (#1591) 
