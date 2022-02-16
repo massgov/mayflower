@@ -18,6 +18,8 @@ pageBanner: {
     type: string (image path - narrow screens) / required
   size:
     type: string ('', 'small', 'medium', 'large', 'overlay', 'columns') / optional
+  renderImageOnMobile:
+    type: boolean / optional / 'false' as default.
   icon:
     type: string (path to icon file) / optional,
   title:

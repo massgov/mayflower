@@ -1,7 +1,8 @@
 @use "00-base/configure" as *;
 
-$page-banner-icon-width: 50px + $gutter;
-$page-banner-height: 330px;
+$page-banner-icon-width: $column + $gutter;
+$page-banner-height: 273px;
+$text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .ma__page-banner {
   background-size: cover;
@@ -11,135 +12,8 @@ $page-banner-height: 330px;
   overflow: hidden;
   position: relative;
 
-  @media ($bp-x-small-min) {
-    height: 300px;
+  @media ($bp-large-extended-min) {
     margin-bottom: 40px;
-  }
-
-  // to match height and font size being provided to prod by
-  // decision tree module styles
-
-  .decision-tree & {
-
-    h1 {
-      font-size: $fonts-2xlarge;
-
-      @media ($bp-small-min) {
-        font-size: $fonts-xlarge;
-      }
-    }
-
-    &.ma__page-banner--overlay {
-      height: 120px;
-    }
-  }
-
-  &--overlay {
-
-    @media ($bp-large-min) {
-      height: 400px;
-    }
-
-    .ma__page-banner__content-wrapper {
-      transform: none;
-    }
-  }
-
-  &--full &__content-wrapper {
-    transform: none;
-
-    &:after {
-      content: "";
-      height: 6px;
-      position: absolute;
-      bottom: -1rem;
-      transform: skew(-30deg);
-      width: 105px;
-      background-color: $c-primary-alt;
-      margin-top: 1rem;
-
-      @media print {
-        display: none;
-      }
-
-      @media ($bp-large-min) {
-        left: 54px;
-      }
-
-    }
-
-  }
-
-  &--columns {
-    height: auto;
-    min-height: 350px;
-    max-height: none;
-
-    @media ($bp-medium-min) {
-      padding-top: 45px;
-    }
-
-    @media ($bp-large-min) {
-      margin-bottom: 70px;
-    }
-  }
-
-  &--linked {
-    position: relative;
-    overflow: hidden;
-    height: auto;
-    min-height: 240px;
-
-    @media ($bp-large-extended) {
-      max-height: none;
-
-      &:after {
-        content: '';
-        display: block;
-        height: 50vw;
-        width: 100%;
-      }
-    }
-
-    .ma__page-banner__image {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 500px;
-      background-size: cover;
-      background-position: center;
-
-      @media (min-width: $max-width) {
-        right: calc(-100vw + #{$max-width});
-      }
-
-      @media ($bp-large-extended) {
-        left: 0;
-        top: 100%;
-        height: 50vw;
-      }
-    }
-
-  }
-
-  &--linked &__container {
-
-    @media ($bp-large-extended) {
-      height: auto;
-    }
-  }
-
-  &--linked &__content-wrapper {
-
-    @media ($bp-large-extended) {
-      width: auto;
-    }
-  }
-
-  &--linked &__content {
-    position: static;
-    height: auto;
   }
 
   &__container {
@@ -149,38 +23,15 @@ $page-banner-height: 330px;
     position: relative;
     padding-right: 0;
 
+    @media ($bp-large-extended-min) {
+      padding-right: 0;
+    }
+
     .mass-alerts-block & {
 
-      @media ($bp-medium-max) {
+      @media ($bp-large-extended) {
         padding-right: 20px;
       }
-    }
-  }
-
-  &--columns &__container {
-
-    @include clearfix;
-    height: auto;
-    min-height: 500px;
-    padding-right: 0; //fix gap on mobile
-
-    &:after {
-      clear: both;
-      content: "";
-      display: table;
-    }
-  }
-
-  &--overlay &__container,
-  &--full &__container {
-
-    &:before {
-      content: '';
-      height: 100%;
-      left: 50%;
-      position: absolute;
-      transform: translateX(-50%);
-      width: 100vw;
     }
   }
 
@@ -189,99 +40,25 @@ $page-banner-height: 330px;
     align-items: center;
     flex-wrap: wrap;
     font-size: $fonts-xsmall;
-    max-width: 1050px;
     padding: 30px 25px 45px 0;
-    z-index: 1;
-    top: -50%;
-
-    @media ($bp-x-small-min) {
-      margin-right: 70px;
-      padding-top: 50px;
-      padding-right: 80px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%) skew(-30deg);
-    }
 
     &:before {
-      content: "";
-      height: 100%;
-      top: 0;
-      right: 100%;
-      position: absolute;
-      width: 50vw;
-
-      @media ($bp-x-small-min) {
-        right: 99%; // weird gap when skewed is shown
-      }
+      background-color: $c-primary-alt;
     }
   }
 
-  &__content-wrapper {
-    z-index: 1;
 
-    @media ($bp-x-small-min) {
-      transform: skew(30deg);
-      width: 55vw;
-      display: flex;
-      flex-wrap: wrap;
-    }
+  .ma__decorative-link a,
+  &__unlinked-title {
+    font-weight: $fonts-normal;
   }
 
-  &--small &__content {
-    font-size: $fonts-2xsmall;
-    padding: 25px 25px 40px 0;
-
-    @media ($bp-x-small-min) {
-      padding-top: 45px;
-      padding-right: 80px;
-    }
-  }
-
-  &--large &__content {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    max-width: 640px;
-    position: relative;
-
-    @media ($bp-x-small-min) {
-      margin-right: 105px;
-      top: 0;
-      transform: skew(-30deg);
-    }
-  }
-
-  &--overlay &__content,
-  &--full &__content {
-    padding: 25px 20px 25px 0;
-
-    @media ($bp-x-small-min) {
-      transform: translateY(-50%);
-      padding-right: 0;
-    }
-
-    &:before {
-      display: none;
-    }
-  }
-
-  &--columns &__content {
-    height: $page-banner-height;
-    max-width: 700px;
-    position: relative;
-    top: 0;
-
-    @media ($bp-x-small-min) {
-      position: relative;
-      top: calc(#{$page-banner-height} / 2);
-    }
-
-    @media ($bp-medium-min) {
-      height: 100%;
-      top: 50px;
-      transform: skew(-30deg);
-    }
+  .ma__decorative-link + &__description,
+  &__unlinked-title + &__description {
+    margin-top: .5rem;
+    font-weight: $fonts-normal;
+    width: 100%;
+    font-size: $fonts-large;
   }
 
   &__icon {
@@ -289,7 +66,7 @@ $page-banner-height: 330px;
     width: 75px;
     display: none;
 
-    @media ($bp-medium-min) {
+    @media ($bp-large-extended-min) {
       margin: auto 0;
       width: $page-banner-icon-width;
       display: inline-block;
@@ -299,7 +76,7 @@ $page-banner-height: 330px;
       height: 2.75em;
       width: 100%;
 
-      @media ($bp-medium-min) {
+      @media ($bp-large-extended-min) {
         height: 3.75em;
       }
 
@@ -317,19 +94,12 @@ $page-banner-height: 330px;
     }
   }
 
-  &--small &__icon {
-
-    @media ($bp-medium-min) {
-      width: $column;
-    }
-  }
-
   &__title {
     flex-grow: 1;
     line-height: 1.05;
     margin-bottom: 0;
+    vertical-align: middle;
     z-index: 1;
-    width: 100%;
 
     & > abbr {
       font-size: .4em;
@@ -342,7 +112,7 @@ $page-banner-height: 330px;
   &--large &__title,
   &--small &__title {
 
-    @media ($bp-small-min) {
+    @media ($bp-medium-min) {
       font-size: $fonts-7xlarge;
     }
 
@@ -351,28 +121,17 @@ $page-banner-height: 330px;
     }
   }
 
-  &--overlay &__title {
-
-    @media ($bp-x-small-min) {
-      width: calc(100% - 75px);
-    }
-  }
-
   &__icon + &__title {
 
-    @media ($bp-x-small-min) {
-      width: calc(100% - 75px);
-    }
-
-    @media ($bp-medium-min) {
+    @media ($bp-large-extended-min) {
       width: calc(100% - #{$page-banner-icon-width});
     }
   }
 
   &--small &__icon + &__title {
 
-    @media ($bp-medium-min) {
-      width: calc(100% - #{$column});
+    @media ($bp-large-extended-min) {
+      width: calc(100% - $column);
     }
   }
 
@@ -384,29 +143,281 @@ $page-banner-height: 330px;
     letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
     margin-bottom: 0;
-    margin-top: .8em;
+    margin-top: 0.8em;
     top: $page-banner-height;
 
-    @media ($bp-large-min) {
+    @media ($bp-large-extended-min) {
       max-width: 820px;
     }
   }
 
-  .ma__decorative-link a,
-  &__unlinked-title {
-    font-weight: $fonts-normal;
+  
+
+  // Overlay variant
+
+  &--overlay {
+
+
+    @media ($bp-large-extended-min) {
+      min-height: $page-banner-height;
+      padding-top: 20px;
+      text-shadow: $text-shadow;
+      
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+      }
+    }
+
+    .ma__page-banner__container {
+
+      &:before {
+        background-color: rgba($c-primary-alt, 0.8);
+      }
+    }
+
+    &.ma__page-banner--bg-wide {
+
+      .ma__page-banner__container {
+
+        @media ($bp-large-extended-min) {
+          min-height: $page-banner-height;
+          display: flex;
+          align-items: stretch;
+
+          &:before {
+            background-color: rgba($c-primary, 0.8);
+          }
+        }
+      }
+
+      .ma__page-banner__content-wrapper {
+        height: 100%;
+        width: 100%;
+        transform: none;
+
+        @media ($bp-large-extended-min) {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          align-content: center;
+          width: calc(100% - 295px);
+        }
+      }
+
+      .ma__page-banner__description {
+
+        @media ($bp-large-extended-min) {
+          max-width: 820px;
+          width: 100%;
+        }
+      }
+    }
+
+    .ma__page-banner__description {
+
+      @media ($bp-large-extended-min) {
+        max-width:  100%;
+      }
+    }
   }
 
-  .ma__decorative-link + &__description,
-  &__unlinked-title + &__description {
-    margin-top: 0;
-    font-weight: lighter;
-    width: 100%;
-  }
-
-  &__content-wrapper &__description {
+  &--overlay &__content {
+    padding: 40px 20px 40px 0;
     position: relative;
-    top: 0;
+    transform: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+
+    @media ($bp-large-extended-min) {
+      padding-right: 0;
+      top: 0;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &--overlay &__title {
+
+    @media ($bp-large-extended-min) {
+      width: calc(100% - 75px);
+    }
+  }
+  // end of overlay variant
+
+  // Skew background variant
+
+  &--large {
+
+    position: relative;
+    overflow: hidden;
+    height: auto;
+
+    @media ($bp-large-extended-min) {
+      height: 100%;
+    }
+  }
+
+  @mixin skewBG {
+    z-index: 1;
+    top: -50%;
+    transform: none;
+    background-color: $c-primary-alt;
+
+    @media ($bp-large-extended-min) {
+      margin-right: 70px;
+      padding-top: 50px;
+      padding-right: 80px;
+      transform: skew(-30deg);
+
+      &::before {
+        content: "";
+        height: 100%;
+        top: 0;
+        position: absolute;
+        width: 50vw;
+        right: 99%; // weird gap when skewed is shown
+      }
+    }
+  }
+
+  &--large &__container {
+    padding-right: 0;
+    display: flex;
+
+    @media ($bp-large-extended-min) {
+      height: 100%;
+      min-height: $page-banner-height;
+    }
+
+    @media ($bp-large-extended) {
+
+      flex-direction: column-reverse;
+      padding-left: 0;
+      background-color: $c-primary-alt;
+    }
+
+    .ma__page-banner__image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 1px;
+      left: 500px;
+      background-size: cover;
+      background-position: center;
+
+      @media (min-width: $max-width) {
+        right: calc(-100vw + #{$max-width});
+      }
+
+      @media ($bp-large-extended) {
+        position: relative;
+        width: 100%;
+        height: 50vw;
+        left: 0;
+      }
+    }
+
+    .ma__page-banner__content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: $c-primary-alt;
+      background-image: none;
+      height: 100%;
+      width: 100%;
+
+      @include skewBG();
+
+      @media ($bp-large-extended) {
+
+        @include ma-container();
+      }
+
+      @media ($bp-large-extended-min) {
+        top: 0;
+        transform: skew(-30deg);
+        padding: 30px 25px 45px 0;
+        min-height: $page-banner-height;
+        max-width: 640px;
+        margin-right: 70px;
+        padding-top: 50px;
+      }
+    }    
+  }
+
+  // small variant (to be deprecated)
+
+  &--small &__content {
+
+    @include skewBG();
+    font-size: $fonts-2xsmall;
+    padding: 25px 25px 40px 0;
+
+
+    @media ($bp-large-extended-min) {
+      padding-top: 45px;
+      padding-right: 80px;
+    }
+  }
+
+  &--small &__content-wrapper,
+  &--large &__content-wrapper {
+    z-index: 1;
+
+      @media ($bp-large-extended-min) {
+      transform: skew(30deg);
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+
+  &--small &__icon {
+
+    @media ($bp-large-extended-min) {
+      width: $column;
+    }
+  }
+
+  // end of skewed background variant
+
+
+  // column variant (to be deprecated)
+
+  &--columns {
+    height: auto;
+    min-height: 350px;
+    max-height: none;
+
+    @media ($bp-medium-min) {
+      padding-top: 45px;
+    }
+
+    @media ($bp-large-min) {
+      margin-bottom: 70px;
+    }
+  }
+
+  &--columns &__container {
+
+    @include clearfix;
+    height: auto;
+    min-height: 500px;
+    padding-right: 0px; //fix gap on mobile
+
+    &:after {
+      clear: both;
+      content: "";
+      display: table;
+    }
   }
 
   &--columns &__description {
@@ -448,130 +459,122 @@ $page-banner-height: 330px;
     }
   }
 
-  // White variation.
+  &--columns &__content {
 
-  &--white {
-    height: auto;
-    margin-top: 30px;
-
-    .ma__page-banner__description {
-      font-size: $fonts-large;
-      margin-bottom: $standard-spacing--xsmall ;
-
-      @media ($bp-medium-max) {
-        float: left;
-      }
-
-      @media ($bp-medium-min) {
-        width: 55vw;
-      }
-
-      @media ($bp-large-min) {
-        padding-left: 51px;
-      }
-    }
-  }
-
-  &--white &__icon {
-    padding-right: $standard-spacing--xxsmall;
-  }
-
-  &--white &__title {
-    display: flex;
-    align-items: center;
-  }
-
-  &--white &__icon {
-    display: block;
-    width: 50px;
-    float: left;
-
-    > svg {
-      height: 4rem;
-    }
-  }
-
-  &--white &__content-wrapper {
+    background-color: $c-primary-alt;
+    height: $page-banner-height;
+    max-width: 700px;
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  &--white &__content {
-    align-items: flex-start;
-    padding: 0 25px 30px 0;
     top: 0;
 
-    @media ($bp-x-small-min) {
-      margin-right: 0;
-      padding-top: 10px;
-      padding-right: 0;
-      position: relative;
+    &:before {
+      content: "";
+      height: 100%;
       top: 0;
-      transform: none;
-    }
-
-    &:before {
-      content: none;
-    }
-  }
-
-  &--white.ma__page-banner--no-icon {
-    .ma__page-banner__title {
-      margin-left: 0;
-    }
-
-    .ma__page-banner__description {
-      padding-left: 0;
-    }
-
-    .ma__page-banner__content-wrapper:after {
-      left: 0;
-    }
-  }
-
-}
-
-//theme
-$page-banner-inner-width: 612px;
-
-.ma__page-banner {
-
-  &__container {
-
-    &:before {
-      background-color: rgba($c-primary-alt, 0.8);
-    }
-  }
-
-  &--blue &__container {
-
-    &:before {
-      background-color: rgba($c-primary, 0.8);
-    }
-  }
-
-  &__content {
-    background-image: linear-gradient(-90deg, rgba($c-primary-alt, .7), $c-primary-alt 95%);
-
-    &:before {
+      right: 100%;
+      position: absolute;
+      width: 50vw;
       background-color: $c-primary-alt;
     }
+
+    @media ($bp-medium-min) {
+      position: relative;
+      height: 100%;
+      top: 50px;
+      transform: skew(-30deg);
+
+      &:before {
+        right: 99%;
+      }
+    }
   }
 
-  &--blue &__content {
-    background-image: linear-gradient(-90deg, rgba($c-primary, .7), $c-primary 95%);
+  &--columns &__content-wrapper {
+
+    @media ($bp-medium-min) {
+      display: flex;
+      align-items: center;
+      transform: skew(30deg);
+    }
+  }
+  // end of column variant
+
+
+  // to match height and font size being provided to prod by
+  // decision tree module styles
+
+  .decision-tree & {
+
+    h1 {
+      font-size: $fonts-2xlarge;
+
+      @media ($bp-large-extended-min) {
+        font-size: $fonts-xlarge;
+      }
+    }
+
+    &.ma__page-banner--overlay {
+      height: 120px;
+    }
+  }
+}
+
+// config
+
+.ma__page-banner {
+  // Do not render image on mobile
+
+  &--no-img-mobile {
+  
+    @media ($bp-large-extended) {
+
+      &:after {
+        display: none;
+      }
+  
+      .ma__page-banner__image {
+        display: none;
+      }
+    }
+  }
+
+  // blue background
+
+  &--blue {
+    background-color: $c-primary;
 
     &:before {
       background-color: $c-primary;
     }
+
+    &.ma__page-banner--small .ma__page-banner__content,
+    &.ma__page-banner--large .ma__page-banner__content {
+      background-color: $c-primary;
+
+      &:before {
+        background-color: $c-primary;
+      }
+    }
   }
 
-  &--overlay &__content,
-  &--full &__content {
-    background-image: none;
-  }
+    // green background
+
+    &--green {
+      background-color: $c-primary-alt;
+  
+      &:before {
+        background-color: $c-primary-alt;
+      }
+  
+      &.ma__page-banner--small .ma__page-banner__content,
+      &.ma__page-banner--large .ma__page-banner__content {
+        background-color: $c-primary-alt;
+  
+        &:before {
+          background-color: $c-primary-alt;
+        }
+      }
+    }
 
   &--columns &__content {
 
@@ -579,26 +582,13 @@ $page-banner-inner-width: 612px;
       background-color: rgba($c-primary-alt,.7);
     }
 
-    @media ($bp-x-small-min) {
+    @media ($bp-large-extended-min) {
 
       &:after {
         background-color: transparent;
       }
     }
   }
-
-  &--linked &__container {
-
-    @media ($bp-large-extended) {
-      background-color: $c-primary-alt;
-    }
-  }
-
-  &--linked &__content {
-    background-color: $c-primary-alt;
-    background-image: none;
-  }
-
 
 
   &__icon {
@@ -648,38 +638,6 @@ $page-banner-inner-width: 612px;
     color: $c-font-base;
     font-weight: $fonts-light;
   }
-
-  // White variation.
-
-  &--white &__container {
-
-    &:before {
-      content: none;
-    }
-  }
-
-  &--white &__icon {
-
-    svg,
-    svg > g {
-      fill: $c-primary-alt;
-    }
-  }
-
-  &--white &__title {
-    font-weight: $fonts-bolder;
-    color: $c-font-base;
-    max-width: calc(100% - 50px);
-    overflow-wrap: break-word;
-  }
-
-  &--white  &__description {
-    color: $c-granite-gray;
-    font-weight: $fonts-normal;
-
-    .ma__page-banner__descriptionSubText {
-      display: block;
-      font-weight: $fonts-lighter;
-    }
-  }
 }
+
+
