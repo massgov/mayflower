@@ -101,17 +101,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     vertical-align: middle;
     z-index: 1;
 
-    & > abbr {
-      font-size: .4em;
-      border: none;
-      text-decoration: none;
-    }
-  }
-
-  &--columns &__title,
-  &--large &__title,
-  &--small &__title {
-
     @media ($bp-medium-min) {
       font-size: $fonts-7xlarge;
     }
@@ -119,19 +108,18 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     @media ($bp-large-min) {
       font-size: $fonts-8xlarge;
     }
+
+    & > abbr {
+      font-size: .4em;
+      border: none;
+      text-decoration: none;
+    }
   }
 
   &__icon + &__title {
 
     @media ($bp-large-extended-min) {
       width: calc(100% - #{$page-banner-icon-width});
-    }
-  }
-
-  &--small &__icon + &__title {
-
-    @media ($bp-large-extended-min) {
-      width: calc(100% - #{$column});
     }
   }
 
@@ -155,7 +143,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   // Overlay variant
 
   &--overlay{
-
 
     @media ($bp-large-extended-min) {
       min-height: $page-banner-height;
@@ -352,22 +339,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }    
   }
 
-  // small variant (to be deprecated)
-
-  &--small &__content {
-
-    @include skewBG();
-    font-size: $fonts-2xsmall;
-    padding: 25px 25px 40px 0;
-
-
-    @media ($bp-large-extended-min) {
-      padding-top: 45px;
-      padding-right: 80px;
-    }
-  }
-
-  &--small &__content-wrapper,
   &--large &__content-wrapper {
     z-index: 1;
 
@@ -375,14 +346,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       transform: skew(30deg);
       display: flex;
       flex-wrap: wrap;
-    }
-  }
-
-
-  &--small &__icon {
-
-    @media ($bp-large-extended-min) {
-      width: $column;
     }
   }
 
@@ -411,25 +374,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 // config
 
 .ma__page-banner {
-
-
-  
-
-  
-
-  &--columns &__content {
-
-    &:after {
-      background-color: rgba($c-primary-alt,.7);
-    }
-
-    @media ($bp-large-extended-min) {
-
-      &:after {
-        background-color: transparent;
-      }
-    }
-  }
 
 
   &__icon {
@@ -475,11 +419,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: $c-font-inverse;
   }
 
-  &--columns &__description {
-    color: $c-font-base;
-    font-weight: $fonts-light;
-  }
-
    // Do not render image on mobile
 
    &--no-img-mobile {
@@ -505,7 +444,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       background-color: $c-primary;
     }
 
-    &.ma__page-banner--small .ma__page-banner__content,
     &.ma__page-banner--large .ma__page-banner__content {
       background-color: $c-primary;
 
@@ -524,7 +462,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         background-color: $c-primary-alt;
       }
   
-      &.ma__page-banner--small .ma__page-banner__content,
       &.ma__page-banner--large .ma__page-banner__content {
         background-color: $c-primary-alt;
   
@@ -544,7 +481,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         background-color: white;
       }
 
-      &.ma__page-banner--small .ma__page-banner__content,
       &.ma__page-banner--large .ma__page-banner__content {
         background-color: white;
   
