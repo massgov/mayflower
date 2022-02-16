@@ -1,42 +1,51 @@
 ### Description
-Full width banner image shown behind a wedge shaped overlay containing a title and an optional description or icon.
+This Pattern shows an expandable table of contents which can contain simple links, download links, or expandable sections.
+
 
 ### Status
-* Stable as of 5.0.0
+* Stable as of 5.11.0
 
-### Variant options
-* There are multiple layouts, in addition to the default: ['small'](./?p=organisms-page-banner-as-small), ['large'](./?p=organisms-page-banner-as-large), ['overlay'](./?p=organisms-page-banner-as-overlay), ['linked'](./?p=organisms-page-banner-as-linked), and ['columns'](./?p=organisms-page-banner-as-columns).
-* There is ['blue'](./?p=organisms-page-banner-as-blue) option
-* The icon and description are both optional
+### Pattern Contains
+* Decorated Link
+* Download Link
 
+### Usage Guidelines
+* This is meant to be used to contain a mix of links, download links, or section titles with child links/download links within accordions.
+* `isCurrent` flags are only applied when this organism is used within the table-of-contents-overlay organism. Additionally, `isCurrent` should be applied to both the top level of an item containing `linkItems`, as well as the item within `linkItems`.
+* Use `background: "none"` for the no background variant.
 ### Variables
 ~~~
-pageBanner: {
-  bgWide:
-    type: string (image path - wide screens) / required
-  bgNarrow:
-    type: string (image path - narrow screens) / required
-  size:
-    type: string ('', 'small', 'medium', 'large', 'overlay', 'columns') / optional
-  icon:
-    type: string (path to icon file) / optional,
-  title:
-    type: string / required
-  titleSubText:
-    type: string / optional
-  description:
-    type: string / optional
-  color:
-    type: string ('', 'blue', 'white') / optional
-  primaryLink: / opional
-    text: string / required
-    href: string / optional
-    info: string / optional
-    description: string / optional
-  secondaryLink: / opional
-    text: string / required
-    href: string / optional
-    info: string / optional
-    description: string / optional
+tableOfContentsHierarchy: {
+  coloredHeading: {
+    type: coloredHeading / required
+  },
+ background : string / optional,
+
+  sections: [{
+    type: mixed...
+        downloadLink
+        or
+        {
+          text: string / required,
+          href: string / required,
+          isCurrent: boolean / optional
+        }
+        or
+        {
+            text: string / required,
+            isCurrent: boolean / optional
+            linkItems: [{
+                type: mixed...
+                  downloadLink
+                  or
+                  {
+                    text: string / required,
+                    href: string / required,
+                    isCurrent: boolean / optional
+                  }
+            }]
+        }
+  }]
+
 }
 ~~~
