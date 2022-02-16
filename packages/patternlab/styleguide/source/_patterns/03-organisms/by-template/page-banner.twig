@@ -54,7 +54,7 @@
             {% endif %}
           </h1>
         </div>
-        {% if pageBanner.primaryLink and not (pageBanner.size == "columns") %}
+        {% if pageBanner.primaryLink %}
           {% set decorativeLink = pageBanner.primaryLink %}
           {% if pageBanner.primaryLink.href %}
             {% include "@atoms/decorative-link.twig" %}
@@ -69,7 +69,7 @@
             </div>
           {% endif %}
         {% endif %}
-        {% if pageBanner.secondaryLink and not (pageBanner.size == "columns") %}
+        {% if pageBanner.secondaryLink %}
           {% set decorativeLink = pageBanner.secondaryLink %}
           {% if pageBanner.secondaryLink.href %}
             {% include "@atoms/decorative-link.twig" %}
@@ -84,7 +84,7 @@
             </div>
           {% endif %}
         {% endif %}
-        {% if pageBanner.description and not (pageBanner.size == "columns") %}
+        {% if pageBanner.description %}
           <p class="ma__page-banner__description">
             {{ pageBanner.description }}
             {% if pageBanner.descriptionSubText %}
@@ -96,10 +96,5 @@
         {% endif %}
       </div>
     </div>
-    {% if pageBanner.description and pageBanner.size == "columns" %}
-      <p class="ma__page-banner__description">
-        {{ pageBanner.description }}
-      </p>
-    {% endif %}
   </div>
 </section>
