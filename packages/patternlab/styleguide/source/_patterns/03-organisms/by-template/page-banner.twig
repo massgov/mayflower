@@ -14,8 +14,7 @@
 
 <section class="{{ sectionClass }}">
   {% set classBgImage =
-    (pageBanner.size == "columns" or pageBanner.size == "large" or pageBanner.size == "small") ?
-      '.ma__page-banner__image' : '.ma__page-banner'
+    (pageBanner.size == "large") ? '.ma__page-banner__image' : '.ma__page-banner'
   %}
 
   {# pageBanner.bgWide #}
@@ -37,22 +36,24 @@
   {% endif %}
 
   <div class="ma__page-banner__container">
-    {% if ((pageBanner.size and pageBanner.size == "columns") or pageBanner.size == "large" or pageBanner.size == "small") and bgWideWrapperClass %}
+    {% if (pageBanner.size and pageBanner.size == "large") and bgWideWrapperClass %}
       <div class="ma__page-banner__image"></div>
     {% endif %}
     <div class="ma__page-banner__content" property="mainEntityOfPage">
       <div class="{{ wrapperClass }}">
-        {% if pageBanner.icon %}
-          <div class="ma__page-banner__icon">
-            {{ icon(pageBanner.icon) }}
-          </div>
-        {% endif %}
-        <h1 class="ma__page-banner__title">
-          {{ pageBanner.title }}
-          {% if pageBanner.titleSubText %}
-            <abbr title="{{ pageBanner.title }}"> {{ pageBanner.titleSubText }}</abbr>
+        <div class="ma__page-banner__title-wrapper">
+          {% if pageBanner.icon %}
+            <div class="ma__page-banner__icon">
+              {{ icon(pageBanner.icon) }}
+            </div>
           {% endif %}
-        </h1>
+          <h1 class="ma__page-banner__title">
+            {{ pageBanner.title }}
+            {% if pageBanner.titleSubText %}
+              <abbr title="{{ pageBanner.title }}"> {{ pageBanner.titleSubText }}</abbr>
+            {% endif %}
+          </h1>
+        </div>
         {% if pageBanner.primaryLink and not (pageBanner.size == "columns") %}
           {% set decorativeLink = pageBanner.primaryLink %}
           {% if pageBanner.primaryLink.href %}
