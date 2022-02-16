@@ -1,12 +1,16 @@
 ### Description
-Full width banner image shown behind a wedge shaped overlay containing a title and an optional description or icon.
+Page Banner component that is composed of an H1 page title, with optional icon, featured image and description.
 
 ### Status
 * Stable as of 5.0.0
 
 ### Variant options
-* There are multiple layouts, in addition to the default: ['small'](./?p=organisms-page-banner-as-small), ['large'](./?p=organisms-page-banner-as-large), ['overlay'](./?p=organisms-page-banner-as-overlay), ['linked'](./?p=organisms-page-banner-as-linked), and ['columns'](./?p=organisms-page-banner-as-columns).
-* There is ['blue'](./?p=organisms-page-banner-as-blue) option
+* Layouts: 
+  - ['large'](./?p=organisms-page-banner-as-large) - Slanted solic background, side-by-side image
+  - ['overlay'](./?p=organisms-page-banner-as-overlay) - Transparent background color over an image
+* Color themes:
+  - blue (./?p=organisms-page-banner)
+  - green
 * The icon and description are both optional
 
 ### Variables
@@ -17,7 +21,7 @@ pageBanner: {
   bgNarrow:
     type: string (image path - narrow screens) / required
   size:
-    type: string ('', 'small', 'medium', 'large', 'overlay', 'columns') / optional
+    type: string ('', 'large', 'overlay') / optional
   renderImageOnMobile:
     type: boolean / optional / 'false' as default.
   icon:
@@ -29,7 +33,7 @@ pageBanner: {
   description:
     type: string / optional
   color:
-    type: string ('', 'blue', 'white') / optional
+    type: string ('', 'blue', 'green', 'white') / optional
   primaryLink: / opional
     text: string / required
     href: string / optional
