@@ -131,7 +131,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &--small &__icon + &__title {
 
     @media ($bp-large-extended-min) {
-      width: calc(100% - $column);
+      width: calc(100% - #{$column});
     }
   }
 
@@ -150,12 +150,11 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       max-width: 820px;
     }
   }
-
   
 
   // Overlay variant
 
-  &--overlay {
+  &--overlay{
 
 
     @media ($bp-large-extended-min) {
@@ -522,59 +521,11 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 // config
 
 .ma__page-banner {
-  // Do not render image on mobile
 
-  &--no-img-mobile {
+
   
-    @media ($bp-large-extended) {
 
-      &:after {
-        display: none;
-      }
   
-      .ma__page-banner__image {
-        display: none;
-      }
-    }
-  }
-
-  // blue background
-
-  &--blue {
-    background-color: $c-primary;
-
-    &:before {
-      background-color: $c-primary;
-    }
-
-    &.ma__page-banner--small .ma__page-banner__content,
-    &.ma__page-banner--large .ma__page-banner__content {
-      background-color: $c-primary;
-
-      &:before {
-        background-color: $c-primary;
-      }
-    }
-  }
-
-    // green background
-
-    &--green {
-      background-color: $c-primary-alt;
-  
-      &:before {
-        background-color: $c-primary-alt;
-      }
-  
-      &.ma__page-banner--small .ma__page-banner__content,
-      &.ma__page-banner--large .ma__page-banner__content {
-        background-color: $c-primary-alt;
-  
-        &:before {
-          background-color: $c-primary-alt;
-        }
-      }
-    }
 
   &--columns &__content {
 
@@ -638,6 +589,93 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: $c-font-base;
     font-weight: $fonts-light;
   }
+
+   // Do not render image on mobile
+
+   &--no-img-mobile {
+  
+    @media ($bp-large-extended) {
+
+      &:after {
+        display: none;
+      }
+  
+      .ma__page-banner__image {
+        display: none;
+      }
+    }
+  }
+
+  // blue background
+
+  &--blue {
+    background-color: $c-primary;
+
+    &:before {
+      background-color: $c-primary;
+    }
+
+    &.ma__page-banner--small .ma__page-banner__content,
+    &.ma__page-banner--large .ma__page-banner__content {
+      background-color: $c-primary;
+
+      &:before {
+        background-color: $c-primary;
+      }
+    }
+  }
+
+    // green background
+
+    &--green {
+      background-color: $c-primary-alt;
+  
+      &:before {
+        background-color: $c-primary-alt;
+      }
+  
+      &.ma__page-banner--small .ma__page-banner__content,
+      &.ma__page-banner--large .ma__page-banner__content {
+        background-color: $c-primary-alt;
+  
+        &:before {
+          background-color: $c-primary-alt;
+        }
+      }
+    }
+
+    // white background
+
+    &--white {
+      background-color: white;
+      color: $c-font-base;
+
+      &:before {
+        background-color: white;
+      }
+
+      &.ma__page-banner--small .ma__page-banner__content,
+      &.ma__page-banner--large .ma__page-banner__content {
+        background-color: white;
+  
+        &:before {
+          background-color: white;
+        }
+      }
+    }
+  
+    &--white &__icon {
+  
+      svg,
+      svg > g {
+        fill: $c-primary-alt;
+      }
+    }
+
+    &--white &__title,
+    &--white &__description {
+      color: $c-font-base;
+    }
 }
 
 
