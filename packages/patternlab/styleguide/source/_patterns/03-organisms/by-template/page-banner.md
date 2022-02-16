@@ -27,7 +27,7 @@ pageBanner: {
   description:
     type: string / optional
   color:
-    type: string ('', 'blue') / optional
+    type: string ('', 'blue', 'white') / optional
   primaryLink: / opional
     text: string / required
     href: string / optional
