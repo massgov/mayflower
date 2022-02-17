@@ -3,7 +3,7 @@
       "bgWide": "../../assets/images/placeholder/800x400.png",
       "bgNarrow": "../../assets/images/placeholder/400x200.png",
       "renderImageOnMobile": true,
-      "layout": "taper",
+      "size": "large",
       "icon": "",
       "title": "Office of the Treasurer & Receiver General",
       "titleSubText": " (TRE)",

@@ -2,7 +2,7 @@
   "pageBanner": {
     "bgWide": "../../assets/images/placeholder/1600x400.png",
     "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "overlay",
+    "size": "overlay",
     "icon": "",
     "title": "Unemployment Benefits",
     "titleSubText": "",
