@@ -1,4 +1,4 @@
-{% set sizeClass = pageBanner.size ? "ma__page-banner--" ~ pageBanner.size : '' %}
+{% set layoutClass = pageBanner.layout ? "ma__page-banner--" ~ pageBanner.layout : '' %}
 {% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
 {% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
 {% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
@@ -9,12 +9,12 @@
 {% set iconClass = not pageBanner.icon ? "ma__page-banner--no-icon" : '' %}
 
 {% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass}" %}
-{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage} #{iconClass}" %}
+{% set sectionClass = "ma__page-banner #{layoutClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage} #{iconClass}" %}
 
 
 <section class="{{ sectionClass }}">
   {% set classBgImage =
-    (pageBanner.size == "large") ? '.ma__page-banner__image' : '.ma__page-banner'
+    (pageBanner.layout == "taper") ? '.ma__page-banner__image' : '.ma__page-banner'
   %}
 
   {# pageBanner.bgWide #}
@@ -36,7 +36,7 @@
   {% endif %}
 
   <div class="ma__page-banner__container">
-    {% if (pageBanner.size and pageBanner.size == "large") and bgWideWrapperClass %}
+    {% if (pageBanner.layout and pageBanner.layout == "taper") and bgWideWrapperClass %}
       <div class="ma__page-banner__image"></div>
     {% endif %}
     <div class="ma__page-banner__content" property="mainEntityOfPage">
