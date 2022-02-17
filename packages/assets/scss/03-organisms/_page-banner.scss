@@ -52,20 +52,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     align-items: center;
   }
 
-
-  .ma__decorative-link a,
-  &__unlinked-title {
-    font-weight: $fonts-normal;
-  }
-
-  .ma__decorative-link + &__description,
-  &__unlinked-title + &__description {
-    margin-top: .5rem;
-    font-weight: $fonts-normal;
-    width: 100%;
-    font-size: $fonts-large;
-  }
-
   &__icon {
     padding-right: 30px;
     width: 75px;
@@ -80,6 +66,10 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     & > svg {
       height: 2.75em;
       width: 100%;
+
+      &, & > g {
+        fill: rgba($c-font-inverse,.5);
+      }
 
       @media ($bp-large-extended-min) {
         height: 3.75em;
@@ -105,6 +95,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 0;
     vertical-align: middle;
     z-index: 1;
+    color: $c-font-inverse;
 
     @media ($bp-medium-min) {
       font-size: $fonts-7xlarge;
@@ -131,6 +122,8 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &__description,
   &__unlinked-title,
   .ma__decorative-link {
+    color: $c-font-inverse;
+    font-weight: $fonts-normal;
     display: block;
     font-size: $fonts-xlarge;
     letter-spacing: $letter-spacing-small;
@@ -144,6 +137,26 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
   
+
+  .ma__decorative-link a {
+    color: $c-font-inverse;
+
+    &:hover {
+      border-bottom-color: rgba($c-font-inverse, 0.5);
+    }
+    svg {
+      fill: rgba($c-font-inverse, 0.5);
+    }
+  }
+
+  .ma__decorative-link + &__description,
+  &__unlinked-title + &__description {
+    margin-top: .5rem;
+    width: 100%;
+    font-size: $fonts-large;
+  }
+
+
 
   // Overlay variant
 
@@ -380,48 +393,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .ma__page-banner {
 
-
-  &__icon {
-
-    svg,
-    svg > g {
-      fill: rgba($c-font-inverse,.5);
-    }
-  }
-
-  &__title {
-    color: $c-font-inverse;
-  }
-
-  &__description {
-    color: $c-font-inverse;
-    font-weight: $fonts-normal;
-
-    .ma__page-banner__descriptionSubText {
-      display: block;
-      font-weight: $fonts-lighter;
-    }
-  }
-
-  .ma__decorative-link {
-
-    a {
-      color: $c-font-inverse;
-
-      &:hover {
-        border-bottom-color: rgba($c-font-inverse, 0.5);
-      }
-    }
-
-    svg {
-      fill: rgba($c-font-inverse, 0.5);
-    }
-
-  }
-
-  &__unlinked-title {
-    color: $c-font-inverse;
-  }
 
    // Do not render image on mobile
 
