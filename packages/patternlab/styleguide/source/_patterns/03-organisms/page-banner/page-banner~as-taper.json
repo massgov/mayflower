@@ -3,7 +3,7 @@
     "bgWide": "../../assets/images/placeholder/1600x400.png",
     "bgNarrow": "../../assets/images/placeholder/400x200.png",
     "renderImageOnMobile": false,
-    "size": "large",
+    "layout": "taper",
     "icon": "lg-picnic-table",
     "title": "State Parks & Recreation",
     "titleSubText": "",

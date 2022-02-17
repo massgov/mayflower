@@ -6,7 +6,7 @@ Page Banner component that is composed of an H1 page title, with optional icon, 
 
 ### Variant options
 * Layouts: 
-  - ['large'](./?p=organisms-page-banner-as-large) - Slanted solic background, side-by-side image
+  - ['taper'](./?p=organisms-page-banner-as-large) - Trepezoid solid color background, side-by-side image
   - ['overlay'](./?p=organisms-page-banner-as-overlay) - Transparent background color over an image
 * Color themes:
   - blue (./?p=organisms-page-banner)
@@ -22,8 +22,8 @@ pageBanner: {
     type: string (image path - narrow screens) / required
   underline:
     type: boolean / optional / default to false
-  size:
-    type: string ('', 'large', 'overlay') / optional
+  layout:
+    type: string ('', 'taper', 'overlay') / optional
   renderImageOnMobile:
     type: boolean / optional / default to false
   icon:
