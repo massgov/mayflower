@@ -20,12 +20,14 @@ pageBanner: {
     type: string (image path - wide screens) / required
   bgNarrow:
     type: string (image path - narrow screens) / required
+  underline:
+    type: boolean / optional / default to false
   size:
     type: string ('', 'large', 'overlay') / optional
   renderImageOnMobile:
-    type: boolean / optional / 'false' as default.
+    type: boolean / optional / default to false
   icon:
-    type: string (path to icon file) / optional,
+    type: string (path to icon file) / optional
   title:
     type: string / required
   titleSubText:

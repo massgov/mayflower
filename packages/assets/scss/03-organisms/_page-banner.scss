@@ -124,10 +124,10 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   .ma__decorative-link {
     color: $c-font-inverse;
     font-weight: $fonts-normal;
-    display: block;
-    font-size: $fonts-xlarge;
+    font-size: $fonts-large;
     letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
+    display: block;
     margin-bottom: 0;
     margin-top: 0.8em;
     top: $page-banner-height;
@@ -258,7 +258,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   // Skew background variant
 
-  &--large {
+  &--taper {
 
     position: relative;
     overflow: hidden;
@@ -292,7 +292,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 
-  &--large &__container {
+  &--taper &__container {
     padding-right: 0;
     display: flex;
 
@@ -357,7 +357,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }    
   }
 
-  &--large &__content-wrapper {
+  &--taper &__content-wrapper {
     z-index: 1;
 
       @media ($bp-large-extended-min) {
@@ -393,6 +393,23 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .ma__page-banner {
 
+  // With underline
+  &__content-wrapper {
+    &--underline:after {
+      // left: 54px;
+      content: "";
+      height: 6px;
+      position: absolute;
+      -webkit-transform: skew(-30deg);
+      -ms-transform: skew(-30deg);
+      transform: skew(-30deg);
+      width: 105px;
+      background-color: #388557;
+      margin-top: 16px;
+      margin-top: 1rem;
+    }
+  }
+
 
    // Do not render image on mobile
 
@@ -419,7 +436,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       background-color: $c-primary;
     }
 
-    &.ma__page-banner--large .ma__page-banner__content {
+    &.ma__page-banner--taper .ma__page-banner__content {
       background-color: $c-primary;
 
       &:before {
@@ -437,7 +454,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         background-color: $c-primary-alt;
       }
   
-      &.ma__page-banner--large .ma__page-banner__content {
+      &.ma__page-banner--taper .ma__page-banner__content {
         background-color: $c-primary-alt;
   
         &:before {
@@ -456,7 +473,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         background-color: white;
       }
 
-      &.ma__page-banner--large .ma__page-banner__content {
+      &.ma__page-banner--taper .ma__page-banner__content {
         background-color: white;
   
         &:before {
