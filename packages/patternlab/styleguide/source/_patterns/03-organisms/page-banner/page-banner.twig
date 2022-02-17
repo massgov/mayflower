@@ -7,7 +7,13 @@
 {% set iconClass = not pageBanner.icon ? "ma__page-banner--no-icon" : '' %}
 {% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
 {% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
-{% set underlineWrapperClass = pageBanner.underline ? "ma__page-banner__content-wrapper--underline" : "" %}
+{% if pageBanner.underline %}
+  {% if pageBanner.description %}
+    {% set underlineWrapperClass = "ma__page-banner__content-wrapper--underline-description" %}
+  {% else %}
+    {% set underlineWrapperClass = "ma__page-banner__content-wrapper--underline" %}
+  {% endif %}
+{% endif %}
 
 {% set sectionClass = "ma__page-banner #{layoutClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage} #{iconClass}" %}
 {% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass} #{underlineWrapperClass}" %}
