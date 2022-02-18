@@ -82,11 +82,7 @@ export default (function (window,document,$,undefined) {
 
   // Toggle each individual accordion.
   function accordionToggle($el, toggleStatus = 'default'){
-    let ind = '';
-
-    if ($el.hasClass('ma__header-alerts')) {
-      ind = '>';
-    }
+    const ind = $el.hasClass('ma__header-alerts') ? '>' : '';
 
     let $link = $el.find(`${ind} .js-accordion-link`),
       $content = $el.find(`${ind} .js-accordion-content`),
@@ -112,14 +108,11 @@ export default (function (window,document,$,undefined) {
 
   // Set and update aria labels depending on the accordion status.
   function accordionAriaToggle($link, open) {
-    let statusText = "Expand ";
+    const statusText = open ? "Collapse " : "Expand ";
+    const label = $link.text() || $link.children('h2').text();
+    
     $link.attr('aria-expanded',open);
-
-    if(open) {
-      statusText = "Collapse ";
-    }
-
-    $link.attr('aria-label', statusText + $link.children('h2').text());
+    $link.attr('aria-label', statusText + label);
   }
 
   // Initialize each accordion item.
