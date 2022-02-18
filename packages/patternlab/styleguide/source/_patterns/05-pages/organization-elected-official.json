@@ -4,6 +4,7 @@
   "pageBanner": {
     "bgWide": "../../assets/images/placeholder/800x400.png",
     "bgNarrow": "../../assets/images/placeholder/800x400.png",
+    "renderImageOnMobile": true,
     "size": "large",
     "icon": null,
     "title": "Office of the Treasurer & Receiver General",

@@ -1,41 +1,48 @@
 {% set sizeClass = pageBanner.size ? "ma__page-banner--" ~ pageBanner.size : '' %}
-
 {% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
 
-{% set linkedClass = pageBanner.primaryLink ? "ma__page-banner--linked" : '' %}
+{% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner--no-img-mobile" %}
 
-<section class="ma__page-banner {{ sizeClass }} {{ colorClass }} {{ linkedClass }}">
-  {% if pageBanner.size == "columns" or linkedClass %}
+{% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
+{% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
+{% set bgNarrowClass = pageBanner.bgNarrow ? "ma__page-banner--bg-narrow" : "" %}
+{% set bgWideClass = pageBanner.bgWide ? "ma__page-banner--bg-wide" : "" %}
+{% set noImage = (pageBanner.bgWide or pageBanner.bgNarrow) ? "" : "ma__page-banner--no-img" %}
+
+{% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass}" %}
+{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage}" %}
+
+
+<section class="{{ sectionClass }}">
+  {% set classBgImage =
+    (pageBanner.size == "columns" or pageBanner.size == "large" or pageBanner.size == "small") ?
+      '.ma__page-banner__image' : '.ma__page-banner'
+  %}
+
+  {# pageBanner.bgWide #}
+  {% if bgWideClass %}
     <style>
-      .ma__page-banner__image {
-        background-image: url('{{ pageBanner.bgNarrow }}');
-      }
-
-      @media (min-width: 801px) {
-        .ma__page-banner__image {
-          background-image: url('{{ pageBanner.bgWide }}');
+      {% if pageBanner.renderImageOnMobile %}
+        {# Optional pageBanner.bgNarrow #}
+        {{ classBgImage }} {
+          background-image: url('{{ (bgNarrowClass) ? pageBanner.bgNarrow : pageBanner.bgWide }}');
         }
-      }
-    </style>
-  {% else %}
-    <style>
-      .ma__page-banner {
-        background-image: url('{{ pageBanner.bgNarrow }}');
-      }
+      {% endif %}
 
-      @media (min-width: 801px) {
-        .ma__page-banner {
+      @media (min-width: 1051px) {
+        {{ classBgImage }} {
           background-image: url('{{ pageBanner.bgWide }}');
         }
       }
     </style>
   {% endif %}
+
   <div class="ma__page-banner__container">
-    {% if (pageBanner.size and pageBanner.size == "columns") or linkedClass %}
+    {% if ((pageBanner.size and pageBanner.size == "columns") or pageBanner.size == "large" or pageBanner.size == "small") and bgWideWrapperClass %}
       <div class="ma__page-banner__image"></div>
     {% endif %}
     <div class="ma__page-banner__content" property="mainEntityOfPage">
-      <div class="ma__page-banner__content-wrapper">
+      <div class="{{ wrapperClass }}">
         {% if pageBanner.icon %}
           <div class="ma__page-banner__icon">
             {{ icon(pageBanner.icon) }}
