@@ -52,23 +52,23 @@
       transition: max-height 0.4s, opacity 0.4s;
 
       &:nth-child(n+4) {
-        opacity: 0;
+        display: none;
         max-height: 0;
         margin: 0;
       }
 
       @media ($bp-medium-min) {
-        opacity: 1;
+        display: block;
         max-height: 4rem;
 
         &:nth-child(n+4) {
-          opacity: 1;
+          display: block;
           max-height: 4rem;
           margin-bottom: 1.2rem;
         }
 
         &:nth-child(n+11) {
-          opacity: 0;
+          display: none;
           max-height: 0;
           margin-bottom: 0;
         }
@@ -83,7 +83,7 @@
     }
 
     .ma__link-list__item:nth-child(n+4) {
-      opacity: 1;
+      display: block;
       max-height: 5rem;
       transition: max-height 0.6s, opacity 0.6s;
     }
