@@ -2,7 +2,7 @@
 
 {% set titleClass = not tableOfContentsHierarchy.title.text? 'ma__toc--hierarchy--no-title' %}
 
-<nav class="ma__toc--hierarchy {{ backgroundModifier }} {{ titleClass }}">
+<div class="ma__toc--hierarchy {{ backgroundModifier }} {{ titleClass }}"  {{ tableOfContentsHierarchy.title.id ? "aria-describedby=#{tableOfContentsHierarchy.title.id}" : "" }}>
   {% if tableOfContentsHierarchy.title.colored %}
     {% set coloredHeading = { "text": tableOfContentsHierarchy.title.text, "color": "green" } %}
     {% include "@atoms/04-headings/colored-heading.twig" %}
@@ -38,4 +38,4 @@
       {% endfor %}
     {% endblock %}
   </ul>
-</nav>
+</div>
