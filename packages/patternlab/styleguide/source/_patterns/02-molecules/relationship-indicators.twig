@@ -1,5 +1,13 @@
 {% if relationshipIndicators.primary or relationshipIndicators.secondary %}
-  <div class="ma__relationship-indicators">
+
+  {%
+    set borderlessClass =
+      relationshipIndicators.borderless is not empty and
+      relationshipIndicators.borderless ?
+        " ma__relationship-indicators--borderless" : ""
+  %}
+
+  <div class="ma__relationship-indicators {{ borderlessClass }}">
   {% if relationshipIndicators.primary %}
     <div class="ma__relationship-indicators--section primary{{ relationshipIndicators.secondary ? '' : ' single' }}">
       <span class="ma__relationship-indicators--label" id="primary">

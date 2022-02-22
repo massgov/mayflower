@@ -23,7 +23,10 @@ headerTags: {
       type: string / optional
     text:
       type: string / optional
-  }]
+  }],
+  borderless:
+    type: boolean / optional
+    description: removes border if true
 }
 ~~~
 
