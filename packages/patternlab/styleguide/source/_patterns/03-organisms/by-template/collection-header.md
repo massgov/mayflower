@@ -14,7 +14,7 @@ A full width header for collections.
       type: string / optional
       description: An image HTML code.
     bg_color:
-      type: string / optional
+      type: string / required
       description: any color valid for css background color.
   }
 ~~~
