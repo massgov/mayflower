@@ -6,6 +6,7 @@
 {% endif %}
 
 {% set headingLevel = compHeading.level ? : 2 %}
+{% set headingClass = 'ma__h' ~ headingLevel %}
 
 
 {# string value is backward compatible for v5.0.0 #}
@@ -25,11 +26,10 @@
 {% set sidebar = compHeading.sidebar ? 'ma__comp-heading--sidebar' : '' %}
 
 {% if compHeading.tag %}
-<{{ compHeading.tag }}
+<{{ compHeading.tag }} class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }} {{ hideLine }} {{ headingClass }}"
 {% else %}
-<h{{ headingLevel }}
+<h{{ headingLevel }} class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }} {{ hideLine }}"
 {% endif %}
-  class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }} {{ hideLine }}"
   {% if compHeading.id %}
     id="{{compHeading.id}}"
   {% endif %}
