@@ -24,11 +24,19 @@
 
 {% set sidebar = compHeading.sidebar ? 'ma__comp-heading--sidebar' : '' %}
 
+{% if compHeading.tag %}
+<{{ compHeading.tag }}
+{% else %}
 <h{{ headingLevel }}
+{% endif %}
   class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }} {{ hideLine }}"
   {% if compHeading.id %}
     id="{{compHeading.id}}"
   {% endif %}
   tabindex="-1">{{ compHeading.title }}
   {% if compHeading.titleContext %}<span class="visually-hidden"> {{ compHeading.titleContext }}</span>{% endif %}
+{% if compHeading.tag %}
+</{{ compHeading.tag }}>
+{% else %}
 </h{{ headingLevel }}>
+{% endif %}
