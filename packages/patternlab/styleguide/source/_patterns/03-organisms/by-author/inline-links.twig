@@ -1,0 +1,15 @@
+{% if inlineLinks.links %}
+  <div class="ma__inline-links {{ (inlineLinks.background)?"ma__inline-links--bg-"~inlineLinks.background:"" }}">
+    <ul class="ma__inline-links__container" {% if inlineLinks.ariaLabel %} aria-label="{{ inlineLinks.ariaLabel }} {% endif %}">
+      {% for link in inlineLinks.links %}
+        <li class="ma__inline-links__item">
+          {% if link.href %}
+            <a href="{{ link.href }}" title="{{ link.info }}">{{ link.text }}</a>
+          {% else %}
+            <span> {{ link.text }} </span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

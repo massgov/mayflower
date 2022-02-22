@@ -6,17 +6,18 @@ export default (function (window,document,$,undefined) {
       let $resultHeading = $('.js-results-heading'),
         $clearAllButton = '.js-results-heading-clear', // events triggered on parent
         $filterButton = '.js-results-heading-tag'; // events triggered on parent
-        let $locationFilterParent = $('.js-filter-by-location', $el);
-        let $locationFilter = $locationFilterParent.find('input');
+        const $locationFilterParent = $('.js-filter-by-location', $el);
+        const $locationFilter = $locationFilterParent.find('input');
         if ($locationFilter.length) {
           // Create the google places autocomplete object and associate it with the zip code text input.
-          let locationInput = document.getElementById($locationFilter.attr('id'));
-          let swLat = $locationFilterParent.data('maPlaceBoundsSwLat');
-          let swLng = $locationFilterParent.data('maPlaceBoundsSwLng');
-          let neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
-          let neLng = $locationFilterParent.data('maPlaceBoundsNeLng');
+          const locationFilterID = $locationFilter.attr('id');
+          const locationInput = document.getElementById(locationFilterID);
+          const swLat = $locationFilterParent.data('maPlaceBoundsSwLat');
+          const swLng = $locationFilterParent.data('maPlaceBoundsSwLng');
+          const neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
+          const neLng = $locationFilterParent.data('maPlaceBoundsNeLng');
 
-          let defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(swLat,swLng), new google.maps.LatLng(neLat,neLng));
+          const defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(swLat,swLng), new google.maps.LatLng(neLat,neLng));
 
           // See options: https://developers.google.com/maps/documentation/javascript/places-autocomplete#add_autocomplete
           let options = {
@@ -31,6 +32,13 @@ export default (function (window,document,$,undefined) {
           ma.autocomplete.addListener('place_changed', function() {
             const place = ma.autocomplete.getPlace();
             $(document).trigger('ma:GoogleMaps:placeChanged', place);
+          }); 
+
+          // Fix google places autocomplete use enter key to select - separating form submit action from option selection while pressing the enter key.
+          google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
+              if (e.key == 'Enter' && $('.pac-container:visible').length) { 
+                  e.preventDefault(); 
+              }
           }); 
         }
     });

@@ -1,0 +1,57 @@
+{
+  "generalTeaser" : {
+    "imageAfter": true,
+    "image": {
+      "src": "../../assets/images/placeholder/400x225.png",
+      "alt": "placeholder image",
+      "width": "400",
+      "height": "225"
+    },
+    "eyebrow": "Eyebrow",
+    "title" : {
+      "href": "#",
+      "text": "Link field for a title or name",
+      "info": "",
+      "property": ""
+    },
+    "level": "",
+    "emphasizedText": [
+      "An emphasized text field",
+      "Another emphasized text field"
+    ],
+    "contents": [{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+        }
+      }
+    },{
+      "path": "@atoms/decorative-link.twig",
+      "data": {
+        "decorativeLink": {
+          "href": "#",
+          "text": "Quick action link 1",
+          "chevron": true,
+          "label": ""
+        }
+      }
+    },{
+      "path": "@atoms/decorative-link.twig",
+      "data": {
+        "decorativeLink": {
+          "href": "#",
+          "text": "Quick action link 2",
+          "chevron": true,
+          "label": ""
+        }
+      }
+    }],
+    "tags": [
+      "tag 1",
+      "tag 2",
+      "tag 3",
+      "tag 4"
+    ]
+  }
+}

@@ -1,6 +1,27 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.21.0 (2/22/2022)
+### Changed 
+- (Patternlab) [LeaftletMap] DP-22028: Update min zoom so the map is showing the whole state on mobile. (#1576)
+- (Patternlab) [PageBanner] DP-23065: - Make the background image optional.
+- When there are no BG image the banner height becomes fluid.
+- Hide image background on mobile by default, add an option `renderImageOnMobile` to render image on mobile. 
+- Consolidate `linked` variant with `large` variant (organisms-page-banner-as-large-linked)
+- Adds a variant for banners without image (organisms-page-banner-as-overlay-no-image)
+- Variants to be deprecated: columns, small. (#1534)
+- (Patternlab) [Alerts (Javascript)] DP-23222: Handle events not triggered by jQuery. (#909)
+- (Patternlab) [LocationFiltersLeaflet.js] DP-23780: Fix google places autocomplete using enter key to select - separating form submit action from option selection while pressing the enter key. (#1580)
+
+### Added 
+- (Patternlab, Assets) [Search box with links] DP-23355: Adds a search box with links. (#1559)
+- (PatternLab) [InlineLinks] DP-23669: Adds a new component for displaying a list of links one next to the other. (#1581)
+
+### Fixed 
+- (Patternlab) [KeyMessage] DP-24018: Fix the halfImage check that result in overlapping content on promo page. (#1588)
+- (Patternlab) [KeyMessage] DP-23651: Fix halfImage check. (#1575)
+- (Core) [Docs, Examples] DP-24120: Fix typos and add examples. (#1592)
+
 ## 11.20.1 (12/13/2021)
 ### Added 
 - (React, Patternlab) [BrandBanner] DP-23414: Add `aria-controls` and `aria-expanded`. (#1562)

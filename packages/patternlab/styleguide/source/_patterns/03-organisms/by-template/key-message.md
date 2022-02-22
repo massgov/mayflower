@@ -24,6 +24,9 @@ keyMessage: {
   bgImage: 
     type: url / optional
     description: Url to an image for the background.
+  halfImage: 
+    type: boolean / optional
+    description: set the banner background to half the regular height. Defaults to false. 
   mobileBgImage:
     type: url / optional
     description: Url to an image for the background on mobile screen.
