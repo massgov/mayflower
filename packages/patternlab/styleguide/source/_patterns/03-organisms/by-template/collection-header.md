@@ -1,6 +1,5 @@
 ### Description
 A full width header for collections.
-Despite bg_color is not required, the template will not show if the bg_color is empty.
 
 ### Variables
 ~~~

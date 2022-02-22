@@ -1,22 +1,20 @@
-{% if collection.bg_color is not empty %}
-  <div class="collection-header" style="background-color: {{ collection.bg_color }}">
-    <div class="collection-header--inner">
+<div class="collection-header" style="background-color: {{ collection.bg_color }}">
+  <div class="collection-header--inner">
 
-      <div class="collection-header__content">
-        {% if collection.title is not empty %}
-          <div class="collection-header__title">{{ collection.title }}</div>
-        {% endif %}
+    <div class="collection-header__content">
+      {% if collection.title is not empty %}
+        <div class="collection-header__title">{{ collection.title }}</div>
+      {% endif %}
 
-        {% if collection.description is not empty %}
-          <div class="collection-header__description">{{ collection.description }}</div>
-        {% endif %}
-      </div>
-
-      {% if collection.image|raw is not empty %}
-        <div class="collection-header__image">
-          {{ collection.image|raw }}
-        </div>
+      {% if collection.description is not empty %}
+        <div class="collection-header__description">{{ collection.description }}</div>
       {% endif %}
     </div>
+
+    {% if collection.image|raw is not empty %}
+      <div class="collection-header__image">
+        {{ collection.image|raw }}
+      </div>
+    {% endif %}
   </div>
-{% endif %}
+</div>
