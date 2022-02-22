@@ -1,0 +1,10 @@
+{
+  "blogpostCollectionHeader": {
+    "image" : "<img src='../../assets/images/placeholder/820x460.png' />",
+    "bg_color" : "#333",
+    "decorativeLink": {
+      "text": "MassDot Blog",
+      "href": "#"
+    }
+  }
+}

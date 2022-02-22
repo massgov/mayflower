@@ -1,0 +1,14 @@
+<div class="blogpost-collection-header" style="background-color: {{ blogpostCollectionHeader.bg_color }}">
+  <div class="blogpost-collection-header--inner">
+
+    <div class="blogpost-collection-header__content">
+      {% include "@atoms/decorative-link.twig" with blogpostCollectionHeader %}
+    </div>
+
+    {% if blogpostCollectionHeader.image|raw is not empty %}
+      <div class="blogpost-collection-header__image">
+        {{ blogpostCollectionHeader.image|raw }}
+      </div>
+    {% endif %}
+  </div>
+</div>
