@@ -1,0 +1,34 @@
+@use "00-base/configure" as *;
+
+.collection-header {
+  padding-top: $standard-spacing--small;
+  padding-bottom: $standard-spacing--small;
+}
+
+.collection-header--inner {
+  color: white;
+  @include ma-container;
+  display: flex;
+  justify-content: space-between;
+}
+
+.collection-header__image {
+  display: none;
+  width: 175px;
+  height: auto;
+  margin-left: 1rem;
+
+  @media ($bp-small-min) {
+    display: block;
+  }
+}
+
+.collection-header__title {
+  font-size: $fonts-6xlarge;
+  font-weight: $fonts-normal;
+}
+
+.collection-header__description {
+  font-size: $fonts-medium;
+  font-weight: $fonts-normal;
+}
