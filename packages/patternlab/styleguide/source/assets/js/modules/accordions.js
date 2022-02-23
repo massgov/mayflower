@@ -11,6 +11,15 @@ export default (function (window,document,$,undefined) {
   }
 
   $jsAccordion.each(function(index){
+
+    // To ensure applying js-accordion only once.
+    // Also to identify when this behavior has been
+    // applied from external scripts.
+    if ($(this).data("js-accordion")) {
+      return;
+    }
+    $(this).data("js-accordion", 1);
+
     init.apply(this, [index]);
   });
 
