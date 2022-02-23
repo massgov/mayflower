@@ -73,7 +73,7 @@ Changed:
 
 #___EXAMPLE WITH MULTIPLE CHANGE TYPES___
 Fixed:
-  - project: ReactCore, React, Patternlab
+  - project: Core, React, Patternlab
     component: Color
     description: Fix 50% bershire green color hex. (#1595)
     impact: Patch
