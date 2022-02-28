@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
     component: ContactUs
-    description: Change forcu order of the more/less contact info and extra. (#916)
+    description: Set focus order of the more/less contact info button before hidden extra content. (#916)
     issue: DP-17338
     impact: Patch
