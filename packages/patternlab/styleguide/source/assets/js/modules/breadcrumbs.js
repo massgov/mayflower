@@ -44,7 +44,6 @@ export default (function (window, document, $) {
 
     //Desktop display.
     } else if (windowWidth >= 910 && !$breadcrumbs.hasClass('ma__breadcrumbs--desktop')){
-      $breadcrumbsIndicator.removeAttr('hidden');
       $breadcrumbs.removeClass('ma__breadcrumbs--mobile');
       $breadcrumbs.addClass('ma__breadcrumbs--desktop');
 
@@ -59,23 +58,17 @@ export default (function (window, document, $) {
           ariaControls += $(this).attr("id") + " ";
         });
 
-        $breadcrumbItemsSlice.attr("hidden", "");
         $button.attr("aria-expanded", "false");
         $button.attr("aria-pressed", "false");
         $button.attr("aria-controls", ariaControls);
 
         $button.on("click", function () {
           $breadcrumbsIndicator.hide();
-          $breadcrumbsIndicator.attr("hidden", "");
 
           $breadcrumbItemsSlice.show();
-          $breadcrumbItemsSlice.removeAttr("hidden");
 
           $button.attr("aria-expanded", "true");
           $button.attr("aria-pressed", "true");
-          $button.attr("hidden", "");
-
-
         });
 
       } else {

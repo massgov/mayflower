@@ -1,6 +1,7 @@
 {
   "breadcrumbs":{
     "light": true,
+    "currentPage": "Current Page",
     "links": [{
       "text": "Home",
       "url": "/"
