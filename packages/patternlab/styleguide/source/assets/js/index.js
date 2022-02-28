@@ -10,7 +10,6 @@ import brandBanner from "./modules/brandBanner.js";
 import clickable from "./modules/clickable.js";
 import contactAccordion from "./modules/contactAccordion.js";
 import dropdown from "./modules/dropdown.js";
-import emergencyAlerts from "./modules/emergencyAlerts.js";
 import eventFilters from "./modules/eventFilters";
 import eventListingInteractive from "./modules/eventListingInteractive";
 import expandClickableArea from "./modules/expandClickableArea";
