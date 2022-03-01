@@ -1,7 +1,7 @@
 Changed:
   - project: Patternlab
     component: CuratedPerson
-    description: Correct headings in curated person for semantics. (#)
+    description: Correct headings in curated person for semantics. (#1598)
     issue: DP-12097
     impact: Patch
     
