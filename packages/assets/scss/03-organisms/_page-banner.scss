@@ -120,7 +120,6 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   .ma__decorative-link {
     color: $c-font-inverse;
     font-weight: $fonts-normal;
-    font-size: $fonts-large;
     letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
     display: block;
@@ -131,7 +130,15 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       max-width: 820px;
     }
   }
-  
+
+  &__description {
+    font-size: $fonts-large;
+  }
+
+  &__unlinked-title,
+  .ma__decorative-link {
+    font-size:  $fonts-xlarge;
+  }
 
   .ma__decorative-link a {
     color: $c-font-inverse;
@@ -211,6 +218,8 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       .ma__page-banner__description {
 
         @media ($bp-large-extended-min) {
+          // increase font size to ensure description readablity when overlaying an image
+          font-size: $fonts-xlarge;
           max-width: 820px;
           width: 100%;
         }
