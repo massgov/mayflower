@@ -198,6 +198,7 @@
   &__expand {
     padding-top:20px;
     text-align: left;
+    order: 1;
 
     button {
 
@@ -236,6 +237,10 @@
     margin-top: 2rem;
   }
 
+  &.js-accordion {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 //theme
