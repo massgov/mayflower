@@ -198,7 +198,6 @@
   &__expand {
     padding-top:20px;
     text-align: left;
-    // order: 1;
 
     button {
 
@@ -237,10 +236,13 @@
     margin-top: 2rem;
   }
 
-  // &.js-accordion {
-  //   display: flex;
-  //   flex-direction: column;
-  // }
+  &--more.js-accordion {
+    display: flex;
+    flex-direction: column;
+
+    .ma__contact-us__expand {
+      order: 1;
+  }
 }
 
 //theme
