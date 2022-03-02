@@ -4,7 +4,7 @@
   {% set accordionClass = "ma__contact-us--accordion js-accordion" %}
 {% else %}
   {% if contactUs.groups|length > 2 or contactUs.showMore %}
-{% set accordionClass = "ma__contact-us--more js-accordion" %}
+    {% set accordionClass = "js-accordion" %}
 
     {% set inlineAccordion = true %}
   {% endif %}

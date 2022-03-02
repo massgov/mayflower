@@ -2,6 +2,20 @@
 
 .ma__contact-us {
 
+  @media ($bp-small-max) {
+
+    // Enable keyboard and AT users access expanded more info from button with TAB.
+
+    &.js-accordion {
+      display: flex;
+      flex-direction: column;
+
+      .ma__contact-us__expand {
+        order: 1;
+      }
+    }
+  }
+
   & + & {
     border-top-width: 1px;
     border-top-style: solid;
@@ -234,15 +248,6 @@
 
   &__more-info {
     margin-top: 2rem;
-  }
-
-  &--more.js-accordion {
-    display: flex;
-    flex-direction: column;
-
-    .ma__contact-us__expand {
-      order: 1;
-    }
   }
 }
 
