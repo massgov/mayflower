@@ -1,0 +1,90 @@
+{
+  "inlineLinks": {
+    "ariaLabel": "Available Translations",
+    "links": [{
+      "text": "English",
+      "href": "",
+      "info": ""
+    },{
+      "text": "Spanish",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Chinese",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Portuguese",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "French",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Russian",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Korean",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Vietnamese",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Arabic",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Italian",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Creole",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Polish",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Lao",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Khmer",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Afrikaans",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Albanian",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Amharic",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Hindi",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Nepali",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Somali",
+      "href": "#",
+      "info": ""
+    },{
+      "text": "Ukranian",
+      "href": "#",
+      "info": ""
+    }]
+  }
+}

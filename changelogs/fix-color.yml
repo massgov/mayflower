@@ -51,9 +51,29 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
+Added:
+  - project: React, Patternlab
+    component: Color
+    description: Add Color stories and color gradients. (#909)
+    issue: DP-17253
+    impact: Minor
+
+#___EXAMPLE WITH MULTIPLE ITEMS___
 Changed:
-  - project: Patternlab
-    component: LeaftletMap
-    description: Update min zoom so the map is showing the whole state on mobile. (#1576) 
-    issue: DP-22028
+  - project: React
+    component: Storybook
+    description: Render welcome page to Mayflower-react. (#916)
+    issue: DP-17338
+    impact: Patch
+  - project: React
+    component: Storybook
+    description: Display `Color` in category "Brand". (#916)
+    issue: DP-17338
+    impact: Patch
+
+#___EXAMPLE WITH MULTIPLE CHANGE TYPES___
+Fixed:
+  - project: Core, React, Patternlab
+    component: Color
+    description: Fix 50% bershire green color hex. (#1595)
     impact: Patch
