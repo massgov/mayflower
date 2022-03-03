@@ -41,6 +41,16 @@
       {% endblock %}
 
       {% if not contactUs.hideSecondary %}
+        {# More/less button is visually presented after the extra contact with css.
+           This placement enables keyboard and AT users to access the extra content after interacting with the button. #}
+        <div class="ma__contact-us__expand">
+          <button type="button" class="js-accordion-link">
+            <span>more</span>
+            <span>less</span>
+            contact info
+          </button>
+        </div>
+
         {# Show 3rd+ contact groups inside of accordion (if they exist) #}
         <div class="ma__contact-us__extra js-accordion-content">
           {% block secondaryContactGroups %}
@@ -51,11 +61,6 @@
               {% include "@molecules/contact-group.twig" %}
             {% endfor %}
           {% endblock %}
-        </div>
-        <div class="ma__contact-us__expand">
-          <button type="button" class="js-accordion-link">
-            <span>more</span><span>less</span> contact info
-          </button>
         </div>
       {% endif %}
     {% else %}
