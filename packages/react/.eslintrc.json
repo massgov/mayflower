@@ -36,7 +36,8 @@
         "react/destructuring-assignment": ["off"],
         "react/static-property-placement": ["off"],
         "react/state-in-constructor": ["off"],
-        "react/jsx-fragments": ["off"]
+        "react/jsx-fragments": ["off"],
+        "massgov-search/no-conditional-literals-in-jsx": 1
     },
     "settings": {
         "import/resolver": {
