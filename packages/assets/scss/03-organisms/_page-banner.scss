@@ -146,6 +146,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     &:hover {
       border-bottom-color: rgba($c-font-inverse, 0.5);
     }
+
     svg {
       fill: rgba($c-font-inverse, 0.5);
     }
@@ -162,13 +163,13 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   // Overlay variant
 
-  &--overlay{
+  &--overlay {
 
     @media ($bp-large-extended-min) {
       min-height: $page-banner-height;
       padding-top: 20px;
       text-shadow: $text-shadow;
-      
+
       &:before {
         content: "";
         position: absolute;
@@ -358,7 +359,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         margin-right: 70px;
         padding-top: 50px;
       }
-    }    
+    }
   }
 
   &--taper &__content-wrapper {
@@ -398,9 +399,12 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 .ma__page-banner {
 
   // With underline
+
   &__content-wrapper {
+
     &--underline .ma__page-banner__title,
     &--underline-description {
+
       &:after {
         content: "";
         position: absolute;
@@ -417,18 +421,20 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
    // No image
+
    &--no-img {
     background-image: none !important;
 
     // Do not render image on mobile
+
     &-mobile {
-  
+
       @media ($bp-large-extended) {
-  
+
         &:after {
           display: none;
         }
-    
+
         .ma__page-banner__image {
           display: none;
         }
@@ -459,14 +465,14 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     &--green {
       background-color: $c-primary-alt;
-  
+
       &:before {
         background-color: $c-primary-alt;
       }
-  
+
       &.ma__page-banner--taper .ma__page-banner__content {
         background-color: $c-primary-alt;
-  
+
         &:before {
           background-color: $c-primary-alt;
         }
@@ -485,15 +491,15 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
       &.ma__page-banner--taper .ma__page-banner__content {
         background-color: white;
-  
+
         &:before {
           background-color: white;
         }
       }
     }
-  
+
     &--white &__icon {
-  
+
       svg,
       svg > g {
         fill: $c-primary-alt;
