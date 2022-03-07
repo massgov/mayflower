@@ -33,6 +33,7 @@
   }
 
   // top level links
+
   &__container {
     position: relative;
     top: -20px;
@@ -68,6 +69,7 @@
   }
 
   // second level links
+
   &__accordion {
 
     &-content {
@@ -153,20 +155,21 @@
     margin-top: 4rem;
 
     .ma__toc--hierarchy {
+
       &__accordion {
 
         &-title {
           padding-left: 11px;
           border-left: 10px solid transparent;
-  
+
           &:focus {
             border-left-color: transparent !important;
           }
-  
+
           &.is-current {
             border-left-color: rgba($c-primary-alt, 0.5) !important;
           }
-  
+
         }
       }
 
@@ -179,7 +182,7 @@
 
         li {
           position: relative;
-    
+
           &.is-current:before {
             content: "";
             position: absolute;
@@ -189,7 +192,7 @@
             width: 10px;
             height:100%;
           }
-    
+
           .ma__toc--hierarchy__accordion-content .is-current:before {
             left: -20px;
           }
@@ -203,6 +206,7 @@
   }
 
   //react
+
   .ma__accordion-header {
 
     &__button {
