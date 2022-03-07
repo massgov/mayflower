@@ -2,10 +2,9 @@
   "urlPath": "/?p=pages-ACTION-get-a-state-park-pass",
 
   "pageBanner": {
-    "bgWide":"../../assets/images/placeholder/1600x400.png",
-    "bgNarrow":"../../assets/images/placeholder/800x400.png",
-    "size":"large",
+    "color": "white",
     "icon":"lg-park",
+    "underline": true,
     "title":"Visiting & Exploring"
   },
 
