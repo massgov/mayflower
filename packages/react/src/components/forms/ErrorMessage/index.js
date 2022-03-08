@@ -24,7 +24,7 @@ const ErrorMessage = ({
       role={isSuccessful ? 'presentation' : 'alert'}
     >
       {isSuccessful ? <IconInputsuccess width={16} height={18} /> : <IconInputerror width={16} height={18} />}
-      {isSuccessful ? success : error }
+      <span>{isSuccessful ? success : error }</span>
     </div>
   );
 };
