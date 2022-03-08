@@ -4,7 +4,9 @@
     },
     "extends": "airbnb",
     "parser": "babel-eslint",
+    "plugins": ["@sayari"],
     "rules": {
+        "@sayari/no-unwrapped-jsx-text": 2,
         "arrow-parens": ["warn", "always"],
         "comma-dangle": ["error", "never"],
         "keyword-spacing": ["error", { "overrides": {
@@ -36,8 +38,7 @@
         "react/destructuring-assignment": ["off"],
         "react/static-property-placement": ["off"],
         "react/state-in-constructor": ["off"],
-        "react/jsx-fragments": ["off"],
-        "massgov-search/no-conditional-literals-in-jsx": 1
+        "react/jsx-fragments": ["off"]
     },
     "settings": {
         "import/resolver": {
