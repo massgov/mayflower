@@ -27,7 +27,7 @@ generalTeaser : {
   imageAfter:
     type: boolean / optional (default false)
   image:
-    type: image / optional
+    type: image / optional (to link the image, pass an href in the image object)
   eyebrow: {
     icon: string / optional,
     label: string,
