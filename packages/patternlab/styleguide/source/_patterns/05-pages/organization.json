@@ -59,7 +59,7 @@
   "pageBanner": {
     "bgWide": "../../assets/images/placeholder/1600x400.png",
     "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "size": "large",
+    "layout": "taper",
     "icon": null,
     "title": "Executive Office of Health and Human Services",
     "titleSubText": "(EOHHS)"

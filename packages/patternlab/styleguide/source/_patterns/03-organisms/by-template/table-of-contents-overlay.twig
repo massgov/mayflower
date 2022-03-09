@@ -21,6 +21,7 @@
     <div class="ma__toc--overlay__content">
       {% block tableOfContentsOverlaySections %}
         {% for tocSection in tableOfContentsOverlay.tocSections %}
+          {% set tocSection = tocSection|merge({'background': "none"}) %}
           {% set tableOfContentsHierarchy = tocSection %}
           {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
         {% endfor %}
