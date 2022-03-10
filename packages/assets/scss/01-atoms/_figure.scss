@@ -1,5 +1,12 @@
 @use "00-base/configure" as *;
 
+$x-small: 100% / 4;
+$small: 100% / 3;
+$medium: 100% / 2;
+$sp-x-small-min: 10px;
+$sp-small-min: 15px;
+$sp-medium-min: 20px;
+
 .ma__figure {
   margin: 0 0 20px 0;
 
@@ -125,15 +132,13 @@
   // Size - Small + X-small
 
   @media ($bp-x-small-min) {
-    // .no-sidebar
 
     &--x-small {
-      width: calc(50% - 10px);
+      width: calc(#{$medium} - #{$sp-x-small-min});
     }
   }
 
   @media ($bp-x-small-min) and ($bp-small-max) {
-    // .no-sidebar
 
     &--small {
       width: 100%;
@@ -147,7 +152,7 @@
 
     &--x-small,
     &--small {
-      width: calc(50% - 15px);
+      width: calc(#{$medium} - #{$sp-small-min});
 
       &.ma__figure--no-wrap.ma__figure--right:not(.ma__dataviz):not(.ma__iframe__container) {
         margin-left: 50%;
@@ -160,9 +165,11 @@
     // 781~
     // default size with BP 780<
 
-    &--x-small,
+    &--x-small {
+      width: calc(#{$x-small} - #{$sp-medium-min})
+    }
     &--small {
-      width: calc(100% / 3 - 20px);
+      width: calc(#{$small} - #{$sp-medium-min});
     }
   }
 
@@ -180,7 +187,7 @@
     // 1200<
 
     .page-content &--x-small {
-      width: calc(100% / 3 - 20px);
+      width: calc(#{$x-small} - #{$sp-medium-min});
     }
   }
   // Size - Medium
@@ -189,7 +196,7 @@
 
     @media ($bp-small-min) {
       // 621~
-      width: calc(50% - 15px);
+      width: calc(#{$medium} - #{$sp-small-min});
     }
 
     &.ma__figure--no-wrap.ma__figure--right:not(.ma__dataviz):not(.ma__iframe__container) {
@@ -202,8 +209,6 @@
     }
   }
 
-  // with right column
-
   .page-content &--medium {
 
     @media ($bp-large-min) and ($bp-large-extended) {
@@ -214,7 +219,7 @@
     }
 
     @media ($bp-small-min) and ($bp-large-max) {
-      width: calc(50% - 15px);
+      width: calc(#{$medium} - #{$sp-small-min});
     }
 
     @media ($bp-small-max) {
@@ -227,7 +232,7 @@
     @media ($bp-large-extended-min) {
 
       &:not(.ma__dataviz):not(.ma__iframe__container) {
-        width: calc(50% - 15px);
+        width: calc(#{$medium} - #{$sp-small-min});
       }
     }
   }
