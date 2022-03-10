@@ -70,7 +70,7 @@
     margin: 0 30px 30px 30px;
     // support pre-existing figure elements besides dataviz.
 
-    &--left:not(.ma__dataviz):not(.ma__iframe__container),
+    &--left,
     &--align-left,
     &.align-left {
       float: left;
@@ -78,7 +78,7 @@
       width: 50%;
     }
 
-    &--right:not(.ma__dataviz):not(.ma__iframe__container),
+    &--right,
     &--align-right,
     &.align-right {
       float: right;
@@ -169,7 +169,7 @@
   @media ($bp-large-min) and ($bp-large-extended) {
     // 911-1050
 
-    .page-content:not(.no-sidebar) &--small {
+    .page-content &--small {
       width: 100%;
       margin-right: 0;
       margin-left: 0;
@@ -179,7 +179,7 @@
   @media ($bp-x-large-min) {
     // 1200<
 
-    .page-content:not(.no-sidebar) &--x-small {
+    .page-content &--x-small {
       width: calc(100% / 3 - 20px);
     }
   }
@@ -204,7 +204,7 @@
 
   // with right column
 
-  .page-content:not(.no-sidebar) &--medium {
+  .page-content &--medium {
 
     @media ($bp-large-min) and ($bp-large-extended) {
       width: 100%;
