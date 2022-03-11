@@ -220,19 +220,19 @@ $sp-medium-min: 20px;
     }
   }
 
-  // Sidebar 911-1050
-  // Always 100% of the parent container width
-  // No side margins
+  // Sidebar 911-1050 - the main well gets as narrow as 451px with a sidebar in this range
+  // Make the widths larger in percentage of the main well width
   @media ($bp-large-min) and ($bp-large-extended) {
 
     .page-content:not(.no-sidebar) &--x-small,
-    .page-content:not(.no-sidebar) &--small,
+    .page-content:not(.no-sidebar) &--small {
+      width: 50%;
+    }
     .page-content:not(.no-sidebar) &--medium,
     .page-content:not(.no-sidebar) &--large {
       width: 100%;
       margin-right: 0;
       margin-left: 0;
-      float: none;
     }
   }
 
