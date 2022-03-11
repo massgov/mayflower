@@ -52,7 +52,7 @@
   "pageContent": [
     {
       "compHeading": {
-        "title": "Dataviz LEFT align (small, medium, large, x-large)",
+        "title": "Image LEFT align (x-small, small, medium, large, x-large)",
         "titleContext": "",
         "level": 2,
         "color": "",
@@ -234,7 +234,7 @@
     },
     {
       "compHeading": {
-        "title": "Dataviz RIGHT align (small, medium, large, x-large)",
+        "title": "Image RIGHT align (x-small, small, medium, large, x-large)",
         "titleContext": "",
         "level": 2,
         "color": "",
