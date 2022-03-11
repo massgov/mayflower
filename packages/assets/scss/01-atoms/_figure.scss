@@ -173,16 +173,6 @@ $sp-medium-min: 20px;
     }
   }
 
-  @media ($bp-large-min) and ($bp-large-extended) {
-    // 911-1050
-
-    .page-content &--small {
-      width: 100%;
-      margin-right: 0;
-      margin-left: 0;
-    }
-  }
-
   @media ($bp-x-large-min) {
     // 1200<
 
@@ -209,34 +199,6 @@ $sp-medium-min: 20px;
     }
   }
 
-  .page-content &--medium {
-
-    @media ($bp-large-min) and ($bp-large-extended) {
-      width: 100%;
-      margin-right: 0 !important;
-      margin-left: 0 !important;
-      float: none;
-    }
-
-    @media ($bp-small-min) and ($bp-large-max) {
-      width: calc(#{$medium} - #{$sp-small-min});
-    }
-
-    @media ($bp-small-max) {
-      width: 100%;
-      margin-right: 0 !important;
-      margin-left: 0 !important;
-      float: none;
-    }
-
-    @media ($bp-large-extended-min) {
-
-      &:not(.ma__dataviz):not(.ma__iframe__container) {
-        width: calc(#{$medium} - #{$sp-small-min});
-      }
-    }
-  }
-
   // Size - Large
 
   &--large {
@@ -258,14 +220,20 @@ $sp-medium-min: 20px;
     }
   }
 
-  .page-content:not(.no-sidebar) &--large {
-    // with right column
-    // Always 100% of the parent container width
-    // No side margins
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
-    float: none;
+  // Sidebar 911-1050
+  // Always 100% of the parent container width
+  // No side margins
+  @media ($bp-large-min) and ($bp-large-extended) {
+
+    .page-content:not(.no-sidebar) &--x-small,
+    .page-content:not(.no-sidebar) &--small,
+    .page-content:not(.no-sidebar) &--medium,
+    .page-content:not(.no-sidebar) &--large {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      float: none;
+    }
   }
 
   // Alignment

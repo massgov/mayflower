@@ -84,30 +84,6 @@
       ]
     }
   },
-  "preContentMedia": {
-    "post_header_media": {
-      "rteElements": [
-        {
-          "path": "@atoms/09-media/video.twig",
-          "data": {
-            "video": {
-              "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
-              "label": "Using a gas grill safely",
-              "width": "400",
-              "height": "200",
-              "position": "",
-              "link": {
-                "href": "/patterns/05-pages-GEN-Building-Energy-Codes/05-pages-GEN-Building-Energy-Codes.html",
-                "text": "View transcript",
-                "info": "View transcript of Using a gas grill safely",
-                "property": ""
-              }
-            }
-          }
-        }
-      ]
-    }
-  },
   "pageContent": {
     "section1": {
       "compHeading": {
