@@ -247,21 +247,7 @@ $sp-medium-min: 20px;
 
   &--no-wrap .ma__figure {
     margin-right: 0;
-    margin-left: 0;
-
-    // &--right {
-    //   @media ($bp-small-min) {
-    //     padding-left: 50%;
-
-    //     &.ma__figure--large {
-    //       padding-left: 0;
-    //     }
-    //   }
-    // }
-
-    // &--left {
-    //   float: none !important;
-    // }
+    margin-left: 0
   }
 
   /* NO sidebar - used in org pages stacked row sections
