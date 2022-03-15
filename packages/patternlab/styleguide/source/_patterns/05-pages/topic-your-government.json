@@ -1,9 +1,9 @@
 {
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/820x460.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
     "renderImageOnMobile": true,
-    "size": "columns",
+    "layout": "",
+    "color": "white",
+    "underline": true,
     "icon": "lg-state-house",
     "title": "Executive Branch",
     "description": "Learn more about the Executive Branch, and find out which constitutional officers, state offices, and agencies provide the services your use every day."

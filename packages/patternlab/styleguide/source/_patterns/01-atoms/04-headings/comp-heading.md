@@ -25,6 +25,8 @@ compHeading: {
   centered:
     type: boolean
   sidebar: 
-    type: boolean
+    type: boolean,
+  tag:
+    type: string / optional - e.g. "div" or "span". This is used to override the heading tag for semantic purposes.
 }
 ~~~

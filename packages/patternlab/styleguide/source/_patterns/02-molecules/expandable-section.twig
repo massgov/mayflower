@@ -1,14 +1,30 @@
 <li class="ma__toc--hierarchy__accordion js-accordion">
-  <button class="ma__toc--hierarchy__title js-accordion-link" type="button">
+  <button class="ma__toc--hierarchy__accordion-title js-accordion-link" type="button">
     {{expandableSection.text}}
   </button>
   <ul class="ma__toc--hierarchy__accordion-content js-accordion-content">
     {% block expandableSectionLinks %}
       {% for link in expandableSection.linkItems %}
-        <li>
-          {% if link.icon %}
+        <li{{ (link.subItems|length > 0) ? ' class="ma__toc--hierarchy__accordion-content__subitems-container"' : '' }}>
+          {% if link.subItems|length > 0 %}
+
+            {% set compHeading = {
+              "title": link.title,
+              "level": link.level,
+              "sidebar": true,
+              "tag": "div"
+            }
+            %}
+            {% include "@atoms/04-headings/comp-heading.twig" %}
+            <ul>
+              {% for subItem in link.subItems %}
+                {% set decorativeLink = subItem %}
+                <li>{% include "@atoms/decorative-link.twig" %}</li>
+              {% endfor %}
+            </ul>
+          {% elseif link.icon %}
             {% set downloadLink = link %}
-            {% include "@molecules/download-link.twig" %}
+            {% include "@molecules/download-link.twig"  %}
           {% else %}
             {% set decorativeLink = link %}
             {% include "@atoms/decorative-link.twig" %}

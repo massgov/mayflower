@@ -127,7 +127,7 @@ ol {
 // Heading styles
 
 @for $i from 1 through 6 {
-  h#{$i} {
+  h#{$i}, .ma__h#{$i} {
     margin-top: 0;
     color: $c-font-heading;
 
