@@ -8,15 +8,13 @@
     <div class="ma__curated-person--meta-wrapper">
       {% if curatedPerson.title %}
       <div class="curated-person--title">
-        {% set heading6 = curatedPerson.title %}
-        {% include "@atoms/04-headings/heading-6.twig" %}
+        {{ curatedPerson.title.text }}
       </div>
       {% endif %}
 
       {% if curatedPerson.org %}
       <div class="curated-person--org">
-        {% set heading6 = curatedPerson.org %}
-        {% include "@atoms/04-headings/heading-6.twig" %}
+        {{ curatedPerson.org.text }}
       </div>
       {% endif %}
     </div>
@@ -39,6 +37,7 @@
   <div class="ma__contact-us__content-wrap">
     {% block curatedPersonGroups %}
       {% for group in curatedPerson.groups %}
+        {% set groupHeading = groupHeading ? : 4 %}
         {% set contactGroup = group|merge({"level": groupHeading}) %}
         {% include "@molecules/contact-group.twig" %}
       {% endfor %}

@@ -20,6 +20,11 @@
     font-style: italic;
     color: $c-gray-dark;
 
+    font-weight: $fonts-bold;
+    font-size: $fonts-large;
+    line-height: 1.4;
+    margin-bottom: 0.25em;
+
     .curated-person--title {
       padding-right: 1rem;
     }
