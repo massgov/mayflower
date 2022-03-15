@@ -18,19 +18,16 @@ button {
 .ma__button {
 
   @include ma-button("normal");
-}
 
-.ma__button--small {
+  &--small {
 
-  @include ma-button("small");
-}
+    @include ma-button("small");
+  }
 
-.ma__button--large {
+  &--large {
 
-  @include ma-button("large");
-}
-
-.ma__button {
+    @include ma-button("large");
+  }
 
   @include ma-button("normal","solid",$c-primary);
 
@@ -40,26 +37,27 @@ button {
       @include ma-button("normal","solid",$c);
     }
   }
+  
 }
 
 .ma__button--secondary {
 
   @include ma-button("normal","outline",$c-primary);
-}
 
-.ma__button--secondary.ma__button--c-primary-alt {
+  &.ma__button--c-primary-alt {
 
-  @include ma-button("normal","outline",$c-primary-alt);
-}
+    @include ma-button("normal","outline",$c-primary-alt);
+  }
 
-.ma__button--secondary.ma__button--c-highlight {
+  &.ma__button--c-highlight {
 
-  @include ma-button("normal","outline",$c-highlight);
-}
+    @include ma-button("normal","outline",$c-highlight);
+  }
 
-.ma__button--secondary.ma__button--c-gray-dark {
+  &.ma__button--c-gray-dark {
 
-  @include ma-button("normal","outline",$c-gray-dark);
+    @include ma-button("normal","outline",$c-gray-dark);
+  }
 }
 
 .ma__button--tertiary {
