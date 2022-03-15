@@ -29,9 +29,22 @@
       "sections": ".ma__information-details__content h2"
     }
   },
+  "breadcrumbs":{
+    "light": true,
+    "links": [{
+      "text": "Home",
+      "url": "/"
+    },{
+      "text": "Unemployment",
+      "url": "/"
+    },
+    {
+      "text": "Training & Assistance",
+      "url": "/"
+    }]
+  },
   "relationshipIndicators": {
     "pageTitle": "Why is habitat management needed?",
-    "primary": {},
     "secondary": {
       "position": "secondary",
       "label": "offered by",

@@ -1,9 +1,12 @@
 {% extends '@templates/stacked-row-template.twig' %}
 
 {% block preContent %}
-  {% include "@molecules/relationship-indicators.twig" %}
-  {% include "@organisms/by-template/page-header.twig" %}
-  {% include "@organisms/by-template/page-header-addons.twig" %}
+	{% if breadcrumbs %}
+		{% include "@organisms/by-template/breadcrumbs.twig" %}
+	{% endif %}
+	{% include "@molecules/relationship-indicators.twig" %}
+	{% include "@organisms/by-template/page-header.twig" %}
+	{% include "@organisms/by-template/page-header-addons.twig" %}
 {% endblock %}
 
 {% block postContent %}{% endblock %}

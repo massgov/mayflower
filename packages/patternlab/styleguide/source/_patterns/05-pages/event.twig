@@ -1,19 +1,20 @@
 {% extends '@templates/01-content-types/event.twig' %}
 
 {% block header %}
-  {% include "@organisms/by-template/header-hamburger.twig" %}
+	{% include "@organisms/by-template/header-hamburger.twig" %}
 {% endblock %}
 
 {% block preContent %}
-  {% include "@molecules/relationship-indicators.twig" %}
-  {% include "@organisms/by-template/page-header.twig" %}
-  {% include "@organisms/by-template/page-header-addons.twig" %}
+	{% if breadcrumbs %}
+		{% include "@organisms/by-template/breadcrumbs.twig" %}
+	{% endif %}
+	{% include "@molecules/relationship-indicators.twig" %}
+	{% include "@organisms/by-template/page-header.twig" %}
+	{% include "@organisms/by-template/page-header-addons.twig" %}
 {% endblock %}
 
 {% block sidebar %}{% endblock %}
 
 {% block footer %}
-  {% include "@organisms/by-template/footer.twig" %}
+	{% include "@organisms/by-template/footer.twig" %}
 {% endblock %}
-
-
