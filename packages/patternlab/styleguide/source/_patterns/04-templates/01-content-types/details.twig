@@ -1,63 +1,62 @@
 {# site header #}
 {% block header %}{% endblock %}
 
-<main
-  id="main-content"
-  class="ma__details"
-  tabindex="-1"
-  {% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
-  <div class="pre-content">
-    {% block preContent %}
-      {% include "@molecules/relationship-indicators.twig" %}
-      {% include "@organisms/by-template/page-header.twig" %}
-      {% include "@organisms/by-template/page-header-addons.twig" %}
-    {% endblock %}
-  </div>
-  <div class="main-content main-content--two">
+<main id="main-content" class="ma__details" tabindex="-1" {% if schemaPageType %} typeof="{{schemaPageType}}" {% endif %}>
+	<div class="pre-content">
+		{% block preContent %}
+			{% if breadcrumbs %}
+				{% include "@organisms/by-template/breadcrumbs.twig" %}
+			{% endif %}
+			{% include "@molecules/relationship-indicators.twig" %}
+			{% include "@organisms/by-template/page-header.twig" %}
+			{% include "@organisms/by-template/page-header-addons.twig" %}
+		{% endblock %}
+	</div>
+	<div class="main-content main-content--two">
 
-    <div class="page-content">
-      {% if sidebar.contactList %}
-        {% set contactList = sidebar.contactList %}
-        {% include "@organisms/by-author/contact-list.twig" %}
-      {% endif %}
-      {% set coloredHeading = {
+		<div class="page-content">
+			{% if sidebar.contactList %}
+				{% set contactList = sidebar.contactList %}
+				{% include "@organisms/by-author/contact-list.twig" %}
+			{% endif %}
+			{% set coloredHeading = {
         "text": details.contentTitle,
         "titleContext": details.titleContext,
         "color": "green",
         "level": 2
       } %}
-      {% include "@atoms/04-headings/colored-heading.twig" %}
-      <div class="ma__details__content">
-        <div class="ma__details__stick-nav">
-          {% include "@molecules/sticky-nav.twig" %}
-        </div>
-        {% block pageContent %}
-          {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page Content'}} %}
-        {% endblock %}
-      </div>
-    </div>
+			{% include "@atoms/04-headings/colored-heading.twig" %}
+			<div class="ma__details__content">
+				<div class="ma__details__stick-nav">
+					{% include "@molecules/sticky-nav.twig" %}
+				</div>
+				{% block pageContent %}
+					{% include "@base/placeholder.twig" with {'placeholder':{'text':'Page Content'}} %}
+				{% endblock %}
+			</div>
+		</div>
 
-    <aside class="sidebar sidebar--colored">
-      {% if sidebar.contactList %}
-        {% set contactList = sidebar.contactList %}
-        {% include "@organisms/by-author/contact-list.twig" %}
-      {% endif %}
-      {% if sidebar %}
-        {% block sidebar %}
-          {% include "@base/placeholder.twig" with {'placeholder':{'text':'Right Rail'}} %}
-        {% endblock %}
-      {% endif %}
-    </aside>
+		<aside class="sidebar sidebar--colored">
+			{% if sidebar.contactList %}
+				{% set contactList = sidebar.contactList %}
+				{% include "@organisms/by-author/contact-list.twig" %}
+			{% endif %}
+			{% if sidebar %}
+				{% block sidebar %}
+					{% include "@base/placeholder.twig" with {'placeholder':{'text':'Right Rail'}} %}
+				{% endblock %}
+			{% endif %}
+		</aside>
 
-  </div>
-  <div class="post-content">
-    {% block postContent %}
-      {% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
-    {% endblock %}
-  </div>
+	</div>
+	<div class="post-content">
+		{% block postContent %}
+			{% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
+		{% endblock %}
+	</div>
 
-  {# structured content #}
-  {% block schemaContent %}{% endblock %}
+	{# structured content #}
+	{% block schemaContent %}{% endblock %}
 </main>
 
 {# site footer #}

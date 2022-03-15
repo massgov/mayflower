@@ -1,81 +1,81 @@
 {% extends '@templates/01-content-types/information-details.twig' %}
 
 {% block header %}
-  {% include "@organisms/by-template/header-hamburger.twig" %}
+	{% include "@organisms/by-template/header-hamburger.twig" %}
 {% endblock %}
 
 {% block preContent %}
-  {% include "@molecules/relationship-indicators.twig" %}
+	{% if breadcrumbs %}
+		{% include "@organisms/by-template/breadcrumbs.twig" %}
+	{% endif %}
+	{% include "@molecules/relationship-indicators.twig" %}
 
-  {% set pageHeader = preContent.pageHeader %}
-  {% include "@organisms/by-template/page-header.twig" %}
-  {% include "@organisms/by-template/page-header-addons.twig" %}
+	{% set pageHeader = preContent.pageHeader %}
+	{% include "@organisms/by-template/page-header.twig" %}
+	{% include "@organisms/by-template/page-header-addons.twig" %}
 
-  {% block overview %}
-    {% if preContent.overview.rteElements %}
-      {% set richText = preContent.overview %}
-      {% include "@organisms/by-author/rich-text.twig" %}
-    {% endif %}
-  {% endblock %}
+	{% block overview %}
+		{% if preContent.overview.rteElements %}
+			{% set richText = preContent.overview %}
+			{% include "@organisms/by-author/rich-text.twig" %}
+		{% endif %}
+	{% endblock %}
 
-  {% if preContent.stickyTOC %}
-    {% set stickyTOC = preContent.stickyTOC %}
-    {% include "@organisms/by-template/sticky-toc.twig" %}
-  {% endif %}
+	{% if preContent.stickyTOC %}
+		{% set stickyTOC = preContent.stickyTOC %}
+		{% include "@organisms/by-template/sticky-toc.twig" %}
+	{% endif %}
 {% endblock %}
 
 {% block preContentMedia %}
-  {% set richText = preContentMedia.post_header_media %}
-  {% include "@organisms/by-author/rich-text.twig" %}
+	{% set richText = preContentMedia.post_header_media %}
+	{% include "@organisms/by-author/rich-text.twig" %}
 {% endblock %}
 
 {% block pageContent %}
-  {% for section in pageContent %}
-    {% set richText = section %}
-    {% include "@organisms/by-author/rich-text.twig" %}
-  {% endfor %}
+	{% for section in pageContent %}
+		{% set richText = section %}
+		{% include "@organisms/by-author/rich-text.twig" %}
+	{% endfor %}
 
-  {% if postContent.contactList %}
-    {% set contactList = postContent.contactList %}
-    {% include "@organisms/by-author/contact-list.twig" %}
-  {% endif %}
+	{% if postContent.contactList %}
+		{% set contactList = postContent.contactList %}
+		{% include "@organisms/by-author/contact-list.twig" %}
+	{% endif %}
 
-  {% if postContent.footnoteList %}
-    {% set footnoteList = postContent.footnoteList %}
-    {% include "@organisms/by-author/footnote-list.twig" %}
-  {% endif %}
+	{% if postContent.footnoteList %}
+		{% set footnoteList = postContent.footnoteList %}
+		{% include "@organisms/by-author/footnote-list.twig" %}
+	{% endif %}
 
-  {% if postContent.postDateslistingTable %}
-    {% set listingTable = postContent.postDateslistingTable %}
-    {% include "@molecules/listing-table.twig" %}
-  {% endif %}
+	{% if postContent.postDateslistingTable %}
+		{% set listingTable = postContent.postDateslistingTable %}
+		{% include "@molecules/listing-table.twig" %}
+	{% endif %}
 
-  {% if postContent.relatedLinkList %}
-    {% set linkList = postContent.relatedLinkList %}
-    {% include "@organisms/by-author/link-list.twig" %}
-  {% endif %}
+	{% if postContent.relatedLinkList %}
+		{% set linkList = postContent.relatedLinkList %}
+		{% include "@organisms/by-author/link-list.twig" %}
+	{% endif %}
 
-  {% if postContent.imageCredit %}
-    {% set imageCredit = postContent.imageCredit %}
-    {% include "@organisms/by-template/image-credit.twig" %}
-  {% endif %}
+	{% if postContent.imageCredit %}
+		{% set imageCredit = postContent.imageCredit %}
+		{% include "@organisms/by-template/image-credit.twig" %}
+	{% endif %}
 {% endblock %}
 
-{% block postContent %}
-{% endblock %}
+{% block postContent %}{% endblock %}
 
 {% block sidebar %}
-  {% if sidebar.linkList %}
-    {% set linkList = sidebar.linkList %}
-    {% include "@organisms/by-author/link-list.twig" %}
-  {% endif %}
+	{% if sidebar.linkList %}
+		{% set linkList = sidebar.linkList %}
+		{% include "@organisms/by-author/link-list.twig" %}
+	{% endif %}
 
-  {% set contactList = sidebar.contactList %}
-  {% include "@organisms/by-author/contact-list.twig" %}
+	{% set contactList = sidebar.contactList %}
+	{% include "@organisms/by-author/contact-list.twig" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "@organisms/by-template/footer.twig" %}
+	{% include "@organisms/by-template/footer.twig" %}
 {% endblock %}
-
-
