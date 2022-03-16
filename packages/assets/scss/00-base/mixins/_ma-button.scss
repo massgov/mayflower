@@ -14,14 +14,17 @@
 @use "ma-button-base" as *;
 
 @mixin ma-button ($type:"solid", $color:"transparent") {
-  // layout
 
   @if ($color != "transparent") {
     font-weight: $fonts-bold;
-
+    // solid - primary usage (default)
     @if ($type == "solid") {
       background-color: $color;
       border-color: transparent;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($color,.75);
+      }
 
       @if $color == $c-white {
         color: $c-primary;
@@ -29,9 +32,12 @@
         svg {
           fill: $c-primary;
         }
-      }
 
-      @if $color == $c-highlight {
+        &:hover:not(:disabled) {
+          background-color: $c-gray-lightest;
+        }
+
+      } @else if $color == $c-highlight {
         color: $c-black;
 
         svg {
@@ -45,11 +51,9 @@
         }
       }
 
-      &:hover:not(:disabled) {
-        background-color: rgba($color,.75);
-      }
+
     }
-    // outline
+    // outline - secondary usage 
     @else {
       background-color: $c-font-inverse;
       border-color: rgba($color,.5);
