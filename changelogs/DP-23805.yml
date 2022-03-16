@@ -57,3 +57,14 @@ Added:
     description: Add optional CTA buttons in Page Banner. (#1604) 
     issue: DP-23805
     impact: Minor
+  - project: Patternlab
+    component: Button
+    description: Add optional icon to Button and add button variant with icon. (#1604) 
+    issue: DP-23805
+    impact: Minor
+Fixed:
+  - project: Assets
+    component: Button
+    description: Fix button mixin styles. Separate out `ma-button-size` mixin. (#1604) 
+    issue: DP-23805
+    impact: Patch
