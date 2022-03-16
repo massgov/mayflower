@@ -13,34 +13,10 @@
 
 @use "ma-button-base" as *;
 
-@mixin ma-button ($size:"normal", $type:"solid", $color:"transparent") {
+@mixin ma-button ($type:"solid", $color:"transparent") {
   // layout
 
-  @if ($color == "transparent") {
-
-    @include ma-button-base;
-
-    // default
-
-    @if ($size == "normal") {
-      font-size: $fonts-small;
-      line-height: 1.4;
-    }
-    // small
-
-    @if ($size == "small") {
-      font-size: $fonts-xsmall;
-      line-height: 1.2;
-    }
-    // large
-
-    @if ($size == "large") {
-      font-size: $fonts-medium;
-      line-height: 1.61;
-    }
-  }
-  // theme
-  @else {
+  @if ($color != "transparent") {
     font-weight: $fonts-bold;
 
     @if ($type == "solid") {
@@ -63,6 +39,10 @@
         }
       } @else {
         color: $c-font-inverse;
+
+        svg {
+          fill: $c-font-inverse;
+        }
       }
 
       &:hover:not(:disabled) {
@@ -103,6 +83,40 @@
           background-color: rgba($color,1);
         }
       }
+    }
+  }
+}
+
+@mixin ma-button-size ($size:"normal") {
+  @if ($size == "normal") {
+    font-size: $fonts-small;
+    line-height: 1.4;
+
+    svg {
+      width: $fonts-small;
+      height: $fonts-small;
+    }
+  }
+  // small
+
+  @if ($size == "small") {
+    font-size: $fonts-xsmall;
+    line-height: 1.2;
+
+    svg {
+      width: $fonts-xsmall;
+      height: $fonts-xsmall;
+    }
+  }
+  // large
+
+  @if ($size == "large") {
+    font-size: $fonts-medium;
+    line-height: 1.61;
+
+    svg {
+      width: $fonts-medium;
+      height: $fonts-medium;
     }
   }
 }

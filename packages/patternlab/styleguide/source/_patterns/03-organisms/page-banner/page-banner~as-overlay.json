@@ -10,19 +10,13 @@
     "color": "blue",
     "buttons": [{
       "href": "#",
-      "info": "",
       "text": "Log in to UI Online",
-      "type": "button",
       "size": "small",
-      "theme": "",
       "usage": "secondary"
     },{
       "href": "#",
-      "info": "",
       "text": "Multilingual Online UI Application",
-      "type": "button",
       "size": "small",
-      "theme": "",
       "usage": "secondary"
     }]
   }

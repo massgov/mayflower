@@ -3,7 +3,7 @@
 @mixin ma-button-base {
   border: 3px solid;
   box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
-  display: inline-block;
+  display: inline-flex;
   letter-spacing: $letter-spacing-large;
   padding: 0.4em 1em;
   text-decoration: none;

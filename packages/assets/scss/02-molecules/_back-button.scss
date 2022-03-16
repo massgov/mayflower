@@ -22,7 +22,7 @@
 
   a:not(.ma__button) {
 
-    @include ma-button("small");
+    @include ma-button-size("small");
 
     @include ma-chevron("left");
 
@@ -52,7 +52,7 @@
 
   a:not(.ma__button) {
 
-    @include ma-button("","",$c-font-link);
+    @include ma-button("",$c-font-link);
     border-color: rgba($c-font-link,.5);
 
     &:before {
