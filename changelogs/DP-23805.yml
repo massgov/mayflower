@@ -51,7 +51,7 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Fixed:
+Added:
   - project: Patternlab
     component: PageBanner
     description: Add optional CTA buttons in Page Banner. (#1604) 
