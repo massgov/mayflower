@@ -34,7 +34,7 @@
         }
 
         &:hover:not(:disabled) {
-          background-color: $c-gray-lightest;
+          background-color: $c-gray-light;
         }
 
       } @else if $color == $c-highlight {
