@@ -18,6 +18,7 @@
   @if ($color != "transparent") {
     font-weight: $fonts-bold;
     // solid - primary usage (default)
+
     @if ($type == "solid") {
       background-color: $color;
       border-color: transparent;
@@ -97,6 +98,7 @@
 }
 
 @mixin ma-button-size ($size:"normal") {
+
   @if ($size == "normal") {
     font-size: $fonts-small;
     line-height: 1.4;

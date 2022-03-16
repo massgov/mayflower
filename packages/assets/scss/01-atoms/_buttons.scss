@@ -16,6 +16,7 @@ button {
 }
 
 .ma__button {
+
   @include ma-button-base;
   
   svg {
