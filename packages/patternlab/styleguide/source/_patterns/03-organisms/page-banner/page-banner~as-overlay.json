@@ -12,12 +12,14 @@
       "href": "#",
       "text": "Log in to UI Online",
       "size": "small",
-      "usage": "secondary"
+      "usage": "secondary",
+      "icon": "login"
     },{
       "href": "#",
       "text": "Multilingual Online UI Application",
       "size": "small",
-      "usage": "secondary"
+      "usage": "secondary",
+      "icon": "login"
     }]
   }
 }
