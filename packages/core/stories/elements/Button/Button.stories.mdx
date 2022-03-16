@@ -205,12 +205,25 @@ Following web best practices buttons have a target area of 45 pixels. To provide
     name="button-icon-primary-c-gray"
     parameters={{ docs: { transformSource: () => renderReactMarkup(
       <Button theme="c-gray-dark">
-        <span>Toggle</span>
+        <span>See More</span>
         <IconChevron />
       </Button>
     ) } }}>
       <Button theme="c-gray-dark">
-        <span>Toggle</span>
+        <span>See More</span>
+        <IconChevron />
+      </Button>
+  </Story>
+    <Story
+    name="button-icon-primary-c-white"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button theme="c-white">
+        <span>See More</span>
+        <IconChevron />
+      </Button>
+    ) } }}>
+      <Button theme="c-white">
+        <span>See More</span>
         <IconChevron />
       </Button>
   </Story>
@@ -256,7 +269,7 @@ Following web best practices buttons have a target area of 45 pixels. To provide
         <IconLogin />
       </Button>
   </Story>
-    <Story
+  <Story
     name="button-icon-secondary-c-gray"
     parameters={{ docs: { transformSource: () => renderReactMarkup(
       <Button usage="secondary" size="small" theme="c-gray-dark">
@@ -265,6 +278,32 @@ Following web best practices buttons have a target area of 45 pixels. To provide
       </Button>
     ) } }}>
       <Button usage="secondary" size="small" theme="c-gray-dark">
+        <span>Log In</span>
+        <IconLogin />
+      </Button>
+  </Story>
+  <Story
+    name="button-icon-tertiary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="tertiary" size="small">
+        <span>Log In</span>
+        <IconLogin />
+      </Button>
+    ) } }}>
+      <Button usage="tertiary" size="small">
+        <span>Log In</span>
+        <IconLogin />
+      </Button>
+  </Story>
+  <Story
+    name="button-icon-quaternary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="quaternary">
+        <span>Log In</span>
+        <IconLogin />
+      </Button>
+    ) } }}>
+      <Button usage="quaternary">
         <span>Log In</span>
         <IconLogin />
       </Button>
