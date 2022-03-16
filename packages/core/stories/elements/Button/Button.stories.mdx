@@ -164,7 +164,12 @@ Following web best practices buttons have a target area of 45 pixels. To provide
 <Canvas>
   <Story
     name="button-icon-primary-c-primary"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary"/>) } }}>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="">
+        <span>Enter</span>
+        <IconArrow />
+      </Button>
+    ) } }}>
       <Button usage="">
         <span>Enter</span>
         <IconArrow />
@@ -172,7 +177,12 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   </Story>
   <Story
     name="button-icon-primary-c-primary-alt"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary"/>) } }}>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button theme="c-primary-alt">
+        <span>Search</span>
+        <IconSearch />
+      </Button>
+    ) } }}>
       <Button theme="c-primary-alt">
         <span>Search</span>
         <IconSearch />
@@ -180,7 +190,12 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   </Story>
   <Story
     name="button-icon-primary-c-highlight"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary"/>) } }}>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button theme="c-highlight">
+        <span>Notices</span>
+        <IconAlert />
+      </Button>
+    ) } }}>
       <Button theme="c-highlight">
         <span>Notices</span>
         <IconAlert />
@@ -188,7 +203,12 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   </Story>
   <Story
     name="button-icon-primary-c-gray"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary"/>) } }}>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button theme="c-gray-dark">
+        <span>Toggle</span>
+        <IconChevron />
+      </Button>
+    ) } }}>
       <Button theme="c-gray-dark">
         <span>Toggle</span>
         <IconChevron />
@@ -199,7 +219,12 @@ Following web best practices buttons have a target area of 45 pixels. To provide
 <Canvas>
     <Story
     name="button-icon-secondary-c-primary"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary"/>) } }}>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="secondary" size="small">
+        <span>Log In</span>
+        <IconLogin />
+      </Button>
+    ) } }}>
       <Button usage="secondary" size="small">
         <span>Log In</span>
         <IconLogin />
@@ -207,7 +232,12 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   </Story>
   <Story
     name="button-icon-secondary-c-primary-alt"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary"/>) } }}>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="secondary" size="small" theme="c-primary-alt">
+        <span>Log In</span>
+        <IconLogin />
+      </Button>
+    ) } }}>
       <Button usage="secondary" size="small" theme="c-primary-alt">
         <span>Log In</span>
         <IconLogin />
@@ -215,7 +245,12 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   </Story>
     <Story
     name="button-icon-secondary-c-highlight"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary"/>) } }}>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="secondary" size="small" theme="c-highlight">
+        <span>Log In</span>
+        <IconLogin />
+      </Button>
+    ) } }}>
       <Button usage="secondary" size="small" theme="c-highlight">
         <span>Log In</span>
         <IconLogin />
@@ -223,7 +258,12 @@ Following web best practices buttons have a target area of 45 pixels. To provide
   </Story>
     <Story
     name="button-icon-secondary-c-gray"
-    parameters={{ docs: { transformSource: () => renderReactMarkup(<Button usage="" text="Primary"/>) } }}>
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="secondary" size="small" theme="c-gray-dark">
+        <span>Log In</span>
+        <IconLogin />
+      </Button>
+    ) } }}>
       <Button usage="secondary" size="small" theme="c-gray-dark">
         <span>Log In</span>
         <IconLogin />
