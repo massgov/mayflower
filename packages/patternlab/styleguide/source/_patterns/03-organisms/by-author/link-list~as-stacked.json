@@ -1,9 +1,9 @@
 {
   "linkList" : {
-    "sidebarHeading": {
-      "title": "Link List"
+    "compHeading": {
+      "title": "Link List",
+      "sidebar": true
     },
-    "compHeading": null,
     "description": null,
     "stacked": true,
     "hideBullets": false,

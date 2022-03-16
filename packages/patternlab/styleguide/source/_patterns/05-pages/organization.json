@@ -1,47 +1,26 @@
 {
   "urlPath": "/?p=pages-ORG-Health-Services",
   "COMMENT": "****PAGE CONTENT COMPONENTS****",
+  "breadcrumbs":{
+    "light": true,
+    "links": [{
+      "text": "Home",
+      "url": "/"
+    },{
+      "text": "Unemployment",
+      "url": "/"
+    },
+    {
+      "text": "Training & Assistance",
+      "url": "/"
+    }]
+  },
   "relationshipIndicators": {
     "pageTitle": "",
-    "primary": {
-      "position": "primary",
-      "label": "part of",
-      "tags": [
-        {
-          "class": "",
-          "href": "#",
-          "title": "Snowmobile in the Parks"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Cross-Country Skiing"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Accessible Hiking"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Scenic Viewing Areas"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Hunting"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Biking"
-        }
-      ]
-    },
     "secondary": {
       "position": "",
       "label": "offered by",
+      "groupAfter": 1,
       "tags": [
         {
           "class": "",
@@ -59,7 +38,7 @@
   "pageBanner": {
     "bgWide": "../../assets/images/placeholder/1600x400.png",
     "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "size": "large",
+    "layout": "taper",
     "icon": null,
     "title": "Executive Office of Health and Human Services",
     "titleSubText": "(EOHHS)"

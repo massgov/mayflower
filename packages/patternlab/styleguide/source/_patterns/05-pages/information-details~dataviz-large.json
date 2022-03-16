@@ -29,9 +29,23 @@
       "sections": ".ma__information-details__content h2"
     }
   },
+  "breadcrumbs":{
+    "light": true,
+    "links": [{
+      "text": "Home",
+      "url": "/"
+    },{
+      "text": "Unemployment",
+      "url": "/"
+    },
+    {
+      "text": "Training & Assistance",
+      "url": "/"
+    }]
+  },
   "relationshipIndicators": {
     "pageTitle": "Why is habitat management needed?",
-    "primary": {
+    "secondary": {
       "position": "primary",
       "label": "part of",
       "tags": [
@@ -41,8 +55,7 @@
           "title": "Snowmobile in the Parks"
         }
       ]
-    },
-    "secondary": {}
+    }
   },
   "pageContent": [
     {

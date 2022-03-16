@@ -26,7 +26,15 @@
     }
   }
 
-  .ma__toc--hierarchy__container {
+  .ma__comp-heading,
+  .ma__comp-heading--sidebar {
+    margin-bottom: 0;
+    cursor: text;
+  }
+
+  // top level links
+
+  &__container {
     position: relative;
     top: -20px;
     padding: 0;
@@ -47,7 +55,7 @@
       a {
         border-bottom-width: 3px;
         border-bottom-style: solid;
-        border-bottom-color: rgba(20,85,143,0.5);
+        border-bottom-color: rgba(20, 85, 143, 0.5);
       }
     }
 
@@ -57,6 +65,143 @@
 
     .ma__download-link {
       padding: 20px;
+    }
+  }
+
+  // second level links
+
+  &__accordion {
+
+    &-content {
+      list-style: none;
+      margin-bottom: 0;
+      display: none;
+      padding: 20px 0 10px 20px;
+      background: $c-white;
+      border-top: 2px solid $c-gray-light;
+
+      // Visual cue for the clickable area.
+
+      li:hover {
+        cursor: pointer;
+      }
+
+      a:hover {
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(20, 85, 143, 0.5);
+      }
+
+      li {
+        margin-left: 1rem;
+        list-style: none;
+        font-weight: $fonts-normal;
+
+        .ma__comp-heading,
+        .ma__comp-heading--sidebar {
+          margin-top: 1rem;
+        }
+
+        .ma__decorative-link {
+          padding: 1rem 0;
+        }
+
+        .ma__download-link {
+          padding: 1rem 0;
+        }
+
+        .ma__sidebar-heading {
+          margin: 1rem 0;
+        }
+      }
+    }
+
+    &-title {
+      background: transparent;
+      border: none;
+      display: block;
+      padding: 20px;
+      padding-right: 30px;
+      position: relative;
+      text-align: left;
+      width: 100%;
+      font-weight: $fonts-bolder;
+      color: $c-primary;
+
+      &:after {
+        font-size: $fonts-4xlarge;
+        content: "+";
+        color: $c-primary-alt;
+        line-height: .65em;
+        overflow: hidden;
+        position: absolute;
+        right: 15px;
+        top: 25px;
+        transform-origin: center center;
+        transition: transform .2s ease;
+      }
+    }
+
+    &.is-open &-title:after {
+      content: "|";
+      transform: rotate(90deg) scale(0.8);
+      font-weight: $fonts-bold;
+    }
+
+  }
+
+  &--no-background {
+    border-bottom: 1px solid $c-gray-light;
+    margin-top: 4rem;
+
+    .ma__toc--hierarchy {
+
+      &__accordion {
+
+        &-title {
+          padding-left: 11px;
+          border-left: 10px solid transparent;
+
+          &:focus {
+            border-left-color: transparent !important;
+          }
+
+          &.is-current {
+            border-left-color: rgba($c-primary-alt, 0.5) !important;
+          }
+
+        }
+      }
+
+      &__container {
+        padding-top: 0;
+        top: 0;
+        background-color: transparent;
+        border: 0;
+        margin-bottom: 0;
+
+        li {
+          position: relative;
+
+          &.is-current:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 10px;
+            height:100%;
+          }
+
+          .ma__toc--hierarchy__accordion-content .is-current:before {
+            left: -20px;
+          }
+        }
+
+        & > li > span > a {
+          font-weight: $fonts-bolder;
+        }
+      }
     }
   }
 
@@ -89,63 +234,7 @@
     }
 
     &.collapsed {
-       padding: unset;
+      padding: unset;
     }
   }
-
-}
-
-.ma__toc--hierarchy__accordion {
-
-  .ma__toc--hierarchy__accordion-content {
-    list-style: none;
-    margin-bottom: 0;
-    display: none;
-    padding: 10px 0 10px 20px;
-    background: $c-white;
-    border-top: 2px solid $c-gray-light;
-
-    // Visual cue for the clickable area.
-
-    li:hover {
-      cursor: pointer;
-
-      a {
-        border-bottom-width: 3px;
-        border-bottom-style: solid;
-        border-bottom-color: rgba(20,85,143,0.5);
-      }
-    }
-  }
-
-  .ma__toc--hierarchy__title {
-    background: transparent;
-    border: none;
-    display: block;
-    padding: 20px;
-    padding-right: 30px;
-    position: relative;
-    text-align: left;
-    width: 100%;
-    font-weight: bold;
-    color: $c-primary;
-
-    &:after {
-      font-size: $fonts-4xlarge;
-      font-weight: normal;
-      content: "+";
-      line-height: .65em;
-      overflow: hidden;
-      position: absolute;
-        right: 15px;
-        top: 20px;
-      transform-origin: center center;
-      transition: transform .2s ease;
-    }
-  }
-
-  &.is-open .ma__toc--hierarchy__title:after {
-    transform: rotate(135deg);
-  }
-
 }

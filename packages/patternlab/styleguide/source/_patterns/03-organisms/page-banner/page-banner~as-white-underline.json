@@ -1,0 +1,11 @@
+{
+  "pageBanner": {
+    "size": "",
+    "icon": "lg-picnic-table",
+    "title": "Parks & Recreation",
+    "titleSubText": "",
+    "description": "Find information about Massachusetts state parks, programs and events. Explore recreational activities such as camping, fishing and ice skating.",
+    "color": "white",
+    "underline": true
+  }
+}
