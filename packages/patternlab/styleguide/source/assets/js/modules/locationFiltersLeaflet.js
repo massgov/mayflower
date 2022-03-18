@@ -65,11 +65,16 @@ export default (function (window,document,$,undefined) {
         }); 
 
         google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
+            console.log(document.activeElement)
             if (e.key == 'Enter') {
-                console.log(placeChanged)
+                console.log('enter!!!!!')
                 if (!placeChanged) {
-                  console.log($('.pac-container').css('display'))
+                  const positionTop = locationInput.getBoundingClientRect().bottom + window.scrollY;
                   $('.pac-container').show();
+                  $('.pac-container').css("top", positionTop);
+                  console.log(positionTop)
+                  // locationInput.blur();
+                  // locationInput.focus();
                 }
                 //only submits when the autocomplete dropdown is closed
                 if ($('.pac-container:visible').length) {
