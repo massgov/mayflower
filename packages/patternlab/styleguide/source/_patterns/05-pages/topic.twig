@@ -1,19 +1,22 @@
 {% extends '@templates/single-column.twig' %}
 
 {% block preContent %}
-  <style>
-    .ma__relationship-indicators {
-      border-bottom: 0;
-    }
-  </style>
+	<style>
+		.ma__relationship-indicators {
+			border-bottom: 0;
+		}
+	</style>
 
-  {% include "@molecules/relationship-indicators.twig" %}
-  {% include "@organisms/by-template/page-banner.twig" %}
+	{% if breadcrumbs %}
+		{% include "@organisms/by-template/breadcrumbs.twig" %}
+	{% endif %}
+	{% include "@molecules/relationship-indicators.twig" %}
+	{% include "@organisms/page-banner/page-banner.twig" %}
 {% endblock %}
 
 {% block pageContent %}
-  {% include "@organisms/by-author/sections-three-up.twig" %}
-  {% include "@organisms/by-author/related-orgs-and-topics.twig" %}
+	{% include "@organisms/by-author/sections-three-up.twig" %}
+	{% include "@organisms/by-author/related-orgs-and-topics.twig" %}
 {% endblock %}
 
 {% block postContent %}{% endblock %}

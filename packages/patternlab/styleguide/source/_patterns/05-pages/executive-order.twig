@@ -1,6 +1,9 @@
 {% extends '@templates/two-column.twig' %}
 
 {% block preContent %}
+    {% if breadcrumbs %}
+    {% include "@organisms/by-template/breadcrumbs.twig" %}
+  {% endif %}
   {% include "@molecules/relationship-indicators.twig" %}
   {% include "@organisms/by-template/page-header.twig" %}
   {% include "@organisms/by-template/page-header-addons.twig" %}

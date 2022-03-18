@@ -1,22 +1,25 @@
 {% extends '@templates/01-content-types/binder-page.twig' %}
 
 {% block header %}
-  {% include "@organisms/by-template/header-hamburger.twig" %}
+	{% include "@organisms/by-template/header-hamburger.twig" %}
 {% endblock %}
 
 {% block preContent %}
-  {% include "@molecules/relationship-indicators.twig" %}
-  {% for navSection in binderNavigationSections %}
-    {% set tableOfContentsOverlay = navSection.tableOfContents %}
-    {% include "@organisms/by-template/table-of-contents-overlay.twig" %}
-  {% endfor %}
-  {% if illustratedHeader %}
-    {% include "@organisms/by-template/illustrated-header.twig" %}
-  {% endif %}
-  {% if pageHeader %}
-    {% include "@organisms/by-template/page-header.twig" %}
-    {% include "@organisms/by-template/page-header-addons.twig" %}
-  {% endif %}
+	{% if breadcrumbs %}
+		{% include "@organisms/by-template/breadcrumbs.twig" %}
+	{% endif %}
+	{% include "@molecules/relationship-indicators.twig" %}
+	{% for navSection in binderNavigationSections %}
+		{% set tableOfContentsOverlay = navSection.tableOfContents %}
+		{% include "@organisms/by-template/table-of-contents-overlay.twig" %}
+	{% endfor %}
+	{% if illustratedHeader %}
+		{% include "@organisms/by-template/illustrated-header.twig" %}
+	{% endif %}
+	{% if pageHeader %}
+		{% include "@organisms/by-template/page-header.twig" %}
+		{% include "@organisms/by-template/page-header-addons.twig" %}
+	{% endif %}
 {% endblock %}
 
 {% block pageContent %}{% endblock %}
@@ -24,13 +27,13 @@
 {% block sidebar %}{% endblock %}
 
 {% block postContent %}
-  {% for navSection in binderNavigationSections %}
-    {% set pageFlipper = navSection.pageFlipper %}
-    {% include "@organisms/by-author/page-flipper.twig" %}
-  {% endfor %}
+	{% for navSection in binderNavigationSections %}
+		{% set pageFlipper = navSection.pageFlipper %}
+		{% include "@organisms/by-author/page-flipper.twig" %}
+	{% endfor %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "@organisms/by-template/footer.twig" %}
+	{% include "@organisms/by-template/footer.twig" %}
 {% endblock %}

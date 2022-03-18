@@ -29,8 +29,22 @@
       "sections": ".ma__information-details__content h2"
     }
   },
+  "breadcrumbs":{
+    "light": true,
+    "links": [{
+      "text": "Home",
+      "url": "/"
+    },{
+      "text": "Unemployment",
+      "url": "/"
+    },
+    {
+      "text": "Training & Assistance",
+      "url": "/"
+    }]
+  },
   "relationshipIndicators": {
-    "primary": {
+    "secondary": {
       "position": "primary",
       "label": "offered by",
       "tags": [{

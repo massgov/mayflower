@@ -6,19 +6,19 @@
     {% block teaserImage %}
       {% if generalTeaser.image.src %}
 
-        {% if generalTeaser.title.href %}
+        {% if generalTeaser.image.href %}
           <a
           class="ma__general-teaser__image-wrapper"
-          href="{{ generalTeaser.title.href }}"
+          href="{{ generalTeaser.image.href }}"
           title="{{ generalTeaser.title.text }}">
         {% else %}
           <span class="ma__general-teaser__image-wrapper">
         {% endif %}
 
-        {% set image = generalTeaser.image %}
-        {% include "@atoms/09-media/image.twig" %}
+          {% set image = generalTeaser.image %}
+          {% include "@atoms/09-media/image.twig" %}
 
-        {% if generalTeaser.title.href %}
+        {% if generalTeaser.image.href %}
           </a>
         {% else %}
           </span>
