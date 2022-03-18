@@ -18,18 +18,6 @@ export default (function (window,document,$,undefined) {
         const neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
         const neLng = $locationFilterParent.data('maPlaceBoundsNeLng');
 
-        // locationInput.addEventListener('input', function (e) {
-        //   console.log('input')
-        //   console.log(this.value)
-          
-        //   this.dataset.originalVal = this.value;
-        // });
-        // locationInput.addEventListener('focus', function () {
-        //   console.log('focus')
-        //   console.log(this.dataset.originalVal)
-        //   this.value = locationInput.dataset.originalVal || this.value;
-        // });
-
         const defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(swLat,swLng), new google.maps.LatLng(neLat,neLng));
 
         // See options: https://developers.google.com/maps/documentation/javascript/places-autocomplete#add_autocomplete
@@ -67,14 +55,10 @@ export default (function (window,document,$,undefined) {
         google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
             console.log(document.activeElement)
             if (e.key == 'Enter') {
-                console.log('enter!!!!!')
                 if (!placeChanged) {
                   const positionTop = locationInput.getBoundingClientRect().bottom + window.scrollY;
                   $('.pac-container').show();
                   $('.pac-container').css("top", positionTop);
-                  console.log(positionTop)
-                  // locationInput.blur();
-                  // locationInput.focus();
                 }
                 //only submits when the autocomplete dropdown is closed
                 if ($('.pac-container:visible').length) {
