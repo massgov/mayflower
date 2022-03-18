@@ -3,6 +3,7 @@
 .ma__arrow-button {
 
   @include ma-button;
+
   @include ma-button-base;
 
   @include ma-chevron;
