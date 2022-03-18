@@ -18,6 +18,18 @@ export default (function (window,document,$,undefined) {
         const neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
         const neLng = $locationFilterParent.data('maPlaceBoundsNeLng');
 
+        // locationInput.addEventListener('input', function (e) {
+        //   console.log('input')
+        //   console.log(this.value)
+          
+        //   this.dataset.originalVal = this.value;
+        // });
+        // locationInput.addEventListener('focus', function () {
+        //   console.log('focus')
+        //   console.log(this.dataset.originalVal)
+        //   this.value = locationInput.dataset.originalVal || this.value;
+        // });
+
         const defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(swLat,swLng), new google.maps.LatLng(neLat,neLng));
 
         // See options: https://developers.google.com/maps/documentation/javascript/places-autocomplete#add_autocomplete
@@ -34,6 +46,8 @@ export default (function (window,document,$,undefined) {
 
         var placeChanged = false;
         ma.autocomplete.addListener('place_changed', function() {
+          // place_changed is only triggered when an option is selected from the auto suggestion dropdown.
+          // This includes mouse click and keyboard enter on an option.
 
           const place = ma.autocomplete.getPlace() || {};
           if (!place.geometry || !place.geometry.location) {
@@ -52,6 +66,11 @@ export default (function (window,document,$,undefined) {
 
         google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
             if (e.key == 'Enter') {
+                console.log(placeChanged)
+                if (!placeChanged) {
+                  console.log($('.pac-container').css('display'))
+                  $('.pac-container').show();
+                }
                 //only submits when the autocomplete dropdown is closed
                 if ($('.pac-container:visible').length) {
                   e.preventDefault(); 
