@@ -248,6 +248,8 @@ $sp-medium-min: 20px;
       margin: 0;
     }
 
+
+
     figure {
       margin-bottom: 0 !important;
     }
@@ -266,6 +268,7 @@ $sp-medium-min: 20px;
 
       @media ($bp-small-min) {
         // 621~
+        width: 100%;
         padding-left: calc(100% / 3 * 2); //66.66%
       }
     }
