@@ -244,15 +244,15 @@ $sp-medium-min: 20px;
   &--no-wrap {
     @include clearfix;
 
-    .ma__figure {
-      margin: 0;
-    }
-
-
 
     figure {
       margin-bottom: 0 !important;
     }
+  }
+
+  // This is an override for the flexible pages using stack row container, to avoid duplicated margins
+  .ma__stacked-row__container &--no-wrap .ma__figure {
+    margin: 0;
   }
 
   /* NO sidebar - used in org pages stacked row sections
