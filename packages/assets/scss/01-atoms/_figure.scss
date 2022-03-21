@@ -244,6 +244,10 @@ $sp-medium-min: 20px;
   &--no-wrap {
     @include clearfix;
 
+    .ma__figure {
+      margin-left: 0;
+      margin-right: 0;
+    }
 
     figure {
       margin-bottom: 0 !important;
@@ -251,8 +255,9 @@ $sp-medium-min: 20px;
   }
 
   // This is an override for the flexible pages using stack row container, to avoid duplicated margins
+  // Currently, info details page and org page flexible layouts are using different containers, causing unexpected descrepencies in spacing between blocks of content.
   .ma__stacked-row__container &--no-wrap .ma__figure {
-    margin: 0;
+    margin-bottom: 0;
   }
 
   /* NO sidebar - used in org pages stacked row sections
