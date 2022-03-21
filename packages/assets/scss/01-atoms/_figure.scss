@@ -243,11 +243,15 @@ $sp-medium-min: 20px;
 
   &--no-wrap {
     @include clearfix;
-  }
 
-  &--no-wrap .ma__figure {
-    margin-right: 0;
-    margin-left: 0
+    .ma__figure {
+      margin-right: 0;
+      margin-left: 0
+    }
+
+    figure {
+      margin-bottom: 0 !important;
+    }
   }
 
   /* NO sidebar - used in org pages stacked row sections
