@@ -57,6 +57,11 @@ Added:
     description: Add Button with icon documentation and variants. (#1604) 
     issue: DP-21345
     impact: Patch
+  - project: React
+    component: Button
+    description: Add `label` prop to render aria-label. (#1604) 
+    issue: DP-21345
+    impact: Patch
 Fixed:
   - project: Assets
     component: Button
