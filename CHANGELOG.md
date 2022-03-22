@@ -1,6 +1,30 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.22.0 (3/22/2022)
+### Changed 
+- (Patternlab) [CuratedPerson] DP-12097: Correct headings in curated person for semantics. (#1598)
+- (Patternlab) [PageBanner] DP-22640: Change data key `size` to `layout`, and renamed `large` variant to `taper`. Add color `white` and `underline` configuration (#1589)
+- (Patternlab) [PageBanner] DP-22640: Move Page Banner variants into its own group under organisms. (#1589)
+- (Patternlab) [TableOfContentsHierarchy] DP-22640: Consolidate styling, add a `background` modifier and a no background variant. (#1589)
+- (Patternlab) [Breadcrumbs] DP-23393: Enabled the breadcrumbs component. (#1560)
+- (Patternlab) [RelationshipIndicators] DP-23393: Added optional icon variable, added "group after" variable. (#1560)
+- (Patternlab) [GeneralTeaser] DP-23713: Make teaser image link optional to avoid duplicated link for accessiblity. To link the image, pass `href` in the `image` object. (#1591)
+- (Patternlab) [ContactUs] DP-9216: Place the more/less contact info button before hidden extra contact info in DOM, so keyboard and AT users can navigate to the revealed content after they hit the button. (#1597)
+- (React) [UtilityNav, TabContainer] DP-24346: Migrate from shortid to nanoid (#1605)
+- (React) [Storybook] DP-17338: Render welcome page to Mayflower-react. (#916)
+- (React) [Storybook] DP-17338: Display `Color` in category "Brand". (#916)
+
+### Removed 
+- (Patternlab, Assets) [PageBanner] DP-22640: Deprecate `columns` and `small` variants, consolidate styles. (#1589)
+
+### Fixed 
+- (Patternlab) [Breadcrumbs] DP-23982: Accessiblity improvements -  add aria descriptions for the expand button and set aria-location for current page. (#1590)
+- (Core, React, Patternlab) [Color] Fix 50% bershire green color hex. (#1595)
+
+### Added 
+- (React, Patternlab) [Color] DP-17253: Add Color stories and color gradients. (#909)
+
 ## 11.21.0 (2/22/2022)
 ### Changed 
 - (Patternlab) [LeaftletMap] DP-22028: Update min zoom so the map is showing the whole state on mobile. (#1576)
