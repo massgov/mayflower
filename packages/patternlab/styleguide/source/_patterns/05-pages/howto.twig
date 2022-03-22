@@ -2,40 +2,43 @@
 
 
 {% block header %}
-  {% include "@organisms/by-template/header-hamburger.twig" %}
+	{% include "@organisms/by-template/header-hamburger.twig" %}
 {% endblock %}
 
 {% block preContent %}
-  {% include "@molecules/relationship-indicators.twig" %}
-  {% include "@organisms/by-template/page-header.twig" %}
-  {% include "@organisms/by-template/page-header-addons.twig" %}
+	{% if breadcrumbs %}
+		{% include "@organisms/by-template/breadcrumbs.twig" %}
+	{% endif %}
+	{% include "@molecules/relationship-indicators.twig" %}
+	{% include "@organisms/by-template/page-header.twig" %}
+	{% include "@organisms/by-template/page-header-addons.twig" %}
 {% endblock %}
 
 {% block pageContent %}
-  {% set richText = pageContent.intro %}
-  {% include "@organisms/by-author/rich-text.twig" %}
-  {% set tabularData = pageContent.tabularData %}
-  {% include "@organisms/by-author/tabular-data.twig" %}
-  {% set stepsUnordered = pageContent.stepsUnordered %}
-  {% include "@organisms/by-author/steps-unordered.twig" %}
-  {% set stepsOrdered = pageContent.stepsOrdered %}
-  {% include "@organisms/by-author/steps-ordered.twig" %}
-  {% set richText = pageContent.moreInfo %}
-  {% include "@organisms/by-author/rich-text.twig" %}
-  {% set descriptiveLinks = pageContent.descriptiveLinks %}
-  {% include "@organisms/by-author/descriptive-links-wrapper.twig" %}
-  {% set formDownloads = pageContent.formDownloads %}
-  {% include "@organisms/by-author/form-downloads.twig" %}
-  {% set contactList = pageContent.contactList %}
-  {% include "@organisms/by-author/contact-list.twig" %}
-  {% set linkList = sidebar.linkList %}
-  {% include "@organisms/by-author/link-list.twig" %}
+	{% set richText = pageContent.intro %}
+	{% include "@organisms/by-author/rich-text.twig" %}
+	{% set tabularData = pageContent.tabularData %}
+	{% include "@organisms/by-author/tabular-data.twig" %}
+	{% set stepsUnordered = pageContent.stepsUnordered %}
+	{% include "@organisms/by-author/steps-unordered.twig" %}
+	{% set stepsOrdered = pageContent.stepsOrdered %}
+	{% include "@organisms/by-author/steps-ordered.twig" %}
+	{% set richText = pageContent.moreInfo %}
+	{% include "@organisms/by-author/rich-text.twig" %}
+	{% set descriptiveLinks = pageContent.descriptiveLinks %}
+	{% include "@organisms/by-author/descriptive-links-wrapper.twig" %}
+	{% set formDownloads = pageContent.formDownloads %}
+	{% include "@organisms/by-author/form-downloads.twig" %}
+	{% set contactList = pageContent.contactList %}
+	{% include "@organisms/by-author/contact-list.twig" %}
+	{% set linkList = sidebar.linkList %}
+	{% include "@organisms/by-author/link-list.twig" %}
 {% endblock %}
 
 
 {% block sidebar %}
-  {% set linkList = sidebar.linkList %}
-  {% include "@organisms/by-author/link-list.twig" %}
+	{% set linkList = sidebar.linkList %}
+	{% include "@organisms/by-author/link-list.twig" %}
 {% endblock %}
 
 
@@ -43,7 +46,5 @@
 
 
 {% block footer %}
-  {% include "@organisms/by-template/footer.twig" %}
+	{% include "@organisms/by-template/footer.twig" %}
 {% endblock %}
-
-
