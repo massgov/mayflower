@@ -53,12 +53,7 @@
 #___EXAMPLE WITH MULTIPLE ITEMS___
 Changed:
   - project: React
-    component: UtilityNav
+    component: UtilityNav, TabContainer
     description: Migrate from shortid to nanoid (#1605)
-    issue: PFMLPB-3476
-    impact: Patch
-  - project: React
-    component: TabContainer
-    description: Migrate from shortid to nanoid (#1605)
-    issue: PFMLPB-3476
+    issue: DP-24346
     impact: Patch
