@@ -53,9 +53,10 @@ export default (function (window,document,$,undefined) {
         }); 
 
         google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
-            console.log(document.activeElement)
             if (e.key == 'Enter') {
                 if (!placeChanged) {
+                  // If an auto-suggested location is not selected, persist the dropdown list on the next ENTER.
+                  // Update the top position of the dropdown, as the error message can add additional space above the input.
                   const positionTop = locationInput.getBoundingClientRect().bottom + window.scrollY;
                   $('.pac-container').show();
                   $('.pac-container').css("top", positionTop);
