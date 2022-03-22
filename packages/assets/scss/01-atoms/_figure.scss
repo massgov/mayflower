@@ -256,8 +256,12 @@ $sp-medium-min: 20px;
 
   // This is an override for the flexible pages using stack row container, to avoid duplicated margins
   // Currently, info details page and org page flexible layouts are using different containers, causing unexpected descrepencies in spacing between blocks of content.
-  .ma__stacked-row__container &--no-wrap .ma__figure {
+  .ma__stacked-row__section &--no-wrap .ma__figure {
     margin-bottom: 0;
+
+    .ma__figure__caption {
+      margin-bottom: 0;
+    }
   }
 
   /* NO sidebar - used in org pages stacked row sections
