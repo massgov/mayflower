@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: EmergencyHeader
+    description: Remove "Show" and "Hide" from the Sitewide alert display. (#1610)
+    issue: DP-24093
+    impact: Patch
