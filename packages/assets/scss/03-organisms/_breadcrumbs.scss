@@ -1,27 +1,61 @@
 @use "00-base/configure" as *;
 
+$breadcrumbs-fade-width: 50px;
+$breadcrumbs-scrollbar-height: 12px;
+
 .ma__breadcrumbs {
+  position: relative;
 
-  .pre-content & {
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: $breadcrumbs-fade-width;
+    height: calc(100% - #{$breadcrumbs-scrollbar-height});
+    background: transparent;
+    z-index: 1;
+    will-change: opacity, z-index;
+    transition: opacity .4s, z-index .4s;
+    opacity: 0;
+  }
 
-    &:last-child {
-      margin-bottom: 30px;
+  &:before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%);
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0, rgba(255,255,255,1) 80%);
+  }
+
+  &--fade-left {
+
+    &:before {
+      opacity: 1;
+      z-index: 3;
     }
   }
 
-  .post-content & {
-    border-top: 1px solid;
-    margin-top: 30px;
+  &--fade-right {
 
-    @media ($bp-medium-min) {
-      display: none;
+    &:after {
+      opacity: 1;
+      z-index: 3;
     }
-
   }
 
   &__container {
 
     @include ma-container;
+    z-index: 2;
+    position: relative;
+
+    @media ($bp-large-max) {
+      white-space: nowrap;
+      overflow-x: scroll;
+    }
   }
 
   &__label {
@@ -29,25 +63,16 @@
     font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
-
-    .pre-content & {
-      display: none;
-    }
   }
 
   &__items {
 
     @include ma-reset-list;
-    line-height: 1em;
     padding: 10px 0;
     position: relative;
 
     @media ($bp-medium-min) {
       border-top: 1px solid;
-    }
-
-    .post-content & {
-      display: inline-block;
     }
   }
 
@@ -57,57 +82,127 @@
     display: inline-block;
 
     &:after {
-      border-width: 1px;
-      height: .25em;
-      margin-right: 5px;
-      width: .25em;
+      border-width: 2px;
+      height: 7px;
+      margin-left: 0;
+      margin-right: 3px;
+      width: 7px;
+      border-color: $c-gray-dark;
     }
 
-    &:last-child {
+    &:first-child {
+
+      &:after {
+        margin-left: 0;
+      }
+    }
+
+    &__expand-indicators {
+
+      @media ($bp-large-max) {
+        padding-right: 20px;
+      }
+    }
+
+    &--last {
+      padding-right: 20px;
 
       &:after {
         display: none;
       }
+    }
 
-      a {
-        cursor: default;
+    svg {
+      width: 18px;
+      height: 15px;
+      margin-bottom: -2px;
+      transition: opacity 0.4s;
+    }
+
+    button {
+      border: 2px solid $c-bay-blue-50-tint;
+      background: transparent;
+      width: 27px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    &__expand-indicators {
+      display: none;
+      margin-left: 4px;
+    }
+
+    a, button {
+      color: $c-primary;
+      display: inline-block;
+      font-size: $fonts-xsmall;
+      line-height: 1;
+      padding: 2px 0;
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover {
+        text-shadow: 0px 0px 0px $c-primary ;
+      }
+    }
+
+    button {
+      font-weight: 600;
+      will-change: border;
+      transition: border 0.4s;
+
+      &:hover {
+        border: 2px solid $c-primary;
+      }
+    }
+
+    a {
+      box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
+
+      svg {
+        fill: $c-primary;
+        stroke: $c-primary;
+        transition: fill 0.4s, stroke 0.4s;
+        will-change: fill, stroke;
+      }
+
+      &:hover {
+        box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary, 0.7);
+
+        svg {
+          fill: $c-bay-blue-50-tint;
+          stroke: $c-bay-blue-50-tint;
+        }
+      }
+
+
+
+      &.ma__breadcrumbs__item__icon-link {
+        box-shadow: none;
 
         &:hover {
-          opacity: 1;
+          box-shadow: none;
         }
       }
     }
+  }
 
-    @media ($bp-medium-max) {
-      display: none;
+  &__chevron-back {
 
-      &:after {
-        display: none;
-      }
+    @include ma-chevron("left");
 
-      .pre-content & {
+    &:before {
+      border-width: 2px;
+      height: 7px;
+      margin-right: 5px;
+      width: 7px;
+      border-color: $c-gray-dark;
+    }
 
-        &:nth-last-child(2) {
-
-          @include ma-chevron("left");
-          display: block;
-
-          &:before {
-            opacity: .5;
-          }
-
-          a {
-            display: inline;
-          }
-        }
-      }
-
-      .post-content & {
-
-        &:nth-last-child(2) {
-          display: block;
-        }
-      }
+    &:after {
+      content: none;
     }
   }
 
@@ -130,23 +225,45 @@
     white-space:nowrap;
   }
 
-  a {
-    display: inline-block;
-    font-size: $fonts-xsmall;
-    line-height: 1;
-    padding: 2px 0;
-
-    &:hover {
-      opacity: .6;
-    }
-  }
-
   &--light &__items {
 
       @media ($bp-medium-min) {
         border-top: none;
         border-bottom: 1px solid;
+        box-sizing: border-box;
       }
+  }
+
+  &--light &__container {
+
+    @media ($bp-medium-max) {
+      border-bottom: 1px solid;
+    }
+  }
+
+  &--mobile-scroll {
+
+    .ma__breadcrumbs__container {
+
+      @media ($bp-large-max) {
+
+        &::-webkit-scrollbar {
+          height: $breadcrumbs-scrollbar-height;
+        }
+
+        /* Track */
+
+        &::-webkit-scrollbar-track {
+          background: mix(#fff, $c-granite-gray, 80);
+        }
+
+        /* Handle */
+
+        &::-webkit-scrollbar-thumb {
+          background: mix(#fff, $c-granite-gray, 50);
+        }
+      }
+    }
   }
 }
 
@@ -162,35 +279,8 @@
     }
   }
 
-  .post-content & {
-    border-color: $c-bd-divider;
-  }
-
   &__label {
     font-weight: $fonts-bold;
-  }
-
-  &__item {
-
-    &:last-child {
-
-      a {
-        color: $c-font-base;
-      }
-    }
-
-    @media ($bp-medium-max) {
-
-      .pre-content & {
-
-        &:nth-last-child(2) {
-
-          &:before {
-            border-color: $c-primary;
-          }
-        }
-      }
-    }
   }
 
   &__sub-items {
@@ -199,12 +289,19 @@
   }
 
   &--light {
-    background-color: transparent;
+    background-color: $c-white;
   }
 
   &--light &__items {
 
     @media ($bp-medium-min) {
+      border-bottom-color: $c-bd-divider;
+    }
+  }
+
+  &--light &__container {
+
+    @media ($bp-medium-max) {
       border-bottom-color: $c-bd-divider;
     }
   }

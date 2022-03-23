@@ -4,6 +4,20 @@
     "contentTitle": "",
     "titleContext": ""
   },
+  "breadcrumbs":{
+    "light": true,
+    "links": [{
+      "text": "Home",
+      "url": "/"
+    },{
+      "text": "Unemployment",
+      "url": "/"
+    },
+    {
+      "text": "Training & Assistance",
+      "url": "/"
+    }]
+  },
   "preContent": {
     "pageHeader": {
       "divider": false,
@@ -30,7 +44,7 @@
     }
   },
   "relationshipIndicators": {
-    "primary": {
+    "secondary": {
       "position": "primary",
       "label": "offered by",
       "tags": [{

@@ -1,14 +1,32 @@
-
-<section class="ma__breadcrumbs {{breadcrumbs.light ? 'ma__breadcrumbs--light' : ''}}">
-  <nav class="ma__breadcrumbs__container">
-    <div class="ma__breadcrumbs__label">
-      More in:
-    </div>
+<div class="ma__breadcrumbs {{breadcrumbs.light ? ' ma__breadcrumbs--light' : ''}}">
+  <nav aria-label="Breadcrumbs" class="ma__breadcrumbs__container">
     <ol class="ma__breadcrumbs__items">
-      <li class="ma__breadcrumbs__item"><a href="/">Home</a></li>
+      {% if breadcrumbs.links|length <= 1 %}
+        <li class="ma__breadcrumbs__item ma__breadcrumbs__chevron-back" aria-hidden="true"></li>
+      {% endif %}
       {% for link in breadcrumbs.links %}
-        <li class="ma__breadcrumbs__item"><a href="{{link.href}}">{{link.text}}</a></li>
+        {% if link.url %}
+          <li class="ma__breadcrumbs__item {{ loop.index == loop.length ? ' ma__breadcrumbs__item--last':'' }}" id="ma__breadcrumbs__item--{{ loop.index }}">
+            {% if loop.first %}
+              <a href="{{link.url}}" aria-label="Home" class="ma__breadcrumbs__item__icon-link">{{ icon("home") }}</a>
+            {% else %}
+              <a href="{{link.url}}">{{link.text}}</a>
+            {% endif %}
+          </li>
+        {% endif %}
       {% endfor %}
+      {% if breadcrumbs.currentPage %}
+         <li class="ma__breadcrumbs__item--current ma__visually-hidden" aria-current="location">{{ breadcrumbs.currentPage }}</li>
+      {% endif %}
+      <li class="ma__breadcrumbs__item ma__breadcrumbs__item__expand-indicators">
+        <button 
+          type="button"
+          class="js-breadcrumbs-button"
+          aria-label="Show all Breadcrumbs"
+          aria-describedby="button-description"
+        >…</button>
+        <div id="button-description" aria-hidden="true" class="ma__visually-hidden">This page is located more than 3 levels deep within a topic. Some page levels are currently hidden. Use this button to show and access all levels.</div>
+      </li>
     </ol>
   </nav>
-</section>
+</div>

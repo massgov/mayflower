@@ -5,21 +5,18 @@
   @include clearfix;
   display: flex;
   flex-direction: column;
-  padding: 20px 0 15px 0;
+  padding: 0;
   font-weight: 600;
-  border-bottom: 1px solid $c-bd-divider;
-  margin: 0 20px 10px;
+  border-bottom: 0;
+  margin: 10px 20px 0;
   font-size: $fonts-smaller;
 
   @media ($bp-small-min) {
     font-size: $fonts-xsmall;
   }
 
-  @media ($bp-x-small-min) {
-    padding-top: 23px;
-  }
-
   @media ($bp-medium-min) {
+    margin-top: 20px;
     margin-left: 30px;
     margin-right: 30px;
   }
@@ -39,12 +36,37 @@
     margin-right: auto;
   }
 
+  &__heading {
+    list-style: none;
+    margin: 0 5px 0 5px;
+    padding-right: 0;
+    display: flex;
+
+    @media ($bp-x-small-min) {
+      width: auto;
+    }
+  }
+
+  &--icon {
+    padding-right: 7px;
+    margin-top: 2px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+
+      path, use {
+        fill: $c-font-detail;
+      }
+    }
+  }
+
   &--label {
     color: $c-font-detail;
     text-transform: uppercase;
     letter-spacing: $letter-spacing-large;
     margin-right: 10px;
-    margin-bottom: .25em;
+    margin-top: 1px;
     white-space: nowrap;
 
     @media ($bp-x-small-min) {
@@ -61,6 +83,10 @@
     line-height: 22px;
     padding-right: 5px;
     list-style: none;
+
+    &--fold {
+      display: none;
+    }
   }
 
   &__expand-indicators {
@@ -72,33 +98,26 @@
     width: 100%;
     min-width: 50%;
     display: flex;
+    padding-top: 20px;
     flex-direction: column;
 
     @media ($bp-x-small-min) {
-        flex-flow: row nowrap;
+      padding-top: 23px;
+      flex-flow: row nowrap;
     }
 
     .ma__relationship-indicators--term,
     .ma__relationship-indicators__expand-indicators {
-      // margin-bottom: 2px;
-
-      // @media ($bp-x-small-min) {
-        margin-bottom: 5px;
-      // }
-
-      @media ($bp-large-max) {
-        // margin-bottom: 5px;
-      }
+      margin-bottom: 5px;
 
       @media ($bp-large-min) {
-        margin-bottom: 10px;//12px;
+        margin-bottom: 10px;
       }
     }
 
     .ma__relationship-indicators__expand-indicators {
 
       @media ($bp-large-min) {
-
         margin-bottom: 5px;
       }
     }
@@ -144,7 +163,7 @@
       }
 
       button {
-        color:$c-primary;
+        color: $c-primary;
 
         &.is-open {
 
@@ -154,7 +173,7 @@
         }
 
         .tags-open & {
-          align-self: basline;
+          align-self: baseline;
         }
       }
     }
@@ -162,17 +181,11 @@
     &.secondary {
       width: 100%;
       min-width: 40%;
-      padding-top: 8px;
+      padding: 0 0 8px 0;
+      margin-left: 0;
 
       @media ($bp-large-min) {
-        padding-top: 0;
-      }
-
-      .ma__relationship-indicators--term {
-
-        &:nth-child(n+2) {
-          display: none;
-        }
+        padding-top: 23px;
       }
 
       a {
@@ -242,25 +255,73 @@
         }
       }
     }
+
+    &-group {
+      margin: 0 20px 0 2px;
+
+      @media ($bp-x-small-min) {
+        padding-top: 10px;
+      }
+
+      button {
+        color: $c-primary-alt;
+      }
+
+      .ma__relationship-indicators--term {
+        margin: 0 5px 0 0;
+        padding-right: 0;
+
+        @media ($bp-medium-min) {
+          margin: 0 5px;
+        }
+
+        &:first-child {
+          margin: 0;
+        }
+
+        a {
+          margin-right: 10px;
+          position: relative;
+
+          &:before {
+            content: "";
+            width: 10px;
+            position: absolute;
+            height: $fonts-smaller;
+            right: -10px;
+            bottom: 1px;
+            border-right: 1px solid $c-gray-light;
+          }
+        }
+      }
+
+      .ma__relationship-indicators__expand-indicators {
+        margin: 0 5px 0 0;
+
+        @media ($bp-medium-min) {
+          margin: 0 5px;
+        }
+      }
+    }
   }
 
   &--terms {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
     margin-bottom: 0;
     padding-bottom: 0;
     padding-inline-start: 0;
+  }
 
-    @media ($bp-x-small-min) {
-      flex-flow: row wrap;
-    }
+  &--terms--without-fold &--term--last a:before {
+    content: none;
   }
 
   & + .ma__illustrated-header,
   & + .ma__page-header,
   & + .ma__page-banner {
-    margin-top: -11px;
+    margin-top: 5px;
   }
 
   & + .ma__page-banner--columns {

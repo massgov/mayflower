@@ -1,26 +1,31 @@
-{% set sizeClass = pageBanner.size ? "ma__page-banner--" ~ pageBanner.size : '' %}
+{% set layoutClass = pageBanner.layout ? "ma__page-banner--" ~ pageBanner.layout : '' %}
 {% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
-
-{% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner--no-img-mobile" %}
-
-{% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
-{% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
 {% set bgNarrowClass = pageBanner.bgNarrow ? "ma__page-banner--bg-narrow" : "" %}
 {% set bgWideClass = pageBanner.bgWide ? "ma__page-banner--bg-wide" : "" %}
 {% set noImage = (pageBanner.bgWide or pageBanner.bgNarrow) ? "" : "ma__page-banner--no-img" %}
+{% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner--no-img-mobile" %}
+{% set iconClass = not pageBanner.icon ? "ma__page-banner--no-icon" : '' %}
+{% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
+{% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
+{% if pageBanner.underline %}
+  {% if pageBanner.description %}
+    {% set underlineWrapperClass = "ma__page-banner__content-wrapper--underline-description" %}
+  {% else %}
+    {% set underlineWrapperClass = "ma__page-banner__content-wrapper--underline" %}
+  {% endif %}
+{% endif %}
 
-{% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass}" %}
-{% set sectionClass = "ma__page-banner #{sizeClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage}" %}
+{% set sectionClass = "ma__page-banner #{layoutClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage} #{iconClass}" %}
+{% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass} #{underlineWrapperClass}" %}
 
 
 <section class="{{ sectionClass }}">
   {% set classBgImage =
-    (pageBanner.size == "columns" or pageBanner.size == "large" or pageBanner.size == "small") ?
-      '.ma__page-banner__image' : '.ma__page-banner'
+    (pageBanner.layout == "taper") ? '.ma__page-banner__image' : '.ma__page-banner'
   %}
 
   {# pageBanner.bgWide #}
-  {% if bgWideClass %}
+  {% if not noImage %}
     <style>
       {% if pageBanner.renderImageOnMobile %}
         {# Optional pageBanner.bgNarrow #}
@@ -38,23 +43,25 @@
   {% endif %}
 
   <div class="ma__page-banner__container">
-    {% if ((pageBanner.size and pageBanner.size == "columns") or pageBanner.size == "large" or pageBanner.size == "small") and bgWideWrapperClass %}
+    {% if (pageBanner.layout and pageBanner.layout == "taper") and bgWideWrapperClass %}
       <div class="ma__page-banner__image"></div>
     {% endif %}
     <div class="ma__page-banner__content" property="mainEntityOfPage">
       <div class="{{ wrapperClass }}">
-        {% if pageBanner.icon %}
-          <div class="ma__page-banner__icon">
-            {{ icon(pageBanner.icon) }}
-          </div>
-        {% endif %}
-        <h1 class="ma__page-banner__title">
-          {{ pageBanner.title }}
-          {% if pageBanner.titleSubText %}
-            <abbr title="{{ pageBanner.title }}"> {{ pageBanner.titleSubText }}</abbr>
+        <div class="ma__page-banner__title-wrapper">
+          {% if pageBanner.icon %}
+            <div class="ma__page-banner__icon">
+              {{ icon(pageBanner.icon) }}
+            </div>
           {% endif %}
-        </h1>
-        {% if pageBanner.primaryLink and not (pageBanner.size == "columns") %}
+          <h1 class="ma__page-banner__title">
+            {{ pageBanner.title }}
+            {% if pageBanner.titleSubText %}
+              <abbr title="{{ pageBanner.title }}"> {{ pageBanner.titleSubText }}</abbr>
+            {% endif %}
+          </h1>
+        </div>
+        {% if pageBanner.primaryLink %}
           {% set decorativeLink = pageBanner.primaryLink %}
           {% if pageBanner.primaryLink.href %}
             {% include "@atoms/decorative-link.twig" %}
@@ -69,7 +76,7 @@
             </div>
           {% endif %}
         {% endif %}
-        {% if pageBanner.secondaryLink and not (pageBanner.size == "columns") %}
+        {% if pageBanner.secondaryLink %}
           {% set decorativeLink = pageBanner.secondaryLink %}
           {% if pageBanner.secondaryLink.href %}
             {% include "@atoms/decorative-link.twig" %}
@@ -84,7 +91,7 @@
             </div>
           {% endif %}
         {% endif %}
-        {% if pageBanner.description and not (pageBanner.size == "columns") %}
+        {% if pageBanner.description %}
           <p class="ma__page-banner__description">
             {{ pageBanner.description }}
             {% if pageBanner.descriptionSubText %}
@@ -96,10 +103,5 @@
         {% endif %}
       </div>
     </div>
-    {% if pageBanner.description and pageBanner.size == "columns" %}
-      <p class="ma__page-banner__description">
-        {{ pageBanner.description }}
-      </p>
-    {% endif %}
   </div>
 </section>

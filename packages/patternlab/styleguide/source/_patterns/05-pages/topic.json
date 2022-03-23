@@ -1,45 +1,24 @@
 {
+  "breadcrumbs":{
+    "light": true,
+    "links": [{
+      "text": "Home",
+      "url": "/"
+    },{
+      "text": "Unemployment",
+      "url": "/"
+    },
+    {
+      "text": "Training & Assistance",
+      "url": "/"
+    }]
+  },
   "relationshipIndicators": {
     "pageTitle": "",
-    "primary": {
-      "position": "primary",
-      "label": "part of",
-      "tags": [
-        {
-          "class": "",
-          "href": "#",
-          "title": "Snowmobile in the Parks"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Cross-Country Skiing"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Accessible Hiking"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Scenic Viewing Areas"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Hunting"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Biking"
-        }
-      ]
-    },
     "secondary": {
       "position": "",
       "label": "offered by",
+      "groupAfter": 1,
       "tags": [
         {
           "class": "",
@@ -55,11 +34,10 @@
     }
   },
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/820x460.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "renderImageOnMobile": true,
-    "size": "columns",
+    "size": "full",
     "icon": "lg-picnic-table",
+    "color": "white",
+    "underline": true,
     "title": "State Parks & Recreation",
     "description": "First line of this Topic that feeds description on cards.  This description can span multiple lines."
   },
@@ -192,6 +170,7 @@
         "linkList": {
           "compHeading": {
             "title": "Organizations",
+            "sidebar": true,
             "level": "3"
           },
           "stacked": true,
@@ -252,6 +231,7 @@
         "linkList": {
           "compHeading": {
             "title": "Topics",
+            "sidebar": true,
             "level": "3"
           },
           "stacked": true,
@@ -272,5 +252,82 @@
         }
       }
     ]
+  },
+  "tableOfContentsHierarchy": {
+    "title": {
+      "id": "State Parks & Recreation",
+      "text": "For Workers",
+      "colored": false
+    },
+    "background" : "none",
+    "sections": [
+      {
+        "text": "Unemployment Insurance (UI) for Workers ",
+        "href": "#"
+      },
+      {
+        "text": "Pandemic Unemployment Assistance (PUA) ",
+        "href": "#"
+      },
+      {
+        "text": "DUA Multilingual Services",
+        "href": "#"
+      },
+      {
+        "text": "WorkShare for Workers",
+        "href": "#"
+      },
+      {
+        "text": "Training & Assistance",
+        "linkItems": [
+          {
+            "text": "Unemployment Insurance (UI) for Employers",
+            "href": "#"
+          },
+          {
+            "text": "WorkShare for Employers",
+            "href": "#"
+          },
+          {
+            "title": "For Workers",
+            "subItems": [
+              {
+                "text": "Training Opportunities Program (TOP)",
+                "href": "#"
+              },
+              {
+                "text": "MassHire Career Centers",
+                "href": "#"
+              },
+              {
+                "text": "Vocational Rehabilitation",
+                "href": "#"
+              }
+            ]
+          },
+          {
+            "title": "For Employers",
+            "subItems": [
+              {
+                "text": "Prevent layoffs with Rapid Response",
+                "href": "#"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "iconSize": "",
+        "icon": "doc-docx",
+        "decorativeLink": {
+          "text": "Link to a file for download",
+          "href": "#",
+          "info": ""
+        },
+        "size": "40kb",
+        "format": "DOCX"
+      }
+    ]
+
   }
 }

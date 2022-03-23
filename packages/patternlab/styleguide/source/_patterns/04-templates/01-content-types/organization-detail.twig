@@ -1,36 +1,38 @@
 {% block header %}
-  {% if ajaxEmergencyAlerts %}
-    {% set ajaxPattern = ajaxEmergencyAlerts %}
-    {% include "@organisms/by-template/ajax-pattern.twig" %}
-  {% endif %}
-  {% include "@organisms/by-template/header-hamburger.twig" %}
+	{% if ajaxEmergencyAlerts %}
+		{% set ajaxPattern = ajaxEmergencyAlerts %}
+		{% include "@organisms/by-template/ajax-pattern.twig" %}
+	{% endif %}
+	{% include "@organisms/by-template/header-hamburger.twig" %}
 {% endblock %}
 
 <main id="main-content" class="ma__organization-detail" tabindex="-1">
-  <div class="pre-content">
-    {% block preContent %}
-      {% include "@molecules/relationship-indicators.twig" %}
-      {% include "@organisms/by-template/page-banner.twig" %}
-    {% endblock %}
-  </div>
-  <div class="ma__organization-detail__sections">
-    {% block organizationDetailContent %}
-      {% set divider = false %}
-      {% for stackedRow in stackedRows %}
-        {% include "@organisms/by-author/org-detail-section.twig" %}
-        {% set divider = true %}
-      {% endfor %}
-    {% endblock %}
-  </div>
-  <div class="post-content">
-    {% block postContent %}
-      {% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
-    {% endblock %}
-  </div>
-  {% block schemaContent %}
-  {% endblock %}
+	<div class="pre-content">
+		{% block preContent %}
+			{% if breadcrumbs %}
+				{% include "@organisms/by-template/breadcrumbs.twig" %}
+			{% endif %}
+			{% include "@molecules/relationship-indicators.twig" %}
+			{% include "@organisms/by-template/page-banner.twig" %}
+		{% endblock %}
+	</div>
+	<div class="ma__organization-detail__sections">
+		{% block organizationDetailContent %}
+			{% set divider = false %}
+			{% for stackedRow in stackedRows %}
+				{% include "@organisms/by-author/org-detail-section.twig" %}
+				{% set divider = true %}
+			{% endfor %}
+		{% endblock %}
+	</div>
+	<div class="post-content">
+		{% block postContent %}
+			{% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
+		{% endblock %}
+	</div>
+	{% block schemaContent %}{% endblock %}
 </main>
 
 {% block footer %}
-  {% include "@organisms/by-template/footer.twig" %}
+	{% include "@organisms/by-template/footer.twig" %}
 {% endblock %}
