@@ -23,7 +23,6 @@ $bp-illustrated-header-image-width: 360px;
   &__image {
     background-position: center;
     background-size: cover;
-    min-height: 300px;
 
     @media ($bp-illustrated-header-columns-min) {
       background-position: center left;
@@ -54,7 +53,6 @@ $bp-illustrated-header-image-width: 360px;
 
     @media ($bp-illustrated-header-columns-min) {
       float: none;
-      min-height: 300px;
       width: calc(100% - #{$bp-illustrated-header-image-width}); // width of right rail
 
       &:after {
