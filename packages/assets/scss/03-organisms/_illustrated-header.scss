@@ -33,6 +33,10 @@ $bp-illustrated-header-image-width: 360px;
       width: $bp-illustrated-header-image-width + 40px; // 40px is right padding of the page
     }
 
+    @media ($bp-illustrated-header-columns-max) {
+      min-height: 300px;
+    }
+
     @media ($bp-page-width-min) {
       width: calc(50vw - 220px);
     }
