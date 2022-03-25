@@ -33,6 +33,22 @@
     }
   }
 
+  .ma__services & {
+
+    @media ($bp-small-min) {
+      width: 80%;
+    }
+
+    @media ($bp-large-min) {
+      width: 100%;
+    }
+
+    @media ($bp-large-extended-min) {
+      width: 70%;
+    }
+
+  }
+
   // Backward Compatible - had to add the --new as a variant for the new styling
 
   .main-content--full .page-content > & {
