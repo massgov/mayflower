@@ -6,7 +6,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import shortid from 'shortid';
+import nanoid from 'nanoid';
 import is from 'is';
 import TabContext from './context';
 
@@ -19,7 +19,7 @@ class TabContainer extends React.Component {
     this.preventBodyKeyDown = false;
     const tabIds = new Map();
     // This only works for class components because it is not re-generated on every render.
-    this.spanId = shortid.generate();
+    this.spanId = nanoid();
     this.focusOnTabBody = () => {
       this.tabBodyRef.current.setAttribute('tabindex', '0');
       this.tabBodyRef.current.focus();
@@ -27,7 +27,7 @@ class TabContainer extends React.Component {
     const tabRefs = {};
     let activeTab = null;
     React.Children.forEach(props.children, (child, index) => {
-      const id = shortid.generate();
+      const id = nanoid();
       tabIds.set(index, id);
       tabRefs[tabIds.get(index)] = React.createRef();
       if (index === props.defaultTab) {
@@ -42,8 +42,8 @@ class TabContainer extends React.Component {
       focusOnTabBody: this.focusOnTabBody,
       tabIds,
       tabRefs,
-      tabContainerId: shortid.generate(),
-      tabContainerBodyId: shortid.generate(),
+      tabContainerId: nanoid(),
+      tabContainerBodyId: nanoid(),
       // eslint-disable-next-line react/no-unused-state
       tabBodyRef: this.tabBodyRef
     };
@@ -86,8 +86,15 @@ class TabContainer extends React.Component {
     return(
       <TabContext.Provider value={this.state}>
         <div className={classes}>
-          <ul className={ulClasses} id={this.state.tabContainerId} role="tablist">
-            <span id={this.spanId} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
+          <ul
+            className={ulClasses}
+            id={this.state.tabContainerId}
+            role="tablist"
+          >
+            <span id={this.spanId} className="ma__visually-hidden">
+              Use left and right arrows to navigate between tabs, up and down
+              arrows to navigate between active tab and its content.
+            </span>
             {childrenWithProps}
           </ul>
           <div
