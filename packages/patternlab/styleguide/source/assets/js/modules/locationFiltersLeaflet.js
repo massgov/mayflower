@@ -75,6 +75,7 @@ export default (function (window,document,$,undefined) {
         $submitButton.click(function(e) {
           //only submits the form when the autocomplete dropdown is closed and a valid place is selected
           if ($('.pac-container:visible').length || !placeChanged) {
+            errorMessage.addClass('has-error');
             e.preventDefault(); 
           } else {
             placeChanged = false; 
