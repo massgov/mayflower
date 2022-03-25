@@ -52,14 +52,18 @@ export default (function (window,document,$,undefined) {
           $(document).trigger('ma:GoogleMaps:placeChanged', place);
         }); 
 
+        const showSuggestions = () => {
+          // Update the top position of the dropdown, as the error message can add additional space above the input.
+          const positionTop = locationInput.getBoundingClientRect().bottom + window.scrollY;
+          $('.pac-container').show();
+          $('.pac-container').css("top", positionTop);
+        }
+
         google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
             if (e.key == 'Enter') {
                 if (!placeChanged) {
-                  // If an auto-suggested location is not selected, persist the dropdown list on the next ENTER.
-                  // Update the top position of the dropdown, as the error message can add additional space above the input.
-                  const positionTop = locationInput.getBoundingClientRect().bottom + window.scrollY;
-                  $('.pac-container').show();
-                  $('.pac-container').css("top", positionTop);
+                   // If an auto-suggested location is not selected, persist the dropdown list on the next ENTER.
+                   showSuggestions();
                 }
                 //only submits when the autocomplete dropdown is closed
                 if ($('.pac-container:visible').length) {
