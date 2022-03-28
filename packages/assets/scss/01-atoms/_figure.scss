@@ -70,11 +70,11 @@ $sp-medium-min: 20px;
   }
 
   @media ($bp-x-small-min) {
-    margin: 0 20px 20px 20px;
+    margin: 10px 20px 10px 20px;
   }
 
   @media ($bp-small-min) {
-    margin: 0 30px 30px 30px;
+    margin: 10px 30px 20px 30px;
     // support pre-existing figure elements besides dataviz.
 
     &--left,
