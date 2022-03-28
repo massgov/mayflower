@@ -10,5 +10,5 @@
     class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}}"
     {% if button.info %} title="{{ button.info }}"{% endif %}>{{ button.text }}</a>
 {% else %}
-  <button type="{{ button.type }}" class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}}" aria-label="{{ button.info }}">{{ button.text }}</button>
+  <button type="{{ button.type }}" class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{button.class}}" aria-label="{{ button.info }}">{{ button.text }}</button>
 {% endif %}
