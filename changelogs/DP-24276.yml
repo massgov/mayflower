@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: HeaderAlerts
+    description: . (#)
+    issue: DP-17338
+    impact: Patch
