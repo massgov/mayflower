@@ -23,7 +23,6 @@ $bp-illustrated-header-image-width: 360px;
   &__image {
     background-position: center;
     background-size: cover;
-    min-height: 300px;
 
     @media ($bp-illustrated-header-columns-min) {
       background-position: center left;
@@ -32,6 +31,10 @@ $bp-illustrated-header-image-width: 360px;
       top: 0;
       right: 0;
       width: $bp-illustrated-header-image-width + 40px; // 40px is right padding of the page
+    }
+
+    @media ($bp-illustrated-header-columns-max) {
+      min-height: 300px;
     }
 
     @media ($bp-page-width-min) {
@@ -54,7 +57,6 @@ $bp-illustrated-header-image-width: 360px;
 
     @media ($bp-illustrated-header-columns-min) {
       float: none;
-      min-height: 300px;
       width: calc(100% - #{$bp-illustrated-header-image-width}); // width of right rail
 
       &:after {
