@@ -229,6 +229,210 @@
               ]
             }
           }
+        },
+        {
+          "path": "@organisms/by-author/rich-text.twig",
+          "data": {
+            "richText": {
+              "rteElements": [
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "left",
+                      "wrap": true,
+                      "size": "x-small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "left",
+                      "wrap": true,
+                      "size": "x-small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/rich-text.twig",
+          "data": {
+            "richText": {
+              "rteElements": [
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "left",
+                      "wrap": true,
+                      "size": "x-small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "left",
+                      "wrap": true,
+                      "size": "x-small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "left",
+                      "wrap": true,
+                      "size": "x-small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/rich-text.twig",
+          "data": {
+            "richText": {
+              "rteElements": [
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "left",
+                      "wrap": true,
+                      "size": "small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "left",
+                      "wrap": true,
+                      "size": "small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "left",
+                      "wrap": true,
+                      "size": "small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "left",
+                      "wrap": true,
+                      "size": "small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+                    }
+                  }
+                }
+              ]
+            }
+          }
         }
       ]
     },
@@ -411,7 +615,110 @@
               ]
             }
           }
+        },
+        {
+          "path": "@organisms/by-author/rich-text.twig",
+          "data": {
+            "richText": {
+              "rteElements": [
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "right",
+                      "wrap": true,
+                      "size": "x-small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "right",
+                      "wrap": true,
+                      "size": "x-small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/rich-text.twig",
+          "data": {
+            "richText": {
+              "rteElements": [
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "right",
+                      "wrap": true,
+                      "size": "small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/09-media/figure--image.twig",
+                  "data": {
+                    "figure": {
+                      "align": "right",
+                      "wrap": true,
+                      "size": "small",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+                    }
+                  }
+                }
+              ]
+            }
+          }
         }
+
       ]
     }
   ],
