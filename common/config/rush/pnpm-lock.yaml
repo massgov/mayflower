@@ -102,6 +102,7 @@ dependencies:
   mdn-polyfills: 5.20.0
   merge-stream: 1.0.1
   mini-css-extract-plugin: 1.1.2_webpack@4.44.2
+  nanoid: 2.1.11
   normalize-scss: 7.0.1
   npm-run-all: 4.1.5
   numbro: 2.3.2
@@ -122,7 +123,6 @@ dependencies:
   react-virtualized: 9.22.3
   resolve-url-loader: 3.1.2
   sass: 1.30.0
-  shortid: 2.2.16
   smoothscroll-polyfill: 0.4.4
   style-loader: 1.3.0_webpack@4.44.2
   stylelint: 13.8.0
@@ -9245,7 +9245,7 @@ packages:
     resolution:
       integrity: sha512-Se+LaxqXlVXGvmexKGPvnUIYC1jwXu1H6Pkyb3uBM5d8/NELMYCHs/4/roD7721NxrTLyv7e5nXd5/QLBO+10g==
   /core-js/2.6.12:
-    deprecated: 'core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.'
+    deprecated: 'core-js@<3.4 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.'
     dev: false
     requiresBuild: true
     resolution:
@@ -20748,6 +20748,7 @@ packages:
     resolution:
       integrity: sha1-nsYfeQSYdXB9aUFFlv2Qek1xHnM=
   /querystring/0.2.0:
+    deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
     dev: false
     engines:
       node: '>=0.4.x'
@@ -22568,6 +22569,7 @@ packages:
       micromatch: 3.1.10
       minimist: 1.2.5
       walker: 1.0.7
+    deprecated: 'some dependency vulnerabilities fixed, support for node < 10 dropped, and newer ECMAScript syntax/features added'
     dev: false
     engines:
       node: 6.* || 8.* || >= 10.*
@@ -24329,6 +24331,7 @@ packages:
       block-stream: 0.0.9
       fstream: 1.0.12
       inherits: 2.0.4
+    deprecated: 'This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.'
     dev: false
     resolution:
       integrity: sha512-FCEhQ/4rE1zYv9rYXJw/msRqsnmlje5jHP6huWeBZ704jUTy02c5AZyWujpMR1ax6mVw9NyJMfuK2CMDWVIfgA==
@@ -26736,6 +26739,7 @@ packages:
       markdown-it: 10.0.0
       mini-css-extract-plugin: 1.1.2_webpack@4.44.2
       moment: 2.29.1
+      nanoid: 2.1.11
       normalize-scss: 7.0.1
       npm-run-all: 4.1.5
       numbro: 2.3.2
@@ -26768,7 +26772,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-yQgQMlu6yBu6QdukH0B90eqBrF+Xnd3Tmk9/X8ilWr4e8/CWQeIHK4FPwOKLqyYVxL1cCDXbZnxaLpcPtTC9sw==
+      integrity: sha512-ms2ozxd/gjNmRIywOyeXnIzUZN6W5Ca/PeDL6/qQmCalxwQeHSP8sXH1rZnIK9NfAF/2d+qR+I9Cz9yaLfBDmg==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_13fe6053c740dc31e0c47613a4f26462':
@@ -26976,6 +26980,7 @@ specifiers:
   mdn-polyfills: ^5.16.0
   merge-stream: ^1.0.1
   mini-css-extract-plugin: ~1.1.1
+  nanoid: ^2.1.11
   normalize-scss: ~7.0.1
   npm-run-all: ^4.1.5
   numbro: ^2.1.2
@@ -26996,7 +27001,6 @@ specifiers:
   react-virtualized: ~9.22.2
   resolve-url-loader: ^3.1.1
   sass: ~1.30.0
-  shortid: ^2.2.8
   smoothscroll-polyfill: ^0.4.4
   style-loader: ^1.2.1
   stylelint: ^13.3.3
