@@ -8,7 +8,7 @@
     "titleSubText": "",
     "description": "Have you lost your job? You may qualify for temporary income to support you while you look for a new one.",
     "color": "blue",
-    "buttonsLabel": "LOG IN",
+    "buttonsLabel": "LOG IN:",
     "buttons": [{
       "href": "#",
       "text": "Log in to UI Online",
