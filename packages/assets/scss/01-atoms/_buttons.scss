@@ -16,6 +16,7 @@ button {
 }
 
 .ma__button {
+
   @include ma-button-base;
   
   svg {
@@ -71,6 +72,10 @@ button {
 
   @include ma-button("solid",$c-gray-light);
   color: $c-black;
+
+  svg {
+    fill: $c-black;
+  }
 }
 
 .ma__button--quaternary {
@@ -82,6 +87,10 @@ button {
   padding: 0;
   text-transform: none;
   letter-spacing: $letter-spacing-default;
+
+  svg {
+    fill: $c-primary;
+  }
 
   &:hover:not(:disabled) {
    border-bottom: 3px solid $c-primary;

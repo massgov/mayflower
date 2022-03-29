@@ -4,6 +4,8 @@
 
   @include ma-button;
 
+  @include ma-button-base;
+
   @include ma-chevron;
   display: inline-block;
   min-height: 45px;
