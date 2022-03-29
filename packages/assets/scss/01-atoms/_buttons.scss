@@ -23,7 +23,7 @@ button {
     margin-left: .5rem;
   }
 
-  @include ma-button-size("normal");
+  @include ma-button-size;
 
   &--small {
 
