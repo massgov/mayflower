@@ -117,8 +117,8 @@
   }
 
   &__submit {
-
-    @include ma-button('small');
+    @include ma-button-base;
+    @include ma-button("small","solid",$c-primary);
   }
 }
 
@@ -132,10 +132,5 @@
     & > svg {
       fill: $c-primary-alt;
     }
-  }
-
-  &__submit {
-
-    @include ma-button('','solid',$c-primary);
   }
 }

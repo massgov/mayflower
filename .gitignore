@@ -70,3 +70,7 @@ dist
 # yalc - used to symlink to and test local packages
 .yalc/
 yalc.lock
+
+
+# local api key
+packages/patternlab/styleguide/source/_data/api.json

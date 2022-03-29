@@ -5,7 +5,7 @@
 {% set neLng = locationFilters.zipcode.placeAutocomplete.bounds.ne.lng ? locationFilters.zipcode.placeAutocomplete.bounds.ne.lng : -69.845299 %}
 
 <section class="ma__location-filters">
-  <form class="js-location-filters" action="{{ locationFilters.form.action }}">
+  <form class="js-location-filters">
     <div class="ma__location-filters__row">
       <div class="ma__location-filters__by-location js-filter-by-location" data-ma-place-bounds-sw-lat="{{ swLat }}" data-ma-place-bounds-sw-lng="{{ swLng }}" data-ma-place-bounds-ne-lat="{{ neLat }}" data-ma-place-bounds-ne-lng="{{ neLng }}">
         {% set inputText = locationFilters.zipcode.inputText %}
@@ -34,14 +34,12 @@
       </div>
     {% endif %}
     <div class="ma__location-filters__buttons">
-      {% for button in locationFilters.buttons %}
-        {% include "@atoms/01-buttons/button.twig" %}
-      {% endfor %}
-      {# backward compatible with v6.2 that uses submitButton #}
-      {% if locationFilters.submitButton %}
-      <button class="ma_button ma__location-filters__submit" type="submit">
-        {{ locationFilters.submitButton }}
-      </button>
+      {% if locationFilters.buttons %}
+        {% for button in locationFilters.buttons %}
+          {% include "@atoms/01-buttons/button.twig" %}
+        {% endfor %}
+      {% else %}
+        <button class="ma_button ma__location-filters__submit js-location-filters__submit" type="submit">Submit</button>
       {% endif %}
     </div>
   </form>
