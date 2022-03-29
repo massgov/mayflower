@@ -53,7 +53,7 @@
 #___EXAMPLE___
 Changed:
   - project: Patternlab
-    component: GeneralTeaser
-    description: Make teaser image link optional to avoid duplicated link for accessiblity. To link the image, pass `href` in the `image` object. (#1591) 
-    issue: DP-23713
-    impact: Patch
+    component: LocationFiltersLeaflet.js
+    description: Add validation for the location listing filter submission - display an error message and prevent form submission when the input is not suggested by Google. (#1579) 
+    issue: DP-23780
+    impact: Minor

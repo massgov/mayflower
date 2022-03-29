@@ -30,5 +30,7 @@ button: {
     type: string / optional ("", "c-primary-alt","c-highlight")
   usage: 
     type: string / optional ("","secondary","tertiary","quaternary")
+  class:
+    type: string / optional (custom classname)
 }
 ~~~
