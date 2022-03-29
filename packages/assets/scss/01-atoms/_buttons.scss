@@ -21,6 +21,7 @@ button {
   
   svg {
     margin-left: .5rem;
+    flex-shrink: 0;
   }
 
   @include ma-button-size;
