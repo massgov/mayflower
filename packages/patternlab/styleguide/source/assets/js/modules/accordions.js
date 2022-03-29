@@ -136,11 +136,12 @@ export default (function (window,document,$,undefined) {
     let ind = '';
     const isExtended = $el.parents('.ma__collapsible-content--extended').length;
 
-    // if ($el.hasClass('ma__header-alerts')) {
-    //   ind = '>';
-    // }
+    if ($el.hasClass('ma__header-alerts')) {
+      ind = '>';
+    }
 
-    let $link = $el.find(`${ind} .js-accordion-link`),
+    // let $link = $el.find(`${ind} .js-accordion-link`),
+    let $link = $el.find(`${ind} .ma__header-alerts__header .js-accordion-link`),
         $content = $el.find(`${ind} .js-accordion-content`),
         id = getId($el, index + 1),
         active = checkActive($el),
