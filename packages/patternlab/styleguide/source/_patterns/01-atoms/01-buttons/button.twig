@@ -17,7 +17,7 @@
 {% else %}
   <button 
     type="{{ button.type }}"
-    class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}}"
+    class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{button.class}}"
     aria-label="{{ button.info }}">
       {{ button.text }}
       {% if button.icon %}

@@ -117,8 +117,13 @@
   }
 
   &__submit {
+<<<<<<< HEAD
 
     @include ma-button-size('small');
+=======
+    @include ma-button-base;
+    @include ma-button("small","solid",$c-primary);
+>>>>>>> develop
   }
 }
 
@@ -133,9 +138,12 @@
       fill: $c-primary-alt;
     }
   }
+<<<<<<< HEAD
 
   &__submit {
 
     @include ma-button('solid',$c-primary);
   }
+=======
+>>>>>>> develop
 }

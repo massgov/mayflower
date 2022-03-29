@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Alert
+    description: Clarify the accordion button label for screen reader users. (#1607)
+    issue: DP-24261
+    impact: Patch

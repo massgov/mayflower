@@ -50,10 +50,10 @@
 #    issue: Add a Jira ticket or issue number, e.g. DP-12345 or 124
 #    impact: Enter a valid impact, e.g. Minor
 
-#___EXAMPLE WITH MULTIPLE ITEMS___
+#___EXAMPLE___
 Changed:
-  - project: React
-    component: UtilityNav, TabContainer
-    description: Migrate from shortid to nanoid (#1605)
-    issue: DP-24346
-    impact: Patch
+  - project: Patternlab
+    component: LocationFiltersLeaflet.js
+    description: Add validation for the location listing filter submission - display an error message and prevent form submission when the input is not suggested by Google. (#1579) 
+    issue: DP-23780
+    impact: Minor
