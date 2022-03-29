@@ -159,12 +159,30 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: $fonts-large;
   }
 
+  &__buttons-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.5rem;
+
+    @media ($bp-medium-max) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+  }
+
+  &__buttons-label {
+    font-weight: $fonts-bold;
+    color: $c-font-inverse;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+  }
 
   &__buttons {
     list-style: none;
     padding-left: 0;
-    margin-top: 1rem;
-    width: 100%;
+    margin-bottom: 0;
   }
 
   &__button {
