@@ -125,10 +125,10 @@ export default (function (window,document,$,undefined) {
     || $link.hasClass("ma__action-step__header")) {
       // No aria-label.
     }
-    else
-    {
-      $link.attr('aria-label', statusText + label);
-    }
+    // else
+    // {
+    //   $link.attr('aria-label', statusText + label);
+    // }
   }
 
   // Initialize each accordion item.
