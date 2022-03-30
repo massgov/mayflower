@@ -121,7 +121,8 @@ export default (function (window,document,$,undefined) {
     const label = $link.text() || $link.children('h2').text();
 
     $link.attr('aria-expanded',open);
-    if ($link.hasClass("ma__emergency-header__toggle") || $link.hasClass("ma__header-alerts__header__button")) {
+    if ($link.hasClass("ma__emergency-header__toggle") || $link.hasClass("ma__header-alerts__header__button")
+    || $link.hasClass("ma__action-step__header js-accordion-link")) {
       // No aria-label.
     }
     else
@@ -134,15 +135,21 @@ export default (function (window,document,$,undefined) {
   function init(index){
     let $el = $(this);
     let ind = '';
+    let buttonWrapper = '';
     const isExtended = $el.parents('.ma__collapsible-content--extended').length;
 
     if ($el.hasClass('ma__header-alerts')) {
       ind = '>';
+      buttonWrapper = '.ma__header-alerts__header';
     }
 
-    // let $link = $el.find(`${ind} .js-accordion-link`),
-    let $link = $el.find(`${ind} .ma__header-alerts__header .js-accordion-link`),
-        $content = $el.find(`${ind} .js-accordion-content`),
+    if ($el.hasClass('ma__action-step')) {
+      ind = '>';
+      buttonWrapper = '.ma__action-step__title';
+    }
+
+    let $link = $el.find(`${ind} ${buttonWrapper} .js-accordion-link`),
+        $content = $el.find(`${buttonWrapper} .js-accordion-content`),
         id = getId($el, index + 1),
         active = checkActive($el),
         open = $el.hasClass('is-open');
