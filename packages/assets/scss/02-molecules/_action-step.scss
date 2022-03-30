@@ -1,7 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__action-step {
-  
+
   &--accordion {
     border-width: 2px;
     border-style: solid;
@@ -26,6 +26,7 @@
   &__header {
     padding: 20px 0 20px 60px;
     position: relative;
+    font-weight: $fonts-bold;
   }
 
   &--accordion &__header {
