@@ -117,7 +117,9 @@
   }
 
   &__submit {
+
     @include ma-button-base;
+
     @include ma-button("small","solid",$c-primary);
   }
 }
