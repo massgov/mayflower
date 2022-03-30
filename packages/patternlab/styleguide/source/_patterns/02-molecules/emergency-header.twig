@@ -5,9 +5,12 @@
     <span>{{ alertPrefix }}</span>
   </span>
   <button class="ma__emergency-header__toggle js-accordion-link">
-    {# aria-expanded gives users the state of the accordion. #}
-    <span class="ma__emergency-header__toggle__hide" aria-hidden="true">{{emergencyHeader.hideText}}</span>
-    <span class="ma__emergency-header__toggle__show" aria-hidden="true">{{emergencyHeader.showText}}</span>
+    {% if emergencyHeader.hideText %}
+      <span class="ma__emergency-header__toggle__hide" aria-hidden="true">{{emergencyHeader.hideText}}</span>
+    {% endif %}
+    {% if emergencyHeader.showText %}
+      <span class="ma__emergency-header__toggle__show" aria-hidden="true">{{emergencyHeader.showText}}</span>
+    {% endif %}
     <span class="ma__emergency-header__title">{{ emergencyHeader.title }}</span>
   </button>
 </div>

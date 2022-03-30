@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: EmergencyHeader
+    description: Make "Show" and "Hide" label optional to hide from the sitewide alert display. (#1610)
+    issue: DP-24093
+    impact: Patch
