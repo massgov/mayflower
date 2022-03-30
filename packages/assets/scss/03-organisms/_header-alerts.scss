@@ -60,6 +60,7 @@
     align-items: center;
     font-weight: $fonts-bold;
     font-size: $fonts-medium;
+    line-height: 1.2;
     margin-bottom: 0;
     width: 100%;
 
@@ -67,6 +68,14 @@
 
     @media ($bp-x-small-max) {
       flex-direction: column;
+    }
+
+    div {
+      display: inline-flex;
+
+      span:not(.ma__header-alerts__header___icon) {
+        padding-top: 3px;
+      }
     }
 
   }
@@ -95,6 +104,8 @@
       text-align: left;
       width: 100%;
       background-color: $c-bg-section;
+      font-size: $fonts-large;
+      line-height: 29px;
     }
 
     &__more {
@@ -110,8 +121,6 @@
     }
 
     &__title {
-      font-size: $fonts-large;
-      line-height: 29px;
 
       a {
 

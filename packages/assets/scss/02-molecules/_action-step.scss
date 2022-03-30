@@ -27,6 +27,9 @@
     padding: 20px 0 20px 60px;
     position: relative;
     font-weight: $fonts-bold;
+
+    // margin-bottom: 0;
+    min-height: 32px;
   }
 
   &--accordion &__header {
@@ -45,7 +48,7 @@
       position: absolute;
         right: 15px;
         top: 25px;
-      transform-origin:75% 50%;
+      transform-origin: center center;
       transition: transform .2s ease;
     }
   }
@@ -55,10 +58,6 @@
   }
 
   &__title {
-
-    @include ma-h5;
-    margin-bottom: 0;
-    min-height: 32px;
 
 
     span {
