@@ -79,7 +79,8 @@
                     "id": "find-nearby",
                     "name": "find-nearby",
                     "type": "text",
-                    "placeholder": "City, town, or ZIP code"
+                    "placeholder": "City, town, or ZIP code",
+                    "errorMsg": "Please select an address in the suggesions. Hit ENTER or start typing to show suggesions."
                   },
                   "placeAutocomplete": {
                     "bounds": {
@@ -135,14 +136,6 @@
                     "icon": "open-now",
                     "value": "open",
                     "checked": "false"
-                  }
-                ],
-                "buttons": [
-                  {
-                    "text": "Submit",
-                    "type": "submit",
-                    "theme": "",
-                    "outline": false
                   }
                 ]
               },

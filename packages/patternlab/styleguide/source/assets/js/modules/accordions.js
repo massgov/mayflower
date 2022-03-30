@@ -119,9 +119,11 @@ export default (function (window,document,$,undefined) {
   function accordionAriaToggle($link, open) {
     const statusText = open ? "Collapse " : "Expand ";
     const label = $link.text() || $link.children('h2').text();
-    
+
     $link.attr('aria-expanded',open);
-    $link.attr('aria-label', statusText + label);
+    if (!$link.hasClass("ma__emergency-header__toggle")) {
+      $link.attr('aria-label', statusText + label);
+    }
   }
 
   // Initialize each accordion item.
