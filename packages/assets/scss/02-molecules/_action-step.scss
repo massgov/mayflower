@@ -36,20 +36,21 @@
     text-align: left;
     width: 100%;
 
-    &:after {
+    &__toggle {
+      display: block;
       font-size: $fonts-4xlarge;
-      content: "+";
       line-height: .65em;
+      border: none;
       overflow: hidden;
       position: absolute;
         right: 15px;
         top: 25px;
-      transform-origin: center center;
+      transform-origin:75% 50%;
       transition: transform .2s ease;
     }
   }
 
-  &--accordion.is-open &__header:after {
+  &--accordion.is-open &__header__toggle {
     transform: rotate(135deg);
   }
 
@@ -123,7 +124,7 @@
     background-color: transparent;
   }
 
-  &--accordion &__header:after {
+  &--accordion &__header__toggle {
     color: $c-primary-alt;
   }
 
