@@ -122,7 +122,7 @@ export default (function (window,document,$,undefined) {
 
     $link.attr('aria-expanded',open);
     if ($link.hasClass("ma__emergency-header__toggle") || $link.hasClass("ma__header-alerts__header__button")
-    || $link.hasClass("ma__action-step__header js-accordion-link")) {
+    || $link.hasClass("ma__action-step__header")) {
       // No aria-label.
     }
     else
