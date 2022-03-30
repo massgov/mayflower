@@ -15,6 +15,9 @@
       </div>
     {% endif %}
       {{ actionStep.title }}
+      {% if suffix %}
+        <span>{{suffix}}</span>
+      {% endif %}
       </button>
     </h{{headingLevel}}>
   {% else %}
