@@ -9,7 +9,7 @@ export const FootNoteExample = (args) => (
   <div>
     <p>
       <span>This is where the footnote would be referenced.</span>
-      &nbsp;
+      <span>&nbsp;</span>
       <FootNoteLink index={args.index} />
     </p>
     <FootNote {...args} />

@@ -76,7 +76,7 @@ const ImagePromo = (props) => {
         {props.phone && (
           <div className="ma__image-promo__phone">
             <IconPhone />
-            &nbsp;
+            <span>&nbsp;</span>
             {props.phone.href ? (
               <a href={`tel:${props.phone.href}`}>{props.phone.text}</a>
             ) : (

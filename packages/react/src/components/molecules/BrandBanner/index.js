@@ -60,7 +60,7 @@ const BrandBanner = ({
         {hasSeal && <Image className="ma__brand-banner-logo" src={seal} alt="Massachusetts State Seal" />}
         <span className="ma__brand-banner-text">
           <span>{text}</span>
-          &nbsp;&nbsp;&nbsp;
+          <span>&nbsp;&nbsp;&nbsp;</span>
           {hasToggle && (
             <span className={brandBannerToggleClasses}>
               <span>Here&apos;s how you know</span>

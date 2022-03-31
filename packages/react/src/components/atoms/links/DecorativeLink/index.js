@@ -65,17 +65,17 @@ const DecorativeLink = (props) => {
         {decIcon && (
         <span className="ma__download-link--icon">
           {decIcon}
-          &nbsp;
+          <span>&nbsp;</span>
         </span>
         )}
         <span>{text}</span>
         {details && (
         <span className="ma__decorative-link__details">
-          &nbsp;
+          <span>&nbsp;</span>
           <span>{details}</span>
         </span>
         )}
-        &nbsp;
+        <span>&nbsp;</span>
         {icon || <IconArrow aria-hidden="true" />}
       </a>
     </span>

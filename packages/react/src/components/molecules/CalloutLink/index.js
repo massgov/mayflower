@@ -26,7 +26,7 @@ const CalloutLink = (calloutLink) => {
         <span className="ma__callout-link__container">
           <span className="ma__callout-link__text">
             <span>{calloutLink.text}</span>
-            &nbsp;
+            <span>&nbsp;</span>
             <IconArrow />
           </span>
         </span>

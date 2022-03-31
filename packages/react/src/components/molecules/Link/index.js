@@ -23,7 +23,7 @@ const Link = (props) => {
       title={props.info}
     >
       { (props.children) ? props.children : <span>props.text</span> }
-      &nbsp;
+      <span>&nbsp;</span>
       { icon }
     </a>
   );

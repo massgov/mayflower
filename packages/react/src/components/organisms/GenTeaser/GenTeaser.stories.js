@@ -85,14 +85,14 @@ GenTeaserDataCatalog.args = {
   stat: (
     <span>
       <span>Total Items:</span>
-      &nbsp;
+      <span>&nbsp;</span>
       <strong>143</strong>
     </span>
   ),
   eyebrow: (
     <span>
       <IconCatalog width={16} height={16} />
-      &nbsp;
+      <span>&nbsp;</span>
       <span>Data Catalog</span>
     </span>
   )
@@ -129,7 +129,7 @@ GenTeaserDataSet.args = {
   eyebrow: (
     <span>
       <IconData width={16} height={16} />
-      &nbsp;
+      <span>&nbsp;</span>
       <span>Dataset</span>
     </span>
   ),
