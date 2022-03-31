@@ -76,7 +76,7 @@
     }
 
     div:not(.ma__header-alerts__header__toggle)>span:not(.ma__header-alerts__header___icon) {
-      padding-top: 3px;
+      vertical-align: middle;
     }
 
   }
@@ -107,6 +107,8 @@
       background-color: $c-bg-section;
       font-size: $fonts-large;
       line-height: 29px;
+
+      min-height: 72px;
     }
 
     &__more {
@@ -114,7 +116,7 @@
     }
 
     &__icon {
-      line-height: 1.09;
+      line-height: 1.1;
 
       svg {
         width: 20px;
