@@ -106,7 +106,7 @@
       width: 100%;
       background-color: $c-bg-section;
       font-size: $fonts-large;
-      line-height: 29px;
+      line-height: 30px;
 
       min-height: 72px;
     }
@@ -116,7 +116,6 @@
     }
 
     &__icon {
-      line-height: 1.1;
 
       svg {
         width: 20px;
