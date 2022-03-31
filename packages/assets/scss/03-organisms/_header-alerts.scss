@@ -76,7 +76,7 @@
     }
 
     div:not(.ma__header-alerts__header__toggle)>span:not(.ma__header-alerts__header___icon) {
-      padding-top: 2px;
+      padding-top: 3px;
     }
 
   }
@@ -114,7 +114,7 @@
     }
 
     &__icon {
-      line-height: 1;
+      line-height: 1.09;
 
       svg {
         width: 20px;
