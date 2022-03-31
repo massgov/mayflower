@@ -20,6 +20,7 @@
       margin-left: auto;
       font-size: $fonts-small;
       text-decoration: underline;
+      line-height: 1.15;
 
       @media ($bp-x-small-max) {
         margin-left: 0;
@@ -72,11 +73,11 @@
 
     div {
       display: inline-flex;
-
-      span:not(.ma__header-alerts__header___icon) {
-        padding-top: 3px;
-      }
     }
+
+    // div:not(.ma__header-alerts__header__toggle)>span:not(.ma__header-alerts__header___icon) {
+    //   padding-top: 3px;
+    // }
 
   }
 

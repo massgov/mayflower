@@ -59,8 +59,6 @@
 
   &__title {
 
-    margin-bottom: 0;
-
     span {
       font-size: $fonts-smaller;
       font-style: italic;
@@ -139,5 +137,6 @@
 
     @include ma-h4;
     font-weight: $fonts-bold;
+    margin-bottom: 0;
   }
 }
