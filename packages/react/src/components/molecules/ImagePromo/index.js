@@ -64,7 +64,7 @@ const ImagePromo = (props) => {
         { !props.stacked && imagePromoHeader }
         {props.location && props.location.text && (
           <div className="ma__image-promo__location">
-            {props.location.text}
+            <span>{props.location.text}</span>
             {props.link && props.link.text && (
               <div>
                 <DecorativeLink {...props.link} />
@@ -76,7 +76,7 @@ const ImagePromo = (props) => {
         {props.phone && (
           <div className="ma__image-promo__phone">
             <IconPhone />
-&nbsp;
+            &nbsp;
             {props.phone.href ? (
               <a href={`tel:${props.phone.href}`}>{props.phone.text}</a>
             ) : (

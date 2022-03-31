@@ -22,8 +22,8 @@ const Link = (props) => {
       className={classes || null}
       title={props.info}
     >
-      { (props.children) ? props.children : props.text }
-&nbsp;
+      { (props.children) ? props.children : <span>props.text</span> }
+      &nbsp;
       { icon }
     </a>
   );

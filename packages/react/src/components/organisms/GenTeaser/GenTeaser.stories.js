@@ -84,7 +84,8 @@ GenTeaserDataCatalog.args = {
   },
   stat: (
     <span>
-      Total Items:&nbsp;
+      <span>Total Items:</span>
+      &nbsp;
       <strong>143</strong>
     </span>
   ),
@@ -92,7 +93,7 @@ GenTeaserDataCatalog.args = {
     <span>
       <IconCatalog width={16} height={16} />
       &nbsp;
-      Data Catalog
+      <span>Data Catalog</span>
     </span>
   )
 };
@@ -129,7 +130,7 @@ GenTeaserDataSet.args = {
     <span>
       <IconData width={16} height={16} />
       &nbsp;
-      Dataset
+      <span>Dataset</span>
     </span>
   ),
   date: '01/01/2019',
