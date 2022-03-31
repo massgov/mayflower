@@ -1,47 +1,26 @@
 {
   "urlPath": "/?p=pages-ACTION-get-a-state-park-pass",
   "COMMENT": "****PRECONTENT COMPONENTS****",
+  "breadcrumbs":{
+    "light": true,
+    "links": [{
+      "text": "Home",
+      "url": "/"
+    },{
+      "text": "Unemployment",
+      "url": "/"
+    },
+    {
+      "text": "Training & Assistance",
+      "url": "/"
+    }]
+  },
   "relationshipIndicators": {
     "pageTitle": "",
-    "primary": {
-      "position": "primary",
-      "label": "part of",
-      "tags": [
-        {
-          "class": "",
-          "href": "#",
-          "title": "Snowmobile in the Parks"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Cross-Country Skiing"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Accessible Hiking"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Scenic Viewing Areas"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Hunting"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Biking"
-        }
-      ]
-    },
     "secondary": {
       "position": "",
       "label": "offered by",
+      "groupAfter": 1,
       "tags": [
         {
           "class": "",
@@ -100,7 +79,8 @@
                     "id": "find-nearby",
                     "name": "find-nearby",
                     "type": "text",
-                    "placeholder": "City, town, or ZIP code"
+                    "placeholder": "City, town, or ZIP code",
+                    "errorMsg": "Please select an address in the suggesions. Hit ENTER or start typing to show suggesions."
                   },
                   "placeAutocomplete": {
                     "bounds": {
@@ -156,14 +136,6 @@
                     "icon": "open-now",
                     "value": "open",
                     "checked": "false"
-                  }
-                ],
-                "buttons": [
-                  {
-                    "text": "Submit",
-                    "type": "submit",
-                    "theme": "",
-                    "outline": false
                   }
                 ]
               },

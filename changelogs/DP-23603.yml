@@ -51,26 +51,9 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-#___EXAMPLE WITH MULTIPLE ITEMS___
-Removed:
-  - project: Patternlab, Assets
-    component: PageBanner
-    description: Deprecate `columns` and `small` variants, consolidate styles. (#1589)
-    issue: DP-22640
-    impact: Minor
 Changed:
-  - project: Patternlab
-    component: PageBanner
-    description: Change data key `size` to `layout`, and renamed `large` variant to `taper`. Add color `white` and `underline` configuration (#1589)
-    issue: DP-22640
-    impact: Minor
-  - project: Patternlab
-    component: PageBanner
-    description: Move Page Banner variants into its own group under organisms. (#1589)
-    issue: DP-22640
-    impact: Minor
-  - project: Patternlab
-    component: TableOfContentsHierarchy
-    description: Consolidate styling, add a `background` modifier and a no background variant. (#1589)
-    issue: DP-22640
-    impact: Minor
+  - project: Assets, React, Patternlab
+    component: Illustrated Header
+    description: Remove `min-height`. (#1612)
+    issue: DP-23603
+    impact: Patch
