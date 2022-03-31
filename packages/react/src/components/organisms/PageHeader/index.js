@@ -39,7 +39,7 @@ const PageHeader = (pageHeader) => {
           { category && (
             <span className="visually-hidden">
               { category }
-              &nbsp;
+              <span>&nbsp;</span>
             </span>
           )}
           {title}
