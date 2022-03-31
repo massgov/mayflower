@@ -12,7 +12,6 @@
       top: 25px;
       left: 20px;
     text-align: center;
-    line-height: 1;
 
     & > svg {
       height: 25px;
@@ -51,6 +50,9 @@
         top: 25px;
       transform-origin: center center;
       transition: transform .2s ease;
+
+            padding-left: 0;
+            margin-left: 0;
     }
   }
 
