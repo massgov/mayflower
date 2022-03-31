@@ -288,7 +288,8 @@ GenTeaser.Orgs.displayName = 'GenTeaser.Orgs';
 const GenTeaserDescription = (props) => {
   const { children, description, ...rest } = props;
   // Wrap children text nodes in spans to persist DOM relationship consistency for ReactDOM when Google Translate manipulates the DOM tree
-  const descriptionHTML = ReactHtmlParser(description).map((el) => (typeof el === 'string' ? <span>{el}</span> : el));
+  // eslint-disable-next-line react/no-array-index-key
+  const descriptionHTML = ReactHtmlParser(description).map((el, i) => (typeof el === 'string' ? <span key={`description-span${i}`}>{el}</span> : el));
 
   return(
     <div className="ma__gen-teaser__description" {...rest}>
