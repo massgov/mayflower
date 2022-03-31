@@ -12,6 +12,7 @@
       top: 25px;
       left: 20px;
     text-align: center;
+    line-height: 1;
 
     & > svg {
       height: 25px;
@@ -46,7 +47,7 @@
       border: none;
       overflow: hidden;
       position: absolute;
-        right: 15px;
+        right: 16px;
         top: 25px;
       transform-origin: center center;
       transition: transform .2s ease;
