@@ -43,7 +43,7 @@ const GenTeaser = (props) => {
     'ma__gen-teaser--stacked': stacked,
     [`ma__gen-teaser--align-${align}`]: align
   });
-  const role = onClick ? 'button' : '';
+  const role = onClick ? 'button' : null;
   return(
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <section className={teaserClasses} onClick={onClick} onKeyDown={onKeyDown} role={role} {...rest}>
@@ -200,9 +200,9 @@ const GenTeaserTitle = (props) => {
   }
   const Element = `h${level || 2}`;
   return(
-    <Element className="ma__gen-teaser__title" {...rest}>
+    <div className="ma__gen-teaser__title" {...rest}>
       {children || <DecorativeLink {...decorativeProps} />}
-    </Element>
+    </div>
   );
 };
 
