@@ -69,15 +69,32 @@
 
     @media ($bp-x-small-max) {
       flex-direction: column;
+
+      // div span {
+
+
+      //   // background-color: azure;
+      // }
+
+      div:not(.ma__header-alerts__header__toggle) > span:not(.ma__header-alerts__header___icon) {
+        // background-color: blanchedalmond;
+        line-height: initial;
+        // height: 22px;
+      }
     }
 
     div {
       display: inline-flex;
+
+      // background-color: darkturquoise;
     }
 
-    div:not(.ma__header-alerts__header__toggle)>span:not(.ma__header-alerts__header___icon) {
-      vertical-align: middle;
-    }
+    // div:not(.ma__header-alerts__header__toggle)>span:not(.ma__header-alerts__header___icon) {
+    //   // vertical-align: middle;
+
+    //   background-color: lime;
+    //   // display: inline;
+    // }
 
   }
 
@@ -108,7 +125,7 @@
       font-size: $fonts-large;
       line-height: 30px;
 
-      min-height: 72px;
+      // min-height: 72px;
     }
 
     &__more {
