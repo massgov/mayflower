@@ -22,7 +22,7 @@ const Link = (props) => {
       className={classes || null}
       title={props.info}
     >
-      { (props.children) ? props.children : <span>props.text</span> }
+      { (props.children) ? props.children : <span>{props.text}</span> }
       <span>&nbsp;</span>
       { icon }
     </a>
