@@ -200,9 +200,9 @@ const GenTeaserTitle = (props) => {
   }
   const Element = `h${level || 2}`;
   return(
-    <div className="ma__gen-teaser__title" {...rest}>
+    <Element className="ma__gen-teaser__title" {...rest}>
       {children || <DecorativeLink {...decorativeProps} />}
-    </div>
+    </Element>
   );
 };
 
