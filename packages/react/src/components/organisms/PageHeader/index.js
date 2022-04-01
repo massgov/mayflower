@@ -38,7 +38,7 @@ const PageHeader = (pageHeader) => {
         <h1 className="ma__page-header__title">
           { category && (
             <span className="visually-hidden">
-             <span>{ category }</span>
+              <span>{ category }</span>
               <span>&nbsp;</span>
             </span>
           )}
