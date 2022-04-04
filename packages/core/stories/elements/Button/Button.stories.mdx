@@ -3,6 +3,11 @@ import Button from '@massds/mayflower-react/dist/Button';
 import generateTitle from '../../util/generateTitle';
 import { renderReactMarkup } from '../../util/renderCode';
 import * as stories from './Button.stories.js';
+import IconArrow from '@massds/mayflower-react/dist/Icon/IconArrow';
+import IconSearch from '@massds/mayflower-react/dist/Icon/IconSearch';
+import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
+import IconAlert from '@massds/mayflower-react/dist/Icon/IconAlert';
+import IconChevron from '@massds/mayflower-react/dist/Icon/IconChevron';
 
 <Meta
   title={generateTitle('Button')}
@@ -149,6 +154,160 @@ Following web best practices buttons have a target area of 45 pixels. To provide
       <Button usage="quaternary" text="Disabled" disabled/>
   </Story>
   <Story story={stories.buttonCSSDisabled} />
+</Canvas>
+
+
+### Button with Icon
+- **Usage:** Use an icon to supplement the text label of a button. Only select a recognisable icon that will help convey the functionality of the button. 
+- **Style:** The icon is styled consistently with the text label.
+
+<Canvas>
+  <Story
+    name="button-icon-primary-c-primary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="">
+        <span>Enter</span>
+        <IconArrow focusable="false" />
+      </Button>
+    ) } }}>
+      <Button usage="">
+        <span>Enter</span>
+        <IconArrow focusable="false" />
+      </Button>
+  </Story>
+  <Story
+    name="button-icon-primary-c-primary-alt"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button theme="c-primary-alt">
+        <span>Search</span>
+        <IconSearch focusable="false" />
+      </Button>
+    ) } }}>
+      <Button theme="c-primary-alt">
+        <span>Search</span>
+        <IconSearch focusable="false" />
+      </Button>
+  </Story>
+  <Story
+    name="button-icon-primary-c-highlight"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button theme="c-highlight">
+        <span>Notices</span>
+        <IconAlert focusable="false" />
+      </Button>
+    ) } }}>
+      <Button theme="c-highlight">
+        <span>Notices</span>
+        <IconAlert focusable="false" />
+      </Button>
+  </Story>
+  <Story
+    name="button-icon-primary-c-gray"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button theme="c-gray-dark" label="see more of ...">
+        <span>See More</span>
+        <IconChevron focusable="false" />
+      </Button>
+    ) } }}>
+      <Button theme="c-gray-dark" label="see more of ...">
+        <span>See More</span>
+        <IconChevron focusable="false" />
+      </Button>
+  </Story>
+    <Story
+    name="button-icon-primary-c-white"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button theme="c-white" label="see more of ...">
+        <span>See More</span>
+        <IconChevron focusable="false" />
+      </Button>
+    ) } }}>
+      <Button theme="c-white" label="see more of ...">
+        <span>See More</span>
+        <IconChevron focusable="false" />
+      </Button>
+  </Story>
+</Canvas>
+
+<Canvas>
+    <Story
+    name="button-icon-secondary-c-primary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="secondary" size="small">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+    ) } }}>
+      <Button usage="secondary" size="small">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+  </Story>
+  <Story
+    name="button-icon-secondary-c-primary-alt"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="secondary" size="small" theme="c-primary-alt">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+    ) } }}>
+      <Button usage="secondary" size="small" theme="c-primary-alt">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+  </Story>
+    <Story
+    name="button-icon-secondary-c-highlight"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="secondary" size="small" theme="c-highlight">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+    ) } }}>
+      <Button usage="secondary" size="small" theme="c-highlight">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+  </Story>
+  <Story
+    name="button-icon-secondary-c-gray"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="secondary" size="small" theme="c-gray-dark">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+    ) } }}>
+      <Button usage="secondary" size="small" theme="c-gray-dark">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+  </Story>
+  <Story
+    name="button-icon-tertiary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="tertiary" size="small">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+    ) } }}>
+      <Button usage="tertiary" size="small">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+  </Story>
+  <Story
+    name="button-icon-quaternary"
+    parameters={{ docs: { transformSource: () => renderReactMarkup(
+      <Button usage="quaternary">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+    ) } }}>
+      <Button usage="quaternary">
+        <span>Log In</span>
+        <IconLogin focusable="false" />
+      </Button>
+  </Story>
 </Canvas>
 
 ---
