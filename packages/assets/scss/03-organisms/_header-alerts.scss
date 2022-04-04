@@ -2,9 +2,14 @@
 
 .ma__header-alerts {
   margin-bottom: 30px;
+  // margin-right: 20px;
 
   @media ($bp-large-min) {
     margin-right: 40px;
+  }
+
+  @media ($bp-medium-min) {
+    margin-right: 10px;
   }
 
   &__header {
