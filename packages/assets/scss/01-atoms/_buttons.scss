@@ -17,55 +17,66 @@ button {
 
 .ma__button {
 
-  @include ma-button("normal");
-}
+  @include ma-button-base;
+  
+  svg {
+    margin-left: .5rem;
+    flex-shrink: 0;
+  }
 
-.ma__button--small {
+  @include ma-button-size;
 
-  @include ma-button("small");
-}
+  &--small {
 
-.ma__button--large {
+    @include ma-button-size("small");
+  }
 
-  @include ma-button("large");
-}
+  &--large {
 
-.ma__button {
+    @include ma-button-size("large");
+  }
 
-  @include ma-button("normal","solid",$c-primary);
+  @include ma-button("solid",$c-primary);
 
   @each $class, $c in $primarycolors {
     &--#{$class} {
 
-      @include ma-button("normal","solid",$c);
+      @include ma-button("solid",$c);
     }
   }
+
+
+  
 }
 
 .ma__button--secondary {
 
-  @include ma-button("normal","outline",$c-primary);
-}
+  @include ma-button("outline",$c-primary);
 
-.ma__button--secondary.ma__button--c-primary-alt {
+  &.ma__button--c-primary-alt {
 
-  @include ma-button("normal","outline",$c-primary-alt);
-}
+    @include ma-button("outline",$c-primary-alt);
+  }
 
-.ma__button--secondary.ma__button--c-highlight {
+  &.ma__button--c-highlight {
 
-  @include ma-button("normal","outline",$c-highlight);
-}
+    @include ma-button("outline",$c-highlight);
+  }
 
-.ma__button--secondary.ma__button--c-gray-dark {
+  &.ma__button--c-gray-dark {
 
-  @include ma-button("normal","outline",$c-gray-dark);
+    @include ma-button("outline",$c-gray-dark);
+  }
 }
 
 .ma__button--tertiary {
 
-  @include ma-button("normal","solid",$c-gray-light);
+  @include ma-button("solid",$c-gray-light);
   color: $c-black;
+
+  svg {
+    fill: $c-black;
+  }
 }
 
 .ma__button--quaternary {
@@ -77,6 +88,10 @@ button {
   padding: 0;
   text-transform: none;
   letter-spacing: $letter-spacing-default;
+
+  svg {
+    fill: $c-primary;
+  }
 
   &:hover:not(:disabled) {
    border-bottom: 3px solid $c-primary;

@@ -183,7 +183,7 @@ $feedback-form-bp-min: "min-width: 751px";
     input[type="button"],
     input[type="submit"] {
 
-      @include ma-button("normal","solid",$c-primary);
+      @include ma-button("solid",$c-primary);
     }
   }
 

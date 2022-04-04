@@ -4,9 +4,9 @@
     "info": "",
     "text": "Button",
     "type": "button",
-    "size": "",
-    "theme": "",
-    "usage": "",
-    "class": "custom-classname"
+    "size": "small",
+    "theme": "c-white",
+    "usage": "secondary",
+    "icon": "login"
   }
 }

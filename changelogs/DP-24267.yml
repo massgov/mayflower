@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: ShortDescription
+    description: Change short description to be format as a paragraph from a heading. (#)
+    issue: DP-24167
+    impact: Patch

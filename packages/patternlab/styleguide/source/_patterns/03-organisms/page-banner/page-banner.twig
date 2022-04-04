@@ -101,6 +101,20 @@
             {% endif %}
           </p>
         {% endif %}
+        {% if pageBanner.buttons %}
+          <div class="ma__page-banner__buttons-wrapper">
+            {% if pageBanner.buttonsLabel %}
+              <span  class="ma__page-banner__buttons-label">{{pageBanner.buttonsLabel}}</span>
+            {% endif %}
+            <ul class="ma__page-banner__buttons">
+              {% for button in pageBanner.buttons %}
+                <li class="ma__page-banner__button">
+                  {% include "@atoms/01-buttons/button.twig" %}
+                </li>
+              {% endfor %}
+            </ul>
+          <div>
+        {% endif %}
       </div>
     </div>
   </div>

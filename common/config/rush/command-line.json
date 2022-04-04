@@ -123,6 +123,14 @@
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/patternlab && open backstopjs/reports/html/index.html"
     },
+    {
+      "commandKind": "global",
+      "name": "stylelint",
+      "summary": "Runs 'rushx stylelint-fix' for the assets package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/assets && rushx stylelint-fix"
+    },
     // {
     //   /**
     //    * (Required) Determines the type of custom command.
