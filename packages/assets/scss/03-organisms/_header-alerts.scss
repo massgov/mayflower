@@ -143,7 +143,11 @@
       width: 100%;
       background-color: $c-bg-section;
       font-size: $fonts-large;
-      line-height: 25px; //29px; //30px;
+      line-height: 29px;// 25px; //29px; //30px;
+
+      // @media ($bp-x-small-max) {
+      //   line-height: 29px;
+      // }
 
       // min-height: 72px;
     }
