@@ -74,7 +74,6 @@ $sp-medium-min: 20px;
   }
 
   @media ($bp-small-min) {
-    margin: 10px 30px 20px 30px;
     // support pre-existing figure elements besides dataviz.
 
     &--left,
@@ -177,7 +176,7 @@ $sp-medium-min: 20px;
 
     @media ($bp-small-min) {
       // 621~
-      width: calc(#{$medium} - #{$sp-small-min});
+      width: calc(#{$medium} - #{$sp-medium-min});
     }
   }
 
@@ -407,12 +406,7 @@ $sp-medium-min: 20px;
 
   @media ($bp-x-small-min) {
     // 480px <
-    margin-right: 20px;
-  }
-
-  @media ($bp-medium-min) {
-    // 780px <
-    margin-right: 30px;
+    margin-right: $sp-medium-min;
   }
 }
 
@@ -423,12 +417,7 @@ $sp-medium-min: 20px;
 
   @media ($bp-small-min) {
     // 480px <
-    margin-left: 20px;
-  }
-
-  @media ($bp-medium-min) {
-    // 780px <
-    margin-left: 30px;
+    margin-left: $sp-medium-min;
   }
 }
 
