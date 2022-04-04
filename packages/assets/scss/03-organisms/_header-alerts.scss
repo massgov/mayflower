@@ -10,6 +10,9 @@
       height: 22px;
       margin-top: 3px;
 
+// background-color: aqua;
+
+
       svg {
         width: 20px;
         height: 20px;
@@ -69,6 +72,9 @@
 
     div:not(.ma__header-alerts__header__toggle)>span:not(.ma__header-alerts__header___icon) {
       padding-top: 1px;
+
+
+                    // background-color: azure;
     }
 
     @media ($bp-x-small-max) {
@@ -128,7 +134,7 @@
       width: 100%;
       background-color: $c-bg-section;
       font-size: $fonts-large;
-      line-height: 29px; //30px;
+      line-height: 25px; //29px; //30px;
 
       // min-height: 72px;
     }
