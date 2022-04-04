@@ -46,5 +46,9 @@ pageBanner: {
     href: string / optional
     info: string / optional
     description: string / optional
+  buttonLabel: / optional
+    type: text - label of the buttons, only rendered when buttons are added
+  buttons: / optional
+    type: array of buttons
 }
 ~~~

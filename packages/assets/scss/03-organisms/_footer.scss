@@ -10,7 +10,7 @@
 
   &__back2top {
 
-    @include ma-button("small");
+    @include ma-button-size("small");
     font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     opacity: 1;
@@ -123,7 +123,7 @@
 
   &__back2top {
 
-    @include ma-button("","outline",$c-primary);
+    @include ma-button("outline",$c-primary);
     background-color: rgba($c-white, .9);
 
     svg {
