@@ -60,13 +60,13 @@ For a more detailed guide and information on the components included in Mayflowe
 * `npm start`: This will run the demo application.
 
 
-#### System Requirements
+### System Requirements
 
 - node.js, currently standardized on version 12.18.0
 - npm, currently standardized on version 6.4.1
 - That's it! All other dependencies should be included when you run ``npm i``.
 
-#### Useful commands
+### Useful commands
 
 The most common commands can be found in the package.json's ``scripts`` section:
 
@@ -79,7 +79,7 @@ $ `npm run test:coverage` Generates a test report
 $ `npm run build`: Compile the code from `/src` into es6 and commonjs formats in preparation for publishing. This command also generates icon components from the .svg files under `/src/components/base/Icon/assets` to `dist/Icon`.
 
 
-#### Adding dependencies
+### Adding dependencies
 
 We manage all dependencies using npm in the normal way, and we follow the typical convention of committing our package-lock.json file as well. This means that if you install a new dependency, your workflow will look something like this:
 
@@ -89,14 +89,45 @@ $ ``git add package.json package-lock.json``
 
 $ ``git commit -m 'Added purgecss library'``
 
-#### Icon Component Generation
+### Icon Component Generation
 Mayflower React's SVG icon components are generated using [SVGR](https://react-svgr.com/) at build time for both development and production modes. Currently, the `.svg` files under `src/components/base/Icon/assets` are generated into React components. When icon components are generated for production, both ES6 and CommonJS versions of the components are created using babel.
 
 A custom template used by SVGR to create the icon component files can be found within `icon-template.js`. SVGR itself is configured using `.svgrrc.js`.
 
+### Caveats
+Google translate inserts `<font>` tags for translated strings, causing the react virtual DOM to differ from the real DOM. When a JSX string literal is not wrapped in any HTML tags, and it's not the only child of its parent, React script errors when executing `removeChild` or `insertBefore` on conditionally rendered child nodes. In order to avoid Google translate widget crashing the React apps, Mayflower React components should avoid having string literal unwrapped when it has any siblings. [See more explanations](https://github.com/facebook/react/issues/11538#issuecomment-390386520)
+
+Avoid these patterns:
+```
+<div>
+  {condition && 'Welcome'}
+  <span>Something</span>
+</div>
+
+<div>
+  {condition && <span>Something</span>}
+  Welcome
+</div>
+```
+
+Do these:
+```
+<div>
+  {condition && <span>Welcome</span>}
+  <span>Something</span>
+</div>
+
+// A workaround for case 2
+<div>
+  {condition && <span>Something</span>}
+  <span>Welcome</span>
+</div>
+```
+
+
 ## Mayflower-React Testing
 
-#### Production build testing
+### Production build testing
 
 By default, ``npm start`` will kick off a develop environment that hot reloads as you make changes to the codebase. This is great, but sometimes you want to test the production build locally. To do so, you can use the following:
 
@@ -108,7 +139,7 @@ $ ``http-server storybook-static``
 
 This will spin up a fully optimised production build in your browser for testing.
 
-#### Production bundle explorer
+### Production bundle explorer
 
 Source map exploring is useful for analyzing the production js bundles and looking for potential optimizations. It shows you exactly how much of your production bundles are being used by what dependency in a visual way that makes it easy to spot bloat. To open the explorer on a prod build in your browser, use the following:
 
@@ -118,7 +149,7 @@ $ ``npm run build``
 
 $ ``source-map-explorer umd/@massds/*.min.js``
 
-#### Testing unpublished Mayflower React components
+### Testing unpublished Mayflower React components
 
 If you're developing on Mayflower React and want to test your changes on another project (such as Gatsby, Next.JS, Create React App, etc), we recommend using [yalc](https://github.com/whitecolor/yalc) instead of `npm link` or `yarn link`, as Node dependency resolution issues may arise.
 
@@ -132,12 +163,12 @@ To use yalc:
 We are tracking versions of this project in the package.json, which means when cutting a release we expect the main ``"version": "0.30.0"`` to be updated using proper [semantic versioning](https://semver.org/). So if we were releasing a bugfix or other minor improvement we would bump to ``0.30.1``, if we were releasing a new feature we would bump to ``0.31.0``, etc.
 
 
-#### Publish to NPM
+### Publish to NPM
 1. Create a version bump PR into `develop` updating package version in `package.json` and `package-lock.json`. Squash and merge when ready.
 2. Create a release PR into `master` from `develop`. Regular merge when ready.
 3. From `master` branch, $ `npm publish`. This will publish the latest changes to npm, and automatically runs `npm run build` first.
 
-#### Publish to S3
+### Publish to S3
 1. $ `npm run build-storybook`. This will build storybook static site into /storybook-static
 2. From project root, $ ``aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete`` (Deploys build to S3 bucket)
 3. $ ``aws configure set preview.cloudfront true`` (Enables CloudFront invalidation commands)
