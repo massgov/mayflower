@@ -1,8 +1,11 @@
 @use "00-base/configure" as *;
 
 .ma__header-alerts {
-  margin-right: 40px;
   margin-bottom: 30px;
+
+  @media ($bp-large-min) {
+    margin-right: 40px;
+  }
 
   &__header {
 
