@@ -25,7 +25,8 @@ ${componentName}.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string,
-  fill: PropTypes.string
+  fill: PropTypes.string,
+  label: PropTypes.string
 };
 
 ${exports}
