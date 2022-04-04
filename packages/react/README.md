@@ -95,7 +95,7 @@ Mayflower React's SVG icon components are generated using [SVGR](https://react-s
 A custom template used by SVGR to create the icon component files can be found within `icon-template.js`. SVGR itself is configured using `.svgrrc.js`.
 
 ### Caveats
-Google translate inserts `<font>` tags for translated strings, causing the react virtual DOM to differ from the real DOM. When a JSX string literal is not wrapped in any HTML tags, and it's not the only child of its parent, React script errors when executing `removeChild` or `insertBefore` on conditionally rendered child nodes. In order to avoid Google translate widget crashing the React apps, Mayflower React components should avoid having string literal unwrapped when it has any siblings. [See more explanations](https://github.com/facebook/react/issues/11538#issuecomment-390386520)
+Google translate inserts `<font>` tags for translated strings, causing the react virtual DOM to differ from the real DOM. When a JSX string literal is not wrapped in any HTML tags, and it's not the only child of its parent, React script errors when executing `removeChild` or `insertBefore` on conditionally rendered child nodes. In order to avoid Google translate widget crashing the React apps, Mayflower React components should avoid having string literal unwrapped when it has any siblings. 
 
 Avoid these patterns:
 ```
@@ -124,6 +124,7 @@ Do these:
 </div>
 ```
 
+[See more explanations](https://github.com/facebook/react/issues/11538#issuecomment-390386520). Dev dependency `@sayari/eslint-plugin` was added to Mayflower React development for this purpose. However, as there are many ways to write the same code, we can't just fully rely on the eslint rules. If you are seeing the `removeChild` or `insertBefore` errors in your react app while using Google Translate, refer to this workaround suggested by the React team https://github.com/facebook/react/issues/11538#issuecomment-417504600 to debug your app. 
 
 ## Mayflower-React Testing
 
