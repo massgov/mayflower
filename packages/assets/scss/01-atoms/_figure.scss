@@ -3,8 +3,6 @@
 $x-small: 100% / 4;
 $small: 100% / 3;
 $medium: 100% / 2;
-$sp-x-small-min: 10px;
-$sp-small-min: 15px;
 $sp-medium-min: 20px;
 
 .ma__figure {
@@ -70,7 +68,7 @@ $sp-medium-min: 20px;
   }
 
   @media ($bp-x-small-min) {
-    margin: 10px 20px 10px 20px;
+    margin: 10px $sp-medium-min 10px $sp-medium-min;
   }
 
   @media ($bp-small-min) {
@@ -129,7 +127,7 @@ $sp-medium-min: 20px;
   @media ($bp-x-small-min) {
 
     &--x-small {
-      width: calc(#{$medium} - #{$sp-x-small-min});
+      width: calc(#{$medium} - #{$sp-medium-min});
     }
   }
 
@@ -147,7 +145,7 @@ $sp-medium-min: 20px;
 
     &--x-small,
     &--small {
-      width: calc(#{$medium} - #{$sp-small-min});
+      width: calc(#{$medium} - #{$sp-medium-min});
     }
   }
 
