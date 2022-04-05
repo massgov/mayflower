@@ -1,0 +1,19 @@
+Added:
+  - project: React
+    component: Eslint
+    description: Configure eslint rules to catch potential breaking patterns while using Google Translate. (#1602)
+    issue: DP-24095
+    impact: Patch
+Fixed:
+  - project: React
+    component: GoogleTranslate
+    description: Fix Google Translate crashing React components. (#1602)
+    issue: DP-24095
+    impact: Patch
+Removed:
+  - project: Patternlab, React, Assets
+    component: GeneralTeaser, GenTeaser
+    description: Remove unnecessary wrapper span, consolidate styling between GenTeaser and GeneralTeaser. (#1602)
+    issue: DP-24095
+    impact: Minor
+
