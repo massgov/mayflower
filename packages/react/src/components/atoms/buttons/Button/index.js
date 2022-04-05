@@ -29,7 +29,7 @@ const Button = (button) => {
       type={button.type}
       href={button.href}
       title={button.info}
-      aria-label={button.info}
+      aria-label={button.label}
       onClick={(e) => onClickCallback(e)}
       disabled={button.disabled}
     >
@@ -45,6 +45,8 @@ Button.propTypes = {
   href: PropTypes.string,
   /** The text which renders in the standard browser tooltip on hover */
   info: PropTypes.string,
+  /** Aria-label of the button */
+  label: PropTypes.string,
   /** Button or link text */
   text: PropTypes.string,
   /** HTML button 'type' attribute  */
