@@ -8,5 +8,12 @@
       </div>
     {% endif %}
     <h2 class="ma__collapsible-header__title">{{ collapsibleHeader.title }}</h2>
+    {% if collapsibleHeader.description %}
+      <div class="ma__collapsible-header__description">
+        {% set paragraph = {"text": collapsibleHeader.description} %}
+        {% include "@atoms/11-text/paragraph.twig" %}
+      </div>
+    {% endif %}
+
   </button>
 </header>

@@ -48,7 +48,8 @@
     min-height: 32px;
   }
 
-  &__icon + &__title {
+  &__icon + &__title,
+  &__icon + &__title + &__description {
     padding-left: 20px;
   }
 }

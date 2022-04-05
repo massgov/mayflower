@@ -3,7 +3,7 @@
     "extended": true,
     "compHeading": {
       "title": "Collapsible Content Extended",
-      "sub": "",
+      "sub": "Something called sub here",
       "color": "",
       "id": "GUID2095-254293851",
       "centered": ""
@@ -12,7 +12,8 @@
     "items": [{
       "expanded": true,
       "collapsibleHeader": {
-        "title": "MassHealth Publications and Other Resources"
+        "title": "MassHealth Publications and Other Resources",
+        "description": "A short description for this item in particular."
       },
       "more": null,
       "includes": [{
