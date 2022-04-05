@@ -129,7 +129,6 @@ GenTeaserDataSet.args = {
   eyebrow: (
     <span>
       <IconData width={16} height={16} />
-      <span>&nbsp;</span>
       <span>Dataset</span>
     </span>
   ),
