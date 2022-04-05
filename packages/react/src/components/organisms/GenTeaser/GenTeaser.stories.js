@@ -92,7 +92,6 @@ GenTeaserDataCatalog.args = {
   eyebrow: (
     <span>
       <IconCatalog width={16} height={16} />
-      <span>&nbsp;</span>
       <span>Data Catalog</span>
     </span>
   )
