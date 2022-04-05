@@ -3,7 +3,7 @@
 {% set link = actionStep.link %}
 
 <section
-  class="ma__action-step {{ accordion ? ' js-accordion ma__action-step--accordion' : '' }} {{ actionStep.isExpanded ? 'is-open':'' }}">
+  class="ma__action-step {{ accordion ? 'js-accordion ma__action-step--accordion' : '' }} {{ actionStep.isExpanded ? 'is-open':'' }}">
   {% if accordion %}
     {% set headingLevel = actionStep.level ? : 3 %}
     <h{{headingLevel}} class="ma__action-step__title {{ link ? 'ma__decorative-link' : ''}}">
