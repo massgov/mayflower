@@ -123,7 +123,7 @@ const GenTeaserEyebrow = (props) => {
   const { eyebrow, children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__eyebrow" {...rest}>
-      {children || <span>{eyebrow}</span>}
+      {children || eyebrow}
     </div>
   );
 };
