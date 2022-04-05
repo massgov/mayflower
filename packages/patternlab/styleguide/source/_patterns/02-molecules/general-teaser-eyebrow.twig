@@ -5,7 +5,7 @@
       {% if eyebrow.icon %}
         {{ icon(eyebrow.icon) }}
       {% endif %}
-      {{ eyebrow.label }}
+      <span>{{ eyebrow.label }}</span>
     </span>
   {% else %}
     {# backward compatible if the eyebrow data is a string #}

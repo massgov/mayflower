@@ -90,10 +90,10 @@ GenTeaserDataCatalog.args = {
     </span>
   ),
   eyebrow: (
-    <span>
+    <>
       <IconCatalog width={16} height={16} />
       <span>Data Catalog</span>
-    </span>
+    </>
   )
 };
 GenTeaserDataCatalog.parameters = {
@@ -126,10 +126,10 @@ GenTeaserDataSet.args = {
   },
   description: 'Review the recent white-tailed deer harvest data before heading out to hunt. Though Massachusetts is the 3rd most densely populated state in the country, it is a state where quality deer can be found anywhere. MassWildlife biologists estimate that there are over 100,000 deer statewide. Estimated densities range from about 12-18 per square mile in western and central Massachusetts to over 50 deer per square mile on Martha\'s Vineyard and Nantucket Islands, and certain areas of eastern MA where hunting access is restricted.',
   eyebrow: (
-    <span>
+    <>
       <IconData width={16} height={16} />
       <span>Dataset</span>
-    </span>
+    </>
   ),
   date: '01/01/2019',
   orgs: 'Division of Fisheries and Wildlife, Executive Office of Energy and Environmental Affairs',
