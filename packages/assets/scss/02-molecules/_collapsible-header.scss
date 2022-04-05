@@ -52,6 +52,10 @@
   &__icon + &__title + &__description {
     padding-left: 20px;
   }
+
+  &__description p {
+    margin: 0.5rem 0 0 0;
+  }
 }
 
 //theme
