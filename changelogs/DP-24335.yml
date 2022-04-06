@@ -1,4 +1,4 @@
-Changed:
+Fixed:
   - project: Patternlab, Assets
     component: HeaderHamburger
     description: Fix hamburger menu horizontal scrolling in IOS. (#1616)
