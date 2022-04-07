@@ -398,25 +398,21 @@ body.show-menu {
 
   &__menu-text {
     position: relative;
-    display: inline-block;
     padding-left: 25px;
+    display: none;
 
-    &::before {
-
-      @media ($bp-small-max) {
-
-        content: "Mass.gov";
-      }
-
-      @media ($bp-small-min) {
-
-        content: "Menu";
-      }
-
+    @media ($bp-small-min) {
+      display: inline-block;
     }
 
-    .show-menu &:before {
-      content: "Close";
+    &--mobile {
+      position: relative;
+      padding-left: 25px;
+      display: none;
+
+      @media ($bp-small-max) {
+        display: inline-block;
+      }
     }
   }
 
