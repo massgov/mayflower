@@ -397,22 +397,27 @@ body.show-menu {
   }
 
   &__menu-text {
-    position: relative;
-    padding-left: 25px;
-    display: none;
 
-    @media ($bp-small-min) {
-      display: inline-block;
-    }
-
-    &--mobile {
+    &, &--mobile, &--close {
       position: relative;
       padding-left: 25px;
       display: none;
+    }
 
+    &.show {
+      @media ($bp-small-min) {
+        display: inline-block;
+      }
+    }
+
+    &--mobile.show {
       @media ($bp-small-max) {
         display: inline-block;
       }
+    }
+
+    &--close.show {
+      display: inline-block;
     }
   }
 
