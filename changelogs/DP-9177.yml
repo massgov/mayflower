@@ -1,6 +1,12 @@
 Changed:
   - project: Patternlab
     component: PageHeader
-    description: Semantically set up page category info. (#)
+    description: Semantically set up page category info. (#1617)
+    issue: DP-9177
+    impact: Patch
+
+  - project: Patternlab
+    component: RulesOfCourt
+    description: Add contextual info to comp headings. (#1617)
     issue: DP-9177
     impact: Patch
