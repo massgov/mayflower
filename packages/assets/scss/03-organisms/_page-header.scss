@@ -130,6 +130,21 @@ $page-header-widget-width: 350px;
     text-transform: uppercase;
   }
 
+  &__subCategory {
+    padding-bottom: 15px;
+    color: $c-font-base;
+
+    @include ma-heading(3);
+
+    @include ma-comp-heading($c-primary-alt);
+
+    @include ma-border-decorative;
+
+    &:after {
+      width: 1.85em; // ma-underline-decorative override
+    }
+  }
+
   &__title {
     margin-bottom: .4em;
 

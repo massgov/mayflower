@@ -50,26 +50,31 @@
       </div>
     {% endif %}
     {% if pageHeader.category %}
-      <div class="ma__page-header__category">
-        {{ pageHeader.category }}
+      <div id="page-category" aria-hidden="true">
+        <div class="ma__page-header__category">
+          <span class="visually-hidden">This page is under the category of </span>
+          {{ pageHeader.category }}
+        </div>
+      {% if pageHeader.subCategory %}
+        <div class="ma__page-header__subCategory">
+          <span class="visually-hidden">the sub category of </span>
+          {{ pageHeader.subCategory.title }}
+        </div>
+      {% endif %}
       </div>
     {% endif %}
 
-    {% if pageHeader.subCategory %}
-      <div class="ma__page-header__subCategory">
-        {% set subCategoryLevel = pageHeader.subCategory.level ?: 3 %}
-        {% set compHeading = pageHeader.subCategory|merge({'level':(subCategoryLevel)}) %}
-        {% include "@atoms/04-headings/comp-heading.twig" %}
-      </div>
-    {% endif %}
     {% if pageHeader.nested %}
-        <h1 class="ma__page-header__title">{% if prefix %}<span class="visually-hidden">{{ prefix }}&nbsp;</span>{% endif %}{{pageHeader.title}}
+      <h1 class="ma__page-header__title" {% if pageHeader.category %}aria-describedby="page-category"{% endif %}>
+	      {{pageHeader.title}}
+
         {% if pageHeader.subTitle %}
           <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
         {% endif %}
         </h1>
     {% else %}
-      <h1 class="ma__page-header__title">{% if prefix %}<span class="visually-hidden">{{ prefix }}&nbsp;</span>{% endif %}{{pageHeader.title}}
+      <h1 class="ma__page-header__title" {% if pageHeader.category %}aria-describedby="page-category"{% endif %}>
+        {{pageHeader.title}}
       </h1>
       {% if pageHeader.subTitle %}
         <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
