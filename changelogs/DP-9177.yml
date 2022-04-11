@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: PageHeader
+    description: Semantically set up page category info. (#)
+    issue: DP-9177
+    impact: Patch
