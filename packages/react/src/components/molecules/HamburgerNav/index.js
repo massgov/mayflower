@@ -258,7 +258,15 @@ const HamburgerNav = ({
               className="ma__header__hamburger__menu-button js-header-menu-button"
             >
               <span className="ma__header__hamburger__menu-icon" />
-              <span className="ma__header__hamburger__menu-text js-header__menu-text" />
+              <span class="ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile show">
+                Mass.gov
+              </span>
+              <span class="ma__header__hamburger__menu-text js-header__menu-text show">
+                Menu
+              </span>
+              <span class="ma__header__hamburger__menu-text--close js-header__menu-text--close">
+                Close
+              </span>
             </button>
             {
               navSearch && (
