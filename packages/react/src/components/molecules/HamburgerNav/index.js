@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
@@ -49,6 +49,7 @@ const HamburgerNav = ({
   const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const openMenu = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
@@ -204,11 +205,17 @@ const HamburgerNav = ({
     }
   }, [menuButtonRef, alertOffset, commonCloseMenuTasks]);
 
+  let isMenuOpen;
+
   const toggleMenu = React.useCallback(() => {
     const body = document.querySelector('body');
+    isMenuOpen = body.classList.contains('show-menu');
+    console.log(isMenuOpen)
+    setMenuOpen(isMenuOpen);
     const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+
     if (hamburgerMenuContainer) { // To prevent null in the original mobile main nav.
-      if (body.classList.contains('show-menu')) {
+      if (isMenuOpen) {
         // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
         // .toggleAttribute() doesn't work with ios11.
         hamburgerMenuContainer.setAttribute('aria-hidden', '');
@@ -242,6 +249,7 @@ const HamburgerNav = ({
   useHamburgerNavKeydown(closeMenu);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
+
   return(
     <HamburgerContext.Provider value={{
       openMenu,
@@ -260,13 +268,13 @@ const HamburgerNav = ({
               className="ma__header__hamburger__menu-button js-header-menu-button"
             >
               <span className="ma__header__hamburger__menu-icon" />
-              <span class="ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile show">
+              <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
                 Mass.gov
               </span>
-              <span class="ma__header__hamburger__menu-text js-header__menu-text show">
+              <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
                 Menu
               </span>
-              <span class="ma__header__hamburger__menu-text--close js-header__menu-text--close">
+              <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
                 Close
               </span>
             </button>
