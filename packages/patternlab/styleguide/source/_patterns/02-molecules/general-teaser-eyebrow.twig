@@ -1,12 +1,10 @@
 <div class="ma__general-teaser__eyebrow">
   {% if eyebrow is iterable %}
     {# evaluates to true if the eyebrow data is an object #}
-    <span>
       {% if eyebrow.icon %}
         {{ icon(eyebrow.icon) }}
       {% endif %}
-      {{ eyebrow.label }}
-    </span>
+      <span>{{ eyebrow.label }}</span>
   {% else %}
     {# backward compatible if the eyebrow data is a string #}
     <span>{{ eyebrow }}</span>
