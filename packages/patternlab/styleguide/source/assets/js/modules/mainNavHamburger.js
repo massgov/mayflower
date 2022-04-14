@@ -305,7 +305,7 @@ function commonCloseMenuTasks() {
     document.querySelector("html.stickyTOCtmp").classList.remove("stickyTOCtmp");
   }
   menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+  menuButton.setAttribute("aria-label", "main menu for mass.gov");
 
   if (hamburgerMenuContainer.hasAttribute("style")) {
     hamburgerMenuContainer.removeAttribute("style");
@@ -352,7 +352,7 @@ function openMenu() {
   body.classList.add("show-menu");
 
   menuButton.setAttribute("aria-expanded", "true");
-  menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
+  menuButton.setAttribute("aria-label", "main menu for mass.gov");
   menuButtonText.classList.remove("show")
   menuButtonTextMobile.classList.remove("show")
   menuButtonTextClose.classList.add("show")
