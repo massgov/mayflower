@@ -95,7 +95,7 @@ Mayflower React's SVG icon components are generated using [SVGR](https://react-s
 A custom template used by SVGR to create the icon component files can be found within `icon-template.js`. SVGR itself is configured using `.svgrrc.js`.
 
 ### Caveats
-Google translate inserts `<font>` tags for translated strings, causing the react virtual DOM to differ from the real DOM. When a JSX string literal is not wrapped in any HTML tags, and it's not the only child of its parent, React script errors when executing `removeChild` or `insertBefore` on conditionally rendered child nodes. In order to avoid Google translate widget crashing the React apps, Mayflower React components should avoid having string literal unwrapped when it has any siblings. 
+Google translate inserts `<font>` tags for translated strings, causing the React virtual DOM to differ from the real DOM. When a JSX string literal is not wrapped in any HTML tags, and it's not the only child of its parent, React script errors when executing `removeChild` or `insertBefore` on conditionally rendered child nodes. In order to avoid Google translate widget crashing the React apps, Mayflower React components should avoid having string literal unwrapped when it has any siblings. 
 
 Avoid these patterns:
 ```
