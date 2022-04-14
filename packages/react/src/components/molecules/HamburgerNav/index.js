@@ -205,13 +205,10 @@ const HamburgerNav = ({
     }
   }, [menuButtonRef, alertOffset, commonCloseMenuTasks]);
 
-  let isMenuOpen;
-
   const toggleMenu = React.useCallback(() => {
     const body = document.querySelector('body');
-    isMenuOpen = body.classList.contains('show-menu');
-    console.log(isMenuOpen)
-    setMenuOpen(isMenuOpen);
+    const isMenuOpen = body.classList.contains('show-menu');
+    setMenuOpen(!isMenuOpen);
     const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
 
     if (hamburgerMenuContainer) { // To prevent null in the original mobile main nav.
