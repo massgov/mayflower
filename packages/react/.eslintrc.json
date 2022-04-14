@@ -4,7 +4,9 @@
     },
     "extends": "airbnb",
     "parser": "babel-eslint",
+    "plugins": ["@sayari"],
     "rules": {
+        "@sayari/no-unwrapped-jsx-text": 2,
         "arrow-parens": ["warn", "always"],
         "comma-dangle": ["error", "never"],
         "keyword-spacing": ["error", { "overrides": {
