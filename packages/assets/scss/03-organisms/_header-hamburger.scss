@@ -258,6 +258,7 @@ body.show-menu {
     height: calc(100vh - 44px);
     top: 44px;
     overflow-y: auto;
+    overflow-x: hidden;
     position: absolute;
     left: -320px;
     // visibility for keyboard and screen reader users are managed with toggling aria-hidden value with js.
