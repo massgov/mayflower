@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 import Paragraph from 'MayflowerReactText/Paragraph';
 import GenTeaser from 'MayflowerReactOrganisms/GenTeaser';
@@ -58,7 +58,7 @@ TeaserListingExample.parameters = {
   }
 };
 export const TeaserListingWithMore = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
   const itemsProps = {
     columns: 2
   };
