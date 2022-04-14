@@ -7,8 +7,7 @@ const IconLink = (props) => (
     {props.icon && (
     <>
       {props.icon}
-      {' '}
-&nbsp;
+      <span>&nbsp;&nbsp;</span>
     </>
     )}
     {props.link}
