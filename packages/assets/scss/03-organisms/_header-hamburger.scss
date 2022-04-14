@@ -406,12 +406,14 @@ body.show-menu {
     }
 
     &.show {
+
       @media ($bp-small-min) {
         display: inline-block;
       }
     }
 
     &--mobile.show {
+
       @media ($bp-small-max) {
         display: inline-block;
       }
