@@ -49,6 +49,7 @@ const HamburgerNav = ({
   const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
+
   const openMenu = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
     if (menuButton) {
@@ -78,7 +79,7 @@ const HamburgerNav = ({
       // Start open menu tasks.
       body.classList.add('show-menu');
       menuButton.setAttribute('aria-expanded', 'true');
-      menuButton.setAttribute('aria-label', 'Close the main menu for mass.gov');
+      menuButton.setAttribute('aria-label', 'main menu for mass.gov');
       if (feedbackButton) {
         feedbackButton.classList.add('hide-button');
       }
@@ -136,7 +137,7 @@ const HamburgerNav = ({
         document.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
       }
       menuButton.setAttribute('aria-expanded', 'false');
-      menuButton.setAttribute('aria-label', 'Open the main menu for mass.gov');
+      menuButton.setAttribute('aria-label', 'main menu for mass.gov');
       if (hamburgerMenuContainer && hamburgerMenuContainer.hasAttribute('style')) {
         hamburgerMenuContainer.removeAttribute('style');
       }
@@ -158,6 +159,7 @@ const HamburgerNav = ({
       }
     }
   }, [menuButtonRef]);
+
   const closeMenu = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
     const body = document.querySelector('body');
