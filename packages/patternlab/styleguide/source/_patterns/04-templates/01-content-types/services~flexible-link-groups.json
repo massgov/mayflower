@@ -62,7 +62,20 @@
     "title": "Required - Services title",
     "titleSubText": "",
     "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
-    "color": "blue"
+    "color": "blue",
+    "buttons": [{
+      "href": "#",
+      "text": "Log in to UI Online",
+      "size": "small",
+      "theme": "c-white",
+      "icon": "login"
+    },{
+      "href": "#",
+      "text": "Multilingual Online UI Application",
+      "size": "small",
+      "theme": "c-white",
+      "icon": "login"
+    }]
   },
   "introPageContent": {
     "video": {
@@ -124,43 +137,6 @@
       "src": "",
       "height": "",
       "width": ""
-    },
-    "login": {
-      "iconLinks": {
-        "compHeading": {
-          "title": "Log In",
-          "sub": true,
-          "color": "",
-          "id": "",
-          "centered": ""
-        },
-        "items": [
-          {
-            "icon": "password",
-            "link": {
-              "href": "#",
-              "text": "Log in link 1",
-              "chevron": ""
-            }
-          },
-          {
-            "icon": "password",
-            "link": {
-              "href": "#",
-              "text": "Log in link 2",
-              "chevron": ""
-            }
-          },
-          {
-            "icon": "password",
-            "link": {
-              "href": "#",
-              "text": "Log in link 3",
-              "chevron": ""
-            }
-          }
-        ]
-      }
     },
     "social": {
       "iconLinks": {

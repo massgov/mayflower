@@ -95,7 +95,7 @@ $quaternary-colors: (
 
   &--expanded, &:hover {
 
-    @include ma-button("normal","solid",$c-primary-alt);
+    @include ma-button("solid",$c-primary-alt);
     color: $c-white;
 
     svg {
@@ -105,26 +105,26 @@ $quaternary-colors: (
     @each $class, $c in $colors {
       &.ma__button-icon--#{$class} {
 
-        @include ma-button("normal","solid",$c);
+        @include ma-button("solid",$c);
       }
     }
   }
 
   &--secondary, &--expanded.ma__button-icon--secondary, &:hover.ma__button-icon--secondary {
 
-    @include ma-button("normal","outline",$c-primary-alt);
+    @include ma-button("outline",$c-primary-alt);
 
     @each $class, $c in $colors {
       &.ma__button-icon--#{$class} {
 
-        @include ma-button("normal","outline",$c);
+        @include ma-button("outline",$c);
       }
     }
   }
 
   &--tertiary, &--expanded.ma__button-icon--tertiary, &:hover.ma__button-icon--tertiary {
 
-    @include ma-button("normal","solid",$c-gray-light);
+    @include ma-button("solid",$c-gray-light);
     color: $c-black;
 
     svg {

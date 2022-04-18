@@ -14,6 +14,7 @@ dependencies:
   '@rush-temp/mayflower-core': 'file:projects/mayflower-core.tgz_5e3c46bb16149919a55aa2ea4b3b454d'
   '@rush-temp/mayflower-react': 'file:projects/mayflower-react.tgz_react-is@16.13.1'
   '@rush-temp/mayflower-site': 'file:projects/mayflower-site.tgz_13fe6053c740dc31e0c47613a4f26462'
+  '@sayari/eslint-plugin': 0.0.1-rc.4_eslint@7.16.0
   '@storybook/addon-a11y': 6.0.21
   '@storybook/addon-controls': 6.0.21
   '@storybook/addon-storysource': 6.0.21
@@ -3174,6 +3175,16 @@ packages:
         optional: true
     resolution:
       integrity: sha512-c/qwwcHyafOQuVQJj0IlBjf5yYgBI7YPJ77k4fOJYesb41jio65eaJODRUmfYKhTOFBrIZ66kgvGPlNbjuoRdQ==
+  /@sayari/eslint-plugin/0.0.1-rc.4_eslint@7.16.0:
+    dependencies:
+      eslint: 7.16.0
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    peerDependencies:
+      eslint: ^8.5.0
+    resolution:
+      integrity: sha512-epr+ovlyp+JPuPqUOW6S+aFcLIwnyBsBMr65yMi4qjQ9/8SlsAjVjt8Q8O9Al8fT1dk9MZlTomKI/UMr4bUT5A==
   /@sideway/address/4.1.0:
     dependencies:
       '@hapi/hoek': 9.1.1
@@ -26685,6 +26696,7 @@ packages:
       '@babel/preset-env': 7.12.11_@babel+core@7.12.10
       '@babel/preset-react': 7.12.10_@babel+core@7.12.10
       '@proscom/gulp-svgr': 0.1.5
+      '@sayari/eslint-plugin': 0.0.1-rc.4_eslint@7.16.0
       '@storybook/addon-a11y': 6.0.21_react-dom@16.14.0+react@16.14.0
       '@storybook/addon-actions': 6.0.21_react-dom@16.14.0
       '@storybook/addon-controls': 6.0.21_react-dom@16.14.0+react@16.14.0
@@ -26772,7 +26784,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-ms2ozxd/gjNmRIywOyeXnIzUZN6W5Ca/PeDL6/qQmCalxwQeHSP8sXH1rZnIK9NfAF/2d+qR+I9Cz9yaLfBDmg==
+      integrity: sha512-5mQidxEXZbh2sXMuOHa07R9cq1OcD41CZSbQi73v7/fBr1zw6gx56YHz7Zri6JQltv+OvQge+F889yoKCH+zPQ==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_13fe6053c740dc31e0c47613a4f26462':
@@ -26892,6 +26904,7 @@ specifiers:
   '@rush-temp/mayflower-core': 'file:./projects/mayflower-core.tgz'
   '@rush-temp/mayflower-react': 'file:./projects/mayflower-react.tgz'
   '@rush-temp/mayflower-site': 'file:./projects/mayflower-site.tgz'
+  '@sayari/eslint-plugin': ~0.0.1-rc.4
   '@storybook/addon-a11y': 6.0.21
   '@storybook/addon-controls': 6.0.21
   '@storybook/addon-storysource': 6.0.21
