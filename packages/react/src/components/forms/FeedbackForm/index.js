@@ -360,7 +360,7 @@ export default class FeedbackForm extends React.Component {
                 </CharacterCounter>
               </div>
               <input type="hidden" id={yesId} name={yesId} value="" />
-              {(is.fn(noDisclaimer)) ? noDisclaimer() : this.defaultDisclaimer()}
+              <span>{(is.fn(noDisclaimer)) ? noDisclaimer() : this.defaultDisclaimer()}</span>
             </fieldset>
           )}
           {(feedbackChoice === true) && (
@@ -380,7 +380,7 @@ export default class FeedbackForm extends React.Component {
                 </CharacterCounter>
               </div>
               <input type="hidden" id={noId} name={noId} value="" />
-              {is.fn(yesDisclaimer) ? yesDisclaimer() : this.defaultDisclaimer()}
+              <span>{is.fn(yesDisclaimer) ? yesDisclaimer() : this.defaultDisclaimer()}</span>
             </fieldset>
           )}
           <fieldset className="ma_feedback-fieldset ma__mass-feedback-form__form--submit-wrapper">

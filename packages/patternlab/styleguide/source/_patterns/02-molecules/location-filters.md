@@ -58,7 +58,7 @@ locationFilters: {
   }], 
   
   buttons: [{
-    type: array of Button / required
+    type: array of Button / optional (these will override the default submit button)
   }]
 }
 ~~~

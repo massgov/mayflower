@@ -43,7 +43,7 @@ const GenTeaser = (props) => {
     'ma__gen-teaser--stacked': stacked,
     [`ma__gen-teaser--align-${align}`]: align
   });
-  const role = onClick ? 'button' : '';
+  const role = onClick ? 'button' : null;
   return(
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <section className={teaserClasses} onClick={onClick} onKeyDown={onKeyDown} role={role} {...rest}>
@@ -123,7 +123,7 @@ const GenTeaserEyebrow = (props) => {
   const { eyebrow, children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__eyebrow" {...rest}>
-      {children || <span>{eyebrow}</span>}
+      {children || eyebrow}
     </div>
   );
 };
@@ -287,9 +287,13 @@ GenTeaser.Orgs.displayName = 'GenTeaser.Orgs';
 
 const GenTeaserDescription = (props) => {
   const { children, description, ...rest } = props;
+  // Wrap children text nodes in spans to persist DOM relationship consistency for ReactDOM when Google Translate manipulates the DOM tree
+  // eslint-disable-next-line react/no-array-index-key
+  const descriptionHTML = ReactHtmlParser(description).map((el, i) => (typeof el === 'string' ? <span key={`description-span${i}`}>{el}</span> : el));
+
   return(
     <div className="ma__gen-teaser__description" {...rest}>
-      {children || <p>{ReactHtmlParser(description)}</p>}
+      {children || <p>{descriptionHTML}</p>}
     </div>
   );
 };

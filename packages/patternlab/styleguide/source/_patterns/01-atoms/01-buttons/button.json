@@ -6,6 +6,7 @@
     "type": "button",
     "size": "",
     "theme": "",
-    "usage": ""
+    "usage": "",
+    "class": "custom-classname"
   }
 }
