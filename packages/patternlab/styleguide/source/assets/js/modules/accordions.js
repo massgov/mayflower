@@ -26,6 +26,9 @@ export default (function (window,document,$,undefined) {
   // Gather the ids for all the accordions.
   $('.ma__collapsible-content--extended .js-accordion').each(function(index){
     accordionIds += getId($(this), index + 1) + ' ';
+
+
+    console.log(accordionIds);
   });
   // Add aria labels to toggle all
   $toggleLink.attr("aria-controls", accordionIds);
@@ -149,7 +152,7 @@ export default (function (window,document,$,undefined) {
     }
 
     let $link = $el.find(`${ind} ${buttonWrapper} .js-accordion-link`),
-        $content = $el.find(`${buttonWrapper} .js-accordion-content`),
+        $content = $el.find('.js-accordion-content'),
         id = getId($el, index + 1),
         active = checkActive($el),
         open = $el.hasClass('is-open');
