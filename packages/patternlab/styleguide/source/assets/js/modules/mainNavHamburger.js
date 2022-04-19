@@ -9,6 +9,9 @@ const menuOverlay = document.querySelector(".menu-overlay");
 const alertOverlay = document.querySelector(".alert-overlay");
 
 const menuButton = document.querySelector(".js-header-menu-button");
+const menuButtonText = document.querySelector(".js-header__menu-text");
+const menuButtonTextMobile = document.querySelector(".js-header__menu-text--mobile");
+const menuButtonTextClose = document.querySelector(".js-header__menu-text--close");
 
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 const searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
@@ -268,6 +271,9 @@ function toggleMenu() {
 function closeMenu() {
   commonCloseMenuTasks();
   menuButton.setAttribute("aria-pressed", "false");
+  menuButtonText.classList.add("show")
+  menuButtonTextMobile.classList.add("show")
+  menuButtonTextClose.classList.remove("show")
 
   // Set focus on the menu button.
   setTimeout(function timeoutFunction() {
@@ -299,7 +305,7 @@ function commonCloseMenuTasks() {
     document.querySelector("html.stickyTOCtmp").classList.remove("stickyTOCtmp");
   }
   menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+  menuButton.setAttribute("aria-label", "main menu for mass.gov");
 
   if (hamburgerMenuContainer.hasAttribute("style")) {
     hamburgerMenuContainer.removeAttribute("style");
@@ -346,7 +352,11 @@ function openMenu() {
   body.classList.add("show-menu");
 
   menuButton.setAttribute("aria-expanded", "true");
-  menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
+  menuButton.setAttribute("aria-label", "main menu for mass.gov");
+  menuButtonText.classList.remove("show")
+  menuButtonTextMobile.classList.remove("show")
+  menuButtonTextClose.classList.add("show")
+
   if (feedbackButton) {
     feedbackButton.classList.add("hide-button");
   }
@@ -731,7 +741,7 @@ setTimeout(function timeoutFunction() {// This prevents GT elements get null.
 
       // Close the container with ESC and set focus on the menu button.
       if (key === "Escape" || key === "Esc" ) {
-        gTranslateOptionContainer.style.display = "none";
+        gTranslateOptionContainer.classList.remove("show")
         gTranslateButtons[0].focus();
       }
     });

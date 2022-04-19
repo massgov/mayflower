@@ -49,6 +49,8 @@ const HamburgerNav = ({
   const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
   const openMenu = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
     if (menuButton) {
@@ -78,7 +80,7 @@ const HamburgerNav = ({
       // Start open menu tasks.
       body.classList.add('show-menu');
       menuButton.setAttribute('aria-expanded', 'true');
-      menuButton.setAttribute('aria-label', 'Close the main menu for mass.gov');
+      menuButton.setAttribute('aria-label', 'main menu for mass.gov');
       if (feedbackButton) {
         feedbackButton.classList.add('hide-button');
       }
@@ -136,7 +138,7 @@ const HamburgerNav = ({
         document.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
       }
       menuButton.setAttribute('aria-expanded', 'false');
-      menuButton.setAttribute('aria-label', 'Open the main menu for mass.gov');
+      menuButton.setAttribute('aria-label', 'main menu for mass.gov');
       if (hamburgerMenuContainer && hamburgerMenuContainer.hasAttribute('style')) {
         hamburgerMenuContainer.removeAttribute('style');
       }
@@ -158,6 +160,7 @@ const HamburgerNav = ({
       }
     }
   }, [menuButtonRef]);
+
   const closeMenu = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
     const body = document.querySelector('body');
@@ -204,9 +207,12 @@ const HamburgerNav = ({
 
   const toggleMenu = React.useCallback(() => {
     const body = document.querySelector('body');
+    const isMenuOpen = body.classList.contains('show-menu');
+    setMenuOpen(!isMenuOpen);
     const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+
     if (hamburgerMenuContainer) { // To prevent null in the original mobile main nav.
-      if (body.classList.contains('show-menu')) {
+      if (isMenuOpen) {
         // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
         // .toggleAttribute() doesn't work with ios11.
         hamburgerMenuContainer.setAttribute('aria-hidden', '');
@@ -240,6 +246,7 @@ const HamburgerNav = ({
   useHamburgerNavKeydown(closeMenu);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
+
   return(
     <HamburgerContext.Provider value={{
       openMenu,
@@ -258,7 +265,15 @@ const HamburgerNav = ({
               className="ma__header__hamburger__menu-button js-header-menu-button"
             >
               <span className="ma__header__hamburger__menu-icon" />
-              <span className="ma__header__hamburger__menu-text js-header__menu-text" />
+              <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
+                Mass.gov
+              </span>
+              <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
+                Menu
+              </span>
+              <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
+                Close
+              </span>
             </button>
             {
               navSearch && (
