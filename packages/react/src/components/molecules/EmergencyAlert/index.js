@@ -33,7 +33,7 @@ const EmergencyAlert = (props) => {
       </span>
       {is.fn(link) && (
         <span className="ma__emergency-alert__link">
-          &nbsp;
+          <span>&nbsp;</span>
           {link({ ...linkArgs })}
         </span>
       )}

@@ -128,7 +128,8 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "url-loader": "~4.1.1",
-    "webpack": "^4.44.2"
+    "webpack": "^4.44.2",
+    "@sayari/eslint-plugin": "~0.0.1-rc.4"
   },
   "homepage": "",
   "license": "MIT",

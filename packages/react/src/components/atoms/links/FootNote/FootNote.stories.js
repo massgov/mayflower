@@ -8,7 +8,8 @@ import FootNoteDocs from './FootNote.md';
 export const FootNoteExample = (args) => (
   <div>
     <p>
-      This is where the footnote would be referenced.&nbsp;
+      <span>This is where the footnote would be referenced.</span>
+      <span>&nbsp;</span>
       <FootNoteLink index={args.index} />
     </p>
     <FootNote {...args} />
