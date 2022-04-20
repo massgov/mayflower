@@ -29,9 +29,18 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     .mass-alerts-block & {
+      margin: 0 auto;
+      padding-right: 20px;
+      padding-left: 20px;
 
-      @media ($bp-large-extended) {
-        padding-right: 20px;
+      @media ($bp-medium-min) {
+        padding-right: 30px;
+        padding-left: 30px;
+      }
+
+      @media ($bp-large-min) {
+        padding-right: 40px;
+        padding-left: 40px;
       }
     }
   }
@@ -168,7 +177,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       flex-direction: column;
       align-items: flex-start;
     }
-    
+
   }
 
   &__buttons-label {
