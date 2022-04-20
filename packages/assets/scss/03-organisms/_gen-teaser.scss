@@ -60,22 +60,20 @@
 
   &__eyebrow {
     margin-bottom: 5px;
-
-    span {
-      font-size: $fonts-3xsmall;
-      letter-spacing: .1em;
-      padding: 5px 7px;
-      text-transform: uppercase;
-      background-color: $c-bg-section;
-      font-weight: $fonts-bold;
-    }
+    display: inline-flex;
+    align-items: center;
+    font-size: $fonts-3xsmall;
+    line-height: 12px;
+    letter-spacing: $letter-spacing-large;
+    padding: 5px 7px;
+    text-transform: uppercase;
+    background-color: $c-bg-section;
+    font-weight: $fonts-bold;
 
     svg {
-      height: 12px;
-      top: 1px;
-      left: -2px;
-      position: relative;
-      fill: $c-gray-dark;
+      max-height: 18px;
+      max-width: 18px;
+      margin-right: 5px;
     }
   }
 

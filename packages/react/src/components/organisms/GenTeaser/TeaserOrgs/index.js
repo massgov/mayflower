@@ -66,7 +66,7 @@ class TeaserOrgs extends React.Component {
     const displayedOrgs = (this.state.showAll) ? teaserOrgs.join(', ') : shownOrgs.join(', ');
     return(
       <span className="ma__gen-teaser__org">
-        { displayedOrgs }
+        <span>{ displayedOrgs }</span>
         {toggle}
       </span>
     );
