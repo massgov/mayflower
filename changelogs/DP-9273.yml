@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: OrgPageSamples
+    description: Page sample update to match Drupal implementation. Remove alt value from linked image in Our Organization in Org pages. (#)
+    issue: DP-9273
+    impact: Patch
