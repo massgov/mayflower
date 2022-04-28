@@ -1,0 +1,7 @@
+{
+  "coloredHeadingFromLeft": {
+    "bgColor": "green",
+    "title": "Title for the colored heading from left",
+    "titleContext": "This is the visually hidden title context"
+  }
+}

@@ -1,0 +1,45 @@
+@use "00-base/configure" as *;
+
+.ma__colored-header-from-left {
+  transform: skew(-30deg);
+  width: calc(100% - 20px);
+  background-color: $c-primary;
+
+  &:before {
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 99%;
+    width: 50vw;
+    background-color: $c-primary;
+  }
+
+  &--green {
+    background-color: $c-primary-alt;
+
+    &:before {
+      background-color: $c-primary-alt;
+    }
+  }
+
+  &__title {
+    color: $c-font-inverse;
+
+    @include ma-border-decorative;
+
+    margin-right: 0;
+    padding: 25px 20px 20px 0;
+    transform: skew(30deg);
+    width: 100%;
+
+    @media ($bp-large-min) {
+      display: inline-block;
+      margin-bottom: 0;
+      margin-right: 1.6129%; // $gutter in % form
+      vertical-align: middle;
+      width: 66.12903%; // @include span-columns(8 of 12);
+    }
+  }
+}
+
