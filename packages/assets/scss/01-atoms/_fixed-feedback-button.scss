@@ -11,7 +11,7 @@
   margin-top: 0 !important;
   position: fixed;
     right: 32px; // the height of the button before rotation
-    bottom: 15rem;
+    bottom: 18rem; // tested with the longest translation option
   transform-origin: top right;
   transform: rotate(-90deg);
   pointer-events: none;
