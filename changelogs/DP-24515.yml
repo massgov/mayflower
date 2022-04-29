@@ -1,6 +1,0 @@
-Fixed:
-  - project: Assets, Core
-    component: CompHeading, ColoredHeading, SidebarHeading, LinkAsButton
-    description: Fix missing css files in assets and core elements documentation. (#1619)
-    issue: DP-24515
-    impact: Patch
