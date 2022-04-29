@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: Select box
+    description: Adds a selected option for the select box.
+    issue: DP-17338
+    impact: Minor
