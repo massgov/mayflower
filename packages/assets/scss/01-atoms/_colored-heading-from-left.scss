@@ -1,11 +1,6 @@
 @use "00-base/configure" as *;
 @use "sass:color" as *;
 
-// To be used on wrappers for the colored headers.
-.ma__colored-header-from-left--bg-wrapper {
-  background-image: linear-gradient(180deg, $c-white 50px, $c-bg-section 51px);
-}
-
 .ma__colored-header-from-left {
   transform: skew(-30deg);
   width: calc(100% - 20px);
