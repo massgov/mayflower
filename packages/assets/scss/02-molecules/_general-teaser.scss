@@ -61,23 +61,20 @@
 
   &__eyebrow {
     margin-bottom: 5px;
+    display: inline-flex;
+    align-items: center;
+    font-size: $fonts-3xsmall;
+    line-height: 12px;
+    letter-spacing: $letter-spacing-large;
+    padding: 5px 7px;
+    text-transform: uppercase;
+    background-color: $c-bg-section;
+    font-weight: $fonts-bold;
 
-    span {
-      display: inline-flex;
-      align-items: center;
-      font-size: $fonts-3xsmall;
-      line-height: 12px;
-      letter-spacing: $letter-spacing-large;
-      padding: 5px 7px;
-      text-transform: uppercase;
-      background-color: $c-bg-section;
-      font-weight: $fonts-bold;
-
-      svg {
-        max-height: 18px;
-        max-width: 18px;
-        margin-right: 5px;
-      }
+    svg {
+      max-height: 18px;
+      max-width: 18px;
+      margin-right: 5px;
     }
   }
 

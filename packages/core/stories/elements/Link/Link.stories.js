@@ -8,7 +8,7 @@ const cssDecorativeLink = `// Link to CSS: <link rel="stylesheet" href="${STORYB
 
 const cssCalloutLink = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/callout-link.css">`;
 
-const cssButton = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/button.css">`;
+const cssButton = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/buttons.css">`;
 
 // exported story names must be unique
 export const linkCSS = () => null;
