@@ -1,18 +1,23 @@
 <section class="ma__select-box js-dropdown {{ not selectBox.required ? 'ma__select-box--optional' : '' }}">
   <label
-    for="{{selectBox.id}}" 
+    for="{{selectBox.id}}"
     class="ma__select-box__label">{{selectBox.label}}</label>
   <div class="ma__select-box__field">
     <select
       name="{{selectBox.id}}"
-      id="{{selectBox.id}}" 
+      id="{{selectBox.id}}"
       class="ma__select-box__select js-dropdown-select {{ selectBox.required ? 'js-required' : '' }}">
+
+      {% set selectedText = selectBox.options[0].text %}
       {% for option in selectBox.options %}
-        <option value="{{option.value}}">{{ option.text }}</option>
+        <option value="{{option.value}}" {{ option.selected ? " selected " : "" }} >{{ option.text }}</option>
+        {% if option.selected %}
+          {% set selectedText = option.text %}
+        {% endif %}
       {% endfor %}
     </select>
     <div class="ma__select-box__link">
-      <span class="js-dropdown-link">{{selectBox.options[0].text}}</span>
+      <span class="js-dropdown-link">{{ selectedText }}</span>
       <span class="ma__select-box__icon"></span></div>
   </div>
 </section>

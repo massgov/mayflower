@@ -11,7 +11,8 @@
       "text":"White on Black scheme"
     },{
       "value":"has-theme-white",
-      "text":"Black on White scheme"
+      "text":"Black on White scheme",
+      "selected": true
     }]
   }
 }
