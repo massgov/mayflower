@@ -56,8 +56,7 @@ For a more detailed guide and information on the components included in Mayflowe
 
 
 ## Mayflower-React Development
-* `npm install`
-* `npm start`: This will run the demo application.
+* `rushx start`: This will run the demo application.
 
 
 ### System Requirements
