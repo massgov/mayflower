@@ -158,6 +158,9 @@ To use yalc:
 1. Run `yalc publish` in the `react/` directory. This will run Mayflower React's build script and store the build version of the package under your yalc global directory.
 2. Run `yalc link @massds/mayflower-react` in your other project. Mayflower React will now be installed and pointing to the version from step 1.
 
+### Visual regression testing.
+
+See [separate documentation](docs/visual-regression.md).
 
 ## Mayflower-React Release Process
 
