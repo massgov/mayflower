@@ -67,20 +67,13 @@
 
     border: 0;
 
-    div:not(.ma__header-alerts__header__toggle)>span:not(.ma__header-alerts__header___icon) {
-      padding-top: 1px;
-    }
-
     @media ($bp-x-small-max) {
       flex-direction: column;
-
-      div:not(.ma__header-alerts__header__toggle) > span:not(.ma__header-alerts__header___icon) {
-        padding-top: 3px;
-      }
     }
 
     div {
       display: inline-flex;
+      align-items: center;
     }
   }
 
