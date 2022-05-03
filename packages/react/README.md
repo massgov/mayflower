@@ -5,7 +5,7 @@ Mayflower-react is a React component library under the [enterprise design system
 
 - **Live demo:** [mayflower-react storybook][react-storybook]
 - **NPM package:** [@massds/mayflower-react][npm].
-- **Codebase:** [Mayflower monorepo][mayflower-github] `react` subdirectory
+- **Codebase:** [Mayflower monorepo][mayflower-github] `packages/react` subdirectory
   >[Mayflower monorepo][mayflower-github] comprised of [Mayflower documentation][mayflower-doc], two component libraries — [Mayflower React][react-storybook] and [Mayflower PatternLab][patternLab], and their [shared assets][shared-assets].
   > Refer to [Mayflower PatternLab Static Site][patternlab] for the set of UI components consumed in Mass.gov.
 
