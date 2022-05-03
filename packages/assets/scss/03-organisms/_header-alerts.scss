@@ -4,6 +4,36 @@
   margin-bottom: 30px;
 
   &__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    color: $c-black;
+    margin-bottom: 0;
+  
+    &__button {
+      background-color: $c-warning;
+      padding: 12px 24px;
+      display: inline-flex;
+  
+      align-items: center;
+      font-weight: $fonts-bold;
+      font-size: $fonts-medium;
+      line-height: 1.2;
+      margin-bottom: 0;
+      width: 100%;
+  
+      border: 0;
+  
+      @media ($bp-x-small-max) {
+        flex-direction: column;
+      }
+  
+      div {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
 
     &___icon {
       margin-right: 12px;
@@ -19,8 +49,8 @@
     &__toggle {
       margin-left: auto;
       font-size: $fonts-small;
+      font-weight: $fonts-light;
       text-decoration: underline;
-      line-height: 1.15;
 
       @media ($bp-x-small-max) {
         margin-left: 0;
@@ -43,44 +73,6 @@
 
     }
   }
-
-&__header {
-
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  color: $c-black;
-  margin-bottom: 0;
-
-  &__button {
-    background-color: $c-warning;
-    padding: 12px 24px;
-    display: inline-flex;
-
-    align-items: center;
-    font-weight: $fonts-bold;
-    font-size: $fonts-medium;
-    line-height: 1.2;
-    margin-bottom: 0;
-    width: 100%;
-
-    border: 0;
-
-    @media ($bp-x-small-max) {
-      flex-direction: column;
-    }
-
-    div {
-      display: inline-flex;
-      align-items: center;
-    }
-  }
-
-  &__toggle {
-    font-weight: $fonts-light;
-  }
-}
 
   &__container {
     margin: 0;
