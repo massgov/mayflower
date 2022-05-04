@@ -5,6 +5,12 @@
   padding-bottom: $standard-spacing--small;
 }
 
+.collection-header--dark-font {
+  .collection-header--inner {
+    color: black;
+  }
+}
+
 .collection-header--inner {
   color: white;
 

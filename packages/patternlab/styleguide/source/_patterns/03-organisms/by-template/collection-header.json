@@ -3,6 +3,7 @@
     "title": "MassDOT Blog",
     "description": "This is the line two. This is the second line.",
     "image" : "<img src='../../assets/images/placeholder/820x460.png' />",
-    "bg_color" : "#333"
+    "bg_color" : "#333",
+    "dark_font": false
   }
 }
