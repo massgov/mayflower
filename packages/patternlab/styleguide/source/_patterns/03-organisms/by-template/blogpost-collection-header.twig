@@ -1,4 +1,7 @@
-<div class="blogpost-collection-header" style="background-color: {{ blogpostCollectionHeader.bg_color }}">
+{% set dark_font_class = blogpostCollectionHeader.dark_font ? "blogpost-collection-header--dark-font" : ""  %}
+
+
+<div class="blogpost-collection-header {{ dark_font_class }}" style="background-color: {{ blogpostCollectionHeader.bg_color }}">
   <div class="blogpost-collection-header--inner">
 
     <div class="blogpost-collection-header__content">

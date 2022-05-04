@@ -3,6 +3,14 @@
 .blogpost-collection-header {
   padding-top: $standard-spacing--xxsmall;
   padding-bottom: $standard-spacing--xxsmall;
+
+  &--dark-font &--inner {
+    color: black;
+
+    .blogpost-collection-header__content a {
+      color: black;
+    }
+  }
 }
 
 .blogpost-collection-header--inner {
