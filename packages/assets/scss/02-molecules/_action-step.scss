@@ -1,7 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__action-step {
-  
+
   &--accordion {
     border-width: 2px;
     border-style: solid;
@@ -26,6 +26,8 @@
   &__header {
     padding: 20px 0 20px 60px;
     position: relative;
+    font-weight: $fonts-bold;
+    min-height: 32px;
   }
 
   &--accordion &__header {
@@ -34,30 +36,31 @@
     padding: 20px 40px 20px 60px;
     text-align: left;
     width: 100%;
+    min-height: 72px;
 
-    &:after {
+    &__toggle {
+      display: block;
       font-size: $fonts-4xlarge;
-      content: "+";
       line-height: .65em;
+      border: none;
       overflow: hidden;
       position: absolute;
-        right: 15px;
+        right: 17px;
         top: 25px;
       transform-origin: center center;
       transition: transform .2s ease;
+
+      padding-left: 0;
+      margin-left: 0;
     }
   }
 
-  &--accordion.is-open &__header:after {
+  &--accordion.is-open &__header__toggle {
     transform: rotate(135deg);
   }
 
   &__title {
-
-    @include ma-h5;
-    margin-bottom: 0;
     min-height: 32px;
-
 
     span {
       font-size: $fonts-smaller;
@@ -122,7 +125,7 @@
     background-color: transparent;
   }
 
-  &--accordion &__header:after {
+  &--accordion &__header__toggle {
     color: $c-primary-alt;
   }
 
@@ -137,5 +140,6 @@
 
     @include ma-h4;
     font-weight: $fonts-bold;
+    margin-bottom: 0;
   }
 }
