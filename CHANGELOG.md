@@ -1,6 +1,34 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.23.0 (4/15/2022)
+### Added 
+- (Core) [Button] DP-21345: Add Button with icon documentation and variants. (#1604)
+- (React) [Button] DP-21345: Add `label` prop to render aria-label. (#1604)
+- (Patternlab) [PageBanner] DP-23805: Add optional CTA buttons in Page Banner. (#1604)
+- (Patternlab) [Button] DP-23805: Add optional icon to Button and add button variant with icon. (#1604)
+- (React) [Eslint] DP-24095: Configure eslint rules to catch potential breaking patterns while using Google Translate. (#1602)
+
+### Fixed 
+- (Assets) [Button] DP-21345: Fix button icon styles. (#1606)
+- (Assets) [Button] DP-23805: Fix button mixin styles. Separate out `ma-button-size` mixin. (#1604)
+- (React) [GoogleTranslate] DP-24095: Fix Google Translate crashing React components. (#1602)
+- (Patternlab, Assets) [HeaderHamburger] DP-24335: Fix hamburger menu horizontal scrolling in IOS. (#1616)
+- (Assets, Core) [CompHeading, ColoredHeading, SidebarHeading, LinkAsButton] DP-24515: Fix missing css files in assets and core elements documentation. (#1619)
+- (Core) [Button] Fix button css link reference typo. (#1615)
+
+### Changed 
+- (Patternlab) [LocationFiltersLeaflet.js] DP-23780: Add validation for the location listing filter submission - display an error message and prevent form submission when the input is not suggested by Google. (#1579)
+- (Assets, React, Patternlab) [Illustrated Header] DP-23603: Remove `min-height`. (#1612)
+- (Patternlab) [EmergencyHeader] DP-24093: Make "Show" and "Hide" label optional to hide from the sitewide alert display. (#1610)
+- (Patternlab) [Alert] DP-24261: Clarify the accordion button label for screen reader users. (#1607)
+- (Patternlab, Assets) [Figure] DP-24263: Fix figure sizes (#1603)
+- (Patternlab) [InformationDetails] DP-24263: Consolidate information detail page examples for testing purposes (#1603)
+- (Patternlab) [ShortDescription] DP-24167: Change short description to be format as a paragraph from a heading. (#)
+
+### Removed 
+- (Patternlab, React, Assets) [GeneralTeaser, GenTeaser] DP-24095: Remove unnecessary wrapper span, consolidate styling between GenTeaser and GeneralTeaser. (#1602)
+
 ## 11.22.0 (3/22/2022)
 ### Changed 
 - (Patternlab) [CuratedPerson] DP-12097: Correct headings in curated person for semantics. (#1598)
