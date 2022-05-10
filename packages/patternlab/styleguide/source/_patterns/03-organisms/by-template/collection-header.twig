@@ -13,9 +13,11 @@
       {% endif %}
     </div>
 
-    {% if collection.image|trim is not empty %}
+    {% if collection.image is not empty %}
       <div class="collection-header__image">
-        {{ collection.image }}
+        {% include "@atoms/09-media/image.twig" with {
+          'image': collection.image
+        } %}
       </div>
     {% endif %}
   </div>
