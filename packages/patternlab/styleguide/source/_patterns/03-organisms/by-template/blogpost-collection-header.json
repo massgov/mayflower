@@ -1,6 +1,9 @@
 {
   "blogpostCollectionHeader": {
-    "image" : "<img src='../../assets/images/placeholder/820x460.png' />",
+    "image" : {
+      "src": "../../assets/images/placeholder/820x460.png",
+      "alt": "Aternative text"
+    },
     "bg_color" : "#333",
     "dark_font": false,
     "decorativeLink": {

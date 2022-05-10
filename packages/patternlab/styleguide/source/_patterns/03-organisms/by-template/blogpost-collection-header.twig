@@ -8,9 +8,11 @@
       {% include "@atoms/decorative-link.twig" with blogpostCollectionHeader %}
     </div>
 
-    {% if blogpostCollectionHeader.image|trim is not empty %}
+    {% if blogpostCollectionHeader.image is not empty %}
       <div class="blogpost-collection-header__image">
-        {{ blogpostCollectionHeader.image }}
+        {% include "@atoms/09-media/image.twig" with {
+          'image': blogpostCollectionHeader.image
+        } %}
       </div>
     {% endif %}
   </div>
