@@ -78,6 +78,32 @@
 
   &__link {
 
+    &, &--primary {
+      fill: $c-primary;
+    }
+
+    &--primary-alt {
+      fill: $c-primary-alt;
+    }
+
+    &--inverted, &--primary-inverted {
+      background-color: $c-primary;
+
+      & > svg,
+      & > svg path {
+        fill: $c-white;    
+      }
+    }
+
+    &--primary-alt-inverted {
+      background-color: $c-primary-alt;
+
+      & > svg,
+      & > svg path {
+        fill: $c-white;    
+      }
+    }
+
     &[data-social-share = blog] > svg path {
       fill: $c-primary-alt;
     }
