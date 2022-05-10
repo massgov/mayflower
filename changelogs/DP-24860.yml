@@ -54,6 +54,6 @@
 Removed:
   - project: Patternlab
     component: MarketingCampaign
-    description: Remove margin bottom override on campaign pages to allow consistent spacing above feedback form on Mass.gov. (#) 
+    description: Remove margin bottom override on campaign pages to allow consistent spacing above feedback form on Mass.gov. (#1627) 
     issue: DP-24860
     impact: Patch
