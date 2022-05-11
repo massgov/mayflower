@@ -78,15 +78,15 @@
 
   &__link {
 
-    &, &--primary {
+    &, &--c-primary {
       fill: $c-primary;
     }
 
-    &--primary-alt {
+    &--c-primary-alt {
       fill: $c-primary-alt;
     }
 
-    &--inverted, &--primary-inverted {
+    &--inverted, &--c-primary-inverted {
       background-color: $c-primary;
 
       & > svg,
@@ -95,7 +95,7 @@
       }
     }
 
-    &--primary-alt-inverted {
+    &--c-primary-alt-inverted {
       background-color: $c-primary-alt;
 
       & > svg,
