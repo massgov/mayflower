@@ -63,3 +63,8 @@ Added:
     description: New - three columns with callout links.
     issue: DP-23905
     impact: Minor
+  - project: Patternlab
+    component: coloredHeadingFromLeft
+    description: New - A heading with background color, extracted from the action finder component.
+    issue: DP-23905
+    impact: Minor
