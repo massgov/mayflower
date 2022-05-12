@@ -1,4 +1,5 @@
-{% set headingLevel = calloutLinksThreeUp.headingLevel ?: "3" %}
+{% set headingLevel = calloutLinksThreeUp.headingLevel|number_format ?: "3" %}
+{% set headingLevel = headingLevel in ["1", "2", "3", "4", "5", "6"] ? headingLevel : "3" %}
 
 {% set headingText %}
   {% if calloutLinksThreeUp.headingText is not empty %}
