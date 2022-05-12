@@ -86,7 +86,7 @@
       fill: $c-primary-alt;
     }
 
-    &--inverted, &--c-primary-inverted {
+    &--inverted, &--c-primary--inverted {
       background-color: $c-primary;
 
       & > svg,
@@ -95,7 +95,7 @@
       }
     }
 
-    &--c-primary-alt-inverted {
+    &--c-primary-alt--inverted {
       background-color: $c-primary-alt;
 
       & > svg,

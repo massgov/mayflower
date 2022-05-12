@@ -9,7 +9,9 @@
       </div>
       <div class="ma__footer__social">
         {% set socialLinks = footerSocialLinks %}
-        {% include "@molecules/social-links.twig" %}
+        {% include "@molecules/social-links.twig" with {
+          'inverted': true
+        } %}
       </div>
       <div class="ma__footer__copyright">
         <p class="ma__footer__copyright--date">&copy; {{ "now"|date("Y") }} Commonwealth of Massachusetts.</p>
