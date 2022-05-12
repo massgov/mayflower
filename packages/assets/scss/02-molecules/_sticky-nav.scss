@@ -34,26 +34,7 @@
   }
 
   .page-content & {
-
-    @media ($bp-medium-min) {
-      margin-bottom: 0;
-      padding-right: $gutter * 2;
-      position: absolute;
-        top: 0;
-      width: 160px;
-
-      .main-content--two & {
-        margin-left: -160px;
-      }
-    }
-
-    @media ($bp-x-large-min) {
-      width: $column-with-gutter * 2;
-
-      .main-content--two & {
-        margin-left: -$column-with-gutter * 2;
-      }
-    }
+    @include ma-layout-left-col;
   }
 
   @media print {
