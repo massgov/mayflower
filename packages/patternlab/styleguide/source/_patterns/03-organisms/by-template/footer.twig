@@ -1,39 +1,25 @@
-<footer data-nosnippet="true" class="ma__footer js-footer" id="footer" role="contentinfo">
-  <div class="ma__footer__container">
-    {% block footer %}{# for the Footer region content #}{% endblock %}
-    <section class="ma__footer__info">
-      <div class="ma__footer__logo">
-        <a href="/" title="Mass.gov home page">
-          <img src="{{ sealImage }}" alt="Massachusetts State Seal" width="100" height="100" />
-        </a>
+<footer data-nosnippet="true" class="ma__footer-new" id="footer">
+  <div class="ma__footer-new__container">
+    <div class="ma__footer-new__logo">
+      <a href="/" title="Mass.gov home page">
+        <img src="{{ sealImage }}" alt="Massachusetts State Seal" width="100" height="100" />
+      </a>
+    </div>
+    <div class="ma__footer-new__content">
+      <nav class="ma__footer-new__navlinks">
+          <a href="/html/">All Topics</a>
+          <a href="/css/">Site Policies</a>
+          <a href="/js/">Public Records Requests</a>
+      </nav>
+      <div class="ma__footer-new__copyright">
+        <div class="ma__footer-new__copyright--bold">© 2022 Commonwealth of Massachusetts.</div>
+        <span>Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.</span>
+        <a href="/privacypolicy">Mass.gov Privacy Policy</a>
       </div>
-      <div class="ma__footer__social">
-        {% set socialLinks = footerSocialLinks %}
-        {% include "@molecules/social-links.twig" with {
-          'inverted': true
-        } %}
-      </div>
-      <div class="ma__footer__copyright">
-        <p class="ma__footer__copyright--date">&copy; {{ "now"|date("Y") }} Commonwealth of Massachusetts.</p>
-        <p>Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts.</p>
-        <a href="{{ privacyPolicy | default('/privacypolicy') }}">Mass.gov Privacy Policy</a>
-      </div>
-    </section>
-     {% block footer_navigation %}
-      <div class="ma__footer__nav">
-        {% include "@molecules/footer-links.twig" %}
-      </div>
-    {% endblock %}
+    </div>
   </div>
-  <div class="menu-overlay"></div>
-  {% if backToTopButton %}
-    <button class="ma__footer__back2top js-back2top is-hidden">
-      {{ icon('arrow') }}
-      <span aria-hidden="true">Top</span>
-      <span class="visually-hidden">Go to the top of the page</span>
-    </button>
-  {% endif %}
 </footer>
+
 {% if floatingAction %}
   {% include "@atoms/01-buttons/fixed-feedback-button.twig" %}
 {% endif %}

@@ -1,0 +1,76 @@
+@use "00-base/configure" as *;
+
+.ma__footer-new {
+
+  // height: 100px;
+  background-color: $c-bg-section;
+  
+  &__container {
+    @include ma-container;
+    
+    @include clearfix;
+
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+
+    @media ($bp-medium-max) {
+      flex-direction: column;
+    } 
+  }
+
+  &__logo {
+    min-width: 45px;
+    width: 120px;
+    margin-right: 40px;
+
+    @media ($bp-x-large-min) {
+      width: 170px;
+    }
+
+    @media ($bp-medium-max) {
+      img {
+        width: 60px;
+      }
+    }
+  }
+
+  &__navlinks {
+    margin-bottom: 1rem;
+    display: flex;
+
+    @media ($bp-small-max) {
+      flex-direction: column;
+    } 
+    
+    a {
+      
+      @include ma-link-underline;
+      padding-bottom: 3px;
+      color: $c-font-base;
+      font-weight: $fonts-normal;
+  
+      &:hover {
+        border-bottom-color: rgba($c-font-dark,.5);
+      }
+
+      @media ($bp-small-min) {
+
+        &:not(:first-child) {
+          margin-left: 2.5rem;
+        }
+      }
+    }
+
+  }
+
+  &__copyright {
+    font-size: $fonts-xsmall;
+    color: $c-gray-dark;
+    font-weight: $fonts-lighter;
+
+    &--bold {
+      font-weight: $fonts-normal;
+    }
+  }
+}
