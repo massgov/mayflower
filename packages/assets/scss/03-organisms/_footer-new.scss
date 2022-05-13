@@ -20,13 +20,8 @@
   }
 
   &__logo {
+    @include ma-layout-left-col;
     min-width: 45px;
-    width: 120px;
-    margin-right: 40px;
-
-    @media ($bp-x-large-min) {
-      width: 170px;
-    }
 
     @media ($bp-medium-max) {
       img {
