@@ -7,9 +7,9 @@
     </div>
     <div class="ma__footer-new__content">
       <nav class="ma__footer-new__navlinks">
-          <a href="/html/">All Topics</a>
-          <a href="/css/">Site Policies</a>
-          <a href="/js/">Public Records Requests</a>
+        {% for link in footerLinksNew.links %}
+          <a href="{{link.href}}">{{link.text}}</a>
+        {% endfor %}
       </nav>
       <div class="ma__footer-new__copyright">
         <div class="ma__footer-new__copyright--bold">© 2022 Commonwealth of Massachusetts.</div>
