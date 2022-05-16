@@ -12,9 +12,9 @@
         {% endfor %}
       </nav>
       <div class="ma__footer-new__copyright">
-        <div class="ma__footer-new__copyright--bold">© 2022 Commonwealth of Massachusetts.</div>
-        <span>Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.</span>
-        <a href="/privacypolicy">Mass.gov Privacy Policy</a>
+        <div class="ma__footer-new__copyright--bold">&copy; {{ "now"|date("Y") }} Commonwealth of Massachusetts.</div>
+        <span>Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts.</span>
+        <a href="{{ privacyPolicy | default('/privacypolicy') }}">Mass.gov Privacy Policy</a>
       </div>
     </div>
   </div>
