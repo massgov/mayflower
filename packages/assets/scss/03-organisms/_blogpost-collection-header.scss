@@ -1,0 +1,62 @@
+@use "00-base/configure" as *;
+
+.blogpost-collection-header {
+  padding-top: $standard-spacing--xxsmall;
+  padding-bottom: $standard-spacing--xxsmall;
+
+  &--dark-font &--inner {
+    color: black;
+
+    .blogpost-collection-header__content a {
+      color: black;
+    }
+  }
+}
+
+.blogpost-collection-header--inner {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include ma-container;
+}
+
+.blogpost-collection-header__image {
+  display: none;
+  width: 75px;
+  height: auto;
+  margin-left: 1rem;
+
+  img {
+    display: block;
+  }
+
+  @media ($bp-x-small-min) {
+    display: block;
+  }
+}
+
+.blogpost-collection-header__content {
+  font-weight: $fonts-normal;
+  flex-grow: 1;
+  font-size: $fonts-xlarge;
+
+  a {
+    color: white;
+
+    &:hover {
+      border-bottom-color: white;
+    }
+  }
+
+  svg {
+    fill: white;
+    opacity: 0.5;
+  }
+}
+
+.blogpost-collection-header__description {
+  font-size: $fonts-medium;
+  font-weight: $fonts-normal;
+}
