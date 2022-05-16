@@ -6,7 +6,7 @@ $layout-left-col-gutter: 40px;
 $layout-left-col-width: 120px;
 $layout-left-col-width-x-largin: 170px;
 
-@mixin ma-layout-left-col(){
+@mixin ma-layout-left-col() {
   width: $layout-left-col-width;
   margin-right: $layout-left-col-gutter;
 

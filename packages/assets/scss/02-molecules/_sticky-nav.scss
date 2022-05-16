@@ -38,6 +38,7 @@
   }
 
   .page-content & {
+
     @include ma-layout-left-col;
   }
 
@@ -177,6 +178,7 @@
     }
 
     &.is-top {
+
       @media ($bp-medium-min) {
         border-top-width: 0;
       }

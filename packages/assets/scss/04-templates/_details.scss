@@ -1,6 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__details {
+
   &__container {
     display: flex;
     position: relative;
@@ -29,6 +30,7 @@
     margin-left: $layout-left-col-width + $layout-left-col-gutter;
 
     & > * {
+
       @include ma-component-spacing;
     }
 
