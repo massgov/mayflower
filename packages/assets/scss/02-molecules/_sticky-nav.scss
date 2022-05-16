@@ -8,7 +8,6 @@
 
   @include clearfix;
   
-
   @media ($bp-medium-min) {
     position: absolute;
   }
@@ -155,6 +154,8 @@
       }
     }
 
+
+
     &:hover a {
       border-bottom-color: rgba($c-font-link,.5);
     }
@@ -164,29 +165,26 @@
       @include ma-link-underline;
       font-weight: $fonts-normal;
     }
-  }
 
-
-    &__link + &__link {
-    border-top-color: $c-gray-light;
-
-    &.is-open {
+    & + & {
       border-top-color: $c-gray-light;
+
+      @media ($bp-medium-min) {
+        border-top-width: 1px;
+        border-top-style: solid;
+        padding-top: 12px;
+      }
     }
 
     &.is-top {
-
       @media ($bp-medium-min) {
         border-top-width: 0;
       }
     }
 
-    @media ($bp-medium-min) {
-      border-top-width: 1px;
-      border-top-style: solid;
-      padding-top: 0px;
-    }
   }
+
+
 
   &.is-open &__link {
     display: block;
