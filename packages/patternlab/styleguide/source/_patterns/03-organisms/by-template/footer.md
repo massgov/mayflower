@@ -3,6 +3,7 @@ This is a site wide footer.
 
 ### Status
 * In Progress as of 5.0.0
+* Major update as of 11.25.0
 
 ### Pattern Contains
 * Floating Action

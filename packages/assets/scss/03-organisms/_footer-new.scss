@@ -41,21 +41,29 @@
       flex-direction: column;
     }
     
-    a {
-      
-      @include ma-link-underline;
-      padding-bottom: 3px;
-      color: $c-font-base;
-      font-weight: $fonts-normal;
-  
-      &:hover {
-        border-bottom-color: rgba($c-font-dark,.5);
-      }
+    & > div {
+
 
       @media ($bp-small-min) {
 
         &:not(:first-child) {
           margin-left: 2.5rem;
+        }
+      }
+
+      @media ($bp-small-max) {
+        margin-top: 0.5rem;
+      }
+
+      & > a {
+      
+        @include ma-link-underline;
+        padding-bottom: 3px;
+        color: $c-font-base;
+        font-weight: $fonts-normal;
+    
+        &:hover {
+          border-bottom-color: rgba($c-font-dark,.5);
         }
       }
     }
