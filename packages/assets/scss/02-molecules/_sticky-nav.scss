@@ -7,7 +7,12 @@
 .ma__sticky-nav {
 
   @include clearfix;
-  position: absolute;
+  
+
+  @media ($bp-medium-min) {
+    position: absolute;
+  }
+
   transition: top .3s;
   width: 100%;
   z-index: $z-sticky-content;
