@@ -29,8 +29,13 @@ FooterSlimExample.args = {
     { href: '#', title: 'Child Care Licensing Procedures' }
   ],
   contact: {
-    address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
-    phone: '(617) 988-6600',
+    address: {
+      address: '51 Sleeper St. 4th Floor, Boston, MA 02210'
+    },
+    phone: {
+      number: '(617) 988-6600',
+      details: 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
+    },
     online: {
       href: '#',
       title: 'EEC Official Website'

@@ -4,11 +4,16 @@
  * @requires module:@massds/mayflower-assets/scss/03-organisms/footer-slim
  * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
  * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/email
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/phone-number
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/address
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
+import Email from 'MayflowerReactContact/Email';
+import PhoneNumber from 'MayflowerReactContact/PhoneNumber';
+import Address from 'MayflowerReactContact/Address';
 // eslint-disable-next-line import/no-unresolved
 import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
 // eslint-disable-next-line import/no-unresolved
@@ -68,13 +73,13 @@ const FooterSlim = (props) => {
                 {contact.address && (
                   <div className="ma__footer-slim__contact__item">
                     <IconMarker width={20} height={20} />
-                    <span>{contact.address}</span>
+                    <Address {...contact.address} />
                   </div>
                 )}
                 {contact.phone && (
                   <div className="ma__footer-slim__contact__item">
                     <IconPhone width={20} height={20} />
-                    <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+                    <PhoneNumber {...contact.phone} />
                   </div>
                 )}
                 {contact.online && contact.online.href && contact.online.title && (
@@ -106,11 +111,17 @@ FooterSlim.propTypes = {
   })),
   /** Contact details for the responsible authority */
   contact: PropTypes.shape({
-    address: PropTypes.string,
-    phone: PropTypes.string,
+    address: PropTypes.shape({
+      address: PropTypes.string,
+      details: PropTypes.string
+    }),
+    phone: PropTypes.shape({
+      number: PropTypes.string,
+      details: PropTypes.string
+    }),
     online: PropTypes.shape({
-      href: PropTypes.string,
-      title: PropTypes.string
+      email: PropTypes.string,
+      details: PropTypes.string
     })
   }),
   /** One or multiple logos rendered at the footer */
