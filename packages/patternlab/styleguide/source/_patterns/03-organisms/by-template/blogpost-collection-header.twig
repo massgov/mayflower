@@ -1,0 +1,19 @@
+{% set dark_font_class = blogpostCollectionHeader.dark_font ? "blogpost-collection-header--dark-font" : ""  %}
+
+
+<div class="blogpost-collection-header {{ dark_font_class }}" style="background-color: {{ blogpostCollectionHeader.bg_color }}">
+  <div class="blogpost-collection-header--inner">
+
+    <div class="blogpost-collection-header__content">
+      {% include "@atoms/decorative-link.twig" with blogpostCollectionHeader %}
+    </div>
+
+    {% if blogpostCollectionHeader.image is not empty %}
+      <div class="blogpost-collection-header__image">
+        {% include "@atoms/09-media/image.twig" with {
+          'image': blogpostCollectionHeader.image
+        } %}
+      </div>
+    {% endif %}
+  </div>
+</div>
