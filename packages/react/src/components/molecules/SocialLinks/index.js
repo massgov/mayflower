@@ -38,9 +38,8 @@ const SocialLinks = (socialLinks) => {
         }
       </ul>
     </section>
-  )
-}
-
+  );
+};
 
 const SocialLink = (socialLink) => {
   const icons = {
@@ -81,7 +80,7 @@ SocialLinks.propTypes = {
   /** Whether the social media icons are inverted and have a background */
   inverted: PropTypes.bool,
   /** The color theme of the social media icons */
-  theme: PropTypes.oneOf["c-primary","c-primary-alt"],
+  theme: PropTypes.oneOf(['c-primary', 'c-primary-alt']),
   /** The social links to display */
   items: PropTypes.arrayOf(PropTypes.shape(SocialLink.propTypes)).isRequired
 };
