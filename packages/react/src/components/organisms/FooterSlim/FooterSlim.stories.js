@@ -6,6 +6,10 @@ import styles from '@massds/mayflower-assets/build/scss/footer-slim.scss';
 import FooterSlim from './index';
 import FooterSlimDocs from './FooterSlim.md';
 
+import Email from 'MayflowerReactContact/Email';
+import PhoneNumber from 'MayflowerReactContact/PhoneNumber';
+import Address from 'MayflowerReactContact/Address';
+
 export const FooterSlimExample = (args) => <FooterSlim {...args} />;
 
 FooterSlimExample.storyName = 'Default';
@@ -28,19 +32,24 @@ FooterSlimExample.args = {
     { href: '#', title: 'Lead Agencies Policies' },
     { href: '#', title: 'Child Care Licensing Procedures' }
   ],
-  contact: {
-    address: {
-      address: '51 Sleeper St. 4th Floor, Boston, MA 02210'
+  contact: [
+    {
+      component: <Address address='51 Sleeper St. 4th Floor, Boston, MA 02210' />
     },
-    phone: {
-      number: '(617) 988-6600',
-      details: 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
+    {
+      component: (
+        <PhoneNumber 
+          number = '(617) 988-6600'
+          details = 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
+        />
+      )
     },
-    online: {
-      href: '#',
-      title: 'EEC Official Website'
+    {
+      component: (
+        <a href='#'>EEC Official Website</a>
+      )
     }
-  },
+  ],
   siteLogo: <SiteLogo {...siteLogoProps} />
 };
 

@@ -11,9 +11,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Email from 'MayflowerReactContact/Email';
-import PhoneNumber from 'MayflowerReactContact/PhoneNumber';
-import Address from 'MayflowerReactContact/Address';
+import airPropTypes from 'airbnb-prop-types';
 // eslint-disable-next-line import/no-unresolved
 import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
 // eslint-disable-next-line import/no-unresolved
@@ -70,24 +68,15 @@ const FooterSlim = (props) => {
             )}
             {contact && (
               <address className="ma__footer-slim__contact">
-                {contact.address && (
-                  <div className="ma__footer-slim__contact__item">
-                    <IconMarker width={20} height={20} />
-                    <Address {...contact.address} />
-                  </div>
-                )}
-                {contact.phone && (
-                  <div className="ma__footer-slim__contact__item">
-                    <IconPhone width={20} height={20} />
-                    <PhoneNumber {...contact.phone} />
-                  </div>
-                )}
-                {contact.online && contact.online.href && contact.online.title && (
-                  <div className="ma__footer-slim__contact__item">
-                    <IconLaptop width={20} height={20} />
-                    <a href={contact.online.href}>{contact.online.title}</a>
-                  </div>
-                )}
+                {
+                  contact.map((field, i) => (
+                    /* eslint-disable-next-line react/no-array-index-key */
+                    <div className="ma__footer-slim__contact__item" key={`filterbox-field-${i}`}>
+                      { field.icon && <IconMarker width={20} height={20} />}
+                      { field.component }
+                    </div>
+                  ))
+                }
               </address>
             )}
           </div>
@@ -96,6 +85,7 @@ const FooterSlim = (props) => {
     </footer>
   );
 };
+
 
 FooterSlim.propTypes = {
   /** The main title to be displayed in the footer */
@@ -110,20 +100,15 @@ FooterSlim.propTypes = {
     title: PropTypes.string
   })),
   /** Contact details for the responsible authority */
-  contact: PropTypes.shape({
-    address: PropTypes.shape({
-      address: PropTypes.string,
-      details: PropTypes.string
-    }),
-    phone: PropTypes.shape({
-      number: PropTypes.string,
-      details: PropTypes.string
-    }),
-    online: PropTypes.shape({
-      email: PropTypes.string,
-      details: PropTypes.string
-    })
-  }),
+  contact: PropTypes.arrayOf(PropTypes.shape({
+    icon: PropTypes.string,
+    component: PropTypes.oneOfType([
+      airPropTypes.componentWithName('PhoneNumber'),
+      airPropTypes.componentWithName('Address'),
+      airPropTypes.componentWithName('Email'),
+      PropTypes.node
+    ])
+  })),
   /** One or multiple logos rendered at the footer */
   siteLogo: PropTypes.node.isRequired,
   /** Whether logo(s) should be stacked on top of footer title */
