@@ -78,6 +78,10 @@
     }
   }
 
+  &--borderless {
+    border-bottom: 0;
+  }
+
   &--term {
     margin-right: 10px;
     line-height: 22px;
