@@ -1,4 +1,5 @@
-<div class="ma__breadcrumbs {{breadcrumbs.light ? ' ma__breadcrumbs--light' : ''}}">
+{% set noBottomBorderClass = breadcrumbs.noBottomBorder ? 'ma__breadcrumbs--no-bottom-border' : ''  %}
+<div class="ma__breadcrumbs {{breadcrumbs.light ? ' ma__breadcrumbs--light' : ''}} {{ noBottomBorderClass }}">
   <nav aria-label="Breadcrumbs" class="ma__breadcrumbs__container">
     <ol class="ma__breadcrumbs__items">
       {% if breadcrumbs.links|length <= 1 %}
@@ -19,7 +20,7 @@
          <li class="ma__breadcrumbs__item--current ma__visually-hidden" aria-current="location">{{ breadcrumbs.currentPage }}</li>
       {% endif %}
       <li class="ma__breadcrumbs__item ma__breadcrumbs__item__expand-indicators">
-        <button 
+        <button
           type="button"
           class="js-breadcrumbs-button"
           aria-label="Show all Breadcrumbs"
