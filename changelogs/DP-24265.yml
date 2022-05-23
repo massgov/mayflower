@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
     component: eventListing
-    description: Modified the heading level for event itmes in event listings. (#)
+    description: Modified the heading level for event itmes in event listings. (#1634)
     issue: DP-24265
     impact: Patch
