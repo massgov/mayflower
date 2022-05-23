@@ -51,7 +51,7 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Changed:
+Added:
   - project: Patternlab
     component: Breadcrumbs
     description: Added a borderless option for the breadcrumb component. (#1631)
