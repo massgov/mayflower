@@ -54,6 +54,6 @@
 Changed:
   - project: Patternlab
     component: Breadcrumbs
-    description: Added a borderless option for the breadcrumb component.
+    description: Added a borderless option for the breadcrumb component. (#1631)
     issue: DP-24909
     impact: Minor
