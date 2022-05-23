@@ -9,6 +9,11 @@ import FooterSlimDocs from './FooterSlim.md';
 import Email from 'MayflowerReactContact/Email';
 import PhoneNumber from 'MayflowerReactContact/PhoneNumber';
 import Address from 'MayflowerReactContact/Address';
+// eslint-disable import/no-unresolved
+import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
+import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
+import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
+import IconMail from 'MayflowerReactBase/Icon/IconMail';
 
 export const FooterSlimExample = (args) => <FooterSlim {...args} />;
 
@@ -34,19 +39,31 @@ FooterSlimExample.args = {
   ],
   contact: [
     {
+      icon: <IconMarker />,
       component: <Address address='51 Sleeper St. 4th Floor, Boston, MA 02210' />
     },
     {
+      icon: <IconLaptop />,
       component: (
-        <PhoneNumber 
-          number = '(617) 988-6600'
+        <a href='#'>EEC Official Website</a>
+      )
+    },
+    {
+      icon: <IconMail />,
+      component: (
+        <Email 
+          email ='edu@state.ma.us'
           details = 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
         />
       )
     },
     {
+      icon: <IconPhone />,
       component: (
-        <a href='#'>EEC Official Website</a>
+        <PhoneNumber 
+          number = '617-988-6600'
+          details = 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
+        />
       )
     }
   ],
@@ -88,14 +105,27 @@ FooterSlimMultiLogos.args = {
     { href: '#', title: 'Lead Agencies Policies' },
     { href: '#', title: 'Child Care Licensing Procedures' }
   ],
-  contact: {
-    address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
-    phone: '(617) 988-6600',
-    online: {
-      href: '#',
-      title: 'EEC Official Website'
+  contact: [
+    {
+      icon: <IconMarker />,
+      component: <Address address='51 Sleeper St. 4th Floor, Boston, MA 02210' />
+    },
+    {
+      icon: <IconLaptop />,
+      component: (
+        <a href='#'>EEC Official Website</a>
+      )
+    },
+    {
+      icon: <IconPhone />,
+      component: (
+        <PhoneNumber 
+          number = '617-988-6600'
+          details = 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
+        />
+      )
     }
-  },
+  ],
   siteLogo: (
     <React.Fragment>
       <SiteLogo {...siteLogo1Props} />

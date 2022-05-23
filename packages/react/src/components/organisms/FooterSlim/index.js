@@ -12,12 +12,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import airPropTypes from 'airbnb-prop-types';
-// eslint-disable-next-line import/no-unresolved
-import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
-// eslint-disable-next-line import/no-unresolved
-import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
-// eslint-disable-next-line import/no-unresolved
-import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
 const today = new Date();
 const year = today.getFullYear();
@@ -72,7 +66,7 @@ const FooterSlim = (props) => {
                   contact.map((field, i) => (
                     /* eslint-disable-next-line react/no-array-index-key */
                     <div className="ma__footer-slim__contact__item" key={`filterbox-field-${i}`}>
-                      { field.icon && <IconMarker width={20} height={20} />}
+                      { field.icon && React.cloneElement(field.icon, { width: 20, height: 20 })}
                       { field.component }
                     </div>
                   ))
@@ -101,7 +95,7 @@ FooterSlim.propTypes = {
   })),
   /** Contact details for the responsible authority */
   contact: PropTypes.arrayOf(PropTypes.shape({
-    icon: PropTypes.string,
+    icon: PropTypes.element,
     component: PropTypes.oneOfType([
       airPropTypes.componentWithName('PhoneNumber'),
       airPropTypes.componentWithName('Address'),
