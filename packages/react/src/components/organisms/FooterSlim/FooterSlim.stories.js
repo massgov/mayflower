@@ -121,7 +121,7 @@ FooterSlimMultiLogos.args = {
       component: (
         <PhoneNumber 
           number = '617-988-6600'
-          details = 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
+          details = 'Our Customer Service Representatives can answer your questions in <b>English</b>, <b>Español</b>, <b>Português</b>. Translation services for up to <b>240+ languages</b> are also available to better serve employees, employers and medical providers.'
         />
       )
     }
