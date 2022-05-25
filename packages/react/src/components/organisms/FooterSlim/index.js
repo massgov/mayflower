@@ -80,7 +80,6 @@ const FooterSlim = (props) => {
   );
 };
 
-
 FooterSlim.propTypes = {
   /** The main title to be displayed in the footer */
   title: PropTypes.string.isRequired,
