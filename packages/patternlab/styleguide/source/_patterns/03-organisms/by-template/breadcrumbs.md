@@ -15,7 +15,9 @@ Displays a breadcrumbs bar with links.
 ~~~
 light:
   type: bool / optional
-currentPage: 
+noBottomBorder:
+  type: bool / optional
+currentPage:
   type: string / required (for screen readers to pronouce the current page title)
 links:
   type: links / required
