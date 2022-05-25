@@ -51,7 +51,7 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Removed:
+Changed:
   - project: React
     component: FooterSlim
     description: Make `contact` flexible. Allow footer contact info to be reordered and configured using `Address`, `Email`` and `PhoneNumber`. (#1630) [Follow these instructions](https://github.com/massgov/mayflower/pull/1630#issuecomment-1137822388) to update the `contact` prop 
