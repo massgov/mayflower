@@ -79,6 +79,7 @@
 
   &__details {
     margin-top: 2rem;
+    max-width: 500px;
 
     @media ($bp-large-min) {
       display: block;
