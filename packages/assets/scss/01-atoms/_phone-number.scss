@@ -4,7 +4,13 @@
 
   &__number {
     font-weight: $fonts-bold;
-    color: $c-font-detail;
+    color: $c-font-link;
     text-decoration: none;
   }
+
+  .ma__contact__details {
+    font-style: italic;
+    font-size: small;
+    margin: .2rem 0 0 0;
+  }  
 }

@@ -79,6 +79,7 @@
 
   &__details {
     margin-top: 2rem;
+    max-width: 500px;
 
     @media ($bp-large-min) {
       display: block;
@@ -110,7 +111,7 @@
   &__contact {
 
     a {
-      font-weight: $fonts-normal;
+      font-weight: $fonts-bold;
       text-decoration: none;
     }
 
@@ -120,6 +121,7 @@
 
       svg {
         fill: $c-primary-alt;
+        min-width: 20px;
       }
 
       span, a {
