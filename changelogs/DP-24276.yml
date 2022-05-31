@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: HeaderAlerts
-    description: Remove aria-label from button. (#1614)
-    issue: DP-24276
-    impact: Patch
