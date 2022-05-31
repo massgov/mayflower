@@ -2,10 +2,14 @@
 
 .ma__address {
 
+  &__address {
+    font-weight: $fonts-bold;
+  }
+
   .ma__contact__details {
     font-style: italic;
     font-size: small;
-    margin: .2rem 0 0;
-  }  
+    margin: .2rem 0 0 0;
+  }
+  
 }
-
