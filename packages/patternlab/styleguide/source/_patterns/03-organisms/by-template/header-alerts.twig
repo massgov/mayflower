@@ -1,20 +1,25 @@
 {% if headerAlerts %}
 <section data-nosnippet="true" class="ma__header-alerts js-accordion js-header-alerts is-open">
-  <button class="ma__header-alerts__header js-accordion-link">
-    <h2 class="ma__header-alerts__header__title">
+  <h2 class="ma__header-alerts__header">
+    <button class="ma__header-alerts__header__button js-accordion-link">
+
       {% if headerTitle.icon %}
-        <div class="ma__header-alerts__header___icon">
-          {{ icon(headerTitle.icon) }}
+        <div>
+          <span class="ma__header-alerts__header___icon">
+            {{ icon(headerTitle.icon) }}
+          </span>
+      {% endif %}
+        <span>{{ headerTitle.text }}</span>
+      {% if headerTitle.icon %}
         </div>
       {% endif %}
-      <span>{{ headerTitle.text }}</span>
-    </h2>
-    <div class="ma__header-alerts__header__toggle">
-      <span class="ma__header-alerts__header__hide">{{headerTitle.hideText}}</span>
-      <span class="ma__header-alerts__header__show">{{headerTitle.showText}}</span> 
-      <span class="ma__header-alerts__header__text">{{headerTitle.text}}</span>
-    </div>
-  </button>
+
+      <div class="ma__header-alerts__header__toggle" aria-hidden="true">
+        <span class="ma__header-alerts__header__hide">{{headerTitle.hideText}}</span>
+        <span class="ma__header-alerts__header__show">{{headerTitle.showText}}</span>
+      </div>
+    </button>
+  </h2>
   <div class="ma__header-alerts__content js-accordion-content">
     <ul class="ma__header-alerts__container">
       {% for headerAlert in headerAlerts %}
