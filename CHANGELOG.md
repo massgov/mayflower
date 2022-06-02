@@ -1,6 +1,25 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.24.0 (5/31/2022)
+### Added 
+- (Patternlab) [Select box] DP-17338: Adds a selected option for the select box.
+- (Patternlab) [Breadcrumbs] DP-24909: Added a borderless option for the breadcrumb component. (#1631)
+
+### Changed 
+- (Patternlab) [HeaderAlerts] DP-24276: Remove aria-label from button. (#1614)
+- (React, Patternlab) [mainNavHamburger, HamburgerNav, Header, HeaderMixed] DP-24485: Move menu button label from css content into HTML, to allow Google translation. (#1618)
+- (React) [FooterSlim] Make `contact` flexible. Allow footer contact info to be reordered and configured using `Address`, `Email` and `PhoneNumber`. (#1630) [Follow these instructions](https://github.com/massgov/mayflower/pull/1630#issuecomment-1137822388) to update the `contact` prop.
+- (React, Assets) [PhoneNumber, Email, GenTeaser, FooterSlim] Changed text color of phone number and email. (#1630)
+- (Patternlab) [OrgPageSamples] DP-9273: Page sample update to match Drupal implementation. Remove alt value from linked image in Our Organizations in Org pages. (#1622)
+
+### Fixed 
+- (Assets) [FixedFeedbackButton] DP-24350: Fix feedback button position and display when using Google Translate. (#1624)
+
+### Removed 
+- (React, Patternlab) [mainNavHamburger, HamburgerNav, Header, HeaderMixed] DP-24485: Remove duplicated menu button toggle state in `aria-label`. (#1618)
+- (Patternlab) [MarketingCampaign] DP-24860: Remove margin bottom override on campaign pages to allow consistent spacing above feedback form on Mass.gov. (#1627)
+
 ## 11.23.0 (4/15/2022)
 ### Added 
 - (Core) [Button] DP-21345: Add Button with icon documentation and variants. (#1604)
