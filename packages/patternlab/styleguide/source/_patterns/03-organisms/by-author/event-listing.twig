@@ -1,17 +1,17 @@
 {% set gridClass = eventListing.grid ? 'ma__event-listing--grid' : '' %}
-{% set teaserHeading = 2 %}
+{% set teaserHeading = 3 %}
 
 <section class="ma__event-listing {{ gridClass }} js-event-listing">
   <div class="ma__event-listing__container">
     {% if eventListing.compHeading %}
       {% set compHeading = eventListing.compHeading %}
       {% include "@atoms/04-headings/comp-heading.twig" %}
-      {% set teaserHeading = (compHeading.level ? : teaserHeading) + 1 %}
+      {% set teaserHeading = compHeading.level ? (compHeading.level + 1) : teaserHeading %}
     {% endif %}
     {% if eventListing.sidebarHeading %}
       {% set sidebarHeading = eventListing.sidebarHeading %}
       {% include "@atoms/04-headings/sidebar-heading.twig" %}
-      {% set teaserHeading = (sidebarHeading.level ? : teaserHeading) + 1 %}
+      {% set teaserHeading = sidebarHeading.level ? (sidebarHeading.level + 1) : teaserHeading %}
     {% endif %}
     {% if eventListing.events %}
       <ul class="ma__event-listing__items js-event-listing-items">
