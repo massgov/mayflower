@@ -7,11 +7,13 @@ This is pattern shows an accordion button with an optional icon.
 ### Variables
 ~~~
 collapsibleHeader: {
-  info: 
+  info:
     type: string / optional,
-  title: 
+  title:
     type: string / required
-  icon: 
+  icon:
     type: string (path to icon) / optional
+  headingLevel:
+    type: number (1-6) / optional,
 }
 ~~~
