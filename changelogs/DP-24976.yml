@@ -1,0 +1,6 @@
+Fixed:
+  - project: Assets
+    component: Figure
+    description: Remove figure title style override. (#1638)
+    issue: DP-24976
+    impact: Patch

@@ -34,6 +34,7 @@
             "featuredItemMosaic": {
               "compHeading": {
                 "title": "Featured Items",
+                "level": 2,
                 "sub": "",
                 "color": "",
                 "id": "",
@@ -727,7 +728,8 @@
             "eventListing": {
               "grid": true,
               "compHeading": {
-                "title": "Upcoming Events"
+                "title": "Upcoming Events",
+                "level": 2
               },
               "events": [
                 {
