@@ -59,7 +59,7 @@ Fixed:
     impact: Patch
 Added:
   - project: Patternlab
-    component: callout-links-three-up
+    component: CalloutLinksThreeUp
     description: New - three columns with callout links. (#1613)
     issue: DP-23905
     impact: Minor
