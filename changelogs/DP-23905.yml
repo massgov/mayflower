@@ -65,6 +65,6 @@ Added:
     impact: Minor
   - project: Patternlab
     component: ColoredHeadingFromLeft
-    description: New - A heading with background color, extracted from the action finder component.
+    description: New - A heading with background color, extracted from the action finder component. (#1613)
     issue: DP-23905
     impact: Minor
