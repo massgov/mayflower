@@ -101,11 +101,6 @@ $figures-gutter: 20px;
     width: 100%;
   }
 
-  &__title {
-
-    @include ma-h2;
-  }
-
   &__caption {
     font-size: $fonts-smaller;
     font-style: italic;

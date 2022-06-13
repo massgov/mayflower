@@ -1,6 +1,0 @@
-Fixed:
-  - project: Assets
-    component: FixedFeedbackButton
-    description: Fix feedback button position and display when using Google Translate. (#1624)
-    issue: DP-24350
-    impact: Patch
