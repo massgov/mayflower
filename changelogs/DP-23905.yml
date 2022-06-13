@@ -59,12 +59,12 @@ Fixed:
     impact: Patch
 Added:
   - project: Patternlab
-    component: callout-links-three-up
-    description: New - three columns with callout links.
+    component: CalloutLinksThreeUp
+    description: New - three columns with callout links. (#1613)
     issue: DP-23905
     impact: Minor
   - project: Patternlab
-    component: coloredHeadingFromLeft
-    description: New - A heading with background color, extracted from the action finder component.
+    component: ColoredHeadingFromLeft
+    description: New - A heading with background color, extracted from the action finder component. (#1613)
     issue: DP-23905
     impact: Minor
