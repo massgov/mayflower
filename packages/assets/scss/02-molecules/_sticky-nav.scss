@@ -7,7 +7,11 @@
 .ma__sticky-nav {
 
   @include clearfix;
-  position: relative;
+  
+  @media ($bp-medium-min) {
+    position: absolute;
+  }
+
   transition: top .3s;
   width: 100%;
   z-index: $z-sticky-content;
@@ -35,25 +39,7 @@
 
   .page-content & {
 
-    @media ($bp-medium-min) {
-      margin-bottom: 0;
-      padding-right: $gutter * 2;
-      position: absolute;
-        top: 0;
-      width: 160px;
-
-      .main-content--two & {
-        margin-left: -160px;
-      }
-    }
-
-    @media ($bp-x-large-min) {
-      width: $column-with-gutter * 2;
-
-      .main-content--two & {
-        margin-left: -$column-with-gutter * 2;
-      }
-    }
+    @include ma-layout-left-col;
   }
 
   @media print {
@@ -169,6 +155,8 @@
       }
     }
 
+
+
     &:hover a {
       border-bottom-color: rgba($c-font-link,.5);
     }
@@ -178,14 +166,15 @@
       @include ma-link-underline;
       font-weight: $fonts-normal;
     }
-  }
 
-
-    &__link + &__link {
-    border-top-color: $c-gray-light;
-
-    &.is-open {
+    & + & {
       border-top-color: $c-gray-light;
+
+      @media ($bp-medium-min) {
+        border-top-width: 1px;
+        border-top-style: solid;
+        padding-top: 12px;
+      }
     }
 
     &.is-top {
@@ -195,12 +184,9 @@
       }
     }
 
-    @media ($bp-medium-min) {
-      border-top-width: 1px;
-      border-top-style: solid;
-      padding-top: 12px;
-    }
   }
+
+
 
   &.is-open &__link {
     display: block;
