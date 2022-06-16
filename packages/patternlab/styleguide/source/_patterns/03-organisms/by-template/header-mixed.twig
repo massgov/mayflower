@@ -1,6 +1,7 @@
 <div class="alert-overlay"></div>
 <!-- Begin .header -->
 <header class="ma__header__hamburger ma__header__mixed" id="header">
+  <div class="menu-overlay"></div>
   {% if not header.hideBackTo %}
     <div class="ma__header__hamburger__backto">
       <a href="{{ header.backTo ? header.backTo.url : 'https://www.mass.gov' }}">{{ header.backTo ? header.backTo.text : 'Go to classic Mass.gov' }}</a>
