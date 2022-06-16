@@ -1,6 +1,8 @@
 /**
  * Control display of a skip link target component.
  */
+
+// For figure content skip links
 document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
 
   let linkTarget = "";
@@ -31,4 +33,19 @@ document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
       document.querySelector(location.hash).style.display = "none";
     }
   });
+});
+
+
+// For TOC skip link target
+const skipLinkTOC = document.querySelector(".ma__jump-links__skip-link");
+const skipLinkTOCTarget = document.querySelector("#ma-end-sticky-toc");
+
+skipLinkTOC.addEventListener("click", (e) => {
+ skipLinkTOCTarget.setAttribute("tabindex", "0");
+    skipLinkTOCTarget.focus();
+});
+
+skipLinkTOC.addEventListener("focusout", (e) => {
+  skipLinkTOCTarget.setAttribute("tabindex", "-1");
+  skipLinkTOCTarget.removeAttribute("style");
 });
