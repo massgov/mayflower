@@ -563,15 +563,11 @@
   &::before {
     display: block;
     content: '';
-    margin-top: -90px;
-    height: 90px;
+
+    margin-top: -35px;
+    height: 35px;
     visibility: hidden;
     pointer-events: none;
-
-    @media ($bp-x-small-min) {
-      margin-top: -35px;
-      height: 35px;
-    }
 
     @media ($bp-header-toggle-min) {
       margin-top: -85px;
