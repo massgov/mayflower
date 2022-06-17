@@ -220,6 +220,7 @@
       @include ma-link-underline;
 
       @include ma-chevron;
+      border-bottom-width: 2px;
       text-transform: capitalize;
       align-self: flex-start;
       padding: 0;
