@@ -54,6 +54,6 @@
 Fix:
   - project: Patternlab
     component: Relationship indicators
-    description: Removes an extra pixel when "show N more" element was added
+    description: Removes an extra pixel when "show N more" element was added (#1644)
     issue: DP-25158
     impact: Minor
