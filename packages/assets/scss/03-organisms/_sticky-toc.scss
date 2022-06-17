@@ -563,15 +563,21 @@
   &::before {
     display: block;
     content: '';
-    margin-top: -120px;
-    height: 120px;
+    margin-top: -90px;
+    height: 90px;
     visibility: hidden;
     pointer-events: none;
 
-    @media ($bp-header-toggle-min) {
-      margin-top: -70px;
-      height: 70px;
+    @media ($bp-x-small-min) {
+      margin-top: -35px;
+      height: 35px;
     }
+
+    @media ($bp-header-toggle-min) {
+      margin-top: -85px;
+      height: 85px;
+    }
+
   }
 }
 
