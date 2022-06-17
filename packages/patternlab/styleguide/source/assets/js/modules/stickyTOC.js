@@ -54,6 +54,12 @@ export default (function (window, document) {
         if (!sectionId) {
           sectionId = section.textContent.replace(/\s+/g, "-").toLowerCase();
         }
+        // A section ID is needed to become the target for a link.
+        section.id = sectionId;
+        // Class to identify a section to style it properly and avoid
+        // toolbars to cover the section when clicked.
+        section.classList.add("sticky-toc-jump-target");
+
         // Create a link for the sticky TOC.
         const tocLink = document.createElement("div");
         tocLink.className = "ma__sticky-toc__link";
@@ -61,15 +67,6 @@ export default (function (window, document) {
         tocLink.innerHTML = `<a href="#${sectionId}"><svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg>${sectionTitle}</a>`;
         tocColumn.appendChild(tocLink);
         tocSections.links.push(tocLink);
-
-        // To scroll all the way to the heading would make the heading covered by the sticky header.
-        // Instead, add a span that will be invisible, but be placed above each heading as the scroll target.
-        const dest = document.createElement("span");
-        dest.className = "sticky-toc-jump-target";
-        dest.id = sectionId;
-
-        section.id = "";
-        section.parentElement.insertBefore(dest, section);
       });
     }
 
