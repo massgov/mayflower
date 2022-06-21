@@ -573,17 +573,19 @@
   &::before {
     display: block;
     content: '';
-    margin-top: -90px;
-    height: 90px;
+    margin-top: -63px;
+    height: 88px;
     visibility: hidden;
     pointer-events: none;
 
     @media ($bp-header-toggle-min) {
-      margin-top: -85px;
-      height: 85px;
+      margin-top: -55px;
+      height: 82px;
     }
 
   }
+
+
 }
 
 .ma__sticky-toc__overlay {
