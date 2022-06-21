@@ -1,5 +1,7 @@
 {% set iframeClass = iframe.position ? "ma__iframe--" ~ iframe.position : '' %}
-{% if not iframe.height %}
+{% if iframe.height %}
+  {% set iframeClass = iframeClass ~ " ma__iframe--fixed" %}
+{% else %}
   {% set iframeClass = iframeClass ~ " ma__iframe--responsive" %}
 {% endif %}
 <div class="ma__iframe {{ iframeClass }}">
