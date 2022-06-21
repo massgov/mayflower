@@ -407,6 +407,14 @@
   border: 1px solid $c-bd-divider;
   border-width: 1px 0 1px 0;
 
+  + ul {
+    padding-left: 0;
+  }
+
+  + ul > li {
+    list-style: none;
+  }
+
   @media ($bp-x-small-min) {
     display: none;
   }
