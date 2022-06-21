@@ -39,9 +39,9 @@
         </button>
       </div>{# .ma__header__hamburger__button-container #}
 
-      <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--wide js-utility-nav--wide">
+      {# <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--wide js-utility-nav--wide">
         {% include "@organisms/by-template/utility-nav.twig" %}
-      </div>
+      </div> #}
 
       <div class="ma__header__hamburger__nav-container" aria-hidden="true">
         <div class="ma__header__hamburger__logo ma__header__hamburger__logo--mobile">
@@ -63,6 +63,11 @@
           {% include "@organisms/by-template/utility-nav.twig" %}
         </div>{# .ma__header__hamburger__utility-nav #}
       </div>{# .ma__header__hamburger__nav-container #}
+
+  <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--wide js-utility-nav--wide">
+    {% include "@organisms/by-template/utility-nav.twig" %}
+  </div>
+
 
     </div>{# . ma__header__hamburger-wrapper #}
   </nav>
