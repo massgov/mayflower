@@ -1,0 +1,20 @@
+@use "variables" as *;
+
+@use "00-base/breakpoints" as *;
+
+$layout-left-col-gutter: 40px;
+$layout-left-col-width: 120px;
+$layout-left-col-width-x-largin: 170px;
+
+@mixin ma-layout-left-col() {
+  width: $layout-left-col-width;
+  margin-right: $layout-left-col-gutter;
+
+  @media ($bp-x-large-min) {
+    width: $layout-left-col-width-x-largin;
+  }
+
+  @media ($bp-medium-max) {
+    width: 100%;
+  }
+}

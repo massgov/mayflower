@@ -146,19 +146,4 @@
       font-weight: $fonts-normal;
     }
   }
-
-  &__social {
-    
-    .ma__social-links {
-
-      &__link {
-        background-color: $c-primary-alt;
-
-        & > svg,
-        & > svg path {
-          fill: $c-white;    
-        }
-      }
-    }
-  }
 }

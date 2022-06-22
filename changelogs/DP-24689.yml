@@ -1,0 +1,6 @@
+Fixed:
+  - project: Assets
+    component: RelationshipIndicators
+    description: Reduce margin top. (#1640)
+    issue: DP-24689
+    impact: Patch

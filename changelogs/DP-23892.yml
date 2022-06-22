@@ -1,0 +1,17 @@
+Changed:
+  - project: Patternlab
+    component: Footer, FooterWithColumns
+    description: Renamed Footer as FooterWithColumns, add new footer component as Footer. (#1629)
+    issue: DP-23892
+    impact: Minor
+Added: 
+  - project: Patternlab, React, Assets
+    component: SocialLinks
+    description: Added inverted and `c-primary` and `c-primary-alt` variants to SocialLinks, updated Footer social links to use q1-i8 color. (#1629)
+    issue: DP-23892
+    impact: Minor
+  - project: Assets
+    component: StickyNav, Details
+    description: Refactored StickyNav layout styles into a reusable mixin, to use to align footer content. (#1629)
+    issue: DP-23892
+    impact: Minor
