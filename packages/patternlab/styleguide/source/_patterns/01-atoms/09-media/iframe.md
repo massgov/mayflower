@@ -33,6 +33,6 @@ iframe {
             "3-to-2": 66.66%, /* 3:2 Aspect Ratio - horizontal */
             "2-to-1": 50%, /* 2:1 Aspect Ratio - horizontal */
             "3-to-1": 33.33% /* 3:1 Aspect Ratio - horizontal */
-      ] Note: passing in a ratio will override the iframe height, iframe will take up 100% of the width of the parent container will responsive height persisting the set aspect ratio.
+      ] Note: passing in a height will override the responsive ratio. Iframe using the ratio will take up 100% of the width of the parent container, height is responsive to persist the set aspect ratio.
 }
 ~~~
