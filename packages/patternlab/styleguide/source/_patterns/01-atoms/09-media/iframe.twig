@@ -5,11 +5,11 @@
   {% set iframeClass = iframeClass ~ " ma__iframe--responsive" %}
 {% endif %}
 {% if iframe.ratio %}
-  {% set iframeClass = iframeClass ~ " ma__iframe--responsive--" ~ iframe.ratio %}
+  {% set iframeRatioClass = "ma__iframe__container--" ~ iframe.ratio %}
 {% endif %}
 
 <div class="ma__iframe {{ iframeClass }}">
-  <div class="ma__iframe__container js-ma-responsive-iframe">
+  <div class="ma__iframe__container js-ma-responsive-iframe {{ iframeRatioClass }}">
   <iframe height="{{ iframe.height }}" src="{{ iframe.src }}" allowfullscreen title="{{ iframe.title }}"></iframe>
   {% if iframe.link %}
     <div class="ma__iframe__link">
