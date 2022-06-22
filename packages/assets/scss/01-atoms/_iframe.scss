@@ -1,4 +1,14 @@
 @use "00-base/configure" as *;
+@use "sass:map";
+
+$iframe-ratios: (
+  "2-to-3": 150%, /* 2:3 Aspect Ratio */
+  "3-to-4": 133.33%, /* 3:4 Aspect Ratio */
+  "1-to-1": 100%, /* 1:1 Aspect Ratio - square */
+  "4-to-3": 75%, /* 4:3 Aspect Ratio - landscape */
+  "3-to-2": 66.66%, /* 3:2 Aspect Ratio - landscape */
+  "16-to-9": 56.25% /* 16:9 Aspect Ratio - landscape */
+);
 
 .ma__iframe {
 
@@ -9,40 +19,29 @@
     padding: 13px;
   }
 
-  // maintain a 16:9 aspect ratio for responsive iframes
-
   &--responsive {
 
     .ma__iframe__container {
-        position: relative;
-        padding-bottom: 56.25%;
-        padding-top: 25px;
-        height: 0;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 
-        iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+      @debug map.get($iframe-ratios, "1-to-1"); // 100%
+
+      @each $option, $ratio in $iframe-ratios {
+        &--#{option} {
+          padding-top: $ratio;
         }
       }
-  }
 
-  /* Make iframe height responsive on different screensizes */
-  &--fixed {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    height: 0;
-    overflow: hidden;
-
-    iframe, object, embed {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      iframe, object, embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
