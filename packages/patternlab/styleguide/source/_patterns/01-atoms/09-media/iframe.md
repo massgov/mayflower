@@ -25,8 +25,8 @@ iframe {
       type: string / optional
   ratio:
       type: string / one of [
-            "2-to-3": 150%, /* 2:3 Aspect Ratio -vertical */
-            "2-to-3": 150%, /* 2:3 Aspect Ratio -vertical */
+            "1-to-2": 200%, /* 2:3 Aspect Ratio - vertical */
+            "2-to-3": 150%, /* 2:3 Aspect Ratio - vertical */
             "3-to-4": 133.33%, /* 3:4 Aspect Ratio - verical */
             "1-to-1": 100%, /* 1:1 Aspect Ratio - square */
             "4-to-3": 75%, /* 4:3 Aspect Ratio - horizontal */
