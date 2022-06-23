@@ -9,7 +9,7 @@
     @media ($bp-large-min) {
       float: left;
       padding-right: 85px;
-      width: calc(100% - 295px);
+      width: calc(100% - $sidebar-width);
     }
   }
 

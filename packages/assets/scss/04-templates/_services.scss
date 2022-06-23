@@ -6,6 +6,8 @@
 
   .page-content--intro {
 
+    @include page-width-full;
+
     @media ($bp-large-min) {
 
       & > .ma__image:first-child {
