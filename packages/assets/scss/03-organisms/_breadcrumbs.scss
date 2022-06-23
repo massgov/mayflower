@@ -234,6 +234,10 @@ $breadcrumbs-scrollbar-height: 12px;
       }
   }
 
+  &--no-bottom-border &__items {
+    border-bottom: 0;
+  }
+
   &--light &__container {
 
     @media ($bp-medium-max) {

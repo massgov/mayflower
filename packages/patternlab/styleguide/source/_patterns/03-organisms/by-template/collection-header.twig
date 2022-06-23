@@ -1,0 +1,24 @@
+{% set dark_font_class = collection.dark_font ? "collection-header--dark-font" : ""  %}
+
+<div class="collection-header {{ dark_font_class }}" style="background-color: {{ collection.bg_color }}">
+  <div class="collection-header--inner">
+
+    <div class="collection-header__content">
+      {% if collection.title is not empty %}
+        <div class="collection-header__title">{{ collection.title }}</div>
+      {% endif %}
+
+      {% if collection.description is not empty %}
+        <div class="collection-header__description">{{ collection.description }}</div>
+      {% endif %}
+    </div>
+
+    {% if collection.image is not empty %}
+      <div class="collection-header__image">
+        {% include "@atoms/09-media/image.twig" with {
+          'image': collection.image
+        } %}
+      </div>
+    {% endif %}
+  </div>
+</div>

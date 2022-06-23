@@ -57,3 +57,14 @@ Fixed:
     description: Fix service page video in the flexible layout rows. (#1613)
     issue: DP-23905
     impact: Patch
+Added:
+  - project: Patternlab
+    component: CalloutLinksThreeUp
+    description: New - three columns with callout links. (#1613)
+    issue: DP-23905
+    impact: Minor
+  - project: Patternlab
+    component: ColoredHeadingFromLeft
+    description: New - A heading with background color, extracted from the action finder component. (#1613)
+    issue: DP-23905
+    impact: Minor

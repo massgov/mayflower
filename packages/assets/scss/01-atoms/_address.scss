@@ -5,9 +5,11 @@
   &__address {
     font-weight: $fonts-bold;
   }
-}
 
-.ma__contact__details {
-  font-style: italic;
-  margin: .2rem 0 0;
+  .ma__contact__details {
+    font-style: italic;
+    font-size: small;
+    margin: .2rem 0 0 0;
+  }
+  
 }

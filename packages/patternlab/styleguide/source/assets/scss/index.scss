@@ -155,6 +155,7 @@
 @use "03-organisms/featured-item-mosaic";
 @use "03-organisms/feedback-form";
 @use "03-organisms/footer";
+@use "03-organisms/footer-new";
 @use "03-organisms/footnote-list";
 @use "03-organisms/form-downloads";
 @use "03-organisms/form-requirements";
@@ -221,6 +222,8 @@
 @use "03-organisms/transition-page";
 @use "03-organisms/utility-nav";
 @use "03-organisms/utility-panel";
+@use "03-organisms/collection-header";
+@use "03-organisms/blogpost-collection-header";
 // Templates - page content types
 @use "04-templates/binder-page";
 @use "04-templates/bio";
