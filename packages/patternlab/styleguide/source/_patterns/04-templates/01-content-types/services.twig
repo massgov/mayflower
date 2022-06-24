@@ -24,13 +24,6 @@
 				{% include "@atoms/09-media/video.twig" %}
 			{% endif %}
 
-			{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
-				{% if introPageContent.keyActions %}
-					{% set keyActions = introPageContent.keyActions %}
-					{% include "@organisms/by-author/key-actions.twig" %}
-				{% endif %}
-			{% endif %}
-
 		{% endblock %}
 	</div>
 	<div class="stacked-row-content">
