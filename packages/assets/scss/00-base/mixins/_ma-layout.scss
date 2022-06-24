@@ -8,8 +8,8 @@
 
   @include ma-container;
 
-  @media ($bp-large-extended-min) {
+  @media ($bp-large-min) {
     
-      padding-right: 295px;
+      padding-right: $layout-sidebar-width;
   }
 }

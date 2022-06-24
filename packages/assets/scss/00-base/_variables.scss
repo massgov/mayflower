@@ -3,10 +3,9 @@ $gutter: 20px;
 /// Sets the total number of columns in the grid. Its value can be overridden inside a media query using the `media()` mixin.
 $grid-columns: 12;
 $max-width: 1320px;
-$sidebar-width: 295px;
 $column-with-gutter:            $column + $gutter;
 // Use @include outer-container() which sets this and centers.
-$layout-sidebar-width:          ($column * 3) + ($gutter * 2);
+$layout-sidebar-width:          ($column * 3) + ($gutter * 2); // 295px
 $layout-sidebar-width-reversed: 370px;
 
 $l-max-content-width:           820px;
