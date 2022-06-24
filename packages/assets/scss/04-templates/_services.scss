@@ -8,6 +8,8 @@
 
     @include page-width-full;
     
+    @include clearfix;
+    
     margin-bottom: 30px;
 
     @media ($bp-large-min) {
