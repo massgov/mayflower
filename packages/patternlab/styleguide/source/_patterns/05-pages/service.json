@@ -80,27 +80,6 @@
           }
         }
       ]
-    },
-    "keyActions": {
-      "compHeading": {
-        "title": "First time?",
-        "sub": true
-      },
-      "links": [
-        {
-          "image": "../../assets/images/placeholder/130x160.png",
-          "text": "Name of Optional Guide",
-          "href": "#",
-          "label": "Guide:"
-        },
-        {
-          "image": "",
-          "text": "Check eligibility",
-          "type": "",
-          "href": "#",
-          "label": ":"
-        }
-      ]
     }
   },
   "introSidebar": {

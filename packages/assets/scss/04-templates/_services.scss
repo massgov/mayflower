@@ -9,19 +9,13 @@
     @include page-width-full;
     
     @include clearfix;
-    
+
     margin-bottom: 30px;
 
     @media ($bp-large-min) {
 
       & > .ma__image:first-child {
         display: none;
-      }
-
-      .ma__video--right,
-      .ma__rich-text__container,
-      .ma__rich-text {
-        margin-top: 0;
       }
     }
   }
@@ -109,7 +103,7 @@
     }
   }
 
-  .main-content--full .page-content--intro {
+  .page-content--intro {
 
     .ma__video--right + .ma__teaser-text {
 
@@ -129,21 +123,6 @@
       @media ($bp-medium-min) {
         margin-left: 30px;
         margin-right: 30px;
-      }
-    }
-  }
-
-
-  .sidebar--intro {
-
-    & > .ma__image:first-child {
-
-      @media ($bp-large-max) {
-        display: none;
-
-        & + * {
-          margin-top: 0;
-        }
       }
     }
   }
