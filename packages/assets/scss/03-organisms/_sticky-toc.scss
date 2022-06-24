@@ -574,18 +574,20 @@
     display: block;
     content: '';
     margin-top: -63px;
-    height: 88px;
+    height: 83px;
     visibility: hidden;
     pointer-events: none;
 
     @media ($bp-header-toggle-min) {
-      margin-top: -55px;
-      height: 82px;
+      margin-top: -63px;
+      height: 88px;
     }
 
+    @media ($bp-large-extended-min) {
+      margin-top: -55px;
+      height: 83px;
+    }
   }
-
-
 }
 
 .ma__sticky-toc__overlay {
