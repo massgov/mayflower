@@ -19,6 +19,20 @@
       }
     }
 
+    & .ma__video {
+
+      max-width: 600px;
+
+      @media ($bp-small-min) {
+        width: 80%;
+      }
+  
+      @media ($bp-large-extended-min) {
+        width: 70%;
+      }
+  
+    }
+
     .ma__video--right + .ma__teaser-text {
 
       @media ($bp-page-width-min) {

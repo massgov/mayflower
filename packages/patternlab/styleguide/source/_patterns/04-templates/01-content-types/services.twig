@@ -23,20 +23,18 @@
 				{% set video = introPageContent.video %}
 				{% include "@atoms/09-media/video.twig" %}
 			{% endif %}
-
-			{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
-				{% if introPageContent.keyActions %}
-					{% set keyActions = introPageContent.keyActions %}
-					{% include "@organisms/by-author/key-actions.twig" %}
-				{% endif %}
-			{% endif %}
-
 		{% endblock %}
 	</div>
 	<div class="stacked-row-content">
 		<section class="ma__stacked-row__section">
 			<div class="main-content main-content--full">
 				<div class="page-content">
+					{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
+						{% if introPageContent.keyActions %}
+							{% set keyActions = introPageContent.keyActions %}
+							{% include "@organisms/by-author/key-actions.twig" %}
+						{% endif %}
+					{% endif %}
 					{% block pageContent %}
 						{% if doActionFinder %}
 							{% set actionFinder = doActionFinder.actionFinder %}
