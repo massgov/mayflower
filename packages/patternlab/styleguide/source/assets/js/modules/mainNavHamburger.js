@@ -1,3 +1,7 @@
+// TO DO:
+// - SET UP THE LAST ITEM IN THE TOP LEVEL
+
+
 import focusTrapping from "../helpers/focusTrapping.js";
 
 const osInfo = navigator.appVersion;
@@ -141,13 +145,51 @@ if (menuButton !== null) {
   });
 
 
-  // Arrow keyboard navigation in the menu.
+  // Arrow keyboard navigation in the top menu.
+  // js-main-nav-hamburger__top-link
+  // class="ma__main__hamburger-nav__itemhas-subnav js-main-nav-hamburger-toggle submenu-open"
+  let topmenuButtons = document.querySelectorAll(".js-main-nav-hamburger__top-link");
+  topmenuButtons.forEach(link => {
+    link.addEventListener("keydown", function(e) {
+      let targetParent = e.target.closest(".js-main-nav-hamburger-toggle");
+
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {
+        if(targetParent.nextElementSibling) {
+          // if (targetParent.nextElementSibling.querySelector("button")) {
+            targetParent.nextElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
+          // } else {
+          //   targetParent.nextElementSibling.querySelector("a").focus();
+          // }
+        }
+        else {
+          // Set focus on the first sibling top menu item button.
+          topmenuButtons[0].querySelector("button").focus();
+        }
+      }
+
+      if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {
+        if(targetParent.previousElementSibling) {
+          targetParent.previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
+        }
+        else {
+          // Set focus on the last sibling menu item button/link.
+          // could be a utility link
+
+          topmenuButtons[0].querySelector("button").focus();
+        }
+      }
+    });
+  });
+
+
+  // Arrow keyboard navigation in the sub menu.
   let submenuLinks = document.querySelectorAll(".js-main-nav-hamburger__link");
   submenuLinks.forEach(link => {
     link.addEventListener("keydown", function(e) {
       let targetParent = e.target.closest(".js-main-nav-hamburger__subitem");
 
-      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+      // if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {
         if(targetParent.nextElementSibling) {
           targetParent.nextElementSibling.querySelector("a").focus();
         }
@@ -157,7 +199,8 @@ if (menuButton !== null) {
         }
       }
 
-      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      // if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {
         if(targetParent.previousElementSibling) {
           targetParent.previousElementSibling.querySelector("a").focus();
         }
@@ -174,7 +217,8 @@ if (menuButton !== null) {
   narrowUtilContentLinks.forEach(function(link, i) {
 
     link.addEventListener("keydown", function(e) {
-      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+      // if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {
         if (e.target === narrowUtilContentLinks[i]) {
           if (e.target === narrowUtilContentLinks[lastIndex]) {
             i = 0;
@@ -200,7 +244,8 @@ if (menuButton !== null) {
         }
       }
 
-      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      // if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {
         if (e.target === narrowUtilContentLinks[i]) {
           if (e.target === narrowUtilContentLinks[0]) {
             i = lastIndex;
@@ -705,7 +750,8 @@ menuItems.forEach((item) => {
   });
 
   itemButton.addEventListener("keydown", function (e) {
-    if (e.code == "ArrowDown" || e.key == "ArrowDown") {
+    // if (e.code == "ArrowDown" || e.key == "ArrowDown") {
+    if (e.code == "ArrowRight" || e.key == "ArrowLeft") {
       let first = subItems.getElementsByTagName("li")[0];
       first.querySelector(".js-main-nav-hamburger__link").focus();
     }
