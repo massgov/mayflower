@@ -32,7 +32,7 @@
             {# This is temporary. We want to provide visual context for the COVID-19 menu link. #}
             {% set altClass = '' %}
             {% if 'covid' in nav.text|lower %}
-                {% set altClass = 'cv-alternate-style' %}
+                {% set altClass = ' cv-alternate-style' %}
             {% endif %}
             <a role="menuitem" href="{{ nav.href }}" class="ma__main__hamburger-nav__top-link {{ altClass }}">{{ nav.text
                 }}</a>
