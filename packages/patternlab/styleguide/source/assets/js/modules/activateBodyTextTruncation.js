@@ -6,7 +6,7 @@ import truncateBodyText from "../helpers/truncateBodyText";
  */
 
 export default (function (window,document,$) {
-  $('.ma__services .page-content--intro .ma__rich-text').each(function(i, el) {
+  $('.ma__services-flexible-link-groups .page-content--intro .ma__rich-text').each(function(i, el) {
     truncateBodyText($(el));
   });
 })(window,document,jQuery);
