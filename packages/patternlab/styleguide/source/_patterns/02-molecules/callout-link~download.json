@@ -1,10 +1,10 @@
 {
   "calloutLink": {
-    "linkTemplate": "download",
+    "download": false,
     "iconSize": "",
-    "icon": "doc-docx",
+    "icon": "doc-pdf",
     "size": "40kb",
-    "format": "DOCX",
+    "format": "PDF",
     "text": "Link to another page",
     "href": "#",
     "info": "Find out more about this thing on our blah page"
