@@ -53,6 +53,10 @@
         margin-right: 30px;
       }
     }
+
+    & > .ma__rich-text > p:last-child {
+      margin-bottom: 1.5rem !important;
+    }
   }
 
   .more-info-header {
