@@ -4,7 +4,7 @@
 
 <a href="{{ calloutLink.href }}"
 class="ma__callout-link {{calloutLinkTheme}} {{calloutLinkTemplate}}"
-{% if alloutLink.info %} title="{{ calloutLink.info }}"{% endif %}
+{% if calloutLink.info %} title="{{ calloutLink.info }}"{% endif %}
 target="">
   {% if calloutLink.eyebrow or calloutLink.time %}
   <div class="ma__callout-link__header">
