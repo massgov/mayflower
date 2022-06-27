@@ -31,5 +31,15 @@ calloutLink: {
   	type: string / optional
   time:
   	type: string / optional
+  download:
+    type: boolean / optional
+  iconSize: 
+    type: string ('' or 'small') / optional
+  icon: 
+    type: string (icon path) / optional
+  size: 
+    type: string (filesize) / optional
+  format:  
+    type: string (fileformat or 'form') / optional
 }
 ~~~

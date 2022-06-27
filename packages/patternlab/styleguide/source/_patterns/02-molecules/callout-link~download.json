@@ -1,7 +1,7 @@
 {
   "calloutLink": {
-    "download": false,
-    "iconSize": "",
+    "download": true,
+    "iconSize": "small",
     "icon": "doc-pdf",
     "size": "40kb",
     "format": "PDF",
