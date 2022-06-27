@@ -8,7 +8,7 @@ Description: This pattern shows a link styled as a card
 
 ### Variant options
 * With [description](./?p=molecules-callout-link-as-description) text.
-* With [Download link](./?p=molecules-callout-download-link).
+* With [Download link](./?p=molecules-callout-link-download).
 * With theme set to [white](./?p=molecules-callout-link-as-white)
 * With [details](./?p=molecules-callout-link-with-details) with the `theme` set to "white", and a string supplied to the eyebrow, details, and emphasized properties.
 
