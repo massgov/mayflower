@@ -1,0 +1,12 @@
+{
+  "calloutLink": {
+    "linkTemplate": "download",
+    "iconSize": "",
+    "icon": "doc-docx",
+    "size": "40kb",
+    "format": "DOCX",
+    "text": "Link to another page",
+    "href": "#",
+    "info": "Find out more about this thing on our blah page"
+  }
+}

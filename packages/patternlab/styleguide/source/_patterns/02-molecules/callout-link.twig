@@ -1,8 +1,9 @@
-{% set calloutLinkTheme = calloutLink.theme ? "ma__callout-link--" ~ calloutLink.theme : "" %}
+{% set calloutLinkTheme = calloutLink.theme ? " ma__callout-link--" ~ calloutLink.theme : "" %}
+{% set calloutLinkTemplate = calloutLink.linkTemplate ? " ma__callout-link--" ~ calloutLink.linkTemplate : "" %}
 
 {# <div > #}
   <a href="{{ calloutLink.href }}"
-  class="ma__callout-link {{calloutLinkTheme}}"
+  class="ma__callout-link {{calloutLinkTheme}} {{calloutLinkTemplate}}"
   {% if alloutLink.info %} title="{{ calloutLink.info }}"{% endif %}
   target="">
     {% if calloutLink.eyebrow or calloutLink.time %}
@@ -16,9 +17,28 @@
     </div>
    {% endif %}
       {% if calloutLink.text %}
+        {% if calloutLink.linkTemplate != "download" %}
     	<span class="ma__callout-link__container">
     		<span class="ma__callout-link__text" >{{ calloutLink.text }}&nbsp;{{ icon('arrow') }}</span>
     	</span>
+        {% else %}
+            {% set sizeClass = calloutLink.iconSize ? "ma__download-link--" ~ calloutLink.iconSize : "" %}
+            <div class="ma__download-link ma__callout-link__container {{ sizeClass }}">
+            {% if calloutLink.icon %}
+                <div class="ma__download-link__icon">
+                    {{ icon(calloutLink.icon) }}
+                </div>
+            {% endif %}
+            <span class="ma__download-link__file-link ma__callout-link__text">
+                    <span class="visually-hidden">Open {{ calloutLink.format }} file{% if calloutLink.size %}, {{ calloutLink.size }},{% endif %} for</span>
+                    {{ calloutLink.text }}
+                </span>
+            {% if calloutLink.format or calloutLink.size %}
+                <span class="ma__download-link__file-spec">({{ calloutLink.format }} {{ calloutLink.size }})</span>
+            {% endif %}
+                <span class="ma__callout-link__text">{{ icon('arrow') }}</span>
+            </div>
+        {% endif %}
       {% endif %}
     {% if calloutLink.emphasized %}
       <span class="ma__callout-link__emphasized">{{ calloutLink.emphasized }}</span>
