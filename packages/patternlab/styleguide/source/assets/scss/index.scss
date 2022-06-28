@@ -27,6 +27,7 @@
 @use "01-atoms/category-icon";
 @use "01-atoms/checklist";
 @use "01-atoms/colored-heading";
+@use "01-atoms/colored-heading-from-left";
 @use "01-atoms/column-heading";
 @use "01-atoms/content-link";
 @use "01-atoms/comp-heading";
@@ -197,6 +198,7 @@
 @use "03-organisms/rich-text";
 @use "03-organisms/search-banner";
 @use "03-organisms/sections-three-up";
+@use "03-organisms/callout-links-three-up";
 @use "03-organisms/short-description";
 @use "03-organisms/sidebar-promo";
 @use "03-organisms/sidebar-widget";
