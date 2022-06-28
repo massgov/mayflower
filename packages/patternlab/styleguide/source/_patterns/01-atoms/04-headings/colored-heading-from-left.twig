@@ -1,0 +1,15 @@
+{% set color_class =
+    coloredHeadingFromLeft.bgColor is empty ?
+      FALSE : "ma__colored-header-from-left--" ~ coloredHeadingFromLeft.bgColor
+%}
+
+{% set highlight_class = color_class ? '' : "ma__colored-header-from-left__title--highlighted" %}
+
+<header class="ma__colored-header-from-left {{ color_class }}">
+  <h2 class="ma__colored-header-from-left__title {{ highlight_class }}">
+    {{ coloredHeadingFromLeft.title }}
+  </h2>
+  {% if coloredHeadingFromLeft.titleContext %}
+    <span class="visually-hidden">{{ coloredHeadingFromLeft.titleContext }}</span>
+  {% endif %}
+</header>

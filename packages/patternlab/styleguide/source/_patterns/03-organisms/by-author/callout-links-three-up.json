@@ -1,0 +1,35 @@
+{
+  "calloutLinksThreeUp": {
+    "headingText": "The heading text",
+    "headingDescription": "Ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
+    "calloutLinks": [
+      {
+        "href": "/",
+        "text": "First link"
+      },
+      {
+        "href": "/",
+        "text": "Second Link"
+      },
+      {
+        "href": "/",
+        "text": "Third Link"
+      },
+      {
+        "href": "/",
+        "text": "4th Link",
+        "theme": "white"
+      },
+      {
+        "href": "/",
+        "text": "5th Link",
+        "theme": "white"
+      },
+      {
+        "href": "/",
+        "text": "6th Link",
+        "theme": "white"
+      }
+    ]
+  }
+}

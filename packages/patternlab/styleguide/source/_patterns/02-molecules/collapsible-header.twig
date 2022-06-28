@@ -1,3 +1,6 @@
+{% set headingLevel = collapsibleHeader.headingLevel|number_format ?: "2" %}
+{% set headingLevel = headingLevel in ["1", "2", "3", "4", "5", "6"] ? headingLevel : "2" %}
+
 <header class="ma__collapsible-header">
   <button
     class="ma__collapsible-header__button js-accordion-link"
@@ -7,6 +10,13 @@
         {{ icon(collapsibleHeader.icon) }}
       </div>
     {% endif %}
-    <h2 class="ma__collapsible-header__title">{{ collapsibleHeader.title }}</h2>
+    <h{{ headingLevel }} class="ma__collapsible-header__title">{{ collapsibleHeader.title }}</h{{ headingLevel }}>
+    {% if collapsibleHeader.description %}
+      <div class="ma__collapsible-header__description">
+        {% set paragraph = {"text": collapsibleHeader.description} %}
+        {% include "@atoms/11-text/paragraph.twig" %}
+      </div>
+    {% endif %}
+
   </button>
 </header>

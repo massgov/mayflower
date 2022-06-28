@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Services
+    description: Remove intro sidebar, fix layout classes, reduce spacing. (#1648)
+    issue: DP-25195
+    impact: Minor
