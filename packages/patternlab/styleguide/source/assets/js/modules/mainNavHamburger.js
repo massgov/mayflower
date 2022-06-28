@@ -35,6 +35,17 @@ const utilNavNarrowCheck = function() {
   return utilNarrowNav ? (utilNarrowNav.offsetWidth > 0 && utilNarrowNav.offsetHeight > 0) : false;
 };
 
+// Define all top level clickable elements with current window width.
+let topLevelClickableItems;
+window.addEventListener("DOMContentLoaded", function (e) {
+  setTimeout(function timeoutFunction() {// This prevents GT elements get null.
+    selectTopClickableItems(width);
+  }, 1000);
+});
+window.addEventListener("resize", function (e) {
+  selectTopClickableItems(body.clientWidth);
+});
+
 // Open and close the menu
 if (menuButton !== null) {
 
@@ -145,41 +156,37 @@ if (menuButton !== null) {
   });
 
 
-  // Arrow keyboard navigation in the top menu.
-  // js-main-nav-hamburger__top-link
-  // class="ma__main__hamburger-nav__itemhas-subnav js-main-nav-hamburger-toggle submenu-open"
-  let topmenuButtons = document.querySelectorAll(".js-main-nav-hamburger__top-link");
-  topmenuButtons.forEach(link => {
-    link.addEventListener("keydown", function(e) {
-      let targetParent = e.target.closest(".js-main-nav-hamburger-toggle");
+  // // Arrow keyboard navigation in the top level clickable elements.
 
-      if (e.key === "ArrowRight" || e.code === "ArrowRight") {
-        if(targetParent.nextElementSibling) {
-          // if (targetParent.nextElementSibling.querySelector("button")) {
-            targetParent.nextElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
-          // } else {
-          //   targetParent.nextElementSibling.querySelector("a").focus();
-          // }
-        }
-        else {
-          // Set focus on the first sibling top menu item button.
-          topmenuButtons[0].querySelector("button").focus();
-        }
-      }
+  // console.log(topLevelClickableItems);
 
-      if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {
-        if(targetParent.previousElementSibling) {
-          targetParent.previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
-        }
-        else {
-          // Set focus on the last sibling menu item button/link.
-          // could be a utility link
 
-          topmenuButtons[0].querySelector("button").focus();
-        }
-      }
-    });
-  });
+  // topLevelClickableItems.forEach(link => {
+  //   link.style.backgroundColor = "orange";
+  //   // console.log(link);
+
+  //   link.addEventListener("keydown", function(e) {
+  //     // let targetParent = e.target.closest(".js-main-nav-hamburger-toggle");
+
+  //     if (e.key === "ArrowRight" || e.code === "ArrowRight") {
+  //       let nextElementIndex = e.target.findIndex() + 1;
+  //       let nextElement = link[nextElementIndex];
+  //       nextElement.focus();
+  //     }
+
+  //     if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {
+  //       if(targetParent.previousElementSibling) {
+  //         targetParent.previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
+  //       }
+  //       else {
+  //         // Set focus on the last sibling menu item button/link.
+  //         // could be a utility link
+
+  //         topmenuButtons[0].querySelector("button").focus();
+  //       }
+  //     }
+  //   });
+  // });
 
 
   // Arrow keyboard navigation in the sub menu.
@@ -793,3 +800,47 @@ setTimeout(function timeoutFunction() {// This prevents GT elements get null.
     });
   }
 }, 1000);// When it's less than 1000, the iframe is null in full screen display.
+
+
+
+
+function selectTopClickableItems(windowWidth) {
+  topLevelClickableItems = "";
+  if (windowWidth > 840) {
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__main-nav .ma__main__hamburger-nav__top-link");
+  }
+  if (windowWidth < 841) {
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
+  }
+  if (windowWidth < 621) {// mobile
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
+  }
+
+  // Arrow keyboard navigation in the top level clickable elements.
+  let topItemCounts = topLevelClickableItems.length;
+  let lastTopItemIndex = topLevelClickableItems.length - 1;
+
+  topLevelClickableItems.forEach((link, index) => {
+    link.addEventListener("keydown", function(e) {
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {// forward
+        let targetIndex = index + 1;
+        let nextItem = topLevelClickableItems[targetIndex];
+        if (index === lastTopItemIndex) {
+          topLevelClickableItems[0].focus();
+        } else {
+          nextItem.focus();
+        }
+      }
+
+      if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {// backward
+        let targetIndex = index - 1;
+        let priorItem = topLevelClickableItems[targetIndex];
+        if (index === 0) {
+          topLevelClickableItems[lastTopItemIndex].focus();
+        } else {
+          priorItem.focus();
+        }
+      }
+    });
+  });
+}
