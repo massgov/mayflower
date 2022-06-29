@@ -130,6 +130,10 @@ body.show-menu {
         width: 100%;
       }
     }
+
+    #menuInfo {
+      display: none;
+    }
   }
 
   &__container {

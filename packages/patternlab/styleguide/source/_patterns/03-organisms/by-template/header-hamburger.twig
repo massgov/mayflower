@@ -17,6 +17,7 @@
         <button type="button"
                 aria-expanded="false"
                 aria-label="Open the main menu for mass.gov"
+                aria-describedby="menuInfo"
                 class="ma__header__hamburger__menu-button js-header-menu-button">
           <span class="ma__header__hamburger__menu-icon"></span>
           {# Visible menu label is managed with CSS.  The button has aria-label and the button label via aria-label is visible to screen reader users. #}
@@ -30,6 +31,9 @@
             Close
           </span>
         </button>
+        <div id="menuInfo" aria-hidden="true">
+          <p>In the menu, hitting escape on top menu items closes the main navigation menu.</p>
+        </div>
         {# Skip button to search. #}
         <button type="button"
                 aria-expanded="false"
