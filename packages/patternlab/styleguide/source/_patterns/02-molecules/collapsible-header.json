@@ -2,6 +2,7 @@
   "collapsibleHeader": {
     "info": "Click here to read more about this thing",
     "title": "Collapsible Header",
+    "description": "A description below the title.",
     "icon": "circle-chevron"
   }
 }

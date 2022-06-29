@@ -12,7 +12,8 @@
     "items": [{
       "expanded": true,
       "collapsibleHeader": {
-        "title": "MassHealth Publications and Other Resources"
+        "title": "MassHealth Publications and Other Resources",
+        "description": "A short description for this item in particular."
       },
       "more": null,
       "includes": [{

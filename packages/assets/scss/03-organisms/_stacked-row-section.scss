@@ -31,11 +31,6 @@
       @include ma-component-spacing;
     }
 
-    & .ma__social-links-bar > .main-content {
-      // override default .main-content bottom spacing
-      margin-bottom: 0px;
-    }
-
   }
 
   &__container {

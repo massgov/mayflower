@@ -1,0 +1,6 @@
+Added: 
+  - project: Patternlab
+    component: CalloutLink
+    description: Added download variant. (#1649)
+    issue: DP-25227
+    impact: Minor
