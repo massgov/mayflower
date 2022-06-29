@@ -1,7 +1,3 @@
-// TO DO:
-// - SET UP THE LAST ITEM IN THE TOP LEVEL
-
-
 import focusTrapping from "../helpers/focusTrapping.js";
 
 const osInfo = navigator.appVersion;
@@ -157,10 +153,6 @@ if (menuButton !== null) {
 
 
   // // Arrow keyboard navigation in the top level clickable elements.
-
-  // console.log(topLevelClickableItems);
-
-
   // topLevelClickableItems.forEach(link => {
   //   link.style.backgroundColor = "orange";
   //   // console.log(link);
@@ -591,44 +583,62 @@ if (utilNarrowButton !== null) {
   utilNarrowContent.style.maxHeight = "0";
   utilNarrowContainer.style.opacity = "0";
 
-  utilNarrowButton.addEventListener("click", function(e) {
+  ["click", "keyup"].forEach(function(e) {
+    utilNarrowButton.addEventListener(e, function(e) {
+      const thisButton = e.target.closest(".js-util-nav-toggle");
+      const thisNavContainer = e.target.closest(".ma__utility-nav__item");
+      utilNarrowContent = thisButton.nextElementSibling;
 
-    const thisButton = e.target.closest(".js-util-nav-toggle");
-    const thisNavContainer = e.target.closest(".ma__utility-nav__item");
-    utilNarrowContent = thisButton.nextElementSibling;
+      if (utilNarrowContent.classList.contains("is-closed")) {
+        if (e.type === "click" || e.key === "ArrowDown" || e.key === "ArrowUp") {
+        // TO OPEN
 
-    if (utilNarrowContent.classList.contains("is-closed")) {
-      // TO OPEN
+        closeSubMenu();
 
-      closeSubMenu();
+        thisButton.setAttribute("aria-expanded", "true");
+        utilNarrowContent.removeAttribute("aria-hidden");
+        thisNavContainer.style.pointerEvents = "none";
+        /** Slide down. */
+          thisNavContainer.removeAttribute("style");
 
-      thisButton.setAttribute("aria-expanded", "true");
-      utilNarrowContent.removeAttribute("aria-hidden");
-      thisNavContainer.style.pointerEvents = "none";
-      /** Slide down. */
-        thisNavContainer.removeAttribute("style");
+        /** Show the content. */
+        utilNarrowContent.classList.remove("is-closed");
+        utilNarrowContent.style.maxHeight = "auto";
 
-      /** Show the content. */
-      utilNarrowContent.classList.remove("is-closed");
-      utilNarrowContent.style.maxHeight = "auto";
+        /** Get the computed height of the content. */
+        var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
 
-      /** Get the computed height of the content. */
-      var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
+        /** Set the height of the submenu as 0px, */
+        /** so we can trigger the slide down animation. */
+        utilNarrowContent.style.maxHeight = "0";
+        utilNarrowContent.style.Height = "0";
 
-      /** Set the height of the submenu as 0px, */
-      /** so we can trigger the slide down animation. */
-      utilNarrowContent.style.maxHeight = "0";
-      utilNarrowContent.style.Height = "0";
+        // These height settings display the bottom border of the parent li at the correct spot.
+        utilNarrowContent.style.height = contentHeight;
+        utilNarrowContainer.style.height = contentHeight;
 
-      // These height settings display the bottom border of the parent li at the correct spot.
-      utilNarrowContent.style.height = contentHeight;
-      utilNarrowContainer.style.height = contentHeight;
+          utilNarrowContent.style.maxHeight = contentHeight;
+          utilNarrowContainer.style.opacity = "1";
+        }
+      } else {
+        if (e.type === "click") {
+          closeNarrowUtilContent();
+        }
+      }
 
-        utilNarrowContent.style.maxHeight = contentHeight;
-        utilNarrowContainer.style.opacity = "1";
-    } else {
-      closeNarrowUtilContent();
-    }
+      if (e.type === "keyup") {
+        let clickableItems = thisNavContainer.querySelectorAll(".js-util-nav-content a, .js-util-nav-content button");
+
+        if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+          clickableItems[1].focus(); // the first itme is close button.
+        }
+
+        if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+          let lastItemIndex = clickableItems.length - 1;
+          clickableItems[lastItemIndex].focus();
+        }
+      }
+    }, false);
   });
 }
 
@@ -692,7 +702,27 @@ menuItems.forEach((item) => {
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
   subItems.style.opacity = "0";
   itemButton.addEventListener("click", (e) => {
+    expandSubMenuContainer();
+  });
 
+  itemButton.addEventListener("keydown", function (e) {
+    if (e.code == "ArrowRight" || e.key == "ArrowLeft") {
+      let first = subItems.getElementsByTagName("li")[0];
+      first.querySelector(".js-main-nav-hamburger__link").focus();
+    }
+
+    if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+      expandSubMenuContainer();
+      e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
+    }
+
+    if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      expandSubMenuContainer();
+      e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:last-child .js-main-nav-hamburger__link").focus();
+    }
+  });
+
+  function expandSubMenuContainer() {
     anotherCloseSubMenus(item);
 
     if (item.classList.contains("submenu-open")) {
@@ -701,9 +731,9 @@ menuItems.forEach((item) => {
       item.style.pointerEvents = "none";
 
       setTimeout(function timeoutFunction() {
-         //item.style.height = "0";
-         //item.style.opacity = "0";
-         item.removeAttribute("style");
+          //item.style.height = "0";
+          //item.style.opacity = "0";
+          item.removeAttribute("style");
       }, 700);
     } else {
       item.classList.add("submenu-open");
@@ -753,18 +783,52 @@ menuItems.forEach((item) => {
 
       }, 500);
     }
-
-  });
-
-  itemButton.addEventListener("keydown", function (e) {
-    // if (e.code == "ArrowDown" || e.key == "ArrowDown") {
-    if (e.code == "ArrowRight" || e.key == "ArrowLeft") {
-      let first = subItems.getElementsByTagName("li")[0];
-      first.querySelector(".js-main-nav-hamburger__link").focus();
-    }
-  });
+  }
 
 });
+
+
+
+function selectTopClickableItems(windowWidth) {
+  topLevelClickableItems = "";
+  if (windowWidth > 840) {
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__main-nav .ma__main__hamburger-nav__top-link");
+  }
+  if (windowWidth < 841) {
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
+  }
+  if (windowWidth < 621) {// mobile
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
+  }
+
+  // Arrow keyboard navigation in the top level clickable elements.
+  let lastTopItemIndex = topLevelClickableItems.length - 1;
+
+  topLevelClickableItems.forEach((link, index) => {
+    link.addEventListener("keydown", function(e) {
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {// forward
+        let targetIndex = index + 1;
+        let nextItem = topLevelClickableItems[targetIndex];
+        if (index === lastTopItemIndex) {
+          topLevelClickableItems[0].focus();
+        } else {
+          nextItem.focus();
+        }
+      }
+
+      if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {// backward
+        let targetIndex = index - 1;
+        let priorItem = topLevelClickableItems[targetIndex];
+        if (index === 0) {
+          topLevelClickableItems[lastTopItemIndex].focus();
+        } else {
+          priorItem.focus();
+        }
+      }
+    });
+  });
+}
+
 
 
 // Keyboard navigation with Google Translate widget
@@ -800,47 +864,3 @@ setTimeout(function timeoutFunction() {// This prevents GT elements get null.
     });
   }
 }, 1000);// When it's less than 1000, the iframe is null in full screen display.
-
-
-
-
-function selectTopClickableItems(windowWidth) {
-  topLevelClickableItems = "";
-  if (windowWidth > 840) {
-    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__main-nav .ma__main__hamburger-nav__top-link");
-  }
-  if (windowWidth < 841) {
-    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
-  }
-  if (windowWidth < 621) {// mobile
-    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
-  }
-
-  // Arrow keyboard navigation in the top level clickable elements.
-  let topItemCounts = topLevelClickableItems.length;
-  let lastTopItemIndex = topLevelClickableItems.length - 1;
-
-  topLevelClickableItems.forEach((link, index) => {
-    link.addEventListener("keydown", function(e) {
-      if (e.key === "ArrowRight" || e.code === "ArrowRight") {// forward
-        let targetIndex = index + 1;
-        let nextItem = topLevelClickableItems[targetIndex];
-        if (index === lastTopItemIndex) {
-          topLevelClickableItems[0].focus();
-        } else {
-          nextItem.focus();
-        }
-      }
-
-      if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {// backward
-        let targetIndex = index - 1;
-        let priorItem = topLevelClickableItems[targetIndex];
-        if (index === 0) {
-          topLevelClickableItems[lastTopItemIndex].focus();
-        } else {
-          priorItem.focus();
-        }
-      }
-    });
-  });
-}
