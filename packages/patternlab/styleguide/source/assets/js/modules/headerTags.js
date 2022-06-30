@@ -1,8 +1,6 @@
 export default (function (window, document, $, undefined) {
   "use strict";
 
-  let $relationshipIndicators = $(".ma__relationship-indicators");
-
   $(".js-header-tag-link").each(function (index) {
 
     let $el = $(this),
@@ -77,6 +75,7 @@ export default (function (window, document, $, undefined) {
         ariaToggle($hiddenTags);
         $button.attr("aria-controls", hiddenIds);
       }
+
       // Updates button text.
       let tagCount = $hiddenTags.length;
       let $tagState = $button.find(".tag-state");
@@ -93,13 +92,17 @@ export default (function (window, document, $, undefined) {
       // Use hidden tags to populate button label.
       $buttonCounter.text(tagCount);
 
-      $button.on("click", function () {
-        let $tagStateText = $tagState.text();
+      // Class headerTagClickEvent is a flag to avoid attaching this event
+      // multiple times when the window is resized.
+      $button.not('.headerTagClickEvent').addClass('headerTagClickEvent').on("click", function () {
 
-        // Open hidden tags.
-        $tagWrapper.parent().toggleClass("tags-open");
-        $button.toggleClass("is-open");
-        $hiddenTags.toggle();
+        const hiddenItems = $('.ma__relationship-indicators--term', $tagWrapper).not(':visible');
+        const hiddenItemsCount = hiddenItems.length;
+        const hiddenItemsToggle = hiddenItemsCount > 0;
+        const $tagStateText = hiddenItemsToggle ? "less" : "more";
+        $tagWrapper.parent().toggleClass("tags-open", hiddenItemsToggle);
+        $button.toggleClass("is-open", hiddenItemsToggle);
+        $hiddenTags.toggle(hiddenItemsToggle);
 
         // Aria handling.
         ariaToggle($hiddenTags);
@@ -107,8 +110,7 @@ export default (function (window, document, $, undefined) {
         $button.attr("aria-expanded", function (_, attr) {return !(attr == "true");});
 
         // Change button text.
-        $tagState.text($tagStateText === "fewer" ? "more" : "fewer");
-
+        $tagState.text($tagStateText);
       });
     });
   }
@@ -121,23 +123,25 @@ export default (function (window, document, $, undefined) {
     }
   }
 
-  $(window).resize(function () {
+  // To debounce function calls.
+  // @see https://www.freecodecamp.org/news/javascript-debounce-example/
+  function debounce(func, timeout = 300){
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+  }
+
+  // What we do when viewport is resized.
+  function resizeResponse() {
     let windowWidth = $(window).width();
+    groupIndicators(windowWidth < 910 ? 0 : null);
+    // To update the show # more/less button.
+    $('.ma__relationship-indicators--terms .js-relationship-indicator-button').click();
+  }
 
-    setTimeout(function () {
-      // Reset the button visibility.
-      if (windowWidth < 910 && !$relationshipIndicators.hasClass("ma__relationship-indicators--mobile")) {
-        $relationshipIndicators.addClass("ma__relationship-indicators--mobile");
-        $relationshipIndicators.removeClass("ma__relationship-indicators--desktop");
-        groupIndicators(0);
-      } else if (windowWidth >= 910 && !$relationshipIndicators.hasClass("ma__relationship-indicators--desktop")) {
-        $relationshipIndicators.removeClass("ma__relationship-indicators--mobile");
-        $relationshipIndicators.addClass("ma__relationship-indicators--desktop");
-        groupIndicators();
-      }
-
-    }, 50);
-
-  }).resize();
+  // Resize events must have a debounced function.
+  $(window).resize(debounce(resizeResponse)).resize();
 
 })(window, document, jQuery);
