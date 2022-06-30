@@ -142,6 +142,10 @@ export default (function (window, document, $, undefined) {
   }
 
   // Resize events must have a debounced function.
-  $(window).resize(debounce(resizeResponse)).resize();
+  $(window).resize(debounce(resizeResponse));
+
+  // Initialize state for the relationship indicators.
+  resizeResponse();
+  $('.ma__relationship-indicators--terms .js-relationship-indicator-button').click();
 
 })(window, document, jQuery);
