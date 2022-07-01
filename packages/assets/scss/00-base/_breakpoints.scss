@@ -17,8 +17,8 @@ $bp-medium-min:             "min-width: " + ($bp-m + 1) !default;
 $bp-medium-max:             "max-width:"  +  $bp-m !default;
 $bp-large-min:              "min-width: " + ($bp-l + 1) !default;
 $bp-large-max:              "max-width:"  +  $bp-l !default;
-$bp-large-extended:         "max-width:"  +  $bp-l-ex !default;
 $bp-large-extended-min:     "min-width: " + ($bp-l-ex + 1) !default;
+$bp-large-extended:         "max-width:"  +  $bp-l-ex !default;
 $bp-x-large-min:            "min-width: " + ($bp-xl + 1) !default;
 $bp-x-large-max:            "max-width:"  +  $bp-xl !default;
 
