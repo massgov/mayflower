@@ -34,22 +34,18 @@ export default (function (window, document, $, undefined) {
         $buttonCounter.text(hiddenCount);
         // hide items
         $hiddenItems.hide();
-        // $hiddenItems.each((itemIndex) => {
-        //   $(this).hide();
-        //   let $hiddenTagItem = $(this);
-        //   let itemId = groupId + itemIndex;
-        //   $hiddenTagItem.attr("id", itemId);
-        //   hiddenIds += itemId + " ";
-        // });
+
+        // Screen reader 
+        $hiddenItems.each(function (itemIndex) {
+          let $hiddenTagItem = $(this);
+          let itemId = groupId + itemIndex;
+          $hiddenTagItem.attr("id", itemId);
+          hiddenIds += itemId + " ";
+        });
+
+        $button.attr("aria-controls", hiddenIds);
 
         console.log($hiddenItems)
-
-
-      
-
-        // Aria handling.
-        // ariaToggle($hiddenItems);
-        // $button.attr("aria-controls", hiddenIds);
 
     
         // Class headerTagClickEvent is a flag to avoid attaching this event
