@@ -6,27 +6,25 @@ export default (function (window, document, $, undefined) {
    * @param groupAfter optional, if it's not specified it will look at data-group-after on the section group.
    *
    */
-  function groupIndicators(groupAfter = null) {
-    // There could be more than one relation ship indicators component in the page.
+  function groupIndicators(groupAfter) {
+    console.log(groupAfter)
+    // There could be more than one relationship indicators component in the page.
     $(".ma__relationship-indicators--terms").each(function (index) {
       let $tagWrapper = $(this);
       let $button = $tagWrapper.find(".js-relationship-indicator-button");
       let $buttonCounter = $button.find(".tag-count");
       let $hiddenTags = $tagWrapper.find(".js-term[hidden]");
       let hiddenIds = "";
-      let groupId = "ma-rig" + index;
+      let groupId = "ma-ri_" + index;
 
       // Start by making visible all the relationship indicators.
-      $hiddenTags.show();
-      $hiddenTags.removeAttr("hidden");
+      // $hiddenTags.show();
+      // $hiddenTags.removeAttr("hidden");
 
-      // Determines the folding number of items, either as a parameter or and attribute.
-      let $group = $(".ma__relationship-indicators--section-group");
-      groupAfter = (groupAfter != null) ? groupAfter : parseInt($group.data("group-after")) - 1;
+
       // Hide tags.
       if ($group.length && !$hiddenTags.length) {
         $hiddenTags = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
-        $hiddenTags.addClass("ma__relationship-indicators--term--fold");
         $hiddenTags.hide();
 
         // Generate ids for hidden items.
@@ -49,10 +47,8 @@ export default (function (window, document, $, undefined) {
       // If hidden tags exist, show button.
       if (tagCount) {
         $button.show();
-        $tagWrapper.removeClass('ma__relationship-indicators--terms--without-fold');
       } else {
         $button.hide();
-        $tagWrapper.addClass('ma__relationship-indicators--terms--without-fold');
       }
 
       // Use hidden tags to populate button label.
@@ -60,7 +56,7 @@ export default (function (window, document, $, undefined) {
 
       // Class headerTagClickEvent is a flag to avoid attaching this event
       // multiple times when the window is resized.
-      $button.not('.headerTagClickEvent').addClass('headerTagClickEvent').on("click", function () {
+      $button.on("click", function () {
 
         const hiddenItems = $('.ma__relationship-indicators--term', $tagWrapper).not(':visible');
         const hiddenItemsCount = hiddenItems.length;
@@ -99,16 +95,21 @@ export default (function (window, document, $, undefined) {
     };
   }
 
+  // Determines the folding number of items, either by the parameter or by the data attribute.
+  let $group = $(".ma__relationship-indicators--section-group");
+  var groupAfter = parseInt($group.data("group-after")) - 1 || 3;
+
   // What we do when viewport is resized.
   function resizeResponse() {
     let windowWidth = $(window).width();
-    groupIndicators(windowWidth < 910 ? 0 : null);
+    groupIndicators(windowWidth < 910 ? 0 : groupAfter);
   }
 
-  // Resize events must have a debounced function.
-  $(window).resize(debounce(resizeResponse, 50));
 
   // Initialize state for the relationship indicators.
   resizeResponse();
+
+  // Resize events must have a debounced function.
+  $(window).resize(debounce(resizeResponse, 50));
 
 })(window, document, jQuery);
