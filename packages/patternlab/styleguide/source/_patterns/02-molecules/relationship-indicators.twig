@@ -27,7 +27,7 @@
 
       <div class="ma__relationship-indicators--section {{ (relationshipIndicators.primary ? ' secondary'  : ' single') ~ ' ' ~ groupClass }}" {{ groupByData }}>
         <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
-          <li class="ma__relationship-indicators__heading ma__relationship-indicators--term">
+          <li class="ma__relationship-indicators__heading">
             {% if relationshipIndicators.secondary.icon %}
               <span class="ma__relationship-indicators--icon">{{ icon(relationshipIndicators.secondary.icon) }}</span>
             {% endif %}
