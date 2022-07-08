@@ -19,6 +19,9 @@ export default (function (window, document, $, undefined) {
       console.log(totalCount)
       console.log(groupAfter)
 
+      $button.hide();
+      $items.show();
+
       // render toggle button
       if (hiddenCount > 0) {
         let hiddenIds = "";
