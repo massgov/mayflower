@@ -16,8 +16,6 @@ export default (function (window, document, $, undefined) {
       let $items = $tagWrapper.find("li.js-term")
       let totalCount = $items.length;
       let hiddenCount = totalCount - (groupAfter + 1);
-      console.log(totalCount)
-      console.log(groupAfter)
 
       $button.hide();
       $items.show();
@@ -27,8 +25,8 @@ export default (function (window, document, $, undefined) {
         let hiddenIds = "";
         let groupId = "ma-ri_" + index;
         let $buttonCounter = $button.find(".tag-count");
-        let $tagState = $button.find(".tag-state");
-        let $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
+        let $buttonState = $button.find(".tag-state");
+        var $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
         // Use hidden tags to populate button label.
         $button.show();
         $buttonCounter.text(hiddenCount);
@@ -45,29 +43,33 @@ export default (function (window, document, $, undefined) {
 
         $button.attr("aria-controls", hiddenIds);
 
-        console.log($hiddenItems)
+
 
     
-        // Class headerTagClickEvent is a flag to avoid attaching this event
-        // multiple times when the window is resized.
-        // $button.on("click", function () {
+        let expanded = false;
 
-        //   const hiddenItems = $('.ma__relationship-indicators--term', $tagWrapper).not(':visible');
-        //   const hiddenItemsCount = hiddenItems.length;
-        //   const hiddenItemsToggle = hiddenItemsCount > 0;
-        //   const $tagStateText = hiddenItemsToggle ? "less" : "more";
-        //   $tagWrapper.parent().toggleClass("tags-open", hiddenItemsToggle);
-        //   $button.toggleClass("is-open", hiddenItemsToggle);
-        //   $hiddenItems.toggle(hiddenItemsToggle);
+        $button.on("click", function () {
+          expanded = !expanded;
 
-        //   // Aria handling.
-        //   ariaToggle($hiddenItems);
-        //   $button.attr("aria-pressed", function (_, attr) {return !(attr == "true");});
-        //   $button.attr("aria-expanded", function (_, attr) {return !(attr == "true");});
+          if (expanded) {
+            console.log($hiddenItems)
+            $items.show();
+            $buttonState.text("less");
+            $(this).attr("aria-pressed", true);
+            $(this).attr("aria-expanded", true);
+          } else {
+            $hiddenItems.hide();
+            $buttonState.text("more");
+            $(this).attr("aria-pressed", false);
+            $(this).attr("aria-expanded", false);
+          }
+          $(this).toggleClass("is-open");
+          // $tagWrapper.parent().toggleClass("tags-open", hiddenItemsToggle);
 
-        //   // Change button text.
-        //   $tagState.text($tagStateText);
-        // });
+          // Aria handling.
+          // ariaToggle($hiddenItems);
+        });
+      
       // don't render toggle button
       } else {
         $button.hide();
