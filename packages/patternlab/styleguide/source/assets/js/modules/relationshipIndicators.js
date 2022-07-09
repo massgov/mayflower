@@ -8,6 +8,7 @@ export default (function (window, document, $, undefined) {
    */
 
   function groupIndicators(groupAfter) {
+    console.log("triggered!!!")
 
     // There could be more than one relationship indicators component in the page.
     $(".ma__relationship-indicators--terms").each(function (index) {
@@ -16,6 +17,8 @@ export default (function (window, document, $, undefined) {
       let $items = $tagWrapper.find("li.js-term")
       let totalCount = $items.length;
       let hiddenCount = totalCount - (groupAfter + 1);
+
+      console.log(hiddenCount)
 
       $button.hide();
       $items.show();
@@ -37,17 +40,15 @@ export default (function (window, document, $, undefined) {
         $hiddenItems.each(function (itemIndex) {
           let $hiddenTagItem = $(this);
           let itemId = groupId + itemIndex;
+          $hiddenTagItem
           $hiddenTagItem.attr("id", itemId);
           hiddenIds += itemId + " ";
         });
 
         $button.attr("aria-controls", hiddenIds);
 
-
-
     
         let expanded = false;
-
         $button.on("click", function () {
           expanded = !expanded;
 
@@ -57,14 +58,14 @@ export default (function (window, document, $, undefined) {
             $buttonState.text("less");
             $(this).attr("aria-pressed", true);
             $(this).attr("aria-expanded", true);
+            $(this).addClass("is-open")
           } else {
             $hiddenItems.hide();
             $buttonState.text("more");
             $(this).attr("aria-pressed", false);
             $(this).attr("aria-expanded", false);
+            $(this).removeClass("is-open")
           }
-          $(this).toggleClass("is-open");
-          // $tagWrapper.parent().toggleClass("tags-open", hiddenItemsToggle);
 
           // Aria handling.
           // ariaToggle($hiddenItems);
@@ -99,19 +100,28 @@ export default (function (window, document, $, undefined) {
     };
   }
 
+  var breakpoint = 910;
+  var initialDiff = ($(window).width() - breakpoint) ? 1 : -1;
+
   // Determines the folding number of items, either by the parameter or by the data attribute.
   let $group = $(".ma__relationship-indicators--section-group");
   var $groupAfter = parseInt($group.data("group-after")) - 1 || 3;
 
   // What we do when viewport is resized.
   function resizeResponse() {
-    let windowWidth = $(window).width();
-    groupIndicators(windowWidth < 910 ? 0 : $groupAfter);
+    let w = $(window).width();
+    let currentDiff = w - breakpoint;
+
+    // only trigger groupIndicators when window size crosses the breakpoint.
+    if(currentDiff*initialDiff < 0) {
+      initialDiff = currentDiff;
+      groupIndicators(w < breakpoint ? 0 : $groupAfter);
+    }
   }
 
 
   // Initialize state for the relationship indicators.
-  resizeResponse();
+  groupIndicators(initialDiff < 0 ? 0 : $groupAfter);
 
   // Resize events must have a debounced function.
   $(window).resize(debounce(resizeResponse, 50));
