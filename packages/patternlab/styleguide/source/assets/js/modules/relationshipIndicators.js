@@ -21,8 +21,8 @@ export default (function (window, document, $, undefined) {
       $button.hide();
       $items.show();
 
-      // render toggle button
       if (hiddenCount > 0) {
+        // Render toggle button
         let hiddenIds = "";
         let groupId = "ma-ri_" + index;
         let $buttonCounter = $button.find(".tag-count");
@@ -46,13 +46,15 @@ export default (function (window, document, $, undefined) {
           }
         }
 
-        // Use hidden tags to populate button label.
+        /* when groupIndicators is triggered on responsive (screensize crosses the threshhold) and meets the collapse items conditions
+         ** Show toggle button, update hidden count in button label 
+         ** Reset toggle button state and items display
+        */
         $button.show();
         $buttonCounter.text(hiddenCount);
-        // hide items
-        $hiddenItems.hide();
+        toggleButton(expanded);
 
-        // Screen reader 
+        // Set aria-controls
         $hiddenItems.each(function (itemIndex) {
           let $hiddenTagItem = $(this);
           let itemId = groupId + itemIndex;
@@ -63,32 +65,20 @@ export default (function (window, document, $, undefined) {
 
         $button.attr("aria-controls", hiddenIds);
 
+        // toggle button onclick callback
         $button.on("click", function () {
           expanded = !expanded;
-
           toggleButton(expanded);
-
-          // Aria handling.
-          // ariaToggle($hiddenItems);
         });
-
-        toggleButton(expanded);
-      
-      // don't render toggle button
+  
       } else {
+        // Don't render toggle button
         $button.hide();
         $items.show();
       }
     });
   }
 
-  // function ariaToggle($hiddenItems) {
-  //   if ($hiddenItems.attr("hidden")) {
-  //     $hiddenItems.removeAttr("hidden");
-  //   } else {
-  //     $hiddenItems.attr("hidden", "");
-  //   }
-  // }
 
   // To debounce function calls.
   // @see https://www.freecodecamp.org/news/javascript-debounce-example/
