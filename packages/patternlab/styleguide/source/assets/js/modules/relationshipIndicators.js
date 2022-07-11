@@ -72,13 +72,16 @@ export default (function (window, document, $, undefined) {
           expanded = !expanded;
           toggleButton(expanded);
         });
-  
+
+        // add back | separator for the last item
+        $lastItem.removeClass('no-fold');
       } else {
         // Don't render toggle button
         $button.hide();
         $items.show();
+        // remove | separator for the last item
         $lastItem.addClass('no-fold');
-      }
+       }
     });
   }
 
