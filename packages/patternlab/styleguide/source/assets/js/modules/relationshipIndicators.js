@@ -18,8 +18,6 @@ export default (function (window, document, $, undefined) {
       let totalCount = $items.length;
       let hiddenCount = totalCount - (groupAfter + 1);
 
-      console.log(hiddenCount)
-
       $button.hide();
       $items.show();
 
@@ -30,6 +28,25 @@ export default (function (window, document, $, undefined) {
         let $buttonCounter = $button.find(".tag-count");
         let $buttonState = $button.find(".tag-state");
         var $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
+        let expanded = false;
+
+        function toggleButton(buttonState) {
+          console.log('expanded: ' + buttonState)
+          if (buttonState) {
+            $items.show();
+            $buttonState.text("less");
+            $button.attr("aria-pressed", true);
+            $button.attr("aria-expanded", true);
+            $button.addClass("is-open")
+          } else {
+            $hiddenItems.hide();
+            $buttonState.text("more");
+            $button.attr("aria-pressed", false);
+            $button.attr("aria-expanded", false);
+            $button.removeClass("is-open")
+          }
+        }
+
         // Use hidden tags to populate button label.
         $button.show();
         $buttonCounter.text(hiddenCount);
@@ -47,29 +64,16 @@ export default (function (window, document, $, undefined) {
 
         $button.attr("aria-controls", hiddenIds);
 
-    
-        let expanded = false;
         $button.on("click", function () {
           expanded = !expanded;
 
-          if (expanded) {
-            console.log($hiddenItems)
-            $items.show();
-            $buttonState.text("less");
-            $(this).attr("aria-pressed", true);
-            $(this).attr("aria-expanded", true);
-            $(this).addClass("is-open")
-          } else {
-            $hiddenItems.hide();
-            $buttonState.text("more");
-            $(this).attr("aria-pressed", false);
-            $(this).attr("aria-expanded", false);
-            $(this).removeClass("is-open")
-          }
+          toggleButton(expanded);
 
           // Aria handling.
           // ariaToggle($hiddenItems);
         });
+
+        toggleButton(expanded);
       
       // don't render toggle button
       } else {
