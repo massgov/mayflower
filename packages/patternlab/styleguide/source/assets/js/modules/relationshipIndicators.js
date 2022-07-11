@@ -46,9 +46,10 @@ export default (function (window, document, $, undefined) {
           }
         }
 
-        /* when groupIndicators is triggered on responsive (screensize crosses the threshhold) and meets the collapse items conditions
-         ** Show toggle button, update hidden count in button label 
-         ** Reset toggle button state and items display
+        /** Button toggle logic
+         * when groupIndicators is triggered on responsive (screensize crosses the threshhold) and meets the folding conditions
+         * Show toggle button, update hidden count in button label 
+         * Reset toggle button state and items display
         */
         $button.show();
         $buttonCounter.text(hiddenCount);
@@ -79,6 +80,32 @@ export default (function (window, document, $, undefined) {
     });
   }
 
+  /** Window resize logic
+   * Above breakpoint (desktop): fold after the 3 items by default, if a groupAfter number, fold items after that number.
+   * Below breakpoint (mobile): fold after the first item
+   * Update the groupIndicators logic whenever the screensize crosses the breakpoint
+   */
+
+  // Determines the folding number of items, either by the parameter or by the data attribute.
+  let $group = $(".ma__relationship-indicators--section-group");
+  var $groupAfter = parseInt($group.data("group-after")) - 1 || 3;
+  var breakpoint = 910;
+  var initialDiff = ($(window).width() - breakpoint) ? 1 : -1;
+
+  // What we do when viewport is resized.
+  function resizeResponse() {
+    let w = $(window).width();
+    let currentDiff = w - breakpoint;
+
+    // only trigger groupIndicators when window size crosses the breakpoint.
+    if(currentDiff*initialDiff < 0) {
+      groupIndicators(w < breakpoint ? 0 : $groupAfter);
+      initialDiff = currentDiff;
+    }
+  }
+
+  // Initialize state for the relationship indicators.
+  groupIndicators(initialDiff < 0 ? 0 : $groupAfter);
 
   // To debounce function calls.
   // @see https://www.freecodecamp.org/news/javascript-debounce-example/
@@ -89,29 +116,6 @@ export default (function (window, document, $, undefined) {
       timer = setTimeout(() => { func.apply(this, args); }, timeout);
     };
   }
-
-  var breakpoint = 910;
-  var initialDiff = ($(window).width() - breakpoint) ? 1 : -1;
-
-  // Determines the folding number of items, either by the parameter or by the data attribute.
-  let $group = $(".ma__relationship-indicators--section-group");
-  var $groupAfter = parseInt($group.data("group-after")) - 1 || 3;
-
-  // What we do when viewport is resized.
-  function resizeResponse() {
-    let w = $(window).width();
-    let currentDiff = w - breakpoint;
-
-    // only trigger groupIndicators when window size crosses the breakpoint.
-    if(currentDiff*initialDiff < 0) {
-      initialDiff = currentDiff;
-      groupIndicators(w < breakpoint ? 0 : $groupAfter);
-    }
-  }
-
-
-  // Initialize state for the relationship indicators.
-  groupIndicators(initialDiff < 0 ? 0 : $groupAfter);
 
   // Resize events must have a debounced function.
   $(window).resize(debounce(resizeResponse, 50));
