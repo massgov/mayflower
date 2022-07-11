@@ -266,16 +266,20 @@
         color: $c-primary-alt;
       }
 
+      .ma__relationship-indicators {
+
+        &__heading {
+          margin: 0;
+        }
+
+      }
+
       .ma__relationship-indicators--term {
         margin: 0 5px 0 0;
         padding-right: 0;
 
         @media ($bp-medium-min) {
           margin: 0 5px;
-        }
-
-        &:first-child {
-          margin: 0;
         }
 
         a {
