@@ -8,7 +8,6 @@ export default (function (window, document, $, undefined) {
    */
 
   function groupIndicators(groupAfter) {
-    console.log("triggered!!!")
 
     // There could be more than one relationship indicators component in the page.
     $(".ma__relationship-indicators--terms").each(function (index) {
@@ -18,6 +17,7 @@ export default (function (window, document, $, undefined) {
       let totalCount = $items.length;
       let hiddenCount = totalCount - (groupAfter + 1);
 
+      // Initialize by making all items visible
       $button.hide();
       $items.show();
 
@@ -31,7 +31,6 @@ export default (function (window, document, $, undefined) {
         let expanded = false;
 
         function toggleButton(buttonState) {
-          console.log('expanded: ' + buttonState)
           if (buttonState) {
             $items.show();
             $buttonState.text("less");
@@ -79,9 +78,6 @@ export default (function (window, document, $, undefined) {
       } else {
         $button.hide();
         $items.show();
-      // Start by making visible all the relationship indicators.
-      // $hiddenItems.show();
-      // $hiddenItems.removeAttr("hidden");
       }
     });
   }
