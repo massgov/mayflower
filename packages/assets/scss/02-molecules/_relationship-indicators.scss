@@ -294,6 +294,10 @@
               border-right: 1px solid $c-gray-light;
             }
           }
+
+          &--last.no-fold a:before {
+            content: none;
+          }
         }
 
         &__expand-indicators {
@@ -315,10 +319,6 @@
     margin-bottom: 0;
     padding-bottom: 0;
     padding-inline-start: 0;
-  }
-
-  &--terms--without-fold &--term--last a:before {
-    content: none;
   }
 
   & + .ma__illustrated-header,

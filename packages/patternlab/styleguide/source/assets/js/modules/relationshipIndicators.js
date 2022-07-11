@@ -14,6 +14,7 @@ export default (function (window, document, $, undefined) {
       let $tagWrapper = $(this);
       let $button = $tagWrapper.find(".js-relationship-indicator-button");
       let $items = $tagWrapper.find("li.js-term")
+      const $lastItem = $tagWrapper.find("li.ma__relationship-indicators--term--last");
       let totalCount = $items.length;
       let hiddenCount = totalCount - (groupAfter + 1);
 
@@ -76,6 +77,7 @@ export default (function (window, document, $, undefined) {
         // Don't render toggle button
         $button.hide();
         $items.show();
+        $lastItem.addClass('no-fold');
       }
     });
   }
