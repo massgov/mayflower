@@ -272,38 +272,38 @@
           margin: 0;
         }
 
-      }
-
-      .ma__relationship-indicators--term {
-        margin: 0 5px 0 0;
-        padding-right: 0;
-
-        @media ($bp-medium-min) {
-          margin: 0 5px;
-        }
-
-        a {
-          margin-right: 10px;
-          position: relative;
-
-          &:before {
-            content: "";
-            width: 10px;
-            position: absolute;
-            height: $fonts-smaller;
-            right: -10px;
-            bottom: 1px;
-            border-right: 1px solid $c-gray-light;
+        &--term {
+          margin: 0 5px 0 0;
+          padding-right: 0;
+  
+          @media ($bp-medium-min) {
+            margin: 0 5px;
+          }
+  
+          a {
+            margin-right: 10px;
+            position: relative;
+  
+            &:before {
+              content: "";
+              width: 10px;
+              position: absolute;
+              height: $fonts-smaller;
+              right: -10px;
+              bottom: 1px;
+              border-right: 1px solid $c-gray-light;
+            }
           }
         }
-      }
 
-      .ma__relationship-indicators__expand-indicators {
-        margin: 0 5px 0 0;
-
-        @media ($bp-medium-min) {
-          margin: 0 5px;
+        &__expand-indicators {
+          margin: 0 5px 0 0;
+  
+          @media ($bp-medium-min) {
+            margin: 0 5px;
+          }
         }
+
       }
     }
   }
