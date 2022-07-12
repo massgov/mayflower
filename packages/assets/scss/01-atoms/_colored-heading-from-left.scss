@@ -42,6 +42,7 @@
     width: 100%;
 
     &--highlighted {
+
       @include ma-border-decorative($c-highlight,1);
 
       padding-top: 0px;

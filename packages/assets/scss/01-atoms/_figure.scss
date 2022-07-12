@@ -198,7 +198,7 @@ $figures-gutter: 20px;
   // Sidebar 911-1050 - the main well gets as narrow as 451px with a sidebar in this range
   // Make the widths larger in percentage of the main well width
 
-  @media ($bp-large-min) and ($bp-large-extended) {
+  @media ($bp-large-min) and ($bp-large-extended-max) {
 
     .page-content:not(.no-sidebar) &--x-small,
     .page-content:not(.no-sidebar) &--small {
