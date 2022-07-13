@@ -95,7 +95,7 @@ export default (function (window, document, $, undefined) {
   let $group = $(".ma__relationship-indicators--section-group");
   var $groupAfter = parseInt($group.data("group-after")) - 1 || 3;
   var breakpoint = 910;
-  var initialDiff = ($(window).width() - breakpoint) ? 1 : -1;
+  var initialDiff = ($(window).width() - breakpoint) > 0 ? 1 : -1;
 
   // What we do when viewport is resized.
   function resizeResponse() {
@@ -108,6 +108,7 @@ export default (function (window, document, $, undefined) {
       initialDiff = currentDiff;
     }
   }
+
 
   // Initialize state for the relationship indicators.
   groupIndicators(initialDiff < 0 ? 0 : $groupAfter);
