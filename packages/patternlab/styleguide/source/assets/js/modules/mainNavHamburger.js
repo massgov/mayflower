@@ -711,7 +711,6 @@ menuItems.forEach((item) => {
 
   itemButton.addEventListener("click", (e) => {
     expandSubMenuContainer();
-    console.log(e);
   });
 
   itemButton.addEventListener("keydown", function (e) {
@@ -743,32 +742,21 @@ menuItems.forEach((item) => {
 
     // Don't set focus on the first child when VO command is used.
     // This causes Voiceover fails to announce the first child.
-    if (voCommand.alt && voCommand.ctl && voCommand.space) { // VO command pattern 1
-      // console.log("voCommand 1");
-      // console.log(voCommand);
+    if ((voCommand.alt && voCommand.ctl && voCommand.space) || (voCommand.alt && voCommand.ctl)) { // VO command pattern 1
       expandSubMenuContainer();
-
       voCommand.alt = false;
       voCommand.ctl = false;
       voCommand.space = false;
-
-      console.log("cleared");
-      console.log(voCommand);
+      // Keep focus on the top menu button. without this, sometimes body gets focus when submenu closes.
+      this.focus();
     }
-    if (voCommand.alt && voCommand.ctl) {// VO command pattern 2: when user keeps holding VO keys.
-      console.log("voCommand 2");
-      console.log(voCommand);
-      expandSubMenuContainer();
-      // if (voCommand.alt && voCommand.ctl) {
-        console.log("space");
-        voCommand.alt = false;
-        voCommand.ctl = false;
-        voCommand.space = false;
-              console.log("cleared");
-      console.log(voCommand);
-      // }
-    }
-    if (!voCommand.alt && !voCommand.ctl && voCommand.space) {
+    // if (voCommand.alt && voCommand.ctl) {// VO command pattern 2: when user keeps holding VO keys.
+    //   expandSubMenuContainer();
+    //   voCommand.alt = false;
+    //   voCommand.ctl = false;
+    //   voCommand.space = false;
+    // }
+    if ((!voCommand.alt && !voCommand.ctl && voCommand.space) || e.key === "Enter") {
       expandSubMenuContainer();
       e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
       voCommand.space = false;
