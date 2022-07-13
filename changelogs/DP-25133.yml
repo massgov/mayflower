@@ -2,5 +2,5 @@ Change:
   - project: Patternlab
     component: PageBanner
     description: Change page banner taper image background position and scale. Increase image wrapping breakpoint from `large-extended` to `x-large`. (#1648)
-    issue: DP-25157
+    issue: DP-25133
     impact: Patch
