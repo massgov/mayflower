@@ -93,7 +93,7 @@ export default (function (window, document, $, undefined) {
 
   // Determines the folding number of items, either by the parameter or by the data attribute.
   let $group = $(".ma__relationship-indicators--section-group");
-  var $groupAfter = parseInt($group.data("group-after")) - 1 || 3;
+  var $groupAfter = parseInt($group.data("group-after")) - 1;
   var breakpoint = 910;
   var initialDiff = ($(window).width() - breakpoint) > 0 ? 1 : -1;
 

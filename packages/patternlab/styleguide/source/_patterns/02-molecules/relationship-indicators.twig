@@ -20,8 +20,8 @@
     {% if relationshipIndicators.secondary is not empty %}
       {% set secondaryClass = "" %}
       {% set groupByData = '' %}
+      {% set groupClass = "ma__relationship-indicators--section-group" %}
       {% if relationshipIndicators.secondary.groupAfter is not empty %}
-        {% set groupClass = "ma__relationship-indicators--section-group" %}
         {% set groupByData = "data-group-after="~relationshipIndicators.secondary.groupAfter %}
       {% endif %}
 
