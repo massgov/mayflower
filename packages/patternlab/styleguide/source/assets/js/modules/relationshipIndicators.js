@@ -112,17 +112,7 @@ export default (function (window, document, $, undefined) {
   // Initialize state for the relationship indicators.
   groupIndicators(initialDiff < 0 ? 0 : $groupAfter);
 
-  // To debounce function calls.
-  // @see https://www.freecodecamp.org/news/javascript-debounce-example/
-  function debounce(func, timeout = 300){
-    let timer;
-    return (...args) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => { func.apply(this, args); }, timeout);
-    };
-  }
-
-  // Resize events must have a debounced function.
+  // Update the relationship indicators state when window resizes.
   $(window).resize(resizeResponse);
 
 })(window, document, jQuery);
