@@ -700,9 +700,18 @@ menuItems.forEach((item) => {
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
+  // VO key command to expand menus.
+  let voCommand = {
+    ctl: false,
+    alt: false,
+    space: false
+  };
+
   subItems.style.opacity = "0";
+
   itemButton.addEventListener("click", (e) => {
     expandSubMenuContainer();
+    console.log(e);
   });
 
   itemButton.addEventListener("keydown", function (e) {
@@ -719,6 +728,50 @@ menuItems.forEach((item) => {
     if (e.key === "ArrowUp" || e.code === "ArrowUp") {
       expandSubMenuContainer();
       e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:last-child .js-main-nav-hamburger__link").focus();
+    }
+
+    // Check if the keys are pressed.
+    if (e.key == " ") {
+      voCommand.space = true;
+    }
+    if(e.key === "Control") {
+       voCommand.ctl = true;
+    }
+    if (e.key === "Alt") {
+      voCommand.alt = true;
+    }
+
+    // Don't set focus on the first child when VO command is used.
+    // This causes Voiceover fails to announce the first child.
+    if (voCommand.alt && voCommand.ctl && voCommand.space) { // VO command pattern 1
+      // console.log("voCommand 1");
+      // console.log(voCommand);
+      expandSubMenuContainer();
+
+      voCommand.alt = false;
+      voCommand.ctl = false;
+      voCommand.space = false;
+
+      console.log("cleared");
+      console.log(voCommand);
+    }
+    if (voCommand.alt && voCommand.ctl) {// VO command pattern 2: when user keeps holding VO keys.
+      console.log("voCommand 2");
+      console.log(voCommand);
+      expandSubMenuContainer();
+      // if (voCommand.alt && voCommand.ctl) {
+        console.log("space");
+        voCommand.alt = false;
+        voCommand.ctl = false;
+        voCommand.space = false;
+              console.log("cleared");
+      console.log(voCommand);
+      // }
+    }
+    if (!voCommand.alt && !voCommand.ctl && voCommand.space) {
+      expandSubMenuContainer();
+      e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
+      voCommand.space = false;
     }
   });
 
@@ -791,14 +844,14 @@ menuItems.forEach((item) => {
 
 function selectTopClickableItems(windowWidth) {
   topLevelClickableItems = "";
-  if (windowWidth > 840) {
-    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__main-nav .ma__main__hamburger-nav__top-link");
+  if (windowWidth < 621) {// mobile
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
   }
   if (windowWidth < 841) {
     topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
   }
-  if (windowWidth < 621) {// mobile
-    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
+  if (windowWidth > 840) {
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__main-nav .ma__main__hamburger-nav__top-link");
   }
 
   // Arrow keyboard navigation in the top level clickable elements.
