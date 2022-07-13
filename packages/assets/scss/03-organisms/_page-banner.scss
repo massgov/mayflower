@@ -291,8 +291,9 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
     height: auto;
+    background-color: $c-primary-alt;
 
-    @media ($bp-large-extended-min) {
+    @media ($bp-x-large-min) {
       height: 100%;
     }
   }
@@ -303,7 +304,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transform: none;
     background-color: $c-primary-alt;
 
-    @media ($bp-large-extended-min) {
+    @media ($bp-x-large-min) {
       margin-right: 70px;
       padding-top: 50px;
       padding-right: 80px;
@@ -324,12 +325,12 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding-right: 0;
     display: flex;
 
-    @media ($bp-large-extended-min) {
+    @media ($bp-x-large-min) {
       height: 100%;
       min-height: $page-banner-height;
     }
 
-    @media ($bp-large-extended) {
+    @media ($bp-x-large-max) {
 
       flex-direction: column-reverse;
       padding-left: 0;
@@ -340,16 +341,13 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       position: absolute;
       top: 0;
       right: 0;
-      bottom: 1px;
-      left: 500px;
+      bottom: 0;
+      left: 560px;
       background-size: cover;
       background-position: center;
 
-      @media (min-width: $max-width) {
-        right: calc(-100vw + #{$max-width});
-      }
 
-      @media ($bp-large-extended) {
+      @media ($bp-x-large-max) {
         position: relative;
         width: 100%;
         height: 50vw;
@@ -368,12 +366,12 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
       @include skewBG();
 
-      @media ($bp-large-extended) {
+      @media ($bp-x-large-max) {
 
         @include ma-container();
       }
 
-      @media ($bp-large-extended-min) {
+      @media ($bp-x-large-min) {
         top: 0;
         transform: skew(-30deg);
         padding: 30px 25px 45px 0;
@@ -388,7 +386,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &--taper &__content-wrapper {
     z-index: 1;
 
-      @media ($bp-large-extended-min) {
+      @media ($bp-x-large-min) {
       transform: skew(30deg);
       display: flex;
       flex-wrap: wrap;
@@ -452,7 +450,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     &-mobile {
 
-      @media ($bp-large-extended) {
+      @media ($bp-x-large-max) {
 
         &:after {
           display: none;

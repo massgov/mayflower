@@ -2,6 +2,7 @@
   "iframe": {
     "src": "https://massgov.github.io",
     "title": "Embed page title for accessibility",
-    "position": "full"
+    "position": "full",
+    "ratio": "2-to-1"
   }
 }
