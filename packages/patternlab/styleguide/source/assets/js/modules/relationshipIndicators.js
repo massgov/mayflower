@@ -123,6 +123,6 @@ export default (function (window, document, $, undefined) {
   }
 
   // Resize events must have a debounced function.
-  $(window).resize(debounce(resizeResponse, 50));
+  $(window).resize(resizeResponse);
 
 })(window, document, jQuery);
