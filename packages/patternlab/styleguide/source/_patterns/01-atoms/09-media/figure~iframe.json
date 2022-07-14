@@ -4,8 +4,7 @@
     "iframe": {
       "src": "https://massgov.github.io",
       "title": "title",
-      "height": "853",
-      "width": ""
+      "ratio": "2-to-1"
     },
     "title": {
       "text": "This is an option iframe title",
