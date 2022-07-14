@@ -742,7 +742,7 @@ menuItems.forEach((item) => {
 
     // Don't set focus on the first child when VO command is used.
     // This causes Voiceover fails to announce the first child.
-    if ((voCommand.alt && voCommand.ctl && voCommand.space) || (voCommand.alt && voCommand.ctl)) { // VO command pattern 1
+    if (voCommand.alt && voCommand.ctl && voCommand.space) { // VO command pattern 1
       expandSubMenuContainer();
       voCommand.alt = false;
       voCommand.ctl = false;
@@ -750,12 +750,17 @@ menuItems.forEach((item) => {
       // Keep focus on the top menu button. without this, sometimes body gets focus when submenu closes.
       this.focus();
     }
-    // if (voCommand.alt && voCommand.ctl) {// VO command pattern 2: when user keeps holding VO keys.
-    //   expandSubMenuContainer();
-    //   voCommand.alt = false;
-    //   voCommand.ctl = false;
-    //   voCommand.space = false;
-    // }
+    if ((voCommand.alt && voCommand.ctl) && e.key === " ") {// VO command pattern 2: when user keeps holding VO keys.
+      expandSubMenuContainer();
+      voCommand.alt = false;
+      voCommand.ctl = false;
+      voCommand.space = false;
+    }
+    if (e.key === " ") {
+      if (e.ctlKey) {
+        console.log("ctl");
+      }
+    }
     if ((!voCommand.alt && !voCommand.ctl && voCommand.space) || e.key === "Enter") {
       expandSubMenuContainer();
       e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
