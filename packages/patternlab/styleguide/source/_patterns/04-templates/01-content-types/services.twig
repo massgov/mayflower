@@ -1,5 +1,3 @@
-{% set mainContentClass = introSidebar ? 'main-content--two' : 'main-content--full' %}
-
 {% block header %}{% endblock %}
 <main id="main-content" {% if flexibleLinkGroup %} class="ma__services ma__services-flexible-link-groups" {% else %} class="ma__services" {% endif %} tabindex="-1" {% if schemaPageType %} typeof="{{schemaPageType}}" {% endif %}>
 	<div class="pre-content">
@@ -11,64 +9,32 @@
 			{% include "@organisms/page-banner/page-banner.twig" %}
 		{% endblock %}
 	</div>
+	<div class="page-content--intro">
+		{% if introSidebar.logo %}
+			{% set image = introSidebar.logo %}
+			{% include "@atoms/09-media/image.twig" %}
+		{% endif %}
+		{% block pageContentIntro %}
+
+			{% set richText = introPageContent.intro %}
+			{% include "@organisms/by-author/rich-text.twig" %}
+
+			{% if introPageContent.video %}
+				{% set video = introPageContent.video %}
+				{% include "@atoms/09-media/video.twig" %}
+			{% endif %}
+		{% endblock %}
+	</div>
 	<div class="stacked-row-content">
-		<section class="ma__stacked-row__section">
-			<div class="main-content {{ mainContentClass }}">
-				<div class="page-content page-content--intro">
-					{% if introSidebar.logo %}
-						{% set image = introSidebar.logo %}
-						{% include "@atoms/09-media/image.twig" %}
-					{% endif %}
-					{% block pageContentIntro %}
-
-						{% set richText = introPageContent.intro %}
-						{% include "@organisms/by-author/rich-text.twig" %}
-
-						{% if introPageContent.video %}
-							{% set video = introPageContent.video %}
-							{% include "@atoms/09-media/video.twig" %}
-						{% endif %}
-
-						{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
-							{% if introPageContent.keyActions %}
-								{% set keyActions = introPageContent.keyActions %}
-								{% include "@organisms/by-author/key-actions.twig" %}
-							{% endif %}
-						{% endif %}
-
-					{% endblock %}
-				</div>
-
-				{% if introSidebar %}
-					<aside class="sidebar sidebar--intro">
-						{% block sidebarIntro %}
-							{% if introSidebar.logo.src %}
-								{% set image = introSidebar.logo %}
-								{% include "@atoms/09-media/image.twig" %}
-							{% endif %}
-							{% if flexibleLinkGroup %}
-								{% if introSidebar.login %}
-									{% set iconLinks = introSidebar.login.iconLinks %}
-									{% include "@molecules/icon-links.twig" %}
-								{% endif %}
-							{% endif %}
-							{% if introSidebar.social %}
-								{% set iconLinks = introSidebar.social.iconLinks %}
-								{% include "@molecules/icon-links.twig" %}
-							{% endif %}
-							{% if introSidebar.imageLinkList %}
-								{% set imageLinkList = introSidebar.imageLinkList %}
-								{% include "@organisms/by-author/image-link-list.twig" %}
-							{% endif %}
-						{% endblock %}
-					</aside>
-				{% endif %}
-			</div>
-		</section>
-
 		<section class="ma__stacked-row__section">
 			<div class="main-content main-content--full">
 				<div class="page-content">
+					{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
+						{% if introPageContent.keyActions %}
+							{% set keyActions = introPageContent.keyActions %}
+							{% include "@organisms/by-author/key-actions.twig" %}
+						{% endif %}
+					{% endif %}
 					{% block pageContent %}
 						{% if doActionFinder %}
 							{% set actionFinder = doActionFinder.actionFinder %}

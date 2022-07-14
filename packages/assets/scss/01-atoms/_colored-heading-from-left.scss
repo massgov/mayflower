@@ -1,0 +1,64 @@
+@use "00-base/configure" as *;
+
+.ma__colored-header-from-left {
+  transform: skew(-30deg);
+  width: calc(100% - 20px);
+  margin-bottom: 60px;
+
+  &:before {
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 99%;
+    width: 50vw;
+  }
+
+  &--blue {
+    background-color: $c-primary;
+
+    &:before {
+      background-color: $c-primary;
+    }
+  }
+
+  &--green {
+    background-color: $c-primary-alt;
+
+    &:before {
+      background-color: $c-primary-alt;
+    }
+  }
+
+  &__title {
+
+    @include ma-border-decorative;
+
+    margin-top: 0px;
+    color: $c-font-inverse;
+    margin-right: 0;
+    padding: 25px 20px 20px 0;
+    transform: skew(30deg);
+    width: 100%;
+
+    &--highlighted {
+
+      @include ma-border-decorative($c-highlight,1);
+
+      padding-top: 0px;
+      padding-bottom: 15px;
+
+      &:after {
+        background-color: $c-highlight;
+      }
+    }
+
+    @media ($bp-large-min) {
+      display: inline-block;
+      margin-bottom: 0;
+      margin-right: 1.6129%; // $gutter in % form
+      vertical-align: middle;
+      width: 66.12903%; // @include span-columns(8 of 12);
+    }
+  }
+}

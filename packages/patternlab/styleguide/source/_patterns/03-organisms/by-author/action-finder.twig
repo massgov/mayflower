@@ -28,12 +28,23 @@
   {% endif %}
   <div class="ma__action-finder__container">
     {% if actionFinder.title %}
-      <header class="ma__action-finder__header">
-        <h2 class="ma__action-finder__title">
-          {{ actionFinder.title }}
-          {% if actionFinder.contextPositionTop and actionFinder.titleContext %}<span class="visually-hidden"> {{ actionFinder.titleContext }}</span>{% endif %}
-        </h2>
-      </header>
+
+      {% set coloredHeadingFromLeft = {"title": actionFinder.title} %}
+
+      {% if noBgClass is not empty %}
+      {% set coloredHeadingFromLeft = coloredHeadingFromLeft|merge({ "bgColor": "blue" }) %}
+      {% endif %}
+
+      {% if actionFinder.color in ['green', 'blue'] %}
+        {% set coloredHeadingFromLeft = coloredHeadingFromLeft|merge({ "bgColor": actionFinder.color }) %}
+      {% endif %}
+
+      {% if actionFinder.titleContext %}
+        {% set coloredHeadingFromLeft = coloredHeadingFromLeft|merge({ "titleContext": actionFinder.titleContext }) %}
+      {% endif %}
+
+      {% include "@atoms/04-headings/colored-heading-from-left.twig" with coloredHeadingFromLeft %}
+
     {% endif %}
     {% if actionFinder.featuredLinks %}
       {% if actionFinder.featuredHeading %}
