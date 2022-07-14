@@ -750,15 +750,20 @@ menuItems.forEach((item) => {
       // Keep focus on the top menu button. without this, sometimes body gets focus when submenu closes.
       this.focus();
     }
-    if ((voCommand.alt && voCommand.ctl) && e.key === " ") {// VO command pattern 2: when user keeps holding VO keys.
-      expandSubMenuContainer();
-      voCommand.alt = false;
-      voCommand.ctl = false;
-      voCommand.space = false;
-    }
+    // if ((voCommand.alt && voCommand.ctl) && e.key === " ") {// VO command pattern 2: when user keeps holding VO keys.
+    //   expandSubMenuContainer();
+    //   voCommand.alt = false;
+    //   voCommand.ctl = false;
+    //   voCommand.space = false;
+    // }
     if (e.key === " ") {
       if (e.ctlKey) {
         console.log("ctl");
+        expandSubMenuContainer();
+        voCommand.alt = false;
+        voCommand.ctl = false;
+        voCommand.space = false;
+        this.focus();
       }
     }
     if ((!voCommand.alt && !voCommand.ctl && voCommand.space) || e.key === "Enter") {
