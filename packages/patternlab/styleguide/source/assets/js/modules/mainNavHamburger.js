@@ -695,12 +695,34 @@ if (osInfo.indexOf("Safari") !== -1) {
   });
 }
 
+// Check VO keys are held down.
+let voKeys = {
+  ctl: false,
+  alt: false
+};
+document.addEventListener("keydown", (e) => {
+   if(e.key === "Control") {
+       voKeys.ctl = true;
+    }
+    if (e.key === "Alt") {
+      voKeys.alt = true;
+    }
+});
+document.addEventListener("keyup", (e) => {
+   if(e.key === "Control") {
+       voKeys.ctl = false;
+    }
+    if (e.key === "Alt") {
+      voKeys.alt = false;
+    }
+});
+
 menuItems.forEach((item) => {
 
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
-  // VO key command to expand menus.
+  // VO key command to expand menus on this event target.
   let voCommand = {
     ctl: false,
     alt: false,
@@ -729,8 +751,8 @@ menuItems.forEach((item) => {
       e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:last-child .js-main-nav-hamburger__link").focus();
     }
 
-    // Check if the keys are pressed.
-    if (e.key == " ") {
+    // Check when the keys are pressed.
+    if (e.key === " " || e.code === "Space") {
       voCommand.space = true;
     }
     if(e.key === "Control") {
@@ -742,33 +764,32 @@ menuItems.forEach((item) => {
 
     // Don't set focus on the first child when VO command is used.
     // This causes Voiceover fails to announce the first child.
-    if (voCommand.alt && voCommand.ctl && voCommand.space) { // VO command pattern 1
-      expandSubMenuContainer();
-      voCommand.alt = false;
-      voCommand.ctl = false;
-      voCommand.space = false;
-      // Keep focus on the top menu button. without this, sometimes body gets focus when submenu closes.
-      this.focus();
-    }
-    // if ((voCommand.alt && voCommand.ctl) && e.key === " ") {// VO command pattern 2: when user keeps holding VO keys.
-    //   expandSubMenuContainer();
-    //   voCommand.alt = false;
-    //   voCommand.ctl = false;
-    //   voCommand.space = false;
-    // }
-    if (e.key === " ") {
-      if (e.ctlKey) {
-        console.log("ctl");
+    if (voKeys.ctl && voKeys.alt) {// VO keys have been held down before space key gets hit.
+      if (e.key === " " || e.code === "Space") {
         expandSubMenuContainer();
+        this.focus();
+
         voCommand.alt = false;
         voCommand.ctl = false;
         voCommand.space = false;
-        this.focus();
+      }
+    } else {
+      if (e.key === " " || e.code === "Space" || e.key === "Enter") {// e.key === " " doesn't always get correct response.
+        expandSubMenuContainer();
+        e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
+
+        voCommand.alt = false;
+        voCommand.ctl = false;
+        voCommand.space = false;
       }
     }
-    if ((!voCommand.alt && !voCommand.ctl && voCommand.space) || e.key === "Enter") {
+    if (voCommand.alt && voCommand.ctl && voCommand.space) { // VO command: hold down 3 keys at the same time.
       expandSubMenuContainer();
-      e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
+      // Keep focus on the top menu button. without this, sometimes body gets focus when submenu closes.
+      this.focus();
+
+      voCommand.alt = false;
+      voCommand.ctl = false;
       voCommand.space = false;
     }
   });
