@@ -5,8 +5,8 @@
     "iframe": {
       "src": "https://massgov.github.io",
       "title": "Embed page title for accessibility",
-      "height": "853",
-      "position": ""
+      "position": "",
+      "ratio": "2-to-1"
     },
     "title": {
       "text": "This is an option iframe title",

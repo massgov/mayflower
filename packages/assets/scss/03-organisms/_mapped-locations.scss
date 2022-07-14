@@ -16,7 +16,7 @@
     width: 100%;
     order: 1;
 
-    @media ($bp-large-extended) {
+    @media ($bp-large-extended-max) {
       text-align: center;
     }
 
@@ -44,7 +44,7 @@
     width: 100%;
     order: 2;
 
-    @media ($bp-large-extended) {
+    @media ($bp-large-extended-max) {
       text-align: center;
     }
 
