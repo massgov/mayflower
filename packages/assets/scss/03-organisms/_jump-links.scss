@@ -224,6 +224,34 @@
   }
 }
 
+.ma__skip-link__toc-target {
+  margin: 0 auto;
+
+  @include ma-container;
+
+  #ma-end-sticky-toc {// TOC skip link target
+    display: block;
+
+    @media print {
+      display: none;
+    }
+
+    span {
+      display: none;
+      padding: 3px 14px;
+
+      @media ($bp-small-min) {
+        width: 100%;
+      }
+    }
+
+    &:focus span {
+        display: block;
+    }
+  }
+}
+
+
 //theme
 
 .ma__jump-links {
