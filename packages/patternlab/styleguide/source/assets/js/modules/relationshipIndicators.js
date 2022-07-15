@@ -21,15 +21,17 @@ export default (function (window, document, $, undefined) {
       // Initialize by making all items visible
       $button.hide();
       $items.show();
+      // reset hidden ids at breakpoint
+      $items.removeAttr('id');
 
       if (hiddenCount > 0) {
         // Render toggle button
-        let hiddenIds = "";
-        let groupId = "ma-ri_" + index;
         let $buttonCounter = $button.find(".tag-count");
         let $buttonState = $button.find(".tag-state");
         var $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
         let expanded = false;
+
+        console.log($hiddenItems)
 
         function toggleButton(buttonState) {
           if (buttonState) {
@@ -57,10 +59,11 @@ export default (function (window, document, $, undefined) {
         toggleButton(expanded);
 
         // Set aria-controls
+        let hiddenIds = "";
         $hiddenItems.each(function (itemIndex) {
           let $hiddenTagItem = $(this);
+          let groupId = "ma-ri_" + index;
           let itemId = groupId + itemIndex;
-          $hiddenTagItem
           $hiddenTagItem.attr("id", itemId);
           hiddenIds += itemId + " ";
         });
