@@ -11,32 +11,33 @@ export default (function (window, document, $, undefined) {
 
     // There could be more than one relationship indicators component in the page.
     $(".ma__relationship-indicators--terms").each(function (index) {
-      let $tagWrapper = $(this);
-      let $button = $tagWrapper.find(".js-relationship-indicator-button");
-      let $items = $tagWrapper.find("li.js-term")
+      const $tagWrapper = $(this);
+      const $button = $tagWrapper.find(".js-relationship-indicator-button");
+      const $items = $tagWrapper.find("li.js-term")
       const $lastItem = $tagWrapper.find("li.ma__relationship-indicators--term--last");
-      let totalCount = $items.length;
-      let hiddenCount = totalCount - (groupAfter + 1);
+      const totalCount = $items.length;
+      const hiddenCount = totalCount - (groupAfter + 1);
+      // classes referenced in CSS
+      const wrapperFoldClass = "folded";
+      const itemFoldClass = "item-fold";
+      const noFoldClass = "no-fold";
 
-      // Initialize by making all items visible
-      // $button.hide();
-      // $items.show();
       // reset hidden ids at breakpoint
       $items.removeAttr('id');
-      $items.removeClass('item-fold');
+      $items.removeClass(itemFoldClass);
 
       if (hiddenCount > 0) {
         // Render toggle button
-        let $buttonCounter = $button.find(".tag-count");
-        let $buttonState = $button.find(".tag-state");
-        let $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
-        const $foldedItems = $tagWrapper.find(".item-fold");
+        const $buttonCounter = $button.find(".tag-count");
+        const $buttonState = $button.find(".tag-state");
+        const $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
+        const $foldedItems = $tagWrapper.find("." + itemFoldClass);
         let expanded = false;
 
 
         function toggleButton(buttonState) {
           if (buttonState) {
-            $tagWrapper.removeClass('folded');
+            $tagWrapper.removeClass(wrapperFoldClass);
             $buttonState.text("less");
             $button.attr("aria-pressed", true);
             $button.attr("aria-expanded", true);
@@ -45,7 +46,7 @@ export default (function (window, document, $, undefined) {
             console.log($hiddenItems)
             console.log($foldedItems)
             // $foldedItems.hide();
-            $tagWrapper.addClass('folded');
+            $tagWrapper.addClass(wrapperFoldClass);
             $buttonState.text("more");
             $button.attr("aria-pressed", false);
             $button.attr("aria-expanded", false);
@@ -69,7 +70,7 @@ export default (function (window, document, $, undefined) {
           let groupId = "ma-ri_" + index;
           let itemId = groupId + itemIndex;
           $hiddenTagItem.attr("id", itemId);
-          $hiddenTagItem.addClass("item-fold");
+          $hiddenTagItem.addClass(itemFoldClass);
           hiddenIds += itemId + " ";
         });
 
@@ -82,13 +83,13 @@ export default (function (window, document, $, undefined) {
         });
 
         // add back | separator for the last item
-        $lastItem.removeClass('no-fold');
+        $lastItem.removeClass(noFoldClass);
       } else {
         // Don't render toggle button
         $button.hide();
         $items.show();
         // remove | separator for the last item
-        $lastItem.addClass('no-fold');
+        $lastItem.addClass(noFoldClass);
        }
     });
   }
