@@ -66,9 +66,9 @@ export default (function (window, document, $, undefined) {
         // Set aria-controls
         let hiddenIds = "";
         $hiddenItems.each(function (itemIndex) {
-          let $hiddenTagItem = $(this);
-          let groupId = "ma-ri_" + index;
-          let itemId = groupId + itemIndex;
+          const $hiddenTagItem = $(this);
+          const groupId = "ma-ri_" + index;
+          const itemId = groupId + itemIndex;
           $hiddenTagItem.attr("id", itemId);
           $hiddenTagItem.addClass(itemFoldClass);
           hiddenIds += itemId + " ";
@@ -101,15 +101,15 @@ export default (function (window, document, $, undefined) {
    */
 
   // Determines the folding number of items, either by the parameter or by the data attribute.
-  let $group = $(".ma__relationship-indicators--section-group");
-  var $groupAfter = parseInt($group.data("group-after")) - 1;
-  var breakpoint = 910;
-  var initialDiff = ($(window).width() - breakpoint) > 0 ? 1 : -1;
+  const $group = $(".ma__relationship-indicators--section-group");
+  const $groupAfter = parseInt($group.data("group-after")) - 1;
+  const breakpoint = 910;
+  let initialDiff = ($(window).width() - breakpoint) > 0 ? 1 : -1;
 
   // What we do when viewport is resized.
   function resizeResponse() {
-    let w = $(window).width();
-    let currentDiff = w - breakpoint;
+    const w = $(window).width();
+    const currentDiff = w - breakpoint;
 
     // only trigger groupIndicators when window size crosses the breakpoint.
     if(currentDiff*initialDiff < 0) {
