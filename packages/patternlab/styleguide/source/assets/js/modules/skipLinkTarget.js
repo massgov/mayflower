@@ -41,8 +41,14 @@ const skipLinkTOC = document.querySelector(".ma__jump-links__skip-link");
 const skipLinkTOCTarget = document.querySelector("#ma-end-sticky-toc");
 
 skipLinkTOC.addEventListener("click", (e) => {
- skipLinkTOCTarget.setAttribute("tabindex", "0");
+  skipLinkTOCTarget.setAttribute("tabindex", "0");
+  skipLinkTOCTarget.focus();
+});
+skipLinkTOC.addEventListener("keydown", (e) => {
+  if (e.key === " " || e.code === "Space") {
+    skipLinkTOCTarget.setAttribute("tabindex", "0");
     skipLinkTOCTarget.focus();
+  }
 });
 
 skipLinkTOC.addEventListener("focusout", (e) => {
