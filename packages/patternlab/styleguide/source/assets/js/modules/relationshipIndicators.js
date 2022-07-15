@@ -31,7 +31,6 @@ export default (function (window, document, $, undefined) {
         const $buttonCounter = $button.find(".tag-count");
         const $buttonState = $button.find(".tag-state");
         const $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
-        const $foldedItems = $tagWrapper.find("." + itemFoldClass);
         let expanded = false;
 
 
@@ -43,9 +42,6 @@ export default (function (window, document, $, undefined) {
             $button.attr("aria-expanded", true);
             $button.addClass("is-open")
           } else {
-            console.log($hiddenItems)
-            console.log($foldedItems)
-            // $foldedItems.hide();
             $tagWrapper.addClass(wrapperFoldClass);
             $buttonState.text("more");
             $button.attr("aria-pressed", false);
