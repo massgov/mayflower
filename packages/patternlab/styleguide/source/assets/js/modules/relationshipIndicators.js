@@ -19,29 +19,33 @@ export default (function (window, document, $, undefined) {
       let hiddenCount = totalCount - (groupAfter + 1);
 
       // Initialize by making all items visible
-      $button.hide();
-      $items.show();
+      // $button.hide();
+      // $items.show();
       // reset hidden ids at breakpoint
       $items.removeAttr('id');
+      $items.removeClass('item-fold');
 
       if (hiddenCount > 0) {
         // Render toggle button
         let $buttonCounter = $button.find(".tag-count");
         let $buttonState = $button.find(".tag-state");
-        var $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
+        let $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
+        const $foldedItems = $tagWrapper.find(".item-fold");
         let expanded = false;
 
-        console.log($hiddenItems)
 
         function toggleButton(buttonState) {
           if (buttonState) {
-            $items.show();
+            $tagWrapper.removeClass('folded');
             $buttonState.text("less");
             $button.attr("aria-pressed", true);
             $button.attr("aria-expanded", true);
             $button.addClass("is-open")
           } else {
-            $hiddenItems.hide();
+            console.log($hiddenItems)
+            console.log($foldedItems)
+            // $foldedItems.hide();
+            $tagWrapper.addClass('folded');
             $buttonState.text("more");
             $button.attr("aria-pressed", false);
             $button.attr("aria-expanded", false);
@@ -65,6 +69,7 @@ export default (function (window, document, $, undefined) {
           let groupId = "ma-ri_" + index;
           let itemId = groupId + itemIndex;
           $hiddenTagItem.attr("id", itemId);
+          $hiddenTagItem.addClass("item-fold");
           hiddenIds += itemId + " ";
         });
 

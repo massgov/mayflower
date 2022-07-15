@@ -272,6 +272,12 @@
           margin: 0;
         }
 
+        &--terms {
+          &.folded > .item-fold {
+            display: none;
+          }
+        }
+
         &--term {
           margin: 0 5px 0 0;
           padding-right: 0;
