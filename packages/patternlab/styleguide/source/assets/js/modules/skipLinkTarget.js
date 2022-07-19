@@ -6,7 +6,6 @@
 document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
 
   let linkTarget = "";
-  let linkTargetHash = "";
 
   link.addEventListener("click", (e) => {
     // Find the matched linkTarget.
