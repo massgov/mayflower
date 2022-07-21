@@ -124,6 +124,8 @@
   &__subitems {
     -ms-overflow-style: none;
 
+    visibility: hidden;
+
     @media ($bp-large-max) {
       height: 200vh;
       width: 100%;
@@ -144,7 +146,6 @@
       position: absolute;
       left: 0;
       max-height: 0;
-      top: -100vh;
       overflow-y: hidden;
       transition: 0.2s ease-in-out;
       width: auto;
