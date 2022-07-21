@@ -4,6 +4,7 @@
   {% if findService  %}
   <div class="ma__org-nav-i-want-to-section ma__org-nav-i-want-to__findService">
     {% set linkList = findService.linkList %}
+    <h3 class="ma__comp-heading--mobile"><button>{{ linkList.compHeading.title}}</button></h3>
     {% include "@organisms/by-author/link-list.twig" %}
   </div>
   {% endif %}
@@ -13,6 +14,7 @@
   {% if learnAbout  %}
   <div class="ma__org-nav-i-want-to-section ma__org-nav-i-want-to__learnAbout">
     {% set linkList = learnAbout.linkList %}
+    <h3 class="ma__comp-heading--mobile"><button>{{ linkList.compHeading.title}}</button></h3>
     {% include "@organisms/by-author/link-list.twig" %}
   </div>
   {% endif %}
@@ -21,6 +23,7 @@
   {% block login %}
   {% if login.href %}
   <div class="ma__org-nav-i-want-to-section ma__org-nav-i-want-to__login">
+    <h3 class="ma__comp-heading--mobile"><button>Log in to...</button></h3>
     <h3 class="ma__comp-heading">Log in to...</h3>
     <a class="ma__link-list__container" href="{{ login.href }}">{{ login.text }}</a>
   </div>

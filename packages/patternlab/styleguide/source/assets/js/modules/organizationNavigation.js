@@ -1,12 +1,18 @@
+import focusTrapping from "../helpers/focusTrapping.js";
 export default (function (window, document, $, undefined) {
 
+
   $('.ma__organization-navigation').each(function () {
+    // Toggle classname
+    const classMainNavOpen = "menu-open";
+    const classSubNavOpen = "item-open";
+
     // Org Nav Wrapper.
     const $orgNav = $(this);
-    const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
     const $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
+    const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
 
-    // Page wrapper and fillers. 
+    // Page wrapper and fillers.
     const $pageWrapper = $orgNav.parent().next();
     let $newsLink = $pageWrapper.find('.ma__press-listing');
     let $eventsLink = $pageWrapper.find('.ma__event-listing');
@@ -24,47 +30,55 @@ export default (function (window, document, $, undefined) {
     const mobileBreak = 910;
 
     // Search Wrapper vars.
+    const $orgNavSearch = $orgNav.find('.ma__organization-navigation__search');
     const $orgNavSearchForm = $orgNav.find('.js-organization-navigation__search');
     const $orgNavSearchInput = $orgNav.find('#organization-navigation-search');
     const $searchToggle = $orgNav.find('.ma__organization-navigation__search .js-search-toggle');
 
-    // Subnav buttons. 
+    // Subnav buttons.
     let $menuButton = $orgNav.find('.subnav-toggle');
 
     // I want to section.
-    let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
+    let $sectionIWantTo= $orgNav.find('.ma__org-nav-i-want-to-section');
+    let $sectionButton = $sectionIWantTo.find('.ma__comp-heading--mobile > button');
 
     // Sticky on scroll.
-    if ($('.pre-content').length) {
-      const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
-      let menuHeight = $orgNav.height();
-      $(window).scroll(function () {
-        const orgWindowTop = $(window).scrollTop();
-        let windowWidth = $(window).width();
+    const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
+    const menuHeight = $orgNav.height();
 
-        // Active Sticky TOC when on page TOC scrolls past.
-        if (bannerBottom > orgWindowTop) {
-          $('.pre-content').removeAttr('style');
-          $orgNav.removeClass('stuck');
-        }
-        else {
-          $('.pre-content').css('padding-top', menuHeight);
-          $orgNav.addClass('stuck');
-        }
+    function stickyOnScroll() {
+      const orgWindowTop = $(window).scrollTop();
+
+      // Active Sticky TOC when on page TOC scrolls past.
+      if (bannerBottom > orgWindowTop) {
+        $('.pre-content').removeAttr('style');
+        $orgNav.removeClass('stuck');
+      }
+      else {
+        $('.pre-content').css('padding-top', menuHeight);
+        $orgNav.addClass('stuck');
+      }
+    }
+
+    if ($('.pre-content').length) {
+      $(window).scroll(function () {
+        stickyOnScroll();
       });
     }
 
-    // Mobile toggle. 
-    $mobileToggle.on('click', function () {
+    // Mobile toggle.
+    function mobileToggleClick() {
 
       if (!$orgNav.hasClass('stuck')) {
-        $orgNav.addClass('stuck')
+        $orgNav.addClass('stuck');
       }
 
-      $mobileToggle.add($menuWrapper).toggleClass('menu-open');
+      $mobileToggle.add($menuWrapper).toggleClass(classMainNavOpen);
+      $mobileToggle.attr('aria-expanded', (_, attr) => attr == 'false' ? 'true' : 'false');
       // Close items when closing menu.
-      $('.item-open').removeClass('item-open');
-      // Remove cloned button if present. 
+      $(`.${ classSubNavOpen }`).removeClass(classSubNavOpen);
+      // $('.classSubNavOpen').removeClass(classSubNavOpen);
+      // Remove cloned button if present.
       $('.section-toggle').remove();
 
       // Lock body scroll on mobile open/close.
@@ -72,6 +86,48 @@ export default (function (window, document, $, undefined) {
 
       feedbackButton.toggle();
 
+      if($mobileToggle.hasClass(classMainNavOpen)) {
+        $orgNavSearch.prependTo($menuWrapper);
+      } else {
+        $orgNavSearch.appendTo($menuWrapper);
+      stickyOnScroll();
+
+      }
+    }
+
+      // Keyboard focus trapping.
+      $(document).keydown(function(e) {
+        // check if main menu open
+        if ($mobileToggle.hasClass(classMainNavOpen)) {
+          const $subNavOpen = $orgNavItems.find(`.${classSubNavOpen}`)
+          const hasSubNavOpen = $subNavOpen.length > 0;
+          if (hasSubNavOpen) {
+            focusTrapping({
+              focusableSelectors: '.ma__organization-navigation__mobile-toggle, .ma__organization-navigation__item.item-open button, .ma__organization-navigation__item.item-open a',
+              modalSelector: '.ma__organization-navigation',
+              keyEvent: e
+            });
+          } else {
+            focusTrapping({
+              focusableSelectors: '.ma__organization-navigation__mobile-toggle, button.ma__organization-navigation__search--toggle, .ma__organization-navigation__items > li > button, .ma__organization-navigation__items > li > a',
+              modalSelector: '.ma__organization-navigation',
+              keyEvent: e
+            });
+          }
+        }
+
+      });
+
+
+    // Capture click, spacebar and enter keys.
+    $mobileToggle.keypress(function(keyboardEvent) {
+      if (keyboardEvent.code == "Enter" || keyboardEvent.code == "Space") {
+        mobileToggleClick();
+      }
+    });
+
+    $mobileToggle.on('click', function () {
+      mobileToggleClick();
     });
 
     // Search form swing open/closed.
@@ -80,6 +136,8 @@ export default (function (window, document, $, undefined) {
 
       let $buttonLabel = $searchToggle.find('.search-label');
       $buttonLabel.text($buttonLabel.text() == "Close" ? "Search this organization" : "Close");
+      $searchToggle.attr("aria-expanded", (_, attr) => attr == "false" ? "true" : "false");
+      $searchToggle.attr("aria-label", (_, attr) => attr == "open the search box for the organization specific search" ? "close the organization specific search component" : "open the search box for the organization specific search");
     });
 
     $orgNavSearchForm.on('submit', function () {
@@ -96,58 +154,113 @@ export default (function (window, document, $, undefined) {
       let $otherMenus = $('.ma__organization-navigation__subitems').not($thisMenu);
       let menuHeight = $menuWrapper.outerHeight();
 
-      $buttonParent.on('mouseenter mouseleave', function () {
-        let windowWidth = $(window).width();
+      // $buttonParent.on('mouseenter mouseleave', function () {
+      $button.on("click", function (e) {
+        toggleMenu ();
 
-        if (windowWidth > mobileBreak) {
-          $('.section-toggle').remove();
-          $buttonParent.toggleClass('item-open');
-          $thisMenu.css('top', menuHeight);
-        }
-        else {
-          return false;
-        };
-      });
+        // When focus moves to another menu item, close the open menu container.
+        // Only one menu container opens at a time.
+        $(".ma__organization-navigation__items .has-subnav").each(function () {
+          let $orgNavMenuButton = $(this).find(".subnav-toggle");
 
-      $button.on('focus', function () {
-        $thisMenu.find("a[href]").attr("tabindex", -1);
-        $otherMenus.find("a[href]").attr("tabindex", -1);
-
-        $button.keyup(function (e) {
-
-          $('.item-open').removeClass('item-open');
-
-          if (e.keyCode == 13 || e.keyCode == 32) {
-            $('.section-toggle').remove();
-
-            $thisMenu.find("a[href]").attr("tabindex", 0);
-            $buttonParent.toggleClass('item-open');
-            $thisMenu.css('top', menuHeight);
-
-            $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
-              return false;
-            });
+          if ($(this).hasClass(classSubNavOpen)) {
+            if($(this).find(":focus").length === 0){
+              $(this).removeClass(classSubNavOpen);
+              $orgNavMenuButton.attr("aria-expanded", "false");
+              $(this).find(".ma__organization-navigation__subitems").attr("aria-hidden", "true");
+              $(this).find(".ma__organization-navigation__subitems").removeAttr("style");
+            }
           }
         });
       });
 
-      $button.on('click', function () {
+      // Close container with ESC.
+      $("body").on("keyup", function(e) {
+        if (e.key === "Escape") {
+          // Close submenu with ESC
+          // Set focus on its parent menubutton.
+          if ($buttonParent.find(":focus").length !== 0) {
+            closeMenuTasks();
+            $button.focus();
+          }
+
+          // TO DO: Close mobile menu container.
+
+        }
+      });
+
+      // Next two prevent covering the main page content when submenu is not in use on desktop.
+      // Close submenu when tabbed to next component.
+      $thisMenu.find("a").last().on("keydown", (e) => {
+        if (e.key == "Tab") {
+          closeMenuTasks();
+        }
+      });
+
+      // Close submenu when shift + tab to previous component.
+      $button.on("keydown", (e) => {
+        if (e.shiftKey && e.key == "Tab") {
+          closeMenuTasks();
+        }
+      });
+
+
+      function toggleMenu () {
         let windowWidth = $(window).width();
 
+        // Common tasks
+        $buttonParent.toggleClass(classSubNavOpen);
+        $button.attr("aria-expanded", (_, attr) => attr == "false" ? "true" : "false");
+        // Open submenu
+        if ($buttonParent.hasClass(classSubNavOpen)) {
+          $thisMenu.removeAttr("aria-hidden");
+          $thisMenu.css("visibility","visible");
+        }
+        else {
+          closeMenuTasks();
+        }
+
+        // Desktop
+        if (windowWidth > mobileBreak) {
+          $(".section-toggle").remove();
+        }
+
+        // Mobile
         if (windowWidth < mobileBreak) {
-          $buttonParent.toggleClass('item-open');
+          // $buttonParent.toggleClass(classSubNavOpen);
           let $buttonClone = $button.clone(true);
 
           // Copy the link as a close button inside the menu section.
           if (!$('.section-toggle').length) {
             $buttonClone.addClass('section-toggle').prependTo($thisMenu);
           }
-        }
-        else {
-          return false;
-        };
-      });
 
+          // As submenu opens, make original menu button,
+          // which is overwrapped by submenu container, unfocusable,
+          // move focus to cloned button, which is visible.
+          if ($buttonParent.hasClass(classSubNavOpen)) {
+            $button.attr("tabindex", "-1");
+            $buttonClone.focus();
+          }
+          else {
+          // As submenu close, make original button focusable,
+          // set focus on original button.
+            $button.attr("tabindex", "0");
+            $button.focus();
+          }
+        }
+        // else {
+        //   return false;
+        // };
+      }
+
+      function closeMenuTasks () {
+        $buttonParent.removeClass(classSubNavOpen);
+        $button.attr("aria-expanded", "false");
+        $button.attr("tabindex", "0");
+        $thisMenu.attr("aria-hidden", "true");
+        $thisMenu.removeAttr("style");
+      }
     });
 
     $('body').on('click', '.section-toggle', function () {
@@ -158,12 +271,14 @@ export default (function (window, document, $, undefined) {
     $sectionButton.each(function () {
 
       let $button = $(this);
-      let $seeAll = $button.parent().find('.ma__link-list__see-all');
       $button.on('click', function () {
         let windowWidth = $(window).width();
         if (windowWidth < mobileBreak) {
-          $button.toggleClass('item-open');
-          $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
+          const $heading = $button.parent();
+          const $wrapper = $heading.parent();
+          $heading.toggleClass(classSubNavOpen);
+          $wrapper.find('.ma__link-list__container').toggleClass(classSubNavOpen);
+          $wrapper.find('.ma__link-list__see-all').toggleClass(classSubNavOpen);
         }
       });
 
@@ -192,13 +307,13 @@ export default (function (window, document, $, undefined) {
     $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
 
     $(".internal-link").on('focus', function (e) {
-      $('.item-open').removeClass('item-open');
+      $('.classSubNavOpen').removeClass(classSubNavOpen);
     });
 
     $(".internal-link").on('click', function (e) {
       // Close open menus and reset markup.
-      $('.menu-open').removeClass('menu-open');
-      $('.item-open').removeClass('item-open');
+      $(`.${classMainNavOpen}`).removeClass(classMainNavOpen);
+      $(`.${classSubNavOpen}`).removeClass(classSubNavOpen);
       $('.form-open').removeClass('form-open');
       $('.section-toggle').remove();
 
