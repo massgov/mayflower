@@ -62,12 +62,20 @@ export default (function (window, document, $, undefined) {
 
     // Mobile toggle. 
     $mobileToggle.on('click', function () {
+      const $this = $(this);
+      $this.add($menuWrapper).toggleClass('menu-open');
 
-      // if (!$orgNav.hasClass('stuck')) {
-      //   $orgNav.addClass('stuck')
-      // }
+      // when menu is open, always stick it to the top of the screen
+      if($this.hasClass('menu-open')) {
+        if (!$orgNav.hasClass('stuck')) {
+          $orgNav.addClass('stuck')
+        }
+      } else {
+      // when menu is closed, put it back to its original location. 
+        stickyOnScroll();
+      }
 
-      $mobileToggle.add($menuWrapper).toggleClass('menu-open');
+
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
       // Remove cloned button if present. 
