@@ -1,8 +1,8 @@
 @use "00-base/configure" as *;
 
 .collection-header {
-  padding-top: $standard-spacing--small;
-  padding-bottom: $standard-spacing--small;
+  padding-top: $standard-spacing--xsmall;
+  padding-bottom: $standard-spacing--xsmall;
 }
 
 .collection-header--dark-font {
