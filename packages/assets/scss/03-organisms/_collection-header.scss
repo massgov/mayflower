@@ -8,12 +8,12 @@
 .collection-header--dark-font {
 
   .collection-header--inner {
-    color: black;
+    color: $c-font-dark;
   }
 }
 
 .collection-header--inner {
-  color: white;
+  color: $c-font-inverse;
 
   @include ma-container;
   display: flex;
@@ -34,6 +34,8 @@
 .collection-header__title {
   font-size: $fonts-6xlarge;
   font-weight: $fonts-normal;
+  margin-bottom: 1rem;
+  color: $c-font-inverse;
 }
 
 .collection-header__description {
