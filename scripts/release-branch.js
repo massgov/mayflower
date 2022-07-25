@@ -9,7 +9,7 @@ const shell = require('shelljs');
 const git = require('simple-git/promise')();
 
 const { octokit } = require('./release-vars');
-const { newLogsWithTitle, changelogs, version } = require('./compile-changelogs');
+const { newLogsWithTitle, version } = require('./compile-changelogs');
 const updateCoreVersion = require('./update-version');
 
 // Checkout the branch.
@@ -27,7 +27,7 @@ const releaseBranch = 'release/' + version;
   await git.commit('Consolidate changelogs and update core version');
   // Use a force-push so if we have an old version of the branch sitting around
   // (eg: an unreleased one from last week), it gets updated regardless.
-  await git.push('origin', releaseBranch, {'--force': null});
+  // await git.push('origin', releaseBranch, {'--force': null});
 
   //Create the pull request in GitHub
   await octokit.pulls.create({
