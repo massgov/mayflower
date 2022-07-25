@@ -3,42 +3,45 @@
 .collection-header {
   padding-top: $standard-spacing--xsmall;
   padding-bottom: $standard-spacing--xsmall;
-}
 
-.collection-header--dark-font {
+  &__inner {
+    color: $c-font-inverse;
+  
+    @include ma-container;
+    display: flex;
+    justify-content: space-between;
+  }
 
-  .collection-header--inner {
+  &__title {
+    font-size: $fonts-6xlarge;
+    font-weight: $fonts-normal;
+    margin-bottom: 1rem;
+    color: $c-font-inverse;
+  }
+
+  &--dark-font &__inner {
     color: $c-font-dark;
   }
-}
 
-.collection-header--inner {
-  color: $c-font-inverse;
-
-  @include ma-container;
-  display: flex;
-  justify-content: space-between;
-}
-
-.collection-header__image {
-  display: none;
-  width: 175px;
-  height: auto;
-  margin-left: 1rem;
-
-  @media ($bp-small-min) {
-    display: block;
+  &--dark-font &__inner &__title {
+    color: $c-font-dark;
   }
-}
 
-.collection-header__title {
-  font-size: $fonts-6xlarge;
-  font-weight: $fonts-normal;
-  margin-bottom: 1rem;
-  color: $c-font-inverse;
-}
+  &__description {
+    font-size: $fonts-medium;
+    font-weight: $fonts-normal;
+  }
+  
+  &__image {
+    display: none;
+    width: 175px;
+    height: auto;
+    margin-left: 1rem;
+  
+    @media ($bp-small-min) {
+      display: block;
+    }
+  }
 
-.collection-header__description {
-  font-size: $fonts-medium;
-  font-weight: $fonts-normal;
+  
 }
