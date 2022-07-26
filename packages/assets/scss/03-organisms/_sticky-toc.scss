@@ -560,7 +560,7 @@
 
         // Fix the toc label covering top 2 toc links.
 
-        & + .ma__sticky-toc__link {
+        & + ul {
           margin-top: 75px;
         }
       }
