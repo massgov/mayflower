@@ -121,17 +121,12 @@
     "secondary": {
       "position": "",
       "label": "offered by",
-      "groupAfter": 1,
+      "groupAfter": 3,
       "tags": [
         {
           "class": "",
           "href": "#",
           "title": "Department of Conservation and Recreation"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Other agency or organization"
         }
       ]
     }
