@@ -32,36 +32,50 @@ export default (function (window, document, $, undefined) {
     let $menuButton = $orgNav.find('.subnav-toggle');
 
     // I want to section.
-    let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
+    let $sectionIWantTo= $orgNav.find('.ma__org-nav-i-want-to-section');
+    let $sectionButton = $sectionIWantTo.find('.ma__comp-heading--mobile > button');
+
+    // Sticky on scroll.
+    const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
+    const menuHeight = $orgNav.height();
+
+    function stickyOnScroll() {
+      const orgWindowTop = $(window).scrollTop();
+
+      // Active Sticky TOC when on page TOC scrolls past.
+      if (bannerBottom > orgWindowTop) {
+        $('.pre-content').removeAttr('style');
+        $orgNav.removeClass('stuck');
+      }
+      else {
+        $('.pre-content').css('padding-top', menuHeight);
+        $orgNav.addClass('stuck');
+      }
+    }
 
     // Sticky on scroll.
     if ($('.pre-content').length) {
-      const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
-      let menuHeight = $orgNav.height();
       $(window).scroll(function () {
-        const orgWindowTop = $(window).scrollTop();
-        let windowWidth = $(window).width();
-
-        // Active Sticky TOC when on page TOC scrolls past.
-        if (bannerBottom > orgWindowTop) {
-          $('.pre-content').removeAttr('style');
-          $orgNav.removeClass('stuck');
-        }
-        else {
-          $('.pre-content').css('padding-top', menuHeight);
-          $orgNav.addClass('stuck');
-        }
+        stickyOnScroll();
       });
     }
 
     // Mobile toggle. 
     $mobileToggle.on('click', function () {
+      const $this = $(this);
+      $this.add($menuWrapper).toggleClass('menu-open');
 
-      if (!$orgNav.hasClass('stuck')) {
-        $orgNav.addClass('stuck')
+      // when menu is open, always stick it to the top of the screen
+      if($this.hasClass('menu-open')) {
+        if (!$orgNav.hasClass('stuck')) {
+          $orgNav.addClass('stuck')
+        }
+      } else {
+      // when menu is closed, put it back to its original location. 
+        stickyOnScroll();
       }
 
-      $mobileToggle.add($menuWrapper).toggleClass('menu-open');
+
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
       // Remove cloned button if present. 
