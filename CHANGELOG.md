@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file.
 - (Assets) [RelationshipIndicators] DP-24689: Reduce margin top. (#1640)
 - (React) [GenTeaser] DP-24941: Fix GenTeaser with image backstop test. (#1639)
 - (Assets) [Figure] DP-24976: Remove figure title style override. (#1638)
-- (Patternlab) [relationshipIndicators.js] DP-25157: Rewrite relationship indicator folding and toggle logic.
+- (Patternlab) [relationshipIndicators.js] DP-25157: Rewrite relationship indicator folding and toggle logic. (#1650)
 - (Patternlab) [Header] DP-25160: Fix missing overlay. (#1641)
 - (Patternlab) [Figure, FigureIframe] DP-25198: Fix classnames. (#1629)
 - (Patternlab) [skipLinkTarget.js] DP-25457: Fix skipLinkTarget.js console error. (#1653)
