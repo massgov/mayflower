@@ -33,7 +33,7 @@ const releaseBranch = 'release/' + version;
   await git.commit('Consolidate changelogs and update core version');
   // Use a force-push so if we have an old version of the branch sitting around
   // (eg: an unreleased one from last week), it gets updated regardless.
-  // await git.push('origin', releaseBranch, {'--force': null});
+  await git.push('origin', releaseBranch, {'--force': null});
 
   //Create the pull request in GitHub
   await octokit.pulls.create({

@@ -1,6 +1,0 @@
-Fixed: 
-  - project: Patternlab
-    component: organizationNavigation
-    description: Fix organization navigation overlapped by main nav on mobile, and fix its positioning logic. (#1654)
-    issue: DP-24431
-    impact: Patch
