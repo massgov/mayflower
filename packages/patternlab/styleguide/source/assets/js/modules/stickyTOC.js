@@ -24,7 +24,9 @@ export default (function (window, document) {
     };
     tocSectionCount = totalSections;
     // Another wrapper around the links, probably originally to put the links in two columns.
-    const tocColumn = toc.querySelector(".ma__sticky-toc__column > ul");
+    const tocColumn = toc.querySelector(".ma__sticky-toc__column");
+    // List container for links
+    const tocListContainer = toc.querySelector(".ma__sticky-toc__column ul");
     // Container in the sticky header to hold the current sections header.
     const stickyToc = toc.querySelector(".ma__sticky-toc__current-section");
     // The minimum number of sections set by data
@@ -66,7 +68,7 @@ export default (function (window, document) {
         tocLink.setAttribute("data-link", `#${sectionId}`);
         tocLink.setAttribute("role", "none");
         tocLink.innerHTML = `<a href="#${sectionId}" role="menuitem"><svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg>${sectionTitle}</a>`;
-        tocColumn.appendChild(tocLink);
+        tocListContainer.appendChild(tocLink);
         tocSections.links.push(tocLink);
       });
     }
