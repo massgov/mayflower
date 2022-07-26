@@ -20,7 +20,7 @@ $menu-transition-time: 0.3s;
     left: 0;
     width: 100%;
     margin-top: 0;
-    z-index: $z-dropdown;
+    z-index: $z-modal;
 
     .show-menu & {
       opacity: 0;
