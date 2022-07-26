@@ -1,3 +1,9 @@
+
+/** This node script is for making a release PR from the develop branch
+ * To run this script manually, you must have full repo access:
+ * @token Generate a new github token here: https://github.com/settings/tokens
+ * export NODE_PATH=$(npm root --quiet -g) DANGER_GITHUB_API_TOKEN=[token] && node scripts/release-branch.js
+ */
 const fs = require('fs');
 const path = require('path');
 // Added shelljs to use maybe in the script "npm install shelljs"
