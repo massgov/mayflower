@@ -4,6 +4,7 @@ const shell = require('shelljs');
 
 const { Octokit } = require("@octokit/rest")
 
+console.log(process.env.DANGER_GITHUB_API_TOKEN)
 const octokit = new Octokit({
   auth: process.env.DANGER_GITHUB_API_TOKEN
 });
