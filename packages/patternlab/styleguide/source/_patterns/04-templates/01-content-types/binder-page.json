@@ -42,7 +42,7 @@
     "secondary": {
       "position": "",
       "label": "related to",
-      "groupAfter": 1,
+      "groupAfter": 3,
       "tags": [{
         "class": "",
         "href": "#",
@@ -55,18 +55,6 @@
         "class": "",
         "href": "#",
         "title": "Accessible Hiking"
-      },{
-        "class": "",
-        "href": "#",
-        "title": "Scenic Viewing Areas"
-      },{
-        "class": "",
-        "href": "#",
-        "title": "Hunting"
-      },{
-        "class": "",
-        "href": "#",
-        "title": "Biking"
       }]
     }
   },

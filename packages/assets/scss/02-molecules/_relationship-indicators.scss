@@ -174,10 +174,6 @@
             display: inline-block;
           }
         }
-
-        .tags-open & {
-          align-self: baseline;
-        }
       }
     }
 
@@ -270,40 +266,55 @@
         color: $c-primary-alt;
       }
 
-      .ma__relationship-indicators--term {
-        margin: 0 5px 0 0;
-        padding-right: 0;
+      .ma__relationship-indicators {
 
-        @media ($bp-medium-min) {
-          margin: 0 5px;
-        }
-
-        &:first-child {
+        &__heading {
           margin: 0;
         }
 
-        a {
-          margin-right: 10px;
-          position: relative;
+        &--terms {
 
-          &:before {
-            content: "";
-            width: 10px;
-            position: absolute;
-            height: $fonts-smaller;
-            right: -10px;
-            bottom: 1px;
-            border-right: 1px solid $c-gray-light;
+          &.folded > .item-fold {
+            display: none;
           }
         }
-      }
 
-      .ma__relationship-indicators__expand-indicators {
-        margin: 0 5px 0 0;
+        &--term {
+          margin: 0 5px 0 0;
+          padding-right: 0;
+  
+          @media ($bp-medium-min) {
+            margin: 0 5px;
+          }
+  
+          a {
+            margin-right: 10px;
+            position: relative;
+  
+            &:before {
+              content: "";
+              width: 10px;
+              position: absolute;
+              height: $fonts-smaller;
+              right: -10px;
+              bottom: 1px;
+              border-right: 1px solid $c-gray-light;
+            }
+          }
 
-        @media ($bp-medium-min) {
-          margin: 0 5px;
+          &--last.no-fold a:before {
+            content: none;
+          }
         }
+
+        &__expand-indicators {
+          margin: 0 5px 0 0;
+  
+          @media ($bp-medium-min) {
+            margin: 0 5px;
+          }
+        }
+
       }
     }
   }
@@ -315,10 +326,6 @@
     margin-bottom: 0;
     padding-bottom: 0;
     padding-inline-start: 0;
-  }
-
-  &--terms--without-fold &--term--last a:before {
-    content: none;
   }
 
   & + .ma__illustrated-header,
