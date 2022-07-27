@@ -1,11 +1,11 @@
 {% set dark_font_class = collection.dark_font ? "collection-header--dark-font" : ""  %}
 
 <div class="collection-header {{ dark_font_class }}" style="background-color: {{ collection.bg_color }}">
-  <div class="collection-header--inner">
+  <div class="collection-header__inner">
 
     <div class="collection-header__content">
       {% if collection.title is not empty %}
-        <div class="collection-header__title">{{ collection.title }}</div>
+        <h1 class="collection-header__title">{{ collection.title }}</h1>
       {% endif %}
 
       {% if collection.description is not empty %}
