@@ -44,6 +44,7 @@ import relatedOrgsAndTopics from "./modules/relatedOrgsAndTopics.js";
 import responsiveTable from "./modules/responsiveTable.js";
 import responsiveVideo from "./modules/responsiveVideo.js";
 import resultsHeading from "./modules/resultsHeading.js";
+import relationshipIndicators from "./modules/relationshipIndicators.js";
 import scrollAnchors from "./modules/scrollAnchors.js";
 import skipLinkTarget from "./modules/skipLinkTarget.js";
 import teaserListingGroup from "./modules/teaserListingGroup";
