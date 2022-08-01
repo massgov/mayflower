@@ -216,7 +216,7 @@ export default (function (window, document) {
           focusSwitch();
 
           // When the last item in the TOC flyout is tabbed, focus is set on the first focusable element in the flyout container.
-          stuckMenu.lastChild.getElementsByTagName("a")[0].addEventListener("keyup", (e) => {
+          stuckMenu.querySelector("ul li:last-of-type a").addEventListener("keyup", (e) => {
             stuckMenu.querySelector(".secondary-label-close").focus();
           });
 
