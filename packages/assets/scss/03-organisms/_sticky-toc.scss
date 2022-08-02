@@ -223,7 +223,7 @@
       border-bottom-color: rgba($c-font-link,.5);
     }
 
-    &:nth-child(n+11) {//&:nth-child(n+12) {
+    &:nth-child(n+11) {
       display:  none;
 
       .open & {
@@ -573,20 +573,15 @@
   &::before {
     display: block;
     content: '';
-    margin-top: -120px;// -63px;
-    height: 120px;// 83px;
+    margin-top: -120px;
+    height: 120px;
     visibility: hidden;
     pointer-events: none;
 
     @media ($bp-header-toggle-min) {
-      margin-top: -70px;//-63px;
-      height: 70px;//88px;
+      margin-top: -70px;
+      height: 70px;
     }
-
-    // @media ($bp-large-extended-min) {
-    //   margin-top: -55px;
-    //   height: 83px;
-    // }
   }
 }
 
@@ -600,6 +595,10 @@
   background-color: rgba($c-black, 0.3);
   pointer-events: none;
   z-index: 99;
+
+  @media ($bp-header-toggle-max) {// Set overlay less than 841px.
+    position: fixed;
+  }
 }
 
 body.stuck {
