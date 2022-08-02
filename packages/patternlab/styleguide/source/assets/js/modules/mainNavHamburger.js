@@ -325,7 +325,7 @@ function closeMenu() {
   }, 100);
 
   if (document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")) {
-    if (utilWideGTranslate) {// Google translate elements aren't rendered screen width under 840px and the object is null.
+    if (utilWideGTranslate.querySelector("a")) {// Google translate elements aren't rendered screen width under 840px and the object is null.
       utilWideGTranslate.querySelector("a").removeAttribute("tabindex");
     }
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex");
