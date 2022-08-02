@@ -223,7 +223,7 @@
       border-bottom-color: rgba($c-font-link,.5);
     }
 
-    &:nth-child(n+12) {
+    &:nth-child(n+11) {//&:nth-child(n+12) {
       display:  none;
 
       .open & {
