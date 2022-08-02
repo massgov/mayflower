@@ -6,7 +6,6 @@
 document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
 
   let linkTarget = "";
-  let linkTargetHash = "";
 
   link.addEventListener("click", (e) => {
     // Find the matched linkTarget.
@@ -40,18 +39,23 @@ document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
 const skipLinkTOC = document.querySelector(".ma__jump-links__skip-link");
 const skipLinkTOCTarget = document.querySelector("#ma-end-sticky-toc");
 
-skipLinkTOC.addEventListener("click", (e) => {
-  skipLinkTOCTarget.setAttribute("tabindex", "0");
-  skipLinkTOCTarget.focus();
-});
-skipLinkTOC.addEventListener("keydown", (e) => {
-  if (e.key === " " || e.code === "Space") {
+if(skipLinkTOC && skipLinkTOCTarget) {
+  skipLinkTOC.addEventListener("click", (e) => {
     skipLinkTOCTarget.setAttribute("tabindex", "0");
     skipLinkTOCTarget.focus();
-  }
-});
+  });
+  
+  skipLinkTOC.addEventListener("keydown", (e) => {
+    if (e.key === " " || e.code === "Space") {
+      skipLinkTOCTarget.setAttribute("tabindex", "0");
+      skipLinkTOCTarget.focus();
+    }
+  });
+  
+  skipLinkTOC.addEventListener("focusout", (e) => {
+    skipLinkTOCTarget.setAttribute("tabindex", "-1");
+    skipLinkTOCTarget.removeAttribute("style");
+  });
+}
 
-skipLinkTOC.addEventListener("focusout", (e) => {
-  skipLinkTOCTarget.setAttribute("tabindex", "-1");
-  skipLinkTOCTarget.removeAttribute("style");
-});
+

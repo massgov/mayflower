@@ -1,0 +1,6 @@
+Fixed: 
+  - project: Patternlab
+    component: skipLinkTarget.js
+    description: Fix skipLinkTarget.js console error. (#1653)
+    issue: DP-25457
+    impact: Patch
