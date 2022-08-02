@@ -88,7 +88,7 @@ $heading-indent: $gutter;
   &__container h2 {
     padding-top: .75em;
 
-    &:first-child {
+    &:first-child:not(.sticky-toc-jump-target)  {
       padding-top: 0;
     }
   }
