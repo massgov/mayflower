@@ -44,8 +44,8 @@ export const useGoogleTranslateElement = (id = 'google_translate_element') => {
       const googGtTT = document.getElementById('goog-gt-tt');
       const googleTranslateIFrame = document.getElementsByClassName('goog-te-menu-frame');
       const googleTranslateSpinner = document.getElementsByClassName('goog-te-spinner-pos');
-      googleTranslateSpinner.forEach((element) => element.remove());
-      googleTranslateIFrame.forEach((iframe) => iframe.remove());
+      googleTranslateSpinner && Array.isArray(googleTranslateSpinner) && googleTranslateSpinner.forEach((element) => element.remove());
+      googleTranslateIFrame && Array.isArray(googleTranslateIFrame) && googleTranslateIFrame.forEach((iframe) => iframe.remove());
       if (googGtTT) {
         googGtTT.remove();
       }
