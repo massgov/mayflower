@@ -15,6 +15,12 @@
 
       .ma__stacked-row__title .ma__comp-heading {
         margin-top: 15px;
+
+    // TEST CODE
+    // @media ($bp-large-max) {
+
+        top: 15px;
+    // }
       }
     }
 
@@ -64,17 +70,6 @@
 
   &__section--restricted &__title {
     max-width: 820px;
-
-
-
-
-    // TEST CODE
-    // @media ($bp-large-max) {
-
-      .ma__comp-heading {
-        top: 15px;
-      }
-    // }
   }
 
   // margin adjustment for callout-message (feature message)
