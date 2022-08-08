@@ -585,10 +585,10 @@
   }
 }
 
-.ma__stacked-row__title .sticky-toc-jump-target {
+.ma__stacked-row__title .sticky-toc-jump-target::before {
 
     @media ($bp-header-toggle-min) {
-      // margin-top: -70px;
+      margin-top: -85px;
       height: 85px;
     }
 }
