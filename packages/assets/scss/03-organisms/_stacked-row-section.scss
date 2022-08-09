@@ -103,11 +103,11 @@
 
 // .ma__stacked-row stacked-row-column
 
-.ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) .ma__comp-heading::before {
+.ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) section:not(.ma__contact-list) .ma__comp-heading::before {
   margin-top: -105px;
 
   @media ($bp-header-toggle-min) {// margin-top 15px on .ma__comp-heading does not add up as the height of h2::before.
-    margin-top: -60px;
+    margin-top: -55px;
     // height: 70px;
   }
 }
