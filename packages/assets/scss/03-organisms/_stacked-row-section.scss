@@ -101,6 +101,12 @@
 
 }
 
+// .ma__stacked-row stacked-row-column
+
+.ma_stacked-row-external-sidebar .ma__comp-heading::before {
+  margin-top: -95px;
+}
+
 //theme
 
 .ma__stacked-row {
