@@ -103,8 +103,8 @@
 
 // .ma__stacked-row stacked-row-column
 
-.ma_stacked-row-external-sidebar .ma__comp-heading::before {
-  margin-top: -95px;
+.ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) .ma__comp-heading::before {
+  margin-top: -105px;
 }
 
 //theme
