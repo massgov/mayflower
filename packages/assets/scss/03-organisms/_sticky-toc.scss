@@ -587,7 +587,7 @@
 
 // .ma__stacked-row__section:not(:first-child) .ma__stacked-row__title .sticky-toc-jump-target::before {
 
-.ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) .sticky-toc-jump-target::before {
+.ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) section:not(.ma__contact-list) .sticky-toc-jump-target::before {
 
   height: 85px;
 
