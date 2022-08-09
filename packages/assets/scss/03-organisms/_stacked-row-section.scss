@@ -14,15 +14,8 @@
       }
     }
 
-
-
-    // test edit
-
      &:not(:first-child) .ma__stacked-row__title .ma__comp-heading {
-
         margin-top: 15px;
-
-        // color: red;
       }
 
     & ~ &--borderless {
@@ -91,32 +84,9 @@
 
     @media ($bp-header-toggle-min) {// margin-top 15px on .ma__comp-heading does not add up as the height of h2::before.
       margin-top: -55px;
-      // height: 70px;
     }
-
-    // color: red;
   }
-  // .main-content .ma__contact-list .ma__comp-heading::before {
-
-  //   // color: orange;
-  // }
 }
-
-
-
-
-
-
-// .ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) {
-//   section:not(.ma__contact-list) .ma__comp-heading::before {
-//     margin-top: -105px;
-
-//     @media ($bp-header-toggle-min) {// margin-top 15px on .ma__comp-heading does not add up as the height of h2::before.
-//       margin-top: -55px;
-//       // height: 70px;
-//     }
-//   }
-// }
 
 //theme
 
