@@ -75,8 +75,6 @@
 
   // margin adjustment for callout-message (feature message)
 
-  // & &__section:first-child .main-content .page-content > section:not(.ma__callout-message__container)
-
   & &__section:first-child .main-content .page-content > .ma__featured-item-mosaic,
   & &__section:first-child .main-content .page-content > .ma__contact-list {
     margin-top: calc(0.45em + 22px);
@@ -85,32 +83,40 @@
       margin-bottom: calc(0.45em + 18px);
     }
   }
-
-
-
-  // & &__section:not(:first-child) {
-  //   // test edit
-  //   .ma__stacked-row__title .ma__comp-heading {
-  //     margin-top: 15px;
-
-  //     color: orange;
-  //   }
-  // }
-
-
-
 }
 
-// .ma__stacked-row stacked-row-column
+.ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) {
+  .ma__stacked-row__container .ma__comp-heading::before {
+    margin-top: -105px;
 
-.ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) section:not(.ma__contact-list) .ma__comp-heading::before {
-  margin-top: -105px;
+    @media ($bp-header-toggle-min) {// margin-top 15px on .ma__comp-heading does not add up as the height of h2::before.
+      margin-top: -55px;
+      // height: 70px;
+    }
 
-  @media ($bp-header-toggle-min) {// margin-top 15px on .ma__comp-heading does not add up as the height of h2::before.
-    margin-top: -55px;
-    // height: 70px;
+    // color: red;
   }
+  // .main-content .ma__contact-list .ma__comp-heading::before {
+
+  //   // color: orange;
+  // }
 }
+
+
+
+
+
+
+// .ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) {
+//   section:not(.ma__contact-list) .ma__comp-heading::before {
+//     margin-top: -105px;
+
+//     @media ($bp-header-toggle-min) {// margin-top 15px on .ma__comp-heading does not add up as the height of h2::before.
+//       margin-top: -55px;
+//       // height: 70px;
+//     }
+//   }
+// }
 
 //theme
 
