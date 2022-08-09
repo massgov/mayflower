@@ -93,7 +93,7 @@ const TypeAheadDropdown = (props) => {
     buttonRef.current.addEventListener('mousedown', handleRefMouseDown);
     return() => {
       document.removeEventListener('mousedown', handleClickOutside);
-      buttonRef.current.removeEventListener('mousedown', handleRefMouseDown);
+      buttonRef && buttonRef.current && buttonRef.current.removeEventListener('mousedown', handleRefMouseDown);
     };
   });
 
