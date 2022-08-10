@@ -79,10 +79,11 @@
 }
 
 .ma_stacked-row-external-sidebar .ma__stacked-row__section:not(:first-child) {
+
   .ma__stacked-row__container .ma__comp-heading::before {
     margin-top: -105px;
 
-    @media ($bp-header-toggle-min) {// margin-top 15px on .ma__comp-heading does not add up as the height of h2::before.
+    @media ($bp-header-toggle-min) {
       margin-top: -55px;
     }
   }
