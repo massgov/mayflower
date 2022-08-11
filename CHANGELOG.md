@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [sticky-toc] DP-24958: Add a skip link target indicator at click to verify users' whereabout. (#1642)
 - (Patternlab) [CollectionHeader] DP-25173: Reduce vertical spacing, make title H1, and reduce H1 line height. (#1655)
 - (Patternlab) [Services] DP-25195: Remove intro sidebar, fix layout classes, reduce spacing. (#1648)
+- (Patternlab) [PageBanner] DP-25133: Change page banner taper image background position and scale. Increase image wrapping breakpoint from `large-extended` to `x-large`. (#1648)
 
 ### Added 
 - (Patternlab, React, Assets) [SocialLinks] DP-23892: Added inverted and `c-primary` and `c-primary-alt` variants to SocialLinks, updated Footer social links to use q1-i8 color. (#1629)
@@ -31,8 +32,6 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [Figure, FigureIframe] DP-25198: Fix classnames. (#1629)
 - (Patternlab) [skipLinkTarget.js] DP-25457: Fix skipLinkTarget.js console error. (#1653)
 
-### Change 
-- (Patternlab) [PageBanner] DP-25133: Change page banner taper image background position and scale. Increase image wrapping breakpoint from `large-extended` to `x-large`. (#1648)
 
 ## 11.24.0 (5/31/2022)
 ### Added 
