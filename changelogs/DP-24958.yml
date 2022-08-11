@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: sticky-toc
-    description: Add a skip link target indicator at click to verify users' whereabout. (#1642)
-    issue: DP-24958
-    impact: Patch
