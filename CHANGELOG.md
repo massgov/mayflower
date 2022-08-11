@@ -1,6 +1,39 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.25.0 (8/11/2022)
+### Changed 
+- (Patternlab) [Footer, FooterWithColumns] DP-23892: Renamed Footer as FooterWithColumns, add new footer component as Footer. (#1629)
+- (Patternlab) [eventListing] DP-24265: Modified the heading level for event itmes in event listings. (#1634)
+- (Patternlab) [sticky-toc] DP-24958: Add a skip link target indicator at click to verify users' whereabout. (#1642)
+- (Patternlab) [CollectionHeader] DP-25173: Reduce vertical spacing, make title H1, and reduce H1 line height. (#1655)
+- (Patternlab) [Services] DP-25195: Remove intro sidebar, fix layout classes, reduce spacing. (#1648)
+
+### Added 
+- (Patternlab, React, Assets) [SocialLinks] DP-23892: Added inverted and `c-primary` and `c-primary-alt` variants to SocialLinks, updated Footer social links to use q1-i8 color. (#1629)
+- (Assets) [StickyNav, Details] DP-23892: Refactored StickyNav layout styles into a reusable mixin, to use to align footer content. (#1629)
+- (Patternlab) [CalloutLinksThreeUp] DP-23905: New - three columns with callout links. (#1613)
+- (Patternlab) [ColoredHeadingFromLeft] DP-23905: New - A heading with background color, extracted from the action finder component. (#1613)
+- (Patternlab, Assets) [Iframe] DP-25198: Add `ratio` prop to iframe, add ratio options to iframe responsive height. (#1629)
+- (Patternlab) [CalloutLink] DP-25227: Added download variant. (#1649)
+
+### Fixed 
+- (Patternlab) [Video] DP-23905: Fix service page video in the flexible layout rows. (#1613)
+- (Patternlab) [organizationNavigation] DP-24431: Fix organization navigation overlapped by main nav on mobile, and fix its positioning logic. (#1654)
+- (React) [GoogleTranslateElement] DP-24556: Fix Google translate spinner error in search. (#1661)
+- (React) [TypeAheadDropdown] DP-24556: Fix removEventListener error in search. (#1661)
+- (Assets) [RelationshipIndicators] DP-24689: Reduce margin top. (#1640)
+- (React) [GenTeaser] DP-24941: Fix GenTeaser with image backstop test. (#1639)
+- (Assets) [Figure] DP-24976: Remove figure title style override. (#1638)
+- (Patternlab) [relationshipIndicators.js] DP-25157: Rewrite relationship indicator folding and toggle logic.
+- (Patternlab) [Header] DP-25160: Fix missing overlay. (#1641)
+- (Patternlab) [stickyTOC] DP-25175: Rely on page headings as targets instead of creating invisible items above headings.
+- (Patternlab) [Figure, FigureIframe] DP-25198: Fix classnames. (#1629)
+- (Patternlab) [skipLinkTarget.js] DP-25457: Fix skipLinkTarget.js console error. (#1653)
+
+### Change 
+- (Patternlab) [PageBanner] DP-25133: Change page banner taper image background position and scale. Increase image wrapping breakpoint from `large-extended` to `x-large`. (#1648)
+
 ## 11.24.0 (5/31/2022)
 ### Added 
 - (Patternlab) [Select box] DP-17338: Adds a selected option for the select box.

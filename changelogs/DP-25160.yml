@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: Header
-    description: Fix missing overlay. (#1641)
-    issue: DP-25160
-    impact: Patch
