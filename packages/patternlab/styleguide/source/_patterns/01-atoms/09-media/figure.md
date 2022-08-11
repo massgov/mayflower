@@ -38,6 +38,8 @@ figure: {
       type: string
     width:
       type: string
+    ratio: 
+      type: string / see options in iframe.md
   }
   dataviz: {
     id:

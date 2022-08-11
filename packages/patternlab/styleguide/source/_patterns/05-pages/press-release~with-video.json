@@ -49,7 +49,7 @@
     "secondary": {
       "position": "",
       "label": "offered by",
-      "groupAfter": 1,
+      "groupAfter": 3,
       "tags": [
         {
           "class": "",

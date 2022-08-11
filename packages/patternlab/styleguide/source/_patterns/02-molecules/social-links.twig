@@ -1,3 +1,5 @@
+{% set linkTheme = "ma__social-links__link" ~ (socialLinks.theme ? '--' ~ socialLinks.theme : '') ~ (socialLinks.inverted ? '--inverted' : '') %}
+
 {% if socialLinks.items|length %}
   <section class="ma__social-links">
     {% if socialLinks.label %}
@@ -6,7 +8,7 @@
     <ul class="ma__social-links__items">
       {% for item in socialLinks.items %}
         <li class="ma__social-links__item">
-          <a href="{{ item.href }}" class="ma__social-links__link js-social-share" data-social-share="{{ item.linkType }}">
+          <a href="{{ item.href }}" class="ma__social-links__link js-social-share {{linkTheme}}" data-social-share="{{ item.linkType }}">
             <span class="visually-hidden">{{ item.altText }}</span>
             {{ icon(item.icon) }}
           </a>

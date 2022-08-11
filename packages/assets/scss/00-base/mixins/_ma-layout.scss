@@ -1,0 +1,15 @@
+@use "00-base/variables" as *;
+
+@use "00-base/breakpoints" as *;
+
+@use "ma-container" as *;
+
+@mixin page-width-full {
+
+  @include ma-container;
+
+  @media ($bp-large-extended-min) {
+    
+      padding-right: $layout-sidebar-width;
+  }
+}

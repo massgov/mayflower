@@ -7,7 +7,7 @@
 {% if not figure.wrap %}
   <div class="ma__figure--no-wrap">
 {% endif %}
-<div class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : " " }}">
+<div class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " " ~ figure.class : " " }}">
 {% if figure.skiplink.add %}
 <a class="ma__figure__skip-link" href="#{{ skiplinkId }}" aria-label="Skip the following {{ skiplinkText }}{% if figure.title %}, {{ figure.title.text }}{% endif %}.">Skip this
 	{{ skiplinkText }}.</a>

@@ -2,20 +2,12 @@
 
 .ma__details {
 
-  &__content {
+  &__container {
+    display: flex;
     position: relative;
 
-    @media ($bp-medium-min) {
-      margin-left: 160px;
-    }
-
-    @media ($bp-x-large-min) {
-      margin-left: $column-with-gutter * 2;
-    }
-
-    & > * {
-
-      @include ma-component-spacing;
+    @media ($bp-medium-max) {
+      flex-direction: column;
     }
 
     h3 {
@@ -24,7 +16,32 @@
   }
 
   &__sticky-nav {
+
+    @media ($bp-medium-max) {
+      width: 100%;
+    }
+
     margin-bottom: 30px;
+  }
+
+  &__content {
+
+    width: 100%;
+    margin-left: $layout-left-col-width + $layout-left-col-gutter;
+
+    & > * {
+
+      @include ma-component-spacing;
+    }
+
+    @media ($bp-x-large-min) {
+      margin-left: $layout-left-col-width-x-largin + $layout-left-col-gutter;
+    }
+  
+    @media ($bp-medium-max) {
+       margin-left: 0;
+    }
+
   }
 
   .page-content > .ma__contact-list {

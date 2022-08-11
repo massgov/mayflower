@@ -2,6 +2,8 @@
 
 .ma__social-links-bar {
 
+  @include page-width-full;
+
   ul {
     display: flex;
     flex-wrap: wrap;

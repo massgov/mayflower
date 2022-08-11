@@ -452,19 +452,20 @@ workflows:
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/|react\/).*/ }
 
-  # Release branch automation every Monday at 1:00 p.m. ET "00 18 * * 1"
-  release:
-    jobs:
-      - build
-      - release_branch:
-          requires: [build]
-    triggers:
-      - schedule:
-          cron: "00 18 * * 1"
-          filters:
-            branches:
-              only:
-                - develop
+  ## Release branch automation every Monday at 1:00 p.m. ET "00 18 * * 1"
+  ## Auto release is disabled - the new mayflower - openmass doesn't require weekly mayflower release
+  #release:
+  #  jobs:
+  #    - build
+  #    - release_branch:
+  #        requires: [build]
+  #  triggers:
+  #    - schedule:
+  #        cron: "00 18 * * 1"
+  #        filters:
+  #          branches:
+  #            only:
+  #              - develop
 
   build_github_tag:
     jobs:

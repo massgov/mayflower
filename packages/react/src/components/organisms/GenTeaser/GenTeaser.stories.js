@@ -6,6 +6,7 @@ import IconCatalog from 'MayflowerReactBase/Icon/IconCatalog';
 import IconData from 'MayflowerReactBase/Icon/IconData';
 import GenTeaser from './index';
 import GenTeaserDocs from './GenTeaser.md';
+import placeholder from '@massds/mayflower-assets/static/images/placeholder/100x100.png';
 
 export const GenTeaserExample = (args) => (
   <GenTeaser>
@@ -504,7 +505,7 @@ GenTeaserImage.args = {
     },
     description: 'Jul 17, 2019 ... offered by. MassHire Department of Career Services. show 0 more. related to. MassHire Plymouth Career Center · MassHire ... Job Fair 2019.',
     img: {
-      src: 'https://via.placeholder.com/150',
+      src: placeholder,
       alt: '',
       shape: 'circular'
     }
