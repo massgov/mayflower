@@ -151,43 +151,12 @@ if (menuButton !== null) {
     }
   });
 
-
-  // // Arrow keyboard navigation in the top level clickable elements.
-  // topLevelClickableItems.forEach(link => {
-  //   link.style.backgroundColor = "orange";
-  //   // console.log(link);
-
-  //   link.addEventListener("keydown", function(e) {
-  //     // let targetParent = e.target.closest(".js-main-nav-hamburger-toggle");
-
-  //     if (e.key === "ArrowRight" || e.code === "ArrowRight") {
-  //       let nextElementIndex = e.target.findIndex() + 1;
-  //       let nextElement = link[nextElementIndex];
-  //       nextElement.focus();
-  //     }
-
-  //     if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {
-  //       if(targetParent.previousElementSibling) {
-  //         targetParent.previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
-  //       }
-  //       else {
-  //         // Set focus on the last sibling menu item button/link.
-  //         // could be a utility link
-
-  //         topmenuButtons[0].querySelector("button").focus();
-  //       }
-  //     }
-  //   });
-  // });
-
-
   // Arrow keyboard navigation in the sub menu.
   let submenuLinks = document.querySelectorAll(".js-main-nav-hamburger__link");
   submenuLinks.forEach(link => {
     link.addEventListener("keydown", function(e) {
       let targetParent = e.target.closest(".js-main-nav-hamburger__subitem");
 
-      // if (e.key === "ArrowDown" || e.code === "ArrowDown") {
       if (e.key === "ArrowRight" || e.code === "ArrowRight") {
         if(targetParent.nextElementSibling) {
           targetParent.nextElementSibling.querySelector("a").focus();
@@ -198,7 +167,6 @@ if (menuButton !== null) {
         }
       }
 
-      // if (e.key === "ArrowUp" || e.code === "ArrowUp") {
       if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {
         if(targetParent.previousElementSibling) {
           targetParent.previousElementSibling.querySelector("a").focus();
@@ -216,7 +184,6 @@ if (menuButton !== null) {
   narrowUtilContentLinks.forEach(function(link, i) {
 
     link.addEventListener("keydown", function(e) {
-      // if (e.key === "ArrowDown" || e.code === "ArrowDown") {
       if (e.key === "ArrowRight" || e.code === "ArrowRight") {
         if (e.target === narrowUtilContentLinks[i]) {
           if (e.target === narrowUtilContentLinks[lastIndex]) {
@@ -243,7 +210,6 @@ if (menuButton !== null) {
         }
       }
 
-      // if (e.key === "ArrowUp" || e.code === "ArrowUp") {
       if (e.key === "ArrowRight" || e.code === "ArrowRight") {
         if (e.target === narrowUtilContentLinks[i]) {
           if (e.target === narrowUtilContentLinks[0]) {
@@ -301,7 +267,6 @@ function toggleMenu() {
       // .toggleAttribute() doesn't work with ios11.
       hamburgerMenuContainer.setAttribute("aria-hidden", "");
       closeMenu();
-
       setTimeout(function timeoutFunction() {
         document.querySelector(".js-header-menu-button").focus();
       }, 100);
@@ -315,9 +280,9 @@ function toggleMenu() {
 function closeMenu() {
   commonCloseMenuTasks();
   menuButton.setAttribute("aria-pressed", "false");
-  menuButtonText.classList.add("show")
-  menuButtonTextMobile.classList.add("show")
-  menuButtonTextClose.classList.remove("show")
+  menuButtonText.classList.add("show");
+  menuButtonTextMobile.classList.add("show");
+  menuButtonTextClose.classList.remove("show");
 
   // Set focus on the menu button.
   setTimeout(function timeoutFunction() {
@@ -397,9 +362,9 @@ function openMenu() {
 
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "main menu for mass.gov");
-  menuButtonText.classList.remove("show")
-  menuButtonTextMobile.classList.remove("show")
-  menuButtonTextClose.classList.add("show")
+  menuButtonText.classList.remove("show");
+  menuButtonTextMobile.classList.remove("show");
+  menuButtonTextClose.classList.add("show");
 
   if (feedbackButton) {
     feedbackButton.classList.add("hide-button");
@@ -722,25 +687,14 @@ menuItems.forEach((item) => {
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
-  // VO key command to expand menus on this event target.
-  let voCommand = {
-    ctl: false,
-    alt: false,
-    space: false
-  };
-
   subItems.style.opacity = "0";
 
   itemButton.addEventListener("click", (e) => {
     expandSubMenuContainer();
+    e.target.focus();
   });
 
   itemButton.addEventListener("keydown", function (e) {
-    if (e.code == "ArrowRight" || e.key == "ArrowLeft") {
-      let first = subItems.getElementsByTagName("li")[0];
-      first.querySelector(".js-main-nav-hamburger__link").focus();
-    }
-
     if (e.key === "ArrowDown" || e.code === "ArrowDown") {
       expandSubMenuContainer();
       e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
@@ -749,48 +703,6 @@ menuItems.forEach((item) => {
     if (e.key === "ArrowUp" || e.code === "ArrowUp") {
       expandSubMenuContainer();
       e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:last-child .js-main-nav-hamburger__link").focus();
-    }
-
-    // Check when the keys are pressed.
-    if (e.key === " " || e.code === "Space") {
-      voCommand.space = true;
-    }
-    if(e.key === "Control") {
-       voCommand.ctl = true;
-    }
-    if (e.key === "Alt") {
-      voCommand.alt = true;
-    }
-
-    // Don't set focus on the first child when VO command is used.
-    // This causes Voiceover fails to announce the first child.
-    if (voKeys.ctl && voKeys.alt) {// VO keys have been held down before space key gets hit.
-      if (e.key === " " || e.code === "Space") {
-        expandSubMenuContainer();
-        this.focus();
-
-        voCommand.alt = false;
-        voCommand.ctl = false;
-        voCommand.space = false;
-      }
-    } else {
-      if (e.key === " " || e.code === "Space" || e.key === "Enter") {// e.key === " " doesn't always get correct response.
-        expandSubMenuContainer();
-        e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
-
-        voCommand.alt = false;
-        voCommand.ctl = false;
-        voCommand.space = false;
-      }
-    }
-    if (voCommand.alt && voCommand.ctl && voCommand.space) { // VO command: hold down 3 keys at the same time.
-      expandSubMenuContainer();
-      // Keep focus on the top menu button. without this, sometimes body gets focus when submenu closes.
-      this.focus();
-
-      voCommand.alt = false;
-      voCommand.ctl = false;
-      voCommand.space = false;
     }
   });
 
@@ -803,8 +715,6 @@ menuItems.forEach((item) => {
       item.style.pointerEvents = "none";
 
       setTimeout(function timeoutFunction() {
-          //item.style.height = "0";
-          //item.style.opacity = "0";
           item.removeAttribute("style");
       }, 700);
     } else {
@@ -875,7 +785,8 @@ function selectTopClickableItems(windowWidth) {
 
   // Arrow keyboard navigation in the top level clickable elements.
   let lastTopItemIndex = topLevelClickableItems.length - 1;
-
+  // Here, manage navigating items on the top level to cover all clickable elements.
+  // Managing opening sub container and setting focus with up/down arrow keys are managed separately.
   topLevelClickableItems.forEach((link, index) => {
     link.addEventListener("keydown", function(e) {
       if (e.key === "ArrowRight" || e.code === "ArrowRight") {// forward
@@ -930,7 +841,7 @@ setTimeout(function timeoutFunction() {// This prevents GT elements get null.
 
       // Close the container with ESC and set focus on the menu button.
       if (key === "Escape" || key === "Esc" ) {
-        gTranslateOptionContainer.classList.remove("show")
+        gTranslateOptionContainer.classList.remove("show");
         gTranslateButtons[0].focus();
       }
     });
