@@ -1,6 +1,0 @@
-Changed: 
-  - project: Patternlab
-    component: CollectionHeader
-    description: Reduce vertical spacing, make title H1, and reduce H1 line height. (#1655)
-    issue: DP-25173
-    impact: Minor

@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: relationshipIndicators.js
-    description: Rewrite relationship indicator folding and toggle logic.
-    issue: DP-25157
-    impact: Patch
