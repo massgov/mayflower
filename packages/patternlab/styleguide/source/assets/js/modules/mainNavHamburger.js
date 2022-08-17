@@ -16,6 +16,7 @@ const menuButtonTextClose = document.querySelector(".js-header__menu-text--close
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 const searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
 
+// const navContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 
@@ -595,7 +596,7 @@ if (utilNarrowButton !== null) {
         let clickableItems = thisNavContainer.querySelectorAll(".js-util-nav-content a, .js-util-nav-content button");
 
         if (e.key === "ArrowDown" || e.code === "ArrowDown") {
-          clickableItems[1].focus(); // the first itme is close button.
+          clickableItems[1].focus(); // Skip the first item (close button), clickableItems[0].
         }
 
         if (e.key === "ArrowUp" || e.code === "ArrowUp") {
@@ -660,28 +661,6 @@ if (osInfo.indexOf("Safari") !== -1) {
   });
 }
 
-// Check VO keys are held down.
-let voKeys = {
-  ctl: false,
-  alt: false
-};
-document.addEventListener("keydown", (e) => {
-   if(e.key === "Control") {
-       voKeys.ctl = true;
-    }
-    if (e.key === "Alt") {
-      voKeys.alt = true;
-    }
-});
-document.addEventListener("keyup", (e) => {
-   if(e.key === "Control") {
-       voKeys.ctl = false;
-    }
-    if (e.key === "Alt") {
-      voKeys.alt = false;
-    }
-});
-
 menuItems.forEach((item) => {
 
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
@@ -696,12 +675,16 @@ menuItems.forEach((item) => {
 
   itemButton.addEventListener("keydown", function (e) {
     if (e.key === "ArrowDown" || e.code === "ArrowDown") {
-      expandSubMenuContainer();
+      if (!e.target.parentElement.classList.contains("submenu-open")) {
+        expandSubMenuContainer();
+      }
       e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
     }
 
     if (e.key === "ArrowUp" || e.code === "ArrowUp") {
-      expandSubMenuContainer();
+      if (!e.target.parentElement.classList.contains("submenu-open")) {
+        expandSubMenuContainer();
+      }
       e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:last-child .js-main-nav-hamburger__link").focus();
     }
   });
@@ -773,14 +756,14 @@ menuItems.forEach((item) => {
 
 function selectTopClickableItems(windowWidth) {
   topLevelClickableItems = "";
-  if (windowWidth < 621) {// mobile
-    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
+  if (windowWidth > 840) {
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__main-nav .ma__main__hamburger-nav__top-link");
   }
   if (windowWidth < 841) {
     topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
   }
-  if (windowWidth > 840) {
-    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__main-nav .ma__main__hamburger-nav__top-link");
+  if (windowWidth < 621) {// mobile
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
   }
 
   // Arrow keyboard navigation in the top level clickable elements.
