@@ -17,6 +17,7 @@
         <button type="button"
                 aria-expanded="false"
                 aria-label="Open the main menu for mass.gov"
+                aria-describedby="menuInfo"
                 class="ma__header__hamburger__menu-button js-header-menu-button">
           <span class="ma__header__hamburger__menu-icon"></span>
           {# Visible menu label is managed with CSS.  The button has aria-label and the button label via aria-label is visible to screen reader users. #}
@@ -30,6 +31,9 @@
             Close
           </span>
         </button>
+        <div id="menuInfo" aria-hidden="true">
+          <p>In the menu, hitting escape on top menu items closes the main navigation menu.</p>
+        </div>
         {# Skip button to search. #}
         <button type="button"
                 aria-expanded="false"
@@ -38,10 +42,6 @@
           {{ icon('search') }}
         </button>
       </div>{# .ma__header__hamburger__button-container #}
-
-      <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--wide js-utility-nav--wide">
-        {% include "@organisms/by-template/utility-nav.twig" %}
-      </div>
 
       <div class="ma__header__hamburger__nav-container" aria-hidden="true">
         <div class="ma__header__hamburger__logo ma__header__hamburger__logo--mobile">
@@ -63,6 +63,10 @@
           {% include "@organisms/by-template/utility-nav.twig" %}
         </div>{# .ma__header__hamburger__utility-nav #}
       </div>{# .ma__header__hamburger__nav-container #}
+
+      <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--wide js-utility-nav--wide">
+        {% include "@organisms/by-template/utility-nav.twig" %}
+      </div>
 
     </div>{# . ma__header__hamburger-wrapper #}
   </nav>
