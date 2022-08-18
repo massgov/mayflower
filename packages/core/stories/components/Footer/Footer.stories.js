@@ -2,6 +2,13 @@ import React from 'react';
 import FooterSlim from '@massds/mayflower-react/dist/FooterSlim';
 import Footer from '@massds/mayflower-react/dist/Footer';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
+import Email from '@massds/mayflower-react/dist/Email';
+import PhoneNumber from '@massds/mayflower-react/dist/PhoneNumber';
+import Address from '@massds/mayflower-react/dist/Address';
+import IconMarker from '@massds/mayflower-react/dist/Icon/IconMarker';
+import IconPhone from '@massds/mayflower-react/dist/Icon/IconPhone';
+import IconLaptop from '@massds/mayflower-react/dist/Icon/IconLaptop';
+import IconMail from '@massds/mayflower-react/dist/Icon/IconMail';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import { attachHTML } from '../../util/renderCode';
 
@@ -11,14 +18,36 @@ const { STORYBOOK_CDN_PATH } = process.env;
 
 const footerBasic = (
   <FooterSlim
-    contact={{
-      address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
-      online: {
-        href: '#',
-        title: 'EEC Official Website'
-      },
-      phone: '(617) 988-6600'
-    }}
+  contact={[
+    {
+      icon: <IconMarker />,
+      component: <Address address='51 Sleeper St. 4th Floor, Boston, MA 02210' />
+    },
+    {
+      icon: <IconLaptop />,
+      component: (
+        <a href='#'>EEC Official Website</a>
+      )
+    },
+    {
+      icon: <IconMail />,
+      component: (
+        <Email 
+          email ='edu@state.ma.us'
+          details = 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
+        />
+      )
+    },
+    {
+      icon: <IconPhone />,
+      component: (
+        <PhoneNumber 
+          number = '617-988-6600'
+          details = 'Our Customer Service Representatives can answer your questions in <b>English</b>, <b>Español</b>, <b>Português</b>. Translation services for up to <b>240+ languages</b> are also available to better serve employees, employers and medical providers.'
+        />
+      )
+    }
+  ]}
     description="The Department of Early Education and Care's mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
     links={[
       {
@@ -45,14 +74,36 @@ const footerBasic = (
 
 const footerDuelLogo = (
   <FooterSlim
-    contact={{
-      address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
-      online: {
-        href: '#',
-        title: 'EEC Official Website'
+    contact={[
+      {
+        icon: <IconMarker />,
+        component: <Address address='51 Sleeper St. 4th Floor, Boston, MA 02210' />
       },
-      phone: '(617) 988-6600'
-    }}
+      {
+        icon: <IconLaptop />,
+        component: (
+          <a href='#'>EEC Official Website</a>
+        )
+      },
+      {
+        icon: <IconMail />,
+        component: (
+          <Email 
+            email ='edu@state.ma.us'
+            details = 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
+          />
+        )
+      },
+      {
+        icon: <IconPhone />,
+        component: (
+          <PhoneNumber 
+            number = '617-988-6600'
+            details = 'Our Customer Service Representatives can answer your questions in <b>English</b>, <b>Español</b>, <b>Português</b>. Translation services for up to <b>240+ languages</b> are also available to better serve employees, employers and medical providers.'
+          />
+        )
+      }
+    ]}
     description="The Department of Early Education and Care's mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
     links={[
       {
