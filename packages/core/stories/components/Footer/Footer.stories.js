@@ -18,36 +18,36 @@ const { STORYBOOK_CDN_PATH } = process.env;
 
 const footerBasic = (
   <FooterSlim
-    contact={[
-      {
-        icon: <IconMarker />,
-        component: <Address address="51 Sleeper St. 4th Floor, Boston, MA 02210" />
-      },
-      {
-        icon: <IconLaptop />,
-        component: (
-          <a href="#">EEC Official Website</a>
-        )
-      },
-      {
-        icon: <IconMail />,
-        component: (
-          <Email
-            email="edu@state.ma.us"
-            details="Open Monday through Friday from 9:00 a.m. to 5:00 p.m."
-          />
-        )
-      },
-      {
-        icon: <IconPhone />,
-        component: (
-          <PhoneNumber
-            number="617-988-6600"
-            details="Our Customer Service Representatives can answer your questions in <b>English</b>, <b>Español</b>, <b>Português</b>. Translation services for up to <b>240+ languages</b> are also available to better serve employees, employers and medical providers."
-          />
-        )
-      }
-    ]}
+    // contact={[
+    //   {
+    //     icon: <IconMarker />,
+    //     component: <Address address="51 Sleeper St. 4th Floor, Boston, MA 02210" />
+    //   },
+    //   {
+    //     icon: <IconLaptop />,
+    //     component: (
+    //       <a href="#">EEC Official Website</a>
+    //     )
+    //   },
+    //   {
+    //     icon: <IconMail />,
+    //     component: (
+    //       <Email
+    //         email="edu@state.ma.us"
+    //         details="Open Monday through Friday from 9:00 a.m. to 5:00 p.m."
+    //       />
+    //     )
+    //   },
+    //   {
+    //     icon: <IconPhone />,
+    //     component: (
+    //       <PhoneNumber
+    //         number="617-988-6600"
+    //         details="Our Customer Service Representatives can answer your questions in <b>English</b>, <b>Español</b>, <b>Português</b>. Translation services for up to <b>240+ languages</b> are also available to better serve employees, employers and medical providers."
+    //       />
+    //     )
+    //   }
+    // ]}
     description="The Department of Early Education and Care's mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
     links={[
       {
@@ -74,36 +74,36 @@ const footerBasic = (
 
 const footerDuelLogo = (
   <FooterSlim
-    contact={[
-      {
-        icon: <IconMarker />,
-        component: <Address address="51 Sleeper St. 4th Floor, Boston, MA 02210" />
-      },
-      {
-        icon: <IconLaptop />,
-        component: (
-          <a href="#">EEC Official Website</a>
-        )
-      },
-      {
-        icon: <IconMail />,
-        component: (
-          <Email
-            email="edu@state.ma.us"
-            details="Open Monday through Friday from 9:00 a.m. to 5:00 p.m."
-          />
-        )
-      },
-      {
-        icon: <IconPhone />,
-        component: (
-          <PhoneNumber
-            number="617-988-6600"
-            details="Our Customer Service Representatives can answer your questions in <b>English</b>, <b>Español</b>, <b>Português</b>. Translation services for up to <b>240+ languages</b> are also available to better serve employees, employers and medical providers."
-          />
-        )
-      }
-    ]}
+    // contact={[
+    //   {
+    //     icon: <IconMarker />,
+    //     component: <Address address="51 Sleeper St. 4th Floor, Boston, MA 02210" />
+    //   },
+    //   {
+    //     icon: <IconLaptop />,
+    //     component: (
+    //       <a href="#">EEC Official Website</a>
+    //     )
+    //   },
+    //   {
+    //     icon: <IconMail />,
+    //     component: (
+    //       <Email
+    //         email="edu@state.ma.us"
+    //         details="Open Monday through Friday from 9:00 a.m. to 5:00 p.m."
+    //       />
+    //     )
+    //   },
+    //   {
+    //     icon: <IconPhone />,
+    //     component: (
+    //       <PhoneNumber
+    //         number="617-988-6600"
+    //         details="Our Customer Service Representatives can answer your questions in <b>English</b>, <b>Español</b>, <b>Português</b>. Translation services for up to <b>240+ languages</b> are also available to better serve employees, employers and medical providers."
+    //       />
+    //     )
+    //   }
+    // ]}
     description="The Department of Early Education and Care's mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
     links={[
       {
