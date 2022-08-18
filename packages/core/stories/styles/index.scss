@@ -54,6 +54,9 @@
 @use '@massds/mayflower-assets/scss/03-organisms/footer';
 @use '@massds/mayflower-assets/scss/02-molecules/footer-links';
 @use '@massds/mayflower-assets/scss/02-molecules/social-links';
+@use '@massds/mayflower-assets/scss/01-atoms/phone-number';
+@use '@massds/mayflower-assets/scss/01-atoms/address';
+@use '@massds/mayflower-assets/scss/01-atoms/email';
 
 // ErrorPage, Error403, Error404, Error500 components.
 @use "03-organisms/error-page";
