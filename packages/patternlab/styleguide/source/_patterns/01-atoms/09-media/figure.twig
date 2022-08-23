@@ -9,7 +9,7 @@
 {% endif %}
 <div class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " " ~ figure.class : " " }}">
 {% if figure.skiplink.add %}
-<a class="ma__figure__skip-link" href="#{{ skiplinkId }}" aria-label="Skip the following {{ skiplinkText }}{% if figure.title %}, {{ figure.title.text }}{% endif %}.">Skip this
+<a class="ma__figure__skip-link" href="#{{ skiplinkId }}" aria-label="Skip the following {{ skiplinkText }}{% if figure.title %}, {{ figure.title.text }}{% endif %}.">Skip this&nbsp;
 	{{ skiplinkText }}.</a>
 {% endif %}
   <figure{% if figure.title %} aria-label="{{ figure.title.text }}" {% endif %}>
@@ -38,8 +38,11 @@
     {% endif %}
   </figure>
 {% if figure.skiplink.add %}
-  <div id="{{ skiplinkId }}" aria-label="You skipped the {{ skiplinkText }}, {{ figure.title.text }}.">
-    <span class="ma__figure__skip-link_destination">You skipped the	{{ skiplinkText }}.</span>
+  <div class="ma__figure__skip-link_target" id="{{ skiplinkId }}" >
+    <a tabindex="-1" aria-label="You skipped the {{ skiplinkText }}, {{ figure.title.text }}.">
+      You skipped the
+      {{ skiplinkText }}.
+    </a>
   </div>
 {% endif %}
 </div>

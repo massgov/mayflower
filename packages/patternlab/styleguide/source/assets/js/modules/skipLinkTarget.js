@@ -5,33 +5,32 @@
 // For figure content skip links
 document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
 
-  let linkTarget = "";
-
   link.addEventListener("click", (e) => {
     // Find the matched linkTarget.
-    let sibling = e.currentTarget.nextElementSibling;
-
-    while (sibling) {
-      if (sibling.hasAttribute("id") && sibling.id.includes("figure-")) {
-        linkTarget = sibling;
-
-        // Show the linkTarget.
-        linkTarget.style.display = "block";
-      }
-      sibling = sibling.nextElementSibling;
-    }
+    let targetId = e.target.getAttribute("href");
+    let skipTarget = document.querySelector(targetId);
+    let skipTargetAnchor = skipTarget.querySelector("a");
+    skipTargetAnchor.setAttribute("tabindex", "0");
+    skipTargetAnchor.style.display = "block";
+    // Offset timing to set focus from going to the link target.
+    setTimeout(function timeoutFunction() {
+      skipTargetAnchor.focus();
+    }, 200);
   });
+});
 
-  // Hide the linkTarget as users move to next element.
-  // After the skip link is clicked, check a keypress action with tab or arrow keys,
-  // which indicates that users attempts to leave the link target to another element.
-  // No need to display the link target at this point.
-  // a link target never gets focus.
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Tab" || e.key === "ArrowUp" || e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "ArrowLeft" ) {
-      document.querySelector(location.hash).style.display = "none";
+// Hide the skipTargetAnchor/activeAnchor as users move to next element.
+// Check a keypress action with tab or arrow keys,
+// which indicates that users attempts to leave the activeAnchor to another element.
+// No need to display activeAnchor at this point until its corresponding link gets clicked again.
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Tab" || e.key === "ArrowUp" || e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "ArrowLeft" ) {
+    let activeAnchor = document.querySelector(location.hash).querySelector("a");
+    if (activeAnchor === document.activeElement) {
+      activeAnchor.removeAttribute("style");
+      activeAnchor.setAttribute("tabindex", "-1");
     }
-  });
+  }
 });
 
 
@@ -44,14 +43,14 @@ if(skipLinkTOC && skipLinkTOCTarget) {
     skipLinkTOCTarget.setAttribute("tabindex", "0");
     skipLinkTOCTarget.focus();
   });
-  
+
   skipLinkTOC.addEventListener("keydown", (e) => {
     if (e.key === " " || e.code === "Space") {
       skipLinkTOCTarget.setAttribute("tabindex", "0");
       skipLinkTOCTarget.focus();
     }
   });
-  
+
   skipLinkTOC.addEventListener("focusout", (e) => {
     skipLinkTOCTarget.setAttribute("tabindex", "-1");
     skipLinkTOCTarget.removeAttribute("style");
