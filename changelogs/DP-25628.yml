@@ -1,0 +1,6 @@
+Fixed:
+  - project: Core
+    component: Footer, Template
+    description: Fix bugs preventing the documentation pages from rendering. (#1665)
+    issue: DP-25628
+    impact: Patch
