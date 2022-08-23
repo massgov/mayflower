@@ -39,8 +39,10 @@ document.querySelectorAll(".ma__figure__skip-link_target a").forEach(anchor => {
     }
   });
 
-  // THIS NEEDS TO BE REVISITED.
-  // Ensure to hide non-active anchor.
+  // For screen readers:
+  // When using arrow keys to move to another element, focus stays on the anchor.
+  // This results the anchor remains visible. Hide the anchor when another element gets focus to make it less distracting
+  // to screen reader users.
   anchor.addEventListener("blur", (e) => {
 
     if ((e.target !== document.activeElement) && (e.target.getAttribute("tabindex") === "0")) {
