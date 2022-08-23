@@ -20,20 +20,35 @@ document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
   });
 });
 
-// Hide the skipTargetAnchor/activeAnchor as users move to next element.
+// Hide the skipTargetAnchor/e.target as users move to next element.
 // Check a keypress action with tab or arrow keys,
-// which indicates that users attempts to leave the activeAnchor to another element.
-// No need to display activeAnchor at this point until its corresponding link gets clicked again.
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Tab" || e.key === "ArrowUp" || e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "ArrowLeft" ) {
-    let activeTarget = document.querySelector(location.hash);
-    let activeAnchor = activeTarget.querySelector("a");
-    if (activeAnchor === document.activeElement) {
-      activeTarget.removeAttribute("style");
-      activeAnchor.removeAttribute("style");
-      activeAnchor.setAttribute("tabindex", "-1");
+// which indicates that users attempts to leave the active anchor to another element.
+// No need to display the active anchor at this point until its corresponding link gets clicked again.
+document.querySelectorAll(".ma__figure__skip-link_target a").forEach(anchor => {
+
+  anchor.addEventListener("keydown", (e) => {
+
+    if (e.target.getAttribute("tabindex") === "0") {
+      if (e.key === "Tab" || e.key === "ArrowUp" || e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "ArrowLeft" ) {
+        if (e.target === document.activeElement) {
+          e.target.closest(".ma__figure__skip-link_target").removeAttribute("style");
+          e.target.removeAttribute("style");
+          e.target.setAttribute("tabindex", -1);
+        }
+      }
     }
-  }
+  });
+
+  // THIS NEEDS TO BE REVISITED.
+  // Ensure to hide non-active anchor.
+  anchor.addEventListener("blur", (e) => {
+
+    if ((e.target !== document.activeElement) && (e.target.getAttribute("tabindex") === "0")) {
+      e.target.closest(".ma__figure__skip-link_target").removeAttribute("style");
+      e.target.removeAttribute("style");
+      e.target.setAttribute("tabindex", -1);
+    }
+  });
 });
 
 
