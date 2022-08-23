@@ -10,6 +10,7 @@ document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
     let targetId = e.target.getAttribute("href");
     let skipTarget = document.querySelector(targetId);
     let skipTargetAnchor = skipTarget.querySelector("a");
+    skipTarget.style.paddingTop = "80px";
     skipTargetAnchor.setAttribute("tabindex", "0");
     skipTargetAnchor.style.display = "block";
     // Offset timing to set focus from going to the link target.
@@ -25,8 +26,10 @@ document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
 // No need to display activeAnchor at this point until its corresponding link gets clicked again.
 document.addEventListener("keydown", (e) => {
   if (e.key === "Tab" || e.key === "ArrowUp" || e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "ArrowLeft" ) {
-    let activeAnchor = document.querySelector(location.hash).querySelector("a");
+    let activeTarget = document.querySelector(location.hash);
+    let activeAnchor = activeTarget.querySelector("a");
     if (activeAnchor === document.activeElement) {
+      activeTarget.removeAttribute("style");
       activeAnchor.removeAttribute("style");
       activeAnchor.setAttribute("tabindex", "-1");
     }
