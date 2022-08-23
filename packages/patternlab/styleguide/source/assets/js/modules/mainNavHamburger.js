@@ -16,6 +16,7 @@ const menuButtonTextClose = document.querySelector(".js-header__menu-text--close
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 const searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
 
+// const navContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 
@@ -30,6 +31,17 @@ let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".
 const utilNavNarrowCheck = function() {
   return utilNarrowNav ? (utilNarrowNav.offsetWidth > 0 && utilNarrowNav.offsetHeight > 0) : false;
 };
+
+// Define all top level clickable elements with current window width.
+let topLevelClickableItems;
+window.addEventListener("DOMContentLoaded", function (e) {
+  setTimeout(function timeoutFunction() {// This prevents GT elements get null.
+    selectTopClickableItems(width);
+  }, 1000);
+});
+window.addEventListener("resize", function (e) {
+  selectTopClickableItems(body.clientWidth);
+});
 
 // Open and close the menu
 if (menuButton !== null) {
@@ -140,14 +152,13 @@ if (menuButton !== null) {
     }
   });
 
-
-  // Arrow keyboard navigation in the menu.
+  // Arrow keyboard navigation in the sub menu.
   let submenuLinks = document.querySelectorAll(".js-main-nav-hamburger__link");
   submenuLinks.forEach(link => {
     link.addEventListener("keydown", function(e) {
       let targetParent = e.target.closest(".js-main-nav-hamburger__subitem");
 
-      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {
         if(targetParent.nextElementSibling) {
           targetParent.nextElementSibling.querySelector("a").focus();
         }
@@ -157,7 +168,7 @@ if (menuButton !== null) {
         }
       }
 
-      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {
         if(targetParent.previousElementSibling) {
           targetParent.previousElementSibling.querySelector("a").focus();
         }
@@ -174,7 +185,7 @@ if (menuButton !== null) {
   narrowUtilContentLinks.forEach(function(link, i) {
 
     link.addEventListener("keydown", function(e) {
-      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {
         if (e.target === narrowUtilContentLinks[i]) {
           if (e.target === narrowUtilContentLinks[lastIndex]) {
             i = 0;
@@ -200,7 +211,7 @@ if (menuButton !== null) {
         }
       }
 
-      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {
         if (e.target === narrowUtilContentLinks[i]) {
           if (e.target === narrowUtilContentLinks[0]) {
             i = lastIndex;
@@ -257,7 +268,6 @@ function toggleMenu() {
       // .toggleAttribute() doesn't work with ios11.
       hamburgerMenuContainer.setAttribute("aria-hidden", "");
       closeMenu();
-
       setTimeout(function timeoutFunction() {
         document.querySelector(".js-header-menu-button").focus();
       }, 100);
@@ -271,9 +281,9 @@ function toggleMenu() {
 function closeMenu() {
   commonCloseMenuTasks();
   menuButton.setAttribute("aria-pressed", "false");
-  menuButtonText.classList.add("show")
-  menuButtonTextMobile.classList.add("show")
-  menuButtonTextClose.classList.remove("show")
+  menuButtonText.classList.add("show");
+  menuButtonTextMobile.classList.add("show");
+  menuButtonTextClose.classList.remove("show");
 
   // Set focus on the menu button.
   setTimeout(function timeoutFunction() {
@@ -281,7 +291,7 @@ function closeMenu() {
   }, 100);
 
   if (document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")) {
-    if (utilWideGTranslate) {// Google translate elements aren't rendered screen width under 840px and the object is null.
+    if (utilWideGTranslate.querySelector("a")) {// Google translate elements aren't rendered screen width under 840px and the object is null.
       utilWideGTranslate.querySelector("a").removeAttribute("tabindex");
     }
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex");
@@ -353,9 +363,9 @@ function openMenu() {
 
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "main menu for mass.gov");
-  menuButtonText.classList.remove("show")
-  menuButtonTextMobile.classList.remove("show")
-  menuButtonTextClose.classList.add("show")
+  menuButtonText.classList.remove("show");
+  menuButtonTextMobile.classList.remove("show");
+  menuButtonTextClose.classList.add("show");
 
   if (feedbackButton) {
     feedbackButton.classList.add("hide-button");
@@ -367,7 +377,7 @@ function openMenu() {
   document.querySelector("body").style.position = "fixed";
 
   // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-  if (utilWideGTranslate && (body.clientWidth > 840)) {// Google translate elements aren't rendered screen width under 840px, and the object is null.
+  if (utilWideGTranslate.querySelector("a") && (body.clientWidth > 840)) {// Google translate elements aren't rendered screen width under 840px, and the object is null.
       utilWideGTranslate.querySelector("a").setAttribute("tabindex", "-1");
   }
   document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").setAttribute("tabindex", "-1");
@@ -539,44 +549,62 @@ if (utilNarrowButton !== null) {
   utilNarrowContent.style.maxHeight = "0";
   utilNarrowContainer.style.opacity = "0";
 
-  utilNarrowButton.addEventListener("click", function(e) {
+  ["click", "keyup"].forEach(function(e) {
+    utilNarrowButton.addEventListener(e, function(e) {
+      const thisButton = e.target.closest(".js-util-nav-toggle");
+      const thisNavContainer = e.target.closest(".ma__utility-nav__item");
+      utilNarrowContent = thisButton.nextElementSibling;
 
-    const thisButton = e.target.closest(".js-util-nav-toggle");
-    const thisNavContainer = e.target.closest(".ma__utility-nav__item");
-    utilNarrowContent = thisButton.nextElementSibling;
+      if (utilNarrowContent.classList.contains("is-closed")) {
+        if (e.type === "click" || e.key === "ArrowDown" || e.key === "ArrowUp") {
+        // TO OPEN
 
-    if (utilNarrowContent.classList.contains("is-closed")) {
-      // TO OPEN
+        closeSubMenu();
 
-      closeSubMenu();
+        thisButton.setAttribute("aria-expanded", "true");
+        utilNarrowContent.removeAttribute("aria-hidden");
+        thisNavContainer.style.pointerEvents = "none";
+        /** Slide down. */
+          thisNavContainer.removeAttribute("style");
 
-      thisButton.setAttribute("aria-expanded", "true");
-      utilNarrowContent.removeAttribute("aria-hidden");
-      thisNavContainer.style.pointerEvents = "none";
-      /** Slide down. */
-        thisNavContainer.removeAttribute("style");
+        /** Show the content. */
+        utilNarrowContent.classList.remove("is-closed");
+        utilNarrowContent.style.maxHeight = "auto";
 
-      /** Show the content. */
-      utilNarrowContent.classList.remove("is-closed");
-      utilNarrowContent.style.maxHeight = "auto";
+        /** Get the computed height of the content. */
+        var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
 
-      /** Get the computed height of the content. */
-      var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
+        /** Set the height of the submenu as 0px, */
+        /** so we can trigger the slide down animation. */
+        utilNarrowContent.style.maxHeight = "0";
+        utilNarrowContent.style.Height = "0";
 
-      /** Set the height of the submenu as 0px, */
-      /** so we can trigger the slide down animation. */
-      utilNarrowContent.style.maxHeight = "0";
-      utilNarrowContent.style.Height = "0";
+        // These height settings display the bottom border of the parent li at the correct spot.
+        utilNarrowContent.style.height = contentHeight;
+        utilNarrowContainer.style.height = contentHeight;
 
-      // These height settings display the bottom border of the parent li at the correct spot.
-      utilNarrowContent.style.height = contentHeight;
-      utilNarrowContainer.style.height = contentHeight;
+          utilNarrowContent.style.maxHeight = contentHeight;
+          utilNarrowContainer.style.opacity = "1";
+        }
+      } else {
+        if (e.type === "click") {
+          closeNarrowUtilContent();
+        }
+      }
 
-        utilNarrowContent.style.maxHeight = contentHeight;
-        utilNarrowContainer.style.opacity = "1";
-    } else {
-      closeNarrowUtilContent();
-    }
+      if (e.type === "keyup") {
+        let clickableItems = thisNavContainer.querySelectorAll(".js-util-nav-content a, .js-util-nav-content button");
+
+        if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+          clickableItems[1].focus(); // Skip the first item (close button), clickableItems[0].
+        }
+
+        if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+          let lastItemIndex = clickableItems.length - 1;
+          clickableItems[lastItemIndex].focus();
+        }
+      }
+    }, false);
   });
 }
 
@@ -639,8 +667,29 @@ menuItems.forEach((item) => {
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
   const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
   subItems.style.opacity = "0";
-  itemButton.addEventListener("click", (e) => {
 
+  itemButton.addEventListener("click", (e) => {
+    expandSubMenuContainer();
+    e.target.focus();
+  });
+
+  itemButton.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+      if (!e.target.parentElement.classList.contains("submenu-open")) {
+        expandSubMenuContainer();
+      }
+      e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:first-child .js-main-nav-hamburger__link").focus();
+    }
+
+    if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      if (!e.target.parentElement.classList.contains("submenu-open")) {
+        expandSubMenuContainer();
+      }
+      e.target.closest(".js-main-nav-hamburger-toggle").querySelector(".js-main-nav-hamburger__subitem:last-child .js-main-nav-hamburger__link").focus();
+    }
+  });
+
+  function expandSubMenuContainer() {
     anotherCloseSubMenus(item);
 
     if (item.classList.contains("submenu-open")) {
@@ -649,9 +698,7 @@ menuItems.forEach((item) => {
       item.style.pointerEvents = "none";
 
       setTimeout(function timeoutFunction() {
-         //item.style.height = "0";
-         //item.style.opacity = "0";
-         item.removeAttribute("style");
+          item.removeAttribute("style");
       }, 700);
     } else {
       item.classList.add("submenu-open");
@@ -701,17 +748,53 @@ menuItems.forEach((item) => {
 
       }, 500);
     }
-
-  });
-
-  itemButton.addEventListener("keydown", function (e) {
-    if (e.code == "ArrowDown" || e.key == "ArrowDown") {
-      let first = subItems.getElementsByTagName("li")[0];
-      first.querySelector(".js-main-nav-hamburger__link").focus();
-    }
-  });
+  }
 
 });
+
+
+
+function selectTopClickableItems(windowWidth) {
+  topLevelClickableItems = "";
+  if (windowWidth > 840) {
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__header__hamburger__main-nav .ma__main__hamburger-nav__top-link");
+  }
+  if (windowWidth < 841) {
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
+  }
+  if (windowWidth < 621) {// mobile
+    topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(".ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link");
+  }
+
+  // Arrow keyboard navigation in the top level clickable elements.
+  let lastTopItemIndex = topLevelClickableItems.length - 1;
+  // Here, manage navigating items on the top level to cover all clickable elements.
+  // Managing opening sub container and setting focus with up/down arrow keys are managed separately.
+  topLevelClickableItems.forEach((link, index) => {
+    link.addEventListener("keydown", function(e) {
+      if (e.key === "ArrowRight" || e.code === "ArrowRight") {// forward
+        let targetIndex = index + 1;
+        let nextItem = topLevelClickableItems[targetIndex];
+        if (index === lastTopItemIndex) {
+          topLevelClickableItems[0].focus();
+        } else {
+          nextItem.focus();
+        }
+      }
+
+      if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {// backward
+        let targetIndex = index - 1;
+        let priorItem = topLevelClickableItems[targetIndex];
+        if (index === 0) {
+          topLevelClickableItems[lastTopItemIndex].focus();
+        } else {
+          priorItem.focus();
+        }
+      }
+    });
+  });
+}
+
 
 
 // Keyboard navigation with Google Translate widget
@@ -741,7 +824,7 @@ setTimeout(function timeoutFunction() {// This prevents GT elements get null.
 
       // Close the container with ESC and set focus on the menu button.
       if (key === "Escape" || key === "Esc" ) {
-        gTranslateOptionContainer.classList.remove("show")
+        gTranslateOptionContainer.classList.remove("show");
         gTranslateButtons[0].focus();
       }
     });
