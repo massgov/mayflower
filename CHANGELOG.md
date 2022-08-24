@@ -1,6 +1,12 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 11.25.1 (8/23/2022)
+### Fixed 
+- (Patternlab) [HeaderHamburger] DP-24286: (a11y) Reorder the components to adjust the navigation order by screen readers. (#1646)
+- (Patternlab) [HeaderHamburger] DP-24286: (a11y) Make the top level menu be navigated with arrow keys. Add the instructional info for screen reader users. (#1646)
+- (Core) [Footer, Template] DP-25628: Fix bugs preventing the documentation pages from rendering. (#1665)
+
 ## 11.25.0 (8/11/2022)
 ### Changed 
 - (Patternlab) [Footer, FooterWithColumns] DP-23892: Renamed Footer as FooterWithColumns, add new footer component as Footer. (#1629)
