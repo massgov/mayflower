@@ -60,7 +60,7 @@ class Tab extends React.Component {
 
   render() {
     const { tabIdent, active, tabRef } = this.props;
-    const { setActiveTab, activeTab } = this.context;
+    const { setActiveTab, activeTab, tabBodyRef, tabContainerBodyId } = this.context;
     const tabClasses = classNames({
       'ma__tab-title': true,
       'ma__tab-title--active': active
@@ -79,7 +79,7 @@ class Tab extends React.Component {
       onKeyDown: this.handleKeyDown,
       id: tabIdent,
       'aria-selected': active,
-      'aria-controls': this.context.tabContainerBodyId,
+      'aria-controls': tabContainerBodyId,
       role: 'tab',
       ref: tabRef,
       tabIndex: active ? 0 : -1
@@ -90,7 +90,7 @@ class Tab extends React.Component {
           <button type="button" {...buttonProps}>{this.props.title}</button>
         </li>
         {global.window && (
-          <TabBody active={activeTab === tabIdent} tabContainerBodyId={this.context.tabContainerBodyId}>
+          <TabBody active={activeTab === tabIdent} tabContainerBodyId={tabContainerBodyId} tabBodyRef={tabBodyRef}>
             {this.props.children}
           </TabBody>
         )}

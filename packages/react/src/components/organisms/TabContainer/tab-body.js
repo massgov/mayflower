@@ -5,12 +5,16 @@ import { Portal } from 'react-portal/es';
 class TabBody extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(props)
     this.state = {
-      nodeList: []
+      nodeList: [this.props.tabBodyRef.current] || []
     };
+    // console.log('set state: ' + global.MutationObserver)
     if (global.MutationObserver) {
       this.observer = new MutationObserver((mutations) => {
         const tabContainer = document.getElementById(this.props.tabContainerBodyId);
+        console.log('mutated!!!!')
+        console.log(mutations)
         mutations.forEach((mutation) => {
           if (!mutation.target) {
             return;
@@ -23,15 +27,19 @@ class TabBody extends React.Component {
         });
       });
     }
+    this.observer.observe(document, { attributes: true, childList: true, subtree: true });
   }
 
   componentDidMount() {
     const nodeList = document.getElementById(this.props.tabContainerBodyId);
     if (nodeList) {
+      console.log('rendered!!!!!')
       // eslint-disable-next-line react/no-did-mount-set-state
       this.setState({ nodeList: [nodeList] });
     }
+    // console.log('did mount: ' + global.MutationObserver)
     if (global.MutationObserver) {
+      console.log('mounted!!!!!')
       this.observer.observe(document, { attributes: true, childList: true, subtree: true });
     }
   }
@@ -43,7 +51,9 @@ class TabBody extends React.Component {
   }
 
   render() {
-    if (this.state.nodeList.length > 0 && this.props.active) {
+    // console.log('state: ' +this.state.nodeList)
+    console.log(this.props.tabBodyRef.current)
+    if (Array.isArray(this.state.nodeList) && this.state.nodeList.length > 0 && this.props.active) {
       return(
         <Portal node={this.state.nodeList[0]}>
           {this.props.children}

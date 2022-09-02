@@ -79,10 +79,14 @@ class TabContainer extends React.Component {
       const newProps = {
         active: this.state.activeTab === this.state.tabIds.get(index),
         tabIdent: this.state.tabIds.get(index),
-        tabRef: this.state.tabRefs[this.state.tabIds.get(index)]
+        tabRef: this.state.tabRefs[this.state.tabIds.get(index)],
+        tabBodyRef: this.tabBodyRef
       };
       return React.cloneElement(child, newProps, child.props.children);
     });
+
+    // console.log(this.state)
+    console.log(this.tabBodyRef)
     return(
       <TabContext.Provider value={this.state}>
         <div className={classes}>
