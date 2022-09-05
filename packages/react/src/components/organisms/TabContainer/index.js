@@ -49,6 +49,24 @@ class TabContainer extends React.Component {
     };
   }
 
+  componentDidMount() {
+    // React hydration ignores any differences in attributes for performance
+    // reasons. So, it's not able to fix an ID mismatch and we see different
+    // IDs in the DOM and in the state. As a temporary workaround, we push
+    // different IDs to the state. This triggers a re-rendering and fixes the
+    // mismatch.
+    // @see https://reactjs.org/docs/react-dom.html#hydrate
+    // @todo This component needs a revamp in order to properly support SSR,
+    //   because right now it only renders the tabs, but not the tab body. The
+    //   workaround below adds another round of re-rendering. It's a performance
+    //   issue and could be avoided with a consistent ID generator or something
+    //   like the useId() hook introduced in React 18.
+    this.setState({
+      tabContainerId: nanoid(),
+      tabContainerBodyId: nanoid()
+    });
+  }
+
   setActiveTab = (tabId) => {
     const state = {
       activeTab: tabId
