@@ -568,23 +568,6 @@
   }
 }
 
-.sticky-toc-jump-target {
-
-  &::before {
-    display: block;
-    content: '';
-    margin-top: -120px;
-    height: 120px;
-    visibility: hidden;
-    pointer-events: none;
-
-    @media ($bp-header-toggle-min) {
-      margin-top: -70px;
-      height: 70px;
-    }
-  }
-}
-
 .ma__sticky-toc__overlay {
   display: none;
   position: absolute;
