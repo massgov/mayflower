@@ -15,8 +15,6 @@ react_defaults: &react_defaults
     - image: circleci/node:12.18.0-browsers
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
-  machine: true
-  resource_class: large
   docker:
     - image: circleci/php:7.1-node-browsers
 
