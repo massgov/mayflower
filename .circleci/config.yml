@@ -65,10 +65,9 @@ jobs:
       - run: |
           cd packages/patternlab
           docker-compose up --no-start web backstop
-          mkdir -p /tmp/patternlab
-          rsync -avzh ./ /tmp/patternlab --exclude node_modules
-          docker cp /tmp/patternlab/. $(docker-compose ps -q backstop):/src/
-          docker cp /tmp/patternlab/styleguide/public/. $(docker-compose ps -q web):/usr/share/nginx/html
+          rm -rf ./styleguide/node_modules
+          docker cp ./ $(docker-compose ps -q backstop):/src/
+          docker cp ./styleguide/public/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
           cd packages/patternlab
           docker-compose run backstop test
