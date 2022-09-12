@@ -198,6 +198,7 @@ jobs:
       - run: |
           cd packages/react
           docker-compose up --no-start web backstop
+          rm -rf ./styleguide/node_modules
           docker cp ./ $(docker-compose ps -q backstop):/src/
           docker cp ../assets $(docker-compose ps -q backstop):/src/assets
           docker cp ../../docs $(docker-compose ps -q backstop):/src/docs
