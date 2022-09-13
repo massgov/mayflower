@@ -56,4 +56,4 @@ Fixed:
     component: Accordions
     description: Set accordion initial state to collapse. (#1674)
     issue: DP-25832
-    impact: Minor
+    impact: Patch
