@@ -180,12 +180,14 @@ export default (function (window,document,$,undefined) {
 
     // Store the window width
     let windowWidth = $(window).width();
+    // Add initialRun variable to only trigger the code once so the accordions will be collapsed.
+    let initialRun = true;
 
     // Resize Event
     $(window).resize(function(){
 
       // Check window width has actually changed and it's not just iOS triggering a resize event on scroll
-      if ($(window).width() != windowWidth) {
+      if ($(window).width() != windowWidth || initialRun) {
         // Update the window width for next time
         windowWidth = $(window).width();
         let temp = checkActive($el);
@@ -195,9 +197,10 @@ export default (function (window,document,$,undefined) {
           $el.removeClass('is-open');
           $link.attr('aria-expanded','false');
         }
+        initialRun = false;
         active = temp;
       }
-    });
+    }).resize();
   }
 
 })(window,document,jQuery);
