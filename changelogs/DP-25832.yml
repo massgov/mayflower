@@ -54,6 +54,6 @@
 Fixed:
   - project: Patternlab
     component: Accordions
-    description: Add Color stories and color gradients. (#909)
+    description: Set accordion initial state to collapse. (#1674)
     issue: DP-25832
     impact: Minor
