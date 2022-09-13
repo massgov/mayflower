@@ -177,7 +177,7 @@ export default (function (window,document,$,undefined) {
         checkAccordionsSameStatus();
       }
     });
-    
+
     // Store the window width
     let windowWidth = $(window).width();
     // Add initialRun variable to only trigger the code once so the accordions will be collapsed.
