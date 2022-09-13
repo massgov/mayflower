@@ -178,17 +178,26 @@ export default (function (window,document,$,undefined) {
       }
     });
 
-    $(window).resize(function () {
-      let temp = checkActive($el);
+    // Store the window width
+    let windowWidth = $(window).width();
 
-      if(temp !== active && !temp || !open) {
-        $content.removeAttr('style');
-        $el.removeClass('is-open');
-        $link.attr('aria-expanded','false');
+    // Resize Event
+    $(window).resize(function(){
+
+      // Check window width has actually changed and it's not just iOS triggering a resize event on scroll
+      if ($(window).width() != windowWidth) {
+        // Update the window width for next time
+        windowWidth = $(window).width();
+        let temp = checkActive($el);
+
+        if(temp !== active && !temp || !open) {
+          $content.removeAttr('style');
+          $el.removeClass('is-open');
+          $link.attr('aria-expanded','false');
+        }
+        active = temp;
       }
-
-      active = temp;
-    }).resize();
+    });
   }
 
 })(window,document,jQuery);
