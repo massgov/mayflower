@@ -3,10 +3,12 @@
 {% set link = actionStep.link %}
 
 <section
-  class="ma__action-step {{ accordion ? ' js-accordion ma__action-step--accordion ' : '' }} {{ actionStep.isExpanded ? 'is-open':'' }}">
+  class="ma__action-step {{ accordion ? 'js-accordion ma__action-step--accordion' : '' }} {{ actionStep.isExpanded ? 'is-open':'' }}">
+
   {% if accordion %}
     {% set headingLevel = actionStep.level ? : 3 %}
-    <h{{headingLevel}} class="ma__action-step__title {{ link ? ' ma__decorative-link ' : ''}}">
+    <h{{headingLevel}} class="ma__action-step__title {{ link ? 'ma__decorative-link' : ''}}">
+
       <button class="ma__action-step__header js-accordion-link">
     {% if actionStep.icon %}
       <div class="ma__action-step__icon"
@@ -50,7 +52,8 @@
   {% endif %}
 
   {% if actionStep.richText or actionStep.decorativeLink or actionStep.downloadLinks or actionStep.content %}
-    <div class="ma__action-step__content {{ accordion ? ' js-accordion-content' : '' }}">
+    <div class="ma__action-step__content {{ accordion ? 'js-accordion-content' : '' }}">
+
 
 
     {% if actionStep.richText %}
