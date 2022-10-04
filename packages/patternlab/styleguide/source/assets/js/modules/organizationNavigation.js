@@ -32,8 +32,7 @@ export default (function (window, document, $, undefined) {
     let $menuButton = $orgNav.find('.subnav-toggle');
 
     // I want to section.
-    let $sectionIWantTo= $orgNav.find('.ma__org-nav-i-want-to-section');
-    let $sectionButton = $sectionIWantTo.find('.ma__comp-heading--mobile > button');
+    let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
 
     // Sticky on scroll.
     const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
