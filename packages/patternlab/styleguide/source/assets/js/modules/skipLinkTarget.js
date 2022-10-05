@@ -9,13 +9,11 @@ document.querySelectorAll(".ma__figure__skip-link").forEach(link => {
     // Find the matched linkTarget.
     let targetId = e.target.getAttribute("href");
     let skipTarget = document.querySelector(targetId);
-    let skipTargetAnchor = skipTarget.querySelector("a");
-    skipTarget.style.paddingTop = "80px";
-    skipTargetAnchor.setAttribute("tabindex", "0");
-    skipTargetAnchor.style.display = "block";
+    skipTarget.setAttribute("tabindex", "0");
+    skipTarget.classList.add("visible");
     // Offset timing to set focus from going to the link target.
     setTimeout(function timeoutFunction() {
-      skipTargetAnchor.focus();
+      skipTarget.focus();
     }, 200);
   });
 });
@@ -31,8 +29,7 @@ document.querySelectorAll(".ma__figure__skip-link_target a").forEach(anchor => {
     if (e.target.getAttribute("tabindex") === "0") {
       if (e.key === "Tab" || e.key === "ArrowUp" || e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "ArrowLeft" ) {
         if (e.target === document.activeElement) {
-          e.target.closest(".ma__figure__skip-link_target").removeAttribute("style");
-          e.target.removeAttribute("style");
+          e.target.classList.remove("visible");
           e.target.setAttribute("tabindex", -1);
         }
       }
@@ -46,8 +43,7 @@ document.querySelectorAll(".ma__figure__skip-link_target a").forEach(anchor => {
   anchor.addEventListener("blur", (e) => {
 
     if ((e.target !== document.activeElement) && (e.target.getAttribute("tabindex") === "0")) {
-      e.target.closest(".ma__figure__skip-link_target").removeAttribute("style");
-      e.target.removeAttribute("style");
+      e.target.classList.remove("visible");
       e.target.setAttribute("tabindex", -1);
     }
   });
