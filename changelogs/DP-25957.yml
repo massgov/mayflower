@@ -54,6 +54,6 @@
 Changed:
   - project: Patternlab
     component: OrgNav
-    description: Menus on Org Page do not work correctly on mobile devices.
+    description: Menus on Org Page do not work correctly on mobile devices. (#1676)
     issue: DP-25957
     impact: Patch
