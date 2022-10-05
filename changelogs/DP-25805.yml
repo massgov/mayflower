@@ -54,6 +54,6 @@
 Fixed:
   - project: Patternlab
     component: Accordions
-    description: Fix accordions collapsing while scrolling on Android/iOS devices issue.
+    description: Fix accordions collapsing while scrolling on Android/iOS devices issue. (#1672)
     issue: DP-25805
     impact: Minor
