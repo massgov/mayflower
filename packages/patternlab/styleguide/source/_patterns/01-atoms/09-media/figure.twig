@@ -39,8 +39,7 @@
   </figure>
 {% if figure.skiplink.add %}
   <div class="ma__figure__skip-link_target">
-    {# role and aria-disabled to ensure disabling the link functionality with a for AT. #}
-    <a id="{{ skiplinkId }}" role="link" aria-disabled="true" tabindex="-1">
+    <a id="{{ skiplinkId }}" tabindex="-1">
       You skipped the {{ skiplinkText }}<span class="ma__visually-hidden">, {{ figure.title.text }}</span>.
     </a>
   </div>
