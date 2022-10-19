@@ -23,6 +23,7 @@ import imageFill from "./modules/imageFill.js";
 import inpageAlert from "./modules/inpageAlert.js";
 import keywordSearch from "./modules/keywordSearch.js";
 import linkListToggle from "./modules/linkListToggle.js";
+import inlineLinksLanguageToggle from "./modules/inlineLinksLanguageToggle.js";
 import listAfterFloat from "./modules/listAfterFloat.js";
 import locationListingLeaflet from "./modules/locationListingLeaflet.js";
 import locationFiltersLeaflet from "./modules/locationFiltersLeaflet.js";
