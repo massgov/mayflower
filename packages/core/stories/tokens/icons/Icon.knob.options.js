@@ -24,6 +24,7 @@ export const assets = {
   mail: 'mail',
   map: 'map',
   marker: 'marker',
+  message: 'message',
   opennow: 'opennow',
   phone: 'phone',
   questionmark: 'questionmark',

@@ -1,0 +1,6 @@
+Added:
+  - project: Assets, Patternlab, React, Core
+    component: Icon
+    description: Add IconMessage. (#1679)
+    issue: DP-26126
+    impact: Minor
