@@ -17,8 +17,12 @@
         <span class="visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }},{% endif %} for</span>
           {{ downloadLink.decorativeLink.text }}
       </a>
-      {% if downloadLink.format or downloadLink.size %}
-        <span class="ma__download-link__file-spec">({{ downloadLink.format }} {{ downloadLink.size }})</span>
+      {% if downloadLink.format or downloadLink.size or downloadLink.language %}
+        <span class="ma__download-link__file-spec">({{ downloadLink.language ~ ',' }} {{ downloadLink.format }} {{ downloadLink.size }})</span>
+        {% if downloadLink.inlineLinks %}
+          {% set inlineLinks = downloadLink.inlineLinks %}
+          {% include "@organisms/by-author/inline-links-language.twig" %}
+        {% endif %}
       {% endif %}
     {% endif %}
   </div>
