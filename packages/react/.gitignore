@@ -23,3 +23,6 @@ src/components/base/Icon/**
 !src/components/base/Icon/IconDisplay.js
 !src/components/base/Icon/Icon.knob.options.js
 !src/components/base/Icon/_icon-display.scss
+
+/types
+!/types/index.d.ts

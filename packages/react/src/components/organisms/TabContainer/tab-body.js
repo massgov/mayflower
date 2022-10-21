@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Portal } from 'react-portal/es';
+import { Portal } from 'react-portal';
 
 class TabBody extends React.Component {
   constructor(props) {

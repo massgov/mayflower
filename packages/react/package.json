@@ -10,8 +10,10 @@
     "**/*.scss"
   ],
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
+  "types": "./types/index.d.ts",
   "scripts": {
     "backstop:test": "docker-compose run backstop test --rm",
     "backstop": "rushx build-storybook && rushx storybook:extract && rushx backstop:test",
@@ -25,7 +27,9 @@
     "prepublishOnly": "gulp",
     "storybook-debug": "node --inspect ./node_modules/.bin/start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
     "storybook:extract": "sb extract",
-    "build-storybook": "rushx build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static"
+    "build-storybook": "rushx build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static",
+    "build-types": "tsc",
+    "build-types-index": "cd types && npm-dts generate"
   },
   "pre-push": [
     "lint"
@@ -43,7 +47,6 @@
     "normalize-scss": "~7.0.1",
     "numbro": "^2.1.2",
     "object.entries": "^1.0.4",
-    "pikaday": "^1.7.0",
     "react-autosuggest": "^9.4.3",
     "react-autowhatever": "^10.2.0",
     "react-character-counter": "^1.0.1",
@@ -57,8 +60,8 @@
   },
   "peerDependencies": {
     "@massds/mayflower-assets": "^10.4.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^17",
+    "react-dom": "^17"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
@@ -129,7 +132,9 @@
     "style-loader": "^1.2.1",
     "url-loader": "~4.1.1",
     "webpack": "^4.44.2",
-    "@sayari/eslint-plugin": "~0.0.1-rc.4"
+    "@sayari/eslint-plugin": "~0.0.1-rc.4",
+    "typescript": "~4.8.4",
+    "@types/react-dom": "^17"
   },
   "homepage": "",
   "license": "MIT",
