@@ -19,13 +19,13 @@
       </a>
       {% if downloadLink.format or downloadLink.size or downloadLink.language %}
         <span class="ma__download-link__file-spec">({{ downloadLink.language ~ ',' }} {{ downloadLink.format }} {{ downloadLink.size }})</span>
-        {% if downloadLink.inlineLinks %}
-          {% set inlineLinks = downloadLink.inlineLinks %}
-          {% include "@organisms/by-author/inline-links-language.twig" %}
-        {% endif %}
       {% endif %}
     {% endif %}
   </div>
+  {% if downloadLink.inlineLinks %}
+    {% set inlineLinks = downloadLink.inlineLinks %}
+    {% include "@organisms/by-author/inline-links-language.twig" %}
+  {% endif %}
   {% if downloadLink.description %}
     {% set richText = downloadLink.description %}
     <div class="ma__download-link__description">
