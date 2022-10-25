@@ -12,16 +12,16 @@ references:
 react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:16.17.0-browsers
+    - image: circleci/node:14.15.2-browsers
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
-    - image: circleci/php:7.3-node-browsers
+    - image: circleci/php:7.2-node-browsers
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
-    - image: cimg/node:16.17.0
+    - image: cimg/node:14.15.2
 
 jobs:
   build:
