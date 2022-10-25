@@ -16,7 +16,7 @@ react_defaults: &react_defaults
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
-    - image: circleci/php:7.4-node-browsers
+    - image: circleci/php:7.3-node-browsers
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
