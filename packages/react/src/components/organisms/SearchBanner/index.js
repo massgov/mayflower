@@ -78,7 +78,7 @@ class SearchBanner extends React.Component {
         </div>
         {tabs && <Tabs {...tabs} />}
         {filterBox && (
-          <div className="ma_search-banner__filter-box-container">
+          <div className="ma__search-banner__filter-box-container">
               <div className="main-content--two ma__search-banner__filter-box-toggle-container">
                 <button
                   onClick={this.toggleFilterBox}
