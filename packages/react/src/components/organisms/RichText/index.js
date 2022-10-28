@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from 'html-react-parser';
 import ReactDOMServer from 'react-dom/server';
 
 const RichText = ({
@@ -32,7 +32,7 @@ RichText.propTypes = {
   /** A valid html tag you want the component wrapper to be. By default, this is a `div`. */
   htmlTag: PropTypes.string,
   /** The transform function will be called for every node that is parsed by ReactHtmlParser.
-    * See documentation of react-html-parser for the transform function: https://www.npmjs.com/package/react-html-parser#transform-function
+    * See documentation of html-react-parser for the transform function: https://www.npmjs.com/package/html-react-parser#transform-function
   * */
   transform: PropTypes.func
 };

@@ -16,7 +16,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactHtmlParser from 'react-html-parser/src';
+import ReactHtmlParser from 'html-react-parser';
 import classNames from 'classnames';
 
 import LinkDropdown from 'MayflowerReactMolecules/LinkDropdown';
