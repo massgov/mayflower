@@ -9,7 +9,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import airPropTypes from 'airbnb-prop-types';
 // eslint-disable-next-line import/no-unresolved
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 // eslint-disable-next-line import/no-unresolved
@@ -65,7 +64,12 @@ ButtonWithIcon.propTypes = {
   // Function to run on click of the button.
   onClick: PropTypes.func,
   // Sets a reference to the button onto the passed node.
-  setButtonRef: airPropTypes.ref(),
+  setButtonRef: PropTypes.oneOfType([
+      // Either a function
+      PropTypes.func, 
+      // Or the instance of a DOM native element (see the note about SSR)
+      PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ]),
   // Button text.
   text: PropTypes.string,
   /** HTML `<button>` 'type' attribute  */

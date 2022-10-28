@@ -11,7 +11,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import airPropTypes from 'airbnb-prop-types';
 
 const today = new Date();
 const year = today.getFullYear();
@@ -96,9 +95,7 @@ FooterSlim.propTypes = {
   contact: PropTypes.arrayOf(PropTypes.shape({
     icon: PropTypes.element,
     component: PropTypes.oneOfType([
-      airPropTypes.componentWithName('PhoneNumber'),
-      airPropTypes.componentWithName('Address'),
-      airPropTypes.componentWithName('Email'),
+      PropTypes.element,
       PropTypes.node
     ])
   })),
