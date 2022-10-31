@@ -12,7 +12,9 @@
       {% set richText = tabularData.description %}
       {% include "@organisms/by-author/rich-text.twig" %}
     {% endif %}
-    {% set table = tabularData.table %}
-    {% include "@atoms/10-table/table.twig" %}
+    {% if tabularData.table %}
+      {% set table = tabularData.table %}
+      {% include "@atoms/10-table/table.twig" %}
+    {% endif %}
   {% endblock %}
 </section>
