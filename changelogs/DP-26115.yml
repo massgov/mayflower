@@ -54,6 +54,6 @@
 Fixed:
   - project: Patternlab
     component: MainNav
-    description: Fix mainNav submenu skipping the first item using arrow keys. (#1688)
+    description: Fix mainNav submenu skipping the first item using arrow keys. (#1690)
     issue: DP-26115
     impact: Patch
