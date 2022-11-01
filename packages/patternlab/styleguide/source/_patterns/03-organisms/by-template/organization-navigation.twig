@@ -7,14 +7,19 @@
     <ul role="menubar" class="ma__organization-navigation__items" aria-label="{{ organizationNavigation.orgNavTitle }}">
       {% for nav in organizationNavigation.orgNav %}
       {% if nav.subNav %}
-        {% set buttonId =  'button' ~ loop.index %}
-        {% set menuId =  'menu' ~ loop.index %}
+        {% if organizationNavigation.orgId %}
+          {% set buttonId = 'button' ~ organizationNavigation.orgId ~ loop.index %}
+          {% set menuId =  'menu' ~ organizationNavigation.orgId ~ loop.index %}
+        {% else %}
+          {% set buttonId =  'buttonorgnav' ~ loop.index %}
+          {% set menuId =  'menuorgnav' ~ loop.index %}
+        {% endif %}
         <li class="ma__organization-navigation__item {{ nav.section }}{% if nav.subNav %} has-subnav{% endif %}"
-        role="menuitem" 
+        role="menuitem"
         aria-haspopup="true">
-        <button 
+        <button
           tabindex="0"
-          id="{{ buttonId }}" 
+          id="{{ buttonId }}"
           {% if nav.subNav %}class="subnav-toggle"{% endif %}
           {{ nav.subNav ? 'aria-haspopup="true" aria-expanded="false"' : '' }}>
             {{ nav.title }}
@@ -31,7 +36,7 @@
               </div>
             {% endblock %}
             {% endif %}
-            
+
             {% if nav.section == "about" %}
             {% block aboutTab %}
               <div class="ma__organization-navigation__subitem" role="menu" aria-label="{{ nav.section }}">
@@ -46,18 +51,18 @@
               <div class="ma__organization-navigation__subitem" role="menu" aria-label="{{ nav.section }}">
                 {% set orgMenuContactRow = nav.subNav.orgMenuContactRow %}
                 {% set customItems = nav.subNav.customItems %}
-                {% include "@organisms/by-template/org-nav-contact-menu.twig" %}   
+                {% include "@organisms/by-template/org-nav-contact-menu.twig" %}
               </div>
               {% endblock %}
             {% endif %}
-            
+
             {% if nav.section == "mobileLogin" %}
               <div class="ma__organization-navigation__subitem" role="menu" aria-label="{{ nav.section }}">
                 {% set  contactGroup = nav.subNav.mobileLogin %}
                 {% include "@molecules/contact-group.twig" %}
               </div>
             {% endif %}
-          </div>         
+          </div>
         {% endif %}
         </li>
         {% endif %}
@@ -66,7 +71,7 @@
     {% if organizationNavigation.orgSearch %}
     <div class="ma__organization-navigation__search">
       <button class="ma__organization-navigation__search--toggle js-search-toggle">
-        {{ icon('search') }} 
+        {{ icon('search') }}
         <span class="search-label">Search this organization</span>
       </button>
       <div class="ma__organization-navigation__search--wrapper">
