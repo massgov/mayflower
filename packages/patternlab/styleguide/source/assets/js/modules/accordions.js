@@ -7,7 +7,8 @@ export default (function (window,document,$,undefined) {
 
   // Get or generates an ID for an element.
   function getId($el, $fallbackId) {
-    return $el.attr('id') || 'accordion' + $fallbackId;
+    let random = Math.random().toString(36).substring(2,7);
+    return $el.attr('id') || 'accordion' + random + '-' + $fallbackId;
   }
 
   $jsAccordion.each(function(index){
