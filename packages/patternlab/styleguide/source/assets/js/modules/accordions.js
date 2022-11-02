@@ -25,9 +25,10 @@ export default (function (window,document,$,undefined) {
   });
 
   // Gather the ids for all the accordions.
-  $('.ma__collapsible-content--extended .js-accordion').each(function(index){
+  $('.ma__collapsible-content--extended .js-accordion .ma__collapsible-content__body').each(function(index, el){
     accordionIds += getId($(this), index + 1) + ' ';
   });
+
   // Add aria labels to toggle all
   $toggleLink.attr("aria-controls", accordionIds);
 
