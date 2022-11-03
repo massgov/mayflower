@@ -51,9 +51,9 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Fixed:
+Changed:
   - project: Patternlab
-    component: Accordions
-    description: Fix accordions collapsing while scrolling on Android/iOS devices issue. (#1672)
-    issue: DP-25805
-    impact: Minor
+    component: Footer
+    description: Add aria-label to footer component. (#1684)
+    issue: DP-17253
+    impact: Patch

@@ -16,15 +16,6 @@
                   <a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a>
                 </li>
               {% endfor %}
-              <li role="none" class="ma__main-nav__subitem--main">
-                <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__link">
-                  {{ icon('arrow-bent') }}
-                  <span>
-                    <span class="visually-hidden">See all topics under </span>
-                    {{ nav.text }}
-                  </span>
-                </a>
-              </li>
             </ul>
           </div>
         {% elseif nav.href %}

@@ -51,9 +51,9 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Fixed:
+Changed:
   - project: Patternlab
-    component: Accordions
-    description: Fix accordions collapsing while scrolling on Android/iOS devices issue. (#1672)
-    issue: DP-25805
-    impact: Minor
+    component: TabularData
+    description: Check if table content is set before rendering. (#1688)
+    issue: DP-26241
+    impact: Patch

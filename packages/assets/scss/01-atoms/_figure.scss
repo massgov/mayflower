@@ -10,7 +10,7 @@ $figures-gutter: 20px;
 
   .ma__rich-text &__skip-link,
   &__skip-link {
-    margin: -29px 0 0 0;
+    margin: -8px 0 2px 0;
     padding: 0 10px 2px 10px;
     float: left;
     display: block;
@@ -28,31 +28,21 @@ $figures-gutter: 20px;
     }
   }
 
-  div[id^='figure-'] {
-
-    // These margin and padding help the link target visible below the sticky nav in stead of hide under the sticky nav.
-    margin-top: -80px;
-    padding-top: 80px;
-    padding-bottom: 1em;
+  .ma__figure__skip-link_target {
     z-index: -3;
-    display: none;
 
-    & .ma__figure__skip-link_destination {
-      margin: 0.2em 0 -30px 0;
+    a {
+      display: none;
       padding: 0 10px;
-      float: left;
       font-size: 1.25rem;
       font-weight: 550;
-      border: 3px solid transparent;
-      border-radius: 6px;
-      transition: border 0.4s ease;
-    }
 
-    &:target {
+      border-bottom: 0;
+      transition: none;
 
-      & .ma__figure__skip-link_destination {
-        // The border is added to be more recognizable.
-        border-color: #005fcc;
+      &.visible {
+        display: block;
+        scroll-margin-top: 80px;
       }
     }
   }
@@ -408,7 +398,7 @@ $figures-gutter: 20px;
   }
 }
 
-// right align 
+// right align
 
 .ma__figure--x-small.ma__figure--right,
 .ma__figure--small.ma__figure--right {
