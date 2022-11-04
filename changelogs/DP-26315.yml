@@ -54,6 +54,6 @@
 Fixed:
   - project: Patternlab
     component: Details, HowTo
-    description: Force wordbreak and restrain content container width to enforce layout. (#1693)
+    description: Force wordbreak and restrain content container width to enforce layout. (#1694)
     issue: DP-26315
     impact: Patch
