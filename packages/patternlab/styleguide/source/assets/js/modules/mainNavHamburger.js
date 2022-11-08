@@ -34,14 +34,18 @@ const utilNavNarrowCheck = function() {
 
 // Define all top level clickable elements with current window width.
 let topLevelClickableItems;
-window.addEventListener("DOMContentLoaded", function (e) {
-  setTimeout(function timeoutFunction() {// This prevents GT elements get null.
-    selectTopClickableItems(width);
-  }, 1000);
-});
-window.addEventListener("resize", function (e) {
-  selectTopClickableItems(body.clientWidth);
-});
+
+if (hamburgerMenuContainer) {
+  window.addEventListener("DOMContentLoaded", function (e) {
+    setTimeout(function timeoutFunction() {// This prevents GT elements get null.
+      selectTopClickableItems(width);
+    }, 1000);
+  });
+  window.addEventListener("resize", function (e) {
+    selectTopClickableItems(body.clientWidth);
+  });
+}
+
 
 // Open and close the menu
 if (menuButton !== null) {
@@ -593,7 +597,7 @@ if (utilNarrowButton !== null) {
       }
 
       if (e.type === "keyup") {
-        let clickableItems = thisNavContainer.querySelectorAll(".js-util-nav-content a, .js-util-nav-content button");
+        let clickableItems = thisNavContainer && thisNavContainer.querySelectorAll(".js-util-nav-content a, .js-util-nav-content button");
 
         if (e.key === "ArrowDown" || e.code === "ArrowDown") {
           clickableItems[1].focus(); // Skip the first item (close button), clickableItems[0].
