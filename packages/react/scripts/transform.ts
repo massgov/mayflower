@@ -243,9 +243,11 @@ function createInterface(path: NodePath, componentTypes: CollectedTypes) {
 
   // Add the TS types before the function/class
   getFunctionParent(path).insertBefore(
-    j.tsInterfaceDeclaration(
-      j.identifier(typeName),
-      j.tsInterfaceBody(types.types.map(createPropertySignature))
+    j.exportNamedDeclaration(
+      j.tsInterfaceDeclaration(
+        j.identifier(typeName),
+        j.tsInterfaceBody(types.types.map(createPropertySignature))
+      )
     )
   )
 
