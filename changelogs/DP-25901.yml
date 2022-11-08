@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
     component: SearchBoxWithLinks
-    description: Change organization navigation IDs to be unique. (#1695)
-    issue: DP-25835
-    impact: Patch
+    description: Added relatedInfo and footerText fields, removed secondary.heading and secondLink. (#1695)
+    issue: DP-25901
+    impact: Minor
