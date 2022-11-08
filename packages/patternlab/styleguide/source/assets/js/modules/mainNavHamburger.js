@@ -16,7 +16,6 @@ const menuButtonTextClose = document.querySelector(".js-header__menu-text--close
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 const searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
 
-// const navContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 
@@ -32,10 +31,9 @@ const utilNavNarrowCheck = function() {
   return utilNarrowNav ? (utilNarrowNav.offsetWidth > 0 && utilNarrowNav.offsetHeight > 0) : false;
 };
 
+if (hamburgerMenuContainer) {
 // Define all top level clickable elements with current window width.
 let topLevelClickableItems;
-
-if (hamburgerMenuContainer) {
   window.addEventListener("DOMContentLoaded", function (e) {
     setTimeout(function timeoutFunction() {// This prevents GT elements get null.
       selectTopClickableItems(width);
@@ -44,8 +42,6 @@ if (hamburgerMenuContainer) {
   window.addEventListener("resize", function (e) {
     selectTopClickableItems(body.clientWidth);
   });
-}
-
 
 // Open and close the menu
 if (menuButton !== null) {
@@ -834,3 +830,4 @@ setTimeout(function timeoutFunction() {// This prevents GT elements get null.
     });
   }
 }, 1000);// When it's less than 1000, the iframe is null in full screen display.
+}
