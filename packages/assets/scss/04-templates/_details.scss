@@ -5,6 +5,7 @@
   &__container {
     display: flex;
     position: relative;
+    word-wrap: break-word;
 
     @media ($bp-medium-max) {
       flex-direction: column;
@@ -26,7 +27,7 @@
 
   &__content {
 
-    width: 100%;
+    width: 80%;
     margin-left: $layout-left-col-width + $layout-left-col-gutter;
 
     & > * {
@@ -39,6 +40,7 @@
     }
   
     @media ($bp-medium-max) {
+       width: 100%;
        margin-left: 0;
     }
 
