@@ -4,34 +4,33 @@
 
 		<div class="ma__keyword-search js-keyword-search">
 			<label class="ma__visually-hidden">
-        {{ searchBoxWithLinks.form.visuallyHiddenText }}
-      </label>
+				{{ searchBoxWithLinks.form.visuallyHiddenText }}
+			</label>
 
 			<input class="ma__keyword-search__input" name="title" id="q" type="text" placeholder="{{ searchBoxWithLinks.form.headingText }}">
 
-        {% set buttonSearch = {
-          'text' : searchBoxWithLinks.form.submitText,
-          'usage': 'secondary'
-        } %}
-        {% include "@atoms/01-buttons/button-search.twig" %}
+			{% set buttonSearch = {
+				'text' : searchBoxWithLinks.form.submitText,
+				'usage': 'secondary'
+			} %}
+			{% include "@atoms/01-buttons/button-search.twig" %}
+		</div>
+
+		<div class="ma__search-box-with-links__footer">
+			{% set richText = searchBoxWithLinks.form.footerText %}
+			{% include "@organisms/by-author/rich-text.twig" %}
 		</div>
 
 	</form>
 
 	<div class="ma__search-box-with-links__secondary">
-		<h3>{{ searchBoxWithLinks.secondary.heading }}</h3>
+		{% set richText = searchBoxWithLinks.secondary.relatedInfo %}
+		{% include "@organisms/by-author/rich-text.twig" %}
 		<ul>
-      <li>
-        {% set decorativeLink = searchBoxWithLinks.secondary.firstLink %}
-        {% include "@atoms/decorative-link.twig" %}
-      </li>
-
-      {% set decorativeLink = searchBoxWithLinks.secondary.secondLink %}
-      {% if decorativeLink %}
-        <li>
-          {% include "@atoms/decorative-link.twig" %}
-        </li>
-      {% endif %}
+			<li>
+				{% set decorativeLink = searchBoxWithLinks.secondary.firstLink %}
+				{% include "@atoms/decorative-link.twig" %}
+			</li>
 		</ul>
 	</div>
 </div>
