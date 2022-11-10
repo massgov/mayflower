@@ -140,6 +140,40 @@ function getTSType(path: NodePath) {
       )
 
     case "shape":
+      // Handle a reference to prop types of another component from the same package.
+      const argNode = path.get("arguments", 0)
+      if (argNode.get('type').value === 'MemberExpression') {
+        const propertyName = argNode.get('property', 'name').value
+        if (propertyName === 'PropTypes' || propertyName === 'propTypes') {
+          const identifier = argNode.get('object', 'name').value
+
+          // Make sure the file also imports the [Component]Props interface.
+          j(getFunctionParent(path).parent)
+            .find(j.ImportDeclaration)
+            .filter(path => path.get('source', 'value').value.startsWith('Mayflower'))
+            .filter((path) => {
+              // Find the import declaration that imports the component this prop type references.
+              return j(path.get('specifiers').value)
+                .some(path => path.get('local', 'name').value === identifier)
+            })
+            .at(0)
+            .forEach(path => {
+              // Import the [Component]Props interface from the same source.
+              const specifiers = path.get('specifiers')
+              const lastSpecifier = specifiers.get(specifiers.value.length - 1)
+              lastSpecifier.insertAfter(
+                j.importSpecifier(
+                  j.identifier(`${identifier}Props`),
+                )
+              )
+            })
+
+          return j.tsTypeReference(
+            j.identifier(`${identifier}Props`)
+          )
+        }
+      }
+
     case "exact":
       return j.tsTypeLiteral(
         path
