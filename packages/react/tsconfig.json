@@ -1,6 +1,7 @@
 {
   // Change this to match your project
   "include": [
+    "src/components/**/*.d.ts",
     "src/components/**/*.tsx",
   ],
   "exclude": [

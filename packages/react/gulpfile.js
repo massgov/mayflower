@@ -6,6 +6,7 @@ const rename = require('gulp-rename');
 const del = require('del');
 const path = require('path');
 const run = require('gulp-run-command').default;
+const ts = require('gulp-typescript');
 
 function clean() {
   return del(['dist']);
@@ -191,6 +192,11 @@ const sources = [
   '!src/**/Colors/**',
   '!src/**/Icon/**',
   '!src/**/main-nav.data.js'
+];
+
+const tsSources = [
+  'src/components/**/*.d.ts',
+  'src/components/**/*.tsx',
 ];
 
 function resolvePath(sourcePath, currentFile, opts) {
@@ -385,8 +391,35 @@ function cleanIconDir() {
   ]);
 }
 
+function generateTsDeclarations() {
+  const tsProject = ts.createProject('tsconfig.json')
+  return src(tsSources)
+    .pipe(rename((p) => {
+      const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
+      p.dirname = splitPath[splitPath.length - 1];
+    }))
+    .pipe(tsProject())
+    .dts
+    .pipe(dest('dist'))
+}
+
 exports.cleanIconDir = cleanIconDir;
 exports.generateIcons = generateIcons;
 exports.transpileES5Icons = transpileES5Icons;
 exports.transpileES6Icons = transpileES6Icons;
-exports.default = series(clean, parallel(transpileES5, transpileES6, styles, series(generateIcons, transpileES5Icons, transpileES6Icons)));
+exports.generateTsDeclarations = generateTsDeclarations;
+exports.default = series(
+  clean,
+  parallel(
+    transpileES5,
+    transpileES6,
+    generateTsDeclarations,
+    styles,
+    series(
+      generateIcons,
+      transpileES5Icons,
+      transpileES6Icons
+    )
+  )
+);

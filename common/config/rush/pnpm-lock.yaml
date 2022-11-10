@@ -94,6 +94,7 @@ dependencies:
   gulp-pixrem: 1.0.0
   gulp-run-command: 0.0.10
   gulp-sourcemaps: 2.6.5
+  gulp-typescript: 6.0.0-alpha.1_typescript@4.8.4
   handlebars: 4.7.6
   html-react-parser: 3.0.4
   is: 3.3.0
@@ -4232,6 +4233,7 @@ packages:
   /@npmcli/move-file/1.0.1:
     dependencies:
       mkdirp: 1.0.4
+    deprecated: This functionality has been moved to @npmcli/fs
     dev: false
     engines:
       node: '>=10'
@@ -16201,6 +16203,22 @@ packages:
     dev: false
     resolution:
       integrity: sha512-VUoKrk24G0ojr7fXqlZ7vA8qDFHRloYAM6doNRyKdJ/LFkj+X3P04f+7LlOp7j05WtdOCEg65oG6nGjSf//78A==
+  /gulp-typescript/6.0.0-alpha.1_typescript@4.8.4:
+    dependencies:
+      ansi-colors: 4.1.1
+      plugin-error: 1.0.1
+      source-map: 0.7.3
+      through2: 3.0.2
+      typescript: 4.8.4
+      vinyl: 2.2.1
+      vinyl-fs: 3.0.3
+    dev: false
+    engines:
+      node: '>= 8'
+    peerDependencies:
+      typescript: '~2.7.1 || >=2.8.0-dev || >=2.9.0-dev || ~3.0.0 || >=3.0.0-dev || >=3.1.0-dev || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.7.0-dev '
+    resolution:
+      integrity: sha512-KoT0TTfjfT7w3JItHkgFH1T/zK4oXWC+a8xxKfniRfVcA0Fa1bKrIhztYelYmb+95RB80OLMBreknYkdwzdi2Q==
   /gulp-util/3.0.8:
     dependencies:
       array-differ: 1.0.0
@@ -28702,6 +28720,7 @@ packages:
       gulp-babel: 8.0.0_@babel+core@7.12.10
       gulp-rename: 2.0.0
       gulp-run-command: 0.0.10
+      gulp-typescript: 6.0.0-alpha.1_typescript@4.8.4
       html-react-parser: 3.0.4_react@17.0.1
       is: 3.3.0
       jscodeshift: 0.10.0_@babel+preset-env@7.12.11
@@ -28743,7 +28762,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-mw0D2QDCI85uNcGHDnWqiAPk8QDxoyLT9z6cqPndOXpoo8UPGHCwHHl0D0U9X2RfeloMnS9BJYJ/JyqwBUlNuw==
+      integrity: sha512-Fn7t9N4JBB8+VzqYGhHKNahB5kyuN/coG35TZ7iA5HwmHrWhmC0B+nvitVKVhmI3rrbIIK2VF6CWs94xdShnHA==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_b7ec7fc0b3c58499ecbfa8b667e39e33':
@@ -28944,6 +28963,7 @@ specifiers:
   gulp-pixrem: ^1.0.0
   gulp-run-command: 0.0.10
   gulp-sourcemaps: ^2.6.4
+  gulp-typescript: ~6.0.0-alpha.1
   handlebars: ^4.7.6
   html-react-parser: ~3.0.4
   is: ^3.3.0
