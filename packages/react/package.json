@@ -28,8 +28,7 @@
     "storybook-debug": "node --inspect ./node_modules/.bin/start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
     "storybook:extract": "sb extract",
     "build-storybook": "rushx build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static",
-    "build-types": "tsc",
-    "build-types-index": "cd types && npm-dts generate"
+    "jsx-to-tsx": "./scripts/jsx-to-tsx"
   },
   "pre-push": [
     "lint"
