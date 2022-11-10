@@ -26,6 +26,7 @@
     "declarationMap": true,
     "jsx": "preserve",
     "skipLibCheck": true,
+    "esModuleInterop": true,
 
     // Let TS compiler find all the referenced modules at compile time.
     "baseUrl": ".",
