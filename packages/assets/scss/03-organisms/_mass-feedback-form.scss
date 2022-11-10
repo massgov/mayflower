@@ -4,20 +4,33 @@ $formQuickTransitions: max-height 0.3s linear;
 @use "00-base/configure" as *;
 
 .ma__mass-feedback-form {
+  border: 2px solid $c-gray-light;
+  background: $c-white;
+  max-width: 35em;
+  margin: 0 auto 5rem;
 
-  &__form {
-    border: 2px solid $c-gray-light;
-    background: $c-white;
-    max-width: 35em;
-    padding: 2.5em 20px;
-    margin: 0 auto 5rem;
+
+  &__heading {
+    padding: 1rem 20px;
+    font-size: $fonts-large;
+    border-bottom: 2px solid $c-gray-light;
+    margin-bottom: 0;
 
     @media ($bp-feedback-min) {
-      padding: 2.5em;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  &__form {
+    padding: 2rem 20px;
+
+    @media ($bp-feedback-min) {
+      padding: 2rem 2.5rem;
     }
 
     fieldset {
-      margin-top: 45px;
+      margin-top: 2rem;
 
       &.user-response {
         margin-top: 30px;
