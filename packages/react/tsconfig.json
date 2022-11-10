@@ -3,6 +3,7 @@
   "include": [
     "src/components/**/*.d.ts",
     "src/components/**/*.tsx",
+    "src/components/**/*.ts",
   ],
   "exclude": [
     "*.knobs.options.js",
@@ -55,6 +56,6 @@
       "MayflowerReactUtilities/*": ["src/components/utilities/*"],
       "MayflowerReactHooks/*": ["src/components/hooks/*"],
       "MayflowerReactGenTeaser/*": ["src/components/organisms/GenTeaser/*"]
-    },
+    }
   },
 }
