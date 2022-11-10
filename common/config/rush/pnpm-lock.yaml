@@ -92,6 +92,7 @@ dependencies:
   gulp-header: 2.0.9
   gulp-if: 2.0.2
   gulp-pixrem: 1.0.0
+  gulp-replace: 1.1.3
   gulp-run-command: 0.0.10
   gulp-sourcemaps: 2.6.5
   gulp-typescript: 6.0.0-alpha.1_typescript@4.8.4
@@ -3695,7 +3696,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.3
       '@types/istanbul-reports': 3.0.0
-      '@types/node': 14.14.16
+      '@types/node': 14.18.33
       '@types/yargs': 15.0.12
       chalk: 4.1.2
     dev: false
@@ -6549,6 +6550,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
+  /@types/expect/1.20.4:
+    dev: false
+    resolution:
+      integrity: sha512-Q5Vn3yjTDyCMV50TB6VRIbQNxSE4OmZR86VSbGaNpfUolm0iePBB4KdEEHmxoY5sT2+2DIvXW0rvMDP2nHZ4Mg==
   /@types/get-port/3.2.0:
     dev: false
     resolution:
@@ -6574,7 +6579,7 @@ packages:
       integrity: sha512-SEYeGAIQIQX8NN6LDKprLjbrd5dARM5EXsd8GI/A5l0apYI1fGMWgPHSe4ZKL4eozlAyI+doUE9XbYS4xCkQ1w==
   /@types/graceful-fs/4.1.4:
     dependencies:
-      '@types/node': 14.14.16
+      '@types/node': 14.18.33
     dev: false
     resolution:
       integrity: sha512-mWA/4zFQhfvOA8zWkXobwJvBD7vzcxgrOQ0J5CH1votGqdq9m7+FwtGaqyCZqC3NyyBkc9z4m+iry4LlqcMWJg==
@@ -6694,6 +6699,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-naXYePhweTi+BMv11TgioE2/FXU4fSl29HAH1ffxVciNsH3rYXjNP2yM8wqmSm7jS20gM8TIklKiTen+1iVncw==
+  /@types/node/14.18.33:
+    dev: false
+    resolution:
+      integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==
   /@types/node/8.10.66:
     dev: false
     resolution:
@@ -6817,13 +6826,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
+  /@types/vinyl/2.0.7:
+    dependencies:
+      '@types/expect': 1.20.4
+      '@types/node': 14.18.33
+    dev: false
+    resolution:
+      integrity: sha512-4UqPv+2567NhMQuMLdKAyK4yzrfCqwaTt6bLhHEs8PFcxbHILsrxaY63n4wgE/BRLDWDQeI+WcTmkXKExh9hQg==
   /@types/webpack-env/1.16.0:
     dev: false
     resolution:
       integrity: sha512-Fx+NpfOO0CpeYX2g9bkvX8O5qh9wrU1sOF4g8sft4Mu7z+qfe387YlyY8w8daDyDsKY5vUxM0yxkAYnbkRbZEw==
   /@types/webpack-sources/2.1.0:
     dependencies:
-      '@types/node': 14.14.16
+      '@types/node': 14.18.33
       '@types/source-list-map': 0.1.2
       source-map: 0.7.3
     dev: false
@@ -6832,7 +6848,7 @@ packages:
   /@types/webpack/4.41.25:
     dependencies:
       '@types/anymatch': 1.3.1
-      '@types/node': 14.14.16
+      '@types/node': 14.18.33
       '@types/tapable': 1.0.6
       '@types/uglify-js': 3.11.1
       '@types/webpack-sources': 2.1.0
@@ -9169,6 +9185,12 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-1Yj8h9Q+QDF5FzhMs/c9+6UntbD5MkRfRwac8DoEm9ZfUBZ7tZ55YcGVAzEe4bXsdQHEk+s9S5wsOKVdZrw0tQ==
+  /binaryextensions/2.3.0:
+    dev: false
+    engines:
+      node: '>=0.8'
+    resolution:
+      integrity: sha512-nAihlQsYGyc5Bwq6+EsubvANYGExeJKHDO3RjnvwU042fawQTQfM3Kxn7IHUXQOz4bzfwsGYYHGSvXyW4zOGLg==
   /bindings/1.5.0:
     dependencies:
       file-uri-to-path: 1.0.0
@@ -16151,6 +16173,18 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-97Vba4KBzbYmR5VBs9mWmK+HwIf5mj+/zioxfZhOKeXtx5ZjBk57KFlePf5nxq9QsTtFl0ejnHE3zTC9MHXqyQ==
+  /gulp-replace/1.1.3:
+    dependencies:
+      '@types/node': 14.18.33
+      '@types/vinyl': 2.0.7
+      istextorbinary: 3.3.0
+      replacestream: 4.0.3
+      yargs-parser: 20.2.4
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-HcPHpWY4XdF8zxYkDODHnG2+7a3nD/Y8Mfu3aBgMiCFDW3X2GiOKXllsAmILcxe3KZT2BXoN18WrpEFm48KfLQ==
   /gulp-run-command/0.0.10:
     dependencies:
       babel-plugin-transform-runtime: 6.15.0
@@ -18011,6 +18045,15 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-BXgQl9kf4WTCPCCpmFGoJkz/+uhvm7h7PFKUYxh7qarQd3ER33vHG//qaE8eN25l07YqZPpHXU9I09l/RD5aGQ==
+  /istextorbinary/3.3.0:
+    dependencies:
+      binaryextensions: 2.3.0
+      textextensions: 3.3.0
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-Tvq1W6NAcZeJ8op+Hq7tdZ434rqnMx4CCZ7H0ff83uEloDvVbqAwaMTZcafKGJT0VHkYzuXUiCY4hlXQg6WfoQ==
   /isurl/1.0.0:
     dependencies:
       has-to-string-tag-x: 1.4.1
@@ -18072,7 +18115,7 @@ packages:
     dependencies:
       '@jest/types': 26.6.2
       '@types/graceful-fs': 4.1.4
-      '@types/node': 14.14.16
+      '@types/node': 14.18.33
       anymatch: 3.1.1
       fb-watchman: 2.0.1
       graceful-fs: 4.2.4
@@ -18098,7 +18141,7 @@ packages:
       integrity: sha512-Gv3ZIs/nA48/Zvjrl34bf+oD76JHiGDUxNOVgUjh3j890sblXryjY4rss71fPtD/njchl6PSE2hIhvyWa1eT0A==
   /jest-serializer/26.6.2:
     dependencies:
-      '@types/node': 14.14.16
+      '@types/node': 14.18.33
       graceful-fs: 4.2.4
     dev: false
     engines:
@@ -18108,7 +18151,7 @@ packages:
   /jest-util/26.6.2:
     dependencies:
       '@jest/types': 26.6.2
-      '@types/node': 14.14.16
+      '@types/node': 14.18.33
       chalk: 4.1.2
       graceful-fs: 4.2.4
       is-ci: 2.0.0
@@ -18138,7 +18181,7 @@ packages:
       integrity: sha512-/dsSmUkIy5EBGfv/IjjqmFxrNAUpBERfGs1oHROyD7yxjG/w+t0GOJDX8O1k32ySmd7+a5IhnJU2qQFcJ4n1vw==
   /jest-worker/26.6.2:
     dependencies:
-      '@types/node': 14.14.16
+      '@types/node': 14.18.33
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: false
@@ -24153,6 +24196,14 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-6H9tUTuSjd6AgmDBK+f+xv9ueYw=
+  /replacestream/4.0.3:
+    dependencies:
+      escape-string-regexp: 1.0.5
+      object-assign: 4.1.1
+      readable-stream: 2.3.7
+    dev: false
+    resolution:
+      integrity: sha512-AC0FiLS352pBBiZhd4VXB1Ab/lh0lEgpP+GGvZqbQh8a5cmXVoTe5EX/YeTFArnp4SRGTHh1qCHu9lGs1qG8sA==
   /request/2.88.2:
     dependencies:
       aws-sign2: 0.7.0
@@ -26413,6 +26464,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+  /textextensions/3.3.0:
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-mk82dS8eRABNbeVJrEiN5/UMSCliINAuz8mkUwH4SwslkNP//gbEzlWNS5au0z5Dpx40SQxzqZevZkn+WYJ9Dw==
   /tfunk/4.0.0:
     dependencies:
       chalk: 1.1.3
@@ -28719,6 +28776,7 @@ packages:
       gulp: 4.0.2
       gulp-babel: 8.0.0_@babel+core@7.12.10
       gulp-rename: 2.0.0
+      gulp-replace: 1.1.3
       gulp-run-command: 0.0.10
       gulp-typescript: 6.0.0-alpha.1_typescript@4.8.4
       html-react-parser: 3.0.4_react@17.0.1
@@ -28762,7 +28820,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-Fn7t9N4JBB8+VzqYGhHKNahB5kyuN/coG35TZ7iA5HwmHrWhmC0B+nvitVKVhmI3rrbIIK2VF6CWs94xdShnHA==
+      integrity: sha512-KkrUTBLp8pgCxq1Kt1Vu0ySdfMkKol4HXU8GcVZnVTphO4QRrYOXTJBBf/GuOeUVlXC3XHSKpMD8TkA7AVIO6g==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_b7ec7fc0b3c58499ecbfa8b667e39e33':
@@ -28961,6 +29019,7 @@ specifiers:
   gulp-header: ^2.0.5
   gulp-if: ^2.0.2
   gulp-pixrem: ^1.0.0
+  gulp-replace: ~1.1.3
   gulp-run-command: 0.0.10
   gulp-sourcemaps: ^2.6.4
   gulp-typescript: ~6.0.0-alpha.1

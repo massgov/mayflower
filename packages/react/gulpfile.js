@@ -7,6 +7,7 @@ const del = require('del');
 const path = require('path');
 const run = require('gulp-run-command').default;
 const ts = require('gulp-typescript');
+const replace = require('gulp-replace');
 
 function clean() {
   return del(['dist']);
@@ -401,6 +402,10 @@ function generateTsDeclarations() {
     }))
     .pipe(tsProject())
     .dts
+    .pipe(
+      // @todo Is there a better way to do it? Some TS compiler options maybe?
+      replace(/(\s+from\s+['"])(Mayflower[a-z]+)\//ig, '$1../')
+    )
     .pipe(dest('dist'))
 }
 
