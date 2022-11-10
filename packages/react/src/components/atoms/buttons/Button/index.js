@@ -60,7 +60,9 @@ Button.propTypes = {
   /** Set `<button>` to disabled */
   disabled: PropTypes.bool,
   /** Custom classnames appending to the button */
-  classes: PropTypes.arrayOf(PropTypes.string)
+  classes: PropTypes.arrayOf(PropTypes.string),
+
+  children: PropTypes.node,
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.
