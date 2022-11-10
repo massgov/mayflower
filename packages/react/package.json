@@ -13,7 +13,6 @@
     "dist",
     "types"
   ],
-  "types": "./types/index.d.ts",
   "scripts": {
     "backstop:test": "docker-compose run backstop test --rm",
     "backstop": "rushx build-storybook && rushx storybook:extract && rushx backstop:test",
