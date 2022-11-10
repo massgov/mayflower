@@ -101,13 +101,13 @@ HeaderSearch.propTypes = {
   /** Render suggestions as passable element */
   suggestions: PropTypes.element,
   /** @molecules/TypeAheadDropdown */
-  orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
+  orgDropdown: PropTypes.shape(TypeAheadDropdown.propTypes),
   /** postInputFilter passable component */
   postInputFilter: PropTypes.element,
   /** A ref object as created by React.createRef(). Will be applied to the input element. */
   inputRef: PropTypes.oneOfType([
       // Either a function
-      PropTypes.func, 
+      PropTypes.func,
       // Or the instance of a DOM native element (see the note about SSR)
       PropTypes.shape({ current: PropTypes.object })
   ])
