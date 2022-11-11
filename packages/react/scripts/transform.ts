@@ -145,16 +145,28 @@ function getTSType(path: NodePath) {
       if (argNode.get('type').value === 'MemberExpression') {
         const propertyName = argNode.get('property', 'name').value
         if (propertyName === 'PropTypes' || propertyName === 'propTypes') {
-          const identifier = argNode.get('object', 'name').value
+          const componentVarName = argNode.get('object', 'name').value
+          const propsVarName = `${componentVarName}Props`
 
           // Make sure the file also imports the [Component]Props interface.
           j(getFunctionParent(path).parent)
             .find(j.ImportDeclaration)
             .filter(path => path.get('source', 'value').value.startsWith('Mayflower'))
             .filter((path) => {
-              // Find the import declaration that imports the component this prop type references.
-              return j(path.get('specifiers').value)
-                .some(path => path.get('local', 'name').value === identifier)
+              const specifiers = j(path.get('specifiers').value)
+
+              // Find the import that adds the component this prop type references.
+              const importsComponent = specifiers
+                .some(path => path.get('local', 'name').value === componentVarName)
+              if (!importsComponent) {
+                return false;
+              }
+
+              // Make sure we haven't added the import already.
+              const importExists = specifiers
+                .filter(path => path.get('type').value === 'ImportSpecifier')
+                .some(path => path.get('imported', 'name').value === propsVarName)
+              return !importExists
             })
             .at(0)
             .forEach(path => {
@@ -163,13 +175,13 @@ function getTSType(path: NodePath) {
               const lastSpecifier = specifiers.get(specifiers.value.length - 1)
               lastSpecifier.insertAfter(
                 j.importSpecifier(
-                  j.identifier(`${identifier}Props`),
+                  j.identifier(propsVarName),
                 )
               )
             })
 
           return j.tsTypeReference(
-            j.identifier(`${identifier}Props`)
+            j.identifier(propsVarName)
           )
         }
       }
