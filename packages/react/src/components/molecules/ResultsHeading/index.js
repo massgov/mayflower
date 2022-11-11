@@ -52,9 +52,9 @@ ResultsHeading.propTypes = {
   /** The total count of results */
   totalResults: PropTypes.string,
   /** The sort input type as ButtonToggle */
-  buttonToggle: PropTypes.shape(ButtonToggle.props),
+  buttonToggle: PropTypes.shape(ButtonToggle.propTypes),
   /** The sort input type as SelectBox */
-  selectBox: PropTypes.shape(SelectBox.props),
+  selectBox: PropTypes.shape(SelectBox.propTypes),
   /** The array of tags and the tags callback functions */
   tags: PropTypes.shape(Tags.propTypes)
 };
