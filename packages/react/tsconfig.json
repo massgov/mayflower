@@ -24,6 +24,10 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
 
+    // TS doesn't recognize some built-in classes without targeting
+    // at least ES6, e.g. Map.
+    "target": "ES6",
+
     // Let TS compiler find all the referenced modules at compile time.
     "baseUrl": ".",
     "paths": {
