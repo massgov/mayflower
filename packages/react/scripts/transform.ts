@@ -468,4 +468,9 @@ export default function (file: FileInfo, api: API, opts: Options) {
   cleanup(source, propTypes, staticPropTypes)
 
   return source.toSource({ tabWidth: guessTabWidth(file.source) })
+    // @todo Is it a bug of JSCodeShift or its dependencies? They seem to
+    //   produce invalid TS code compiler fails with a "Function type notation
+    //   must be parenthesized when used in a union type" error thrown by the
+    //   TS compiler later.
+    .replace(' | (...args: unknown[]) => unknown', ' | ((...args: unknown[]) => unknown)')
 }
