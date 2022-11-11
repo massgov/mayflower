@@ -84,6 +84,7 @@ dependencies:
   gatsby-transformer-json: 2.8.0_gatsby@2.25.4
   gatsby-transformer-sharp: 2.9.0_7fe515a710c6635b70e9f130b6d14d3c
   gulp: 4.0.2
+  gulp-append-prepend: 1.0.9
   gulp-autoprefixer: 5.0.0
   gulp-babel: 8.0.0
   gulp-debug: 4.0.0_gulp@4.0.2
@@ -100,7 +101,7 @@ dependencies:
   html-react-parser: 3.0.4
   is: 3.3.0
   jquery: 3.5.1
-  jscodeshift: 0.10.0
+  jscodeshift: 0.14.0
   lazypipe: 1.0.2
   leaflet: 1.7.1
   markdown-it: 10.0.0
@@ -7811,6 +7812,14 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-O0yuUDnZeQDL+ncNGlJ78BiO4jnYI3bvMsD5prT0/nsgijG/LpNBIr63gTjVTNsiGkgQhiyCShTgxt8oXOrklA==
+  /ast-types/0.15.2:
+    dependencies:
+      tslib: 2.0.3
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-c27loCv9QkZinsa5ProX751khO9DJl/AcB5c2KNtA6NRvHKS0PgLfcftz72KVq504vB0Gku5s2kUZzDBvQWvHg==
   /astral-regex/1.0.0:
     dev: false
     engines:
@@ -11429,7 +11438,7 @@ packages:
   /cyclist/1.0.1:
     dev: false
     resolution:
-      integrity: sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
+      integrity: sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A==
   /d/1.0.1:
     dependencies:
       es5-ext: 0.10.53
@@ -16022,6 +16031,16 @@ packages:
     dev: false
     resolution:
       integrity: sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
+  /gulp-append-prepend/1.0.9:
+    dependencies:
+      plugin-error: 1.0.1
+      read-file: 0.2.0
+      through2: 2.0.5
+    dev: false
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-IUHAd9NHNpQWj0dA8GTEkgUlrgEhTZVe5T6AuEAAMlMSIMdxDZlCQj7zSKDL69nMJpsvgtgosAG4+n6zlhv27Q==
   /gulp-autoprefixer/5.0.0:
     dependencies:
       autoprefixer: 8.6.5
@@ -16121,6 +16140,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ooM/H+1ZFImalQPHCaMGvKap/8UQxHMcyo65f/Y6ZakCpa4FgJ9NH/9ux7hj7Z8J22mFlJu9RQgxuZT82UtlKg==
+  /gulp-exec/5.0.0:
+    dependencies:
+      plugin-error: 1.0.1
+      through2: 3.0.2
+    dev: false
+    resolution:
+      integrity: sha512-XFW5GJr5gpdRc7nAS6fNK2cqtLDjNnIKLbcVGIA6XAWCx7E4aVn/pzEJm6NvjtIU9VMsl4igkkSAo8Le8L1Lww==
   /gulp-filter/5.1.0:
     dependencies:
       multimatch: 2.1.0
@@ -18247,7 +18273,7 @@ packages:
     dev: false
     resolution:
       integrity: sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
-  /jscodeshift/0.10.0:
+  /jscodeshift/0.14.0:
     dependencies:
       '@babel/core': 7.19.6
       '@babel/parser': 7.19.6
@@ -18259,13 +18285,13 @@ packages:
       '@babel/preset-typescript': 7.18.6_@babel+core@7.19.6
       '@babel/register': 7.18.9_@babel+core@7.19.6
       babel-core: 7.0.0-bridge.0_@babel+core@7.19.6
-      colors: 1.4.0
+      chalk: 4.1.2
       flow-parser: 0.141.0
       graceful-fs: 4.2.4
-      micromatch: 3.1.10
+      micromatch: 4.0.5
       neo-async: 2.6.2
       node-dir: 0.1.17
-      recast: 0.18.10
+      recast: 0.21.5
       temp: 0.8.4
       write-file-atomic: 2.4.3
     dev: false
@@ -18273,8 +18299,8 @@ packages:
     peerDependencies:
       '@babel/preset-env': ^7.1.6
     resolution:
-      integrity: sha512-xpH2FVSEepXoNr6+cPlPHzPzBY1W9bPulufhCHOShzk8+CTCzAOQKytuOXT0b/9PvmO4biRi0g/ZIylVew815w==
-  /jscodeshift/0.10.0_@babel+preset-env@7.12.11:
+      integrity: sha512-7eCC1knD7bLUPuSCwXsMZUH51O8jIcoVyKtI6P0XM0IVzlGjckPy3FIwQlorzbN0Sg79oK+RlohN32Mqf/lrYA==
+  /jscodeshift/0.14.0_@babel+preset-env@7.12.11:
     dependencies:
       '@babel/core': 7.19.6
       '@babel/parser': 7.19.6
@@ -18287,13 +18313,13 @@ packages:
       '@babel/preset-typescript': 7.18.6_@babel+core@7.19.6
       '@babel/register': 7.18.9_@babel+core@7.19.6
       babel-core: 7.0.0-bridge.0_@babel+core@7.19.6
-      colors: 1.4.0
+      chalk: 4.1.2
       flow-parser: 0.141.0
       graceful-fs: 4.2.4
-      micromatch: 3.1.10
+      micromatch: 4.0.5
       neo-async: 2.6.2
       node-dir: 0.1.17
-      recast: 0.18.10
+      recast: 0.21.5
       temp: 0.8.4
       write-file-atomic: 2.4.3
     dev: false
@@ -18301,7 +18327,7 @@ packages:
     peerDependencies:
       '@babel/preset-env': ^7.1.6
     resolution:
-      integrity: sha512-xpH2FVSEepXoNr6+cPlPHzPzBY1W9bPulufhCHOShzk8+CTCzAOQKytuOXT0b/9PvmO4biRi0g/ZIylVew815w==
+      integrity: sha512-7eCC1knD7bLUPuSCwXsMZUH51O8jIcoVyKtI6P0XM0IVzlGjckPy3FIwQlorzbN0Sg79oK+RlohN32Mqf/lrYA==
   /jscodeshift/0.6.4:
     dependencies:
       '@babel/core': 7.19.6
@@ -23577,6 +23603,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-KiwVUcFu1RErkI97ywr8nvx8dNOpT03rbnma0SSalTYjkrPYaEajR4a/MRt6DZ46K6arDRbWMNHF+xH7G7n/8A==
+  /read-file/0.2.0:
+    dev: false
+    engines:
+      node: '>=0.8'
+    resolution:
+      integrity: sha512-na/zgd5KplGlR+io+ygXQMIoDfX/Y0bNS5+P2TOXOTk5plquOVd0snudCd30hZJAsnVK2rxuxUP2z0CN+Aw1lQ==
   /read-only-stream/2.0.0:
     dependencies:
       readable-stream: 2.3.7
@@ -23760,6 +23792,17 @@ packages:
       node: '>= 4'
     resolution:
       integrity: sha512-8FCjrBxjeEU2O6I+2hyHyBFH1siJbMBLwIRvVr1T3FD2cL754sOaJDsJ/8h3xYltasbJ8jqWRIhMuDGBSiSbjw==
+  /recast/0.21.5:
+    dependencies:
+      ast-types: 0.15.2
+      esprima: 4.0.1
+      source-map: 0.6.1
+      tslib: 2.0.3
+    dev: false
+    engines:
+      node: '>= 4'
+    resolution:
+      integrity: sha512-hjMmLaUXAm1hIuTqOdeYObMslq/q+Xff6QE3Y2P+uoHAg2nmVlLBps2hzh1UJDdMtDTMXOFewK6ky51JQIeECg==
   /rechoir/0.6.2:
     dependencies:
       resolve: 1.19.0
@@ -28774,14 +28817,16 @@ packages:
       eslint-plugin-react-hooks: 2.5.1_eslint@7.16.0
       fuse.js: 6.4.6
       gulp: 4.0.2
+      gulp-append-prepend: 1.0.9
       gulp-babel: 8.0.0_@babel+core@7.12.10
+      gulp-exec: 5.0.0
       gulp-rename: 2.0.0
       gulp-replace: 1.1.3
       gulp-run-command: 0.0.10
       gulp-typescript: 6.0.0-alpha.1_typescript@4.8.4
       html-react-parser: 3.0.4_react@17.0.1
       is: 3.3.0
-      jscodeshift: 0.10.0_@babel+preset-env@7.12.11
+      jscodeshift: 0.14.0_@babel+preset-env@7.12.11
       markdown-it: 10.0.0
       mini-css-extract-plugin: 1.1.2_webpack@4.44.2
       moment: 2.29.1
@@ -28791,6 +28836,7 @@ packages:
       npm-run-all: 4.1.5
       numbro: 2.3.2
       object.entries: 1.1.3
+      parallel-transform: 1.2.0
       pikaday: 1.8.2
       pre-push: 0.1.1
       prettier: 2.2.1
@@ -28820,7 +28866,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-KkrUTBLp8pgCxq1Kt1Vu0ySdfMkKol4HXU8GcVZnVTphO4QRrYOXTJBBf/GuOeUVlXC3XHSKpMD8TkA7AVIO6g==
+      integrity: sha512-/vcQ49s6YkCBsLB3BhA2rKKIPWt+EM0J7XO3J7Ms7Uz1nznE/YQvInI8or2r3AvfQ9poUMhyQX4k1jUqiF8xcQ==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_b7ec7fc0b3c58499ecbfa8b667e39e33':
@@ -29011,6 +29057,7 @@ specifiers:
   gatsby-transformer-json: ^2.2.27
   gatsby-transformer-sharp: ^2.3.13
   gulp: ~4.0.2
+  gulp-append-prepend: ~1.0.9
   gulp-autoprefixer: ^5.0.0
   gulp-babel: ~8.0.0
   gulp-debug: ^4.0.0
@@ -29027,7 +29074,7 @@ specifiers:
   html-react-parser: ~3.0.4
   is: ^3.3.0
   jquery: ~3.5.1
-  jscodeshift: ^0.10.0
+  jscodeshift: ^0.14.0
   lazypipe: ^1.0.1
   leaflet: ~1.7.1
   markdown-it: ^10.0.0
