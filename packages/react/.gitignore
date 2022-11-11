@@ -26,4 +26,3 @@ src/components/base/Icon/**
 !src/components/base/Icon/index.d.ts
 
 /types
-!/types/index.d.ts

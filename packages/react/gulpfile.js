@@ -8,9 +8,11 @@ const path = require('path');
 const run = require('gulp-run-command').default;
 const ts = require('gulp-typescript');
 const replace = require('gulp-replace');
+const { prependText } = require('gulp-append-prepend');
+const { exec } = require('child_process');
 
 function clean() {
-  return del(['dist']);
+  return del(['dist', 'types']);
 }
 
 function styles() {
@@ -193,11 +195,6 @@ const sources = [
   '!src/**/Colors/**',
   '!src/**/Icon/**',
   '!src/**/main-nav.data.js'
-];
-
-const tsSources = [
-  'src/components/**/*.d.ts',
-  'src/components/**/*.tsx',
 ];
 
 function resolvePath(sourcePath, currentFile, opts) {
@@ -392,9 +389,48 @@ function cleanIconDir() {
   ]);
 }
 
-function generateTsDeclarations() {
+const typedSources = [
+  ...sources,
+
+  // @todo This file probably requires a separate transformation using JSCodeShift.
+  '!src/index.js',
+];
+
+const untouchedTsSources = [
+  'src/components/base/Icon/index.d.ts',
+];
+
+const tsDeclarationSources = [
+  'types/**/*.tsx',
+];
+
+function createTsCopy() {
+  return src(typedSources)
+    .pipe(rename((p) => {
+      // eslint-disable-next-line no-param-reassign
+      p.extname = '.tsx'
+    }))
+    .pipe(prependText('// @ts-nocheck'))
+    .pipe(dest('types'))
+}
+
+function convertPropTypesToTs(cb) {
+  // We have to use `exec` here in order to use the transformation file written in TS.
+  exec(`./node_modules/.bin/jscodeshift -t "scripts/transform.ts" --extensions=tsx --fail-on-error "types"`, (error, stdout, stderr) => {
+    if (stdout) {
+      console.log(stdout);
+    }
+    if (stderr) {
+      console.error(stderr);
+    }
+
+    cb(error);
+  });
+}
+
+function convertTsToDeclarations() {
   const tsProject = ts.createProject('tsconfig.json')
-  return src(tsSources)
+  return src(tsDeclarationSources)
     .pipe(rename((p) => {
       const splitPath = p.dirname.split('/');
       // eslint-disable-next-line no-param-reassign
@@ -408,6 +444,25 @@ function generateTsDeclarations() {
     )
     .pipe(dest('dist'))
 }
+
+function copyUntouchedTsSources() {
+  return src(untouchedTsSources, {base: 'src'})
+    .pipe(rename((p) => {
+      const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
+      p.dirname = splitPath[splitPath.length - 1];
+    }))
+    .pipe(dest('dist'))
+}
+
+const generateTsDeclarations = parallel(
+  copyUntouchedTsSources,
+  series(
+    createTsCopy,
+    convertPropTypesToTs,
+    convertTsToDeclarations,
+  ),
+)
 
 exports.cleanIconDir = cleanIconDir;
 exports.generateIcons = generateIcons;

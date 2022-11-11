@@ -1,13 +1,8 @@
 {
-  // Change this to match your project
   "include": [
-    "src/components/**/*.d.ts",
-    "src/components/**/*.tsx",
-    "src/components/**/*.ts",
-  ],
-  "exclude": [
-    "*.knobs.options.js",
-    "*.stories.js",
+    "types/components/**/*.d.ts",
+    "types/components/**/*.tsx",
+    "types/components/**/*.ts",
   ],
   "compilerOptions": {
     // Tells TypeScript to read JS files, as
@@ -33,29 +28,29 @@
     "baseUrl": ".",
     "paths": {
       // The list is taken from the `.eslintrc.json`.
-      "MayflowerReactComponents/*": ["src/components/*"],
-      "MayflowerReactAtoms/*": ["src/components/atoms/*"],
-      "MayflowerReactAnimations/*": ["src/components/animations/*"],
-      "MayflowerReactButtons/*": ["src/components/atoms/buttons/*"],
-      "MayflowerReactContact/*": ["src/components/atoms/contact/*"],
-      "MayflowerReactDivider/*": ["src/components/atoms/Divider/*"],
-      "MayflowerReactHeadings/*": ["src/components/atoms/headings/*"],
-      "MayflowerReactLinks/*": ["src/components/atoms/links/*"],
-      "MayflowerReactLists/*": ["src/components/atoms/lists/*"],
-      "MayflowerReactMedia/*": ["src/components/atoms/media/*"],
-      "MayflowerReactPlaceholder/*": ["src/components/atoms/Placeholder/*"],
-      "MayflowerReactTable/*": ["src/components/atoms/table/*"],
-      "MayflowerReactText/*": ["src/components/atoms/text/*"],
-      "MayflowerReactBase/*": ["src/components/base/*"],
-      "MayflowerReactDataviz/*": ["src/components/dataviz/*"],
-      "MayflowerReactForms/*": ["src/components/forms/*"],
-      "MayflowerReactMolecules/*": ["src/components/molecules/*"],
-      "MayflowerReactOrganisms/*": ["src/components/organisms/*"],
-      "MayflowerReactPages/*": ["src/components/pages/*"],
-      "MayflowerReactTemplates/*": ["src/components/templates/*"],
-      "MayflowerReactUtilities/*": ["src/components/utilities/*"],
-      "MayflowerReactHooks/*": ["src/components/hooks/*"],
-      "MayflowerReactGenTeaser/*": ["src/components/organisms/GenTeaser/*"]
+      "MayflowerReactComponents/*": ["types/components/*"],
+      "MayflowerReactAtoms/*": ["types/components/atoms/*"],
+      "MayflowerReactAnimations/*": ["types/components/animations/*"],
+      "MayflowerReactButtons/*": ["types/components/atoms/buttons/*"],
+      "MayflowerReactContact/*": ["types/components/atoms/contact/*"],
+      "MayflowerReactDivider/*": ["types/components/atoms/Divider/*"],
+      "MayflowerReactHeadings/*": ["types/components/atoms/headings/*"],
+      "MayflowerReactLinks/*": ["types/components/atoms/links/*"],
+      "MayflowerReactLists/*": ["types/components/atoms/lists/*"],
+      "MayflowerReactMedia/*": ["types/components/atoms/media/*"],
+      "MayflowerReactPlaceholder/*": ["types/components/atoms/Placeholder/*"],
+      "MayflowerReactTable/*": ["types/components/atoms/table/*"],
+      "MayflowerReactText/*": ["types/components/atoms/text/*"],
+      "MayflowerReactBase/*": ["types/components/base/*"],
+      "MayflowerReactDataviz/*": ["types/components/dataviz/*"],
+      "MayflowerReactForms/*": ["types/components/forms/*"],
+      "MayflowerReactMolecules/*": ["types/components/molecules/*"],
+      "MayflowerReactOrganisms/*": ["types/components/organisms/*"],
+      "MayflowerReactPages/*": ["types/components/pages/*"],
+      "MayflowerReactTemplates/*": ["types/components/templates/*"],
+      "MayflowerReactUtilities/*": ["types/components/utilities/*"],
+      "MayflowerReactHooks/*": ["types/components/hooks/*"],
+      "MayflowerReactGenTeaser/*": ["types/components/organisms/GenTeaser/*"]
     }
   },
 }
