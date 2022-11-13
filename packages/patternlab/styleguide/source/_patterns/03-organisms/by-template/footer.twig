@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="ma__footer-new__content">
-      <nav class="ma__footer-new__navlinks">
+      <nav class="ma__footer-new__navlinks" aria-label="site navigation">
         {% for link in footerLinksNew.links %}
           <div><a href="{{link.href}}">{{link.text}}</a></div>
         {% endfor %}
