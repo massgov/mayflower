@@ -45,7 +45,9 @@ NarrowTemplate.propTypes = {
   color: PropTypes.oneOf(['yellow', 'green']),
   siteLogo: PropTypes.func,
   /** The domain you want to send users to from the site logo icon */
-  siteLogoDomain: PropTypes.shape(SiteLogo.propTypes)
+  siteLogoDomain: PropTypes.shape(SiteLogo.propTypes),
+
+  children: PropTypes.node,
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.

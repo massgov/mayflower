@@ -66,7 +66,9 @@ IllustratedHeader.propTypes = {
   /** category prefix text rendered in all caps above the page header title */
   category: PropTypes.string,
   /** render PageHeader component `@organisms/PageHeader` */
-  pageHeader: PropTypes.shape(PageHeader.propTypes)
+  pageHeader: PropTypes.shape(PageHeader.propTypes),
+
+  children: PropTypes.node,
 };
 
 export default IllustratedHeader;

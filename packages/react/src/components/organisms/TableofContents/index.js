@@ -20,7 +20,9 @@ const TableofContents = (props) => (
 
 TableofContents.propTypes = {
   /** The heading text  */
-  heading: PropTypes.element
+  heading: PropTypes.element,
+
+  children: PropTypes.node,
 };
 
 export default TableofContents;
