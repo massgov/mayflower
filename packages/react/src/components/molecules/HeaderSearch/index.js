@@ -106,10 +106,11 @@ HeaderSearch.propTypes = {
   postInputFilter: PropTypes.element,
   /** A ref object as created by React.createRef(). Will be applied to the input element. */
   inputRef: PropTypes.oneOfType([
-      // Either a function
-      PropTypes.func,
-      // Or the instance of a DOM native element (see the note about SSR)
-      PropTypes.shape({ current: PropTypes.object })
+    // Either a function
+    PropTypes.func,
+    // Or the instance of a DOM native element (see the note about SSR)
+    /* eslint-disable-next-line react/forbid-prop-types */
+    PropTypes.shape({ current: PropTypes.object })
   ])
 };
 

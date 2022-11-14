@@ -65,10 +65,10 @@ ButtonWithIcon.propTypes = {
   onClick: PropTypes.func,
   // Sets a reference to the button onto the passed node.
   setButtonRef: PropTypes.oneOfType([
-      // Either a function
-      PropTypes.func, 
-      // Or the instance of a DOM native element (see the note about SSR)
-      PropTypes.shape({ current: PropTypes.object })
+    // Either a function
+    PropTypes.func,
+    // Or the instance of a DOM native element (see the note about SSR)
+    PropTypes.shape({ current: PropTypes.object })
   ]),
   // Button text.
   text: PropTypes.string,

@@ -277,7 +277,8 @@ HeaderNavItem.propTypes = {
   href: propTypes.string,
   text: propTypes.string,
   mainNav: propTypes.shape({
-    current: typeof Element !== 'undefined' ? PropTypes.object : propTypes.object
+    /* eslint-disable-next-line react/forbid-prop-types */
+    current: propTypes.object
     // Element doesn't exist for SSR, so we check for it.
   }),
   subNav: propTypes.arrayOf(propTypes.shape({

@@ -94,10 +94,7 @@ FooterSlim.propTypes = {
   /** Contact details for the responsible authority */
   contact: PropTypes.arrayOf(PropTypes.shape({
     icon: PropTypes.element,
-    component: PropTypes.oneOfType([
-      PropTypes.element,
-      PropTypes.node
-    ])
+    component: PropTypes.node
   })),
   /** One or multiple logos rendered at the footer */
   siteLogo: PropTypes.node.isRequired,
