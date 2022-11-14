@@ -31,7 +31,6 @@ $action-finder-bp: 900px;
 
     @include ma-container;
     padding-top: 60px;
-    padding-bottom: 60px;
     position: relative;
     z-index: 2;
   }
@@ -82,7 +81,7 @@ $action-finder-bp: 900px;
       justify-content: stretch;
   }
 
-  &__items:not(&__items--all) {
+  &__items {
     padding-bottom: 25px;
 
     @media ($bp-medium-min) {
