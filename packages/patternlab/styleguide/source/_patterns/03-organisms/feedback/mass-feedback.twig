@@ -35,47 +35,6 @@
           {% set textarea = negativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
         </div>
-
-        {% set helperText = helperText %}
-        {% include "@atoms/03-forms/helper-text.twig" %}
-
-        {% if Response %}
-        <div class="ma__mass-feedback-form__form--user-response feedback-response feedback-negative">
-          <legend>
-            {{ Response }}
-            {% if responseRequired.inputGroup %} {{ org }}? *{% endif %}
-            {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}
-          </legend>
-
-          {% if noResponseDescription %}<p class="no-response-info">{{ noResponseDescription }}</p>{% endif %}
-
-          {% if responseRequired.inputGroup %}
-          <fieldset class="ma_feedback-fieldset user-response__contact">
-
-            {% set inputGroup = responseRequired.inputGroup %}
-            {% include "@atoms/03-forms/input-group.twig" %}
-
-            <div class="ma__mass-feedback-form__contact-form">
-              {% if responseRequired.responseDescription %}
-                <p class="response-info">{{ responseRequired.responseDescription }}</p>
-              {% endif %}
-
-              <div class="ma__mass-feedback-form__contact-form--items">
-              {% for input in contactInputs %}
-                <div class="contact-form--item">
-                  {% set inputText = input %}
-                  {% include "@atoms/03-forms/input-text.twig" %}
-                </div>
-              {% endfor %}
-              </div>
-
-            </div>
-          </fieldset>
-          {% endif %}
-
-        </div>
-        {% endif %}
-
       </fieldset>
     </div>
 

@@ -7,14 +7,14 @@
   },
   "org": "the Registry of Motor Vehicles",
   "queryAffirmative": {
-    "value": "Do you have anything else to tell us?",
+    "value": "If you have any suggestions for the website, please let us know.",
     "required": false
   },
   "queryNegative": {
-    "value": "Please tell us what you were looking for.",
+    "value": "How can we improve the page?",
     "required": false
   },
-  "queryDescription": "We will use this information to improve the site.",
+  "queryDescription": "Please do not include personal or contact information. You will not get a response",
   "inputGroup": {
     "required": true,
     "inline": true,
@@ -58,12 +58,6 @@
     "id": "negative-textarea",
     "name": "negative-textarea"
   },
-  "helperText": {
-    "inputId": "GUID2738572489",
-    "message": "Do not include sensitive information, such as Social Security or bank account numbers."
-  },
-  "Response": "Your feedback will not receive a response.",
-  "noResponseDescription": "This form only gathers feedback about the website.",
   "hiddenElements": [
     {
       "id": "example1",
