@@ -68,7 +68,7 @@ IllustratedHeader.propTypes = {
   /** render PageHeader component `@organisms/PageHeader` */
   pageHeader: PropTypes.shape(PageHeader.propTypes),
 
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export default IllustratedHeader;

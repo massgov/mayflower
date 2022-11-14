@@ -17,7 +17,7 @@ CurrentItem.propTypes = {
   /** Current page name, rendered as the last breadcrumb item */
   currentPage: PropTypes.string,
 
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export default BreadcrumbItem;

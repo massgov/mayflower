@@ -66,7 +66,7 @@ GenTeaser.propTypes = {
   /** alignment for description relative to image */
   align: PropTypes.oneOf(['top', 'center']),
   /** A custom class. */
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default GenTeaser;

@@ -62,7 +62,7 @@ Button.propTypes = {
   /** Custom classnames appending to the button */
   classes: PropTypes.arrayOf(PropTypes.string),
 
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.

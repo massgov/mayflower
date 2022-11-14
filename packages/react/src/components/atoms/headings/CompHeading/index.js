@@ -53,7 +53,7 @@ CompHeading.propTypes = {
   centered: PropTypes.bool,
   /** Whether you want the heading to be a sidebar or not. */
   sidebar: PropTypes.bool,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 CompHeading.defaultProps = {

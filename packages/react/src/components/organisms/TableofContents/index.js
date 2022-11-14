@@ -22,7 +22,7 @@ TableofContents.propTypes = {
   /** The heading text  */
   heading: PropTypes.element,
 
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export default TableofContents;
