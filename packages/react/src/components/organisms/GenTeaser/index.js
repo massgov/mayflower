@@ -289,9 +289,25 @@ GenTeaser.Orgs.displayName = 'GenTeaser.Orgs';
 
 const GenTeaserDescription = (props) => {
   const { children, description, ...rest } = props;
-  // Wrap children text nodes in spans to persist DOM relationship consistency for ReactDOM when Google Translate manipulates the DOM tree
-  // eslint-disable-next-line react/no-array-index-key
-  const descriptionHTML = typeof(description) === 'string' && ReactHtmlParser(description).map((el, i) => (typeof el === 'string' ? <span key={`description-span${i}`}>{el}</span> : el));
+  let descriptionHTML = null;
+  if (typeof (description) === 'string') {
+    const parserOptions = {
+      replace: (domNode) => {
+        // Wrap children text nodes in spans to persist DOM relationship consistency for ReactDOM when Google Translate manipulates the DOM tree
+        // eslint-disable-next-line react/no-array-index-key
+        if (domNode.type === 'text') {
+          return(
+            <span>
+              {domNode.data}
+            </span>
+          );
+        }
+
+        return null;
+      }
+    };
+    descriptionHTML = ReactHtmlParser(description, parserOptions);
+  }
 
   return(
     <div className="ma__gen-teaser__description" {...rest}>
