@@ -114,7 +114,6 @@ dependencies:
   numbro: 2.3.2
   object.entries: 1.1.3
   picturefill: 3.0.3
-  pikaday: 1.8.2
   pre-push: 0.1.1
   react-autosuggest: 9.4.3
   react-autowhatever: 10.2.1
@@ -28866,7 +28865,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-/vcQ49s6YkCBsLB3BhA2rKKIPWt+EM0J7XO3J7Ms7Uz1nznE/YQvInI8or2r3AvfQ9poUMhyQX4k1jUqiF8xcQ==
+      integrity: sha512-ohBGiLd3PL3i8utR5u3GagcxmxwRgEdv7/soi1SiX/h9ni3baWTKVqQ/7QsNcCmNe8xsY1a+JOfkGgarFDM8ng==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_b7ec7fc0b3c58499ecbfa8b667e39e33':
@@ -29087,7 +29086,6 @@ specifiers:
   numbro: ^2.1.2
   object.entries: ^1.0.4
   picturefill: ^3.0.3
-  pikaday: ^1.8.0
   pre-push: ^0.1.1
   react-autosuggest: ^9.4.3
   react-autowhatever: ^10.2.0
