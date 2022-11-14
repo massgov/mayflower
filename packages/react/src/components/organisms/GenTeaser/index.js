@@ -64,7 +64,9 @@ GenTeaser.propTypes = {
   /** whether to stack image on top */
   stacked: PropTypes.bool,
   /** alignment for description relative to image */
-  align: PropTypes.oneOf(['top', 'center'])
+  align: PropTypes.oneOf(['top', 'center']),
+  /** A custom class. */
+  className: PropTypes.string,
 };
 
 export default GenTeaser;
