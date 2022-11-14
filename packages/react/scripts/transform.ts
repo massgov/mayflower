@@ -1,12 +1,7 @@
 // Taken from https://github.com/mskelton/ratchet/blob/main/transform.ts
 // License: https://github.com/mskelton/ratchet/blob/main/LICENSE
-
-// How to use it:
-// - Copy the component `index.js` to `index.tsx` in the same folder.
-// - Run the following from the react package root:
-//   `node_modules/.bin/jscodeshift -t ./scripts/transform.ts ./src/components/PATH/TO/COMPONENT/index.tsx`
-// - Add `// @ts-nocheck` to the top of the file.
-// - Make sure the Typescript code makes sense.
+// See `jsx-to-tsx` NPM script for manual conversion of a single file for
+// debugging purposes.
 
 import type { NodePath } from "ast-types/lib/node-path"
 import type {
