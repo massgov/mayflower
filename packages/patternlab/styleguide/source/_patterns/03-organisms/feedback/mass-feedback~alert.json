@@ -1,0 +1,93 @@
+{
+  "formAction": "#",
+  "heading": "Help Us Improve Mass.gov",
+  "title": {
+    "value": "Did you find what you were looking for on this webpage?",
+    "required": true
+  },
+  "org": "the Registry of Motor Vehicles",
+  "queryAffirmative": {
+    "value": "If you have any suggestions for the website, please let us know.",
+    "required": false
+  },
+  "queryNegative": {
+    "value": "How can we improve the page?",
+    "required": true
+  },
+  "helperText": {
+    "inputId": "GUID2738572489",
+    "message": "Please do not include personal or contact information. ",
+    "helptip": {
+      "triggerText": "You will not get a response",
+      "helpText": "The feedback will only be used for improving the website. If you need assistance, please contact the Department of xxxxx."
+    }
+  },
+  "inputGroup": {
+    "required": true,
+    "inline": true,
+    "title": "",
+    "type": "radio",
+    "items": [
+      {
+        "name": "foundIndicator",
+        "value": "Yes",
+        "id": "field1",
+        "label": "Yes",
+        "checked": false
+      },
+      {
+        "name": "foundIndicator",
+        "value": "No",
+        "id": "field2",
+        "label": "No",
+        "checked": true
+      }
+    ]
+  },
+  "alert": {
+    "text": "Need to report abuse or request urgent assistance? ",
+    "link": {
+      "text": "Use these contacts instead",
+      "href": "https://www.google.com/",
+      "info": ""
+    }
+  },
+  "affirmativeTextarea": {
+    "labelText": "Text Area",
+    "hiddenLabel": true,
+    "required": false,
+    "maxlength": 500,
+    "id": "affirmative-textarea",
+    "name": "affirmative-textarea"
+  },
+  "negativeTextarea": {
+    "labelText": "Text Area",
+    "hiddenLabel": true,
+    "required": false,
+    "maxlength": 500,
+    "id": "negative-textarea",
+    "name": "negative-textarea"
+  },
+  "hiddenElements": [
+    {
+      "id": "example1",
+      "name": "example1",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example2",
+      "name": "example2",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example3",
+      "name": "example3",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example4",
+      "name": "example4",
+      "value": "https://mass.gov"
+    }
+  ]
+}
