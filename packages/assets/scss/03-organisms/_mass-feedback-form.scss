@@ -90,7 +90,7 @@ $formQuickTransitions: max-height 0.3s linear;
       .ma__content-link--chevron {
         padding-left: 0.5rem;
         cursor: pointer;
-
+ 
         &::after {
           top: 3px;
           right: 0;
@@ -163,15 +163,20 @@ $formQuickTransitions: max-height 0.3s linear;
 
       &-icon {
         margin-right: 1rem;
+        height: 22px;
+
         svg {
-          width: 2rem;
-          height: 2rem;
+          width: 22px;
+          height: 22px;
         }
       }
 
       &-message {
+        margin: 0.5rem 0;
+
         .ma__decorative-link {
           display: inline;
+          vertical-align: unset;
         }
       }
     }

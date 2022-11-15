@@ -56,7 +56,7 @@
     "labelText": "Text Area",
     "hiddenLabel": true,
     "required": false,
-    "maxlength": 1000,
+    "maxlength": 500,
     "id": "affirmative-textarea",
     "name": "affirmative-textarea"
   },
