@@ -15,7 +15,7 @@
     "required": true
   },
   "helperText": {
-    "inputId": "GUID2738572489",
+    "inputId": "",
     "message": "Please do not include personal or contact information. ",
     "helptip": {
       "triggerText": "You will not get a response",
@@ -31,26 +31,18 @@
       {
         "name": "foundIndicator",
         "value": "Yes",
-        "id": "field1",
+        "id": "field3",
         "label": "Yes",
         "checked": false
       },
       {
         "name": "foundIndicator",
         "value": "No",
-        "id": "field2",
+        "id": "field4",
         "label": "No",
         "checked": false
       }
     ]
-  },
-  "alert": {
-    "text": "Need to report abuse or request urgent assistance? ",
-    "link": {
-      "text": "Use these contacts instead",
-      "href": "https://www.google.com/",
-      "info": ""
-    }
   },
   "affirmativeTextarea": {
     "labelText": "Text Area",

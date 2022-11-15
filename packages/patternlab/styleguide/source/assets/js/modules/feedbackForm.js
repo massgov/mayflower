@@ -3,22 +3,8 @@ export default (function(window, document, $) {
   if($feedbackForm) {
     const $fields = $(".ma__mass-feedback-form__fields");
     const $textArea = $fields.find("textarea");
-    const $contactForm = $feedbackForm.find(
-      ".ma__mass-feedback-form__contact-form"
-    );
     const $loadRadios = $feedbackForm.find('.feedback-load input[type="radio"]');
     const $submitButton = $feedbackForm.find(".submitButton");
-    const $contactRadios = $feedbackForm.find(
-      '.user-response__contact input[type="radio"]'
-    );
-    const $Response = $(".ma__mass-feedback-form__form--user-response");
-    const $noResponseLink = $Response.find(".form--no-response");
-    const $alertToggle = $(".ma__in-page-alert__hide");
-  
-    // Open no reponse answer accordion.
-    $noResponseLink.on("click", function() {
-      $Response.toggleClass("is-open");
-    });
   
     // Auto size the text boxes
     $textArea.each(function() {
@@ -47,24 +33,6 @@ export default (function(window, document, $) {
         $fields.removeClass("positive");
         $submitButton.show();
       }
-    });
-  
-    // Open contact form on radio selection.
-    $contactRadios.on("change", function() {
-      let contactGroup = $contactRadios.filter(":checked").val();
-  
-      if (contactGroup === "Yes") {
-        $contactForm.addClass("is-open");
-        $submitButton.val("Send");
-      } else if (contactGroup === "No") {
-        $contactForm.removeClass("is-open");
-        $submitButton.val("Send Feedback");
-      }
-    });
-  
-    // Close alert.
-    $alertToggle.on("click", function(e) {
-      e.preventDefault();
     });
   }
 })(window, document, jQuery);

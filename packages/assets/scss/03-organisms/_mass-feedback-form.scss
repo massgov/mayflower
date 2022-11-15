@@ -35,34 +35,10 @@ $formQuickTransitions: max-height 0.3s linear;
 
     fieldset {
       margin-top: 2rem;
-
-      &.user-response {
-        margin-top: 30px;
-      }
-
-      &.user-response__contact {
-        margin-top: 15px;
-      }
     }
 
     > *:first-child {
       margin-top: 0;
-    }
-
-    .ma__in-page-alert {
-      max-height: 185px;
-      margin: 0 0 25px;
-
-      @media ($bp-feedback-min) {
-        max-height: 150px;
-      }
-
-      &.is-closed {
-        max-height: 0;
-        overflow: hidden;
-        margin: 0;
-        transition: $formTransitions;
-      }
     }
 
     textarea {
@@ -82,49 +58,6 @@ $formQuickTransitions: max-height 0.3s linear;
         top: auto;
         font-size: $fonts-xsmall;
         font-weight: $fonts-light;
-      }
-    }
-
-    &--user-response {
-
-      .ma__content-link--chevron {
-        padding-left: 0.5rem;
-        cursor: pointer;
- 
-        &::after {
-          top: 3px;
-          right: 0;
-          transform: translateY(50%) rotate(45deg);
-        }
-      }
-
-      .no-response-info {
-        max-height: 0;
-        overflow: hidden;
-        margin: 0;
-        transition: $formQuickTransitions;
-      }
-
-      .response-info {
-        margin-top: 20px;
-      }
-
-      &.is-open {
-
-        .ma__content-link--chevron::after {
-          top: 0;
-          transform: translateY(50%) rotate(-135deg);
-        }
-
-        .no-response-info {
-          max-height: 5rem;
-          transition: $formQuickTransitions;
-
-          @media ($bp-feedback-min) {
-            max-height: 2rem;
-          }
-
-        }
       }
     }
   }
@@ -180,146 +113,5 @@ $formQuickTransitions: max-height 0.3s linear;
         }
       }
     }
-  }
-
-  .ma__radio-scale__items {
-    position: relative;
-
-    @media ($bp-feedback-min) {
-      padding-top: 45px;
-    }
-
-    .ma__radio-scale__item:not(:last-child) {
-      margin-bottom: 45px;
-    }
-
-    &::before,
-    &::after {
-      display: none;
-
-      @media ($bp-feedback-min) {
-        display: block;
-        position: absolute;
-        top: -10px;
-        text-align: center;
-        width: 10%;
-        line-height: 1;
-        font-size: $fonts-smaller;
-        font-weight: 600;
-        color: $c-gray-dark;
-      }
-    }
-
-    &::before {
-
-      @media ($bp-feedback-min) {
-        left: 40%;
-      }
-    }
-
-    &::after {
-
-      @media ($bp-feedback-min) {
-        right: 0;
-      }
-    }
-
-    .ma__radio-scale {
-      position: relative;
-      margin-top: 0;
-
-      &::before,
-      &::after {
-        position: absolute;
-        bottom: 45px;
-        font-size: $fonts-xsmall;
-
-        @media ($bp-feedback-min) {
-          display: none;
-        }
-      }
-
-      &::before {
-        right: 0;
-      }
-
-      &::after {
-        left: 0;
-      }
-
-      legend {
-        line-height: 1;
-        margin-bottom: 30px;
-
-        @media ($bp-feedback-min) {
-          width: 35%;
-          float: left;
-          margin-bottom: 0;
-        }
-      }
-
-      .ma__radio-scale__radios {
-
-        @media ($bp-feedback-min) {
-          width: 60%;
-          float: right;
-        }
-      }
-    }
-  }
-
-  &__contact-form {
-    max-height: 0;
-    overflow: hidden;
-    transition: $formTransitions;
-
-    &.is-open {
-      max-height: 450px;
-      transition: $formTransitions;
-    }
-
-    &--items {
-
-      @media ($bp-feedback-min) {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-
-      .contact-form--item {
-
-        @media ($bp-feedback-min) {
-          width: 48%;
-
-          &:nth-child(n + 3) {
-            margin-top: 20px;
-          }
-        }
-
-        input {
-          width: 100%;
-        }
-      }
-    }
-  }
-
-  &.thank-you-panel {
-    border: 2px solid $c-gray-light;
-    background: $c-white;
-    max-width: 35em;
-    padding: 2.5em 20px;
-    margin: 0 auto 5rem;
-
-    @media ($bp-feedback-min) {
-      padding: 2.5em;
-    }
-  }
-}
-
-.ma__mass-feedback-form--success {
-
-  .ma__decorative-link {
-    padding-right: 0;
-    margin: 25px 0;
   }
 }
