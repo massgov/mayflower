@@ -155,6 +155,26 @@ $formQuickTransitions: max-height 0.3s linear;
     .feedback-response {
       display: none;
     }
+
+    .feedback-alert {
+      display: flex;
+      align-items: center;
+      font-size: $fonts-xsmall;
+
+      &-icon {
+        margin-right: 1rem;
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+
+      &-message {
+        .ma__decorative-link {
+          display: inline;
+        }
+      }
+    }
   }
 
   .ma__radio-scale__items {

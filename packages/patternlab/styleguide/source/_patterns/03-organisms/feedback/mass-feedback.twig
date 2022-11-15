@@ -21,11 +21,18 @@
           {{ queryNegative.value }}{{ queryNegative.required ? ' <span aria-hidden="true">*</span>' : '' }}
         </legend>
 
-        <p>{{ queryDescription }}</p>
+        {% set helperText = helperText %}
+        {% include "@atoms/03-forms/helper-text.twig" %}
 
-        {% if reportMessage %}
-          {% set pageAlert = reportMessage %}
-          {% include "@organisms/by-template/in-page-alert.twig" %}
+        {% if alert %}
+          <div class="feedback-alert">
+            <div class="feedback-alert-icon">{{icon('input-warning')}}</div>
+            <div class="feedback-alert-message">
+              {{ alert.text }}
+              {% set decorativeLink = alert.link %}
+              {% include "@atoms/decorative-link.twig" %}
+            </div>
+          </div>
         {% endif %}
         <div class="feedback-response feedback-positive">
           {% set textarea = affirmativeTextarea %}
@@ -35,6 +42,7 @@
           {% set textarea = negativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
         </div>
+
       </fieldset>
     </div>
 

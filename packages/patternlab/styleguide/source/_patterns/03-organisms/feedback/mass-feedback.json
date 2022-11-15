@@ -12,9 +12,16 @@
   },
   "queryNegative": {
     "value": "How can we improve the page?",
-    "required": false
+    "required": true
   },
-  "queryDescription": "Please do not include personal or contact information. You will not get a response",
+  "helperText": {
+    "inputId": "GUID2738572489",
+    "message": "Please do not include personal or contact information. ",
+    "helptip": {
+      "triggerText": "You will not get a response",
+      "helpText": "The feedback will only be used for improving the website. If you need assistance, please contact the Department of xxxxx."
+    }
+  },
   "inputGroup": {
     "required": true,
     "inline": true,
@@ -37,10 +44,13 @@
       }
     ]
   },
-  "reportMessage": {
-    "text": "If you need to report child abuse, any other kind of abuse, or need urgent assistance, please click here.",
-    "href": "https://www.google.com/",
-    "info": ""
+  "alert": {
+    "text": "Need to report abuse or request urgent assistance? ",
+    "link": {
+      "text": "Use these contacts instead",
+      "href": "https://www.google.com/",
+      "info": ""
+    }
   },
   "affirmativeTextarea": {
     "labelText": "Text Area",
@@ -54,7 +64,7 @@
     "labelText": "Text Area",
     "hiddenLabel": true,
     "required": false,
-    "maxlength": 1000,
+    "maxlength": 500,
     "id": "negative-textarea",
     "name": "negative-textarea"
   },
