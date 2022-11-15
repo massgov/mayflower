@@ -23,8 +23,10 @@
 
 	</form>
 
-	<div class="ma__search-box-with-links__secondary">
-		{% set richText = searchBoxWithLinks.secondary.relatedInfo %}
-		{% include "@organisms/by-author/rich-text.twig" %}
-	</div>
+	{% if searchBoxWithLinks.secondary.relatedInfo is not empty %}
+		<div class="ma__search-box-with-links__secondary">
+			{% set richText = searchBoxWithLinks.secondary.relatedInfo %}
+			{% include "@organisms/by-author/rich-text.twig" %}
+		</div>
+	{% endif %}
 </div>
