@@ -14719,14 +14719,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-23O0orFhu1zkCluIFBs8pu8psfyyWquczfRk2NNdT2x4wW/HkZEjonWM5AkM6kjzZL9JrVCAZEgL4qf9OjgUoA==
-  /gatsby-link/2.11.0_66f913eb5ad9051f2c1624437c240ba1:
+  /gatsby-link/2.11.0_832005e77e970d80ad4bd3eb87f2200a:
     dependencies:
       '@babel/runtime': 7.12.5
-      '@reach/router': 1.3.4_react-dom@17.0.1+react@17.0.1
+      '@reach/router': 1.3.4_react-dom@16.14.0+react@16.14.0
       '@types/reach__router': 1.3.11
       prop-types: 15.7.2
-      react: 17.0.1
-      react-dom: 17.0.1_react@17.0.1
+      react: 16.14.0
+      react-dom: 16.14.0_react@16.14.0
     dev: false
     engines:
       node: '>=10.13.0'
@@ -14919,12 +14919,12 @@ packages:
       gatsby: ^2.24.79
     resolution:
       integrity: sha512-xoniyZtU1NLQJtb1JQaGQOjt7rriJcklfSaUnWfWojg0HmOxs+tm1ImpfHL9AOhNkVGim/YbQFXZqOQj/oUM+Q==
-  /gatsby-react-router-scroll/3.7.0_66f913eb5ad9051f2c1624437c240ba1:
+  /gatsby-react-router-scroll/3.7.0_832005e77e970d80ad4bd3eb87f2200a:
     dependencies:
       '@babel/runtime': 7.12.5
-      '@reach/router': 1.3.4_react-dom@17.0.1+react@17.0.1
-      react: 17.0.1
-      react-dom: 17.0.1_react@17.0.1
+      '@reach/router': 1.3.4_react-dom@16.14.0+react@16.14.0
+      react: 16.14.0
+      react-dom: 16.14.0_react@16.14.0
     dev: false
     engines:
       node: '>=10.13.0'
@@ -15109,7 +15109,7 @@ packages:
       gatsby-plugin-sharp: ^2.0.0-beta.3
     resolution:
       integrity: sha512-v8kKgySAZtO7ko+XKbSFLXM0JUPP5s08PI7S8krBPsrhclSY9plRGOqtef1dNG7LIxbGCggy58fGTaD3aad12g==
-  /gatsby/2.25.4_205377903bdbc0bee9f7b05900700dcc:
+  /gatsby/2.25.4_cd462a30eefb209dacaa6c7566bdc50b:
     dependencies:
       '@babel/code-frame': 7.18.6
       '@babel/core': 7.20.2
@@ -15122,7 +15122,7 @@ packages:
       '@nodelib/fs.walk': 1.2.6
       '@pieh/friendly-errors-webpack-plugin': 1.7.0-chalk-2_webpack@4.44.2
       '@pmmmwh/react-refresh-webpack-plugin': 0.4.3_ebdecf1dce4cd704477ff1e50f0bdb0f
-      '@reach/router': 1.3.4_react-dom@17.0.1+react@17.0.1
+      '@reach/router': 1.3.4_react-dom@16.14.0+react@16.14.0
       '@types/http-proxy': 1.17.4
       '@typescript-eslint/eslint-plugin': 2.34.0_465e2246e96863159ca514e6fcff3160
       '@typescript-eslint/parser': 2.34.0_eslint@6.8.0+typescript@4.8.4
@@ -15181,11 +15181,11 @@ packages:
       gatsby-core-utils: 1.10.1
       gatsby-graphiql-explorer: 0.4.15
       gatsby-legacy-polyfills: 0.0.6
-      gatsby-link: 2.11.0_66f913eb5ad9051f2c1624437c240ba1
+      gatsby-link: 2.11.0_832005e77e970d80ad4bd3eb87f2200a
       gatsby-plugin-page-creator: 2.10.2_gatsby@2.25.4
       gatsby-plugin-typescript: 2.12.1_gatsby@2.25.4
       gatsby-plugin-utils: 0.2.40_gatsby@2.25.4
-      gatsby-react-router-scroll: 3.7.0_66f913eb5ad9051f2c1624437c240ba1
+      gatsby-react-router-scroll: 3.7.0_832005e77e970d80ad4bd3eb87f2200a
       gatsby-telemetry: 1.10.2
       glob: 7.1.6
       got: 8.3.2
@@ -15226,11 +15226,11 @@ packages:
       prop-types: 15.7.2
       query-string: 6.13.7
       raw-loader: 0.5.1
-      react: 17.0.1
+      react: 16.14.0
       react-dev-utils: 4.2.3
-      react-dom: 17.0.1_react@17.0.1
+      react-dom: 16.14.0_react@16.14.0
       react-error-overlay: 6.0.8
-      react-hot-loader: 4.13.0_react-dom@17.0.1+react@17.0.1
+      react-hot-loader: 4.13.0_react-dom@16.14.0+react@16.14.0
       react-refresh: 0.8.3
       redux: 4.0.5
       redux-thunk: 2.3.0
@@ -16776,6 +16776,18 @@ packages:
     dependencies:
       domhandler: 4.3.1
       html-dom-parser: 1.2.0
+      react-property: 2.0.0
+      style-to-js: 1.1.1
+    dev: false
+    peerDependencies:
+      react: 0.14 || 15 || 16 || 17 || 18
+    resolution:
+      integrity: sha512-pxhNWGie8Y+DGDpSh8cTa0k3g8PsDcwlfolA+XxYo1AGDeB6e2rdlyv4ptU9bOTiZ2i3fID+6kyqs86MN0FYZQ==
+  /html-react-parser/1.4.14_react@16.14.0:
+    dependencies:
+      domhandler: 4.3.1
+      html-dom-parser: 1.2.0
+      react: 16.14.0
       react-property: 2.0.0
       style-to-js: 1.1.1
     dev: false
@@ -23075,13 +23087,13 @@ packages:
       react: '>=15.0.0'
     resolution:
       integrity: sha512-CnwD822LU8NDBnjCpZ4ySh8L6HYyngViTZLfBBb3NjtrpN8m49clH8hidHouq20I51Y6TpCTISCBbqiY5GamwA==
-  /react-helmet/5.2.1_react@17.0.1:
+  /react-helmet/5.2.1_react@16.14.0:
     dependencies:
       object-assign: 4.1.1
       prop-types: 15.7.2
-      react: 17.0.1
+      react: 16.14.0
       react-fast-compare: 2.0.4
-      react-side-effect: 1.2.0_react@17.0.1
+      react-side-effect: 1.2.0_react@16.14.0
     dev: false
     peerDependencies:
       react: '>=15.0.0'
@@ -23109,15 +23121,15 @@ packages:
         optional: true
     resolution:
       integrity: sha512-JrLlvUPqh6wIkrK2hZDfOyq/Uh/WeVEr8nc7hkn2/3Ul0sx1Kr5y4kOGNacNRoj7RhwLNcQ3Udf1KJXrqc0ZtA==
-  /react-hot-loader/4.13.0_react-dom@17.0.1+react@17.0.1:
+  /react-hot-loader/4.13.0_react-dom@16.14.0+react@16.14.0:
     dependencies:
       fast-levenshtein: 2.0.6
       global: 4.4.0
       hoist-non-react-statics: 3.3.2
       loader-utils: 1.4.0
       prop-types: 15.7.2
-      react: 17.0.1
-      react-dom: 17.0.1_react@17.0.1
+      react: 16.14.0
+      react-dom: 16.14.0_react@16.14.0
       react-lifecycles-compat: 3.0.4
       shallowequal: 1.1.0
       source-map: 0.7.3
@@ -23330,9 +23342,9 @@ packages:
       react: ^0.13.0 || ^0.14.0 || ^15.0.0 || ^16.0.0
     resolution:
       integrity: sha512-v1ht1aHg5k/thv56DRcjw+WtojuuDHFUgGfc+bFHOWsF4ZK6C2V57DO0Or0GPsg6+LSTE0M6Ry/gfzhzSwbc5w==
-  /react-side-effect/1.2.0_react@17.0.1:
+  /react-side-effect/1.2.0_react@16.14.0:
     dependencies:
-      react: 17.0.1
+      react: 16.14.0
       shallowequal: 1.1.0
     dev: false
     peerDependencies:
@@ -28777,7 +28789,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-56wP1s1i77klgx+B+mSRUWd/1IQwrTLnN/kpkaadhvKZYERvTuKHiYiUEH28ChoHNBjmUPZkoQjIjQZVMkyULw==
+      integrity: sha512-fLN9ZHo2eEF2ymwaG/nCnoBn20zz4kOeLg238SrOjMqFTOs4zzRoYq85/PtdMy5HV2QaPcHUUuEpwxZ5mEEHLg==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_b7ec7fc0b3c58499ecbfa8b667e39e33':
@@ -28796,7 +28808,7 @@ packages:
       eslint-plugin-jsx-a11y: 6.4.1_eslint@7.16.0
       eslint-plugin-react: 7.21.5_eslint@7.16.0
       esm: 3.2.25
-      gatsby: 2.25.4_205377903bdbc0bee9f7b05900700dcc
+      gatsby: 2.25.4_cd462a30eefb209dacaa6c7566bdc50b
       gatsby-image: 2.8.0
       gatsby-plugin-manifest: 2.9.1_gatsby@2.25.4
       gatsby-plugin-offline: 3.7.1_gatsby@2.25.4
@@ -28807,12 +28819,12 @@ packages:
       gatsby-source-filesystem: 2.8.1_gatsby@2.25.4
       gatsby-transformer-json: 2.8.0_gatsby@2.25.4
       gatsby-transformer-sharp: 2.9.0_7fe515a710c6635b70e9f130b6d14d3c
-      html-react-parser: 1.4.14_react@17.0.1
+      html-react-parser: 1.4.14_react@16.14.0
       prettier: 1.19.1
       prop-types: 15.7.2
-      react: 17.0.1
-      react-dom: 17.0.1_react@17.0.1
-      react-helmet: 5.2.1_react@17.0.1
+      react: 16.14.0
+      react-dom: 16.14.0_react@16.14.0
+      react-helmet: 5.2.1_react@16.14.0
       react-html-parser: 2.0.2_react@17.0.1
       resolve-url-loader: 3.1.2
       sass: 1.30.0
@@ -28825,7 +28837,7 @@ packages:
       typescript: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-a5ZDQOaMK1QjfFe1bpsB73qSvugC1HzL7RiQ846npStIgd9dIc6oYO4KWcET2jTUIwTQtEFmVr9SRzQziZeBIw==
+      integrity: sha512-sygE4jDG4M1IAcDaTZ8HiknuLes//MJbXoQ6t9ztfgukIsoWbqtszvNHRLal4hGfdpybghqKMeeQMSyDURLz9w==
       tarball: 'file:projects/mayflower-site.tgz'
     version: 0.0.0
   'file:projects/mayflower.tgz':
