@@ -1,7 +1,20 @@
 {
-  "title": "Thanks, your feedback has been sent to",
   "heading": "Help Us Improve Mass.gov",
-  "action": "#",
-  "org": "the Registry of Motor Vehicles",
-  "description": "Would you like to provide additional feedback to help improve Mass.gov?"
+  "richText": {
+    "rteElements": [{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph": {
+          "text": "Thank you for your website feedback! We will use this information to improve this page."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph": {
+          "text": "If you would like to continue helping us improve Mass.gov, <a href=\"https://www.mass.gov/user-panel?utm_source=survey\">join our user panel<\/a> to test new features for the site."
+        }
+      }
+    }]
+  }
 }

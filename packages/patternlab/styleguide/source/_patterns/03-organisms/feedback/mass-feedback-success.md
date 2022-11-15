@@ -6,18 +6,11 @@ This Pattern contains the markup for the feedback form success and thank you pan
 
 ### Variables
 ~~~
-feedbackForm: {
-  formAction: 
-    type: string (url) / required
-  title:
+feedbackSuccess: {
+  heading:
     type: string / required
-  org: 
-    type: string / required
-  description: {
-    type: string / required 
+  richText: {
+    type: richtext / required 
   } 
-  submit: {
-    type: submit / required
-  }
 }
 ~~~
