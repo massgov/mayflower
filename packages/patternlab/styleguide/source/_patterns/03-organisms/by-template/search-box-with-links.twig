@@ -7,7 +7,7 @@
 				{{ searchBoxWithLinks.form.visuallyHiddenText }}
 			</label>
 
-			<input class="ma__keyword-search__input" name="title" id="q" type="text" placeholder="{{ searchBoxWithLinks.form.headingText }}">
+			<input class="ma__keyword-search__input" name="{{ searchBoxWithLinks.form.inputName }}" id="q" type="text" placeholder="{{ searchBoxWithLinks.form.headingText }}">
 
 			{% set buttonSearch = {
 				'text' : searchBoxWithLinks.form.submitText,

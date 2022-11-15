@@ -5,6 +5,7 @@
       "submitText": "SEARCH",
       "visuallyHiddenText": "Enter a subject or search term",
       "actionUrl": "/",
+      "inputName": "title",
       "footerText": {
         "rteElements": [{
           "path": "@atoms/11-text/paragraph.twig",
