@@ -27,11 +27,6 @@
             }
           }
         }]
-      },
-
-      "firstLink": {
-        "href": "/#first",
-        "text": "See all options"
       }
     }
   }
