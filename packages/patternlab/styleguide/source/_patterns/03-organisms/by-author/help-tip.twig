@@ -12,25 +12,12 @@
       Open tooltip info about
     </span>
     <span
-      class="ma__help-tip__trigger"
+      class="ma__help-tip__trigger {{ expanded ? 'ma__help-tip__trigger--active' : '' }}"
       id="trigger-{{ id }}"
       tabindex="0"
       role="button"
       aria-describedby="context-a11y-{{ id }}"
-      aria-expanded="false"
-      aria-controls="help-tip-content-{{ id }}"
-    >
-      <span>{{ textTrigger }}</span>
-      {{icon('question-mark')}}
-    </span>
-
-        <span
-      class="ma__help-tip__trigger"
-      id="trigger-{{ id }}-2"
-      tabindex="0"
-      role="button"
-      aria-describedby="context-a11y-{{ id }}"
-      aria-expanded="false"
+      aria-expanded="{{ expanded ? 'true' : 'false' }}"
       aria-controls="help-tip-content-{{ id }}"
     >
       <span>{{ textTrigger }}</span>
@@ -39,9 +26,9 @@
     <span>{{ textAfter }}</span>
   </span>
   <div
-    class="ma__help-tip__container ma__help-tip__container--c-primary ma__help-tip__content {{ expanded ? 'expanded' : 'collapsed' }}"
+    class="ma__help-tip__container ma__help-tip__container--c-primary ma__help-tip__content {{ expanded ? '' : 'collapsed' }}"
     id="help-tip-content-{{ id }}"
-    aria-hidden="true"
+    aria-hidden="{{ expanded ? 'false' : 'true' }}"
     style="max-height:none"
   >
     <div
