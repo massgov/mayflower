@@ -46,13 +46,6 @@ let utilNarrowContainer = utilNarrowContent
   ? utilNarrowContent.querySelector(".ma__utility-nav__container")
   : null;
 
-// Check whether the narrow utility nav is open.
-const utilNavNarrowCheck = function () {
-  return utilNarrowNav
-    ? utilNarrowNav.offsetWidth > 0 && utilNarrowNav.offsetHeight > 0
-    : false;
-};
-
 if (hamburgerMenuContainer) {
   // Define all top level clickable elements with current window width.
   let topLevelClickableItems;
