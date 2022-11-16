@@ -1,52 +1,53 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
-const osInfo = navigator.appVersion;
-const body = document.querySelector("body");
-let width = body.clientWidth;
-let alertlOffsetPosition;
-const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
-const menuOverlay = document.querySelector(".menu-overlay");
-const alertOverlay = document.querySelector(".alert-overlay");
-
-const menuButton = document.querySelector(".js-header-menu-button");
-const menuButtonText = document.querySelector(".js-header__menu-text");
-const menuButtonTextMobile = document.querySelector(
-  ".js-header__menu-text--mobile"
-);
-const menuButtonTextClose = document.querySelector(
-  ".js-header__menu-text--close"
-);
-
-const jumpToSearchButton = document.querySelector(
-  ".js-header-search-access-button"
-);
-const searchInput = document.querySelector(
-  ".ma__header__hamburger__nav-container .ma__header-search__input"
-);
-
 const hamburgerMenuContainer = document.querySelector(
   ".ma__header__hamburger__nav-container"
 );
-let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
-
-let utilNavWide = document.querySelector(".js-utility-nav--wide");
-const utilWideGTranslate = document.querySelector(
-  ".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate"
-);
-let utilNarrowNav = document.querySelector(
-  ".ma__header__hamburger__utility-nav--narrow"
-);
-const utilNarrowButton = document.querySelector(
-  ".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle"
-);
-let utilNarrowContent = utilNarrowButton
-  ? utilNarrowButton.nextElementSibling
-  : null;
-let utilNarrowContainer = utilNarrowContent
-  ? utilNarrowContent.querySelector(".ma__utility-nav__container")
-  : null;
 
 if (hamburgerMenuContainer) {
+  const osInfo = navigator.appVersion;
+  const body = document.querySelector("body");
+  let width = body.clientWidth;
+  let alertlOffsetPosition;
+  const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
+  const menuOverlay = document.querySelector(".menu-overlay");
+  const alertOverlay = document.querySelector(".alert-overlay");
+
+  const menuButton = document.querySelector(".js-header-menu-button");
+  const menuButtonText = document.querySelector(".js-header__menu-text");
+  const menuButtonTextMobile = document.querySelector(
+    ".js-header__menu-text--mobile"
+  );
+  const menuButtonTextClose = document.querySelector(
+    ".js-header__menu-text--close"
+  );
+
+  const jumpToSearchButton = document.querySelector(
+    ".js-header-search-access-button"
+  );
+  const searchInput = document.querySelector(
+    ".ma__header__hamburger__nav-container .ma__header-search__input"
+  );
+
+
+  let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
+
+  let utilNavWide = document.querySelector(".js-utility-nav--wide");
+  const utilWideGTranslate = document.querySelector(
+    ".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate"
+  );
+  let utilNarrowNav = document.querySelector(
+    ".ma__header__hamburger__utility-nav--narrow"
+  );
+  const utilNarrowButton = document.querySelector(
+    ".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle"
+  );
+  let utilNarrowContent = utilNarrowButton
+    ? utilNarrowButton.nextElementSibling
+    : null;
+  let utilNarrowContainer = utilNarrowContent
+    ? utilNarrowContent.querySelector(".ma__utility-nav__container")
+    : null;
   // Define all top level clickable elements with current window width.
   let topLevelClickableItems;
   window.addEventListener("DOMContentLoaded", function (e) {
@@ -324,20 +325,18 @@ if (hamburgerMenuContainer) {
   }
 
   function toggleMenu() {
-    if (hamburgerMenuContainer) {
-      // To prevent null in the original mobile main nav.
-      if (body.classList.contains("show-menu")) {
-        // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-        // .toggleAttribute() doesn't work with ios11.
-        hamburgerMenuContainer.setAttribute("aria-hidden", "");
-        closeMenu();
-        setTimeout(function timeoutFunction() {
-          document.querySelector(".js-header-menu-button").focus();
-        }, 100);
-      } else {
-        hamburgerMenuContainer.removeAttribute("aria-hidden");
-        openMenu();
-      }
+    // To prevent null in the original mobile main nav.
+    if (body.classList.contains("show-menu")) {
+      // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+      // .toggleAttribute() doesn't work with ios11.
+      hamburgerMenuContainer.setAttribute("aria-hidden", "");
+      closeMenu();
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".js-header-menu-button").focus();
+      }, 100);
+    } else {
+      hamburgerMenuContainer.removeAttribute("aria-hidden");
+      openMenu();
     }
   }
 
