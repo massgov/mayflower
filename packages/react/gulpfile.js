@@ -385,6 +385,7 @@ function cleanIconDir() {
     '!src/components/base/Icon/IconDisplay.js',
     '!src/components/base/Icon/Icon.stories.js',
     '!src/components/base/Icon/Icon.knob.options.js',
+    '!src/components/base/Icon/index.d.ts',
     '!src/components/base/Icon/_icon-display.scss'
   ]);
 }
