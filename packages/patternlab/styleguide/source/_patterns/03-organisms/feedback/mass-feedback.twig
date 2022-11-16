@@ -21,8 +21,8 @@
           {{ queryNegative.value }}{{ queryNegative.required ? ' <span aria-hidden="true">*</span>' : '' }}
         </legend>
 
-        {% set helperText = helperText %}
-        {% include "@atoms/03-forms/helper-text.twig" %}
+        {% set helpTip = helpTip %}
+        {% include "@organisms/by-author/help-tip.twig" %}
 
         {% if alert %}
           <div class="feedback-alert">

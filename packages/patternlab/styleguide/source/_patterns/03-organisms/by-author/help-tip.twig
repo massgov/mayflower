@@ -1,34 +1,38 @@
 <span
   class="ma__help-tip mobile-tray ma__help-tip__text--c-primary"
-  id="{{ id }}"
+  id="{{ helpTip.id }}"
 >
-  <span class="ma__help-tip__label" id="label-{{ id }}">
-    <span>{{ textBefore }}</span>
+  <span class="ma__help-tip__label" id="label-{{ helpTip.id }}">
+    {% if helpTip.textBefore %}
+      <span>{{ helpTip.textBefore }}</span>
+    {% endif %}
     <span
       class="ma_help-tip__label-a11y"
-      id="context-a11y-{{ id }}"
+      id="context-a11y-{{ helpTip.id }}"
       aria-hidden="true"
     >
       Open tooltip info about
     </span>
     <span
-      class="ma__help-tip__trigger {{ expanded ? 'ma__help-tip__trigger--active' : '' }}"
-      id="trigger-{{ id }}"
+      class="ma__help-tip__trigger {{ helpTip.expanded ? 'ma__help-tip__trigger--active' : '' }}"
+      id="trigger-{{ helpTip.id }}"
       tabindex="0"
       role="button"
-      aria-describedby="context-a11y-{{ id }}"
-      aria-expanded="{{ expanded ? 'true' : 'false' }}"
-      aria-controls="help-tip-content-{{ id }}"
+      aria-describedby="context-a11y-{{ helpTip.id }}"
+      aria-expanded="{{ helpTip.expanded ? 'true' : 'false' }}"
+      aria-controls="help-tip-content-{{ helpTip.id }}"
     >
-      <span>{{ textTrigger }}</span>
+      <span>{{ helpTip.textTrigger }}</span>
       {{icon('question-mark')}}
     </span>
-    <span>{{ textAfter }}</span>
+    {% if textAfter %}
+      <span>{{ helpTip.textAfter }}</span>
+    {% endif %}
   </span>
   <div
-    class="ma__help-tip__container ma__help-tip__container--c-primary ma__help-tip__content {{ expanded ? '' : 'collapsed' }}"
-    id="help-tip-content-{{ id }}"
-    aria-hidden="{{ expanded ? 'false' : 'true' }}"
+    class="ma__help-tip__container ma__help-tip__container--c-primary ma__help-tip__content {{ helpTip.expanded ? '' : 'collapsed' }}"
+    id="help-tip-content-{{ helpTip.id }}"
+    aria-hidden="{{ helpTip.expanded ? 'false' : 'true' }}"
     style="max-height:none"
   >
     <div
@@ -52,7 +56,7 @@
       aria-live="polite"
     >
       <p class="ma__help-tip__text-direct ma__help-tip__text-direct--c-primary">
-        {{ helpText }}
+        {{ helpTip.helpText }}
       </p>
     </div>
   </div>

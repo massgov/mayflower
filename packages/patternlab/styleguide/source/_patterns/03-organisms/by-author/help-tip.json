@@ -1,8 +1,10 @@
 {
-  "textBefore": "I am a complete sentence with",
-  "textTrigger": "a help tip",
-  "textAfter": "in it.",
-  "helpText": "This is a bunch of help text that should be helpful.",
-  "id": "helptext-id-123",
-  "expanded": true
+  "helpTip": {
+    "textBefore": "I am a complete sentence with",
+    "textTrigger": "a help tip",
+    "textAfter": "in it.",
+    "helpText": "This is a bunch of help text that should be helpful.",
+    "id": "helptext-id-123",
+    "expanded": true
+  }
 }
