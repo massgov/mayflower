@@ -1,0 +1,72 @@
+<span
+  class="ma__help-tip mobile-tray ma__help-tip__text--c-primary"
+  id="{{ id }}"
+>
+  <span class="ma__help-tip__label" id="label-{{ id }}">
+    <span>{{ textBefore }}</span>
+    <span
+      class="ma_help-tip__label-a11y"
+      id="context-a11y-{{ id }}"
+      aria-hidden="true"
+    >
+      Open tooltip info about
+    </span>
+    <span
+      class="ma__help-tip__trigger"
+      id="trigger-{{ id }}"
+      tabindex="0"
+      role="button"
+      aria-describedby="context-a11y-{{ id }}"
+      aria-expanded="false"
+      aria-controls="help-tip-content-{{ id }}"
+    >
+      <span>{{ textTrigger }}</span>
+      {{icon('question-mark')}}
+    </span>
+
+        <span
+      class="ma__help-tip__trigger"
+      id="trigger-{{ id }}-2"
+      tabindex="0"
+      role="button"
+      aria-describedby="context-a11y-{{ id }}"
+      aria-expanded="false"
+      aria-controls="help-tip-content-{{ id }}"
+    >
+      <span>{{ textTrigger }}</span>
+      {{icon('question-mark')}}
+    </span>
+    <span>{{ textAfter }}</span>
+  </span>
+  <div
+    class="ma__help-tip__container ma__help-tip__container--c-primary ma__help-tip__content {{ expanded ? 'expanded' : 'collapsed' }}"
+    id="help-tip-content-{{ id }}"
+    aria-hidden="true"
+    style="max-height:none"
+  >
+    <div
+      tabindex="0"
+      role="button"
+      class="ma__help-tip__close-mobile"
+      aria-label="close tooltip"
+    >
+      {{ icon('close') }}
+    </div>
+    <div
+      tabindex="0"
+      role="button"
+      class="ma__help-tip__close-desktop"
+      aria-label="close tooltip"
+    >
+      {{ icon('close') }}
+    </div>
+    <div
+      class="ma__help-tip__text ma__help-tip__text--c-primary"
+      aria-live="polite"
+    >
+      <p class="ma__help-tip__text-direct ma__help-tip__text-direct--c-primary">
+        {{ helpText }}
+      </p>
+    </div>
+  </div>
+</span>
