@@ -19,10 +19,8 @@ export default (function(window, document, $) {
       });
     });
   
-    // Open feedback form on radio button selection.
-    $loadRadios.on("change", function() {
+    const radioOnSelect = () => {
       let foundIndicator = $loadRadios.filter(":checked").val();
-      console.log(foundIndicator)
   
       if (foundIndicator === "Yes") {
         $fields.addClass("is-open positive");
@@ -33,6 +31,13 @@ export default (function(window, document, $) {
         $fields.removeClass("positive");
         $submitButton.show();
       }
+    }
+
+    // Set default state
+    radioOnSelect();
+    // Open feedback form on radio button selection.
+    $loadRadios.on("change", function() {
+      radioOnSelect();
     });
   }
 })(window, document, jQuery);
