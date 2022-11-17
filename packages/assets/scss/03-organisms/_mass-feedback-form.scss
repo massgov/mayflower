@@ -95,11 +95,9 @@ $formQuickTransitions: max-height 0.3s linear;
       font-size: $fonts-xsmall;
       font-weight: $fonts-bold;
 
-      &__container {
-        padding: 0.5em;
-      }
 
       &__text {
+        padding: 0.5em;
 
         p {
           margin-bottom: 0;
@@ -109,6 +107,13 @@ $formQuickTransitions: max-height 0.3s linear;
       &__close-desktop {
         top: 0;
         padding: 0.5em;
+      }
+
+      &__close-mobile {
+        @include ma-button-reset;
+        text-align: right;
+        width: 100%;
+        padding: 5px
       }
     }
 
