@@ -1,4 +1,4 @@
-export default (function (window,document) {
+export default (function (document) {
   const helptipTriggerClass = '.ma__help-tip__trigger';
   const helptipTriggers = document.querySelectorAll(helptipTriggerClass);
   
@@ -32,4 +32,4 @@ export default (function (window,document) {
       })
     })
   }
-})(window,document);
+})(document);
