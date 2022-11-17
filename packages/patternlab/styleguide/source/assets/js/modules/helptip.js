@@ -7,6 +7,7 @@ export default (function (window,document) {
       let isExpanded = trigger.getAttribute('aria-expanded') === 'true' ? true : false;
       const helpTextID = trigger.getAttribute('aria-controls');
       const helpText = document.getElementById(helpTextID);
+      const closeButtons = helpText.getElementsByTagName('button');
 
       const toggleExpansion = (expanded) => {
         trigger.setAttribute('aria-expanded', expanded);
@@ -19,6 +20,16 @@ export default (function (window,document) {
         toggleExpansion(isExpanded);
       })
 
+      // close button mobile
+      closeButtons[0].onclick = ((e) => {
+        e.preventDefault();
+        toggleExpansion(false);
+      })
+      // close button desktop
+      closeButtons[1].onclick = ((e) => {
+        e.preventDefault();
+        toggleExpansion(false);
+      })
     })
   }
 })(window,document);

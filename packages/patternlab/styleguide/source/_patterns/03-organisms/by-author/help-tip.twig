@@ -35,29 +35,24 @@
     aria-hidden="{{ helpTip.expanded ? 'false' : 'true' }}"
     style="max-height:none"
   >
-    <div
-      tabindex="0"
-      role="button"
+    <button
       class="ma__help-tip__close-mobile"
       aria-label="close tooltip"
     >
       {{ icon('close') }}
-    </div>
-    <div
-      tabindex="0"
-      role="button"
+    </button>
+    <button
       class="ma__help-tip__close-desktop"
       aria-label="close tooltip"
     >
       {{ icon('close') }}
-    </div>
+    </button>
     <div
       class="ma__help-tip__text ma__help-tip__text--c-primary"
       aria-live="polite"
     >
-      <p class="ma__help-tip__text-direct ma__help-tip__text-direct--c-primary">
-        {{ helpTip.helpText }}
-      </p>
+      {% set paragraph = {"text": helpTip.helpText } %}
+      {% include "@atoms/11-text/paragraph.twig" %}
     </div>
   </div>
 </span>

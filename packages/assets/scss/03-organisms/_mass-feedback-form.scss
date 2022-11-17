@@ -85,8 +85,13 @@ $formQuickTransitions: max-height 0.3s linear;
       }
     }
 
+
     .feedback-response {
       display: none;
+    }
+
+    .ma__help-tip {
+      font-size: 1rem;
     }
 
     .feedback-alert {
