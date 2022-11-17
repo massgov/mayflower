@@ -94,6 +94,8 @@ $formQuickTransitions: max-height 0.3s linear;
     .ma__help-tip {
       font-size: $fonts-xsmall;
       font-weight: $fonts-bold;
+      display: inline-block;
+      margin-bottom: 0.5em;
 
 
       &__text {
@@ -121,6 +123,7 @@ $formQuickTransitions: max-height 0.3s linear;
       display: flex;
       align-items: center;
       font-size: $fonts-xsmall;
+      margin-bottom: 0.5rem;
 
       &-icon {
         margin-right: 1rem;
@@ -133,7 +136,6 @@ $formQuickTransitions: max-height 0.3s linear;
       }
 
       &-message {
-        margin: 0.5rem 0;
 
         .ma__decorative-link {
           display: inline;
