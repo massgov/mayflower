@@ -88,11 +88,28 @@ $formQuickTransitions: max-height 0.3s linear;
 
     .feedback-response {
       display: none;
+      margin-bottom: 0;
     }
 
     .ma__help-tip {
       font-size: $fonts-xsmall;
       font-weight: $fonts-bold;
+
+      &__container {
+        padding: 0.5em;
+      }
+
+      &__text {
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      &__close-desktop {
+        top: 0;
+        padding: 0.5em;
+      }
     }
 
     .feedback-alert {
