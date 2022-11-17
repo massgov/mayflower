@@ -385,7 +385,6 @@ function cleanIconDir() {
     '!src/components/base/Icon/IconDisplay.js',
     '!src/components/base/Icon/Icon.stories.js',
     '!src/components/base/Icon/Icon.knob.options.js',
-    '!src/components/base/Icon/index.d.ts',
     '!src/components/base/Icon/_icon-display.scss'
   ]);
 }
@@ -397,13 +396,23 @@ const typedSources = [
   '!src/index.js',
 ];
 
-const untouchedTsSources = [
-  'src/components/base/Icon/index.d.ts',
+const tsIcons = [
+  "types/components/base/Icon/*.tsx"
 ];
 
 const tsDeclarationSources = [
   'types/**/*.tsx',
 ];
+
+function generateTsIcons() {
+  return run('svgr --out-dir ./types/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc-ts.js')()
+}
+
+function ignoreTsCheckOnIcons() {
+  return src(tsIcons, {base: 'types'})
+    .pipe(prependText('// @ts-nocheck'))
+    .pipe(dest('types'))
+}
 
 function createTsCopy() {
   return src(typedSources)
@@ -446,23 +455,18 @@ function convertTsToDeclarations() {
     .pipe(dest('dist'))
 }
 
-function copyUntouchedTsSources() {
-  return src(untouchedTsSources, {base: 'src'})
-    .pipe(rename((p) => {
-      const splitPath = p.dirname.split('/');
-      // eslint-disable-next-line no-param-reassign
-      p.dirname = splitPath[splitPath.length - 1];
-    }))
-    .pipe(dest('dist'))
-}
-
-const generateTsDeclarations = parallel(
-  copyUntouchedTsSources,
-  series(
-    createTsCopy,
-    convertPropTypesToTs,
-    convertTsToDeclarations,
+const generateTsDeclarations = series(
+  parallel(
+    series(
+      generateTsIcons,
+      ignoreTsCheckOnIcons,
+    ),
+    series(
+      createTsCopy,
+      convertPropTypesToTs,
+    )
   ),
+  convertTsToDeclarations,
 )
 
 exports.cleanIconDir = cleanIconDir;
