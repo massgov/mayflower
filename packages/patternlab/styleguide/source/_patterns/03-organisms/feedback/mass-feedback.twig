@@ -42,7 +42,9 @@
           {% set textarea = negativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
         </div>
-
+        {% if errorMsg %}
+          <div class="ma__error-msg">{{ errorMsg }}</div>
+        {% endif %}
       </fieldset>
     </div>
 

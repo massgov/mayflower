@@ -30,14 +30,14 @@
       {
         "name": "foundIndicator",
         "value": "Yes",
-        "id": "field1",
+        "id": "field3",
         "label": "Yes",
         "checked": false
       },
       {
         "name": "foundIndicator",
         "value": "No",
-        "id": "field2",
+        "id": "field4",
         "label": "No",
         "checked": true
       }
@@ -62,11 +62,12 @@
   "negativeTextarea": {
     "labelText": "Text Area",
     "hiddenLabel": true,
-    "required": false,
+    "required": true,
     "maxlength": 500,
     "id": "negative-textarea",
     "name": "negative-textarea"
   },
+  "errorMsg": "Please remove any contact information or personal data from your feedback. ",
   "hiddenElements": [
     {
       "id": "example1",
