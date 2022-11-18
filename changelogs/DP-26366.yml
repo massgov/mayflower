@@ -100,6 +100,12 @@ Changed:
     impact: Major
 
   - project: React
+    component: Pagination
+    description: Hide the component in case no data is passed instead of failing. (#1699)
+    issue: DP-26366
+    impact: Major
+
+  - project: React
     component: ButtonWithIcon, HeaderSearch, IconLink, FilterBox, FooterSlim, PageFlipper, TableofContents
     description: Replace airbnb-prop-types with plain ones. (#1699)
     issue: DP-26366
@@ -113,13 +119,25 @@ Changed:
 
   - project: React
     component: Breadcrumb
-    description: Bypass classes to the root element, allow all kinds of React elements and not just an array. (#1699)
+    description: Pass classes to the root element, allow all kinds of React elements and not just an array. (#1699)
     issue: DP-26366
     impact: Minor
 
   - project: React
     component: Breadcrumb
     description: Allow all kinds of React elements as children, not just an array. (#1699)
+    issue: DP-26366
+    impact: Minor
+
+  - project: React
+    component: Pagination
+    description: Pass classes to the root element. (#1699)
+    issue: DP-26366
+    impact: Minor
+
+  - project: React
+    component: Pagination
+    description: Allow custom href on every link. (#1699)
     issue: DP-26366
     impact: Minor
 
