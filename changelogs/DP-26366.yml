@@ -105,6 +105,18 @@ Changed:
     issue: DP-26366
     impact: Minor
 
+  - project: React
+    component: Breadcrumb
+    description: Bypass classes to the root element, allow all kinds of React elements and not just an array. (#1699)
+    issue: DP-26366
+    impact: Minor
+
+  - project: React
+    component: Breadcrumb
+    description: Allow all kinds of React elements as children, not just an array. (#1699)
+    issue: DP-26366
+    impact: Minor
+
 Removed:
   - project: React
     description: Remove airbnb-prop-types dependency. (#1699)
