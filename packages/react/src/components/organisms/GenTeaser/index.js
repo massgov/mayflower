@@ -35,13 +35,14 @@ import { buildUrl } from 'MayflowerReactOrganisms/GenTeaser/utils';
 
 const GenTeaser = (props) => {
   const {
-    children, onClick, onKeyDown, stacked, align, ...rest
+    children, onClick, onKeyDown, stacked, align, className, ...rest
   } = props;
   const teaserClasses = classNames({
     'ma__gen-teaser': true,
     'ma__gen-teaser--clickable': onClick,
     'ma__gen-teaser--stacked': stacked,
-    [`ma__gen-teaser--align-${align}`]: align
+    [`ma__gen-teaser--align-${align}`]: align,
+    [`${className}`]: !!className
   });
   const role = onClick ? 'button' : null;
   return(
