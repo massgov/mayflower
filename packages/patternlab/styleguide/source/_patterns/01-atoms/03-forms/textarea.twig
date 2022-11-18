@@ -11,3 +11,6 @@
     maxlength="{{ textarea.maxlength }}"
   {% endif %}
   {{ textarea.required ? 'required' : '' }} /></textarea>
+{% if textarea.errorMsg %}
+  <div class="ma__error-msg">{{ textarea.errorMsg }}</div>
+{% endif %}

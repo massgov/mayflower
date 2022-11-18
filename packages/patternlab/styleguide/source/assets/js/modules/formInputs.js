@@ -1,5 +1,6 @@
 export default (function (window,document,$,undefined) {
 
+  // text area
   $('textarea[maxlength]').each(function(){
     const $el = $(this);
     const maxlength = $el.attr('maxlength');

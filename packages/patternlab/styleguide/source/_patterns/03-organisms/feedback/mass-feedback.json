@@ -57,7 +57,8 @@
     "required": true,
     "maxlength": 500,
     "id": "negative-textarea",
-    "name": "negative-textarea"
+    "name": "negative-textarea",
+    "errorMsg": "Please let us know how we can improve this page."
   },
   "hiddenElements": [
     {

@@ -22,10 +22,6 @@ export default (function (window,document,$,undefined) {
       return;
     }
 
-    // $form.on('submit', function(e){
-    //   e.preventDefault();
-    // });
-
     $form.find('button[type="submit"], input[type="submit"]').on('click',function(e){
       let submitForm = true;
 
@@ -65,12 +61,16 @@ export default (function (window,document,$,undefined) {
   function clearError($el){
     $el.removeClass('has-error');
     $el.prev('.ma__error-msg').removeClass('has-error');
+    // textarea error message
+    $el.parent().next('.ma__error-msg').removeClass('has-error');
   }
 
   // receives the jquery object of the input
   function addError($el) {
     $el.addClass('has-error');
     $el.prev('.ma__error-msg').addClass('has-error');
+    // textarea error message
+    $el.parent().next('.ma__error-msg').addClass('has-error');
   }
 
   function validate(value,type='text'){

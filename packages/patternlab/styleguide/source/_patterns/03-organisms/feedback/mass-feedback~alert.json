@@ -65,9 +65,9 @@
     "required": true,
     "maxlength": 500,
     "id": "negative-textarea",
-    "name": "negative-textarea"
+    "name": "negative-textarea",
+    "errorMsg": "Please let us know how we can improve this page."
   },
-  "errorMsg": "Please remove any contact information or personal data from your feedback. ",
   "hiddenElements": [
     {
       "id": "example1",
