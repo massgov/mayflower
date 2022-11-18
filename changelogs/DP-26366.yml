@@ -94,6 +94,12 @@ Changed:
     impact: Major
 
   - project: React
+    component: BreadcrumbItem
+    description: Define prop types. (#1699)
+    issue: DP-26366
+    impact: Major
+
+  - project: React
     component: ButtonWithIcon, HeaderSearch, IconLink, FilterBox, FooterSlim, PageFlipper, TableofContents
     description: Replace airbnb-prop-types with plain ones. (#1699)
     issue: DP-26366
