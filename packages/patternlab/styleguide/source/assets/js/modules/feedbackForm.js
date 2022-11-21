@@ -60,6 +60,27 @@ export default (function(window, document, $) {
       const warn = () => {
         $el.parent().nextAll('.ma__warn-msg').addClass('has-error');
       }
+
+      const formValidation = (e) => {
+        const input = e.val();
+        const matchAlert = input.match(alertFilters);
+        const matchWarn = input.match(warnFilters);
+  
+        if (input) {
+          e.parent().nextAll('.ma__error-msg').removeClass('has-error');
+        }
+
+        if (matchAlert) {
+          invalidate();
+          warn();
+        } else {
+          validate();
+        }
+
+        if (matchWarn) {
+          warn();
+        }
+      }
   
       $el.on("keyup", function() {
         // Auto size the text boxes
@@ -69,24 +90,7 @@ export default (function(window, document, $) {
           $el.css("height", "100%");
         }
 
-        const input = $el.val();
-        const matchAlert = input.match(alertFilters);
-        const matchWarn = input.match(warnFilters);
-
-        if (input) {
-          $el.parent().nextAll('.ma__error-msg').removeClass('has-error');
-
-          if (matchAlert) {
-            invalidate();
-            warn();
-          } else {
-            validate();
-          }
-  
-          if (matchWarn) {
-            warn();
-          }
-        }
+        formValidation($el);
 
       });
     });
