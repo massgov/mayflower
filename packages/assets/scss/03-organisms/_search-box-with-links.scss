@@ -61,6 +61,7 @@
     .ma__keyword-search {
       display: flex;
       max-width: $bp-s;
+      margin-bottom: 10px;
 
       input {
         flex-grow: 1;
@@ -81,6 +82,23 @@
 
     .ma__search-box-with-links__footer {
       color: $c-white;
+
+      a {
+
+        &:link,
+        &:visited,
+        &:hover,
+        &:active,
+        &:focus {
+          color: white;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          border-bottom-color: rgba($c-white, 0.5);
+        }
+      }
     }
 
     @media ($bp-small-max) {
