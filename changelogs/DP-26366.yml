@@ -68,6 +68,12 @@ Added:
     issue: DP-26366
     impact: Minor
 
+  - project: React
+    component: Pagination, ResultsHeading, SearchBanner
+    description: Pass classes to the root element. (#1699)
+    issue: DP-26366
+    impact: Minor
+
 Changed:
   - project: React, Site
     component: Address, Email, EventTime, PhoneNumber, GenTeaser, RichText
@@ -126,12 +132,6 @@ Changed:
   - project: React
     component: Breadcrumb
     description: Allow all kinds of React elements as children, not just an array. (#1699)
-    issue: DP-26366
-    impact: Minor
-
-  - project: React
-    component: Pagination, ResultsHeading
-    description: Pass classes to the root element. (#1699)
     issue: DP-26366
     impact: Minor
 
