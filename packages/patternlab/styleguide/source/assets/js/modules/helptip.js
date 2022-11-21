@@ -15,7 +15,8 @@ export default (function (document) {
         helpText.classList.toggle('collapsed');
       }
 
-      trigger.onclick = (() => {
+      trigger.onclick = ((e) => {
+        e.preventDefault()
         isExpanded = !isExpanded;
         toggleExpansion(isExpanded);
       })

@@ -13,18 +13,16 @@
     >
       Open tooltip info about
     </span>
-    <span
+    <button
       class="ma__help-tip__trigger {{ helpTip.expanded ? 'ma__help-tip__trigger--active' : '' }}"
       id="trigger-{{ helpTip.id }}"
-      tabindex="0"
-      role="button"
       aria-describedby="context-a11y-{{ helpTip.id }}"
       aria-expanded="{{ helpTip.expanded ? 'true' : 'false' }}"
       aria-controls="help-tip-content-{{ helpTip.id }}"
     >
       <span>{{ helpTip.textTrigger }}</span>
       {{icon('question-mark')}}
-    </span>
+    </button>
     {% if textAfter %}
       <span>{{ helpTip.textAfter }}</span>
     {% endif %}
