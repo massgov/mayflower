@@ -69,12 +69,6 @@ export const filtersOptional = [
   },
   {
     name: "keyword",
-    re: /^(no|none|nothin|n\/?a)\.?$/i
-    /*
-      At least 5 sequential numbers
-      - This includes zipcode
-      - Results do not exclude other patterns
-      - If we are looking for license, some key words to consider: license #, license#, license number
-    */
+    re: /asap|help me/i
   }
 ];

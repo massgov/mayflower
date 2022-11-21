@@ -40,14 +40,23 @@ export default (function(window, document, $) {
 
     $textArea.each(function() {
       let $el = $(this);
-      let valid = true;
+
+      const alertFilters = combineFilter(filtersCore);
+      const warnFilters = combineFilter(filtersOptional);
+
       const invalidate = () => {
         $el.addClass('has-error');
+        $el.parent().nextAll('.ma__alert-msg').addClass('has-error');
         $submitButton.addClass('ma__button--disabled');
       }
       const validate = () => {
         $el.removeClass('has-error');
+        $el.parent().nextAll('.ma__alert-msg').removeClass('has-error');
         $submitButton.removeClass('ma__button--disabled');
+      }
+
+      const warn = () => {
+        $el.parent().nextAll('.ma__warn-msg').addClass('has-error');
       }
   
       $el.on("keyup", function() {
@@ -59,50 +68,21 @@ export default (function(window, document, $) {
         }
 
         const input = $el.val();
-        const re = combineFilter(filtersCore);
-        const match = input.match(re);
-        //const valid = !re.test(input);
-        console.log(match)
-        if (match) {
+        const matchAlert = input.match(alertFilters);
+        const matchWarn = input.match(warnFilters);
+
+        if (matchAlert) {
           invalidate();
+          warn();
         } else {
           validate();
         }
+
+        if (matchWarn) {
+          warn();
+        }
       });
     });
-
-
-  
-    // $feedbackForm.ajaxForm({
-    //   // Add jsonp parameter when using ajax submission.
-    //   data: {jsonp: 1},
-    //   // Interpret received data as a script (JSONP).
-    //   dataType: 'script',
-    //   // Validate prior to submission.
-    //   beforeSubmit: validateForm
-    // });
-
-  //   console.log('test test')
-  // Validation Handler.
-  // function validateForm(data, $form) {
-  //   let validates = true;
-  //   console.log(data)
-  //   console.log($form)
-  //   data.forEach(function (field) {
-  //     // Check for empty required fields. Required status is determined
-  //     // by the "required" attribute being set on an input.
-  //     if (field.required && !field.value.length > 0) {
-  //       // Add Error attribute for easy theming and accessibility.
-  //       $('[name="' + field.name + '"]', $form)
-  //         .addClass('error')
-  //         .closest('fieldset').addClass('error');
-
-  //       validates = false;
-  //     }
-  //   });
-
-  //   return validates;
-  // }
 
   }
 })(window, document, jQuery);
