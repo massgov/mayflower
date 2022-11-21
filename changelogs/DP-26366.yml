@@ -130,7 +130,7 @@ Changed:
     impact: Minor
 
   - project: React
-    component: Pagination
+    component: Pagination, ResultsHeading
     description: Pass classes to the root element. (#1699)
     issue: DP-26366
     impact: Minor
