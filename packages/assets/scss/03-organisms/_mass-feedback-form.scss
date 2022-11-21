@@ -143,5 +143,21 @@ $formQuickTransitions: max-height 0.3s linear;
         }
       }
     }
+
+    .ma__alert-msg, .ma__warn-msg {
+      display: none;
+      font-size: $fonts-smaller;
+      line-height: 1.2rem;
+      margin: .3em 0;
+      font-weight: $fonts-normal;
+    
+      &.has-error {
+        display: inline-block;
+      }
+    }
+
+    .ma__alert-msg {
+      color: $c-error;
+    }
   }
 }
