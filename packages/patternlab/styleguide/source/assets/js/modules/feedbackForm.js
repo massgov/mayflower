@@ -1,3 +1,5 @@
+import { filtersCore, filtersOptional } from './feedbackFormValidation';
+
 export default (function(window, document, $) {
   const $feedbackForm = $(".ma__mass-feedback-form__form");
   if($feedbackForm) {
@@ -27,30 +29,61 @@ export default (function(window, document, $) {
       radioOnSelect();
     });
 
-    // Auto size the text boxes
+
+    const combineFilter = (filters) => {
+      const regexRe = filters.map(({ re }) => (re.toString().substring(1, re.toString().length - 2)));
+      const regexStr = regexRe.join('|');
+      const regex = new RegExp(regexStr, "i");
+      return regex;
+    }
+
+
     $textArea.each(function() {
       let $el = $(this);
+      let valid = true;
+      const invalidate = () => {
+        $el.addClass('has-error');
+        $submitButton.addClass('ma__button--disabled');
+      }
+      const validate = () => {
+        $el.removeClass('has-error');
+        $submitButton.removeClass('ma__button--disabled');
+      }
   
       $el.on("keyup", function() {
+        // Auto size the text boxes
         if ($el.prop("scrollHeight") > $el.prop("clientHeight")) {
           $el.css("height", $el.prop("scrollHeight") + "px");
         } else {
           $el.css("height", "100%");
         }
+
+        const input = $el.val();
+        const re = combineFilter(filtersCore);
+        const match = input.match(re);
+        //const valid = !re.test(input);
+        console.log(match)
+        if (match) {
+          invalidate();
+        } else {
+          validate();
+        }
       });
     });
+
+
   
-  //   $feedbackForm.ajaxForm({
-  //     // Add jsonp parameter when using ajax submission.
-  //     data: {jsonp: 1},
-  //     // Interpret received data as a script (JSONP).
-  //     dataType: 'script',
-  //     // Validate prior to submission.
-  //     beforeSubmit: validateForm
-  //   });
+    // $feedbackForm.ajaxForm({
+    //   // Add jsonp parameter when using ajax submission.
+    //   data: {jsonp: 1},
+    //   // Interpret received data as a script (JSONP).
+    //   dataType: 'script',
+    //   // Validate prior to submission.
+    //   beforeSubmit: validateForm
+    // });
 
   //   console.log('test test')
-  // // Validation Handler.
+  // Validation Handler.
   // function validateForm(data, $form) {
   //   let validates = true;
   //   console.log(data)
@@ -68,22 +101,11 @@ export default (function(window, document, $) {
   //     }
   //   });
 
-
-
-  //   if (!validates) {
-  //     getMessaging($formm).html('<p class="error">Please fill in a valid value for all required fields</p>');
-  //   }
-
   //   return validates;
-  // }
-  // function getMessaging($form) {
-  //   var $messages = $('.messages', $form);
-  //   if (!$messages.length) {
-  //     $form.prepend('<div class="messages"/>');
-  //     $messages = $('.messages', $form);
-  //   }
-  //   return $messages;
   // }
 
   }
 })(window, document, jQuery);
+
+
+

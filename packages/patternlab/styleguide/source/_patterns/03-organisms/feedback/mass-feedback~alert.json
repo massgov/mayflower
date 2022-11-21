@@ -68,6 +68,8 @@
     "name": "negative-textarea",
     "errorMsg": "Please let us know how we can improve this page."
   },
+  "alertMsg": "Please remove any contact information or personal data from your feedback.",
+  "warnMsg": "If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx.</a>",
   "hiddenElements": [
     {
       "id": "example1",

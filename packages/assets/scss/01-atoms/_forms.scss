@@ -4,6 +4,9 @@ input {
 
   &.has-error:not(:focus) {
     background-image: url('#{$assets-path}/images/icons/input-error.svg');
+  }
+
+  &.has-error {
     border-color: $c-bd-error;
   }
 
@@ -64,6 +67,7 @@ input[type=number]::-webkit-outer-spin-button {
 textarea {
   background-color: $c-white;
   border: 2px solid $c-bd-input;
+  outline: none;
   font-size: $fonts-medium;
   font-weight: $fonts-light;
   max-width: 100%;
@@ -132,13 +136,7 @@ select {
 }
 
 :focus {
-  border-color: Highlight !important;
-
-  // WebKit gets its native focus styles.
-
-  @media (-webkit-min-device-pixel-ratio:0) {
-    outline-color: -webkit-focus-ring-color;
-  }
+  border-color: $c-focus-hightlight;
 }
 
 // Chrome/Opera/Safari.

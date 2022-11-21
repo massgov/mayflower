@@ -41,10 +41,13 @@
         <div class="feedback-response feedback-negative">
           {% set textarea = negativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
+          {% if alertMsg %}
+            <div class="ma__alert-msg">{{ alertMsg }}</div>
+          {% endif %}
+          {% if warnMsg %}
+            <div class="ma__warn-msg">{{ warnMsg|raw }}</div>
+          {% endif %}
         </div>
-        {% if errorMsg %}
-          <div class="ma__error-msg">{{ errorMsg }}</div>
-        {% endif %}
       </fieldset>
     </div>
 
