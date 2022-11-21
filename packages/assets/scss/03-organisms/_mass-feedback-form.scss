@@ -144,7 +144,7 @@ $formQuickTransitions: max-height 0.3s linear;
       }
     }
 
-    .ma__alert-msg, .ma__warn-msg {
+    .ma__alert-msg, .ma__warn-msg, .ma__error-msg {
       display: none;
       font-size: $fonts-smaller;
       line-height: 1.2rem;
@@ -153,11 +153,23 @@ $formQuickTransitions: max-height 0.3s linear;
     
       &.has-error {
         display: inline-block;
+        border-left: 3px solid;
+        padding-left: 1rem;
       }
     }
 
-    .ma__alert-msg {
-      color: $c-error;
+    .ma__warn-msg {
+      &.has-error {
+        border-left-color: $c-gray-lighter;
+      }
     }
+
+    .ma__alert-msg, .ma__error-msg {
+      &.has-error {
+        color: $c-error;
+        border-left-color: $c-error;
+      }
+    }
+
   }
 }
