@@ -48,11 +48,13 @@ export default (function(window, document, $) {
         $el.addClass('has-error');
         $el.parent().nextAll('.ma__alert-msg').addClass('has-error');
         $submitButton.addClass('ma__button--disabled');
+        $submitButton.prop('disabled', true);
       }
       const validate = () => {
         $el.removeClass('has-error');
         $el.parent().nextAll('.ma__alert-msg').removeClass('has-error');
         $submitButton.removeClass('ma__button--disabled');
+        $submitButton.prop('disabled', false);
       }
 
       const warn = () => {
@@ -71,16 +73,21 @@ export default (function(window, document, $) {
         const matchAlert = input.match(alertFilters);
         const matchWarn = input.match(warnFilters);
 
-        if (matchAlert) {
-          invalidate();
-          warn();
-        } else {
-          validate();
+        if (input) {
+          $el.parent().nextAll('.ma__error-msg').removeClass('has-error');
+
+          if (matchAlert) {
+            invalidate();
+            warn();
+          } else {
+            validate();
+          }
+  
+          if (matchWarn) {
+            warn();
+          }
         }
 
-        if (matchWarn) {
-          warn();
-        }
       });
     });
 
