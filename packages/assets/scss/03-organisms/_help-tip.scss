@@ -27,10 +27,10 @@ $border-width: 1px;
         visibility: visible;
         -webkit-transition-property: height, visibility;
         transition-property: height, visibility;
-        transition-duration: 0.2s;
         -webkit-transition-duration: 0.2s;
-        transition-timing-function: ease;
+        transition-duration: 0.2s;
         -webkit-transition-timing-function: ease;
+        transition-timing-function: ease;
     }
 
     &.collapsed {
@@ -51,12 +51,14 @@ $border-width: 1px;
   }
 
   &__trigger {
+
     display: inline;
     cursor: pointer;
     border: none;
     padding: 0px 2px;
     border-bottom: 2px dotted $c-primary;
     background-color: $c-bay-blue-lightest;
+
 
     svg {
       margin-left: 5px;

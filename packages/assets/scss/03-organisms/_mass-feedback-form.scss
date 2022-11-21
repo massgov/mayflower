@@ -94,8 +94,10 @@ $formQuickTransitions: max-height 0.3s linear;
     .ma__help-tip {
       font-size: $fonts-xsmall;
       font-weight: $fonts-bold;
-      display: inline-block;
-      margin-bottom: 0.5em;
+      
+      &-container {
+        margin-bottom: 0.25em;
+      }
 
 
       &__text {
