@@ -5,22 +5,6 @@
     "value": "Did you find what you were looking for on this webpage?",
     "required": true
   },
-  "org": "the Registry of Motor Vehicles",
-  "queryAffirmative": {
-    "value": "If you have any suggestions for the website, please let us know.",
-    "required": false
-  },
-  "queryNegative": {
-    "value": "How can we improve the page?",
-    "required": true
-  },
-  "helpTip": {
-    "textBefore": "Please do not include personal or contact information.",
-    "textTrigger": "You will not get a response",
-    "helpText": "The feedback will only be used for improving the website. If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx</a>.",
-    "id": "helptext-id-123",
-    "expanded": true
-  },
   "inputGroup": {
     "required": true,
     "inline": true,
@@ -42,6 +26,21 @@
         "checked": true
       }
     ]
+  },
+  "queryAffirmative": {
+    "value": "If you have any suggestions for the website, please let us know.",
+    "required": false
+  },
+  "queryNegative": {
+    "value": "How can we improve the page?",
+    "required": true
+  },
+  "helpTip": {
+    "textBefore": "Please do not include personal or contact information.",
+    "textTrigger": "You will not get a response",
+    "helpText": "The feedback will only be used for improving the website. If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx</a>.",
+    "id": "helptext-id-123",
+    "expanded": true
   },
   "alert": {
     "text": "Need to report abuse or request urgent assistance? ",
