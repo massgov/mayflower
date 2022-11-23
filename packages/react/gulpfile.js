@@ -25,10 +25,11 @@ function styles() {
     .pipe(dest('dist'));
 }
 
-function icons() {
-  return src(['./src/components/base/Icon/assets/*.svg'])
-    .pipe(dest('dist/Icon/assets'));
-}
+// Copying icon assets from assets to react is not currently being used.  
+// function icons() {
+//   return src(['./src/components/base/Icon/assets/*.svg'])
+//     .pipe(dest('dist/Icon/assets'));
+// }
 
 function transpileES5Icons() {
   return src('./dist/Icon/*.mjs')
