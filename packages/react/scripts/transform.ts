@@ -127,7 +127,22 @@ function getTSType(path: NodePath) {
     }
 
     case "oneOfType":
-      return j.tsUnionType(path.get("arguments", 0, "elements").map(getTSType))
+      const unionTypes = path.get("arguments", 0, "elements")
+        .map(getTSType)
+        .map(tsType => {
+          // @todo Is it a bug of JSCodeShift or its dependencies? They seem to
+          //   produce invalid TS code. The compiler fails with a "Function type
+          //   notation must be parenthesized when used in a union type" error
+          //   thrown by the TS compiler later.
+          if (tsType.type === 'TSFunctionType') {
+            tsType.extra = tsType.extra || {}
+            tsType.extra.parenthesized = true;
+          }
+
+          return tsType
+        })
+
+      return j.tsUnionType(unionTypes)
 
     case "instanceOf":
       return j.tsTypeReference(
@@ -463,9 +478,4 @@ export default function (file: FileInfo, api: API, opts: Options) {
   cleanup(source, propTypes, staticPropTypes)
 
   return source.toSource({ tabWidth: guessTabWidth(file.source) })
-    // @todo Is it a bug of JSCodeShift or its dependencies? They seem to
-    //   produce invalid TS code compiler fails with a "Function type notation
-    //   must be parenthesized when used in a union type" error thrown by the
-    //   TS compiler later.
-    .replace(' | (...args: unknown[]) => unknown', ' | ((...args: unknown[]) => unknown)')
 }
