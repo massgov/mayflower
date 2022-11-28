@@ -10,14 +10,22 @@ export default (function (document) {
       const closeButtons = helpText.getElementsByTagName('button');
 
       const toggleExpansion = (expanded) => {
-        trigger.setAttribute('aria-expanded', expanded);
-        trigger.classList.toggle('ma__help-tip__trigger--active');
-        helpText.classList.toggle('collapsed');
+        isExpanded = !isExpanded;
+        if (expanded) {
+          helpText.classList.remove('collapsed');
+          helpText.classList.add('expanded');
+          trigger.classList.add('ma__help-tip__trigger--active');
+          trigger.setAttribute('aria-expanded', true);
+        } else {
+          helpText.classList.add('collapsed');
+          helpText.classList.remove('expanded');
+          trigger.classList.remove('ma__help-tip__trigger--active');
+          trigger.setAttribute('aria-expanded', false);
+        }
       }
 
       trigger.onclick = ((e) => {
         e.preventDefault()
-        isExpanded = !isExpanded;
         toggleExpansion(isExpanded);
       })
 
