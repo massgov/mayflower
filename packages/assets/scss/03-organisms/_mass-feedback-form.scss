@@ -29,12 +29,16 @@ $formQuickTransitions: max-height 0.3s linear;
       padding: 2rem 2.5rem;
     }
 
-    .submitButton {
-      display: none;
+    .ma_feedback-fieldset {
+      margin-top: 2rem;
+
+      legend {
+        font-weight: $fonts-bold;
+      }
     }
 
-    fieldset {
-      margin-top: 2rem;
+    .submitButton {
+      display: none;
     }
 
     > *:first-child {
@@ -57,12 +61,13 @@ $formQuickTransitions: max-height 0.3s linear;
         right: 5px;
         top: auto;
         font-size: $fonts-xsmall;
-        font-weight: $fonts-light;
       }
     }
   }
 
   &__fields {
+
+
     max-height: 0;
     overflow: hidden;
     transition: $formTransitions;
@@ -110,6 +115,7 @@ $formQuickTransitions: max-height 0.3s linear;
 
         p {
           margin-bottom: 0;
+          font-weight: $fonts-normal;
         }
       }
 
@@ -130,6 +136,7 @@ $formQuickTransitions: max-height 0.3s linear;
       display: flex;
       align-items: center;
       font-size: $fonts-xsmall;
+      font-weight: $fonts-normal;
       margin-bottom: 0.5rem;
 
       &-icon {
