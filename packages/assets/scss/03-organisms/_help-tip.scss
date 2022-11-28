@@ -27,8 +27,8 @@ $border-width: 1px;
         visibility: visible;
         -webkit-transition-property: height, visibility;
         transition-property: height, visibility;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
         -webkit-transition-timing-function: ease;
         transition-timing-function: ease;
     }
@@ -222,6 +222,13 @@ $border-width: 1px;
       z-index: 10; // to create a new stacking context on top, stack below mobile site header (z-index: 90)
       margin-top: .5rem;
 
+      @media ($bp-small-max) {
+        &.expanded {
+          animation-name: slideup;
+          animation-duration: 0.25s;
+        }
+      }
+
       &--c-primary {
         background-color: $c-primary-lightest;
         #{$helpTipBaseClass}__close-mobile {
@@ -343,5 +350,15 @@ $border-width: 1px;
 
       }
     }
+  }
+}
+
+
+@keyframes slideup {
+  from {
+    bottom: -100vh;
+  }
+  to {
+    bottom: 0;
   }
 }
