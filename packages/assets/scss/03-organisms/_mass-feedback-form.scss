@@ -16,7 +16,7 @@ $formQuickTransitions: max-height 0.3s linear;
     border-bottom: 2px solid $c-gray-light;
     margin-bottom: 0;
 
-    @media ($bp-feedback-min) {
+    @media ($bp-small-min) {
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     }
@@ -25,7 +25,7 @@ $formQuickTransitions: max-height 0.3s linear;
   &__form {
     padding: 2rem 20px;
 
-    @media ($bp-feedback-min) {
+    @media ($bp-small-min) {
       padding: 2rem 2.5rem;
     }
 
@@ -99,6 +99,11 @@ $formQuickTransitions: max-height 0.3s linear;
         margin-bottom: 0.25em;
       }
 
+      &__label {
+        @media ($bp-small-min) {
+          font-size: $fonts-xsmall;
+        }
+      }
 
       &__text {
         padding: 0.5em;

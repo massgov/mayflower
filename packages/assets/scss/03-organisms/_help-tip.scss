@@ -58,6 +58,7 @@ $border-width: 1px;
     padding: 0px 2px;
     border-bottom: 2px dotted $c-primary;
     background-color: $c-bay-blue-lightest;
+    font-weight: $fonts-bold;
 
 
     svg {
@@ -91,7 +92,7 @@ $border-width: 1px;
     overflow-y: scroll; // overflow scroll MUCH smoother on mobile safari
     -webkit-overflow-scrolling: touch;
 
-    @media ($bp-large-min) {
+    @media ($bp-small-min) {
       overflow-y: auto;
     }
 
@@ -105,7 +106,7 @@ $border-width: 1px;
     overflow-y: scroll; // overflow scroll MUCH smoother on mobile safari
     -webkit-overflow-scrolling: touch;
 
-    @media ($bp-large-min) {
+    @media ($bp-small-min) {
       overflow-y: auto;
     }
 
@@ -293,7 +294,7 @@ $border-width: 1px;
       display: none;
     }
 
-    @media ($bp-large-min) {
+    @media ($bp-small-min) {
       #{$helpTipBaseClass}__container {
         position: relative;
         bottom: auto;
@@ -333,6 +334,8 @@ $border-width: 1px;
 
       #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
         height: auto;
+        margin-bottom: 0;
+
         #{$helpTipBaseClass}__text-direct {
           padding: 10px 5px;
           margin: 0px;
