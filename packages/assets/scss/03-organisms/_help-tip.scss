@@ -274,7 +274,7 @@ $border-width: 1px;
       }
     }
     #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
-      height: 50vh;
+      margin-bottom: 3rem;
     }
 
     #{$helpTipBaseClass}__text--children {
