@@ -19,11 +19,11 @@ import Tags from 'MayflowerReactMolecules/Tags';
 
 function getTitle(resultsHeading) {
   if (resultsHeading.title !== undefined) {
-    return resultsHeading.title
+    return resultsHeading.title;
   }
 
   const resultsHeadingTotal = resultsHeading.totalResults ? ` of ${resultsHeading.totalResults} for: ` : '';
-  return `Showing results ${resultsHeading.numResults}${resultsHeadingTotal}`;
+  return`Showing results ${resultsHeading.numResults}${resultsHeadingTotal}`;
 }
 
 const ResultsHeading = (resultsHeading) => {
@@ -31,7 +31,7 @@ const ResultsHeading = (resultsHeading) => {
     'ma__results-heading js-results-heading',
     resultsHeading.className
   );
-  const title = getTitle(resultsHeading)
+  const title = getTitle(resultsHeading);
   const { tags } = resultsHeading;
   const selectBoxProps = resultsHeading.selectBox;
   const buttonToggleProps = resultsHeading.buttonToggle;
@@ -66,7 +66,7 @@ ResultsHeading.propTypes = {
   numResults: PropTypes.string,
   /** The total count of results */
   totalResults: PropTypes.string,
-  /** The title to display instead the auto-generated one.*/
+  /** The title to display instead the auto-generated one. */
   title: PropTypes.string,
   /** The sort input type as ButtonToggle */
   buttonToggle: PropTypes.shape(ButtonToggle.propTypes),
