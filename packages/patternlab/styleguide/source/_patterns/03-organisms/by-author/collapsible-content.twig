@@ -18,6 +18,8 @@
     {% for item in collapsibleContent.items %}
       <div class="ma__collapsible-content__item js-accordion {{ item.expanded ? ' is-open' : '' }}">
         {% set collapsibleHeader = item.collapsibleHeader %}
+        {% set stateValue = item.expanded ? "true":"false" %}
+        {% set collapsibleHeader = collapsibleHeader|merge({'state': stateValue}) %}
         {% include "@molecules/collapsible-header.twig" %}
         <div class="ma__collapsible-content__body js-accordion-content  {{ collapsibleHeader.icon ? '' : ' ma__collapsible-content__body--without-icon' }}">
           {% for pattern in item.includes %}

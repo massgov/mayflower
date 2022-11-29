@@ -10,11 +10,10 @@
     text-align: left;
     width: 100%;
 
-    &:after {
+    &__status-icon {
+      display: block;
       font-size: $fonts-4xlarge;
-      content: "+";
       line-height: .65em;
-      overflow: hidden;
       position: absolute;
         right: 15px;
         top: 25px;
@@ -22,8 +21,7 @@
       transition: transform .2s ease;
 
       .is-open & {
-        content: "|";
-        transform: rotate(90deg) scale(0.8);
+        transform: rotate(90deg) scale(0.6);
         font-weight: $fonts-bold;
       }
     }
@@ -69,7 +67,7 @@
       background-color: transparent;
     }
 
-    &:after {
+    &__status-icon {
       color: $c-primary-alt;
     }
   }
