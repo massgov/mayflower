@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: collapsibleHeader
+    description: Correct invalid markup, cleaned up confusing aria-label, add context for screenr reader users. (#1703)
+    issue: DP-26237
+    impact: Patch
