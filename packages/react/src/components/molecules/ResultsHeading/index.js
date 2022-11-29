@@ -17,13 +17,21 @@ import ButtonToggle from 'MayflowerReactButtons/ButtonToggle';
 import SelectBox from 'MayflowerReactForms/SelectBox';
 import Tags from 'MayflowerReactMolecules/Tags';
 
+function getTitle(resultsHeading) {
+  if (resultsHeading.title !== undefined) {
+    return resultsHeading.title
+  }
+
+  const resultsHeadingTotal = resultsHeading.totalResults ? ` of ${resultsHeading.totalResults} for: ` : '';
+  return `Showing results ${resultsHeading.numResults}${resultsHeadingTotal}`;
+}
+
 const ResultsHeading = (resultsHeading) => {
   const classes = classNames(
     'ma__results-heading js-results-heading',
     resultsHeading.className
   );
-  const resultsHeadingTotal = resultsHeading.totalResults ? ` of ${resultsHeading.totalResults} for: ` : '';
-  const resultsHeadingTitle = `Showing results ${resultsHeading.numResults}${resultsHeadingTotal}`;
+  const title = getTitle(resultsHeading)
   const { tags } = resultsHeading;
   const selectBoxProps = resultsHeading.selectBox;
   const buttonToggleProps = resultsHeading.buttonToggle;
@@ -31,7 +39,7 @@ const ResultsHeading = (resultsHeading) => {
     <div className={classes}>
       <div className="ma__results-heading__container">
         <div className="ma__results-heading__title">
-          {resultsHeadingTitle}
+          {title}
         </div>
         {tags && (
           <Tags {...tags} />
@@ -58,6 +66,8 @@ ResultsHeading.propTypes = {
   numResults: PropTypes.string,
   /** The total count of results */
   totalResults: PropTypes.string,
+  /** The title to display instead the auto-generated one.*/
+  title: PropTypes.string,
   /** The sort input type as ButtonToggle */
   buttonToggle: PropTypes.shape(ButtonToggle.propTypes),
   /** The sort input type as SelectBox */

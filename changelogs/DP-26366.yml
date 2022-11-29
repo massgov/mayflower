@@ -74,6 +74,12 @@ Added:
     issue: DP-26366
     impact: Minor
 
+  - project: React
+    component: ResultsHeading
+    description: Make the title customizable. (#1699)
+    issue: DP-26366
+    impact: Minor
+
 Changed:
   - project: React, Site
     component: Address, Email, EventTime, PhoneNumber, GenTeaser, RichText
