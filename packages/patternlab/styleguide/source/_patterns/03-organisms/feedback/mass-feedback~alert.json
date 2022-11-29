@@ -51,16 +51,12 @@
     }
   },
   "affirmativeTextarea": {
-    "labelText": "Text Area",
-    "hiddenLabel": true,
     "required": false,
     "maxlength": 500,
     "id": "affirmative-textarea",
     "name": "affirmative-textarea"
   },
   "negativeTextarea": {
-    "labelText": "Text Area",
-    "hiddenLabel": true,
     "required": true,
     "maxlength": 500,
     "id": "negative-textarea",
