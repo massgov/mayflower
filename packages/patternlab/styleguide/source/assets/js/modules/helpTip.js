@@ -10,7 +10,6 @@ export default (function (document) {
       const closeButtons = helpText.getElementsByTagName('button');
 
       const toggleExpansion = (expanded) => {
-        isExpanded = !isExpanded;
         if (expanded) {
           helpText.classList.remove('collapsed');
           helpText.classList.add('expanded');
@@ -24,19 +23,24 @@ export default (function (document) {
         }
       }
 
+      toggleExpansion(isExpanded);
+
       trigger.onclick = ((e) => {
         e.preventDefault()
+        isExpanded = !isExpanded;
         toggleExpansion(isExpanded);
       })
 
       // close button mobile
       closeButtons[0].onclick = ((e) => {
         e.preventDefault();
+        isExpanded = !isExpanded;
         toggleExpansion(false);
       })
       // close button desktop
       closeButtons[1].onclick = ((e) => {
         e.preventDefault();
+        isExpanded = !isExpanded;
         toggleExpansion(false);
       })
     })
