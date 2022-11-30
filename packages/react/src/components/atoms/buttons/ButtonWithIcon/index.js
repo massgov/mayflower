@@ -91,7 +91,11 @@ ButtonWithIcon.propTypes = {
   /** Button usage */
   usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary', 'quaternary-simple', 'alert']),
   /** Whether the button has a popup or not */
-  'aria-haspopup': PropTypes.bool
+  'aria-haspopup': PropTypes.bool,
+  /** The aria-describedby property is used to associate with a block element that
+   * contains the instructive infomration about the button with its ID for
+   * assistive technologies. Use it when the button label doesn't cover its contextual infomration. */
+  'aria-descibedby': PropTypes.string
 };
 
 export default ButtonWithIcon;
