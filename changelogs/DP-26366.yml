@@ -76,7 +76,7 @@ Added:
 
   - project: React
     component: ResultsHeading
-    description: Make the title customizable. (#1699)
+    description: Make the title customizable, let the caller hide it completely. (#1699)
     issue: DP-26366
     impact: Minor
 

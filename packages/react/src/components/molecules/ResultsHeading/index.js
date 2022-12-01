@@ -18,6 +18,7 @@ import SelectBox from 'MayflowerReactForms/SelectBox';
 import Tags from 'MayflowerReactMolecules/Tags';
 
 function getTitle(resultsHeading) {
+  // Check for `undefined` specifically to let the caller hide the title completely with an empty string.
   if (resultsHeading.title !== undefined) {
     return resultsHeading.title;
   }
@@ -38,9 +39,11 @@ const ResultsHeading = (resultsHeading) => {
   return(
     <div className={classes}>
       <div className="ma__results-heading__container">
-        <div className="ma__results-heading__title">
-          {title}
-        </div>
+        { title && (
+          <div className="ma__results-heading__title">
+            {title}
+          </div>
+        )}
         {tags && (
           <Tags {...tags} />
         )}
@@ -66,7 +69,7 @@ ResultsHeading.propTypes = {
   numResults: PropTypes.string,
   /** The total count of results */
   totalResults: PropTypes.string,
-  /** The title to display instead the auto-generated one. */
+  /** The title to display instead the auto-generated one. Pass empty string to hide the title element completely. */
   title: PropTypes.string,
   /** The sort input type as ButtonToggle */
   buttonToggle: PropTypes.shape(ButtonToggle.propTypes),
