@@ -1,6 +1,7 @@
 <div data-nosnippet="true" class="ma__mass-feedback-form">
   <h2 class="ma__mass-feedback-form__heading">{{ heading }}</h2>
-  <form class="ma__mass-feedback-form__form" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
+  {# form screen #}
+  <form class="ma__mass-feedback-form__form hidden" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
     <fieldset class="ma_feedback-fieldset feedback-load" role="radiogroup"{% if title.required %} aria-required="true"{% endif %}>
       <legend>
         {{ title.value }}
@@ -69,4 +70,13 @@
       <input type="hidden" id="{{ element.id }}" name="{{ element.name }}" value="{{ element.value }}" class="{{ element.class }}" />
     {% endfor %}
   </form>
+  {# success screen #}
+  <div class="ma__mass-feedback-form__form">
+  {% block rteElements %}
+    {% set richText = success.richText %}
+    {% for element in richText.rteElements %}
+      {% include element.path with element.data %}
+    {% endfor %}
+  {% endblock %}
+  </div>
 </div>

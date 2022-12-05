@@ -29,6 +29,10 @@ $formQuickTransitions: max-height 0.3s linear;
       padding: 2rem 2.5rem;
     }
 
+    &.hidden {
+      display: none;
+    }
+
     .ma_feedback-fieldset {
       margin-top: 2rem;
 
