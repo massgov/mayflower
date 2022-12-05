@@ -72,11 +72,14 @@
   </form>
   {# success screen #}
   <div class="ma__mass-feedback-form__form">
-  {% block rteElements %}
-    {% set richText = success.richText %}
-    {% for element in richText.rteElements %}
-      {% include element.path with element.data %}
-    {% endfor %}
-  {% endblock %}
+    {% if success.before %}
+      <p>{{success.before|raw}}</p>
+    {% endif %}
+    {% if success.showWarnMsg %}
+      <p>{{warnMsg|raw}}</p>
+    {% endif %}
+    {% if success.after %}
+      <p>{{success.after|raw}}</p>
+    {% endif %}
   </div>
 </div>

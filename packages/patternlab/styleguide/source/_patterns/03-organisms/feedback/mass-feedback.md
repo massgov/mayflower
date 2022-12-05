@@ -56,6 +56,11 @@ feedbackForm: {
         value: string / required
       }
     ]
+    "success": {
+      "before": rawHTML / optional,
+      "after": rawHTML / optional,
+      "showWarnMsg": boolean / optional (default to false)
+    }
   }
 }
 ~~~
