@@ -1,7 +1,7 @@
 <div data-nosnippet="true" class="ma__mass-feedback-form">
   <h2 class="ma__mass-feedback-form__heading">{{ heading }}</h2>
   {# form screen #}
-  <form class="ma__mass-feedback-form__form hidden" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
+  <form class="ma__mass-feedback-form__form" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
     <fieldset class="ma_feedback-fieldset feedback-load" role="radiogroup"{% if title.required %} aria-required="true"{% endif %}>
       <legend>
         {{ title.value }}
@@ -62,7 +62,7 @@
       </fieldset>
     </div>
 
-    <fieldset class="ma_feedback-fieldset ma__mass-feedback-form__form--submit-wrapper">
+    <fieldset class="ma_feedback-fieldset submitButtonWrapper">
       <input id="" class="submitButton ma__button ma__button--small" type="submit" value="Send Feedback" />
     </fieldset>
 
@@ -71,7 +71,7 @@
     {% endfor %}
   </form>
   {# success screen #}
-  <div class="ma__mass-feedback-form__form" id="success-screen">
+  <div class="ma__mass-feedback-form__form hidden" id="success-screen">
     {% if success.before %}
       <p>{{success.before|raw}}</p>
     {% endif %}

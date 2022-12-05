@@ -7,6 +7,7 @@ export default (function(window, document, $) {
     const $textArea = $fields.find("textarea");
     const $loadRadios = $feedbackForm.find('.feedback-load input[type="radio"]');
     const $submitButton = $feedbackForm.find(".submitButton");
+    const $submitButtonWrapper = $feedbackForm.find(".submitButtonWrapper");
   
     const radioOnSelect = () => {
       let foundIndicator = $loadRadios.filter(":checked").val();
@@ -14,11 +15,11 @@ export default (function(window, document, $) {
       if (foundIndicator === "Yes") {
         $fields.addClass("is-open positive");
         $fields.removeClass("negative");
-        $submitButton.show();
+        $submitButtonWrapper.show();
       } else if (foundIndicator === "No") {
         $fields.addClass("is-open negative");
         $fields.removeClass("positive");
-        $submitButton.show();
+        $submitButtonWrapper.show();
       }
     }
 
