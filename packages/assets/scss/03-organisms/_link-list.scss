@@ -27,12 +27,15 @@
       @include ma-reset-list;
     }
 
-    &:first-child:nth-last-child(2),
-    &:first-child:nth-last-child(2) ~ & {
 
+    &_columns {
       @media ($bp-medium-min) {
-
-        @include span-columns(6);
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        column-gap: flex-gutter(12) * 2;
+        -webkit-column-gap: flex-gutter(12) * 2;
+        -moz-column-gap: flex-gutter(12) * 2;
       }
     }
 
