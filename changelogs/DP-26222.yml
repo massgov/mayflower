@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: LinkList
+    description: A11y improve column renering of link list component. (#1705)
+    issue: DP-26222
+    impact: Minor
