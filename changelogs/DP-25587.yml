@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: generalTeaser
+    description: Set up to receive a heading level value from a Drupal theming template for collection items. (#1701)
+    issue: DP-25587
+    impact: Patch
