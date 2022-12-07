@@ -96,13 +96,9 @@ export default (function(window, document, $) {
       });
     });
 
-    // $submitButton.onclick = () => {
-    //   console.log('submitted')
-    // }
-    $feedbackForm.onsubmit = () => {
-      console.log('submit')
+    $submitButton.onclick = () => {
+      console.log('submitted')
     }
-
   }
 })(window, document, jQuery);
 
