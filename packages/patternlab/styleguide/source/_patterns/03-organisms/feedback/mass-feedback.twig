@@ -46,7 +46,7 @@
             <div class="ma__alert-msg">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
-            <div class="ma__warn-msg">{{ warnMsg|raw }}</div>
+            <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
           {% endif %}
         </div>
         <div class="feedback-response feedback-negative">
@@ -56,7 +56,7 @@
             <div class="ma__alert-msg">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
-            <div class="ma__warn-msg">{{ warnMsg|raw }}</div>
+            <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
           {% endif %}
         </div>
       </fieldset>
@@ -75,7 +75,7 @@
     {% if success.before %}
       <p>{{success.before|raw}}</p>
     {% endif %}
-    {% if success.showWarnMsg %}
+    {% if showWarnMsg %}
       <p>{{warnMsg|raw}}</p>
     {% endif %}
     {% if success.after %}
