@@ -49,22 +49,25 @@ $formQuickTransitions: max-height 0.3s linear;
       margin-top: 0;
     }
 
-    textarea {
-      width: 100%;
-    }
-
     .ma__textarea__wrapper {
 
       textarea {
+        width: 100%;
         resize: none;
         overflow: hidden;
       }
 
-      &::after {
+      div[aria-hidden] {
+        display: block;
+        line-height: 23.562px;
+        line-height: 1.625rem;
+        position: absolute;
         bottom: 8px;
         right: 5px;
         top: auto;
-        font-size: $fonts-xsmall;
+        font-size: 14.5px;
+        font-size: 1rem;
+        font-weight: 400;
       }
     }
   }
