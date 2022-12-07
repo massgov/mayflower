@@ -1,23 +1,40 @@
 export default (function (window,document,$,undefined) {
+      // Remaining character count.
+      // Need to set up separate presentations for sighted and screen reader users
+      // since aria-live is announced only container which contains a change.
+      // It doesn't announce nested containers to provide context.
 
-  // text area
-  $('textarea[maxlength]').each(function(){
-    const $el = $(this);
-    const maxlength = $el.attr('maxlength');
+      console.log('test test')
+      $('textarea[maxlength]').each(function () {
 
-    let remaining = maxlength - $el.val().length;
-    let message = `${remaining}/${maxlength}`;
+        var $el = $(this);
+        console.log($el)
+        var maxlength = $el.attr('maxlength');
 
-    $el.wrap('<div class="ma__textarea__wrapper"></div>');
+        var remaining = maxlength - $el.val().length;
+        var message = '<div aria-hidden="true"><span class="remainChar">' + remaining + '</span>/' + maxlength + '</div>';
 
-    $el.parent().attr('data-char-left',message);
+        $el.wrap('<div class="ma__textarea__wrapper"></div>');
 
-    $el.on('keyup mouseup blur', function(){
-      remaining = maxlength - $el.val().length;
-      message = `${remaining}/${maxlength}`;
-      $el.parent().attr('data-char-left',message);
-    });
-  });
+        // Generate ID for aria-live region.
+        var randomId = Math.floor(Math.random() * 90000) + 10000;
+
+        // Add a container for remaining char info.
+        $el.parent().append(message + '<span role="region" aria-live="polite" class="remainingChar ma__visually-hidden">' + remaining + ' characters remaining</span>');
+
+        // Associate text area and remaining charinfo container for aria-live region.
+        $el.attr('aria-controls', randomId);
+        $el.siblings('.remainingChar').attr('id', randomId);
+
+        $el.next('.remainingChar').find('.remainChar').text(remaining);
+
+        $el.on('keyup mouseup blur', function () {
+          remaining = maxlength - $el.val().length;
+
+          $el.next('div[aria-hidden]').find('.remainChar').text(remaining);
+          $el.siblings('.remainingChar').text(remaining + ' characters remaining');
+        });
+      });
 
   // number restricted input based on it's pattern (this must run prior to type="number")
   $('input[type="text"][pattern="[0-9]*"]').on('keydown', function(e){
