@@ -7,14 +7,21 @@ export default (function (window,document,$,undefined) {
 
     // find all required fields
     $('.js-is-required').each(function(){
-      let $field = $(this),
-          type = $field.data('type'),
-          value = $field.val(),
-          valid = validate(value,type);
+      let $field = $(this)
+      console.log($field)
+      console.log($field.css('display'))
 
-      requiredFields.push({type,valid,$el:$field});
+      // Don't validate not displayed required field. 
+      if ($field.css('display') === 'none') {
+        return;
+      } else {
+        let type = $field.data('type'),
+        value = $field.val(),
+        valid = validate(value,type);
 
-      $(this).data('index',requiredFields.length);
+        requiredFields.push({type,valid,$el:$field});
+        $(this).data('index',requiredFields.length);
+      }
     });
 
     // if there aren't any required fields, don't do anything

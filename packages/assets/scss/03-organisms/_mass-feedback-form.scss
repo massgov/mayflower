@@ -66,6 +66,10 @@ $formQuickTransitions: max-height 0.3s linear;
 
       .feedback-positive {
         display: inline;
+
+        textarea {
+          display: inline-block;
+        }
       }
     }
 
@@ -73,6 +77,10 @@ $formQuickTransitions: max-height 0.3s linear;
 
       .feedback-negative {
         display: inline;
+
+        textarea {
+          display: inline-block;
+        }
       }
     }
 
@@ -80,6 +88,10 @@ $formQuickTransitions: max-height 0.3s linear;
     .feedback-response {
       display: none;
       margin-bottom: 0;
+
+      textarea {
+        display: none;
+      }
     }
 
     .ma__help-tip {
