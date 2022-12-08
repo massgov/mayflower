@@ -15,6 +15,7 @@ This Pattern contains the markup for the feedback form found in the footer of ea
 ~~~
 feedbackForm: {
   {
+    "formId": string / required,
     "formAction": string (url) / required,
     "heading": string / required, (form heading H2)
     "title": {
