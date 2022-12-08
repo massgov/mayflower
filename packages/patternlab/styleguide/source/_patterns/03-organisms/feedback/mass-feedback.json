@@ -47,13 +47,15 @@
     "required": false,
     "maxlength": 500,
     "id": "affirmative-textarea",
-    "name": "affirmative-textarea"
+    "name": "affirmative-textarea",
+    "describedBy": "helptext-id-123"
   },
   "negativeTextarea": {
     "required": true,
     "maxlength": 500,
     "id": "negative-textarea",
     "name": "negative-textarea",
+    "describedBy": "helptext-id-123",
     "errorMsg": "Please let us know how we can improve this page."
   },
   "alertMsg": "Please remove any contact information or personal data from your feedback.",
