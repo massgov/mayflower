@@ -62,9 +62,9 @@
       </fieldset>
     </div>
 
-    <fieldset class="ma_feedback-fieldset submitButtonWrapper">
+    <div class="ma_feedback-fieldset submitButtonWrapper">
       <input class="submitButton ma__button ma__button--small" type="submit" value="Send Feedback" />
-    </fieldset>
+    </div>
 
     {% for element in hiddenElements %}
       <input type="hidden" id="{{ element.id }}" name="{{ element.name }}" value="{{ element.value }}" class="{{ element.class }}" />
