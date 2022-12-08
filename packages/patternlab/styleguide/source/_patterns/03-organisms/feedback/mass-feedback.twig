@@ -2,7 +2,7 @@
   <h2 class="ma__mass-feedback-form__heading">{{ heading }}</h2>
   {# form screen #}
   <form class="ma__mass-feedback-form__form{{ submitted ? ' hidden': ''}}" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
-    <fieldset class="ma_feedback-fieldset feedback-load" role="radiogroup"{% if title.required %} aria-required="true"{% endif %}>
+    <fieldset class="ma_feedback-fieldset feedback-load" role="radiogroup">
       <legend>
         {{ title.value }}
       </legend>
