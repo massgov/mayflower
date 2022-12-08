@@ -2,35 +2,33 @@ export default (function (window,document,$,undefined) {
 
   $('form').each(function(){
     let $form = $(this),
-        requiredFields = [],
         $errorList = $form.find('.js-error-list');
 
-    // find all required fields
-    $('.js-is-required').each(function(){
-      let $field = $(this)
-      console.log($field)
-      console.log($field.css('display'))
 
-      // Don't validate not displayed required field. 
-      if ($field.css('display') === 'none') {
-        return;
-      } else {
+    $form.find('button[type="submit"], input[type="submit"]').on('click',function(e){
+      let submitForm = true,
+          requiredFields = [];
+
+      // find all required fields
+      $('.js-is-required').each(function(){
+        let $field = $(this)
+
+        // Don't validate not displayed required field. 
+        if ($field.css('display') === 'none') {
+          return;
+        }
         let type = $field.data('type'),
         value = $field.val(),
         valid = validate(value,type);
 
         requiredFields.push({type,valid,$el:$field});
         $(this).data('index',requiredFields.length);
+      });
+
+      // if there aren't any required fields, don't do anything
+      if(requiredFields.length === 0) {
+        return;
       }
-    });
-
-    // if there aren't any required fields, don't do anything
-    if(requiredFields.length === 0) {
-      return;
-    }
-
-    $form.find('button[type="submit"], input[type="submit"]').on('click',function(e){
-      let submitForm = true;
 
       // validate each required field
       requiredFields.forEach(function(item) {
