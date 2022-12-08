@@ -23,7 +23,6 @@
   <div
     class="ma__help-tip__container ma__help-tip__container--c-primary ma__help-tip__content {{ helpTip.expanded ? '' : 'collapsed' }}"
     id="help-tip-content-{{ helpTip.id }}"
-    aria-hidden="{{ helpTip.expanded ? 'false' : 'true' }}"
     style="max-height:none"
   >
     <button
@@ -40,7 +39,6 @@
     </button>
     <div
       class="ma__help-tip__text ma__help-tip__text--c-primary"
-      aria-live="polite"
     >
       {% set paragraph = {"text": helpTip.helpText } %}
       {% include "@atoms/11-text/paragraph.twig" %}
