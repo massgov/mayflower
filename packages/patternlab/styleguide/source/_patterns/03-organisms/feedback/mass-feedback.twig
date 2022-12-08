@@ -14,13 +14,13 @@
 
     <div class="ma__mass-feedback-form__fields">
       <fieldset class="ma_feedback-fieldset">
-        <legend class="feedback-response feedback-positive">
+        <label class="feedback-response feedback-positive" for={{ affirmativeTextarea.id }}>
           {{ queryAffirmative.value }}{{ queryAffirmative.required ? ' <span aria-hidden="true">*</span>' : '' }}
-        </legend>
+        </label>
 
-        <legend class="feedback-response feedback-negative">
+        <label class="feedback-response feedback-negative" for={{ negativeTextarea.id }}>
           {{ queryNegative.value }}{{ queryNegative.required ? ' <span aria-hidden="true">*</span>' : '' }}
-        </legend>
+        </label>
 
         {% if helpTip %}
         <div class="ma__help-tip-container">
@@ -63,7 +63,7 @@
     </div>
 
     <fieldset class="ma_feedback-fieldset submitButtonWrapper">
-      <input id="" class="submitButton ma__button ma__button--small" type="submit" value="Send Feedback" />
+      <input class="submitButton ma__button ma__button--small" type="submit" value="Send Feedback" />
     </fieldset>
 
     {% for element in hiddenElements %}
