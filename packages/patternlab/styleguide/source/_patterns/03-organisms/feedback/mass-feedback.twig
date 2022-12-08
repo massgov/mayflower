@@ -31,7 +31,10 @@
 
         {% if alert %}
           <div class="feedback-alert">
-            <div class="feedback-alert-icon">{{icon('input-warning')}}</div>
+            <div class="feedback-alert-icon">
+              {{icon('input-warning')}}
+              <div class="ma__visually-hidden">alert</div>
+            </div>
             <div class="feedback-alert-message">
               {{ alert.text }}
               {% set decorativeLink = alert.link %}
