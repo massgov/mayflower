@@ -6,21 +6,14 @@
     {% if helpTip.textBefore %}
       <span>{{ helpTip.textBefore }}</span>
     {% endif %}
-    <span
-      class="ma_help-tip__label-a11y"
-      id="context-a11y-{{ helpTip.id }}"
-      aria-hidden="true"
-    >
-      Open tooltip to learn more.
-    </span>
     <button
       class="ma__help-tip__trigger {{ helpTip.expanded ? 'ma__help-tip__trigger--active' : '' }}"
       id="trigger-{{ helpTip.id }}"
-      aria-describedby="context-a11y-{{ helpTip.id }}"
       aria-expanded="{{ helpTip.expanded ? 'true' : 'false' }}"
       aria-controls="help-tip-content-{{ helpTip.id }}"
     >
       <span>{{ helpTip.textTrigger }}</span>
+      <span class="ma_help-tip__label-a11y ma__visually-hidden">Open tooltip to learn more.</span>
       {{icon('question-mark')}}
     </button>
     {% if textAfter %}
