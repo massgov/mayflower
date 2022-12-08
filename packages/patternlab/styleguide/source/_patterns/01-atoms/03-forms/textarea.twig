@@ -10,6 +10,9 @@
   {% if textarea.maxlength %}
     maxlength="{{ textarea.maxlength }}"
   {% endif %}
+  {% if textarea.describedBy %}
+    aria-describedBy="{{ textarea.describedBy }}"
+  {% endif %}
   {{ textarea.required ? 'required' : '' }} /></textarea>
 {% if textarea.errorMsg %}
   <div class="ma__error-msg">{{ textarea.errorMsg }}</div>

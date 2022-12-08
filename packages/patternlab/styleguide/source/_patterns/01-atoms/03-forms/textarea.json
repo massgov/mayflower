@@ -5,6 +5,7 @@
     "required": false,
     "maxlength": null,
     "id": "textarea_1",
-    "name": "textarea"
+    "name": "textarea",
+    "describedBy": "description-id"
   }
 }
