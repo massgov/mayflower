@@ -95,7 +95,6 @@ export default (function(window, document, $) {
 
       });
     });
-
   }
 })(window, document, jQuery);
 

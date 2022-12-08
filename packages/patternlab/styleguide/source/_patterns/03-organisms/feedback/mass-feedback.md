@@ -55,11 +55,12 @@ feedbackForm: {
         name: string / required
         value: string / required
       }
-    ]
+    ],
+    "showWarnMsg": boolean / optional (default to true) - whether to display the warning message by default
+    "submitted": boolean / optional (default to false) - whether to display the success message screen
     "success": {
       "before": rawHTML / optional,
-      "after": rawHTML / optional,
-      "showWarnMsg": boolean / optional (default to false)
+      "after": rawHTML / optional
     }
   }
 }

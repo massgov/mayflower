@@ -1,7 +1,7 @@
 <div data-nosnippet="true" class="ma__mass-feedback-form" id="feedback">
   <h2 class="ma__mass-feedback-form__heading">{{ heading }}</h2>
   {# form screen #}
-  <form class="ma__mass-feedback-form__form" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
+  <form class="ma__mass-feedback-form__form{{ submitted ? ' hidden': ''}}" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
     <fieldset class="ma_feedback-fieldset feedback-load" role="radiogroup"{% if title.required %} aria-required="true"{% endif %}>
       <legend>
         {{ title.value }}
@@ -46,7 +46,7 @@
             <div class="ma__alert-msg">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
-            <div class="ma__warn-msg">{{ warnMsg|raw }}</div>
+            <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
           {% endif %}
         </div>
         <div class="feedback-response feedback-negative">
@@ -56,7 +56,7 @@
             <div class="ma__alert-msg">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
-            <div class="ma__warn-msg">{{ warnMsg|raw }}</div>
+            <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
           {% endif %}
         </div>
       </fieldset>
@@ -71,11 +71,11 @@
     {% endfor %}
   </form>
   {# success screen #}
-  <div class="ma__mass-feedback-form__form hidden" id="success-screen">
+  <div class="ma__mass-feedback-form__form{{ submitted ? '' : ' hidden'}}" id="success-screen">
     {% if success.before %}
       <p>{{success.before|raw}}</p>
     {% endif %}
-    {% if success.showWarnMsg %}
+    {% if showWarnMsg %}
       <p>{{warnMsg|raw}}</p>
     {% endif %}
     {% if success.after %}
