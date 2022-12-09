@@ -136,9 +136,13 @@ $formQuickTransitions: max-height 0.3s linear;
     .feedback-alert {
       display: flex;
       align-items: center;
-      font-size: $fonts-xsmall;
+      font-size: $fonts-small;
       font-weight: $fonts-normal;
       margin-bottom: 0.5rem;
+
+      @media ($bp-small-min) {
+        font-size: $fonts-xsmall;
+      }
 
       &-icon {
         margin-right: 1rem;
@@ -161,11 +165,11 @@ $formQuickTransitions: max-height 0.3s linear;
 
     .ma__alert-msg, .ma__warn-msg, .ma__error-msg {
       display: none;
-      font-size: $fonts-smaller;
-      line-height: 1.2rem;
-      margin: .3em 0;
+      font-size: $fonts-small;
       font-weight: $fonts-normal;
-    
+      line-height: 1.5;
+      margin: .3em 0;
+ 
       &.has-error {
         display: inline-block;
         border-left: 3px solid;
