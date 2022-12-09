@@ -8,20 +8,18 @@ export default (function(window, document, $) {
     const $loadRadios = $feedbackForm.find('.feedback-load input[type="radio"]');
     const $submitButton = $feedbackForm.find(".submitButton");
     const $submitButtonWrapper = $feedbackForm.find(".submitButtonWrapper");
-    const topOffset = $feedbackForm.offset().top;
     const $feedbackButton = $('.ma__fixed-feedback-button');
 
     if($feedbackButton) {
+      const topOffset = $feedbackForm.offset().top;
       const stickyOnScroll = () => {
         const feedbackButtonTopOffset = $feedbackButton.offset().top;
-        console.log(topOffset)
-        console.log(feedbackButtonTopOffset)
-        if(feedbackButtonTopOffset > topOffset) {
-          console.log('past!')
-          $feedbackButton.addClass('hide-button');
+        if(feedbackButtonTopOffset >= topOffset) {
+          $feedbackButton.addClass('hide-button-vis');
+          $feedbackButton.attr("aria-hidden", "true");
         } else {
-          console.log('not past')
-          $feedbackButton.removeClass('hide-button');
+          $feedbackButton.removeClass('hide-button-vis');
+          $feedbackButton.attr("aria-hidden", "false");
         }
       }
 

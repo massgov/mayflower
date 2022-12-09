@@ -31,5 +31,13 @@
   &.hide-button {
     display: none;
   }
+
+  // visibility hidden, display:none will change the offset to 0 - used in feedbackForm.js
+  &.hide-button-vis {
+    visibility: hidden;
+    a {
+      visibility: hidden;
+    }
+  }
 } 
 
