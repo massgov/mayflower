@@ -23,8 +23,29 @@ export default (function (document) {
         }
       }
 
+      // initialize
       toggleExpansion(isExpanded);
 
+      // On mobile, when page scrolls, the help text should only stay expanded below the trigger text, or else it should collapse automatically. As when the page is scrolled up past the trigger text, users lose context over the help text.
+      if(isExpanded) {
+        const topOffset = trigger.offsetTop;
+        console.log(topOffset)
+        const stickyOnScroll = () => {
+          const helpTextOffset = helpText.offsetTop + window.scrollY;
+          console.log('trigger: '+topOffset)
+          console.log(helpTextOffset)
+          if (topOffset > helpTextOffset) {
+            isExpanded = false;
+            toggleExpansion(false);
+          }
+        }
+  
+        window.onscroll = function () {
+          stickyOnScroll();
+        };
+      }
+
+      // toggle on trigger click
       trigger.onclick = ((e) => {
         e.preventDefault()
         isExpanded = !isExpanded;
@@ -34,13 +55,13 @@ export default (function (document) {
       // close button mobile
       closeButtons[0].onclick = ((e) => {
         e.preventDefault();
-        isExpanded = !isExpanded;
+        isExpanded = false;
         toggleExpansion(false);
       })
       // close button desktop
       closeButtons[1].onclick = ((e) => {
         e.preventDefault();
-        isExpanded = !isExpanded;
+        isExpanded = false;
         toggleExpansion(false);
       })
     })
