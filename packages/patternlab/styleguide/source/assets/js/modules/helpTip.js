@@ -32,8 +32,6 @@ export default (function (document) {
         console.log(topOffset)
         const stickyOnScroll = () => {
           const helpTextOffset = helpText.offsetTop + window.scrollY;
-          console.log('trigger: '+topOffset)
-          console.log(helpTextOffset)
           if (topOffset > helpTextOffset) {
             isExpanded = false;
             toggleExpansion(false);
