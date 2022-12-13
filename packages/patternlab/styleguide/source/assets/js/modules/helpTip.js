@@ -29,7 +29,6 @@ export default (function (document) {
       // On mobile, when page scrolls, the help text should only stay expanded below the trigger text, or else it should collapse automatically. As when the page is scrolled up past the trigger text, users lose context over the help text.
       if(isExpanded) {
         const topOffset = trigger.offsetTop;
-        console.log(topOffset)
         const stickyOnScroll = () => {
           const helpTextOffset = helpText.offsetTop + window.scrollY;
           if (topOffset > helpTextOffset) {
