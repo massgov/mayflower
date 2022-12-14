@@ -1,3 +1,4 @@
+{% set level = level ? : generalTeaser.level %}
 {% set headingLevel = level ? : 2 %}
 <h{{ headingLevel }} class="ma__general-teaser__title">
   {% if title.href %}
