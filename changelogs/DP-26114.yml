@@ -1,6 +1,0 @@
-Removed:
-  - project: Patternlab
-    component: MainNav
-    description: Eliminate links to top level topics in main navigation. (#1678)
-    issue: DP-26114
-    impact: Minor
