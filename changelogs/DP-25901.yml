@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: SearchBoxWithLinks
-    description: Added relatedInfo and footerText fields, removed secondary.heading and secondLink. (#1695)
-    issue: DP-25901
-    impact: Minor
