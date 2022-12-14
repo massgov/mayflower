@@ -40,43 +40,6 @@ Alongside the `index.js` and `index.mjs` (ES5 and ES6 versions), inside of each 
 > There's also an adhoc task setup to convert (a) specific component or components for development/debugging purposes. 
 > Add commands here!!!!!
 
-To consume the typed components in your typescript project:
-1. Create a `mayflower.d.ts` in your project and declare module imports by mayflower-react:
-```
-declare module "@massds/mayflower-assets";
-declare module "@massds/mayflower-assets/static/images/*";
-```
-2. Import a mayflower-react typed component 
-```
-import BrandBanner from "@massds/mayflower-react/dist/BrandBanner";
-import HeaderSlim from "@massds/mayflower-react/dist/HeaderSlim";
-import FooterSlim from "@massds/mayflower-react/dist/FooterSlim";
-```
-3. Component styles are imported separated, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for the used React component. e.g. for slim header and slim footer styles
-```
-// Header
-@use "~@massds/mayflower-assets/scss/01-atoms/button-with-icon";
-@use "~@massds/mayflower-assets/scss/02-molecules/brand-banner";
-@use "~@massds/mayflower-assets/scss/03-organisms/header-slim";
-// Footer
-@use "~@massds/mayflower-assets/scss/01-atoms/image";
-@use "~@massds/mayflower-assets/scss/01-atoms/site-logo";
-@use "~@massds/mayflower-assets/scss/03-organisms/footer-slim";
-```
-4. Config SCSS import paths
-```
-// import paths from mayflower-assets package
-const mayflowerAssets = require("@massds/mayflower-assets");
-
-// include the paths in sass-loader config, e.g. in next.config.js
-  sassOptions: {
-    includePaths: [...mayflowerAssets.includePaths]
-  }
-```
-
-
-
-
 
 
 ## Using Mayflower-React in Your Project
@@ -99,6 +62,40 @@ import Button from '@massds/mayflower-react/dist/Button';
 
 For a more detailed guide and information on the components included in Mayflower React and their functionality, visit our [Mayflower React Storybook][react-storybook]. Click on the Info and Knobs tabs for component prop types, details and options.
 
+
+### To consume the typed components in your typescript project:
+1. Create a `mayflower.d.ts` in your project and declare module imports by mayflower-react:
+```
+declare module "@massds/mayflower-assets";
+declare module "@massds/mayflower-assets/static/images/*";
+```
+2. Import a mayflower-react typed component. For examples:
+```
+import BrandBanner from "@massds/mayflower-react/dist/BrandBanner";
+import HeaderSlim from "@massds/mayflower-react/dist/HeaderSlim";
+import FooterSlim from "@massds/mayflower-react/dist/FooterSlim";
+```
+3. Component styles are imported separated, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for React component in use. E.g. slim header and slim footer styles
+```
+// Header
+@use "~@massds/mayflower-assets/scss/01-atoms/button-with-icon";
+@use "~@massds/mayflower-assets/scss/02-molecules/brand-banner";
+@use "~@massds/mayflower-assets/scss/03-organisms/header-slim";
+// Footer
+@use "~@massds/mayflower-assets/scss/01-atoms/image";
+@use "~@massds/mayflower-assets/scss/01-atoms/site-logo";
+@use "~@massds/mayflower-assets/scss/03-organisms/footer-slim";
+```
+4. Config SCSS import paths
+```
+// import paths from mayflower-assets package
+const mayflowerAssets = require("@massds/mayflower-assets");
+
+// include the paths in sass-loader config, e.g. in next.config.js
+  sassOptions: {
+    includePaths: [...mayflowerAssets.includePaths]
+  }
+```
 
 ## Mayflower-React Development
 * `npm install`
