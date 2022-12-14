@@ -11,9 +11,11 @@ export default (function(window, document, $) {
     const $feedbackButton = $('.ma__fixed-feedback-button');
 
     if($feedbackButton) {
-      const topOffset = $feedbackForm.offset().top;
+      const topOffset = $feedbackForm.offset() && $feedbackForm.offset().top;
+      console.log('form: '+topOffset)
       const stickyOnScroll = () => {
-        const feedbackButtonTopOffset = $feedbackButton.offset().top;
+        const feedbackButtonTopOffset = $feedbackButton.offset() && $feedbackButton.offset().top;
+        console.log('button: '+feedbackButtonTopOffset)
         if(feedbackButtonTopOffset >= topOffset) {
           $feedbackButton.addClass('hide-button-vis');
           $feedbackButton.attr("aria-hidden", "true");
