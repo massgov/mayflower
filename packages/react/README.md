@@ -37,10 +37,14 @@ As of version 10.x, Mayflower React styles come directly from the `@massds/mayfl
 As of version 12.x, mayflower-react includes typed components! The typescript version of the components are converted from the source code `src/index.js`. This is done by [transforming proptypes to typescript types using `jscodeshift`](./scripts/jsx-to-tsx), with some custom modifications, see [packages/react/scripts/transform.ts](./scripts/transform.ts).
 
 Alongside the `index.js` and `index.mjs` (ES5 and ES6 versions), inside of each components in `dist/`, you will find a `index.d.ts` (type declarations) generated during the `rush build:react` step. 
-> There's also an adhoc task setup to convert (a) specific component or components for development/debugging purposes. 
-> Add commands here!!!!!
+> You can manually run the convertion script on (a) specific component. For example, run this in the repo root:
+> $node packages/react/scripts/jsx-to-tsx packages/react/src/components/atoms/buttons/But
+ton/index.js
+> This command will create create a new .tsx copy of the Button index.js file and converts it to typescript, in the same place. 
+> This is an intermediate step of the final distribution. In the build step, this script will run on each component, then the generated type declarations of the component will be extracted into a d.ts and placed in the distribution folder. 
+> This can also be used for development/debugging purposed.
 
-
+Eventually, we want to fully convert mayflower-react to a typescript component library. See what's next in [this Jira ticket](https://massgov.atlassian.net/browse/DP-26542).
 
 ## Using Mayflower-React in Your Project
 1. Install mayflower-react and mayflower-assets into your project dependency:
