@@ -1,5 +1,5 @@
 <div data-nosnippet="true" class="ma__mass-feedback-form" id="feedback">
-  <h2 class="ma__mass-feedback-form__heading">{{ heading }}</h2><span class="ma__visually-hidden"> with your feedback</span>
+  <h2 class="ma__mass-feedback-form__heading">{{ heading }}<span class="ma__visually-hidden"> with your feedback</span></h2>
   {# form screen #}
   <form class="ma__mass-feedback-form__form{{ submitted ? ' hidden': ''}}" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
     <fieldset class="ma_feedback-fieldset feedback-load" role="radiogroup">
@@ -13,7 +13,7 @@
     </fieldset>
 
     <div class="ma__mass-feedback-form__fields">
-      <fieldset class="ma_feedback-fieldset">
+      <div class="ma_feedback-fieldset">
         <label class="feedback-response feedback-positive" for={{ affirmativeTextarea.id }}>
           {{ queryAffirmative.value }}{{ queryAffirmative.required ? ' <span aria-hidden="true">*</span>' : '' }}
         </label>
@@ -62,7 +62,7 @@
             <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
           {% endif %}
         </div>
-      </fieldset>
+      </div>
     </div>
 
     <div class="ma_feedback-fieldset submitButtonWrapper">
