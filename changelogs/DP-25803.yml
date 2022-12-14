@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab, Assets
-    component: StickyTOC
-    description: Fix jump link target margin top setting that blocks page content. (#1671)
-    issue: DP-25803
-    impact: Patch
