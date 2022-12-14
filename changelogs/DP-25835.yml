@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: OrganizationNavigation
-    description: Change organization navigation IDs to be unique. (#1689)
-    issue: DP-25835
-    impact: Patch
