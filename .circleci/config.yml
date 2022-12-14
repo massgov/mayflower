@@ -12,16 +12,16 @@ references:
 react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:12.18.0-browsers
+    - image: circleci/node:14.15.2-browsers
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/code
   docker:
-    - image: circleci/php:7.1-node-browsers
+    - image: cimg/php:7.1-browsers
 
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
-    - image: cimg/node:12.14
+    - image: cimg/node:14.15.2
 
 jobs:
   build:
@@ -31,11 +31,11 @@ jobs:
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+          key: root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
           paths:
             - common
             - packages/assets/node_modules
@@ -51,7 +51,7 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
@@ -65,6 +65,7 @@ jobs:
       - run: |
           cd packages/patternlab
           docker-compose up --no-start web backstop
+          rm -rf ./styleguide/node_modules
           docker cp ./ $(docker-compose ps -q backstop):/src/
           docker cp ./styleguide/public/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
@@ -172,7 +173,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run:
           name: Mayflower React Build
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
@@ -197,6 +198,8 @@ jobs:
       - run: |
           cd packages/react
           docker-compose up --no-start web backstop
+          rm -rf ./node_modules
+          rm -rf ../assets/node_modules
           docker cp ./ $(docker-compose ps -q backstop):/src/
           docker cp ../assets $(docker-compose ps -q backstop):/src/assets
           docker cp ../../docs $(docker-compose ps -q backstop):/src/docs
@@ -243,16 +246,16 @@ jobs:
             aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/react*'
           fi
 
-  
+
   core_build_storybook:
     <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
-      - run: 
-          name: Mayflower React NPM Package Build 
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+      - run:
+          name: Mayflower React NPM Package Build
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Mayflower Core Linter
@@ -263,7 +266,7 @@ jobs:
       - persist_to_workspace:
           root: ~/code
           paths: ["*"]
-  
+
   core_deploy_tag:
     <<: *patternlab_defaults
     steps:
@@ -313,7 +316,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -327,7 +330,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -341,7 +344,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: { name: 'Build', command: 'cd packages/assets && node ../../common/scripts/install-run-rushx.js build'}
       - run:
           name: Mayflower Style Linter
@@ -354,7 +357,7 @@ jobs:
       - *configure_npm
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run:
           name: 'Publish mayflower-assets NPM package'
           command: |
@@ -372,7 +375,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v4-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-25
       - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Validate Package Build

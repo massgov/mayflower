@@ -569,20 +569,7 @@
 }
 
 .sticky-toc-jump-target {
-
-  &::before {
-    display: block;
-    content: '';
-    margin-top: -120px;
-    height: 120px;
-    visibility: hidden;
-    pointer-events: none;
-
-    @media ($bp-header-toggle-min) {
-      margin-top: -70px;
-      height: 70px;
-    }
-  }
+  scroll-margin-top: 75px;
 }
 
 .ma__sticky-toc__overlay {

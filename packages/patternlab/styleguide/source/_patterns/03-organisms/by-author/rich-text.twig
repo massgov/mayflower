@@ -9,7 +9,7 @@
     {% include "@atoms/04-headings/sidebar-heading.twig" %}
   {% endif %}
 
-    <div class="ma__rich-text {{headerIndent}}">
+    <div class="ma__rich-text {{headerIndent}}" dir="auto">
     {# use this block to render your own content (see pattern docs) #}
     {% block rteElements %}
       {% for element in richText.rteElements %}

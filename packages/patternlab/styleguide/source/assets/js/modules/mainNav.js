@@ -83,18 +83,7 @@ export default (function (window, document, $, undefined) {
 
         // Adjust index of active menu item based on performed action.
         focusIndexInDropdown += (action.up ? -1 : 1);
-        // If the menu is flipped, skip the last item in each submenu. Otherwise,
-        // skip the first item. This is done by repeating the index adjustment.
-        if (menuFlipped) {
-          if (focusIndexInDropdown === dropdownLinksLength - 1) {
-            focusIndexInDropdown += (action.up ? -1 : 1);
-          }
-        } else {
-          if (focusIndexInDropdown === 0 || focusIndexInDropdown >= dropdownLinksLength) {
 
-            focusIndexInDropdown += (action.up ? -1 : 1);
-          }
-        }
         // Wrap around if at the end of the submenu.
         focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
         $dropdownLinks[focusIndexInDropdown].focus();

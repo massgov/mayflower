@@ -4,20 +4,30 @@
       "headingText": "Search for data",
       "submitText": "SEARCH",
       "visuallyHiddenText": "Enter a subject or search term",
-      "actionUrl": "/"
+      "actionUrl": "/",
+      "inputName": "title",
+      "footerText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "<p>This is an optional text area.</p>"
+            }
+          }
+        }]
+      }
     },
 
     "secondary": {
-      "heading": "Didn't find what you were looking for?",
-
-      "firstLink": {
-        "href": "/#first",
-        "text": "See all options"
-      },
-
-      "secondLink": {
-        "href": "/#second",
-        "text": "Another (optional) link"
+      "relatedInfo": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "<h3>Didn't find what you were looking for?</h3>"
+            }
+          }
+        }]
       }
     }
   }
