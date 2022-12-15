@@ -32,7 +32,7 @@ SiteLogo.propTypes = {
     domain: PropTypes.string.isRequired
   }),
   /** The site logo image to display. */
-  image: PropTypes.shape(PropTypes.Image),
+  image: PropTypes.shape(Image.propTypes),
   /** An optional label to display next to the site logo. */
   siteName: PropTypes.string,
   /** The title attribute for the site logo link. */

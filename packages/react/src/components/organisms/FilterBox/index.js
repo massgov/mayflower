@@ -6,7 +6,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import airPropTypes from 'airbnb-prop-types';
 import classNames from 'classnames';
 
 // import child components
@@ -103,12 +102,7 @@ FilterBox.propTypes = {
   /** An array of filter fields */
   fields: PropTypes.arrayOf(PropTypes.shape({
     class: PropTypes.string,
-    component: PropTypes.oneOfType([
-      airPropTypes.componentWithName('SelectBox'),
-      airPropTypes.componentWithName('InputTextTypeAhead'),
-      airPropTypes.componentWithName('InputTextFuzzy'),
-      airPropTypes.componentWithName('DateRange')
-    ])
+    component: PropTypes.element
   }))
 };
 
