@@ -96,7 +96,7 @@ import BrandBanner from "@massds/mayflower-react/dist/BrandBanner";
 import HeaderSlim from "@massds/mayflower-react/dist/HeaderSlim";
 import FooterSlim from "@massds/mayflower-react/dist/FooterSlim";
 ```
-3. Component styles are imported separated, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for React component in use. 
+3. Component styles must be imported separately, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for React component in use. 
 
 4. Config SCSS import paths
 ```javascript
