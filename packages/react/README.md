@@ -85,12 +85,7 @@ When using this mayflower-assets for the .scss files, you will need to include i
 
 
 ### To consume the typed components in your typescript project
-1. Create a `mayflower.d.ts` in your project and declare module imports by mayflower-react:
-```javascript
-declare module "@massds/mayflower-assets";
-declare module "@massds/mayflower-assets/static/images/*";
-```
-2. Import a mayflower-react typed component. 
+1. Import a mayflower-react typed component. 
 ```javascript
 import [ComponentName] from '@massds/mayflower-react/dist/[ComponentName]';
 ```
@@ -100,9 +95,9 @@ import BrandBanner from "@massds/mayflower-react/dist/BrandBanner";
 import HeaderSlim from "@massds/mayflower-react/dist/HeaderSlim";
 import FooterSlim from "@massds/mayflower-react/dist/FooterSlim";
 ```
-3. Component styles must be imported separately, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for React component in use. 
+2. Component styles must be imported separately, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for React component in use. 
 
-4. Config SCSS import paths
+3. Config SCSS import paths
 ```javascript
 // import the include paths from mayflower-assets
 const mayflowerAssets = require("@massds/mayflower-assets");
@@ -111,6 +106,11 @@ const mayflowerAssets = require("@massds/mayflower-assets");
   sassOptions: {
     includePaths: [...mayflowerAssets.includePaths]
   }
+```
+4. If you are directly importing styles from @massds/mayflower-assets into a TS code, you will need to create a `mayflower.d.ts` in your project and declare module imports, like such:
+```javascript
+declare module "@massds/mayflower-assets";
+declare module "@massds/mayflower-assets/static/images/*";
 ```
 
 ## Mayflower-React Development
