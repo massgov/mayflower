@@ -43,7 +43,7 @@ Alongside the `index.js` and `index.mjs` (ES5 and ES6 versions), inside of each 
 
 > This command will create create a new `.tsx` copy of the Button index.js file and converts it to typescript, in the same place. 
 
-> This is an intermediate step of the final distribution. In the build step, this script will run on each component, then the generated type declarations of the component will be extracted into a `d.ts` file and placed in the distribution folder. 
+> This replicates an intermediate step of the final distribution. In the build step, a similar conversion process will run on each component saving its results into the `types` folder, then the generated type declarations of the component will be extracted into a `d.ts` file and placed in the distribution folder. 
 > This can also be used for development/debugging purposes.
 
 Eventually, we want to fully convert mayflower-react to a typescript component library. See what's next in [this Jira ticket](https://massgov.atlassian.net/browse/DP-26542).
