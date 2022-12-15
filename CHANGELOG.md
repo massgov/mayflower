@@ -1,6 +1,31 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 12.0.0 (12/15/2022)
+### Added 
+- (React) [undefined] DP-26366: Enable support for React 17 & 18. Some dependencies still don't support these versions. (#1699)
+- (React) [Button, CompHeading, Breadcrumb, GenTeaser, IllustratedHeader, TableofContents, NarrowTemplate] DP-26366: Add missing prop types, mostly children and className. (#1699)
+- (React) [undefined] DP-26366: Add TypeScript declarations for most of the components, except icons. (#1699)
+- (React) [Pagination, ResultsHeading, SearchBanner] DP-26366: Pass classes to the root element. (#1699)
+- (React) [ResultsHeading] DP-26366: Make the title customizable, let the caller hide it completely. (#1699)
+- (React) [undefined] DP-26581: Add documentation for typescript components generation and usage. (#1708)
+
+### Changed 
+- (React, Site) [Address, Email, EventTime, PhoneNumber, GenTeaser, RichText] DP-26366: Replace react-html-parser with html-react-parser. (#1699)
+- (React) [SiteLogo, DateRange, ContactGroup, HeaderSearch, ResultsHeading, SearchBanner] DP-26366: Fix references between prop types of components. (#1699)
+- (React) [BrandBanner] DP-26366: Remove default logo. (#1699)
+- (React) [GenTeaser] DP-26366: Add passed class rather than replacing all the pre-defined ones. (#1699)
+- (React) [BreadcrumbItem] DP-26366: Define prop types. (#1699)
+- (React) [Pagination] DP-26366: Hide the component in case no data is passed instead of failing. (#1699)
+- (React) [ButtonWithIcon, HeaderSearch, IconLink, FilterBox, FooterSlim, PageFlipper, TableofContents] DP-26366: Replace airbnb-prop-types with plain ones. (#1699)
+- (React) [CompHeading] DP-26366: Make the title prop optional. (#1699)
+- (React) [Breadcrumb] DP-26366: Pass classes to the root element, allow all kinds of React elements and not just an array. (#1699)
+- (React) [Breadcrumb] DP-26366: Allow all kinds of React elements as children, not just an array. (#1699)
+- (React) [Pagination] DP-26366: Allow custom href on every link. (#1699)
+
+### Removed 
+- (React) [undefined] DP-26366: Remove airbnb-prop-types dependency. (#1699)
+
 ## 11.26.0 (12/14/2022)
 ### Changed 
 - (Patternlab) [Figure] DP-25181: Ensure the skip link target gets focused after the link gets clicked. (#1666)
