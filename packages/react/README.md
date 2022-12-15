@@ -38,12 +38,13 @@ As of version 12.x, mayflower-react includes typed components! The typescript ve
 
 Alongside the `index.js` and `index.mjs` (ES5 and ES6 versions), inside of each components in `dist/`, you will find a `index.d.ts` (type declarations) generated during the `rush build:react` step. 
 > You can manually run the convertion script on a specific component. For example, run this in the repo root:
+
 > $ `node packages/react/scripts/jsx-to-tsx packages/react/src/components/atoms/buttons/Button/index.js`
 
 > This command will create create a new `.tsx` copy of the Button index.js file and converts it to typescript, in the same place. 
 
-> This is an intermediate step of the final distribution. In the build step, this script will run on each component, then the generated type declarations of the component will be extracted into a d.ts and placed in the distribution folder. 
-> This can also be used for development/debugging purposed.
+> This is an intermediate step of the final distribution. In the build step, this script will run on each component, then the generated type declarations of the component will be extracted into a `d.ts` file and placed in the distribution folder. 
+> This can also be used for development/debugging purposes.
 
 Eventually, we want to fully convert mayflower-react to a typescript component library. See what's next in [this Jira ticket](https://massgov.atlassian.net/browse/DP-26542).
 
@@ -99,7 +100,7 @@ import FooterSlim from "@massds/mayflower-react/dist/FooterSlim";
 
 4. Config SCSS import paths
 ```javascript
-// import paths from mayflower-assets package
+// import the include paths from mayflower-assets
 const mayflowerAssets = require("@massds/mayflower-assets");
 
 // include the paths in sass-loader config, e.g. in next.config.js
