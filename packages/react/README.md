@@ -37,10 +37,13 @@ As of version 10.x, Mayflower React styles come directly from the `@massds/mayfl
 As of version 12.x, mayflower-react includes typed components! The typescript version of the components are converted from the source code `src/index.js`. This is done by [transforming proptypes to typescript types using `jscodeshift`](./scripts/jsx-to-tsx), with some custom modifications, see [packages/react/scripts/transform.ts](./scripts/transform.ts).
 
 Alongside the `index.js` and `index.mjs` (ES5 and ES6 versions), inside of each components in `dist/`, you will find a `index.d.ts` (type declarations) generated during the `rush build:react` step. 
-> You can manually run the convertion script on (a) specific component. For example, run this in the repo root:
-> $node packages/react/scripts/jsx-to-tsx packages/react/src/components/atoms/buttons/But
-ton/index.js
-> This command will create create a new .tsx copy of the Button index.js file and converts it to typescript, in the same place. 
+> You can manually run the convertion script on a specific component. For example, run this in the repo root:
+
+> `$node packages/react/scripts/jsx-to-tsx packages/react/src/components/atoms/buttons/But
+ton/index.js`
+
+> This command will create create a new `.tsx` copy of the Button index.js file and converts it to typescript, in the same place. 
+
 > This is an intermediate step of the final distribution. In the build step, this script will run on each component, then the generated type declarations of the component will be extracted into a d.ts and placed in the distribution folder. 
 > This can also be used for development/debugging purposed.
 
@@ -53,8 +56,9 @@ npm i @massds/mayflower-react @massds/mayflower-assets --save
 ```
 2. Import components into your App:
 ```javascript
+// You can import the components from the module entry point:
 import { Header, Footer, Button } from '@massds/mayflower-react';
-// You can also directly point to each component's path:
+// However, it's encouraged that you directly point to each component's path, if you are only using a small subset of components to avoid importing the whole library:
 import Header from '@massds/mayflower-react/dist/Header';
 import Footer from '@massds/mayflower-react/dist/Footer';
 import Button from '@massds/mayflower-react/dist/Button';
@@ -63,11 +67,25 @@ import Button from '@massds/mayflower-react/dist/Button';
 ```javascript
 <Button text="Button" onClick={() => console.log('mayflower button clicked!')} />
 ```
+>For a more detailed guide and information on the components included in Mayflower React and their functionality, visit our [Mayflower React Storybook][react-storybook]. Click on the Info and Knobs tabs for component prop types, details and options.
 
-For a more detailed guide and information on the components included in Mayflower React and their functionality, visit our [Mayflower React Storybook][react-storybook]. Click on the Info and Knobs tabs for component prop types, details and options.
+4. Component styles are imported separated, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for the React component in use. E.g. If you using the slim header and slim footer components, in a SCSS files, import these styles:
+```scss
+// Header
+@use "~@massds/mayflower-assets/scss/01-atoms/button-with-icon";
+@use "~@massds/mayflower-assets/scss/02-molecules/brand-banner";
+@use "~@massds/mayflower-assets/scss/03-organisms/header-slim";
+// Footer
+@use "~@massds/mayflower-assets/scss/01-atoms/image";
+@use "~@massds/mayflower-assets/scss/01-atoms/site-logo";
+@use "~@massds/mayflower-assets/scss/03-organisms/footer-slim";
+```
+
+5. Config SCSS import paths
+When using this mayflower-assets for the .scss files, you will need to include its include paths, see [mayflower-assets](packages/assets/README.md) for more info.
 
 
-### To consume the typed components in your typescript project:
+### To consume the typed components in your typescript project
 1. Create a `mayflower.d.ts` in your project and declare module imports by mayflower-react:
 ```javascript
 declare module "@massds/mayflower-assets";
@@ -79,17 +97,8 @@ import BrandBanner from "@massds/mayflower-react/dist/BrandBanner";
 import HeaderSlim from "@massds/mayflower-react/dist/HeaderSlim";
 import FooterSlim from "@massds/mayflower-react/dist/FooterSlim";
 ```
-3. Component styles are imported separated, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for React component in use. E.g. slim header and slim footer styles
-```scss
-// Header
-@use "~@massds/mayflower-assets/scss/01-atoms/button-with-icon";
-@use "~@massds/mayflower-assets/scss/02-molecules/brand-banner";
-@use "~@massds/mayflower-assets/scss/03-organisms/header-slim";
-// Footer
-@use "~@massds/mayflower-assets/scss/01-atoms/image";
-@use "~@massds/mayflower-assets/scss/01-atoms/site-logo";
-@use "~@massds/mayflower-assets/scss/03-organisms/footer-slim";
-```
+3. Component styles are imported separated, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for React component in use. 
+
 4. Config SCSS import paths
 ```javascript
 // import paths from mayflower-assets package
