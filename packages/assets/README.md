@@ -36,7 +36,7 @@ SASS_PATH=./node_modules/@massds/mayflower-assets/scss:./node_modules/@massds/ma
 ```
 
 Many of the components require the file `00-base/_layout.scss` to be included at least once before their use. It's recommended for your project to create a single .scss file that includes all the shared files for your needs. This file should use `@forward` to forward sass modules that your other files need:
-```
+```scss
 // example.scss
 
 // Assuming 'node_modules' is your include paths here...
@@ -48,7 +48,7 @@ Many of the components require the file `00-base/_layout.scss` to be included at
 // Grab the fonts from this package for inclusion:
 @forward "00-base/fonts";
 ```
-```
+```scss
 // some-other-file.scss
 
 // This path depends on what's in your include paths...
@@ -60,7 +60,7 @@ Many of the components require the file `00-base/_layout.scss` to be included at
 }
 ```
 Creating a shared file is NOT required. You can also just ensure that you include the box-sizing styling:
-```
+```scss
 // some-other-file.scss
 @use "00-base/layout";
 .elementClass {
@@ -69,7 +69,7 @@ Creating a shared file is NOT required. You can also just ensure that you includ
 ```
 ## Including SCSS Files
 To include a `.scss` file, please do NOT use `@import`. All previous uses of `@import` have been replaced by `@use` for [Sass Modules](https://sass-lang.com/documentation/at-rules/use) support:
-```
+```scss
 // Scoped inclusion of variables. All variables will now
 // be under the variables scope.
 @use "00-base/variables";
@@ -81,7 +81,7 @@ $my-new-var: $column;
 ```
 ## Variable Overrides
 All provided variables of this package allow for overrides by the user:
-```
+```scss
 // You can define your overrides before the @use call.
 // Doing so will ensure the file you're calling with @use uses the overrides.
 $column: 60px;
@@ -96,7 +96,7 @@ Some reccomended fonts you can use can be found under `00-base/fonts`.
 ## Example Compilation of Styles
 
 The following example uses gulp to compile all .scss files under src (with exceptions to those .scss files under `00-base/`). The script will place the compiled files under `dist/` within the same directories they originated.
-```
+```javascript
 // gulpfile.js
 const { src, dest, series } = require('gulp');
 const sass = require('gulp-sass');
@@ -148,7 +148,6 @@ const compileSass = () => {
   .pipe(dest('./dist/css'));
 };
 exports.default = series(compileSass);
-
 ```
 ## Development with Assets Package
 When working on changing styling, you can use `npm link` with another project so that changes made to `.scss` files show up live time. First, run `npm link` under the mayflower repo's assets directory. Next, in your other project's root directory run `npm link @massds/mayflower-assets`. This will make it so that under node_modules for your project, this package is symlinked (from @massds/mayflower-assets) to the mayflower repo's assets directory.

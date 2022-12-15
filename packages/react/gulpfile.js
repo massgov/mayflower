@@ -6,9 +6,13 @@ const rename = require('gulp-rename');
 const del = require('del');
 const path = require('path');
 const run = require('gulp-run-command').default;
+const ts = require('gulp-typescript');
+const replace = require('gulp-replace');
+const { prependText } = require('gulp-append-prepend');
+const { exec } = require('child_process');
 
 function clean() {
-  return del(['dist']);
+  return del(['dist', 'types']);
 }
 
 function styles() {
@@ -21,10 +25,11 @@ function styles() {
     .pipe(dest('dist'));
 }
 
-function icons() {
-  return src(['./src/components/base/Icon/assets/*.svg'])
-    .pipe(dest('dist/Icon/assets'));
-}
+// Copying icon assets from assets to react is not currently being used.  
+// function icons() {
+//   return src(['./src/components/base/Icon/assets/*.svg'])
+//     .pipe(dest('dist/Icon/assets'));
+// }
 
 function transpileES5Icons() {
   return src('./dist/Icon/*.mjs')
@@ -385,8 +390,102 @@ function cleanIconDir() {
   ]);
 }
 
+const typedSources = [
+  ...sources,
+
+  // @todo This file probably requires a separate transformation using JSCodeShift.
+  '!src/index.js',
+];
+
+const tsIcons = [
+  "types/components/base/Icon/*.tsx"
+];
+
+const tsDeclarationSources = [
+  'types/**/*.tsx',
+];
+
+function generateTsIcons() {
+  return run('svgr --out-dir ./types/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc-ts.js')()
+}
+
+function ignoreTsCheckOnIcons() {
+  return src(tsIcons, {base: 'types'})
+    .pipe(prependText('// @ts-nocheck'))
+    .pipe(dest('types'))
+}
+
+function createTsCopy() {
+  return src(typedSources)
+    .pipe(rename((p) => {
+      // eslint-disable-next-line no-param-reassign
+      p.extname = '.tsx'
+    }))
+    .pipe(prependText('// @ts-nocheck'))
+    .pipe(dest('types'))
+}
+
+function convertPropTypesToTs(cb) {
+  // We have to use `exec` here in order to use the transformation file written in TS.
+  exec(`./node_modules/.bin/jscodeshift -t "scripts/transform.ts" --extensions=tsx --fail-on-error "types"`, (error, stdout, stderr) => {
+    if (stdout) {
+      console.log(stdout);
+    }
+    if (stderr) {
+      console.error(stderr);
+    }
+
+    cb(error);
+  });
+}
+
+function convertTsToDeclarations() {
+  const tsProject = ts.createProject('tsconfig.json')
+  return src(tsDeclarationSources)
+    .pipe(rename((p) => {
+      const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
+      p.dirname = splitPath[splitPath.length - 1];
+    }))
+    .pipe(tsProject())
+    .dts
+    .pipe(
+      // @todo Is there a better way to do it? Some TS compiler options maybe?
+      replace(/(\s+from\s+['"])(Mayflower[a-z]+)\//ig, '$1../')
+    )
+    .pipe(dest('dist'))
+}
+
+const generateTsDeclarations = series(
+  parallel(
+    series(
+      generateTsIcons,
+      ignoreTsCheckOnIcons,
+    ),
+    series(
+      createTsCopy,
+      convertPropTypesToTs,
+    )
+  ),
+  convertTsToDeclarations,
+)
+
 exports.cleanIconDir = cleanIconDir;
 exports.generateIcons = generateIcons;
 exports.transpileES5Icons = transpileES5Icons;
 exports.transpileES6Icons = transpileES6Icons;
-exports.default = series(clean, parallel(transpileES5, transpileES6, styles, series(generateIcons, transpileES5Icons, transpileES6Icons)));
+exports.generateTsDeclarations = generateTsDeclarations;
+exports.default = series(
+  clean,
+  parallel(
+    transpileES5,
+    transpileES6,
+    generateTsDeclarations,
+    styles,
+    series(
+      generateIcons,
+      transpileES5Icons,
+      transpileES6Icons
+    )
+  )
+);

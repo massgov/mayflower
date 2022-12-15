@@ -41,9 +41,9 @@ DateRange.propTypes = {
   /** The text label of the date range input */
   label: PropTypes.string.isRequired,
   /** The start date of your filter query, @forms/InputDate */
-  startDate: PropTypes.shape(InputDate.props).isRequired,
+  startDate: PropTypes.shape(InputDate.propTypes).isRequired,
   /** The end date of your filter query, @forms/InputDate */
-  endDate: PropTypes.shape(InputDate.props).isRequired
+  endDate: PropTypes.shape(InputDate.propTypes).isRequired
 };
 
 export default DateRange;

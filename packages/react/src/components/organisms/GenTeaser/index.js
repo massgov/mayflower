@@ -16,7 +16,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactHtmlParser from 'react-html-parser/src';
+import ReactHtmlParser from 'html-react-parser';
 import classNames from 'classnames';
 
 import LinkDropdown from 'MayflowerReactMolecules/LinkDropdown';
@@ -35,13 +35,14 @@ import { buildUrl } from 'MayflowerReactOrganisms/GenTeaser/utils';
 
 const GenTeaser = (props) => {
   const {
-    children, onClick, onKeyDown, stacked, align, ...rest
+    children, onClick, onKeyDown, stacked, align, className, ...rest
   } = props;
   const teaserClasses = classNames({
     'ma__gen-teaser': true,
     'ma__gen-teaser--clickable': onClick,
     'ma__gen-teaser--stacked': stacked,
-    [`ma__gen-teaser--align-${align}`]: align
+    [`ma__gen-teaser--align-${align}`]: align,
+    [`${className}`]: !!className
   });
   const role = onClick ? 'button' : null;
   return(
@@ -64,7 +65,9 @@ GenTeaser.propTypes = {
   /** whether to stack image on top */
   stacked: PropTypes.bool,
   /** alignment for description relative to image */
-  align: PropTypes.oneOf(['top', 'center'])
+  align: PropTypes.oneOf(['top', 'center']),
+  /** A custom class. */
+  className: PropTypes.string
 };
 
 export default GenTeaser;
@@ -287,9 +290,25 @@ GenTeaser.Orgs.displayName = 'GenTeaser.Orgs';
 
 const GenTeaserDescription = (props) => {
   const { children, description, ...rest } = props;
-  // Wrap children text nodes in spans to persist DOM relationship consistency for ReactDOM when Google Translate manipulates the DOM tree
-  // eslint-disable-next-line react/no-array-index-key
-  const descriptionHTML = ReactHtmlParser(description).map((el, i) => (typeof el === 'string' ? <span key={`description-span${i}`}>{el}</span> : el));
+  let descriptionHTML = null;
+  if (typeof (description) === 'string') {
+    const parserOptions = {
+      replace: (domNode) => {
+        // Wrap children text nodes in spans to persist DOM relationship consistency for ReactDOM when Google Translate manipulates the DOM tree
+        // eslint-disable-next-line react/no-array-index-key
+        if (domNode.type === 'text') {
+          return(
+            <span>
+              {domNode.data}
+            </span>
+          );
+        }
+
+        return null;
+      }
+    };
+    descriptionHTML = ReactHtmlParser(description, parserOptions);
+  }
 
   return(
     <div className="ma__gen-teaser__description" {...rest}>
