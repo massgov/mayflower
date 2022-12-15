@@ -34,7 +34,7 @@ As of version 10.x, Mayflower React styles come directly from the `@massds/mayfl
  */
 ```
 
-As of version 12.x, mayflower-react includes typed components! The typescript version of the components are converted from the source code `src/index.js`. This is done by [transforming proptypes to typescript types using `jscodeshift`](./scripts/jsx-to-tsx), with some custom modifications, see [packages/react/scripts/transform.ts](./scripts/transform.ts).
+As of version 12.x, mayflower-react includes type declarations for all the components! These typescript declarations are converted from the same source code `src/index.js`. This is done by transforming proptypes to typescript types using `jscodeshift`, with some custom modifications, see [packages/react/scripts/transform.ts](./scripts/transform.ts).
 
 Alongside the `index.js` and `index.mjs` (ES5 and ES6 versions), inside of each components in `dist/`, you will find a `index.d.ts` (type declarations) generated during the `rush build:react` step. 
 > You can manually run the convertion script on a specific component. For example, run this in the repo root:
