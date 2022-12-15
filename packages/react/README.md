@@ -90,7 +90,11 @@ When using this mayflower-assets for the .scss files, you will need to include i
 declare module "@massds/mayflower-assets";
 declare module "@massds/mayflower-assets/static/images/*";
 ```
-2. Import a mayflower-react typed component. For examples:
+2. Import a mayflower-react typed component. 
+```javascript
+import [ComponentName] from '@massds/mayflower-react/dist/[ComponentName]';
+```
+For examples:
 ```javascript
 import BrandBanner from "@massds/mayflower-react/dist/BrandBanner";
 import HeaderSlim from "@massds/mayflower-react/dist/HeaderSlim";
