@@ -1,14 +1,18 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 12.0.0 (12/16/2022)
+### Fixed
+- (React) [dependency] Update mayflower-assets peer dependency. (#1699)
+
 ## 12.0.0 (12/15/2022)
 ### Added 
-- (React) [undefined] DP-26366: Enable support for React 17 & 18. Some dependencies still don't support these versions. (#1699)
+- (React) [dependency] DP-26366: Enable support for React 17 & 18. Some dependencies still don't support these versions. (#1699)
 - (React) [Button, CompHeading, Breadcrumb, GenTeaser, IllustratedHeader, TableofContents, NarrowTemplate] DP-26366: Add missing prop types, mostly children and className. (#1699)
-- (React) [undefined] DP-26366: Add TypeScript declarations for most of the components, except icons. (#1699)
+- (React) [dist] DP-26366: Add TypeScript declarations for most of the components, except icons. (#1699)
 - (React) [Pagination, ResultsHeading, SearchBanner] DP-26366: Pass classes to the root element. (#1699)
 - (React) [ResultsHeading] DP-26366: Make the title customizable, let the caller hide it completely. (#1699)
-- (React) [undefined] DP-26581: Add documentation for typescript components generation and usage. (#1708)
+- (React) [docs] DP-26581: Add documentation for typescript components generation and usage. (#1708)
 
 ### Changed 
 - (React, Site) [Address, Email, EventTime, PhoneNumber, GenTeaser, RichText] DP-26366: Replace react-html-parser with html-react-parser. (#1699)
@@ -24,7 +28,7 @@ All notable changes to this project will be documented in this file.
 - (React) [Pagination] DP-26366: Allow custom href on every link. (#1699)
 
 ### Removed 
-- (React) [undefined] DP-26366: Remove airbnb-prop-types dependency. (#1699)
+- (React) [dependency] DP-26366: Remove airbnb-prop-types dependency. (#1699)
 
 ## 11.26.0 (12/14/2022)
 ### Changed 
