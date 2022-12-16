@@ -1,9 +1,9 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
-## 12.0.0 (12/16/2022)
+## 12.0.1 (12/16/2022)
 ### Fixed
-- (React) [dependency] Update mayflower-assets peer dependency. (#1699)
+- (React) [dependency] Update mayflower-assets peer dependency. (#1711)
 
 ## 12.0.0 (12/15/2022)
 ### Added 
