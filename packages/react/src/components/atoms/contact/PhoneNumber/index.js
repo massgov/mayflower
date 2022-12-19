@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import parse from 'react-html-parser';
+import parse from 'html-react-parser';
 
 const formatPhoneNumber = (number) => {
   const clean = number.replace(/\D/g, '');

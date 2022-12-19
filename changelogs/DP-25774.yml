@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: TabContainer
-    description: Fix TabContainer content not appearing after SSR. (#1670)
-    issue: DP-25774
-    impact: Patch

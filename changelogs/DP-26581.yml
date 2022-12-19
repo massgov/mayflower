@@ -51,9 +51,8 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Fixed:
-  - project: Patternlab
-    component: Details, HowTo
-    description: Force wordbreak and restrain content container width to enforce layout. (#1694)
-    issue: DP-26315
+Added:
+  - project: React
+    description: Add documentation for typescript components generation and usage. (#1708)
+    issue: DP-26581
     impact: Patch

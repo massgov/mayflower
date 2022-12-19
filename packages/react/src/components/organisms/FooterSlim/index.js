@@ -11,7 +11,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import airPropTypes from 'airbnb-prop-types';
 
 const today = new Date();
 const year = today.getFullYear();
@@ -95,12 +94,7 @@ FooterSlim.propTypes = {
   /** Contact details for the responsible authority */
   contact: PropTypes.arrayOf(PropTypes.shape({
     icon: PropTypes.element,
-    component: PropTypes.oneOfType([
-      airPropTypes.componentWithName('PhoneNumber'),
-      airPropTypes.componentWithName('Address'),
-      airPropTypes.componentWithName('Email'),
-      PropTypes.node
-    ])
+    component: PropTypes.node
   })),
   /** One or multiple logos rendered at the footer */
   siteLogo: PropTypes.node.isRequired,

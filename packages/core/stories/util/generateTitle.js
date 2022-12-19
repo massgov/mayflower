@@ -5,7 +5,7 @@ import LinkTo from '@storybook/addon-links/react';
 
 import meta from '../meta.json';
 
-export default (title) => `${meta.[title].kind}/${meta.[title].story}`;
+export default (title) => `${meta[title].kind}/${meta[title].story}`;
 
 export const StoryLink = ({ metaID, text, inline }) => (
   <LinkTo {...meta[metaID]} target="_blank">

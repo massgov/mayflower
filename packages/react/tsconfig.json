@@ -1,0 +1,60 @@
+{
+  "include": [
+    "types/components/**/*.d.ts",
+    "types/components/**/*.tsx",
+    "types/components/**/*.ts",
+  ],
+  "compilerOptions": {
+    // Tells TypeScript to read JS files, as
+    // normally they are ignored as source files
+    "allowJs": true,
+    // Generate d.ts files
+    "declaration": true,
+    // This compiler run should
+    // only output d.ts files
+    "emitDeclarationOnly": true,
+    // Types should go into this directory.
+    // Removing this would place the .d.ts files
+    // next to the .js files
+    "outDir": "types",
+    // go to js file when using IDE functions like
+    // "Go to Definition" in VSCode
+    "declarationMap": true,
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+
+    // TS doesn't recognize some built-in classes without targeting
+    // at least ES6, e.g. Map.
+    "target": "ES6",
+
+    // Let TS compiler find all the referenced modules at compile time.
+    "baseUrl": ".",
+    "paths": {
+      // The list is taken from the `.eslintrc.json`.
+      "MayflowerReactComponents/*": ["types/components/*"],
+      "MayflowerReactAtoms/*": ["types/components/atoms/*"],
+      "MayflowerReactAnimations/*": ["types/components/animations/*"],
+      "MayflowerReactButtons/*": ["types/components/atoms/buttons/*"],
+      "MayflowerReactContact/*": ["types/components/atoms/contact/*"],
+      "MayflowerReactDivider/*": ["types/components/atoms/Divider/*"],
+      "MayflowerReactHeadings/*": ["types/components/atoms/headings/*"],
+      "MayflowerReactLinks/*": ["types/components/atoms/links/*"],
+      "MayflowerReactLists/*": ["types/components/atoms/lists/*"],
+      "MayflowerReactMedia/*": ["types/components/atoms/media/*"],
+      "MayflowerReactPlaceholder/*": ["types/components/atoms/Placeholder/*"],
+      "MayflowerReactTable/*": ["types/components/atoms/table/*"],
+      "MayflowerReactText/*": ["types/components/atoms/text/*"],
+      "MayflowerReactBase/*": ["types/components/base/*"],
+      "MayflowerReactDataviz/*": ["types/components/dataviz/*"],
+      "MayflowerReactForms/*": ["types/components/forms/*"],
+      "MayflowerReactMolecules/*": ["types/components/molecules/*"],
+      "MayflowerReactOrganisms/*": ["types/components/organisms/*"],
+      "MayflowerReactPages/*": ["types/components/pages/*"],
+      "MayflowerReactTemplates/*": ["types/components/templates/*"],
+      "MayflowerReactUtilities/*": ["types/components/utilities/*"],
+      "MayflowerReactHooks/*": ["types/components/hooks/*"],
+      "MayflowerReactGenTeaser/*": ["types/components/organisms/GenTeaser/*"]
+    }
+  },
+}

@@ -13,9 +13,11 @@ const BreadcrumbItem = (props) => {
   return(<li className="ma__breadcrumb-item">{currentPage ? <CurrentItem currentPage={currentPage} /> : children}</li>);
 };
 
-CurrentItem.propTypes = {
+BreadcrumbItem.propTypes = {
   /** Current page name, rendered as the last breadcrumb item */
-  currentPage: PropTypes.string
+  currentPage: PropTypes.string,
+
+  children: PropTypes.node
 };
 
 export default BreadcrumbItem;

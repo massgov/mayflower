@@ -12,14 +12,13 @@ import Image from 'MayflowerReactMedia/Image';
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLock from 'MayflowerReactBase/Icon/IconLock';
-import sealDefault from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
 const BrandBanner = ({
   hasSeal = true,
   hasToggle = true,
   bgTheme = 'light',
   bgColor = 'c-primary',
-  seal = sealDefault,
+  seal = null,
   text = 'An official website of the Commonwealth of Massachusetts'
 }) => {
   const lightTheme = bgTheme === 'light';

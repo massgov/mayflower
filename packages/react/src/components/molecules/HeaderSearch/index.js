@@ -10,7 +10,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
-import airPropTypes from 'airbnb-prop-types';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import TypeAheadDropdown from 'MayflowerReactForms/TypeAheadDropdown';
 // eslint-disable-next-line import/no-unresolved
@@ -102,13 +101,16 @@ HeaderSearch.propTypes = {
   /** Render suggestions as passable element */
   suggestions: PropTypes.element,
   /** @molecules/TypeAheadDropdown */
-  orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
+  orgDropdown: PropTypes.shape(TypeAheadDropdown.propTypes),
   /** postInputFilter passable component */
-  postInputFilter: airPropTypes.componentWithName('SelectBox'),
+  postInputFilter: PropTypes.element,
   /** A ref object as created by React.createRef(). Will be applied to the input element. */
   inputRef: PropTypes.oneOfType([
+    // Either a function
     PropTypes.func,
-    airPropTypes.ref()
+    // Or the instance of a DOM native element (see the note about SSR)
+    /* eslint-disable-next-line react/forbid-prop-types */
+    PropTypes.shape({ current: PropTypes.object })
   ])
 };
 
@@ -117,7 +119,6 @@ HeaderSearch.defaultProps = {
   label: 'Search terms',
   placeholder: 'Search Mass.gov',
   buttonSearch: {
-    'aria-label': '',
     usage: 'secondary'
   }
 };
