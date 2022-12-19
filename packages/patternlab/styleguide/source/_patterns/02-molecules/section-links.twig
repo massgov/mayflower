@@ -15,12 +15,12 @@
 
     {% if not sectionLinks.compact %}
       {% set headingLevel = sectionLinks.level ? : 2 %}
-      <h{{ headingLevel }} class="ma__section-links__title {{ not sectionLinks.compact ? "js-accordion-link" }}" id="{{ titleId }}">
+      <h{{ headingLevel }} class="ma__section-links__title" id="{{ titleId }}">
         {% set decorativeLink = sectionLinks.title %}
         {% include "@atoms/decorative-link.twig" %}
       </h{{ headingLevel}}>
 
-      <nav class="ma__section-links__toggle-content js-accordion-content" aria-labelledby="{{ titleId }}">
+      <div class="ma__section-links__toggle-content">
         {% if sectionLinks.description %}
           <p class="ma__section-links__description">{{sectionLinks.description}}</p>
         {% endif %}
@@ -34,24 +34,26 @@
           %}
           {% include "@atoms/decorative-link.twig" %}
         </div>
-        <ul class="ma__section-links__items">
-          {% block sectionLinks %}
-            {% if sectionLinks.type == "callout" %}
-              {% for calloutLink in sectionLinks.links %}
-                <li class="ma__section-links__item">
-                  {% include "@molecules/callout-link.twig" %}
-                </li>
-              {% endfor %}
-            {% else %}
-              {% for decorativeLink in sectionLinks.links %}
-                <li class="ma__section-links__item">
-                  {% include "@atoms/decorative-link.twig" %}
-                </li>
-              {% endfor %}
-            {% endif %}
-          {% endblock %}
-        </ul>
-      </nav>
+        {% block sectionLinks %}
+          {% if sectionLinks.links %}
+            <ul class="ma__section-links__items">
+              {% if sectionLinks.type == "callout" %}
+                {% for calloutLink in sectionLinks.links %}
+                  <li class="ma__section-links__item">
+                    {% include "@molecules/callout-link.twig" %}
+                  </li>
+                {% endfor %}
+              {% else %}
+                {% for decorativeLink in sectionLinks.links %}
+                  <li class="ma__section-links__item">
+                    {% include "@atoms/decorative-link.twig" %}
+                  </li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          {% endif %}
+        {% endblock %}
+      </div>
     {% else %}
       <span class="ma__section-links__title">
         {% set decorativeLink = sectionLinks.title %}
@@ -66,8 +68,7 @@
         "href": sectionLinks.seeAll.href,
         "text": sectionLinks.seeAll.text,
         "labelContext": (sectionLinks.seeAll.labelContext) ? sectionlinks.seeAll.labelContext : sectionLinks.title.text,
-        "info": "learn more about " ~ sectionLinks.title.text }
-      %}
+      } %}
       {% include "@atoms/decorative-link.twig" %}
 
     </div>
