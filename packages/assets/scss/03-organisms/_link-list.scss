@@ -33,9 +33,9 @@
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
-        column-gap: flex-gutter(12) * 2;
-        -webkit-column-gap: flex-gutter(12) * 2;
-        -moz-column-gap: flex-gutter(12) * 2;
+        column-gap: flex-gutter(12);
+        -webkit-column-gap: flex-gutter(12);
+        -moz-column-gap: flex-gutter(12);
       }
     }
 
