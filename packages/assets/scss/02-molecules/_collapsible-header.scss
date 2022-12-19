@@ -41,7 +41,8 @@
 
   &__title {
 
-    @include ma-h5;
+    // @include ma-h5;
+    @include ma-h2;
     margin-bottom: 0;
     min-height: 32px;
   }
@@ -53,6 +54,7 @@
 
   &__description p {
     margin: 0.5rem 0 0 0;
+    font-size: $fonts-medium;
   }
 }
 
