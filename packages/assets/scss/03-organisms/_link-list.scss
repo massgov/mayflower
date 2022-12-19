@@ -32,6 +32,7 @@
       @media ($bp-medium-min) {
         .item-left {
           @include span-columns(6);
+          display: list-item;
         }
       }
     }
