@@ -47,7 +47,7 @@ class HeaderSearch extends React.Component {
       onChange: this.handleChange,
       type: 'search',
       value: this.state.value,
-      autocomplete: headerSearch.autocomplete,
+      autoComplete: headerSearch.autoComplete,
     };
     if (this.props.inputRef) {
       inputProps.ref = this.props.inputRef;
@@ -114,7 +114,7 @@ HeaderSearch.propTypes = {
     PropTypes.shape({ current: PropTypes.object })
   ]),
   /** Autocomplete input attribute value */
-  autocomplete: PropTypes.string,
+  autoComplete: PropTypes.string,
 };
 
 HeaderSearch.defaultProps = {
