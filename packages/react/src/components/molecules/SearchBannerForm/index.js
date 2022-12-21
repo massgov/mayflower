@@ -20,13 +20,15 @@ const SearchBannerForm = (searchBannerForm) => {
   classes = classes.concat(['ma__search-banner__button']);
 
   return(
-    { searchBannerForm.title && (<h2 className="visually-hidden">searchBannerForm.title</h2>) }
-    <form className="ma__search-banner__form" action={searchBannerForm.action} onSubmit={searchBannerForm.onSubmit}>
-      <div className="ma__search-banner__input">
-        <InputText {...searchBannerForm.inputText} />
-      </div>
-      <ButtonWithIcon {...searchBannerForm.buttonSearch} classes={classes} />
-    </form>
+    <>
+      {searchBannerForm.title && (<h2 className="visually-hidden">searchBannerForm.title</h2>)}
+      <form className="ma__search-banner__form" action={searchBannerForm.action} onSubmit={searchBannerForm.onSubmit}>
+        <div className="ma__search-banner__input">
+          <InputText {...searchBannerForm.inputText} />
+        </div>
+        <ButtonWithIcon {...searchBannerForm.buttonSearch} classes={classes} />
+      </form>
+    </>
   );
 };
 
