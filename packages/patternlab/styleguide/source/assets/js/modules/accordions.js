@@ -143,7 +143,7 @@ export default (function (window,document,$,undefined) {
 
     $content.attr('id', id);
     $link.attr('aria-controls', id);
-    // accordionAriaToggle($link, open);
+    accordionAriaToggle($link, open);
 
     if(isExtended) {
       let childs = $el.find('.ma__collapsible-content__body-item a').length;
