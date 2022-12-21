@@ -103,7 +103,7 @@ const Pagination = (props) => {
           && (
             <a
               className={'visually-hidden'}
-              href={backToTop.href || '#'}
+              href={backToTop.fragment || '#'}
           >
             {backToTop.text}
           </a>
@@ -136,11 +136,11 @@ Pagination.propTypes = {
   }),
   /** prev.text: Defines the text shown for the previous button for screen readers.
    prev.description: Define the description shown before the first pagination link for screen readers
-   prev.href: Defines the href of the current page with fragment */
+   prev.fragement: Defines id of the element to go back to */
   backToTop: PropTypes.shape({
     text: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    href: PropTypes.string
+    fragment: PropTypes.string
   }),
   /** Pages is an array that defines what page numbers users are able to paginate through.
       pages.active: Defines whether the page number is active or not.
