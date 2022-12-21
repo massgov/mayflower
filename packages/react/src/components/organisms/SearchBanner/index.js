@@ -77,7 +77,6 @@ class SearchBanner extends React.Component {
           { searchFormTitle ? (<h2 className="visually-hidden">{searchFormTitle}</h2>)
             : (<h2 className="visually-hidden">Search Form</h2>)
           }
-          <h2 className="visually-hidden">searchFormTitle</h2>
           <HeaderSearch {...searchBox} />
         </div>
         {tabs && <Tabs {...tabs} />}
