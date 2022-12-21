@@ -6,9 +6,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
+import classNames from 'classnames';
 
 const Pagination = (props) => {
-  const { prev, next, pages } = props;
+  const {
+    prev,
+    next,
+    pages,
+    className
+  } = props;
+  const hasPrev = !!(prev && !prev.hide);
+  const hasNext = !!(next && !next.hide);
+  const hasPages = !!(pages && pages.length);
+
+  const classes = classNames(
+    'ma__pagination js-pagination',
+    className
+  );
 
   const handleClick = (event, handleAnchorClick) => {
     event.preventDefault();
@@ -24,15 +38,19 @@ const Pagination = (props) => {
     }
   };
 
+  if (!hasPrev && !hasNext && !hasPages) {
+    return null;
+  }
+
   return(
-    <div className="ma__pagination js-pagination" role="navigation" aria-label="Pagination Navigation">
+    <div className={classes} role="navigation" aria-label="Pagination Navigation">
       <nav className="ma__pagination__container">
-        {!prev.hide && (
+        {hasPrev && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a
             className={`ma__pagination__prev ${prev.disabled && ' disabled'}`}
             role="button"
-            href="#"
+            href={prev.href || '#'}
             onClick={(e) => handleClick(e, prev.onClick)}
             onKeyDown={(e) => handleKeyDown(e, prev.onClick)}
             aria-label={`Go to ${prev.text} page`}
@@ -42,7 +60,7 @@ const Pagination = (props) => {
             {prev.text}
           </a>
         )}
-        {pages.map((page, pageIndex) => {
+        {hasPages && pages.map((page, pageIndex) => {
           const key = `pagination.item.${pageIndex}`;
           return page.text === 'spacer' ? (
             <span key={key} className="ma__pagination__spacer">&hellip;</span>
@@ -51,7 +69,7 @@ const Pagination = (props) => {
             <a
               className={page.active ? 'ma__pagination__page is-active' : 'ma__pagination__page'}
               role="button"
-              href="#"
+              href={page.href || '#'}
               data-page={page.text}
               onClick={(e) => handleClick(e, page.onClick)}
               onKeyDown={(e) => handleKeyDown(e, page.onClick)}
@@ -63,12 +81,12 @@ const Pagination = (props) => {
             </a>
           );
         })}
-        {!next.hide && (
+        {hasNext && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a
             className={`ma__pagination__next ${next.disabled && ' disabled'}`}
             role="button"
-            href="#"
+            href={next.href || '#'}
             onClick={(e) => handleClick(e, next.onClick)}
             onKeyDown={(e) => handleKeyDown(e, next.onClick)}
             aria-label={`Go to ${next.text} page`}
@@ -84,11 +102,14 @@ const Pagination = (props) => {
 };
 
 Pagination.propTypes = {
+  /** Custom class to add to the root element. */
+  className: PropTypes.string,
   /** next.disabled: Defines whether the next button is available or not to users.
       next.text: Defines the text shown for the next button. */
   next: PropTypes.shape({
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired,
+    href: PropTypes.string,
     hide: PropTypes.bool,
     onClick: PropTypes.func
   }),
@@ -97,6 +118,7 @@ Pagination.propTypes = {
   prev: PropTypes.shape({
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired,
+    href: PropTypes.string,
     hide: PropTypes.bool,
     onClick: PropTypes.func
   }),
@@ -106,6 +128,7 @@ Pagination.propTypes = {
   pages: PropTypes.arrayOf(PropTypes.shape({
     active: PropTypes.bool,
     text: PropTypes.string.isRequired,
+    href: PropTypes.string,
     hide: PropTypes.bool,
     onClick: PropTypes.func
   }))

@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Figure
-    description: Ensure the skip link target gets focused after the link gets clicked. (#1666)
-    issue: DP-25181
-    impact: Patch

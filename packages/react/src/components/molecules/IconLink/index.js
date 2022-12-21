@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import airPropTypes from 'airbnb-prop-types';
 
 const IconLink = (props) => (
   <span className={props.wrapperClasses.join(' ')}>
@@ -15,8 +14,8 @@ const IconLink = (props) => (
 );
 
 IconLink.propTypes = {
-  icon: airPropTypes.componentWithName('Icon'),
-  link: airPropTypes.componentWithName('Link'),
+  icon: PropTypes.element,
+  link: PropTypes.element,
   wrapperClasses: PropTypes.arrayOf(PropTypes.string)
 };
 
