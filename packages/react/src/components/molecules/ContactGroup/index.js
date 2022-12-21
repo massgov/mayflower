@@ -88,7 +88,7 @@ ContactGroup.propTypes = {
     type: PropTypes.oneOf(['phone', 'online', 'email', 'address']),
     label: PropTypes.string,
     address: PropTypes.string,
-    link: PropTypes.shape(DecorativeLink.props),
+    link: PropTypes.shape(DecorativeLink.propTypes),
     details: PropTypes.string
   }))
 };

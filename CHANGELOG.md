@@ -1,6 +1,68 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 12.0.1 (12/16/2022)
+### Fixed
+- (React) [dependency] Update mayflower-assets peer dependency. (#1711)
+
+## 12.0.0 (12/15/2022)
+### Added 
+- (React) [dependency] DP-26366: Enable support for React 17 & 18. Some dependencies still don't support these versions. (#1699)
+- (React) [Button, CompHeading, Breadcrumb, GenTeaser, IllustratedHeader, TableofContents, NarrowTemplate] DP-26366: Add missing prop types, mostly children and className. (#1699)
+- (React) [dist] DP-26366: Add TypeScript declarations for most of the components, except icons. (#1699)
+- (React) [Pagination, ResultsHeading, SearchBanner] DP-26366: Pass classes to the root element. (#1699)
+- (React) [ResultsHeading] DP-26366: Make the title customizable, let the caller hide it completely. (#1699)
+- (React) [docs] DP-26581: Add documentation for typescript components generation and usage. (#1708)
+
+### Changed 
+- (React, Site) [Address, Email, EventTime, PhoneNumber, GenTeaser, RichText] DP-26366: Replace react-html-parser with html-react-parser. (#1699)
+- (React) [SiteLogo, DateRange, ContactGroup, HeaderSearch, ResultsHeading, SearchBanner] DP-26366: Fix references between prop types of components. (#1699)
+- (React) [BrandBanner] DP-26366: Remove default logo. (#1699)
+- (React) [GenTeaser] DP-26366: Add passed class rather than replacing all the pre-defined ones. (#1699)
+- (React) [BreadcrumbItem] DP-26366: Define prop types. (#1699)
+- (React) [Pagination] DP-26366: Hide the component in case no data is passed instead of failing. (#1699)
+- (React) [ButtonWithIcon, HeaderSearch, IconLink, FilterBox, FooterSlim, PageFlipper, TableofContents] DP-26366: Replace airbnb-prop-types with plain ones. (#1699)
+- (React) [CompHeading] DP-26366: Make the title prop optional. (#1699)
+- (React) [Breadcrumb] DP-26366: Pass classes to the root element, allow all kinds of React elements and not just an array. (#1699)
+- (React) [Breadcrumb] DP-26366: Allow all kinds of React elements as children, not just an array. (#1699)
+- (React) [Pagination] DP-26366: Allow custom href on every link. (#1699)
+
+### Removed 
+- (React) [dependency] DP-26366: Remove airbnb-prop-types dependency. (#1699)
+
+## 11.26.0 (12/14/2022)
+### Changed 
+- (Patternlab) [Figure] DP-25181: Ensure the skip link target gets focused after the link gets clicked. (#1666)
+- (Patternlab) [ActionFinder] DP-25549: Reduce vertical white space. (#1675)
+- (Patternlab) [generalTeaser] DP-25587: Set up to receive a heading level value from a Drupal theming template for collection items. (#1701)
+- (Patternlab) [OrganizationNavigation] DP-25835: Change organization navigation IDs to be unique. (#1689)
+- (Patternlab) [SearchBoxWithLinks] DP-25901: Added relatedInfo and footerText fields, removed secondary.heading and secondLink. (#1695)
+- (Patternlab) [OrgNav] DP-25957: Menus on Org Page do not work correctly on mobile devices. (#1676)
+- (Assets, Patternlab, React, Core) [Icon] DP-26126: Remove width and height from the message.svg file. (#1680)
+- (Patternlab) [Footer] DP-17253: Add aria-label to footer component. (#1684)
+- (Assets, React, Core, Site) [Node, npm] DP-26230: Upgraded node to v14 and npm to v6. (#1682)
+- (Patternlab) [TabularData] DP-26241: Check if table content is set before rendering. (#1688)
+
+### Fixed 
+- (Assets) [Accordion] DP-25745: Fix Accordion IDs to be unique on the page. (#1692)
+- (React) [TabContainer] DP-25774: Fix TabContainer content not appearing after SSR. (#1670)
+- (Patternlab, Assets) [StickyTOC] DP-25803: Fix jump link target margin top setting that blocks page content. (#1671)
+- (Patternlab) [Accordions] DP-25805: Fix accordions collapsing while scrolling on Android/iOS devices issue. (#1672)
+- (Patternlab) [Accordions] DP-25832: Set accordion initial state to collapse. (#1674)
+- (Patternlab) [MainNav] DP-26115: Fix mainNav submenu skipping the first item using arrow keys. (#1690)
+- (Patternlab) [BrandBanner] DP-17253: A11y - Brand banner lock icon accessibility fix. (#1691)
+- (Patternlab) [circleCI] DP-26230: Fixed deprecated circleCI Docker image. (#1682)
+- (Patternlab) [Details, HowTo] DP-26315: Force wordbreak and restrain content container width to enforce layout. (#1694)
+- (Patternlab, React) [MainNav, FocusTrapping] DP-26357: Fix Mayflower JS error due to null mainNav and focusTrapping modal. (#1696)
+- (Patternlab) [favicon] DP-26357: Fixed missing favicon. (#1696)
+
+### Added 
+- (Patternlab) [RichText] DP-25957: Add dir auto to rich text container.
+- (Assets, Patternlab, React, Core) [Icon] DP-26126: Add IconMessage. (#1679)
+
+### Removed 
+- (Patternlab) [MainNav] DP-26114: Eliminate links to top level topics in main navigation. (#1678)
+
 ## 11.25.1 (8/23/2022)
 ### Fixed 
 - (Patternlab) [HeaderHamburger] DP-24286: (a11y) Reorder the components to adjust the navigation order by screen readers. (#1646)

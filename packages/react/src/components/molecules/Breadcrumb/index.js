@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Breadcrumb = (props) => (
-  <nav aria-label="breadcrumb">
+  <nav aria-label="breadcrumb" className={props.className}>
     <ol className="ma__breadcrumb">
       {props.children}
     </ol>
@@ -15,8 +15,9 @@ const Breadcrumb = (props) => (
 );
 
 Breadcrumb.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  children: PropTypes.array
+  /** Custom classes added to the root element. */
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 
 export default Breadcrumb;

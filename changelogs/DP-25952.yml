@@ -1,6 +1,0 @@
-Added:
-  - project: Patternlab
-    component: RichText
-    description: Add dir auto to rich text container.
-    issue: DP-25957
-    impact: Patch

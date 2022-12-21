@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import parse from 'react-html-parser';
+import parse from 'html-react-parser';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 
 const Address = (props) => {

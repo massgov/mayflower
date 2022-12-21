@@ -1,0 +1,67 @@
+#!/usr/bin/env node
+/**
+ * Creates a tsx copy of the passed js/jsx file and tries to convert it into TS.
+ *
+ * Arguments:
+ * - source path of the js/jsx file,
+ * - (optional) `--overwrite` to overwrite the already existing tsx file.
+ */
+
+const { existsSync, statSync, copyFileSync } = require('fs')
+const { exec } = require("child_process");
+
+const args = process.argv.slice(2)
+const sourceFilepath = args[0];
+if (!sourceFilepath) {
+  console.error('Please pass the source file path.');
+  process.exit(1);
+}
+
+const fileExtensionRegex = /\.(jsx?)$/
+if (!fileExtensionRegex.test(sourceFilepath)) {
+  console.error('The source file must have a .js or a .jsx extension.');
+  process.exit(1);
+}
+
+const stat = statSync(sourceFilepath, {throwIfNoEntry: false})
+if (!stat) {
+  console.error(`The source file "${sourceFilepath}" doesn't exist.`);
+  process.exit(1);
+}
+if (!stat.isFile()) {
+  console.error(`The source path "${sourceFilepath}" is not a file.`);
+  process.exit(1);
+}
+
+const destinationFilepath = sourceFilepath.replace(fileExtensionRegex, '.tsx')
+if (existsSync(destinationFilepath) && !args.includes('--overwrite')) {
+  console.error(`The destination file ${destinationFilepath} already exists. Add '--overwrite' after the source filepath to overwrite the existing file.`)
+  process.exit(1);
+}
+
+copyFileSync(sourceFilepath, destinationFilepath)
+console.log(`Copied "${sourceFilepath}" to "${destinationFilepath}".`);
+
+
+const transformPath = `${__dirname}/transform.ts`;
+const options = {
+  verbose: 1,
+}
+
+// We have to run it through a shell in order to use TS in the transformation file.
+console.log(`Executing JSCodeShift transformation on "${destinationFilepath}"...`);
+const command = `${__dirname}/../node_modules/.bin/jscodeshift -t "${transformPath}" "${destinationFilepath}"`
+exec(command, (error, stdout, stderr) => {
+  if (error) {
+    console.error('Transformation has failed.', error.message);
+    process.exit(1)
+  }
+
+  if (stderr) {
+    console.error(stderr);
+    process.exit(1)
+  }
+
+  console.log('Transformation is complete. Output of the jscodeshift:');
+  console.log(stdout);
+})
