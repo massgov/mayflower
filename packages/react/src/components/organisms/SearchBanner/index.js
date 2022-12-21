@@ -71,10 +71,14 @@ class SearchBanner extends React.Component {
       'ma__search-banner__filter-box-toggle--expanded': this.state.filterBoxExpanded,
       'ma__search-banner__filter-box-toggle--desktop-hidden': this.props.filterDesktopHidden
     });
+    let searchFormTitle = this.props.searchFormTitle;
+    if (!searchFormTitle) {
+      searchFormTitle = 'Search Form.';
+    }
     return(
       <div className={searchBannerClasses}>
         <div className="main-content--two">
-          <h2 className="visually-hidden">Search Form</h2>
+          <h2 className="visually-hidden">searchFormTitle</h2>
           <HeaderSearch {...searchBox} />
         </div>
         {tabs && <Tabs {...tabs} />}
@@ -116,7 +120,9 @@ SearchBanner.propTypes = {
   /** Controls if we allow filterbox toggle to render only on mobile */
   filterDesktopHidden: PropTypes.bool,
   /** Filter box toggle button text */
-  filterToggleText: PropTypes.string
+  filterToggleText: PropTypes.string,
+  /** The visually hidden search form title */
+  searchFormTitle: PropTypes.string
 };
 
 SearchBanner.defaultProps = {

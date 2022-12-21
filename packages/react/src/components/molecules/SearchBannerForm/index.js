@@ -20,15 +20,12 @@ const SearchBannerForm = (searchBannerForm) => {
   classes = classes.concat(['ma__search-banner__button']);
 
   return(
-    <>
-      {searchBannerForm.title && (<h2 className="visually-hidden">searchBannerForm.title</h2>)}
-      <form className="ma__search-banner__form" action={searchBannerForm.action} onSubmit={searchBannerForm.onSubmit}>
-        <div className="ma__search-banner__input">
-          <InputText {...searchBannerForm.inputText} />
-        </div>
-        <ButtonWithIcon {...searchBannerForm.buttonSearch} classes={classes} />
-      </form>
-    </>
+    <form className="ma__search-banner__form" action={searchBannerForm.action} onSubmit={searchBannerForm.onSubmit}>
+      <div className="ma__search-banner__input">
+        <InputText {...searchBannerForm.inputText} />
+      </div>
+      <ButtonWithIcon {...searchBannerForm.buttonSearch} classes={classes} />
+    </form>
   );
 };
 
@@ -40,9 +37,7 @@ SearchBannerForm.propTypes = {
   /** The properties for the text input field */
   inputText: PropTypes.shape(InputText.propTypes).isRequired,
   /** The Search button */
-  buttonSearch: PropTypes.shape(ButtonWithIcon.propTypes).isRequired,
-  /** The visually hidden search form title */
-  title: PropTypes.string
+  buttonSearch: PropTypes.shape(ButtonWithIcon.propTypes).isRequired
 };
 
 export default SearchBannerForm;
