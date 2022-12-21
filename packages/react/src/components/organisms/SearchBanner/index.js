@@ -47,7 +47,7 @@ class SearchBanner extends React.Component {
 
   render() {
     const {
-      tabs, searchBox, filterBox, filterToggleText, className
+      tabs, searchBox, filterBox, filterToggleText, className, searchFormTitle
     } = this.props;
     let submitButton;
 
@@ -71,13 +71,12 @@ class SearchBanner extends React.Component {
       'ma__search-banner__filter-box-toggle--expanded': this.state.filterBoxExpanded,
       'ma__search-banner__filter-box-toggle--desktop-hidden': this.props.filterDesktopHidden
     });
-    let searchFormTitle = this.props.searchFormTitle;
-    if (!searchFormTitle) {
-      searchFormTitle = 'Search Form.';
-    }
     return(
       <div className={searchBannerClasses}>
         <div className="main-content--two">
+          { searchFormTitle ? (<h2 className="visually-hidden">searchFormTitle</h2>)
+            : (<h2 className="visually-hidden">Search Form</h2>)
+          }
           <h2 className="visually-hidden">searchFormTitle</h2>
           <HeaderSearch {...searchBox} />
         </div>
