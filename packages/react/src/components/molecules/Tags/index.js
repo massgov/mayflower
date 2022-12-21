@@ -51,7 +51,9 @@ class Tags extends React.Component {
         ))}
         { tags.length > 1 && (
         <button type="button" className="ma__tags-clear js-results-heading-clear" onClick={() => this.handleClearAll()}>
-          Clear all {this.props.clearAllContext && (<span className="ma__visually-hidden"> {this.props.clearAllContext}</span>)}</button>
+          Clear all
+          {this.props.clearAllContext && (<span className="ma__visually-hidden"> {this.props.clearAllContext}</span>)}
+        </button>
         )}
       </div>
       )
