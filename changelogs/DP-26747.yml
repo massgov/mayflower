@@ -53,6 +53,6 @@
 #___EXAMPLE___
 Added:
   - project: React
-    description: Add autocomplete attribute to HeaderSearch molecule.
-    issue: DP-26730
+    description: Added disabled property for SelectBox.
+    issue: DP-26747
     impact: minor

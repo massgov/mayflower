@@ -77,6 +77,7 @@ class SelectBox extends React.Component {
             className={selectClassNames}
             onChange={this.handleOnChange}
             value={selectedValue}
+            disabled={this.props.disabled}
           >
             {options.map((option) => (
               <option key={option.value} value={option.value}>
@@ -117,7 +118,8 @@ SelectBox.propTypes = {
   /** Wrapper class for section tag */
   className: PropTypes.string,
   /** The default value for the select box */
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 SelectBox.defaultProps = {
