@@ -10,13 +10,15 @@ export default (function(window, document, $) {
     const $submitButtonWrapper = $feedbackForm.find(".submitButtonWrapper");
     const $feedbackButton = $('.ma__fixed-feedback-button');
 
-    if($feedbackButton) {
+    if($feedbackButton && $feedbackButton.length > 0) {
+      console.log($feedbackButton)
       const topOffset = $feedbackForm.offset() && $feedbackForm.offset().top;
-      console.log('form: '+topOffset)
       const stickyOnScroll = () => {
-        const feedbackButtonTopOffset = $feedbackButton.offset() && $feedbackButton.offset().top;
-        console.log('button: '+feedbackButtonTopOffset)
-        if(feedbackButtonTopOffset >= topOffset) {
+        console.log('form: '+topOffset)
+        // calculate fixed feedback button offset bottom using its fixed position (see css positioning)
+        const feedbackButtonBottomOffset = window.scrollY + (window.innerHeight - 18 * (14.5 / 1.2));
+        console.log('button: '+feedbackButtonBottomOffset)
+        if(feedbackButtonBottomOffset >= topOffset) {
           $feedbackButton.addClass('hide-button-vis');
           $feedbackButton.attr("aria-hidden", "true");
         } else {
