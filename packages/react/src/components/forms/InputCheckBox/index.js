@@ -19,7 +19,7 @@ const CheckBox = (props) => {
   const context = React.useContext(InputContext);
   const { value } = context;
   const {
-    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex
+    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex, role
   } = props;
 
   React.useEffect(() => {
@@ -50,7 +50,8 @@ const CheckBox = (props) => {
     checked: value === props.value,
     onClick: handleClick,
     tabIndex,
-    disabled
+    disabled,
+    role
   };
 
   if (is.fn(onKeyDown)) {
