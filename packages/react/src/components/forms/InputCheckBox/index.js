@@ -19,7 +19,7 @@ const CheckBox = (props) => {
   const context = React.useContext(InputContext);
   const { value } = context;
   const {
-    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex, role
+    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex
   } = props;
 
   React.useEffect(() => {
@@ -50,8 +50,7 @@ const CheckBox = (props) => {
     checked: value === props.value,
     onClick: handleClick,
     tabIndex,
-    disabled,
-    role
+    disabled
   };
 
   if (is.fn(onKeyDown)) {
@@ -146,7 +145,8 @@ InputCheckBox.propTypes = {
     PropTypes.object
   ]).isRequired,
   /** Pass array of classNames to input wrapper div */
-  classes: PropTypes.arrayOf(PropTypes.string)
+  classes: PropTypes.arrayOf(PropTypes.string),
+  role: PropTypes.string
 };
 
 export default InputCheckBox;
