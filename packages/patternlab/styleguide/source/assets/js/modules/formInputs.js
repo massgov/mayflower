@@ -38,7 +38,7 @@ export default (function (window, document, $, undefined) {
 
         $el.next(".remainingChar").find(".remainChar").text(remaining);
 
-        $el.on("keyup mouseup", function () {
+        $el.on("keyup mouseup blur", function () {
           remaining = maxlength - $el.val().length;
 
           $el.next("div[aria-hidden]").find(".remainChar").text(remaining);
