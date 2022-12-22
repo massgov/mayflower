@@ -23,6 +23,8 @@ helpTip: {
     type: string / required
   expanded: 
     type: boolean / optional (defaults to false)
+  isDescription:
+    type: boolean / optional (defaults to false) - whether the helpTip is being referenced to as aria-describedBy
 }
 ~~~
 

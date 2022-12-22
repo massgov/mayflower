@@ -27,13 +27,13 @@
   >
     <button
       class="ma__help-tip__close-mobile"
-      aria-label="close tooltip"
+      {{ helpTip.isDescription ?: 'aria-label="close tooltip"' }}
     >
       {{ icon('close') }}
     </button>
     <button
       class="ma__help-tip__close-desktop"
-      aria-label="close tooltip"
+      {{ helpTip.isDescription ?: 'aria-label="close tooltip"' }}
     >
       {{ icon('close') }}
     </button>
