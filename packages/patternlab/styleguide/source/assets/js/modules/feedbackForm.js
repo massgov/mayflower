@@ -8,22 +8,18 @@ export default (function(window, document, $) {
     const $loadRadios = $feedbackForm.find('.feedback-load input[type="radio"]');
     const $submitButton = $feedbackForm.find(".submitButton");
     const $submitButtonWrapper = $feedbackForm.find(".submitButtonWrapper");
-    const $feedbackButton = $('.ma__fixed-feedback-button');
+    const feedbackButton = document.getElementsByClassName('ma__fixed-feedback-button')[0];
 
-    if($feedbackButton && $feedbackButton.length > 0) {
-      console.log($feedbackButton)
+    if(feedbackButton) {
       const topOffset = $feedbackForm.offset() && $feedbackForm.offset().top;
       const stickyOnScroll = () => {
-        console.log('form: '+topOffset)
-        // calculate fixed feedback button offset bottom using its fixed position (see css positioning)
-        const feedbackButtonBottomOffset = window.scrollY + (window.innerHeight - 18 * (14.5 / 1.2));
-        console.log('button: '+feedbackButtonBottomOffset)
+        const feedbackButtonBottomOffset = window.scrollY + feedbackButton.getBoundingClientRect().bottom;
         if(feedbackButtonBottomOffset >= topOffset) {
-          $feedbackButton.addClass('hide-button-vis');
-          $feedbackButton.attr("aria-hidden", "true");
+          feedbackButton.classList.add('hide-button-vis');
+          feedbackButton.setAttribute("aria-hidden", "true");
         } else {
-          $feedbackButton.removeClass('hide-button-vis');
-          $feedbackButton.attr("aria-hidden", "false");
+          feedbackButton.classList.remove('hide-button-vis');
+          feedbackButton.setAttribute("aria-hidden", "false");
         }
       }
 
