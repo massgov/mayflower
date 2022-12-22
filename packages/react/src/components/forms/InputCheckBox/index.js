@@ -19,7 +19,7 @@ const CheckBox = (props) => {
   const context = React.useContext(InputContext);
   const { value } = context;
   const {
-    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex
+    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex, role
   } = props;
 
   React.useEffect(() => {
@@ -50,7 +50,8 @@ const CheckBox = (props) => {
     checked: value === props.value,
     onClick: handleClick,
     tabIndex,
-    disabled
+    disabled,
+    role
   };
 
   if (is.fn(onKeyDown)) {
@@ -84,12 +85,13 @@ CheckBox.propTypes = {
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func,
   defaultValue: PropTypes.string,
-  tabIndex: PropTypes.number
+  tabIndex: PropTypes.number,
+  role: PropTypes.string
 };
 
 const InputCheckBox = (props) => {
   const {
-    icon, label, onChange, onKeyDown, value, tabIndex, ...inputProps
+    icon, label, onChange, onKeyDown, value, tabIndex, role, ...inputProps
   } = props;
   // Input and checkBox share the props.checked, props.id values.
   const checkBoxProps = {
@@ -102,7 +104,8 @@ const InputCheckBox = (props) => {
     onKeyDown,
     tabIndex,
     disabled: props.disabled,
-    defaultValue: props.defaultValue
+    defaultValue: props.defaultValue,
+    role
   };
   return(
     <Input {...inputProps}>
