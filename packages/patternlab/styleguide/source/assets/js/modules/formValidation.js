@@ -1,9 +1,7 @@
 export default (function (window,document,$,undefined) {
 
   $('form').each(function(){
-    let $form = $(this),
-        $errorList = $form.find('.js-error-list');
-
+    let $form = $(this);
 
     $form.find('button[type="submit"], input[type="submit"]').on('click',function(e){
       let submitForm = true,
@@ -49,14 +47,17 @@ export default (function (window,document,$,undefined) {
         e.preventDefault();
         // show the form error message 
         $form.addClass('has-error');
+
+        const $firstRequired = $('.js-is-required.has-error').get(0);
+
         // scroll up to the error message
         let position = $form.offset();
         
         // scroll to the top of the form where the list of errors should be
         // using 100px offset to compenstate for possible sticky headers
         $("html,body").stop(true,true).animate({scrollTop:position.top - 100}, '750', function(){
-          // bring focus to the item we just scrolled to
-          $errorList.focus();
+          // bring focus to the first required field that has an error
+          $firstRequired.focus();
         });
       }
     });
