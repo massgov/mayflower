@@ -15,6 +15,21 @@ export default (function (document) {
           helpText.classList.add('expanded');
           trigger.classList.add('ma__help-tip__trigger--active');
           trigger.setAttribute('aria-expanded', true);
+
+          // On mobile, when page scrolls, the help text should only stay expanded if its bottom boundary is below the trigger text, or else it should collapse automatically. As when the page is scrolled up past the trigger text, users lose context over the help text and it risks colliding with other elements on the page.
+          const topOffset = trigger.offsetTop;
+          const stickyOnScroll = () => {
+            const helpTextOffset = helpText.getBoundingClientRect().bottom + window.scrollY;
+            if (topOffset > helpTextOffset) {
+              isExpanded = false;
+              toggleExpansion(false);
+            }
+          }
+    
+          window.onscroll = function () {
+            stickyOnScroll();
+          };
+      
         } else {
           helpText.classList.add('collapsed');
           helpText.classList.remove('expanded');
@@ -26,23 +41,6 @@ export default (function (document) {
       // initialize
       toggleExpansion(isExpanded);
 
-      // On mobile, when page scrolls, the help text should only stay expanded below the trigger text, or else it should collapse automatically. As when the page is scrolled up past the trigger text, users lose context over the help text.
-      if(isExpanded) {
-        const topOffset = trigger.offsetTop;
-        console.log('trigger: '+topOffset)
-        const stickyOnScroll = () => {
-          const helpTextOffset = helpText.offsetTop + window.scrollY;
-          console.log('helptext: '+helpTextOffset)
-          if (topOffset > helpTextOffset) {
-            isExpanded = false;
-            toggleExpansion(false);
-          }
-        }
-  
-        window.onscroll = function () {
-          stickyOnScroll();
-        };
-      }
 
       // toggle on trigger click
       trigger.onclick = ((e) => {
