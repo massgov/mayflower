@@ -18,31 +18,35 @@ export default (function (window, document, $, undefined) {
 
     $el.wrap('<div class="ma__textarea__wrapper"></div>');
 
-    // Generate ID for aria-live region.
-    var randomId = Math.floor(Math.random() * 90000) + 10000;
+    $el.focus(function() {
+        // Generate ID for aria-live region.
+        var randomId = Math.floor(Math.random() * 90000) + 10000;
 
-    // Add a container for remaining char info.
-    $el
-      .parent()
-      .append(
-        message +
-          '<span role="region" aria-live="polite" class="remainingChar ma__visually-hidden">' +
-          remaining +
-          " characters remaining</span>"
-      );
+        // Add a container for remaining char info.
+        $el
+          .parent()
+          .append(
+            message +
+              '<span role="region" aria-live="polite" class="remainingChar ma__visually-hidden">' +
+              remaining +
+              " characters remaining</span>"
+          );
 
-    // Associate text area and remaining char info container for aria-live region.
-    $el.attr("aria-controls", randomId);
-    $el.siblings(".remainingChar").attr("id", randomId);
+        // Associate text area and remaining char info container for aria-live region.
+        $el.attr("aria-controls", randomId);
+        $el.siblings(".remainingChar").attr("id", randomId);
 
-    $el.next(".remainingChar").find(".remainChar").text(remaining);
+        $el.next(".remainingChar").find(".remainChar").text(remaining);
 
-    $el.on("keyup mouseup blur", function () {
-      remaining = maxlength - $el.val().length;
+        $el.on("keyup mouseup", function () {
+          remaining = maxlength - $el.val().length;
 
-      $el.next("div[aria-hidden]").find(".remainChar").text(remaining);
-      $el.siblings(".remainingChar").text(remaining + " characters remaining");
-    });
+          $el.next("div[aria-hidden]").find(".remainChar").text(remaining);
+          $el.siblings(".remainingChar").text(remaining + " characters remaining");
+        });
+    })
+
+   
   });
 
   // number restricted input based on it's pattern (this must run prior to type="number")
