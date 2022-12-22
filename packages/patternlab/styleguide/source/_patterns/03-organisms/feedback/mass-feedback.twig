@@ -46,7 +46,7 @@
           {% set textarea = affirmativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
           {% if alertMsg %}
-            <div class="ma__alert-msg" role="alert">{{ alertMsg }}</div>
+            <div class="ma__alert-msg" role="alert" id="{{ affirmativeTextarea.errorIds }}">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
             <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
@@ -56,7 +56,7 @@
           {% set textarea = negativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
           {% if alertMsg %}
-            <div class="ma__alert-msg" role="alert">{{ alertMsg }}</div>
+            <div class="ma__alert-msg" role="alert" id="{{ negativeTextarea.errorIds }}">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
             <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>

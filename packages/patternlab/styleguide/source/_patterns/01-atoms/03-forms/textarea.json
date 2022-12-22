@@ -6,6 +6,7 @@
     "maxlength": null,
     "id": "textarea_1",
     "name": "textarea",
-    "describedBy": "description-id"
+    "describedBy": "description-id",
+    "errorIds": "test-id"
   }
 }

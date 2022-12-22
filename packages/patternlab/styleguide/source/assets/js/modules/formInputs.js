@@ -33,7 +33,7 @@ export default (function (window, document, $, undefined) {
           );
 
         // Associate text area and remaining char info container for aria-live region.
-        $el.attr("aria-controls", randomId);
+        $el.attr("aria-controls", `${$el.attr("aria-controls")} ${randomId}`);
         $el.siblings(".remainingChar").attr("id", randomId);
 
         $el.next(".remainingChar").find(".remainChar").text(remaining);

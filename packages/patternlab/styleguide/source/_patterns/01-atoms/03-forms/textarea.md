@@ -27,5 +27,7 @@ textarea:  {
     type: string / required
   describeBy: 
     type: string / optional - description ID
+  errorIds: 
+    type: string / optional - aria-control IDs, separated by space
 }
 ~~~
