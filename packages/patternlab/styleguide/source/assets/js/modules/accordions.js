@@ -109,11 +109,13 @@ export default (function (window,document,$,undefined) {
       $content.stop(true,true).slideUp();
       $status.attr('aria-label', 'click to show info');
       $el.removeClass('is-open');
+      $link.attr('aria-expanded', false);
       $statusIcon.text('+');
     } else {
       $content.stop(true,true).slideDown();
       $status.attr('aria-label', 'click to hide info');
       $el.addClass('is-open');
+      $link.attr('aria-expanded', true);
       $statusIcon.text('|');
     }
   }
