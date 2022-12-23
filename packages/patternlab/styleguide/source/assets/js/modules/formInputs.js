@@ -10,7 +10,7 @@ export default (function (window, document, $, undefined) {
 
     var remaining = maxlength - $el.val().length;
     var message =
-      '<div aria-hidden="true"><span class="remainChar">' +
+      '<div class="remainCharWrapper" aria-hidden="true"><span class="remainChar">' +
         remaining +
         "</span>/" +
         maxlength +
@@ -40,9 +40,17 @@ export default (function (window, document, $, undefined) {
     $el.on("keyup mouseup blur", function () {
       remaining = maxlength - $el.val().length;
 
-      $el.next("div[aria-hidden]").find(".remainChar").text(remaining);
+      $el.next(".remainCharWrapper").find(".remainChar").text(remaining);
       $el.siblings(".remainCharSR").text(remaining + " characters remaining");
     });
+
+    // only announce remaining characters in SR if the text area is in focus.
+    $el.focus(function () {
+      $el.siblings(".remainCharSR").attr('aria-hidden', false);
+    })
+    $el.blur(function () {
+      $el.siblings(".remainCharSR").attr('aria-hidden', true);
+    })
   });
 
   // number restricted input based on it's pattern (this must run prior to type="number")
