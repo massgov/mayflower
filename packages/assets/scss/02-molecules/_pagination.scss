@@ -163,5 +163,14 @@
       margin: 0 .25em;
     }
   }
+
+  a.visually-hidden.back-to-top-link {
+
+    &:focus {
+      position: unset;
+      height: unset;
+      width: unset;
+    }
+  }
 }
 
