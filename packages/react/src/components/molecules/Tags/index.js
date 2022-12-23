@@ -64,11 +64,11 @@ class Tags extends React.Component {
 Tags.propTypes = {
   /** The tags applied to the search list <br/>
         type: The type of tag <br />
-        text: The text displayed by the tag (required) <br />
+        text: The content displayed by the tag (required) <br />
         value: The value of the tag  */
   tags: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.string,
-    text: PropTypes.string.isRequired,
+    text: PropTypes.node.isRequired,
     value: PropTypes.string
   })),
   /** Custom onClick function that triggers when 'Clear all' button is clicked */

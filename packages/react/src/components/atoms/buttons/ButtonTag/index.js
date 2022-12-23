@@ -25,8 +25,8 @@ ButtonTag.propTypes = {
   type: PropTypes.string.isRequired,
   /** The label text of the sort button */
   value: PropTypes.string.isRequired,
-  /** The label text of the sort button */
-  text: PropTypes.string.isRequired,
+  /** The content of the button */
+  text: PropTypes.node.isRequired,
   /** An array of sort button objects */
   handleClick: PropTypes.func.isRequired
 };
