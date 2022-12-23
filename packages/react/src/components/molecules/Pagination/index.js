@@ -102,12 +102,12 @@ const Pagination = (props) => {
         {backToTop && backToTop.text
           && (
             <a
-              className={'visually-hidden'}
+              className={'visually-hidden back-to-top-link'}
               href={backToTop.fragment || '#'}
-          >
-            {backToTop.text}
-          </a>
-        )}
+            >
+              {backToTop.text}
+            </a>
+          )}
       </nav>
     </div>
   );
