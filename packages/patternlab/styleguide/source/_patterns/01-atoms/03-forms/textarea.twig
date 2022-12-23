@@ -18,5 +18,5 @@
   {% endif %}
   {{ textarea.required ? 'required' : '' }} /></textarea>
 {% if textarea.errorMsg %}
-  <div class="ma__error-msg" aria-role="alert" id={{requiredErrorID}}>{{ textarea.errorMsg }}</div>
+  <div class="ma__error-msg" role="alert" id={{requiredErrorID}}>{{ textarea.errorMsg }}</div>
 {% endif %}
