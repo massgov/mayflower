@@ -110,13 +110,11 @@ export default (function (window,document,$,undefined) {
       $status.attr('aria-label', 'click to show info');
       $el.removeClass('is-open');
       $statusIcon.text('+');
-      $link.attr('aria-expanded', false);
     } else {
       $content.stop(true,true).slideDown();
       $status.attr('aria-label', 'click to hide info');
       $el.addClass('is-open');
       $statusIcon.text('|');
-      $link.attr('aria-expanded', true);
     }
   }
 
@@ -145,7 +143,6 @@ export default (function (window,document,$,undefined) {
 
     $content.attr('id', id);
     $link.attr('aria-controls', id);
-    // accordionAriaToggle($link, open);
 
     if(isExtended) {
       let childs = $el.find('.ma__collapsible-content__body-item a').length;
@@ -155,6 +152,7 @@ export default (function (window,document,$,undefined) {
 
 
     if(open) {
+      $link.find(`.js-accordion-status-icon`).text('|');
       // setup the inline display block
       $content.stop(true,true).slideDown();
     }
