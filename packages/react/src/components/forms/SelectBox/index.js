@@ -85,7 +85,7 @@ class SelectBox extends React.Component {
               </option>
             ))}
           </select>
-          <div className="ma__select-box__link">
+          <div className={this.props.disabled ? 'ma__select-box__link ma__select-box__disabled' : 'ma__select-box__link'}>
             <span className="js-dropdown-link">{valueInOptions ? selected : options[0].text}</span>
             <span className="ma__select-box__icon" />
           </div>
