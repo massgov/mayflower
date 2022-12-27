@@ -3,9 +3,9 @@
  * @module @massds/mayflower-react/GenTeaserKeyAction
  * @requires module:@massds/mayflower-assets/scss/03-organisms/gen-teaser
  */
-import React from "react";
-import ReactHtmlParser from "html-react-parser";
-import PropTypes from "prop-types";
+import React from 'react';
+import ReactHtmlParser from 'html-react-parser';
+import PropTypes from 'prop-types';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 
 /**

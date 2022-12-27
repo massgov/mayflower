@@ -39,11 +39,9 @@ import Event from 'MayflowerReactGenTeaser/GenTeaserEvent';
 import InfoDetails from 'MayflowerReactGenTeaser/GenTeaserInfoDetails';
 import Tags from 'MayflowerReactGenTeaser/GenTeaserTags';
 
-const GenTeaser = (props) => {
-  return (
-    <Container {...props} />
-  )
-}
+const GenTeaser = (props) => (
+  <Container {...props} />
+);
 
 GenTeaser.propTypes = Container.propTypes;
 

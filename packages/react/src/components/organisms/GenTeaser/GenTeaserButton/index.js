@@ -3,8 +3,8 @@
  * @module @massds/mayflower-react/GenTeaserButton
  * @requires module:@massds/mayflower-assets/scss/03-organisms/gen-teaser
  */
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import IconExpand from 'MayflowerReactBase/Icon/IconExpand';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 

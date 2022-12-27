@@ -3,8 +3,8 @@
  * @module @massds/mayflower-react/GenTeaserSubLinks
  * @requires module:@massds/mayflower-assets/scss/03-organisms/gen-teaser
  */
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * SubLinks wrapper for formatting key actions into 2 columns

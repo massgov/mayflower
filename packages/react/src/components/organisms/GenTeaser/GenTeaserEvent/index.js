@@ -3,8 +3,8 @@
  * @module @massds/mayflower-react/GenTeaserEvent
  * @requires module:@massds/mayflower-assets/scss/03-organisms/gen-teaser
  */
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import IconCalendar from 'MayflowerReactBase/Icon/IconCalendar';
 import LinkDropdown from 'MayflowerReactMolecules/LinkDropdown';
 import EventTime from 'MayflowerReactContact/EventTime';

@@ -3,9 +3,9 @@
  * @module @massds/mayflower-react/GenTeaserContainer
  * @requires module:@massds/mayflower-assets/scss/03-organisms/gen-teaser
  */
-import React from "react";
-import classNames from "classnames";
-import PropTypes from "prop-types";
+import React from 'react';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const GenTeaserContainer = (props) => {
   const {
