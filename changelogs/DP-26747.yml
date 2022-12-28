@@ -53,6 +53,6 @@
 #___EXAMPLE___
 Added:
   - project: React
-    description: Added disabled property for SelectBox.
+    description: Added disabled property for SelectBox. (#1715)
     issue: DP-26747
     impact: minor

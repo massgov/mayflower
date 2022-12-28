@@ -53,6 +53,6 @@
 #___EXAMPLE___
 Added:
   - project: React
-    description: Added visually hidden form title to SearchBannerForm.
+    description: Added visually hidden form title to SearchBannerForm. (#1715)
     issue: DP-26734
     impact: minor

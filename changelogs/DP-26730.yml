@@ -53,6 +53,6 @@
 #___EXAMPLE___
 Added:
   - project: React
-    description: Add autocomplete attribute to HeaderSearch molecule.
+    description: Add autocomplete attribute to HeaderSearch molecule. (#1715)
     issue: DP-26730
     impact: minor

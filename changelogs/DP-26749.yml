@@ -53,6 +53,6 @@
 #___EXAMPLE___
 Added:
   - project: React
-    description: Added back to top property for Pagination molecule.
+    description: Added back to top property for Pagination molecule. (#1715)
     issue: DP-26749
     impact: minor

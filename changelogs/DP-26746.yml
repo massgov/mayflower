@@ -53,6 +53,6 @@
 #___EXAMPLE___
 Added:
   - project: React
-    description: Added clear all button context for Tags molecule.
+    description: Added clear all button context for Tags molecule. (#1715)
     issue: DP-26746
     impact: minor
