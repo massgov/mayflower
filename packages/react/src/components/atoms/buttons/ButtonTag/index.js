@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ButtonTag = ({
-  type, value, text, handleClick
+  type, value, text, description, handleClick
 }) => (
   <button
     type="button"
@@ -17,6 +17,14 @@ const ButtonTag = ({
     onClick={handleClick}
   >
     {text}
+    {!!description && (
+      <span className="visually-hidden">
+        {description}
+      </span>
+    )}
+    <span className="ma__button-tag__icon" aria-hidden="true">
+      +
+    </span>
   </button>
 );
 
@@ -27,6 +35,8 @@ ButtonTag.propTypes = {
   value: PropTypes.string.isRequired,
   /** The content of the button */
   text: PropTypes.node.isRequired,
+  /** The visually hidden description of the button */
+  description: PropTypes.node,
   /** An array of sort button objects */
   handleClick: PropTypes.func.isRequired
 };

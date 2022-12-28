@@ -56,3 +56,13 @@ Changed:
     description: Let the button tag content be a node, not just plain text. (#1716)
     issue: DP-26745
     impact: Minor
+  - project: Assets, React
+    component: ButtonTag
+    description: Render the icon in HTML rather than CSS. This way it could be hidden from screen readers. (#1716)
+    issue: DP-26745
+    impact: Minor
+  - project: React
+    component: Tags, ButtonTag
+    description: Add a visually hidden description prop to the button tag component. (#1716)
+    issue: DP-26745
+    impact: Minor
