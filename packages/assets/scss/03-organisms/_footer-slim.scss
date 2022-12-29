@@ -28,8 +28,13 @@
       &--stacked {
         display: flex;
         position: relative;
+        margin: 0;
         flex-direction: row;
         align-items: center;
+
+        & > .ma__site-logo {
+          margin-right: 1rem;
+        }
       }
     }
 
