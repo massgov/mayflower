@@ -16,12 +16,17 @@
       align-items: flex-start;
     }
 
+    &--stacked {
+      flex-direction: column;
+    }
+
     &__logos {
       min-width: 45px;
       margin-right: 1rem;
       margin-bottom: 1rem;
 
       &--stacked {
+        display: flex;
         position: relative;
         flex-direction: row;
         align-items: center;
