@@ -9,18 +9,17 @@
 
   &__container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     @media ($bp-large-min) {
-      flex-direction: column;
+      flex-direction: row;
       align-items: flex-start;
     }
 
     &__logos {
-      // display: flex;
-      // flex-direction: row;
-      // align-items: center;
+      min-width: 45px;
       margin-right: 1rem;
+      margin-bottom: 1rem;
 
       &--stacked {
         position: relative;
