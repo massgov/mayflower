@@ -5,20 +5,22 @@
  * @requires module:@massds/mayflower-assets/scss/01-atoms/comp-heading
  * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
  */
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 // import child components
-import CompHeading from "MayflowerReactHeadings/CompHeading";
-import Paragraph from "MayflowerReactText/Paragraph";
-import DecorativeLink from "MayflowerReactLinks/DecorativeLink";
+import CompHeading from 'MayflowerReactHeadings/CompHeading';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 
 const LinkList = (props) => {
-  const { compHeading, description, stacked, hideBullets, links, more } = props;
-  const bulletClass = hideBullets ? "ma__link-list__items--no-bullets" : "";
+  const {
+    compHeading, description, stacked, hideBullets, links, more
+  } = props;
+  const bulletClass = hideBullets ? 'ma__link-list__items--no-bullets' : '';
   const length = links.length;
   const halfLength = Math.ceil(length / 2);
-  return (
+  return(
     <section className="ma__link-list">
       {compHeading && <CompHeading {...compHeading} />}
       {description && <Paragraph {...description} />}
