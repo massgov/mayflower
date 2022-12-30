@@ -28,8 +28,11 @@
     }
 
     &_columns {
+
       @media ($bp-medium-min) {
+
         .item-left {
+
           @include span-columns(6);
           margin-right: calc(#{flex-gutter(12)} + 10px);
           display: list-item;
@@ -38,8 +41,11 @@
     }
 
     &--no-bullets.ma__link-list__items_columns {
+
       @media ($bp-medium-min) {
+
         .item-left {
+
           @include span-columns(6);
           margin-right: flex-gutter(12);
           display: list-item;
