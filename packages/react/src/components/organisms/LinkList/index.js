@@ -36,18 +36,16 @@ const LinkList = (props) => {
           </ul>
         ) : (
           <>
-            <ul className={`ma__link-list__items ${bulletClass}`}>
+            <ul className={`ma__link-list__items ma__link-list__items_columns ${bulletClass}`}>
               { links.slice(0, halfLength).map((link, index) => (
                 /* eslint-disable-next-line react/no-array-index-key */
-                <li className="ma__link-list__item" key={index}>
+                <li className="ma__link-list__item item-left" key={index}>
                   <DecorativeLink {...link} />
                 </li>
               ))}
-            </ul>
-            <ul className={`ma__link-list__items ${bulletClass}`}>
               { links.slice(halfLength, length).map((link, index) => (
                 /* eslint-disable-next-line react/no-array-index-key */
-                <li className="ma__link-list__item" key={index + halfLength}>
+                <li className="ma__link-list__item item-right" key={index + halfLength}>
                   <DecorativeLink {...link} />
                 </li>
               ))}
