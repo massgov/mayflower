@@ -73,7 +73,7 @@ LinkList.propTypes = {
   /** List of links rendered */
   links: PropTypes.arrayOf(PropTypes.shape(DecorativeLink.PropTypes)).isRequired,
   /** `@atoms/DecorativeLink` as see all link */
-  more: PropTypes.shape(DecorativeLink.PropTypes),
+  more: PropTypes.shape(DecorativeLink.PropTypes)
 };
 
 export default LinkList;
