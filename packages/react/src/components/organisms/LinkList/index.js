@@ -22,12 +22,12 @@ const LinkList = (props) => {
   const halfLength = Math.ceil(length / 2);
   return(
     <section className="ma__link-list">
-      { compHeading && <CompHeading {...compHeading} />}
-      { description && <Paragraph {...description} />}
+      {compHeading && <CompHeading {...compHeading} />}
+      {description && <Paragraph {...description} />}
       <div className="ma__link-list__container">
-        { (stacked || length < 4) ? (
+        {stacked || length < 4 ? (
           <ul className={`ma__link-list__items ${bulletClass}`}>
-            { links.map((link, index) => (
+            {links.map((link, index) => (
               /* eslint-disable-next-line react/no-array-index-key */
               <li className="ma__link-list__item" key={index}>
                 <DecorativeLink {...link} />
@@ -35,28 +35,29 @@ const LinkList = (props) => {
             ))}
           </ul>
         ) : (
-          <>
-            <ul className={`ma__link-list__items ${bulletClass}`}>
-              { links.slice(0, halfLength).map((link, index) => (
-                /* eslint-disable-next-line react/no-array-index-key */
-                <li className="ma__link-list__item" key={index}>
-                  <DecorativeLink {...link} />
-                </li>
-              ))}
-            </ul>
-            <ul className={`ma__link-list__items ${bulletClass}`}>
-              { links.slice(halfLength, length).map((link, index) => (
-                /* eslint-disable-next-line react/no-array-index-key */
-                <li className="ma__link-list__item" key={index + halfLength}>
-                  <DecorativeLink {...link} />
-                </li>
-              ))}
-            </ul>
-          </>
+          <ul
+            className={`ma__link-list__items ma__link-list__items_columns ${bulletClass}`}
+          >
+            {links.slice(0, halfLength).map((link, index) => (
+              /* eslint-disable-next-line react/no-array-index-key */
+              <li className="ma__link-list__item item-left" key={index}>
+                <DecorativeLink {...link} />
+              </li>
+            ))}
+            {links.slice(halfLength, length).map((link, index) => (
+              /* eslint-disable-next-line react/no-array-index-key */
+              <li
+                className="ma__link-list__item item-right"
+                key={index + halfLength}
+              >
+                <DecorativeLink {...link} />
+              </li>
+            ))}
+          </ul>
         )}
       </div>
       <div className="ma__link-list__see-all">
-        { more && <DecorativeLink {...more} /> }
+        {more && <DecorativeLink {...more} />}
       </div>
     </section>
   );
