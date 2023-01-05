@@ -53,6 +53,6 @@
 #___EXAMPLE___
 Added:
   - project: React
-    description: Added role attribute to InputCheckbox.
+    description: Added role attribute to InputCheckbox. (#1715)
     issue: DP-26743
     impact: minor

@@ -53,6 +53,6 @@
 #___EXAMPLE___
 Added:
   - project: React
-    description: Allows extra properties to be passed to BreadcrumbItem.
+    description: Allows extra properties to be passed to BreadcrumbItem. (#1715)
     issue: DP-26752
     impact: minor
