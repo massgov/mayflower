@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: OrgNav
+    description: Fix org nav being cut off at the bottom of the screen on mobile. (#1721)
+    issue: DP-26647
+    impact: Patch
