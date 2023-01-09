@@ -22,14 +22,26 @@ export default (function (window, document, $, undefined) {
     var randomId = Math.floor(Math.random() * 90000) + 10000;
 
     // Add a container for remaining char info.
-    $el
-      .parent()
-      .append(
-        message +
-          '<span role="region" aria-live="polite" class="remainCharSR ma__visually-hidden" aria-hidden="true">' +
-          remaining +
-          " characters remaining</span>"
+    if ($('.feedback-response')) {
+      $el
+        .parent()
+        .append(message);
+
+      $el
+        .parent()
+        .next('.ma__updated-info')
+        .find('.remainCharSR')
+        .text(remaining + " characters remaining");
+    } else {
+      $el
+        .parent()
+        .append(
+          message +
+            '<span role="region" aria-live="polite" class="remainCharSR ma__visually-hidden" aria-hidden="true">' +
+            remaining +
+            " characters remaining</span>"
       );
+    }
 
     // Associate text area and remaining char info container for aria-live region.
     $el.attr("aria-controls", `${$el.attr("aria-controls")} ${randomId}`);
@@ -42,15 +54,29 @@ export default (function (window, document, $, undefined) {
 
       $el.next(".remainCharWrapper").find(".remainChar").text(remaining);
       $el.siblings(".remainCharSR").text(remaining + " characters remaining");
+
+      if ($('.feedback-response')) {
+        $el.parent().next('.ma__updated-info').find('.remainCharSR').text(remaining + " characters remaining");
+      }
     });
 
     // only announce remaining characters in SR if the text area is in focus.
-    $el.focus(function () {
-      $el.siblings(".remainCharSR").attr('aria-hidden', false);
-    })
-    $el.blur(function () {
-      $el.siblings(".remainCharSR").attr('aria-hidden', true);
-    })
+    // $el.focus(function () {
+    //   $el.siblings(".remainCharSR").attr('aria-hidden', false);
+
+    //   // Feedback form
+    //   if ($('.ma__updated-info')) {
+    //     $('.ma__updated-info').attr('aria-hidden', false);
+    //   }
+    // })
+    // $el.blur(function () {
+    //   $el.siblings(".remainCharSR").attr('aria-hidden', true);
+
+    //   // Feedback form
+    //   if ($('.ma__updated-info')) {
+    //     $('.ma__updated-info').attr('aria-hidden', true);
+    //   }
+    // })
   });
 
   // number restricted input based on it's pattern (this must run prior to type="number")
