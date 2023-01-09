@@ -106,3 +106,39 @@ Pass `<GenTeaserAddress>`, `<GenTeaserPhone>`, `<GenTeaserEvent>`, and `<GenTeas
 #### Tags
 
 Pass `<GenTeaserTags>` inside `<GenTeaserDetails>`. This expects an array of tags and will render these in a row of grey squares in the Teaser.
+
+----
+*Legacy usage method:*
+
+It is still possible to use `GenTeaser` as a single component with subcomponents provided through its properties, e.g. `<GenTeaser>` instead of `<GenTeaserContainer>` and `<GenTeaser.Tags>` instead of `<GenTeaserTags>`.
+
+However, it's **not** the recommended approach. All the subcomponents are added to the JS bundle with their dependencies in this case, even if they aren't actually used.
+
+Just for reference, the corresponding component names from both methods are listed below.
+
+| Recommended method       | Legacy method             |
+|--------------------------|---------------------------|
+| `GenTeaserContainer`     | `GenTeaser`               |
+| `GenTeaserAddress`       | `GenTeaser.Address`       |
+| `GenTeaserButton`        | `GenTeaser.Button`        |
+| `GenTeaserDate`          | `GenTeaser.Date`          |
+| `GenTeaserDescription`   | `GenTeaser.Description`   |
+| `GenTeaserDetails`       | `GenTeaser.Details`       |
+| `GenTeaserEmail`         | `GenTeaser.Email`         |
+| `GenTeaserEmphasis`      | `GenTeaser.Emphasis`      |
+| `GenTeaserEvent`         | `GenTeaser.Event`         |
+| `GenTeaserEyebrow`       | `GenTeaser.Eyebrow`       |
+| `GenTeaserImage`         | `GenTeaser.Image`         |
+| `GenTeaserInfoDetails`   | `GenTeaser.InfoDetails`   |
+| `GenTeaserKeyAction`     | `GenTeaser.KeyAction`     |
+| `GenTeaserMoreInfo`      | `GenTeaser.MoreInfo`      |
+| `GenTeaserOrgs`          | `GenTeaser.Orgs`          |
+| `GenTeaserPhone`         | `GenTeaser.Phone`         |
+| `GenTeaserPrimaryInfo`   | `GenTeaser.PrimaryInfo`   |
+| `GenTeaserSearch`        | `GenTeaser.Search`        |
+| `GenTeaserSearchBar`     | `GenTeaser.SearchBar`     |
+| `GenTeaserSecondaryInfo` | `GenTeaser.SecondaryInfo` |
+| `GenTeaserStat`          | `GenTeaser.Stat`          |
+| `GenTeaserSubLinks`      | `GenTeaser.SubLinks`      |
+| `GenTeaserTags`          | `GenTeaser.Tags`          |
+| `GenTeaserTitle`         | `GenTeaser.Title`         |
