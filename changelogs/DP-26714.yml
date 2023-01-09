@@ -53,12 +53,19 @@
 #___EXAMPLE WITH MULTIPLE ITEMS___
 Changed:
   - project: React
-    component: GenTeaser, TeaserOrgs, TeaserSearch
+    component: GenTeaser
     description: Split GenTeaser into multiple independent components. Sub-components could still be used but aren't recommended. (#1717)
     issue: DP-26714
     impact: Minor
   - project: React
     component: Storybook
     description: Update the story to use independent components of GenTeaser. (#1717)
+    issue: DP-26714
+    impact: Minor
+
+Removed:
+  - project: React
+    component: TeaserOrgs, TeaserSearch
+    description: Remove internal componens. Use GenTeaserOrgs and GenTeaserSearch instead. (#1717)
     issue: DP-26714
     impact: Minor
