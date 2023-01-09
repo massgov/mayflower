@@ -27,10 +27,10 @@ export default (function(window, document, $) {
         stickyOnScroll();
       });
     }
-  
+
     const radioOnSelect = () => {
       let foundIndicator = $loadRadios.filter(":checked").val();
-  
+
       if (foundIndicator === "Yes") {
         $fields.addClass("is-open positive");
         $fields.removeClass("negative");
@@ -66,6 +66,7 @@ export default (function(window, document, $) {
 
       const invalidate = () => {
         $el.addClass('has-error');
+        $el.parent().next('.ma__updated-info').children('.ma__alert-msg').addClass('has-error');
         $el.parent().nextAll('.ma__alert-msg').addClass('has-error');
         $submitButton.addClass('ma__button--disabled');
         $submitButton.prop('disabled', true);
@@ -85,7 +86,7 @@ export default (function(window, document, $) {
         const input = e.val();
         const matchAlert = input.match(alertFilters);
         const matchWarn = input.match(warnFilters);
-  
+
         if (input) {
           e.parent().nextAll('.ma__error-msg').removeClass('has-error');
         }
@@ -101,7 +102,7 @@ export default (function(window, document, $) {
           warn();
         }
       }
-  
+
       $el.on("keyup", function() {
         // Auto size the text boxes
         if ($el.prop("scrollHeight") > $el.prop("clientHeight")) {
@@ -113,7 +114,38 @@ export default (function(window, document, $) {
         formValidation($el);
 
       });
+
+
+      // Prevent aria-describedby content to be announced everytime the charcount is updated.
+      // var helpTipId = $textArea.attr('aria-describedby');
+      // $el.on("change", function () {
+
+      //   console.log($el.val().length);
+
+      //   if ($el.val().length > 0 && $el.attr('aria-describedby')) {
+      //     console.log($(this).val());
+      //     $el.removeAttr('aria-describedby');
+      //   }
+      //   if (remaining == 500 && !$el.attr('aria-describedby')) {
+      //     $el.attr('aria-describedby', helpTipId);
+      //   }
+      // });
+
+      // var focusCounter = 0;
+      // console.log("focusCounter: " + focusCounter);
+      // $el.on("focus", function (e) {
+      //   focusCounter++;
+      //   console.log("focusCounter: " + focusCounter);
+      // });
     });
+
+
+    // var focusCounter = 0;
+    // console.log("focusCounter: " + focusCounter);
+    // $textArea.on("focus", function (e) {
+    //   focusCounter++;
+    //   console.log("focusCounter: " + focusCounter);
+    // });
   }
 })(window, document, jQuery);
 
