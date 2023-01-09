@@ -45,18 +45,21 @@
         <div class="feedback-response feedback-positive">
           {% set textarea = affirmativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
+          <div class="ma__updated-info" aria-live="polite" aria-relevant="text addition">
+            <div class="remainCharSR ma__visually-hidden"></div> {# Char remaining count #}
           {% if alertMsg %}
-            <div class="ma__alert-msg" role="alert" id="{{ affirmativeTextarea.errorIds }}">{{ alertMsg }}</div>
+            <div class="ma__alert-msg" id="{{ affirmativeTextarea.errorIds }}">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
             <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
           {% endif %}
+          </div>
         </div>
         <div class="feedback-response feedback-negative">
           {% set textarea = negativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
           {% if alertMsg %}
-            <div class="ma__alert-msg" role="alert" id="{{ negativeTextarea.errorIds }}">{{ alertMsg }}</div>
+            <div class="ma__alert-msg" id="{{ negativeTextarea.errorIds }}">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
             <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
