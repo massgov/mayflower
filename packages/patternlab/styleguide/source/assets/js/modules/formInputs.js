@@ -31,9 +31,10 @@ export default (function (window, document, $, undefined) {
           " characters remaining</span>"
       );
 
-    // Associate text area and remaining char info container for aria-live region.
-    $el.attr("aria-controls", `${$el.attr("aria-controls")} ${randomId}`);
-    $el.siblings(".remainCharSR").attr("id", randomId);
+    // disable SR announcing the character count live, in favor of the error messages
+    //// Associate text area and remaining char info container for aria-live region.
+    // $el.attr("aria-controls", `${$el.attr("aria-controls")} ${randomId}`);
+    // $el.siblings(".remainCharSR").attr("id", randomId);
 
     $el.next(".remainCharSR").find(".remainChar").text(remaining);
 
@@ -44,13 +45,14 @@ export default (function (window, document, $, undefined) {
       $el.siblings(".remainCharSR").text(remaining + " characters remaining");
     });
 
-    // only announce remaining characters in SR if the text area is in focus.
-    $el.focus(function () {
-      $el.siblings(".remainCharSR").attr('aria-hidden', false);
-    })
-    $el.blur(function () {
-      $el.siblings(".remainCharSR").attr('aria-hidden', true);
-    })
+    
+    // // only announce remaining characters in SR if the text area is in focus.
+    // $el.focus(function () {
+    //   $el.siblings(".remainCharSR").attr('aria-hidden', false);
+    // })
+    // $el.blur(function () {
+    //   $el.siblings(".remainCharSR").attr('aria-hidden', true);
+    // })
   });
 
   // number restricted input based on it's pattern (this must run prior to type="number")
