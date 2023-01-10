@@ -7,32 +7,34 @@
   padding: 20px 0 30px;
   position: relative;
 
-  .ma__container {
-
-    @include ma-container;
-  }
-
   &__container {
+    display: flex;
+    flex-direction: column;
+
+    @media ($bp-large-min) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    &--stacked {
+      flex-direction: column;
+    }
 
     &__logos {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      & > * {
-        margin-right: 1rem;
-      }
-
-      @media ($bp-large-min) {
-        position: absolute;
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      min-width: 45px;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
 
       &--stacked {
+        display: flex;
         position: relative;
+        margin: 0;
         flex-direction: row;
         align-items: center;
+
+        & > .ma__site-logo {
+          margin-right: 1rem;
+        }
       }
     }
 
@@ -46,7 +48,7 @@
         align-items: flex-start;
         justify-content: space-between;
         margin: 0;
-        padding: 0.75rem 0 0 3.5rem;
+        padding-top: 0.75rem;
       }
 
       &--stacked {
