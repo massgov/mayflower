@@ -47,7 +47,7 @@ class SearchBanner extends React.Component {
 
   render() {
     const {
-      tabs, searchBox, filterBox, filterToggleText
+      tabs, searchBox, filterBox, filterToggleText, className
     } = this.props;
     let submitButton;
 
@@ -63,7 +63,8 @@ class SearchBanner extends React.Component {
     }
     const searchBannerClasses = classNames({
       'ma__search-banner__top': true,
-      'ma__search-banner__top--noTabs': !tabs
+      'ma__search-banner__top--noTabs': !tabs,
+      [`${className}`]: !!className
     });
     const toggleButtonClasses = classNames({
       'ma__search-banner__filter-box-toggle': true,
@@ -100,12 +101,14 @@ class SearchBanner extends React.Component {
 }
 
 SearchBanner.propTypes = {
+  /** Custom class added to the root element. */
+  className: PropTypes.string,
   /** `@molecules/HeaderSearch` */
-  searchBox: PropTypes.shape(PropTypes.HeaderSearch).isRequired,
+  searchBox: PropTypes.shape(HeaderSearch.propTypes).isRequired,
   /** `@molecules/Tabs` */
-  tabs: PropTypes.shape(PropTypes.Tabs),
+  tabs: PropTypes.shape(Tabs.propTypes),
   /** `@organisms/FilterBox` */
-  filterBox: PropTypes.shape(PropTypes.FilterBox),
+  filterBox: PropTypes.shape(FilterBox.propTypes),
   /** filterbox toggle button custom function */
   toggleButtonOnClick: PropTypes.func,
   /** Controls if filterBox is expanded */
