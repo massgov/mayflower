@@ -26,7 +26,7 @@ export default (function (window, document, $, undefined) {
       .parent()
       .append(
         message +
-          '<span role="region" aria-live="polite" class="remainCharSR ma__visually-hidden" aria-hidden="true">' +
+          '<span class="remainCharSR ma__visually-hidden" aria-hidden="true">' +
           remaining +
           " characters remaining</span>"
       );
