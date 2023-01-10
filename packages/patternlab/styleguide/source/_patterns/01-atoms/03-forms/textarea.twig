@@ -1,5 +1,5 @@
 {% set requiredErrorID = textarea.id ~ "-error-required" %}
-{% set controlID = requiredErrorID ~ errorIds %}
+{% set controlID = requiredErrorID ~ " " ~ textarea.errorIds %}
 {% if textarea.labelText %}
   <label for="input-type-textarea"
   class="ma__label {{ textarea.required ? 'ma__label--required' : 'ma__label--optional'}} {{ textarea.hiddenLabel ? 'ma__label--hidden' : '' }}">{{ textarea.labelText }}{{ textarea.required ? '<span aria-hidden="true">*</span>': ''}}</label>
@@ -18,5 +18,5 @@
   {% endif %}
   {{ textarea.required ? 'required' : '' }} /></textarea>
 {% if textarea.errorMsg %}
-  <div class="ma__error-msg" role="alert" id={{requiredErrorID}}>{{ textarea.errorMsg }}</div>
+  <div class="ma__error-msg" role="region" aria-live="polite" id={{requiredErrorID}}>{{ textarea.errorMsg }}</div>
 {% endif %}
