@@ -39,7 +39,7 @@
   "helpTip": {
     "textBefore": "Please do not include personal or contact information.",
     "textTrigger": "You will not get a response",
-    "helpText": "The feedback will only be used for improving the website. If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx</a>.",
+    "helpText": "The feedback will only be used for improving the website. If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx</a>. <span class='ma__visually-hidden'>Please limit your input to 500 characters. </span>",
     "id": "helptext-id-123",
     "expanded": false,
     "isDescription": true
