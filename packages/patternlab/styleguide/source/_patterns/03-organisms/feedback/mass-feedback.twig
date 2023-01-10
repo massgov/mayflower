@@ -45,7 +45,7 @@
         <div class="feedback-response feedback-positive">
           {% set textarea = affirmativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
-          <div class="ma__updated-info" aria-live="polite" aria-relevant="text addition">
+          <div class="ma__updated-info" aria-live="polite" aria-relevant="text additions">
             <div class="remainCharSR ma__visually-hidden"></div> {# Char remaining count #}
           {% if alertMsg %}
             <div class="ma__alert-msg" id="{{ affirmativeTextarea.errorIds }}">{{ alertMsg }}</div>
