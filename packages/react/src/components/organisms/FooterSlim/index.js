@@ -24,6 +24,10 @@ const FooterSlim = (props) => {
     copyright = `${year} Commonwealth of Massachusetts.`
   } = props;
 
+  const containerClasses = classNames('ma__footer-slim__container ma__container', {
+    'ma__footer-slim__container--stacked': stackedLogo
+  });
+
   const logoWrapperClasses = classNames({
     'ma__footer-slim__container__logos': true,
     'ma__footer-slim__container__logos--stacked': stackedLogo
@@ -36,7 +40,7 @@ const FooterSlim = (props) => {
 
   return(
     <footer className="ma__footer-slim" id="footer">
-      <div className="ma__footer-slim__container ma__container">
+      <div className={containerClasses}>
         <div className={logoWrapperClasses}>
           {siteLogo}
         </div>
