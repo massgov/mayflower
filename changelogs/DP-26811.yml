@@ -4,3 +4,9 @@ Changed:
     description: Update Mayflower theme. (#1720)
     issue: DP-26811
     impact: Patch
+Fixed:
+  - project: Starters
+    component: Formstack
+    description: Fix date picker. (#1725)
+    issue: DP-26811
+    impact: Patch
