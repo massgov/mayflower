@@ -1,6 +1,6 @@
 /**
- * TeaserOrgs module.
- * @module @massds/mayflower-react/TeaserOrgs
+ * GenTeaserOrgs module.
+ * @module @massds/mayflower-react/GenTeaserOrgs
  * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
  * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
  * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 
-class TeaserOrgs extends React.Component {
+class GenTeaserOrgs extends React.Component {
   constructor(props) {
     super(props);
     const { orgs } = props;
@@ -73,9 +73,9 @@ class TeaserOrgs extends React.Component {
   }
 }
 
-TeaserOrgs.propTypes = {
+GenTeaserOrgs.propTypes = {
   /** A comma seperate list of organizations. */
   orgs: PropTypes.string.isRequired
 };
 
-export default TeaserOrgs;
+export default GenTeaserOrgs;

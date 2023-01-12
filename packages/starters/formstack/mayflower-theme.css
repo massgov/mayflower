@@ -212,7 +212,8 @@
 .fsForm  div.fsError {
     color: white;
     border-radius: 0;
-    background-color: #f34343;
+    background-color: #CD0D0D;
+    border: 1px solid #CD0D0D;
     font-weight: bold;
 }
 .fsPage .fsValidationError {
@@ -221,14 +222,14 @@
 .fsPage .fsValidationError .fsLabel,
 .fsValidationError .fsLabel span,
 div.fsValidationError label.fsLabel{
-    color: #f34343 !important;
+    color: #CD0D0D !important;
     padding-left: 0;
     background: none;
 }
 
 .fsPage .fsValidationError input,
 .fsPage .fsValidationError textarea {
-    border: 2px solid #f34343;
+    border: 2px solid #CD0D0D;
 }
 
 /* remove branding */
@@ -264,7 +265,7 @@ div[fs-field-type="richtext"] a {
     justify-content: space-between;
     flex-grow: 2;
 }
-.fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(3),
+.fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(3), 
 .fsSubFieldGroup .fsSubField:nth-child(2):nth-last-child(2),
 .fsSubFieldGroup .fsSubField:nth-child(3):nth-last-child(1),
 .fsBody .fsSubField.fsNameFirst,
@@ -276,8 +277,8 @@ div[fs-field-type="richtext"] a {
     width: auto;
     flex-grow: 2;
 }
-.fsBody .fsForm input[type="text"].fsField,
-.fsBody .fsForm input[type="email"].fsField,
+.fsBody .fsForm input[type="text"].fsField, 
+.fsBody .fsForm input[type="email"].fsField, 
 .fsBody .fsForm input[type="tel"].fsField {
     min-height: 0;
     max-height: 46px;
@@ -300,7 +301,7 @@ div[fs-field-type="checkbox"] div.fieldset-content{
     display: flex;
     flex-wrap: wrap;
 }
-.fsRowBody input[type="radio"],
+.fsRowBody input[type="radio"], 
 .fsRowBody input[type="checkbox"] {
     min-height: 1rem;
 }
@@ -372,16 +373,20 @@ div[fs-field-type="datetime"] .fieldset-content:after {
     background-repeat: no-repeat;
     z-index: 0;
 }
-/* Last, hide the old icon with opacity
-/* but lift it one z level so it's still clickable */
+/* Last, hide the old icon with opacity 
+/* but lift it one z level so it's still clickable */  
 .fsBody .ui-datepicker-trigger {
     position: absolute;
-    top: 0;
-    margin-left: 0;
+    top: 13px;
+    margin-left: 11px;
     height: 42px;
     opacity: 0;
     cursor: pointer;
     z-index: 1;
+}
+/* Hide this span that renders hidden time fields, which affects the date picker layout */  
+.fsBody .always-ltr {
+    display: none !important;
 }
 
 .fsCurrency.fsCurrencyPrefix {
@@ -401,7 +406,7 @@ div[fs-field-type="datetime"] .fieldset-content:after {
 
 /* Hide increment and decrement buttons */
 /* These behave unpredictably           */
-button.ma__input-number__plus,
+button.ma__input-number__plus, 
 button.ma__input-number__minus {
     display: none !important;
 }

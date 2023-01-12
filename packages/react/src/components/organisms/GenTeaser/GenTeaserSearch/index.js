@@ -1,6 +1,6 @@
 /**
- * TeaserSearch module.
- * @module @massds/mayflower-react/TeaserSearch
+ * GenTeaserSearch module.
+ * @module @massds/mayflower-react/GenTeaserSearch
  * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
  * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
  * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
@@ -11,7 +11,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
 
-class TeaserSearch extends React.Component {
+class GenTeaserSearch extends React.Component {
   constructor(props) {
     super(props);
     this.inputRef = React.createRef();
@@ -59,7 +59,7 @@ class TeaserSearch extends React.Component {
   }
 }
 
-TeaserSearch.propTypes = {
+GenTeaserSearch.propTypes = {
   /** The target url of the search bar */
   target: PropTypes.string.isRequired,
   /** The id of the search bar */
@@ -70,4 +70,4 @@ TeaserSearch.propTypes = {
   placeholder: PropTypes.string.isRequired
 };
 
-export default TeaserSearch;
+export default GenTeaserSearch;
