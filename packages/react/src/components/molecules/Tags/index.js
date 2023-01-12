@@ -44,6 +44,7 @@ class Tags extends React.Component {
             type={tag.type}
             value={tag.value}
             text={tag.text}
+            description={tag.description}
             handleClick={(e) => this.handleClearThis(e)}
             /* eslint-disable-next-line react/no-array-index-key */
             key={`resultsHeading.tag.${tagIndex}`}
@@ -64,11 +65,13 @@ class Tags extends React.Component {
 Tags.propTypes = {
   /** The tags applied to the search list <br/>
         type: The type of tag <br />
-        text: The text displayed by the tag (required) <br />
+        text: The content displayed by the tag (required) <br />
+        description: The visually hidden description of the tag <br />
         value: The value of the tag  */
   tags: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.string,
-    text: PropTypes.string.isRequired,
+    text: PropTypes.node.isRequired,
+    description: PropTypes.node,
     value: PropTypes.string
   })),
   /** Custom onClick function that triggers when 'Clear all' button is clicked */
