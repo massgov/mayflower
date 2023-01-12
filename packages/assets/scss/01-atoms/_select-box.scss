@@ -129,4 +129,8 @@
       outline-color: -webkit-focus-ring-color;
     }
   }
+
+  &__disabled {
+    background-color: $c-overcast-gray;
+  }
 }

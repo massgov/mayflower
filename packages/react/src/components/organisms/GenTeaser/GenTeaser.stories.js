@@ -7,14 +7,37 @@ import IconData from 'MayflowerReactBase/Icon/IconData';
 import GenTeaser from './index';
 import GenTeaserDocs from './GenTeaser.md';
 import placeholder from '@massds/mayflower-assets/static/images/placeholder/100x100.png';
+import GenTeaserContainer from "./GenTeaserContainer";
+import GenTeaserDetails from "./GenTeaserDetails";
+import GenTeaserTitle from "./GenTeaserTitle";
+import GenTeaserDescription from "./GenTeaserDescription";
+import GenTeaserStat from "./GenTeaserStat";
+import GenTeaserEyebrow from "./GenTeaserEyebrow";
+import GenTeaserEmphasis from "./GenTeaserEmphasis";
+import GenTeaserDate from "./GenTeaserDate";
+import GenTeaserOrgs from "./GenTeaserOrgs";
+import GenTeaserSearchBar from "./GenTeaserSearchBar";
+import GenTeaserSubLinks from "./GenTeaserSubLinks";
+import GenTeaserKeyAction from "./GenTeaserKeyAction";
+import GenTeaserButton from "./GenTeaserButton";
+import GenTeaserTags from "./GenTeaserTags";
+import GenTeaserMoreInfo from "./GenTeaserMoreInfo";
+import GenTeaserPrimaryInfo from "./GenTeaserPrimaryInfo";
+import GenTeaserPhone from "./GenTeaserPhone";
+import GenTeaserSecondaryInfo from "./GenTeaserSecondaryInfo";
+import GenTeaserInfoDetails from "./GenTeaserInfoDetails";
+import GenTeaserAddress from "./GenTeaserAddress";
+import GenTeaserEmail from "./GenTeaserEmail";
+import GenTeaserEvent from "./GenTeaserEvent";
+import GenTeaserImage from "./GenTeaserImage";
 
 export const GenTeaserExample = (args) => (
-  <GenTeaser>
-    <GenTeaser.Details>
-      <GenTeaser.Title title={args.title} />
-      <GenTeaser.Description description={args.description} />
-    </GenTeaser.Details>
-  </GenTeaser>
+  <GenTeaserContainer>
+    <GenTeaserDetails>
+      <GenTeaserTitle title={args.title} />
+      <GenTeaserDescription description={args.description} />
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
 GenTeaserExample.storyName = 'Default';
 GenTeaserExample.args = {
@@ -32,22 +55,22 @@ GenTeaserExample.parameters = {
   }
 };
 export const GenTeaserDataCatalog = (args) => (
-  <GenTeaser>
-    <GenTeaser.Details>
-      <GenTeaser.Stat>{args.stat}</GenTeaser.Stat>
-      <GenTeaser.Eyebrow eyebrow={args.eyebrow} />
-      <GenTeaser.Title title={args.title} />
-      <GenTeaser.Emphasis>
-        <GenTeaser.Date date={args.date} />
-        <GenTeaser.Orgs orgs={args.orgs} />
-      </GenTeaser.Emphasis>
-      <GenTeaser.Description description={args.description} />
-      <GenTeaser.SearchBar search={args.search} />
-      <GenTeaser.SubLinks>
-        {args.subLinks.map((item) => <GenTeaser.KeyAction {...item} />)}
-      </GenTeaser.SubLinks>
-    </GenTeaser.Details>
-  </GenTeaser>
+  <GenTeaserContainer>
+    <GenTeaserDetails>
+      <GenTeaserStat>{args.stat}</GenTeaserStat>
+      <GenTeaserEyebrow eyebrow={args.eyebrow} />
+      <GenTeaserTitle title={args.title} />
+      <GenTeaserEmphasis>
+        <GenTeaserDate date={args.date} />
+        <GenTeaserOrgs orgs={args.orgs} />
+      </GenTeaserEmphasis>
+      <GenTeaserDescription description={args.description} />
+      <GenTeaserSearchBar search={args.search} />
+      <GenTeaserSubLinks>
+        {args.subLinks.map((item) => <GenTeaserKeyAction {...item} />)}
+      </GenTeaserSubLinks>
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
 GenTeaserDataCatalog.storyName = 'GenTeaser as DataCatalog';
 GenTeaserDataCatalog.args = {
@@ -103,19 +126,19 @@ GenTeaserDataCatalog.parameters = {
   }
 };
 export const GenTeaserDataSet = (args) => (
-  <GenTeaser onClick={(e) => action(e)} onKeyDown={(e) => action(e)}>
-    <GenTeaser.Details>
-      <GenTeaser.Eyebrow eyebrow={args.eyebrow} />
-      <GenTeaser.Button button={args.button} />
-      <GenTeaser.Title title={args.title} />
-      <GenTeaser.Emphasis>
-        <GenTeaser.Date date={args.date} />
-        <GenTeaser.Orgs orgs={args.orgs} />
-      </GenTeaser.Emphasis>
-      <GenTeaser.Description description={args.description} />
-      <GenTeaser.Tags tags={args.tags} />
-    </GenTeaser.Details>
-  </GenTeaser>
+  <GenTeaserContainer onClick={(e) => action(e)} onKeyDown={(e) => action(e)}>
+    <GenTeaserDetails>
+      <GenTeaserEyebrow eyebrow={args.eyebrow} />
+      <GenTeaserButton button={args.button} />
+      <GenTeaserTitle title={args.title} />
+      <GenTeaserEmphasis>
+        <GenTeaserDate date={args.date} />
+        <GenTeaserOrgs orgs={args.orgs} />
+      </GenTeaserEmphasis>
+      <GenTeaserDescription description={args.description} />
+      <GenTeaserTags tags={args.tags} />
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
 GenTeaserDataSet.storyName = 'GenTeaser as Dataset';
 GenTeaserDataSet.args = {
@@ -161,16 +184,16 @@ GenTeaserDataSet.parameters = {
   }
 };
 export const GenTeaserDataDownload = (args) => (
-  <GenTeaser>
-    <GenTeaser.Details>
-      <GenTeaser.Title title={args.title} />
-      <GenTeaser.Emphasis>
-        <GenTeaser.Date date={args.date} />
-        <GenTeaser.Orgs orgs={args.orgs} />
-      </GenTeaser.Emphasis>
-      <GenTeaser.Description description={args.description} />
-    </GenTeaser.Details>
-  </GenTeaser>
+  <GenTeaserContainer>
+    <GenTeaserDetails>
+      <GenTeaserTitle title={args.title} />
+      <GenTeaserEmphasis>
+        <GenTeaserDate date={args.date} />
+        <GenTeaserOrgs orgs={args.orgs} />
+      </GenTeaserEmphasis>
+      <GenTeaserDescription description={args.description} />
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
 GenTeaserDataDownload.storyName = 'GenTeaser as Data Download';
 GenTeaserDataDownload.args = {
@@ -192,17 +215,17 @@ GenTeaserDataDownload.parameters = {
   }
 };
 export const GenTeaserNews = (args) => (
-  <GenTeaser>
-    <GenTeaser.Details>
-      <GenTeaser.Eyebrow eyebrow={args.eyebrow} />
-      <GenTeaser.Title title={args.title} />
-      <GenTeaser.Emphasis>
-        <GenTeaser.Date date={args.date} />
-        <GenTeaser.Orgs orgs={args.orgs} />
-      </GenTeaser.Emphasis>
-      <GenTeaser.Description description={args.description} />
-    </GenTeaser.Details>
-  </GenTeaser>
+  <GenTeaserContainer>
+    <GenTeaserDetails>
+      <GenTeaserEyebrow eyebrow={args.eyebrow} />
+      <GenTeaserTitle title={args.title} />
+      <GenTeaserEmphasis>
+        <GenTeaserDate date={args.date} />
+        <GenTeaserOrgs orgs={args.orgs} />
+      </GenTeaserEmphasis>
+      <GenTeaserDescription description={args.description} />
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
 GenTeaserNews.storyName = 'GenTeaser as News';
 GenTeaserNews.args = {
@@ -224,38 +247,38 @@ GenTeaserNews.parameters = {
 };
 export const GenTeaserLawsRegs = ({regulation, law}) => (
   <React.Fragment>
-    <GenTeaser>
-      <GenTeaser.Details>
-        <GenTeaser.Eyebrow eyebrow={regulation.eyebrow} />
-        <GenTeaser.Title title={regulation.title} />
-        <GenTeaser.Emphasis>
-          <GenTeaser.Date date={regulation.date} />
-          <GenTeaser.Orgs orgs={regulation.orgs} />
-        </GenTeaser.Emphasis>
-        <GenTeaser.Description description={regulation.description} />
-      </GenTeaser.Details>
-    </GenTeaser>
-    <GenTeaser>
-      <GenTeaser.Details>
-        <GenTeaser.Eyebrow eyebrow={law.eyebrow} />
-        <GenTeaser.Title title={law.title} />
-        <GenTeaser.Emphasis>
-          <GenTeaser.Date date={law.date} />
-          <GenTeaser.Orgs orgs={law.orgs} />
-        </GenTeaser.Emphasis>
-        <GenTeaser.Description description={law.description} />
-        <GenTeaser.SubLinks>
-          <GenTeaser.KeyAction
+    <GenTeaserContainer>
+      <GenTeaserDetails>
+        <GenTeaserEyebrow eyebrow={regulation.eyebrow} />
+        <GenTeaserTitle title={regulation.title} />
+        <GenTeaserEmphasis>
+          <GenTeaserDate date={regulation.date} />
+          <GenTeaserOrgs orgs={regulation.orgs} />
+        </GenTeaserEmphasis>
+        <GenTeaserDescription description={regulation.description} />
+      </GenTeaserDetails>
+    </GenTeaserContainer>
+    <GenTeaserContainer>
+      <GenTeaserDetails>
+        <GenTeaserEyebrow eyebrow={law.eyebrow} />
+        <GenTeaserTitle title={law.title} />
+        <GenTeaserEmphasis>
+          <GenTeaserDate date={law.date} />
+          <GenTeaserOrgs orgs={law.orgs} />
+        </GenTeaserEmphasis>
+        <GenTeaserDescription description={law.description} />
+        <GenTeaserSubLinks>
+          <GenTeaserKeyAction
             text="Search Sections within this Chapter"
             href="http://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93"
           />
-          <GenTeaser.KeyAction
+          <GenTeaserKeyAction
             text="Search for General Laws"
             href="http://malegislature.gov/Laws/GeneralLaws"
           />
-        </GenTeaser.SubLinks>
-      </GenTeaser.Details>
-    </GenTeaser>
+        </GenTeaserSubLinks>
+      </GenTeaserDetails>
+    </GenTeaserContainer>
   </React.Fragment>
 );
 GenTeaserLawsRegs.storyName = 'GenTeaser  as Laws and Regs';
@@ -291,23 +314,23 @@ GenTeaserLawsRegs.parameters = {
   }
 };
 export const GenTeaserServices = (service) => (
-  <GenTeaser>
-    <GenTeaser.Details>
-      <GenTeaser.Title title={service.title} />
-      <GenTeaser.Description description={service.description} />
-      <GenTeaser.SubLinks>
-        <GenTeaser.KeyAction
+  <GenTeaserContainer>
+    <GenTeaserDetails>
+      <GenTeaserTitle title={service.title} />
+      <GenTeaserDescription description={service.description} />
+      <GenTeaserSubLinks>
+        <GenTeaserKeyAction
           text="Apply for SNAP benefits (food stamps)"
           href="https://www.mass.gov/how-to/apply-for-snap-benefits-food-stamps"
         />
-        <GenTeaser.KeyAction
+        <GenTeaserKeyAction
           text="Snap Outreach For Partners"
           href="https://www.mass.gov/service-details/snap-outreach-for-partners"
         />
-        {service.subLinks.map((link, linkIndex) => <GenTeaser.KeyAction key={`GenTeaser.KeyAction.${link.text}}`} {...link} />)}
-      </GenTeaser.SubLinks>
-    </GenTeaser.Details>
-  </GenTeaser>
+        {service.subLinks.map((link, linkIndex) => <GenTeaserKeyAction key={`GenTeaser.KeyAction.${link.text}}`} {...link} />)}
+      </GenTeaserSubLinks>
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
 GenTeaserServices.storyName = 'GenTeaser as Services';
 GenTeaserServices.args = {
@@ -336,22 +359,22 @@ GenTeaserServices.parameters = {
   }
 };
 export const GenTeaserStateOrg = ({ stateOrg }) => (
-  <GenTeaser>
-    <GenTeaser.Details>
-      <GenTeaser.Title title={stateOrg.title} />
-      <GenTeaser.Description description={stateOrg.description} />
-      <GenTeaser.MoreInfo>
-        <GenTeaser.PrimaryInfo>
-          <GenTeaser.Phone {...stateOrg.phone} />
-          <GenTeaser.InfoDetails {...stateOrg.locations} />
-        </GenTeaser.PrimaryInfo>
-        <GenTeaser.SecondaryInfo>
-          <GenTeaser.Email {...stateOrg.email} />
-          <GenTeaser.InfoDetails {...stateOrg.infodetails} />
-        </GenTeaser.SecondaryInfo>
-      </GenTeaser.MoreInfo>
-    </GenTeaser.Details>
-  </GenTeaser>
+  <GenTeaserContainer>
+    <GenTeaserDetails>
+      <GenTeaserTitle title={stateOrg.title} />
+      <GenTeaserDescription description={stateOrg.description} />
+      <GenTeaserMoreInfo>
+        <GenTeaserPrimaryInfo>
+          <GenTeaserPhone {...stateOrg.phone} />
+          <GenTeaserInfoDetails {...stateOrg.locations} />
+        </GenTeaserPrimaryInfo>
+        <GenTeaserSecondaryInfo>
+          <GenTeaserEmail {...stateOrg.email} />
+          <GenTeaserInfoDetails {...stateOrg.infodetails} />
+        </GenTeaserSecondaryInfo>
+      </GenTeaserMoreInfo>
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
 GenTeaserStateOrg.storyName = 'GenTeaser (State Org)';
 GenTeaserStateOrg.args = {
@@ -388,17 +411,17 @@ GenTeaserStateOrg.parameters = {
   }
 };
 export const GenTeaserLocation = ({ location }) => (
-  <GenTeaser>
-    <GenTeaser.Details>
-      <GenTeaser.Title title={location.title} />
-      <GenTeaser.Description description={location.description} />
-      <GenTeaser.MoreInfo>
-        <GenTeaser.PrimaryInfo>
-          <GenTeaser.Address {...location.address} />
-        </GenTeaser.PrimaryInfo>
-      </GenTeaser.MoreInfo>
-    </GenTeaser.Details>
-  </GenTeaser>
+  <GenTeaserContainer>
+    <GenTeaserDetails>
+      <GenTeaserTitle title={location.title} />
+      <GenTeaserDescription description={location.description} />
+      <GenTeaserMoreInfo>
+        <GenTeaserPrimaryInfo>
+          <GenTeaserAddress {...location.address} />
+        </GenTeaserPrimaryInfo>
+      </GenTeaserMoreInfo>
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
 GenTeaserLocation.storyName = 'GenTeaser as Location';
 GenTeaserLocation.args = {
@@ -423,27 +446,27 @@ GenTeaserLocation.parameters = {
   }
 };
 
-export const GenTeaserEvent = ({event}) => (
-  <GenTeaser>
-    <GenTeaser.Details>
-      <GenTeaser.Title title={event.title} />
-      <GenTeaser.Emphasis>
-        <GenTeaser.Orgs orgs={event.orgs} />
-      </GenTeaser.Emphasis>
-      <GenTeaser.Description description={event.description} />
-      <GenTeaser.MoreInfo>
-        <GenTeaser.PrimaryInfo>
-          <GenTeaser.Event {...event.event} />
-        </GenTeaser.PrimaryInfo>
-        <GenTeaser.SecondaryInfo>
-          <GenTeaser.Address {...event.address} />
-        </GenTeaser.SecondaryInfo>
-      </GenTeaser.MoreInfo>
-    </GenTeaser.Details>
-  </GenTeaser>
+export const GenTeaserEventStory = ({event}) => (
+  <GenTeaserContainer>
+    <GenTeaserDetails>
+      <GenTeaserTitle title={event.title} />
+      <GenTeaserEmphasis>
+        <GenTeaserOrgs orgs={event.orgs} />
+      </GenTeaserEmphasis>
+      <GenTeaserDescription description={event.description} />
+      <GenTeaserMoreInfo>
+        <GenTeaserPrimaryInfo>
+          <GenTeaserEvent {...event.event} />
+        </GenTeaserPrimaryInfo>
+        <GenTeaserSecondaryInfo>
+          <GenTeaserAddress {...event.address} />
+        </GenTeaserSecondaryInfo>
+      </GenTeaserMoreInfo>
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
-GenTeaserEvent.storyName = 'GenTeaser as Event';
-GenTeaserEvent.args = {
+GenTeaserEventStory.storyName = 'GenTeaser as Event';
+GenTeaserEventStory.args = {
   event: {
     title: {
       info: 'This is the info',
@@ -478,22 +501,22 @@ GenTeaserEvent.args = {
     }
   }
 };
-GenTeaserEvent.parameters = {
+GenTeaserEventStory.parameters = {
   docs: {
-    page: () => <StoryPage StoryComponent={GenTeaserEvent} Description={GenTeaserDocs} />
+    page: () => <StoryPage StoryComponent={GenTeaserEventStory} Description={GenTeaserDocs} />
   }
 };
-export const GenTeaserImage = ({ teaser }) => (
-  <GenTeaser stacked={teaser.stacked} align={teaser.align}>
-    <GenTeaser.Image img={teaser.img} />
-    <GenTeaser.Details>
-      <GenTeaser.Title title={teaser.title} />
-      <GenTeaser.Description description={teaser.description} />
-    </GenTeaser.Details>
-  </GenTeaser>
+export const GenTeaserImageStory = ({ teaser }) => (
+  <GenTeaserContainer stacked={teaser.stacked} align={teaser.align}>
+    <GenTeaserImage img={teaser.img} />
+    <GenTeaserDetails>
+      <GenTeaserTitle title={teaser.title} />
+      <GenTeaserDescription description={teaser.description} />
+    </GenTeaserDetails>
+  </GenTeaserContainer>
 );
-GenTeaserImage.storyName = 'GenTeaser with Image';
-GenTeaserImage.args = {
+GenTeaserImageStory.storyName = 'GenTeaser with Image';
+GenTeaserImageStory.args = {
   teaser: {
     stacked: false,
     align: 'top',
@@ -511,7 +534,7 @@ GenTeaserImage.args = {
     }
   }
 };
-GenTeaserImage.argTypes = {
+GenTeaserImageStory.argTypes = {
   align: {
     control: {
       type: 'select',
@@ -519,9 +542,9 @@ GenTeaserImage.argTypes = {
     }
   }
 };
-GenTeaserImage.parameters = {
+GenTeaserImageStory.parameters = {
   docs: {
-    page: () => <StoryPage StoryComponent={GenTeaserImage} Description={GenTeaserDocs} />
+    page: () => <StoryPage StoryComponent={GenTeaserImageStory} Description={GenTeaserDocs} />
   }
 };
 export default {

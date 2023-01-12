@@ -13,6 +13,7 @@ const Pagination = (props) => {
     prev,
     next,
     pages,
+    backToTop,
     className
   } = props;
   const hasPrev = !!(prev && !prev.hide);
@@ -45,6 +46,8 @@ const Pagination = (props) => {
   return(
     <div className={classes} role="navigation" aria-label="Pagination Navigation">
       <nav className="ma__pagination__container">
+        {backToTop && backToTop.description
+          && (<div className="ma__visually-hidden">{backToTop.description}</div>)}
         {hasPrev && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a
@@ -96,6 +99,15 @@ const Pagination = (props) => {
             {next.text}
           </a>
         )}
+        {backToTop && backToTop.text
+          && (
+            <a
+              className="visually-hidden ma__pagination__back-to-top"
+              href={backToTop.fragment || '#'}
+            >
+              {backToTop.text}
+            </a>
+          )}
       </nav>
     </div>
   );
@@ -121,6 +133,14 @@ Pagination.propTypes = {
     href: PropTypes.string,
     hide: PropTypes.bool,
     onClick: PropTypes.func
+  }),
+  /** prev.text: Defines the text shown for the previous button for screen readers.
+   prev.description: Define the description shown before the first pagination link for screen readers
+   prev.fragement: Defines id of the element to go back to */
+  backToTop: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    fragment: PropTypes.string
   }),
   /** Pages is an array that defines what page numbers users are able to paginate through.
       pages.active: Defines whether the page number is active or not.

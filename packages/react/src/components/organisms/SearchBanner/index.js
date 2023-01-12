@@ -47,7 +47,7 @@ class SearchBanner extends React.Component {
 
   render() {
     const {
-      tabs, searchBox, filterBox, filterToggleText, className
+      tabs, searchBox, filterBox, filterToggleText, className, searchFormTitle
     } = this.props;
     let submitButton;
 
@@ -75,7 +75,8 @@ class SearchBanner extends React.Component {
     return(
       <div className={searchBannerClasses}>
         <div className="main-content--two">
-          <h2 className="visually-hidden">Search Form</h2>
+          { searchFormTitle ? (<h2 className="visually-hidden">{searchFormTitle}</h2>)
+            : (<h2 className="visually-hidden">Search Form</h2>)}
           <HeaderSearch {...searchBox} />
         </div>
         {tabs && <Tabs {...tabs} />}
@@ -117,7 +118,9 @@ SearchBanner.propTypes = {
   /** Controls if we allow filterbox toggle to render only on mobile */
   filterDesktopHidden: PropTypes.bool,
   /** Filter box toggle button text */
-  filterToggleText: PropTypes.string
+  filterToggleText: PropTypes.string,
+  /** The visually hidden search form title */
+  searchFormTitle: PropTypes.string
 };
 
 SearchBanner.defaultProps = {

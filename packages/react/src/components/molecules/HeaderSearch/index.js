@@ -46,7 +46,8 @@ class HeaderSearch extends React.Component {
       placeholder: headerSearch.placeholder,
       onChange: this.handleChange,
       type: 'search',
-      value: this.state.value
+      value: this.state.value,
+      autoComplete: headerSearch.autoComplete
     };
     if (this.props.inputRef) {
       inputProps.ref = this.props.inputRef;
@@ -111,7 +112,9 @@ HeaderSearch.propTypes = {
     // Or the instance of a DOM native element (see the note about SSR)
     /* eslint-disable-next-line react/forbid-prop-types */
     PropTypes.shape({ current: PropTypes.object })
-  ])
+  ]),
+  /** Autocomplete input attribute value */
+  autoComplete: PropTypes.string
 };
 
 HeaderSearch.defaultProps = {
