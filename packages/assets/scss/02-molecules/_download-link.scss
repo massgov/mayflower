@@ -41,6 +41,24 @@
     font-size: $fonts-medium;
     margin-bottom: 0;
     width: calc(100% - 66px);
+
+  }
+
+  .ma__inline-links {
+
+    .ma__inline-links__container {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: 0;
+
+      .ma__inline-links__item:nth-last-child(2) {
+        &:after {
+          visibility: hidden;
+        }
+      }
+    }
+
   }
 
   &__file-link {

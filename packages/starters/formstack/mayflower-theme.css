@@ -377,12 +377,16 @@ div[fs-field-type="datetime"] .fieldset-content:after {
 /* but lift it one z level so it's still clickable */  
 .fsBody .ui-datepicker-trigger {
     position: absolute;
-    top: 0;
-    margin-left: 0;
+    top: 13px;
+    margin-left: 11px;
     height: 42px;
     opacity: 0;
     cursor: pointer;
     z-index: 1;
+}
+/* Hide this span that renders hidden time fields, which affects the date picker layout */  
+.fsBody .always-ltr {
+    display: none !important;
 }
 
 .fsCurrency.fsCurrencyPrefix {
