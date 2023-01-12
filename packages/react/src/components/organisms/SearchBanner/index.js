@@ -80,7 +80,7 @@ class SearchBanner extends React.Component {
           <HeaderSearch {...searchBox} />
         </div>
         {tabs && <Tabs {...tabs} />}
-        {filterBox && (
+        {!!filterBox && (
           <div className="ma__search-banner__filter-box-container">
             <div className="main-content--two ma__search-banner__filter-box-toggle-container">
               <button
