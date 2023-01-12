@@ -1,6 +1,34 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 12.1.0 (1/12/2023)
+### Fixed 
+- (React) [SearchBanner] DP-26194: Fix SearchBanner layout without filters or/and tabs. Removed defaul prop `filterBox` (#1729)
+- (Starters) [Formstack] DP-26811: Fix date picker. (#1725)
+- (React, Assets) [FooterSlim] DP-26819: Fix spacing around the logo. (#1718)
+
+### Changed 
+- (Patternlab) [LinkList] DP-26222: A11y improve column renering of link list component. (#1705)
+- (Patternlab) [OrgNav] DP-26649: Fix org nav being cut off at the bottom of the screen on mobile. (#1723)
+- (React) [GenTeaser] DP-26714: Split GenTeaser into multiple independent components. Sub-components could still be used but aren't recommended. (#1717)
+- (React) [Storybook] DP-26714: Update the story to use independent components of GenTeaser. (#1717)
+- (React) [Tags, ButtonTag] DP-26745: Let the button tag content be a node, not just plain text. (#1716)
+- (Assets, React) [ButtonTag] DP-26745: Render the icon in HTML rather than CSS. This way it could be hidden from screen readers. (#1716)
+- (React) [Tags, ButtonTag] DP-26745: Add a visually hidden description prop to the button tag component. (#1716)
+- (Starters) [Formstack] DP-26811: Update Mayflower theme. (#1720)
+
+### Removed 
+- (React) [TeaserOrgs, TeaserSearch] DP-26714: Remove internal componens. Use GenTeaserOrgs and GenTeaserSearch instead. (#1717)
+
+### Added 
+- (React) [undefined] DP-26730: Add autocomplete attribute to HeaderSearch molecule. (#1715)
+- (React) [undefined] DP-26734: Added visually hidden form title to SearchBannerForm. (#1715)
+- (React) [undefined] DP-26743: Added role attribute to InputCheckbox. (#1715)
+- (React) [undefined] DP-26746: Added clear all button context for Tags molecule. (#1715)
+- (React) [undefined] DP-26747: Added disabled property for SelectBox. (#1715)
+- (React) [undefined] DP-26749: Added back to top property for Pagination molecule. (#1715)
+- (React) [undefined] DP-26752: Allows extra properties to be passed to BreadcrumbItem. (#1715)
+
 ## 12.0.1 (12/16/2022)
 ### Fixed
 - (React) [dependency] Update mayflower-assets peer dependency. (#1711)
