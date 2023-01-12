@@ -5,19 +5,23 @@ const TagsData = {
   tags: [{
     type: 'zipcode',
     text: '02341',
-    value: '02341'
+    value: '02341',
+    description: 'Click to clear this filter.'
   }, {
     type: 'activity',
     text: 'Hiking',
-    value: 'hiking'
+    value: 'hiking',
+    description: 'Click to clear this filter.'
   }, {
     type: 'keyword',
     text: 'Beginner',
-    value: 'beginner'
+    value: 'beginner',
+    description: 'Click to clear this filter.'
   }, {
     type: 'tag',
     text: 'Wheelchair Accessible',
-    value: 'wheelchair-accessible'
+    value: 'wheelchair-accessible',
+    description: 'Click to clear this filter.'
   }]
 };
 
