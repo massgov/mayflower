@@ -36,6 +36,11 @@
     }
   }
 
+  &.ma__search-banner__top--noTabs.ma__search-banner__top--noFilters {
+    padding-bottom: 30px;
+    margin-bottom: 0;
+  }
+
   .main-content--two {
     position: relative;
   }

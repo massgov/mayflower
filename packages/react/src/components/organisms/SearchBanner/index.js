@@ -64,6 +64,7 @@ class SearchBanner extends React.Component {
     const searchBannerClasses = classNames({
       'ma__search-banner__top': true,
       'ma__search-banner__top--noTabs': !tabs,
+      'ma__search-banner__top--noFilters': !filterBox,
       [`${className}`]: !!className
     });
     const toggleButtonClasses = classNames({
