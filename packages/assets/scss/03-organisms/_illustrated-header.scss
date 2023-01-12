@@ -216,6 +216,12 @@ $bp-illustrated-header-image-width: 360px;
           width: 100%;
           min-height: 300px;
         }
+        @media ($bp-small-max) {
+          min-height: 250px;
+        }
+        @media ($bp-x-small-max) {
+          min-height: 150px; 
+        }
       }
     }
   }
