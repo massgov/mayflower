@@ -64,6 +64,7 @@ class SearchBanner extends React.Component {
     const searchBannerClasses = classNames({
       'ma__search-banner__top': true,
       'ma__search-banner__top--noTabs': !tabs,
+      'ma__search-banner__top--noFilters': !filterBox,
       [`${className}`]: !!className
     });
     const toggleButtonClasses = classNames({
@@ -79,8 +80,8 @@ class SearchBanner extends React.Component {
           <HeaderSearch {...searchBox} />
         </div>
         {tabs && <Tabs {...tabs} />}
-        <div className="ma_search-banner__filter-box-container">
-          {filterBox && (
+        {!!filterBox && (
+          <div className="ma__search-banner__filter-box-container">
             <div className="main-content--two ma__search-banner__filter-box-toggle-container">
               <button
                 onClick={this.toggleFilterBox}
@@ -93,9 +94,9 @@ class SearchBanner extends React.Component {
                 <IconChevron width={20} height={20} />
               </button>
             </div>
-          )}
-          { filterBox && this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
-        </div>
+            { this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
+          </div>
+        )}
       </div>
     );
   }
@@ -125,10 +126,7 @@ SearchBanner.propTypes = {
 SearchBanner.defaultProps = {
   filterDesktopHidden: false,
   filterToggleText: 'More Filters',
-  filterBoxExpanded: false,
-  filterBox: {
-    id: 'filter-box'
-  }
+  filterBoxExpanded: false
 };
 
 export default SearchBanner;
