@@ -30,7 +30,7 @@
 
     .ma__search-banner__filter-box-container {
       margin-top: 20px;
-      @media ($bp-medium-min) {
+      @media ($bp-large-min) {
         margin-top: 60px;
       }
     }
