@@ -80,18 +80,18 @@ class SearchBanner extends React.Component {
         {tabs && <Tabs {...tabs} />}
         {filterBox && (
           <div className="ma__search-banner__filter-box-container">
-              <div className="main-content--two ma__search-banner__filter-box-toggle-container">
-                <button
-                  onClick={this.toggleFilterBox}
-                  type="button"
-                  className={toggleButtonClasses}
-                  aria-controls={this.props.filterBox.id}
-                  aria-expanded={this.state.filterBoxExpanded}
-                >
-                  {filterToggleText}
-                  <IconChevron width={20} height={20} />
-                </button>
-              </div>
+            <div className="main-content--two ma__search-banner__filter-box-toggle-container">
+              <button
+                onClick={this.toggleFilterBox}
+                type="button"
+                className={toggleButtonClasses}
+                aria-controls={this.props.filterBox.id}
+                aria-expanded={this.state.filterBoxExpanded}
+              >
+                {filterToggleText}
+                <IconChevron width={20} height={20} />
+              </button>
+            </div>
             { this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
           </div>
         )}
