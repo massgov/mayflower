@@ -126,10 +126,7 @@ SearchBanner.propTypes = {
 SearchBanner.defaultProps = {
   filterDesktopHidden: false,
   filterToggleText: 'More Filters',
-  filterBoxExpanded: false,
-  filterBox: {
-    id: 'filter-box'
-  }
+  filterBoxExpanded: false
 };
 
 export default SearchBanner;

@@ -54,6 +54,6 @@
 Fixed:
   - project: React
     component: SearchBanner
-    description: Fix SearchBanner layout without filters or/and tabs. (#1729)
+    description: Fix SearchBanner layout without filters or/and tabs. Removed defaul prop `filterBox` (#1729)
     issue: DP-26194
     impact: Patch
