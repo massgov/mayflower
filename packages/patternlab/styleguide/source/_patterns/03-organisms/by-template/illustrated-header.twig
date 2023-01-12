@@ -7,6 +7,9 @@
 {% if illustratedHeader.inverted %}
   {% set illustratedHeaderClass = "ma__illustrated-header ma__illustrated-header--inverted" %}
 {% endif %}
+{% if illustratedHeader.cropped %}
+  {% set illustratedHeaderClass = illustratedHeaderClass ~ " ma__illustrated-header--inverted--cropped" %}
+{% endif %}
 {% if illustratedHeader.bgCentered %}
   {% set illustratedHeaderClass = "ma__illustrated-header ma__illustrated-header--centered" %}
 {% endif %}
@@ -24,24 +27,24 @@
       {% include "@organisms/by-template/page-header.twig" %}
       {% include "@organisms/by-template/page-header-addons.twig" %}
     </div>
-  </div>
-  {% if illustratedHeader.bgImage %}
-    <style>
-      .ma__illustrated-header__image {
-        background-image: url('{{ illustratedHeader.bgImage }}');
-      }
+    {% if illustratedHeader.bgImage %}
+      <style>
+          .ma__illustrated-header__image {
+              background-image: url('{{ illustratedHeader.bgImage }}');
+          }
 
-      {% if illustratedHeader.retinaBgImage %}
-      @media (-webkit-min-device-pixel-ratio: 2) {
-        .ma__illustrated-header__image {
-          background-image: url('{{ illustratedHeader.retinaBgImage }}');
-        }
-      }
-      {% endif %}
-    </style>
-    <div class="ma__illustrated-header__image">
-    </div>
-  {% else %}
-    <div class="ma__illustrated-header__image ma__illustrated-header__image--empty"></div>
-  {% endif %}
+          {% if illustratedHeader.retinaBgImage %}
+          @media (-webkit-min-device-pixel-ratio: 2) {
+              .ma__illustrated-header__image {
+                  background-image: url('{{ illustratedHeader.retinaBgImage }}');
+              }
+          }
+          {% endif %}
+      </style>
+      <div class="ma__illustrated-header__image">
+      </div>
+    {% else %}
+      <div class="ma__illustrated-header__image ma__illustrated-header__image--empty"></div>
+    {% endif %}
+  </div>
 </section>
