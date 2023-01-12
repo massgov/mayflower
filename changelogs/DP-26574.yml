@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: IllustratedHeader
+    description: Added cropped image version for the Illustrated Header (#1727)
+    issue: DP-26574
+    impact: Minor
