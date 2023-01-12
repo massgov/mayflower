@@ -77,6 +77,7 @@ class SelectBox extends React.Component {
             className={selectClassNames}
             onChange={this.handleOnChange}
             value={selectedValue}
+            disabled={this.props.disabled}
           >
             {options.map((option) => (
               <option key={option.value} value={option.value}>
@@ -84,7 +85,7 @@ class SelectBox extends React.Component {
               </option>
             ))}
           </select>
-          <div className="ma__select-box__link">
+          <div className={this.props.disabled ? 'ma__select-box__link ma__select-box__disabled' : 'ma__select-box__link'}>
             <span className="js-dropdown-link">{valueInOptions ? selected : options[0].text}</span>
             <span className="ma__select-box__icon" />
           </div>
@@ -117,7 +118,8 @@ SelectBox.propTypes = {
   /** Wrapper class for section tag */
   className: PropTypes.string,
   /** The default value for the select box */
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 SelectBox.defaultProps = {
