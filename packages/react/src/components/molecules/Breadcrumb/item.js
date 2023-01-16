@@ -10,7 +10,7 @@ const CurrentItem = ({ currentPage }) => (<a href="/" aria-current="page" onClic
 const BreadcrumbItem = (props) => {
   // eslint-disable-next-line react/prop-types
   const { children, currentPage } = props;
-  return(<li className="ma__breadcrumb-item">{currentPage ? <CurrentItem currentPage={currentPage} /> : children}</li>);
+  return(<li className="ma__breadcrumb-item" {...props}>{currentPage ? <CurrentItem currentPage={currentPage} /> : children}</li>);
 };
 
 BreadcrumbItem.propTypes = {
