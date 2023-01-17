@@ -238,8 +238,6 @@ jobs:
                 role-arn: $AWS_DEPLOYMENT_ROLE_ARN
             - run: |
                 cd packages/react
-                # Don't delete until new files have been copied
-                aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --profile default
                 aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --delete --profile default
                 aws configure set preview.cloudfront true --profile default
                 aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/react*' --profile default
