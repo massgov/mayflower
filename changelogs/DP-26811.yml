@@ -1,6 +1,0 @@
-Changed:
-  - project: Starters
-    component: Formstack
-    description: Update Mayflower theme. (#1720)
-    issue: DP-26811
-    impact: Patch

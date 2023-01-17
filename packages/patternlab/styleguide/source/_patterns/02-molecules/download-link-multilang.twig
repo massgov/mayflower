@@ -1,0 +1,35 @@
+{% set sizeClass = downloadLink.iconSize ? "ma__download-link--" ~ downloadLink.iconSize : "" %}
+
+<div class="ma__download-link {{ sizeClass }}">
+  {% if downloadLink.icon %}
+    <div class="ma__download-link__icon">
+      {{ icon(downloadLink.icon) }}
+    </div>
+  {% endif %}
+  <div class="ma__download-link__title">
+    {% if downloadLink.format == "form" %}
+      {% set decorativeLink = downloadLink.decorativeLink %}
+      {% include "@atoms/decorative-link.twig" %}
+    {% else %}
+      <a
+        class="ma__download-link__file-link"
+        href="{{ downloadLink.decorativeLink.href}}">
+        <span class="visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }},{% endif %} for</span>
+          {{ downloadLink.decorativeLink.text }}
+      </a>
+      {% if downloadLink.format or downloadLink.size or downloadLink.language %}
+        <span class="ma__download-link__file-spec">({{ downloadLink.language ~ ',' }} {{ downloadLink.format }} {{ downloadLink.size }})</span>
+      {% endif %}
+    {% endif %}
+  </div>
+  {% if downloadLink.inlineLinks %}
+    {% set inlineLinks = downloadLink.inlineLinks %}
+    {% include "@organisms/by-author/inline-links-language.twig" %}
+  {% endif %}
+  {% if downloadLink.description %}
+    {% set richText = downloadLink.description %}
+    <div class="ma__download-link__description">
+      {% include "@organisms/by-author/rich-text.twig" %}
+    </div>
+  {% endif %}
+</div>

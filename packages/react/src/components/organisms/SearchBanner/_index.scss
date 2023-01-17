@@ -28,12 +28,17 @@
   &--noTabs {
     text-align: center;
 
-    .ma_search-banner__filter-box-container {
+    .ma__search-banner__filter-box-container {
       margin-top: 20px;
-      @media ($bp-medium-min) {
+      @media ($bp-large-min) {
         margin-top: 60px;
       }
     }
+  }
+
+  &.ma__search-banner__top--noTabs.ma__search-banner__top--noFilters {
+    padding-bottom: 30px;
+    margin-bottom: 0;
   }
 
   .main-content--two {
