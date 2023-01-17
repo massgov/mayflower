@@ -46,6 +46,10 @@ export default (function(window, document, $) {
     radioOnSelect();
     // Open feedback form on radio button selection.
     $loadRadios.on("change", function() {
+      // Erase text field value when radio button value is changed. 
+      $textArea.each(function() {
+        $(this).val('')
+      })
       radioOnSelect();
     });
 
