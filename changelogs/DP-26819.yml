@@ -1,6 +1,0 @@
-Fixed:
-  - project: React, Assets
-    component: FooterSlim
-    description: Fix spacing around the logo. (#1718)
-    issue: DP-26819
-    impact: Patch
