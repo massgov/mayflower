@@ -223,6 +223,7 @@ $border-width: 1px;
       margin-top: .5rem;
 
       @media ($bp-small-max) {
+
         &.expanded {
           animation-name: slideup;
           animation-duration: 0.25s;
@@ -355,9 +356,11 @@ $border-width: 1px;
 
 
 @keyframes slideup {
+
   from {
     bottom: -100vh;
   }
+
   to {
     bottom: 0;
   }
