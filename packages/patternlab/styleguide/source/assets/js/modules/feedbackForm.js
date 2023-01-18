@@ -48,7 +48,10 @@ export default (function(window, document, $) {
     $loadRadios.on("change", function() {
       // Erase text field value when radio button value is changed. 
       $textArea.each(function() {
-        $(this).val('')
+        const $el = $(this);
+        $el.val('');
+        $el.removeClass('has-error');
+        $el.parent().nextAll('.ma__alert-msg').removeClass('has-error');
       })
       radioOnSelect();
     });
