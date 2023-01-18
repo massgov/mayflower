@@ -281,9 +281,9 @@ jobs:
                 cd packages/core
                 aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG" --delete --profile default
                 # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-                aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
-                aws configure set preview.cloudfront true
-                aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*'
+                aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core" --profile default
+                aws configure set preview.cloudfront true --profile default
+                aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*' --profile default
 
   core_deploy_branch:
     <<: *patternlab_defaults
@@ -295,8 +295,8 @@ jobs:
       - run: |
           cd packages/core
           aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/b/$CIRCLE_BRANCH" --delete --profile default
-          aws configure set preview.cloudfront true
-          aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths "/core/b*"
+          aws configure set preview.cloudfront true --profile default
+          aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths "/core/b*" --profile default
 
   auto_changelog:
     <<: *react_defaults
@@ -403,9 +403,9 @@ jobs:
                 role-arn: $AWS_DEPLOYMENT_ROLE_ARN
             - run: |
                 cd packages/site
-                aws s3 sync public s3://mayflower.digital.mass.gov/home --delete
-                aws configure set preview.cloudfront true
-                aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*'
+                aws s3 sync public s3://mayflower.digital.mass.gov/home --delete --profile default
+                aws configure set preview.cloudfront true --profile default
+                aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*' --profile default
 
 workflows:
   version: 2
