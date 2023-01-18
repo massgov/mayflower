@@ -106,6 +106,7 @@ $formQuickTransitions: max-height 0.3s linear;
       }
 
       &__label {
+
         @media ($bp-small-min) {
           font-size: $fonts-xsmall;
         }
@@ -126,6 +127,7 @@ $formQuickTransitions: max-height 0.3s linear;
       }
 
       &__close-mobile {
+
         @include ma-button-reset;
         text-align: right;
         width: 100%;
@@ -178,12 +180,14 @@ $formQuickTransitions: max-height 0.3s linear;
     }
 
     .ma__warn-msg {
+
       &.has-error {
         border-left-color: $c-gray-lighter;
       }
     }
 
     .ma__alert-msg, .ma__error-msg {
+
       &.has-error {
         color: $c-error;
         border-left-color: $c-error;
