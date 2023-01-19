@@ -54,6 +54,6 @@
 Fixed:
   - project: Patternlab
     component: feedbackForm
-    description: Remove error message on radio button change clearing the text area. (#1734)
+    description: Reset text area validation on radio button change. (#1734)
     issue: DP-26999
     impact: Patch
