@@ -46,12 +46,15 @@ export default (function(window, document, $) {
     radioOnSelect();
     // Open feedback form on radio button selection.
     $loadRadios.on("change", function() {
-      // Erase text field value when radio button value is changed. 
+      // Empty text area value when radio button value is changed. 
+      // Reset/validate the empty text area
       $textArea.each(function() {
         const $el = $(this);
         $el.val('');
         $el.removeClass('has-error');
         $el.parent().nextAll('.ma__alert-msg').removeClass('has-error');
+        $submitButton.removeClass('ma__button--disabled');
+        $submitButton.prop('disabled', false);
       })
       radioOnSelect();
     });
