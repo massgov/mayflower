@@ -53,6 +53,7 @@ export default (function(window, document, $) {
         $el.val('');
         $el.removeClass('has-error');
         $el.parent().nextAll('.ma__alert-msg').removeClass('has-error');
+        $el.parent().nextAll('.ma__warn-msg').removeClass('has-error');
         $submitButton.removeClass('ma__button--disabled');
         $submitButton.prop('disabled', false);
       })
