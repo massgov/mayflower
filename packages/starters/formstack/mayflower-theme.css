@@ -359,8 +359,14 @@ div[fs-field-type="datetime"] fieldset {
 div[fs-field-type="datetime"] .fieldset-content {
     position: relative;
 }
+/* Position new calendar icon pseudo parent div. */
+.fsBody .fsForm .fsCalendar {
+    position: initial !important;
+    /* Garatee spacing between the date fields and the time fields . */
+    height: 10px;
+}
 /* Add the new icon at the bottom z-index. */
-div[fs-field-type="datetime"] .fieldset-content:after {
+.fsBody .fsForm .fsCalendar:after {
     content: '';
     position: absolute;
     right: -40px;
@@ -383,10 +389,6 @@ div[fs-field-type="datetime"] .fieldset-content:after {
     opacity: 0;
     cursor: pointer;
     z-index: 1;
-}
-/* Hide this span that renders hidden time fields, which affects the date picker layout */  
-.fsBody .always-ltr {
-    display: none !important;
 }
 
 .fsCurrency.fsCurrencyPrefix {
