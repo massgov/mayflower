@@ -1,6 +1,0 @@
-Fixed:
-  - project: Starters
-    component: Formstack
-    description: Fix date picker again. (#1726)
-    issue: DP-26811
-    impact: Patch
