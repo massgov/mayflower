@@ -1,0 +1,6 @@
+Changed:
+  - project: CircleCI
+    component: CircleCI
+    description: Switch CircleCI to use OIDC for AWS (#1732)
+    issue: DP-25865
+    impact: Patch
