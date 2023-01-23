@@ -24,7 +24,7 @@
         "value": "No",
         "id": "field4",
         "label": "No",
-        "checked": false
+        "checked": true
       }
     ]
   },
@@ -39,10 +39,18 @@
   "helpTip": {
     "textBefore": "Please do not include personal or contact information.",
     "textTrigger": "You will not get a response",
-    "helpText": "The feedback will only be used for improving the website. If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx</a>. <span class='ma__visually-hidden'>Please limit your input to 500 characters. </span>",
+    "helpText": "The feedback will only be used for improving the website. If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx</a>.",
     "id": "helptext-id-123",
-    "expanded": false,
+    "expanded": true,
     "isDescription": true
+  },
+  "alert": {
+    "text": "Need to report abuse or request urgent assistance? ",
+    "link": {
+      "text": "Use these contacts instead",
+      "href": "https://www.google.com/",
+      "info": ""
+    }
   },
   "affirmativeTextarea": {
     "required": false,
@@ -85,8 +93,7 @@
       "value": "https://mass.gov"
     }
   ],
-  "showWarnMsg": true,
-  "submitted": false,
+  "showWarnMsg": false,
   "success":  {
     "before": "Thank you for your website feedback! We will use this information to improve this page.",
     "after": "If you would like to continue helping us improve Mass.gov, <a href=\"https://www.mass.gov/user-panel?utm_source=survey\">join our user panel<\/a> to test new features for the site."

@@ -1,0 +1,49 @@
+<div
+  class="ma__help-tip mobile-tray ma__help-tip__text--c-primary"
+  id="{{ helpTip.id }}"
+>
+  <span class="ma__help-tip__label" id="label-{{ helpTip.id }}">
+    {% if helpTip.textBefore %}
+      <span>{{ helpTip.textBefore }}</span>
+    {% endif %}
+    <button
+      class="ma__help-tip__trigger {{ helpTip.expanded ? 'ma__help-tip__trigger--active' : '' }}"
+      id="trigger-{{ helpTip.id }}"
+      aria-expanded="{{ helpTip.expanded ? 'true' : 'false' }}"
+      aria-controls="help-tip-content-{{ helpTip.id }}"
+    >
+      <span>{{ helpTip.textTrigger }}</span>
+      {% if not helpTip.isDescription %}
+        <span class="ma_help-tip__label-a11y ma__visually-hidden">Open tooltip to learn more.</span>
+      {% endif %}
+      {{icon('question-mark')}}
+    </button>
+    {% if textAfter %}
+      <span>{{ helpTip.textAfter }}</span>
+    {% endif %}
+  </span>
+  <div
+    class="ma__help-tip__container ma__help-tip__container--c-primary ma__help-tip__content {{ helpTip.expanded ? '' : 'collapsed' }}"
+    id="help-tip-content-{{ helpTip.id }}"
+    style="max-height:none"
+  >
+    <button
+      class="ma__help-tip__close-mobile"
+      {{ helpTip.isDescription ? '' : 'aria-label="close tooltip"' }}
+    >
+      {{ icon('close') }}
+    </button>
+    <button
+      class="ma__help-tip__close-desktop"
+      {{ helpTip.isDescription ? '' : 'aria-label="close tooltip"' }}
+    >
+      {{ icon('close') }}
+    </button>
+    <div
+      class="ma__help-tip__text ma__help-tip__text--c-primary"
+    >
+      {% set paragraph = {"text": helpTip.helpText } %}
+      {% include "@atoms/11-text/paragraph.twig" %}
+    </div>
+  </div>
+</div>

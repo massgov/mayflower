@@ -1,6 +1,20 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.2.0 (1/19/2023)
+### Changed 
+- (CircleCI) [CircleCI] DP-25865: Switch CircleCI to use OIDC for AWS (#1732)
+- (Patternlab) [MassFeedback, MassFeedbackSuccess] DP-26365: Implement MassFeedback new design, and clean up unused components and variants. (#1700)
+
+### Added 
+- (Patternlab) [HelpTip] DP-26365: Add HelpTip organism. (#1700)
+- (Patternlab) [IconClose] DP-26365: Add "close" icon. (#1700)
+
+### Fixed 
+- (Patternlab) [InputRadio] DP-26365: Fix input radio styles. (#1700)
+- (Starters) [Formstack] DP-26811: Fix date picker again. (#1726)
+- (React) [ButtonTag] DP-26977: Prevent event bubbling from the span inside the button. (#1733)
+
 
 ## 12.1.0 (1/12/2023)
 
