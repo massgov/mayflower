@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Suggested pages
+    description: Modify the dondition to check more link content for suggeted pages. (#1724)
+    issue: DP-26309
+    impact: Patch
