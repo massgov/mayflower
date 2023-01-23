@@ -4,7 +4,6 @@
     "value": "radio-button",
     "id": "radio-test",
     "label": "Radio Button",
-    "required": true,
-    "checked": true
+    "required": true
   }
 }

@@ -9,7 +9,9 @@
 
 {% block sidebar %}{% endblock %}
 
-{% block postContent %}{% endblock %}
+{% block postContent %}
+			{% include "@organisms/feedback/mass-feedback.twig" %}
+{% endblock %}
 
 {% block footer %}
   {% include "@organisms/by-template/footer.twig" %}

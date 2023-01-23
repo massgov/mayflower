@@ -27,12 +27,29 @@
       @include ma-reset-list;
     }
 
-    &:first-child:nth-last-child(2),
-    &:first-child:nth-last-child(2) ~ & {
+    &_columns {
 
       @media ($bp-medium-min) {
 
-        @include span-columns(6);
+        .item-left {
+
+          @include span-columns(6);
+          margin-right: calc(#{flex-gutter(12)} + 10px);
+          display: list-item;
+        }
+      }
+    }
+
+    &--no-bullets.ma__link-list__items_columns {
+
+      @media ($bp-medium-min) {
+
+        .item-left {
+
+          @include span-columns(6);
+          margin-right: flex-gutter(12);
+          display: list-item;
+        }
       }
     }
 

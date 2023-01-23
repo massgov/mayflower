@@ -4,7 +4,9 @@
     "hiddenLabel": false,
     "required": false,
     "maxlength": null,
-    "id": "textarea",
-    "name": "textarea"
+    "id": "textarea_1",
+    "name": "textarea",
+    "describedBy": "description-id",
+    "errorIds": "test-id"
   }
 }
