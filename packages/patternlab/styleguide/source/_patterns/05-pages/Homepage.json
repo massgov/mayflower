@@ -1,6 +1,7 @@
 {
   "hideHeaderSearch": false,
   "hideBackTo": true,
+  "floatingAction": null,
   "searchBanner": {
     "bgWide": "../../assets/images/placeholder/1600x800.png",
     "bgNarrow": "../../assets/images/placeholder/800x800.png",

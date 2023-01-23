@@ -2,7 +2,7 @@
   "floatingAction": {
     "alignment": "right",
     "button": {
-      "href": "#",
+      "href": "#feedback",
       "text": "Tell us what you think",
       "info": "",
       "type": "",

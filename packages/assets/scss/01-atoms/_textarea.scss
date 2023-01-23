@@ -4,29 +4,24 @@
 
   &__wrapper {
     position: relative;
-
-    &:after {
-      content: attr(data-char-left);
-      display: block;
-      font-size: $fonts-xsmall;
-      line-height: 1.625rem;
-      position: absolute;
-        right: 0;
-        top: 100%;
-    }
-
+    
     textarea {
       width: 100%;
+      resize: none;
+      overflow: hidden;
+    }
+
+    div[aria-hidden] {
+      display: block;
+      line-height: 23.562px;
+      line-height: 1.625rem;
+      position: absolute;
+      bottom: 8px;
+      right: 5px;
+      top: auto;
+      font-size: 14.5px;
+      font-size: 1rem;
+      font-weight: 400;
     }
   }
 }
-
-//theme
-
-.ma__textarea {
-
-  &__wrapper {
-    font-weight: $fonts-normal;
-  }
-}
-
