@@ -18,6 +18,11 @@
       <h{{ headingLevel }} class="ma__section-links__title" id="{{ titleId }}">
         {% set decorativeLink = sectionLinks.title %}
         {% include "@atoms/decorative-link.twig" %}
+        {# Make the accordioin available only in mobile view. #}
+        <button class="ma__section-links--accordion__toggle js-accordion-link">
+          {{ sectionLinks.title.text }}
+          <span class="ma__section-links--accordion__toggle--status js-accordion-status" aria-hidden="true">+</span>
+        </button>
       </h{{ headingLevel}}>
 
       <div class="ma__section-links__toggle-content">

@@ -127,21 +127,21 @@
       @media ($bp-x-small-max) {
         padding-right: 1em;
 
-        &:after {
-          content: "+";
-          display: block;
-          font-size: 1.5em;
-          line-height: .75em;
-          position: absolute;
-          top: 15px;
-          right: 15px;
-          transition: transform .5s ease;
-          transform-origin: center center;
+        // &:after {
+        //   content: "+";
+        //   display: block;
+        //   font-size: 1.5em;
+        //   line-height: .75em;
+        //   position: absolute;
+        //   top: 15px;
+        //   right: 15px;
+        //   transition: transform .5s ease;
+        //   transform-origin: center center;
 
-          .is-open & {
-            transform: rotate(135deg);
-          }
-        }
+        //   .is-open & {
+        //     transform: rotate(135deg);
+        //   }
+        // }
 
         a > svg {
           display: none;
@@ -160,6 +160,54 @@
         svg {
           margin-right: -16px;
         }
+      }
+    }
+
+
+
+    .ma__decorative-link {
+
+      @media ($bp-x-small-max) {
+        display: none;
+      }
+    }
+  }
+
+  &--accordion__toggle {
+    display: none;
+    border: none;
+    background: none;
+
+    // @include ma-h3;
+    // margin-bottom: 0;
+    font-weight: $fonts-bold;
+    text-align: left;
+
+    @media ($bp-x-small-max) {
+
+      @include ma-link-decorative;
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    &--status {
+      display: block;
+      font-size: $fonts-4xlarge;
+      line-height: .65em;
+      border: none;
+      overflow: hidden;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      transform-origin: center center;
+      transition: transform .5s ease;
+
+      padding-left: 0;
+      margin-left: 0;
+
+      .is-open & {
+        transform: rotate(135deg);
       }
     }
   }
@@ -202,10 +250,10 @@
   &__item > .ma__decorative-link {
 
     &__item > .ma__decorative-link {
-    font-size: $fonts-larger;
-    line-height: 1.3;
-    color: $c-primary;
-  }
+      font-size: $fonts-larger;
+      line-height: 1.3;
+      color: $c-primary;
+    }
   }
 }
 
@@ -213,6 +261,10 @@
 
 .ma__section-links {
   background-color: $c-bg-section;
+
+  &--accordion__toggle {
+    color: $c-primary;
+  }
 
   @media ($bp-x-small-max) {
     border-top-color: $c-bd-divider;
