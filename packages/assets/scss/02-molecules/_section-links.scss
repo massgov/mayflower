@@ -109,6 +109,10 @@
 
     @media ($bp-small-min) {
       margin-bottom: .5em;
+
+      .ma__section-links--compact & {
+        padding-bottom: 0;
+      }
     }
     align-self: stretch;
 
@@ -122,7 +126,6 @@
       font-size: $fonts-xlarge;
     }
 
-    // :not(.ma__section-links--compact &) {
     & {
 
       @media ($bp-x-small-max) {
@@ -353,6 +356,7 @@
 }
 
 
+// //// remove
 // .ma__organization-navigation {
 //   display: none;
 // }
