@@ -147,9 +147,9 @@
         //   }
         // }
 
-        :not(.ma__section-links--compact a > svg) {
-          display: none;
-        }
+        // :not(.ma__section-links--compact) a>svg {
+        //   display: none;
+        // }
       }
 
       @media ($bp-x-small-min) {
@@ -169,7 +169,7 @@
 
 
 
-    .ma__decorative-link {
+    .js-accordion & .ma__decorative-link {
 
       @media ($bp-x-small-max) {
         display: none;
@@ -181,6 +181,7 @@
     display: none;
     border: none;
     background: none;
+    padding-left: 0;
 
     // @include ma-h3;
     // margin-bottom: 0;
@@ -189,10 +190,13 @@
 
     @media ($bp-x-small-max) {
 
-      @include ma-link-decorative;
-      display: inline-block;
-      vertical-align: middle;
-      width: 100%;
+      .js-accordion & {
+
+        @include ma-link-decorative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+      }
     }
 
     &--status {
