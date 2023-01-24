@@ -201,13 +201,13 @@
 
     &--status {
       display: block;
-      font-size: $fonts-4xlarge;
-      line-height: .65em;
+      font-size: 1.5em;//$fonts-4xlarge;
+      line-height: .75em;//65em;
       border: none;
       overflow: hidden;
       position: absolute;
-      right: 16px;
-      top: 16px;
+      right: 15px;// 16px;
+      top: 15px;// 16px;
       transform-origin: center center;
       transition: transform .5s ease;
 
