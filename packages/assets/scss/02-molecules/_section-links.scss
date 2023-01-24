@@ -206,8 +206,8 @@
       border: none;
       overflow: hidden;
       position: absolute;
-      right: 15px;
-      top: 15px;
+      right: 16px;
+      top: 16px;
       transform-origin: center center;
       transition: transform .5s ease;
 
@@ -302,10 +302,6 @@
 
   &__title {
 
-    &:after {
-      color: $c-primary-alt;
-    }
-
     a {
       color: $c-primary;
     }
@@ -314,6 +310,10 @@
       fill: rgba($c-primary,.5);
     }
 
+  }
+
+  &--accordion__toggle--status {
+    color: $c-primary-alt;
   }
 
   &__mobile-title {
