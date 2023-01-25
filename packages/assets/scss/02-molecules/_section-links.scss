@@ -183,6 +183,8 @@
 
   &--accordion__toggle {
     all: unset;// reeset any styles applied to button.
+    box-sizing: inherit;
+
     display: none;
     border: none;
     background: none;
@@ -201,6 +203,8 @@
         display: inline-block;
         vertical-align: middle;
         width: 100%;
+
+        padding-right: 1em;
       }
     }
 
