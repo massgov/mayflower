@@ -182,6 +182,7 @@
   }
 
   &--accordion__toggle {
+    all: unset;// reeset any styles applied to button.
     display: none;
     border: none;
     background: none;
