@@ -103,6 +103,7 @@
   }
 
   &__title {
+    box-sizing: initial;
 
     @include ma-h3;
     margin-bottom: .5em;
@@ -367,9 +368,3 @@
     }
   }
 }
-
-
-// //// remove
-// .ma__organization-navigation {
-//   display: none;
-// }
