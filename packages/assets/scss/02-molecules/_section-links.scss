@@ -129,7 +129,11 @@
     & {
 
       @media ($bp-x-small-max) {
-        // padding-right: 1em;
+        padding-right: 1em;
+
+        .ma__section-links--compact & {
+          padding-right: 0;
+        }
 
         // &:after {
         //   content: "+";
@@ -361,6 +365,6 @@
 
 
 // //// remove
-// .ma__organization-navigation {
-//   display: none;
-// }
+.ma__organization-navigation {
+  display: none;
+}
