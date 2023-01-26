@@ -103,13 +103,14 @@
   }
 
   &__title {
-    box-sizing: initial;
 
     @include ma-h3;
     margin-bottom: .5em;
 
     @media ($bp-small-min) {
       margin-bottom: .5em;
+
+          // box-sizing: initial;
 
       .ma__section-links--compact & {
         padding-bottom: 0;
