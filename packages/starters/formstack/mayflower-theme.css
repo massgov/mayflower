@@ -352,9 +352,12 @@ div[fs-field-type="checkbox"] div.fieldset-content{
 
 /* calendar icon. */
 .fsBody .fsForm .ui-datepicker-trigger {
+    position: relative;
     filter: grayscale(1);
     width: 22px;
     height: 22px !important;
+    top: 5px;
+    margin-left: 0;
 }
 
 .fsCurrency.fsCurrencyPrefix {
