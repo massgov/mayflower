@@ -350,45 +350,14 @@ div[fs-field-type="checkbox"] div.fieldset-content{
     font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
 }
 
-/* For the calendar icon. */
-/* Flex collapses the width of the  parent to it's children. */
-div[fs-field-type="datetime"] fieldset {
-    display: flex;
-}
-/* Then the inner div needs relative context for the absolute icon. */
-div[fs-field-type="datetime"] .fieldset-content {
+/* calendar icon. */
+.fsBody .fsForm .ui-datepicker-trigger {
     position: relative;
-}
-/* Position new calendar icon pseudo parent div. */
-.fsBody .fsForm .fsCalendar {
-    position: initial !important;
-    /* Garatee spacing between the date fields and the time fields . */
-    height: 10px;
-}
-/* Add the new icon at the bottom z-index. */
-.fsBody .fsForm .fsCalendar:after {
-    content: '';
-    position: absolute;
-    right: -40px;
-    top: 0;
-    display: block;
-    height: 42px;
-    width: 42px;
-    background-image: url(https://unpkg.com/@massds/mayflower@10.2.0/assets/images/icons/date-picker.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
-}
-/* Last, hide the old icon with opacity 
-/* but lift it one z level so it's still clickable */  
-.fsBody .ui-datepicker-trigger {
-    position: absolute;
-    top: 13px;
-    margin-left: 11px;
-    height: 42px;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 1;
+    filter: grayscale(1);
+    width: 22px;
+    height: 22px !important;
+    top: 5px;
+    margin-left: 0;
 }
 
 .fsCurrency.fsCurrencyPrefix {
