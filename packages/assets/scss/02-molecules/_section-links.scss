@@ -116,6 +116,11 @@
         padding-bottom: 0;
       }
     }
+
+    @media ($bp-large-min) {
+      box-sizing: inherit;
+    }
+
     align-self: stretch;
 
     a {
