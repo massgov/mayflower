@@ -118,7 +118,10 @@
     }
 
     @media ($bp-large-min) {
-      box-sizing: inherit;
+
+      .ma__decorative-link {
+        box-sizing: initial;
+      }
     }
 
     align-self: stretch;
