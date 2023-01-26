@@ -120,7 +120,7 @@
     @media ($bp-large-min) {
 
       .ma__decorative-link {
-        box-sizing: initial;
+        box-sizing: border-box;
       }
     }
 
