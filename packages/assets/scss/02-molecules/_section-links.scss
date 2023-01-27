@@ -110,17 +110,15 @@
     @media ($bp-small-min) {
       margin-bottom: .5em;
 
-          box-sizing: initial;
+      box-sizing: initial;
 
       .ma__section-links--compact & {
         padding-bottom: 0;
       }
-    }
-
-    @media ($bp-large-min) {
 
       .ma__decorative-link {
-        box-sizing: border-box;
+        box-sizing: content-box;
+        width: 94%;
       }
     }
 
