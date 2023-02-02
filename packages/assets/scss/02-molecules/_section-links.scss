@@ -112,14 +112,14 @@
 
       box-sizing: initial;
 
-      .ma__section-links--compact & {
-        padding-bottom: 0;
-      }
+      // .ma__section-links--compact & {
+      //   padding-bottom: 0;
+      // }
 
-      .ma__decorative-link {
-        box-sizing: content-box;
-        width: 92%;
-      }
+      // .ma__decorative-link {
+      //   box-sizing: content-box;
+      //   width: 92%;
+      // }
     }
 
     align-self: stretch;
@@ -134,12 +134,12 @@
       font-size: $fonts-xlarge;
     }
 
-    @media ($bp-large-extended-max) { //$bp-large-min
+    // @media ($bp-large-extended-max) { //$bp-large-min
 
-      .ma__decorative-link {
-        width: 91%;
-      }
-    }
+    //   .ma__decorative-link {
+    //     width: 91%;
+    //   }
+    // }
 
     & {
 
@@ -197,7 +197,7 @@
   }
 
   &--accordion__toggle {
-    all: unset;// reeset any styles applied to button.
+    all: unset;// reeset any styles applied to button to match ones for decorative links.
     box-sizing: inherit;
 
     display: none;
