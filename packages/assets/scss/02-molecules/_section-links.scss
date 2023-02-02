@@ -118,7 +118,7 @@
 
       .ma__decorative-link {
         box-sizing: content-box;
-        width: auto;//94%;
+        width: 92%;
       }
     }
 
@@ -132,6 +132,13 @@
       align-self: flex-start;
       cursor: pointer;
       font-size: $fonts-xlarge;
+    }
+
+    @media ($bp-large-extended-max) { //$bp-large-min
+
+      .ma__decorative-link {
+        width: 91%;
+      }
     }
 
     & {
