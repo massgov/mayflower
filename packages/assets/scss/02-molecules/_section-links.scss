@@ -116,10 +116,10 @@
       //   padding-bottom: 0;
       // }
 
-      // .ma__decorative-link {
-      //   box-sizing: content-box;
+      .ma__decorative-link {
+        box-sizing: border-box;
       //   width: 92%;
-      // }
+      }
     }
 
     align-self: stretch;
