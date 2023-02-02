@@ -172,7 +172,7 @@ $formQuickTransitions: max-height 0.3s linear;
       line-height: 1.5;
       margin: .3em 0;
  
-      &.has-error {
+      &.has-error, &.has-error-default {
         display: inline-block;
         border-left: 3px solid;
         padding-left: 1rem;
@@ -181,7 +181,7 @@ $formQuickTransitions: max-height 0.3s linear;
 
     .ma__warn-msg {
 
-      &.has-error {
+      &.has-error, &.has-error-default {
         border-left-color: $c-gray-lighter;
       }
     }
