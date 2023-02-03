@@ -1,9 +1,10 @@
-<div data-nosnippet="true" class="ma__mass-feedback-form">
-  <h2 class="visually-hidden">Feedback</h2>
-  <form class="ma__mass-feedback-form__form" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
-    <fieldset class="ma_feedback-fieldset feedback-load" role="radiogroup"{% if title.required %} aria-required="true"{% endif %}>
+<div data-nosnippet="true" class="ma__mass-feedback-form" id="feedback">
+  <h2 class="ma__mass-feedback-form__heading">{{ heading }}<span class="ma__visually-hidden"> with your feedback</span></h2>
+  {# form screen #}
+  <form class="ma__mass-feedback-form__form{{ submitted ? ' hidden': ''}}" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
+    <fieldset class="ma_feedback-fieldset feedback-load" role="radiogroup">
       <legend>
-        {{ title.value }}{{ title.required ? ' <span aria-hidden="true">*</span>' : '' }}
+        {{ title.value }}
       </legend>
 
       {% set inputGroup = inputGroup %}
@@ -12,79 +13,76 @@
     </fieldset>
 
     <div class="ma__mass-feedback-form__fields">
-      <fieldset class="ma_feedback-fieldset">
-        <legend class="feedback-response feedback-positive">
+      <div class="ma_feedback-fieldset">
+        <label class="feedback-response feedback-positive" for={{ affirmativeTextarea.id }}>
           {{ queryAffirmative.value }}{{ queryAffirmative.required ? ' <span aria-hidden="true">*</span>' : '' }}
-        </legend>
+        </label>
 
-        <legend class="feedback-response feedback-negative">
+        <label class="feedback-response feedback-negative" for={{ negativeTextarea.id }}>
           {{ queryNegative.value }}{{ queryNegative.required ? ' <span aria-hidden="true">*</span>' : '' }}
-        </legend>
+        </label>
 
-        <p>{{ queryDescription }}</p>
+        {% if helpTip %}
+        <div class="ma__help-tip-container" aria-hidden="true">
+          {% set helpTip = helpTip %}
+          {% include "@organisms/by-author/help-tip.twig" %}
+        </div>
+        {% endif %}
 
-        {% if reportMessage %}
-          {% set pageAlert = reportMessage %}
-          {% include "@organisms/by-template/in-page-alert.twig" %}
+        {% if alert %}
+          <div class="feedback-alert">
+            <div class="feedback-alert-icon">
+              {{icon('input-warning')}}
+              <div class="ma__visually-hidden">alert</div>
+            </div>
+            <div class="feedback-alert-message">
+              {{ alert.text }}
+              {% set decorativeLink = alert.link %}
+              {% include "@atoms/decorative-link.twig" %}
+            </div>
+          </div>
         {% endif %}
         <div class="feedback-response feedback-positive">
           {% set textarea = affirmativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
+          {% if alertMsg %}
+            <div class="ma__alert-msg" role="region" aria-live="polite" id="{{ affirmativeTextarea.errorIds }}">{{ alertMsg }}</div>
+          {% endif %}
+          {% if warnMsg %}
+            <div class="ma__warn-msg{{showWarnMsg ? ' has-error-default' : ''}}">{{ warnMsg|raw }}</div>
+          {% endif %}
         </div>
         <div class="feedback-response feedback-negative">
           {% set textarea = negativeTextarea %}
           {% include "@atoms/03-forms/textarea.twig" %}
-        </div>
-
-        {% set helperText = helperText %}
-        {% include "@atoms/03-forms/helper-text.twig" %}
-
-        {% if Response %}
-        <div class="ma__mass-feedback-form__form--user-response feedback-response feedback-negative">
-          <legend>
-            {{ Response }}
-            {% if responseRequired.inputGroup %} {{ org }}? *{% endif %}
-            {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}
-          </legend>
-
-          {% if noResponseDescription %}<p class="no-response-info">{{ noResponseDescription }}</p>{% endif %}
-
-          {% if responseRequired.inputGroup %}
-          <fieldset class="ma_feedback-fieldset user-response__contact">
-
-            {% set inputGroup = responseRequired.inputGroup %}
-            {% include "@atoms/03-forms/input-group.twig" %}
-
-            <div class="ma__mass-feedback-form__contact-form">
-              {% if responseRequired.responseDescription %}
-                <p class="response-info">{{ responseRequired.responseDescription }}</p>
-              {% endif %}
-
-              <div class="ma__mass-feedback-form__contact-form--items">
-              {% for input in contactInputs %}
-                <div class="contact-form--item">
-                  {% set inputText = input %}
-                  {% include "@atoms/03-forms/input-text.twig" %}
-                </div>
-              {% endfor %}
-              </div>
-
-            </div>
-          </fieldset>
+          {% if alertMsg %}
+            <div class="ma__alert-msg" role="region" aria-live="polite" id="{{ negativeTextarea.errorIds }}">{{ alertMsg }}</div>
           {% endif %}
-
+          {% if warnMsg %}
+            <div class="ma__warn-msg{{showWarnMsg ? ' has-error-default' : ''}}">{{ warnMsg|raw }}</div>
+          {% endif %}
         </div>
-        {% endif %}
-
-      </fieldset>
+      </div>
     </div>
 
-    <fieldset class="ma_feedback-fieldset ma__mass-feedback-form__form--submit-wrapper">
-      <input id="" class="submitButton ma__button ma__button--small" type="submit" value="Send Feedback" />
-    </fieldset>
+    <div class="ma_feedback-fieldset submitButtonWrapper">
+      <input class="submitButton ma__button ma__button--small" type="submit" value="Send Feedback" />
+    </div>
 
     {% for element in hiddenElements %}
       <input type="hidden" id="{{ element.id }}" name="{{ element.name }}" value="{{ element.value }}" class="{{ element.class }}" />
     {% endfor %}
   </form>
+  {# success screen #}
+  <div class="ma__mass-feedback-form__form{{ submitted ? '' : ' hidden'}}" id="success-screen">
+    {% if success.before %}
+      <p>{{success.before|raw}}</p>
+    {% endif %}
+    {% if showWarnMsg %}
+      <p>{{warnMsg|raw}}</p>
+    {% endif %}
+    {% if success.after %}
+      <p>{{success.after|raw}}</p>
+    {% endif %}
+  </div>
 </div>

@@ -47,7 +47,7 @@ class SearchBanner extends React.Component {
 
   render() {
     const {
-      tabs, searchBox, filterBox, filterToggleText, className
+      tabs, searchBox, filterBox, filterToggleText, className, searchFormTitle
     } = this.props;
     let submitButton;
 
@@ -64,6 +64,7 @@ class SearchBanner extends React.Component {
     const searchBannerClasses = classNames({
       'ma__search-banner__top': true,
       'ma__search-banner__top--noTabs': !tabs,
+      'ma__search-banner__top--noFilters': !filterBox,
       [`${className}`]: !!className
     });
     const toggleButtonClasses = classNames({
@@ -74,12 +75,13 @@ class SearchBanner extends React.Component {
     return(
       <div className={searchBannerClasses}>
         <div className="main-content--two">
-          <h2 className="visually-hidden">Search Form</h2>
+          { searchFormTitle ? (<h2 className="visually-hidden">{searchFormTitle}</h2>)
+            : (<h2 className="visually-hidden">Search Form</h2>)}
           <HeaderSearch {...searchBox} />
         </div>
         {tabs && <Tabs {...tabs} />}
-        <div className="ma_search-banner__filter-box-container">
-          {filterBox && (
+        {!!filterBox && (
+          <div className="ma__search-banner__filter-box-container">
             <div className="main-content--two ma__search-banner__filter-box-toggle-container">
               <button
                 onClick={this.toggleFilterBox}
@@ -92,9 +94,9 @@ class SearchBanner extends React.Component {
                 <IconChevron width={20} height={20} />
               </button>
             </div>
-          )}
-          { filterBox && this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
-        </div>
+            { this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
+          </div>
+        )}
       </div>
     );
   }
@@ -116,16 +118,15 @@ SearchBanner.propTypes = {
   /** Controls if we allow filterbox toggle to render only on mobile */
   filterDesktopHidden: PropTypes.bool,
   /** Filter box toggle button text */
-  filterToggleText: PropTypes.string
+  filterToggleText: PropTypes.string,
+  /** The visually hidden search form title */
+  searchFormTitle: PropTypes.string
 };
 
 SearchBanner.defaultProps = {
   filterDesktopHidden: false,
   filterToggleText: 'More Filters',
-  filterBoxExpanded: false,
-  filterBox: {
-    id: 'filter-box'
-  }
+  filterBoxExpanded: false
 };
 
 export default SearchBanner;

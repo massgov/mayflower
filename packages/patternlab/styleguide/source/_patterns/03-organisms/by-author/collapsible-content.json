@@ -23,7 +23,8 @@
       "collapsibleHeader": {
         "info": "Click here to expand this thing",
         "title": "Collapsible Header",
-        "state": "ttue",
+        "state": true,
+
         "icon": "circle-chevron"
       },
       "more": {

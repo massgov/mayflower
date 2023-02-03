@@ -3,12 +3,10 @@
 @use "00-base/configure" as *;
 
 .ma__input-radio {
-  display: inline-block;
-  position: relative;
 
   input {
-
-    @include ma-visually-hidden;
+    position: absolute;
+    opacity: 0;
   }
 
   &__label {
@@ -18,27 +16,20 @@
       align-items: center;
 
     &:before {
-      border: 2px solid;
-      border-radius: 50%;
-      content: "\25CF";
-      display: flex;
-        align-items: center;
-        justify-content: center;
-      height: .45em;
-      width: .45em;
-      font-size: 1.25em;
-      margin-right: .125em;
-      padding: 0.5em;
-      overflow: hidden;
+      content: '';
+      border-radius: 100%;
+      border: 2px solid $c-bd-input-dark;
+      display: inline-block;
+      width: 1.4em;
+      min-width: 1.4em;
+      height: 1.4em;
+      position: relative;
+      margin-right: 0.5em; 
+      vertical-align: top;
+      cursor: pointer;
+      text-align: center;
+      transition: all 250ms ease;
       background-color: $c-white;
-      border-color: $c-bd-input-dark;
-      color: transparent;
-
-      .ma__form--light & {
-        background-color: rgba($c-white, 0.1);
-        border-color: rgba($c-bd-input,.5);
-      }
-
     }
   }
 
@@ -46,13 +37,18 @@
   input:checked ~ &__label {
 
     &:before {
-      color: $c-font-base;
-
-      .ma__form--light & {
-        color: $c-font-inverse;
-      }
+      background-color: $c-primary;
+      box-shadow: inset 0 0 0 4px $c-white;
     }
   }
+
+  input:focus ~ &__label {
+
+    &:before {
+      box-shadow: inset 0 0 0 4px $c-white, 0 0 2px 2px $c-focus-hightlight;
+    }
+  }
+  
 
 // patternlab
 
@@ -82,9 +78,8 @@
   }
 
 
-  input:focus ~ &__label:before {
-    border-color: $c-gray-dark;
-    box-shadow: 0 0 2px 2px $c-focus;
+  input:focus ~ &__label:after {
+    box-shadow: 0 0 2px 2px $c-focus-hightlight;
   }
 
   input:focus ~ &__label--error:before {

@@ -23,6 +23,9 @@ backstop_defaults: &backstop_defaults
   docker:
     - image: cimg/node:14.15.2
 
+orbs:
+  aws-cli: circleci/aws-cli@3.1.4
+
 jobs:
   build:
     <<: *patternlab_defaults
@@ -87,12 +90,8 @@ jobs:
       - *no_host_check
       - add_ssh_keys
       - *configure_git
-      - run:
-          name: 'Install AWS'
-          command: |
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
+      - aws-cli/setup:
+          role-arn: $AWS_DEPLOYMENT_ROLE_ARN
       - run:
           name: 'Deploy Artifact Branch'
           command: |
@@ -114,7 +113,7 @@ jobs:
             fi
       - run:
           name: 'Deploy S3 Branch'
-          command: aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH"
+          command: aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH" --profile default
 
   patternlab_deploy_tag:
     <<: *patternlab_defaults
@@ -124,12 +123,8 @@ jobs:
       - add_ssh_keys
       - *configure_git
       - *configure_npm
-      - run:
-          name: 'Install AWS'
-          command: |
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
+      - aws-cli/setup:
+          role-arn: $AWS_DEPLOYMENT_ROLE_ARN
       - run:
           name: 'Deploy Artifact Tag'
           command: |
@@ -161,10 +156,10 @@ jobs:
       - run:
           name: 'Deploy S3 Tag'
           command: |
-            aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
+            aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG" --profile default
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-              aws s3 cp --recursive packages/patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
+              aws s3 cp --recursive packages/patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab" --profile default
             fi
 
   react_build_storybook:
@@ -232,19 +227,20 @@ jobs:
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
             fi
-      - run: |
-          # Only sync to S3 for stable tags.
-          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            sudo apt-get update --allow-releaseinfo-change && sudo apt-get -y -qq install awscli
-          fi
-      - run: |
-          # Only sync to S3 for stable tags.
-          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            cd packages/react
-            aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --delete
-            aws configure set preview.cloudfront true
-            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/react*'
-          fi
+      # Only sync to S3 for stable tags.
+      - when:
+          condition:
+            matches:
+              pattern: '^[0-9]+\.[0-9]+\.[0-9]+$'
+              value: << pipeline.git.tag >>
+          steps:
+            - aws-cli/setup:
+                role-arn: $AWS_DEPLOYMENT_ROLE_ARN
+            - run: |
+                cd packages/react
+                aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --delete --profile default
+                aws configure set preview.cloudfront true --profile default
+                aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/react*' --profile default
 
 
   core_build_storybook:
@@ -272,29 +268,35 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/code
-      - run: |
-          # Only sync to S3 for stable tags.
-          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            sudo apt-get update --allow-releaseinfo-change && sudo apt-get -y -qq install awscli
-            cd packages/core
-            aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG" --delete
-            # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-            aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
-            aws configure set preview.cloudfront true
-            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*'
-          fi
+      # Only sync to S3 for stable tags.
+      - when:
+          condition:
+            matches:
+              pattern: '^[0-9]+\.[0-9]+\.[0-9]+$'
+              value: << pipeline.git.tag >>
+          steps:
+            - aws-cli/setup:
+                role-arn: $AWS_DEPLOYMENT_ROLE_ARN
+            - run: |
+                cd packages/core
+                aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$CIRCLE_TAG" --delete --profile default
+                # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
+                aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core" --profile default
+                aws configure set preview.cloudfront true --profile default
+                aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/core*' --profile default
 
   core_deploy_branch:
     <<: *patternlab_defaults
     steps:
       - attach_workspace:
           at: ~/code
+      - aws-cli/setup:
+          role-arn: $AWS_DEPLOYMENT_ROLE_ARN
       - run: |
-          sudo apt-get update --allow-releaseinfo-change && sudo apt-get -y -qq install awscli
           cd packages/core
-          aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/b/$CIRCLE_BRANCH" --delete
-          aws configure set preview.cloudfront true
-          aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths "/core/b*"
+          aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/b/$CIRCLE_BRANCH" --delete --profile default
+          aws configure set preview.cloudfront true --profile default
+          aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths "/core/b*" --profile default
 
   auto_changelog:
     <<: *react_defaults
@@ -390,19 +392,20 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/code
-      - run: |
-          # Only sync to S3 for stable tags.
-          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            sudo apt-get update --allow-releaseinfo-change && sudo apt-get -y -qq install awscli
-          fi
-      - run: |
-          # Only sync to S3 for stable tags.
-          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            cd packages/site
-            aws s3 sync public s3://mayflower.digital.mass.gov/home --delete
-            aws configure set preview.cloudfront true
-            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*'
-          fi
+      # Only sync to S3 for stable tags.
+      - when:
+          condition:
+            matches:
+              pattern: '^[0-9]+\.[0-9]+\.[0-9]+$'
+              value: << pipeline.git.tag >>
+          steps:
+            - aws-cli/setup:
+                role-arn: $AWS_DEPLOYMENT_ROLE_ARN
+            - run: |
+                cd packages/site
+                aws s3 sync public s3://mayflower.digital.mass.gov/home --delete --profile default
+                aws configure set preview.cloudfront true --profile default
+                aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*' --profile default
 
 workflows:
   version: 2
@@ -427,6 +430,7 @@ workflows:
           requires: [patternlab_build]
           filters:
             branches: { ignore: /(docs|react\/|site\/|core\/).*/ }
+          context: aws_oidc
       - patternlab_test:
           requires: [patternlab_build]
           filters:
@@ -454,6 +458,7 @@ workflows:
           requires: [core_build_storybook]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/|react\/).*/ }
+          context: aws_oidc
 
   ## Release branch automation every Monday at 1:00 p.m. ET "00 18 * * 1"
   ## Auto release is disabled - the new mayflower - openmass doesn't require weekly mayflower release
@@ -507,6 +512,7 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
+          context: aws_oidc
       - react_build_storybook:
           requires: [build]
           filters:
@@ -517,6 +523,7 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
+          context: aws_oidc
       - assets_deploy_tag:
           requires: [react_build_storybook]
           filters:
@@ -532,6 +539,7 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
+          context: aws_oidc
       - core_build_storybook:
           requires: [build]
           filters:
@@ -542,3 +550,4 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
+          context: aws_oidc

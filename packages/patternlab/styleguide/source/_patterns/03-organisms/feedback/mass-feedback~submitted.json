@@ -1,0 +1,94 @@
+{
+  "formAction": "#",
+  "formId": "formstack12345",
+  "heading": "Help Us Improve Mass.gov",
+  "title": {
+    "value": "Did you find what you were looking for on this webpage?",
+    "required": true
+  },
+  "inputGroup": {
+    "required": true,
+    "inline": true,
+    "title": "",
+    "type": "radio",
+    "items": [
+      {
+        "name": "foundIndicator",
+        "value": "Yes",
+        "id": "field3",
+        "label": "Yes",
+        "checked": false
+      },
+      {
+        "name": "foundIndicator",
+        "value": "No",
+        "id": "field4",
+        "label": "No",
+        "checked": false
+      }
+    ]
+  },
+  "queryAffirmative": {
+    "value": "If you have any suggestions for the website, please let us know.",
+    "required": false
+  },
+  "queryNegative": {
+    "value": "How can we improve the page?",
+    "required": true
+  },
+  "helpTip": {
+    "textBefore": "Please do not include personal or contact information.",
+    "textTrigger": "You will not get a response",
+    "helpText": "The feedback will only be used for improving the website. If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx</a>.",
+    "id": "helptext-id-123",
+    "expanded": false,
+    "isDescription": true
+  },
+  "affirmativeTextarea": {
+    "required": false,
+    "maxlength": 500,
+    "id": "affirmative-textarea",
+    "name": "affirmative-textarea",
+    "describedBy": "helptext-id-123",
+    "errorIds": "affirmative-textarea-error-alert"
+  },
+  "negativeTextarea": {
+    "required": true,
+    "maxlength": 500,
+    "id": "negative-textarea",
+    "name": "negative-textarea",
+    "describedBy": "helptext-id-123",
+    "errorMsg": "Please let us know how we can improve this page.",
+    "errorIds": "negative-textarea-error-alert"
+  },
+  "alertMsg": "Please remove any contact information or personal data from your feedback.",
+  "warnMsg": "If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx.</a>",
+  "hiddenElements": [
+    {
+      "id": "example1",
+      "name": "example1",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example2",
+      "name": "example2",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example3",
+      "name": "example3",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example4",
+      "name": "example4",
+      "value": "https://mass.gov"
+    }
+  ],
+  "submitted": true,
+  "showWarnMsg": true,
+  "success":  {
+    "before": "Thank you for your website feedback! We will use this information to improve this page.",
+    "after": "If you would like to continue helping us improve Mass.gov, <a href=\"https://www.mass.gov/user-panel?utm_source=survey\">join our user panel<\/a> to test new features for the site."
+  }
+}
