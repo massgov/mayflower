@@ -212,7 +212,8 @@
 .fsForm  div.fsError {
     color: white;
     border-radius: 0;
-    background-color: #f34343;
+    background-color: #CD0D0D;
+    border: 1px solid #CD0D0D;
     font-weight: bold;
 }
 .fsPage .fsValidationError {
@@ -221,14 +222,14 @@
 .fsPage .fsValidationError .fsLabel,
 .fsValidationError .fsLabel span,
 div.fsValidationError label.fsLabel{
-    color: #f34343 !important;
+    color: #CD0D0D !important;
     padding-left: 0;
     background: none;
 }
 
 .fsPage .fsValidationError input,
 .fsPage .fsValidationError textarea {
-    border: 2px solid #f34343;
+    border: 2px solid #CD0D0D;
 }
 
 /* remove branding */
@@ -264,7 +265,7 @@ div[fs-field-type="richtext"] a {
     justify-content: space-between;
     flex-grow: 2;
 }
-.fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(3),
+.fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(3), 
 .fsSubFieldGroup .fsSubField:nth-child(2):nth-last-child(2),
 .fsSubFieldGroup .fsSubField:nth-child(3):nth-last-child(1),
 .fsBody .fsSubField.fsNameFirst,
@@ -276,8 +277,8 @@ div[fs-field-type="richtext"] a {
     width: auto;
     flex-grow: 2;
 }
-.fsBody .fsForm input[type="text"].fsField,
-.fsBody .fsForm input[type="email"].fsField,
+.fsBody .fsForm input[type="text"].fsField, 
+.fsBody .fsForm input[type="email"].fsField, 
 .fsBody .fsForm input[type="tel"].fsField {
     min-height: 0;
     max-height: 46px;
@@ -300,7 +301,7 @@ div[fs-field-type="checkbox"] div.fieldset-content{
     display: flex;
     flex-wrap: wrap;
 }
-.fsRowBody input[type="radio"],
+.fsRowBody input[type="radio"], 
 .fsRowBody input[type="checkbox"] {
     min-height: 1rem;
 }
@@ -349,39 +350,14 @@ div[fs-field-type="checkbox"] div.fieldset-content{
     font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
 }
 
-/* For the calendar icon. */
-/* Flex collapses the width of the  parent to it's children. */
-div[fs-field-type="datetime"] fieldset {
-    display: flex;
-}
-/* Then the inner div needs relative context for the absolute icon. */
-div[fs-field-type="datetime"] .fieldset-content {
+/* calendar icon. */
+.fsBody .fsForm .ui-datepicker-trigger {
     position: relative;
-}
-/* Add the new icon at the bottom z-index. */
-div[fs-field-type="datetime"] .fieldset-content:after {
-    content: '';
-    position: absolute;
-    right: -40px;
-    top: 0;
-    display: block;
-    height: 42px;
-    width: 42px;
-    background-image: url(https://unpkg.com/@massds/mayflower@10.2.0/assets/images/icons/date-picker.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
-}
-/* Last, hide the old icon with opacity
-/* but lift it one z level so it's still clickable */
-.fsBody .ui-datepicker-trigger {
-    position: absolute;
-    top: 0;
+    filter: grayscale(1);
+    width: 22px;
+    height: 22px !important;
+    top: 5px;
     margin-left: 0;
-    height: 42px;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 1;
 }
 
 .fsCurrency.fsCurrencyPrefix {
@@ -401,7 +377,7 @@ div[fs-field-type="datetime"] .fieldset-content:after {
 
 /* Hide increment and decrement buttons */
 /* These behave unpredictably           */
-button.ma__input-number__plus,
+button.ma__input-number__plus, 
 button.ma__input-number__minus {
     display: none !important;
 }

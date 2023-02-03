@@ -15,8 +15,7 @@
   color: $c-font-link;
   font-weight: $fonts-bold;
 
-  &:after {
-    content: "+";
+  &__icon {
     display: inline-block;
     font-size: 1.5em;
     line-height: 1.125rem;
@@ -25,5 +24,7 @@
     transform: rotate(135deg);
     vertical-align: middle;
     color: $c-font-link;
+    // stop event bubbling from the span inside the button
+    pointer-events: none;
   }
 }
