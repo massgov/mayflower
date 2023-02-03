@@ -15,5 +15,6 @@ collapsibleHeader: {
     type: string (path to icon) / optional
   headingLevel:
     type: number (1-6) / optional,
+  state: boolean / required
 }
 ~~~
