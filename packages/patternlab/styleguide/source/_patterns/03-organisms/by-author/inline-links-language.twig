@@ -6,7 +6,7 @@
                     {% if link.href %}
                         <a href="{{ link.href }}" title="{{ link.info }}" data-label="{{ link.lang_label }}">{{ link.text }}</a>
                     {% else %}
-                        <span> {{ link.text }} </span>
+                        <span title="{{ link.info }}" data-label="{{ link.lang_label }}"> {{ link.text }} </span>
                     {% endif %}
                 </li>
             {% endfor %}
