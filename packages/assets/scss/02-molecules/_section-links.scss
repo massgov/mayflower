@@ -132,14 +132,14 @@
     // TEST EDIT
     .ma__decorative-link {
 
+      @media ($bp-large-extended-max) {// > 1050
+
+        box-sizing: border-box;
+      }
+
       @media ($bp-large-min) {// 910 <
 
         box-sizing: inherit;
-      }
-
-      @media ($bp-large-extended-max) {// 1050
-
-        box-sizing: border-box;
       }
 
     }
