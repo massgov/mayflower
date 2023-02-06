@@ -135,11 +135,15 @@
       @media ($bp-large-extended-max) {// > 1050
 
         box-sizing: border-box;
+        width: 100%;
       }
 
       @media ($bp-large-min) {// 910 <
 
         box-sizing: inherit;
+
+        width: 92%;
+
       }
 
     }
