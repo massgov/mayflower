@@ -107,6 +107,12 @@
     @include ma-h3;
     margin-bottom: .5em;
 
+    // background-color: aquamarine;
+
+    // .ma__decorative-link {
+    //     background-color: cadetblue;
+    //   }
+
     @media ($bp-small-min) {
       margin-bottom: .5em;
 
@@ -118,7 +124,8 @@
 
       .ma__decorative-link {
         box-sizing: border-box;
-        // display: inline;
+        box-sizing: inherit;// Test override
+        display: inline-block;
       //   width: 92%;
       }
     }
