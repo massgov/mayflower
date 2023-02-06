@@ -124,11 +124,26 @@
 
       .ma__decorative-link {
         box-sizing: border-box;
-        box-sizing: inherit;// Test override
         display: inline-block;
       //   width: 92%;
       }
     }
+
+    // TEST EDIT
+    .ma__decorative-link {
+
+      @media ($bp-large-min) {// 910 <
+
+        box-sizing: inherit;
+      }
+
+      @media ($bp-large-extended-max) {// 1050
+
+        box-sizing: border-box;
+      }
+
+    }
+    // END TEST
 
     align-self: stretch;
 
