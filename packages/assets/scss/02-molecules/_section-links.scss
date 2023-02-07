@@ -107,18 +107,13 @@
     @include ma-h3;
     margin-bottom: .5em;
     // -----------------
-    // background-color: aquamarine;
-
-    //
-    // display: flex;
-    // flex-direction: column;
-    // align-items: baseline;
+    background-color: aquamarine;
 
     .ma__decorative-link {
-        // background-color: cadetblue;
+        background-color: cadetblue;
 
 
-        // width: calc(100% - 0.8em);
+
         width: 94%;// Slightely bigger than the parent box to prevent extra bottom space with one line content.
         box-sizing: content-box;
       }
@@ -129,13 +124,14 @@
     }
 
     // TEST EDIT
-    // .ma__decorative-link {
+    @media ($bp-large-extended-max) {  // > 1050
 
-    //   @media ($bp-large-extended-max) {// > 1050
+      width: 99%;
 
-    //     box-sizing: border-box;
-    //     width: 100%;
-    //   }
+      .ma__decorative-link {
+        box-sizing: content-box;
+        width: calc(94% - 0.8em);
+      }
 
     //   @media ($bp-large-min) {// 910 <
 
@@ -143,7 +139,7 @@
     //     width: 90%;
     //   }
 
-    // }
+    }
     // END TEST
 
     align-self: stretch;
@@ -160,13 +156,16 @@
 
     // & { // &__title
 
-      // @media ($bp-x-small-max) {
-      //   padding-right: 1em;
+      @media ($bp-x-small-max) {
+        padding-right: 1em;
+
+        width: 99%;
+        // box-sizing: inherit;
 
         // .ma__section-links--compact & {
         //   padding-right: 0;
         // }
-      // }
+      }
 
       @media ($bp-x-small-min) {
 
@@ -193,8 +192,6 @@
     all: unset;// reeset any styles applied to button to match ones for decorative links.
     box-sizing: inherit;
 
-    // background-color: pink;
-
     display: none;
     border: none;
     background: none;
@@ -202,6 +199,9 @@
 
     font-weight: $fonts-bold;
     text-align: left;
+
+
+    background-color: pink;
 
     @media ($bp-x-small-max) {
 
