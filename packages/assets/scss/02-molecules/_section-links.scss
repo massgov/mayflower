@@ -107,10 +107,14 @@
     @include ma-h3;
     margin-bottom: .5em;
     // -----------------
-    // background-color: aquamarine;
+    background-color: aquamarine;
 
     .ma__decorative-link {
-        // background-color: cadetblue;
+        background-color: cadetblue;
+
+        a {
+          background-color: pink;
+        }
 
 
 
@@ -130,8 +134,8 @@
 
       .ma__decorative-link {
         box-sizing: content-box;
-        width: 96%;// fix for sectionlanding tablet
-        // width: calc(94% - 0.8em);
+        // width: 96%;// fix for sectionlanding tablet
+        width: 93%;//calc(94% - 0.8em);
       }
 
     //   @media ($bp-large-min) {// 910 <
