@@ -59,7 +59,8 @@
     background-color: $c-bg-section;
   }
 
-  &__container {
-    background: transparent url('#{$assets-path}/images/icons/bg-checklist.svg') right 50px bottom -50px no-repeat;
-  }
+  // Removed per DP-27157.
+  // &__container {
+  //   background: transparent url('#{$assets-path}/images/icons/bg-checklist.svg') right 50px bottom -50px no-repeat;
+  // }
 }
