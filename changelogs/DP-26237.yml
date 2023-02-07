@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: CollapsibleHeader
+    description: Correct invalid markup, cleaned up confusing aria-label, add context for screen reader users.  Add a new prop `state` for specifying the accordion's default state. (#1703)
+    issue: DP-26237
+    impact: Patch

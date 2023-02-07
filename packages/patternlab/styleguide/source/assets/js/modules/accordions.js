@@ -98,6 +98,7 @@ export default (function (window,document,$,undefined) {
     let $link = $el.find(`${ind} .js-accordion-link`),
       $content = $el.find(`${ind} .js-accordion-content`),
       $status = $el.find(`${ind} .js-accordion-status`),
+      $statusIcon = $el.find(`${ind} .js-accordion-status-icon`),
       open = $el.hasClass('is-open');
 
     if(toggleStatus != 'default') {
@@ -108,28 +109,14 @@ export default (function (window,document,$,undefined) {
       $content.stop(true,true).slideUp();
       $status.attr('aria-label', 'click to show info');
       $el.removeClass('is-open');
+      $link.attr('aria-expanded', false);
+      $statusIcon.text('+');
     } else {
       $content.stop(true,true).slideDown();
       $status.attr('aria-label', 'click to hide info');
       $el.addClass('is-open');
-    }
-    accordionAriaToggle($link, !open);
-
-  }
-
-  // Set and update aria labels depending on the accordion status.
-  function accordionAriaToggle($link, open) {
-    const statusText = open ? "Collapse " : "Expand ";
-    const label = $link.text() || $link.children('h2').text();
-
-    $link.attr('aria-expanded',open);
-    if ($link.hasClass("ma__emergency-header__toggle") || $link.hasClass("ma__header-alerts__header__button")
-    || $link.hasClass("ma__action-step__header")) {
-      // No aria-label.
-    }
-    else
-    {
-      $link.attr('aria-label', statusText + label);
+      $link.attr('aria-expanded', true);
+      $statusIcon.text('|');
     }
   }
 
@@ -158,15 +145,16 @@ export default (function (window,document,$,undefined) {
 
     $content.attr('id', id);
     $link.attr('aria-controls', id);
-    accordionAriaToggle($link, open);
 
     if(isExtended) {
       let childs = $el.find('.ma__collapsible-content__body-item a').length;
-      $el.find('.ma__collapsible-header__button').append( `<div class="header__title__counter">(${childs})</div>`);
+      $el.find('.ma__collapsible-header__button').append( `<div class="header__title__counter">(<span class="ma__visually-hidden">contains
+      </span>${childs}<span class="ma__visually-hidden"> items</span>)</div>`);
     }
 
 
     if(open) {
+      $link.find(`.js-accordion-status-icon`).text('|');
       // setup the inline display block
       $content.stop(true,true).slideDown();
     }
