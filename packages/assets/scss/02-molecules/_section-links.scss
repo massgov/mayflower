@@ -135,7 +135,7 @@
       .ma__decorative-link {
         box-sizing: content-box;
         // width: 96%;// fix for sectionlanding tablet
-        width: 93%;//calc(94% - 0.8em);
+        width: 92%;//calc(94% - 0.8em);
       }
 
     //   @media ($bp-large-min) {// 910 <
@@ -157,30 +157,33 @@
       align-self: flex-start;
       cursor: pointer;
       font-size: $fonts-xlarge;
+
+      padding-right: 1em;
+      width: 100%; //99%;
     }
 
     // & { // &__title
 
-      @media ($bp-x-small-max) {
-        padding-right: 1em;
+      // @media ($bp-x-small-max) {
+      //   padding-right: 1em;
 
-        width: 99%;
+      //   width: 100%;//99%;
         // box-sizing: inherit;
 
         // .ma__section-links--compact & {
         //   padding-right: 0;
         // }
+      // }
+
+    @media ($bp-x-small-min) {
+
+      @include ma-border-decorative;
+      padding-bottom: 16px;
+
+      svg {
+        margin-right: -16px;
       }
-
-      @media ($bp-x-small-min) {
-
-        @include ma-border-decorative;
-        padding-bottom: 16px;
-
-        svg {
-          margin-right: -16px;
-        }
-      }
+    }
     // }
 
 
@@ -210,7 +213,7 @@
 
     @media ($bp-x-small-max) {
 
-        padding-right: 1em;
+        padding-right: 0.8em;//1em;
 
       .js-accordion & {
 
