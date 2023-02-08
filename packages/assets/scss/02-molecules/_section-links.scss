@@ -122,6 +122,11 @@
         box-sizing: content-box;
       }
     // -----------------
+    @media ($bp-x-small-min) {
+      position: relative;
+
+    }
+
     @media ($bp-small-min) {
       margin-bottom: .5em;
 
@@ -164,21 +169,26 @@
 
     // & { // &__title
 
+    .ma__section-links--compact & {
+
+      @media ($bp-large-extended-max) {
+          width: auto;
+      }
+
       @media ($bp-x-small-max) {
-      //   padding-right: 1em;
+
+        padding-right: 0;
 
       //   width: 100%;//99%;
         // box-sizing: inherit;
 
-        .ma__section-links--compact & {
-          padding-right: 0;
-        }
       }
+    }
 
     @media ($bp-x-small-min) {
 
       @include ma-border-decorative;
-      padding-bottom: 16px;
+      // padding-bottom: 16px;
 
       svg {
         margin-right: -16px;
@@ -214,6 +224,8 @@
     @media ($bp-x-small-max) {
 
         padding-right: 0.8em;//1em;
+
+        padding-bottom: 16px;
 
       .js-accordion & {
 
