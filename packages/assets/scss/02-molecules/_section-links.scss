@@ -164,16 +164,16 @@
 
     // & { // &__title
 
-      // @media ($bp-x-small-max) {
+      @media ($bp-x-small-max) {
       //   padding-right: 1em;
 
       //   width: 100%;//99%;
         // box-sizing: inherit;
 
-        // .ma__section-links--compact & {
-        //   padding-right: 0;
-        // }
-      // }
+        .ma__section-links--compact & {
+          padding-right: 0;
+        }
+      }
 
     @media ($bp-x-small-min) {
 
