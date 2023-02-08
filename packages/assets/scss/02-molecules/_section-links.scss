@@ -200,6 +200,11 @@
 
     .js-accordion & .ma__decorative-link {
 
+      @media ($bp-x-small-min) {
+
+        padding-bottom: 16px;
+      }
+
       @media ($bp-x-small-max) {
         display: none;
       }
@@ -225,7 +230,7 @@
 
         padding-right: 0.8em;//1em;
 
-        padding-bottom: 16px;
+        // padding-bottom: 16px;//
 
       .js-accordion & {
 
