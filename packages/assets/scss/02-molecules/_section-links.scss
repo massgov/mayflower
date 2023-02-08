@@ -167,8 +167,6 @@
       width: 100%; //99%;
     }
 
-    // & { // &__title
-
     .ma__section-links--compact & {
 
       @media ($bp-large-extended-max) {
@@ -188,21 +186,22 @@
     @media ($bp-x-small-min) {
 
       @include ma-border-decorative;
-      // padding-bottom: 16px;
+
+      .ma__section-links--default & {
+        padding-bottom: 16px;
+      }
 
       svg {
         margin-right: -16px;
       }
     }
-    // }
-
 
 
     .js-accordion & .ma__decorative-link {
 
       @media ($bp-x-small-min) {
 
-        padding-bottom: 16px;
+        // padding-bottom: 16px;
       }
 
       @media ($bp-x-small-max) {
