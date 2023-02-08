@@ -106,51 +106,31 @@
 
     @include ma-h3;
     margin-bottom: .5em;
-    // -----------------
-    // background-color: aquamarine;
 
     .ma__decorative-link {
-        // background-color: cadetblue;
+      width: 94%;// Slightely bigger than the parent box to prevent extra bottom space with one line content.
+      box-sizing: content-box;
+    }
 
-        a {
-          // background-color: pink;
-        }
-
-
-
-        width: 94%;// Slightely bigger than the parent box to prevent extra bottom space with one line content.
-        box-sizing: content-box;
-      }
-    // -----------------
     @media ($bp-x-small-min) {
-      position: relative;
 
+      position: relative;
     }
 
     @media ($bp-small-min) {
-      margin-bottom: .5em;
 
+      margin-bottom: .5em;
     }
 
-    // TEST EDIT
-    @media ($bp-large-extended-max) {  // > 1050
+    @media ($bp-large-extended-max) {
 
       width: 99%;
 
       .ma__decorative-link {
         box-sizing: content-box;
-        // width: 96%;// fix for sectionlanding tablet
-        width: 92%;//calc(94% - 0.8em);
+        width: 92%;
       }
-
-    //   @media ($bp-large-min) {// 910 <
-
-    //     box-sizing: inherit;
-    //     width: 90%;
-    //   }
-
     }
-    // END TEST
 
     align-self: stretch;
 
@@ -164,22 +144,19 @@
       font-size: $fonts-xlarge;
 
       padding-right: 1em;
-      width: 100%; //99%;
+      width: 100%;
     }
 
     .ma__section-links--compact & {
 
       @media ($bp-large-extended-max) {
+
           width: auto;
       }
 
       @media ($bp-x-small-max) {
 
         padding-right: 0;
-
-      //   width: 100%;//99%;
-        // box-sizing: inherit;
-
       }
     }
 
@@ -196,13 +173,7 @@
       }
     }
 
-
     .js-accordion & .ma__decorative-link {
-
-      @media ($bp-x-small-min) {
-
-        // padding-bottom: 16px;
-      }
 
       @media ($bp-x-small-max) {
         display: none;
@@ -222,14 +193,9 @@
     font-weight: $fonts-bold;
     text-align: left;
 
-
-    // background-color: pink;
-
     @media ($bp-x-small-max) {
 
-        padding-right: 0.8em;//1em;
-
-        // padding-bottom: 16px;//
+      padding-right: 0.8em;
 
       .js-accordion & {
 
@@ -244,7 +210,7 @@
       &--status {
         display: block;
         font-size: 1.5em; //$fonts-4xlarge;
-        line-height: .75em; //65em;
+        line-height: .75em;
         border: none;
         overflow: hidden;
         position: absolute;
