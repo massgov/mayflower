@@ -8,7 +8,7 @@ export default (function (window,document,$) {
     const $links = $linksContainer.find('.ma__inline-links__item').not('.lang-toggle-container');
     if ($links.length > 0) {
       $.each($links, function (index, el) {
-        let $targetEl = $(el).find('a');
+        let $targetEl = $(el).find('a,span');
         if ($targetEl.length > 0 && $targetEl.data('label')) {
           let val = $targetEl.text();
           let label = $targetEl.data('label');
