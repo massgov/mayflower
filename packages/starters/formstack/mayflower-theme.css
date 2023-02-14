@@ -132,11 +132,10 @@
     font-weight: 700;
     background-color: #14558f !important;
     color: white;
-    border: 3px solid #14558f;
     box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
     display: inline-block;
     letter-spacing: 0.1em;
-    padding: 0.4em 1em;
+    padding: 1em;
     text-decoration: none;
     text-transform: uppercase;
     -webkit-transition: all 0.4s ease;
@@ -168,33 +167,56 @@
     overflow: hidden;
 }
 
-/* Next Button */
-.fsNextButton {
+
+/* Multi-page form */
+.fsWelcomeMessage {
+    justify-content: left;
+}
+
+.fsWelcomeMessage .fsWelcomeMessage__content {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Previous and Next Button */
+.fsPreviousButton, .fsNextButton, .fsWelcomeMessage .fsWelcomeMessage__content .fsWelcomeMessage__start-button {
     font-weight: 700;
-    background-color: #14558f !important;
     color: white;
-    border: 3px solid #14558f;
+    background-color: #14558f;
     box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
     display: inline-block;
+    float: none !important;
     letter-spacing: 0.1em;
-    padding: 0.4em 1em;
+    padding: 1em;
     text-decoration: none;
     text-transform: uppercase;
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    float: left !important;
+
 }
 
-.fsNextButton .fsSlim {
+.fsPreviousButton .fsSlim, .fsNextButton .fsSlim {
     display: none;
 }
 
+.fsPreviousButton {
+    background-color: #535353 !important;
+}
+
+.fsNextButton {
+    background-color: #14558F !important;
+}
+
+.fsPreviousButton:hover {
+    background-color: #53535399 !important;
+}
+
 .fsNextButton:hover {
-    background-color: rgb(20, 85, 143);
     background-color: rgba(20, 85, 143, 0.75) !important;
-    border-color:  transparent;
 }
 
 .fsBody .fsFieldRow {
@@ -204,6 +226,14 @@
 .fsBody .fsForm .fsPagination {
     text-align: left;
 }
+
+.fsForm.fsSingleColumn > div {
+    text-align: left !important;
+    font-size: 1.375rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 
 .fsForm, .fsError {
     float: none !important;
