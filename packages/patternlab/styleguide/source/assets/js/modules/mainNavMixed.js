@@ -2,6 +2,8 @@
 const mixedBody = document.querySelector("body");
 const mixedMenuButton = document.querySelector(".js-header-menu-button");
 const mixedMenuOverlay = document.querySelector(".menu-overlay");
+const mixedBlueBarNav = document.querySelector(".ma__header__mixed .ma__header__hamburger__nav");
+const mixedUtilNav = document.querySelector(".ma__header__mixed .js-util-nav");
 
 let mfIsMobile = ()=>{
   return document.documentElement.clientWidth < 840;
@@ -17,6 +19,24 @@ function hideHamburgerMenu () {
       mixedMenuButton.setAttribute("aria-expanded", "false");
       mixedMenuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
       mixedMenuOverlay.classList.remove("overlay-open");
+    }
+}
+
+// Label .ma__header__hamburger__nav component reflecting its visible content between desktop and mobile views.
+window.addEventListener("resize", swapLabels);
+
+function swapLabels () {
+  if (!mfIsMobile()) {
+    if (mixedBlueBarNav.getAttribute("aria-labelledby") === "header-nav-label") {
+      mixedBlueBarNav.setAttribute("aria-labelledby", "utility-panel-label");
+      mixedUtilNav.removeAttribute("aria-labelledby");
+    }
+  }
+
+  if (mfIsMobile()) {
+    if (mixedBlueBarNav.getAttribute("aria-labelledby") !== "header-nav-label") {
+      mixedBlueBarNav.setAttribute("aria-labelledby", "header-nav-label");
+      mixedUtilNav.setAttribute("aria-labelledby", "utility-panel-label");
     }
   }
 }
@@ -47,6 +67,4 @@ function toggleGoogleTranslate() {
     document.querySelector('.ma__header__hamburger__utility-nav .ma__utility-nav__item').appendChild(translateElement);
   }
 }
-
-
 
