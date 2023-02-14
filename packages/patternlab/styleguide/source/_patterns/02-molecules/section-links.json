@@ -1,6 +1,7 @@
 {
   "sectionLinks": {
     "id": "GUIDasjdhf1",
+    "compact": false,
     "catIcon": {
       "icon":"lg-fishing",
       "small": true
