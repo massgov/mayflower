@@ -20,6 +20,7 @@ function hideHamburgerMenu () {
       mixedMenuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
       mixedMenuOverlay.classList.remove("overlay-open");
     }
+  }
 }
 
 // Label .ma__header__hamburger__nav component reflecting its visible content between desktop and mobile views.
@@ -67,4 +68,3 @@ function toggleGoogleTranslate() {
     document.querySelector('.ma__header__hamburger__utility-nav .ma__utility-nav__item').appendChild(translateElement);
   }
 }
-
