@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Search
+    description: Add role to serach form. (#916)
+    issue: DP-26079
+    impact: Patch
