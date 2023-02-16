@@ -1,5 +1,6 @@
 <div class="ma__header-search">
   <form action="#" class="ma__form js-header-search-form" role="search">
+    <div id="autosuggest-info" class="ma__visually-hidden" aria-hidden="true">Suggestions are presented as an expanded option list.  When no suggestions are available, the option list is closed.</div>
     <label
         for="{{headerSearch.id}}"
         class="ma__header-search__label">{{headerSearch.label}}</label>
@@ -7,7 +8,8 @@
         id="{{headerSearch.id}}"
         class="ma__header-search__input"
         placeholder="{{headerSearch.placeholder}}"
-        type="search" inputmode="search" />
+        type="search" inputmode="search"
+        aria-describedby="autosuggest-info" />
     {% set buttonSearch = headerSearch.buttonSearch %}
     {% include "@atoms/01-buttons/button-search.twig" %}
   </form>
