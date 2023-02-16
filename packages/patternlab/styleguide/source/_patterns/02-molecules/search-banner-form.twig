@@ -3,7 +3,7 @@
 
 <form role="search" class="ma__search-banner__form" action="{{ form.action }}">
   {# Add aria-describedby="autosuggest-info" to the search input with JS. #}
-  <div id="autosuggest-info" class="ma__visually-hidden" aria-hidden="true">Suggestions are presented as an expanded option list.  When no suggestions are available, the option list is closed.</div>
+  <div id="autosuggest-info" class="ma__visually-hidden" aria-hidden="true">Suggestions are presented only when they are available.</div>
   <div class="ma__search-banner__input">
     {% set inputText = form.inputText %}
     {% include "@atoms/03-forms/input-text.twig" %}
