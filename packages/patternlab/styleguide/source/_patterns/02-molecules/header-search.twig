@@ -1,5 +1,5 @@
 {#  role="combobox" to indicate some options
-    autocomplete needs to be off for autosuggestion
+    list for autocomplete
     aria-controls to point suggestion list
 #}
 <div class="ma__header-search">
@@ -15,7 +15,7 @@
         placeholder="{{headerSearch.placeholder}}"
         type="search"
         inputmode="search"
-        autocomplete="off"
+        autocomplete="list"
         role="combobox"
         aria-expanded="false"
         aria-controls="suggestions-list"
