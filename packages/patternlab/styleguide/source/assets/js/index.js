@@ -48,7 +48,6 @@ import responsiveVideo from "./modules/responsiveVideo.js";
 import resultsHeading from "./modules/resultsHeading.js";
 import relationshipIndicators from "./modules/relationshipIndicators.js";
 import scrollAnchors from "./modules/scrollAnchors.js";
-import search from "./modules/search.js";
 import skipLinkTarget from "./modules/skipLinkTarget.js";
 import teaserListingGroup from "./modules/teaserListingGroup";
 import truncateTitle from "./modules/truncateTitle.js";
