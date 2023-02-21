@@ -1,6 +1,7 @@
 <div class="ma__main__hamburger-nav">
   <span id="main-nav-label" class="ma__visually-hidden" aria-hidden="true">Topics</span>
-  <ul role="menubar" class="ma__main__hamburger-nav__items js-main-nav-hamburger" aria-labelledby="main-nav-label">
+  {# Use aria-describedby to suuport JAWS. #}
+  <ul role="menubar" class="ma__main__hamburger-nav__items js-main-nav-hamburger" aria-describedby="main-nav-label">
     {% for nav in mainNav %}
       {% set buttonId =  'button' ~ loop.index %}
       {% set menuId =  'menu' ~ loop.index %}

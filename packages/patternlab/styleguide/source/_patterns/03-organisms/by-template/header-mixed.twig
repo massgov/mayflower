@@ -10,7 +10,9 @@
 
   <a class="ma__header__hamburger__skip-nav" href="#main-content">skip to main content</a>
 
-  <nav class="ma__header__hamburger__nav" aria-labelledby="header-nav-label" id="main-navigation" role="navigation">
+{# Use aria-describedby to suuport JAWS. #}
+<nav class="ma__header__hamburger__nav" aria-describedby="header-nav-label" id="main-navigation" role="navigation">
+
     <span id="header-nav-label" class="ma__visually-hidden" aria-hidden="true">Main navigation</span>
     <div class="ma__header__hamburger-wrapper">
 
@@ -79,7 +81,9 @@
     {% endif %}
   </div>
 
-  <nav class="ma__header__nav" aria-label="navigation by topics" id="main-navigation" role="navigation">
+  <span id="horizontal-nav-label" class="ma__visually-hidden" aria-hidden="true">Navigation by topics</span>
+  {# Use aria-describedby to suuport JAWS. #}
+  <nav class="ma__header__nav" aria-describedby="horizontal-nav-label" id="main-navigation" role="navigation">
     <div class="ma__header__nav-container">
       <div class="ma__header__main-nav">
         {% include "@molecules/main-nav.twig" %}
