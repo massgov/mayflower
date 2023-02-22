@@ -4,6 +4,10 @@
 
   .ma__header__mixed {
 
+    #header-nav-label {
+      display: none;
+    }
+
     & .ma__header__hamburger-wrapper {
       justify-content: flex-end;
     }

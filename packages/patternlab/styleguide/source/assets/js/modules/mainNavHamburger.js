@@ -396,7 +396,6 @@ if (hamburgerMenuContainer) {
         .classList.remove("stickyTOCtmp");
     }
     menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "main menu for mass.gov");
 
     if (hamburgerMenuContainer.hasAttribute("style")) {
       hamburgerMenuContainer.removeAttribute("style");
@@ -444,7 +443,6 @@ if (hamburgerMenuContainer) {
     body.classList.add("show-menu");
 
     menuButton.setAttribute("aria-expanded", "true");
-    menuButton.setAttribute("aria-label", "main menu for mass.gov");
     menuButtonText.classList.remove("show");
     menuButtonTextMobile.classList.remove("show");
     menuButtonTextClose.classList.add("show");
