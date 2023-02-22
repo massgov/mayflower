@@ -29,7 +29,7 @@ window.addEventListener("resize", swapLabels);
 function swapLabels () {
   if (!mfIsMobile()) {
     if (mixedBlueBarNav.getAttribute("aria-describedby") === "header-nav-label") {
-      mixedBlueBarNav.setAttribute("aria-describedby", "utility-panel-label");
+      mixedBlueBarNav.setAttribute("aria-describedby", "utility-nav-label");
       mixedUtilNav.removeAttribute("aria-describedby");
     }
   }
@@ -37,7 +37,9 @@ function swapLabels () {
   if (mfIsMobile()) {
     if (mixedBlueBarNav.getAttribute("aria-describedby") !== "header-nav-label") {
       mixedBlueBarNav.setAttribute("aria-describedby", "header-nav-label");
-      mixedUtilNav.setAttribute("aria-describedby", "utility-panel-label");
+      mixedBlueBarNav.setAttribute("aria-labelledby", "header-nav-label");
+      mixedUtilNav.setAttribute("aria-describedby", "utility-nav-label");
+      mixedUtilNav.setAttribute("aria-labelledby", "utility-nav-label");
     }
   }
 }

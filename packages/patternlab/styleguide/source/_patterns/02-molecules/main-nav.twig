@@ -1,7 +1,8 @@
 <div class="ma__main-nav">
   <span id="main-nav-label" class="ma__visually-hidden" aria-hidden="true">Topics</span>
   {# Use aria-describedby to suuport JAWS. #}
-  <ul role="menubar" class="ma__main-nav__items js-main-nav" aria-describedby="main-nav-label">
+  {# Use aria-labelledby to suuport NVDA + VO. #}
+  <ul role="menubar" class="ma__main-nav__items js-main-nav" aria-describedby="main-nav-label" aria-labelledby="main-nav-label">
     {% for nav in mainNav %}
       {% set buttonId =  'button' ~ loop.index %}
       {% set menuId =  'menu' ~ loop.index %}

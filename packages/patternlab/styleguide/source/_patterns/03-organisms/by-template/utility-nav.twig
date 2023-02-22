@@ -1,7 +1,8 @@
 <div class="ma__utility-nav js-util-nav">
-  <span id="utility-panel-label" class="ma__visually-hidden" aria-hidden="true">Language options and quick access links</span>
+  <span id="utility-nav-label" class="ma__visually-hidden" aria-hidden="true">Language options and quick access links</span>
   {# Use aria-describedby to suuport JAWS. #}
-  <ul class="ma__utility-nav__items" aria-describedby="utility-panel-label">
+  {# Use aria-labelledby to suuport NVDA + VO. #}
+  <ul class="ma__utility-nav__items" aria-describedby="utility-nav-label" aria-labelledby="utility-nav-label">
     {% if googleLanguages %}
       <li class="ma__utility-nav__item">
         <div class="ma__utility-nav__translate">
