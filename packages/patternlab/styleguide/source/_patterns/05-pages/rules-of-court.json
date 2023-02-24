@@ -210,6 +210,7 @@
     "formDownloads": {
       "compHeading": {
         "title": "Downloads",
+        "titleContext": "for The Name of a Court Rule",
         "sub": false,
         "color": "",
         "id": "downloads",
@@ -264,6 +265,7 @@
       "viewSpecific": false,
       "compHeading": {
         "title": "Contact",
+        "titleContext": "for The Name of a Court Rule",
         "sub": false,
         "color": "",
         "id": "contact",
@@ -399,6 +401,7 @@
       "viewSpecific": true,
       "compHeading": {
         "title": "Contact",
+        "titleContext": "for The Name of a Court Rule",
         "sub": false,
         "color": "",
         "id": "",
@@ -436,7 +439,8 @@
     },
     "pressListing": {
       "sidebarHeading": {
-        "title": "Related"
+        "title": "Related",
+        "titleContext": "to The Name of a Court Rule"
       },
       "items": [
         {
@@ -479,7 +483,8 @@
     },
     "eventListing": {
       "sidebarHeading": {
-        "title": "Events"
+        "title": "Events",
+        "titleContext": "for The Name of a Court Rule"
       },
       "events": [
         {
