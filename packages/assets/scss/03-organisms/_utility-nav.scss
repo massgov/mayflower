@@ -185,7 +185,7 @@ $utility-nav-height: 43px;
       }
     }
 
-    .goog-te-gadget-simple .goog-te-menu-value {
+    .goog-te-gadget-simple a {
 
       @include ma-chevron;
       color: $c-font-base;

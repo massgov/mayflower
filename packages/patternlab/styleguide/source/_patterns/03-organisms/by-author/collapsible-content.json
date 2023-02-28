@@ -23,6 +23,8 @@
       "collapsibleHeader": {
         "info": "Click here to expand this thing",
         "title": "Collapsible Header",
+        "state": true,
+
         "icon": "circle-chevron"
       },
       "more": {
@@ -37,7 +39,7 @@
             "text" : "Collapsible Body Content"
           }
         }
-      }]    
+      }]
     },{
       "expanded": false,
       "collapsibleHeader": {
@@ -57,7 +59,7 @@
             "text" : "Collapsible Body Content"
           }
         }
-      }]    
+      }]
     }]
   }
 }

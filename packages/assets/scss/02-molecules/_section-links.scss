@@ -107,9 +107,31 @@
     @include ma-h3;
     margin-bottom: .5em;
 
+    .ma__decorative-link {
+      width: 94%;// Slightely bigger than the parent box to prevent extra bottom space with one line content.
+      box-sizing: content-box;
+    }
+
+    @media ($bp-x-small-min) {
+
+      position: relative;
+    }
+
     @media ($bp-small-min) {
+
       margin-bottom: .5em;
     }
+
+    @media ($bp-large-extended-max) {
+
+      width: 99%;
+
+      .ma__decorative-link {
+        box-sizing: content-box;
+        width: 92%;
+      }
+    }
+
     align-self: stretch;
 
     a {
@@ -120,45 +142,88 @@
       align-self: flex-start;
       cursor: pointer;
       font-size: $fonts-xlarge;
+
+      padding-right: 1em;
+      width: 100%;
     }
 
-    &.js-accordion-link {
+    .ma__section-links--compact & {
 
-      @media ($bp-x-small-max) {
-        padding-right: 1em;
+      @media ($bp-large-extended-max) {
 
-        &:after {
-          content: "+";
-          display: block;
-          font-size: 1.5em;
-          line-height: .75em;
-          position: absolute;
-          top: 15px;
-          right: 15px;
-          transition: transform .5s ease;
-          transform-origin: center center;
-
-          .is-open & {
-            transform: rotate(135deg);
-          }
-        }
-
-        a > svg {
-          display: none;
-        }
+          width: auto;
       }
 
-      @media ($bp-x-small-min) {
+      @media ($bp-x-small-max) {
 
-        @include ma-border-decorative;
+        padding-right: 0;
+      }
+    }
+
+    @media ($bp-x-small-min) {
+
+      @include ma-border-decorative;
+
+      .ma__section-links--default & {
         padding-bottom: 16px;
+      }
 
-        &:after {
-          width: 60px;
-        }
+      svg {
+        margin-right: -16px;
+      }
+    }
 
-        svg {
-          margin-right: -16px;
+    .js-accordion & .ma__decorative-link {
+
+      @media ($bp-x-small-max) {
+        display: none;
+      }
+    }
+  }
+
+  &--accordion__toggle {
+    all: unset;// reeset any styles applied to button to match ones for decorative links.
+    box-sizing: inherit;
+
+    display: none;
+    border: none;
+    background: none;
+    padding-left: 0;
+
+    font-weight: $fonts-bold;
+    text-align: left;
+
+    @media ($bp-x-small-max) {
+
+      padding-right: 0.8em;
+
+      .js-accordion & {
+
+        @include ma-link-decorative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+
+        padding-right: 1em;
+      }
+
+      &--status {
+        display: block;
+        font-size: 1.5em; //$fonts-4xlarge;
+        line-height: .75em;
+        border: none;
+        overflow: hidden;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        transform-origin: center center;
+        transition: transform .5s ease;
+
+        padding-left: 0;
+        margin-left: 0;
+
+        .is-open & {
+          transform: rotate(135deg);
         }
       }
     }
@@ -202,10 +267,10 @@
   &__item > .ma__decorative-link {
 
     &__item > .ma__decorative-link {
-    font-size: $fonts-larger;
-    line-height: 1.3;
-    color: $c-primary;
-  }
+      font-size: $fonts-larger;
+      line-height: 1.3;
+      color: $c-primary;
+    }
   }
 }
 
@@ -213,6 +278,10 @@
 
 .ma__section-links {
   background-color: $c-bg-section;
+
+  &--accordion__toggle {
+    color: $c-primary;
+  }
 
   @media ($bp-x-small-max) {
     border-top-color: $c-bd-divider;
@@ -242,10 +311,6 @@
 
   &__title {
 
-    &:after {
-      color: $c-primary-alt;
-    }
-
     a {
       color: $c-primary;
     }
@@ -254,6 +319,10 @@
       fill: rgba($c-primary,.5);
     }
 
+  }
+
+  &--accordion__toggle--status {
+    color: $c-primary-alt;
   }
 
   &__mobile-title {

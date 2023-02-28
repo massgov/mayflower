@@ -49,7 +49,7 @@
             <div class="ma__alert-msg" role="region" aria-live="polite" id="{{ affirmativeTextarea.errorIds }}">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
-            <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
+            <div class="ma__warn-msg{{showWarnMsg ? ' has-error-default' : ''}}">{{ warnMsg|raw }}</div>
           {% endif %}
         </div>
         <div class="feedback-response feedback-negative">
@@ -59,7 +59,7 @@
             <div class="ma__alert-msg" role="region" aria-live="polite" id="{{ negativeTextarea.errorIds }}">{{ alertMsg }}</div>
           {% endif %}
           {% if warnMsg %}
-            <div class="ma__warn-msg{{showWarnMsg ? ' has-error' : ''}}">{{ warnMsg|raw }}</div>
+            <div class="ma__warn-msg{{showWarnMsg ? ' has-error-default' : ''}}">{{ warnMsg|raw }}</div>
           {% endif %}
         </div>
       </div>
