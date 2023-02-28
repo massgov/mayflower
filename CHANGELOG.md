@@ -1,6 +1,23 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.2.1 (2/28/2023)
+### Changed 
+- (InlineLinksLanguage) [Patternlab] DP-17338: Add option to toggle language bar labels for selected language as well. (#1739)
+- (Patternlab) [Search] DP-26079: Accessibility improvement for serach form. (#1744)
+- (Patternlab) [CollapsibleHeader] DP-26237: Correct invalid markup, cleaned up confusing aria-label, add context for screen reader users.  Add a new prop `state` for specifying the accordion's default state. (#1703)
+- (Patternlab) [Suggested pages] DP-26309: Modify the dondition to check more link content for suggeted pages. (#1724)
+- (Patternlab) [InfoDetailsNoSidebar] DP-26967: Adjust styling of Info details when there is no sidebar. (#1741)
+
+### Fixed 
+- (Patternlab) [feedbackForm] DP-26999: Reset text area validation on radio button change. (#1734)
+- (Starters) [Formstack] DP-27025: Fix multi-page form styles (#1742)
+- (Starters) [Formstack] DP-27044: Fix mayflower theme date picker calendar icon with a helptext enter. Remove the custom icon and style the default formstack icon. (#1737)
+- (Assets) [GoogleTranslate, UtilityNav] DP-27164: Fix Google Translate styles caused by a classname change by Google. (#1740)
+
+### Removed 
+- (Patternlab) [FormRequirements] DP-27157: Removed background image from the form requirements container. (#1738)
+
 ## 12.2.0 (1/19/2023)
 ### Changed 
 - (CircleCI) [CircleCI] DP-25865: Switch CircleCI to use OIDC for AWS (#1732)

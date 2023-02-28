@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Search
-    description: Accessibility improvement for serach form. (#1744)
-    issue: DP-26079
-    impact: Patch
