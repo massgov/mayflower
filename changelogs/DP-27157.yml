@@ -1,6 +1,0 @@
-Removed:
-  - project: Patternlab
-    component: FormRequirements
-    description: Removed background image from the form requirements container. (#1738)
-    issue: DP-27157
-    impact: Patch

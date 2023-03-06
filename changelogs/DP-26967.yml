@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: InfoDetailsNoSidebar
-    description: Adjust styling of Info details when there is no sidebar. (#1741)
-    issue: DP-26967
-    impact: Patch
