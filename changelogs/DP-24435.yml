@@ -1,6 +1,0 @@
-Changed:
-  - project: InlineLinksLanguage
-    component: Patternlab
-    description: Add option to toggle language bar labels for selected language as well. (#1739)
-    issue: DP-17338
-    impact: Patch
