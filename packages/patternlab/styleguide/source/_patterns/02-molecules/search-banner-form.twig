@@ -1,8 +1,7 @@
 {# backward compatible with v5.6 - data object used to start with the form namespace #}
 {% set form = searchBannerForm ? : form.content %}
 
-<form role="search" class="ma__search-banner__form" action="{{ form.action }}">
-  <div id="autosuggest-info" class="ma__visually-hidden" aria-hidden="true">Suggestions are presented as an open option list only when they are available.</div>
+<form class="ma__search-banner__form" action="{{ form.action }}">
   <div class="ma__search-banner__input">
     {% set inputText = form.inputText %}
     {% include "@atoms/03-forms/input-text.twig" %}
