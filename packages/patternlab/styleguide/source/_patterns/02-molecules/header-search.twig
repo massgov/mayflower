@@ -1,11 +1,5 @@
-{#  role="combobox" to indicate some options
-    list for autocomplete
-    aria-controls to point suggestion list
-#}
 <div class="ma__header-search">
   <form action="#" class="ma__form js-header-search-form" role="search">
-    <div id="header-autosuggest-info" class="ma__visually-hidden" aria-hidden="true">Suggestions are presented as an open option list only when they are available.</div>
-
     <label
         for="{{headerSearch.id}}"
         class="ma__header-search__label">{{headerSearch.label}}</label>
@@ -13,13 +7,7 @@
         id="{{headerSearch.id}}"
         class="ma__header-search__input"
         placeholder="{{headerSearch.placeholder}}"
-        type="search"
-        inputmode="search"
-        autocomplete="list"
-        role="combobox"
-        aria-expanded="false"
-        aria-controls="suggestions-list"
-        aria-describedby="header-autosuggest-info" />
+        type="search" inputmode="search" />
     {% set buttonSearch = headerSearch.buttonSearch %}
     {% include "@atoms/01-buttons/button-search.twig" %}
   </form>
