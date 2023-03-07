@@ -54,6 +54,6 @@
 Removed:
   - project: Patternlab
     component: HeaderSearch, SearchBannerForm
-    description: Remove autocomplete feature and cleanup unnecessary data and attributes. (#1748)
+    description: Remove autocomplete feature and cleanup unnecessary data and attributes. (#1748, #1749)
     issue: DP-27426
     impact: Patch
