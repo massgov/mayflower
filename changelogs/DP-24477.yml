@@ -1,0 +1,3 @@
+Fixed:
+  - description: Passes background positioning information to illustrated header background images
+    issue: DP-24477
