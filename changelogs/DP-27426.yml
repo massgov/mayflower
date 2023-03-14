@@ -51,9 +51,9 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Fixed:
-  - project: Starters
-    component: Formstack
-    description: Fix multi-page form styles (#1742)
-    issue: DP-27025
+Removed:
+  - project: Patternlab
+    component: HeaderSearch, SearchBannerForm
+    description: Remove autocomplete feature and cleanup unnecessary data and attributes. (#1748, #1749)
+    issue: DP-27426
     impact: Patch

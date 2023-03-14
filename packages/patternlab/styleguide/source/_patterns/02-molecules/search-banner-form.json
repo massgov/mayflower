@@ -7,7 +7,7 @@
       "required": false,
       "id": "GUID138490237",
       "name": "search",
-      "type": "text",
+      "type": "search",
       "placeholder": "Search..."
     }
   }
