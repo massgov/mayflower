@@ -38,6 +38,11 @@
         }
       }
       {% endif %}
+      {% if illustratedHeader.bgPositionX and illustratedHeader.bgPositionY %}
+      .ma__illustrated-header__image {
+        background-position: {{ illustratedHeader.bgPositionX }} {{ illustratedHeader.bgPositionY }};
+      }
+      {% endif %}
     </style>
     <div class="ma__illustrated-header__image">
     </div>
