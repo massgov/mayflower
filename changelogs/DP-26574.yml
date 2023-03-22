@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: IllustratedHeader
+    description: Passes background positioning information to illustrated header background images (#1750)
+    issue: DP-26574
+    impact: Patch
