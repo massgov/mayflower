@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: pressTeaser
+    description: Set up a condition to determine whether span with background image to be an image element or not. (#1752)
+    issue: DP-26304
+    impact: Patch
