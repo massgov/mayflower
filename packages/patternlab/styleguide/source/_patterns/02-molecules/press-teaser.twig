@@ -5,9 +5,7 @@
     <a
       class="ma__press-teaser__image"
       href="{{ pressTeaser.title.href }}"
-    {% if pressTeaser.title.text %}
       title="{{ pressTeaser.title.text }}">
-    {% endif %}
       {% set image = pressTeaser.image %}
       <span
       {% if image.alt %}
