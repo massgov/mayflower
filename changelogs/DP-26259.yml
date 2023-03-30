@@ -2,5 +2,5 @@ Changed:
   - project: Patternlab
     component: CampaignVideo
     description: Empty title rendering fix - A11y. (#1753)
-    issue: DP-17338
+    issue: DP-26259
     impact: Patch
