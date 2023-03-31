@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab, Assets
+    component: SearchBanner
+    description: Increase visual prominence of links below search on home page. (#1756)
+    issue: DP-26625
+    impact: Minor
