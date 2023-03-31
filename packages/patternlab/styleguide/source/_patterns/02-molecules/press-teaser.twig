@@ -2,14 +2,16 @@
 
 <section class="ma__press-teaser {{ imageClass }}">
   {% if pressTeaser.image %}
-    <a 
+    <a
       class="ma__press-teaser__image"
-      href="{{ pressTeaser.title.href }}" 
+      href="{{ pressTeaser.title.href }}"
       title="{{ pressTeaser.title.text }}">
       {% set image = pressTeaser.image %}
-      <span 
-        aria-label="{{ image.alt }}" 
+      <span
+      {% if image.alt %}
+        aria-label="{{ image.alt }}"
         role="img"
+      {% endif %}
         style="background-image: url('{{ image.src }}')">
       </span>
     </a>
