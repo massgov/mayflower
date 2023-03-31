@@ -2,6 +2,7 @@
   "bannerCredit": {
     "imageName": "Name of image",
     "imageAuthor": "Taken by Somebody",
-    "icon": ""
+    "icon": "",
+    "ariaHidden": true
   }
 }
