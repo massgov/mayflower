@@ -1,6 +1,6 @@
 {
   "searchBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x800.png",
+    "bgWide": "https://www.mass.gov/files/styles/hero1600x800/public/homepage-search-background-images/statehouse-homepage-hero.jpg?itok=ta2llWA4",
     "bgNarrow": "../../assets/images/placeholder/800x800.png",
     "id": "GUID935283478A",
     "searchBannerForm": {
