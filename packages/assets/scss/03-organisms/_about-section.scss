@@ -23,6 +23,7 @@
   }
 
   &__content {
+    margin-bottom: 40px;
 
     @media ($bp-large-extended-min) {
       background-color: $c-bg-section;
@@ -30,7 +31,7 @@
 
     .ma__content-link {
       display: inline-block;
-      margin: 5px 0 40px;
+      margin: 5px 0 0;
     }
   }
 
