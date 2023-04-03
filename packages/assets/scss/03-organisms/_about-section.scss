@@ -45,7 +45,7 @@
   }
 
   &__content-text {
-    margin-bottom: 40px;
+    padding-bottom: 40px;
     @media ($bp-large-extended-min) {
       max-width: 60%;
     }
