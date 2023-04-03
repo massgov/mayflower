@@ -23,7 +23,6 @@
   }
 
   &__content {
-    margin-bottom: 40px;
 
     @media ($bp-large-extended-min) {
       background-color: $c-bg-section;
@@ -46,7 +45,7 @@
   }
 
   &__content-text {
-
+    margin-bottom: 40px;
     @media ($bp-large-extended-min) {
       max-width: 60%;
     }
