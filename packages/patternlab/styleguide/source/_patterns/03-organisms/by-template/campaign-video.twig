@@ -10,19 +10,21 @@
   'ma__campaign-video--' ~ bgColor
 ] %}
 
-<section id="{{campaignVideo.id}}" class="{{ classes|join(' ') }}">
+<div id="{{campaignVideo.id}}" class="{{ classes|join(' ') }}">
 
   <div class="ma__campaign-video__wrapper">
+    {% if campaignVideo.title %}
     <h{{headingLevel}} class="ma__campaign-video__title">{{ campaignVideo.title }}</h{{headingLevel}}>
-  
+    {% endif %}
+
     {% if campaignVideo.description %}
     <div class="ma__campaign-video__description">{{ campaignVideo.description }}</div>
     {% endif %}
-    
+
     <div class="ma__campaign-video__video">
       {% set video = campaignVideo.video %}
       {% include "@atoms/09-media/video.twig" %}
     </div>
   </div>
 
-</section>
+</div>
