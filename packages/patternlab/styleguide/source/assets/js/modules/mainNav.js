@@ -11,17 +11,17 @@ export default (function (window, document, $, undefined) {
       hasFocus = "has-focus",
       closeClass = "is-closed",
       submenuClass = "show-submenu",
-      $parent = $(this),
-      $mainNavItem = $parent.find('.js-main-nav-toggle'),
+      $mainNavList = $(this),
+      $mainNavItem = $mainNavList.find('.js-main-nav-toggle'),
       breakpoint = 840; // matches CSS breakpoint for Main Nav
 
     $mainNavItem.on('keydown', function (e) {
       // Grab all the DOM info we need...
       let $link = $(this),
         $otherLinks = $mainNavItem.not($link),
-        $topLevelLinks = $parent.find('.ma__main-nav__top-link'),
+        $topLevelLinks = $mainNavList.find('.ma__main-nav__top-link'),
         open = $link.hasClass(openClass),
-        $openContent = $parent.find('.js-main-nav-content.' + openClass),
+        $openContent = $mainNavList.find('.js-main-nav-content.' + openClass),
         $focusedElement = $(document.activeElement),
         menuFlipped = (windowWidth < breakpoint),
         // relevant if open..
@@ -147,7 +147,7 @@ export default (function (window, document, $, undefined) {
       let $el = $(this),
         $elParent = $el.parent(),
         $content = $elParent.find('.js-main-nav-content'),
-        $openContent = $parent.find('.js-main-nav-content.' + openClass),
+        $openContent = $mainNavList.find('.js-main-nav-content.' + openClass),
         isOpen = $content.hasClass(openClass);
 
       // mobile
@@ -169,13 +169,13 @@ export default (function (window, document, $, undefined) {
     });
 
     $('.js-close-sub-nav').on('click', function () {
-      let $openContent = $parent.find('.js-main-nav-content.' + openClass);
+      let $openContent = $mainNavList.find('.js-main-nav-content.' + openClass);
       hide($openContent);
     });
 
     // Hide any open submenu content when the sidebar menu is closed
     $('.js-header-menu-button').click(function () {
-      let $openContent = $parent.find('.js-main-nav-content.' + openClass);
+      let $openContent = $mainNavList.find('.js-main-nav-content.' + openClass);
       hide($openContent);
 
       $('.ma__utility-nav__content').addClass('is-closed');
@@ -183,7 +183,7 @@ export default (function (window, document, $, undefined) {
 
     function hide($content) {
       $('body').removeClass(submenuClass);
-      $parent.find("." + openClass).removeClass(openClass);
+      $mainNavList.find("." + openClass).removeClass(openClass);
 
       if (windowWidth <= breakpoint) {
         $content.addClass(closeClass);
