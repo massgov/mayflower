@@ -178,7 +178,11 @@
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 30px 60px;
+    padding: 10px 20px;
+    
+    @media ($bp-medium-min) {
+      padding: 30px 60px;
+    }
 
     .ma__comp-heading {
       font-size: $fonts-medium;
