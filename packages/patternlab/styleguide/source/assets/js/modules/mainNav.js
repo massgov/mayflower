@@ -13,11 +13,12 @@ export default (function (window, document, $, undefined) {
       submenuClass = "show-submenu",
       $mainNavList = $(this),
       $mainNavItem = $mainNavList.find('.js-main-nav-toggle'),
+      $mainNavItemToggle = $mainNavList.find('.js-main-nav-toggle > button'),
       breakpoint = 840; // matches CSS breakpoint for Main Nav
 
-    $mainNavItem.on('keydown', function (e) {
+      $mainNavItemToggle.on('keydown', function (e) {
       // Grab all the DOM info we need...
-      let $link = $(this),
+      let $link = $(this).parent(),
         $otherLinks = $mainNavItem.not($link),
         $topLevelLinks = $mainNavList.find('.ma__main-nav__top-link'),
         open = $link.hasClass(openClass),
@@ -33,7 +34,7 @@ export default (function (window, document, $, undefined) {
         // Easy access to the key that was pressed.
         keycode = e.keyCode,
         action = {
-          'skip': keycode === 9, // tab
+          'tab': keycode === 9, // tab
           'close': keycode === 27, // esc
           'left': keycode === 37, // left arrow
           'right': keycode === 39, // right arrow
@@ -43,7 +44,9 @@ export default (function (window, document, $, undefined) {
           'enter': keycode === 13 // enter
         };
 
-      // Default behavior is prevented for all actions except 'skip'.
+        console.log($link)
+
+      // Default behavior is prevented for all actions except 'tab'.
       if (action.close || action.left || action.right || action.up || action.down) {
         e.preventDefault();
       }
@@ -53,11 +56,11 @@ export default (function (window, document, $, undefined) {
         $otherLinks.removeClass(hasFocus);
       }
 
-      if (action.skip) {
+      if (action.tab) {
         console.log(focusIndexInDropdown);
       }
 
-      if (action.skip && dropdownLinksLength === (focusIndexInDropdown + 1)) {
+      if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
         console.log(focusIndexInDropdown);
         hide($openContent);
         $topLevelLink.attr('aria-expanded', 'false');
@@ -65,7 +68,7 @@ export default (function (window, document, $, undefined) {
         return;
       }
 
-      // if (action.skip && focusIndexInDropdown === -1) {
+      // if (action.tab && focusIndexInDropdown === -1) {
       //   console.log('back');
       // }
 
