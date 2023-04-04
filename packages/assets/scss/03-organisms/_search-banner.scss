@@ -88,7 +88,11 @@
 
   &__form {
     display: flex;
-    margin: 0 auto 60px;
+    margin: 0 auto 30px;
+    
+    @media ($bp-medium-min) {
+      margin: 0 auto 60px;
+    }
   }
 
   &__input {
