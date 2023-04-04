@@ -130,10 +130,7 @@ export default (function(window, document, $) {
                 .addTo(mymap)
                 .bindPopup(compiledTemplate(infoData));
 
-            // Add the role="button" attribute to the img element
-            if (mymarker._icon) {
-                mymarker._icon.setAttribute('role', 'button');
-            }
+            $(mymarker._icon).attr('role', 'button');
 
             $(mymarker._icon).on('keydown', function(e) {
                 const { key } = e;
