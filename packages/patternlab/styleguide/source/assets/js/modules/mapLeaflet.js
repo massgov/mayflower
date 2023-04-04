@@ -124,7 +124,7 @@ export default (function(window, document, $) {
             const mymarker = L.marker(
                     L.latLng(+position.lat, +position.lng), {
                         icon: markerIcon,
-                        interactive: !isStatic
+                        interactive: !isStatic,
                         alt: position.alt,
                         role: 'button'
                     })
