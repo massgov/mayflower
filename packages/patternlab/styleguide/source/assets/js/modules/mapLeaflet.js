@@ -8,6 +8,14 @@ export default (function(window, document, $) {
         return;
     }
 
+    function addRoleAttributeToIcon(marker) {
+        marker.on('add', function () {
+            if (marker._icon) {
+                marker._icon.setAttribute('role', 'button');
+            }
+        });
+    }
+
     // Initialize the map
     function initMaps(el, i) {
         // Timestamp for testing purposes
@@ -125,11 +133,13 @@ export default (function(window, document, $) {
                     L.latLng(+position.lat, +position.lng), {
                         icon: markerIcon,
                         interactive: !isStatic,
-                        alt: position.alt,
-                        role: 'button'
+                        alt: position.alt
                     })
                 .addTo(mymap)
                 .bindPopup(compiledTemplate(infoData));
+            
+            // Add the role="button" attribute to the img element
+            addRoleAttributeToIcon(mymarker);
 
             $(mymarker._icon).on('keydown', function(e) {
                 const { key } = e;
