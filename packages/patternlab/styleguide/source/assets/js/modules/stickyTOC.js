@@ -53,7 +53,7 @@ export default (function (window, document) {
         let sectionId = section.id;
         // Remove span element before passing to the a tag.
         if (section.querySelector('span.visually-hidden').length) {
-            section.querySelector('span.visually-hidden').remove();
+          section.querySelector('span.visually-hidden').remove();
         }
         let sectionTitle = section.innerHTML;
         // Remove HTML tags. We cannot use innerText method
