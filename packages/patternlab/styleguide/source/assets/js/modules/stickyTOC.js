@@ -51,6 +51,7 @@ export default (function (window, document) {
       // Use headers to fill TOC.
       Array.from(tocSections.headings).forEach((section) => {
         let sectionId = section.id;
+        section.querySelector('span.visually-hidden').remove();
         let sectionTitle = section.innerHTML;
         // Remove HTML tags. We cannot use innerText method
         // Since it will include visually hidden text as well.
