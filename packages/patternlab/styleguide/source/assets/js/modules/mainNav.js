@@ -94,6 +94,23 @@ export default (function (window, document, $) {
         }
       }
 
+      // Close previous menu after tabbing through the submenu to the next menu item
+      if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
+        hide($openContent);
+        $topLevelLink.attr('aria-expanded', 'false');
+        $link.removeClass(hasFocus);
+        return;
+      }
+
+      // Close menu and return focus to menubar
+      if (action.close || (menuFlipped && action.left)) {
+        hide($openContent);
+        $link.removeClass(openClass);
+        $link.removeClass(hasFocus);
+        $topLevelLink.focus().attr('aria-expanded', 'false');
+        return;
+      }
+
       // if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
       //   console.log(focusIndexInDropdown);
       //   hide($openContent);
