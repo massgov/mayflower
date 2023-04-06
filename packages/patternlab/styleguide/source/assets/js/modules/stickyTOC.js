@@ -51,7 +51,7 @@ export default (function (window, document) {
       // Use headers to fill TOC.
       Array.from(tocSections.headings).forEach((section) => {
         let sectionId = section.id;
-        const sectionTitle = section.innerHTML;
+        const sectionTitle = section.innerText;
         // If the section doesn't have an ID, create one from the heading text.
         if (!sectionId) {
           sectionId = section.textContent.replace(/\s+/g, "-").toLowerCase();
