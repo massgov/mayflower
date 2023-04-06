@@ -81,17 +81,22 @@ export default (function (window, document, $) {
           show($topLevelItem.find('.js-main-nav-content'));
           $topLevelLink.attr('aria-expanded', 'true');
           $link.addClass(openClass);
+          if (action.up) {
+            focusIndexInDropdown = dropdownLinksLength - 1;
+            console.log($dropdownLinks[focusIndexInDropdown])
+          }
+          if (action.down) {
+            focusIndexInDropdown = 0;
+          }
+          $dropdownLinks[focusIndexInDropdown].focus();
         }
 
-        if (action.up) {
-          console.log('up!!!!')
-          console.log($dropdownLinks[dropdownLinksLength-1])
-          $dropdownLinks[dropdownLinksLength-1].focus();
-        }
+        // Adjust index of active menu item based on performed action.
+        focusIndexInDropdown += (action.up ? -1 : 1);
 
-        if (action.down) {
-          $dropdownLinks[0].focus();
-        }
+        // Wrap around if at the end of the submenu.
+        focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+        $dropdownLinks[focusIndexInDropdown].focus();
       }
 
       // Close previous menu after tabbing through the submenu to the next menu item
@@ -110,70 +115,6 @@ export default (function (window, document, $) {
         $topLevelLink.focus().attr('aria-expanded', 'false');
         return;
       }
-
-      // if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
-      //   console.log(focusIndexInDropdown);
-      //   hide($openContent);
-      //   $topLevelLink.attr('aria-expanded', 'false');
-      //   $link.removeClass(hasFocus);
-      //   return;
-      // }
-
-      // Navigate into or within a submenu. This is needed on up/down actions
-      // (unless the menu is flipped and closed) and when using the right arrow
-      // while the menu is flipped and submenu is closed.
-      // if (((action.up || action.down) && !(menuFlipped && !open))
-      //   || (action.right && menuFlipped && !open)) {
-      //   // Open pull down menu if necessary.
-      //   if (!open && !$link.hasClass(hasFocus)) {
-      //     show($topLevelItem.find('.js-main-nav-content'));
-      //     $topLevelLink.attr('aria-expanded', 'true');
-      //     $link.addClass(openClass);
-      //   }
-
-      //   // Adjust index of active menu item based on performed action.
-      //   focusIndexInDropdown += (action.up ? -1 : 1);
-
-      //   // Wrap around if at the end of the submenu.
-      //   focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-      //   $dropdownLinks[focusIndexInDropdown].focus();
-      //   return;
-      // }
-
-      // // Close menu and return focus to menubar
-      // if (action.close || (menuFlipped && action.left)) {
-      //   hide($openContent);
-      //   $link.removeClass(openClass);
-      //   $link.removeClass(hasFocus);
-      //   $topLevelLink.focus().attr('aria-expanded', 'false');
-      //   return;
-      // }
-
-      // Navigate between submenus. This is needed for left/right actions in
-      // normal layout, or up/down actions in flipped layout (when nav is closed).
-      // if (((action.left || action.right) && !menuFlipped) ||
-      //   ((action.up || action.down) && menuFlipped && !open)) {
-      //   let index = $mainNavItems.index($topLevelLink),
-      //     prev = action.left || action.up,
-      //     linkCount = $mainNavItems.length;
-
-      //   // hide content
-      //   // If menubar focus
-      //   //  - Change menubar item
-      //   //
-      //   // If dropdown focus
-      //   //  - Open previous pull down menu and select first item
-      //   hide($openContent);
-      //   $topLevelLink.attr('aria-expanded', 'false');
-      //   $link.removeClass(hasFocus);
-      //   // Get previous item if left arrow, next item if right arrow.
-      //   index += (prev ? -1 : 1);
-      //   // Wrap around if at the end of the set of menus.
-      //   index = ((index % linkCount) + linkCount) % linkCount;
-      //   $mainNavItems[index].focus();
-      //   return;
-      // }
-
     })
 
  
