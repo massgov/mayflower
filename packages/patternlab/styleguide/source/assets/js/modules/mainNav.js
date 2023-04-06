@@ -20,7 +20,6 @@ export default (function (window, document, $) {
       // Grab all the DOM info we need...
       debugger;
       let $link = $(this),
-        $otherLinks = $mainNavItems.not($link),
         open = $link.hasClass(openClass),
         $openContent = $mainNavList.find('.js-main-nav-content.' + openClass),
         $focusedElement = $(document.activeElement),
@@ -33,9 +32,7 @@ export default (function (window, document, $) {
           'left': keycode === 37, // left arrow
           'right': keycode === 39, // right arrow
           'up': keycode === 38, // up arrow
-          'down': keycode === 40, // down arrow
-          // 'space': keycode === 32, //space
-          // 'enter': keycode === 13 // enter
+          'down': keycode === 40
         };
         // relevant if open..
         let $topLevelItem = $focusedElement.parents('.js-main-nav-toggle'), // li
