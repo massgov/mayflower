@@ -59,7 +59,6 @@ export default (function (window, document) {
         // Remove HTML tags. We cannot use innerText method
         // Since it will include visually hidden text as well.
         sectionTitle = sectionTitle.replace( /(<([^>]+)>)/ig, '');
-        console.log(sectionTitle);
         // If the section doesn't have an ID, create one from the heading text.
         if (!sectionId) {
           sectionId = section.textContent.replace(/\s+/g, "-").toLowerCase();
