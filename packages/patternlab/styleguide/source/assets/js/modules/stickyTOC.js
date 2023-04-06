@@ -52,7 +52,7 @@ export default (function (window, document) {
       Array.from(tocSections.headings).forEach((section) => {
         let sectionId = section.id;
         // Remove span element before passing to the a tag.
-        if (section.querySelector('span.visually-hidden').length) {
+        if (section.querySelector('span.visually-hidden') !== null) {
           section.querySelector('span.visually-hidden').remove();
         }
         let sectionTitle = section.innerHTML;
