@@ -133,13 +133,12 @@ export default (function (window, document, $, undefined) {
       let $el = $(this),
         $elParent = $el.parent(),
         $content = $elParent.find('.js-main-nav-content'),
-        $openContent = $mainNavList.find('.js-main-nav-content.' + openClass),
         isOpen = $content.hasClass(openClass);
 
         switch(e.type) {
           case 'click':
             if (isOpen) {
-              hide($openContent);
+              hide($content);
               $el.attr('aria-expanded', 'false');
               $elParent.removeClass('is-open');
             } else {
@@ -154,7 +153,7 @@ export default (function (window, document, $, undefined) {
             $elParent.addClass('is-open');
             break;
           case 'mouseleave':
-            hide($openContent);
+            hide($content);
             $el.attr('aria-expanded', 'false');
             $elParent.removeClass('is-open');
         }
