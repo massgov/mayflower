@@ -128,61 +128,50 @@ export default (function (window, document, $, undefined) {
       }
 
     })
-      .on('mouseenter', function (e) {
-        $(this).children('button').attr("aria-expanded", "true");
-        $('.has-focus').removeClass('has-focus');
 
-        if (windowWidth > breakpoint) {
-          let $openContent = $(this).find('.js-main-nav-content');
-          show($openContent);
-        }
-      })
-      .on('mouseleave', function (e) {
-        $(this).children('button').attr("aria-expanded", "false");
-
-        if (windowWidth > breakpoint) {
-          let $openContent = $(this).find('.js-main-nav-content');
-          hide($openContent);
-        }
-      });
-
-    $mainNavItem.children('button, a').on('click', function (e) {
+    $mainNavItem.children('button').on('click mouseenter mouseleave', function (e) {
       let $el = $(this),
         $elParent = $el.parent(),
         $content = $elParent.find('.js-main-nav-content'),
         $openContent = $mainNavList.find('.js-main-nav-content.' + openClass),
         isOpen = $content.hasClass(openClass);
 
-      // mobile
-      if (windowWidth <= breakpoint) {
-        e.preventDefault();
-        // add open class to this item
-        $elParent.addClass(openClass);
-        show($content);
-        $el.attr('aria-expanded', 'true');
-      } else {
-        hide($openContent);
-        $el.attr('aria-expanded', 'false');
-
-        if (!isOpen) {
-          show($content);
-          $el.attr('aria-expanded', 'true');
+        switch(e.type) {
+          case 'click':
+            if (isOpen) {
+              hide($openContent);
+              $el.attr('aria-expanded', 'false');
+              $elParent.removeClass('is-open');
+            } else {
+              show($content);
+              $el.attr('aria-expanded', 'true');
+              $elParent.addClass('is-open');
+            }
+            break;
+          case 'mouseenter':
+            show($content);
+            $el.attr('aria-expanded', 'true');
+            $elParent.addClass('is-open');
+            break;
+          case 'mouseleave':
+            hide($openContent);
+            $el.attr('aria-expanded', 'false');
+            $elParent.removeClass('is-open');
         }
-      }
     });
 
-    $('.js-close-sub-nav').on('click', function () {
-      let $openContent = $mainNavList.find('.js-main-nav-content.' + openClass);
-      hide($openContent);
-    });
+    // $('.js-close-sub-nav').on('click', function () {
+    //   let $openContent = $mainNavList.find('.js-main-nav-content.' + openClass);
+    //   hide($openContent);
+    // });
 
-    // Hide any open submenu content when the sidebar menu is closed
-    $('.js-header-menu-button').click(function () {
-      let $openContent = $mainNavList.find('.js-main-nav-content.' + openClass);
-      hide($openContent);
+    // // Hide any open submenu content when the sidebar menu is closed
+    // $('.js-header-menu-button').click(function () {
+    //   let $openContent = $mainNavList.find('.js-main-nav-content.' + openClass);
+    //   hide($openContent);
 
-      $('.ma__utility-nav__content').addClass('is-closed');
-    });
+    //   $('.ma__utility-nav__content').addClass('is-closed');
+    // });
 
     function hide($content) {
       $('body').removeClass(submenuClass);
