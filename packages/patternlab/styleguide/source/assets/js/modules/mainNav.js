@@ -14,7 +14,6 @@ export default (function (window, document, $) {
       $mainNavList = $(this),
       $mainNavItems = $mainNavList.find('.js-main-nav-toggle'), // li
       $mainNavItemsToggle = $mainNavList.find('.js-main-nav-toggle > button'), // button
-      breakpoint = 840, // matches CSS breakpoint for Main Nav
       dropdownIndex = 0;
 
     $mainNavItems.on('keydown', function (e) {
