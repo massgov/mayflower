@@ -7,11 +7,13 @@ This pattern is used to provide credit for a banner image.
 ### Variables
 ~~~
 bannerCredit: {
-  imageName: 
+  imageName:
     type: string / required,
-  imageAuthor: 
+  imageAuthor:
     type: string / required,
   icon:
-    type: string (path to icon) / optional
+    type: string (path to icon) / optional,
+  ariaHidden:
+    type: boolean / required
 }
 ~~~

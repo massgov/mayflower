@@ -1,5 +1,8 @@
-<section class="ma__social-links-bar">
+<div class="ma__social-links-bar">
+  {# In case no level value is available, its default value is set as 3. #}
+  {% set headingLevel = socialLinksBar.level ? socialLinksBar.level : "3" %}
+  <h{{ headingLevel }} class="ma__visually-hidden">Social media links</h{{ headingLevel }}>
   {% block sectionContent %}
     {% include "@molecules/icon-links.twig" with {"iconLinks": {"items": socialLinksBar.items} } %}
   {% endblock %}
-</section>
+</div>

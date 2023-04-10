@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: SocialLinksBar
+    description: Add visually hidden label for the social links bar - A11y. (#1745)
+    issue: DP-26258
+    impact: Patch

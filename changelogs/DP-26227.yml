@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: BannerCredit
+    description: Restructure image credit component for semantics. (#1751)
+    issue: DP-26227
+    impact: Patch
