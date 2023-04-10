@@ -88,8 +88,11 @@
 
   &__form {
     display: flex;
-    margin: 0 auto 60px;
-    max-width: 746px;
+    margin: 0 auto 30px;
+    
+    @media ($bp-medium-min) {
+      margin: 0 auto 60px;
+    }
   }
 
   &__input {
@@ -178,7 +181,12 @@
   &__links {
     margin-left: auto;
     margin-right: auto;
-    max-width: 706px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    
+    @media ($bp-medium-min) {
+      padding: 30px 60px;
+    }
 
     .ma__comp-heading {
       font-size: $fonts-medium;
