@@ -13,7 +13,7 @@
             <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
               {% for subNav in nav.subNav %}
                 <li role="none" class="ma__main-nav__subitem">
-                  <a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a>
+                  <a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link" tabindex="0">{{ subNav.text }}</a>
                 </li>
               {% endfor %}
             </ul>

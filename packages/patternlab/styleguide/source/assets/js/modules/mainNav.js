@@ -14,16 +14,15 @@ export default (function (window, document, $) {
       $mainNavList = $(this),
       $mainNavItems = $mainNavList.find('.js-main-nav-toggle'), // li
       $mainNavItemsToggle = $mainNavList.find('.js-main-nav-toggle > button'), // button
-      breakpoint = 840; // matches CSS breakpoint for Main Nav
+      breakpoint = 840, // matches CSS breakpoint for Main Nav
+      dropdownIndex = 0;
 
-    $mainNavItems.on('keydown', function (e) {
+    $mainNavItems.on('keyup', function (e) {
       // Grab all the DOM info we need...
-      debugger;
-      let $link = $(this),
-        open = $link.hasClass(openClass),
+      let $topLevelItem = $(this), // li
+        // open = $topLevelItem.hasClass(openClass),
         $openContent = $mainNavList.find('.js-main-nav-content.' + openClass),
         $focusedElement = $(document.activeElement),
-        menuFlipped = (windowWidth < breakpoint),
         // Easy access to the key that was pressed.
         keycode = e.keyCode,
         action = {
@@ -33,11 +32,11 @@ export default (function (window, document, $) {
           'right': keycode === 39, // right arrow
           'up': keycode === 38, // up arrow
           'down': keycode === 40
-        };
+        },
         // relevant if open..
-        let $topLevelItem = $focusedElement.parents('.js-main-nav-toggle'), // li
-          $topLevelLink = $topLevelItem.find('.js-main-nav-toggle > button'), // button
-          $dropdownLinks = $link.find('.ma__main-nav__subitem > a'),
+          $topLevelLink = $topLevelItem.find('.ma__main-nav__top-link'), // button
+          $dropdownContent = $topLevelItem.find('.js-main-nav-content'), // div
+          $dropdownLinks = $dropdownContent.find('a'),
           dropdownLinksLength = $dropdownLinks.length,
           focusIndexInDropdown = $dropdownLinks.index($focusedElement);
 
@@ -58,57 +57,64 @@ export default (function (window, document, $) {
         //  - Open previous pull down menu and select first item
         hide($openContent);
         $topLevelLink.attr('aria-expanded', 'false');
-        $link.removeClass(hasFocus);
+        $topLevelItem.removeClass(hasFocus);
         // Get previous item if left arrow, next item if right arrow.
         index += (prev ? -1 : 1);
-        console.log(index)
         // Wrap around if at the end of the set of menus.
         index = ((index % linkCount) + linkCount) % linkCount;
+        console.log($mainNavItemsToggle[index])
         $mainNavItemsToggle[index].focus();
         // return;
       }
-      console.log($link)
-      console.log($dropdownLinks)
-      console.log($focusedElement)
-      console.log(dropdownLinksLength, focusIndexInDropdown);
 
       if (action.up || action.down) {
-        // Open pull down menu if not already.
-        if (!open && !$link.hasClass(hasFocus)) {
+        
+        // If submenu is not already and if the focus is on the top level button
+        if ($openContent.length === 0 && focusIndexInDropdown === -1) {
+          // Open the submenu
           show($topLevelItem.find('.js-main-nav-content'));
           $topLevelLink.attr('aria-expanded', 'true');
-          $link.addClass(openClass);
+          $topLevelItem.addClass(openClass);
           if (action.up) {
-            focusIndexInDropdown = dropdownLinksLength - 1;
-            console.log($dropdownLinks[focusIndexInDropdown])
-          }
-          if (action.down) {
-            focusIndexInDropdown = 0;
-          }
-          $dropdownLinks[focusIndexInDropdown].focus();
+            console.log('up')
+            // key up focus on the last item
+            dropdownIndex = dropdownLinksLength - 1;
+          } else {
+            console.log('down')
+            // key down focus on the first item
+            dropdownIndex = 0;
+          }  
+          console.log(dropdownIndex)
+          console.log($dropdownLinks[dropdownIndex])
+          // not sure why this doesn't work?????
+          $dropdownLinks[dropdownIndex].focus(); 
         }
+         else {
+          console.log('update')
+          // Adjust index of active menu item based on performed action.
+          dropdownIndex += (action.up ? -1 : 1);
 
-        // Adjust index of active menu item based on performed action.
-        focusIndexInDropdown += (action.up ? -1 : 1);
-
-        // Wrap around if at the end of the submenu.
-        focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-        $dropdownLinks[focusIndexInDropdown].focus();
+          // Wrap around if at the end of the submenu.
+          dropdownIndex = ((dropdownIndex % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+          console.log('focus: ' + dropdownIndex)
+          console.log($dropdownLinks[dropdownIndex])
+          //$dropdownLinks[focusIndexInDropdown].focus();
+        }
       }
-
+      
       // Close previous menu after tabbing through the submenu to the next menu item
       if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
         hide($openContent);
         $topLevelLink.attr('aria-expanded', 'false');
-        $link.removeClass(hasFocus);
+        $topLevelItem.removeClass(hasFocus);
         return;
       }
 
       // Close menu and return focus to menubar
-      if (action.close || (menuFlipped && action.left)) {
+      if (action.close) {
         hide($openContent);
-        $link.removeClass(openClass);
-        $link.removeClass(hasFocus);
+        $topLevelItem.removeClass(openClass);
+        $topLevelItem.removeClass(hasFocus);
         $topLevelLink.focus().attr('aria-expanded', 'false');
         return;
       }
