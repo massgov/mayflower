@@ -17,7 +17,7 @@ export default (function (window, document, $) {
       breakpoint = 840, // matches CSS breakpoint for Main Nav
       dropdownIndex = 0;
 
-    $mainNavItems.on('keyup', function (e) {
+    $mainNavItems.on('keydown', function (e) {
       // Grab all the DOM info we need...
       let $topLevelItem = $(this), // li
         // open = $topLevelItem.hasClass(openClass),
@@ -39,6 +39,8 @@ export default (function (window, document, $) {
           $dropdownLinks = $dropdownContent.find('a'),
           dropdownLinksLength = $dropdownLinks.length,
           focusIndexInDropdown = $dropdownLinks.index($focusedElement);
+          console.log($topLevelItem)
+          
 
       // Default behavior is prevented for all actions except 'tab'.
       if (action.close || action.left || action.right || action.up || action.down) {
@@ -62,17 +64,15 @@ export default (function (window, document, $) {
         index += (prev ? -1 : 1);
         // Wrap around if at the end of the set of menus.
         index = ((index % linkCount) + linkCount) % linkCount;
-        console.log($mainNavItemsToggle[index])
         $mainNavItemsToggle[index].focus();
         // return;
       }
 
       if (action.up || action.down) {
-        
-        // If submenu is not already and if the focus is on the top level button
-        if ($openContent.length === 0 && focusIndexInDropdown === -1) {
+        // If submenu is not already
+        if ($openContent.length === 0) {
           // Open the submenu
-          show($topLevelItem.find('.js-main-nav-content'));
+          show($dropdownContent);
           $topLevelLink.attr('aria-expanded', 'true');
           $topLevelItem.addClass(openClass);
           if (action.up) {
@@ -89,7 +89,7 @@ export default (function (window, document, $) {
           // not sure why this doesn't work?????
           $dropdownLinks[dropdownIndex].focus(); 
         }
-         else {
+        else {
           console.log('update')
           // Adjust index of active menu item based on performed action.
           dropdownIndex += (action.up ? -1 : 1);
@@ -98,10 +98,10 @@ export default (function (window, document, $) {
           dropdownIndex = ((dropdownIndex % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
           console.log('focus: ' + dropdownIndex)
           console.log($dropdownLinks[dropdownIndex])
-          //$dropdownLinks[focusIndexInDropdown].focus();
+          $dropdownLinks[dropdownIndex].focus();
         }
       }
-      
+
       // Close previous menu after tabbing through the submenu to the next menu item
       if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
         hide($openContent);
