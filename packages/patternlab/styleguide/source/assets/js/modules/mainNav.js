@@ -1,10 +1,4 @@
 export default (function (window, document, $) {
-
-  let windowWidth = window.innerWidth;
-
-  window.addEventListener("resize", function () {
-    windowWidth = window.innerWidth;
-  });
   
   $('.js-main-nav').each(function () {
     let openClass = "is-open",
