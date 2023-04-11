@@ -7,8 +7,7 @@ export default (function (window, document, $) {
       submenuClass = "show-submenu",
       $mainNavList = $(this),
       $mainNavItems = $mainNavList.find('.js-main-nav-toggle'), // li
-      $mainNavItemsToggle = $mainNavList.find('.js-main-nav-toggle > button'), // button
-      dropdownIndex = 0;
+      $mainNavItemsToggle = $mainNavList.find('.js-main-nav-toggle > button'); // button
 
     $mainNavItems.on('keydown', function (e) {
       // Grab all the DOM info we need...
@@ -67,18 +66,18 @@ export default (function (window, document, $) {
           $topLevelButton.attr('aria-expanded', 'true');
           $topLevelItem.addClass(openClass);
           if (action.up) {
-            dropdownIndex = dropdownLinksLength - 1;
+            focusIndexInDropdown = dropdownLinksLength - 1;
           } else {
-            dropdownIndex = 0;
+            focusIndexInDropdown = 0;
           }  
-          $dropdownLinks[dropdownIndex].focus(); 
+          $dropdownLinks[focusIndexInDropdown].focus(); 
         }
         else {
           // Adjust index of active menu item based on performed action.
-          dropdownIndex += (action.up ? -1 : 1);
+          focusIndexInDropdown += (action.up ? -1 : 1);
           // Wrap around if at the end of the submenu.
-          dropdownIndex = ((dropdownIndex % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-          $dropdownLinks[dropdownIndex].focus();
+          focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+          $dropdownLinks[focusIndexInDropdown].focus();
         }
       }
 
