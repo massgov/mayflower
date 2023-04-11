@@ -23,14 +23,14 @@ export default (function (window, document, $) {
         $openContent = $mainNavList.find('.js-main-nav-content.' + openClass),
         $focusedElement = $(document.activeElement),
         // Easy access to the key that was pressed.
-        keycode = e.keyCode,
+        key = e.key,
         action = {
-          'tab': keycode === 9, // tab
-          'close': keycode === 27, // esc
-          'left': keycode === 37, // left arrow
-          'right': keycode === 39, // right arrow
-          'up': keycode === 38, // up arrow
-          'down': keycode === 40
+          'tab': key === "Tab", // tab
+          'close': key === "Esc" || key === "Escape", // esc
+          'left': key === "Left" || key === "ArrowLeft", // left arrow
+          'right': key === "Right" || key === "ArrowRight", // right arrow
+          'up': key === "Up" || key === "ArrowUp", // up arrow
+          'down': key === "Down" || key === "ArrowDown"
         },
         // relevant if open..
           $topLevelLink = $topLevelItem.find('.ma__main-nav__top-link'), // button
@@ -68,7 +68,7 @@ export default (function (window, document, $) {
       }
 
       if (action.up || action.down) {
-        // If submenu is not already
+        // If submenu is not open already
         if ($openContent.length === 0) {
           // Open the submenu
           show($dropdownContent);
@@ -83,10 +83,10 @@ export default (function (window, document, $) {
             // key down focus on the first item
             dropdownIndex = 0;
           }  
-          console.log(dropdownIndex)
-          console.log($dropdownLinks[dropdownIndex])
           // not sure why this doesn't work?????
           $dropdownLinks[dropdownIndex].focus(); 
+          console.log(dropdownIndex)
+          console.log($dropdownLinks[dropdownIndex])
         }
         else {
           console.log('update')
