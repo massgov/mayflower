@@ -167,7 +167,6 @@ export default (function (window, document, $) {
       $('body').addClass(submenuClass);
       $content
       .stop(true, true)
-      .delay(200)
       .slideUp(0, function () {
         $content
           .addClass(openClass)
