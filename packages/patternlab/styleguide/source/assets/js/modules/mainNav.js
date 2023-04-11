@@ -27,7 +27,7 @@ export default (function (window, document, $) {
           'down': key === "Down" || key === "ArrowDown"
         },
         // relevant if open..
-          $topLevelLink = $topLevelItem.find('.ma__main-nav__top-link'), // button
+          $topLevelButton = $topLevelItem.find('.ma__main-nav__top-link'), // button
           $dropdownContent = $topLevelItem.find('.js-main-nav-content'), // div
           $dropdownLinks = $dropdownContent.find('a'),
           dropdownLinksLength = $dropdownLinks.length,
@@ -49,7 +49,7 @@ export default (function (window, document, $) {
         // If dropdown focus
         //  - Open previous pull down menu and select first item
         hide($openContent);
-        $topLevelLink.attr('aria-expanded', 'false');
+        $topLevelButton.attr('aria-expanded', 'false');
         $topLevelItem.removeClass(hasFocus);
         // Get previous item if left arrow, next item if right arrow.
         index += (prev ? -1 : 1);
@@ -64,7 +64,7 @@ export default (function (window, document, $) {
         if ($openContent.length === 0) {
           // Open the submenu
           show($dropdownContent);
-          $topLevelLink.attr('aria-expanded', 'true');
+          $topLevelButton.attr('aria-expanded', 'true');
           $topLevelItem.addClass(openClass);
           if (action.up) {
             dropdownIndex = dropdownLinksLength - 1;
@@ -85,7 +85,7 @@ export default (function (window, document, $) {
       // Close previous menu after tabbing through the submenu to the next menu item
       if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
         hide($openContent);
-        $topLevelLink.attr('aria-expanded', 'false');
+        $topLevelButton.attr('aria-expanded', 'false');
         $topLevelItem.removeClass(hasFocus);
         return;
       }
@@ -95,7 +95,7 @@ export default (function (window, document, $) {
         hide($openContent);
         $topLevelItem.removeClass(openClass);
         $topLevelItem.removeClass(hasFocus);
-        $topLevelLink.focus().attr('aria-expanded', 'false');
+        $topLevelButton.focus().attr('aria-expanded', 'false');
         return;
       }
     })
@@ -103,32 +103,32 @@ export default (function (window, document, $) {
  
     // mouse events + space and enter keyboard events
     $mainNavItemsToggle.on('click mouseenter mouseleave', function (e) {
-      let $el = $(this),
-        $elParent = $el.parent(),
-        $content = $elParent.find('.js-main-nav-content'),
+      let $topLevelButton = $(this), // button
+        $topLevelItem = $topLevelButton.parent(), // li
+        $content = $topLevelItem.find('.js-main-nav-content'),
         isOpen = $content.hasClass(openClass);
 
         switch(e.type) {
           case 'click':
             if (isOpen) {
               hide($content);
-              $el.attr('aria-expanded', 'false');
-              $elParent.removeClass('is-open');
+              $topLevelButton.attr('aria-expanded', 'false');
+              $topLevelItem.removeClass('is-open');
             } else {
               show($content);
-              $el.attr('aria-expanded', 'true');
-              $elParent.addClass('is-open');
+              $topLevelButton.attr('aria-expanded', 'true');
+              $topLevelItem.addClass('is-open');
             }
             break;
           case 'mouseenter':
             show($content);
-            $el.attr('aria-expanded', 'true');
-            $elParent.addClass('is-open');
+            $topLevelButton.attr('aria-expanded', 'true');
+            $topLevelItem.addClass('is-open');
             break;
           case 'mouseleave':
             hide($content);
-            $el.attr('aria-expanded', 'false');
-            $elParent.removeClass('is-open');
+            $topLevelButton.attr('aria-expanded', 'false');
+            $topLevelItem.removeClass('is-open');
         }
     });
 
