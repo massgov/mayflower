@@ -38,9 +38,7 @@ export default (function (window, document, $) {
           $dropdownLinks = $dropdownContent.find('a'),
           dropdownLinksLength = $dropdownLinks.length,
           focusIndexInDropdown = $dropdownLinks.index($focusedElement);
-          console.log($topLevelItem)
           
-
       // Default behavior is prevented for all actions except 'tab'.
       if (action.close || action.left || action.right || action.up || action.down) {
         e.preventDefault();
@@ -75,28 +73,17 @@ export default (function (window, document, $) {
           $topLevelLink.attr('aria-expanded', 'true');
           $topLevelItem.addClass(openClass);
           if (action.up) {
-            console.log('up')
-            // key up focus on the last item
             dropdownIndex = dropdownLinksLength - 1;
           } else {
-            console.log('down')
-            // key down focus on the first item
             dropdownIndex = 0;
           }  
-          // not sure why this doesn't work?????
           $dropdownLinks[dropdownIndex].focus(); 
-          console.log(dropdownIndex)
-          console.log($dropdownLinks[dropdownIndex])
         }
         else {
-          console.log('update')
           // Adjust index of active menu item based on performed action.
           dropdownIndex += (action.up ? -1 : 1);
-
           // Wrap around if at the end of the submenu.
           dropdownIndex = ((dropdownIndex % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-          console.log('focus: ' + dropdownIndex)
-          console.log($dropdownLinks[dropdownIndex])
           $dropdownLinks[dropdownIndex].focus();
         }
       }
