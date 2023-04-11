@@ -26,11 +26,11 @@ export default (function (window, document, $) {
           'down': key === "Down" || key === "ArrowDown"
         },
         // relevant if open..
-          $topLevelButton = $topLevelItem.find('.ma__main-nav__top-link'), // button
-          $dropdownContent = $topLevelItem.find('.js-main-nav-content'), // div
-          $dropdownLinks = $dropdownContent.find('a'),
-          dropdownLinksLength = $dropdownLinks.length,
-          focusIndexInDropdown = $dropdownLinks.index($focusedElement);
+        $topLevelButton = $topLevelItem.find('.ma__main-nav__top-link'), // button
+        $dropdownContent = $topLevelItem.find('.js-main-nav-content'), // div
+        $dropdownLinks = $dropdownContent.find('a'),
+        dropdownLinksLength = $dropdownLinks.length,
+        focusIndexInDropdown = $dropdownLinks.index($focusedElement);
           
       // Default behavior is prevented for all actions except 'tab'.
       if (action.close || action.left || action.right || action.up || action.down) {
