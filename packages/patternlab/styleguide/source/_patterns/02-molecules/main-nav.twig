@@ -3,7 +3,7 @@
     {% for nav in mainNav %}
       {% set buttonId =  'button' ~ loop.index %}
       {% set menuId =  'menu' ~ loop.index %}
-      <li role="menuitem" class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}" tabindex="-1">
+      <li role="{{ nav.href ? 'none' : 'menuitem' }}" class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}" tabindex="-1">
         {% if nav.subNav %}
           <button type="button" id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">
               <span class="visually-hidden show-label">Show the sub topics of </span>
@@ -24,7 +24,7 @@
           {% if 'covid' in nav.text|lower %}
             {% set altClass = 'cv-alternate-style' %}
           {% endif %}
-          <a href="{{ nav.href }}" class="ma__main-nav__top-link {{ altClass }}" tabindex="0">{{ nav.text }}</a>
+          <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__top-link {{ altClass }}" tabindex="0">{{ nav.text }}</a>
         {% else %}
           <button type="button" id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
         {% endif %}
