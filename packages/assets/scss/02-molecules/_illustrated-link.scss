@@ -91,7 +91,11 @@ $illustrated-link-image-width: 130px;
   }
 
   &__label {
-    color: rgba($c-font-link,.8);
+    color: rgba($c-font-link,.9);// with background color, #e5ecf3
+  }
+
+  .ma__action-finder__items--all &__label {
+    color: rgba($c-font-link,.8);// with background color, #ffffff
   }
 
   &__title {
