@@ -12,8 +12,8 @@
           <div class="ma__main-nav__subitems js-main-nav-content is-closed">
             <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
               {% for subNav in nav.subNav %}
-                <li role="menuitem" class="ma__main-nav__subitem">
-                  <a href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a>
+                <li role="none" class="ma__main-nav__subitem">
+                  <a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a>
                 </li>
               {% endfor %}
             </ul>
