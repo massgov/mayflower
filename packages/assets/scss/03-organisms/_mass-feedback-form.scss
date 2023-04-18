@@ -58,10 +58,11 @@ $formQuickTransitions: max-height 0.3s linear;
 
 
     max-height: 0;
-    overflow: hidden;
+    display: none;
     transition: $formTransitions;
 
     &.is-open {
+      display: initial;
       max-height: 150vh;
     }
 
@@ -100,7 +101,7 @@ $formQuickTransitions: max-height 0.3s linear;
     .ma__help-tip {
       font-size: $fonts-small;
       font-weight: $fonts-bold;
-      
+
       &-container {
         margin-bottom: 0.25em;
       }
@@ -171,7 +172,7 @@ $formQuickTransitions: max-height 0.3s linear;
       font-weight: $fonts-normal;
       line-height: 1.5;
       margin: .3em 0;
- 
+
       &.has-error, &.has-error-default {
         display: inline-block;
         border-left: 3px solid;
