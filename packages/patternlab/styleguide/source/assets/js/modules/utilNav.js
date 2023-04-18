@@ -80,10 +80,6 @@ export default (function (document,$) {
         }
       }
 
-      setTimeout(function () {
-        $closePanel.focus();
-      }, 250);
-
     });
   });
 
