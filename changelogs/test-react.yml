@@ -1,0 +1,8 @@
+
+#___EXAMPLE WITH MULTIPLE ITEMS___
+Changed:
+  - project: React
+    component: Storybook
+    description: TEST test test. (#)
+    issue: DP-17338
+    impact: Patch
