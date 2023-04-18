@@ -1,0 +1,13 @@
+Changed:
+  - project: Patternlab
+    component: UtilityNav
+    description: Place the utility nav panel close button to the bottom of the panel conatiner to be the last item to get focus. (#1761)
+    issue: DP-26232
+    impact: Patch
+
+Removed:
+  - project: Patternlab
+    component: UtilityNav
+    description: Remove focus on the utility nav close button when the utility panel opens. (#1761)
+    issue: DP-26232
+    impact: Patch
