@@ -10,12 +10,14 @@
       "action": "",
       "buttonText": "Search",
       "inputText": {
-        "labelText": "Search terms",
+        "labelText": "Search Mass.gov",
         "required": false,
         "id": "GUID138490237",
         "name": "search",
         "type": "text",
-        "placeholder": "Search..."
+        "placeholder": "Search...",
+        "mode": "search",
+        "autocomplete": "off"
       }
     },
     "pageIntro": {
