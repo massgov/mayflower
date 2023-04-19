@@ -1,7 +1,7 @@
 {# backward compatible with v5.6 - data object used to start with the form namespace #}
 {% set form = searchBannerForm ? : form.content %}
 
-<form class="ma__search-banner__form" action="{{ form.action }}" role="search">
+<form role="search" class="ma__search-banner__form" action="{{ form.action }}">
   <div class="ma__search-banner__input">
     {% set inputText = form.inputText %}
     {% include "@atoms/03-forms/input-text.twig" %}

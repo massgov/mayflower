@@ -3,11 +3,11 @@
 		<h3>{{ searchBoxWithLinks.form.headingText }}</h3>
 
 		<div class="ma__keyword-search js-keyword-search">
-			<label class="ma__visually-hidden">
+			<label for="q" class=" ma__visually-hidden">
 				{{ searchBoxWithLinks.form.visuallyHiddenText }}
 			</label>
 
-			<input class="ma__keyword-search__input" name="{{ searchBoxWithLinks.form.inputName }}" id="q" type="text" placeholder="{{ searchBoxWithLinks.form.headingText }}">
+			<input class="ma__keyword-search__input" name="{{ searchBoxWithLinks.form.inputName }}" id="q" type="search" inputmode="search" autocomplete="off" placeholder="{{ searchBoxWithLinks.form.headingText }}">
 
 			{% set buttonSearch = {
 				'text' : searchBoxWithLinks.form.submitText,
