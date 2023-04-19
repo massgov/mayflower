@@ -10,6 +10,8 @@
     "maxlength": 16,
     "pattern": "[0-9]",
     "placeholder": "type something",
-    "errorMsg": ""
+    "errorMsg": "",
+    "mode": "decimal",
+    "autocomplete": ""
   }
 }
