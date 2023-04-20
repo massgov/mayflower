@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: DownloadLink
+    description: Fix screen reader text. (#1770)
+    issue: DP-27968
+    impact: Patch
