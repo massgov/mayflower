@@ -9,7 +9,7 @@ export default (function (window, document, $) {
       $mainNavItems = $mainNavList.find('.js-main-nav-toggle'), // li
       $mainNavItemsToggle = $mainNavList.find('.js-main-nav-toggle > button'); // button
 
-    $mainNavItems.on('keydown', function (e) {
+    $mainNavItems.on('keydown mouseleave', function (e) {
       // Grab all the DOM info we need...
       let $topLevelItem = $(this), // li
         // open = $topLevelItem.hasClass(openClass),
@@ -97,11 +97,17 @@ export default (function (window, document, $) {
         $topLevelButton.focus().attr('aria-expanded', 'false');
         return;
       }
+
+      if (e.type === 'mouseleave') {
+        hide($dropdownContent);
+        $topLevelButton.attr('aria-expanded', 'false');
+        $topLevelItem.removeClass('is-open');
+      }
     })
 
  
     // mouse events + space and enter keyboard events
-    $mainNavItemsToggle.on('click mouseenter mouseleave', function (e) {
+    $mainNavItemsToggle.on('click mouseenter', function (e) {
       let $topLevelButton = $(this), // button
         $topLevelItem = $topLevelButton.parent(), // li
         $content = $topLevelItem.find('.js-main-nav-content'),
