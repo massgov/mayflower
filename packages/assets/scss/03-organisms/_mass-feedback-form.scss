@@ -55,13 +55,12 @@ $formQuickTransitions: max-height 0.3s linear;
   }
 
   &__fields {
-    
+
     display: none;
     transition: $formTransitions;
 
     &.is-open {
       display: initial;
-      max-height: 150vh;
     }
 
     &.positive {
