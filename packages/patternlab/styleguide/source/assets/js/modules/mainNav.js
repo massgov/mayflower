@@ -110,51 +110,47 @@ export default (function (window, document, $) {
     $mainNavItemsToggle.on('click mouseenter', function (e) {
       let $topLevelButton = $(this), // button
         $topLevelItem = $topLevelButton.parent(), // li
-        $content = $topLevelItem.find('.js-main-nav-content'),
-        isOpen = $content.hasClass(openClass);
+        $dropdownContent = $topLevelItem.find('.js-main-nav-content'),
+        isOpen = $dropdownContent.hasClass(openClass);
 
         switch(e.type) {
           case 'click':
             if (isOpen) {
-              hide($content);
+              hide($dropdownContent);
               $topLevelButton.attr('aria-expanded', 'false');
               $topLevelItem.removeClass('is-open');
             } else {
-              show($content);
+              show($dropdownContent);
               $topLevelButton.attr('aria-expanded', 'true');
               $topLevelItem.addClass('is-open');
             }
             break;
           case 'mouseenter':
-            show($content);
+            show($dropdownContent);
             $topLevelButton.attr('aria-expanded', 'true');
             $topLevelItem.addClass('is-open');
             break;
-          case 'mouseleave':
-            hide($content);
-            $topLevelButton.attr('aria-expanded', 'false');
-            $topLevelItem.removeClass('is-open');
         }
     });
 
-    function hide($content) {
+    function hide($dropdownContent) {
       $('body').removeClass(submenuClass);
       $mainNavList.find("." + openClass).removeClass(openClass);
-      $content
+      $dropdownContent
       .stop(true, true)
       .slideUp('fast', function () {
-        $content
+        $dropdownContent
           .addClass(closeClass)
           .slideDown(0);
       });
     }
 
-    function show($content) {
+    function show($dropdownContent) {
       $('body').addClass(submenuClass);
-      $content
+      $dropdownContent
       .stop(true, true)
       .slideUp(0, function () {
-        $content
+        $dropdownContent
           .addClass(openClass)
           .removeClass(closeClass)
           .slideDown('fast');
