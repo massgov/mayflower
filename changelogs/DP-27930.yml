@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Feedback
+    description: A11y - Focusable hidden elements in feedback module
+    issue: DP-27930
+    impact: Patch
