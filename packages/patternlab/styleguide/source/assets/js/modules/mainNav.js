@@ -1,112 +1,46 @@
-export default (function (window, document, $, undefined) {
-
-  let windowWidth = window.innerWidth;
-
-  window.addEventListener("resize", function () {
-    windowWidth = window.innerWidth;
-  });
+export default (function (window, document, $) {
   
   $('.js-main-nav').each(function () {
     let openClass = "is-open",
       hasFocus = "has-focus",
       closeClass = "is-closed",
       submenuClass = "show-submenu",
-      $parent = $(this),
-      $mainNavItem = $parent.find('.js-main-nav-toggle'),
-      breakpoint = 840; // matches CSS breakpoint for Main Nav
+      $mainNavList = $(this),
+      $mainNavItems = $mainNavList.find('.js-main-nav-toggle'), // li
+      $mainNavItemsToggle = $mainNavList.find('.js-main-nav-toggle > button'); // button
 
-    $mainNavItem.on('keydown', function (e) {
+    $mainNavItems.on('keydown mouseleave', function (e) {
       // Grab all the DOM info we need...
-      let $link = $(this),
-        $otherLinks = $mainNavItem.not($link),
-        $topLevelLinks = $parent.find('.ma__main-nav__top-link'),
-        open = $link.hasClass(openClass),
-        $openContent = $parent.find('.js-main-nav-content.' + openClass),
+      let $topLevelItem = $(this), // li
+        // open = $topLevelItem.hasClass(openClass),
+        $openContent = $mainNavList.find('.js-main-nav-content.' + openClass),
         $focusedElement = $(document.activeElement),
-        menuFlipped = (windowWidth < breakpoint),
-        // relevant if open..
-        $topLevelItem = $focusedElement.parents('.ma__main-nav__item'),
-        $topLevelLink = $topLevelItem.find('.ma__main-nav__top-link'),
-        $dropdownLinks = $link.find('.ma__main-nav__subitem .ma__main-nav__link'),
-        dropdownLinksLength = $dropdownLinks.length,
-        focusIndexInDropdown = $dropdownLinks.index($focusedElement),
         // Easy access to the key that was pressed.
-        keycode = e.keyCode,
+        key = e.key,
         action = {
-          'skip': keycode === 9, // tab
-          'close': keycode === 27, // esc
-          'left': keycode === 37, // left arrow
-          'right': keycode === 39, // right arrow
-          'up': keycode === 38, // up arrow
-          'down': keycode === 40, // down arrow
-          'space': keycode === 32, //space
-          'enter': keycode === 13 // enter
-        };
-
-      // Default behavior is prevented for all actions except 'skip'.
+          'tab': key === "Tab", // tab
+          'close': key === "Esc" || key === "Escape", // esc
+          'left': key === "Left" || key === "ArrowLeft", // left arrow
+          'right': key === "Right" || key === "ArrowRight", // right arrow
+          'up': key === "Up" || key === "ArrowUp", // up arrow
+          'down': key === "Down" || key === "ArrowDown"
+        },
+        // relevant if open..
+        $topLevelButton = $topLevelItem.find('.ma__main-nav__top-link'), // button
+        $dropdownContent = $topLevelItem.find('.js-main-nav-content'), // div
+        $dropdownLinks = $dropdownContent.find('a'),
+        dropdownLinksLength = $dropdownLinks.length,
+        focusIndexInDropdown = $dropdownLinks.index($focusedElement);
+          
+      // Default behavior is prevented for all actions except 'tab'.
       if (action.close || action.left || action.right || action.up || action.down) {
         e.preventDefault();
       }
 
-      if (action.enter || action.space) {
-        $link.addClass(hasFocus);
-        $otherLinks.removeClass(hasFocus);
-      }
-
-      if (action.skip) {
-        console.log(focusIndexInDropdown);
-      }
-
-      if (action.skip && dropdownLinksLength === (focusIndexInDropdown + 1)) {
-        console.log(focusIndexInDropdown);
-        hide($openContent);
-        $topLevelLink.attr('aria-expanded', 'false');
-        $link.removeClass(hasFocus);
-        return;
-      }
-
-      // if (action.skip && focusIndexInDropdown === -1) {
-      //   console.log('back');
-      // }
-
-      // Navigate into or within a submenu. This is needed on up/down actions
-      // (unless the menu is flipped and closed) and when using the right arrow
-      // while the menu is flipped and submenu is closed.
-      if (((action.up || action.down) && !(menuFlipped && !open))
-        || (action.right && menuFlipped && !open)) {
-        // Open pull down menu if necessary.
-        if (!open && !$link.hasClass(hasFocus)) {
-          show($topLevelItem.find('.js-main-nav-content'));
-          $topLevelLink.attr('aria-expanded', 'true');
-          $link.addClass(openClass);
-        }
-
-        // Adjust index of active menu item based on performed action.
-        focusIndexInDropdown += (action.up ? -1 : 1);
-
-        // Wrap around if at the end of the submenu.
-        focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-        $dropdownLinks[focusIndexInDropdown].focus();
-        return;
-      }
-
-      // Close menu and return focus to menubar
-      if (action.close || (menuFlipped && action.left)) {
-        hide($openContent);
-        $link.removeClass(openClass);
-        $link.removeClass(hasFocus);
-        $topLevelLink.focus().attr('aria-expanded', 'false');
-        return;
-      }
-
-      // Navigate between submenus. This is needed for left/right actions in
-      // normal layout, or up/down actions in flipped layout (when nav is closed).
-      if (((action.left || action.right) && !menuFlipped) ||
-        ((action.up || action.down) && menuFlipped && !open)) {
-        let index = $topLevelLinks.index($topLevelLink),
-          prev = action.left || action.up,
-          linkCount = $topLevelLinks.length;
-
+      if (action.left || action.right) {
+        let index = $mainNavItems.index($topLevelItem),
+          prev = action.left,
+          linkCount = $mainNavItems.length;
         // hide content
         // If menubar focus
         //  - Change menubar item
@@ -114,110 +48,114 @@ export default (function (window, document, $, undefined) {
         // If dropdown focus
         //  - Open previous pull down menu and select first item
         hide($openContent);
-        $topLevelLink.attr('aria-expanded', 'false');
-        $link.removeClass(hasFocus);
+        $topLevelButton.attr('aria-expanded', 'false');
+        $topLevelItem.removeClass(hasFocus);
         // Get previous item if left arrow, next item if right arrow.
         index += (prev ? -1 : 1);
         // Wrap around if at the end of the set of menus.
         index = ((index % linkCount) + linkCount) % linkCount;
-        $topLevelLinks[index].focus();
+        $mainNavItemsToggle[index].focus();
+        // return;
+      }
+
+      if (action.up || action.down) {
+        // If submenu is not open already
+        if ($openContent.length === 0) {
+          // Open the submenu
+          show($dropdownContent);
+          $topLevelButton.attr('aria-expanded', 'true');
+          $topLevelItem.addClass(openClass);
+          if (action.up) {
+            focusIndexInDropdown = dropdownLinksLength - 1;
+          } else {
+            focusIndexInDropdown = 0;
+          }  
+          $dropdownLinks[focusIndexInDropdown].focus(); 
+        }
+        else {
+          // Adjust index of active menu item based on performed action.
+          focusIndexInDropdown += (action.up ? -1 : 1);
+          // Wrap around if at the end of the submenu.
+          focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+          $dropdownLinks[focusIndexInDropdown].focus();
+        }
+      }
+
+      // Close previous menu after tabbing through the submenu to the next menu item
+      if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
+        hide($openContent);
+        $topLevelButton.attr('aria-expanded', 'false');
+        $topLevelItem.removeClass(hasFocus);
         return;
       }
 
-    })
-      .on('mouseenter', function (e) {
-        $(this).children('button').attr("aria-expanded", "true");
-        $('.has-focus').removeClass('has-focus');
-
-        if (windowWidth > breakpoint) {
-          let $openContent = $(this).find('.js-main-nav-content');
-          show($openContent);
-        }
-      })
-      .on('mouseleave', function (e) {
-        $(this).children('button').attr("aria-expanded", "false");
-
-        if (windowWidth > breakpoint) {
-          let $openContent = $(this).find('.js-main-nav-content');
-          hide($openContent);
-        }
-      });
-
-    $mainNavItem.children('button, a').on('click', function (e) {
-      let $el = $(this),
-        $elParent = $el.parent(),
-        $content = $elParent.find('.js-main-nav-content'),
-        $openContent = $parent.find('.js-main-nav-content.' + openClass),
-        isOpen = $content.hasClass(openClass);
-
-      // mobile
-      if (windowWidth <= breakpoint) {
-        e.preventDefault();
-        // add open class to this item
-        $elParent.addClass(openClass);
-        show($content);
-        $el.attr('aria-expanded', 'true');
-      } else {
+      // Close menu and return focus to menubar
+      if (action.close) {
         hide($openContent);
-        $el.attr('aria-expanded', 'false');
+        $topLevelItem.removeClass(openClass);
+        $topLevelItem.removeClass(hasFocus);
+        $topLevelButton.focus().attr('aria-expanded', 'false');
+        return;
+      }
 
-        if (!isOpen) {
-          show($content);
-          $el.attr('aria-expanded', 'true');
+      if (e.type === 'mouseleave') {
+        hide($dropdownContent);
+        $topLevelButton.attr('aria-expanded', 'false');
+        $topLevelItem.removeClass('is-open');
+      }
+    })
+
+ 
+    // mouse events + space and enter keyboard events
+    $mainNavItemsToggle.on('click mouseenter', function (e) {
+      let $topLevelButton = $(this), // button
+        $topLevelItem = $topLevelButton.parent(), // li
+        $dropdownContent = $topLevelItem.find('.js-main-nav-content'),
+        isOpen = $dropdownContent.hasClass(openClass);
+
+        switch(e.type) {
+          case 'click':
+            if (isOpen) {
+              hide($dropdownContent);
+              $topLevelButton.attr('aria-expanded', 'false');
+              $topLevelItem.removeClass('is-open');
+            } else {
+              show($dropdownContent);
+              $topLevelButton.attr('aria-expanded', 'true');
+              $topLevelItem.addClass('is-open');
+            }
+            break;
+          case 'mouseenter':
+            show($dropdownContent);
+            $topLevelButton.attr('aria-expanded', 'true');
+            $topLevelItem.addClass('is-open');
+            break;
         }
-      }
     });
 
-    $('.js-close-sub-nav').on('click', function () {
-      let $openContent = $parent.find('.js-main-nav-content.' + openClass);
-      hide($openContent);
-    });
-
-    // Hide any open submenu content when the sidebar menu is closed
-    $('.js-header-menu-button').click(function () {
-      let $openContent = $parent.find('.js-main-nav-content.' + openClass);
-      hide($openContent);
-
-      $('.ma__utility-nav__content').addClass('is-closed');
-    });
-
-    function hide($content) {
+    function hide($dropdownContent) {
       $('body').removeClass(submenuClass);
-      $parent.find("." + openClass).removeClass(openClass);
-
-      if (windowWidth <= breakpoint) {
-        $content.addClass(closeClass);
-      } else {
-        $content
-          .stop(true, true)
-          .slideUp('fast', function () {
-            $content
-              .addClass(closeClass)
-              .slideDown(0);
-          });
-      }
+      $mainNavList.find("." + openClass).removeClass(openClass);
+      $dropdownContent
+      .stop(true, true)
+      .slideUp('fast', function () {
+        $dropdownContent
+          .addClass(closeClass)
+          .slideDown(0);
+      });
     }
 
-    function show($content) {
+    function show($dropdownContent) {
       $('body').addClass(submenuClass);
-      if (windowWidth <= breakpoint) {
-        $content
+      $dropdownContent
+      .stop(true, true)
+      .slideUp(0, function () {
+        $dropdownContent
           .addClass(openClass)
-          .removeClass(closeClass);
-      } else {
-        $content
-          .stop(true, true)
-          .delay(200)
-          .slideUp(0, function () {
-            $content
-              .addClass(openClass)
-              .removeClass(closeClass)
-              .slideDown('fast');
-          });
-      }
+          .removeClass(closeClass)
+          .slideDown('fast');
+      });
     }
-
-
   });
 
 })(window, document, jQuery);
