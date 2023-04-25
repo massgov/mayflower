@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: IllustratedLink
+    description: Darken illustrated link label color to meet the minimum required color contrast. (#1762)
+    issue: DP-27858
+    impact: Patch

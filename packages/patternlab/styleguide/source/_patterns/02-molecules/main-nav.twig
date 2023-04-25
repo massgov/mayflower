@@ -3,9 +3,9 @@
     {% for nav in mainNav %}
       {% set buttonId =  'button' ~ loop.index %}
       {% set menuId =  'menu' ~ loop.index %}
-      <li role="none" class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}" tabindex="-1">
+      <li role="{{ nav.subNav ? 'menuitem' : 'none' }}" class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}" tabindex="-1">
         {% if nav.subNav %}
-          <button type="button" role="menuitem" id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">
+          <button type="button" id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">
               <span class="visually-hidden show-label">Show the sub topics of </span>
               {{ nav.text }}
           </button>
@@ -13,7 +13,7 @@
             <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
               {% for subNav in nav.subNav %}
                 <li role="none" class="ma__main-nav__subitem">
-                  <a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a>
+                  <a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link" tabindex="0">{{ subNav.text }}</a>
                 </li>
               {% endfor %}
             </ul>
@@ -26,7 +26,7 @@
           {% endif %}
           <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__top-link {{ altClass }}" tabindex="0">{{ nav.text }}</a>
         {% else %}
-          <button type="button" role="menuitem" id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
+          <button type="button" id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
         {% endif %}
       </li>
     {% endfor %}

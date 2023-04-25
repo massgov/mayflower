@@ -10,6 +10,8 @@
     "maxlength": "10",
     "pattern": "",
     "placeholder": "Enter only 10 characters",
-    "errorMsg": ""
+    "errorMsg": "",
+    "mode": "",
+    "autocomplete": ""
   }
 }

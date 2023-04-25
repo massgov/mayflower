@@ -10,6 +10,8 @@
     "maxlength": "",
     "pattern": "",
     "placeholder": "you@email.com",
-    "errorMsg": ""
+    "errorMsg": "",
+    "mode": "",
+    "autocomplete": "off"
   }
 }
