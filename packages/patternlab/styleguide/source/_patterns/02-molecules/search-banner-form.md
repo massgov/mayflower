@@ -16,6 +16,8 @@ searchBannerForm: {
     type: string / required
   inputText: {
     type: inputText / required
+    mode: string / optional
+    autocomplete: string / required
   }
 }
 ~~~

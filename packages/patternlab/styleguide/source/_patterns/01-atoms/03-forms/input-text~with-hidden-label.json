@@ -10,6 +10,8 @@
     "maxlength": "",
     "pattern": "",
     "placeholder": "hidden label",
-    "errorMsg": ""
+    "errorMsg": "",
+    "mode": "",
+    "autocomplete": ""
   }
 }

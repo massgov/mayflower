@@ -6,9 +6,11 @@
       "labelText": "Search terms",
       "required": false,
       "id": "GUID138490237",
-      "name": "search",
+      "name": "search mass.gov",
       "type": "search",
-      "placeholder": "Search..."
+      "placeholder": "Search...",
+      "mode": "search",
+      "autocomplete": "off"
     }
   }
 }

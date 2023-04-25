@@ -10,6 +10,8 @@
     "maxlength": "",
     "pattern": "",
     "placeholder": "this field is 500px wide",
-    "errorMsg": ""
+    "errorMsg": "",
+    "mode": "",
+    "autocomplete": ""
   }
 }

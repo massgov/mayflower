@@ -10,6 +10,8 @@
     "maxlength": "",
     "pattern": "",
     "placeholder": "Optional input",
-    "errorMsg": ""
+    "errorMsg": "",
+    "mode": "",
+    "autocomplete": "off"
   }
 }
