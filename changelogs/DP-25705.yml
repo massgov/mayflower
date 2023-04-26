@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: mainNavHamburger.js
+    description: A11y - Fixed keyboard navigations to use the correct arrow directions, include google translate on the top level nav, and inside the utility nav. (#1773)
+    issue: DP-25705
+    impact: Patch
