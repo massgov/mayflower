@@ -917,13 +917,13 @@ if (hamburgerMenuContainer) {
     }
     if (windowWidth < 841) {
       topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(
-        ".ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link"
+        ".ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__utility-nav__link"
       );
     }
     if (windowWidth < 621) {
       // mobile
       topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(
-        ".ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link"
+        ".ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__utility-nav__link"
       );
     }
 
