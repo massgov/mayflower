@@ -274,6 +274,7 @@ if (hamburgerMenuContainer) {
               i++;
             }
           }
+          narrowUtilContentLinks[i].focus();
         }
 
         if (e.key === "ArrowUp" || e.code === "ArrowUp") {
@@ -297,8 +298,8 @@ if (hamburgerMenuContainer) {
               i--;
             }
           }
+          narrowUtilContentLinks[i].focus();
         }
-        narrowUtilContentLinks[i].focus();
       });
     });
   }
