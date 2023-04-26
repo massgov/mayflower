@@ -215,7 +215,7 @@ if (hamburgerMenuContainer) {
       link.addEventListener("keydown", function (e) {
         let targetParent = e.target.closest(".js-main-nav-hamburger__subitem");
 
-        if (e.key === "ArrowRight" || e.code === "ArrowRight") {
+        if (e.key === "ArrowDown" || e.code === "ArrowDown") {
           if (targetParent.nextElementSibling) {
             targetParent.nextElementSibling.querySelector("a").focus();
           } else {
@@ -228,7 +228,7 @@ if (hamburgerMenuContainer) {
           }
         }
 
-        if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {
+        if (e.key === "ArrowUp" || e.code === "ArrowUp") {
           if (targetParent.previousElementSibling) {
             targetParent.previousElementSibling.querySelector("a").focus();
           } else {
