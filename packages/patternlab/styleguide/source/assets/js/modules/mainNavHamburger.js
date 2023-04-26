@@ -249,7 +249,7 @@ if (hamburgerMenuContainer) {
     const lastIndex = narrowUtilContentLinks.length - 1;
     narrowUtilContentLinks.forEach(function (link, i) {
       link.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowRight" || e.code === "ArrowRight") {
+        if (e.key === "ArrowDown" || e.code === "ArrowDown") {
           if (e.target === narrowUtilContentLinks[i]) {
             if (e.target === narrowUtilContentLinks[lastIndex]) {
               i = 0;
@@ -276,7 +276,7 @@ if (hamburgerMenuContainer) {
           }
         }
 
-        if (e.key === "ArrowRight" || e.code === "ArrowRight") {
+        if (e.key === "ArrowUp" || e.code === "ArrowUp") {
           if (e.target === narrowUtilContentLinks[i]) {
             if (e.target === narrowUtilContentLinks[0]) {
               i = lastIndex;
@@ -712,22 +712,22 @@ if (hamburgerMenuContainer) {
             }
           }
 
-          if (e.type === "keyup") {
-            let clickableItems =
-              thisNavContainer &&
-              thisNavContainer.querySelectorAll(
-                ".js-util-nav-content a, .js-util-nav-content button"
-              );
+          // if (e.type === "keyup") {
+          //   let clickableItems =
+          //     thisNavContainer &&
+          //     thisNavContainer.querySelectorAll(
+          //       ".js-util-nav-content a, .js-util-nav-content button"
+          //     );
 
-            if (e.key === "ArrowDown" || e.code === "ArrowDown") {
-              clickableItems[1].focus(); // Skip the first item (close button), clickableItems[0].
-            }
+          //   if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+          //     clickableItems[1].focus(); // Skip the first item (close button), clickableItems[0].
+          //   }
 
-            if (e.key === "ArrowUp" || e.code === "ArrowUp") {
-              let lastItemIndex = clickableItems.length - 1;
-              clickableItems[lastItemIndex].focus();
-            }
-          }
+          //   if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+          //     let lastItemIndex = clickableItems.length - 1;
+          //     clickableItems[lastItemIndex].focus();
+          //   }
+          // }
         },
         false
       );
