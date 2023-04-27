@@ -14,6 +14,10 @@
   outline: revert !important;
 }
 
+.leaflet-container a {
+  color: $c-bay-blue;
+}
+
 .leaflet-popup-content {
   margin: 0;
 
@@ -64,7 +68,7 @@
     height: 100%;
 
     &__map {
-      height: 100%;      
+      height: 100%;
     }
   }
 
