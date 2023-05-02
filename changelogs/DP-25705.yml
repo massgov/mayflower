@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: mainNavHamburger.js
+    description: A11y - Fixed hamburger main nav keyboard navigations to 1) use the correct arrow directions in the submenus and 2) fixed the skipping of google translate on the top. (#1773)
+    issue: DP-25705
+    impact: Patch
