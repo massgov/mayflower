@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: StickyToc
+    description: A11y - Fix Malformed Toc link content (Follow-up). (#1775)
+    issue: DP-28020
+    impact: Patch
