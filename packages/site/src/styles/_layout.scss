@@ -11,9 +11,9 @@
 
 @use "04-templates/general";
 @use "08-print/print";
-@use "~@massds/mayflower-assets/build/scss/header";
-@use "~@massds/mayflower-assets/build/scss/header-slim";
-@use "~@massds/mayflower-assets/build/scss/header-hamburger";
+@use "03-organisms/header";
+@use "03-organisms/header-slim";
+@use "03-organisms/header-hamburger";
 @use "01-atoms/site-logo";
 @use "01-atoms/image";
 @use "03-organisms/footer-slim";
