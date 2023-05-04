@@ -1,6 +1,0 @@
-Fixed :
-  - project: Patternlab
-    component: StickyTOC
-    description: Correct spelling for aria-controls. (#1764)
-    issue: DP-27921
-    impact: Patch

@@ -1,6 +1,0 @@
-Changed:
-  - project: Site
-    component: Dependencies
-    description: Upgrade Mayflower from v10 to v12. (#1776)
-    issue: DP-28015
-    impact: Patch

@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: PageHeader
-    description: Modify page sub title's line height to 1.5. (#1765)
-    issue: DP-27934
-    impact: Patch

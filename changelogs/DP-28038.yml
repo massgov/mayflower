@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: PageFlipper
-    description: Adjust font color to meet the minimum color contrast. (#1772)
-    issue: DP-28038
-    impact: Patch

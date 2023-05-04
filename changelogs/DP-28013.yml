@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: CollapsibleContent
-    description: A11y - Invalid value type for aria-expanded. (#1771)
-    issue: DP-28013
-    impact: Patch

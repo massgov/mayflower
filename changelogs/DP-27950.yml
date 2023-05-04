@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: HamburgerNav
-    description: Fix reference error - cannot access "RenderedUtilityItem" before initialization. (#1777)
-    issue: DP-27950
-    impact: Patch

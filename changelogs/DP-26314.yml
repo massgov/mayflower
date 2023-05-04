@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: AboutSection
-    description: A11y - Empty read more link. (#1754)
-    issue: DP-26314
-    impact: Patch

@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: LeafletMap
-    description: Add alt to leaflet map for A11y. (#1758)
-    issue: DP-27697
-    impact: Patch
