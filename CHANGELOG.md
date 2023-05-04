@@ -1,7 +1,6 @@
 # Mayflower Release Notes
 
-All notable changes to this project will be documented in this file.
-## 12.3.0 (5/4/2023)
+All notable changes to this project will be documented in this file.## 12.3.0 (5/4/2023)
 ### Fixed 
 - (Patternlab) [mainNavHamburger.js] DP-25705: A11y - Fixed hamburger main nav keyboard navigations to 1) use the correct arrow directions in the submenus and 2) fixed the skipping of google translate on the top. (#1773)
 - (Patternlab) [HeaderMixed, mainNav.js] DP-26226: A11y - Fix keyboard navigation. (#1759)
@@ -12,23 +11,23 @@ All notable changes to this project will be documented in this file.
 ### Removed 
 - (Patternlab) [Header, mainNav.js] DP-26226: Refactor mainNav JS and remove deprecated Header component from Patternlab. (#1759)
 - (Patternlab) [UtilityNav] DP-26232: Remove focus on the utility nav close button when the utility panel opens. (#1761)
-- (Patternlab) [HeaderSearch, SearchBannerForm] DP-27426: Remove autocomplete feature and cleanup unnecessary data and attributes. (#1748,#1749)
+- (Patternlab) [HeaderSearch, SearchBannerForm] DP-27426: Remove autocomplete feature and clean up unnecessary data and attributes. (#1748,#1749)
 
 ### Changed 
 - (Patternlab) [BannerCredit] DP-26227: Restructure image credit component for semantics. (#1751)
-- (Patternlab) [UtilityNav] DP-26232: Place the utility nav panel close button to the bottom of the panel conatiner to be the last item to get focus. (#1761)
+- (Patternlab) [UtilityNav] DP-26232: Place the utility nav panel close button to the bottom of the panel container to be the last item to get focus. (#1761)
 - (Patternlab) [SocialLinksBar] DP-26258: Add visually hidden label for the social links bar - A11y. (#1745)
 - (Patternlab) [CampaignVideo] DP-26259: Empty title rendering fix - A11y. (#1753)
-- (Patternlab) [pressTeaser] DP-26304: Set up a condition to determine whether span with background image to be an image element or not. (#1752)
+- (Patternlab) [pressTeaser] DP-26304: Set up a condition to determine whether span with background image is an image element or not. (#1752)
 - (Patternlab) [AboutSection] DP-26314: A11y - Empty read more link. (#1754)
-- (Patternlab, Assets) [SearchBanner] DP-26625: Increase visual prominence of links below search on home page. (#1756)
+- (Patternlab, Assets) [SearchBanner] DP-26625: Increase visual prominence of links below search on the home page. (#1756)
 - (Patternlab) [MainNav, MainNavHamburger, HeaderHamburger, HeaderMixed] DP-27694: Eliminate duplicate IDs for main navigation and search elements. (#1757)
 - (Patternlab) [LeafletMap] DP-27697: Add alt to leaflet map for A11y. (#1758)
 - (Patternlab) [StickyToc] DP-27734: A11y - Fix Malformed Toc link content. (#1760)
 - (Patternlab) [IllustratedLink] DP-27858: Darken illustrated link label color to meet the minimum required color contrast. (#1762)
-- (Patternlab) [Search] DP-27916: Accessibility improvement for search related and main navigation components. (#1769)
+- (Patternlab) [Search] DP-27916: Accessibility improvement for search-related and main navigation components. (#1769)
 - (Patternlab) [Feedback] DP-27930: A11y - Focusable hidden elements in feedback module
-- (Patternlab) [PageHeader] DP-27934: Modify page sub title's line height to 1.5. (#1765)
+- (Patternlab) [PageHeader] DP-27934: Modify page sub title's line-height to 1.5. (#1765)
 - (Patternlab) [DownloadLink, DownloadLinkMultilang] DP-27968: Fix screen reader text. (#1770)
 - (Patternlab) [CollapsibleContent] DP-28013: A11y - Invalid value type for aria-expanded. (#1771)
 - (Site) [Dependencies] DP-28015: Upgrade Mayflower from v10 to v12. (#1776)
