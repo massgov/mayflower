@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 ### Removed 
 - (Patternlab) [Header, mainNav.js] DP-26226: Refactor mainNav JS and remove deprecated Header component from Patternlab. (#1759)
 - (Patternlab) [UtilityNav] DP-26232: Remove focus on the utility nav close button when the utility panel opens. (#1761)
-- (Patternlab) [HeaderSearch, SearchBannerForm] DP-27426: Remove autocomplete feature and cleanup unnecessary data and attributes. (#1748,
+- (Patternlab) [HeaderSearch, SearchBannerForm] DP-27426: Remove autocomplete feature and cleanup unnecessary data and attributes. (#1748,#1749)
 
 ### Changed 
 - (Patternlab) [BannerCredit] DP-26227: Restructure image credit component for semantics. (#1751)
