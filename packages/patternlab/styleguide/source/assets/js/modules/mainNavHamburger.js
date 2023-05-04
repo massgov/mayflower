@@ -215,7 +215,7 @@ if (hamburgerMenuContainer) {
       link.addEventListener("keydown", function (e) {
         let targetParent = e.target.closest(".js-main-nav-hamburger__subitem");
 
-        if (e.key === "ArrowRight" || e.code === "ArrowRight") {
+        if (e.key === "ArrowDown" || e.code === "ArrowDown") {
           if (targetParent.nextElementSibling) {
             targetParent.nextElementSibling.querySelector("a").focus();
           } else {
@@ -228,7 +228,7 @@ if (hamburgerMenuContainer) {
           }
         }
 
-        if (e.key === "ArrowLeft" || e.code === "ArrowLeft") {
+        if (e.key === "ArrowUp" || e.code === "ArrowUp") {
           if (targetParent.previousElementSibling) {
             targetParent.previousElementSibling.querySelector("a").focus();
           } else {
@@ -249,7 +249,7 @@ if (hamburgerMenuContainer) {
     const lastIndex = narrowUtilContentLinks.length - 1;
     narrowUtilContentLinks.forEach(function (link, i) {
       link.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowRight" || e.code === "ArrowRight") {
+        if (e.key === "ArrowDown" || e.code === "ArrowDown") {
           if (e.target === narrowUtilContentLinks[i]) {
             if (e.target === narrowUtilContentLinks[lastIndex]) {
               i = 0;
@@ -274,9 +274,10 @@ if (hamburgerMenuContainer) {
               i++;
             }
           }
+          narrowUtilContentLinks[i].focus();
         }
 
-        if (e.key === "ArrowRight" || e.code === "ArrowRight") {
+        if (e.key === "ArrowUp" || e.code === "ArrowUp") {
           if (e.target === narrowUtilContentLinks[i]) {
             if (e.target === narrowUtilContentLinks[0]) {
               i = lastIndex;
@@ -297,8 +298,8 @@ if (hamburgerMenuContainer) {
               i--;
             }
           }
+          narrowUtilContentLinks[i].focus();
         }
-        narrowUtilContentLinks[i].focus();
       });
     });
   }
@@ -716,11 +717,11 @@ if (hamburgerMenuContainer) {
             let clickableItems =
               thisNavContainer &&
               thisNavContainer.querySelectorAll(
-                ".js-util-nav-content a, .js-util-nav-content button"
+                ".js-util-nav-content a.js-clickable-link"
               );
 
             if (e.key === "ArrowDown" || e.code === "ArrowDown") {
-              clickableItems[1].focus(); // Skip the first item (close button), clickableItems[0].
+              clickableItems[0].focus();
             }
 
             if (e.key === "ArrowUp" || e.code === "ArrowUp") {
@@ -916,13 +917,13 @@ if (hamburgerMenuContainer) {
     }
     if (windowWidth < 841) {
       topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(
-        ".ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link"
+        ".ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__utility-nav__link"
       );
     }
     if (windowWidth < 621) {
       // mobile
       topLevelClickableItems = hamburgerMenuContainer.querySelectorAll(
-        ".ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, a.goog-te-menu-value, .ma__utility-nav__link"
+        ".ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__utility-nav__link"
       );
     }
 

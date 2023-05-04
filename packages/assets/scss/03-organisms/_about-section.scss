@@ -30,7 +30,7 @@
 
     .ma__content-link {
       display: inline-block;
-      margin: 5px 0 40px;
+      margin: 5px 0 0;
     }
   }
 
@@ -45,6 +45,7 @@
   }
 
   &__content-text {
+    padding-bottom: 40px;
 
     @media ($bp-large-extended-min) {
       max-width: 60%;

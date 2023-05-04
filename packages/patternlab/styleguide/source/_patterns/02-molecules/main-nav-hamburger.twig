@@ -1,11 +1,11 @@
 <div class="ma__main__hamburger-nav">
   <ul role="menubar" class="ma__main__hamburger-nav__items js-main-nav-hamburger">
     {% for nav in mainNav %}
-      {% set buttonId =  'button' ~ loop.index %}
-      {% set menuId =  'menu' ~ loop.index %}
-      <li role="none" class="ma__main__hamburger-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-hamburger-toggle' : 'js-main-nav-hamburger-top-link' }}">
+      {% set buttonId =  'button-mobile-' ~ loop.index %}
+      {% set menuId =  'menu-mobile-' ~ loop.index %}
+      <li role="{{ nav.subNav ? 'menuitem' : 'none' }}"  class="ma__main__hamburger-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-hamburger-toggle' : 'js-main-nav-hamburger-top-link' }}">
         {% if nav.subNav %}
-          <button type="button" role="menuitem" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-expanded="false" aria-haspopup="true">
+          <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-expanded="false" aria-haspopup="true">
           <span class="visually-hidden show-label">Show the sub topics of </span>
               {{ nav.text }}
           <span class="toggle-indicator" aria-hidden="true"></span>
@@ -28,7 +28,7 @@
             <a role="menuitem" href="{{ nav.href }}" class="ma__main__hamburger-nav__top-link {{ altClass }}">{{ nav.text
                 }}</a>
         {% else %}
-          <button type="button" role="menuitem" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link">{{ nav.text }}</button>
+          <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link">{{ nav.text }}</button>
         {% endif %}
       </li>
     {% endfor %}

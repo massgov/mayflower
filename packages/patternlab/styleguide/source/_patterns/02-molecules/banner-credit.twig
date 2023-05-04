@@ -1,10 +1,11 @@
-<div class="ma__banner-credit">
-  <div class="ma__banner-credit__container">
-    <div class="ma__banner-credit__icon">
+<div class="ma__banner-credit" {{ bannerCredit.ariaHidden ? 'aria-hidden="true"' : '' }}>
+  <dl class="ma__banner-credit__container">
+    <dt class="ma__banner-credit__icon">
+      <span class="ma__visually-hidden">Credit for the banner image</span>
       {% set iconPath = bannerCredit.icon ? : "marker-outline" %}
       {{ icon(iconPath) }}
-    </div>
-    <div class="ma__banner-credit__image-name">{{ bannerCredit.imageName }}</div>
-    <div class="ma__banner-credit__image-author">{{ bannerCredit.imageAuthor }}</div>
-  </div>
+    </dt>
+    <dd class="ma__banner-credit__image-name">{{ bannerCredit.imageName }}</dd>
+    <dd class="ma__banner-credit__image-author">{{ bannerCredit.imageAuthor }}</dd>
+  </dl>
 </div>

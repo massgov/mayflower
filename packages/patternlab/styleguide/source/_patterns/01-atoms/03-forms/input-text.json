@@ -10,6 +10,8 @@
     "maxlength": "",
     "pattern": "",
     "placeholder": "type something",
-    "errorMsg": "you did not type something"
+    "errorMsg": "you did not type something",
+    "mode": "",
+    "autocomplete": ""
   }
 }

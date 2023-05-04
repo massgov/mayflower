@@ -40,7 +40,7 @@ export default (function(window, document, $) {
                 dragging: false
                     // maxBounds is disabled due to unexpected shifting when popups are hitting the boundaries.
                     // This can be turned back on when the tiles are large enough so that the min zoom level shows the whole state and have enough tiles padded for popups.
-                    // maxBounds, 
+                    // maxBounds,
             });
 
         // if map is not static, add zoom control with custom position
@@ -86,7 +86,7 @@ export default (function(window, document, $) {
             })
         }
 
-        // custom marker icon 
+        // custom marker icon
         var markerIcon = L.icon({
             iconUrl: `${ma.iconPath}/marker-blue.svg`,
 
@@ -115,7 +115,7 @@ export default (function(window, document, $) {
             }
         });
 
-        // add markers to map 
+        // add markers to map
         markers.forEach(({ position, infoWindow }) => {
 
             let infoData = infoTransform(infoWindow);
@@ -124,10 +124,13 @@ export default (function(window, document, $) {
             const mymarker = L.marker(
                     L.latLng(+position.lat, +position.lng), {
                         icon: markerIcon,
-                        interactive: !isStatic
+                        interactive: !isStatic,
+                        alt: position.alt
                     })
                 .addTo(mymap)
                 .bindPopup(compiledTemplate(infoData));
+
+            $(mymarker._icon).attr('role', 'button');
 
             $(mymarker._icon).on('keydown', function(e) {
                 const { key } = e;
@@ -208,7 +211,7 @@ export default (function(window, document, $) {
             window.leafletMarkers.push(mymarker);
         })
 
-        // disable map interactions if is static 
+        // disable map interactions if is static
         if (isStatic) {
             mymap.touchZoom.disable();
             mymap.doubleClickZoom.disable();
@@ -242,7 +245,7 @@ export default (function(window, document, $) {
             const unlockMove = () => {
                 locked = false;
                 container.innerHTML = setStatusText(locked);
-                //mymap.scrollWheelZoom.enable(); 
+                //mymap.scrollWheelZoom.enable();
                 mymap.dragging.enable();
             }
 
