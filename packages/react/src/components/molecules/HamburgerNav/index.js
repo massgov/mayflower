@@ -30,6 +30,11 @@ const HamburgerNav = ({
   let utilityNav = null;
   let mainNav = null;
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
+  const RenderedLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
+  // If UtilityItem is undefined, UtilityNav will fallback to HamburgerUtilityItem.
+  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
+  // If NavItem is undefined, HamburgerMainNav falls back to HamburgerNavItem.
+  const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
   if (isMobileWindow) {
     RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
     mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
@@ -41,11 +46,6 @@ const HamburgerNav = ({
     navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
     mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
   }
-  const RenderedLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
-  // If UtilityItem is undefined, UtilityNav will fallback to HamburgerUtilityItem.
-  const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
-  // If NavItem is undefined, HamburgerMainNav falls back to HamburgerNavItem.
-  const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
   const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
