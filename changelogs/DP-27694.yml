@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: MainNav, MainNavHamburger, HeaderHamburger, HeaderMixed
-    description: Eliminate duplicate IDs for main navigation and search elements. (#1757)
-    issue: DP-27694
-    impact: Patch

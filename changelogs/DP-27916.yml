@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Search
-    description: Accessibility improvement for search related and main navigation components. (#1769)
-    issue: DP-27916
-    impact: Patch
