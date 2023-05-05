@@ -1,6 +1,7 @@
 # Mayflower Release Notes
 
-All notable changes to this project will be documented in this file.## 12.3.0 (5/4/2023)
+All notable changes to this project will be documented in this file.
+## 12.3.0 (5/4/2023)
 ### Fixed 
 - (Patternlab) [mainNavHamburger.js] DP-25705: A11y - Fixed hamburger main nav keyboard navigations to 1) use the correct arrow directions in the submenus and 2) fixed the skipping of google translate on the top. (#1773)
 - (Patternlab) [HeaderMixed, mainNav.js] DP-26226: A11y - Fix keyboard navigation. (#1759)
