@@ -1,19 +1,19 @@
 <div class="ma__toc--overlay js-toc-container">
   <div class="ma__toc__toc__title js-inline-overlay-title" tab-index="-1">
-    <span class="ma__toc__subtitle">This is a part of:</span>
+    <span class="ma__toc__subtitle">This is a part of{% if tableOfContentsOverlay.typeContext %}<span class="ma__visually-hidden">the {{ tableOfContentsOverlay.typeContext }}</span>{% endif %}:</span>
     {% set decorativeLink = tableOfContentsOverlay.title %}
     {% include "@atoms/decorative-link.twig" %}
     <button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="false" aria-controls="{{tableOfContentsOverlay.id}}">
-      <span class="show" aria-label="click to show table of contents">+</span>
+      <span class="show" aria-label="Show the table of contents{% if tableOfContentsOverlay.typeContext %} for the {{ tableOfContentsOverlay.typeContext }}{% endif %}">+</span>
     </button>
   </div>
   <div class="ma__toc--overlay__container js-inline-overlay" id="{{tableOfContentsOverlay.id}}">
     <div class="ma__toc__toc__title js-inline-overlay-title" tab-index="-1">
-      <span class="ma__toc__subtitle">This is a part of:</span>
+      <span class="ma__toc__subtitle">This is a part of{% if tableOfContentsOverlay.typeContext %}<span class="ma__visually-hidden">the {{ tableOfContentsOverlay.typeContext }}</span>{% endif %}:</span>
       {% set decorativeLink = tableOfContentsOverlay.title %}
       {% include "@atoms/decorative-link.twig" %}
       <button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="true" aria-controls="{{tableOfContentsOverlay.id}}">
-        <span class="hide" aria-label="click to hide table of contents">
+        <span class="hide" aria-label="Hide the table of contents{% if tableOfContentsOverlay.typeContext %} for the {{ tableOfContentsOverlay.typeContext }}{% endif %}">
           &times;
         </span>
       </button>
