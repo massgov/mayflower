@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: TableOfContentsOverlay, TableOfContentsHiearchy
+    description: A11y - Changing aria labels to be more dynamic. (#1780)
+    issue: DP-25180
+    impact: Patch
