@@ -690,7 +690,7 @@ function twig_slice(Environment $env, $item, $start, $length = null, $preserveKe
     }
 
     if (\is_array($item)) {
-        return \array_slice($item, $start, $length, $preserveKeys);
+        return \array_slice($item, intval($start), null === $length ? null : intval(ceil($length)), $preserveKeys);
     }
 
     $item = (string) $item;
