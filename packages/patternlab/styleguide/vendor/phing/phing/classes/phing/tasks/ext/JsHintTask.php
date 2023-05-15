@@ -74,7 +74,17 @@ class JsHintTask extends Task
      *
      * @var array
      */
-    private $xmlAttributes;
+    private $xmlAttributes = array(
+        'severity' => array(
+            'error' => 'error',
+            'warning' => 'warning',
+            'info' => 'info'
+        ),
+        'fileError' => 'error',
+        'line' => 'line',
+        'column' => 'column',
+        'message' => 'message',
+    );
 
     /**
      * Path where the the report in Checkstyle format should be saved
@@ -82,6 +92,9 @@ class JsHintTask extends Task
      * @var string
      */
     private $checkstyleReportPath;
+    
+    /** @var string $config */
+    private $config;
 
     /**
      * File to be performed syntax check on
@@ -129,34 +142,31 @@ class JsHintTask extends Task
     }
 
     /**
-     * @param $reporter
+     * @param string $reporter
      */
     public function setReporter($reporter)
     {
         $this->reporter = $reporter;
 
-        switch ($this->reporter) {
-            case 'jslint':
-                $this->xmlAttributes = array(
-                    'severity' => array('error' => 'E', 'warning' => 'W', 'info' => 'I'),
-                    'fileError' => 'issue',
-                    'line' => 'line',
-                    'column' => 'char',
-                    'message' => 'reason',
-                );
-                break;
-            default:
-                $this->xmlAttributes = array(
-                    'severity' => array('error' => 'error', 'warning' => 'warning', 'info' => 'info'),
-                    'fileError' => 'error',
-                    'line' => 'line',
-                    'column' => 'column',
-                    'message' => 'message',
-                );
-                break;
+        if ($this->reporter === 'jslint') {
+            $this->xmlAttributes = array(
+                'severity' => array('error' => 'E', 'warning' => 'W', 'info' => 'I'),
+                'fileError' => 'issue',
+                'line' => 'line',
+                'column' => 'char',
+                'message' => 'reason',
+            );
         }
     }
 
+    /**
+     * @param string $config
+     */
+    public function setConfig($config)
+    {
+        $this->config = $config;
+    }
+    
     public function main()
     {
         if (!isset($this->file) && count($this->filesets) === 0) {
@@ -181,7 +191,20 @@ class JsHintTask extends Task
         $this->_checkJsHintIsInstalled();
 
         $fileList = array_map('escapeshellarg', $fileList);
-        $command = sprintf('jshint --reporter=%s %s', $this->reporter, implode(' ', $fileList));
+        if ($this->config) {
+            $command = sprintf(
+                'jshint --config=%s --reporter=%s %s',
+                $this->config,
+                $this->reporter,
+                implode(' ', $fileList)
+            );
+        } else {
+            $command = sprintf(
+                'jshint --reporter=%s %s',
+                $this->reporter,
+                implode(' ', $fileList)
+            );
+        }
         $output = array();
         exec($command, $output);
         $output = implode(PHP_EOL, $output);
@@ -237,15 +260,17 @@ class JsHintTask extends Task
     }
 
     /**
-     * @return Path to the project basedir
+     * @return string Path to the project basedir
+     * @throws \BuildException
      */
     private function _getProjectBasedir()
     {
-        return $this->getProject()->getBaseDir()->getAbsolutePath() . DIRECTORY_SEPARATOR;
+        return $this->getProject()->getBasedir()->getAbsolutePath() . DIRECTORY_SEPARATOR;
     }
 
     /**
      * Checks, wheter the JSHint can be executed
+     * @throws \BuildException
      */
     private function _checkJsHintIsInstalled()
     {

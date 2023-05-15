@@ -3,7 +3,7 @@
     "description": "PHing Is Not GNU make; it's a PHP project build system or build tool based on Apache Ant.",
     "keywords": ["build", "tool", "task", "phing"],
     "homepage": "https://www.phing.info/",
-    "license": "LGPL-3.0",
+    "license": "LGPL-3.0-only",
     "authors": [
         {
             "name": "Michiel Rook",
@@ -23,7 +23,6 @@
     },
     "require-dev": {
         "ext-pdo_sqlite": "*",
-        "lastcraft/simpletest": "@dev",
         "pear/archive_tar": "1.4.x",
         "pear/http_request2": "dev-trunk",
         "pear/net_growl": "dev-trunk",
@@ -35,11 +34,13 @@
         "phploc/phploc": "~2.0.6",
         "phpmd/phpmd": "~2.2",
         "phpunit/phpunit": ">=3.7",
+        "siad007/versioncontrol_hg": "^1.0",
         "sebastian/phpcpd": "2.x",
         "sebastian/git": "~1.0",
         "squizlabs/php_codesniffer": "~2.2",
-        "symfony/yaml": "~2.7",
-        "mikey179/vfsStream": "^1.6"
+        "mikey179/vfsstream": "^1.6",
+        "simpletest/simpletest": "^1.1",
+        "symfony/yaml": "^2.8 || ^3.1 || ^4.0"
     },
     "autoload": {
         "classmap": ["classes/phing/"]
@@ -53,7 +54,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.14.x-dev"
+            "dev-master": "2.16.x-dev"
         }
     },
     "suggest": {
@@ -67,6 +68,7 @@
         "pear/versioncontrol_svn": "A simple OO-style interface for Subversion, the free/open-source version control system",
         "pear/versioncontrol_git": "A library that provides OO interface to handle Git repository",
         "pear/archive_tar": "Tar file management class",
+        "siad007/versioncontrol_hg": "A library for interfacing with Mercurial repositories.",
         "tedivm/jshrink": "Javascript Minifier built in PHP"
     }
 }

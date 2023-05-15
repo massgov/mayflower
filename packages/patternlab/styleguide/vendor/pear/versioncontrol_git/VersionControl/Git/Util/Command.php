@@ -57,6 +57,13 @@ class VersionControl_Git_Util_Command extends VersionControl_Git_Component
     protected $options = array();
 
     /**
+     * Key-value array of environment variables
+     *
+     * @var array
+     */
+    protected $envVars = array();
+
+    /**
      * Flag to add "--" before the end of command
      *
      * If this is true, command is executed with "--".
@@ -110,6 +117,20 @@ class VersionControl_Git_Util_Command extends VersionControl_Git_Component
     }
 
     /**
+     * Set the environment variables to pass to the process.
+     *
+     * @param array $envs Array of new environment variables
+     *
+     * @return VersionControl_Git_Util_Command The "$this" object for method chain
+     */
+    public function setEnvVars($envVars)
+    {
+        $this->envVars = $envVars;
+
+        return $this;
+    }
+
+    /**
      * Set a option
      *
      * @param string      $name  A name of option
@@ -122,6 +143,21 @@ class VersionControl_Git_Util_Command extends VersionControl_Git_Component
     public function setOption($name, $value = true)
     {
         $this->options[$name] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Set a single environment variable
+     *
+     * @param string      $name  A name of environment variable
+     * @param string|bool $value A value of environment variable
+     *
+     * @return VersionControl_Git_Util_Command The "$this" object for method chain
+     */
+    public function setEnvVar($name, $value)
+    {
+        $this->envVars[$name] = $value;
 
         return $this;
     }
@@ -187,12 +223,12 @@ class VersionControl_Git_Util_Command extends VersionControl_Git_Component
             }
 
             if (true !== $v) {
-                $command .= (($isShortOption) ? '' : '=').escapeshellarg($v);
+                $command .= (($isShortOption) ? '' : '=') . $this->escapeshellarg($v);
             }
         }
 
         foreach ($arguments as $v) {
-            $command .= ' '.escapeshellarg($v);
+            $command .= ' ' . $this->escapeshellarg($v);
         }
 
         if ($this->doubleDash) {
@@ -219,7 +255,16 @@ class VersionControl_Git_Util_Command extends VersionControl_Git_Component
             2 => array('pipe', 'w'),
         );
         $pipes = array();
-        $resource = proc_open($command, $descriptorspec, $pipes, realpath($this->git->getDirectory()));
+
+        $envVars = $this->envVars;
+        if (count($envVars) === 0) {
+            $envVars = null;
+        }
+
+        $resource = proc_open(
+            $command, $descriptorspec, $pipes, realpath($this->git->getDirectory()),
+            $envVars
+        );
 
         $stdout = stream_get_contents($pipes[1]);
         $stderr = stream_get_contents($pipes[2]);
@@ -252,5 +297,59 @@ class VersionControl_Git_Util_Command extends VersionControl_Git_Component
         $string = preg_replace('/\e[^a-z]*?[a-z]/i', '', $string);
 
         return $string;
+    }
+
+    /**
+     * Escape a single value in accordance with CommandLineToArgV() for Windows
+     * @see https://docs.microsoft.com/en-us/previous-versions/17w5ykft(v=vs.85)
+     */
+    private function escapeshellarg($value)
+    {
+        $value = (string)$value;
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            static $expr = '(
+			[\x00-\x20\x7F"] # control chars, whitespace or double quote
+		  | \\\\++ (?=("|$)) # backslashes followed by a quote or at the end
+		)ux';
+
+            if ($value === '') {
+                return '""';
+            }
+
+            $quote = false;
+            $replacer = function($match) use($value, &$quote) {
+                switch ($match[0][0]) { // only inspect the first byte of the match
+
+                    case '"': // double quotes are escaped and must be quoted
+                        $match[0] = '\\"';
+                    case ' ': case "\t": // spaces and tabs are ok but must be quoted
+                    $quote = true;
+                    return $match[0];
+
+                    case '\\': // matching backslashes are escaped if quoted
+                        return $match[0] . $match[0];
+
+                    default: throw new VersionControl_Git_Exception(sprintf(
+                        "Invalid byte at offset %d: 0x%02X",
+                        strpos($value, $match[0]), ord($match[0])
+                    ));
+                }
+            };
+
+            $escaped = preg_replace_callback($expr, $replacer, (string)$value);
+
+            if ($escaped === null) {
+                throw preg_last_error() === PREG_BAD_UTF8_ERROR
+                    ? new VersionControl_Git_Exception("Invalid UTF-8 string")
+                    : new VersionControl_Git_Exception("PCRE error: " . preg_last_error());
+            }
+
+            return $quote // only quote when needed
+                ? '"' . $escaped . '"'
+                : $value;
+
+        } else {
+            return escapeshellarg($value);
+        }
     }
 }
