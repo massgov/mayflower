@@ -9,7 +9,7 @@
     {% set heading4 = {"text": calloutLinksThreeUp.headingText } %}
     {% set heading5 = {"text": calloutLinksThreeUp.headingText } %}
     {% set heading6 = {"text": calloutLinksThreeUp.headingText } %}
-    {% include "@atoms/04-headings/heading-3.twig" %}
+    {% include "@atoms/04-headings/heading-" ~ headingLevel ~ ".twig" %}
   {% endif %}
 {% endset %}
 
