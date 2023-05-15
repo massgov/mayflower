@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Download link
+    description: Add a space between the file size and the fiel title to be rendered in Firefox. (#1785)
+    issue: DP-28265
+    impact: Patch
