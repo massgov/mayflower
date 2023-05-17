@@ -2,6 +2,9 @@
     "env": {
         "browser": true
     },
+    "globals": {
+        "globalThis": true
+    },
     "extends": "airbnb",
     "parser": "babel-eslint",
     "plugins": ["@sayari"],
@@ -11,7 +14,7 @@
         "comma-dangle": ["error", "never"],
         "keyword-spacing": ["error", { "overrides": {
             "return": { "after": false }
-            } }],
+        } }],
         "max-len": ["off", { "code": 100 }],
         "no-shadow": ["warn"],
         "no-eval": ["warn"],
