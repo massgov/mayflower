@@ -14,7 +14,7 @@
       <a
         class="ma__download-link__file-link"
         href="{{ downloadLink.decorativeLink.href}}">
-        <span class="visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %}, </span>
+        <span class="visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
           {{ downloadLink.decorativeLink.text }}
       </a>
       {% if downloadLink.format or downloadLink.size or downloadLink.language %}
