@@ -10,9 +10,9 @@ const UnorderedList = (props) => subList(props);
 UnorderedList.propTypes = {
   /** The text displayed. */
   sublist: PropTypes.arrayOf(PropTypes.shape({
-    text: PropTypes.string.required,
+    text: PropTypes.string.isRequired,
     sublist: PropTypes.arrayOf(PropTypes.shape({
-      text: PropTypes.string.required
+      text: PropTypes.string.isRequired
     }))
   }))
 };
