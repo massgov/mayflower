@@ -7,6 +7,10 @@ import PropTypes from 'prop-types';
 
 const CurrentItem = ({ currentPage }) => (<a href="/" aria-current="page" onClick={(e) => e.preventDefault()}>{currentPage}</a>);
 
+CurrentItem.propTypes = {
+  currentPage: PropTypes.string
+};
+
 const BreadcrumbItem = (props) => {
   // eslint-disable-next-line react/prop-types
   const { children, currentPage } = props;

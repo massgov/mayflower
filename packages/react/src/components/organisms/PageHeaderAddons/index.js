@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 
 // import child components
 import Paragraph from 'MayflowerReactText/Paragraph';
-import PublishState from 'MayflowerReactText/PublishState';
 
 const PageHeaderAddons = (pageHeader) => {
   const {

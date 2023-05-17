@@ -31,6 +31,7 @@ export default class FeedbackForm extends React.Component {
     /** A ref object as created by React.createRef(). Will be applied to the form element. */
     formRef: PropTypes.oneOfType([
       PropTypes.func,
+      // eslint-disable-next-line react/forbid-prop-types
       PropTypes.shape({ current: PropTypes.any })
     ]),
     /** A function whose return value is displayed after a successful form submission. */
