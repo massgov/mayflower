@@ -54,6 +54,7 @@
       text-decoration: none;
     }
 
+    a:first-child:hover,
     a:first-child:focus {
       border-width: 3px;
       border-style: solid;
@@ -75,7 +76,7 @@
 
   &__map {
     height: 360px;
-    z-index: 10;
+    z-index: -1;
 
     @media ($bp-x-small-min) {
       height: 500px;
