@@ -221,7 +221,16 @@ InputTextFuzzy.propTypes = {
     PropTypes.object
   ])).isRequired,
   /** An array of objects representing all searchable values. */
-  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    id: PropTypes.string,
+    // eslint-disable-next-line react/forbid-prop-types
+    options: PropTypes.any,
+    keys: PropTypes.arrayOf(PropTypes.string),
+    selected: PropTypes.string,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func
+  })).isRequired,
   /** Any Fusejs options to override the default options set in this component.
    * API doc: https://fusejs.io/api/options.html
    *
