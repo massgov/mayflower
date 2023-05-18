@@ -103,11 +103,6 @@ const HamburgerNav = ({
         hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
       }
       if (menuOverlay) {
-        let overlayOffset = heightAboveMenuContainer;
-        const width = body.clientWidth;
-        if (width > 840) {
-          overlayOffset -= 1;
-        }
         menuOverlay.classList.add('overlay-open');
         menuOverlay.onclick = () => {
           closeMenu();

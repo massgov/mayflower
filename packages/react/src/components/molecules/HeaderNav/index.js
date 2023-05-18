@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
@@ -42,32 +42,32 @@ const HeaderNav = ({
 };
 HeaderNav.propTypes = {
   /** An uninstantiated component which handles displaying the utility nav. */
-  UtilityNav: propTypes.elementType,
+  UtilityNav: PropTypes.elementType,
   /** An uninstantiated component which handles displaying individual items within the utility nav. */
-  UtilityItem: propTypes.elementType,
+  UtilityItem: PropTypes.elementType,
   /** An uninstantiated component which handles displaying menu portion of the header. */
-  MainNav: propTypes.elementType,
+  MainNav: PropTypes.elementType,
   /** An uninstantiated component which handles displaying individual menu items within the menu. */
-  NavItem: propTypes.elementType,
+  NavItem: PropTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo. */
-  Logo: propTypes.elementType,
+  Logo: PropTypes.elementType,
   /** An uninstantiated component which handles search functionality. */
-  NavSearch: propTypes.elementType,
+  NavSearch: PropTypes.elementType,
   /** An uninstantiated component which handles displaying the menu button on mobile. */
-  ButtonContainer: propTypes.elementType,
+  ButtonContainer: PropTypes.elementType,
   /** An array of items used to create the menu. */
-  mainItems: propTypes.arrayOf(propTypes.shape({
-    href: propTypes.string,
-    text: propTypes.string,
+  mainItems: PropTypes.arrayOf(PropTypes.shape({
+    href: PropTypes.string,
+    text: PropTypes.string,
     // Active main nav item eccentuated with an styled underline
-    active: propTypes.bool,
-    subNav: propTypes.arrayOf(propTypes.shape({
-      href: propTypes.string,
-      text: propTypes.string
+    active: PropTypes.bool,
+    subNav: PropTypes.arrayOf(PropTypes.shape({
+      href: PropTypes.string,
+      text: PropTypes.string
     }))
   })),
   /** An array of uninstantiated components to render within the utility navigation.  */
-  utilityItems: propTypes.arrayOf(propTypes.elementType)
+  utilityItems: PropTypes.arrayOf(PropTypes.elementType)
 };
 
 export const HeaderButtonContainer = () => {
@@ -152,6 +152,9 @@ export const HeaderLogo = () => {
     },
     siteName: 'Mass.gov',
     title: 'Mass.gov homepage',
+    // TODO fix this error instead of supressing it.
+    // Adding this to propTypes causes an error.
+    // eslint-disable-next-line react/prop-types
     Wrapper: ({ children }) => (<div className="ma__header__logo">{children}</div>)
   };
   return(
@@ -177,6 +180,10 @@ export const HeaderNavSearch = ({ narrow = false }) => {
     </div>
   );
 };
+HeaderNavSearch.propTypes = {
+  narrow: PropTypes.bool
+};
+
 // For whatever reason, Header has a different nav search for mobile.
 export const HeaderMobileNavSearch = () => (
   <div className="ma__header__nav-search js-header__nav-search">
@@ -196,7 +203,7 @@ export const HeaderUtilityItem = ({ children }) => (
   </li>
 );
 HeaderUtilityItem.propTypes = {
-  children: propTypes.node
+  children: PropTypes.node
 };
 export const HeaderUtilityNav = ({ UtilityItem, items = [], narrow = true }) => {
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HeaderUtilityItem);
@@ -219,11 +226,11 @@ export const HeaderUtilityNav = ({ UtilityItem, items = [], narrow = true }) => 
 };
 HeaderUtilityNav.propTypes = {
   /** An uninstantiated component which handles displaying individual items within the utility nav. */
-  UtilityItem: propTypes.elementType,
+  UtilityItem: PropTypes.elementType,
   /** An array of uninstantiated components to render within the utility navigation.  */
-  items: propTypes.arrayOf(propTypes.elementType),
+  items: PropTypes.arrayOf(PropTypes.elementType),
   /** A boolean representing when the UtilityNav is being displayed within a narrow screen. */
-  narrow: propTypes.bool
+  narrow: PropTypes.bool
 };
 
 export const HeaderContainer = ({
@@ -241,9 +248,9 @@ export const HeaderContainer = ({
 };
 HeaderContainer.propTypes = {
   /** An uninstantiated component which handles displaying the site logo. */
-  Logo: propTypes.elementType,
+  Logo: PropTypes.elementType,
   /** An uninstantiated component which handles search functionality. */
-  NavSearch: propTypes.elementType
+  NavSearch: PropTypes.elementType
 };
 
 export default HeaderNav;
