@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed 
 - (React) [TabContainer] DP-27950: Refactor TabContainer global calls. (#1783)
+- (React) [ButtonWithIcon,FeedbackForm,InputTextFuzzy,Breadcrumb,HamburgerNav,Header,LinkList,PageHeaderAddons] DP-27950: Fix linting warnings. (#1783)
 - (Patternlab) [StickyToc] DP-28020: A11y - Fix Malformed Toc link content (Follow-up). (#1775)
 
 ## 12.3.0 (5/4/2023)
