@@ -276,6 +276,7 @@ HeaderNavItem.propTypes = {
   show: propTypes.func,
   href: propTypes.string,
   text: propTypes.string,
+  active: propTypes.bool,
   mainNav: propTypes.shape({
     /* eslint-disable-next-line react/forbid-prop-types */
     current: propTypes.object

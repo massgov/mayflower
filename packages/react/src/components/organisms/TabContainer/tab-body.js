@@ -8,7 +8,7 @@ class TabBody extends React.Component {
     this.state = {
       nodeList: []
     };
-    if (global.MutationObserver) {
+    if (globalThis.MutationObserver) {
       this.observer = new MutationObserver((mutations) => {
         const tabContainer = document.getElementById(this.props.tabContainerBodyId);
         mutations.forEach((mutation) => {
@@ -31,13 +31,13 @@ class TabBody extends React.Component {
       // eslint-disable-next-line react/no-did-mount-set-state
       this.setState({ nodeList: [nodeList] });
     }
-    if (global.MutationObserver) {
+    if (globalThis.MutationObserver) {
       this.observer.observe(document, { attributes: true, childList: true, subtree: true });
     }
   }
 
   componentWillUnmount() {
-    if (global.MutationObserver) {
+    if (globalThis.MutationObserver) {
       this.observer.disconnect();
     }
   }

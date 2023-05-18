@@ -5,6 +5,7 @@ import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
+import nanoid from 'nanoid';
 import UtilityNavData from './UtilityNav.data';
 
 const PanelItem = ({
@@ -189,8 +190,8 @@ const PanelItem = ({
                 </div>
               )}
               <ul className="ma__utility-panel__items">
-                { links.length > 0 && links.map((link, i) => (
-                  <li className="ma__utility-panel__item js-clickable" key={`util_panel_item_${i}`}>
+                { links.length > 0 && links.map((link) => (
+                  <li className="ma__utility-panel__item js-clickable" key={`util_panel_item_${nanoid()}`}>
                     <DecorativeLink {...link} />
                   </li>
                 ))}
@@ -208,7 +209,11 @@ PanelItem.propTypes = {
   CustomIcon: propTypes.elementType,
   description: propTypes.string,
   ariaLabel: propTypes.string,
-  links: propTypes.arrayOf(propTypes.object)
+  links: propTypes.arrayOf(propTypes.shape({
+    text: propTypes.string,
+    href: propTypes.string,
+    type: propTypes.string
+  }))
 };
 
 export const LoginItem = ({
@@ -229,7 +234,11 @@ LoginItem.propTypes = {
   data: propTypes.shape({
     panel: propTypes.shape({
       description: propTypes.string,
-      links: propTypes.arrayOf(propTypes.object)
+      links: propTypes.arrayOf(propTypes.shape({
+        href: propTypes.string,
+        text: propTypes.string,
+        type: propTypes.string
+      }))
     }),
     text: propTypes.string,
     ariaLabel: propTypes.string
