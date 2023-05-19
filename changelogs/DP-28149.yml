@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: FixedFeedbackButton
-    description: A11y Feedback - Text not included in an ARIA landmark. (#1782)
-    issue: DP-28149
-    impact: Patch
