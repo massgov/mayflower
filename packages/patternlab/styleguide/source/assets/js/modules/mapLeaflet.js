@@ -131,6 +131,10 @@ export default (function(window, document, $) {
                 .bindPopup(compiledTemplate(infoData));
 
             $(mymarker._icon).attr('role', 'button');
+            if (isStatic) {
+              $(mymarker._icon).attr('tabindex', '-1');
+              $(mymarker._icon).attr('aria-hidden', 'true');
+            }
 
             $(mymarker._icon).on('keydown', function(e) {
                 const { key } = e;

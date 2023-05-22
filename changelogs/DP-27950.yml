@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: UnorderedList
-    description: Fix React required type warning. (#1786)
-    issue: DP-27950
-    impact: Patch

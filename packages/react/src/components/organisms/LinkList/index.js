@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import CompHeading from 'MayflowerReactHeadings/CompHeading';
 import Paragraph from 'MayflowerReactText/Paragraph';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import nanoid from 'nanoid';
 
 const LinkList = (props) => {
   const {
@@ -44,11 +45,11 @@ const LinkList = (props) => {
                 <DecorativeLink {...link} />
               </li>
             ))}
-            {links.slice(halfLength, length).map((link, index) => (
+            {links.slice(halfLength, length).map((link) => (
               /* eslint-disable-next-line react/no-array-index-key */
               <li
                 className="ma__link-list__item item-right"
-                key={index + halfLength}
+                key={nanoid()}
               >
                 <DecorativeLink {...link} />
               </li>

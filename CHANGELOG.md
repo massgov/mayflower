@@ -1,6 +1,17 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.3.1 (5/18/2023)
+### Changed 
+- (Patternlab) [TableOfContentsOverlay, TableOfContentsHiearchy] DP-25180: A11y - Changing aria labels to be more dynamic. (#1780)
+- (Patternlab) [FixedFeedbackButton] DP-28149: A11y Feedback - Text not included in an ARIA landmark. (#1782)
+- (Patternlab) [Download link] DP-28265: Add a space between the file size and the fiel title to be rendered in Firefox. (#1785)
+
+### Fixed 
+- (React) [TabContainer] DP-27950: Refactor TabContainer global calls. (#1783)
+- (React) [ButtonWithIcon,FeedbackForm,InputTextFuzzy,Breadcrumb,HamburgerNav,Header,LinkList,PageHeaderAddons] DP-27950: Fix linting warnings. (#1783)
+- (Patternlab) [StickyToc] DP-28020: A11y - Fix Malformed Toc link content (Follow-up). (#1775)
+
 ## 12.3.0 (5/4/2023)
 ### Fixed 
 - (Patternlab) [mainNavHamburger.js] DP-25705: A11y - Fixed hamburger main nav keyboard navigations to 1) use the correct arrow directions in the submenus and 2) fixed the skipping of google translate on the top. (#1773)
