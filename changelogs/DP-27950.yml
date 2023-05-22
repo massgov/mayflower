@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: TabContainer
-    description: Refactor TabContainer global calls. (#1783)
-    issue: DP-27950
-    impact: Patch
