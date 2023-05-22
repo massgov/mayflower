@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Dependency
+    description: Upgrade PHP to v8. (#1784)
+    issue: DP-22494
+    impact: Minor
