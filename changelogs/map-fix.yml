@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Map
-    description: Target z-index: -1 setting to the map in a location banner. (#1789)
-    issue:
-    impact: Patch
