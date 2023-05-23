@@ -78,11 +78,13 @@
     <define name="coretypes">
         <zeroOrMore>
             <choice>
-                <ref name="fileset"/>
-                <ref name="filelist"/>
-                <ref name="path"/>
                 <ref name="classpath"/>
+                <ref name="dirset"/>
                 <ref name="excludes"/>
+                <ref name="filelist"/>
+                <ref name="fileset"/>
+                <ref name="path"/>
+                <ref name="patternset"/>
             </choice>
         </zeroOrMore>
     </define>
@@ -92,10 +94,12 @@
             <choice>
                 <ref name="apigen"/>
                 <ref name="autoloader"/>
+                <ref name="capsule"/>
                 <ref name="composer"/>
                 <ref name="coverage-merger"/>
                 <ref name="coverage-report"/>
                 <ref name="coverage-setup"/>
+                <ref name="coverage-threshold"/>
                 <ref name="dbdeploy"/>
                 <ref name="exportproperties"/>
                 <ref name="filehash"/>
@@ -106,6 +110,7 @@
                 <ref name="gitcheckout"/>
                 <ref name="gitclone"/>
                 <ref name="gitcommit"/>
+                <ref name="gitdescribe"/>
                 <ref name="gitfetch"/>
                 <ref name="gitgc"/>
                 <ref name="gitinit"/>
@@ -115,6 +120,12 @@
                 <ref name="gitpush"/>
                 <ref name="gittag"/>
                 <ref name="growlnotify"/>
+                <ref name="hgadd"/>
+                <ref name="hgcommit"/>
+                <ref name="hglog"/>
+                <ref name="hgpull"/>
+                <ref name="hgpush"/>
+                <ref name="hgupdate"/>
                 <ref name="httpget"/>
                 <ref name="httprequest"/>
                 <ref name="inifile"/>
@@ -159,10 +170,12 @@
                 <ref name="rst"/>
                 <ref name="s3put"/>
                 <ref name="s3get"/>
+                <ref name="sass"/>
                 <ref name="scp"/>
                 <ref name="ssh"/>
                 <ref name="simpletest"/>
                 <ref name="smarty"/>
+                <ref name="sonar"/>
                 <ref name="stopwatch"/>
                 <ref name="svncheckout"/>
                 <ref name="svncommit"/>
@@ -202,6 +215,7 @@
                 <ref name="adhoc-type"/>
                 <ref name="append"/>
                 <ref name="apply"/>
+                <ref name="attrib"/>
                 <ref name="available"/>
                 <ref name="basename"/>
                 <ref name="chmod"/>
@@ -236,10 +250,12 @@
                 <ref name="reflexive"/>
                 <ref name="resolvepath"/>
                 <ref name="retry"/>
+                <ref name="sleep"/>
                 <ref name="switch"/>
                 <ref name="taskdef"/>
                 <ref name="tempfile"/>
                 <ref name="touch"/>
+                <ref name="truncate"/>
                 <ref name="trycatch"/>
                 <ref name="tstamp"/>
                 <ref name="typedef"/>
@@ -264,6 +280,9 @@
                 <attribute name="name"/>
                 <optional>
                     <attribute name="depends"/>
+                </optional>
+                <optional>
+                    <attribute name="hidden"/>
                 </optional>
                 <optional>
                     <attribute name="if"/>
@@ -357,6 +376,51 @@
                         </zeroOrMore>
                     </group>
                 </choice>
+                <optional>
+                <attribute name="includes"/>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="patternset">
+        <element name="patternset">
+            <interleave>
+                <choice>
+                    <attribute name="refid">
+                        <data type="IDREF"/>
+                    </attribute>
+                    <group>
+                        <optional>
+                            <choice>
+                                <attribute name="id">
+                                    <data type="ID"/>
+                                </attribute>
+                                <attribute name="refid">
+                                    <data type="IDREF"/>
+                                </attribute>
+                            </choice>
+                        </optional>
+                        <zeroOrMore>
+                            <choice>
+                                <ref name="include"/>
+                                <ref name="exclude"/>
+                            </choice>
+                        </zeroOrMore>
+                    </group>
+                </choice>
+                <optional>
+                    <attribute name="includes"/>
+                </optional>
+                <optional>
+                    <attribute name="excludes"/>
+                </optional>
+                <optional>
+                    <attribute name="includesfile"/>
+                </optional>
+                <optional>
+                    <attribute name="excludesfile"/>
+                </optional>
             </interleave>
         </element>
     </define>
@@ -502,7 +566,21 @@
 
     <define name="append">
         <element name="append">
-            <attribute name="destFile"/>
+            <optional>
+                <attribute name="destFile"/>
+            </optional>
+            <optional>
+                <attribute name="append"/>
+            </optional>
+            <optional>
+                <attribute name="overwrite"/>
+            </optional>
+            <optional>
+                <attribute name="fixlastline"/>
+            </optional>
+            <optional>
+                <attribute name="eol"/>
+            </optional>
             <optional>
                 <attribute name="text"/>
             </optional>
@@ -524,6 +602,15 @@
                 </optional>
                 <optional>
                     <ref name="filterchain"/>
+                </optional>
+                <optional>
+                    <ref name="append-header"/>
+                </optional>
+                <optional>
+                    <ref name="append-footer"/>
+                </optional>
+                <optional>
+                    <ref name="path"/>
                 </optional>
             </interleave>
         </element>
@@ -569,6 +656,52 @@
                     </attribute>
                     <attribute name="maxparallel">
                         <data type="integer"/>
+                    </attribute>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="attrib">
+        <element name="available">
+            <interleave>
+                <choice>
+                    <attribute name="file"/>
+                    <oneOrMore>
+                        <choice>
+                            <ref name="fileset"/>
+                            <ref name="filelist"/>
+                        </choice>
+                    </oneOrMore>
+                </choice>
+                <optional>
+                    <attribute name="archive">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="hidden">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="os">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="readonly">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="system">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="verbose">
+                        <data type="boolean"/>
                     </attribute>
                 </optional>
             </interleave>
@@ -673,14 +806,18 @@
 
     <define name="condition">
         <element name="condition">
-            <attribute name="property"/>
+            <attribute name="property">
+                <data type="string"/>
+            </attribute>
             <optional>
-                <attribute name="value"/>
+                <attribute name="value" a:defaultValue="true"/>
+            </optional>
+            <optional>
+                <attribute name="else"/>
             </optional>
             <optional>
                 <choice>
-                    <ref name="or"/>
-                    <ref name="and"/>
+                    <ref name="conditions"/>
                 </choice>
             </optional>
         </element>
@@ -1107,6 +1244,9 @@
                     <data type="boolean"/>
                 </attribute>
             </optional>
+            <zeroOrMore>
+                <ref name="fileset"/>
+            </zeroOrMore>
         </element>
     </define>
 
@@ -1145,6 +1285,16 @@
             <interleave>
                 <attribute name="property"/>
                 <attribute name="file"/>
+                <optional>
+                    <attribute name="failonerror">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="quiet">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
             </interleave>
             <zeroOrMore>
                 <ref name="filterchain"/>
@@ -1415,6 +1565,38 @@
         </element>
     </define>
 
+    <define name="sleep">
+        <element name="switch">
+            <interleave>
+                <optional>
+                    <attribute name="failonerror">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="hours">
+                        <data type="int"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="minutes">
+                        <data type="int"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="seconds">
+                        <data type="int"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="milliseconds">
+                        <data type="int"/>
+                    </attribute>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
     <define name="switch">
         <element name="switch">
             <interleave>
@@ -1505,6 +1687,40 @@
                 <optional>
                     <attribute name="millis">
                         <data type="int"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="mkdirs">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="verbose">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="truncate">
+        <element name="truncate">
+            <interleave>
+                <attribute name="file"/>
+                <optional>
+                    <attribute name="adjust"/>
+                </optional>
+                <optional>
+                    <attribute name="length"/>
+                </optional>
+                <optional>
+                    <attribute name="create" a:defaultValue="true">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="mkdirs" a:defaultValue="false">
+                        <data type="boolean"/>
                     </attribute>
                 </optional>
             </interleave>
@@ -1782,6 +1998,30 @@
         </element>
     </define>
 
+    <define name="capsule">
+        <element name="capsule">
+            <interleave>
+                <attribute name="controlTemplate">
+                    <data type="string"/>
+                </attribute>
+                <attribute name="templatePath">
+                    <data type="string"/>
+                </attribute>
+                <attribute name="outputDirectory">
+                    <data type="string"/>
+                </attribute>
+                <attribute name="outputFile">
+                    <data type="string"/>
+                </attribute>
+                <optional>
+                    <attribute name="contextProperties">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
     <define name="composer">
         <element name="composer">
             <interleave>
@@ -1808,6 +2048,9 @@
             <interleave>
                 <optional>
                     <attribute name="executable"/>
+                </optional>
+                <optional>
+                    <attribute name="action"/>
                 </optional>
                 <optional>
                     <attribute name="config"/>
@@ -1855,6 +2098,9 @@
                     <attribute name="templateconfig"/>
                 </optional>
                 <optional>
+                    <attribute name="templatetheme"/>
+                </optional>
+                <optional>
                     <attribute name="allowedhtml"/>
                 </optional>
                 <optional>
@@ -1865,6 +2111,11 @@
                 </optional>
                 <optional>
                     <attribute name="accesslevels"/>
+                </optional>
+                <optional>
+                    <attribute name="annotationgroups">
+                        <data type="string"/>
+                    </attribute>
                 </optional>
                 <optional>
                     <attribute name="internal">
@@ -1892,7 +2143,7 @@
                     </attribute>
                 </optional>
                 <optional>
-                    <attribute name="sourcecode">
+                    <attribute name="nosourcecode">
                         <data type="boolean"/>
                     </attribute>
                 </optional>
@@ -1966,7 +2217,9 @@
     <define name="report">
         <element name="report">
             <attribute name="todir"/>
-            <attribute name="styledir"/>
+            <optional>
+                <attribute name="styledir"/>
+            </optional>
             <optional>
                 <attribute name="title"/>
             </optional>
@@ -2120,6 +2373,9 @@
                     </attribute>
                 </optional>
                 <optional>
+                    <attribute name="algorithm"/>
+                </optional>
+                <optional>
                     <attribute name="propertyname"/>
                 </optional>
             </interleave>
@@ -2191,13 +2447,25 @@
                     </attribute>
                 </optional>
                 <optional>
+                    <attribute name="depends">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
                     <attribute name="dir"/>
+                </optional>
+                <optional>
+                    <attribute name="dirmode"/>
+                </optional>
+                <optional>
+                    <attribute name="filemode"/>
                 </optional>
                 <optional>
                     <attribute name="mode">
                         <choice>
                             <value>ascii</value>
                             <value>binary</value>
+                            <value>bin</value>
                         </choice>
                     </attribute>
                 </optional>
@@ -2208,6 +2476,21 @@
                 </optional>
                 <optional>
                     <attribute name="passive">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="rawdatafallback">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="skipOnSameSize">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="ssl">
                         <data type="boolean"/>
                     </attribute>
                 </optional>
@@ -2350,6 +2633,21 @@
                         <data type="boolean"/>
                     </attribute>
                 </optional>
+                <optional>
+                    <attribute name="depth">
+                        <data type="int"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="singleBranch">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="branch">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
             </interleave>
         </element>
     </define>
@@ -2367,6 +2665,66 @@
                 <optional>
                     <attribute name="allFiles">
                         <data type="boolean"/>
+                    </attribute>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="gitdescribe">
+        <element name="gitdescribe">
+            <interleave>
+                <attribute name="repository">
+                    <data type="string"/>
+                </attribute>
+                <optional>
+                    <attribute name="all">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="always">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="tags">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="contains">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="abbrev">
+                        <data type="int"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="candidates">
+                        <data type="int"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="committish">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="long">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="match">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="outputProperty">
+                        <data type="string"/>
                     </attribute>
                 </optional>
             </interleave>
@@ -2787,6 +3145,99 @@
         <element name="postparameter">
             <attribute name="name"/>
             <attribute name="value"/>
+        </element>
+    </define>
+
+    <define name="hgadd">
+        <element name="hgadd">
+            <interleave>
+                <attribute name="repository"/>
+            </interleave>
+            <zeroOrMore>
+                <ref name="fileset"/>
+            </zeroOrMore>
+        </element>
+    </define>
+
+    <define name="hgcommit">
+        <element name="hgcommit">
+            <interleave>
+                <attribute name="repository"/>
+                <optional>
+                    <attribute name="message"/>
+                </optional>
+                <optional>
+                    <attribute name="user"/>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="hgpull">
+        <element name="hgpull">
+            <interleave>
+                <attribute name="repository"/>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="hgpush">
+        <element name="hgpush">
+            <interleave>
+                <optional>
+                    <attribute name="repository"/>
+                </optional>
+                <optional>
+                    <attribute name="haltonerror">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="insecure">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="hglog">
+        <element name="hglog">
+            <interleave>
+                <attribute name="repository"/>
+                <optional>
+                    <attribute name="format"/>
+                </optional>
+                <optional>
+                    <attribute name="maxCount">
+                        <data type="int"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="outputProperty">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="revision"/>
+                </optional>
+                <optional>
+                    <attribute name="quiet"/>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="hgupdate">
+        <element name="hgupdate">
+            <interleave>
+                <attribute name="repository"/>
+                <optional>
+                    <attribute name="branch">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+            </interleave>
         </element>
     </define>
 
@@ -4082,6 +4533,11 @@
                 <optional>
                     <attribute name="cachefile"/>
                 </optional>
+                <optional>
+                    <attribute name="pharLocation">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
             </interleave>
         </element>
     </define>
@@ -4168,6 +4624,11 @@
             <optional>
                 <attribute name="haltonerror">
                     <data type="boolean"/>
+                </attribute>
+            </optional>
+            <optional>
+                <attribute name="pharLocation">
+                    <data type="string"/>
                 </attribute>
             </optional>
             <oneOrMore>
@@ -4655,6 +5116,154 @@
         </element>
     </define>
 
+    <define name="sass">
+        <element name="sass">
+            <interleave>
+                <optional>
+                <choice>
+                    <attribute name="file">
+                        <data type="string"/>
+                    </attribute>
+                    <attribute name="input">
+                        <data type="string"/>
+                    </attribute>
+                </choice>
+                </optional>
+                <optional>
+                    <attribute name="check">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="compact">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="compressed">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="crunched">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="expand">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="encoding">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="executable">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="extfilter">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="failonerror">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="flags">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="force">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="keepsubdirectories">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="newext"/>
+                </optional>
+                <optional>
+                    <attribute name="linenumbers">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="nested">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="nocache">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="output">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="outputpath">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="path">
+                        <data type="string"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="removeoldext">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="style">
+                        <choice>
+                            <value>compact</value>
+                            <value>compressed</value>
+                            <value>crunched</value>
+                            <value>expanded</value>
+                            <value>nested</value>
+                        </choice>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="trace">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="unixnewlines">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="useScssphp">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <optional>
+                    <attribute name="useSass">
+                        <data type="boolean"/>
+                    </attribute>
+                </optional>
+                <zeroOrMore>
+                    <ref name="fileset"/>
+                </zeroOrMore>
+            </interleave>
+        </element>
+    </define>
 
     <define name="scp">
         <element name="scp">
@@ -4817,12 +5426,43 @@
         </element>
     </define>
 
+    <define name="sonar">
+        <element name="sonar">
+            <interleave>
+                <attribute name="executable"/>
+                <optional>
+                    <attribute name="errors"/>
+                </optional>
+                <optional>
+                    <attribute name="debug"/>
+                </optional>
+                <optional>
+                    <attribute name="configuration"/>
+                </optional>
+            </interleave>
+            <oneOrMore>
+                <ref name="sonar-property"/>
+            </oneOrMore>
+        </element>
+    </define>
+    
+    <define name="sonar-property">
+        <element name="property">
+            <interleave>
+                <attribute name="name"/>
+                <attribute name="value"/>
+            </interleave>
+        </element>
+    </define>
+
     <define name="stopwatch">
         <element name="stopwatch">
             <interleave>
                 <attribute name="name"/>
                 <optional>
                     <attribute name="category"/>
+                </optional>
+                <optional>
                     <attribute name="action"/>
                 </optional>
             </interleave>
@@ -5700,6 +6340,8 @@
                     <attribute name="classname"/>
                     <attribute name="type">
                         <choice>
+                            <value type="string">cutdirs</value>
+                            <value type="string">firstmatch</value>
                             <value type="string">flatten</value>
                             <value type="string">glob</value>
                             <value type="string">merge</value>
@@ -5987,6 +6629,7 @@
             <ref name="versioncompare"/>
             <ref name="available_cond"/>
             <ref name="http"/>
+            <ref name="matches_cond"/>
         </choice>
     </define>
 
@@ -6180,6 +6823,62 @@
                 <attribute name="url"/>
                 <optional>
                     <attribute name="errorsBeginAt"/>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="matches_cond">
+        <element name="matches">
+            <interleave>
+                <attribute name="string"/>
+                <attribute name="pattern"/>
+                <optional>
+                    <attribute name="casesensitive"/>
+                </optional>
+                <optional>
+                    <attribute name="multiline"/>
+                </optional>
+                <optional>
+                    <attribute name="modifiers"/>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="append-header">
+        <element name="header">
+            <interleave>
+                <optional>
+                    <attribute name="filtering"/>
+                </optional>
+                <optional>
+                    <attribute name="file"/>
+                </optional>
+                <optional>
+                    <attribute name="trim"/>
+                </optional>
+                <optional>
+                    <attribute name="trimleading"/>
+                </optional>
+            </interleave>
+        </element>
+    </define>
+
+    <define name="append-footer">
+        <element name="header">
+            <interleave>
+                <optional>
+                    <attribute name="filtering"/>
+                </optional>
+                <optional>
+                    <attribute name="file"/>
+                </optional>
+                <optional>
+                    <attribute name="trim"/>
+                </optional>
+                <optional>
+                    <attribute name="trimleading"/>
                 </optional>
             </interleave>
         </element>

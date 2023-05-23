@@ -88,5 +88,10 @@
 				"temporarily revert array_replace_recursive function": "patches/PsuedoPatternRule.patch"
 			}
 		}
+	},
+	"config": {
+		"allow-plugins": {
+			"cweagans/composer-patches": true
+		}
 	}
 }

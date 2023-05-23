@@ -1,13 +1,14 @@
 <?php
-require_once 'VersionControl/Git.php';
+
+use PHPUnit\Framework\TestCase;
 
 require_once dirname(__FILE__) . '/checkFixtures.php';
 
-class VersionControl_GitTest extends PHPUnit_Framework_TestCase
+class VersionControl_GitTest extends TestCase
 {
   public function testConstructException()
   {
-    $this->setExpectedException('VersionControl_Git_Exception');
+    $this->expectException('VersionControl_Git_Exception');
 
     new VersionControl_Git('!This is not valid direcotry!');
   }
@@ -51,13 +52,13 @@ class VersionControl_GitTest extends PHPUnit_Framework_TestCase
   {
     $dirname = $this->generateTmpDir();
     $instance = new VersionControl_Git($dirname);
-    $instance->createClone('git://gist.github.com/265855.git');
+    $instance->createClone('https://gist.github.com/265855.git');
     $this->assertTrue(is_dir($dirname.DIRECTORY_SEPARATOR.'265855'));
     $this->removeDirectory($dirname);
 
     $dirname = $this->generateTmpDir();
     $instance = new VersionControl_Git($dirname);
-    $instance->createClone('git://gist.github.com/265855.git', true);
+    $instance->createClone('https://gist.github.com/265855.git', true);
     if (version_compare('1.6.0-rc1', $instance->getGitVersion(), '>='))
     {
       // see: http://git.kernel.org/?p=git/git.git;a=commit;h=6612f87
@@ -71,14 +72,14 @@ class VersionControl_GitTest extends PHPUnit_Framework_TestCase
 
     $dirname = $this->generateTmpDir();
     $instance = new VersionControl_Git($dirname);
-    $instance->createClone('git://gist.github.com/265855.git', true, $dirname.DIRECTORY_SEPARATOR.'MY_WORKING_COPY');
+    $instance->createClone('https://gist.github.com/265855.git', true, $dirname.DIRECTORY_SEPARATOR.'MY_WORKING_COPY');
     $this->assertTrue(is_dir($dirname.DIRECTORY_SEPARATOR.'MY_WORKING_COPY'));
     $this->assertTrue(realpath($instance->getDirectory()) === realpath($dirname.DIRECTORY_SEPARATOR.'MY_WORKING_COPY'));
     $this->removeDirectory($dirname);
 
     $dirname = $this->generateTmpDir();
     $instance = new VersionControl_Git($dirname);
-    $instance->createClone('git://gist.github.com/265855.git', false, $dirname);
+    $instance->createClone('https://gist.github.com/265855.git', false, $dirname);
     $this->assertTrue(is_file($dirname.DIRECTORY_SEPARATOR.'patch_for_pecl_runkit.diff'));
     $this->removeDirectory($dirname);
   }
@@ -207,4 +208,3 @@ class VersionControl_GitTest extends PHPUnit_Framework_TestCase
     system('rm -rf '.$dir);
   }
 }
-

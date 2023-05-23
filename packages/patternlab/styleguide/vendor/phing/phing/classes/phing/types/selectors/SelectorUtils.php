@@ -125,15 +125,9 @@ class SelectorUtils
     /**
      * Tests whether or not a given path matches a given pattern.
      *
-     * @param The $pattern
-     * @param The $str
-     * @param bool|Whether $isCaseSensitive
-     * @internal param The $pattern pattern to match against. Must not be
-     *                <code>null</code>.
-     * @internal param The $str path to match, as a String. Must not be
-     *                <code>null</code>.
-     * @internal param Whether $isCaseSensitive or not matching should be performed
-     *                        case sensitively.
+     * @param string $pattern The pattern to match against. Must not be <code>null</code>.
+     * @param string $str The path to match, as a String. Must not be <code>null</code>.
+     * @param bool $isCaseSensitive Whether or not matching should be performed case sensitively.
      *
      * @return bool <code>true</code> if the pattern matches against the string,
      */
@@ -150,7 +144,7 @@ class SelectorUtils
         $patternReplacements = array(
             $dirSep . '\*\*' . $dirSep => $dirSep . '.*' . $trailingDirSep,
             $dirSep . '\*\*' => $trailingDirSep,
-            '\*\*' . $dirSep => '.*' . $trailingDirSep,
+            '\*\*' . $dirSep => '(.*' . $dirSep . ')?',
             '\*\*' => '.*',
             '\*' => '[^' . $dirSep . ']*',
             '\?' => '[^' . $dirSep . ']'
@@ -214,5 +208,18 @@ class SelectorUtils
         }
 
         return false;
+    }
+
+    /**
+     * @param string $string
+     * @return string
+     */
+    public static function removeWhitespace($string)
+    {
+        return preg_replace(
+            "/(\t|\n|\v|\f|\r| |\xC2\x85|\xc2\xa0|\xe1\xa0\x8e|\xe2\x80[\x80-\x8D]|\xe2\x80\xa8|\xe2\x80\xa9|\xe2\x80\xaF|\xe2\x81\x9f|\xe2\x81\xa0|\xe3\x80\x80|\xef\xbb\xbf)+/",
+            '',
+            $string
+        );
     }
 }

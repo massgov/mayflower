@@ -71,9 +71,9 @@ class VersionControl_Git_Object_Tree extends VersionControl_Git_Object implement
     public function fetch()
     {
         $command = $this->git->getCommand('ls-tree')
-            ->addArgument($this->id);
+            ->addArgument('-z')->addArgument($this->id);
 
-        $lines = explode(PHP_EOL, trim($command->execute()));
+        $lines = explode("\0", trim($command->execute()));
         foreach ($lines as $line) {
             $itemString = str_replace("\t", ' ', $line);
 
@@ -87,14 +87,15 @@ class VersionControl_Git_Object_Tree extends VersionControl_Git_Object implement
         return $this;
     }
 
-    /**
-     * Seeks to the specified position
-     *
-     * @param int $position The position to seek to
-     *
-     * @return null
-     */
-    public function seek($position)
+	/**
+	 * Seeks to the specified position
+	 *
+	 * @param int $position The position to seek to
+	 *
+	 * @return void
+	 * @throws VersionControl_Git_Exception
+	 */
+    public function seek($position): void
     {
         $this->position = $position;
 
@@ -106,9 +107,9 @@ class VersionControl_Git_Object_Tree extends VersionControl_Git_Object implement
     /**
      * Rewind this iterator to the first position
      *
-     * @return null
+     * @return void
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = 0;
     }
@@ -118,6 +119,7 @@ class VersionControl_Git_Object_Tree extends VersionControl_Git_Object implement
      *
      * @return VersionControl_Git_Object
      */
+	#[ReturnTypeWillChange]
     public function current()
     {
         return $this->objects[$this->position];
@@ -128,6 +130,7 @@ class VersionControl_Git_Object_Tree extends VersionControl_Git_Object implement
      *
      * @return int
      */
+	#[ReturnTypeWillChange]
     public function key()
     {
         return $this->position;
@@ -136,9 +139,9 @@ class VersionControl_Git_Object_Tree extends VersionControl_Git_Object implement
     /**
      * Move forward to next positon
      *
-     * @return null
+     * @return void
      */
-    public function next()
+    public function next(): void
     {
         ++$this->position;
     }
@@ -148,7 +151,7 @@ class VersionControl_Git_Object_Tree extends VersionControl_Git_Object implement
      *
      * @return bool
      */
-    public function valid()
+    public function valid(): bool
     {
         return isset($this->objects[$this->position]);
     }

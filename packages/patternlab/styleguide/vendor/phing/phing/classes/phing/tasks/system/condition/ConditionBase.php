@@ -42,6 +42,35 @@ abstract class ConditionBase extends ProjectComponent
 
     public $conditions = array(); // needs to be public for "inner" class access
 
+    /** @var string $taskName */
+    private $taskName = 'condition';
+
+    public function __construct($taskName = 'component')
+    {
+        $this->taskName = $taskName;
+    }
+
+    /**
+     * Sets the name to use in logging messages.
+     *
+     * @param string $name The name to use in logging messages.
+     *                     Should not be <code>null</code>.
+     */
+    public function setTaskName($name)
+    {
+        $this->taskName = $name;
+    }
+
+    /**
+     * Returns the name to use in logging messages.
+     *
+     * @return string the name to use in logging messages.
+     */
+    public function getTaskName()
+    {
+        return $this->taskName;
+    }
+
     /**
      * @return int
      */
@@ -270,6 +299,22 @@ abstract class ConditionBase extends ProjectComponent
     {
         include_once 'phing/tasks/system/condition/IsFailure.php';
         $num = array_push($this->conditions, new IsFailure());
+
+        return $this->conditions[$num - 1];
+    }
+
+    public function createIsFileSelected()
+    {
+        include_once 'phing/tasks/system/condition/IsFileSelected.php';
+        $num = array_push($this->conditions, new IsFileSelected());
+
+        return $this->conditions[$num - 1];
+    }
+
+    public function createMatches()
+    {
+        include_once 'phing/tasks/system/condition/Matches.php';
+        $num = array_push($this->conditions, new Matches());
 
         return $this->conditions[$num - 1];
     }
