@@ -170,22 +170,19 @@ export const HeaderNavItem = React.memo(({
         // Open pull down menu if necessary.
         if (!isItemOpen && !$link.classList.contains(hasFocus)) {
           show({ index });
-        }
-        // Adjust index of active menu item based on performed action.
-        focusIndexInDropdown += (action.up ? -1 : 1);
-        // If the menu is flipped, skip the last item in each submenu. Otherwise,
-        // skip the first item. This is done by repeating the index adjustment.
-        if (menuFlipped) {
-          if (focusIndexInDropdown === dropdownLinksLength - 1) {
-            focusIndexInDropdown += (action.up ? -1 : 1);
-          }
-        } else if (focusIndexInDropdown === 0 || focusIndexInDropdown >= dropdownLinksLength) {
+          if (action.up) {
+            focusIndexInDropdown = dropdownLinksLength - 1;
+          } else {
+            focusIndexInDropdown = 0;
+          }  
+          $dropdownLinks[focusIndexInDropdown].focus(); 
+        } else {
+          // Adjust index of active menu item based on performed action.
           focusIndexInDropdown += (action.up ? -1 : 1);
+          // Wrap around if at the end of the submenu.
+          focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+          $dropdownLinks[focusIndexInDropdown].focus();
         }
-
-        // Wrap around if at the end of the submenu.
-        focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-        $dropdownLinks[focusIndexInDropdown].focus();
       }
       // Close menu and return focus to menubar
       if (action.close || (menuFlipped && action.left)) {
