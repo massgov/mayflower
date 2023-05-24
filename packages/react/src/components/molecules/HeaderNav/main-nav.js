@@ -162,12 +162,9 @@ export const HeaderNavItem = React.memo(({
         $link.classList.remove(hasFocus);
         return;
       }
-      // Navigate into or within a submenu. This is needed on up/down actions
-      // (unless the menu is flipped and closed) and when using the right arrow
-      // while the menu is flipped and submenu is closed.
-      if (((action.up || action.down) && !(menuFlipped && !isItemOpen))
-          || (action.right && menuFlipped && !isItemOpen)) {
-        // Open pull down menu if necessary.
+      // Navigate into or within a submenu using the up/down arrow keys.
+      if (action.up || action.down) {
+        // Open submenu if it's not open already.
         if (!isItemOpen && !$link.classList.contains(hasFocus)) {
           show({ index });
           if (action.up) {
