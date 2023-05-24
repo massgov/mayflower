@@ -137,7 +137,7 @@ export const HeaderNavItem = React.memo(({
       // Easy access to the key that was pressed.
       const keycode = e.keyCode;
       const action = {
-        skip: keycode === 9, // tab
+        tab: keycode === 9, // tab
         close: keycode === 27, // esc
         left: keycode === 37, // left arrow
         right: keycode === 39, // right arrow
@@ -154,7 +154,7 @@ export const HeaderNavItem = React.memo(({
         $link.classList.add(hasFocus);
         $otherLinks.forEach((link) => link.classList.remove(hasFocus));
       }
-      if (action.skip && dropdownLinksLength === (focusIndexInDropdown + 1)) {
+      if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
         if (isItemOpen) {
           hide();
         }
