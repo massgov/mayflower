@@ -137,16 +137,17 @@ export const HeaderNavItem = React.memo(({
       // Easy access to the key that was pressed.
       const { key, code } = e;
       const action = {
-        tab: key === "Tab", // tab
-        esc: key === "Esc" || key === "Escape", // esc
-        left: key === "Left" || key === "ArrowLeft", // left arrow
-        right: key === "Right" || key === "ArrowRight", // right arrow
-        up: key === "Up" || key === "ArrowUp", // up arrow
-        down: key === "Down" || key === "ArrowDown", // down arrow
-        space: key === " " || code === "Space", // space
-        enter: key === "Enter" // enter
+        tab: key === 'Tab', // tab
+        esc: key === 'Esc' || key === 'Escape', // esc
+        left: key === 'Left' || key === 'ArrowLeft', // left arrow
+        right: key === 'Right' || key === 'ArrowRight', // right arrow
+        up: key === 'Up' || key === 'ArrowUp', // up arrow
+        down: key === 'Down' || key === 'ArrowDown', // down arrow
+        space: key === ' ' || code === 'Space', // space
+        enter: key === 'Enter' // enter
       };
-        // Default behavior is prevented for all actions except 'skip'.
+
+      // Default behavior is prevented for all actions except 'tab'.
       if (action.esc || action.left || action.right || action.up || action.down) {
         e.preventDefault();
       }
