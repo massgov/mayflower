@@ -171,8 +171,8 @@ export const HeaderNavItem = React.memo(({
             focusIndexInDropdown = dropdownLinksLength - 1;
           } else {
             focusIndexInDropdown = 0;
-          }  
-          $dropdownLinks[focusIndexInDropdown].focus(); 
+          }
+          $dropdownLinks[focusIndexInDropdown].focus();
         } else {
           // Adjust index of active menu item based on performed action.
           focusIndexInDropdown += (action.up ? -1 : 1);
