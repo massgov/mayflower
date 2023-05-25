@@ -135,26 +135,27 @@ export const HeaderNavItem = React.memo(({
       const dropdownLinksLength = $dropdownLinks.length;
       let focusIndexInDropdown = Array.from($dropdownLinks).findIndex((link) => link === $focusedElement);
       // Easy access to the key that was pressed.
-      const keycode = e.keyCode;
+      const { key, code } = e;
       const action = {
-        skip: keycode === 9, // tab
-        close: keycode === 27, // esc
-        left: keycode === 37, // left arrow
-        right: keycode === 39, // right arrow
-        up: keycode === 38, // up arrow
-        down: keycode === 40, // down arrow
-        space: keycode === 32, // space
-        enter: keycode === 13 // enter
+        tab: key === 'Tab', // tab
+        esc: key === 'Esc' || key === 'Escape', // esc
+        left: key === 'Left' || key === 'ArrowLeft', // left arrow
+        right: key === 'Right' || key === 'ArrowRight', // right arrow
+        up: key === 'Up' || key === 'ArrowUp', // up arrow
+        down: key === 'Down' || key === 'ArrowDown', // down arrow
+        space: key === ' ' || code === 'Space', // space
+        enter: key === 'Enter' // enter
       };
-        // Default behavior is prevented for all actions except 'skip'.
-      if (action.close || action.left || action.right || action.up || action.down) {
+
+      // Default behavior is prevented for all actions except 'tab'.
+      if (action.esc || action.left || action.right || action.up || action.down) {
         e.preventDefault();
       }
       if (action.enter || action.space) {
         $link.classList.add(hasFocus);
         $otherLinks.forEach((link) => link.classList.remove(hasFocus));
       }
-      if (action.skip && dropdownLinksLength === (focusIndexInDropdown + 1)) {
+      if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
         if (isItemOpen) {
           hide();
         }
@@ -162,33 +163,27 @@ export const HeaderNavItem = React.memo(({
         $link.classList.remove(hasFocus);
         return;
       }
-      // Navigate into or within a submenu. This is needed on up/down actions
-      // (unless the menu is flipped and closed) and when using the right arrow
-      // while the menu is flipped and submenu is closed.
-      if (((action.up || action.down) && !(menuFlipped && !isItemOpen))
-          || (action.right && menuFlipped && !isItemOpen)) {
-        // Open pull down menu if necessary.
+      // Navigate into or within a submenu using the up/down arrow keys.
+      if (action.up || action.down) {
+        // Open submenu if it's not open already.
         if (!isItemOpen && !$link.classList.contains(hasFocus)) {
           show({ index });
-        }
-        // Adjust index of active menu item based on performed action.
-        focusIndexInDropdown += (action.up ? -1 : 1);
-        // If the menu is flipped, skip the last item in each submenu. Otherwise,
-        // skip the first item. This is done by repeating the index adjustment.
-        if (menuFlipped) {
-          if (focusIndexInDropdown === dropdownLinksLength - 1) {
-            focusIndexInDropdown += (action.up ? -1 : 1);
+          if (action.up) {
+            focusIndexInDropdown = dropdownLinksLength - 1;
+          } else {
+            focusIndexInDropdown = 0;
           }
-        } else if (focusIndexInDropdown === 0 || focusIndexInDropdown >= dropdownLinksLength) {
+          $dropdownLinks[focusIndexInDropdown].focus();
+        } else {
+          // Adjust index of active menu item based on performed action.
           focusIndexInDropdown += (action.up ? -1 : 1);
+          // Wrap around if at the end of the submenu.
+          focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+          $dropdownLinks[focusIndexInDropdown].focus();
         }
-
-        // Wrap around if at the end of the submenu.
-        focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-        $dropdownLinks[focusIndexInDropdown].focus();
       }
       // Close menu and return focus to menubar
-      if (action.close || (menuFlipped && action.left)) {
+      if (action.esc || (menuFlipped && action.left)) {
         if (isItemOpen) {
           hide();
         }
