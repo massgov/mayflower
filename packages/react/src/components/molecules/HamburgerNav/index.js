@@ -490,12 +490,29 @@ export const HamburgerNavItem = ({
         space: key === ' ' || code === 'Space', // space
         enter: key === 'Enter' // enter
       };
-      console.log(e.key)
-      console.log(subItems)
-      console.log(contentRef)
-      if (action.down) {
-        if (subItems) {
+      const focusedElement = document.activeElement;
+
+      // Navigate into or within a submenu using the up/down arrow keys.
+      if ((action.up || action.down) && subItems) {
+        const dropdownLinks = subItems.querySelectorAll('.js-main-nav-hamburger__subitem .js-main-nav-hamburger__link');
+        const dropdownLinksLength = dropdownLinks.length;
+        let focusIndexInDropdown = Array.from(dropdownLinks).findIndex((link) => link === focusedElement);
+        // Open submenu if it's not open already.
+        if (item.classList.contains('submenu-open')) {
+            // Adjust index of active menu item based on performed action.
+            focusIndexInDropdown += (action.up ? -1 : 1);
+            // Wrap around if at the end of the submenu.
+            focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+            dropdownLinks[focusIndexInDropdown].focus();
+
+        } else {
           openThisSubMenu();
+          if (action.up) {
+            focusIndexInDropdown = dropdownLinksLength - 1;
+          } else {
+            focusIndexInDropdown = 0;
+          }
+          dropdownLinks[focusIndexInDropdown].focus();
         }
       }
 
@@ -507,7 +524,7 @@ export const HamburgerNavItem = ({
     };
     if (itemButton) {
       itemButton.addEventListener('click', itemButtonClick);
-      itemButton.addEventListener('keydown', itemButtonKeyDown);
+      item.addEventListener('keydown', itemButtonKeyDown);
     }
     return(() => {
       if (itemButton) {
