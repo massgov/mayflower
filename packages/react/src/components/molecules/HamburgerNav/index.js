@@ -497,19 +497,23 @@ export const HamburgerNavItem = ({
         const dropdownLinks = subItems.querySelectorAll('.js-main-nav-hamburger__subitem .js-main-nav-hamburger__link');
         const dropdownLinksLength = dropdownLinks.length;
         let focusIndexInDropdown = Array.from(dropdownLinks).findIndex((link) => link === focusedElement);
-        // Open submenu if it's not open already.
+        
         if (item.classList.contains('submenu-open')) {
-            // Adjust index of active menu item based on performed action.
-            focusIndexInDropdown += (action.up ? -1 : 1);
-            // Wrap around if at the end of the submenu.
-            focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-            dropdownLinks[focusIndexInDropdown].focus();
-
+          // ArrowUp focus on the previous submenu item
+          // ArrowDown focus on the next submenu item
+          focusIndexInDropdown += (action.up ? -1 : 1);
+          // Wrap around if at the end of the submenu.
+          focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+          dropdownLinks[focusIndexInDropdown].focus();
         } else {
+          // Close all other submenus and open the selected submenu if it's not open already.
+          anotherCloseSubMenus();
           openThisSubMenu();
           if (action.up) {
+            // arrowUp set focus to the last item
             focusIndexInDropdown = dropdownLinksLength - 1;
           } else {
+            // arrowDown set focus to the first item
             focusIndexInDropdown = 0;
           }
           dropdownLinks[focusIndexInDropdown].focus();
