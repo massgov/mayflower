@@ -553,7 +553,7 @@ export const HamburgerNavItem = ({
     });
   }, [itemRef, buttonRef, contentRef, ulRef]);
   return(
-    <li ref={itemRef} role="none" className={classes} tabIndex="-1">
+    <li ref={itemRef} role="menuitem" className={classes} tabIndex="-1">
       {isCovid ? (
         <a
           role="menuitem"
@@ -564,7 +564,7 @@ export const HamburgerNavItem = ({
           {text}
         </a>
       ) : (
-        <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
+        <button ref={buttonRef} type="button" id={`button${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
           <span className="visually-hidden show-label">Show the sub topics of </span>
           {text}
           <span className="toggle-indicator" aria-hidden="true" />
@@ -575,13 +575,13 @@ export const HamburgerNavItem = ({
           <ul ref={ulRef} id={`menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
             { subNav.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
-              <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
+              <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="menuitem" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
                 <a role="menuitem" href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
               </li>
             ))}
             { href && (
-              <li role="none" className="ma__main__hamburger-nav__subitem--main js-main-nav-hamburger__subitem">
-                <a role="menuitem" href={href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
+              <li role="menuitem" className="ma__main__hamburger-nav__subitem--main js-main-nav-hamburger__subitem">
+                <a href={href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
                   <IconArrowbent />
                   <span>
                     <span className="visually-hidden">See all topics under </span>
