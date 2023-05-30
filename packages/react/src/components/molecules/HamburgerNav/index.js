@@ -370,6 +370,7 @@ export const HamburgerNavItem = ({
   React.useEffect(() => {
     const item = itemRef.current;
     const itemButton = buttonRef.current;
+    const contentDiv = contentRef.current;
     const subItems = ulRef.current;
     if (subItems) {
       subItems.style.opacity = '0';
@@ -415,6 +416,8 @@ export const HamburgerNavItem = ({
     };
     const itemButtonClick = () => {
       anotherCloseSubMenus(item);
+      console.log(item)
+      console.log(contentRef.current)
 
       if (item.classList.contains('submenu-open')) {
         item.classList.remove('submenu-open');
@@ -433,20 +436,20 @@ export const HamburgerNavItem = ({
         }, 500);
       }
 
-      if (item.querySelector('.js-main-nav-hamburger-content').classList.contains('is-closed')) {
+      if (contentDiv.classList.contains('is-closed')) {
         /** Show the subMenu. */
 
-        item.querySelector('.js-main-nav-hamburger-content').classList.remove('is-closed');
-        item.querySelector('.js-main-nav-hamburger-content').style.height = 'auto';
+        contentDiv.classList.remove('is-closed');
+        contentDiv.style.height = 'auto';
 
         /** Get the computed height of the subMenu. */
-        const height = `${item.querySelector('.js-main-nav-hamburger-content').clientHeight}px`;
+        const height = `${contentDiv.clientHeight}px`;
         /** Set the height of the submenu as 0px, */
         /** so we can trigger the slide down animation. */
-        item.querySelector('.js-main-nav-hamburger-content').style.height = '0';
+        contentDiv.style.height = '0';
 
         setTimeout(() => {
-          item.querySelector('.js-main-nav-hamburger-content').style.height = height;
+          contentDiv.style.height = height;
           item.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
           if (subItems) {
             subItems.style.opacity = '1';
@@ -461,7 +464,7 @@ export const HamburgerNavItem = ({
           closeNarrowUtilContent();
         }
       } else {
-        item.querySelector('.js-main-nav-hamburger-content').style.height = '0';
+        contentDiv.style.height = '0';
         if (subItems) {
           subItems.style.opacity = '0';
         }
@@ -476,15 +479,36 @@ export const HamburgerNavItem = ({
       }
     };
     const itemButtonKeyDown = (e) => {
-      if (e.code === 'ArrowDown' || e.key === 'ArrowDown') {
+      // Easy access to the key that was pressed.
+      const { key, code } = e;
+      const action = {
+        tab: key === 'Tab', // tab
+        esc: key === 'Esc' || key === 'Escape', // esc
+        left: key === 'Left' || key === 'ArrowLeft', // left arrow
+        right: key === 'Right' || key === 'ArrowRight', // right arrow
+        up: key === 'Up' || key === 'ArrowUp', // up arrow
+        down: key === 'Down' || key === 'ArrowDown', // down arrow
+        space: key === ' ' || code === 'Space', // space
+        enter: key === 'Enter' // enter
+      };
+      console.log(e.key)
+      console.log(subItems)
+      console.log(contentRef)
+      if (action.down) {
         if (subItems) {
+          item.classList.add('submenu-open');
+          itemButton.setAttribute('aria-expanded', 'true');
+          item.style.pointerEvents = 'none';
+          setTimeout(() => {
+            item.removeAttribute('style');
+          }, 500);
+          
           const first = subItems.getElementsByTagName('li')[0];
           first.querySelector('.js-main-nav-hamburger__link').focus();
         }
       }
 
-      // 'e.key === "Esc"' is for IE11.
-      if (e.code === 'Escape' || e.key === 'Escape' || e.key === 'Esc') {
+      if (action.esc) {
         if (item.classList.contains('submenu-open')) {
           closeMenu();
         }
