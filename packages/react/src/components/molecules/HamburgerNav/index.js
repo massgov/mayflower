@@ -415,12 +415,47 @@ export const HamburgerNavItem = ({
       });
     };
 
+    const openThisSubMenu = () => {
+      // If submenu is closed, open the submenu
+      item.classList.add('submenu-open');
+      itemButton.setAttribute('aria-expanded', 'true');
+      item.style.pointerEvents = 'none';
+      /** Show the subMenu content. */
+
+      contentDiv.classList.remove('is-closed');
+      contentDiv.style.height = 'auto';
+
+      /** Get the computed height of the subMenu. */
+      const height = `${contentDiv.clientHeight}px`;
+      /** Set the height of the submenu as 0px, */
+      /** so we can trigger the slide down animation. */
+      contentDiv.style.height = '0';
+
+      setTimeout(() => {
+        item.removeAttribute('style');
+        contentDiv.style.height = height;
+        item.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+        if (subItems) {
+          subItems.style.opacity = '1';
+        }
+      }, 500);
+
+      /** Close Utility menu content when a sub menu is open. */
+      const body = document.querySelector('body');
+
+      const width = body.clientWidth;
+      if (width < 840) {
+        closeNarrowUtilContent();
+      }
+    }
+
     const itemButtonClick = () => {
+      // close all other submenus
       anotherCloseSubMenus(item);
 
-
+      // toggle the selected submenu
       if (item.classList.contains('submenu-open')) {
-      // If submenu is already open
+      // If submenu is already open, close the submenu
         item.classList.remove('submenu-open');
         itemButton.setAttribute('aria-expanded', 'false');
         item.style.pointerEvents = 'none';
@@ -438,37 +473,8 @@ export const HamburgerNavItem = ({
           item.querySelector('.js-main-nav-hamburger-content').classList.add('is-closed');
         }, 500);
       } else {
-      // If submenu is closed
-        item.classList.add('submenu-open');
-        itemButton.setAttribute('aria-expanded', 'true');
-        item.style.pointerEvents = 'none';
-        /** Show the subMenu content. */
-
-        contentDiv.classList.remove('is-closed');
-        contentDiv.style.height = 'auto';
-
-        /** Get the computed height of the subMenu. */
-        const height = `${contentDiv.clientHeight}px`;
-        /** Set the height of the submenu as 0px, */
-        /** so we can trigger the slide down animation. */
-        contentDiv.style.height = '0';
-
-        setTimeout(() => {
-          item.removeAttribute('style');
-          contentDiv.style.height = height;
-          item.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-          if (subItems) {
-            subItems.style.opacity = '1';
-          }
-        }, 500);
-
-        /** Close Utility menu content when a sub menu is open. */
-        const body = document.querySelector('body');
-
-        const width = body.clientWidth;
-        if (width < 840) {
-          closeNarrowUtilContent();
-        }
+      // If submenu is closed, open the submenu
+        openThisSubMenu();
       }
     };
     const itemButtonKeyDown = (e) => {
@@ -489,15 +495,7 @@ export const HamburgerNavItem = ({
       console.log(contentRef)
       if (action.down) {
         if (subItems) {
-          item.classList.add('submenu-open');
-          itemButton.setAttribute('aria-expanded', 'true');
-          item.style.pointerEvents = 'none';
-          setTimeout(() => {
-            item.removeAttribute('style');
-          }, 500);
-          
-          const first = subItems.getElementsByTagName('li')[0];
-          first.querySelector('.js-main-nav-hamburger__link').focus();
+          openThisSubMenu();
         }
       }
 
