@@ -414,30 +414,35 @@ export const HamburgerNavItem = ({
         }
       });
     };
+
     const itemButtonClick = () => {
       anotherCloseSubMenus(item);
-      console.log(item)
-      console.log(contentRef.current)
+
 
       if (item.classList.contains('submenu-open')) {
+      // If submenu is already open
         item.classList.remove('submenu-open');
         itemButton.setAttribute('aria-expanded', 'false');
         item.style.pointerEvents = 'none';
+        contentDiv.style.height = '0';
+        if (subItems) {
+          subItems.style.opacity = '0';
+        }
 
+        // Set a little bit of delay to run
+        // The open/close submenu animation is CSS.
+        // Unable to confirm the completion of the animation in JS.
+        // Unable to use callback in this case.
         setTimeout(() => {
           item.removeAttribute('style');
-        }, 700);
+          item.querySelector('.js-main-nav-hamburger-content').classList.add('is-closed');
+        }, 500);
       } else {
+      // If submenu is closed
         item.classList.add('submenu-open');
         itemButton.setAttribute('aria-expanded', 'true');
         item.style.pointerEvents = 'none';
-        setTimeout(() => {
-          item.removeAttribute('style');
-        }, 500);
-      }
-
-      if (contentDiv.classList.contains('is-closed')) {
-        /** Show the subMenu. */
+        /** Show the subMenu content. */
 
         contentDiv.classList.remove('is-closed');
         contentDiv.style.height = 'auto';
@@ -449,6 +454,7 @@ export const HamburgerNavItem = ({
         contentDiv.style.height = '0';
 
         setTimeout(() => {
+          item.removeAttribute('style');
           contentDiv.style.height = height;
           item.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
           if (subItems) {
@@ -463,19 +469,6 @@ export const HamburgerNavItem = ({
         if (width < 840) {
           closeNarrowUtilContent();
         }
-      } else {
-        contentDiv.style.height = '0';
-        if (subItems) {
-          subItems.style.opacity = '0';
-        }
-
-        // Set a little bit of delay to run
-        // The open/close submenu animation is CSS.
-        // Unable to confirm the completion of the animation in JS.
-        // Unable to use callback in this case.
-        setTimeout(() => {
-          item.querySelector('.js-main-nav-hamburger-content').classList.add('is-closed');
-        }, 500);
       }
     };
     const itemButtonKeyDown = (e) => {
