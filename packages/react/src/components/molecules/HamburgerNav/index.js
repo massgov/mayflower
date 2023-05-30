@@ -528,7 +528,7 @@ export const HamburgerNavItem = ({
 
       // ArrowLeft and ArrowRight navigate between top level nav items.
       if (action.left || action.right) {
-        const topLevelLinks = document.querySelectorAll('.js-main-nav-hamburger__top-link');
+        const topLevelLinks = document.querySelectorAll('.ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__utility-nav__link');
         let idx = Array.from(topLevelLinks).findIndex((link) => link === itemButton);
         const prev = action.left;
         const linkCount = topLevelLinks.length;
@@ -548,7 +548,7 @@ export const HamburgerNavItem = ({
     return(() => {
       if (itemButton) {
         itemButton.removeEventListener('click', itemButtonClick);
-        itemButton.removeEventListener('keydown', itemButtonKeyDown);
+        item.removeEventListener('keydown', itemButtonKeyDown);
       }
     });
   }, [itemRef, buttonRef, contentRef, ulRef]);
