@@ -576,7 +576,7 @@ export const HamburgerNavItem = ({
             { subNav.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
               <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="menuitem" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-                <a role="menuitem" href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
+                <a href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
               </li>
             ))}
             { href && (
