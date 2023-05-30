@@ -525,6 +525,21 @@ export const HamburgerNavItem = ({
           closeMenu();
         }
       }
+
+      // ArrowLeft and ArrowRight navigate between top level nav items.
+      if (action.left || action.right) {
+        const topLevelLinks = document.querySelectorAll('.js-main-nav-hamburger__top-link');
+        let idx = Array.from(topLevelLinks).findIndex((link) => link === itemButton);
+        const prev = action.left;
+        const linkCount = topLevelLinks.length;
+        itemButton.classList.remove('has-focus');
+        // Get previous item if left arrow, next item if right arrow.
+        idx += (prev ? -1 : 1);
+        // Wrap around if at the end of the set of menus.
+        idx = ((idx % linkCount) + linkCount) % linkCount;
+        topLevelLinks[idx].focus();
+      }
+
     };
     if (itemButton) {
       itemButton.addEventListener('click', itemButtonClick);
