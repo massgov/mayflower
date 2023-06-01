@@ -284,7 +284,15 @@ const HamburgerNav = ({
             }
           </div>
           {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
-          <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className="ma__header__hamburger__nav-container" aria-hidden="true" />
+          {isMobileWindow && (
+            <NavContainer 
+              logo={logo}
+              mainNav={mainNav}
+              utilityNav={utilityNav}
+              navSearch={navSearch}
+              className="ma__header__hamburger__nav-container"
+            />
+          )}
         </div>
       </nav>
     </HamburgerContext.Provider>
