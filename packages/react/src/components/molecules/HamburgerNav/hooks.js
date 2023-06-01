@@ -32,10 +32,12 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
       });
 
       if (action.left || action.right) {
+        const topLevelItemsCount = topLevelItems.length;
         let focusIndex = Array.from(topLevelItems).findIndex((el) => el === focusedElement);
-        console.log(topLevelItems)
-        console.log(focusIndex)
         focusIndex += (action.left ? -1 : 1);
+        console.log(focusIndex)
+        // Wrap around if at the end of the set of menus.
+        focusIndex = ((focusIndex % topLevelItemsCount) + topLevelItemsCount) % topLevelItemsCount;
         topLevelItems[focusIndex].focus();
       }
     }
