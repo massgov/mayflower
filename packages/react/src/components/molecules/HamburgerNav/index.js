@@ -238,7 +238,9 @@ const HamburgerNav = ({
   // Enables menu open/close events.
   useMenuButtonEffects(menuButtonRef, toggleMenu);
   // Enables keyboard control of menu.
-  useHamburgerNavKeydown(closeMenu);
+  const topLevelLinks = document.querySelectorAll('.ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link');
+  console.log(topLevelLinks)
+  useHamburgerNavKeydown(closeMenu, topLevelLinks);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
 
