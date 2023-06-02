@@ -567,7 +567,6 @@ export const HamburgerNavItem = ({
     <li ref={itemRef} role="menuitem" className={classes} tabIndex="-1">
       {isCovid ? (
         <a
-          role="menuitem"
           href={href}
           className="ma__main__hamburger-nav__top-link cv-alternate-style"
           tabIndex="0"
