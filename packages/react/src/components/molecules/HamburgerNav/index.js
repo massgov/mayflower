@@ -20,7 +20,8 @@ const HamburgerNav = ({
   NavSearch,
   Logo,
   mainItems = [],
-  utilityItems = []
+  utilityItems = [],
+  headerType
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
@@ -286,7 +287,7 @@ const HamburgerNav = ({
             }
           </div>
           {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
-          {isMobileWindow && (
+          {(headerType !== "mixed" || (headerType === "mixed" && isMobileWindow)) && (
             <NavContainer 
               logo={logo}
               mainNav={mainNav}
