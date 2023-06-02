@@ -28,7 +28,7 @@ export default ({
 
   const action = {
     tab: key === 'Tab', // tab
-    shift: key.shift //shift
+    shift: key.shift // shift
   };
 
   if (modal) {
@@ -51,12 +51,10 @@ export default ({
     if (action.shift) { // if shift key pressed for shift + tab combination
       if (focusedElement === firstFocusableElement) {
         lastFocusableElement.focus(); // add focus for the last focusable element
-        e.preventDefault();
       }
     } else if (focusedElement === lastFocusableElement) { // if tab key is pressed
       // if focused has reached to last focusable element then focus first focusable element after pressing tab
       firstFocusableElement.focus(); // add focus for the first focusable element
-      e.preventDefault();
     }
   }
 };
