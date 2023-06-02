@@ -1,0 +1,6 @@
+Added:
+  - project: React
+    component: InputTextFuzzy
+    description: Allow InputTextFuzzy label's to contain both strings and JSX elements. (#1793)
+    issue: DP-27950
+    impact: Patch
