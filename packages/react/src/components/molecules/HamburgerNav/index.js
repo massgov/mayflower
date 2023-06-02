@@ -536,21 +536,6 @@ export const HamburgerNavItem = ({
           anotherCloseSubMenus();
         }
       }
-
-      // ArrowLeft and ArrowRight navigate between top level nav items.
-      // if (action.left || action.right) {
-      //   const topLevelLinks = document.querySelectorAll('.ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__header__hamburger__logo--mobile a, .ma__header-search__input, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__utility-nav__link');
-      //   let idx = Array.from(topLevelLinks).findIndex((link) => link === itemButton);
-      //   const prev = action.left;
-      //   const linkCount = topLevelLinks.length;
-      //   itemButton.classList.remove('has-focus');
-      //   // Get previous item if left arrow, next item if right arrow.
-      //   idx += (prev ? -1 : 1);
-      //   // Wrap around if at the end of the set of menus.
-      //   idx = ((idx % linkCount) + linkCount) % linkCount;
-      //   topLevelLinks[idx].focus();
-      // }
-
     };
     if (itemButton) {
       itemButton.addEventListener('click', itemButtonClick);

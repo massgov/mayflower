@@ -48,14 +48,6 @@ export default ({
       return;
     }
 
-    // if (action.left || action.right) {
-    //   let focusIndex = focusableNodeArray.findIndex((el) => el === focusedElement);
-    //   console.log(focusedElement)
-    //   console.log(focusableNodeArray)
-    //   focusIndex += (action.left ? -1 : 1);
-    //   focusableContent[focusIndex].focus();
-    // }
-
     if (action.shift) { // if shift key pressed for shift + tab combination
       if (focusedElement === firstFocusableElement) {
         lastFocusableElement.focus(); // add focus for the last focusable element
