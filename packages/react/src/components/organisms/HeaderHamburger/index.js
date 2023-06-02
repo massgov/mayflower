@@ -70,7 +70,7 @@ const HeaderHamburger = ({
           mainItems={mainItems}
           utilityItems={fallbackUtilityItems}
         />
-        <RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />
+        { !isMobileWindow && (<RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />) }
       </header>
       <div className="menu-overlay" />
     </>
