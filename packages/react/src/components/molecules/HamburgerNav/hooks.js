@@ -14,7 +14,7 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
     const { key } = e;
     const action = {
       tab: key === 'Tab', // tab
-      shift: key.shift, //shift
+      shift: key.shift, // shift
       esc: key === 'Esc' || key === 'Escape', // esc
       left: key === 'Left' || key === 'ArrowLeft', // left arrow
       right: key === 'Right' || key === 'ArrowRight', // right arrow
@@ -31,12 +31,12 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
         keyEvent: e
       });
 
-      if (action.left || action.right) {
+      if ((action.left || action.right) && topLevelItems) {
         const topLevelItemsCount = topLevelItems.length;
         let focusIndex = Array.from(topLevelItems).findIndex((el) => el === focusedElement);
         focusIndex += (action.left ? -1 : 1);
-        console.log(focusIndex)
-        console.log(topLevelItems)
+        console.log(focusIndex);
+        console.log(topLevelItems);
         // Wrap around if at the end of the set of menus.
         focusIndex = (focusIndex + topLevelItemsCount) % topLevelItemsCount;
         topLevelItems[focusIndex].focus();

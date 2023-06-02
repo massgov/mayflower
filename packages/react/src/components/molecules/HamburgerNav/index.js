@@ -239,8 +239,10 @@ const HamburgerNav = ({
   // Enables menu open/close events.
   useMenuButtonEffects(menuButtonRef, toggleMenu);
   // Enables keyboard control of menu.
-  const topLevelLinks = document.querySelectorAll('.ma__site-logo a, .ma__header-search__input, .ma__button-search--secondary, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link');
-  console.log(topLevelLinks)
+  const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
+  console.log(hamburgerNavContainer)
+  const topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll('#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link');
+  console.log(topLevelLinks);
   useHamburgerNavKeydown(closeMenu, topLevelLinks);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
@@ -287,8 +289,8 @@ const HamburgerNav = ({
             }
           </div>
           {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
-          {(headerType !== "mixed" || (headerType === "mixed" && isMobileWindow)) && (
-            <NavContainer 
+          {(headerType !== 'mixed' || (headerType === 'mixed' && isMobileWindow)) && (
+            <NavContainer
               logo={logo}
               mainNav={mainNav}
               utilityNav={utilityNav}
@@ -458,7 +460,7 @@ export const HamburgerNavItem = ({
       if (width < 840) {
         closeNarrowUtilContent();
       }
-    }
+    };
 
     const itemButtonClick = () => {
       // close all other submenus
@@ -508,7 +510,7 @@ export const HamburgerNavItem = ({
         const dropdownLinks = subItems.querySelectorAll('.js-main-nav-hamburger__subitem .js-main-nav-hamburger__link');
         const dropdownLinksLength = dropdownLinks.length;
         let focusIndexInDropdown = Array.from(dropdownLinks).findIndex((link) => link === focusedElement);
-        
+
         if (item.classList.contains('submenu-open')) {
           // ArrowUp focus on the previous submenu item
           // ArrowDown focus on the next submenu item

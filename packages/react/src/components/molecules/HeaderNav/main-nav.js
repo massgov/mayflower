@@ -244,7 +244,7 @@ export const HeaderNavItem = React.memo(({
             { subNav.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
               <li key={`main-nav-subitem--${index}-${itemIndex}`} role="menuitem" className="ma__main-nav__subitem">
-                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick}  href={item.href} className="ma__main-nav__link">{item.text}</a>
+                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} href={item.href} className="ma__main-nav__link">{item.text}</a>
               </li>
             ))}
             { href && (
