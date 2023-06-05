@@ -295,7 +295,7 @@ div[fs-field-type="richtext"] a {
     justify-content: space-between;
     flex-grow: 2;
 }
-.fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(3), 
+.fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(3),
 .fsSubFieldGroup .fsSubField:nth-child(2):nth-last-child(2),
 .fsSubFieldGroup .fsSubField:nth-child(3):nth-last-child(1),
 .fsBody .fsSubField.fsNameFirst,
@@ -307,8 +307,8 @@ div[fs-field-type="richtext"] a {
     width: auto;
     flex-grow: 2;
 }
-.fsBody .fsForm input[type="text"].fsField, 
-.fsBody .fsForm input[type="email"].fsField, 
+.fsBody .fsForm input[type="text"].fsField,
+.fsBody .fsForm input[type="email"].fsField,
 .fsBody .fsForm input[type="tel"].fsField {
     min-height: 0;
     max-height: 46px;
@@ -331,7 +331,7 @@ div[fs-field-type="checkbox"] div.fieldset-content{
     display: flex;
     flex-wrap: wrap;
 }
-.fsRowBody input[type="radio"], 
+.fsRowBody input[type="radio"],
 .fsRowBody input[type="checkbox"] {
     min-height: 1rem;
 }
@@ -407,7 +407,7 @@ div[fs-field-type="checkbox"] div.fieldset-content{
 
 /* Hide increment and decrement buttons */
 /* These behave unpredictably           */
-button.ma__input-number__plus, 
+button.ma__input-number__plus,
 button.ma__input-number__minus {
     display: none !important;
 }
@@ -419,4 +419,155 @@ button.ma__input-number__minus {
 .fieldset-content:last-child div.horizontal input[type="text"] {
     border: 2px solid rgb(220,220,220);
     width: 100%;
+}
+
+
+/* Save Incompoete button and Pagination component */
+.page-content .sfFormfs.fsSingleColumn>.fsSaveIncomplete {
+    /* override sf styles */
+    background: none !important;
+    padding: 1em 0;
+    box-shadow: none !important;
+}
+
+div.fsSaveIncomplete a {
+    /* override sf styles */
+    margin: 2em 0;
+    /* button */
+    cursor: pointer;
+    font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
+
+    /* ma__button */
+    border: 3px solid;
+    -webkit-box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, .25);
+    box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, .25);
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    letter-spacing: .1em;
+    padding: 0.4em 1.5em;
+    /* 1em; */
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    /* ma__button--secondary */
+    font-weight: 550;
+    background-color: #fff;
+    border-color: rgba(20, 85, 143, .5);
+}
+
+.fsForm.fsSingleColumn div.fsSaveIncomplete a {
+    color: #14558f;
+}
+
+.fsForm.fsSingleColumn div.fsSaveIncomplete a:hover,
+.fsForm.fsSingleColumn div.fsSaveIncomplete a:focus {
+    color: #fff;
+    background-color: #14558f;
+}
+
+.fsSaveIncomplete a {
+    display: block;
+    text-decoration: none;
+}
+
+/* pagination component */
+.fsPagination {
+    width: 100%;
+}
+
+.fsPagination .fsPreviousButton,
+.fsPagination .fsNextButton {
+    float: none !important;
+    position: relative;
+    margin: 0.5em 0;
+}
+
+.fsPagination .fsPreviousButton {
+    margin-right: 2em;
+}
+
+@media (max-width: 480px) {
+    .fsPagination .fsPreviousButton {
+        margin-right: 1em;
+    }
+}
+
+.fsPagination .fsPreviousButton span.fsFull {
+    margin-left: 1em;
+}
+
+.fsPagination .fsNextButton span.fsFull {
+    margin-right: 1em;
+}
+
+/* pagination button arrows */
+.fsPagination .fsPreviousButton span.fsFull:before,
+.fsPagination .fsNextButton span.fsFull:after {
+    display: inline-block;
+    content: "";
+
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    transition: all .2s;
+    vertical-align: middle;
+
+    border-color: #fff;
+    border-width: 3px;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+
+    position: absolute;
+    top: 50%;
+
+    transform-origin: 50% 50%;
+}
+
+.fsPagination .fsPreviousButton span.fsFull:before {
+    left: 15%;
+    transform: translate(-50%, -50%) rotate(-225deg);
+}
+
+.fsPagination .fsNextButton span.fsFull:after {
+    right: 15%;
+    transform: translate(0%, -50%) rotate(-45deg);
+}
+
+/* .fsProgress prorgress bar container */
+.fsSubmit.fsPagination .fsProgress {
+    margin: 0;
+    padding-top: 1.5em;
+}
+
+.fsProgress .fsProgressBarContainer {
+    margin-left: 5em;
+}
+
+.fsProgress .fsProgressBarContainer,
+.fsProgress .fsProgressBar {
+    height: 1.5em;
+}
+
+.fsProgress .fsProgressText {
+    margin-top: -2.5em;
+    margin-left: -5em;
+    padding-top: 1.2em;
+    font-size: 1.375rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+.fsProgress .fsProgressText:after {
+    content: ":";
 }
