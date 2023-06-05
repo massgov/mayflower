@@ -9,7 +9,6 @@ import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import { useHamburgerNavKeydown, useJumpToSearch, useMenuButtonEffects } from 'MayflowerReactMolecules/HamburgerNav/hooks';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
-import {filterDisplayedElements} from 'MayflowerReactComponents/utilities/focusTrapping';
 
 export const HamburgerContext = React.createContext();
 
@@ -25,7 +24,7 @@ const HamburgerNav = ({
   headerType
 }) => {
   const windowWidth = useWindowWidth();
-  const isMobileWindow = windowWidth !== null && windowWidth < 840;
+  const isMobileWindow = windowWidth !== null && windowWidth < 840; // desktop breakpoint
   const isSmallMobileWindow = windowWidth !== null && windowWidth < 621; // css breakpoint $bp-small-max
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   let RenderedUtilityNav;
@@ -242,16 +241,14 @@ const HamburgerNav = ({
   useMenuButtonEffects(menuButtonRef, toggleMenu);
   // Enables keyboard control of menu.
   const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
-  //console.log(hamburgerNavContainer)
-  //const visibleTopLevelLinks = topLevelLinks && filterDisplayedElements(Array.from(topLevelLinks))
   let topLevelSelectors = '';
   if (isSmallMobileWindow) {
     topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link'
   } else {
+    // Header search input and search button that are not displayed inside the main nav mobile tray when the window width is greater than 620px.
     topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link'
   }
   let topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
-  console.log(topLevelLinks);
   useHamburgerNavKeydown(closeMenu, topLevelLinks);
   // Enables jump to search events.
   useJumpToSearch(openMenu);

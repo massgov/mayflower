@@ -13,7 +13,7 @@ const isDisplayed = (el) => {
 };
 
 // filter out elements from array which are not visibly displayed
-export const filterDisplayedElements = (elements) => (elements.length > 0) && elements.filter((el) => isDisplayed(el));
+const filterDisplayedElements = (elements) => (elements.length > 0) && elements.filter((el) => isDisplayed(el));
 
 export default ({
   focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
