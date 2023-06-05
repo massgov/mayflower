@@ -65,8 +65,6 @@ export const HeaderNavItem = React.memo(({
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const breakpoint = 840;
-  // This is the same logic as twig for when covid background displays.
-  const isCovid = text.toLowerCase().includes('covid');
   const {
     items,
     hide,
@@ -84,6 +82,11 @@ export const HeaderNavItem = React.memo(({
   const contentClasses = classNames('ma__main-nav__subitems js-main-nav-content', {
     'is-open': isItemOpen,
     'is-closed': !isItemOpen
+  });
+  // This is the same logic as twig for when covid background displays.
+  const isCovid = text.toLowerCase().includes('covid');
+  const topNavLinkclasses = classNames('ma__main__hamburger-nav__top-link', {
+    ' cv-alternate-style': isCovid
   });
 
   const onMouseEnter = React.useCallback(() => {
@@ -224,23 +227,13 @@ export const HeaderNavItem = React.memo(({
 
   return(
     <li ref={itemRef} role="none" className={classes} tabIndex="-1">
-      {isCovid ? (
-        <a
-          role="menuitem"
-          href={href}
-          className="ma__main-nav__top-link cv-alternate-style"
-          tabIndex="0"
-        >
-          {text}
-        </a>
-      ) : (
-        <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
-          <span className="visually-hidden show-label">Show the sub topics of </span>
-          {text}
-        </button>
-      )}
-      {hasSubNav && (
-        <div ref={contentRef} className={contentClasses}>
+      {hasSubNav ? (
+        <>
+          <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
+            <span className="visually-hidden show-label">Show the sub topics of </span>
+            {text}
+          </button>
+          <div ref={contentRef} className={contentClasses}>
           <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
             { subNav.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
@@ -261,6 +254,16 @@ export const HeaderNavItem = React.memo(({
             )}
           </ul>
         </div>
+        </>
+      ) : (
+        <a
+          role="menuitem"
+          href={href}
+          className={topNavLinkclasses}
+          tabIndex="0"
+        >
+          {text}
+        </a>
       )}
     </li>
   );
