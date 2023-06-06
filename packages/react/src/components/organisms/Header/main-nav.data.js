@@ -116,10 +116,9 @@ export default [
     ]
   },
   {
-    href: '#',
+    href: 'https://www.mass.gov/info-details/massachusetts-state-organizations-a-to-z#',
     text: 'Your Government',
-    active: false,
-    subNav: []
+    active: false
   },
   {
     href: 'https://www.mass.gov/info-details/covid-19-updates-and-information',
