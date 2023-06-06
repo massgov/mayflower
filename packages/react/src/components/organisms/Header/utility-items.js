@@ -44,12 +44,11 @@ const PanelItem = ({
       }
     };
     const closeNarrowUtilContent = () => {
-      const thisNavContainer = utilButton.closest('.ma__utility-nav__item');
       utilButton.setAttribute('aria-expanded', 'false');
       utilContent.setAttribute('aria-hidden', 'true');
-      thisNavContainer.style.pointerEvents = 'none';
+      utilContainer.style.pointerEvents = 'none';
       setTimeout(() => {
-        thisNavContainer.removeAttribute('style');
+        utilContainer.removeAttribute('style');
       }, 700);
       utilContent.style.maxHeight = '0';
       utilContainer.style.opacity = '0';
