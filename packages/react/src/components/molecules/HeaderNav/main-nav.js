@@ -234,14 +234,14 @@ export const HeaderNavItem = React.memo(({
             {text}
           </button>
           <div ref={contentRef} className={contentClasses}>
-          <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
-            { subNav.map((item, itemIndex) => (
+            <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
+              { subNav.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
-              <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
-                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
-              </li>
-            ))}
-            { href && (
+                <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
+                  <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
+                </li>
+              ))}
+              { href && (
               <li role="none" className="ma__main-nav__subitem--main">
                 <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
                   <MemoArrowBent />
@@ -251,9 +251,9 @@ export const HeaderNavItem = React.memo(({
                   </span>
                 </a>
               </li>
-            )}
-          </ul>
-        </div>
+              )}
+            </ul>
+          </div>
         </>
       ) : (
         <a

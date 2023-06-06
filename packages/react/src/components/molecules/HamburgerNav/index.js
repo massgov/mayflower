@@ -505,7 +505,6 @@ export const HamburgerNavItem = ({
       }
     });
   }, [itemRef, buttonRef, contentRef, ulRef]);
-  console.log(hasSubNav)
   return(
     <li ref={itemRef} role="none" className={classes} tabIndex="-1">
       {hasSubNav ? (
