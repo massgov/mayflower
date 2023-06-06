@@ -57,40 +57,46 @@ const PanelItem = ({
         utilContent.classList.add('is-closed');
       }, 500);
     };
+    const openNarrowUtilContent = () => {
+      closeSubMenu();
+
+      utilButton.setAttribute('aria-expanded', 'true');
+      utilContent.removeAttribute('aria-hidden');
+      utilContainer.style.pointerEvents = 'none';
+      /** Slide down. */
+      utilContainer.removeAttribute('style');
+
+      /** Show the content. */
+      utilContent.classList.remove('is-closed');
+      utilContent.style.maxHeight = 'auto';
+
+      /** Get the computed height of the content. */
+      const contentHeight = `${utilContent.querySelector('.ma__utility-nav__content-body').clientHeight}px`;
+
+      /** Set the height of the submenu as 0px, */
+      /** so we can trigger the slide down animation. */
+      utilContent.style.maxHeight = '0';
+      utilContent.style.Height = '0';
+
+      // These height settings display the bottom border of the parent li at the correct spot.
+      utilContent.style.height = contentHeight;
+      utilContainer.style.height = contentHeight;
+
+      utilContent.style.maxHeight = contentHeight;
+      utilContainer.style.opacity = '1';
+    }
+    const utilButtonNarrowKeyDown = (e) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        openNarrowUtilContent()
+      }
+      if (e.key === "Escape") {
+        closeNarrowUtilContent()
+      }
+    }
     const utilButtonNarrowClick = (e) => {
-      const thisButton = e.target.closest('.js-util-nav-toggle');
-      const thisNavContainer = e.target.closest('.ma__utility-nav__item');
-      const utilNarrowContent = thisButton.nextElementSibling;
 
-      if (utilNarrowContent.classList.contains('is-closed')) {
-        // TO OPEN
-
-        closeSubMenu();
-
-        thisButton.setAttribute('aria-expanded', 'true');
-        utilNarrowContent.removeAttribute('aria-hidden');
-        thisNavContainer.style.pointerEvents = 'none';
-        /** Slide down. */
-        thisNavContainer.removeAttribute('style');
-
-        /** Show the content. */
-        utilNarrowContent.classList.remove('is-closed');
-        utilNarrowContent.style.maxHeight = 'auto';
-
-        /** Get the computed height of the content. */
-        const contentHeight = `${utilContent.querySelector('.ma__utility-nav__content-body').clientHeight}px`;
-
-        /** Set the height of the submenu as 0px, */
-        /** so we can trigger the slide down animation. */
-        utilContent.style.maxHeight = '0';
-        utilContent.style.Height = '0';
-
-        // These height settings display the bottom border of the parent li at the correct spot.
-        utilContent.style.height = contentHeight;
-        utilContainer.style.height = contentHeight;
-
-        utilContent.style.maxHeight = contentHeight;
-        utilContainer.style.opacity = '1';
+      if (utilContent.classList.contains('is-closed')) {
+        openNarrowUtilContent();
       } else {
         closeNarrowUtilContent();
       }
@@ -148,12 +154,14 @@ const PanelItem = ({
         utilContent.style.maxHeight = '0';
         utilContainer.style.opacity = '0';
         utilButton.addEventListener('click', utilButtonNarrowClick);
+        utilButton.addEventListener('keydown', utilButtonNarrowKeyDown);
       }
     }
     return(() => {
       utilButton.removeEventListener('click', utilButtonWideClick);
       utilCloseButton.removeEventListener('click', closeUtilWideContent);
       utilButton.removeEventListener('click', utilButtonNarrowClick);
+      utilButton.removeEventListener('keydown', utilButtonNarrowKeyDown);
     });
   }, [isMobileWindow, narrow, loginToggleRef, loginCloseRef, loginContentRef, loginContainerRef]);
   return(
