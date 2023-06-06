@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: ImagePromo
+    description: Remove integer filter temporarily. (#1796)
+    issue: DP-28443
+    impact: Patch
