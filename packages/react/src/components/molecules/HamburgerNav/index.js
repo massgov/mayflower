@@ -577,17 +577,6 @@ export const HamburgerNavItem = ({
                   <a role="menuitem" href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
                 </li>
               ))}
-              { href && (
-                <li role="none" className="ma__main__hamburger-nav__subitem--main js-main-nav-hamburger__subitem">
-                  <a role="menuitem" href={href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
-                    <IconArrowbent />
-                    <span>
-                      <span className="visually-hidden">See all topics under </span>
-                      {text}
-                    </span>
-                  </a>
-                </li>
-              )}
             </ul>
           </div>
         </>

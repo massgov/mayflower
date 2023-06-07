@@ -241,17 +241,6 @@ export const HeaderNavItem = React.memo(({
                   <a onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
                 </li>
               ))}
-              { href && (
-              <li role="none" className="ma__main-nav__subitem--main">
-                <a onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
-                  <MemoArrowBent />
-                  <span>
-                    <span className="visually-hidden">See all topics under </span>
-                    {text}
-                  </span>
-                </a>
-              </li>
-              )}
             </ul>
           </div>
         </>
