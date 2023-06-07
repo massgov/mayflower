@@ -73,6 +73,7 @@
     @include ma-button-reset;
     display: block;
     font-size: $fonts-smaller;
+    font-weight: $fonts-bold;
     letter-spacing: $letter-spacing-large;
     line-height: 1.45;
     padding: 10px 0;
@@ -100,12 +101,15 @@
     }
 
     .has-subnav & {
+      // chevron
 
       @include ma-chevron;
 
       &:after {
         cursor: pointer;
         margin-left: 6px;
+        border-right-color: $c-primary-alt;
+        border-bottom-color: $c-primary-alt;
 
         @media ($bp-header-toggle-max) {
           position: absolute;
@@ -262,19 +266,6 @@
     &.is-active {
 
       @include ma-border-decorative($c-primary-alt);
-    }
-  }
-
-  &__top-link {
-    font-weight: $fonts-bold;
-
-    .has-subnav & {
-  // chevron
-
-      &:after {
-        border-right-color: $c-primary-alt;
-        border-bottom-color: $c-primary-alt;
-      }
     }
   }
 
