@@ -85,7 +85,7 @@ export const HeaderNavItem = React.memo(({
   });
   // This is the same logic as twig for when covid background displays.
   const isCovid = text.toLowerCase().includes('covid');
-  const topNavLinkclasses = classNames('ma__main__hamburger-nav__top-link', {
+  const topNavLinkclasses = classNames('ma__main-nav__top-link', {
     ' cv-alternate-style': isCovid
   });
 
