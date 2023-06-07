@@ -102,7 +102,9 @@
 
     .has-subnav & {
       // chevron
+
       @include ma-chevron;
+
       &:after {
         cursor: pointer;
         margin-left: 6px;
