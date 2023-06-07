@@ -22,11 +22,13 @@ const PanelItem = ({
   const loginContentRef = React.useRef();
   const loginCloseRef = React.useRef();
   const loginContainerRef = React.useRef();
+  // const [narrowUtilContentOpen, setNarrowUtilContentOpen] = React.useState(false)
   React.useEffect(() => {
     const utilButton = loginToggleRef.current;
     const utilCloseButton = loginCloseRef.current;
     const utilContent = loginContentRef.current;
     const utilContainer = utilContent ? loginContainerRef.current : null;
+    let narrowUtilContentOpen = false;
     const closeUtilWideContent = () => {
       // Content state
       utilContent.style.height = '0';
@@ -47,14 +49,13 @@ const PanelItem = ({
       utilButton.setAttribute('aria-expanded', 'false');
       utilContent.setAttribute('aria-hidden', 'true');
       utilContainer.style.pointerEvents = 'none';
-      setTimeout(() => {
-        utilContainer.removeAttribute('style');
-      }, 700);
       utilContent.style.maxHeight = '0';
       utilContainer.style.opacity = '0';
       setTimeout(() => {
+        utilContainer.removeAttribute('style');
         utilContent.classList.add('is-closed');
       }, 500);
+      narrowUtilContentOpen = false;
     };
     const openNarrowUtilContent = () => {
       closeSubMenu();
@@ -83,17 +84,44 @@ const PanelItem = ({
 
       utilContent.style.maxHeight = contentHeight;
       utilContainer.style.opacity = '1';
+      narrowUtilContentOpen = true;
     }
+
     const utilButtonNarrowKeyDown = (e) => {
       if (e.key === "ArrowDown" || e.key === "ArrowUp") {
         openNarrowUtilContent()
+        // console.log(narrowUtilContentOpen)
+        const isUtilClosed = utilContent.classList.contains('is-closed');
+        console.log(narrowUtilContentOpen)
+        console.log(isUtilClosed)
+        const utilItems = utilContent.querySelectorAll('.ma__utility-panel__item a');
+        const focusedElement = document.activeElement;
+        let focusIndexInDropdown = Array.from(utilItems).findIndex((link) => link === focusedElement);
+        const utilItemsCount = utilItems.length;
+        if (e.key === "ArrowDown") {
+          if (!narrowUtilContentOpen) {
+            console.log(utilItems[0])
+            utilItemsCount = 0
+          } else {
+            console.log("move to next item")
+            focusIndexInDropdown += 1;
+          }
+        } else {
+          if (!narrowUtilContentOpen) {
+            focusIndexInDropdown = utilItemsCount - 1
+          } else {
+            console.log("move to prev item")
+            focusIndexInDropdown -= 1;
+          }
+        }
+        console.log(focusIndexInDropdown)
+        utilItems[focusIndexInDropdown].focus();
       }
       if (e.key === "Escape") {
-        closeNarrowUtilContent()
+        closeNarrowUtilContent();
       }
     }
     const utilButtonNarrowClick = (e) => {
-
       if (utilContent.classList.contains('is-closed')) {
         openNarrowUtilContent();
       } else {
