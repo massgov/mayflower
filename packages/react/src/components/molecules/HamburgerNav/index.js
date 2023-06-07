@@ -546,6 +546,9 @@ export const HamburgerNavItem = ({
       if (action.esc) {
         if (item.classList.contains('submenu-open')) {
           anotherCloseSubMenus();
+          itemButton.focus();
+        } else {
+          closeMenu();
         }
       }
     };
