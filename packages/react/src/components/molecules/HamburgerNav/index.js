@@ -564,13 +564,13 @@ export const HamburgerNavItem = ({
     <li ref={itemRef} role="none" className={classes} tabIndex="-1">
       {hasSubNav ? (
         <>
-          <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
+          <button ref={buttonRef} type="button" role="menuitem" id={`button-mobile-${index}`}className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
             <span className="visually-hidden show-label">Show the sub topics of </span>
             {text}
             <span className="toggle-indicator" aria-hidden="true" />
           </button>
           <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
-            <ul ref={ulRef} id={`menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
+            <ul ref={ulRef} id={`menu-mobile-${index}`} role="menu" aria-labelledby={`button-mobile-${index}`}className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
               { subNav.map((item, itemIndex) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
