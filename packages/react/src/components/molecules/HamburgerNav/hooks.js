@@ -13,13 +13,8 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
 
     const { key } = e;
     const action = {
-      tab: key === 'Tab', // tab
-      shift: key.shift, // shift
-      esc: key === 'Esc' || key === 'Escape', // esc
       left: key === 'Left' || key === 'ArrowLeft', // left arrow
-      right: key === 'Right' || key === 'ArrowRight', // right arrow
-      up: key === 'Up' || key === 'ArrowUp', // up arrow
-      down: key === 'Down' || key === 'ArrowDown' // down arrow
+      right: key === 'Right' || key === 'ArrowRight' // right arrow
     };
 
     if (menuOpen) {

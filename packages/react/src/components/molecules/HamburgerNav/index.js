@@ -243,12 +243,12 @@ const HamburgerNav = ({
   const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
   let topLevelSelectors = '';
   if (isSmallMobileWindow) {
-    topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link'
+    topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
   } else {
     // Header search input and search button that are not displayed inside the main nav mobile tray when the window width is greater than 620px.
-    topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link'
+    topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
   }
-  let topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
+  const topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
   useHamburgerNavKeydown(closeMenu, topLevelLinks);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
@@ -567,13 +567,13 @@ export const HamburgerNavItem = ({
     <li ref={itemRef} role="none" className={classes} tabIndex="-1">
       {hasSubNav ? (
         <>
-          <button ref={buttonRef} type="button" role="menuitem" id={`button-mobile-${index}`}className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
+          <button ref={buttonRef} type="button" role="menuitem" id={`button-mobile-${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
             <span className="visually-hidden show-label">Show the sub topics of </span>
             {text}
             <span className="toggle-indicator" aria-hidden="true" />
           </button>
           <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
-            <ul ref={ulRef} id={`menu-mobile-${index}`} role="menu" aria-labelledby={`button-mobile-${index}`}className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
+            <ul ref={ulRef} id={`menu-mobile-${index}`} role="menu" aria-labelledby={`button-mobile-${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
               { subNav.map((item, itemIndex) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
