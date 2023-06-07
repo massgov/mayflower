@@ -585,6 +585,7 @@ export const HamburgerNavItem = ({
         </>
       ) : (
         <a
+          role="menuitem"
           href={href}
           className={topNavLinkclasses}
           tabIndex="0"
