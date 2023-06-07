@@ -238,12 +238,12 @@ export const HeaderNavItem = React.memo(({
               { subNav.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
                 <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
-                  <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
+                  <a onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
                 </li>
               ))}
               { href && (
               <li role="none" className="ma__main-nav__subitem--main">
-                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
+                <a onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
                   <MemoArrowBent />
                   <span>
                     <span className="visually-hidden">See all topics under </span>
