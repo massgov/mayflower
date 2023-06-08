@@ -575,8 +575,8 @@ export const HamburgerNavItem = ({
             <ul ref={ulRef} id={`menu-mobile-${index}`} role="menu" aria-labelledby={`button-mobile-${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
               { subNav.map((item, itemIndex) => (
                 // eslint-disable-next-line react/no-array-index-key
-                <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="menuitem" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-                  <a href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
+                <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
+                  <a href={item.href} role="menuitem" className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
                 </li>
               ))}
             </ul>
