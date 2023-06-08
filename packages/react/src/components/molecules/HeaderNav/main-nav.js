@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import propTypes from 'prop-types';
-import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 import {
   useHeaderNavKeydown,
   useHeaderNavMouseEvents,
@@ -49,7 +48,6 @@ HeaderMainNav.propTypes = {
   }))
 };
 
-const MemoArrowBent = React.memo(IconArrowbent);
 export const HeaderNavItem = React.memo(({
   href,
   text,
