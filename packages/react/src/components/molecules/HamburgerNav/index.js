@@ -241,6 +241,7 @@ const HamburgerNav = ({
   useHamburgerNavKeydown(closeMenu);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
+  console.log(headerType, isMobileWindow)
 
   return(
     <HamburgerContext.Provider value={{
@@ -249,7 +250,7 @@ const HamburgerNav = ({
       toggleMenu
     }}
     >
-      <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="hamburger-main-navigation" role="navigation">
+      <nav className="ma__header__hamburger__nav" aria-label={ (headerType === 'mixed' && !isMobileWindow) ? 'utility options' : 'main navigation' } id="hamburger-main-navigation">
         <div className="ma__header__hamburger-wrapper">
           <div className="ma__header__hamburger__button-container js-sticky-header">
             <button
