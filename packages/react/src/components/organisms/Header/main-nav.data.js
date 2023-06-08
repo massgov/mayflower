@@ -116,35 +116,9 @@ export default [
     ]
   },
   {
-    href: '#',
+    href: 'https://www.mass.gov/info-details/massachusetts-state-organizations-a-to-z#',
     text: 'Your Government',
-    active: false,
-    subNav: [
-      {
-        href: '#',
-        text: 'Office of the Governor'
-      },
-      {
-        href: '#',
-        text: 'State Agencies'
-      },
-      {
-        href: '/patterns/05-pages-topic-your-government/05-pages-topic-your-government.html',
-        text: 'Executive Branch'
-      },
-      {
-        href: '#',
-        text: 'Judicial Branch'
-      },
-      {
-        href: '#',
-        text: 'Legislative Branch'
-      },
-      {
-        href: '#',
-        text: 'Local Government'
-      }
-    ]
+    active: false
   },
   {
     href: 'https://www.mass.gov/info-details/covid-19-updates-and-information',

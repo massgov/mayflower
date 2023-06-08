@@ -243,12 +243,12 @@ const HamburgerNav = ({
   const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
   let topLevelSelectors = '';
   if (isSmallMobileWindow) {
-    topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link'
+    topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
   } else {
     // Header search input and search button that are not displayed inside the main nav mobile tray when the window width is greater than 620px.
-    topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link'
+    topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
   }
-  let topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
+  const topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
   useHamburgerNavKeydown(closeMenu, topLevelLinks);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
@@ -379,13 +379,17 @@ export const HamburgerNavItem = ({
     'has-subnav': hasSubNav,
     'is-active': active
   });
+  // This is the same logic as twig for when covid background displays.
+  const isCovid = text.toLowerCase().includes('covid');
+  const topNavLinkclasses = classNames('ma__main__hamburger-nav__top-link', {
+    ' cv-alternate-style': isCovid
+  });
   const itemRef = React.useRef();
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const ulRef = React.useRef();
   const { closeMenu } = React.useContext(HamburgerContext);
-  // This is the same logic as twig for when covid background displays.
-  const isCovid = text.toLowerCase().includes('covid');
+
   React.useEffect(() => {
     const item = itemRef.current;
     const itemButton = buttonRef.current;
@@ -542,6 +546,9 @@ export const HamburgerNavItem = ({
       if (action.esc) {
         if (item.classList.contains('submenu-open')) {
           anotherCloseSubMenus();
+          itemButton.focus();
+        } else {
+          closeMenu();
         }
       }
     };
@@ -557,44 +564,34 @@ export const HamburgerNavItem = ({
     });
   }, [itemRef, buttonRef, contentRef, ulRef]);
   return(
-    <li ref={itemRef} role="menuitem" className={classes} tabIndex="-1">
-      {isCovid ? (
+    <li ref={itemRef} role="none" className={classes} tabIndex="-1">
+      {hasSubNav ? (
+        <>
+          <button ref={buttonRef} type="button" role="menuitem" id={`button-mobile-${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
+            <span className="visually-hidden show-label">Show the sub topics of </span>
+            {text}
+            <span className="toggle-indicator" aria-hidden="true" />
+          </button>
+          <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
+            <ul ref={ulRef} id={`menu-mobile-${index}`} role="menu" aria-labelledby={`button-mobile-${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
+              { subNav.map((item, itemIndex) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
+                  <a role="menuitem" href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      ) : (
         <a
+          role="menuitem"
           href={href}
-          className="ma__main__hamburger-nav__top-link cv-alternate-style"
+          className={topNavLinkclasses}
           tabIndex="0"
         >
           {text}
         </a>
-      ) : (
-        <button ref={buttonRef} type="button" id={`button-mobile-${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
-          <span className="visually-hidden show-label">Show the sub topics of </span>
-          {text}
-          <span className="toggle-indicator" aria-hidden="true" />
-        </button>
-      )}
-      {hasSubNav && (
-        <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
-          <ul ref={ulRef} id={`menu-mobile-${index}`} role="menu" aria-labelledby={`button-mobile-${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
-            { subNav.map((item, itemIndex) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="menuitem" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-                <a href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
-              </li>
-            ))}
-            { href && (
-              <li role="menuitem" className="ma__main__hamburger-nav__subitem--main js-main-nav-hamburger__subitem">
-                <a href={href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
-                  <IconArrowbent />
-                  <span>
-                    <span className="visually-hidden">See all topics under </span>
-                    {text}
-                  </span>
-                </a>
-              </li>
-            )}
-          </ul>
-        </div>
       )}
     </li>
   );
