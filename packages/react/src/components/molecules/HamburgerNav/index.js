@@ -20,7 +20,8 @@ const HamburgerNav = ({
   NavSearch,
   Logo,
   mainItems = [],
-  utilityItems = []
+  utilityItems = [],
+  headerType
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
