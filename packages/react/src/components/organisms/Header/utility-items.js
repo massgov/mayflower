@@ -88,12 +88,11 @@ const PanelItem = ({
     }
 
     const utilButtonNarrowKeyDown = (e) => {
+      const isUtilClosed = utilContent.classList.contains('is-closed');
+      console.log(isUtilClosed)
       if (e.key === "ArrowDown" || e.key === "ArrowUp") {
         openNarrowUtilContent()
         // console.log(narrowUtilContentOpen)
-        const isUtilClosed = utilContent.classList.contains('is-closed');
-        console.log(narrowUtilContentOpen)
-        console.log(isUtilClosed)
         const utilItems = utilContent.querySelectorAll('.ma__utility-panel__item a');
         const focusedElement = document.activeElement;
         let focusIndexInDropdown = Array.from(utilItems).findIndex((link) => link === focusedElement);
@@ -117,8 +116,9 @@ const PanelItem = ({
         console.log(focusIndexInDropdown)
         utilItems[focusIndexInDropdown].focus();
       }
-      if (e.key === "Escape") {
+      if (e.key === "Escape" && !isUtilClosed) {
         closeNarrowUtilContent();
+        utilButton.focus();
       }
     }
     const utilButtonNarrowClick = (e) => {
@@ -182,6 +182,7 @@ const PanelItem = ({
         utilContainer.style.opacity = '0';
         utilButton.addEventListener('click', utilButtonNarrowClick);
         utilButton.addEventListener('keydown', utilButtonNarrowKeyDown);
+        utilContent.addEventListener('keydown', utilButtonNarrowKeyDown);
       }
     }
     return(() => {
@@ -189,6 +190,7 @@ const PanelItem = ({
       utilCloseButton.removeEventListener('click', closeUtilWideContent);
       utilButton.removeEventListener('click', utilButtonNarrowClick);
       utilButton.removeEventListener('keydown', utilButtonNarrowKeyDown);
+      utilContent.removeEventListener('keydown', utilButtonNarrowKeyDown);
     });
   }, [isMobileWindow, narrow, loginToggleRef, loginCloseRef, loginContentRef, loginContainerRef]);
   return(
