@@ -241,7 +241,6 @@ const HamburgerNav = ({
   useHamburgerNavKeydown(closeMenu);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
-  console.log(headerType, isMobileWindow)
 
   return(
     <HamburgerContext.Provider value={{
