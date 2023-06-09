@@ -8,6 +8,8 @@ import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
 import { useHamburgerNavKeydown, useJumpToSearch, useMenuButtonEffects } from 'MayflowerReactMolecules/HamburgerNav/hooks';
 import useWindowWidth from 'MayflowerReactComponents/hooks/use-window-width';
+import useDocument from 'MayflowerReactComponents/hooks/use-document';
+
 
 export const HamburgerContext = React.createContext();
 
@@ -51,6 +53,8 @@ const HamburgerNav = ({
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const doc = useDocument();
+  console.log(doc)
 
   const openMenu = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
@@ -58,25 +62,25 @@ const HamburgerNav = ({
       let heightAboveMenuContainer;
       let emergencyAlertsHeight;
       let alertOffsetAdjusted = 0;
-      const body = document.querySelector('body');
-      const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
-      const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
-      const menuOverlay = document.querySelector('.menu-overlay');
-      const alertOverlay = document.querySelector('.alert-overlay');
+      const body = doc !== null && doc.querySelector('body');
+      const feedbackButton = doc !== null && doc.querySelector('.ma__fixed-feedback-button');
+      const jumpToSearchButton = doc !== null && doc.querySelector('.js-header-search-access-button');
+      const menuOverlay = doc !== null && doc.querySelector('.menu-overlay');
+      const alertOverlay = doc !== null && doc.querySelector('.alert-overlay');
 
       const lockPage = () => {
         const alertlOffsetPosition = alertOffset.current;
-        if (document.querySelector('.ma__emergency-alerts')) {
+        if (doc !== null && doc.querySelector('.ma__emergency-alerts')) {
           body.style.top = `-${alertlOffsetPosition}px`;
         } else {
           body.style.top = 0;
         }
-        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+        const hamburgerMenuContainer = doc !== null && doc.querySelector('.ma__header__hamburger__nav-container');
         heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
       };
-      if (document.querySelector('html.stickyTOC')) {
-        document.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
-        document.querySelector('html.stickyTOC').classList.remove('stickyTOC');
+      if (doc !== null && doc.querySelector('html.stickyTOC')) {
+        doc !== null && doc.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
+        doc !== null && doc.querySelector('html.stickyTOC').classList.remove('stickyTOC');
       }
       // Start open menu tasks.
       body.classList.add('show-menu');
@@ -90,16 +94,16 @@ const HamburgerNav = ({
         jumpToSearchButton.setAttribute('tabIndex', -1);
       }
       menuButton.setAttribute('aria-pressed', 'true');
-      const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
+      const alertsHeader = doc !== null && doc.querySelector('.ma__emergency-alerts__header');
       body.style.position = 'fixed';
       if (alertsHeader !== null) {
-        const emergencyAlerts = document.querySelector('.ma__emergency-alerts');
+        const emergencyAlerts = doc !== null && doc.querySelector('.ma__emergency-alerts');
         emergencyAlertsHeight = emergencyAlerts.offsetHeight;
         alertOffsetAdjusted = alertsHeader.offsetHeight / 2;
         alertOffset.current = emergencyAlertsHeight - alertOffsetAdjusted;
         lockPage();
-        const hamburgerNavOffset = document.querySelector('.ma__header__hamburger__nav').offsetHeight;
-        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+        const hamburgerNavOffset = doc !== null && doc.querySelector('.ma__header__hamburger__nav').offsetHeight;
+        const hamburgerMenuContainer = doc !== null && doc.querySelector('.ma__header__hamburger__nav-container');
         heightAboveMenuContainer = alertOffsetAdjusted + hamburgerNavOffset;
         hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
       }
@@ -110,7 +114,7 @@ const HamburgerNav = ({
         };
       }
       if (alertOverlay) {
-        if (document.querySelector('.ma__emergency-alerts')) {
+        if (doc !== null && doc.querySelector('.ma__emergency-alerts')) {
           alertOverlay.classList.add('overlay-open');
         }
       }
@@ -120,18 +124,18 @@ const HamburgerNav = ({
   const commonCloseMenuTasks = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
     if (menuButton) {
-      const body = document.querySelector('body');
-      const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
-      const searchInput = document.querySelector('.ma__header__hamburger__nav-container .ma__header-search__input');
-      const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
-      const menuOverlay = document.querySelector('.menu-overlay');
-      const alertOverlay = document.querySelector('.alert-overlay');
-      const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
+      const body = doc !== null && doc.querySelector('body');
+      const hamburgerMenuContainer = doc !== null && doc.querySelector('.ma__header__hamburger__nav-container');
+      const searchInput = doc !== null && doc.querySelector('.ma__header__hamburger__nav-container .ma__header-search__input');
+      const feedbackButton = doc !== null && doc.querySelector('.ma__fixed-feedback-button');
+      const menuOverlay = doc !== null && doc.querySelector('.menu-overlay');
+      const alertOverlay = doc !== null && doc.querySelector('.alert-overlay');
+      const jumpToSearchButton = doc !== null && doc.querySelector('.js-header-search-access-button');
 
       body.classList.remove('show-menu');
-      if (document.querySelector('html.stickyTOCtmp')) {
-        document.querySelector('html.stickyTOCtmp').classList.add('stickyTOC');
-        document.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
+      if (doc !== null && doc.querySelector('html.stickyTOCtmp')) {
+        doc !== null && doc.querySelector('html.stickyTOCtmp').classList.add('stickyTOC');
+        doc !== null && doc.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
       }
       menuButton.setAttribute('aria-expanded', 'false');
       menuButton.setAttribute('aria-label', 'main menu for mass.gov');
@@ -159,7 +163,7 @@ const HamburgerNav = ({
 
   const closeMenu = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
-    const body = document.querySelector('body');
+    const body = doc !== null && doc.querySelector('body');
     const alertlOffsetPosition = alertOffset.current;
     if (window && menuButton) {
       const width = body.clientWidth;
@@ -172,11 +176,11 @@ const HamburgerNav = ({
       }, 100);
 
       if ((width > 840)) {
-        const directLink = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item .direct-link');
+        const directLink = doc !== null && doc.querySelector('.js-utility-nav--wide .ma__utility-nav__item .direct-link');
         if (directLink && directLink.hasAttribute('tabindex')) {
-          const googleTeMenuValue = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value');
-          const jsUtilNavToggle = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle');
-          const searchAccessButton = document.querySelector('.js-header-search-access-button');
+          const googleTeMenuValue = doc !== null && doc.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value');
+          const jsUtilNavToggle = doc !== null && doc.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle');
+          const searchAccessButton = doc !== null && doc.querySelector('.js-header-search-access-button');
           if (googleTeMenuValue) {
             googleTeMenuValue.removeAttribute('tabindex');
           }
@@ -202,10 +206,10 @@ const HamburgerNav = ({
   }, [menuButtonRef, alertOffset, commonCloseMenuTasks]);
 
   const toggleMenu = React.useCallback(() => {
-    const body = document.querySelector('body');
-    const isMenuOpen = body.classList.contains('show-menu');
+    const body = doc !== null && doc.querySelector('body');
+    const isMenuOpen = body && body.classList.contains('show-menu');
     setMenuOpen(!isMenuOpen);
-    const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+    const hamburgerMenuContainer = doc !== null && doc.querySelector('.ma__header__hamburger__nav-container');
 
     if (hamburgerMenuContainer) { // To prevent null in the original mobile main nav.
       if (isMenuOpen) {
@@ -214,15 +218,15 @@ const HamburgerNav = ({
         hamburgerMenuContainer.setAttribute('aria-hidden', '');
         closeMenu();
         setTimeout(() => {
-          document.querySelector('.js-header-menu-button').focus();
+          doc !== null && doc.querySelector('.js-header-menu-button').focus();
         }, 100);
       } else {
         hamburgerMenuContainer.removeAttribute('aria-hidden');
         openMenu();
         // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-        const googleTeMenuValue = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value');
-        const directLink = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .direct-link');
-        const jsUtilNavToggle = document.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle');
+        const googleTeMenuValue = doc !== null && doc.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value');
+        const directLink = doc !== null && doc.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .direct-link');
+        const jsUtilNavToggle = doc !== null && doc.querySelector('.js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle');
         if (googleTeMenuValue) {
           googleTeMenuValue.setAttribute('tabindex', '-1');
         }
@@ -239,7 +243,7 @@ const HamburgerNav = ({
   // Enables menu open/close events.
   useMenuButtonEffects(menuButtonRef, toggleMenu);
   // Enables keyboard control of menu.
-  const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
+  const hamburgerNavContainer = doc !== null && doc.querySelector('.ma__header__hamburger__nav-container');
   let topLevelSelectors = '';
   if (isSmallMobileWindow) {
     topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
@@ -388,6 +392,7 @@ export const HamburgerNavItem = ({
   const contentRef = React.useRef();
   const ulRef = React.useRef();
   const { closeMenu } = React.useContext(HamburgerContext);
+  const doc = useDocument();
 
   React.useEffect(() => {
     const item = itemRef.current;
@@ -398,7 +403,7 @@ export const HamburgerNavItem = ({
       subItems.style.opacity = '0';
     }
     const closeNarrowUtilContent = () => {
-      const utilNarrowButton = document.querySelector('.ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle');
+      const utilNarrowButton = doc !== null && doc.querySelector('.ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle');
       const utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
       const utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector('.ma__utility-nav__container') : null;
       if (utilNarrowContent) {
@@ -417,7 +422,7 @@ export const HamburgerNavItem = ({
       }
     };
     const anotherCloseSubMenus = (menuItem) => {
-      const menuItems = document.querySelectorAll('.js-main-nav-hamburger-toggle');
+      const menuItems = doc !== null && doc.querySelectorAll('.js-main-nav-hamburger-toggle');
       menuItems.forEach((li) => {
         if (menuItem !== li && li.classList.contains('submenu-open')) {
           li.classList.remove('submenu-open');
@@ -463,7 +468,7 @@ export const HamburgerNavItem = ({
       }, 500);
 
       /** Close Utility menu content when a sub menu is open. */
-      const body = document.querySelector('body');
+      const body = doc !== null && doc.querySelector('body');
 
       const width = body.clientWidth;
       if (width < 840) {
@@ -512,7 +517,7 @@ export const HamburgerNavItem = ({
         space: key === ' ' || code === 'Space', // space
         enter: key === 'Enter' // enter
       };
-      const focusedElement = document.activeElement;
+      const focusedElement = doc !== null && doc.activeElement;
 
       // Navigate into or within a submenu using the up/down arrow keys.
       if ((action.up || action.down) && subItems) {
