@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: Header
-    description: Make mainnav item without subnavs a link. (#1795)
-    issue: DP-28435
-    impact: Patch
