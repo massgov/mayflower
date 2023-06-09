@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: ImagePromos
-    description: Fix Twig integer filter errors on image promos. (#1798)
-    issue: DP-28447
-    impact: Patch
