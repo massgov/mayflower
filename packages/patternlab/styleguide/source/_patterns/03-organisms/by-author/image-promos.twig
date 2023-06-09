@@ -1,18 +1,18 @@
-{% set promoHeading = (imagePromos.promoHeading + 1) ? : 2 %}
+{% set promoHeading = (imagePromos.promoHeading|number_format(0) + 1) ? : 2 %}
 
 <section class="ma__image-promos js-image-promos">
   {% if imagePromos.compHeading %}
     {% set compHeading = imagePromos.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
-    {% set promoHeading = (compHeading.level ? : promoHeading) + 1 %}
+    {% set promoHeading = (compHeading.level ? : promoHeading)|number_format(0) + 1 %}
   {% endif %}
   {% if imagePromos.sidebarHeading %}
     {% set sidebarHeading = imagePromos.sidebarHeading %}
     {% include "@atoms/04-headings/sidebar-heading.twig" %}
-    {% set promoHeading = (sidebarHeading.level ? : promoHeading) + 1 %}
+    {% set promoHeading = (sidebarHeading.level ? : promoHeading)|number_format(0) + 1 %}
   {% endif %}
 
-  {% set promoHeading = compHeading.level ? (compHeading.level + 1) : promoHeading %}
+  {% set promoHeading = compHeading.level ? (compHeading.level|number_format(0) + 1) : promoHeading %}
   <div>
     {% block imagePromos %}
       {% for imagePromo in imagePromos.items %}

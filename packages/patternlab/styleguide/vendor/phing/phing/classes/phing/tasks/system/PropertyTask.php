@@ -329,8 +329,10 @@ class PropertyTask extends Task
 
                 if ($referencedObject instanceof Exception) {
                     $reference = $referencedObject->getMessage();
-                } else {
+                } elseif (method_exists($referencedObject, 'toString')) {
                     $reference = $referencedObject->toString();
+                } else {
+                    $reference = (string) $referencedObject;
                 }
 
                 $this->addProperty($this->name, $reference);
@@ -340,8 +342,10 @@ class PropertyTask extends Task
 
                     if ($referencedObject instanceof Exception) {
                         $reference = $referencedObject->getMessage();
-                    } else {
+                    } elseif (method_exists($referencedObject, 'toString')) {
                         $reference = $referencedObject->toString();
+                    } else {
+                        $reference = (string) $referencedObject;
                     }
                     $this->addProperty($this->name, $reference);
                 } else {
@@ -459,6 +463,10 @@ class PropertyTask extends Task
             // multiple passes.
 
             $value = $props->getProperty($name);
+            if (is_bool($value)) {
+                continue; // It's a boolean value, no need to resolve
+            }
+            
             $resolved = false;
             $resolveStack = array();
 
@@ -548,7 +556,7 @@ class PropertyTask extends Task
             if ($pos === (strlen($value) - 1)) {
                 array_push($fragments, '$');
                 $prev = $pos + 1;
-            } elseif ($value{$pos + 1} !== '{') {
+            } elseif ($value[$pos + 1] !== '{') {
 
                 // the string positions were changed to value-1 to correct
                 // a fatal error coming from function substring()

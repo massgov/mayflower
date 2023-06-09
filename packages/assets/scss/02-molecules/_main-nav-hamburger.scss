@@ -33,6 +33,7 @@
     text-align: left;
     background-color: $c-gray-lightest;
     width: 100%;
+    color: inherit;
 
     .toggle-indicator {
 
@@ -53,7 +54,6 @@
 
     &.cv-alternate-style {
       background-color: #f7c600;
-      color: inherit;
 
       // Adding chevron for direct link.
 

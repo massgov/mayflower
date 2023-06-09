@@ -39,10 +39,23 @@ class GitCloneTask extends GitBaseTask
     private $depth = 0;
 
     /**
-     * Whether --bare key should be set for git-init
-     * @var string
+     * Whether --bare key should be set for git-clone
+     * @var bool
      */
     private $isBare = false;
+
+    /**
+     * Whether --single-branch key should be set for git-clone
+     * @var bool
+     */
+    private $singleBranch = false;
+    
+    /**
+     * Branch to check out
+     * 
+     * @var string
+     */
+    private $branch = "";
 
     /**
      * Path to target directory
@@ -73,18 +86,8 @@ class GitCloneTask extends GitBaseTask
             );
         }
 
-        $client = $this->getGitClient(false, getcwd());
-
         try {
-            if ($this->hasDepth()) {
-                $this->doShallowClone($client);
-            } else {
-                $client->createClone(
-                    $this->getRepository(),
-                    $this->isBare(),
-                    $this->getTargetPath()
-                );
-            }
+            $this->doClone($this->getGitClient(false, getcwd()));
         } catch (Exception $e) {
             throw new BuildException('The remote end hung up unexpectedly', $e);
         }
@@ -98,17 +101,20 @@ class GitCloneTask extends GitBaseTask
     }
 
     /**
-     * Create a shallow clone with a history truncated to the specified number of revisions.
+     * Create a new clone
      *
      * @param VersionControl_Git $client
      *
      * @throws VersionControl_Git_Exception
      */
-    protected function doShallowClone(VersionControl_Git $client)
+    protected function doClone(VersionControl_Git $client)
     {
         $command = $client->getCommand('clone')
-            ->setOption('depth', $this->getDepth())
             ->setOption('q')
+            ->setOption('bare', $this->isBare())
+            ->setOption('single-branch', $this->isSingleBranch())
+            ->setOption('depth', $this->hasDepth() ? $this->getDepth() : false)
+            ->setOption('branch', $this->hasBranch() ? $this->getBranch() : false)
             ->addArgument($this->getRepository())
             ->addArgument($this->getTargetPath());
 
@@ -179,7 +185,7 @@ class GitCloneTask extends GitBaseTask
     /**
      * Alias @see getBare()
      *
-     * @return string
+     * @return bool
      */
     public function isBare()
     {
@@ -187,7 +193,7 @@ class GitCloneTask extends GitBaseTask
     }
 
     /**
-     * @return string
+     * @return bool
      */
     public function getBare()
     {
@@ -202,4 +208,43 @@ class GitCloneTask extends GitBaseTask
         $this->isBare = (bool) $flag;
     }
 
+    /**
+     * @return boolean
+     */
+    public function isSingleBranch()
+    {
+        return $this->singleBranch;
+    }
+
+    /**
+     * @param boolean $singleBranch
+     */
+    public function setSingleBranch($singleBranch)
+    {
+        $this->singleBranch = $singleBranch;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBranch()
+    {
+        return $this->branch;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasBranch()
+    {
+        return !empty($this->branch);
+    }
+    
+    /**
+     * @param string $branch
+     */
+    public function setBranch($branch)
+    {
+        $this->branch = $branch;
+    }
 }
