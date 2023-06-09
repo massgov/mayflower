@@ -1,6 +1,15 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.4.0 (6/9/2023)
+### Changed 
+- (Patternlab) [Dependency] DP-22494: Upgrade PHP to v8. (#1784)
+
+### Fixed 
+- (React) [HeaderNav] DP-27961: A11y - fix keyboard navigation skipping the first submenu item. (#1791)
+- (React) [Header] DP-28435: Make mainnav item without subnavs a link. (#1795)
+- (Patternlab) [ImagePromos] DP-28447: Fix Twig integer filter errors on image promos. (#1798)
+
 ## 12.3.1 (5/18/2023)
 ### Changed 
 - (Patternlab) [TableOfContentsOverlay, TableOfContentsHiearchy] DP-25180: A11y - Changing aria labels to be more dynamic. (#1780)
