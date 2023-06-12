@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: HeaderNav
-    description: A11y - fix keyboard navigation skipping the first submenu item. (#1791)
-    issue: DP-27961
-    impact: Patch
