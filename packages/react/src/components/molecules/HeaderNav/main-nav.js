@@ -65,8 +65,6 @@ export const HeaderNavItem = React.memo(({
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const breakpoint = 840;
-  // This is the same logic as twig for when covid background displays.
-  const isCovid = text.toLowerCase().includes('covid');
   const {
     items,
     hide,
@@ -84,6 +82,11 @@ export const HeaderNavItem = React.memo(({
   const contentClasses = classNames('ma__main-nav__subitems js-main-nav-content', {
     'is-open': isItemOpen,
     'is-closed': !isItemOpen
+  });
+  // This is the same logic as twig for when covid background displays.
+  const isCovid = text.toLowerCase().includes('covid');
+  const topNavLinkclasses = classNames('ma__main-nav__top-link', {
+    ' cv-alternate-style': isCovid
   });
 
   const onMouseEnter = React.useCallback(() => {
@@ -135,26 +138,27 @@ export const HeaderNavItem = React.memo(({
       const dropdownLinksLength = $dropdownLinks.length;
       let focusIndexInDropdown = Array.from($dropdownLinks).findIndex((link) => link === $focusedElement);
       // Easy access to the key that was pressed.
-      const keycode = e.keyCode;
+      const { key, code } = e;
       const action = {
-        skip: keycode === 9, // tab
-        close: keycode === 27, // esc
-        left: keycode === 37, // left arrow
-        right: keycode === 39, // right arrow
-        up: keycode === 38, // up arrow
-        down: keycode === 40, // down arrow
-        space: keycode === 32, // space
-        enter: keycode === 13 // enter
+        tab: key === 'Tab', // tab
+        esc: key === 'Esc' || key === 'Escape', // esc
+        left: key === 'Left' || key === 'ArrowLeft', // left arrow
+        right: key === 'Right' || key === 'ArrowRight', // right arrow
+        up: key === 'Up' || key === 'ArrowUp', // up arrow
+        down: key === 'Down' || key === 'ArrowDown', // down arrow
+        space: key === ' ' || code === 'Space', // space
+        enter: key === 'Enter' // enter
       };
-        // Default behavior is prevented for all actions except 'skip'.
-      if (action.close || action.left || action.right || action.up || action.down) {
+
+      // Default behavior is prevented for all actions except 'tab'.
+      if (action.esc || action.left || action.right || action.up || action.down) {
         e.preventDefault();
       }
       if (action.enter || action.space) {
         $link.classList.add(hasFocus);
         $otherLinks.forEach((link) => link.classList.remove(hasFocus));
       }
-      if (action.skip && dropdownLinksLength === (focusIndexInDropdown + 1)) {
+      if (action.tab && dropdownLinksLength === (focusIndexInDropdown + 1)) {
         if (isItemOpen) {
           hide();
         }
@@ -162,33 +166,27 @@ export const HeaderNavItem = React.memo(({
         $link.classList.remove(hasFocus);
         return;
       }
-      // Navigate into or within a submenu. This is needed on up/down actions
-      // (unless the menu is flipped and closed) and when using the right arrow
-      // while the menu is flipped and submenu is closed.
-      if (((action.up || action.down) && !(menuFlipped && !isItemOpen))
-          || (action.right && menuFlipped && !isItemOpen)) {
-        // Open pull down menu if necessary.
+      // Navigate into or within a submenu using the up/down arrow keys.
+      if (action.up || action.down) {
+        // Open submenu if it's not open already.
         if (!isItemOpen && !$link.classList.contains(hasFocus)) {
           show({ index });
-        }
-        // Adjust index of active menu item based on performed action.
-        focusIndexInDropdown += (action.up ? -1 : 1);
-        // If the menu is flipped, skip the last item in each submenu. Otherwise,
-        // skip the first item. This is done by repeating the index adjustment.
-        if (menuFlipped) {
-          if (focusIndexInDropdown === dropdownLinksLength - 1) {
-            focusIndexInDropdown += (action.up ? -1 : 1);
+          if (action.up) {
+            focusIndexInDropdown = dropdownLinksLength - 1;
+          } else {
+            focusIndexInDropdown = 0;
           }
-        } else if (focusIndexInDropdown === 0 || focusIndexInDropdown >= dropdownLinksLength) {
+          $dropdownLinks[focusIndexInDropdown].focus();
+        } else {
+          // Adjust index of active menu item based on performed action.
           focusIndexInDropdown += (action.up ? -1 : 1);
+          // Wrap around if at the end of the submenu.
+          focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+          $dropdownLinks[focusIndexInDropdown].focus();
         }
-
-        // Wrap around if at the end of the submenu.
-        focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
-        $dropdownLinks[focusIndexInDropdown].focus();
       }
       // Close menu and return focus to menubar
-      if (action.close || (menuFlipped && action.left)) {
+      if (action.esc || (menuFlipped && action.left)) {
         if (isItemOpen) {
           hide();
         }
@@ -229,31 +227,21 @@ export const HeaderNavItem = React.memo(({
 
   return(
     <li ref={itemRef} role="none" className={classes} tabIndex="-1">
-      {isCovid ? (
-        <a
-          role="menuitem"
-          href={href}
-          className="ma__main-nav__top-link cv-alternate-style"
-          tabIndex="0"
-        >
-          {text}
-        </a>
-      ) : (
-        <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
-          <span className="visually-hidden show-label">Show the sub topics of </span>
-          {text}
-        </button>
-      )}
-      {hasSubNav && (
-        <div ref={contentRef} className={contentClasses}>
-          <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
-            { subNav.map((item, itemIndex) => (
+      {hasSubNav ? (
+        <>
+          <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
+            <span className="visually-hidden show-label">Show the sub topics of </span>
+            {text}
+          </button>
+          <div ref={contentRef} className={contentClasses}>
+            <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
+              { subNav.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
-              <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
-                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
-              </li>
-            ))}
-            { href && (
+                <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
+                  <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
+                </li>
+              ))}
+              { href && (
               <li role="none" className="ma__main-nav__subitem--main">
                 <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
                   <MemoArrowBent />
@@ -263,9 +251,19 @@ export const HeaderNavItem = React.memo(({
                   </span>
                 </a>
               </li>
-            )}
-          </ul>
-        </div>
+              )}
+            </ul>
+          </div>
+        </>
+      ) : (
+        <a
+          role="menuitem"
+          href={href}
+          className={topNavLinkclasses}
+          tabIndex="0"
+        >
+          {text}
+        </a>
       )}
     </li>
   );
