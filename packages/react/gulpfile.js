@@ -229,7 +229,8 @@ function resolvePath(sourcePath, currentFile, opts) {
         'HeaderNav/main-nav',
         'hooks/use-script',
         'hooks/use-event-listener',
-        'hooks/use-window-width'
+        'hooks/use-window-width',
+        'hooks/use-document'
       ];
       // If the current path is a file and not a directory...
       if (excludes.some((rule) => sourcePath.includes(rule))) {
