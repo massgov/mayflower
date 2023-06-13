@@ -2,7 +2,6 @@ import React from 'react';
 import propTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
-import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
@@ -239,17 +238,20 @@ const HamburgerNav = ({
 
   // Enables menu open/close events.
   useMenuButtonEffects(menuButtonRef, toggleMenu);
+
   // Enables keyboard control of menu.
-  const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
-  let topLevelSelectors = '';
-  if (isSmallMobileWindow) {
-    topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
-  } else {
-    // Header search input and search button that are not displayed inside the main nav mobile tray when the window width is greater than 620px.
-    topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
+  if (typeof document !== 'undefined') { // check document for SSR
+    const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
+    let topLevelSelectors = '';
+    if (isSmallMobileWindow) {
+      topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
+    } else {
+      // Header search input and search button that are not displayed inside the main nav mobile tray when the window width is greater than 620px.
+      topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
+    }
+    const topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
+    useHamburgerNavKeydown(closeMenu, topLevelLinks);
   }
-  const topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
-  useHamburgerNavKeydown(closeMenu, topLevelLinks);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
 
@@ -260,7 +262,7 @@ const HamburgerNav = ({
       toggleMenu
     }}
     >
-      <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="hamburger-main-navigation" role="navigation">
+      <nav className="ma__header__hamburger__nav" aria-label={(headerType === 'mixed' && !isMobileWindow) ? 'utility options' : 'main navigation'} id="hamburger-main-navigation">
         <div className="ma__header__hamburger-wrapper">
           <div className="ma__header__hamburger__button-container js-sticky-header">
             <button
@@ -564,10 +566,10 @@ export const HamburgerNavItem = ({
     });
   }, [itemRef, buttonRef, contentRef, ulRef]);
   return(
-    <li ref={itemRef} role="none" className={classes} tabIndex="-1">
+    <li ref={itemRef} role="menuitem" className={classes} tabIndex="-1">
       {hasSubNav ? (
         <>
-          <button ref={buttonRef} type="button" role="menuitem" id={`button-mobile-${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
+          <button ref={buttonRef} type="button" id={`button-mobile-${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
             <span className="visually-hidden show-label">Show the sub topics of </span>
             {text}
             <span className="toggle-indicator" aria-hidden="true" />
@@ -577,7 +579,7 @@ export const HamburgerNavItem = ({
               { subNav.map((item, itemIndex) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-                  <a role="menuitem" href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
+                  <a href={item.href} role="menuitem" className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
                 </li>
               ))}
             </ul>
@@ -585,7 +587,6 @@ export const HamburgerNavItem = ({
         </>
       ) : (
         <a
-          role="menuitem"
           href={href}
           className={topNavLinkclasses}
           tabIndex="0"

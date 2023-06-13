@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import propTypes from 'prop-types';
-import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 import {
   useHeaderNavKeydown,
   useHeaderNavMouseEvents,
@@ -49,7 +48,6 @@ HeaderMainNav.propTypes = {
   }))
 };
 
-const MemoArrowBent = React.memo(IconArrowbent);
 export const HeaderNavItem = React.memo(({
   href,
   text,
@@ -226,10 +224,10 @@ export const HeaderNavItem = React.memo(({
   useHeaderNavButtonEffects(buttonRef.current, onButtonLinkClick);
 
   return(
-    <li ref={itemRef} role="none" className={classes} tabIndex="-1">
+    <li ref={itemRef} role="menuitem" className={classes} tabIndex="-1">
       {hasSubNav ? (
         <>
-          <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
+          <button ref={buttonRef} type="button" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
             <span className="visually-hidden show-label">Show the sub topics of </span>
             {text}
           </button>
@@ -238,7 +236,7 @@ export const HeaderNavItem = React.memo(({
               { subNav.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
                 <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
-                  <a onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
+                  <a onClick={onButtonLinkClick} href={item.href} role="menuitem" className="ma__main-nav__link">{item.text}</a>
                 </li>
               ))}
             </ul>
@@ -246,7 +244,6 @@ export const HeaderNavItem = React.memo(({
         </>
       ) : (
         <a
-          role="menuitem"
           href={href}
           className={topNavLinkclasses}
           tabIndex="0"
