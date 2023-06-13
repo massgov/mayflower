@@ -1,0 +1,11 @@
+Fixed:
+  - project: React
+    component: HamburgerNav
+    description: Fix keyboard navigation in HamburgerNav. (#1792)
+    issue: DP-27961
+    impact: Minor
+  - project: React
+    component: HamburgerNav, HeaderNav
+    description: Fix duplicate IDs and `menu` and `menuitem` role associations. (#1792)
+    issue: DP-27961
+    impact: Minor
