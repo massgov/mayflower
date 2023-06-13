@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: InformationDetails
-    description: Eliminate related links at bottom on desktop. (#1799)
-    issue: DP-28302
-    impact: Patch
