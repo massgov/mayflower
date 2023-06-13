@@ -238,17 +238,20 @@ const HamburgerNav = ({
 
   // Enables menu open/close events.
   useMenuButtonEffects(menuButtonRef, toggleMenu);
+
   // Enables keyboard control of menu.
-  const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
-  let topLevelSelectors = '';
-  if (isSmallMobileWindow) {
-    topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
-  } else {
-    // Header search input and search button that are not displayed inside the main nav mobile tray when the window width is greater than 620px.
-    topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
+  if (typeof document !== 'undefined') { // check document for SSR
+    const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
+    let topLevelSelectors = '';
+    if (isSmallMobileWindow) {
+      topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
+    } else {
+      // Header search input and search button that are not displayed inside the main nav mobile tray when the window width is greater than 620px.
+      topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
+    }
+    const topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
+    useHamburgerNavKeydown(closeMenu, topLevelLinks);
   }
-  const topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
-  useHamburgerNavKeydown(closeMenu, topLevelLinks);
   // Enables jump to search events.
   useJumpToSearch(openMenu);
 
