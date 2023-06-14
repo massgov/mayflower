@@ -85,40 +85,38 @@ const PanelItem = ({
       utilContent.style.maxHeight = contentHeight;
       utilContainer.style.opacity = '1';
       narrowUtilContentOpen = true;
-    }
+    };
 
     const utilButtonNarrowKeyDown = (e) => {
       const isUtilClosed = utilContent.classList.contains('is-closed');
-      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-        openNarrowUtilContent()
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        openNarrowUtilContent();
         const utilItems = utilContent.querySelectorAll('.ma__utility-panel__item a');
         const focusedElement = document.activeElement;
         let focusIndexInDropdown = Array.from(utilItems).findIndex((link) => link === focusedElement);
         const utilItemsCount = utilItems.length;
-        if (e.key === "ArrowDown") {
+        if (e.key === 'ArrowDown') {
           if (!narrowUtilContentOpen) {
-            utilItemsCount = 0
+            focusIndexInDropdown = 0;
           } else {
             focusIndexInDropdown += 1;
           }
+        } else if (!narrowUtilContentOpen) {
+          focusIndexInDropdown = utilItemsCount - 1;
         } else {
-          if (!narrowUtilContentOpen) {
-            focusIndexInDropdown = utilItemsCount - 1
-          } else {
-            focusIndexInDropdown -= 1;
-          }
+          focusIndexInDropdown -= 1;
         }
         focusIndexInDropdown = (focusIndexInDropdown + utilItemsCount) % utilItemsCount;
         utilItems[focusIndexInDropdown].focus();
       }
-      if (e.key === "Escape" && !isUtilClosed) {
+      if (e.key === 'Escape' && !isUtilClosed) {
         // If the utility accordion is open, escape key closes the utility accordion and sets focus on the utility toggle button
         // Hamburger menu escape is handled in useHamburgerNavKeydown hook
         closeNarrowUtilContent();
         utilButton.focus();
       }
-    }
-    const utilButtonNarrowClick = (e) => {
+    };
+    const utilButtonNarrowClick = () => {
       if (utilContent.classList.contains('is-closed')) {
         openNarrowUtilContent();
       } else {
