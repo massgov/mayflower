@@ -10,6 +10,7 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
     const body = document.querySelector('body');
     const menuOpen = body.classList.value.indexOf(menuOpenClass) > 0 || body.classList.value === menuOpenClass;
     const focusedElement = document.activeElement;
+    const topLevelItemsArray = Array.from(topLevelItems);
 
     const { key } = e;
     const action = {
@@ -29,7 +30,7 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
 
       if ((action.left || action.right) && topLevelItems) {
         const topLevelItemsCount = topLevelItems.length;
-        let focusIndex = Array.from(topLevelItems).findIndex((el) => el === focusedElement);
+        let focusIndex = topLevelItemsArray.findIndex((el) => el === focusedElement);
         focusIndex += (action.left ? -1 : 1);
         // Wrap around if at the end of the set of menus.
         focusIndex = (focusIndex + topLevelItemsCount) % topLevelItemsCount;
@@ -37,9 +38,9 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
       }
 
       if (action.esc) {
-        // If no submenu is expanded, escape key closes the hamburger menu tray
+        // If no submenu is expanded and if the focus in on the top level items, escape key closes the hamburger menu tray.
         const { target } = e;
-        const focusIsOnTopLevel = Array.from(topLevelItems).includes(target);
+        const focusIsOnTopLevel = topLevelItemsArray.includes(target);
         const targetExpandContainer = target.nextElementSibling;
         const targetExpanded = targetExpandContainer && targetExpandContainer.classList.contains('is-closed');
         if ((targetExpanded || targetExpanded === null) && focusIsOnTopLevel) {
