@@ -40,7 +40,6 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
         // If no submenu is expanded, escape key closes the hamburger menu tray
         const targetExpandContainer = e.target.nextElementSibling;
         const targetExpanded = targetExpandContainer && targetExpandContainer.classList.contains('is-closed');
-        console.log(targetExpanded)
         if (targetExpanded || targetExpanded === null) {
           closeMenu()
         }

@@ -89,15 +89,12 @@ const PanelItem = ({
 
     const utilButtonNarrowKeyDown = (e) => {
       const isUtilClosed = utilContent.classList.contains('is-closed');
-      console.log(isUtilClosed)
       if (e.key === "ArrowDown" || e.key === "ArrowUp") {
         openNarrowUtilContent()
-        // console.log(narrowUtilContentOpen)
         const utilItems = utilContent.querySelectorAll('.ma__utility-panel__item a');
         const focusedElement = document.activeElement;
         let focusIndexInDropdown = Array.from(utilItems).findIndex((link) => link === focusedElement);
         const utilItemsCount = utilItems.length;
-        console.log()
         if (e.key === "ArrowDown") {
           if (!narrowUtilContentOpen) {
             console.log(utilItems[0])
