@@ -97,6 +97,7 @@ const PanelItem = ({
         const focusedElement = document.activeElement;
         let focusIndexInDropdown = Array.from(utilItems).findIndex((link) => link === focusedElement);
         const utilItemsCount = utilItems.length;
+        console.log()
         if (e.key === "ArrowDown") {
           if (!narrowUtilContentOpen) {
             console.log(utilItems[0])
@@ -117,6 +118,8 @@ const PanelItem = ({
         utilItems[focusIndexInDropdown].focus();
       }
       if (e.key === "Escape" && !isUtilClosed) {
+        // If the utility accordion is open, escape key closes the utility accordion and sets focus on the utility toggle button
+        // Hamburger menu escape is handled in useHamburgerNavKeydown hook
         closeNarrowUtilContent();
         utilButton.focus();
       }

@@ -14,7 +14,8 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
     const { key } = e;
     const action = {
       left: key === 'Left' || key === 'ArrowLeft', // left arrow
-      right: key === 'Right' || key === 'ArrowRight' // right arrow
+      right: key === 'Right' || key === 'ArrowRight', // right arrow
+      esc: key === 'Esc' || key === 'Escape' // esc
     };
 
     if (menuOpen) {
@@ -33,6 +34,16 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
         // Wrap around if at the end of the set of menus.
         focusIndex = (focusIndex + topLevelItemsCount) % topLevelItemsCount;
         topLevelItems[focusIndex].focus();
+      }
+
+      if (action.esc) {
+        // If no submenu is expanded, escape key closes the hamburger menu tray
+        const targetExpandContainer = e.target.nextElementSibling;
+        const targetExpanded = targetExpandContainer && targetExpandContainer.classList.contains('is-closed');
+        console.log(targetExpanded)
+        if (targetExpanded || targetExpanded === null) {
+          closeMenu()
+        }
       }
     }
   }, [closeMenu, topLevelItems]);
