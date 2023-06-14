@@ -97,21 +97,18 @@ const PanelItem = ({
         const utilItemsCount = utilItems.length;
         if (e.key === "ArrowDown") {
           if (!narrowUtilContentOpen) {
-            console.log(utilItems[0])
             utilItemsCount = 0
           } else {
-            console.log("move to next item")
             focusIndexInDropdown += 1;
           }
         } else {
           if (!narrowUtilContentOpen) {
             focusIndexInDropdown = utilItemsCount - 1
           } else {
-            console.log("move to prev item")
             focusIndexInDropdown -= 1;
           }
         }
-        console.log(focusIndexInDropdown)
+        focusIndexInDropdown = (focusIndexInDropdown + utilItemsCount) % utilItemsCount;
         utilItems[focusIndexInDropdown].focus();
       }
       if (e.key === "Escape" && !isUtilClosed) {
