@@ -34,7 +34,7 @@ const HeaderNav = ({
   const navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch narrow /> : null);
   const buttonContainer = (RenderedButtonContainer !== null ? <RenderedButtonContainer /> : null);
   return(
-    <nav className="ma__header__nav" aria-label="main navigation" id="header-main-navigation" role="navigation">
+    <nav className="ma__header__nav" aria-label="main navigation" id="header-main-navigation">
       {buttonContainer}
       <NavContainer navSearch={navSearch} logo={logo} mainNav={mainNav} utilityNav={utilityNav} className="ma__header__nav-container" />
     </nav>
@@ -191,7 +191,7 @@ export const HeaderMobileNavSearch = () => (
       <form action="#" className="ma__form js-header-search-form" role="search">
         { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor="header-mobile-search" className="ma__header-search__label">Search terms</label>
-        <input id="header-mobile-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
+        <input id="header-mobile-search" className="ma__header-mobile-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
         <ButtonWithIcon usage="secondary" icon={<IconSearch />}>Search</ButtonWithIcon>
       </form>
     </div>
