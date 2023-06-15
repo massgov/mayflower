@@ -390,7 +390,6 @@ export const HamburgerNavItem = ({
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const ulRef = React.useRef();
-  const { closeMenu } = React.useContext(HamburgerContext);
 
   React.useEffect(() => {
     const item = itemRef.current;
@@ -546,12 +545,12 @@ export const HamburgerNavItem = ({
       }
 
       if (action.esc) {
+        // If the main nav item is open, escape key closes the accordion and sets focus on the main nav toggle button
         if (item.classList.contains('submenu-open')) {
           anotherCloseSubMenus();
           itemButton.focus();
-        } else {
-          closeMenu();
         }
+        // Hamburger menu escape is handled in useHamburgerNavKeydown hook
       }
     };
     if (itemButton) {

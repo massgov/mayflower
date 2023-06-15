@@ -1,0 +1,11 @@
+Fixed:
+  - project: React
+    component: HeaderUtilityItems
+    description: Fix arrow key navigation in hamburger menu utility items. (#1805)
+    issue: DP-28436
+    impact: Patch
+  - project: React
+    component: HeaderNav
+    description: Fix escape key navigation in the hamburger menu. (#1805)
+    issue: DP-28436
+    impact: Patch

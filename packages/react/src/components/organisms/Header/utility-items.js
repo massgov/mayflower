@@ -22,11 +22,13 @@ const PanelItem = ({
   const loginContentRef = React.useRef();
   const loginCloseRef = React.useRef();
   const loginContainerRef = React.useRef();
+  // const [narrowUtilContentOpen, setNarrowUtilContentOpen] = React.useState(false)
   React.useEffect(() => {
     const utilButton = loginToggleRef.current;
     const utilCloseButton = loginCloseRef.current;
     const utilContent = loginContentRef.current;
     const utilContainer = utilContent ? loginContainerRef.current : null;
+    let narrowUtilContentOpen = false;
     const closeUtilWideContent = () => {
       // Content state
       utilContent.style.height = '0';
@@ -44,53 +46,79 @@ const PanelItem = ({
       }
     };
     const closeNarrowUtilContent = () => {
-      const thisNavContainer = utilButton.closest('.ma__utility-nav__item');
       utilButton.setAttribute('aria-expanded', 'false');
       utilContent.setAttribute('aria-hidden', 'true');
-      thisNavContainer.style.pointerEvents = 'none';
-      setTimeout(() => {
-        thisNavContainer.removeAttribute('style');
-      }, 700);
+      utilContainer.style.pointerEvents = 'none';
       utilContent.style.maxHeight = '0';
       utilContainer.style.opacity = '0';
       setTimeout(() => {
+        utilContainer.removeAttribute('style');
         utilContent.classList.add('is-closed');
       }, 500);
+      narrowUtilContentOpen = false;
     };
-    const utilButtonNarrowClick = (e) => {
-      const thisButton = e.target.closest('.js-util-nav-toggle');
-      const thisNavContainer = e.target.closest('.ma__utility-nav__item');
-      const utilNarrowContent = thisButton.nextElementSibling;
+    const openNarrowUtilContent = () => {
+      closeSubMenu();
 
-      if (utilNarrowContent.classList.contains('is-closed')) {
-        // TO OPEN
+      utilButton.setAttribute('aria-expanded', 'true');
+      utilContent.removeAttribute('aria-hidden');
+      utilContainer.style.pointerEvents = 'none';
+      /** Slide down. */
+      utilContainer.removeAttribute('style');
 
-        closeSubMenu();
+      /** Show the content. */
+      utilContent.classList.remove('is-closed');
+      utilContent.style.maxHeight = 'auto';
 
-        thisButton.setAttribute('aria-expanded', 'true');
-        utilNarrowContent.removeAttribute('aria-hidden');
-        thisNavContainer.style.pointerEvents = 'none';
-        /** Slide down. */
-        thisNavContainer.removeAttribute('style');
+      /** Get the computed height of the content. */
+      const contentHeight = `${utilContent.querySelector('.ma__utility-nav__content-body').clientHeight}px`;
 
-        /** Show the content. */
-        utilNarrowContent.classList.remove('is-closed');
-        utilNarrowContent.style.maxHeight = 'auto';
+      /** Set the height of the submenu as 0px, */
+      /** so we can trigger the slide down animation. */
+      utilContent.style.maxHeight = '0';
+      utilContent.style.Height = '0';
 
-        /** Get the computed height of the content. */
-        const contentHeight = `${utilContent.querySelector('.ma__utility-nav__content-body').clientHeight}px`;
+      // These height settings display the bottom border of the parent li at the correct spot.
+      utilContent.style.height = contentHeight;
+      utilContainer.style.height = contentHeight;
 
-        /** Set the height of the submenu as 0px, */
-        /** so we can trigger the slide down animation. */
-        utilContent.style.maxHeight = '0';
-        utilContent.style.Height = '0';
+      utilContent.style.maxHeight = contentHeight;
+      utilContainer.style.opacity = '1';
+      narrowUtilContentOpen = true;
+    };
 
-        // These height settings display the bottom border of the parent li at the correct spot.
-        utilContent.style.height = contentHeight;
-        utilContainer.style.height = contentHeight;
-
-        utilContent.style.maxHeight = contentHeight;
-        utilContainer.style.opacity = '1';
+    const utilButtonNarrowKeyDown = (e) => {
+      const isUtilClosed = utilContent.classList.contains('is-closed');
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        openNarrowUtilContent();
+        const utilItems = utilContent.querySelectorAll('.ma__utility-panel__item a');
+        const focusedElement = document.activeElement;
+        let focusIndexInDropdown = Array.from(utilItems).findIndex((link) => link === focusedElement);
+        const utilItemsCount = utilItems.length;
+        if (e.key === 'ArrowDown') {
+          if (!narrowUtilContentOpen) {
+            focusIndexInDropdown = 0;
+          } else {
+            focusIndexInDropdown += 1;
+          }
+        } else if (!narrowUtilContentOpen) {
+          focusIndexInDropdown = utilItemsCount - 1;
+        } else {
+          focusIndexInDropdown -= 1;
+        }
+        focusIndexInDropdown = (focusIndexInDropdown + utilItemsCount) % utilItemsCount;
+        utilItems[focusIndexInDropdown].focus();
+      }
+      if (e.key === 'Escape' && !isUtilClosed) {
+        // If the utility accordion is open, escape key closes the utility accordion and sets focus on the utility toggle button
+        // Hamburger menu escape is handled in useHamburgerNavKeydown hook
+        closeNarrowUtilContent();
+        utilButton.focus();
+      }
+    };
+    const utilButtonNarrowClick = () => {
+      if (utilContent.classList.contains('is-closed')) {
+        openNarrowUtilContent();
       } else {
         closeNarrowUtilContent();
       }
@@ -148,12 +176,16 @@ const PanelItem = ({
         utilContent.style.maxHeight = '0';
         utilContainer.style.opacity = '0';
         utilButton.addEventListener('click', utilButtonNarrowClick);
+        utilButton.addEventListener('keydown', utilButtonNarrowKeyDown);
+        utilContent.addEventListener('keydown', utilButtonNarrowKeyDown);
       }
     }
     return(() => {
       utilButton.removeEventListener('click', utilButtonWideClick);
       utilCloseButton.removeEventListener('click', closeUtilWideContent);
       utilButton.removeEventListener('click', utilButtonNarrowClick);
+      utilButton.removeEventListener('keydown', utilButtonNarrowKeyDown);
+      utilContent.removeEventListener('keydown', utilButtonNarrowKeyDown);
     });
   }, [isMobileWindow, narrow, loginToggleRef, loginCloseRef, loginContentRef, loginContainerRef]);
   return(
