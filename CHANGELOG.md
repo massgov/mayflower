@@ -1,6 +1,14 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.5.0 (6/15/2023)
+### Fixed 
+- (React) [Header] DP-26961: Fix duplicate mainnav aria-label. (#1800)
+- (React) [HamburgerNav] DP-27961: Fix keyboard navigation in HamburgerNav. (#1792)
+- (React) [HamburgerNav, HeaderNav] DP-27961: Fix duplicate IDs and `menu` and `menuitem` role associations. (#1792)
+- (React) [HeaderUtilityItems] DP-28436: Fix arrow key navigation in hamburger menu utility items. (#1805)
+- (React) [HeaderNav] DP-28436: Fix escape key navigation in the hamburger menu. (#1805)
+
 ## 12.4.0 (6/9/2023)
 ### Changed 
 - (Patternlab) [Dependency] DP-22494: Upgrade PHP to v8. (#1784)
