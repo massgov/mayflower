@@ -1,5 +1,5 @@
 Added:
-  - project: Formstack
+  - project: Starters
     component: Formstack
     description: Style Formstack save incomplete and pagination components for Mayflower theme. (#1794)
     issue: DP-28028
