@@ -22,7 +22,7 @@ const PanelItem = ({
   const loginContentRef = React.useRef();
   const loginCloseRef = React.useRef();
   const loginContainerRef = React.useRef();
-  // const [narrowUtilContentOpen, setNarrowUtilContentOpen] = React.useState(false)
+
   React.useEffect(() => {
     const utilButton = loginToggleRef.current;
     const utilCloseButton = loginCloseRef.current;
