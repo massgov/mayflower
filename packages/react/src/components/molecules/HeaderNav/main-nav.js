@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import propTypes from 'prop-types';
-import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 import {
   useHeaderNavKeydown,
   useHeaderNavMouseEvents,
@@ -49,7 +48,6 @@ HeaderMainNav.propTypes = {
   }))
 };
 
-const MemoArrowBent = React.memo(IconArrowbent);
 export const HeaderNavItem = React.memo(({
   href,
   text,
@@ -65,8 +63,6 @@ export const HeaderNavItem = React.memo(({
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const breakpoint = 840;
-  // This is the same logic as twig for when covid background displays.
-  const isCovid = text.toLowerCase().includes('covid');
   const {
     items,
     hide,
@@ -84,6 +80,11 @@ export const HeaderNavItem = React.memo(({
   const contentClasses = classNames('ma__main-nav__subitems js-main-nav-content', {
     'is-open': isItemOpen,
     'is-closed': !isItemOpen
+  });
+  // This is the same logic as twig for when covid background displays.
+  const isCovid = text.toLowerCase().includes('covid');
+  const topNavLinkclasses = classNames('ma__main-nav__top-link', {
+    ' cv-alternate-style': isCovid
   });
 
   const onMouseEnter = React.useCallback(() => {
@@ -223,44 +224,32 @@ export const HeaderNavItem = React.memo(({
   useHeaderNavButtonEffects(buttonRef.current, onButtonLinkClick);
 
   return(
-    <li ref={itemRef} role="none" className={classes} tabIndex="-1">
-      {isCovid ? (
+    <li ref={itemRef} role="menuitem" className={classes} tabIndex="-1">
+      {hasSubNav ? (
+        <>
+          <button ref={buttonRef} type="button" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
+            <span className="visually-hidden show-label">Show the sub topics of </span>
+            {text}
+          </button>
+          <div ref={contentRef} className={contentClasses}>
+            <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
+              { subNav.map((item, itemIndex) => (
+              // eslint-disable-next-line react/no-array-index-key
+                <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
+                  <a onClick={onButtonLinkClick} href={item.href} role="menuitem" className="ma__main-nav__link">{item.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      ) : (
         <a
-          role="menuitem"
           href={href}
-          className="ma__main-nav__top-link cv-alternate-style"
+          className={topNavLinkclasses}
           tabIndex="0"
         >
           {text}
         </a>
-      ) : (
-        <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
-          <span className="visually-hidden show-label">Show the sub topics of </span>
-          {text}
-        </button>
-      )}
-      {hasSubNav && (
-        <div ref={contentRef} className={contentClasses}>
-          <ul id={id || `menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main-nav__container">
-            { subNav.map((item, itemIndex) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
-                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
-              </li>
-            ))}
-            { href && (
-              <li role="none" className="ma__main-nav__subitem--main">
-                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
-                  <MemoArrowBent />
-                  <span>
-                    <span className="visually-hidden">See all topics under </span>
-                    {text}
-                  </span>
-                </a>
-              </li>
-            )}
-          </ul>
-        </div>
       )}
     </li>
   );
