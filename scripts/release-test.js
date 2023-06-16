@@ -1,17 +1,23 @@
 const { Octokit, App } = require("octokit")
 const { createAppAuth } = require('@octokit/auth-app');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
+const keyPath = path.resolve('.', 'private.pem');
+
 (async function() {
+  const privateKey = await fs.readFileSync(keyPath);
+  console.log(privateKey)
   const octokit = new Octokit({
     authStrategy: createAppAuth,
     auth: {
       appId: 1,
-      privateKey: process.env.DANGER_GITHUB_PRIV_KEY,
+      privateKey,
       installationId: 123,
     },
   });
-  
+
   
   // authenticates as app based on request URLs
   const {
