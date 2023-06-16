@@ -26,4 +26,4 @@ octokit.repos.createRelease({
   target_commitish: 'master',
   name: version,
   body: newLogsWithTitle
-});
+}).then(console.log, console.log);
