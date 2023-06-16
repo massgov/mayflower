@@ -36,4 +36,7 @@ require('dotenv').config();
   //   repo: "mayflower",
   //   title: "Hello world from " + slug,
   // });
+})().catch(function(err) {
+  console.error(err.toString());
+  process.exit(1);
 })
