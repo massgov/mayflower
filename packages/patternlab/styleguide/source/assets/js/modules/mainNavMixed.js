@@ -51,11 +51,11 @@ function toggleGoogleTranslate() {
 // Set aria-label of nav based on the screen size.
 function navAriaLabel() {
   if (document.querySelector('header.ma__header__mixed')) {
-    if ($(window).width() > 840) {
-      $('nav.ma__header__hamburger__nav').attr('aria-label', 'utility options');
+    if (window.innerWidth > 840) {
+      document.querySelector('nav.ma__header__hamburger__nav').setAttribute('aria-label', 'utility options');
     }
     else {
-      $('nav.ma__header__hamburger__nav').attr('aria-label', 'main navigation');
+      document.querySelector('nav.ma__header__hamburger__nav').setAttribute('aria-label', 'main navigation');
     }
   }
 }
