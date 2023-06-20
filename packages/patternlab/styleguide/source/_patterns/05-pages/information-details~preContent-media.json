@@ -310,6 +310,7 @@
       ]
     },
     "relatedLinkList": {
+      "sectionClass": "hidden-desktop",
       "sidebarHeading": {
         "title": "Related",
         "titleContext": ""
