@@ -58,10 +58,11 @@ export default (function (window, document) {
         }
         const sectionTitle = section.innerText;
         const titleCheck = sectionTitle.trim();
-        if (titleCheck.length == 0) {
+        if (titleCheck.length == 0 || titleCheck.toLowerCase() == 'related') {
           tocSections.headings.splice(index, 1);
           return;
         }
+
         // If the section doesn't have an ID, create one from the heading text.
         if (!sectionId) {
               sectionId = section.textContent.replace(/\s+/g, "-").toLowerCase();

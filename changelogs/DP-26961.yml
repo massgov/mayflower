@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: Header
-    description: Fix duplicate mainnav aria-label. (#1800)
-    issue: DP-26961
-    impact: Patch
