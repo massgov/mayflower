@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: HeaderMixed
+    description: A11y - Fix duplicate 'main navigation' labels in screen reader. (#1812)
+    issue: DP-28478
+    impact: Patch
