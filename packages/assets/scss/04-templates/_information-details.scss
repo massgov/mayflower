@@ -35,6 +35,12 @@
     }
   }
 
+  .ma__link-list.hidden-desktop {
+    @media ($bp-large-min) {
+      display: none;
+    }
+  }
+
   .ma__image-credit__container {
     padding-left: 0;
   }
