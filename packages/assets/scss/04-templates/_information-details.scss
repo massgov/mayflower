@@ -36,6 +36,7 @@
   }
 
   .ma__link-list.hidden-desktop {
+
     @media ($bp-large-min) {
       display: none;
     }
