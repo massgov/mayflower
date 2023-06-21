@@ -133,7 +133,7 @@ export const HeaderNavItem = React.memo(({
       const $topLevelItem = $focusedElement.closest('.ma__main-nav__item');
       const $topLevelLink = $topLevelItem.querySelector('.ma__main-nav__top-link');
       const $dropdownLinks = $link.querySelectorAll('.ma__main-nav__subitem .ma__main-nav__link');
-      const dropdownLinksLength = $dropdownLinks.length;
+      const dropdownLinksLength = $dropdownLinks && $dropdownLinks.length;
       let focusIndexInDropdown = Array.from($dropdownLinks).findIndex((link) => link === $focusedElement);
       // Easy access to the key that was pressed.
       const { key, code } = e;
@@ -165,7 +165,7 @@ export const HeaderNavItem = React.memo(({
         return;
       }
       // Navigate into or within a submenu using the up/down arrow keys.
-      if (action.up || action.down) {
+      if ((action.up || action.down) && (dropdownLinksLength > 0)) {
         // Open submenu if it's not open already.
         if (!isItemOpen && !$link.classList.contains(hasFocus)) {
           show({ index });
@@ -212,7 +212,7 @@ export const HeaderNavItem = React.memo(({
         idx += (prev ? -1 : 1);
         // Wrap around if at the end of the set of menus.
         idx = ((idx % linkCount) + linkCount) % linkCount;
-        $topLevelLinks[idx].focus();
+        $topLevelLinks[idx] && $topLevelLinks[idx].focus();
       }
     }
   }, [index, itemRef, windowWidth, mainNav, isItemOpen]);
