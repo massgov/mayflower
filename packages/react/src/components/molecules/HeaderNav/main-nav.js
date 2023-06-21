@@ -212,7 +212,7 @@ export const HeaderNavItem = React.memo(({
         idx += (prev ? -1 : 1);
         // Wrap around if at the end of the set of menus.
         idx = ((idx % linkCount) + linkCount) % linkCount;
-        $topLevelLinks[idx] && $topLevelLinks[idx].focus();
+        $topLevelLinks[idx].focus();
       }
     }
   }, [index, itemRef, windowWidth, mainNav, isItemOpen]);
