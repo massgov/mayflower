@@ -10,7 +10,7 @@ export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
     const body = document.querySelector('body');
     const menuOpen = body.classList.value.indexOf(menuOpenClass) > 0 || body.classList.value === menuOpenClass;
     const focusedElement = document.activeElement;
-    const topLevelItemsArray = Array.from(topLevelItems);
+    const topLevelItemsArray = topLevelItems && Array.from(topLevelItems);
 
     const { key } = e;
     const action = {
