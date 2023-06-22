@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: HamburgerNav, HeaderNav
-    description: Fix console error. (#1813)
-    issue: DP-27950
-    impact: Patch

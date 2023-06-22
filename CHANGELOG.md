@@ -1,6 +1,15 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.5.1 (6/21/2023)
+### Fixed 
+- (React) [HamburgerNav, HeaderNav] DP-27950: Fix console error. (#1813)
+- (Patternlab) [Map] DP-28333: Target z-index -1 setting to the map in a location banner. (#1790)
+
+### Changed 
+- (Patternlab) [InformationDetails] DP-28302: Eliminate related links at bottom on desktop. (#1799)
+- (Patternlab) [HeaderMixed] DP-28478: A11y - Fix duplicate 'main navigation' labels in screen reader. (#1812)
+
 ## 12.5.0 (6/15/2023)
 ### Fixed 
 - (React) [Header] DP-26961: Fix duplicate mainnav aria-label. (#1800)
