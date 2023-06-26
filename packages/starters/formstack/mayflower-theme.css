@@ -367,11 +367,16 @@
 
 .fsProgress .fsProgressBarContainer {
   margin-left: 5em;
+  background-color: #d4d4d4;
 }
 
 .fsProgress .fsProgressBarContainer,
 .fsProgress .fsProgressBar {
   height: 1.5em;
+}
+
+.fsProgress .fsProgressBar {
+  background-color: #14558F;
 }
 
 .fsProgress .fsProgressText {
