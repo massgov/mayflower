@@ -256,6 +256,7 @@ const HamburgerNav = ({
   useJumpToSearch(openMenu);
 
   return(
+    <>
     <HamburgerContext.Provider value={{
       openMenu,
       closeMenu,
@@ -309,6 +310,8 @@ const HamburgerNav = ({
         </div>
       </nav>
     </HamburgerContext.Provider>
+    <div class="menu-overlay"/>
+    </>
   );
 };
 
