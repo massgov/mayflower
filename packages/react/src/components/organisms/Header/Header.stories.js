@@ -18,13 +18,10 @@ const getUtilityItem = (item) => {
 };
 
 const Template = (args) => {
-  const { utilityItems = [], useMenuOverlay, ...rest } = args;
+  const { utilityItems = [], ...rest } = args;
   const storyUtilityItems = utilityItems.map((item) => getUtilityItem(item));
   return(
-    <React.Fragment>
-      <Header utilityItems={storyUtilityItems} {...rest} />
-      { useMenuOverlay && <div className="menu-overlay" />}
-    </React.Fragment>
+    <Header utilityItems={storyUtilityItems} {...rest} />
   );
 };
 
@@ -122,20 +119,6 @@ HeaderWithCustomSiteLogo.argTypes = {
 HeaderWithCustomSiteLogo.parameters = {
   docs: {
     page: () => <StoryPage StoryComponent={HeaderWithCustomSiteLogo} styles={styles} />
-  }
-};
-export const HeaderWithMenuOverlay = (args) => (
-  <React.Fragment>
-    <div className="menu-overlay" />
-    <Header {...args} />
-  </React.Fragment>
-);
-HeaderWithMenuOverlay.args = {
-  mainItems
-};
-HeaderWithMenuOverlay.parameters = {
-  docs: {
-    page: () => <StoryPage StoryComponent={HeaderWithMenuOverlay} styles={styles} />
   }
 };
 
