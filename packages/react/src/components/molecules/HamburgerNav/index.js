@@ -18,7 +18,7 @@ const HamburgerNav = ({
   NavItem,
   NavSearch,
   Logo,
-  siteName,
+  siteName = 'Mass.gov',
   mainItems = [],
   utilityItems = [],
   headerType
