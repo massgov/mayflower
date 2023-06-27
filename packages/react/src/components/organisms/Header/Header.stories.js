@@ -98,7 +98,7 @@ export const HeaderWithCustomSiteLogo = (args) => {
   };
   const CustomSiteLogo = React.memo(() => <SiteLogo {...siteLogoProps} Wrapper={HamburgerLogoWrapper} />);
   return(
-    <Header Logo={CustomSiteLogo} utilityItems={storyUtilityItems} {...rest} />
+    <Header Logo={CustomSiteLogo} utilityItems={storyUtilityItems} siteName={siteName} {...rest} />
   );
 };
 HeaderWithCustomSiteLogo.args = {
