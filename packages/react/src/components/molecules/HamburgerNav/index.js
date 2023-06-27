@@ -207,7 +207,6 @@ const HamburgerNav = ({
   const toggleMenu = React.useCallback(() => {
     const body = document.querySelector('body');
     const isMenuOpen = body.classList.contains('show-menu');
-    //setMenuOpen(!isMenuOpen);
     const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
 
     if (hamburgerMenuContainer) { // To prevent null in the original mobile main nav.
@@ -329,7 +328,7 @@ HamburgerNav.propTypes = {
   NavItem: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo. */
   Logo: propTypes.elementType,
-  /** siteName rendered as the hamburger menu toggle button text on mobile */
+  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile */
   siteName: propTypes.string,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
