@@ -259,34 +259,34 @@ const HamburgerNav = ({
 
   return(
     <>
-    <HamburgerContext.Provider value={{
-      openMenu,
-      closeMenu,
-      toggleMenu
-    }}
-    >
-      <nav className="ma__header__hamburger__nav" aria-label={(headerType === 'mixed' && !isMobileWindow) ? 'utility options' : 'main navigation'} id="hamburger-main-navigation">
-        <div className="ma__header__hamburger-wrapper">
-          <div className="ma__header__hamburger__button-container js-sticky-header">
-            <button
-              ref={menuButtonRef}
-              type="button"
-              aria-expanded="false"
-              aria-label={`Open the main menu for ${siteName}`}
-              className="ma__header__hamburger__menu-button js-header-menu-button"
-            >
-              <span className="ma__header__hamburger__menu-icon" />
-              <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
-                {siteName}
-              </span>
-              <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
-                Menu
-              </span>
-              <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
-                Close
-              </span>
-            </button>
-            {
+      <HamburgerContext.Provider value={{
+        openMenu,
+        closeMenu,
+        toggleMenu
+      }}
+      >
+        <nav className="ma__header__hamburger__nav" aria-label={(headerType === 'mixed' && !isMobileWindow) ? 'utility options' : 'main navigation'} id="hamburger-main-navigation">
+          <div className="ma__header__hamburger-wrapper">
+            <div className="ma__header__hamburger__button-container js-sticky-header">
+              <button
+                ref={menuButtonRef}
+                type="button"
+                aria-expanded="false"
+                aria-label={`Open the main menu for ${siteName}`}
+                className="ma__header__hamburger__menu-button js-header-menu-button"
+              >
+                <span className="ma__header__hamburger__menu-icon" />
+                <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
+                  {siteName}
+                </span>
+                <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
+                  Menu
+                </span>
+                <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
+                  Close
+                </span>
+              </button>
+              {
               navSearch && (
                 <button
                   type="button"
@@ -298,9 +298,9 @@ const HamburgerNav = ({
                 </button>
               )
             }
-          </div>
-          {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
-          {(headerType !== 'mixed' || (headerType === 'mixed' && isMobileWindow)) && (
+            </div>
+            {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
+            {(headerType !== 'mixed' || (headerType === 'mixed' && isMobileWindow)) && (
             <NavContainer
               logo={logo}
               mainNav={mainNav}
@@ -308,11 +308,11 @@ const HamburgerNav = ({
               navSearch={navSearch}
               className="ma__header__hamburger__nav-container"
             />
-          )}
-        </div>
-      </nav>
-    </HamburgerContext.Provider>
-    <div class="menu-overlay"/>
+            )}
+          </div>
+        </nav>
+      </HamburgerContext.Provider>
+      <div className="menu-overlay" />
     </>
   );
 };
