@@ -18,6 +18,7 @@ const HamburgerNav = ({
   NavItem,
   NavSearch,
   Logo,
+  siteName,
   mainItems = [],
   utilityItems = [],
   headerType
@@ -80,6 +81,7 @@ const HamburgerNav = ({
       }
       // Start open menu tasks.
       body.classList.add('show-menu');
+      setMenuOpen(true);
       menuButton.setAttribute('aria-expanded', 'true');
       menuButton.setAttribute('aria-label', 'main menu for mass.gov');
       if (feedbackButton) {
@@ -129,6 +131,7 @@ const HamburgerNav = ({
       const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
 
       body.classList.remove('show-menu');
+      setMenuOpen(false);
       if (document.querySelector('html.stickyTOCtmp')) {
         document.querySelector('html.stickyTOCtmp').classList.add('stickyTOC');
         document.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
@@ -204,7 +207,7 @@ const HamburgerNav = ({
   const toggleMenu = React.useCallback(() => {
     const body = document.querySelector('body');
     const isMenuOpen = body.classList.contains('show-menu');
-    setMenuOpen(!isMenuOpen);
+    //setMenuOpen(!isMenuOpen);
     const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
 
     if (hamburgerMenuContainer) { // To prevent null in the original mobile main nav.
@@ -270,12 +273,12 @@ const HamburgerNav = ({
               ref={menuButtonRef}
               type="button"
               aria-expanded="false"
-              aria-label="Open the main menu for mass.gov"
+              aria-label={`Open the main menu for ${siteName}`}
               className="ma__header__hamburger__menu-button js-header-menu-button"
             >
               <span className="ma__header__hamburger__menu-icon" />
               <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
-                Mass.gov
+                {siteName}
               </span>
               <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
                 Menu
@@ -326,6 +329,8 @@ HamburgerNav.propTypes = {
   NavItem: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo. */
   Logo: propTypes.elementType,
+  /** siteName rendered as the hamburger menu toggle button text on mobile */
+  siteName: propTypes.string,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
   /** An array of items used to create the menu. */
