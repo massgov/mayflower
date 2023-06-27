@@ -81,7 +81,6 @@ HeaderWithoutUtilityNav.parameters = {
 export const HeaderWithCustomSiteLogo = (args) => {
   const {
     utilityItems = [],
-    useMenuOverlay,
     siteName,
     ...rest
   } = args;
@@ -149,13 +148,6 @@ export default {
     }
   },
   argTypes: {
-    useMenuOverlay: {
-      name: 'Use Menu Overlay?',
-      type: 'boolean',
-      table: {
-        category: 'Story Only'
-      }
-    },
     utilityItems: {
       control: {
         type: 'check',
