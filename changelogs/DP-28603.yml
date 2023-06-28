@@ -1,6 +1,12 @@
 Added:
   - project: React
     component: HamburgerNav
-    description: Add `siteName` prop to allow overriding HamburgerNav toggle button text and aria-label. Add `.menu-overlay` div as part of the component. Close the HamburgerNav when navigating to an internal link. (#1816)
+    description: Add `siteName` prop to allow overriding HamburgerNav toggle button text and aria-label. (#1816)
+    issue: DP-28603
+    impact: Minor
+Changed:
+  - project: React
+    component: HamburgerNav
+    description: Add `.menu-overlay` div as part of the component. Remove storybook controls of adding the overlay separately. Add onCloseMenu funtion to mainnav links to close the hamburger menu when navigating to an internal link. (#1816)
     issue: DP-28603
     impact: Minor
