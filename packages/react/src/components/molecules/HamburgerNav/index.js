@@ -37,87 +37,10 @@ const HamburgerNav = ({
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
   // If NavItem is undefined, HamburgerMainNav falls back to HamburgerNavItem.
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
-  if (isMobileWindow) {
-    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
-    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
-    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
-    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
-  } else {
-    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
-    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
-    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
-    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
-  }
   const logo = (RenderedLogo !== null ? <RenderedLogo /> : null);
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
   const [menuOpen, setMenuOpen] = React.useState(false);
-
-  const openMenu = React.useCallback(() => {
-    const menuButton = menuButtonRef.current;
-    if (menuButton) {
-      let heightAboveMenuContainer;
-      let emergencyAlertsHeight;
-      let alertOffsetAdjusted = 0;
-      const body = document.querySelector('body');
-      const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
-      const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
-      const menuOverlay = document.querySelector('.menu-overlay');
-      const alertOverlay = document.querySelector('.alert-overlay');
-
-      const lockPage = () => {
-        const alertlOffsetPosition = alertOffset.current;
-        if (document.querySelector('.ma__emergency-alerts')) {
-          body.style.top = `-${alertlOffsetPosition}px`;
-        } else {
-          body.style.top = 0;
-        }
-        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
-        heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
-      };
-      if (document.querySelector('html.stickyTOC')) {
-        document.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
-        document.querySelector('html.stickyTOC').classList.remove('stickyTOC');
-      }
-      // Start open menu tasks.
-      body.classList.add('show-menu');
-      setMenuOpen(true);
-      menuButton.setAttribute('aria-expanded', 'true');
-      menuButton.setAttribute('aria-label', 'main menu for mass.gov');
-      if (feedbackButton) {
-        feedbackButton.classList.add('hide-button');
-      }
-      if (jumpToSearchButton) {
-        jumpToSearchButton.setAttribute('aria-expanded', 'true');
-        jumpToSearchButton.setAttribute('tabIndex', -1);
-      }
-      menuButton.setAttribute('aria-pressed', 'true');
-      const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
-      body.style.position = 'fixed';
-      if (alertsHeader !== null) {
-        const emergencyAlerts = document.querySelector('.ma__emergency-alerts');
-        emergencyAlertsHeight = emergencyAlerts.offsetHeight;
-        alertOffsetAdjusted = alertsHeader.offsetHeight / 2;
-        alertOffset.current = emergencyAlertsHeight - alertOffsetAdjusted;
-        lockPage();
-        const hamburgerNavOffset = document.querySelector('.ma__header__hamburger__nav').offsetHeight;
-        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
-        heightAboveMenuContainer = alertOffsetAdjusted + hamburgerNavOffset;
-        hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
-      }
-      if (menuOverlay) {
-        menuOverlay.classList.add('overlay-open');
-        menuOverlay.onclick = () => {
-          closeMenu();
-        };
-      }
-      if (alertOverlay) {
-        if (document.querySelector('.ma__emergency-alerts')) {
-          alertOverlay.classList.add('overlay-open');
-        }
-      }
-    }
-  }, [menuButtonRef, alertOffset]);
 
   const commonCloseMenuTasks = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
@@ -203,6 +126,83 @@ const HamburgerNav = ({
       }
     }
   }, [menuButtonRef, alertOffset, commonCloseMenuTasks]);
+
+  if (isMobileWindow) {
+    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} onCloseMenu={closeMenu} /> : null);
+    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
+    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
+  } else {
+    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
+    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
+    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
+  }
+  const openMenu = React.useCallback(() => {
+    const menuButton = menuButtonRef.current;
+    if (menuButton) {
+      let heightAboveMenuContainer;
+      let emergencyAlertsHeight;
+      let alertOffsetAdjusted = 0;
+      const body = document.querySelector('body');
+      const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
+      const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
+      const menuOverlay = document.querySelector('.menu-overlay');
+      const alertOverlay = document.querySelector('.alert-overlay');
+
+      const lockPage = () => {
+        const alertlOffsetPosition = alertOffset.current;
+        if (document.querySelector('.ma__emergency-alerts')) {
+          body.style.top = `-${alertlOffsetPosition}px`;
+        } else {
+          body.style.top = 0;
+        }
+        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+        heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
+      };
+      if (document.querySelector('html.stickyTOC')) {
+        document.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
+        document.querySelector('html.stickyTOC').classList.remove('stickyTOC');
+      }
+      // Start open menu tasks.
+      body.classList.add('show-menu');
+      setMenuOpen(true);
+      menuButton.setAttribute('aria-expanded', 'true');
+      menuButton.setAttribute('aria-label', 'main menu for mass.gov');
+      if (feedbackButton) {
+        feedbackButton.classList.add('hide-button');
+      }
+      if (jumpToSearchButton) {
+        jumpToSearchButton.setAttribute('aria-expanded', 'true');
+        jumpToSearchButton.setAttribute('tabIndex', -1);
+      }
+      menuButton.setAttribute('aria-pressed', 'true');
+      const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
+      body.style.position = 'fixed';
+      if (alertsHeader !== null) {
+        const emergencyAlerts = document.querySelector('.ma__emergency-alerts');
+        emergencyAlertsHeight = emergencyAlerts.offsetHeight;
+        alertOffsetAdjusted = alertsHeader.offsetHeight / 2;
+        alertOffset.current = emergencyAlertsHeight - alertOffsetAdjusted;
+        lockPage();
+        const hamburgerNavOffset = document.querySelector('.ma__header__hamburger__nav').offsetHeight;
+        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+        heightAboveMenuContainer = alertOffsetAdjusted + hamburgerNavOffset;
+        hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
+      }
+      if (menuOverlay) {
+        menuOverlay.classList.add('overlay-open');
+        menuOverlay.onclick = () => {
+          closeMenu();
+        };
+      }
+      if (alertOverlay) {
+        if (document.querySelector('.ma__emergency-alerts')) {
+          alertOverlay.classList.add('overlay-open');
+        }
+      }
+    }
+  }, [menuButtonRef, alertOffset]);
 
   const toggleMenu = React.useCallback(() => {
     const body = document.querySelector('body');
@@ -348,14 +348,14 @@ HamburgerNav.propTypes = {
   headerType: propTypes.string
 };
 
-export const HamburgerMainNav = ({ NavItem, items = [] }) => {
+export const HamburgerMainNav = ({ NavItem, items = [], onCloseMenu }) => {
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
   return(
     <div className="ma__main__hamburger-nav">
       <ul role="menubar" className="ma__main__hamburger-nav__items js-main-nav-hamburger">
         { items.map((item, itemIndex) => (
           // eslint-disable-next-line react/no-array-index-key
-          <RenderedNavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} />
+          <RenderedNavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} onCloseMenu={onCloseMenu} />
         ))}
       </ul>
     </div>
@@ -381,7 +381,8 @@ export const HamburgerNavItem = ({
   text,
   active,
   subNav = [],
-  index
+  index,
+  onCloseMenu
 }) => {
   const hasSubNav = subNav && subNav.length > 0;
   const classes = classNames('ma__main__hamburger-nav__item js-main-nav-hamburger-toggle', {
@@ -585,7 +586,14 @@ export const HamburgerNavItem = ({
               { subNav.map((item, itemIndex) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-                  <a href={item.href} role="menuitem" className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
+                  <a
+                    href={item.href}
+                    role="menuitem"
+                    className="ma__main__hamburger-nav__link js-main-nav-hamburger__link"
+                    onClick={onCloseMenu}
+                  >
+                      {item.text}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -596,6 +604,7 @@ export const HamburgerNavItem = ({
           href={href}
           className={topNavLinkclasses}
           tabIndex="0"
+          onClick={onCloseMenu}
         >
           {text}
         </a>
