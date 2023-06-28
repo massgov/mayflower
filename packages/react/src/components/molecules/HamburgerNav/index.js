@@ -373,7 +373,9 @@ HamburgerMainNav.propTypes = {
       href: propTypes.string,
       text: propTypes.string
     }))
-  }))
+  })),
+  /** Function to close the hamburger menu, passed down from the HamburgerNav . */
+  onCloseMenu: propTypes.func
 };
 
 export const HamburgerNavItem = ({
@@ -592,7 +594,7 @@ export const HamburgerNavItem = ({
                     className="ma__main__hamburger-nav__link js-main-nav-hamburger__link"
                     onClick={onCloseMenu}
                   >
-                      {item.text}
+                    {item.text}
                   </a>
                 </li>
               ))}
@@ -620,7 +622,9 @@ HamburgerNavItem.propTypes = {
     href: propTypes.string,
     text: propTypes.string
   })),
-  index: propTypes.oneOfType([propTypes.number, propTypes.string])
+  index: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  /** Function to close the hamburger menu, passed down from the HamburgerNav. */
+  onCloseMenu: propTypes.func
 };
 
 export const HamburgerUtilityItem = ({ children }) => (
