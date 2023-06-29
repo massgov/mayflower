@@ -1,102 +1,104 @@
 /* layout */
-.fsBody  {
-    padding: 0;
-    margin-top: 60px;
+.fsBody {
+  padding: 0;
+  margin-top: 60px;
 }
 
 .fsBody .fsForm {
-    font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
-    font-size: 22px;
-    font-size: 1.375rem;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    max-width: 50rem;
+  font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  max-width: 50rem;
 }
 
 /* Headings */
 .fsBody .fsSectionHeader {
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 20px;
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 20px;
 }
 
 .fsBody .fsSectionHeader .fsSectionHeading {
-    text-align: left;
-    position: relative;
-    padding-bottom: 15px;
-    color: #535353;
-    font-weight: 700;
-    font-size: 48px;
-    font-size: 3rem;
-    line-height: 1.07;
+  text-align: left;
+  position: relative;
+  padding-bottom: 15px;
+  color: #535353;
+  font-weight: 700;
+  font-size: 48px;
+  font-size: 3rem;
+  line-height: 1.07;
 }
 
 .fsBody .fsSectionHeader .fsSectionHeading:after {
-    content: "";
-    height: 3px;
-    position: absolute;
-    bottom: 0;
-    left: 0.075em;
-    width: 1.85em;
-    background-color: rgb(67, 149, 111);
-    background-color: rgba(67, 149, 111, 0.5);
-    -webkit-transform: skew(-30deg);
-    -moz-transform: skew(-30deg);
-    -ms-transform: skew(-30deg);
-    -o-transform: skew(-30deg);
-    transform: skew(-30deg);
+  content: "";
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0.075em;
+  width: 1.85em;
+  background-color: rgb(67, 149, 111);
+  background-color: rgba(67, 149, 111, 0.5);
+  -webkit-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  transform: skew(-30deg);
 }
 
 /* Labels */
 .fsBody .fsForm .fsLabel {
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    display: block;
-    font-size: 22px;
-    font-size: 1.375rem;
-    line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.5;
 }
 
 .fsBody .fsForm .fsLabel:not(.fsRequiredLabel):after {
-    content: ' (optional)';
-    font-size: .8rem;
+  content: ' (optional)';
+  font-size: .8rem;
 }
 
 /* Inputs */
 .fsBody .fsForm fieldset {
-    border: none;
-    padding-left: 0;
+  border: none;
+  padding-left: 0;
 }
 
 .fsBody .fsForm input[type="text"].fsField,
 .fsBody .fsForm input[type="email"].fsField,
 .fsBody .fsForm input[type="tel"].fsField {
-    background-color: white;
-    border-color: #dcdcdc !important;
-    font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
-    color: #535353;
-    border: 2px solid;
-    min-height: 46px;
-    padding: 0 18px;
+  background-color: white;
+  border-color: #dcdcdc !important;
+  font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
+  color: #535353;
+  border: 2px solid;
+  min-height: 46px;
+  padding: 0 18px;
 }
+
 .fsBody .fsForm input[type="tel"].fsField {
-    min-width: 12rem;
+  min-width: 12rem;
 }
+
 .fsBody .fsForm textarea {
-    background-color: white;
-    border-color: #dcdcdc !important;
-    border: 2px solid;
+  background-color: white;
+  border-color: #dcdcdc !important;
+  border: 2px solid;
 }
 
 .fsForm select:not([multiple="multiple"]) {
-    font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
-    background-color: white;
-    border-color: #dcdcdc;
-    border: 2px solid #dcdcdc;
-    background-image: none;
-    max-width: 100%;
-    cursor: pointer;
+  font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
+  background-color: white;
+  border-color: #dcdcdc;
+  border: 2px solid #dcdcdc;
+  background-image: none;
+  max-width: 100%;
+  cursor: pointer;
 }
 
 .fsBody .fsSubField {
@@ -108,194 +110,354 @@
   border-collapse: collapse;
 }
 
-.fsMatrix th, .fsMatrix td {
-    padding: 1em;
-    text-align: center;
+.fsMatrix th,
+.fsMatrix td {
+  padding: 1em;
+  text-align: center;
 }
 
 /* Supporting text */
 .fsBody .fsForm .fsSupporting,
 .fsBody .showMobile {
-    font-weight: 300;
-    font-style: italic;
-    font-size: 1rem;
-    line-height: 1.4;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .fsBody .fsField::placeholder {
-    color: #cccccc;
+  color: #cccccc;
 }
 
 /* Submit */
 .fsBody .fsForm input.fsSubmitButton {
-    font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
-    font-weight: 700;
-    background-color: #14558f !important;
-    color: white;
-    box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
-    display: inline-block;
-    letter-spacing: 0.1em;
-    padding: 1em;
-    text-decoration: none;
-    text-transform: uppercase;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    cursor: pointer;
+  font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  background-color: #14558f !important;
+  color: white;
+  box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+  display: inline-block;
+  letter-spacing: 0.1em;
+  padding: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  cursor: pointer;
 }
 
 .fsSubmitButton {
-    background-color: #14558f !important;
+  background-color: #14558f !important;
 }
 
 .fsBody .fsForm input.fsSubmitButton:hover {
-    background-color: rgb(20, 85, 143);
-    background-color: rgba(20, 85, 143, 0.75) !important;
-    border-color:  transparent;
+  background-color: rgb(20, 85, 143);
+  background-color: rgba(20, 85, 143, 0.75) !important;
+  border-color: transparent;
 }
 
 .fsBody [data-char-left] {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .fsBody .fsCounter {
-    position: absolute;
-    width: .1em;
-    height: .1em;
-    left: -999em;
-    overflow: hidden;
+  position: absolute;
+  width: .1em;
+  height: .1em;
+  left: -999em;
+  overflow: hidden;
 }
 
 
 /* Multi-page form */
 .fsWelcomeMessage {
-    justify-content: left;
+  justify-content: left;
 }
 
 .fsWelcomeMessage .fsWelcomeMessage__content {
-    text-align: left;
-    padding: 0;
-    margin: 0;
+  text-align: left;
+  padding: 0;
+  margin: 0;
 }
 
+
+/* Pagination component */
+/* pagination component container */
+.fsPagination {
+  width: 100%;
+}
 
 /* Previous and Next Button */
-.fsPreviousButton, .fsNextButton, .fsWelcomeMessage .fsWelcomeMessage__content .fsWelcomeMessage__start-button {
-    font-weight: 700;
-    color: white;
-    background-color: #14558f;
-    box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
-    display: inline-block;
-    float: none !important;
-    letter-spacing: 0.1em;
-    padding: 1em;
-    text-decoration: none;
-    text-transform: uppercase;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+.fsPagination .fsPreviousButton,
+.fsPagination .fsNextButton,
+.fsWelcomeMessage .fsWelcomeMessage__content .fsWelcomeMessage__start-button {
+  font-weight: 700;
+  color: white;
+  background-color: #14558f;
+  box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+  display: inline-block;
+  float: none !important;
+  letter-spacing: 0.1em;
+  padding: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 
 }
 
-.fsPreviousButton .fsSlim, .fsNextButton .fsSlim {
-    display: none;
+.fsForm .fsPagination .fsPreviousButton,
+.fsForm .fsPagination .fsNextButton {
+  /* clear fs styles */
+  font-size: 1.25rem;
+  float: none !important;
+  position: relative;
+  margin: 0.5em 0;
+
+  /* MF .button */
+  line-height: 1.4;
+  font-weight: 550;
+  border: 3px solid;
+  border-color: transparent;
+  box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, .25);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4em 1em;
+  line-height: 1.4;
+  font-weight: 550;
 }
 
-.fsPreviousButton {
-    background-color: #535353 !important;
+.fsPreviousButton .fsSlim,
+.fsNextButton .fsSlim {
+  display: none;
 }
 
-.fsNextButton {
-    background-color: #14558F !important;
+.fsForm .fsPagination .fsPreviousButton {
+  background-color: #535353 !important;
+  margin-right: 2em;
 }
 
-.fsPreviousButton:hover {
-    background-color: #53535399 !important;
+@media (max-width: 480px) {
+  .fsForm .fsPagination .fsPreviousButton {
+    margin-right: 1em;
+  }
 }
 
-.fsNextButton:hover {
-    background-color: rgba(20, 85, 143, 0.75) !important;
+.fsPagination .fsNextButton {
+  background-color: #14558F !important;
 }
+
+.fsForm .fsPagination .fsPreviousButton:hover,
+.fsForm .fsPagination .fsNextButton:hover {
+  opacity: 0.75;
+}
+
+/* pagination button text label */
+.fsPagination .fsPreviousButton span.fsFull {
+  margin-left: 1em;
+}
+
+.fsPagination .fsNextButton span.fsFull {
+  margin-right: 1em;
+}
+
+/* pagination button arrows */
+.fsPagination .fsPreviousButton span.fsFull:before,
+.fsPagination .fsNextButton span.fsFull:after {
+  display: inline-block;
+  content: "";
+
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  transition: all .2s;
+  vertical-align: middle;
+
+  border-color: #fff;
+  border-width: 3px;
+  width: 10px;
+  height: 10px;
+  margin: 0;
+
+  position: absolute;
+  top: 50%;
+
+  transform-origin: 50% 50%;
+}
+
+.fsPagination .fsPreviousButton span.fsFull:before {
+  left: 15%;
+  transform: translate(-50%, -50%) rotate(-225deg);
+}
+
+.fsPagination .fsNextButton span.fsFull:after {
+  right: 15%;
+  transform: translate(0%, -50%) rotate(-45deg);
+}
+
 
 .fsBody .fsFieldRow {
-    margin-bottom: 3.5rem !important;
+  margin-bottom: 3.5rem !important;
 }
 
 .fsBody .fsForm .fsPagination {
-    text-align: left;
+  text-align: left;
 }
 
-.fsForm.fsSingleColumn > div {
-    text-align: left !important;
-    font-size: 1.375rem !important;
-    padding: 0 !important;
-    margin: 0 !important;
+.fsForm.fsSingleColumn>div {
+  text-align: left !important;
+  font-size: 1.375rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 
-.fsForm, .fsError {
-    float: none !important;
+/* Save Incomplete button component */
+.fsForm.fsSingleColumn>div.fsSaveIncomplete {
+  background: none !important;
+  box-shadow: none !important;
 }
 
-.fsForm  div.fsError {
-    color: white;
-    border-radius: 0;
-    background-color: #CD0D0D;
-    border: 1px solid #CD0D0D;
-    font-weight: bold;
+.fsForm.fsSingleColumn div.fsSaveIncomplete a {
+  /* override sf styles */
+  margin: 2em 0;
+  /* button */
+  cursor: pointer;
+  font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
+
+  /* ma__button */
+  border: 3px solid;
+  box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, .25);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: .1em;
+  padding: 0.4em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all .4s ease;
+  font-size: 1.25rem;
+  line-height: 1.4;
+
+  /* ma__button--secondary */
+  font-weight: 550;
+  background-color: #fff;
+  border-color: rgba(20, 85, 143, .5);
+
+  color: #14558f;
 }
+
+.fsForm.fsSingleColumn div.fsSaveIncomplete a:hover,
+.fsForm.fsSingleColumn div.fsSaveIncomplete a:focus {
+  color: #fff;
+  background-color: #14558f;
+}
+
+
+/* .fsProgress prorgress bar container */
+.fsSubmit.fsPagination .fsProgress {
+  margin: 0;
+  padding-top: 1.5em;
+}
+
+.fsProgress .fsProgressBarContainer {
+  margin-left: 5em;
+  background-color: #d4d4d4;
+}
+
+.fsProgress .fsProgressBarContainer,
+.fsProgress .fsProgressBar {
+  height: 1.5em;
+}
+
+.fsProgress .fsProgressBar {
+  background-color: #14558F;
+}
+
+.fsProgress .fsProgressText {
+  margin-top: -2.5em;
+  margin-left: -5em;
+  padding-top: 1.2em;
+  font-size: 1.375rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.fsProgress .fsProgressText:after {
+  content: ":";
+}
+
+
+.fsForm,
+.fsError {
+  float: none !important;
+}
+
+.fsForm div.fsError {
+  color: white;
+  border-radius: 0;
+  background-color: #CD0D0D;
+  border: 1px solid #CD0D0D;
+  font-weight: bold;
+}
+
 .fsPage .fsValidationError {
-    background-color: transparent;
+  background-color: transparent;
 }
+
 .fsPage .fsValidationError .fsLabel,
 .fsValidationError .fsLabel span,
-div.fsValidationError label.fsLabel{
-    color: #CD0D0D !important;
-    padding-left: 0;
-    background: none;
+div.fsValidationError label.fsLabel {
+  color: #CD0D0D !important;
+  padding-left: 0;
+  background: none;
 }
 
 .fsPage .fsValidationError input,
 .fsPage .fsValidationError textarea {
-    border: 2px solid #CD0D0D;
+  border: 2px solid #CD0D0D;
 }
 
 /* remove branding */
 a[title="Web Form Builder"] {
-    display: none;
+  display: none;
 }
 
 /* specifc to given form */
 #fsSubmit3193712 {
-    padding-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 input.fsSubmitButton {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 div[fs-field-type="richtext"] a {
-    border-bottom-color: rgb(20,85,143);
-    border-bottom-color: rgba(20,85,143,0.5);
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+  border-bottom-color: rgb(20, 85, 143);
+  border-bottom-color: rgba(20, 85, 143, 0.5);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 /* DP-19875 Remove the extra character count */
 .fsFieldRow .ma__textarea__wrapper::after {
-    content: '';
+  content: '';
 }
 
 /* Fix for sub-field groups */
 .fsSubFieldGroup {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-grow: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-grow: 2;
 }
-.fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(3), 
+
+.fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(3),
 .fsSubFieldGroup .fsSubField:nth-child(2):nth-last-child(2),
 .fsSubFieldGroup .fsSubField:nth-child(3):nth-last-child(1),
 .fsBody .fsSubField.fsNameFirst,
@@ -304,15 +466,16 @@ div[fs-field-type="richtext"] a {
 .fsBody .fsSubField.fsFieldCity,
 .fsBody .fsSubField.fsFieldState,
 .fsBody .fsSubField.fsFieldZip {
-    width: auto;
-    flex-grow: 2;
+  width: auto;
+  flex-grow: 2;
 }
-.fsBody .fsForm input[type="text"].fsField, 
-.fsBody .fsForm input[type="email"].fsField, 
+
+.fsBody .fsForm input[type="text"].fsField,
+.fsBody .fsForm input[type="email"].fsField,
 .fsBody .fsForm input[type="tel"].fsField {
-    min-height: 0;
-    max-height: 46px;
-    width: 100%;
+  min-height: 0;
+  max-height: 46px;
+  width: 100%;
 }
 
 /* Make the asterisk small and red */
@@ -322,101 +485,112 @@ div[fs-field-type="richtext"] a {
 }
 
 div[fs-field-type="richtext"] a {
-    border-bottom: 0;
+  border-bottom: 0;
 }
 
 /* Radios, checkboxes */
 div[fs-field-type="radio"] div.fieldset-content,
-div[fs-field-type="checkbox"] div.fieldset-content{
-    display: flex;
-    flex-wrap: wrap;
+div[fs-field-type="checkbox"] div.fieldset-content {
+  display: flex;
+  flex-wrap: wrap;
 }
-.fsRowBody input[type="radio"], 
+
+.fsRowBody input[type="radio"],
 .fsRowBody input[type="checkbox"] {
-    min-height: 1rem;
+  min-height: 1rem;
 }
+
 .fsBody .fsForm .fsOptionLabel {
-    font-size: 22px;
-    font-size: 1.375rem;
-    line-height: 1.5;
-    position: relative;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  position: relative;
 }
+
 .fsBody .fsForm .fsOptionLabel.horizontal {
-    float: none;
+  float: none;
 }
+
 /* For "other" option, wrap to a new line. */
 .fieldset-content .horizontal[data-children-count="2"],
 .fieldset-content .vertical[data-children-count="2"] {
-    width: 100%;
+  width: 100%;
 }
+
 .fieldset-content .horizontal[data-children-count="2"] input[type="text"],
 .fieldset-content .vertical[data-children-count="2"] input[type="text"] {
-    width: 100%;
-    border: 2px solid rgb(220,220,220);
+  width: 100%;
+  border: 2px solid rgb(220, 220, 220);
 }
+
 .fieldset-content .vertical {
-    width: 100%;
+  width: 100%;
 }
+
 .fsBody .fsForm .fsOptionLabel input[type="radio"],
 .fsBody .fsForm .fsOptionLabel input[type="checkbox"] {
-    margin-right: 0.5rem;
-    vertical-align: middle;
-    cursor: pointer;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  cursor: pointer;
 }
+
 .fsBody .fsForm .fsOptionLabel input[type="radio"]:focus,
 .fsBody .fsForm .fsOptionLabel input[type="checkbox"]:focus {
-    box-shadow: none;
-    cursor: pointer;
+  box-shadow: none;
+  cursor: pointer;
 }
+
 @media (max-width: 40em) {
-    .fsBody .fsForm label.fsOptionLabel {
-        background: none;
-        border: none;
-        padding: 10px 0;
-    }
+  .fsBody .fsForm label.fsOptionLabel {
+    background: none;
+    border: none;
+    padding: 10px 0;
+  }
 }
 
 .fsBody .fsForm input[type="number"] {
-    font-family: "Noto Sans VF","Noto Sans","Helvetica","Arial",sans-serif;
+  font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
 }
 
 /* calendar icon. */
 .fsBody .fsForm .ui-datepicker-trigger {
-    position: relative;
-    filter: grayscale(1);
-    width: 22px;
-    height: 22px !important;
-    top: 5px;
-    margin-left: 0;
+  position: relative;
+  filter: grayscale(1);
+  width: 22px;
+  height: 22px !important;
+  top: 5px;
+  margin-left: 0;
 }
 
 .fsCurrency.fsCurrencyPrefix {
-    font-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
 .fsCreditcardFieldContainer {
-    display: block;
+  display: block;
 }
+
 .fsCreditcardFieldContainer div {
-    display: inline-block;
+  display: inline-block;
 }
 
 .fsMatrixFieldset .fsMatrix {
-    width: 100%;
+  width: 100%;
 }
 
 /* Hide increment and decrement buttons */
 /* These behave unpredictably           */
-button.ma__input-number__plus, 
+button.ma__input-number__plus,
 button.ma__input-number__minus {
-    display: none !important;
+  display: none !important;
 }
 
 /* Different markup of 'other' field */
 .fieldset-content:last-child div.horizontal {
-    width: 100%;
+  width: 100%;
 }
+
 .fieldset-content:last-child div.horizontal input[type="text"] {
-    border: 2px solid rgb(220,220,220);
-    width: 100%;
+  border: 2px solid rgb(220, 220, 220);
+  width: 100%;
 }

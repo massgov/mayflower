@@ -15,13 +15,10 @@ const getUtilityItem = (item) => {
 };
 
 const Template = (args) => {
-  const { utilityItems = [], useMenuOverlay, ...rest } = args;
+  const { utilityItems = [], ...rest } = args;
   const storyUtilityItems = utilityItems.map((item) => getUtilityItem(item));
   return(
-    <React.Fragment>
-      <HeaderHamburger utilityItems={storyUtilityItems} {...rest} />
-      { useMenuOverlay && <div className="menu-overlay" />}
-    </React.Fragment>
+    <HeaderHamburger utilityItems={storyUtilityItems} {...rest} />
   );
 };
 export const HeaderHamburgerExample = Template.bind({});
@@ -56,15 +53,6 @@ export default {
     }
   },
   argTypes: {
-    useMenuOverlay: {
-      name: 'Use Menu Overlay?',
-      control: {
-        type: 'boolean'
-      },
-      table: {
-        category: 'Story Only'
-      }
-    },
     utilityItems: {
       control: {
         type: 'check',

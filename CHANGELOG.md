@@ -1,6 +1,14 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.6.0 (6/29/2023)
+### Added 
+- (Starters) [Formstack] DP-28028: Style Formstack save incomplete and pagination components for Mayflower theme. (#1794)
+- (React) [HamburgerNav] DP-28603: Add `siteName` prop to allow overriding HamburgerNav toggle button text and aria-label. (#1816)
+
+### Changed 
+- (React) [HamburgerNav] DP-28603: Add `.menu-overlay` div as part of the component. Remove storybook controls of adding the overlay separately. Add onCloseMenu funtion to mainnav links to close the hamburger menu when navigating to an internal link. (#1816)
+
 ## 12.5.1 (6/21/2023)
 ### Fixed 
 - (React) [HamburgerNav, HeaderNav] DP-27950: Fix console error. (#1813)
