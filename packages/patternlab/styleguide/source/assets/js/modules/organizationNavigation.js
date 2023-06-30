@@ -3,15 +3,7 @@ export default (function (window, document, $, undefined) {
   $('.ma__organization-navigation').each(function () {
     // Org Nav Wrapper.
     const $orgNav = $(this);
-    const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
     const $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
-
-    // Page wrapper and fillers. 
-    const $pageWrapper = $orgNav.parent().next();
-    let $newsLink = $pageWrapper.find('.ma__press-listing');
-    let $eventsLink = $pageWrapper.find('.ma__event-listing');
-    let $locationsLink = $pageWrapper.find('.ma__mapped-locations');
-    let $relatedOrgs = $pageWrapper.find('.ma__our-organizations');
 
     const feedbackButton = $('body').find('.ma__fixed-feedback-button');
 
@@ -27,12 +19,6 @@ export default (function (window, document, $, undefined) {
     const $orgNavSearchForm = $orgNav.find('.js-organization-navigation__search');
     const $orgNavSearchInput = $orgNav.find('#organization-navigation-search');
     const $searchToggle = $orgNav.find('.ma__organization-navigation__search .js-search-toggle');
-
-    // Subnav buttons. 
-    let $menuButton = $orgNav.find('.subnav-toggle');
-
-    // I want to section.
-    let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
 
     // Sticky on scroll.
     const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
@@ -101,108 +87,9 @@ export default (function (window, document, $, undefined) {
       $(this).attr('action', searchAction + searchParams);
     });
 
-    // Open the dropdowns.
-    $menuButton.each(function () {
-      let $button = $(this);
-      let $buttonParent = $button.parent('.has-subnav');
-      let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
-      let $otherMenus = $('.ma__organization-navigation__subitems').not($thisMenu);
-      let menuHeight = $menuWrapper.outerHeight();
-
-      $buttonParent.on('mouseenter mouseleave', function () {
-        let windowWidth = $(window).width();
-
-        if (windowWidth > mobileBreak) {
-          $('.section-toggle').remove();
-          $buttonParent.toggleClass('item-open');
-          $thisMenu.css('top', menuHeight);
-        }
-        else {
-          return false;
-        };
-      });
-
-      $button.on('focus', function () {
-        $thisMenu.find("a[href]").attr("tabindex", -1);
-        $otherMenus.find("a[href]").attr("tabindex", -1);
-
-        $button.keyup(function (e) {
-
-          $('.item-open').removeClass('item-open');
-
-          if (e.keyCode == 13 || e.keyCode == 32) {
-            $('.section-toggle').remove();
-
-            $thisMenu.find("a[href]").attr("tabindex", 0);
-            $buttonParent.toggleClass('item-open');
-            $thisMenu.css('top', menuHeight);
-
-            $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
-              return false;
-            });
-          }
-        });
-      });
-
-      $button.on('click', function () {
-        let windowWidth = $(window).width();
-
-        if (windowWidth < mobileBreak) {
-          $buttonParent.toggleClass('item-open');
-          let $buttonClone = $button.clone(true);
-
-          // Copy the link as a close button inside the menu section.
-          if (!$('.section-toggle').length) {
-            $buttonClone.addClass('section-toggle').prependTo($thisMenu);
-          }
-        }
-        else {
-          return false;
-        };
-      });
-
-    });
-
     $('body').on('click', '.section-toggle', function () {
       $('.section-toggle').remove();
     });
-
-    // Mobile view open the "I want to sections".
-    $sectionButton.each(function () {
-
-      let $button = $(this);
-      let $seeAll = $button.parent().find('.ma__link-list__see-all');
-      $button.on('click', function () {
-        let windowWidth = $(window).width();
-        if (windowWidth < mobileBreak) {
-          $button.toggleClass('item-open');
-          $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
-        }
-      });
-
-    });
-
-    if ($relatedOrgs.length) {
-      $relatedOrgs.attr('id', 'organizations');
-      $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#organizations">Our organizations</a></li>');
-    }
-
-    if ($newsLink.length) {
-      $newsLink.attr('id', 'news');
-      $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#news">News</a></li>');
-    }
-
-    if ($eventsLink.length) {
-      $eventsLink.attr('id', 'events');
-      $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#events">Events</a></li>');
-    }
-
-    if ($locationsLink.length) {
-      $locationsLink.attr('id', 'locations');
-      $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#locations">Locations</a></li>');
-    }
-
-    $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
 
     $(".internal-link").on('focus', function (e) {
       $('.item-open').removeClass('item-open');
