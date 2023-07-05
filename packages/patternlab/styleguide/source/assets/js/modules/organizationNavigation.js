@@ -81,6 +81,19 @@ export default (function (window, document, $, undefined) {
       $(this).attr('action', searchAction + searchParams);
     });
 
+    $(".ma__organization-navigation__item > a").on('click', function (e) {
+      // Close open menus and reset markup.
+      $('.menu-open').removeClass('menu-open');
+
+      e.preventDefault();
+      let location = $(this).attr('href');
+      $('html, body').animate({ scrollTop: $(location).offset().top - 120 }, 1000);
+
+      if (feedbackButton.is(":hidden")) {
+        feedbackButton.show();
+      }
+    });
+
     $(window).on("resize", function () {
       let windowWidth = $(window).width();
       let $contactGroups = $orgNav.find('.ma__org-nav-contact-us .ma__contact-group');
