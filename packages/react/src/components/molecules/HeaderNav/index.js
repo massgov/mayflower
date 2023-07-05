@@ -191,7 +191,7 @@ export const HeaderMobileNavSearch = () => (
       <form action="#" className="ma__form js-header-search-form" role="search">
         { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor="header-mobile-search" className="ma__header-search__label">Search terms</label>
-        <input id="header-mobile-search" className="ma__header-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
+        <input id="header-mobile-search" className="ma__header-mobile-search__input" placeholder="Search Mass.gov" type="search" inputMode="search" />
         <ButtonWithIcon usage="secondary" icon={<IconSearch />}>Search</ButtonWithIcon>
       </form>
     </div>

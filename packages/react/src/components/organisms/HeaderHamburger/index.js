@@ -70,7 +70,7 @@ const HeaderHamburger = ({
           mainItems={mainItems}
           utilityItems={fallbackUtilityItems}
         />
-        <RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />
+        { !isMobileWindow && (<RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />) }
       </header>
       <div className="menu-overlay" />
     </>
@@ -81,6 +81,8 @@ HeaderHamburger.propTypes = {
   Logo: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo on mobile. */
   MobileLogo: propTypes.elementType,
+  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile */
+  siteName: propTypes.string,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
   /** An uninstantiated component which handles search functionality on mobile. */

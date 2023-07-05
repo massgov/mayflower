@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import propTypes from 'prop-types';
-import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 import {
   useHeaderNavKeydown,
   useHeaderNavMouseEvents,
@@ -49,7 +48,6 @@ HeaderMainNav.propTypes = {
   }))
 };
 
-const MemoArrowBent = React.memo(IconArrowbent);
 export const HeaderNavItem = React.memo(({
   href,
   text,
@@ -135,7 +133,7 @@ export const HeaderNavItem = React.memo(({
       const $topLevelItem = $focusedElement.closest('.ma__main-nav__item');
       const $topLevelLink = $topLevelItem.querySelector('.ma__main-nav__top-link');
       const $dropdownLinks = $link.querySelectorAll('.ma__main-nav__subitem .ma__main-nav__link');
-      const dropdownLinksLength = $dropdownLinks.length;
+      const dropdownLinksLength = $dropdownLinks && $dropdownLinks.length;
       let focusIndexInDropdown = Array.from($dropdownLinks).findIndex((link) => link === $focusedElement);
       // Easy access to the key that was pressed.
       const { key, code } = e;
@@ -167,7 +165,7 @@ export const HeaderNavItem = React.memo(({
         return;
       }
       // Navigate into or within a submenu using the up/down arrow keys.
-      if (action.up || action.down) {
+      if ((action.up || action.down) && (dropdownLinksLength > 0)) {
         // Open submenu if it's not open already.
         if (!isItemOpen && !$link.classList.contains(hasFocus)) {
           show({ index });
@@ -226,10 +224,10 @@ export const HeaderNavItem = React.memo(({
   useHeaderNavButtonEffects(buttonRef.current, onButtonLinkClick);
 
   return(
-    <li ref={itemRef} role="none" className={classes} tabIndex="-1">
+    <li ref={itemRef} role="menuitem" className={classes} tabIndex="-1">
       {hasSubNav ? (
         <>
-          <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
+          <button ref={buttonRef} type="button" id={`button${index}`} className="ma__main-nav__top-link" aria-haspopup="true" tabIndex="0" aria-expanded={buttonExpanded}>
             <span className="visually-hidden show-label">Show the sub topics of </span>
             {text}
           </button>
@@ -238,26 +236,14 @@ export const HeaderNavItem = React.memo(({
               { subNav.map((item, itemIndex) => (
               // eslint-disable-next-line react/no-array-index-key
                 <li key={`main-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main-nav__subitem">
-                  <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={item.href} className="ma__main-nav__link">{item.text}</a>
+                  <a onClick={onButtonLinkClick} href={item.href} role="menuitem" className="ma__main-nav__link">{item.text}</a>
                 </li>
               ))}
-              { href && (
-              <li role="none" className="ma__main-nav__subitem--main">
-                <a aria-expanded={buttonExpanded} onClick={onButtonLinkClick} role="menuitem" href={href} className="ma__main-nav__link">
-                  <MemoArrowBent />
-                  <span>
-                    <span className="visually-hidden">See all topics under </span>
-                    {text}
-                  </span>
-                </a>
-              </li>
-              )}
             </ul>
           </div>
         </>
       ) : (
         <a
-          role="menuitem"
           href={href}
           className={topNavLinkclasses}
           tabIndex="0"

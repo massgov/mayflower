@@ -40,6 +40,7 @@ const DefaultMobileLogo = React.memo(() => (<HamburgerSiteLogo Wrapper={Hamburge
 const Header = ({
   Logo,
   MobileLogo,
+  siteName,
   NavSearch,
   MobileNavSearch,
   SkipNav,
@@ -102,6 +103,7 @@ const Header = ({
         NavSearch={RenderedMobileNavSearch}
         mainItems={mainItems}
         utilityItems={fallbackUtilityItems}
+        siteName={siteName}
       />
       <RenderedContainer Logo={DesktopLogo} NavSearch={DesktopNavSearch} />
       <HeaderNav
@@ -123,6 +125,8 @@ Header.propTypes = {
   Logo: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo on mobile. */
   MobileLogo: propTypes.elementType,
+  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile */
+  siteName: propTypes.string,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
   /** An uninstantiated component that displays the site logo and search on desktop. */

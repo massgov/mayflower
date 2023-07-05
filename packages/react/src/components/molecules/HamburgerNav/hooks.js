@@ -1,7 +1,7 @@
 import React from 'react';
 import focusTrapping from 'MayflowerReactComponents/utilities/focusTrapping';
 
-export const useHamburgerNavKeydown = (closeMenu) => {
+export const useHamburgerNavKeydown = (closeMenu, topLevelItems) => {
   // Define this using useCallback so this event listener
   // can be deleted when the parent component unmounts.
   const keyDown = React.useCallback((e) => {
@@ -9,6 +9,16 @@ export const useHamburgerNavKeydown = (closeMenu) => {
     const menuOpenClass = 'show-menu';
     const body = document.querySelector('body');
     const menuOpen = body.classList.value.indexOf(menuOpenClass) > 0 || body.classList.value === menuOpenClass;
+    const focusedElement = document.activeElement;
+    const topLevelItemsArray = topLevelItems && Array.from(topLevelItems);
+
+    const { key } = e;
+    const action = {
+      left: key === 'Left' || key === 'ArrowLeft', // left arrow
+      right: key === 'Right' || key === 'ArrowRight', // right arrow
+      esc: key === 'Esc' || key === 'Escape' // esc
+    };
+
     if (menuOpen) {
       // trap focus only when menu is open
       focusTrapping({
@@ -17,106 +27,28 @@ export const useHamburgerNavKeydown = (closeMenu) => {
         modalSelector: '.ma__header__hamburger__nav-container',
         keyEvent: e
       });
-    }
 
-    const utilNavWide = document.querySelector('.js-utility-nav--wide');
-    const utilNarrowNav = document.querySelector('.ma__header__hamburger__utility-nav--narrow');
-    const utilNarrowButton = document.querySelector('.ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle');
-    const utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
-    const utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector('.ma__utility-nav__container') : null;
-    function closeUtilWideContent() {
-      const utilWideContent = document.querySelector('.js-utility-nav--wide .js-util-nav-content');
-      if (utilWideContent) {
-        const utilWideCloseButton = document.querySelector('.js-utility-nav--wide .js-close-util-nav');
+      if ((action.left || action.right) && topLevelItems) {
+        const topLevelItemsCount = topLevelItems.length;
+        let focusIndex = topLevelItemsArray.findIndex((el) => el === focusedElement);
+        focusIndex += (action.left ? -1 : 1);
+        // Wrap around if at the end of the set of menus.
+        focusIndex = (focusIndex + topLevelItemsCount) % topLevelItemsCount;
+        topLevelItems[focusIndex].focus();
+      }
 
-        const utilWideButton = document.querySelector('.js-utility-nav--wide .js-util-nav-toggle');
-
-        // Content state
-        utilWideContent.style.height = '0';
-        utilWideContent.style.opacity = '0';
-        utilWideContent.classList.add('is-closed');
-        utilWideContent.setAttribute('aria-hidden', 'true');
-        // Close button state
-        utilWideCloseButton.setAttribute('aria-expanded', 'false');
-        // Utility button state
-        utilWideButton.setAttribute('aria-expanded', 'false');
-        utilWideButton.setAttribute('aria-pressed', 'false');
-        const parentHamburgerNav = utilWideButton.closest('.ma__header__hamburger__nav');
-        if (parentHamburgerNav) {
-          parentHamburgerNav.classList.toggle('util-nav-content-open');
+      if (action.esc) {
+        // If no submenu is expanded and if the focus in on the top level items, escape key closes the hamburger menu tray.
+        const { target } = e;
+        const focusIsOnTopLevel = topLevelItemsArray.includes(target);
+        const targetExpandContainer = target.nextElementSibling;
+        const targetExpanded = targetExpandContainer && targetExpandContainer.classList.contains('is-closed');
+        if ((targetExpanded || targetExpanded === null) && focusIsOnTopLevel) {
+          closeMenu();
         }
       }
     }
-    function closeNarrowUtilContent() {
-      if (utilNarrowContent) {
-        const thisNavContainer = utilNarrowButton.closest('.ma__utility-nav__item');
-        utilNarrowButton.setAttribute('aria-expanded', 'false');
-        utilNarrowContent.setAttribute('aria-hidden', 'true');
-        thisNavContainer.style.pointerEvents = 'none';
-        setTimeout(() => {
-          thisNavContainer.removeAttribute('style');
-        }, 700);
-        utilNarrowContent.style.maxHeight = '0';
-        utilNarrowContainer.style.opacity = '0';
-        setTimeout(() => {
-          utilNarrowContent.classList.add('is-closed');
-        }, 500);
-      }
-    }
-
-    // ESC to close menus.
-    // 'e.key === "Esc"' is necessary for IE11.
-    if (e.key === 'Escape' || e.key === 'Esc' || e.code === 'Escape') {
-      const utilNavWideContent = utilNavWide.querySelector('.js-util-nav-content');
-
-      // Log in to... in Utility nav bar
-      if (utilNavWideContent && utilNavWideContent.style.opacity === '1') {
-        closeUtilWideContent();
-        utilNavWide.querySelector('.js-util-nav-toggle').focus();
-      }
-      // Util nav menus in the hamburger menu
-      if (utilNarrowNav) {
-        // Open Log in to... in Hamburger menu: To be consisitent with submenu, keep the content open and set focus on nav button.
-        if ((utilNarrowButton !== document.activeElement) && (utilNarrowContainer.style.opacity === '1')) {
-          const utilNavContentLinks = utilNarrowNav.querySelectorAll('.js-clickable-link');
-          for (let i = 0; i < utilNavContentLinks.length; i += 1) {
-            if (utilNavContentLinks[i].innerText === document.activeElement.innerText) {
-              utilNarrowButton.focus();
-            }
-          }
-          closeNarrowUtilContent();
-        } else {
-          const narrowNavItems = utilNarrowNav.querySelectorAll('.ma__utility-nav__link');
-          for (let i = 0; i < narrowNavItems.length; i += 1) {
-            if (narrowNavItems[i].innerText === document.activeElement.innerText) {
-              closeMenu();
-            }
-          }
-        }
-      }
-
-      // Main nav elements
-      const openSubmenu = document.querySelector('.submenu-open .js-main-nav-hamburger__top-link');
-      if (openSubmenu !== document.activeElement) {
-        // To prevent to set focus on another top menu button with open submenu.
-        const menus = document.querySelectorAll('.ma__main__hamburger-nav__top-link');
-        for (let i = 0; i < menus.length; i += 1) {
-          if (menus[i] === document.activeElement) {
-            closeMenu();
-          }
-        }
-        // Set focus on its parent top menu button.
-        const openSubmenuItems = document.querySelectorAll('.submenu-open .js-main-nav-hamburger-content:not(is-closed) .js-main-nav-hamburger__link');
-        for (let i = 0; i < openSubmenuItems.length; i += 1) {
-          if (openSubmenuItems[i] === document.activeElement) {
-            openSubmenu.focus();
-          }
-        }
-      } else {
-        closeMenu();
-      }
-    }
-  }, [closeMenu]);
+  }, [closeMenu, topLevelItems]);
   React.useEffect(() => {
     document.addEventListener('keydown', keyDown);
     return(() => {

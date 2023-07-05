@@ -76,7 +76,7 @@
 
   &__map {
     height: 360px;
-    z-index: -1;
+    z-index: 10;
 
     @media ($bp-x-small-min) {
       height: 500px;
@@ -117,4 +117,10 @@
       text-decoration: underline;
     }
   }
+}
+
+// For the location banner specific
+
+.ma__location-banner .ma__location-banner__map .ma__leaflet-map a .ma__leaflet-map__map {
+  z-index: -1;
 }

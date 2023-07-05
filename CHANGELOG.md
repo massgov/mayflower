@@ -1,6 +1,31 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.6.0 (6/29/2023)
+### Added 
+- (Starters) [Formstack] DP-28028: Style Formstack save incomplete and pagination components for Mayflower theme. (#1794)
+- (React) [HamburgerNav] DP-28603: Add `siteName` prop to allow overriding HamburgerNav toggle button text and aria-label. (#1816)
+
+### Changed 
+- (React) [HamburgerNav] DP-28603: Add `.menu-overlay` div as part of the component. Remove storybook controls of adding the overlay separately. Add onCloseMenu funtion to mainnav links to close the hamburger menu when navigating to an internal link. (#1816)
+
+## 12.5.1 (6/21/2023)
+### Fixed 
+- (React) [HamburgerNav, HeaderNav] DP-27950: Fix console error. (#1813)
+- (Patternlab) [Map] DP-28333: Target z-index -1 setting to the map in a location banner. (#1790)
+
+### Changed 
+- (Patternlab) [InformationDetails] DP-28302: Eliminate related links at bottom on desktop. (#1799)
+- (Patternlab) [HeaderMixed] DP-28478: A11y - Fix duplicate 'main navigation' labels in screen reader. (#1812)
+
+## 12.5.0 (6/15/2023)
+### Fixed 
+- (React) [Header] DP-26961: Fix duplicate mainnav aria-label. (#1800)
+- (React) [HamburgerNav] DP-27961: Fix keyboard navigation in HamburgerNav. (#1792)
+- (React) [HamburgerNav, HeaderNav] DP-27961: Fix duplicate IDs and `menu` and `menuitem` role associations. (#1792)
+- (React) [HeaderUtilityItems] DP-28436: Fix arrow key navigation in hamburger menu utility items. (#1805)
+- (React) [HeaderNav] DP-28436: Fix escape key navigation in the hamburger menu. (#1805)
+
 ## 12.4.0 (6/9/2023)
 ### Changed 
 - (Patternlab) [Dependency] DP-22494: Upgrade PHP to v8. (#1784)
