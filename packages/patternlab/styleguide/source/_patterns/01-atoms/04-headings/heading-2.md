@@ -9,5 +9,7 @@ This is a H2 tag used in a Rich Text with an underline.
 heading2: {
   text:
     type: string / required
-  }
+  id:
+    type: string / optional
+}
 ~~~

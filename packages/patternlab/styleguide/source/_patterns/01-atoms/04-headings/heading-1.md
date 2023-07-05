@@ -9,5 +9,7 @@ This is a H1 tag typically used as a Page Title.
 heading1: {
   text:
     type: string / required
-  }
+  id:
+    type: string / optional
+}
 ~~~

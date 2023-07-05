@@ -9,5 +9,7 @@ This is a H6 tag used in a Rich Text.
 heading6: {
   text:
     type: string / required
-  }
+  id:
+    type: string / optional
+}
 ~~~
