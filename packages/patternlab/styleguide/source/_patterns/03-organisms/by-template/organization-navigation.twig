@@ -1,10 +1,12 @@
-<nav class="ma__organization-navigation" aria-label="{{ organizationNavigation.orgNavTitle }}">
- <div class="ma__organization-navigation__mobile-toggle">
-      <span class="mobile-toggle-label">{{ organizationNavigation.orgNavTitle }}</span>
-      <span class="mobile-toggle-icon"></span>
-    </div>
+<nav class="ma__organization-navigation" aria-label="{{ organizationNavigation.orgNavTitle ~ 'in-page jump links'}}">
+  <div class="ma__organization-navigation__mobile-toggle">
+    <span class="mobile-toggle-label">{{ organizationNavigation.orgNavTitle }}
+      <span class="ma__visually-hidden">in-page jump links</span>
+    </span>
+    <span class="mobile-toggle-icon"></span>
+  </div>
   <div class="ma__organization-navigation--inner-wrapper">
-    <ul role="menubar" class="ma__organization-navigation__items" aria-label="{{ organizationNavigation.orgNavTitle }}">
+    <ul role="menubar" class="ma__organization-navigation__items">
       {% for nav in organizationNavigation.orgNav %}
         {% if nav.text %}
           {% set href =  '#' ~ nav.id %}
