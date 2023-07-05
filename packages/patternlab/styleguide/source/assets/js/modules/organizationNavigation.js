@@ -60,12 +60,6 @@ export default (function (window, document, $, undefined) {
         stickyOnScroll();
       }
 
-
-      // Close items when closing menu.
-      $('.item-open').removeClass('item-open');
-      // Remove cloned button if present. 
-      $('.section-toggle').remove();
-
       // Lock body scroll on mobile open/close.
       $('body').toggleClass('scroll-disabled');
 
@@ -85,30 +79,6 @@ export default (function (window, document, $, undefined) {
       let searchAction = $(this).attr('action') + "&q=";
       let searchParams = $orgNavSearchInput.val();
       $(this).attr('action', searchAction + searchParams);
-    });
-
-    $('body').on('click', '.section-toggle', function () {
-      $('.section-toggle').remove();
-    });
-
-    $(".internal-link").on('focus', function (e) {
-      $('.item-open').removeClass('item-open');
-    });
-
-    $(".internal-link").on('click', function (e) {
-      // Close open menus and reset markup.
-      $('.menu-open').removeClass('menu-open');
-      $('.item-open').removeClass('item-open');
-      $('.form-open').removeClass('form-open');
-      $('.section-toggle').remove();
-
-      e.preventDefault();
-      let location = $(this).attr('href');
-      $('html, body').animate({ scrollTop: $(location).offset().top - 120 }, 1000);
-
-      if (feedbackButton.is(":hidden")) {
-        feedbackButton.show();
-      }
     });
 
     $(window).on("resize", function () {
