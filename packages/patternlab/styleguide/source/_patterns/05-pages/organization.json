@@ -49,10 +49,11 @@
     "orgId": "6676",
     "orgSearch": true,
     "orgNav": [
+
       {
-          "name": "What would you like to do",
-          "text": "Actions & Services",
-          "id": "actions"
+        "name": "Contact Us",
+        "text": "Contact",
+        "id": "contact"
       },
       {
           "name": "About the organzation",
@@ -60,24 +61,24 @@
           "id": "about"
       },
       {
+        "name": "What would you like to do",
+        "text": "Actions & Services",
+        "id": "actions"
+      },
+      {
           "name": "Our organzations",
           "text": "Ourt Organizations",
           "id": "organizations"
       },
       {
-        "name": "Contact Us",
-        "text": "Contact",
-        "id": "contact"
-      },
-      {
-          "name": "Events",
-          "text": "Events",
-          "id": "events"
-      },
-      {
           "name": "Recent news & announcements",
           "text": "News",
           "id": "news"
+      },
+      {
+        "name": "Events",
+        "text": "Events",
+        "id": "events"
       },
       {
           "name": "Locations",
