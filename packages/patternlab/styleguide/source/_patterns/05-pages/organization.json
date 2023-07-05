@@ -60,6 +60,16 @@
           "id": "about"
       },
       {
+          "name": "Our organzations",
+          "text": "Ourt Organizations",
+          "id": "organizations"
+      },
+      {
+        "name": "Contact Us",
+        "text": "Contact",
+        "id": "contact"
+      },
+      {
           "name": "Events",
           "text": "Events",
           "id": "events"
@@ -231,7 +241,7 @@
                 "title": "Contact Us",
                 "sub": "",
                 "color": "",
-                "id": "contact us",
+                "id": "contact",
                 "centered": ""
               },
               "image": {
@@ -375,7 +385,8 @@
                   "path": "@atoms/04-headings/heading-2.twig",
                   "data": {
                     "heading2": {
-                      "text": "Who We Serve"
+                      "text": "Who We Serve",
+                      "id": "about"
                     }
                   }
                 },
@@ -452,7 +463,7 @@
           "path": "@organisms/by-author/action-finder.twig",
           "data": {
             "actionFinder": {
-              "id": "GUID831741781374893",
+              "id": "actions",
               "bgWide": null,
               "bgNarrow": null,
               "color": "green",
@@ -633,7 +644,7 @@
                 "title": "Our Organizations",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "organizations",
                 "centered": false
               },
               "itemPluralName": "organizations",
@@ -726,7 +737,7 @@
                 "title": "Recent news & announcements",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "news",
                 "centered": ""
               },
               "items": [
@@ -992,7 +1003,7 @@
                 "title": "Upcoming Events",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "events",
                 "centered": "",
                 "titleContext": "from Executive Office of Health and Human Services"
               },
@@ -1014,7 +1025,7 @@
                 "title": "Locations",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "locations",
                 "centered": "",
                 "titleContext": "of Executive Office of Health and Human Services"
               },
@@ -1080,7 +1091,7 @@
                 "title": "Related Organizations on pilot.mass.gov",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "related",
                 "centered": ""
               },
               "links": [
