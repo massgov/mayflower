@@ -6,27 +6,22 @@
         "orgSearch": false,
         "orgNav": [
             {
-                "name": "What would you like to do",
                 "text": "Actions & Services",
                 "id": "actions"
             },
             {
-                "name": "About the organzation",
                 "text": "About",
                 "id": "about"
             },
             {
-                "name": "Events",
                 "text": "Events",
                 "id": "events"
             },
             {
-                "name": "Recent news & announcements",
                 "text": "News",
                 "id": "news"
             },
             {
-                "name": "Locations",
                 "text": "Locations",
                 "id": "locations"
             }
