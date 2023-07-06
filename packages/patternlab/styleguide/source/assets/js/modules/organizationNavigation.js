@@ -55,10 +55,12 @@ export default (function (window, document, $, undefined) {
 
       // when menu is open, always stick it to the top of the screen
       if($this.hasClass('menu-open')) {
+        $this.attr('aria-expanded', true);
         if (!$orgNav.hasClass('stuck')) {
           $orgNav.addClass('stuck')
         }
       } else {
+        $this.attr('aria-expanded', false);
       // when menu is closed, put it back to its original location. 
         stickyOnScroll();
       }
