@@ -1,16 +1,16 @@
-<nav class="ma__organization-navigation" aria-label="{{ organizationNavigation.orgNavTitle ~ 'in-page jump links'}}">
-  <div class="ma__organization-navigation__mobile-toggle">
+<nav class="ma__organization-navigation" aria-label="{{ organizationNavigation.orgNavTitle ~ 'in-page quick access links'}}">
+  <button class="ma__organization-navigation__mobile-toggle">
     <span class="mobile-toggle-label">{{ organizationNavigation.orgNavTitle }}
-      <span class="ma__visually-hidden">in-page jump links</span>
+      <span class="ma__visually-hidden">in-page quick access links</span>
     </span>
     <span class="mobile-toggle-icon"></span>
-  </div>
+  </button>
   <div class="ma__organization-navigation--inner-wrapper">
-    <ul role="menubar" class="ma__organization-navigation__items">
+    <ul class="ma__organization-navigation__items">
       {% for nav in organizationNavigation.orgNav %}
         {% if nav.text %}
           {% set href =  '#' ~ nav.id %}
-          <li class="ma__organization-navigation__item" role="menuitem" aria-haspopup="true">
+          <li class="ma__organization-navigation__item" aria-haspopup="true">
             <a href={{href}}>{{nav.text}}</a>
           </li>
         {% endif %}
