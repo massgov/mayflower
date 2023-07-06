@@ -1,0 +1,18 @@
+Changed:
+  - project: Patternlab
+    component: Heading1,Heading2,Heading3,Heading4,Heading5,Heading6
+    description: Add `id` prop. (#1819)
+    issue: DP-28670
+    impact: Minor
+Removed:
+  - project: Patternlab
+    component: OrgNavContactMenu,OrgNavContactRow,OrgNavIWantToMenu
+    description: Removed deprecated subcomponents used in the OrganizationNavigation. (#1819)
+    issue: DP-28670
+    impact: Minor
+Fixed:
+  - project: Assets, React
+    component: FilterBox
+    description: Fixed `.ma__visually-hidden` typo. (#1819)
+    issue: DP-28670
+    impact: Patch
