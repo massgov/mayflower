@@ -4,6 +4,11 @@ Changed:
     description: Add `id` prop. (#1819)
     issue: DP-28670
     impact: Minor
+  - project: Patternlab
+    component: OrganizationNavigation
+    description: Only allow jump links in organization nav, add `id` to each section to become jump link anchors. (#1819)
+    issue: DP-28670
+    impact: Minor
 Removed:
   - project: Patternlab
     component: OrgNavContactMenu,OrgNavContactRow,OrgNavIWantToMenu
@@ -11,6 +16,11 @@ Removed:
     issue: DP-28670
     impact: Minor
 Fixed:
+  - project: Patternlab
+    component: OrganizationNavigation
+    description: Improve desktop and mobile keyboard and screen reader user experience. Label elements correctly and concisely, make interactive elements keyboard accessible and announce the state to screen readers. (#1819)
+    issue: DP-28670
+    impact: Patch
   - project: Assets, React
     component: FilterBox
     description: Fixed `.ma__visually-hidden` typo. (#1819)
