@@ -1,3 +1,6 @@
+
+import focusTrapping from "../helpers/focusTrapping.js";
+
 export default (function (window, document, $, undefined) {
 
   $('.ma__organization-navigation').each(function () {
@@ -65,6 +68,19 @@ export default (function (window, document, $, undefined) {
 
       feedbackButton.toggle();
 
+    });
+
+    // org nav mobile modal keyboard nav
+    document.addEventListener("keydown", function (e) {
+      if ($mobileToggle.hasClass('menu-open')) {
+        focusTrapping({
+          focusableSelectors:
+            ".ma__organization-navigation__item > a, #organization-navigation-search, .ma__button-search--secondary",
+          closeButtonSelector: ".ma__organization-navigation__mobile-toggle.menu-open",
+          modalSelector: ".ma__organization-navigation",
+          keyEvent: e,
+        });
+      }
     });
 
     // Search form swing open/closed.
