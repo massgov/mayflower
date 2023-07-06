@@ -51,39 +51,32 @@
     "orgNav": [
 
       {
-        "name": "Contact Us",
         "text": "Contact",
         "id": "contact"
       },
       {
-          "name": "About the organzation",
-          "text": "About",
-          "id": "about"
+        "text": "About",
+        "id": "about"
       },
       {
-        "name": "What would you like to do",
         "text": "Actions & Services",
         "id": "actions"
       },
       {
-          "name": "Our organzations",
-          "text": "Our Organizations",
-          "id": "organizations"
+        "text": "Our Organizations",
+        "id": "organizations"
       },
       {
-          "name": "Recent news & announcements",
-          "text": "News",
-          "id": "news"
+        "text": "News",
+        "id": "news"
       },
       {
-        "name": "Events",
         "text": "Events",
         "id": "events"
       },
       {
-          "name": "Locations",
-          "text": "Locations",
-          "id": "locations"
+        "text": "Locations",
+        "id": "locations"
       }
   ]
   },
