@@ -114,38 +114,10 @@ export default (function (window, document, $, undefined) {
 
     $(window).on("resize", function () {
       let windowWidth = $(window).width();
-      let $contactGroups = $orgNav.find('.ma__org-nav-contact-us .ma__contact-group');
-
-      if (windowWidth > mobileBreak) {
-        // Check if already wrapped.
-        if ($('.wrappedGroup').length === 0) {
-
-          if (!$('.ma__contact-group__seeAll').length) {
-            // If no 'see all link', wrap address separately.
-            $('.ma__contact-group:first-child').addClass('wrappedGroup');
-            $contactGroups = $contactGroups.not(':first');
-          }
-          else {
-            $contactGroups.slice(0, 2).wrapAll("<div class='wrappedGroup' />");
-            $contactGroups = $contactGroups.slice(2);
-          }
-
-          if ($contactGroups.length < 3) {
-            $contactGroups.wrap("<div class='wrappedGroup' />");
-          }
-          else {
-            // Wrap contact groups in sets of 2 for layout.
-            for (let i = 0; i < $contactGroups.length; i += 2) {
-              $contactGroups.slice(i, i + 2).wrapAll("<div class='wrappedGroup' />");
-            }
-          }
-        }
-      }
-      else {
-        $('.wrappedGroup').find($contactGroups).unwrap();
+      // mobile only after window resize
+      if (windowWidth <= mobileBreak) {
         $('body').removeClass('scroll-disabled');
       }
-
     }).resize();
   });
 })(window, document, jQuery);
