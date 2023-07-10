@@ -113,8 +113,6 @@ export default (function (window, document, $, undefined) {
       }
     });
     
-
-    
     const orgNavRaw = ma.orgNav[0].orgNav;
     console.log(orgNavRaw);
 
@@ -128,7 +126,7 @@ export default (function (window, document, $, undefined) {
     };
     
     const observer = new IntersectionObserver(callback);
-    const orgNavData = orgNavRaw.forEach((el) => {
+    orgNavRaw.forEach((el) => {
       const orgNavTarget = document.getElementById(el.id);
       observer.observe(orgNavTarget)
     });
