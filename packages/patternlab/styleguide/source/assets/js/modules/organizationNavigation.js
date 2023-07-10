@@ -7,6 +7,7 @@ export default (function (window, document, $, undefined) {
     // Org Nav Wrapper.
     const $orgNav = $(this);
     const $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
+    const $menuItems = $orgNav.find(".ma__organization-navigation__item > a");
 
     const feedbackButton = $('body').find('.ma__fixed-feedback-button');
 
@@ -99,7 +100,7 @@ export default (function (window, document, $, undefined) {
       $(this).attr('action', searchAction + searchParams);
     });
 
-    $(".ma__organization-navigation__item > a").on('click', function (e) {
+    $menuItems.on('click', function (e) {
       // Close open menus and reset markup.
       $('.menu-open').removeClass('menu-open');
 
