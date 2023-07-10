@@ -11,7 +11,7 @@
     @media ($bp-large-min) {
       order: 1;
       display: flex;
-      flex-wrap: wrap;
+          flex-wrap: wrap;
       padding: 0;
       border-bottom: 0;
       position: static;
@@ -29,27 +29,6 @@
       padding: 0 20px;
     }
 
-    &.has-subnav {
-      background-color: transparent;
-      box-shadow: 0;
-      transition: 0.8s ease-out;
-
-      button {
-
-        @include ma-chevron;
-
-        &::after {
-          float: right;
-          border-color: $c-primary-alt;
-          transition: 0.5s ease-out;
-
-          @media ($bp-large-min) {
-            transform: translateY(20%) rotate(45deg);
-          }
-        }
-      }
-    }
-
     a {
       width: 100%;
       display: block;
@@ -61,11 +40,6 @@
       font-size: $fonts-xsmall;
       color: $c-black;
 
-      &.section-toggle {
-        background-color: $c-gray-lightest;
-        padding: 1rem 20px;
-      }
-
       @media ($bp-large-max) {
         text-transform: uppercase;
       }
@@ -76,85 +50,4 @@
       }
     }
   }
-
-  &__item.mobileLogin {
-    border-top: 1px solid $c-gray-light;
-
-    @media ($bp-large-min) {
-      display: none;
-    }
-
-    .ma__contact-group {
-      display: flex;
-      margin-top: 20px;
-
-      &__name {
-        display: inline-block;
-
-        span {
-          display: none;
-        }
-      }
-    }
-  }
-
-  &__subitems {
-    -ms-overflow-style: none;
-
-    @media ($bp-large-max) {
-      height: 200vh;
-      width: 100%;
-      overflow-y: auto;
-      position: absolute;
-      top: 0;
-      right: -100vw;
-      transition: right 0.5s ease;
-      z-index: $z-dropdown;
-      background-color: $c-white;
-
-      .item-open & {
-        right: 0;
-      }
-    }
-
-    @media ($bp-large-min) {
-      position: absolute;
-      left: 0;
-      max-height: 0;
-      top: -100vh;
-      overflow-y: hidden;
-      transition: 0.2s ease-in-out;
-      width: auto;
-      max-width: 100%;
-      background-color: $c-white;
-      box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
-      z-index: 0;
-    }
-  }
-
-
-
-  &__subitem {
-    padding: 0 20px;
-
-    @media ($bp-large-min) {
-      padding: 20px;
-    }
-
-    .ma__comp-heading {
-
-      @include ma-h4;
-    }
-  }
-}
-
-// IE hacks
-/* stylelint-disable selector-type-no-unknown */
-
-_:-ms-lang(x), .ma__org-nav-contact-us__contact-row .wrappedGroup {
-  flex: 1 1 auto;
-}
-
-_:-ms-lang(x), .ma__org-nav-i-want-to .ma__org-nav-i-want-to-section {
-  flex: 1 1 auto;
 }
