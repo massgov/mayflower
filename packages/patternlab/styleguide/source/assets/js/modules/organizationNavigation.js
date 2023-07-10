@@ -117,19 +117,39 @@ export default (function (window, document, $, undefined) {
     
     const orgNavRaw = ma.orgNav[0].orgNav;
     console.log(orgNavRaw);
-    console.log('test')
-    const orgNavData = orgNavRaw.map((el) => document.getElementById(el.id));
 
-    $(window).on("scroll", function () {
-      let windowWidth = $(window).width();
-      console.log(windowWidth)
-      console.log(orgNavData)
-
-      // // mobile only after window resize
-      // if (windowWidth <= mobileBreak) {
-      //   $('body').removeClass('scroll-disabled');
-      // }
+    let callback = (entries) => {
+      entries.forEach(entry => {
+        const targetDiv = document.querySelector(`[href="#${entry.target.id}"]`);
+        if (entry.isIntersecting) targetDiv.classList.add('orgNav-active')
+        const active = [...document.querySelectorAll('.orgNav-active')];
+        if (active.length > 1) active[dir === 1 ? 1 : 0].classList.remove("orgNav-active")
+      });
+    };
+    
+    const observer = new IntersectionObserver(callback);
+    const orgNavData = orgNavRaw.forEach((el) => {
+      const orgNavTarget = document.getElementById(el.id);
+      observer.observe(orgNavTarget)
     });
+
+    let dir = 0
+    window.onscroll = function(e) {
+      // print "false" if direction is down and "true" if up
+      dir = this.oldScroll > this.scrollY ? 1 : -1;
+      this.oldScroll = this.scrollY;
+    }
+
+    // $(window).on("scroll", function () {
+    //   let windowWidth = $(window).width();
+    //   console.log(windowWidth)
+    //   console.log(orgNavData)
+
+    //   // // mobile only after window resize
+    //   // if (windowWidth <= mobileBreak) {
+    //   //   $('body').removeClass('scroll-disabled');
+    //   // }
+    // });
 
     $(window).on("resize", function () {
       let windowWidth = $(window).width();
