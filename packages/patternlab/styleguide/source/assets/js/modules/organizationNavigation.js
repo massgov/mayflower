@@ -112,6 +112,24 @@ export default (function (window, document, $, undefined) {
         feedbackButton.show();
       }
     });
+    
+
+    
+    const orgNavRaw = ma.orgNav[0].orgNav;
+    console.log(orgNavRaw);
+    console.log('test')
+    const orgNavData = orgNavRaw.map((el) => document.getElementById(el.id));
+
+    $(window).on("scroll", function () {
+      let windowWidth = $(window).width();
+      console.log(windowWidth)
+      console.log(orgNavData)
+
+      // // mobile only after window resize
+      // if (windowWidth <= mobileBreak) {
+      //   $('body').removeClass('scroll-disabled');
+      // }
+    });
 
     $(window).on("resize", function () {
       let windowWidth = $(window).width();
