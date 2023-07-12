@@ -1,6 +1,6 @@
 Fixed:
   - project: Patternlab
     component: HeaderAlerts,OrgNavSearch
-    description: Specify to override default ios button colors, to make design consist between desktop and mobile. (#1822)
+    description: Specify to override default ios button colors, to keep design consistent between desktop and mobile. (#1822)
     issue: DP-28762
     impact: Patch
