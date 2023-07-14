@@ -64,6 +64,7 @@
 .ma__collapsible-header {
 
   &__button {
+    color: $c-black;
     background-color: $c-bg-section;
 
     .is-open & {
