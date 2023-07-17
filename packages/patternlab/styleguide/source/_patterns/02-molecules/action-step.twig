@@ -30,9 +30,9 @@
     <h{{ headingLevel }} class="ma__action-step__title {{ link ? 'ma__decorative-link' : ''}}">
 
       {% if actionStep.icon %}
-        <div class="ma__action-step__icon"
-          {% if actionStep.iconLabel %}aria-label="{{actionStep.iconLabel}}"{% endif %}>
+        <div class="ma__action-step__icon">
           {{ icon(actionStep.icon) }}
+          {% if actionStep.iconLabel %}<span class="ma__visually-hidden">{{actionStep.iconLabel}}</span>{% endif %}
         </div>
       {% endif %}
 
