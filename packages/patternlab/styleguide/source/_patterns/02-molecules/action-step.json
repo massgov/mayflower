@@ -3,6 +3,7 @@
     "accordion": false,
     "isExpanded": false,
     "accordionLabel": "Expand Generic steps on completing something",
+    "iconLabel": "",
     "icon": "circle-chevron",
     "title": "Generic",
     "level": "",

@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: ActionStep
+    description: A11y - aria-label on alert icons. (#1823)
+    issue: DP-28783
+    impact: Patch
