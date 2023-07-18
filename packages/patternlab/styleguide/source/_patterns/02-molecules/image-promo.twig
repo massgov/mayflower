@@ -1,8 +1,4 @@
-{# imagePromos.ariaHidden: When the linked heading and the linked image point to the same destination,
-
-   hide the linked image from the screen reader to prevent duplicate content. #}
-
-<section class="ma__image-promo{{ imagePromo.location.map ? ' js-location-listing-link' : '' }}">
+<li class="ma__image-promo{{ imagePromo.location.map ? ' js-location-listing-link' : '' }}">
   {% block imagePromoImage %}
     {% if imagePromo.image %}
       <div class="ma__image-promo__image"
@@ -17,6 +13,13 @@
           >
         {% endif %} #}
           {% set image = imagePromo.image %}
+          {% set image = image|merge({
+                          "src": image.src,
+                          "alt": "",
+                          "width": image.width,
+                          "height": image.height,
+                          "href": image.href
+                          }) %}
           {% include "@atoms/09-media/image.twig" %}
         {# {% if imagePromo.image.href %}
           </a>
@@ -91,42 +94,44 @@
       {% endif %}
     {% endblock %}
   </div>
-  <div class="ma__image-promo__contact">
-    {% block imagePromoPhone %}
-      {% if imagePromo.phone %}
-        <div class="ma__image-promo__phone">
-          {% if imagePromo.phone.label %}
-            <div class="ma__image-promo__label ma__image-promo__label--phone">
+  {% if imagePromo.phone or imagePromo.hours %}
+    <div class="ma__image-promo__contact">
+      {% block imagePromoPhone %}
+        {% if imagePromo.phone %}
+          <div class="ma__image-promo__phone">
+            {% if imagePromo.phone.label %}
+              <div class="ma__image-promo__label ma__image-promo__label--phone">
               {{ imagePromo.phone.label }}
-            </div>
-          {% endif %}
-          <a class="ma__image-promo__contact-info ma__image-promo__phone-link" href="tel:{{ imagePromo.phone.href }}">
-            {{ icon('phone') }}
-            {{ imagePromo.phone.text }}
-          </a>
-        </div>
-      {% endif %}
-    {% endblock %}
+              </div>
+            {% endif %}
+            <a class="ma__image-promo__contact-info ma__image-promo__phone-link" href="tel:{{ imagePromo.phone.href }}">
+              {{ icon('phone') }}
+              {{ imagePromo.phone.text }}
+            </a>
+          </div>
+        {% endif %}
+      {% endblock %}
 
-    {% block imagePromoHours %}
-      {% if imagePromo.hours %}
-        <div class="ma__image-promo__hours">
-          {% for hour in imagePromo.hours %}
-            <div class="ma__image-promo__hours-item">
-              {% if hour.label %}
-                <div class="ma__image-promo__label ma__image-promo__label--hours">
-                  {{ hour.label }}
-                </div>
-              {% endif %}
-              {% if hour.text %}
-                <div class="ma__image-promo__contact-info">
-                  {{ hour.text }}
-                </div>
-              {% endif %}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endblock %}
-  </div>
-</section>
+      {% block imagePromoHours %}
+        {% if imagePromo.hours %}
+          <div class="ma__image-promo__hours">
+            {% for hour in imagePromo.hours %}
+              <div class="ma__image-promo__hours-item">
+                {% if hour.label %}
+                  <div class="ma__image-promo__label ma__image-promo__label--hours">
+                    {{ hour.label }}
+                  </div>
+                {% endif %}
+                {% if hour.text %}
+                  <div class="ma__image-promo__contact-info">
+                    {{ hour.text }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endblock %}
+    </div>
+  {% endif %}
+</li>

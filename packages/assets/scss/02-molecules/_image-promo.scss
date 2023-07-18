@@ -9,6 +9,9 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
   display: flex;
   flex-wrap: wrap;
 
+  position: relative;
+  cursor: pointer;
+
   & + & {
     border-top-style: solid;
     border-top-width: 1px;
@@ -45,6 +48,15 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
 
     @include ma-h5;
     margin-bottom: 0;
+
+    & .ma__decorative-link .js-clickable-link::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
   }
 
   &__tags {
