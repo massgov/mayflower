@@ -4,6 +4,8 @@ export default (function (document) {
         // Check the unit has a link or not.
         let titleLink = promo.querySelector(".ma__image-promo__title .js-clickable-link");
         if (titleLink) {
+            promo.style.cursor = "pointer";
+
             let down, up, link = titleLink;
             promo.onmousedown = () => (down = +new Date());
             promo.onmouseup = () => {

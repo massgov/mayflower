@@ -5,25 +5,15 @@
         {% if imagePromo.image.width %}
           style="flex-basis: {{ imagePromo.image.width }}px"
         {% endif %}
-        {# {{ imagePromo.image.ariaHidden ? 'aria-hidden="true"' : '' }} #}
       >
-        {# {% if imagePromo.image.href %}
-          <a href="{{ imagePromo.image.href }}"
-          {{ imagePromo.image.ariaHidden ? 'tabindex="-1"' : '' }}
-          >
-        {% endif %} #}
-          {% set image = imagePromo.image %}
-          {% set image = image|merge({
-                          "src": image.src,
-                          "alt": "",
-                          "width": image.width,
-                          "height": image.height,
-                          "href": image.href
-                          }) %}
+        {% set image = imagePromo.image %}
+        {% set image = image|merge({
+                            "src": image.src,
+                            "alt": "",
+                            "width": image.width,
+                            "height": image.height
+                            }) %}
           {% include "@atoms/09-media/image.twig" %}
-        {# {% if imagePromo.image.href %}
-          </a>
-        {% endif %} #}
         {% if imagePromo.tags %}
           <div class="ma__image-promo__tags">
             {% for tag in imagePromo.tags %}
@@ -87,7 +77,9 @@
 
     {% block imagePromoLink %}
       {% if imagePromo.link.text and not imagePromo.location.text %}
-        <div class="ma__image-promo__link">
+        {# Hide more link from AT users.
+           This link is redundant since the entire container is clickable to go to the same desitnation. #}
+        <div class="ma__image-promo__link" aria-hidden="true">
           {% set decorativeLink = imagePromo.link %}
           {% include "@atoms/decorative-link.twig" %}
         </div>
