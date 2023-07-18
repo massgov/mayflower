@@ -8,11 +8,11 @@
       >
         {% set image = imagePromo.image %}
         {% set image = image|merge({
-                            "src": image.src,
-                            "alt": "",
-                            "width": image.width,
-                            "height": image.height
-                            }) %}
+                          "src": image.src,
+                          "alt": "",
+                          "width": image.width,
+                          "height": image.height
+          }) %}
           {% include "@atoms/09-media/image.twig" %}
         {% if imagePromo.tags %}
           <div class="ma__image-promo__tags">
