@@ -23,10 +23,8 @@
           {% for page in suggestedPages.pages|slice(0,3) %}
             <div class="ma__suggested-pages__item ma__suggested-pages__item--suggested">
               <figure class="ma__suggested-pages__item--suggested-figure">
-                <a href="{{ page.link.href }}" title="{{ page.link.info }}">
-                  {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
-                  {% include "@atoms/09-media/image.twig" %}
-                </a>
+                {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
+                {% include "@atoms/09-media/image.twig" %}
                 {% set decorativeLink = page.link %}
                 {% include "@atoms/decorative-link.twig" %}
               </figure>
