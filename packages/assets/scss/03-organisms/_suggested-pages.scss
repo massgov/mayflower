@@ -55,11 +55,17 @@
 
     margin: 0 0 0 0;
     padding: 0 0 0 0;
+    list-style: none;
   }
 
   &__item {
     margin-bottom: 30px;
     width: 100%;
+
+    &::after {
+      content: "";
+      position: relative;
+    }
   }
 
   &__item--guide {
@@ -88,6 +94,15 @@
     a {
       height: 100%;
       width: 100%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
     }
 
     &--suggested {
