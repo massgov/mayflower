@@ -1,6 +1,0 @@
-Added:
-  - project: Assets, Patternlab
-    component: Icons
-    description: Add lg-form and lg-checklist icons. (#1820)
-    issue: DP-28600
-    impact: Minor
