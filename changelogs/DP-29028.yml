@@ -1,0 +1,6 @@
+Added:
+  - project: React
+    component: CalloutLink
+    description: Add `achorAttributes` prop to allow passing additional attributes to the anchor link. (#1825)
+    issue: DP-29028
+    impact: Minor
