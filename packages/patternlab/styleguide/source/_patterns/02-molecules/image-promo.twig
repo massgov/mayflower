@@ -75,16 +75,15 @@
       {% endif %}
     {% endblock %}
 
-    {% block imagePromoLink %}
+    {# Remove more link as a redundant item, but keep the code for now in case its needs arise in the future. #}
+    {# {% block imagePromoLink %}
       {% if imagePromo.link.text and not imagePromo.location.text %}
-        {# Hide more link from AT users.
-           This link is redundant since the entire container is clickable to go to the same desitnation. #}
-        <div class="ma__image-promo__link" aria-hidden="true">
+        <div class="ma__image-promo__link">
           {% set decorativeLink = imagePromo.link %}
           {% include "@atoms/decorative-link.twig" %}
         </div>
       {% endif %}
-    {% endblock %}
+    {% endblock %} #}
   </div>
   {% if imagePromo.phone or imagePromo.hours %}
     <div class="ma__image-promo__contact">
