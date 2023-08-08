@@ -1,15 +1,17 @@
 {# backward compatible for version 5.5 #}
 {% if keyActions.sidebarHeading %}
-  {% set keyActions = keyActions|merge({"compHeading": { "title": keyActions.sidebarHeading.title, "sidebar" : true }}) %}
+  {% set keyActions = keyActions|merge({"compHeading": {"sidebar" : true }}) %}
 {% endif %}
 
 <section class="ma__key-actions">
   <div class="ma__key-actions__container">
     {% if keyActions.compHeading %}
       {% set compHeading = keyActions.compHeading %}
+      {% set headingLevel = compHeading.level ? : 2 %}
+      {% set compHeading = compHeading|merge({'level': headingLevel }) %}
       {% include "@atoms/04-headings/comp-heading.twig" %}
     {% endif %}
-    <div class="ma__key-actions__items"{% if keyActions.compHeading.id %} aria-labelledby="{{ keyActions.compHeading.id }}"{% endif %}>
+    <div class="ma__key-actions__items">
       {% for link in keyActions.links %}
         {% if link.image %}
           {% set illustratedLink = link %}
@@ -22,4 +24,3 @@
     </div>
   </div>
 </section>
-
