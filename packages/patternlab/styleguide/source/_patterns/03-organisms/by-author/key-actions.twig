@@ -7,8 +7,8 @@
   <div class="ma__key-actions__container">
     {% if keyActions.compHeading %}
       {% set compHeading = keyActions.compHeading %}
-      {% set sub = compHeading.sub ? : false %}
-      {% set compHeading = compHeading|merge({'sub': sub }) %}
+      {# {% set sub = compHeading.sub ? : false %}
+      {% set compHeading = compHeading|merge({'sub': sub }) %} #}
       {% include "@atoms/04-headings/comp-heading.twig" %}
     {% endif %}
     <div class="ma__key-actions__items">
