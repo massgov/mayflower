@@ -32,12 +32,12 @@ $c-font-medium:          $c-gray !default;
 
 $c-font-heading:         $c-black !default;
 $c-font-inverse:         $c-white !default;
-$c-font-link:            $c-bay-blue !default;
+$c-font-link:            #1aeaff !default;//$c-bay-blue !default;
 $c-font-error:           $c-error !default;
 
 $c-bg-comp-title:        $c-gray-dark !default;
 $c-bg-subtle:            $c-gray-lightest !default;
-$c-bg-section:           $c-gray-lightest !default;
+$c-bg-section:           #202020;// $c-gray-lightest !default;
 
 $c-bd-divider:           $c-gray-light !default;
 $c-bd-divider-dark:      $c-gray-dark !default;

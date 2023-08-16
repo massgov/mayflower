@@ -89,7 +89,7 @@
   &__form {
     display: flex;
     margin: 0 auto 30px;
-    
+
     @media ($bp-medium-min) {
       margin: 0 auto 60px;
     }
@@ -183,7 +183,7 @@
     margin-right: auto;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 20px;
-    
+
     @media ($bp-medium-min) {
       padding: 30px 60px;
     }
@@ -224,6 +224,9 @@
     @include ma-container;
     z-index: 3;
     width: 100%;
+
+    // TEST STYLE
+    display: none;
   }
 
   // Start backward compatible with v5.7 - converted image-credit to new Banner Credit molecule
@@ -282,6 +285,10 @@
   background-position: center center;
   background-size: cover;
   position: relative;
+
+  // TEST STYLE
+  background-color: #505050;
+  background-image: none;
 
   &:after {
     background-color: rgba($c-black, .6);
