@@ -296,7 +296,7 @@
 
     h1 {
       color: $c-font-inverse;
-      font-weight: $fonts-lighter;
+      font-weight: $fonts-light;
     }
 
     &__sub-title {
@@ -309,7 +309,7 @@
 
   &__title {
     color: $c-font-inverse;
-    font-weight: $fonts-lighter;
+    font-weight: $fonts-light;
   }
 
   // backward compatible with v5.6 - intro was replaced with Page Intro
@@ -323,30 +323,30 @@
 
     input {
       background-color: rgba(255, 255, 255, 0.75);
-      font-weight: $fonts-lighter;
+      font-weight: $fonts-light;
     }
 
     &::-webkit-input-placeholder {
       color: $c-font-medium;
-      font-weight: $fonts-lighter;
+      font-weight: $fonts-light;
       font-style: italic;
     }
 
     &:-moz-placeholder { /* Firefox 18- */
       color: $c-font-medium;
-      font-weight: $fonts-lighter;
+      font-weight: $fonts-light;
       font-style: italic;
     }
 
     &::-moz-placeholder {  /* Firefox 19+ */
       color: $c-font-medium;
-      font-weight: $fonts-lighter;
+      font-weight: $fonts-light;
       font-style: italic;
     }
 
     &:-ms-input-placeholder {
       color: $c-font-medium;
-      font-weight: $fonts-lighter;
+      font-weight: $fonts-light;
       font-style: italic;
     }
   }
