@@ -52,11 +52,20 @@
     @include clearfix;
     display: flex;
     flex-wrap: wrap;
+
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    list-style: none;
   }
 
   &__item {
     margin-bottom: 30px;
     width: 100%;
+
+    &::after {
+      content: "";
+      position: relative;
+    }
   }
 
   &__item--guide {
@@ -85,6 +94,15 @@
     a {
       height: 100%;
       width: 100%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
     }
 
     &--suggested {
@@ -107,6 +125,19 @@
         &-figure {
           max-width: 230px;
           margin: auto;
+          position: relative;
+
+          .ma__decorative-link {
+
+            .js-clickable-link:after {
+              position: absolute;
+              content: "";
+              top: 0;
+              right: 0;
+              left: 0;
+              bottom: 0;
+            }
+          }
         }
 
         &:nth-child(2):not(:nth-last-child(3n+1)) {
