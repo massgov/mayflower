@@ -151,7 +151,7 @@
   }
 
   &--no-background {
-    border-bottom: 1px solid $c-gray-light;
+    border-bottom: 1px solid #707070;//$c-gray-light;
     margin-top: 4rem;
 
     .ma__toc--hierarchy {

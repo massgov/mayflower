@@ -87,7 +87,7 @@ $breadcrumbs-scrollbar-height: 12px;
       margin-left: 0;
       margin-right: 3px;
       width: 7px;
-      border-color: $c-gray-dark;
+      border-color: #989898;//$c-gray-dark;
     }
 
     &:first-child {
@@ -120,7 +120,7 @@ $breadcrumbs-scrollbar-height: 12px;
     }
 
     button {
-      border: 2px solid $c-bay-blue-50-tint;
+      border: 2px solid rgba(26,234,255, .5);//$c-bay-blue-50-tint;
       background: transparent;
       width: 27px;
       height: 25px;
@@ -135,7 +135,7 @@ $breadcrumbs-scrollbar-height: 12px;
     }
 
     a, button {
-      color: $c-primary;
+      color: #1aeaff;// $c-primary;
       display: inline-block;
       font-size: $fonts-xsmall;
       line-height: 1;
@@ -144,7 +144,7 @@ $breadcrumbs-scrollbar-height: 12px;
       text-decoration: none;
 
       &:hover {
-        text-shadow: 0px 0px 0px $c-primary ;
+        text-shadow: 0px 0px 0px #1aeaff;// $c-primary ;
       }
     }
 
@@ -154,26 +154,26 @@ $breadcrumbs-scrollbar-height: 12px;
       transition: border 0.4s;
 
       &:hover {
-        border: 2px solid $c-primary;
+        border: 2px solid #1aeaff;// $c-primary;
       }
     }
 
     a {
-      box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
+      box-shadow: inset 0 0 white, inset 0px -1px rgba(#1aeaff, .6);//($c-primary, 0.4);
 
       svg {
-        fill: $c-primary;
-        stroke: $c-primary;
+        fill: #1aeaff;// $c-primary;
+        stroke: #1aeaff;// $c-primary;
         transition: fill 0.4s, stroke 0.4s;
         will-change: fill, stroke;
       }
 
       &:hover {
-        box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary, 0.7);
+        box-shadow: inset 0 0 white, inset 0px -2px rgba(#1aeaff, .7);//$c-primary, 0.7);
 
         svg {
-          fill: $c-bay-blue-50-tint;
-          stroke: $c-bay-blue-50-tint;
+          fill: rgba(26,234,255, .5);//$c-bay-blue-50-tint;
+          stroke: rgba(26,234,255, .5);//$c-bay-blue-50-tint;
         }
       }
 
@@ -276,10 +276,10 @@ $breadcrumbs-scrollbar-height: 12px;
 .ma__breadcrumbs {
 
   @media ($bp-medium-min) {
-    background-color: $c-bg-section;
+    background-color: #121212;//$c-bg-section;
 
     &__items {
-      border-top-color: $c-bd-divider;
+      border-top-color: #707070;//$c-bd-divider;
     }
   }
 
@@ -289,24 +289,24 @@ $breadcrumbs-scrollbar-height: 12px;
 
   &__sub-items {
     background-color: $c-white;
-    box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
+    box-shadow: 0 0.25rem 0.5rem rgba(#f2f2f2, .25);//$c-black, 0.25);
   }
 
   &--light {
-    background-color: $c-white;
+    background-color: #121212;//$c-white;
   }
 
   &--light &__items {
 
     @media ($bp-medium-min) {
-      border-bottom-color: $c-bd-divider;
+      border-bottom-color: #707070;//$c-bd-divider;
     }
   }
 
   &--light &__container {
 
     @media ($bp-medium-max) {
-      border-bottom-color: $c-bd-divider;
+      border-bottom-color: #707070;//$c-bd-divider;
     }
   }
 }

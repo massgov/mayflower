@@ -191,7 +191,7 @@ body.show-menu {
     &--mobile {
       padding: 20px;
       width: 100%;
-      border-bottom: 2px solid $c-bd-divider;
+      border-bottom: 2px solid #707070;//$c-bd-divider;
 
       a img {
         width: 45px;
@@ -258,7 +258,7 @@ body.show-menu {
   }
 
   &__nav-container {
-    background-color: $c-gray-lightest;
+    background-color: #141414;//$c-gray-lightest;
     height: calc(100vh - 44px);
     top: 44px;
     overflow-y: auto;
@@ -513,12 +513,23 @@ body.show-menu {
 
           &__item {
 
-            border-bottom: 2px solid $c-bd-divider;
+            border-bottom: 2px solid #707070;//$c-bd-divider;
             padding: 0;
 
             &:hover {
-              background-color: $c-gray-lightest;
+              background-color: #515151;//$c-gray-lightest;
               box-shadow: none;
+            }
+          }
+
+          .ma__utility-nav__translate {
+
+            svg {
+              fill: #A1BBD2;
+            }
+
+            a {
+              color: #f2f2f2;
             }
           }
 
@@ -535,12 +546,13 @@ body.show-menu {
             text-transform: uppercase;
             transition: all 0.4s ease;
             text-align: left;
-            background-color: $c-gray-lightest;
+            background-color: #141414;//$c-gray-lightest;
             width: 100%;
+            color: #f2f2f2;
 
-            &:focus {
-              background-color: $c-bd-divider;
-              outline: 2px solid $c-black;
+            &:focus, &:hover {
+              background-color: #515151;//$c-bd-divider;
+              // outline: 2px solid $c-black;
             }
 
             .toggle-indicator {
@@ -559,6 +571,7 @@ body.show-menu {
               top: auto;
               left: auto;
               transform: none;
+              fill: #A1BBD2;
             }
 
             & > span {
@@ -590,7 +603,7 @@ body.show-menu {
             position: relative;
             top: auto;
             right: auto;
-            color: $c-black;
+            color: #f2f2f2;//$c-black;
             z-index: $z-overlay;
 
             transition: max-height 0.6s ease-in-out;
@@ -613,7 +626,7 @@ body.show-menu {
 
             & .ma__utility-nav__container {
               padding: 0;
-              background-color: $c-gray-lightest;
+              background-color: #141414;//$c-gray-lightest;
               overflow-y: visible;
               max-height: auto;
 
@@ -637,8 +650,8 @@ body.show-menu {
             }
 
             & .ma__utility-panel {
-              background-color: $c-gray-lightest;
-              color: $c-black;
+              background-color: #141414;//$c-gray-lightest;
+              color: #f2f2f2;//$c-black;
 
               @include ma-reset-list;
 
@@ -652,7 +665,7 @@ body.show-menu {
 
               & .ma__rich-text {
                 padding-top: 0.8em;
-                border-top: 2px solid $c-bd-divider;
+                border-top: 2px solid #707070;//$c-bd-divider;
               }
             }
 
@@ -663,7 +676,7 @@ body.show-menu {
               position: relative;
               line-height: 1.33;
               padding: 0 20px 10px 20px;
-              color: $c-black;
+              color: #f2f2f2;//$c-black;
               margin-bottom: 0;
             }
 
@@ -672,8 +685,8 @@ body.show-menu {
             }
 
             & .ma__utility-panel__item {
-              background-color: $c-gray-lightest;
-              color: $c-black;
+              background-color: #141414;//$c-gray-lightest;
+              color: #f2f2f2;//$c-black;
               margin: 0;
               display: block;
             }
@@ -694,7 +707,7 @@ body.show-menu {
               font-weight: 400;
               line-height: 1.33;
               padding: 10px 20px 10px 30px;
-              color: $c-black;
+              color: #f2f2f2;//$c-black;
 
               &:hover {
                 text-decoration: underline;

@@ -1,0 +1,183 @@
+{
+  "pageBanner": {
+    "size": "full",
+    "icon": "",
+    "color": "white",
+    "underline": true,
+    "title": "New Topics",
+    "description": ""
+  },
+  "stackedRowSection": {
+    "pageContent": [
+      {
+        "path": "@organisms/by-template/table-of-contents-hierarchy.twig",
+        "data": {
+          "tableOfContentsHierarchy": {
+            "title": {
+              "id": "State Parks & Recreation",
+              "text": "For Workers",
+              "colored": false
+            },
+            "background": "none",
+            "sections": [
+              {
+                "text": "Unemployment Insurance (UI) for Workers ",
+                "href": "#"
+              },
+              {
+                "text": "Pandemic Unemployment Assistance (PUA) ",
+                "href": "#"
+              },
+              {
+                "text": "DUA Multilingual Services",
+                "href": "#"
+              },
+              {
+                "text": "WorkShare for Workers",
+                "href": "#"
+              },
+              {
+                "text": "Training & Assistance",
+                "linkItems": [
+                  {
+                    "text": "Unemployment Insurance (UI) for Employers",
+                    "href": "#"
+                  },
+                  {
+                    "text": "WorkShare for Employers",
+                    "href": "#"
+                  },
+                  {
+                    "title": "For Workers",
+                    "subItems": [
+                      {
+                        "text": "Training Opportunities Program (TOP)",
+                        "href": "#"
+                      },
+                      {
+                        "text": "MassHire Career Centers",
+                        "href": "#"
+                      },
+                      {
+                        "text": "Vocational Rehabilitation",
+                        "href": "#"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "For Employers",
+                    "subItems": [
+                      {
+                        "text": "Prevent layoffs with Rapid Response",
+                        "href": "#"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "path": "@organisms/by-author/related-orgs-and-topics.twig",
+        "data": {
+          "relatedOrgsAndTopics": {
+            "header": {
+              "title": "Related Information",
+              "level": "2"
+            },
+            "columns": [
+              {
+                "column_title": "Organizations",
+                "linkList": {
+                  "compHeading": {
+                    "title": "Organizations",
+                    "sidebar": true,
+                    "level": "3"
+                  },
+                  "stacked": true,
+                  "links": [
+                    {
+                      "href": "#",
+                      "text": "Related Organization #1"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Related Organization #2"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Related Organization #3"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Executive Office of Health and Human Services"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Related Organization #5"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Related Organization #6"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Related Organization #7"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Board of Registration in Allied Mental Health and Human Services Professions"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Related Organization #9"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Board of Registration of Professional Engineers and Professional Land Surveyors "
+                    },
+                    {
+                      "href": "#",
+                      "text": "Massachusetts Commission on Lesbian, Gay, Bisexual, Transgender, Queer and Questioning Youth"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Related Organization #12"
+                    }
+                  ]
+                }
+              },
+              {
+                "column_title": "Topics",
+                "linkList": {
+                  "compHeading": {
+                    "title": "Topics",
+                    "sidebar": true,
+                    "level": "3"
+                  },
+                  "stacked": true,
+                  "links": [
+                    {
+                      "href": "#",
+                      "text": "Related Topic #1"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Related Topic #2"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Related Topic #3"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
