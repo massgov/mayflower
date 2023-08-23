@@ -21,20 +21,25 @@
             "background": "none",
             "sections": [
               {
-                "text": "Unemployment Insurance (UI) for Workers ",
-                "href": "#"
-              },
-              {
-                "text": "Pandemic Unemployment Assistance (PUA) ",
-                "href": "#"
-              },
-              {
-                "text": "DUA Multilingual Services",
-                "href": "#"
-              },
-              {
-                "text": "WorkShare for Workers",
-                "href": "#"
+                "text": "Unemproyment",
+                "linkItems": [
+                  {
+                    "text": "Unemployment Insurance (UI) for Workers ",
+                    "href": "#"
+                  },
+                  {
+                    "text": "Pandemic Unemployment Assistance (PUA) ",
+                    "href": "#"
+                  },
+                  {
+                    "text": "DUA Multilingual Services",
+                    "href": "#"
+                  },
+                  {
+                    "text": "WorkShare for Workers",
+                    "href": "#"
+                  }
+                ]
               },
               {
                 "text": "Training & Assistance",
@@ -70,10 +75,18 @@
                       {
                         "text": "Prevent layoffs with Rapid Response",
                         "href": "#"
+                      },
+                      {
+                        "text": "Another sub item",
+                        "href": "#"
                       }
                     ]
                   }
                 ]
+              },
+              {
+                "text": "Executive Summary",
+                "href": "#"
               }
             ]
           }
