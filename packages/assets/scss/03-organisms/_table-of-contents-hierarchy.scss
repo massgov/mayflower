@@ -44,7 +44,7 @@
     border: 2px solid $c-gray-light;
 
     > * + * {
-      border-top: 1px solid $c-gray-light;
+      border-top: 1px solid #707070;//$c-gray-light;
     }
 
     // Visual cue for the clickable area.
@@ -55,7 +55,7 @@
       a {
         border-bottom-width: 3px;
         border-bottom-style: solid;
-        border-bottom-color: rgba(20, 85, 143, 0.5);
+        border-bottom-color: rgba($c-font-link,.6);//20, 85, 143, 0.5);
       }
     }
 
@@ -77,8 +77,8 @@
       margin-bottom: 0;
       display: none;
       padding: 20px 0 10px 20px;
-      background: $c-white;
-      border-top: 2px solid $c-gray-light;
+      background: #121212;//$c-white;
+      border-top: 2px solid #707070;//$c-gray-light;
 
       // Visual cue for the clickable area.
 
@@ -89,7 +89,7 @@
       a:hover {
         border-bottom-width: 3px;
         border-bottom-style: solid;
-        border-bottom-color: rgba(20, 85, 143, 0.5);
+        border-bottom-color: rgba($c-font-link,.6);//20, 85, 143, 0.5);
       }
 
       li {
@@ -126,12 +126,12 @@
       text-align: left;
       width: 100%;
       font-weight: $fonts-bolder;
-      color: $c-primary;
+      color: #1aeaff;//$c-primary;
 
       &:after {
         font-size: $fonts-4xlarge;
         content: "+";
-        color: $c-primary-alt;
+        color: #2cd26e;//$c-primary-alt;
         line-height: .65em;
         overflow: hidden;
         position: absolute;

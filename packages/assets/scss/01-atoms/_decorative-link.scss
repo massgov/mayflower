@@ -8,16 +8,16 @@
   width: 100%;
 
   a:hover {
-    border-bottom-color: rgba($c-font-link,.5);
+    border-bottom-color: rgba($c-font-link,.6);//.5);
   }
 
   a:focus {
     // important needed to overwrite the focus border color
-    border-bottom-color: rgba($c-font-link,.5) !important;
+    border-bottom-color: rgba($c-font-link,.6);//.5) !important;
   }
 
   svg {
-    fill: rgba($c-font-link,.5);
+    fill: rgba($c-font-link,.7);//5);
   }
 
   &.button-link {
