@@ -181,7 +181,7 @@
   &__inner {
 
     @media ($bp-x-small-min) {
-      background-color: $c-bg-section;
+      background-color: #303030;//$c-bg-section;
     }
   }
 
@@ -312,7 +312,7 @@
     left: 0;
     transition: height 0.1s ease-out;
     width: 100%;
-    background-color: $c-bg-subtle;
+    background-color: #404040;//$c-bg-subtle;
     z-index: $z-sticky-content;
 
     @media ($bp-header-toggle-max) {
@@ -364,6 +364,8 @@
       height: 47px;
       position: relative;
 
+      background: #dfdfdf;// TEST STYLE
+
       svg {
         fill: rgba($c-primary, 0.5);
         transform: rotate(-90deg);
@@ -379,9 +381,9 @@
       span {
         display: block;
         text-transform: uppercase;
-        font-size: $fonts-3xsmall;
+        font-size: 1.2rem;//$fonts-3xsmall;
         font-weight: $fonts-bold;
-        color: $c-primary;
+        color: #104472;//$c-primary;
         letter-spacing: $letter-spacing-large;
         margin-top: -4px;
       }
@@ -426,7 +428,7 @@
     position: relative;
     width: 35px;
     height: 35px;
-    background-color: $c-primary;
+    background-color: #14558f;//$c-primary;
     color: $c-white;
 
     .sticky-nav-open & {
@@ -436,12 +438,13 @@
     span {
       display: block;
       font-size: $fonts-2xlarge;
-      font-weight: 200;
+      font-weight: 400;//200;
       left: 50%;
       line-height: 0;
       position: absolute;
       top: 45%;
       transform: translate(-50%, -50%);
+
     }
   }
 }
@@ -454,7 +457,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: $fonts-bold;
-  color: $c-black;
+  color: #f2f2f2;//$c-black;
   margin-bottom: 0;
   display: none;
 
@@ -471,7 +474,7 @@
   max-width: 550px;
   top: 0;
   z-index: 99;
-  background-color: $c-white;
+  background-color: #121212;//$c-white;
   transition: right 0.3s ease-out;
 
   overflow: auto;
@@ -497,8 +500,8 @@
     font-weight: $fonts-normal;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
-    color: $c-gray-dark;
-    background-color: $c-white;
+    color: #dcdcdc;//$c-gray-dark;
+    background-color: #121212;//$c-white;
     height: 65px;
     padding: 10px 20px;
     width: 100%;
