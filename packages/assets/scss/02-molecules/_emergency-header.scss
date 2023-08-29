@@ -33,11 +33,11 @@
     flex-basis: auto;
     letter-spacing: $letter-spacing-large;
     white-space: nowrap;
-    color: rgba($c-font-base,.8);
+    color: rgba(#141414,.8);//$c-font-base,.8);
     font-weight: $fonts-bold;
     border-right-width: 1px;
     border-right-style: solid;
-    border-right-color: rgba($c-font-base,.3);
+    border-right-color: rgba(#141414,.3);//$c-font-base,.3);
     padding-right: .5rem;
     margin-right: .5rem;
 
@@ -82,7 +82,7 @@
     @media ($bp-small-max) {
       font-size: 1.2rem;
     }
-    
+
     @include ma-button-reset;
 
     @include ma-chevron;
@@ -149,9 +149,9 @@
   &__title {
 
     .ma__content-link {
-      text-decoration: none;  
+      text-decoration: none;
     }
-    
+
 
     .ma__decorative-link {
       display: inline;

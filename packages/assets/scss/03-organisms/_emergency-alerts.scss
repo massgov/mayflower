@@ -63,7 +63,7 @@ $colors: (
   }
 
   &__content {
-    background-color: mix(#fff, $c-warning, 90%);
+    background-color: mix(#121212, $c-warning, 90%);//mix(#fff, $c-warning, 90%);
 
     .js & {
       display: none;
