@@ -9,8 +9,8 @@
   flex-flow: column wrap;
   justify-content: center;
   padding: 15px 20px;
-  background-color: mix(#fff, $c-font-link,90%);
-  border-color: mix(#fff, $c-font-link,50%);
+  background-color: mix(#121212, $c-font-link,90%);//mix(#fff, $c-font-link,90%);
+  border-color: mix(#121212, $c-font-link,50%);//mix(#fff, $c-font-link,50%);
   box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   text-decoration: none;
 
