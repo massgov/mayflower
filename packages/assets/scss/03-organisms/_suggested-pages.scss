@@ -133,6 +133,10 @@
         margin-top: 10px;
       }
 
+      &-figure {
+        position: relative;
+      }
+
       @media ($bp-x-large-min) {
 
         @include span-columns(4 of 13);
@@ -144,7 +148,6 @@
         &-figure {
           max-width: 230px;
           margin: auto;
-          position: relative;
 
           .ma__decorative-link {
 
