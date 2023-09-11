@@ -52,27 +52,36 @@
     @include clearfix;
     display: flex;
     flex-wrap: wrap;
+
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    list-style: none;
   }
 
   &__item {
     margin-bottom: 30px;
     width: 100%;
-  }
 
-  &__item--guide {
-
-    @media (min-width: 750px) and ($bp-x-large-max) {
-
-      @include span-columns(4 of 8);
-
-      @include omega(2n);
+    &::after {
+      content: "";
+      position: relative;
     }
 
-    @media ($bp-x-large-min) {
+    &--guide {
 
-      @include span-columns(4);
-
-      @include omega(3n);
+      @media (min-width: 750px) and ($bp-x-large-max) {
+  
+        @include span-columns(4 of 8);
+  
+        @include omega(2n);
+      }
+  
+      @media ($bp-x-large-min) {
+  
+        @include span-columns(4);
+  
+        @include omega(3n);
+      }
     }
   }
 
@@ -81,10 +90,38 @@
   }
 
   &__item {
+    margin-bottom: 30px;
+    width: 100%;
 
     a {
       height: 100%;
       width: 100%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    &--guide {
+
+      @media (min-width: 750px) and ($bp-x-large-max) {
+  
+        @include span-columns(4 of 8);
+  
+        @include omega(2n);
+      }
+  
+      @media ($bp-x-large-min) {
+  
+        @include span-columns(4);
+  
+        @include omega(3n);
+      }
     }
 
     &--suggested {
@@ -94,6 +131,10 @@
         font-size: $fonts-larger;
         line-height: 1.2;
         margin-top: 10px;
+      }
+
+      &-figure {
+        position: relative;
       }
 
       @media ($bp-x-large-min) {

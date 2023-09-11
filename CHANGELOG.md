@@ -1,6 +1,17 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.7.0 (7/26/2023)
+### Added 
+- (Assets, Patternlab) [Icons] DP-28600: Add lg-form and lg-checklist icons. (#1820)
+- (React) [CalloutLink] DP-29028: Add `achorAttributes` prop to allow passing additional attributes to the anchor link. (#1825)
+
+### Fixed 
+- (Assets) [HeaderAlerts,OrgNavSearch,CollapsibleHeader] DP-28762: Specify to override default ios button colors, to keep design consistent between desktop and mobile. (#1822)
+
+### Changed 
+- (Patternlab) [ActionStep] DP-28783: A11y - aria-label on alert icons. (#1823)
+
 ## 12.6.0 (6/29/2023)
 ### Added 
 - (Starters) [Formstack] DP-28028: Style Formstack save incomplete and pagination components for Mayflower theme. (#1794)

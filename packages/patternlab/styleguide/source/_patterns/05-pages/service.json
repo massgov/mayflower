@@ -84,7 +84,7 @@
     "keyActions": {
       "compHeading": {
         "title": "First time?",
-        "sub": true
+        "level": 2
       },
       "links": [
         {

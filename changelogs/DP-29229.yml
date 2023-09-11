@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: Iframe
+    description: Added loading="lazy" attribute to iframes. (#1829)
+    issue: DP-29229
+    impact: Minor

@@ -7,7 +7,7 @@
   <div class="ma__suggested-pages__container">
     <div class="ma__suggested-pages__inner-container">
       <h2 class="ma__suggested-pages__title">{{ suggestedPages.title }}{% if suggestedPages.titleContext %}<span class="visually-hidden"> {{suggestedPages.titleContext}}</span>{% endif %}</h2>
-      <div class="ma__suggested-pages__items">
+      <ul class="ma__suggested-pages__items">
         {% if suggestedPages.view == "guide" %}
           {% for page in suggestedPages.pages %}
             {% set illustratedLink = {
@@ -15,25 +15,23 @@
               "text": page.link.text,
               "info": page.link.info,
               "image": page.image.src ? : page.image } %}
-            <div class="ma__suggested-pages__item ma__suggested-pages__item--guide">
+            <li class="ma__suggested-pages__item ma__suggested-pages__item--guide">
               {% include "@molecules/illustrated-link.twig" %}
-            </div>
+            </li>
           {% endfor %}
         {% else %}
           {% for page in suggestedPages.pages|slice(0,3) %}
-            <div class="ma__suggested-pages__item ma__suggested-pages__item--suggested">
+            <li class="ma__suggested-pages__item ma__suggested-pages__item--suggested">
               <figure class="ma__suggested-pages__item--suggested-figure">
-                <a href="{{ page.link.href }}" title="{{ page.link.info }}">
-                  {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
-                  {% include "@atoms/09-media/image.twig" %}
-                </a>
+                {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
+                {% include "@atoms/09-media/image.twig" %}
                 {% set decorativeLink = page.link %}
                 {% include "@atoms/decorative-link.twig" %}
               </figure>
-            </div>
+            </li>
           {% endfor %}
         {% endif %}
-      </div>
+      </ul>
       {% if suggestedPages.moreLinks %}
         {% set linkList = suggestedPages.moreLinks %}
         {% include "@organisms/by-author/link-list.twig" %}
