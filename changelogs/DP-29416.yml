@@ -1,0 +1,6 @@
+Added:
+  - project: Assets,React,Patternlab,Core
+    component: Icon
+    description: Change twigger .svg to X and add Threads .svg
+    issue: DP-29416
+    impact: Minor

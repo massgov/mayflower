@@ -102,7 +102,7 @@ You can modify these files in order to resolve issues and add new features:
    
 In order to run Mayflower locally, you need to have some things installed and set up on your machine.  See [setting up your machine](../docs/machine-setup.md).
 
-#### Forking the repo
+#### Forking the repo (external contributors only)
 
 A fork is a *copy* of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project. Learn more about forking repositories on [Github Help](https://help.github.com/articles/fork-a-repo/).
 
