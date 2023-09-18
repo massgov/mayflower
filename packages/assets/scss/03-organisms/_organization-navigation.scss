@@ -235,6 +235,7 @@ $menu-transition-time: 0.3s;
       border-left: 1px solid $c-gray-light;
       font-size: $fonts-xsmall;
       font-weight: $fonts-bold;
+      color: $c-black;
       padding-left: 35px;
 
       @media ($bp-large-min) {

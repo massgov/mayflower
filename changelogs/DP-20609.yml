@@ -1,0 +1,6 @@
+Changed:
+  - project: Assets
+    component: RichText
+    description: Made change to not set image width to 100%. (#1828)
+    issue: DP-20609
+    impact: Minor

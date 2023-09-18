@@ -10,7 +10,7 @@
 
 <div class="ma__iframe {{ iframeClass }}">
   <div class="ma__iframe__container js-ma-responsive-iframe {{ iframeRatioClass }}">
-  <iframe height="{{ iframe.height }}" src="{{ iframe.src }}" allowfullscreen title="{{ iframe.title }}"></iframe>
+    <iframe height="{{ iframe.height }}" src="{{ iframe.src }}" allowfullscreen loading="lazy" title="{{ iframe.title }}"></iframe>
   {% if iframe.link %}
     <div class="ma__iframe__link">
       {% set decorativeLink = iframe.link %}

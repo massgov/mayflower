@@ -32,6 +32,7 @@ export const assets = {
   report: 'report',
   search: 'search',
   setting: 'setting',
+  threads: 'threads',
   twitter: 'twitter',
   wheelchair: 'wheelchair',
   xlxs: 'xlxs',
