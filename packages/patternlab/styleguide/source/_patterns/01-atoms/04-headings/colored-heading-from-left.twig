@@ -6,7 +6,7 @@
 {% set highlight_class = color_class ? '' : "ma__colored-header-from-left__title--highlighted" %}
 
 <header class="ma__colored-header-from-left {{ color_class }}">
-  <h2 class="ma__colored-header-from-left__title {{ highlight_class }}">
+  <h2 {% if coloredHeadingFromLeft.id %}id="{{ coloredHeadingFromLeft.id }}"{% endif %} class="ma__colored-header-from-left__title {{ highlight_class }}">
     {{ coloredHeadingFromLeft.title }}
   </h2>
   {% if coloredHeadingFromLeft.titleContext %}
