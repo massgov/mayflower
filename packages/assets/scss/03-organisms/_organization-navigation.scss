@@ -56,10 +56,13 @@ $menu-transition-time: 0.3s;
   }
 
   &__mobile-toggle {
-
+    @include ma-button-reset;
     @include ma-container;
+    margin-left: 0;
+    margin-right: 0;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,26 +80,8 @@ $menu-transition-time: 0.3s;
       line-height: 1.2em;
       // max-height = line-height (1.2) * lines max number (2)
       max-height: 2.4em;
-      max-width: 90%;
       margin-right: -1em;
       padding-right: 1em;
-
-      &::before {
-        content: '...';
-        position: absolute;
-        right: 0;
-        bottom: 0;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        width: 1em;
-        height: 1em;
-        margin-top: 0.2em;
-        background: $c-gray-lightest;
-      }
     }
 
     .mobile-toggle-icon {

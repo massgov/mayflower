@@ -9,5 +9,7 @@ This is a H3 tag used in a Rich Text with an underline.
 heading3: {
   text:
     type: string / required
-  }
+  id:
+    type: string / optional
+}
 ~~~
