@@ -49,7 +49,7 @@ export default (function (window, document, $, undefined) {
       });
     }
 
-    // Mobile toggle. 
+    // Mobile toggle.
     $mobileToggle.on('click', function () {
       const $this = $(this);
       $this.add($menuWrapper).toggleClass('menu-open');
@@ -62,7 +62,7 @@ export default (function (window, document, $, undefined) {
         }
       } else {
         $this.attr('aria-expanded', false);
-      // when menu is closed, put it back to its original location. 
+      // when menu is closed, put it back to its original location.
         stickyOnScroll();
       }
 
@@ -103,6 +103,10 @@ export default (function (window, document, $, undefined) {
     $menuItems.on('click', function (e) {
       // Close open menus and reset markup.
       $('.menu-open').removeClass('menu-open');
+      
+      if ($('body').hasClass('scroll-disabled')) {
+        $('body').removeClass('scroll-disabled');
+      }
 
       e.preventDefault();
       let location = $(this).attr('href');
