@@ -99,9 +99,9 @@ $c-platinum-gray:                   #F2F2F2 !default;
 $c-black:                           $c-revolution-gray !default;
 $c-gray-dark:                       $c-granite-gray !default;
 $c-gray:                            $c-atlantic-gray !default;
-$c-gray-light:                      $c-overcast-gray !default;
+$c-gray-light:                      $c-atlantic-gray !default;//$c-overcast-gray !default;
 $c-gray-lighter:                    #CCCCCC !default; // Followup needed: should be added as a base color or be replaced as a gradient color from granite gray
-$c-gray-lightest:                   $c-platinum-gray !default;
+$c-gray-lightest:                   #404040;// $c-platinum-gray !default;
 $c-white:                           white !default;
 
 // Error Red (#CD0D0D)

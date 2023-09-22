@@ -28,6 +28,7 @@
     position: relative;
     font-weight: $fonts-bold;
     min-height: 32px;
+    color: $c-font-base; // Added for high contrast theme.
   }
 
   &--accordion &__header {
@@ -126,7 +127,7 @@
   }
 
   &--accordion &__header__toggle {
-    color: $c-primary-alt;
+    color: $c-primary-alt-bright;
   }
 
   &__icon {

@@ -131,7 +131,7 @@
       &:after {
         font-size: $fonts-4xlarge;
         content: "+";
-        color: #2cd26e;//$c-primary-alt;
+        color: $c-primary-alt-bright;//$c-primary-alt;
         line-height: .65em;
         overflow: hidden;
         position: absolute;

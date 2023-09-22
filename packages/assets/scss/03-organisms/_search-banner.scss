@@ -331,6 +331,7 @@
     input {
       background-color: rgba(255, 255, 255, 0.75);
       font-weight: $fonts-lighter;
+      color: $c-black;// ADDED FOR HIGHT CONTRAST STYLE
     }
 
     &::-webkit-input-placeholder {
@@ -360,7 +361,7 @@
 
   &__button {
     background-color: rgba(255, 255, 255, 0.75);
-    color: $c-font-base;
+    color: $c-black;//$c-font-base;
     font-weight: $fonts-bold;
 
     & > svg {

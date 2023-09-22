@@ -247,11 +247,11 @@
 
       a {
         color: $c-primary;
-        color: #2CD26E;//$c-primary-alt;
-        box-shadow: inset 0 0 white, inset 0px -1px rgba(#2CD26E, .4);//$c-primary-alt, 0.4);
+        color: $c-primary-alt-bright;
+        box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary-alt-bright, 0.4);
 
         &:hover {
-          box-shadow: inset 0 0 white, inset 0px -2px rgba(#2CD26E, .7);//$c-primary-alt, 0.7);
+          box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary-alt, 0.7);
         }
       }
     }
@@ -264,7 +264,7 @@
       }
 
       button {
-        color: #2CD26E;//$c-primary-alt;
+        color: $c-primary-alt-bright;
       }
 
       .ma__relationship-indicators {

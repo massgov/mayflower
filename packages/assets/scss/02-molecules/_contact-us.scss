@@ -124,7 +124,7 @@
     padding-left: 30px;
     padding-right: 30px;
     margin-top: 20px;
-    border-left: 1px solid #707070;//$c-bd-divider;
+    border-left: 1px solid $c-bd-divider;
 
     // Reset if we aren't in an accordion
 
@@ -256,15 +256,15 @@
 .ma__contact-us {
 
   & + & {
-    border-color: #707070;//$c-bd-divider;
+    border-color: $c-bd-divider;
   }
 
   &--accordion {
-    border-color: #707070;//$c-bd-divider;
+    border-color: $c-bd-divider;
   }
 
   &--accordion:not(.is-open) &__header {
-    background-color: #404040;//$c-bg-section;
+    background-color: $c-bg-section;
   }
 
   &--accordion.is-open &__header {
@@ -273,7 +273,7 @@
 
   &--accordion &__header:after,
   &--accordion &__header &--accordion__status {
-    color: #2CD26E;//$c-primary-alt;
+    color: $c-primary-alt-bright;
   }
 
   &__expand {

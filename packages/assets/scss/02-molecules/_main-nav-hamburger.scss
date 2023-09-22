@@ -6,7 +6,7 @@
   padding: 0;
 
   @media ($bp-header-toggle-max) {
-    border-top: 2px solid #707070;//$c-bd-divider;
+    border-top: 2px solid $c-bd-divider;
   }
 
   &__items {
@@ -15,7 +15,7 @@
   }
 
   &__item {
-    border-bottom: 2px solid #707070;//$c-bd-divider;
+    border-bottom: 2px solid $c-bd-divider;
   }
 
   &__top-link {
@@ -33,7 +33,7 @@
     text-align: left;
     background-color: #141414;//$c-gray-lightest;
     width: 100%;
-    color: #f2f2f2;// <--$c-gray-lightest inherit;
+    color: $c-font-base;// inherit;
 
     .toggle-indicator {
 
@@ -49,7 +49,7 @@
 
     &:focus, &:hover {// hover is added
       background-color: #515151;//$c-bd-divider;
-      outline: 2px solid $c-black;
+      outline: 2px solid $c-font-base;
     }
 
     &.cv-alternate-style {
@@ -114,7 +114,7 @@
     font-weight: 400;
     line-height: 1.33;
     padding: 10px 20px 10px 30px;
-    color: #f2f2f2;//$c-black;
+    color: $c-font-base;//$c-black;
 
     &:hover {
       // text-decoration: underline;  It already has underline at normal state.
@@ -148,7 +148,7 @@
       text-decoration: none;
 
       &>span {
-          border-bottom: 2px solid $c-black;
+          border-bottom: 2px solid $c-font-base;//$c-black;
       }
     }
   }

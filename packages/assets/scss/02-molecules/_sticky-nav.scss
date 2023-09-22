@@ -7,7 +7,7 @@
 .ma__sticky-nav {
 
   @include clearfix;
-  
+
   @media ($bp-medium-min) {
     position: absolute;
   }
@@ -168,7 +168,7 @@
     }
 
     & + & {
-      border-top-color: $c-gray-light;
+      border-top-color: #878787;//$c-gray-light;
 
       @media ($bp-medium-min) {
         border-top-width: 1px;

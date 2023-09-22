@@ -15,7 +15,7 @@
 
 .ma__sidebar-heading {
 
-  @include ma-sidebar-heading(#707070, $c-font-base);//$c-bd-divider, $c-font-base);
+  @include ma-sidebar-heading($c-bd-divider, $c-font-base);
 
   .sidebar--colored & {
 

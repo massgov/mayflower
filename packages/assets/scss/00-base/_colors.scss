@@ -7,9 +7,11 @@ $c-primary:              $c-bay-blue !default;
 $c-primary-light:        $c-bay-blue-light !default;
 $c-primary-lighter:      $c-bay-blue-lighter !default;
 $c-primary-lightest:     $c-bay-blue-lightest !default;
+$c-primary-bright:       #1aeaff;//  ADDED FOR HIGH CONTRAST LINK COLOR
 $c-primary-alt:          $c-berkshires-green !default;
 $c-primary-alt-lighter:  $c-berkshires-green-lighter !default;
 $c-primary-alt-lightest: $c-berkshires-green-lightest !default;
+$c-primary-alt-bright:   #2CD26E !default;//  ADDED FOR HIGH CONTRAST LINK COLOR
 $c-primary-alt-dark:     $c-berkshires-green-dark !default;
 $c-highlight:            $c-duckling-yellow !default;
 $c-highlight-lighter:    $c-duckling-yellow-lighter !default;
@@ -25,10 +27,11 @@ $c-focus:                $c-focus-hightlight !default;
 // Need to add these colors to this listing new to add
 // $c-visited
 
-$c-font-base:            #f2f2f2;//$c-black !default;
+$c-font-base:            $c-platinum-gray;//$c-black !default;
 $c-font-detail:          $c-gray-dark !default;
 $c-font-dark:            $c-black !default;
 $c-font-medium:          $c-gray !default;
+$c-font-dark-hc:         $c-revolution-gray !default;//  TEST STYLE:  ADDED FOR HIGHT CONTRAST
 
 $c-font-heading:         #f2f2f2;//$c-black !default;
 $c-font-inverse:         $c-white !default;
@@ -37,7 +40,7 @@ $c-font-error:           $c-error !default;
 
 $c-bg-comp-title:        $c-gray-dark !default;
 $c-bg-subtle:            $c-gray-lightest !default;
-$c-bg-section:           #202020;// $c-gray-lightest !default;
+$c-bg-section:           $c-gray-lightest !default;
 
 $c-bd-divider:           $c-gray-light !default;
 $c-bd-divider-dark:      $c-gray-dark !default;
