@@ -51,7 +51,7 @@
   }
 
   &__name {
-    color: $c-font-medium;
+    color: $c-font-base;//$c-font-medium;
     font-weight: $fonts-bold;
   }
 }
