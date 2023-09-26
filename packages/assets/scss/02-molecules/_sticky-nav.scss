@@ -7,7 +7,7 @@
 .ma__sticky-nav {
 
   @include clearfix;
-  
+
   @media ($bp-medium-min) {
     position: absolute;
   }
@@ -98,7 +98,7 @@
     &.is-title {
 
       span {
-        color: $c-gray-dark;
+        color: $c-font-base;//$c-gray-dark;
         border-bottom: 3px solid transparent;
         padding-top: 3px;
         padding-bottom: 1px;
@@ -168,7 +168,7 @@
     }
 
     & + & {
-      border-top-color: $c-gray-light;
+      border-top-color: #878787;//$c-gray-light;
 
       @media ($bp-medium-min) {
         border-top-width: 1px;
@@ -200,7 +200,7 @@
   &__toggle-link {
 
     @include ma-button-reset;
-    color: $c-primary-alt;
+    color: $c-primary-alt-bright;//$c-primary-alt;
     font-size: $fonts-6xlarge;
     line-height: .65em;
     overflow: hidden;

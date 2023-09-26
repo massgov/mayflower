@@ -10,9 +10,10 @@
 
 @use "00-base/breakpoints" as *;
 
-@mixin ma-heading-colored($c-bg:transparent,$direction:right,$c-page:white) {
+// @mixin ma-heading-colored($c-bg:transparent,$direction:right,$c-page:white) {
+@mixin ma-heading-colored($c-bg:transparent,$direction:right,$c-page:#121212) {
   $offset: 55px;
-  
+
   @if ($c-bg == transparent) {
     font-size: $fonts-medium;
     letter-spacing: $letter-spacing-large;

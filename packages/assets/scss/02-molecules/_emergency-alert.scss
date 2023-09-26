@@ -3,7 +3,7 @@
 @use "sass:color" as *;
 
 .ma__emergency-alert {
-  background-color: mix(#fff, $c-warning,90%);
+  background-color: mix(#121212, $c-warning,90%);
   font-size: $fonts-small;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -89,7 +89,7 @@
           width: .5em;
           border-right: 3px solid;
           border-bottom: 3px solid;
-          border-color: $c-black;
+          border-color: $c-font-base;//$c-black;
         }
       }
     }

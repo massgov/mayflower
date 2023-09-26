@@ -5,7 +5,8 @@
 
 @use "00-base/colors" as *;
 
-@mixin ma-border-decorative($fg: transparent, $opacity: .5) {
+@mixin ma-border-decorative($fg: transparent, $opacity: .8) {
+// @mixin ma-border-decorative($fg: transparent, $opacity: .5) {
 
   @if ($fg == transparent) {
     position: relative;

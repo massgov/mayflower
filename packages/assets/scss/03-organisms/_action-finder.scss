@@ -172,17 +172,17 @@ $action-finder-bp: 900px;
 }
 
 //theme
-$action-finder-bg-color: mix(#fff, $c-primary,89%);
-$action-finder-border-color: mix(#fff, $c-primary,50%);
+$action-finder-bg-color: mix(#121212, $c-primary,89%);//mix(#fff, $c-primary,89%);
+$action-finder-border-color: mix(#121212, $c-primary,50%);//mix(#fff, $c-primary,50%);
 
 .ma__action-finder {
 
   &:after {
-    background-image: linear-gradient(180deg, rgba(#000,.6), transparent 90%, transparent);
+    background-image: linear-gradient(180deg, rgba(#000,.6), transparent 90%, transparent);//linear-gradient(180deg, rgba(#000,.6), transparent 90%, transparent);
   }
 
   &--no-background {
-    background-image: linear-gradient(180deg, $c-white 50px, $c-bg-section 51px);
+    background-image: linear-gradient(180deg, #121212 50px, #303030 51px);//linear-gradient(180deg, $c-white 50px, $c-bg-section 51px);
   }
 
   &__category {
@@ -208,7 +208,7 @@ $action-finder-border-color: mix(#fff, $c-primary,50%);
   &__items--all {
 
     .ma__callout-link {
-      background-color: $c-white;
+      background-color: #121212;//$c-white;
       box-shadow: none;
     }
 
@@ -216,10 +216,10 @@ $action-finder-border-color: mix(#fff, $c-primary,50%);
       box-shadow: none;
 
       &__content {
-        background-color: $c-white;
+        background-color: #121212;//$c-white;
 
         &:after {
-          background-color: $c-white;
+          background-color: #121212;//$c-white;
         }
       }
     }
@@ -245,7 +245,7 @@ $action-finder-border-color: mix(#fff, $c-primary,50%);
   }
 
   &--no-background &__see-all {
-    background-color: $c-bg-section;
+    background-color: #303030;//$c-bg-section;
 
     .ma__decorative-link {
 

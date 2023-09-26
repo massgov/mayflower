@@ -82,6 +82,9 @@
     transition: all 0.4s ease;
     width: 100%;
 
+    // TEST STYLE
+    color: #cacaca;
+
     @media ($bp-header-toggle-max) {
       padding-right: 20px;
       padding-left: 20px;
@@ -261,6 +264,10 @@
     &.has-focus {
       background-color: $c-white;
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+
+      // TEST STYLE
+      background-color: #cacaca;
+      box-shadow: 0 0.25rem 0.5rem rgba(#efefef, 0.4);
     }
 
     &.is-active {
@@ -269,12 +276,21 @@
     }
   }
 
+  // TEST STYLE
+  .is-open > &__top-link {
+    color: #202020;
+
+    &:hover {
+      color: #202020;
+    }
+}
+
   &__subitems {
     background-color: $c-bg-section;
 
     @media ($bp-header-toggle-min) {
-      background-color: $c-white;
-      box-shadow: 0 0.25em 0.5rem rgba(#000, 0.25);
+      background-color: #cacaca;//$c-white;
+      box-shadow: 0 0.25em 0.5rem rgba(#efefef, 0.4);
     }
   }
 
@@ -286,7 +302,7 @@
   }
 
   &__subitem {
-    border-bottom-color: $c-bd-divider;
+    border-bottom-color: #cacaca;//$c-bd-divider;
   }
 
   &__link {
@@ -295,7 +311,8 @@
 
     &:hover,
     &:focus {
-      background-color: $c-bg-subtle;
+      background-color: #202020;//$c-bg-subtle;
+      color: #cacaca;
     }
   }
 

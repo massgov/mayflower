@@ -20,6 +20,11 @@ $bp-header-search-reduce-button: "max-width: 700px";
     padding-right: 128px;
     padding-left: 17px;
     width: 100%;
+    // TEST STYLE
+    background: rgba(225,225,225,.1);
+    color: #d4d4d4;
+    font-weight: 400;
+    border: 2px solid #777;
 
     &::-ms-clear {
       display: none;
@@ -42,6 +47,17 @@ $bp-header-search-reduce-button: "max-width: 700px";
       position: absolute;
         right: 0;
         top: 0;
+
+      // TEST STYLE
+      background: rgba(225,225,225,.1);
+      color: #d4d4d4;
+      font-size: 15px;//16px;
+      font-weight: 500;
+      border-color: #777 !important;
+
+      & > svg {
+        fill: #D7E7DD;
+      }
 
       @media ($bp-header-search-reduce-button) {
 

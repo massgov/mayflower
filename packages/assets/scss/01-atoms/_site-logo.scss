@@ -16,6 +16,9 @@
       line-height: 1;
       letter-spacing: $letter-spacing-small;
 
+      // TEST STYLE
+       -webkit-text-stroke: 0.5px #777;
+
       @media ($bp-small-max) {
         width: 102px;// 108px - margin-left(6)
         margin-left: 0.3rem;

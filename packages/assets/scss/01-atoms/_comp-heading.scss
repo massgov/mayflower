@@ -5,6 +5,8 @@
   &:not(&--sidebar) {
 
     @include ma-comp-heading;
+
+    color: #f2f2f2;// OVERRIDE INCLUDE
   }
 
   &--sidebar,
@@ -55,6 +57,9 @@
   &--sidebar {
 
     @include ma-sidebar-heading($c-bd-divider,$c-font-base);
+
+    border-color: #707070; // OVERRIDE INCLUDE
+    color: #f2f2f2;// OVERRIDE INCLUDE
   }
 
   .sidebar--colored & {

@@ -55,13 +55,13 @@
       height: 14px;
 
       path, use {
-        fill: $c-font-detail;
+        fill: #bababa;//$c-font-detail;
       }
     }
   }
 
   &--label {
-    color: $c-font-detail;
+    color: #bababa;//$c-font-detail;
     text-transform: uppercase;
     letter-spacing: $letter-spacing-large;
     margin-right: 10px;
@@ -246,8 +246,9 @@
     &.single [aria-labelledby="secondary"] {
 
       a {
-        color: $c-primary-alt;
-        box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary-alt, 0.4);
+        color: $c-primary;
+        color: $c-primary-alt-bright;
+        box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary-alt-bright, 0.4);
 
         &:hover {
           box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary-alt, 0.7);
@@ -263,7 +264,7 @@
       }
 
       button {
-        color: $c-primary-alt;
+        color: $c-primary-alt-bright;
       }
 
       .ma__relationship-indicators {
@@ -282,15 +283,15 @@
         &--term {
           margin: 0 5px 0 0;
           padding-right: 0;
-  
+
           @media ($bp-medium-min) {
             margin: 0 5px;
           }
-  
+
           a {
             margin-right: 10px;
             position: relative;
-  
+
             &:before {
               content: "";
               width: 10px;
@@ -298,7 +299,7 @@
               height: $fonts-smaller;
               right: -10px;
               bottom: 1px;
-              border-right: 1px solid $c-gray-light;
+              border-right: 1px solid #bababa;//$c-gray-light;
             }
           }
 
@@ -309,7 +310,7 @@
 
         &__expand-indicators {
           margin: 0 5px 0 0;
-  
+
           @media ($bp-medium-min) {
             margin: 0 5px;
           }

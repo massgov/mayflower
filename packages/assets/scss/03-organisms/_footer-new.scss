@@ -4,11 +4,11 @@
 
   // height: 100px;
   background-color: $c-bg-section;
-  
+
   &__container {
 
     @include ma-container;
-    
+
     @include clearfix;
 
     display: flex;
@@ -17,7 +17,7 @@
 
     @media ($bp-medium-max) {
       flex-direction: column;
-    } 
+    }
   }
 
   &__logo {
@@ -40,7 +40,7 @@
     @media ($bp-small-max) {
       flex-direction: column;
     }
-    
+
     & > div {
 
 
@@ -56,14 +56,14 @@
       }
 
       & > a {
-      
+
         @include ma-link-underline;
         padding-bottom: 3px;
-        color: $c-font-base;
+        color: #cacaca;//$c-font-base;
         font-weight: $fonts-normal;
-    
+
         &:hover {
-          border-bottom-color: rgba($c-font-dark,.5);
+          border-bottom-color: rgba(#cacaca,.5);//rgba($c-font-dark,.5);
         }
       }
     }
@@ -72,7 +72,7 @@
 
   &__copyright {
     font-size: $fonts-xsmall;
-    color: $c-gray-dark;
+    color: #ababab;//$c-gray-dark;
     font-weight: $fonts-lighter;
 
     &--bold {

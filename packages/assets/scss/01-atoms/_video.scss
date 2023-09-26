@@ -12,7 +12,7 @@
     padding: 13px;
     position: relative;
     padding-bottom: 12px + 29px + 13px;// 12px + 1.5rem + 13px
-    background-color: rgba($c-primary,.1);
+    background-color: rgba(26,234,255,.2);//$c-primary,.1);
 
     @media ($bp-large-min) {
       padding-bottom: 12px + 32px + 13px;

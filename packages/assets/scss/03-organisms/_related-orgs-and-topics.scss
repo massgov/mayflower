@@ -4,7 +4,7 @@
 
   @include ma-container();
 
-  
+
   &__columns {
     margin-top: 45px;
 
@@ -18,7 +18,7 @@
   &__column {
 
     @media ($bp-medium-min) {
-      flex: 1; 
+      flex: 1;
     }
 
     &:first-child {
@@ -91,7 +91,7 @@
 
   .ma__related-orgs-and-topics--toggle {
     position: relative;
-    color: $c-primary;
+    color: $c-font-link;//$c-primary;
     font-weight: $fonts-bold;
     background-color: transparent;
     border: none;
@@ -108,8 +108,8 @@
       transform: translateY(-50%) rotate(45deg);
       right: 0;
       display: inline-block;
-      border-right: 4px solid rgba($c-primary, 0.3);
-      border-bottom: 4px solid rgba($c-primary, 0.3);
+      border-right: 4px solid rgba($c-font-link, 0.6);//$c-primary, 0.3);
+      border-bottom: 4px solid rgba($c-font-link, 0.6);//$c-primary, 0.3);
       height: 10px;
       width: 10px;
       transition: all .2s;
@@ -125,7 +125,7 @@
     }
 
     &.open {
-      
+
       &::after {
         transform: translateY(-50%) rotate(225deg);
       }

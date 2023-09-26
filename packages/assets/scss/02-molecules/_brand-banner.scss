@@ -4,7 +4,8 @@
 
     width: 100%;
     background-color: $c-primary-lightest;
-    font-size: $fonts-xsmall;
+    font-size: 16px;//$fonts-xsmall;
+    font-weight: 400;
 
     @include background-colors(
         $lightTheme: (
@@ -30,8 +31,8 @@
         @include ma-container;
         display: flex;
         width: 100%;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 8px;//5px;
+        padding-bottom: 8px;//5px;
         text-align: left;
 
         @media ($bp-x-small-min) {
@@ -40,9 +41,9 @@
     }
 
     &-logo {
-        height: 20px;
-        width: 20px;
-        margin-right: 5px;
+        height: 25px;//20px;
+        width: 25px;//20px;
+        margin-right: 10px;//5px;
 
         &--dark {
             // Filter is not supported in IE. When use the dark theme, you should use the white version of seal instead.
@@ -123,4 +124,17 @@
         }
     }
 
+    // TEST STYLE
+    button {
+        font-weight: 400;
+
+        .ma__button-icon--quaternary.ma__button-icon--c-white {
+            font-size: 16px;
+            border-bottom: 2px solid rgba(255,255,255,.8);
+
+            svg {
+                fill: rgba(255,255,255,.8);
+            }
+        }
+    }
 }
