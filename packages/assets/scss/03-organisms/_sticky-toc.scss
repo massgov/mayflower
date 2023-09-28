@@ -422,6 +422,7 @@
   }
 
   .secondary-label-close {
+    @include ma-button-reset;
     display: none;
     position: relative;
     width: 35px;
@@ -436,11 +437,11 @@
     span {
       display: block;
       font-size: $fonts-2xlarge;
-      font-weight: 200;
-      left: 50%;
+      font-weight: $fonts-normal;
       line-height: 0;
       position: absolute;
-      top: 45%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
     }
   }
