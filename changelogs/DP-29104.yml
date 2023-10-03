@@ -1,0 +1,11 @@
+Changed:
+  - project: Assets
+    component: Variables
+    description: Remove the lightest font-weight for text in the system. Space out font-weight scale evenly to better show visual hierarchy, bump up all text font weights by at least 50.  Consolidate hard-coded font weights into a new variable. (#1831)
+    issue: DP-29104
+    impact: Minor
+  - project: Patternlab
+    component: ContactItem
+    description: Remove styling overrides on telephone links, so they appear as other contact links. (#1831)
+    issue: DP-29104
+    impact: Minor
