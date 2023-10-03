@@ -66,11 +66,11 @@ $fonts-display-global: "swap" !default; // Controls the custom fonts download an
 // font weights
 // Noto
 $fonts-lightest: 150 !default; // only used for styling non text font weights, e.g. separator |
-$fonts-light:    350 !default; // body font weight
-$fonts-normal:   450 !default;
-$fonts-semibold: 500 !default;
-$fonts-bold:     550 !default;
-$fonts-bolder:   650 !default;
+$fonts-light:    400 !default; // body font weight
+$fonts-normal:   500 !default;
+$fonts-semibold: 550 !default;
+$fonts-bold:     600 !default;
+$fonts-bolder:   700 !default;
 
 //font sizes
 $fonts-base:        calc(16px / 1.2) !default;

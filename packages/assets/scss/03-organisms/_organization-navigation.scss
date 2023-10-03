@@ -56,7 +56,9 @@ $menu-transition-time: 0.3s;
   }
 
   &__mobile-toggle {
+
     @include ma-button-reset;
+
     @include ma-container;
     margin-left: 0;
     margin-right: 0;
