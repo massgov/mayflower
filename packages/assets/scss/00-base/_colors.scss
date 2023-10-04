@@ -35,6 +35,7 @@ $c-font-inverse:         $c-white !default;
 $c-font-link:            $c-bay-blue !default;
 $c-font-error:           $c-error !default;
 
+$c-bg-body:              $c-white !default;
 $c-bg-comp-title:        $c-gray-dark !default;
 $c-bg-subtle:            $c-gray-lightest !default;
 $c-bg-section:           $c-gray-lightest !default;
@@ -44,3 +45,25 @@ $c-bd-divider-dark:      $c-gray-dark !default;
 $c-bd-error:             $c-error !default;
 $c-bd-input:             $c-gray-light !default;
 $c-bd-input-dark:        $c-gray !default;
+
+
+$c-font-base:            $c-white;
+$c-font-detail:          $c-gray-dark;
+$c-font-dark:            $c-white;
+$c-font-medium:          $c-gray;
+
+$c-font-heading:         $c-white;
+$c-font-inverse:         $c-white; // text with a darker bg in light mode
+$c-font-link:            $c-highlight;
+$c-font-error:           $c-error;
+
+$c-bg-body:              $c-black;
+$c-bg-comp-title:        $c-gray-dark;
+$c-bg-subtle:            $c-gray-lightest;
+$c-bg-section:           $c-gray-lightest;
+
+$c-bd-divider:           $c-gray-light;
+$c-bd-divider-dark:      $c-gray-dark;
+$c-bd-error:             $c-error;
+$c-bd-input:             $c-gray-light;
+$c-bd-input-dark:        $c-gray;
