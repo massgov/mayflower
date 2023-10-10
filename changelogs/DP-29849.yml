@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
-    component: Org. nav
+    component: OrganizationNavigation
     description: Accessibility error fix. (#1840)
     issue: DP-29849
     impact: Patch
