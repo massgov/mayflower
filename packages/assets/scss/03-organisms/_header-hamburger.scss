@@ -691,7 +691,7 @@ body.show-menu {
               display: block;
               position: relative;
               font-size: 1.25rem;
-              font-weight: 400;
+              font-weight: $fonts-normal;
               line-height: 1.33;
               padding: 10px 20px 10px 30px;
               color: $c-black;
@@ -755,7 +755,7 @@ body.show-menu {
       position: fixed;
       top: 0;
       white-space: nowrap;
-      font-weight: 500;
+      font-weight: $fonts-semibold;
       background-color: tint($c-font-link, 90%);
       border-color: tint($c-font-link, 50%);
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
