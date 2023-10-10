@@ -32,7 +32,7 @@
   {% elseif item.type == "phone" %}
     <a
       href="tel:{{ link.href }}"
-      class="ma__content-link ma__content-link--phone">
+      class="ma__content-link">
       {% if item.contactName %}<span class="visually-hidden">Call {{ item.contactName }}{% if item.label %}, {{item.label}}{% endif %} at </span>{% endif %}{{ link.text }}</a>
 
  {# Phone - add tel: to href #}
