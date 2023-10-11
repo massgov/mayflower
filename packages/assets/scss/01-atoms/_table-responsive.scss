@@ -83,6 +83,14 @@
     box-shadow: 0 0 0 2px $c-gray-light;
 }
 
+@media ($bp-medium-max) {
+  .ma__table--responsive tbody tr td {
+      border-bottom: 1px solid $c-gray-lightest;
+      vertical-align: top;
+      min-height: 3rem; // set a min height when the cell value is empty on mobile
+  }
+}
+
 .ma__table__horizontal-nav {
     align-items: center;
     background-color:$c-white;
