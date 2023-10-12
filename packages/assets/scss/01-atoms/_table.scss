@@ -123,7 +123,14 @@
       display: block;
     }
 
+
     td {
+
+      @media ($bp-medium-max) {
+        border-bottom: 1px solid $c-gray-lightest;
+        vertical-align: top;
+        min-height: 3rem; // set a min height when the cell value is empty on mobile
+      }
 
       &:before {
         color: $c-font-heading;
