@@ -1,3 +1,4 @@
+{% set hasSuggestions = headerSearch.hasSuggestions %}
 <div class="ma__header-search">
   <form role="search" action="#" class="ma__form js-header-search-form">
     <label
@@ -10,7 +11,26 @@
         type="search"
         inputmode="search"
         autocomplete="off"
+        {% if hasSuggestions %}
+          role="combobox"
+          aria-expanded="false"
+          aria-controls="search-suggestions"
+        {% endif %}
     />
+    {% if hasSuggestions %}
+      <div id="search-suggestions" style="position: relative;">
+        <span role="status" aria-live="polite" class="ma__header-search-suggestions-helper" aria-hidden="false">
+          2 results are available; to navigate, use up and down arrow keys on desktop or swipe left and right on touch devices.
+        </span>
+        <ul role="listbox" tabindex="-1">
+          <li>
+            {{ icon('search') }}
+            <span role="option">INPUT in org 1</span>
+            <button type="button" aria-label="Search input within this organization"></button>
+          </li>
+        </ul>
+      </div>
+    {% endif %}
     {% set buttonSearch = headerSearch.buttonSearch %}
     {% include "@atoms/01-buttons/button-search.twig" %}
   </form>
