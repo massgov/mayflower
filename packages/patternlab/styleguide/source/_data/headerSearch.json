@@ -7,6 +7,7 @@
     "buttonSearch" : {
       "text": "Search",
       "usage": "secondary"
-    }
+    },
+    "suggestedScopes": ["Department of Public Health", "Executive Office of Health and Human Services"]
   }
 }

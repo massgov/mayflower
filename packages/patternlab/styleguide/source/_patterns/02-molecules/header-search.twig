@@ -1,4 +1,5 @@
 {% set hasSuggestions = headerSearch.hasSuggestions %}
+{% set suggestedScopes = headerSearch.suggestedScopes %}
 <div class="ma__header-search">
   <form role="search" action="#" class="ma__form js-header-search-form">
     <label
@@ -18,16 +19,20 @@
         {% endif %}
     />
     {% if hasSuggestions %}
-      <div id="search-suggestions" style="position: relative;">
+      <div id="search-suggestions" class="ma__header-search-suggestions">
         <span role="status" aria-live="polite" class="ma__header-search-suggestions-helper" aria-hidden="false">
           2 results are available; to navigate, use up and down arrow keys on desktop or swipe left and right on touch devices.
         </span>
-        <ul role="listbox" tabindex="-1">
-          <li>
-            {{ icon('search') }}
-            <span role="option">INPUT in org 1</span>
-            <button type="button" aria-label="Search input within this organization"></button>
-          </li>
+        <ul role="listbox" tabindex="-1" class="ma__header-search-suggestions-list">
+          {% for option in suggestedScopes %}
+            <li class="ma__header-search-suggestions-option">
+              {{ icon('search') }}
+              <span role="option">
+                <span class="ma__header-search-suggestions-option-input">INPUT </span>
+                <span class="ma__header-search-suggestions-option-scope">in {{ option }}</span>
+              </span>
+            </li>
+          {% endfor %}
         </ul>
       </div>
     {% endif %}
