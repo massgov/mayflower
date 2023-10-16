@@ -55,9 +55,11 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
   &-suggestions {
 
+    position: absolute;
+    width: 100%;
     border: 2px solid $c-bd;
-    border-top-color: transparent;
-    margin-top: -3px;
+    margin-top: -2px;
+    z-index: $z-dropdown;
 
     &-helper {
       @include ma-visually-hidden;
@@ -67,11 +69,16 @@ $bp-header-search-reduce-button: "max-width: 700px";
       padding: 0;
       margin: 0;
       list-style: none;
+      background-color: $c-bg;
 
       svg {
         width: $fonts-small;
         height: $fonts-small; 
         margin-right: 1rem;
+      }
+
+      &:hover {
+        background-color: $c-bg-section;
       }
     }
 
