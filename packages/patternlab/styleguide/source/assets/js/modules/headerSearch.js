@@ -7,7 +7,7 @@ export default (function (window, document,$) {
         $searchInput.on('input', function() {
             var inputValue = $(this).val();
             if (inputValue) {
-                $(".ma__header-search-suggestions-option-input").each(function() {
+                $(".ma__header-search-suggestion-option-input").each(function() {
                     $(this).text(inputValue);
                 })
                 $searchInput.next(".ma__header-search-suggestions").removeClass("hidden");

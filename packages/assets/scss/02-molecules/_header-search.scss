@@ -81,21 +81,27 @@ $bp-header-search-reduce-button: "max-width: 700px";
         margin-right: 1rem;
         flex-shrink: 0;
       }
-
-      &.hover {
-        background-color: $c-bg-section;
-      }
     }
+  }
 
-    &-option {
+      &-button {
+      @include ma-button-reset;
       display: flex;
       align-items: center;
       text-align: left;
       padding: 0.5rem 1rem;
       border-top: 1px solid $c-bd;
+      font-size: $fonts-small;
+
+      &:hover {
+        background-color: $c-bg-section;
+      }
+
+      &-text {
+        display: block;
+      }
 
       &-input {
-        font-size: $fonts-small;
         font-weight: $fonts-bold;
       }
 
@@ -106,7 +112,38 @@ $bp-header-search-reduce-button: "max-width: 700px";
         margin-left: 0.5rem;
       }
     }
-  }
+
+    &-suggestion {
+      border-top: 1px solid $c-bd;
+
+      &-option {
+        @include ma-button-reset;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 0.5rem 1rem;
+        font-size: $fonts-small;
+  
+        &:hover {
+          background-color: $c-bg-section;
+        }
+  
+        &-text {
+          display: block;
+        }
+  
+        &-input {
+          font-weight: $fonts-bold;
+        }
+  
+        &-scope {
+          font-size: $fonts-smaller;
+          color: $c-font-detail;
+          font-style: italic;
+          margin-left: 0.5rem;
+        }
+      }
+    }
 
   .ma__narrow-template & {
     margin-bottom: 75px;

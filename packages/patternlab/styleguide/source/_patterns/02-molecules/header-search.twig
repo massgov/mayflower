@@ -1,12 +1,13 @@
 {% set hasSuggestions = headerSearch.hasSuggestions %}
 {% set suggestedScopes = headerSearch.suggestedScopes %}
 <div class="ma__header-search">
-  <form role="search" action="#" class="ma__form js-header-search-form">
+  <form role="search" action="https://search.mass.gov/" class="ma__form js-header-search-form">
     <label
         for="{{headerSearch.id}}"
         class="ma__header-search__label">{{headerSearch.label}}</label>
     <input
         id="{{headerSearch.id}}"
+        name="q"
         class="ma__header-search__input"
         placeholder="{{headerSearch.placeholder}}"
         type="search"
@@ -21,20 +22,27 @@
     {% if hasSuggestions %}
       <div id="search-suggestions" class="ma__header-search-suggestions hidden">
         <span role="status" aria-live="polite" class="ma__header-search-suggestions-helper" aria-hidden="false">
-          2 results are available; to navigate, use up and down arrow keys on desktop or swipe left and right on touch devices.
+          search scope suggestions are available; to navigate, use up and down arrow keys on desktop or swipe left and right on touch devices.
         </span>
         <ul role="listbox" tabindex="-1" class="ma__header-search-suggestions-list">
-          <li class="ma__header-search-suggestions-option" role="option">
+          <li class="ma__header-search-suggestion" role="presentation">
+            <button class="ma__header-search-suggestion-option" role="option">
               {{ icon('search') }}
-              <span class="ma__header-search-suggestions-option-input">INPUT </span>
+              <span class="ma__header-search-suggestion-option-text">
+                <span class="ma__header-search-suggestion-option-input"></span>
+                <span class="ma__header-search-suggestion-option-scope sr-only"> in {{ option }}</span>
+              </span>
+            </button>
           </li>
           {% for option in suggestedScopes %}
-            <li class="ma__header-search-suggestions-option" role="option">
+            <li class="ma__header-search-suggestion" role="presentation">
+              <button class="ma__header-search-suggestion-option" role="option">
               {{ icon('search') }}
-              <span>
-                <span class="ma__header-search-suggestions-option-input">INPUT </span>
-                <span class="ma__header-search-suggestions-option-scope"> in {{ option }}</span>
+              <span class="ma__header-search-suggestion-option-text">
+                <span class="ma__header-search-suggestion-option-input"></span>
+                <span class="ma__header-search-suggestion-option-scope"> in {{ option }}</span>
               </span>
+              </button>
             </li>
           {% endfor %}
         </ul>
