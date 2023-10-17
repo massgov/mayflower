@@ -125,7 +125,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
         border-top: 1px solid $c-bd;
         width: 100%;
   
-        &:hover {
+        &:hover, &.hover {
           background-color: $c-bg-section;
         }
   
