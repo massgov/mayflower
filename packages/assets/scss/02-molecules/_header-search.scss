@@ -65,6 +65,10 @@ $bp-header-search-reduce-button: "max-width: 700px";
       @include ma-visually-hidden;
     }
 
+    &.hidden {
+      display: none;
+    }
+
     &-list {
       padding: 0;
       margin: 0;
@@ -75,23 +79,31 @@ $bp-header-search-reduce-button: "max-width: 700px";
         width: $fonts-small;
         height: $fonts-small; 
         margin-right: 1rem;
+        flex-shrink: 0;
       }
 
-      &:hover {
+      &.hover {
         background-color: $c-bg-section;
       }
     }
 
     &-option {
       display: flex;
-      align-items: center;
+      align-items: baseline;
+      text-align: left;
       padding: 0.5rem 1rem;
       border-top: 1px solid $c-bd;
+
+      &-input {
+        font-size: $fonts-small;
+        font-weight: $fonts-bold;
+      }
 
       &-scope {
         font-size: $fonts-smaller;
         color: $c-font-detail;
         font-style: italic;
+        margin-left: 0.5rem;
       }
     }
   }

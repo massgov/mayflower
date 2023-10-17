@@ -19,16 +19,22 @@
         {% endif %}
     />
     {% if hasSuggestions %}
-      <div id="search-suggestions" class="ma__header-search-suggestions">
+      <div id="search-suggestions" class="ma__header-search-suggestions hidden">
         <span role="status" aria-live="polite" class="ma__header-search-suggestions-helper" aria-hidden="false">
           2 results are available; to navigate, use up and down arrow keys on desktop or swipe left and right on touch devices.
         </span>
         <ul role="listbox" tabindex="-1" class="ma__header-search-suggestions-list">
+          <li class="ma__header-search-suggestions-option" role="option">
+              {{ icon('search') }}
+              <span class="ma__header-search-suggestions-option-input">INPUT </span>
+          </li>
           {% for option in suggestedScopes %}
             <li class="ma__header-search-suggestions-option" role="option">
               {{ icon('search') }}
-              <span class="ma__header-search-suggestions-option-input">INPUT </span>
-              <span class="ma__header-search-suggestions-option-scope">in {{ option }}</span>
+              <span>
+                <span class="ma__header-search-suggestions-option-input">INPUT </span>
+                <span class="ma__header-search-suggestions-option-scope"> in {{ option }}</span>
+              </span>
             </li>
           {% endfor %}
         </ul>
