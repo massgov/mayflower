@@ -114,7 +114,6 @@ $bp-header-search-reduce-button: "max-width: 700px";
     }
 
     &-suggestion {
-      border-top: 1px solid $c-bd;
 
       &-option {
         @include ma-button-reset;
@@ -123,6 +122,8 @@ $bp-header-search-reduce-button: "max-width: 700px";
         text-align: left;
         padding: 0.5rem 1rem;
         font-size: $fonts-small;
+        border-top: 1px solid $c-bd;
+        width: 100%;
   
         &:hover {
           background-color: $c-bg-section;
