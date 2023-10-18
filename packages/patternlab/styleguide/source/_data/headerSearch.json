@@ -8,6 +8,14 @@
       "text": "Search",
       "usage": "secondary"
     },
-    "suggestedScopes": ["Department of Public Health", "Executive Office of Health and Human Services"]
+    "suggestedScopes": [{
+      "name": "org",
+      "value": "department-of-public-health",
+      "label": "Department of Public Health"
+    }, {
+      "name": "org",
+      "value": "executive-office-of-health-and-human-services",
+      "label": "Executive Office of Health and Human Services"
+    } ]
   }
 }
