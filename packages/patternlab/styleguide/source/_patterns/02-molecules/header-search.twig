@@ -22,7 +22,7 @@
     {% if hasSuggestions %}
       <div id="search-suggestions" class="ma__header-search-suggestions hidden">
         <span role="status" aria-live="polite" class="ma__header-search-suggestions-helper" aria-hidden="false">
-          search scope suggestions are available; to navigate, use up and down arrow keys on desktop or swipe left and right on touch devices.
+        {{ suggestedScopes|length + 1 }} search scope suggestions are available; to navigate, use up and down arrow keys on desktop; to select, use space or enter keys.
         </span>
         <ul role="listbox" tabindex="-1" class="ma__header-search-suggestions-list">
           <li class="ma__header-search-suggestion" role="presentation">
