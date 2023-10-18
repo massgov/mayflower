@@ -17,20 +17,23 @@ export default (function (window, document,$) {
             $options.removeClass('hover');
             $options[index].classList.add('hover');
         }
-        // Add an event listener to the input element
+        // On input value change, unhide or hide the suggestions.
         $searchInput.on('input', function() {
             let inputValue = $(this).val();
+            // when the input has value, show the suggestions
             if (inputValue) {
                 $(".ma__header-search-suggestion-option-input").each(function() {
                     $(this).text(inputValue);
                 })
                 $searchInput.attr("aria-expanded", true);
                 $searchInput.next(".ma__header-search-suggestions").removeClass("hidden");
-            } else {
+            } // else, hide the suggestions
+            else {
                 $searchInput.attr("aria-expanded", false);
                 $searchInput.next(".ma__header-search-suggestions").addClass("hidden");
             }
         });
+        // keydown from input move focus into the suggestion options
         $searchInput.keydown(function(e) {
             if (key(e).arrowDown) {
                 focusIndex = 0;
@@ -48,6 +51,7 @@ export default (function (window, document,$) {
         );
         Array.from($options).forEach(function(option) {
             option.onkeydown = function (e) {
+                // keyup and keydown loop through the options
                 if (key(e).arrowDown || key(e).arrowUp) {
                     // prevent scrolling the page
                     e.preventDefault();
@@ -56,11 +60,13 @@ export default (function (window, document,$) {
                     focusIndex = (focusIndex + optionsCount) % optionsCount;
                     setFocus(focusIndex);
                 }
+                // escape key hide the suggestions
                 if (key(e).escape) {
                     $searchInput.attr("aria-expanded", false);
                     $searchInput.next(".ma__header-search-suggestions").addClass("hidden");
                 }
             }
+            // on option button click, append the search parameter to the form and submits it
             option.onclick = function(){
                 const optionText = $(option).find(".ma__header-search-suggestion-option-scope-value").text();
                 const optionValue = slugify(optionText);
