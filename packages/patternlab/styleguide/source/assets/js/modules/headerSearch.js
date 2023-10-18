@@ -1,9 +1,10 @@
 export default (function (window, document,$) {
     "use strict";
 
-    $('.ma__header-search').each(function(){
-        let $searchInput = $(this).find('.ma__header-search__input');
-        let $options = $(this).find('.ma__header-search-suggestion-option');
+    $('.ma__header-search > form').each(function(){
+        let $form = $(this);
+        let $searchInput = $form.find('.ma__header-search__input');
+        let $options = $form.find('.ma__header-search-suggestion-option');
         let optionsCount = $options.length;
         let focusIndex = 0;
         let key = (e) => ({
@@ -41,6 +42,10 @@ export default (function (window, document,$) {
             }
         });
 
+        // transform org name to value
+        const slugify = (string = '') => (
+            string.trim().replace(/[\s_]+/g, '-').toLowerCase().replace(/[^a-z\d-]/g, '')
+        );
         Array.from($options).forEach(function(option) {
             option.onkeydown = function (e) {
                 if (key(e).arrowDown || key(e).arrowUp) {
@@ -55,6 +60,15 @@ export default (function (window, document,$) {
                     $searchInput.attr("aria-expanded", false);
                     $searchInput.next(".ma__header-search-suggestions").addClass("hidden");
                 }
+            }
+            option.onclick = function(e){
+                // e.preventDefault()
+                const optionText = $(option).find(".ma__header-search-suggestion-option-scope-value").text();
+                const optionValue = slugify(optionText);
+                if (optionText && optionText.length > 0) {
+                    $form.append(`<input type="hidden" name="org" value=${optionValue} />`);
+                }
+                $form.submit();
             }
         });
     });
