@@ -4,8 +4,6 @@ export default (function (window, document,$) {
     $('.ma__header-search').each(function(){
         let $searchInput = $(this).find('.ma__header-search__input');
         let $options = $(this).find('.ma__header-search-suggestion-option');
-        console.log()
-        console.log($options)
         let optionsCount = $options.length;
         var focusIndex = 0;
         // Add an event listener to the input element
@@ -16,7 +14,6 @@ export default (function (window, document,$) {
                     $(this).text(inputValue);
                 })
                 $searchInput.next(".ma__header-search-suggestions").removeClass("hidden");
-                console.log(inputValue);
             } else {
                 $searchInput.next(".ma__header-search-suggestions").addClass("hidden");
             }
@@ -35,7 +32,6 @@ export default (function (window, document,$) {
         });
 
         Array.from($options).forEach(function(option) {
-            console.log(option)
             option.onkeydown = function (e) {
                 if (e.key === "ArrowDown" || e.code === "ArrowDown") {
                     e.preventDefault();
