@@ -27,21 +27,27 @@
         <ul role="listbox" tabindex="-1" class="ma__header-search-suggestions-list">
           <li class="ma__header-search-suggestion" role="presentation">
             <button class="ma__header-search-suggestion-option" role="option">
-              {{ icon('search') }}
+              <span>
+                {{ icon('search') }}
+                <span class="ma__visually-hidden">search&nbsp;</span>
+              </span>
               <span class="ma__header-search-suggestion-option-text">
                 <span class="ma__header-search-suggestion-option-input"></span>
-                <span class="ma__header-search-suggestion-option-scope sr-only"> &nbsp; across the entire site </span>
+                <span class="ma__header-search-suggestion-option-scope ma__visually-hidden"> &nbsp; across the entire site </span>
               </span>
             </button>
           </li>
           {% for option in suggestedScopes %}
             <li class="ma__header-search-suggestion" role="presentation">
               <button class="ma__header-search-suggestion-option" role="option">
-              {{ icon('search') }}
-              <span class="ma__header-search-suggestion-option-text">
-                <span class="ma__header-search-suggestion-option-input"></span>
-                <span class="ma__header-search-suggestion-option-scope"> in {{ option }}</span>
-              </span>
+                <span>
+                  {{ icon('search') }}
+                  <span class="ma__visually-hidden">search&nbsp;</span>
+                </span>
+                <span class="ma__header-search-suggestion-option-text">
+                  <span class="ma__header-search-suggestion-option-input"></span>
+                  <span class="ma__header-search-suggestion-option-scope"> in {{ option }}</span>
+                </span>
               </button>
             </li>
           {% endfor %}

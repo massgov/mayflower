@@ -142,10 +142,6 @@ $bp-header-search-reduce-button: "max-width: 700px";
           color: $c-font-detail;
           font-style: italic;
           margin-left: 0.5rem;
-
-          &.sr-only {
-            @include ma-visually-hidden;
-          }
         }
       }
     }
