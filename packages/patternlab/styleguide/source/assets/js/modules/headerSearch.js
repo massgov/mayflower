@@ -38,12 +38,16 @@ export default (function (window, document,$) {
             console.log(option)
             option.onkeydown = function (e) {
                 if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+                    e.preventDefault();
                     focusIndex += 1;
+                    focusIndex = (focusIndex + optionsCount) % optionsCount;
                     $options[focusIndex].focus();
                 }
         
                 if (e.key === "ArrowUp" || e.code === "ArrowUp") {
                     focusIndex -= 1;
+                    e.preventDefault();
+                    focusIndex = (focusIndex + optionsCount) % optionsCount;
                     $options[focusIndex].focus();
                 }
             }
