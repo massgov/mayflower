@@ -5,7 +5,11 @@ export default (function (window, document,$) {
         let $searchInput = $(this).find('.ma__header-search__input');
         let $options = $(this).find('.ma__header-search-suggestion-option');
         let optionsCount = $options.length;
-        var focusIndex = 0;
+        let focusIndex = 0;
+        let key = (e) => ({
+            arrowDown: e.key === "ArrowDown" || e.code === "ArrowDown",
+            arrowUp: e.key === "ArrowUp" || e.code === "ArrowUp"
+        });
         // Add an event listener to the input element
         $searchInput.on('input', function() {
             let inputValue = $(this).val();
@@ -19,12 +23,12 @@ export default (function (window, document,$) {
             }
         });
         $searchInput.keydown(function(e) {
-            if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+            if (key(e).arrowDown) {
                 focusIndex = 0;
                 $options[focusIndex].focus();
                 $options[focusIndex].addClass('hover');
             }
-            if (e.key === "ArrowUp" || e.code === "ArrowUp") { 
+            if (key(e).arrowUp) { 
                 focusIndex = [optionsCount -1];
                 $options[focusIndex].focus();
                 $options[focusIndex].addClass('hover');
@@ -33,16 +37,9 @@ export default (function (window, document,$) {
 
         Array.from($options).forEach(function(option) {
             option.onkeydown = function (e) {
-                if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+                if (key(e).arrowDown || key(e).arrowUp) {
                     e.preventDefault();
-                    focusIndex += 1;
-                    focusIndex = (focusIndex + optionsCount) % optionsCount;
-                    $options[focusIndex].focus();
-                }
-        
-                if (e.key === "ArrowUp" || e.code === "ArrowUp") {
-                    focusIndex -= 1;
-                    e.preventDefault();
+                    key(e).arrowDown ? focusIndex += 1 : focusIndex -= 1;
                     focusIndex = (focusIndex + optionsCount) % optionsCount;
                     $options[focusIndex].focus();
                 }
