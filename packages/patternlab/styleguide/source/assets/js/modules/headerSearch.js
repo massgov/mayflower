@@ -61,8 +61,7 @@ export default (function (window, document,$) {
                     $searchInput.next(".ma__header-search-suggestions").addClass("hidden");
                 }
             }
-            option.onclick = function(e){
-                // e.preventDefault()
+            option.onclick = function(){
                 const optionText = $(option).find(".ma__header-search-suggestion-option-scope-value").text();
                 const optionValue = slugify(optionText);
                 if (optionText && optionText.length > 0) {
