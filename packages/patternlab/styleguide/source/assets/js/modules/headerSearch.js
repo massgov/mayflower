@@ -64,6 +64,7 @@ export default (function (window, document,$) {
                 if (key(e).escape) {
                     $searchInput.attr("aria-expanded", false);
                     $searchInput.next(".ma__header-search-suggestions").addClass("hidden");
+                    $searchInput.focus();
                 }
             }
             // on option button click, append the search parameter to the form and submits it
