@@ -1,7 +1,7 @@
 {
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x400.png",
-    "bgNarrow": "../../assets/images/placeholder/400x200.png",
+    "bgWide": "https://www.mass.gov/files/2022-12/Healey%20Driscoll%20Org.png",
+    "bgNarrow": "https://www.mass.gov/files/2022-12/Healey%20Driscoll%20Org.png",
     "renderImageOnMobile": false,
     "layout": "taper",
     "icon": "lg-picnic-table",
