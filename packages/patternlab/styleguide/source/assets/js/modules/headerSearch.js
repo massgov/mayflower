@@ -21,7 +21,7 @@ export default (function (window, document,$) {
         // On input value change, unhide or hide the suggestions.
         $searchInput.on('input', function() {
             let inputValue = $(this).val();
-            let helper = `${optionsCount} search scope suggestions are available; to navigate, use up and down arrow keys on desktop; to select, use space or enter keys`;
+            let helper = `${optionsCount} search scope suggestions are available for ${inputValue}; to navigate, use up and down arrow keys on desktop; to select, use space or enter keys`;
             // when the input has value, show the suggestions
             if (inputValue) {
                 $(".ma__header-search-suggestion-option-input").each(function() {
