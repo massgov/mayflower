@@ -4,6 +4,7 @@ export default (function (window, document,$) {
     $('.ma__header-search > form').each(function(){
         let $form = $(this);
         let $searchInput = $form.find('.ma__header-search__input');
+        let $suggestions = $searchInput.next(".ma__header-search-suggestions");
         let $options = $form.find('.ma__header-search-suggestion-option');
         let optionsCount = $options.length;
         let focusIndex = 0;
@@ -20,17 +21,19 @@ export default (function (window, document,$) {
         // On input value change, unhide or hide the suggestions.
         $searchInput.on('input', function() {
             let inputValue = $(this).val();
+            let helper = `${optionsCount} search scope suggestions are available; to navigate, use up and down arrow keys on desktop; to select, use space or enter keys`;
             // when the input has value, show the suggestions
             if (inputValue) {
                 $(".ma__header-search-suggestion-option-input").each(function() {
                     $(this).text(inputValue);
                 })
                 $searchInput.attr("aria-expanded", true);
-                $searchInput.next(".ma__header-search-suggestions").removeClass("hidden");
+                $suggestions.removeClass("hidden");
+                $suggestions.find('.ma__header-search-suggestions-helper').text(helper);
             } // else, hide the suggestions
             else {
                 $searchInput.attr("aria-expanded", false);
-                $searchInput.next(".ma__header-search-suggestions").addClass("hidden");
+                $suggestions.addClass("hidden");
             }
         });
         // keydown from input move focus into the suggestion options
@@ -56,7 +59,7 @@ export default (function (window, document,$) {
                     // prevent scrolling the page
                     e.preventDefault();
                     key(e).arrowDown ? focusIndex += 1 : focusIndex -= 1;
-                    // loop through indices between 0 and optionsCount -1
+                    // loop through indices between 0 and optionsCount.
                     focusIndex = (focusIndex + optionsCount) % optionsCount;
                     setFocus(focusIndex);
                 }
