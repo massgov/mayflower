@@ -29,7 +29,7 @@ export default (function (window, document,$) {
                 })
                 $searchInput.attr("aria-expanded", true);
                 $suggestions.removeClass("hidden");
-                $suggestions.find('.ma__header-search-suggestions-helper').text(helper);
+                $suggestions.find('.ma__header-search-suggestions-description').text(helper);
             } // else, hide the suggestions
             else {
                 $searchInput.attr("aria-expanded", false);
