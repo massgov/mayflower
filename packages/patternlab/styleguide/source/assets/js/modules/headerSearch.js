@@ -18,8 +18,10 @@ export default (function (window, document,$) {
             $options.removeClass('hover');
             $options[index].classList.add('hover');
         }
+        let timer;
         // On input value change, unhide or hide the suggestions.
         $searchInput.on('input', function() {
+            clearTimeout(timer);
             let inputValue = $(this).val();
             let helper = `${optionsCount} search scope suggestions are available for ${inputValue}; to navigate, use up and down arrow keys on desktop; to select, use space or enter keys`;
             // when the input has value, show the suggestions
@@ -29,7 +31,12 @@ export default (function (window, document,$) {
                 })
                 $searchInput.attr("aria-expanded", true);
                 $suggestions.removeClass("hidden");
-                $suggestions.find('.ma__header-search-suggestions-helper').text(helper);
+
+                timer = setTimeout(function() {
+                    // add a 2 second delay to avoid the status announcement getting cut off. 
+                    $suggestions.find('.ma__header-search-suggestions-helper').text(helper);
+                },2000);
+                
             } // else, hide the suggestions
             else {
                 $searchInput.attr("aria-expanded", false);
