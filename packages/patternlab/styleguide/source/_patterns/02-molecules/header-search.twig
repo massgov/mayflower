@@ -17,13 +17,14 @@
           role="combobox"
           aria-expanded="false"
           aria-controls="search-suggestions"
+          aria-owns="search-suggestions"
         {% endif %}
     />
     {% if hasSuggestions %}
-      <div id="search-suggestions" class="ma__header-search-suggestions hidden">
+      <div class="ma__header-search-suggestions hidden">
         <span role="status" aria-live="polite" class="ma__header-search-suggestions-helper"></span>
-        <ul role="listbox" tabindex="-1" class="ma__header-search-suggestions-list">
-          <li class="ma__header-search-suggestion" role="presentation">
+        <ul id="search-suggestions" role="listbox" tabindex="-1" class="ma__header-search-suggestions-list">
+          <li class="ma__header-search-suggestion" role="presentation" >
             <button class="ma__header-search-suggestion-option" role="option">
               <span>
                 {{ icon('search') }}
