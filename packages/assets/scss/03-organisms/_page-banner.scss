@@ -16,6 +16,17 @@
   /* Style for the text content on the left side */
   &__content {
     flex: 1;
+
+    .ma__page-header {
+
+      &__title, &__sub-title, &__description, &__category, &__subCategory {
+        color: $c-font-inverse;
+      }
+
+      &__sub-title {
+        width: 100%;
+      }
+    }
   }
   
   /* Style for the image on the right side */
