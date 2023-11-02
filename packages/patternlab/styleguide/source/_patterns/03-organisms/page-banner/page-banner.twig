@@ -1,11 +1,7 @@
 <div class="ma__page-banner">
   <div class="ma__page-banner__container">
     <div class="ma__page-banner__content">
-      <div class="ma__page-banner__category" aria-hidden="true">
-        {{pageBanner.category}}
-      </div>
       {% set pageHeader = pageBanner.pageHeader %}
-      {% set pageHeader = pageHeader|merge({ 'prefix': pageBanner.category }) %}
       {% include "@organisms/page-header/page-header.twig" %}
       {% include "@organisms/page-header/page-header-addons.twig" %}
     </div>
