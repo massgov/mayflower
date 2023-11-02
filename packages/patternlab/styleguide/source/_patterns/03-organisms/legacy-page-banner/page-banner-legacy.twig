@@ -1,27 +1,27 @@
-{% set layoutClass = pageBanner.layout ? "ma__page-banner--" ~ pageBanner.layout : '' %}
-{% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
-{% set bgNarrowClass = pageBanner.bgNarrow ? "ma__page-banner--bg-narrow" : "" %}
-{% set bgWideClass = pageBanner.bgWide ? "ma__page-banner--bg-wide" : "" %}
-{% set noImage = (pageBanner.bgWide or pageBanner.bgNarrow) ? "" : "ma__page-banner--no-img" %}
-{% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner--no-img-mobile" %}
-{% set iconClass = not pageBanner.icon ? "ma__page-banner--no-icon" : '' %}
-{% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
-{% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
+{% set layoutClass = pageBanner.layout ? "ma__page-banner-legacy--" ~ pageBanner.layout : '' %}
+{% set colorClass = pageBanner.color ? "ma__page-banner-legacy--" ~ pageBanner.color : '' %}
+{% set bgNarrowClass = pageBanner.bgNarrow ? "ma__page-banner-legacy--bg-narrow" : "" %}
+{% set bgWideClass = pageBanner.bgWide ? "ma__page-banner-legacy--bg-wide" : "" %}
+{% set noImage = (pageBanner.bgWide or pageBanner.bgNarrow) ? "" : "ma__page-banner-legacy--no-img" %}
+{% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner-legacy--no-img-mobile" %}
+{% set iconClass = not pageBanner.icon ? "ma__page-banner-legacy--no-icon" : '' %}
+{% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner-legacy__content-wrapper--bg-narrow" : "" %}
+{% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner-legacy__content-wrapper--bg-wide" : "" %}
 {% if pageBanner.underline %}
   {% if pageBanner.description %}
-    {% set underlineWrapperClass = "ma__page-banner__content-wrapper--underline-description" %}
+    {% set underlineWrapperClass = "ma__page-banner-legacy__content-wrapper--underline-description" %}
   {% else %}
-    {% set underlineWrapperClass = "ma__page-banner__content-wrapper--underline" %}
+    {% set underlineWrapperClass = "ma__page-banner-legacy__content-wrapper--underline" %}
   {% endif %}
 {% endif %}
 
-{% set sectionClass = "ma__page-banner #{layoutClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage} #{iconClass}" %}
-{% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass} #{underlineWrapperClass}" %}
+{% set sectionClass = "ma__page-banner-legacy #{layoutClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage} #{iconClass}" %}
+{% set wrapperClass = "ma__page-banner-legacy__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass} #{underlineWrapperClass}" %}
 
 
 <section class="{{ sectionClass }}">
   {% set classBgImage =
-    (pageBanner.layout == "taper") ? '.ma__page-banner__image' : '.ma__page-banner'
+    (pageBanner.layout == "taper") ? '.ma__page-banner-legacy__image' : '.ma__page-banner-legacy'
   %}
 
   {# pageBanner.bgWide #}
@@ -42,19 +42,19 @@
     </style>
   {% endif %}
 
-  <div class="ma__page-banner__container">
+  <div class="ma__page-banner-legacy__container">
     {% if (pageBanner.layout and pageBanner.layout == "taper") and bgWideWrapperClass %}
-      <div class="ma__page-banner__image"></div>
+      <div class="ma__page-banner-legacy__image"></div>
     {% endif %}
-    <div class="ma__page-banner__content" property="mainEntityOfPage">
+    <div class="ma__page-banner-legacy__content" property="mainEntityOfPage">
       <div class="{{ wrapperClass }}">
-        <div class="ma__page-banner__title-wrapper">
+        <div class="ma__page-banner-legacy__title-wrapper">
           {% if pageBanner.icon %}
-            <div class="ma__page-banner__icon">
+            <div class="ma__page-banner-legacy__icon">
               {{ icon(pageBanner.icon) }}
             </div>
           {% endif %}
-          <h1 class="ma__page-banner__title">
+          <h1 class="ma__page-banner-legacy__title">
             {{ pageBanner.title }}
             {% if pageBanner.titleSubText %}
               <abbr title="{{ pageBanner.title }}"> {{ pageBanner.titleSubText }}</abbr>
@@ -66,12 +66,12 @@
           {% if pageBanner.primaryLink.href %}
             {% include "@atoms/decorative-link.twig" %}
           {% else %}
-            <p class="ma__page-banner__unlinked-title">
+            <p class="ma__page-banner-legacy__unlinked-title">
               {{pageBanner.primaryLink.text}}
             </p>
           {% endif %}
           {% if pageBanner.primaryLink.description %}
-            <div class="ma__page-banner__description">
+            <div class="ma__page-banner-legacy__description">
               {{pageBanner.primaryLink.description}}
             </div>
           {% endif %}
@@ -81,34 +81,34 @@
           {% if pageBanner.secondaryLink.href %}
             {% include "@atoms/decorative-link.twig" %}
           {% else %}
-            <p class="ma__page-banner__unlinked-title">
+            <p class="ma__page-banner-legacy__unlinked-title">
               {{pageBanner.secondaryLink.text}}
             </p>
           {% endif %}
           {% if pageBanner.secondaryLink.description %}
-            <div class="ma__page-banner__description">
+            <div class="ma__page-banner-legacy__description">
               {{pageBanner.secondaryLink.description}}
             </div>
           {% endif %}
         {% endif %}
         {% if pageBanner.description %}
-          <p class="ma__page-banner__description">
+          <p class="ma__page-banner-legacy__description">
             {{ pageBanner.description }}
             {% if pageBanner.descriptionSubText %}
-              <span class="ma__page-banner__descriptionSubText">
+              <span class="ma__page-banner-legacy__descriptionSubText">
                 {{ pageBanner.descriptionSubText }}
               </span>
             {% endif %}
           </p>
         {% endif %}
         {% if pageBanner.buttons %}
-          <div class="ma__page-banner__buttons-wrapper">
+          <div class="ma__page-banner-legacy__buttons-wrapper">
             {% if pageBanner.buttonsLabel %}
-              <span  class="ma__page-banner__buttons-label">{{pageBanner.buttonsLabel}}</span>
+              <span  class="ma__page-banner-legacy__buttons-label">{{pageBanner.buttonsLabel}}</span>
             {% endif %}
-            <ul class="ma__page-banner__buttons">
+            <ul class="ma__page-banner-legacy__buttons">
               {% for button in pageBanner.buttons %}
-                <li class="ma__page-banner__button">
+                <li class="ma__page-banner-legacy__button">
                   {% include "@atoms/01-buttons/button.twig" %}
                 </li>
               {% endfor %}
