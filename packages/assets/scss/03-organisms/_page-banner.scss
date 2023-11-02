@@ -1,537 +1,68 @@
 @use "00-base/configure" as *;
 
-$icon-width: 3.5rem;
-$page-banner-legacy-icon-width: $icon-width + 1rem;
-$page-banner-legacy-height: 273px;
-$text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-.ma__page-banner-legacy {
-  background-size: cover;
-  background-position: center center;
-  height: auto;
-  margin-bottom: 20px;
-  overflow: hidden;
-  position: relative;
-
-  @media ($bp-large-extended-min) {
-    margin-bottom: 40px;
-  }
+/* Apply basic styling to the banner container */
+.ma__page-banner {
+  background-color: #388557;
+  color: #fff;
 
   &__container {
-
-    @include ma-container;
-    height: 100%;
-    position: relative;
-  }
-
-  &__content {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: $fonts-xsmall;
-    padding: 30px 0 45px 0;
-
-    &:before {
-      background-color: $c-primary-alt;
-    }
-  }
-
-  &__title-wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  &__icon {
-    margin-right: 1rem;
-    width: $icon-width;
-    display: inline-block;
-
-
-    & > svg {
-      height: 2.75em;
-      width: 100%;
-
-      &, & > g {
-        fill: rgba($c-font-inverse,.5);
-      }
-
-      @media ($bp-large-extended-min) {
-        height: 3.75em;
-      }
-
-      @media ($bp-large-min) {
-        height: 4.25em;
-      }
-
-      @media ($bp-x-large-min) {
-        height: 4.625em;
-      }
-    }
-
-    a {
-      display: inline-block;
-    }
-  }
-
-  &__title {
-    flex-grow: 1;
-    line-height: 1.05;
-    margin-bottom: 0;
-    vertical-align: middle;
-    z-index: 1;
-    color: $c-font-inverse;
-
-    @media ($bp-medium-min) {
-      font-size: $fonts-7xlarge;
-    }
-
-    @media ($bp-large-min) {
-      font-size: $fonts-8xlarge;
-    }
-
-    & > abbr {
-      font-size: .4em;
-      border: none;
-      text-decoration: none;
-    }
-  }
-
-  &__icon + &__title {
-
-    @media ($bp-large-extended-min) {
-      width: calc(100% - #{$page-banner-legacy-icon-width});
-    }
-  }
-
-  &__description,
-  &__unlinked-title,
-  .ma__decorative-link {
-    color: $c-font-inverse;
-    font-weight: $fonts-normal;
-    letter-spacing: $letter-spacing-small;
-    line-height: 2.188rem;
-    display: block;
-    margin-bottom: 0;
-    margin-top: 0.8em;
-
-    @media ($bp-large-extended-min) {
-      max-width: 820px;
-    }
-  }
-
-  &__description {
-    font-size: $fonts-large;
-    line-height: 1.5;
-  }
-
-  &__unlinked-title,
-  .ma__decorative-link {
-    font-size:  $fonts-xlarge;
-  }
-
-  .ma__decorative-link a {
-    color: $c-font-inverse;
-
-    &:hover {
-      border-bottom-color: rgba($c-font-inverse, 0.5);
-    }
-
-    svg {
-      fill: rgba($c-font-inverse, 0.5);
-    }
-  }
-
-  .ma__decorative-link + &__description,
-  &__unlinked-title + &__description {
-    margin-top: .5rem;
-    width: 100%;
-    font-size: $fonts-large;
-  }
-
-  &__buttons-wrapper {
-    display: flex;
-    width: 100%;
-    margin-top: 1.5rem;
-
-    @media ($bp-medium-max) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-  }
-
-  &__buttons-label {
-    font-weight: $fonts-bold;
-    color: $c-font-inverse;
-    margin-right: 1rem;
-    margin-top: 1rem;
-    letter-spacing: $letter-spacing-large;
-    flex: 0 0 fit-content;
-  }
-
-  &__buttons {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 0;
-
-  }
-
-  &__button {
-    display: inline-block;
-    text-shadow: none;
-    margin-top: 0.5rem;
-    margin-right: 0.5rem;
-  }
-
-
-
-  // Overlay variant
-
-  &--overlay {
-
-    @media ($bp-large-extended-min) {
-      min-height: $page-banner-legacy-height;
-      padding-top: 20px;
-      text-shadow: $text-shadow;
-
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.8;
-      }
-    }
-
-    .ma__page-banner-legacy__container {
-
-      &:before {
-        background-color: rgba($c-primary-alt, 0.8);
-      }
-    }
-
-    &.ma__page-banner-legacy--bg-wide {
-
-      .ma__page-banner-legacy__container {
-
-        @media ($bp-large-extended-min) {
-          min-height: $page-banner-legacy-height;
-          display: flex;
-          align-items: stretch;
-
-          &:before {
-            background-color: rgba($c-primary, 0.8);
-          }
-        }
-      }
-
-      .ma__page-banner-legacy__content-wrapper {
-        height: 100%;
-        width: 100%;
-        transform: none;
-
-        @media ($bp-large-extended-min) {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          align-content: center;
-          width: calc(100% - #{$layout-sidebar-width});
-        }
-      }
-
-      .ma__page-banner-legacy__description {
-
-        @media ($bp-large-extended-min) {
-          // increase font size to ensure description readablity when overlaying an image
-          font-size: $fonts-xlarge;
-          max-width: 820px;
-          width: 100%;
-        }
-      }
-    }
-
-    .ma__page-banner-legacy__description {
-
-      @media ($bp-large-extended-min) {
-        max-width:  100%;
-      }
-    }
-  }
-
-  &--overlay &__content {
-    padding: 40px 0 40px 0;
-    position: relative;
-    transform: none;
-    background: none;
-    height: 100%;
-    width: 100%;
-
-    @media ($bp-large-extended-min) {
-      padding-right: 0;
-      top: 0;
-    }
-
-    &:before {
-      display: none;
-    }
-  }
-
-  &--overlay &__title {
-
-    @media ($bp-large-extended-min) {
-      width: calc(100% - 75px);
-    }
-  }
-  // end of overlay variant
-
-  // Skew background variant
-
-  &--taper {
-
-    position: relative;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
-    height: auto;
-    background-color: $c-primary-alt;
-
-    @media ($bp-x-large-min) {
-      height: 100%;
-    }
-  }
-
-  @mixin skewBG {
-    z-index: 1;
-    top: -50%;
-    transform: none;
-    background-color: $c-primary-alt;
-
-    @media ($bp-x-large-min) {
-      margin-right: 70px;
-      padding-top: 50px;
-      padding-right: 80px;
-      transform: skew(-30deg);
-
-      &::before {
-        content: "";
-        height: 100%;
-        top: 0;
-        position: absolute;
-        width: 50vw;
-        right: 99%; // weird gap when skewed is shown
-      }
-    }
-  }
-
-  &--taper &__container {
-    padding-right: 0;
     display: flex;
-
-    @media ($bp-x-large-min) {
-      height: 100%;
-      min-height: $page-banner-legacy-height;
+    flex-direction: column;
+  }
+  
+  /* Style for the text content on the left side */
+  &__content {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  /* Style for the image on the right side */
+  &__image {
+    flex: 240px;
+    background-position: center;
+    background-size: contain;
+    background-image: url("../img/2x1.png");
+    background-repeat: no-repeat;
+  }
+  
+  @media (min-width: 1000px) {
+    &__container {
+      flex-direction: row;
+      align-items: stretch;
+      max-width: 1320px;
+      padding-left: 40px;
+      /* padding-right: 40px; */
     }
-
-    @media ($bp-x-large-max) {
-
-      flex-direction: column-reverse;
-      padding-left: 0;
-      background-color: $c-primary-alt;
-    }
-
-    .ma__page-banner-legacy__image {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 560px;
+  
+    &__image {
+      flex: 1;
+      background-image: url("../img/4x3.png");
       background-size: cover;
-      background-position: center;
-
-
-      @media ($bp-x-large-max) {
-        position: relative;
-        width: 100%;
-        height: 50vw;
-        left: 0;
-      }
-    }
-
-    .ma__page-banner-legacy__content {
-      position: relative;
-      display: flex;
-      align-items: center;
-      background-color: $c-primary-alt;
-      background-image: none;
-      height: 100%;
       width: 100%;
-
-      @include skewBG();
-
-      @media ($bp-x-large-max) {
-
-        @include ma-container();
-      }
-
-      @media ($bp-x-large-min) {
-        top: 0;
-        transform: skew(-30deg);
-        padding: 30px 25px 45px 0;
-        min-height: $page-banner-legacy-height;
-        max-width: 640px;
-        margin-right: 70px;
-        padding-top: 50px;
-      }
     }
   }
-
-  &--taper &__content-wrapper {
-    z-index: 1;
-
-      @media ($bp-x-large-min) {
-      transform: skew(30deg);
-      display: flex;
-      flex-wrap: wrap;
+  
+  @media (min-width: 1200px) {
+    &__image {
+      flex: 1;
+      background-image: url("../img/2x1.png");
+      background-size: cover;
+      width: 100%;
     }
   }
-
-  // end of skewed background variant
-
-
-  // to match height and font size being provided to prod by
-  // decision tree module styles
-
-  .decision-tree & {
-
-    h1 {
-      font-size: $fonts-2xlarge;
-
-      @media ($bp-large-extended-min) {
-        font-size: $fonts-xlarge;
-      }
-    }
-
-    &.ma__page-banner-legacy--overlay {
-      height: 120px;
+  
+  
+  @media (max-width: 480px) {
+    &__image {
+      flex: 50vw;
+      background-image: url("../img/2x1.png");
+      background-size: cover;
+      width: 100%;
     }
   }
-}
-
-// config
-
-.ma__page-banner-legacy {
-
-  // With underline
-
-  &__content-wrapper {
-
-    &--underline .ma__page-banner-legacy__title,
-    &--underline-description {
-
-      &:after {
-        content: "";
-        position: absolute;
-        display: block;
-        height: 6px;
-        width: 105px;
-        background-color: #388557;
-        -webkit-transform: skew(-30deg);
-        -ms-transform: skew(-30deg);
-        transform: skew(-30deg);
-        margin-top: 1rem;
-      }
-    }
-  }
-
-   // No image
-
-   &--no-img {
-    background-image: none !important;
-
-    // Do not render image on mobile
-
-    &-mobile {
-
-      @media ($bp-x-large-max) {
-
-        &:after {
-          display: none;
-        }
-
-        .ma__page-banner-legacy__image {
-          display: none;
-        }
-      }
-    }
-   }
-
-
-  // blue background
-
-  &--blue {
-    background-color: $c-primary;
-
-    &:before {
-      background-color: $c-primary;
-    }
-
-    &.ma__page-banner-legacy--taper .ma__page-banner-legacy__content {
-      background-color: $c-primary;
-
-      &:before {
-        background-color: $c-primary;
-      }
-    }
-  }
-
-    // green background
-
-    &--green {
-      background-color: $c-primary-alt;
-
-      &:before {
-        background-color: $c-primary-alt;
-      }
-
-      &.ma__page-banner-legacy--taper .ma__page-banner-legacy__content {
-        background-color: $c-primary-alt;
-
-        &:before {
-          background-color: $c-primary-alt;
-        }
-      }
-    }
-
-    // white background
-
-    &--white {
-      background-color: white;
-      color: $c-font-base;
-
-      &:before {
-        background-color: white;
-      }
-
-      &.ma__page-banner-legacy--taper .ma__page-banner-legacy__content {
-        background-color: white;
-
-        &:before {
-          background-color: white;
-        }
-      }
-    }
-
-    &--white &__icon {
-
-      svg,
-      svg > g {
-        fill: $c-primary-alt;
-      }
-    }
-
-    &--white &__title,
-    &--white &__description {
-      color: $c-font-base;
-    }
 }
 
 

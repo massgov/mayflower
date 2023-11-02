@@ -1,0 +1,34 @@
+<div class="ma__page-banner">
+  <div class="ma__page-banner__container">
+    <div class="ma__page-banner__content">
+      <div class="ma__page-banner__category" aria-hidden="true">
+        {{pageBanner.category}}
+      </div>
+      {% set pageHeader = pageBanner.pageHeader %}
+      {% set pageHeader = pageHeader|merge({ 'prefix': pageBanner.category }) %}
+      {% include "@organisms/page-header/page-header.twig" %}
+      {% include "@organisms/page-header/page-header-addons.twig" %}
+    </div>
+    <div class="ma__page-banner__image"></div>
+  </div>
+</div>
+
+{% if pageBanner.bgImage %}
+    <style>
+        .ma__page-banner__image {
+            background-image: url('{{ pageBanner.bgImage }}');
+        }
+        {% if pageBanner.retinaBgImage %}
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                .ma__page-banner__image {
+                    background-image: url('{{ pageBanner.retinaBgImage }}');
+                }
+            }
+        {% endif %}
+        {% if pageBanner.bgPositionX and pageBanner.bgPositionY %}
+            .ma__page-banner__image {
+                background-position: {{ pageBanner.bgPositionX }} {{ pageBanner.bgPositionY }};
+            }
+        {% endif %}
+    </style>
+{% endif %}
