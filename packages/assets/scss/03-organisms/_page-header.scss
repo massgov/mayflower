@@ -112,7 +112,7 @@ $page-header-widget-width: 350px;
     }
   }
 
-  .ma__page-banner ~ & &__content {
+  .ma__page-banner-legacy ~ & &__content {
     padding-top: 20px;
   }
 
@@ -146,7 +146,7 @@ $page-header-widget-width: 350px;
     }
   }
 
-  .ma__page-banner ~ & &__title {
+  .ma__page-banner-legacy ~ & &__title {
     display: none;
   }
 

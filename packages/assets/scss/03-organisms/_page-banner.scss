@@ -1,11 +1,11 @@
 @use "00-base/configure" as *;
 
 $icon-width: 3.5rem;
-$page-banner-icon-width: $icon-width + 1rem;
-$page-banner-height: 273px;
+$page-banner-legacy-icon-width: $icon-width + 1rem;
+$page-banner-legacy-height: 273px;
 $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-.ma__page-banner {
+.ma__page-banner-legacy {
   background-size: cover;
   background-position: center center;
   height: auto;
@@ -99,7 +99,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &__icon + &__title {
 
     @media ($bp-large-extended-min) {
-      width: calc(100% - #{$page-banner-icon-width});
+      width: calc(100% - #{$page-banner-legacy-icon-width});
     }
   }
 
@@ -190,7 +190,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &--overlay {
 
     @media ($bp-large-extended-min) {
-      min-height: $page-banner-height;
+      min-height: $page-banner-legacy-height;
       padding-top: 20px;
       text-shadow: $text-shadow;
 
@@ -204,19 +204,19 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
 
-    .ma__page-banner__container {
+    .ma__page-banner-legacy__container {
 
       &:before {
         background-color: rgba($c-primary-alt, 0.8);
       }
     }
 
-    &.ma__page-banner--bg-wide {
+    &.ma__page-banner-legacy--bg-wide {
 
-      .ma__page-banner__container {
+      .ma__page-banner-legacy__container {
 
         @media ($bp-large-extended-min) {
-          min-height: $page-banner-height;
+          min-height: $page-banner-legacy-height;
           display: flex;
           align-items: stretch;
 
@@ -226,7 +226,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
       }
 
-      .ma__page-banner__content-wrapper {
+      .ma__page-banner-legacy__content-wrapper {
         height: 100%;
         width: 100%;
         transform: none;
@@ -240,7 +240,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
       }
 
-      .ma__page-banner__description {
+      .ma__page-banner-legacy__description {
 
         @media ($bp-large-extended-min) {
           // increase font size to ensure description readablity when overlaying an image
@@ -251,7 +251,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
 
-    .ma__page-banner__description {
+    .ma__page-banner-legacy__description {
 
       @media ($bp-large-extended-min) {
         max-width:  100%;
@@ -328,7 +328,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     @media ($bp-x-large-min) {
       height: 100%;
-      min-height: $page-banner-height;
+      min-height: $page-banner-legacy-height;
     }
 
     @media ($bp-x-large-max) {
@@ -338,7 +338,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       background-color: $c-primary-alt;
     }
 
-    .ma__page-banner__image {
+    .ma__page-banner-legacy__image {
       position: absolute;
       top: 0;
       right: 0;
@@ -356,7 +356,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
 
-    .ma__page-banner__content {
+    .ma__page-banner-legacy__content {
       position: relative;
       display: flex;
       align-items: center;
@@ -376,7 +376,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         top: 0;
         transform: skew(-30deg);
         padding: 30px 25px 45px 0;
-        min-height: $page-banner-height;
+        min-height: $page-banner-legacy-height;
         max-width: 640px;
         margin-right: 70px;
         padding-top: 50px;
@@ -410,7 +410,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
 
-    &.ma__page-banner--overlay {
+    &.ma__page-banner-legacy--overlay {
       height: 120px;
     }
   }
@@ -418,13 +418,13 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 // config
 
-.ma__page-banner {
+.ma__page-banner-legacy {
 
   // With underline
 
   &__content-wrapper {
 
-    &--underline .ma__page-banner__title,
+    &--underline .ma__page-banner-legacy__title,
     &--underline-description {
 
       &:after {
@@ -457,7 +457,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           display: none;
         }
 
-        .ma__page-banner__image {
+        .ma__page-banner-legacy__image {
           display: none;
         }
       }
@@ -474,7 +474,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       background-color: $c-primary;
     }
 
-    &.ma__page-banner--taper .ma__page-banner__content {
+    &.ma__page-banner-legacy--taper .ma__page-banner-legacy__content {
       background-color: $c-primary;
 
       &:before {
@@ -492,7 +492,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         background-color: $c-primary-alt;
       }
 
-      &.ma__page-banner--taper .ma__page-banner__content {
+      &.ma__page-banner-legacy--taper .ma__page-banner-legacy__content {
         background-color: $c-primary-alt;
 
         &:before {
@@ -511,7 +511,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         background-color: white;
       }
 
-      &.ma__page-banner--taper .ma__page-banner__content {
+      &.ma__page-banner-legacy--taper .ma__page-banner-legacy__content {
         background-color: white;
 
         &:before {

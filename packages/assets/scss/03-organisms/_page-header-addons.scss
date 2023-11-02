@@ -64,7 +64,7 @@ $page-header-widget-width: 350px;
     }
   }
 
-  .ma__page-banner ~ & &__widgets {
+  .ma__page-banner-legacy ~ & &__widgets {
 
     @media ($bp-large-min) {
       padding-top: 20px;
