@@ -9,18 +9,23 @@
   </div>
 </div>
 
-{% if pageBanner.bgImage %}
+{% if pageBanner.image %}
+    {% set imageMobile = pageBanner.imageMobile ?: pageBanner.image %}
+    {% set imageMedium = pageBanner.imageMedium ?: pageBanner.image %}
     <style>
         .ma__page-banner__image {
-            background-image: url('{{ pageBanner.bgImage }}');
+            background-image: url('{{ imageMobile }}');
         }
-        {% if pageBanner.retinaBgImage %}
-            @media (-webkit-min-device-pixel-ratio: 2) {
-                .ma__page-banner__image {
-                    background-image: url('{{ pageBanner.retinaBgImage }}');
-                }
+        @media (min-width: 1000px) {
+            .ma__page-banner__image {
+                background-image: url('{{ imageMedium }}');
             }
-        {% endif %}
+        }
+        @media (min-width: 1200px) {
+            .ma__page-banner__image {
+                background-image: url('{{ pageBanner.image }}');
+            }
+        }
         {% if pageBanner.bgPositionX and pageBanner.bgPositionY %}
             .ma__page-banner__image {
                 background-position: {{ pageBanner.bgPositionX }} {{ pageBanner.bgPositionY }};

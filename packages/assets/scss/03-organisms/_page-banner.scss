@@ -34,7 +34,6 @@
     flex: 240px;
     background-position: center;
     background-size: contain;
-    background-image: url("../img/2x1.png");
     background-repeat: no-repeat;
   }
   
@@ -49,7 +48,6 @@
   
     &__image {
       flex: 1;
-      background-image: url("../img/4x3.png");
       background-size: cover;
       width: 100%;
     }
@@ -58,7 +56,6 @@
   @media (min-width: 1200px) {
     &__image {
       flex: 1;
-      background-image: url("../img/2x1.png");
       background-size: cover;
       width: 100%;
     }

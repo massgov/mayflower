@@ -1,9 +1,11 @@
   {
   "pageBanner": {
-    "bgImage": "../../assets/images/placeholder/2x1.png",
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
     "pageHeader": {
       "category": "Guide",
-      "title": "Moving to Massachusetts",
+      "title": "Governor Maura Healey and Lt. Governor Kim Driscoll",
       "subTitle": "This is sub title",
       "headerTags": null
     }
