@@ -54,7 +54,7 @@ $textcolors: (
   
   /* Style for the text content on the left side */
   &__content {
-    flex: 1;
+    flex: 1.5; // width ratio to image 3:2
   }
   
   /* Style for the image on the right side */

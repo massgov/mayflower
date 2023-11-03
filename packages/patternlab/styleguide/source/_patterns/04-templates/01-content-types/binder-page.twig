@@ -8,12 +8,7 @@
 				{% include "@organisms/by-template/breadcrumbs.twig" %}
 			{% endif %}
 			{% include "@molecules/relationship-indicators.twig" %}
-			{% if illustratedHeader %}
-				{% include "@organisms/illustrated-header/illustrated-header.twig" %}
-			{% endif %}
-			{% if pageHeader %}
-				{% include "@organisms/page-header/page-header.twig" %}
-			{% endif %}
+			{% include "@organisms/page-banner/page-banner.twig" %}
 		{% endblock %}
 	</div>
 	<div class="ma__binder-page__content">
