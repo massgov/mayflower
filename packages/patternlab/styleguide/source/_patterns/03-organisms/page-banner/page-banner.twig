@@ -15,9 +15,12 @@
     {% set imageMobile = pageBanner.imageMobile ?: pageBanner.image %}
     {% set imageMedium = pageBanner.imageMedium ?: pageBanner.image %}
     <style>
-        .ma__page-banner__image {
-            background-image: url('{{ imageMobile }}');
-        }
+        {% if pageBanner.showMobileImage %}
+            .ma__page-banner__image {
+                background-image: url('{{ imageMobile }}');
+                display: block;
+            }
+        {% endif %}
         @media (min-width: 1000px) {
             .ma__page-banner__image {
                 background-image: url('{{ imageMedium }}');

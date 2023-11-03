@@ -27,6 +27,20 @@ $textcolors: (
   @each $class, $c in $textcolors {
     &--#{$class} {
       color: $c;
+
+      .ma__page-header {
+
+        &__title, &__sub-title, &__description, &__category, &__subCategory {
+          color: $c;
+        }
+      }
+    }
+  }
+
+  
+  .ma__page-header {
+    &__sub-title {
+      width: 100%;
     }
   }
 
@@ -41,21 +55,11 @@ $textcolors: (
   /* Style for the text content on the left side */
   &__content {
     flex: 1;
-
-    .ma__page-header {
-
-      &__title, &__sub-title, &__description, &__category, &__subCategory {
-        color: $c-font-inverse;
-      }
-
-      &__sub-title {
-        width: 100%;
-      }
-    }
   }
   
   /* Style for the image on the right side */
   &__image {
+    display: none;
     flex: 240px;
     background-position: center;
     background-size: contain;
@@ -71,6 +75,7 @@ $textcolors: (
   
     &__image {
       flex: 1;
+      display: block;
       background-size: cover;
       width: 100%;
     }
@@ -79,6 +84,7 @@ $textcolors: (
   @media (min-width: 1200px) {
     &__image {
       flex: 1;
+      display: block;
       background-size: cover;
       width: 100%;
     }
