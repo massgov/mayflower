@@ -54,14 +54,14 @@
     }
   },
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x400.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "overlay",
-    "icon": "",
-    "title": "Required - Services title",
-    "titleSubText": "",
-    "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
-    "color": "blue"
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "pageHeader": {
+      "title": "Required - Services title",
+      "subTitle": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
+      "headerTags": null
+    }
   },
   "introPageContent": {
     "video": {

@@ -1,4 +1,6 @@
-<div class="ma__page-banner">
+{% set theme = pageBanner.theme ? " ma__page-banner--" ~ pageBanner.theme : "" %}
+
+<div class="ma__page-banner{{theme}}">
   <div class="ma__page-banner__container">
     <div class="ma__page-banner__content">
       {% set pageHeader = pageBanner.pageHeader %}

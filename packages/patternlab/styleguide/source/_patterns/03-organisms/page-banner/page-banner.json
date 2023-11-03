@@ -3,10 +3,12 @@
     "image": "../../assets/images/placeholder/2x1.png",
     "imageMobile": "../../assets/images/placeholder/2x1.png",
     "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "theme": "c-white",
     "pageHeader": {
       "category": "Guide",
       "title": "Governor Maura Healey and Lt. Governor Kim Driscoll",
       "subTitle": "This is sub title",
+      "description": "Have you lost your job? You may qualify for temporary income to support you while you look for a new one.",
       "headerTags": null
     }
   }

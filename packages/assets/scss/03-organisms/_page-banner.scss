@@ -1,9 +1,34 @@
 @use "00-base/configure" as *;
 
+$bgcolors: (
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-white": $c-white
+);
+
+$textcolors: (
+  "c-primary": $c-font-inverse,
+  "c-primary-alt": $c-font-inverse,
+  "c-white": $c-font-base,
+);
+
 /* Apply basic styling to the banner container */
 .ma__page-banner {
-  background-color: #388557;
-  color: #fff;
+  background-color: $c-primary;
+  color: $c-font-inverse;
+  margin-bottom: 20px;
+
+  @each $class, $c in $bgcolors {
+    &--#{$class} {
+      background-color: $c;
+    }
+  }
+
+  @each $class, $c in $textcolors {
+    &--#{$class} {
+      color: $c;
+    }
+  }
 
   &__container {
     margin-left: auto;
@@ -42,8 +67,6 @@
       flex-direction: row;
       align-items: stretch;
       max-width: 1320px;
-      padding-left: 40px;
-      /* padding-right: 40px; */
     }
   
     &__image {
@@ -62,7 +85,7 @@
   }
   
   
-  @media (max-width: 480px) {
+  @media ($bp-small-max) {
     &__image {
       flex: 50vw;
       background-image: url("../img/2x1.png");
