@@ -80,13 +80,13 @@
         <p class="ma__page-header__description">{{pageHeader.description}}</p>
       {% endif %}
       {% if pageHeader.buttons %}
-        <div class="ma__page-banner-legacy__buttons-wrapper">
+        <div class="ma__page-banner__buttons-wrapper">
         {% if pageHeader.buttonsLabel %}
-            <span  class="ma__page-banner-legacy__buttons-label">{{pageHeader.buttonsLabel}}</span>
+            <span  class="ma__page-banner__buttons-label">{{pageHeader.buttonsLabel}}</span>
         {% endif %}
-            <ul class="ma__page-banner-legacy__buttons">
+            <ul class="ma__page-banner__buttons">
                 {% for button in pageHeader.buttons %}
-                <li class="ma__page-banner-legacy__button">
+                <li class="ma__page-banner__button">
                     {% include "@atoms/01-buttons/button.twig" %}
                 </li>
                 {% endfor %}
