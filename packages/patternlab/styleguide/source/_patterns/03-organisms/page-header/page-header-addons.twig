@@ -1,11 +1,12 @@
 {% set widgetsClass = pageHeader.widgets ? " ma__page-header-addons--has-widgets" : "" %}
+{% set contentClass = pageHeader.fullWidthAddon ?  "main-content" : "main-content main-content--two" %}
 
 {% if pageHeader.optionalContents or  pageHeader.widgets %}
   <section class="ma__page-header-addons{{widgetsClass}}">
     {% if pageHeader.optionalContents %}
       <div class="ma__page-header-addons__content">
         <div class="ma__page-header-addons__optional-content">
-          <div class="main-content main-content--two">
+          <div class="{{contentClass}}">
             <div class="page-content">
               {% for content in pageHeader.optionalContents %}
                 {% include content.path with content.data %}
