@@ -7,7 +7,9 @@
       {% include "@organisms/page-header/page-header.twig" %}
       {% include "@organisms/page-header/page-header-addons.twig" %}
     </div>
-    <div class="ma__page-banner__image"></div>
+    {% if pageBanner.image %}
+        <div class="ma__page-banner__image"></div>
+    {% endif %}
   </div>
 </div>
 

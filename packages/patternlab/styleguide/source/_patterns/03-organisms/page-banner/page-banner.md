@@ -5,22 +5,38 @@ Page Banner component that is composed of an H1 page title, featured image and d
 * New after v12.7.0
 
 ### Variant options
-* Layouts: 
-  - ['taper'](./?p=organisms-page-banner-as-large) - Trepezoid solid color background, side-by-side image
-  - ['overlay'](./?p=organisms-page-banner-as-overlay) - Transparent background color over an image
-* Color themes:
-  - blue (./?p=organisms-page-banner)
-  - green
-* The icon and description are both optional
+* Themes:
+  - c-primary (Used on mass.gov for navigational pages)
+  - primary (Used on mass.gov for navigational pages)
+  - white
+* Image
+ - 
 
+
+  "pageBanner": {
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "imageMobile": "../../assets/images/placeholder/2x1.png",
+    "showMobileImage"
+    "theme": "c-primary",
+    "pageHeader": {
+      "category": "Guide",
+      "title": "Governor Maura Healey and Lt. Governor Kim Driscoll",
+      "subTitle": "This is sub title",
+      "description": "Have you lost your job? You may qualify for temporary income to support you while you look for a new one.",
+      "headerTags": null
+    }
+  }
 ### Variables
 ~~~
 pageBanner: {
-  bgWide:
-    type: string (image path - wide screens) / required
-  bgNarrow:
-    type: string (image path - narrow screens) / required
-  underline:
+  image:
+    type: string (image path - wide screens 2:1 max rendering size @ 660 x 330px) / optional (required as the default image)
+  imageMedium:
+    type: string (image path - medium screens 4:3 max rendering size @ 460 x 345px) / optional
+  imageMedium:
+    type: string (image path - medium screens 2:1 480 x 240px) / optional
+  showMobileImage:
     type: boolean / optional / default to false
   layout:
     type: string ('', 'taper', 'overlay') / optional
