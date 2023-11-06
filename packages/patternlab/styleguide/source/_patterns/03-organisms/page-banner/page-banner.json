@@ -5,23 +5,22 @@
     "imageMedium": "../../assets/images/placeholder/4x3.png",
     "theme": "c-primary",
     "pageHeader": {
-      "title": "Governor Maura Healey and Lt. Governor Kim Driscoll",
+      "title": "Unemployment Insurance (UI) for Workers",
       "subTitle": "This is sub title",
-      "fullWidthAddon": true,
-      "optionalContents": [{
-        "path": "@organisms/by-author/rich-text.twig",
-        "data": {
-          "richText": {
-            "rteElements": [{
-              "path": "atoms-paragraph",
-              "data": {
-                "paragraph" : {
-                  "text": "Have you lost your job? You may qualify for temporary income to support you while you look for a new one.."
-                }
-              }
-            }]
-          }
-        }
+      "description": "The Commonwealth of Massachusetts welcomes new residents to enjoy all the state has to offer. To help make your move to the Bay State as smooth as possible, this guide provides instructions for changing your license, tips for settling in, and other useful information.",
+      "buttonsLabel": "LOG IN:",
+      "buttons": [{
+        "href": "#",
+        "text": "Log in to UI Online",
+        "size": "small",
+        "theme": "c-white",
+        "icon": "login"
+      },{
+        "href": "#",
+        "text": "Multilingual Online UI Application",
+        "size": "small",
+        "theme": "c-white",
+        "icon": "login"
       }]
     }
   }
