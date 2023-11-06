@@ -79,6 +79,29 @@
       {% if pageHeader.description %}
         <p class="ma__page-header__description">{{pageHeader.description}}</p>
       {% endif %}
+      {% if pageHeader.links %}
+        <div class="ma__page-banner__links-wrapper">
+            <ul class="ma__page-banner__links">
+                {% for link in pageHeader.links %}
+                  <li class="ma__page-banner__link">
+                    {% if link.href %}
+                    {% set decorativeLink = link %}
+                      {% include "@atoms/decorative-link.twig" %}
+                    {% else %}
+                      <p class="ma__page-banner__unlinked-title">
+                        {{link.text}}
+                      </p>
+                    {% endif %}
+                    {% if link.description %}
+                      <div class="ma__page-banner-legacy__description">
+                        {{link.description}}
+                      </div>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+            </ul>
+          </div>
+      {% endif %}
       {% if pageHeader.buttons %}
         <div class="ma__page-banner__buttons-wrapper">
         {% if pageHeader.buttonsLabel %}

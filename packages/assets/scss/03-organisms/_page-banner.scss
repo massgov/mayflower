@@ -122,7 +122,6 @@ $textcolors: (
 
     &-label {
       font-weight: $fonts-bold;
-      color: $c-font-inverse;
       margin-right: 1rem;
       margin-top: 1rem;
       letter-spacing: $letter-spacing-large;
@@ -131,6 +130,20 @@ $textcolors: (
   }
 
   &__button {
+    display: inline-block;
+    text-shadow: none;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+// links
+  &__links {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  &__link {
     display: inline-block;
     text-shadow: none;
     margin-top: 0.5rem;

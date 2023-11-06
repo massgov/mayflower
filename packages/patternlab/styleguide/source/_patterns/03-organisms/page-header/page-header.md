@@ -40,16 +40,16 @@ pageHeader: {
     type: string / required
   subTitle:
     type: string / optional
-  primaryLink: / opional
-    text: string / required
-    href: string / optional
-    info: string / optional
-    description: string / optional
-  secondaryLink: / opional
-    text: string / required
-    href: string / optional
-    info: string / optional
-    description: string / optional
+  links: [ / optional
+    text: 
+      type: string / required
+    href: 
+      type: string / optional
+    info: 
+      type: string / optional
+    description: 
+      type: string / optional
+  ]
   buttonLabel: / optional
     type: text - label of the buttons, only rendered when buttons are added
   buttons: / optional
