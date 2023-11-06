@@ -22,6 +22,12 @@ This pattern is adds an `<h1>` page title and other helpful bit of content that 
 ### Variables
 ~~~
 pageHeader: {
+  headerTags: {
+    type: headerTags / optional
+  }
+  publishState: {
+    type: publishState / optional
+  }
   category: 
     type: string / optional,
   subCategory:
@@ -34,12 +40,20 @@ pageHeader: {
     type: string / required
   subTitle:
     type: string / optional
-  headerTags: {
-    type: headerTags / optional
-  }
-  publishState: {
-    type: publishState / optional
-  }
+  primaryLink: / opional
+    text: string / required
+    href: string / optional
+    info: string / optional
+    description: string / optional
+  secondaryLink: / opional
+    text: string / required
+    href: string / optional
+    info: string / optional
+    description: string / optional
+  buttonLabel: / optional
+    type: text - label of the buttons, only rendered when buttons are added
+  buttons: / optional
+    type: array of buttons
   optionalContents: (optional) [{
     path:
       type: string (path to pattern) / required
@@ -54,4 +68,5 @@ pageHeader: {
       type: object / contains data object of pattern to include
     }
   }]
+}
 ~~~

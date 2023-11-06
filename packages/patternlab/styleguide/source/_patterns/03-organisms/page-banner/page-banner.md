@@ -7,64 +7,42 @@ Page Banner component that is composed of an H1 page title, featured image and d
 ### Variant options
 * Themes:
   - c-primary (Used on mass.gov for navigational pages)
-  - primary (Used on mass.gov for navigational pages)
-  - white
+  - c-primary-alt (Used on mass.gov for organizational pages)
+  - c-white (Used on mass.gov for information pages)
 * Image
- - 
+  - renderImageOnMobile - whether to wrap the image under the 1000px breakpoint
+  - image - image path for wide screens/ 2:1 aspect ratio / max rendering size @ 660 x 330px
+  - imageMedium - image path for medium screens/ 4:3 aspect ratio / max rendering size @ 460 x 345px
+  - imageMobile - image path for mobile screens/ 2:1 aspect ratio / max rendering size @ 480 x 240px
 
-
-  "pageBanner": {
-    "image": "../../assets/images/placeholder/2x1.png",
-    "imageMedium": "../../assets/images/placeholder/4x3.png",
-    "imageMobile": "../../assets/images/placeholder/2x1.png",
-    "showMobileImage"
-    "theme": "c-primary",
-    "pageHeader": {
-      "category": "Guide",
-      "title": "Governor Maura Healey and Lt. Governor Kim Driscoll",
-      "subTitle": "This is sub title",
-      "description": "Have you lost your job? You may qualify for temporary income to support you while you look for a new one.",
-      "headerTags": null
-    }
-  }
 ### Variables
 ~~~
 pageBanner: {
   image:
-    type: string (image path - wide screens 2:1 max rendering size @ 660 x 330px) / optional (required as the default image)
+    type: string / optional (required as the default image)
   imageMedium:
-    type: string (image path - medium screens 4:3 max rendering size @ 460 x 345px) / optional
+    type: string / optional
   imageMedium:
-    type: string (image path - medium screens 2:1 480 x 240px) / optional
-  showMobileImage:
-    type: boolean / optional / default to false
-  layout:
-    type: string ('', 'taper', 'overlay') / optional
+    type: string / optional
   renderImageOnMobile:
-    type: boolean / optional / default to false
-  icon:
-    type: string (path to icon file) / optional
-  title:
-    type: string / required
-  titleSubText:
-    type: string / optional
-  description:
-    type: string / optional
-  color:
-    type: string ('', 'blue', 'green', 'white') / optional
-  primaryLink: / opional
-    text: string / required
-    href: string / optional
-    info: string / optional
-    description: string / optional
-  secondaryLink: / opional
-    text: string / required
-    href: string / optional
-    info: string / optional
-    description: string / optional
-  buttonLabel: / optional
-    type: text - label of the buttons, only rendered when buttons are added
-  buttons: / optional
-    type: array of buttons
+    type: boolean / optional - default to false
+  theme:
+    type: string ('', 'c-primary', 'c-primary-alt', 'c-white') / optional - default as c-primary
+  pageHeader: 
+    type: pageHeader / required
+  {
+    category: 
+        type: string / optional,
+    title:
+        type: string / required
+    subTitle:
+        type: string / optional
+    description:
+        type: string / optional
+    ...
+   }
+
 }
 ~~~
+
+Refer to [page-header.md](packages/patternlab/styleguide/source/_patterns/03-organisms/page-header/page-header.md)

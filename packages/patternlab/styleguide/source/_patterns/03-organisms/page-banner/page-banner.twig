@@ -18,7 +18,7 @@
     {% set imageMobile = pageBanner.imageMobile ?: pageBanner.image %}
     {% set imageMedium = pageBanner.imageMedium ?: pageBanner.image %}
     <style>
-        {% if pageBanner.showMobileImage %}
+        {% if pageBanner.renderImageOnMobile %}
             .ma__page-banner__image {
                 background-image: url('{{ imageMobile }}');
                 display: block;
