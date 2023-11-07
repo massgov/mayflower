@@ -45,4 +45,4 @@ pageBanner: {
 }
 ~~~
 
-Refer to [page-header.md](packages/patternlab/styleguide/source/_patterns/03-organisms/page-header/page-header.md)
+Refer to [page-header.md](../page-header/page-header.md)
