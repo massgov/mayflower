@@ -202,6 +202,56 @@ $page-header-widget-width: 350px;
     }
 
   }
+
+  
+  &__buttons-wrapper {
+    display: flex;
+    width: 100%;
+    margin-top: 1.5rem;
+
+    @media ($bp-medium-max) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+  }
+
+
+// buttons
+  &__buttons {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    &-label {
+      font-weight: $fonts-bold;
+      margin-right: 1rem;
+      margin-top: 1rem;
+      letter-spacing: $letter-spacing-large;
+      flex: 0 0 fit-content;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    text-shadow: none;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+// links
+  &__links {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    text-shadow: none;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+  }
 }
 
 //theme

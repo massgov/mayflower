@@ -11,12 +11,14 @@
         "text": "Maura Healey",
         "href": "#",
         "info": "",
-        "description": "Governor"
+        "description": "Governor",
+        "inverse": true
       },{
         "text": "Kim Driscoll",
         "href": "#",
         "info": "",
-        "description": "Lieutenant Governor"
+        "description": "Lieutenant Governor",
+        "inverse": true
       }]
     }
   }

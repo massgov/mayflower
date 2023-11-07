@@ -80,20 +80,20 @@
         <p class="ma__page-header__description">{{pageHeader.description}}</p>
       {% endif %}
       {% if pageHeader.links %}
-        <div class="ma__page-banner__links-wrapper">
-            <ul class="ma__page-banner__links">
+        <div class="ma__page-header__links-wrapper">
+            <ul class="ma__page-header__links">
                 {% for link in pageHeader.links %}
-                  <li class="ma__page-banner__link">
+                  <li class="ma__page-header__link">
                     {% if link.href %}
                     {% set decorativeLink = link %}
                       {% include "@atoms/decorative-link.twig" %}
                     {% else %}
-                      <p class="ma__page-banner__unlinked-title">
+                      <p class="ma__page-header__unlinked-title">
                         {{link.text}}
                       </p>
                     {% endif %}
                     {% if link.description %}
-                      <div class="ma__page-banner-legacy__description">
+                      <div class="ma__page-header-legacy__description">
                         {{link.description}}
                       </div>
                     {% endif %}
@@ -103,13 +103,13 @@
           </div>
       {% endif %}
       {% if pageHeader.buttons %}
-        <div class="ma__page-banner__buttons-wrapper">
+        <div class="ma__page-header__buttons-wrapper">
         {% if pageHeader.buttonsLabel %}
-            <span  class="ma__page-banner__buttons-label">{{pageHeader.buttonsLabel}}</span>
+            <span  class="ma__page-header__buttons-label">{{pageHeader.buttonsLabel}}</span>
         {% endif %}
-            <ul class="ma__page-banner__buttons">
+            <ul class="ma__page-header__buttons">
                 {% for button in pageHeader.buttons %}
-                <li class="ma__page-banner__button">
+                <li class="ma__page-header__button">
                     {% include "@atoms/01-buttons/button.twig" %}
                 </li>
                 {% endfor %}

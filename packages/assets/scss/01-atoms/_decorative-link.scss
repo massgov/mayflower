@@ -20,11 +20,11 @@
     fill: rgba($c-font-link,.5);
   }
 
-  &--inverted {
+  &--inverse {
     a {
       color: $c-font-inverse;
     }
-    
+
     a:hover {
       border-bottom-color: rgba($c-font-inverse,.5);
     }
