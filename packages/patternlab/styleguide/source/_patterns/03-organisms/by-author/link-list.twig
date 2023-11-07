@@ -39,7 +39,7 @@
       {% set length = linkList.links|length/2 %}
       {% set half = length|round(0,'ceil') %}
       <ul class="ma__link-list__items ma__link-list__items_columns {{ bulletClass }}">
-        {% for decorativeLink in linkList.links[start:half] %}
+        {% for decorativeLink in linkList.links[0:half] %}
           <li class="ma__link-list__item item-left">
             {% if decorativeLink.icon %}
               {% set downloadLink = decorativeLink %}
