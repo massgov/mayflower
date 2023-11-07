@@ -37,14 +37,14 @@
     }
   },
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x400.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "overlay",
-    "icon": "",
-    "title": "Unemployment Benefits",
-    "titleSubText": "",
-    "description": "Have you lost your job? You may qualify for temporary income to support you while you look for a new one.",
-    "color": "blue"
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "theme": "c-primary",
+    "pageHeader": {
+      "title": "Unemployment Benefits",
+      "description": "Have you lost your job? You may qualify for temporary income to support you while you look for a new one."
+    }
   },
   "introPageContent": {
     "video": {

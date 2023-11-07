@@ -34,28 +34,28 @@
     }
   },
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x400.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "overlay",
-    "icon": "",
-    "title": "Required - Services title",
-    "titleSubText": "",
-    "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
-    "color": "blue",
-    "buttonsLabel": "LOG IN:",
-    "buttons": [{
-      "href": "#",
-      "text": "Log in to UI Online",
-      "size": "small",
-      "theme": "c-white",
-      "icon": "login"
-    },{
-      "href": "#",
-      "text": "Multilingual Online UI Application",
-      "size": "small",
-      "theme": "c-white",
-      "icon": "login"
-    }]
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "theme": "c-primary",
+    "pageHeader": {
+      "title": "Required - Services title",
+      "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
+      "buttonsLabel": "LOG IN:",
+      "buttons": [{
+        "href": "#",
+        "text": "Log in to UI Online",
+        "size": "small",
+        "theme": "c-white",
+        "icon": "login"
+      },{
+        "href": "#",
+        "text": "Multilingual Online UI Application",
+        "size": "small",
+        "theme": "c-white",
+        "icon": "login"
+      }]
+    }
   },
   "introPageContent": {
     "video": {

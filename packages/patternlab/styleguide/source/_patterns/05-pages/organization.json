@@ -36,12 +36,15 @@
     }
   },
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x400.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "taper",
-    "icon": null,
-    "title": "Executive Office of Health and Human Services",
-    "titleSubText": "(EOHHS)"
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "theme": "c-primary-alt",
+    "renderImageOnMobile": true,
+    "pageHeader": {
+      "title": "Executive Office of Health and Human Services",
+      "titleSubText": "(EOHHS)"
+    }
   },
   "organizationNavigation": {
     "orgNavTitle": "Executive Office of Energy and Environmental Affairs",
