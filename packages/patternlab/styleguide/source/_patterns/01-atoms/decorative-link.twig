@@ -1,4 +1,4 @@
-<span class="ma__decorative-link{% if decorativeLink.button %} button-link{% endif %}">
+<span class="ma__decorative-link{% if decorativeLink.button %} button-link{% endif %}{% if decorativeLink.inverse %} ma__decorative-link--inverted{% endif %}">
   <a
     href="{{decorativeLink.href}}"
     class="js-clickable-link"

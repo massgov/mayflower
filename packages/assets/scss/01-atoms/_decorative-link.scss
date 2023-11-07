@@ -20,6 +20,25 @@
     fill: rgba($c-font-link,.5);
   }
 
+  &--inverted {
+    a {
+      color: $c-font-inverse;
+    }
+    
+    a:hover {
+      border-bottom-color: rgba($c-font-inverse,.5);
+    }
+
+    a:focus {
+      // important needed to overwrite the focus border color
+      border-bottom-color: rgba($c-font-inverse,.5) !important;
+    }
+
+    svg {
+      fill: rgba($c-font-inverse,.5);
+    }
+  }
+
   &.button-link {
     outline: 1px solid rgba($c-font-link, 0.5);
     display: inline-block;
