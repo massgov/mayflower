@@ -1,8 +1,8 @@
 {% set widgetsClass = pageHeader.widgets ? " ma__page-header-addons--has-widgets" : "" %}
-{% set contentClass = pageHeader.fullWidthAddon ?  "main-content" : "main-content main-content--two" %}
+{% set contentClass = pageHeader.fullWidth ?  "main-content" : "main-content main-content--two" %}
 
 {% if pageHeader.optionalContents or  pageHeader.widgets %}
-  <section class="ma__page-header-addons{{widgetsClass}}">
+  <div class="ma__page-header-addons{{widgetsClass}}">
     {% if pageHeader.optionalContents %}
       <div class="ma__page-header-addons__content">
         <div class="ma__page-header-addons__optional-content">
@@ -29,5 +29,5 @@
         {% include "@atoms/divider.twig" %}
       </div>
     {% endif %}
-  </section>
+  </div>
 {% endif %}
