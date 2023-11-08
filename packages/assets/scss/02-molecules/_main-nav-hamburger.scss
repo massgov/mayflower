@@ -49,7 +49,8 @@
 
     &:focus {
       background-color: $c-bd-divider;
-      outline: 2px solid $c-black;
+      outline: 3px solid $c-black;// WCAG 2.2 UPDATE
+      outline-offset: 0;// WCAG 2.2 UPDATE
     }
 
     &.cv-alternate-style {
@@ -117,6 +118,13 @@
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &:focus { // WCAG 2.2 UPDATE
+      outline: 2px solid $c-primary;
+      outline-offset: 0;
+      background-color: $c-gray-light; // OPTIONAL
+      color: $c-black; // OPTIONAL
     }
 
     &>svg,
