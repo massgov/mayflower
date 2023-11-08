@@ -159,7 +159,6 @@
   .ma__section-content-wrapper--two & {
 
     @media ($bp-large-min) {
-      float:left;
       padding-right: $column;
       width: calc(100% - #{$layout-sidebar-width});
     }
