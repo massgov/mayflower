@@ -10,7 +10,7 @@
     outline: 3px solid;
     border-bottom-color: $c-primary;
 
-    // TEST ELEMENT DIENFIER
+    // TEST ELEMENT IDENTIFIER
     // outline-color: orange;
     outline-color: $c-primary;
 
@@ -120,6 +120,28 @@
       outline-offset: -3px;
       outline-width: 3px;
       border-color: $c-gray-dark;
+    }
+
+    // SAMPLE:  http://localhost:3000/patterns/05-pages-board-decision/05-pages-board-decision.html
+    .ma__header-tags__terms & {
+      outline-offset: 0;
+    }
+
+    // LOCATION PAGE MAP BANNER LINK
+    .ma__leaflet-map__link & {
+      border-color: $c-primary;
+    }
+
+    // ALERTS BLOCK
+    &.ma__header-alerts__header__button {
+      outline-offset: 0;
+    }
+
+    // PROMOTION
+    //ma__button  ma__button--c-primary
+
+    .ma__key-message__cta &.ma__button--c-white {
+      outline-color: $c-white;
     }
   }
 }
