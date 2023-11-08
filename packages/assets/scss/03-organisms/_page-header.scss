@@ -90,8 +90,24 @@ $page-header-widget-width: 350px;
 
   &__content {
     padding: 30px 0;
-  }
 
+    // With underline decoration
+    &--underline {
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 6px;
+        width: 105px;
+        background-color: #388557;
+        -webkit-transform: skew(-30deg);
+        -ms-transform: skew(-30deg);
+        transform: skew(-30deg);
+        margin-top: 1rem;
+      }
+    }
+  }
+  
   &--has-optional-content &__content {
     padding-bottom: 0
   }
@@ -150,7 +166,7 @@ $page-header-widget-width: 350px;
     display: none;
   }
 
-  &__sub-title {
+  &__sub-title, &__description {
 
     &:last-child {
       margin-bottom: 0;

@@ -1,5 +1,6 @@
 {% set prefix = pageHeader.category|default(pageHeader.prefix) %}
 {% set optClass = pageHeader.optionalContents ? " ma__page-header--has-optional-content" : "" %}
+{% set contentClass = pageHeader.underline ? " ma__page-header__content--underline" : "" %}
 
 
 {# Replace page header tag presentation with relatinship indicator. #}
@@ -36,7 +37,7 @@
       {% endif %}
     </div>
   {% endif %}
-  <div class="ma__page-header__content">
+  <div class="ma__page-header__content{{contentClass}}">
     {% if pageHeader.publishState %}
       <div class="ma__page-header__publish-state">
         {% set publishState = pageHeader.publishState %}
