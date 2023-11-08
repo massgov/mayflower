@@ -4,19 +4,7 @@ This pattern is adds an `<h1>` page title and other helpful bit of content that 
 ### Status
 * Stable as of 5.0.0
 
-### Pattern Contains
-* Header Tags
-* Social Links
-* Publish State
-* Divider
-* Any pattern can be rendered in the optional content or widgets areas by setting the 'path' variable to the location of the pattern and setting the 'data' variable to container of the data object of that pattern.  
-  * {% include item.path with item.data %}
-
 ### Variant options
-* As used on the [How To](./?p=organisms-page-header-for-howto) page 
-* As used on the [Location](./?p=organisms-page-header-for-location) page 
-* As used on the [Recurring Events](./?p=organisms-page-header-for-event) page 
-* As used on the [Court Rules](./?p=organisms-page-header-for-court-rules) page
 
 
 ### Variables
@@ -25,19 +13,21 @@ pageHeader: {
   publishState: {
     type: publishState / optional
   }
+  prefix (This is used as a default value for category, if category is set it will be overriden):
+    type: string / optional
   category: 
     type: string / optional,
   subCategory:
     type: compHeading / optional,
-  divider: 
+  nested: 
     type: boolean
-  prefix:
-    type: string / optional
   title:
     type: string / required
   titleSubText: (used to include title abbreviation)
     type: string / optional
   subTitle:
+    type: string / optional
+  description:
     type: string / optional
   links: [ / optional
     text: 
@@ -53,6 +43,12 @@ pageHeader: {
     type: text - label of the buttons, only rendered when buttons are added
   buttons: / optional
     type: array of buttons
+------------------------------------------------------------------
+Data below this line are passed into page-header-addons.twig, 
+and page-header-addons.twig will need to be added separately.
+------------------------------------------------------------------
+  divider: 
+    type: boolean
   optionalContents: (optional) [{
     path:
       type: string (path to pattern) / required

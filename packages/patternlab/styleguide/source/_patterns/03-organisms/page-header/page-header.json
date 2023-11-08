@@ -11,13 +11,12 @@
       "id": "",
       "centered": ""
     },
-    "prefix": "",
+    "prefix": "This is a default value for category",
     "title": "Title Of The Page",
     "titleSubText": "(TOTP)",
     "subTitle": "This is an optional subTitle. Set 'nested' to true to include this as part of the H1. <a href=''>You can add a hyperlink in the subTitle</a>",
-    "nested": true,
     "description": "This is an optional description. This is an optional description. This is an optional description. <a href=''>You can add a hyperlink in the description.</a>",
-    "buttonsLabel": "Button Labels",
+    "buttonsLabel": "Button:",
     "buttons": [{
       "href": "#",
       "text": "Button 1",
@@ -26,7 +25,7 @@
       "icon": "login"
     },{
       "href": "#",
-      "text": "BUtton 2",
+      "text": "Button 2",
       "size": "small",
       "theme": "c-primary",
       "icon": "login"
@@ -48,7 +47,6 @@
       "description": "Description 3"
     }],
     "underline": true,
-
     "divider": true,
     "optionalContents": [{
       "path": "@base/placeholder.twig",
