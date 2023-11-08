@@ -38,6 +38,8 @@ pageHeader: {
     type: string / optional
   title:
     type: string / required
+  titleSubText: (used to include title abbreviation)
+    type: string / optional
   subTitle:
     type: string / optional
   links: [ / optional
