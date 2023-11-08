@@ -1,5 +1,7 @@
 ### Description
-Page Banner component is a higher-order component of Page Header componet. Like Page Header, it's meant to be used above the main content of the page,it adds an `<h1>` page title and other helpful bit of content that helps define the page's purpose. On top of that, Page Banner allows an background color (theme) and a decorative image to add more visual interests and emphasis to the header of the page.
+Page Banner component is a higher-order component of Page Header componet. Like Page Header, it's meant to be used above the main content of the page,it adds an `<h1>` page title and other helpful bit of content that helps define the page's purpose. On top of that, Page Banner allows an background color (theme) and a decorative image to add more visual interests and emphasis to Page Header.
+
+Note: If the Page Banner doesn't have a background color other white, or an image, use Page Header instead.
 
 ### Status
 * New after v12.7.0
