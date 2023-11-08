@@ -22,9 +22,6 @@ This pattern is adds an `<h1>` page title and other helpful bit of content that 
 ### Variables
 ~~~
 pageHeader: {
-  headerTags: {
-    type: headerTags / optional
-  }
   publishState: {
     type: publishState / optional
   }

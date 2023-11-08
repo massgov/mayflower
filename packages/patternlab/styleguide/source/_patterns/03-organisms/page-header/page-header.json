@@ -1,32 +1,55 @@
 {
   "pageHeader": {
-    "category": "",
-    "divider": false,
-    "prefix": "",
-    "title": "Get a State Park Pass",
-    "subTitle": "Do you regularly visit Massachusetts parks or beaches? Our MassParks Pass offers you a significant savings over daily parking charges.",
-    "socialLinks": {
-      "label": "Share:",
-      "items": [{
-        "altText": "Follow us on Facebook",
-        "href": "#",
-        "icon": "facebook",
-        "linkType": "facebook"
-      },{
-        "altText": "Follow us on Twitter",
-        "href": "#",
-        "icon": "twitter",
-        "linkType": "twitter"
-      },{
-        "altText": "Follow us on LinkedIn",
-        "href": "#",
-        "icon": "linkedin",
-        "linkType": "linkedin"
-      }]
-    },
     "publishState": {
       "text": "Draft"
     },
+    "category": "Optional Category",
+    "subCategory": {
+      "title": "Optional Sub-category",
+      "level": "",
+      "color": "",
+      "id": "",
+      "centered": ""
+    },
+    "prefix": "",
+    "title": "Title Of The Page",
+    "titleSubText": "(TOTP)",
+    "subTitle": "This is an optional subTitle. Set 'nested' to true to include this as part of the H1. <a href=''>You can add a hyperlink in the subTitle</a>",
+    "nested": true,
+    "description": "This is an optional description. This is an optional description. This is an optional description. <a href=''>You can add a hyperlink in the description.</a>",
+    "buttonsLabel": "Button Labels",
+    "buttons": [{
+      "href": "#",
+      "text": "Button 1",
+      "size": "small",
+      "theme": "c-primary",
+      "icon": "login"
+    },{
+      "href": "#",
+      "text": "BUtton 2",
+      "size": "small",
+      "theme": "c-primary",
+      "icon": "login"
+    }],
+    "links": [{
+      "text": "Hyperlink 1",
+      "href": "#",
+      "info": "",
+      "description": "Description 1"
+    },{
+      "text": "Hyperlink 2",
+      "href": "#",
+      "info": "",
+      "description": "Description 2"
+    },{
+      "text": "Hyperlink 3",
+      "href": "#",
+      "info": "",
+      "description": "Description 3"
+    }],
+    "underline": true,
+
+    "divider": true,
     "optionalContents": [{
       "path": "@base/placeholder.twig",
       "data": {
