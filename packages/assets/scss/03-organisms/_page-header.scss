@@ -160,6 +160,12 @@ $page-header-widget-width: 350px;
     .ma__page-header__sub-title {
       margin-top: .8em;
     }
+
+    & > abbr {
+      font-size: $fonts-medium;
+      border: none;
+      text-decoration: none;
+    }
   }
 
   .ma__page-banner-legacy ~ & &__title {

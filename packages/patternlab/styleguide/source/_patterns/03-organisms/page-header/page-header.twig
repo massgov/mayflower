@@ -63,6 +63,9 @@
             <span class="visually-hidden">{{ prefix }}&nbsp;</span>
           {% endif %}
           {{pageHeader.title}}
+          {% if pageHeader.titleSubText %}
+            <abbr title="{{ pageHeader.title }}"> {{ pageHeader.titleSubText }}</abbr>
+          {% endif %}
           {% if pageHeader.subTitle %}
             <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
           {% endif %}
@@ -73,6 +76,9 @@
           <span class="visually-hidden">{{ prefix }}&nbsp;</span>
         {% endif %}
         {{pageHeader.title}}
+        {% if pageHeader.titleSubText %}
+          <abbr title="{{ pageHeader.title }}"> {{ pageHeader.titleSubText }}</abbr>
+        {% endif %}
       </h1>
       {% if pageHeader.subTitle %}
         <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
