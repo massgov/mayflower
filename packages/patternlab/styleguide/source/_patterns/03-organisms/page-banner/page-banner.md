@@ -1,8 +1,9 @@
 ### Description
-Page Banner component that is composed of an H1 page title, featured image and description.
+Page Banner component is a higher-order component of Page Header componet. Like Page Header, it's meant to be used above the main content of the page,it adds an `<h1>` page title and other helpful bit of content that helps define the page's purpose. On top of that, Page Banner allows an background color (theme) and a decorative image to add more visual interests and emphasis to the header of the page.
 
 ### Status
 * New after v12.7.0
+* This pattern will replace both Illustrated Header and Legacy Page Banner. 
 
 ### Variant options
 * Themes:
