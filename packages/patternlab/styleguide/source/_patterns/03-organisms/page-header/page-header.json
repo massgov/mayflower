@@ -5,11 +5,7 @@
     },
     "category": "Optional Category",
     "subCategory": {
-      "title": "Optional Sub-category",
-      "level": "",
-      "color": "",
-      "id": "",
-      "centered": ""
+      "title": "Optional Sub-category"
     },
     "prefix": "This is a default value for category",
     "title": "Title Of The Page",

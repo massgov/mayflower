@@ -19,8 +19,7 @@
 
     {% if pageHeader.subCategory %}
       <div class="ma__page-header__subCategory">
-        {% set subCategoryLevel = pageHeader.subCategory.level ?: 3 %}
-        {% set compHeading = pageHeader.subCategory|merge({'level':(subCategoryLevel)}) %}
+        {% set compHeading = pageHeader.subCategory|merge({'level': 3, 'tag': 'div'}) %}
         {% include "@atoms/04-headings/comp-heading.twig" %}
       </div>
     {% endif %}
