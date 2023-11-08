@@ -103,12 +103,11 @@ export default (function (window, document, $, undefined) {
     $menuItems.on('click', function (e) {
       // Close open menus and reset markup.
       $('.menu-open').removeClass('menu-open');
-      
+
       if ($('body').hasClass('scroll-disabled')) {
         $('body').removeClass('scroll-disabled');
       }
 
-      e.preventDefault();
       let location = $(this).attr('href');
       $('html, body').animate({ scrollTop: $(location).offset().top - 120 }, 1000);
 
