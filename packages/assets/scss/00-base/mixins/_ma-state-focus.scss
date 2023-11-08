@@ -73,7 +73,15 @@
       box-shadow: inset 0 0 $c-white, inset 0px -2px $c-primary-alt;
     }
 
-    // .ma__decorative-link &, --- NO NEED
+
+    // PAGE BANNER
+    .ma__page-banner__content-wrapper .ma__decorative-link &, // ORG ELECTIVE OFFICIAL
+    .ma__page-banner__button & {
+      outline-color: $c-white;
+      // border-bottom-color: rgba($c-white,.5) !important;
+    }
+
+
     .ma__section-links &.ma__decorative-link,
     &.ma__callout-link {
       // outline-offset: 2px;
