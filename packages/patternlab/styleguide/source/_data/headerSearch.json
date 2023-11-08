@@ -1,11 +1,13 @@
 {
   "headerSearch" : {
+    "hasSuggestions": true,
     "placeholder":"Search Mass.gov",
     "id":"header-search",
     "label": "Search terms",
     "buttonSearch" : {
       "text": "Search",
       "usage": "secondary"
-    }
+    },
+    "suggestedScopes": ["Department of Conservation & Recreation", "Executive Office of Energy and Environmental Affairs"]
   }
 }

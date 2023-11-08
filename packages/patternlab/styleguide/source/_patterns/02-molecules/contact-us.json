@@ -4,14 +4,14 @@
     "isExpanded": false,
     "subTitle": {
       "href":"",
-      "text": "Department of Conservation and Recreation",
+      "text": "Department of Conservation & Recreation",
       "level": ""
     },
     "groups": [{
       "icon": "phone",
       "name": "Phone",
       "level": "",
-      "contactName": "Department of Conservation and Recreation",
+      "contactName": "Department of Conservation & Recreation",
       "items": [{
         "type": "phone",
         "label":"Main:",
@@ -53,7 +53,7 @@
       "icon": "laptop",
       "name": "Online",
       "level": "",
-      "contactName": "Department of Conservation and Recreation",
+      "contactName": "Department of Conservation & Recreation",
       "items": [{
         "type": "email",
         "label":"Email:",
@@ -77,7 +77,7 @@
       "icon": "fax-icon",
       "name": "Fax",
       "level": "",
-      "contactName": "Department of Conservation and Recreation",
+      "contactName": "Department of Conservation & Recreation",
       "items": [{
         "type": "fax",
         "label":"Main:",
@@ -92,7 +92,7 @@
       "icon": "marker",
       "name": "Address",
       "level": "",
-      "contactName": "Department of Conservation and Recreation",
+      "contactName": "Department of Conservation & Recreation",
       "items": [{
         "type": "address",
         "label": "",

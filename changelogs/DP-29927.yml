@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: HeaderSearch
+    description: Add scoped search options. (#1843)
+    issue: DP-29927
+    impact: Minor
