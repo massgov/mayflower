@@ -66,7 +66,7 @@ $textcolors: (
     background-repeat: no-repeat;
   }
   
-  @media (min-width: 1000px) {
+  @media ($bp-large-extended-min) {
     &__container {
       flex-direction: row;
       align-items: stretch;
@@ -81,7 +81,7 @@ $textcolors: (
     }
   }
   
-  @media (min-width: 1200px) {
+  @media ($bp-x-large-min) {
     &__image {
       flex: 1;
       display: block;
@@ -91,10 +91,9 @@ $textcolors: (
   }
   
   
-  @media ($bp-small-max) {
+  @media ($bp-x-small-max) {
     &__image {
       flex: 50vw;
-      background-image: url("../img/2x1.png");
       background-size: cover;
       width: 100%;
     }
