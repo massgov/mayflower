@@ -175,7 +175,7 @@ b, strong {
 
 
 // WCAG 2.2 TEST
-button, input {
+button, input, select, textarea {
 
   @include ma-state-focus;
 }

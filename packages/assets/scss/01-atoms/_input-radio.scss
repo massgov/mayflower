@@ -24,7 +24,7 @@
       min-width: 1.4em;
       height: 1.4em;
       position: relative;
-      margin-right: 0.5em; 
+      margin-right: 0.5em;
       vertical-align: top;
       cursor: pointer;
       text-align: center;
@@ -46,9 +46,12 @@
 
     &:before {
       box-shadow: inset 0 0 0 4px $c-white, 0 0 2px 2px $c-focus-hightlight;
+
+      outline-offset: 2px;// WCAG 2.2 UPDATE
+      outline: 3px solid $c-primary;// WCAG 2.2 UPDATE
     }
   }
-  
+
 
 // patternlab
 
@@ -80,6 +83,9 @@
 
   input:focus ~ &__label:after {
     box-shadow: 0 0 2px 2px $c-focus-hightlight;
+
+    outline-offset: 2px;// WCAG 2.2 UPDATE
+    outline: 3px solid $c-primary;// WCAG 2.2 UPDATE
   }
 
   input:focus ~ &__label--error:before {

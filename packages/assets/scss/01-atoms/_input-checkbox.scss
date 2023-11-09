@@ -99,13 +99,16 @@
   }
 
   input:focus ~ label:before {
-    border-color: Highlight !important;
+    // border-color: Highlight !important;// COMMENTED OUT FOR WCAG 2.2 UPDATE TEST
 
     /* WebKit gets its native focus styles.
      */
 
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline: -webkit-focus-ring-color auto 5px;
-    }
+    // @media (-webkit-min-device-pixel-ratio:0) {// COMMENTED OUT FOR WCAG 2.2 UPDATE TEST
+    //   outline: -webkit-focus-ring-color auto 5px;
+    // }
+
+    outline-offset: 2px;// WCAG 2.2 UPDATE
+    outline: 4px solid $c-primary;// WCAG 2.2 UPDATE
   }
 }
