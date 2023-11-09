@@ -40,7 +40,7 @@
     "imageMobile": "../../assets/images/placeholder/2x1.png",
     "imageMedium": "../../assets/images/placeholder/4x3.png",
     "theme": "c-primary-alt",
-    "renderImageOnMobile": true,
+    "renderImageOnMobile": false,
     "pageHeader": {
       "title": "Executive Office of Health and Human Services",
       "titleSubText": "(EOHHS)"
