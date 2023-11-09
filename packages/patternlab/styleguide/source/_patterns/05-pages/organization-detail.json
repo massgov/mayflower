@@ -6,6 +6,7 @@
     "theme": "c-primary-alt",
     "renderImageOnMobile": true,
     "pageHeader": {
+      "fullWidth": true,
       "title": "Office of the Treasurer & Receiver General",
       "titleSubText": "(TRE)",
       "links": [{

@@ -42,6 +42,7 @@
     "imageMedium": "../../assets/images/placeholder/4x3.png",
     "theme": "c-primary",
     "pageHeader": {
+      "fullWidth": true,
       "title": "Unemployment Benefits",
       "description": "Have you lost your job? You may qualify for temporary income to support you while you look for a new one."
     }

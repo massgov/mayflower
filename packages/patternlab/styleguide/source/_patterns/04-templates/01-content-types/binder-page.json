@@ -4,10 +4,10 @@
     "imageMobile": "../../assets/images/placeholder/2x1.png",
     "imageMedium": "../../assets/images/placeholder/4x3.png",
     "pageHeader": {
+      "fullWidth": true,
       "category": "Law Library",
       "title": "Rules of Criminal Procedure",
-      "subTitle": "A full listing of the Rules of Criminal Procedure that govern the Massachusetts Court System",
-      "headerTags": null
+      "subTitle": "A full listing of the Rules of Criminal Procedure that govern the Massachusetts Court System"
     }
   },
   "breadcrumbs":{
