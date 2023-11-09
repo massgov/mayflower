@@ -35,7 +35,7 @@
   },
   "pageBanner": {
     "image": "../../assets/images/placeholder/2x1.png",
-    "imageMobile": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1-mobile.png",
     "imageMedium": "../../assets/images/placeholder/4x3.png",
     "theme": "c-primary",
     "pageHeader": {
