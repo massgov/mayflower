@@ -29,6 +29,10 @@ pageBanner: {
     type: string / optional
   renderImageOnMobile:
     type: boolean / optional - default to false
+  bgPositionX:
+    type: string with % / optional - Sets background position horizontall on desktop, e.g. 100% 
+  bgPositionY:
+    type: string with % / optional - Sets background position vertically on desktop e.g. 100%
   theme:
     type: string ('', 'c-primary', 'c-primary-alt', 'c-white') / optional - default as c-primary
   pageHeader: 

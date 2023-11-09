@@ -26,20 +26,19 @@
                 display: block;
             }
         {% endif %}
-        @media (min-width: 1000px) {
+        @media (min-width: 1001px) {
             .ma__page-banner__image {
                 background-image: url('{{ imageMedium }}');
+
+                {% if pageBanner.bgPositionX and pageBanner.bgPositionY %}
+                    background-position: {{ pageBanner.bgPositionX }} {{ pageBanner.bgPositionY }};
+                {% endif %}
             }
         }
-        @media (min-width: 1200px) {
+        @media (min-width: 1201px) {
             .ma__page-banner__image {
                 background-image: url('{{ pageBanner.image }}');
             }
         }
-        {% if pageBanner.bgPositionX and pageBanner.bgPositionY %}
-            .ma__page-banner__image {
-                background-position: {{ pageBanner.bgPositionX }} {{ pageBanner.bgPositionY }};
-            }
-        {% endif %}
     </style>
 {% endif %}
