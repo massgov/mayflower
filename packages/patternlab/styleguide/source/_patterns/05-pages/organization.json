@@ -42,7 +42,6 @@
     "theme": "c-primary-alt",
     "renderImageOnMobile": true,
     "pageHeader": {
-      "fullWidth": true,
       "title": "Executive Office of Health and Human Services",
       "titleSubText": "(EOHHS)"
     }

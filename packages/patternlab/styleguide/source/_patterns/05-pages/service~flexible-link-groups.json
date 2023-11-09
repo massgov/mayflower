@@ -39,7 +39,6 @@
     "imageMedium": "../../assets/images/placeholder/4x3.png",
     "theme": "c-primary",
     "pageHeader": {
-      "fullWidth": true,
       "title": "Required - Services title",
       "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
       "buttonsLabel": "LOG IN:",

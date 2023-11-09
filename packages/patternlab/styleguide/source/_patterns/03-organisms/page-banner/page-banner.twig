@@ -6,7 +6,7 @@
   <div class="ma__page-banner__container">
     <div class="ma__page-banner__content">
       {% set pageHeader = pageBanner.pageHeader  %}
-      {# {% set pageHeader = pageHeader|merge({"fullWidth": fullWidthText}) %} #} 
+      {% set pageHeader = pageHeader|default({})|merge({"fullWidth": fullWidthText}) %}
       {% include "@organisms/page-header/page-header.twig" %}
       {% include "@organisms/page-header/page-header-addons.twig" %}
     </div>

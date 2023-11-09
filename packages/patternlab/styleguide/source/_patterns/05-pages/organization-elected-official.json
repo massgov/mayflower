@@ -8,7 +8,6 @@
     "theme": "c-primary-alt",
     "renderImageOnMobile": true,
     "pageHeader": {
-      "fullWidth": true,
       "title": "Governor Maura Healey and Lt. Governor Kim Driscoll",
       "links": [{
         "text": "Maura Healey",

@@ -58,7 +58,6 @@
     "imageMobile": "../../assets/images/placeholder/2x1.png",
     "imageMedium": "../../assets/images/placeholder/4x3.png",
     "pageHeader": {
-      "fullWidth": true,
       "title": "Required - Services title",
       "subTitle": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
       "headerTags": null

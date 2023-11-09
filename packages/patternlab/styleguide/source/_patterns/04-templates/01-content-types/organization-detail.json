@@ -5,7 +5,6 @@
     "imageMedium": "../../assets/images/placeholder/4x3.png",
     "theme": "c-primary-alt",
     "pageHeader": {
-      "fullWidth": true,
       "title": "Organization Detail Banner",
       "headerTags": null
     }
