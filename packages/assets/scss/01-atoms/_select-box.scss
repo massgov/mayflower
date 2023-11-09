@@ -68,15 +68,16 @@
   }
 
   &__select:focus + &__link {
-    outline-width: 2px;
+    outline-width: 3px;//2px; WCAG 2.2 UPDATE
     outline-style: solid;
+    outline-offset: 3px;// WCAG 2.2 UPDATE
 
     /* WebKit gets its native focus styles.
      */
 
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline-style: auto;
-    }
+    // @media (-webkit-min-device-pixel-ratio:0) {
+    //   outline-style: auto;
+    // }
   }
 }
 
@@ -125,9 +126,13 @@
     /* WebKit gets its native focus styles.
      */
 
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline-color: -webkit-focus-ring-color;
-    }
+    // @media (-webkit-min-device-pixel-ratio:0) {// COMMENTED OUT FOR WCAG 2.2 TEST
+    //   outline-color: -webkit-focus-ring-color;
+    // }
+
+    outline-width: 3px;// WCAG 2.2 UPDATE
+    outline-style: solid;// WCAG 2.2 UPDATE
+    outline-offset: 3px;// WCAG 2.2 UPDATE
   }
 
   &__disabled {

@@ -433,6 +433,11 @@ body.show-menu {
     border: 0;
     background-color: $c-primary;
 
+    &:focus {
+      outline-color: $c-white;
+      outline-offset: 0;
+    }
+
     @media ($bp-small-min) {
       display: none;
     }
@@ -533,7 +538,9 @@ body.show-menu {
 
             &:focus {
               background-color: $c-bd-divider;
-              outline: 2px solid $c-black;
+              outline: 3px solid $c-black;// WCAG 2.2 UPDATE
+              outline-offset: 0;// WCAG 2.2 UPDATE
+              text-decoration: underline;// WCAG 2.2 UPDATE
             }
 
             .toggle-indicator {
@@ -693,6 +700,11 @@ body.show-menu {
                 text-decoration: underline;
               }
 
+              &:focus {// WCAG 2.2 UPDATE
+                text-decoration: underline;
+                outline: 2px solid $c-primary;
+              }
+
               & svg {
                 display: none;
               }
@@ -719,6 +731,9 @@ body.show-menu {
 
         display: none;
       }
+
+
+
     }
   }
 

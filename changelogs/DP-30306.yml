@@ -1,0 +1,6 @@
+Changed:
+  - project: Pattenlab
+    component: Interactive elements
+    description: Update focus state style for the interactive elements to meet WCAG 2.2. (#1846)
+    issue: DP-130306
+    impact: Patch

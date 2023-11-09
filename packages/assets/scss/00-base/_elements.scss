@@ -49,6 +49,8 @@ a {
   @include ma-link-transition;
   font-weight: $fonts-bold;
   color: $c-font-link;
+
+  @include ma-state-focus;
 }
 
 address {
@@ -169,4 +171,11 @@ div {
 
 b, strong {
   font-weight: $fonts-bold;
+}
+
+
+// WCAG 2.2 TEST
+button, input, select, textarea {
+
+  @include ma-state-focus;
 }

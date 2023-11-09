@@ -1,0 +1,167 @@
+@use 'color-tokens' as *;
+
+@use "00-base/colors" as *;
+
+@mixin ma-state-focus {
+
+  // Base
+  &:focus {
+    outline-offset: 3px;
+    outline: 3px solid;
+    border-bottom-color: $c-primary;
+
+    // TEST ELEMENT IDENTIFIER
+    // outline-color: orange;
+    outline-color: $c-primary;
+
+    // BRAND BANNER
+    &.ma__brand-banner-container {
+      // outline-offset: 0;
+      // outline-color: $c-white;
+
+      border: 3px solid $c-white;
+    }
+
+    // HEADER BLUE BAR
+    &.ma__header__hamburger__menu-button,
+    .ma__utility-nav__translate &,
+    &.ma__utility-nav__link,
+    &.ma__breadcrumbs__item,
+    .ma__header__hamburger__utility-nav--wide .ma__utility-nav__content & {
+      outline-color: $c-white;
+    }
+
+    // HOME - HORIZONTAL NAV
+    &.ma__main-nav__top-link,
+    &.ma__main-nav__link {
+      outline-width: 3px;
+      outline-color: $c-gray-dark;
+    }
+
+    // MAIN MANU FLYOUT
+    // See:
+    // - 02-molecules/_main-nav-hamburger.scss
+    // - 03-organisms/_header-hamburger.scss
+    .ma__header__hamburger__nav-container .ma__utility-nav__translate & {
+      outline-color: $c-primary;
+    }
+
+
+    // HOME - SEARCH BANNER
+    .ma__search-banner__container & {
+        outline-color: $c-white;
+    }
+
+    .ma__search-banner__links .ma__decorative-link & {
+      outline-width: 2px;
+      border-bottom-color: rgba($c-white,.5) !important;
+    }
+
+
+
+    // SAMPLE:  http://localhost:3000/patterns/05-pages-organization/05-pages-organization.html
+    // BREADCRUMBS
+    .ma__breadcrumbs__item & {
+      outline-color: $c-primary;
+      border-bottom: 3px solid rgba($c-font-link,.5);
+    }
+
+    // RELATIONSHIP INDICATOR
+    .ma__relationship-indicators--term &,
+    .ma__relationship-indicators__expand-indicators & {
+      outline-color: $c-primary-alt;
+      box-shadow: inset 0 0 $c-white, inset 0px -2px $c-primary-alt;
+    }
+
+
+    // PAGE BANNER
+    .ma__page-banner__content-wrapper .ma__decorative-link &, // ORG ELECTIVE OFFICIAL
+    .ma__page-banner__button & {
+      outline-color: $c-white;
+      // border-bottom-color: rgba($c-white,.5) !important;
+    }
+
+
+    .ma__section-links &.ma__decorative-link,
+    &.ma__callout-link {
+      // outline-offset: 2px;
+      outline: none;
+      outline-color: $c-font-link;
+      border: 3px solid $c-font-link;
+    }
+
+    .ma__callout-message &.ma__callout-link {
+      padding: 2px 2px 8px 2px;
+    }
+
+    // FEATURED ITEM MOSAIC
+    &.ma__featured-item {
+      outline-offset: 0;
+      outline-width: 3px;
+      outline-color: $c-gray-dark;
+
+      & .ma__featured-item__title-container span {
+        border-bottom-color: $c-white;
+      }
+    }
+
+    // SAMPLE: http://localhost:3000/patterns/05-pages-guide/05-pages-guide.html
+    .ma__key-actions__items &.ma__callout-link {
+      outline-offset: 2px;
+      outline: none;
+      border: 4px solid $c-font-link;
+    }
+
+    .ma__rich-text & {
+      border-bottom-width: 3px;
+    }
+
+    // SAMPLE:  http://localhost:3000/patterns/05-pages-organization/05-pages-organization.html
+    &.ma__contact-us__header,
+    .ma__organization-navigation &,
+    &.ma__image-link--block  {
+      outline-offset: 0;
+      outline-color: $c-gray-dark;
+    }
+
+    &.ma__organization-navigation__mobile-toggle {
+      outline-offset: -3px;
+      outline-width: 3px;
+      border-color: $c-gray-dark;
+    }
+
+    // SAMPLE:  http://localhost:3000/patterns/05-pages-board-decision/05-pages-board-decision.html
+    .ma__header-tags__terms & {
+      outline-offset: 0;
+    }
+
+    // LOCATION PAGE MAP BANNER LINK
+    .ma__leaflet-map__link & {
+      border-color: $c-primary;
+    }
+
+    // ALERTS BLOCK
+    &.ma__header-alerts__header__button {
+      outline-offset: 0;
+    }
+
+    // PROMOTION
+    //ma__button  ma__button--c-primary
+
+    .ma__key-message__cta &.ma__button--c-white {
+      outline-color: $c-white;
+    }
+
+    // FORM ELEMENTS
+    //  See:
+    //  - 01-atoms/_input-checkbox.scss
+    //  - 01-atoms/_input-radio.scss
+    // - 01-atoms/_select-box.scss
+
+  }
+}
+
+// ERROR PAGE -- adjust the cutoff on the right
+:not(.ma__header__container) .ma__site-logo a {
+  padding-right: 8px;
+}
