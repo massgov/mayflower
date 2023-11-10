@@ -1,0 +1,39 @@
+Changed:
+  - project: Patternlab
+    component: PageBanner
+    description: Created new PageBanner component, and renamed old pattern to PageBannerLegacy. PageBannerLegacy and Illustrator Header will be deprecated and replaced by the new PageBanner. (#1845)
+    issue: DP-30296
+    impact: Major
+  - project: Patternlab
+    component: PageBanner, PageBannerLegacy, IllustratedHeader, PageHeader
+    description: Move patterns from by-template directory into each individual directory. (#1845)
+    issue: DP-30296
+    impact: Major
+  - project: Patternlab
+    component: PageHeader
+    description: Consolidate all page banner content configuration into PageHeader, e.g. buttons, links, description. Consolidate all variants into one. (#1845)
+    issue: DP-30296
+    impact: Minor
+  - project: Assets
+    component: Breakpoints
+    description: Consolidated `1000px` and `1050px` breakpoints. (#1845)
+    issue: DP-30296
+    impact: Minor
+Removed:
+  - project: Patternlab
+    component: HeaderTags
+    description: Remove headerTags from Page Header. (#1845)
+    issue: DP-30296
+    impact: Major
+Added:
+  - project: Patternlab
+    component: HeaderTags
+    description: Add inverse color config to decorative link. (#1845)
+    issue: DP-30296
+    impact: Minor
+Fixed:
+  - project: Patternlab
+    component: PageHeader
+    description: Fix subCategory tag from h3 to div for semantic markup. (#1845)
+    issue: DP-30296
+    impact: Patch
