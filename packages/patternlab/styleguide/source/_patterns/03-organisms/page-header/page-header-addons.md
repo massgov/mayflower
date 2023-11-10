@@ -12,7 +12,7 @@ This pattern appends additional elements to the main page header component - opt
 ~~~
 pageHeader: {
   fullWidth: 
-    type: boolean (allow optionalContents to take up the entire container width) / optional - default to false
+    type: boolean (allow optionalContents to take up the entire container width when widgets is null) / optional - default to false
   divider:
     type: boolean (add a divider below the addons) / optional - default to false
   optionalContents: (optional) [{
