@@ -55,11 +55,9 @@
     }
   },
   "pageBanner": {
-    "imageMobile": "../../assets/images/placeholder/2x1-mobile.png",
-    "imageMedium": "../../assets/images/placeholder/4x3.png",
     "pageHeader": {
       "title": "Required - Services title",
-      "subTitle": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
+      "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
       "headerTags": null,
       "buttons": [{
         "href": "#",
