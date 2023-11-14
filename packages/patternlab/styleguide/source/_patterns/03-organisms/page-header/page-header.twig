@@ -1,7 +1,7 @@
 {% set prefix = pageHeader.category|default(pageHeader.prefix) %}
 {% set optClass = pageHeader.optionalContents ? " ma__page-header--has-optional-content" : "" %}
 {% set contentClass = pageHeader.underline ? " ma__page-header__content--underline" : "" %}
-{% set textClass = pageHeader.fullWidth ?  "ma__section-content-wrapper" : "ma__section-content-wrapper ma__section-content-wrapper--two" %}
+{% set textClass = pageHeader.fullWidth ?  "ma__section-content-wrapper" : "ma__section-content-wrapper .ma__section-content-wrapper--text" %}
 
 <section class="ma__page-header{{optClass}}">
   <div class="ma__page-header__content{{contentClass}}">

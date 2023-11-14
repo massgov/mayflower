@@ -22,7 +22,7 @@ $page-header-widget-width: 350px;
     @media ($bp-large-min) {
       float: left;
       padding-right: $column;
-      max-width: 820px;
+      max-width: $l-max-content-width;
       width: calc(100% - #{$page-header-widget-width});
     }
   }

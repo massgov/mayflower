@@ -156,6 +156,10 @@
 .ma__section-content {
   position: relative;
 
+  .ma__section-content-wrapper--text & {
+    max-width: $l-max-content-width;
+  }
+
   .ma__section-content-wrapper--two & {
 
     @media ($bp-large-min) {

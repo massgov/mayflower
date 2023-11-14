@@ -115,7 +115,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-top: 0.8em;
 
     @media ($bp-large-extended-min) {
-      max-width: 820px;
+      max-width: $l-max-content-width;
     }
   }
 
@@ -245,7 +245,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         @media ($bp-large-extended-min) {
           // increase font size to ensure description readablity when overlaying an image
           font-size: $fonts-xlarge;
-          max-width: 820px;
+          max-width: $l-max-content-width;
           width: 100%;
         }
       }
