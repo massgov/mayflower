@@ -13,13 +13,13 @@ pageHeader: {
   publishState: {
     type: publishState / optional
   }
-  prefix (This is used as a default value for category, if category is set it will be overriden):
+  prefix: (This is used as a default value for category, if category is set it will be overriden):
     type: string / optional
   category: 
     type: string / optional,
   subCategory:
     type: compHeading / optional,
-  nested: 
+  nested: (This will wrap subTitle into H1)
     type: boolean
   title:
     type: string / required
@@ -43,11 +43,13 @@ pageHeader: {
     type: text - label of the buttons, only rendered when buttons are added
   buttons: / optional
     type: array of buttons
+  underline (This adds a short decorated separater under all page header content)
+    type: boolean
 ------------------------------------------------------------------
 Data below this line are passed into page-header-addons.twig, 
 and page-header-addons.twig will need to be added separately.
 ------------------------------------------------------------------
-  divider: 
+  divider: (This adds a fullwidth decorated separater under page header addons)
     type: boolean
   optionalContents: (optional) [{
     path:
