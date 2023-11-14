@@ -1,12 +1,9 @@
 {% set theme = pageBanner.theme ? " ma__page-banner--" ~ pageBanner.theme : " ma__page-banner--c-primary" %}
-{# If there's no image, don't let the subTitle and description text span the full width of the page #}
-{% set fullWidthText = pageBanner.image %}
 
 <div class="ma__page-banner{{theme}}">
   <div class="ma__page-banner__container">
     <div class="ma__page-banner__content">
       {% set pageHeader = pageBanner.pageHeader  %}
-      {% set pageHeader = pageHeader|default({})|merge({"fullWidth": fullWidthText}) %}
       {% include "@organisms/page-header/page-header.twig" %}
       {% include "@organisms/page-header/page-header-addons.twig" %}
     </div>

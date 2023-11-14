@@ -1,7 +1,6 @@
 {% set prefix = pageHeader.category|default(pageHeader.prefix) %}
 {% set optClass = pageHeader.optionalContents ? " ma__page-header--has-optional-content" : "" %}
 {% set contentClass = pageHeader.underline ? " ma__page-header__content--underline" : "" %}
-{% set textClass = pageHeader.fullWidth ?  "ma__section-content-wrapper" : "ma__section-content-wrapper .ma__section-content-wrapper--text" %}
 
 <section class="ma__page-header{{optClass}}">
   <div class="ma__page-header__content{{contentClass}}">
@@ -33,19 +32,15 @@
             <abbr title="{{ pageHeader.title }}"> {{ pageHeader.titleSubText }}</abbr>
           {% endif %}
           {% if pageHeader.subTitle %}
-            <div class="{{textClass}}">
               <div class="ma__section-content">
                 <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
               </div>
-            </div>
           {% endif %}
         </h1>
         {% if pageHeader.description %}
-          <div class="{{textClass}}">
             <div class="ma__section-content">
               <p class="ma__page-header__description">{{pageHeader.description}}</p>
             </div>
-          </div>
         {% endif %}
     {% else %}
       <h1 class="ma__page-header__title">
@@ -58,7 +53,6 @@
         {% endif %}
       </h1>
       {% if (pageHeader.subTitle or pageHeader.description) %}
-        <div class="{{textClass}}">
           <div class="ma__section-content">
             {% if pageHeader.subTitle %}
               <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
@@ -67,7 +61,6 @@
               <p class="ma__page-header__description">{{pageHeader.description}}</p>
             {% endif %}
           </div>
-        </div>
       {% endif %}  
       {% if pageHeader.links %}
         <div class="ma__page-header__links-wrapper">
