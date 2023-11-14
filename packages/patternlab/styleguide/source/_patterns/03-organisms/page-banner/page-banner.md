@@ -14,8 +14,8 @@ Note: If the Page Banner doesn't have a background color other white, or an imag
   - c-white (Used on mass.gov for information pages)
 * Image
   - renderImageOnMobile - whether to wrap the image under the 1000px breakpoint
-  - image - image path for wide screens/ 2:1 aspect ratio / max rendering size @ 660 x 330px
-  - imageMedium - image path for medium screens/ 4:3 aspect ratio / max rendering size @ 460 x 345px
+  - image - image path for wide screens/ 2:1 aspect ratio / max rendering size @ 800 x 400px
+  - imageMedium - image path for medium screens/ 4:3 aspect ratio / max rendering size @ 600 x 450px
   - imageMobile - image path for mobile screens/ 2:1 aspect ratio / max rendering size @ 480 x 240px
 
 ### Variables
