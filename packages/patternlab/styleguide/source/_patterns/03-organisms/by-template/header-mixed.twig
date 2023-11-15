@@ -79,9 +79,7 @@
     {% endif %}
   </div>
 
-  {# Unable to use aria for labeling since inconsistent support for the tags by screen readers as of Feb. 22, 2023. #}
-  <nav class="ma__header__nav" id="main-navigation" role="navigation">
-    <span id="horizontal-nav-label" class="ma__visually-hidden" aria-hidden="true">Navigation by topics</span>
+  <nav class="ma__header__nav" id="main-navigation" role="navigation" aria-label="Main Navigation">
     <div class="ma__header__nav-container">
       <div class="ma__header__main-nav">
         {% include "@molecules/main-nav.twig" %}

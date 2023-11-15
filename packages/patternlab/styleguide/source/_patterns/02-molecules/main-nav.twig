@@ -1,6 +1,4 @@
 <div class="ma__main-nav">
-  {# Unable to use aria for labeling since inconsistent support for the tags by screen readers as of Feb. 22, 2023. #}
-  <span id="main-nav-label" class="ma__visually-hidden">Navigation by topics</span>
   <ul role="menubar" class="ma__main-nav__items js-main-nav">
     {% for nav in mainNav %}
       {% set buttonId =  'button' ~ loop.index %}

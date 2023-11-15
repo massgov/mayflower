@@ -1,6 +1,4 @@
 <div class="ma__main__hamburger-nav">
-  {# Unable to use aria for labeling since inconsistent support for the tags by screen readers as of Feb. 22, 2023. #}
-  <span id="main-nav-label" class="ma__visually-hidden">Navigation by Topics</span>
   <ul role="menubar" class="ma__main__hamburger-nav__items js-main-nav-hamburger">
     {% for nav in mainNav %}
       {% set buttonId =  'button-mobile-' ~ loop.index %}
