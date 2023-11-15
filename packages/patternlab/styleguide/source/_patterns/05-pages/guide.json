@@ -130,7 +130,7 @@
       ],
       "sideBar": [
         {
-          "path": "@organisms/by-author/contact-list.twig",
+          "path": "@organisms/contact/contact-list.twig",
           "data": {
             "contactList": {
               "viewSpecific": false,
@@ -253,7 +253,7 @@
       ],
       "sideBar": [
         {
-          "path": "@organisms/by-author/contact-list.twig",
+          "path": "@organisms/contact/contact-list.twig",
           "data": {
             "contactList": {
               "viewSpecific": false,
@@ -383,7 +383,7 @@
       ],
       "sideBar": [
         {
-          "path": "@organisms/by-author/contact-list.twig",
+          "path": "@organisms/contact/contact-list.twig",
           "data": {
             "contactList": {
               "viewSpecific": false,
@@ -602,7 +602,7 @@
       ],
       "sideBar": [
         {
-          "path": "@organisms/by-author/contact-list.twig",
+          "path": "@organisms/contact/contact-list.twig",
           "data": {
             "contactList": {
               "viewSpecific": false,
@@ -711,7 +711,7 @@
       ],
       "sideBar": [
         {
-          "path": "@organisms/by-author/contact-list.twig",
+          "path": "@organisms/contact/contact-list.twig",
           "data": {
             "contactList": {
               "viewSpecific": false,
@@ -821,7 +821,7 @@
       ],
       "sideBar": [
         {
-          "path": "@organisms/by-author/contact-list.twig",
+          "path": "@organisms/contact/contact-list.twig",
           "data": {
             "contactList": {
               "viewSpecific": false,

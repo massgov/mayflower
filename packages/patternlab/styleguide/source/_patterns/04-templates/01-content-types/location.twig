@@ -41,7 +41,7 @@
 				{% endblock %}
 				{% if mainContent.contactList %}
 					{% set contactList = mainContent.contactList %}
-					{% include "@organisms/by-author/contact-list.twig" %}
+					{% include "@organisms/contact/contact-list.twig" %}
 				{% endif %}
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 			{% if sidebar %}
 				{% if sidebar.contactList %}
 					{% set contactList = sidebar.contactList %}
-					{% include "@organisms/by-author/contact-list.twig" %}
+					{% include "@organisms/contact/contact-list.twig" %}
 				{% endif %}
 				{% block sidebar %}
 					{% include "@base/placeholder.twig" with {'placeholder':{'text':'sidebar'}} %}

@@ -43,7 +43,7 @@
     "subTitle": "",
     "optionalContents": [
       {
-        "path": "@contact/contact-us.twig",
+        "path": "@organisms/contact/contact-us.twig",
         "data": {
           "contactUs": {
             "groups": [
