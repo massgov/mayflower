@@ -1,5 +1,7 @@
 @use "00-base/colors" as *;
 
+@use "00-base/variables" as *;
+
 @mixin ma-accordion-icon() {
 
     &:after {
@@ -7,7 +9,7 @@
         color: $c-primary-alt;
         display: block;
         font-size: 1.6em;
-        font-weight: 500;
+        font-weight: $fonts-semibold;
         line-height: .75em;
         position: absolute;
         top: 15px;

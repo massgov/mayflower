@@ -12,6 +12,9 @@ CalloutLinkExample.storyName = 'Default';
 CalloutLinkExample.args = {
   text: 'Link to another page',
   href: '',
+  anchorAttributes: {
+    ['data-index']: 'promo.1'
+  },
   info: 'this will be the tooltip text on hover',
   description: '',
   eyebrow: '',

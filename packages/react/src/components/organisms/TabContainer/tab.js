@@ -89,7 +89,7 @@ class Tab extends React.Component {
         <li role="presentation" className={tabClasses}>
           <button type="button" {...buttonProps}>{this.props.title}</button>
         </li>
-        {global.window && (
+        {String(globalThis) === '[object Window]' && (
           <TabBody active={activeTab === tabIdent} tabContainerBodyId={this.context.tabContainerBodyId}>
             {this.props.children}
           </TabBody>

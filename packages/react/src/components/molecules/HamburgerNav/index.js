@@ -2,7 +2,6 @@ import React from 'react';
 import propTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
-import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
@@ -19,28 +18,20 @@ const HamburgerNav = ({
   NavItem,
   NavSearch,
   Logo,
+  siteName = 'Mass.gov',
   mainItems = [],
-  utilityItems = []
+  utilityItems = [],
+  headerType
 }) => {
   const windowWidth = useWindowWidth();
-  const isMobileWindow = windowWidth !== null && windowWidth < 840;
+  const isMobileWindow = windowWidth !== null && windowWidth < 840; // desktop breakpoint
+  const isSmallMobileWindow = windowWidth !== null && windowWidth < 621; // css breakpoint $bp-small-max
   const RenderedMainNav = getFallbackComponent(MainNav, HamburgerMainNav);
   let RenderedUtilityNav;
   let navSearch = null;
   let utilityNav = null;
   let mainNav = null;
   const RenderedNavSearch = getFallbackComponent(NavSearch, HamburgerNavSearch);
-  if (isMobileWindow) {
-    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
-    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
-    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
-    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
-  } else {
-    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
-    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
-    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
-    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
-  }
   const RenderedLogo = getFallbackComponent(Logo, HamburgerSiteLogo);
   // If UtilityItem is undefined, UtilityNav will fallback to HamburgerUtilityItem.
   const RenderedUtilityItem = getFallbackComponent(UtilityItem, HamburgerUtilityItem);
@@ -50,76 +41,6 @@ const HamburgerNav = ({
   const menuButtonRef = React.useRef();
   const alertOffset = React.useRef();
   const [menuOpen, setMenuOpen] = React.useState(false);
-
-  const openMenu = React.useCallback(() => {
-    const menuButton = menuButtonRef.current;
-    if (menuButton) {
-      let heightAboveMenuContainer;
-      let emergencyAlertsHeight;
-      let alertOffsetAdjusted = 0;
-      const body = document.querySelector('body');
-      const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
-      const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
-      const menuOverlay = document.querySelector('.menu-overlay');
-      const alertOverlay = document.querySelector('.alert-overlay');
-
-      const lockPage = () => {
-        const alertlOffsetPosition = alertOffset.current;
-        if (document.querySelector('.ma__emergency-alerts')) {
-          body.style.top = `-${alertlOffsetPosition}px`;
-        } else {
-          body.style.top = 0;
-        }
-        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
-        heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
-      };
-      if (document.querySelector('html.stickyTOC')) {
-        document.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
-        document.querySelector('html.stickyTOC').classList.remove('stickyTOC');
-      }
-      // Start open menu tasks.
-      body.classList.add('show-menu');
-      menuButton.setAttribute('aria-expanded', 'true');
-      menuButton.setAttribute('aria-label', 'main menu for mass.gov');
-      if (feedbackButton) {
-        feedbackButton.classList.add('hide-button');
-      }
-      if (jumpToSearchButton) {
-        jumpToSearchButton.setAttribute('aria-expanded', 'true');
-        jumpToSearchButton.setAttribute('tabIndex', -1);
-      }
-      menuButton.setAttribute('aria-pressed', 'true');
-      const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
-      body.style.position = 'fixed';
-      if (alertsHeader !== null) {
-        const emergencyAlerts = document.querySelector('.ma__emergency-alerts');
-        emergencyAlertsHeight = emergencyAlerts.offsetHeight;
-        alertOffsetAdjusted = alertsHeader.offsetHeight / 2;
-        alertOffset.current = emergencyAlertsHeight - alertOffsetAdjusted;
-        lockPage();
-        const hamburgerNavOffset = document.querySelector('.ma__header__hamburger__nav').offsetHeight;
-        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
-        heightAboveMenuContainer = alertOffsetAdjusted + hamburgerNavOffset;
-        hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
-      }
-      if (menuOverlay) {
-        let overlayOffset = heightAboveMenuContainer;
-        const width = body.clientWidth;
-        if (width > 840) {
-          overlayOffset -= 1;
-        }
-        menuOverlay.classList.add('overlay-open');
-        menuOverlay.onclick = () => {
-          closeMenu();
-        };
-      }
-      if (alertOverlay) {
-        if (document.querySelector('.ma__emergency-alerts')) {
-          alertOverlay.classList.add('overlay-open');
-        }
-      }
-    }
-  }, [menuButtonRef, alertOffset]);
 
   const commonCloseMenuTasks = React.useCallback(() => {
     const menuButton = menuButtonRef.current;
@@ -133,6 +54,7 @@ const HamburgerNav = ({
       const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
 
       body.classList.remove('show-menu');
+      setMenuOpen(false);
       if (document.querySelector('html.stickyTOCtmp')) {
         document.querySelector('html.stickyTOCtmp').classList.add('stickyTOC');
         document.querySelector('html.stickyTOCtmp').classList.remove('stickyTOCtmp');
@@ -205,10 +127,86 @@ const HamburgerNav = ({
     }
   }, [menuButtonRef, alertOffset, commonCloseMenuTasks]);
 
+  if (isMobileWindow) {
+    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} onCloseMenu={closeMenu} /> : null);
+    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
+    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
+  } else {
+    RenderedUtilityNav = getFallbackComponent(UtilityNav, HamburgerUtilityNav);
+    utilityNav = (RenderedUtilityNav !== null ? <RenderedUtilityNav items={utilityItems} narrow UtilityItem={RenderedUtilityItem} /> : null);
+    navSearch = (RenderedNavSearch !== null ? <RenderedNavSearch /> : null);
+    mainNav = (RenderedMainNav !== null ? <RenderedMainNav NavItem={RenderedNavItem} items={mainItems} /> : null);
+  }
+  const openMenu = React.useCallback(() => {
+    const menuButton = menuButtonRef.current;
+    if (menuButton) {
+      let heightAboveMenuContainer;
+      let emergencyAlertsHeight;
+      let alertOffsetAdjusted = 0;
+      const body = document.querySelector('body');
+      const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
+      const jumpToSearchButton = document.querySelector('.js-header-search-access-button');
+      const menuOverlay = document.querySelector('.menu-overlay');
+      const alertOverlay = document.querySelector('.alert-overlay');
+
+      const lockPage = () => {
+        const alertlOffsetPosition = alertOffset.current;
+        if (document.querySelector('.ma__emergency-alerts')) {
+          body.style.top = `-${alertlOffsetPosition}px`;
+        } else {
+          body.style.top = 0;
+        }
+        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+        heightAboveMenuContainer = hamburgerMenuContainer.getBoundingClientRect().top;
+      };
+      if (document.querySelector('html.stickyTOC')) {
+        document.querySelector('html.stickyTOC').classList.add('stickyTOCtmp');
+        document.querySelector('html.stickyTOC').classList.remove('stickyTOC');
+      }
+      // Start open menu tasks.
+      body.classList.add('show-menu');
+      setMenuOpen(true);
+      menuButton.setAttribute('aria-expanded', 'true');
+      menuButton.setAttribute('aria-label', 'main menu for mass.gov');
+      if (feedbackButton) {
+        feedbackButton.classList.add('hide-button');
+      }
+      if (jumpToSearchButton) {
+        jumpToSearchButton.setAttribute('aria-expanded', 'true');
+        jumpToSearchButton.setAttribute('tabIndex', -1);
+      }
+      menuButton.setAttribute('aria-pressed', 'true');
+      const alertsHeader = document.querySelector('.ma__emergency-alerts__header');
+      body.style.position = 'fixed';
+      if (alertsHeader !== null) {
+        const emergencyAlerts = document.querySelector('.ma__emergency-alerts');
+        emergencyAlertsHeight = emergencyAlerts.offsetHeight;
+        alertOffsetAdjusted = alertsHeader.offsetHeight / 2;
+        alertOffset.current = emergencyAlertsHeight - alertOffsetAdjusted;
+        lockPage();
+        const hamburgerNavOffset = document.querySelector('.ma__header__hamburger__nav').offsetHeight;
+        const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+        heightAboveMenuContainer = alertOffsetAdjusted + hamburgerNavOffset;
+        hamburgerMenuContainer.style.height = `calc(100vh - ${heightAboveMenuContainer}px)`;
+      }
+      if (menuOverlay) {
+        menuOverlay.classList.add('overlay-open');
+        menuOverlay.onclick = () => {
+          closeMenu();
+        };
+      }
+      if (alertOverlay) {
+        if (document.querySelector('.ma__emergency-alerts')) {
+          alertOverlay.classList.add('overlay-open');
+        }
+      }
+    }
+  }, [menuButtonRef, alertOffset]);
+
   const toggleMenu = React.useCallback(() => {
     const body = document.querySelector('body');
     const isMenuOpen = body.classList.contains('show-menu');
-    setMenuOpen(!isMenuOpen);
     const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
 
     if (hamburgerMenuContainer) { // To prevent null in the original mobile main nav.
@@ -242,40 +240,53 @@ const HamburgerNav = ({
 
   // Enables menu open/close events.
   useMenuButtonEffects(menuButtonRef, toggleMenu);
+
   // Enables keyboard control of menu.
-  useHamburgerNavKeydown(closeMenu);
+  if (typeof document !== 'undefined') { // check document for SSR
+    const hamburgerNavContainer = document.querySelector('.ma__header__hamburger__nav-container');
+    let topLevelSelectors = '';
+    if (isSmallMobileWindow) {
+      topLevelSelectors = '#header-mobile-search, #header-mobile-search + button, .ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
+    } else {
+      // Header search input and search button that are not displayed inside the main nav mobile tray when the window width is greater than 620px.
+      topLevelSelectors = '.ma__main__hamburger-nav__top-link, .goog-te-gadget a, .ma__header__hamburger__utility-nav .ma__utility-nav__link';
+    }
+    const topLevelLinks = hamburgerNavContainer && hamburgerNavContainer.querySelectorAll(topLevelSelectors);
+    useHamburgerNavKeydown(closeMenu, topLevelLinks);
+  }
   // Enables jump to search events.
   useJumpToSearch(openMenu);
 
   return(
-    <HamburgerContext.Provider value={{
-      openMenu,
-      closeMenu,
-      toggleMenu
-    }}
-    >
-      <nav className="ma__header__hamburger__nav" aria-label="main navigation" id="hamburger-main-navigation" role="navigation">
-        <div className="ma__header__hamburger-wrapper">
-          <div className="ma__header__hamburger__button-container js-sticky-header">
-            <button
-              ref={menuButtonRef}
-              type="button"
-              aria-expanded="false"
-              aria-label="Open the main menu for mass.gov"
-              className="ma__header__hamburger__menu-button js-header-menu-button"
-            >
-              <span className="ma__header__hamburger__menu-icon" />
-              <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
-                Mass.gov
-              </span>
-              <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
-                Menu
-              </span>
-              <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
-                Close
-              </span>
-            </button>
-            {
+    <>
+      <HamburgerContext.Provider value={{
+        openMenu,
+        closeMenu,
+        toggleMenu
+      }}
+      >
+        <nav className="ma__header__hamburger__nav" aria-label={(headerType === 'mixed' && !isMobileWindow) ? 'utility options' : 'main navigation'} id="hamburger-main-navigation">
+          <div className="ma__header__hamburger-wrapper">
+            <div className="ma__header__hamburger__button-container js-sticky-header">
+              <button
+                ref={menuButtonRef}
+                type="button"
+                aria-expanded="false"
+                aria-label={`Open the main menu for ${siteName}`}
+                className="ma__header__hamburger__menu-button js-header-menu-button"
+              >
+                <span className="ma__header__hamburger__menu-icon" />
+                <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
+                  {siteName}
+                </span>
+                <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
+                  Menu
+                </span>
+                <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
+                  Close
+                </span>
+              </button>
+              {
               navSearch && (
                 <button
                   type="button"
@@ -287,12 +298,22 @@ const HamburgerNav = ({
                 </button>
               )
             }
+            </div>
+            {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
+            {(headerType !== 'mixed' || (headerType === 'mixed' && isMobileWindow)) && (
+            <NavContainer
+              logo={logo}
+              mainNav={mainNav}
+              utilityNav={utilityNav}
+              navSearch={navSearch}
+              className="ma__header__hamburger__nav-container"
+            />
+            )}
           </div>
-          {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
-          <NavContainer logo={logo} mainNav={mainNav} utilityNav={utilityNav} navSearch={navSearch} className="ma__header__hamburger__nav-container" aria-hidden="true" />
-        </div>
-      </nav>
-    </HamburgerContext.Provider>
+        </nav>
+      </HamburgerContext.Provider>
+      <div className="menu-overlay" />
+    </>
   );
 };
 
@@ -307,6 +328,8 @@ HamburgerNav.propTypes = {
   NavItem: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo. */
   Logo: propTypes.elementType,
+  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile */
+  siteName: propTypes.string,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
   /** An array of items used to create the menu. */
@@ -325,14 +348,14 @@ HamburgerNav.propTypes = {
   headerType: propTypes.string
 };
 
-export const HamburgerMainNav = ({ NavItem, items = [] }) => {
+export const HamburgerMainNav = ({ NavItem, items = [], onCloseMenu }) => {
   const RenderedNavItem = getFallbackComponent(NavItem, HamburgerNavItem);
   return(
     <div className="ma__main__hamburger-nav">
       <ul role="menubar" className="ma__main__hamburger-nav__items js-main-nav-hamburger">
         { items.map((item, itemIndex) => (
           // eslint-disable-next-line react/no-array-index-key
-          <RenderedNavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} />
+          <RenderedNavItem key={`hamburger-nav-navitem--${itemIndex}`} {...item} index={itemIndex} onCloseMenu={onCloseMenu} />
         ))}
       </ul>
     </div>
@@ -350,7 +373,9 @@ HamburgerMainNav.propTypes = {
       href: propTypes.string,
       text: propTypes.string
     }))
-  }))
+  })),
+  /** Function to close the hamburger menu, passed down from the HamburgerNav . */
+  onCloseMenu: propTypes.func
 };
 
 export const HamburgerNavItem = ({
@@ -358,23 +383,28 @@ export const HamburgerNavItem = ({
   text,
   active,
   subNav = [],
-  index
+  index,
+  onCloseMenu
 }) => {
   const hasSubNav = subNav && subNav.length > 0;
   const classes = classNames('ma__main__hamburger-nav__item js-main-nav-hamburger-toggle', {
     'has-subnav': hasSubNav,
     'is-active': active
   });
+  // This is the same logic as twig for when covid background displays.
+  const isCovid = text.toLowerCase().includes('covid');
+  const topNavLinkclasses = classNames('ma__main__hamburger-nav__top-link', {
+    ' cv-alternate-style': isCovid
+  });
   const itemRef = React.useRef();
   const buttonRef = React.useRef();
   const contentRef = React.useRef();
   const ulRef = React.useRef();
-  const { closeMenu } = React.useContext(HamburgerContext);
-  // This is the same logic as twig for when covid background displays.
-  const isCovid = text.toLowerCase().includes('covid');
+
   React.useEffect(() => {
     const item = itemRef.current;
     const itemButton = buttonRef.current;
+    const contentDiv = contentRef.current;
     const subItems = ulRef.current;
     if (subItems) {
       subItems.style.opacity = '0';
@@ -418,55 +448,52 @@ export const HamburgerNavItem = ({
         }
       });
     };
+
+    const openThisSubMenu = () => {
+      // If submenu is closed, open the submenu
+      item.classList.add('submenu-open');
+      itemButton.setAttribute('aria-expanded', 'true');
+      item.style.pointerEvents = 'none';
+      /** Show the subMenu content. */
+
+      contentDiv.classList.remove('is-closed');
+      contentDiv.style.height = 'auto';
+
+      /** Get the computed height of the subMenu. */
+      const height = `${contentDiv.clientHeight}px`;
+      /** Set the height of the submenu as 0px, */
+      /** so we can trigger the slide down animation. */
+      contentDiv.style.height = '0';
+
+      setTimeout(() => {
+        item.removeAttribute('style');
+        contentDiv.style.height = height;
+        item.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+        if (subItems) {
+          subItems.style.opacity = '1';
+        }
+      }, 500);
+
+      /** Close Utility menu content when a sub menu is open. */
+      const body = document.querySelector('body');
+
+      const width = body.clientWidth;
+      if (width < 840) {
+        closeNarrowUtilContent();
+      }
+    };
+
     const itemButtonClick = () => {
+      // close all other submenus
       anotherCloseSubMenus(item);
 
+      // toggle the selected submenu
       if (item.classList.contains('submenu-open')) {
+      // If submenu is already open, close the submenu
         item.classList.remove('submenu-open');
         itemButton.setAttribute('aria-expanded', 'false');
         item.style.pointerEvents = 'none';
-
-        setTimeout(() => {
-          item.removeAttribute('style');
-        }, 700);
-      } else {
-        item.classList.add('submenu-open');
-        itemButton.setAttribute('aria-expanded', 'true');
-        item.style.pointerEvents = 'none';
-        setTimeout(() => {
-          item.removeAttribute('style');
-        }, 500);
-      }
-
-      if (item.querySelector('.js-main-nav-hamburger-content').classList.contains('is-closed')) {
-        /** Show the subMenu. */
-
-        item.querySelector('.js-main-nav-hamburger-content').classList.remove('is-closed');
-        item.querySelector('.js-main-nav-hamburger-content').style.height = 'auto';
-
-        /** Get the computed height of the subMenu. */
-        const height = `${item.querySelector('.js-main-nav-hamburger-content').clientHeight}px`;
-        /** Set the height of the submenu as 0px, */
-        /** so we can trigger the slide down animation. */
-        item.querySelector('.js-main-nav-hamburger-content').style.height = '0';
-
-        setTimeout(() => {
-          item.querySelector('.js-main-nav-hamburger-content').style.height = height;
-          item.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-          if (subItems) {
-            subItems.style.opacity = '1';
-          }
-        }, 500);
-
-        /** Close Utility menu content when a sub menu is open. */
-        const body = document.querySelector('body');
-
-        const width = body.clientWidth;
-        if (width < 840) {
-          closeNarrowUtilContent();
-        }
-      } else {
-        item.querySelector('.js-main-nav-hamburger-content').style.height = '0';
+        contentDiv.style.height = '0';
         if (subItems) {
           subItems.style.opacity = '0';
         }
@@ -476,76 +503,113 @@ export const HamburgerNavItem = ({
         // Unable to confirm the completion of the animation in JS.
         // Unable to use callback in this case.
         setTimeout(() => {
+          item.removeAttribute('style');
           item.querySelector('.js-main-nav-hamburger-content').classList.add('is-closed');
         }, 500);
+      } else {
+      // If submenu is closed, open the submenu
+        openThisSubMenu();
       }
     };
     const itemButtonKeyDown = (e) => {
-      if (e.code === 'ArrowDown' || e.key === 'ArrowDown') {
-        if (subItems) {
-          const first = subItems.getElementsByTagName('li')[0];
-          first.querySelector('.js-main-nav-hamburger__link').focus();
+      // Easy access to the key that was pressed.
+      const { key, code } = e;
+      const action = {
+        tab: key === 'Tab', // tab
+        esc: key === 'Esc' || key === 'Escape', // esc
+        left: key === 'Left' || key === 'ArrowLeft', // left arrow
+        right: key === 'Right' || key === 'ArrowRight', // right arrow
+        up: key === 'Up' || key === 'ArrowUp', // up arrow
+        down: key === 'Down' || key === 'ArrowDown', // down arrow
+        space: key === ' ' || code === 'Space', // space
+        enter: key === 'Enter' // enter
+      };
+      const focusedElement = document.activeElement;
+
+      // Navigate into or within a submenu using the up/down arrow keys.
+      if ((action.up || action.down) && subItems) {
+        const dropdownLinks = subItems.querySelectorAll('.js-main-nav-hamburger__subitem .js-main-nav-hamburger__link');
+        const dropdownLinksLength = dropdownLinks.length;
+        let focusIndexInDropdown = Array.from(dropdownLinks).findIndex((link) => link === focusedElement);
+
+        if (item.classList.contains('submenu-open')) {
+          // ArrowUp focus on the previous submenu item
+          // ArrowDown focus on the next submenu item
+          focusIndexInDropdown += (action.up ? -1 : 1);
+          // Wrap around if at the end of the submenu.
+          focusIndexInDropdown = ((focusIndexInDropdown % dropdownLinksLength) + dropdownLinksLength) % dropdownLinksLength;
+          dropdownLinks[focusIndexInDropdown].focus();
+        } else {
+          // Close all other submenus and open the selected submenu if it's not open already.
+          anotherCloseSubMenus();
+          openThisSubMenu();
+          if (action.up) {
+            // arrowUp set focus to the last item
+            focusIndexInDropdown = dropdownLinksLength - 1;
+          } else {
+            // arrowDown set focus to the first item
+            focusIndexInDropdown = 0;
+          }
+          dropdownLinks[focusIndexInDropdown].focus();
         }
       }
 
-      // 'e.key === "Esc"' is for IE11.
-      if (e.code === 'Escape' || e.key === 'Escape' || e.key === 'Esc') {
+      if (action.esc) {
+        // If the main nav item is open, escape key closes the accordion and sets focus on the main nav toggle button
         if (item.classList.contains('submenu-open')) {
-          closeMenu();
+          anotherCloseSubMenus();
+          itemButton.focus();
         }
+        // Hamburger menu escape is handled in useHamburgerNavKeydown hook
       }
     };
     if (itemButton) {
       itemButton.addEventListener('click', itemButtonClick);
-      itemButton.addEventListener('keydown', itemButtonKeyDown);
+      item.addEventListener('keydown', itemButtonKeyDown);
     }
     return(() => {
       if (itemButton) {
         itemButton.removeEventListener('click', itemButtonClick);
-        itemButton.removeEventListener('keydown', itemButtonKeyDown);
+        item.removeEventListener('keydown', itemButtonKeyDown);
       }
     });
   }, [itemRef, buttonRef, contentRef, ulRef]);
   return(
-    <li ref={itemRef} role="none" className={classes} tabIndex="-1">
-      {isCovid ? (
+    <li ref={itemRef} role="menuitem" className={classes} tabIndex="-1">
+      {hasSubNav ? (
+        <>
+          <button ref={buttonRef} type="button" id={`button-mobile-${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
+            <span className="visually-hidden show-label">Show the sub topics of </span>
+            {text}
+            <span className="toggle-indicator" aria-hidden="true" />
+          </button>
+          <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
+            <ul ref={ulRef} id={`menu-mobile-${index}`} role="menu" aria-labelledby={`button-mobile-${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
+              { subNav.map((item, itemIndex) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
+                  <a
+                    href={item.href}
+                    role="menuitem"
+                    className="ma__main__hamburger-nav__link js-main-nav-hamburger__link"
+                    onClick={onCloseMenu}
+                  >
+                    {item.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      ) : (
         <a
-          role="menuitem"
           href={href}
-          className="ma__main__hamburger-nav__top-link cv-alternate-style"
+          className={topNavLinkclasses}
           tabIndex="0"
+          onClick={onCloseMenu}
         >
           {text}
         </a>
-      ) : (
-        <button ref={buttonRef} type="button" role="menuitem" id={`button${index}`} className="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" tabIndex="0">
-          <span className="visually-hidden show-label">Show the sub topics of </span>
-          {text}
-          <span className="toggle-indicator" aria-hidden="true" />
-        </button>
-      )}
-      {hasSubNav && (
-        <div ref={contentRef} className="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
-          <ul ref={ulRef} id={`menu${index}`} role="menu" aria-labelledby={`button${index}`} className="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
-            { subNav.map((item, itemIndex) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <li key={`hamburger-nav-subitem--${index}-${itemIndex}`} role="none" className="ma__main__hamburger-nav__subitem js-main-nav-hamburger__subitem">
-                <a role="menuitem" href={item.href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">{item.text}</a>
-              </li>
-            ))}
-            { href && (
-              <li role="none" className="ma__main__hamburger-nav__subitem--main js-main-nav-hamburger__subitem">
-                <a role="menuitem" href={href} className="ma__main__hamburger-nav__link js-main-nav-hamburger__link">
-                  <IconArrowbent />
-                  <span>
-                    <span className="visually-hidden">See all topics under </span>
-                    {text}
-                  </span>
-                </a>
-              </li>
-            )}
-          </ul>
-        </div>
       )}
     </li>
   );
@@ -558,7 +622,9 @@ HamburgerNavItem.propTypes = {
     href: propTypes.string,
     text: propTypes.string
   })),
-  index: propTypes.oneOfType([propTypes.number, propTypes.string])
+  index: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  /** Function to close the hamburger menu, passed down from the HamburgerNav. */
+  onCloseMenu: propTypes.func
 };
 
 export const HamburgerUtilityItem = ({ children }) => (

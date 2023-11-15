@@ -365,15 +365,6 @@ body {
   &__nav-search {
     padding: 15px 20px 15px;
 
-    .ma__header-search {
-
-      span {
-
-        @include ma-visually-hidden;
-      }
-
-    }
-
     @media ($bp-small-min) {
       display: none;
     }

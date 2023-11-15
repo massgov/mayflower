@@ -6,8 +6,9 @@ export default (function (window, document) {
     const tocContent = toc.querySelector(".ma__sticky-toc__links");
     // The parent that should be checked for sections.
     const tocParent = toc.closest(toc.dataset.parent);
+    const tocSectionHeadings= Array.from(tocParent.querySelectorAll(toc.dataset.sections + ":not(.ma__sticky-toc__title)"));
     let tocSections = {
-      headings: tocParent.querySelectorAll(toc.dataset.sections + ":not(.ma__sticky-toc__title)"),
+      headings: tocSectionHeadings,
       links: []
     };
 
@@ -49,17 +50,23 @@ export default (function (window, document) {
       // Add a class to the parent to help with consistent handling across applications.
       tocParent.classList.add("toc-parent");
       // Use headers to fill TOC.
-      Array.from(tocSections.headings).forEach((section) => {
+      Array.from(tocSections.headings).forEach((section, index) => {
         let sectionId = section.id;
         // Remove span element before passing to the a tag.
         if (section.querySelector('span.visually-hidden') !== null) {
           section.querySelector('span.visually-hidden').remove();
         }
         const sectionTitle = section.innerText;
+        const titleCheck = sectionTitle.trim();
+        if (titleCheck.length == 0 || titleCheck.toLowerCase() == 'related') {
+          tocSections.headings.splice(index, 1);
+          return;
+        }
+
         // If the section doesn't have an ID, create one from the heading text.
         if (!sectionId) {
-          sectionId = section.textContent.replace(/\s+/g, "-").toLowerCase();
-        }
+              sectionId = section.textContent.replace(/\s+/g, "-").toLowerCase();
+          }
         // A section ID is needed to become the target for a link.
         section.id = sectionId;
         // Class to identify a section to style it properly and avoid
@@ -74,6 +81,7 @@ export default (function (window, document) {
         tocLink.innerHTML = `<a href="#${sectionId}" role="menuitem"><svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg>${sectionTitle}</a>`;
         tocListContainer.appendChild(tocLink);
         tocSections.links.push(tocLink);
+
       });
     }
 

@@ -1,6 +1,95 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 12.7.0 (7/26/2023)
+### Added 
+- (Assets, Patternlab) [Icons] DP-28600: Add lg-form and lg-checklist icons. (#1820)
+- (React) [CalloutLink] DP-29028: Add `achorAttributes` prop to allow passing additional attributes to the anchor link. (#1825)
+
+### Fixed 
+- (Assets) [HeaderAlerts,OrgNavSearch,CollapsibleHeader] DP-28762: Specify to override default ios button colors, to keep design consistent between desktop and mobile. (#1822)
+
+### Changed 
+- (Patternlab) [ActionStep] DP-28783: A11y - aria-label on alert icons. (#1823)
+
+## 12.6.0 (6/29/2023)
+### Added 
+- (Starters) [Formstack] DP-28028: Style Formstack save incomplete and pagination components for Mayflower theme. (#1794)
+- (React) [HamburgerNav] DP-28603: Add `siteName` prop to allow overriding HamburgerNav toggle button text and aria-label. (#1816)
+
+### Changed 
+- (React) [HamburgerNav] DP-28603: Add `.menu-overlay` div as part of the component. Remove storybook controls of adding the overlay separately. Add onCloseMenu funtion to mainnav links to close the hamburger menu when navigating to an internal link. (#1816)
+
+## 12.5.1 (6/21/2023)
+### Fixed 
+- (React) [HamburgerNav, HeaderNav] DP-27950: Fix console error. (#1813)
+- (Patternlab) [Map] DP-28333: Target z-index -1 setting to the map in a location banner. (#1790)
+
+### Changed 
+- (Patternlab) [InformationDetails] DP-28302: Eliminate related links at bottom on desktop. (#1799)
+- (Patternlab) [HeaderMixed] DP-28478: A11y - Fix duplicate 'main navigation' labels in screen reader. (#1812)
+
+## 12.5.0 (6/15/2023)
+### Fixed 
+- (React) [Header] DP-26961: Fix duplicate mainnav aria-label. (#1800)
+- (React) [HamburgerNav] DP-27961: Fix keyboard navigation in HamburgerNav. (#1792)
+- (React) [HamburgerNav, HeaderNav] DP-27961: Fix duplicate IDs and `menu` and `menuitem` role associations. (#1792)
+- (React) [HeaderUtilityItems] DP-28436: Fix arrow key navigation in hamburger menu utility items. (#1805)
+- (React) [HeaderNav] DP-28436: Fix escape key navigation in the hamburger menu. (#1805)
+
+## 12.4.0 (6/9/2023)
+### Changed 
+- (Patternlab) [Dependency] DP-22494: Upgrade PHP to v8. (#1784)
+
+### Fixed 
+- (React) [HeaderNav] DP-27961: A11y - fix keyboard navigation skipping the first submenu item. (#1791)
+- (React) [Header] DP-28435: Make mainnav item without subnavs a link. (#1795)
+- (Patternlab) [ImagePromos] DP-28447: Fix Twig integer filter errors on image promos. (#1798)
+
+## 12.3.1 (5/18/2023)
+### Changed 
+- (Patternlab) [TableOfContentsOverlay, TableOfContentsHiearchy] DP-25180: A11y - Changing aria labels to be more dynamic. (#1780)
+- (Patternlab) [FixedFeedbackButton] DP-28149: A11y Feedback - Text not included in an ARIA landmark. (#1782)
+- (Patternlab) [Download link] DP-28265: Add a space between the file size and the fiel title to be rendered in Firefox. (#1785)
+
+### Fixed 
+- (React) [TabContainer] DP-27950: Refactor TabContainer global calls. (#1783)
+- (React) [ButtonWithIcon,FeedbackForm,InputTextFuzzy,Breadcrumb,HamburgerNav,Header,LinkList,PageHeaderAddons] DP-27950: Fix linting warnings. (#1783)
+- (Patternlab) [StickyToc] DP-28020: A11y - Fix Malformed Toc link content (Follow-up). (#1775)
+
+## 12.3.0 (5/4/2023)
+### Fixed 
+- (Patternlab) [mainNavHamburger.js] DP-25705: A11y - Fixed hamburger main nav keyboard navigations to 1) use the correct arrow directions in the submenus and 2) fixed the skipping of google translate on the top. (#1773)
+- (Patternlab) [HeaderMixed, mainNav.js] DP-26226: A11y - Fix keyboard navigation. (#1759)
+- (Patternlab) [IllustratedHeader] DP-26574: Passes background positioning information to illustrated header background images (#1750)
+- (Patternlab) [StickyTOC] DP-27921: Correct spelling for aria-controls. (#1764)
+- (React) [HamburgerNav] DP-27950: Fix reference error - cannot access "RenderedUtilityItem" before initialization. (#1777)
+
+### Removed 
+- (Patternlab) [Header, mainNav.js] DP-26226: Refactor mainNav JS and remove deprecated Header component from Patternlab. (#1759)
+- (Patternlab) [UtilityNav] DP-26232: Remove focus on the utility nav close button when the utility panel opens. (#1761)
+- (Patternlab) [HeaderSearch, SearchBannerForm] DP-27426: Remove autocomplete feature and clean up unnecessary data and attributes. (#1748,#1749)
+
+### Changed 
+- (Patternlab) [BannerCredit] DP-26227: Restructure image credit component for semantics. (#1751)
+- (Patternlab) [UtilityNav] DP-26232: Place the utility nav panel close button to the bottom of the panel container to be the last item to get focus. (#1761)
+- (Patternlab) [SocialLinksBar] DP-26258: Add visually hidden label for the social links bar - A11y. (#1745)
+- (Patternlab) [CampaignVideo] DP-26259: Empty title rendering fix - A11y. (#1753)
+- (Patternlab) [pressTeaser] DP-26304: Set up a condition to determine whether span with background image is an image element or not. (#1752)
+- (Patternlab) [AboutSection] DP-26314: A11y - Empty read more link. (#1754)
+- (Patternlab, Assets) [SearchBanner] DP-26625: Increase visual prominence of links below search on the home page. (#1756)
+- (Patternlab) [MainNav, MainNavHamburger, HeaderHamburger, HeaderMixed] DP-27694: Eliminate duplicate IDs for main navigation and search elements. (#1757)
+- (Patternlab) [LeafletMap] DP-27697: Add alt to leaflet map for A11y. (#1758)
+- (Patternlab) [StickyToc] DP-27734: A11y - Fix Malformed Toc link content. (#1760)
+- (Patternlab) [IllustratedLink] DP-27858: Darken illustrated link label color to meet the minimum required color contrast. (#1762)
+- (Patternlab) [Search] DP-27916: Accessibility improvement for search-related and main navigation components. (#1769)
+- (Patternlab) [Feedback] DP-27930: A11y - Focusable hidden elements in feedback module
+- (Patternlab) [PageHeader] DP-27934: Modify page sub title's line-height to 1.5. (#1765)
+- (Patternlab) [DownloadLink, DownloadLinkMultilang] DP-27968: Fix screen reader text. (#1770)
+- (Patternlab) [CollapsibleContent] DP-28013: A11y - Invalid value type for aria-expanded. (#1771)
+- (Site) [Dependencies] DP-28015: Upgrade Mayflower from v10 to v12. (#1776)
+- (Patternlab) [PageFlipper] DP-28038: Adjust font color to meet the minimum color contrast. (#1772)
+
 ## 12.2.1 (2/28/2023)
 ### Changed 
 - (InlineLinksLanguage) [Patternlab] DP-17338: Add option to toggle language bar labels for selected language as well. (#1739)

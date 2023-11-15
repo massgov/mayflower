@@ -1,5 +1,6 @@
 <?php
-require_once 'VersionControl/Git.php';
+
+use PHPUnit\Framework\TestCase;
 
 require_once dirname(__FILE__) . '/checkFixtures.php';
 
@@ -7,7 +8,7 @@ class DummyGitComponent extends VersionControl_Git_Component
 {
 }
 
-class VersionControl_Git_ComponentTest extends PHPUnit_Framework_TestCase
+class VersionControl_Git_ComponentTest extends TestCase
 {
   public function testConstruct()
   {
@@ -15,12 +16,5 @@ class VersionControl_Git_ComponentTest extends PHPUnit_Framework_TestCase
     $instance = new DummyGitComponent($git);
 
     $this->assertTrue($instance instanceof VersionControl_Git_Component);
-  }
-
-  public function testConstructError()
-  {
-    $this->setExpectedException('PHPUnit_Framework_Error');
-
-    $instance = new DummyGitComponent(new stdClass());
   }
 }

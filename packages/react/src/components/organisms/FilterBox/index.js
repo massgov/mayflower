@@ -39,7 +39,7 @@ const FilterBox = (props) => {
         >
           {
             filterNote && (
-              <div id={`${props.id}-note`} aria-hidden="true" className="ma-visually-hidden">
+              <div id={`${props.id}-note`} aria-hidden="true" className="ma__visually-hidden">
                 {filterNote}
               </div>
             )

@@ -24,11 +24,11 @@ This Pattern is a stylized input text field.
 inputText: {
   labelText:
     type: string / required,
-  required: 
+  required:
     type: boolean,
-  id: 
+  id:
     type: string (unique per page) / required
-  name: 
+  name:
     type: string / required
   type:
     type: string (html5 input types => 'text','email', 'number', etc...) / required
@@ -42,5 +42,9 @@ inputText: {
     type: string / optional
   errorMsg:
     type: string / optional
+  mode:
+    type: string ('text'[default value], 'decimal', 'numeric', 'tel', 'search', 'email', 'url', 'none') / optional (support virtual keyboard display)
+  autocomplete:
+    type: string / optional (See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for available values.)
 }
 ~~~

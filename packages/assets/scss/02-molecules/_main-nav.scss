@@ -73,6 +73,7 @@
     @include ma-button-reset;
     display: block;
     font-size: $fonts-smaller;
+    font-weight: $fonts-bold;
     letter-spacing: $letter-spacing-large;
     line-height: 1.45;
     padding: 10px 0;
@@ -100,12 +101,15 @@
     }
 
     .has-subnav & {
+      // chevron
 
       @include ma-chevron;
 
       &:after {
         cursor: pointer;
         margin-left: 6px;
+        border-right-color: $c-primary-alt;
+        border-bottom-color: $c-primary-alt;
 
         @media ($bp-header-toggle-max) {
           position: absolute;
@@ -139,43 +143,6 @@
       &:hover {
         background-color: #fce387;
       }
-    }
-  }
-
-  &__back {
-
-    @include ma-button-reset;
-    font-size: $fonts-smaller;
-    padding-left: 20px;
-    position: fixed;
-      top: 5px;
-    z-index: $z-dropdown;
-
-    .translated-rtl &,
-    .translated-ltr & {
-      top: 45px;
-    }
-
-    @media ($bp-header-toggle-min) {
-      display: none;
-    }
-
-    &:before {
-      border-left: 3px solid;
-      border-top: 3px solid;
-      content: "";
-      display: inline-block;
-      height: .65em;
-      margin-top: 3px;
-      margin-left: 3px;
-      position: absolute;
-        left: 0;
-        top: 2px;
-      transform: rotate(-45deg);
-      transform-origin: 75% 75%;
-      transition: all .5s;
-      vertical-align: middle;
-      width: .65em;
     }
   }
 
@@ -299,32 +266,6 @@
     &.is-active {
 
       @include ma-border-decorative($c-primary-alt);
-    }
-  }
-
-  &__top-link {
-    font-weight: $fonts-bold;
-
-    .has-subnav & {
-  // chevron
-
-      &:after {
-        border-right-color: $c-primary-alt;
-        border-bottom-color: $c-primary-alt;
-      }
-    }
-  }
-
-  &__back {
-    color: $c-font-inverse;
-
-    &:before {
-      border-left-color: $c-font-inverse;
-      border-top-color: $c-font-inverse;
-    }
-
-    span {
-      opacity: 0.7;
     }
   }
 

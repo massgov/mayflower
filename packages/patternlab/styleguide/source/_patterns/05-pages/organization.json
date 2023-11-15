@@ -25,12 +25,12 @@
         {
           "class": "",
           "href": "#",
-          "title": "Department of Conservation and Recreation"
+          "title": "Department of Conservation & Recreation"
         },
         {
           "class": "",
           "href": "#",
-          "title": "Other agency or organization"
+          "title": "Executive Office of Energy and Environmental Affairs"
         }
       ]
     }
@@ -49,281 +49,36 @@
     "orgId": "6676",
     "orgSearch": true,
     "orgNav": [
+
       {
-        "section": "i-want-to",
-        "title": "I want to...",
-        "subNav": {
-          "findService": {
-            "linkList": {
-              "compHeading": {
-                "title": "Find a service or task",
-                "sub": "true"
-              },
-              "description": null,
-              "stacked": false,
-              "hideBullets": true,
-              "links": [
-                {
-                  "href": "#",
-                  "text": "Lorem ipsum dolor sit amet.",
-                  "info": ""
-                },
-                {
-                  "href": "#",
-                  "text": "Lorem ipsum dolor sit amet, consectetur.",
-                  "info": ""
-                },
-                {
-                  "href": "#",
-                  "text": "Lorem ipsum dolor sit.",
-                  "info": ""
-                }
-              ],
-              "more": {
-                "href": "#",
-                "text": "See all of services & tasks",
-                "info": "See all of services & tasks"
-              }
-            }
-          },
-          "learnAbout": {
-            "linkList": {
-              "compHeading": {
-                "title": "Learn more about...",
-                "sub": "true"
-              },
-              "description": null,
-              "stacked": false,
-              "hideBullets": true,
-              "links": [
-                {
-                  "href": "#",
-                  "text": "Lorem ipsum dolor sit amet.",
-                  "info": ""
-                },
-                {
-                  "href": "#",
-                  "text": "Lorem ipsum dolor sit amet, consectetur.",
-                  "info": ""
-                },
-                {
-                  "href": "#",
-                  "text": "Lorem ipsum dolor sit.",
-                  "info": ""
-                }
-              ]
-            }
-          },
-          "login": {
-            "href": "#",
-            "text": "MassFishHunt",
-            "info": ""
-          }
-        }
+        "text": "Contact",
+        "id": "contact"
       },
       {
-        "section": "about",
-        "title": "About",
-        "subNav": {
-          "linkList": {
-            "description": null,
-            "stacked": true,
-            "hideBullets": true,
-            "links": [
-              {
-                "href": "#",
-                "text": "Lorem ipsum dolor sit amet.",
-                "info": ""
-              },
-              {
-                "href": "#",
-                "text": "Lorem ipsum dolor sit amet, consectetur.",
-                "info": ""
-              },
-              {
-                "href": "#",
-                "text": "Lorem ipsum dolor sit.",
-                "info": ""
-              },
-              {
-                "href": "#",
-                "text": "Lorem ipsum dolor",
-                "info": ""
-              }
-            ]
-          }
-        }
+        "text": "About",
+        "id": "about"
       },
       {
-        "section": "contact-us",
-        "title": "Contact us",
-        "subNav": {
-          "orgMenuContactRow": {
-            "compHeading": {
-              "title": "Division of Fisheries and Wildlife",
-              "sub": "",
-              "color": "",
-              "id": "contact us",
-              "centered": ""
-            },
-            "hasManyAdditional": false,
-            "additionalContacts": [
-              {
-                "icon": "marker",
-                "name": "Address",
-                "items": [
-                  {
-                    "type": "address",
-                    "label": "",
-                    "address": "1 Rabbit Hill Rd, Westborough, MA 01581",
-                    "link": {
-                      "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
-                      "text": "directions",
-                      "info": ""
-                    },
-                    "details": ""
-                  }
-                ]
-              },
-              {
-                "items": [
-                  {
-                    "type": "seeAllLink",
-                    "link": {
-                      "href": "#",
-                      "text": "See all locations",
-                      "info": ""
-                    },
-                    "details": ""
-                  }
-                ]
-              },
-              {
-                "icon": "phone",
-                "name": "Phone",
-                "items": [
-                  {
-                    "type": "phone",
-                    "property": "",
-                    "label": "Main:",
-                    "link": {
-                      "href": "+14134994262",
-                      "text": "(413) 499-4262",
-                      "info": "",
-                      "property": ""
-                    },
-                    "details": "8 a.m. - 4:30 p.m., M - F"
-                  }
-                ]
-              },
-              {
-                "icon": "fax-icon",
-                "name": "Fax",
-                "items": [
-                  {
-                    "type": "fax",
-                    "property": "",
-                    "label": "Main:",
-                    "link": {
-                      "href": "+14134994262",
-                      "text": "(413) 499-4262",
-                      "info": "",
-                      "property": ""
-                    },
-                    "details": ""
-                  }
-                ]
-              },
-              {
-                "icon": "laptop",
-                "name": "Online",
-                "hidden": "",
-                "items": [
-                  {
-                    "type": "email",
-                    "property": "",
-                    "label": "",
-                    "link": {
-                      "href": "email@email.com",
-                      "text": "Mass.Wildlife@state.ma.us",
-                      "info": "",
-                      "property": ""
-                    },
-                    "details": ""
-                  }
-                ]
-              },
-              {
-                "icon": "icon-login-v2",
-                "name": "Log in to...",
-                "level": "",
-                "contactName": "",
-                "items": [
-                  {
-                    "type": "login",
-                    "link": {
-                      "href": "#",
-                      "text": "MassFishHunt",
-                      "info": ""
-                    },
-                    "details": ""
-                  }
-                ]
-              }
-            ]
-          },
-          "customItems": {
-            "findContact": {
-              "title": "Find a contact",
-              "icon": "search",
-              "link": {
-                "href": "#",
-                "text": "Staff directory"
-              }
-            },
-            "newsletter": {
-              "title": "Get Updates",
-              "icon": "alert",
-              "link": {
-                "href": "#",
-                "text": "Sign up to receive monthly e-newsletters"
-              }
-            },
-            "publicRecords": {
-              "title": "Public records request",
-              "icon": "icon-prr",
-              "link": {
-                "href": "#",
-                "text": "Learn more about submitting public records requests"
-              }
-            }
-          }
-        }
+        "text": "Actions & Services",
+        "id": "actions"
       },
       {
-        "section": "mobileLogin",
-        "title": "Log in to...",
-        "subNav": {
-          "mobileLogin": {
-            "icon": "icon-login-v2",
-            "name": "Log in to...",
-            "level": "",
-            "contactName": "",
-            "items": [
-              {
-                "type": "login",
-                "link": {
-                  "href": "#",
-                  "text": "MassFishHunt",
-                  "info": ""
-                },
-                "details": ""
-              }
-            ]
-          }
-        }
+        "text": "Our Organizations",
+        "id": "organizations"
+      },
+      {
+        "text": "News",
+        "id": "news"
+      },
+      {
+        "text": "Events",
+        "id": "events"
+      },
+      {
+        "text": "Locations",
+        "id": "locations"
       }
-    ]
+  ]
   },
   "short_description": {
     "richText": {
@@ -480,7 +235,7 @@
                 "title": "Contact Us",
                 "sub": "",
                 "color": "",
-                "id": "contact us",
+                "id": "contact",
                 "centered": ""
               },
               "image": {
@@ -624,7 +379,8 @@
                   "path": "@atoms/04-headings/heading-2.twig",
                   "data": {
                     "heading2": {
-                      "text": "Who We Serve"
+                      "text": "Who We Serve",
+                      "id": "about"
                     }
                   }
                 },
@@ -701,7 +457,7 @@
           "path": "@organisms/by-author/action-finder.twig",
           "data": {
             "actionFinder": {
-              "id": "GUID831741781374893",
+              "id": "actions",
               "bgWide": null,
               "bgNarrow": null,
               "color": "green",
@@ -882,7 +638,7 @@
                 "title": "Our Organizations",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "organizations",
                 "centered": false
               },
               "itemPluralName": "organizations",
@@ -975,7 +731,7 @@
                 "title": "Recent news & announcements",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "news",
                 "centered": ""
               },
               "items": [
@@ -1241,7 +997,7 @@
                 "title": "Upcoming Events",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "events",
                 "centered": "",
                 "titleContext": "from Executive Office of Health and Human Services"
               },
@@ -1263,7 +1019,7 @@
                 "title": "Locations",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "locations",
                 "centered": "",
                 "titleContext": "of Executive Office of Health and Human Services"
               },
@@ -1291,7 +1047,7 @@
                     },
                     "label": "A",
                     "infoWindow": {
-                      "name": "Department of Conservation and Recreation",
+                      "name": "Department of Conservation & Recreation",
                       "link": "#",
                       "phone": "16176261250",
                       "fax": "16176261351",
@@ -1329,7 +1085,7 @@
                 "title": "Related Organizations on pilot.mass.gov",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "related",
                 "centered": ""
               },
               "links": [

@@ -46,3 +46,18 @@ function toggleGoogleTranslate() {
     document.querySelector('.ma__header__hamburger__utility-nav .ma__utility-nav__item').appendChild(translateElement);
   }
 }
+
+// Set aria-label of nav based on the screen size.
+function navAriaLabel() {
+  if (document.querySelector('header.ma__header__mixed')) {
+    if (window.innerWidth > 840) {
+      document.querySelector('nav.ma__header__hamburger__nav').setAttribute('aria-label', 'utility options');
+    }
+    else {
+      document.querySelector('nav.ma__header__hamburger__nav').setAttribute('aria-label', 'main navigation');
+    }
+  }
+}
+
+window.addEventListener("resize", navAriaLabel);
+document.addEventListener("DOMContentLoaded", navAriaLabel);

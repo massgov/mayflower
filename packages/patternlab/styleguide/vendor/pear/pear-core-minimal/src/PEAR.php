@@ -170,7 +170,7 @@ class PEAR
             $destructor = "_$classname";
             if (method_exists($this, $destructor)) {
                 global $_PEAR_destructor_object_list;
-                $_PEAR_destructor_object_list[] = &$this;
+                $_PEAR_destructor_object_list[] = $this;
                 if (!isset($GLOBALS['_PEAR_SHUTDOWN_REGISTERED'])) {
                     register_shutdown_function("_PEAR_call_destructors");
                     $GLOBALS['_PEAR_SHUTDOWN_REGISTERED'] = true;
@@ -219,7 +219,7 @@ class PEAR
             );
         }
         return call_user_func_array(
-            array(get_class(), '_' . $method),
+            array(self::class, '_' . $method),
             array_merge(array($this), $arguments)
         );
     }
@@ -232,7 +232,7 @@ class PEAR
             );
         }
         return call_user_func_array(
-            array(get_class(), '_' . $method),
+            array(self::class, '_' . $method),
             array_merge(array(null), $arguments)
         );
     }
@@ -450,7 +450,7 @@ class PEAR
     }
 
     /**
-     * This method deletes all occurences of the specified element from
+     * This method deletes all occurrences of the specified element from
      * the expected error codes stack.
      *
      * @param  mixed $error_code error code that should be deleted
@@ -542,7 +542,7 @@ class PEAR
             count($object->_expected_errors) > 0 &&
             count($exp = end($object->_expected_errors))
         ) {
-            if ($exp[0] == "*" ||
+            if ($exp[0] === "*" ||
                 (is_int(reset($exp)) && in_array($code, $exp)) ||
                 (is_string(reset($exp)) && in_array($message, $exp))
             ) {
@@ -598,11 +598,11 @@ class PEAR
     protected static function _throwError($object, $message = null, $code = null, $userinfo = null)
     {
         if ($object !== null) {
-            $a = &$object->raiseError($message, $code, null, null, $userinfo);
+            $a = $object->raiseError($message, $code, null, null, $userinfo);
             return $a;
         }
 
-        $a = &PEAR::raiseError($message, $code, null, null, $userinfo);
+        $a = PEAR::raiseError($message, $code, null, null, $userinfo);
         return $a;
     }
 
@@ -766,6 +766,28 @@ class PEAR
 
         return @dl('php_'.$ext.$suffix) || @dl($ext.$suffix);
     }
+
+    /**
+     * Get SOURCE_DATE_EPOCH environment variable
+     * See https://reproducible-builds.org/specs/source-date-epoch/
+     *
+     * @return int
+     * @access public
+     */
+    static function getSourceDateEpoch()
+    {
+        if ($source_date_epoch = getenv('SOURCE_DATE_EPOCH')) {
+            if (preg_match('/^\d+$/', $source_date_epoch)) {
+                return (int) $source_date_epoch;
+            } else {
+            //  "If the value is malformed, the build process SHOULD exit with a non-zero error code."
+            self::raiseError("Invalid SOURCE_DATE_EPOCH: $source_date_epoch");
+            exit(1);
+            }
+        } else {
+            return time();
+        }
+    }
 }
 
 function _PEAR_call_destructors()
@@ -782,7 +804,7 @@ function _PEAR_call_destructors()
             $_PEAR_destructor_object_list = array_reverse($_PEAR_destructor_object_list);
         }
 
-        while (list($k, $objref) = each($_PEAR_destructor_object_list)) {
+        foreach ($_PEAR_destructor_object_list as $k => $objref) {
             $classname = get_class($objref);
             while ($classname) {
                 $destructor = "_$classname";
@@ -837,6 +859,7 @@ class PEAR_Error
     var $message              = '';
     var $userinfo             = '';
     var $backtrace            = null;
+    var $callback             = null;
 
     /**
      * PEAR_Error constructor
@@ -914,7 +937,8 @@ class PEAR_Error
             } else {
                 $format = $options;
             }
-            die(sprintf($format, $msg));
+            printf($format, $msg);
+            exit($code);
         }
 
         if ($this->mode & PEAR_ERROR_CALLBACK && is_callable($this->callback)) {

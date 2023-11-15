@@ -1,15 +1,60 @@
+{% set hasSuggestions = headerSearch.hasSuggestions %}
+{% set suggestedScopes = headerSearch.suggestedScopes %}
 <div class="ma__header-search">
-  <form action="#" class="ma__form js-header-search-form" role="search">
+  <form role="search" action="https://search.mass.gov/" class="ma__form js-header-search-form">
     <label
         for="{{headerSearch.id}}"
         class="ma__header-search__label">{{headerSearch.label}}</label>
     <input
         id="{{headerSearch.id}}"
+        name="q"
         class="ma__header-search__input"
         placeholder="{{headerSearch.placeholder}}"
         type="search"
         inputmode="search"
+        autocomplete="off"
+        {% if hasSuggestions %}
+          role="combobox"
+          aria-expanded="false"
+          aria-controls="search-suggestions"
+          aria-owns="search-suggestions"
+        {% endif %}
     />
+    {% if hasSuggestions %}
+      <div class="ma__header-search-suggestions hidden">
+        <span role="status" aria-live="polite" class="ma__header-search-suggestions-helper"></span>
+        <ul id="search-suggestions" role="listbox" tabindex="-1" class="ma__header-search-suggestions-list">
+          <li class="ma__header-search-suggestion" role="presentation" >
+            <button class="ma__header-search-suggestion-option" role="option">
+              <span>
+                {{ icon('search') }}
+                <span class="ma__visually-hidden">search&nbsp;</span>
+              </span>
+              <span class="ma__header-search-suggestion-option-text">
+                <span class="ma__header-search-suggestion-option-input"></span>
+                <span class="ma__header-search-suggestion-option-scope ma__visually-hidden"> &nbsp; across the entire site </span>
+              </span>
+            </button>
+          </li>
+          {% for option in suggestedScopes %}
+            <li class="ma__header-search-suggestion" role="presentation">
+              <button class="ma__header-search-suggestion-option" role="option">
+                <span>
+                  {{ icon('search') }}
+                  <span class="ma__visually-hidden">search&nbsp;</span>
+                </span>
+                <span class="ma__header-search-suggestion-option-text">
+                  <span class="ma__header-search-suggestion-option-input"></span>
+                  <span class="ma__header-search-suggestion-option-scope"> in 
+                    <span class="ma__header-search-suggestion-option-scope-value">{{ option }}</span>
+                  </span>
+                </span>
+              </button>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
     {% set buttonSearch = headerSearch.buttonSearch %}
     {% include "@atoms/01-buttons/button-search.twig" %}
   </form>

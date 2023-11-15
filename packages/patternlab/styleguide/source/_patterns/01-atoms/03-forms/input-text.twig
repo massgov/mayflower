@@ -1,17 +1,23 @@
 {% if inputText.labelText %}
-  <label 
+  <label
   for="{{ inputText.id }}"
   class="ma__label {{ inputText.required ? 'ma__label--required' : (inputText.noOptionalLabel ? '' : 'ma__label--optional')}} {{ inputText.hiddenLabel ? 'ma__label--hidden' : '' }}">{{inputText.labelText}}</label>
 {% endif %}
 {% if inputText.errorMsg %}
   <div class="ma__error-msg">{{ inputText.errorMsg }}</div>
 {% endif %}
-<input 
-  class="ma__input {{ inputText.required ? 'js-is-required' : ''}}" 
-  name="{{ inputText.name }}" 
-  id="{{ inputText.id }}" 
-  type="{{ inputText.type }}" 
-  placeholder="{{ inputText.placeholder }}" 
+<input
+  class="ma__input {{ inputText.required ? 'js-is-required' : ''}}"
+  name="{{ inputText.name }}"
+  id="{{ inputText.id }}"
+  type="{{ inputText.type }}"
+  {% if inputText.mode %}
+    inputmode="{{ inputText.mode }}"
+  {% endif %}
+  {% if inputText.autocomplete %}
+    autocomplete="{{ inputText.autocomplete }}"
+  {% endif %}
+  placeholder="{{ inputText.placeholder }}"
   data-type="{{ inputText.type }}"
   {% if inputText.maxlength %}
     maxlength="{{ inputText.maxlength }}"
@@ -20,6 +26,6 @@
     pattern="{{ inputText.pattern }}*"
   {% endif %}
   {% if inputText.width %}
-    style="width: {{ inputText.width }}px" 
+    style="width: {{ inputText.width }}px"
   {% endif %}
   {{ inputText.required ? 'required' : '' }} />

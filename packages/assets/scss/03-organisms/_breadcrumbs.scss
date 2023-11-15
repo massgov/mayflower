@@ -140,7 +140,7 @@ $breadcrumbs-scrollbar-height: 12px;
       font-size: $fonts-xsmall;
       line-height: 1;
       padding: 2px 0;
-      font-weight: 500;
+      font-weight: $fonts-semibold;
       text-decoration: none;
 
       &:hover {

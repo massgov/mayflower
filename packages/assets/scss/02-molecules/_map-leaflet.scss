@@ -14,6 +14,10 @@
   outline: revert !important;
 }
 
+.leaflet-container a {
+  color: $c-bay-blue;
+}
+
 .leaflet-popup-content {
   margin: 0;
 
@@ -49,6 +53,25 @@
     a {
       text-decoration: none;
     }
+
+    a:first-child:hover,
+    a:first-child:focus {
+      border-width: 3px;
+      border-style: solid;
+      transition: none;
+      overflow: hidden;
+      height: 400px;
+
+      .ma__leaflet-map__map {
+        margin-top: -2px;
+        margin-left: -3px;
+      }
+
+      .ma__leaflet-map__directions-link {
+        margin-left: -3px;
+        width: auto;
+      }
+    }
   }
 
   &__map {
@@ -64,7 +87,7 @@
     height: 100%;
 
     &__map {
-      height: 100%;      
+      height: 100%;
     }
   }
 
@@ -87,10 +110,17 @@
     }
   }
 
-  a:hover {
+  a:hover,
+  a:first-child:focus .ma__leaflet-map__directions-link {
 
     span {
       text-decoration: underline;
     }
   }
+}
+
+// For the location banner specific
+
+.ma__location-banner .ma__location-banner__map .ma__leaflet-map a .ma__leaflet-map__map {
+  z-index: -1;
 }

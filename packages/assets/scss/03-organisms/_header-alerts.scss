@@ -12,6 +12,7 @@
     margin-bottom: 0;
   
     &__button {
+      color: $c-black;
       background-color: $c-warning;
       padding: 12px 24px;
       display: inline-flex;
@@ -87,6 +88,7 @@
     border-style: solid;
 
     &__header {
+      color: $c-black;
       border: none;
       display: block;
       padding: 20px 40px 20px 60px;

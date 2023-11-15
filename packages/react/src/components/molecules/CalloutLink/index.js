@@ -16,7 +16,7 @@ const CalloutLink = (calloutLink) => {
 
   return(
     <div className={classNames}>
-      <a href={calloutLink.href} title={calloutLink.info}>
+      <a href={calloutLink.href} title={calloutLink.info} {...calloutLink.anchorAttributes}>
         { (calloutLink.eyebrow || calloutLink.time) && (
           <div className="ma__callout-link__header">
             <span className="ma__callout-link__eyebrow">{calloutLink.eyebrow}</span>
@@ -42,6 +42,8 @@ CalloutLink.propTypes = {
   text: PropTypes.string.isRequired,
   /** The link the callout is going to */
   href: PropTypes.string.isRequired,
+  /** All other attributes of the a tag */
+  anchorAttributes: PropTypes.object,
   /** Add more information about the link */
   info: PropTypes.string,
   /** Add description text under the title text */

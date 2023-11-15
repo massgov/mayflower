@@ -18,13 +18,10 @@ const getUtilityItem = (item) => {
 };
 
 const Template = (args) => {
-  const { utilityItems = [], useMenuOverlay, ...rest } = args;
+  const { utilityItems = [], ...rest } = args;
   const storyUtilityItems = utilityItems.map((item) => getUtilityItem(item));
   return(
-    <React.Fragment>
-      <Header utilityItems={storyUtilityItems} {...rest} />
-      { useMenuOverlay && <div className="menu-overlay" />}
-    </React.Fragment>
+    <Header utilityItems={storyUtilityItems} {...rest} />
   );
 };
 
@@ -81,7 +78,6 @@ HeaderWithoutUtilityNav.parameters = {
 export const HeaderWithCustomSiteLogo = (args) => {
   const {
     utilityItems = [],
-    useMenuOverlay,
     siteName,
     ...rest
   } = args;
@@ -102,7 +98,7 @@ export const HeaderWithCustomSiteLogo = (args) => {
   };
   const CustomSiteLogo = React.memo(() => <SiteLogo {...siteLogoProps} Wrapper={HamburgerLogoWrapper} />);
   return(
-    <Header Logo={CustomSiteLogo} utilityItems={storyUtilityItems} {...rest} />
+    <Header Logo={CustomSiteLogo} utilityItems={storyUtilityItems} siteName={siteName} {...rest} />
   );
 };
 HeaderWithCustomSiteLogo.args = {
@@ -125,20 +121,6 @@ HeaderWithCustomSiteLogo.parameters = {
     page: () => <StoryPage StoryComponent={HeaderWithCustomSiteLogo} styles={styles} />
   }
 };
-export const HeaderWithMenuOverlay = (args) => (
-  <React.Fragment>
-    <div className="menu-overlay" />
-    <Header {...args} />
-  </React.Fragment>
-);
-HeaderWithMenuOverlay.args = {
-  mainItems
-};
-HeaderWithMenuOverlay.parameters = {
-  docs: {
-    page: () => <StoryPage StoryComponent={HeaderWithMenuOverlay} styles={styles} />
-  }
-};
 
 export default {
   title: 'organisms/Header',
@@ -149,13 +131,6 @@ export default {
     }
   },
   argTypes: {
-    useMenuOverlay: {
-      name: 'Use Menu Overlay?',
-      type: 'boolean',
-      table: {
-        category: 'Story Only'
-      }
-    },
     utilityItems: {
       control: {
         type: 'check',
