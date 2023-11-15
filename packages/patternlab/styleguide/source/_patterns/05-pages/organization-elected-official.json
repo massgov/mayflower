@@ -282,7 +282,7 @@
       "id": "",
       "pageContent": [
         {
-          "path": "@organisms/by-author/contact-row.twig",
+          "path": "@organisms/contact/contact-list.twig",
           "data": {
             "contactRow": {
               "compHeading": {
