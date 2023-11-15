@@ -43,7 +43,7 @@
         }
       },
       {
-        "path": "@molecules/contact-us.twig",
+        "path": "@contact/contact-us.twig",
         "data": {
           "contactUs": {
             "groups": [
