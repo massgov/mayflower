@@ -11,6 +11,10 @@
 
   <a class="ma__header__hamburger__skip-nav" href="#main-content">skip to main content</a>
 
+  {# aria-label value changes based on view size:
+     viewport > 840 (utility nav only):  Language options and quick access links
+     viewport < 840 (flyout [utility nav + topic links]): main navigation
+     See navAriaLabel() in /assets/js/modules/mainNavMixed.js #}
   <nav class="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation-mobile" role="navigation">
     <div class="ma__header__hamburger-wrapper">
 
