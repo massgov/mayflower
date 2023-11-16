@@ -202,14 +202,18 @@ $utility-nav-height: 43px;
 
       @media ($bp-header-toggle-max) {
 
-        @include ma-accordion-icon;
-        display: block;
-        width: 100%;
+        & span {
 
-        &:after {
+          @include ma-accordion-icon;
+          // display: block;
+          width: 100%;
 
-          border: 0;
+          &:after {
+
+            border: 0;
+          }
         }
+
       }
 
       & > * {

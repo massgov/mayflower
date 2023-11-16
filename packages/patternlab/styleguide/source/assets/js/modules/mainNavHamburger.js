@@ -967,6 +967,12 @@ if (hamburgerMenuContainer) {
       "iframe.goog-te-menu-frame.skiptranslate"
     );
 
+    // Hide "+" symbol from screen readers.
+    let hamburgerGTSymbol = utilNarrowNav.querySelector(".ma__utility-nav__translate #google_translate_element a span");
+    if (hamburgerGTSymbol) {
+      hamburgerGTSymbol.setAttribute("aria-hidden", "true");
+    }
+
     if (gTranslateOptionContainer) {
       gTranslateOptionContainer.contentWindow.document.addEventListener(
         "keydown",
