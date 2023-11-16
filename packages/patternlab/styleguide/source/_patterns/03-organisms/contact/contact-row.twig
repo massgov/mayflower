@@ -7,63 +7,69 @@
     {% include "@atoms/04-headings/comp-heading.twig" %}
   {% endif %}
 
-  {% block contactImage %}
-    {% if contactRow.image %}
-      {% set image = contactRow.image %}
-      {% include "@atoms/09-media/image.twig" %}
-    {% endif %}
-  {% endblock %}
+  <div class="ma__org-contact-us">
+    <div class="ma__org-contact-us__first">
+      <div class="ma__contact-row__columns">
+        {% block additionalContacts %}
 
-  <div class="ma__contact-row__columns">
-    {% block additionalContacts %}
+          {% if contactRow.onlineContactGroup %}
+            <div class="ma__contact-row--online ma__contact-set">
+              {% block onlineContactGroup %}
+                {% set contactGroup = contactRow.onlineContactGroup %}
+                {% include "@molecules/contact/contact-group.twig" %}
+              {% endblock %}
+            </div>
+          {% endif %}
 
-      {% if contactRow.onlineContactGroup %}
-        <div class="ma__contact-row--online ma__contact-set">
-          {% block onlineContactGroup %}
-            {% set contactGroup = contactRow.onlineContactGroup %}
-            {% include "@molecules/contact/contact-group.twig" %}
-          {% endblock %}
-        </div>
+          {% if contactRow.phoneContactGroup %}
+            <div class="ma__contact-row--phone ma__contact-set">
+              {% block phoneContactGroup %}
+                {% set contactGroup = contactRow.phoneContactGroup %}
+                {% include "@molecules/contact/contact-group.twig" %}
+              {% endblock %}
+            </div>
+          {% endif %}
+
+          {% if contactRow.faxContactGroup %}
+            <div class="ma__contact-row--fax ma__contact-set">
+              {% block faxContactGroup %}
+                {% set contactGroup = contactRow.faxContactGroup %}
+                {% include "@molecules/contact/contact-group.twig" %}
+              {% endblock %}
+            </div>
+          {% endif %}
+
+
+          {% if contactRow.addressContactGroup %}
+            <div class="ma__contact-row--address ma__contact-set">
+              {% block addressContactGroup %}
+                {% set contactGroup = contactRow.addressContactGroup %}
+                {% include "@molecules/contact/contact-group.twig" %}
+              {% endblock %}
+            </div>
+          {% endif %}
+
+        {% endblock %}
+      </div>
+
+      {% if contactRow.moreLink %}
+      <div class="ma__contact-group contact-group__more-link">
+        {% block moreLink %}
+          {% set decorativeLink = contactRow.moreLink %}
+          {% include "@atoms/decorative-link.twig" %}
+        {% endblock %}
+      </div>
       {% endif %}
-
-      {% if contactRow.phoneContactGroup %}
-        <div class="ma__contact-row--phone ma__contact-set">
-          {% block phoneContactGroup %}
-            {% set contactGroup = contactRow.phoneContactGroup %}
-            {% include "@molecules/contact/contact-group.twig" %}
-          {% endblock %}
-        </div>
-      {% endif %}
-
-      {% if contactRow.faxContactGroup %}
-        <div class="ma__contact-row--fax ma__contact-set">
-          {% block faxContactGroup %}
-            {% set contactGroup = contactRow.faxContactGroup %}
-            {% include "@molecules/contact/contact-group.twig" %}
-          {% endblock %}
-        </div>
-      {% endif %}
+    </div>
 
 
-      {% if contactRow.addressContactGroup %}
-        <div class="ma__contact-row--address ma__contact-set">
-          {% block addressContactGroup %}
-            {% set contactGroup = contactRow.addressContactGroup %}
-            {% include "@molecules/contact/contact-group.twig" %}
-          {% endblock %}
-        </div>
-      {% endif %}
-
-    {% endblock %}
+    <div class="ma__org-contact-us__last">
+      {% block contactImage %}
+        {% if contactRow.image %}
+          {% set image = contactRow.image %}
+          {% include "@atoms/09-media/image.twig" %}
+        {% endif %}
+      {% endblock %}
+    </div>
   </div>
-
-  {% if contactRow.moreLink %}
-  <div class="ma__contact-group contact-group__more-link">
-    {% block moreLink %}
-      {% set decorativeLink = contactRow.moreLink %}
-      {% include "@atoms/decorative-link.twig" %}
-    {% endblock %}
-  </div>
-  {% endif %}
-
 </section>

@@ -6,22 +6,10 @@ $accordion-break: 720px;
 .ma__contact-row {
   position: relative;
 
-  .pre-content > &,
-  .post-content > &,
-  .main-content--full .page-content > & {
+  @include ma-container();
 
-    @include ma-container();
-  }
 
-  @media ($bp-large-min) {
-
-    .ma__comp-heading,
-    .ma__contact-row__columns {
-      width: calc(100% - 300px);
-    }
-  }
-
-  .ma__contact-row__columns {
+  &__columns {
 
     @media (min-width: $accordion-break) {
       column-count: 2; 
@@ -58,6 +46,40 @@ $accordion-break: 720px;
       position: absolute;
       top: 0;
       right: 30px;
+    }
+  }
+}
+
+.ma__org-contact-us {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .ma__comp-heading {
+    width: 100%;
+  }
+
+  &__first, &__second {
+    flex-basis: 100%;
+    order: 2;
+  }
+
+  .ma__contact-row .ma__contact-row__columns {
+    width: 100%;
+    order: 1;
+  }
+
+  @media ($bp-large-min) {
+
+    &__first {
+      flex-basis: 70%;
+      order: 0;
+    }
+
+    &__second {
+      flex-basis: 30%;
+      order: 0;
     }
   }
 }
