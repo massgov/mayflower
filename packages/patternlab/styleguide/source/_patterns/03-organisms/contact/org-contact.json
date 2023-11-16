@@ -1,5 +1,11 @@
 {
   "orgContact": {
+    "compHeading": {
+      "title": "Contact Us",
+      "sub": "",
+      "color": "",
+      "centered": ""
+    },
     "logo": {
       "alt": "eohhs logo",
       "src": "../../assets/images/placeholder/230x130.png",
