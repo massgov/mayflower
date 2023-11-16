@@ -1,9 +1,5 @@
 <div class="ma__org-contact-us">
 
-  {% if orgContact.compHeading %}
-    {% include "@atoms/04-headings/comp-heading.twig" with {"compHeading": orgContact.compHeading}  %}
-  {% endif %}
-
   <div class="ma__org-contact-us__first">
     {% block contact_first %}
       {% include "@organisms/contact/contact-row.twig" with {"contactRow": orgContact} %}
