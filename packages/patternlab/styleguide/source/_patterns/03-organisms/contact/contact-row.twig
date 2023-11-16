@@ -21,7 +21,7 @@
         <div class="ma__contact-row--online ma__contact-set">
           {% block onlineContactGroup %}
             {% set contactGroup = contactRow.onlineContactGroup %}
-            {% include "@molecules/contact-group.twig" %}
+            {% include "@molecules/contact/contact-group.twig" %}
           {% endblock %}
         </div>
       {% endif %}
@@ -30,7 +30,7 @@
         <div class="ma__contact-row--phone ma__contact-set">
           {% block phoneContactGroup %}
             {% set contactGroup = contactRow.phoneContactGroup %}
-            {% include "@molecules/contact-group.twig" %}
+            {% include "@molecules/contact/contact-group.twig" %}
           {% endblock %}
         </div>
       {% endif %}
@@ -39,7 +39,7 @@
         <div class="ma__contact-row--fax ma__contact-set">
           {% block faxContactGroup %}
             {% set contactGroup = contactRow.faxContactGroup %}
-            {% include "@molecules/contact-group.twig" %}
+            {% include "@molecules/contact/contact-group.twig" %}
           {% endblock %}
         </div>
       {% endif %}
@@ -49,7 +49,7 @@
         <div class="ma__contact-row--address ma__contact-set">
           {% block addressContactGroup %}
             {% set contactGroup = contactRow.addressContactGroup %}
-            {% include "@molecules/contact-group.twig" %}
+            {% include "@molecules/contact/contact-group.twig" %}
           {% endblock %}
         </div>
       {% endif %}
