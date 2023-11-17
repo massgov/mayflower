@@ -7,8 +7,8 @@
     {% include "@atoms/04-headings/comp-heading.twig" %}
   {% endif %}
 
-  <div class="ma__org-contact-us">
-    <div class="ma__org-contact-us__first">
+  <div class="ma__contact-row__container">
+    <div class="ma__contact-row__first">
       <div class="ma__contact-row__columns">
         {% block additionalContacts %}
 
@@ -63,7 +63,7 @@
     </div>
 
 
-    <div class="ma__org-contact-us__last">
+    <div class="ma__contact-row__last">
       {% block contactImage %}
         {% if contactRow.image %}
           {% set image = contactRow.image %}
