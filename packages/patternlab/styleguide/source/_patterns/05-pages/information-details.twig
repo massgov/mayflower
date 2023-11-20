@@ -40,7 +40,7 @@
 
 	{% if postContent.contactList %}
 		{% set contactList = postContent.contactList %}
-		{% include "@organisms/by-author/contact-list.twig" %}
+		{% include "@organisms/contact/contact-list.twig" %}
 	{% endif %}
 
 	{% if postContent.footnoteList %}
@@ -73,7 +73,7 @@
 	{% endif %}
 
 	{% set contactList = sidebar.contactList %}
-	{% include "@organisms/by-author/contact-list.twig" %}
+	{% include "@organisms/contact/contact-list.twig" %}
 {% endblock %}
 
 {% block footer %}

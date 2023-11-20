@@ -9,7 +9,7 @@
   {% block groupItems %}
     {% for item in contactGroup.items %}
       {% set item = item|merge({"contactName": contactGroup.contactName })  %}
-      {% include "@molecules/contact-item.twig" %}
+      {% include "@molecules/contact/contact-item.twig" %}
     {% endfor %}
   {% endblock %}
 </div>

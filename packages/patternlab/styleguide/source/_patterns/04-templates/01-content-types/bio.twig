@@ -30,7 +30,7 @@
 
 					{% if sideContent.contactList %}
 						{% set contactList = sideContent.contactList %}
-						{% include "@organisms/by-author/contact-list.twig" %}
+						{% include "@organisms/contact/contact-list.twig" %}
 					{% endif %}
 
 					{% if sideContent.social %}
@@ -84,7 +84,7 @@
 				{% block personContactList %}
 					{% if sideContent.contactList %}
 						{% set contactList = sideContent.contactList %}
-						{% include "@organisms/by-author/contact-list.twig" %}
+						{% include "@organisms/contact/contact-list.twig" %}
 					{% endif %}
 				{% endblock %}
 

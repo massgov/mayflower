@@ -16,11 +16,11 @@
 		<div class="page-content">
 			{% if sideContent.contactList %}
 				{% set contactList = sideContent.contactList|merge({'compHeading': sideContent.contactList.sidebarHeading, 'sidebarHeading': null}) %}
-				{% include "@organisms/by-author/contact-list.twig" %}
+				{% include "@organisms/contact/contact-list.twig" %}
 			{% endif %}
 			{% if sideContent.mediaContact %}
 				{% set contactList = sideContent.mediaContact|merge({'compHeading': sideContent.mediaContact.sidebarHeading, 'sidebarHeading': null}) %}
-				{% include "@organisms/by-author/contact-list.twig" %}
+				{% include "@organisms/contact/contact-list.twig" %}
 			{% endif %}
 
 			{% if mainContent.pageOverview %}
@@ -61,12 +61,12 @@
 
 				{% if mainContent.contactList %}
 					{% set contactList = mainContent.contactList %}
-					{% include "@organisms/by-author/contact-list.twig" %}
+					{% include "@organisms/contact/contact-list.twig" %}
 				{% endif %}
 
 				{% if mainContent.mediaContact %}
 					{% set contactList = mainContent.mediaContact %}
-					{% include "@organisms/by-author/contact-list.twig" %}
+					{% include "@organisms/contact/contact-list.twig" %}
 				{% endif %}
 
 				{% if mainContent.linkList %}
@@ -83,12 +83,12 @@
 
 			{% if sideContent.contactList %}
 				{% set contactList = sideContent.contactList %}
-				{% include "@organisms/by-author/contact-list.twig" %}
+				{% include "@organisms/contact/contact-list.twig" %}
 			{% endif %}
 
 			{% if sideContent.mediaContact %}
 				{% set contactList = sideContent.mediaContact %}
-				{% include "@organisms/by-author/contact-list.twig" %}
+				{% include "@organisms/contact/contact-list.twig" %}
 			{% endif %}
 
 			{% if sideContent.eventListing %}

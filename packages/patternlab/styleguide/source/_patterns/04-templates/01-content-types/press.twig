@@ -21,7 +21,7 @@
 
 			{% if sidebar.contactList %}
 				{% set contactList = sidebar.contactList %}
-				{% include "@organisms/by-author/contact-list.twig" %}
+				{% include "@organisms/contact/contact-list.twig" %}
 			{% endif %}
 
 			{% if pageContent.figure %}
@@ -45,7 +45,7 @@
 
 			{% if pageContent.contactList %}
 				{% set contactList = pageContent.contactList %}
-				{% include "@organisms/by-author/contact-list.twig" %}
+				{% include "@organisms/contact/contact-list.twig" %}
 			{% endif %}
 
 			{% if pageContent.personalMessage %}
@@ -57,7 +57,7 @@
 		<aside class="sidebar ma__press__sidebar">
 			{% if sidebar.contactList %}
 				{% set contactList = sidebar.contactList %}
-				{% include "@organisms/by-author/contact-list.twig" %}
+				{% include "@organisms/contact/contact-list.twig" %}
 			{% endif %}
 
 			{% if sidebar.pressListing %}
