@@ -44,11 +44,13 @@ $accordion-break: 720px;
       column-rule: 1px solid $c-bd-divider;
 
       /* Prevent a single contact-set from breaking across columns */
+
       .ma__contact-group {
         break-inside: avoid; 
       }
 
       /* Use break-before to control column breaks */
+
       .ma__contact-set:nth-child(odd) {
         break-before: column;
       }
