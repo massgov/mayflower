@@ -12,7 +12,7 @@
 
     @include ma-component-spacing;
   }
-  
+
   &__container {
     border-top-style: solid;
     border-top-width: 2px;
@@ -52,7 +52,7 @@
   &__prev {
 
     @include ma-chevron('left');
-    
+
     @media ($bp-small-max) {
       margin-right: .5em;
       min-width: 45%;
@@ -102,7 +102,7 @@
       left: 9px;
       width: calc(100% - 35px);
       border-color: transparent;
-      
+
 
       @media ($bp-small-min) {
 
@@ -137,7 +137,7 @@
 
     &.is-active {
       background-color: $c-primary;
-      color: #fff;
+      color: $c-white;//#fff;
 
       &:hover:after {
         border-color: transparent;

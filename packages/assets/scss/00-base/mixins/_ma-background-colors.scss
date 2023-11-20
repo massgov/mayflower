@@ -1,5 +1,7 @@
 @use "00-base/variables" as *;
 
+@use "00-base/colors" as *;
+
 @mixin background-colors ($lightTheme, $darkTheme) {
     // $lightTheme: (
     //     "c-primary": $c-primary-lightest,
@@ -21,18 +23,18 @@
           background-color: $c;
         }
       }
-    
+
     @each $class, $c in $darkTheme {
         &--#{$class}-bg-dark {
             background-color: $c;
 
             @if $class != "c-highlight" {
-            color: white;
+            color: $c-white;//white;
 
                 & > * {
-                    fill: white !important;
-                    color: white !important;
-                    border-color: white !important;
+                    fill: $c-white !important;//white !important;
+                    color: $c-white !important;//white !important;
+                    border-color: $c-white !important;//white !important;
                 }
             }
         }

@@ -3,7 +3,7 @@
 @use "sass:color" as *;
 
 .ma__error-list {
-  
+
   form & {
     display: none;
   }
@@ -24,7 +24,7 @@
     border-width: 3px;
     padding: 20px 25px;
   }
-  
+
   &__header {
     margin-bottom: 8px;
   }
@@ -70,7 +70,7 @@
 .ma__error-list {
 
   &__container {
-    background-color: mix(#fff, $c-error, 95%);
+    background-color: mix($c-white, $c-error, 95%);//mix(#fff, $c-error, 95%);
     border-color: $c-bd-error;
     color: $c-font-error;
   }

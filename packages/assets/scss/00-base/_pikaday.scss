@@ -49,7 +49,7 @@
   }
 
   &:hover {
-    background-color: mix(#fff, $c-primary, 50%);
+    background-color: mix($c-white, $c-primary, 50%);//mix(#fff, $c-primary, 50%);
     border-radius: 0;
   }
 

@@ -89,7 +89,7 @@
   &__form {
     display: flex;
     margin: 0 auto 30px;
-    
+
     @media ($bp-medium-min) {
       margin: 0 auto 60px;
     }
@@ -183,7 +183,7 @@
     margin-right: auto;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 20px;
-    
+
     @media ($bp-medium-min) {
       padding: 30px 60px;
     }
@@ -322,7 +322,7 @@
   &__input {
 
     input {
-      background-color: rgba(255, 255, 255, 0.75);
+      background-color: rgba($c-white,0.75);//rgba(255, 255, 255, 0.75);
       font-weight: $fonts-light;
     }
 
@@ -352,7 +352,7 @@
   }
 
   &__button {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba($c-white,0.75);//rgba(255, 255, 255, 0.75);
     color: $c-font-base;
     font-weight: $fonts-bold;
 

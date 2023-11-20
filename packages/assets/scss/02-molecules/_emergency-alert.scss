@@ -3,14 +3,14 @@
 @use "sass:color" as *;
 
 .ma__emergency-alert {
-  background-color: mix(#fff, $c-warning,90%);
+  background-color: mix($c-white, $c-warning,90%);//mix(#fff, $c-warning,90%);
   font-size: $fonts-small;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 0;
 
   & + & {
-    border-top: 1px solid mix(#fff, $c-warning, 50%);
+    border-top: 1px solid mix($c-white, $c-warning, 50%);//mix(#fff, $c-warning, 50%);
   }
 
   &__time-stamp {

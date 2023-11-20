@@ -7,7 +7,7 @@ $triangle-size: 16px; // should be an even number, match triangleSize in Popup.j
 $duration: 250ms;
 $border-color: #eee;
 $border-width: 1;
-$background-color: rgba(#fff, $opacity);
+$background-color: rgba($c-white, $opacity);//rgba(#fff, $opacity);
 $color: #222;
 $font: Helvetica, sans-serif;
 

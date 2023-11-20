@@ -94,7 +94,7 @@
             }
 
             &.dark > svg {
-                fill: #fff;
+                fill: $c-white;//#fff;
             }
 
             & + & {

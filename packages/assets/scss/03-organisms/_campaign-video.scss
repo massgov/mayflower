@@ -30,7 +30,7 @@ $colors: (
           &:hover,
           &:active,
           &:focus {
-            color: white;
+            color: $c-white;//white;
           }
         }
 
