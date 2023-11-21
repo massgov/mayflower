@@ -76,13 +76,13 @@
 
   &__toggle {
     cursor: pointer;
-    color: $c-black;
+    color: $c-font-base;//$c-black;
     font-weight: $fonts-light;
 
     @media ($bp-small-max) {
       font-size: 1.2rem;
     }
-    
+
     @include ma-button-reset;
 
     @include ma-chevron;
@@ -149,9 +149,9 @@
   &__title {
 
     .ma__content-link {
-      text-decoration: none;  
+      text-decoration: none;
     }
-    
+
 
     .ma__decorative-link {
       display: inline;

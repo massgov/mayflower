@@ -16,7 +16,7 @@
     &:last-child {
 
       a {
-        color: $c-black;
+        color: $c-font-base;//$c-black;
         font-weight: $fonts-bold;
         cursor: text;
         pointer-events: none;

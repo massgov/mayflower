@@ -283,7 +283,7 @@ $colors: (
         @if ($c == $c-primary or $c == $c-primary-alt or $c == $c-primary-alt-dark) {
           color: $c-white;
         } @else {
-          color: $c-black
+          color: $c-font-base;//$c-black
         }
       }
     }

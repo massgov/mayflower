@@ -583,7 +583,7 @@ body.show-menu {
             position: relative;
             top: auto;
             right: auto;
-            color: $c-black;
+            color: $c-font-base;//$c-black;
             z-index: $z-overlay;
 
             transition: max-height 0.6s ease-in-out;
@@ -631,7 +631,7 @@ body.show-menu {
 
             & .ma__utility-panel {
               background-color: $c-gray-lightest;
-              color: $c-black;
+              color: $c-font-base;//$c-black;
 
               @include ma-reset-list;
 
@@ -656,7 +656,7 @@ body.show-menu {
               position: relative;
               line-height: 1.33;
               padding: 0 20px 10px 20px;
-              color: $c-black;
+              color: $c-font-base;//$c-black;
               margin-bottom: 0;
             }
 
@@ -666,7 +666,7 @@ body.show-menu {
 
             & .ma__utility-panel__item {
               background-color: $c-gray-lightest;
-              color: $c-black;
+              color: $c-font-base;//$c-black;
               margin: 0;
               display: block;
             }
@@ -687,7 +687,7 @@ body.show-menu {
               font-weight: $fonts-normal;
               line-height: 1.33;
               padding: 10px 20px 10px 30px;
-              color: $c-black;
+              color: $c-font-base;//$c-black;
 
               &:hover {
                 text-decoration: underline;

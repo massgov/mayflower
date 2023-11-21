@@ -38,7 +38,7 @@ $quaternary-colors: (
 
       @if $c == $c-highlight {
         border-color: $c;
-        color: $c-black
+        color: $c-font-base//$c-black
       } @else {
         color: $c;
       }
@@ -125,7 +125,7 @@ $quaternary-colors: (
   &--tertiary, &--expanded.ma__button-icon--tertiary, &:hover.ma__button-icon--tertiary {
 
     @include ma-button("solid",$c-gray-light);
-    color: $c-black;
+    color: $c-font-base;//$c-black;
 
     svg {
       fill: $c-black;
@@ -229,7 +229,7 @@ $quaternary-colors: (
         background-color: $c;
 
         @if $c == $c-highlight {
-          color: $c-black;
+          color: $c-font-base;//$c-black;
 
           &.ma__button-icon > svg {
             fill: rgba($c-black,.5);
