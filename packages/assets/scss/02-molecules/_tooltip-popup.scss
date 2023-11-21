@@ -1,3 +1,6 @@
+@use "00-base/configure" as *;
+
+@use "00-base/color-tokens" as *;
 // borrowed code that can eventually be applied to the Tooltips pattern
 
 $opacity: 0.95;
