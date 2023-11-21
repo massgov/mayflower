@@ -96,7 +96,7 @@ $quaternary-colors: (
   &--expanded, &:hover {
 
     @include ma-button("solid",$c-primary-alt);
-    color: $c-white;
+    color: $c-font-inverse;//$c-white;
 
     svg {
       fill: $c-white;
@@ -216,7 +216,7 @@ $quaternary-colors: (
     min-height: unset;
     border: none;
     display: inline-block;
-    color: $c-white;
+    color: $c-font-inverse;//$c-white;
     background-color: $c-primary-alt;
 
     &.ma__button-icon > svg {

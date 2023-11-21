@@ -125,7 +125,7 @@ $menu-transition-time: 0.3s;
 
       .mobile-toggle-icon {
         background-color: $c-primary;
-        color: $c-white;
+        color: $c-font-inverse;//$c-white;
         transition: $menu-transition-time;
 
         &::after {

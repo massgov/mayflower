@@ -187,7 +187,7 @@
 
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
-    color: $c-white;
+    color: $c-font-inverse;//$c-white;
     font-weight: $fonts-bold;
   }
 
@@ -429,7 +429,7 @@
     width: 35px;
     height: 35px;
     background-color: $c-primary;
-    color: $c-white;
+    color: $c-font-inverse;//$c-white;
 
     .sticky-nav-open & {
       display: block;

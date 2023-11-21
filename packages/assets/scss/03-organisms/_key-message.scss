@@ -281,7 +281,7 @@ $colors: (
       &--#{$class} {
 
         @if ($c == $c-primary or $c == $c-primary-alt or $c == $c-primary-alt-dark) {
-          color: $c-white;
+          color: $c-font-inverse;//$c-white;
         } @else {
           color: $c-font-base;//$c-black
         }

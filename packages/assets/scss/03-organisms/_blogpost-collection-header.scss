@@ -14,7 +14,7 @@
 }
 
 .blogpost-collection-header--inner {
-  color: $c-white;//white;
+  color: $c-font-inverse;//$c-white;//white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,7 +43,7 @@
   font-size: $fonts-xlarge;
 
   a {
-    color: $c-white;//white;
+    color: $c-font-inverse;//$c-white;//white;
 
     &:hover {
       border-bottom-color: $c-white;//white;

@@ -115,13 +115,13 @@ body {
     @media ($bp-large-min) {
       height: 15px;
       background-color: $c-primary;
-      color: $c-white;
+      color: $c-font-inverse;//$c-white;
     }
 
     &--mobile {
       height: 15px;
       background-color: $c-primary;
-      color: $c-white;
+      color: $c-font-inverse;//$c-white;
       position: fixed;
         top: 0;
         left: 0;

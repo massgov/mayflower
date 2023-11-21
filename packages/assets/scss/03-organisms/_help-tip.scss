@@ -76,7 +76,7 @@ $border-width: 1px;
 
     &--active, &:hover {
       background-color: $c-primary;
-      color: $c-white;
+      color: $c-font-inverse;//$c-white;
 
       svg {
         fill: mix($c-white, $c-font-link, 70%);//mix(#fff, $c-font-link, 70%);

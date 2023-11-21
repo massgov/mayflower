@@ -80,7 +80,7 @@
 
   &__radio:checked + &__text {
     background-color: $c-bay-blue;
-    color: $c-white;
+    color: $c-font-inverse;//$c-white;
   }
 
   // Element that wraps the content, but is located after the input.

@@ -193,7 +193,7 @@
   }
 
   .ma__toc__toc__toggle[aria-expanded="true"] {
-    color: $c-white;
+    color: $c-font-inverse;//$c-white;
     background: $c-primary;
   }
 
