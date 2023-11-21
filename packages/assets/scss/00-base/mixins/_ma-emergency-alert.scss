@@ -8,10 +8,10 @@
 
 @mixin ma-emergency-alert ($color) {
   color: $c-font-base;
-  background-color: mix($c-white, $color, 90%);//mix(#fff, $color, 90%);
+  background-color: mix($c-bg, $color, 90%);//mix($c-white, $color, 90%);//mix(#fff, $color, 90%);
 
     & + & {
-    border-top-color: mix($c-white, $color, 50%);//mix(#fff, $color, 50%);
+    border-top-color: mix($c-bg, $color, 50%);//mix($c-white, $color, 50%);//mix(#fff, $color, 50%);
   }
 
   .ma__emergency-alert__link {
