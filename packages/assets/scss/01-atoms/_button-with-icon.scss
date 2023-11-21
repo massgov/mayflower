@@ -19,7 +19,7 @@ $quaternary-colors: (
 
 
 .ma__button-icon {
-  background-color: $c-white;
+  background-color: $c-bg;//$c-white;
   border: 2px solid $c-gray-light;
   display: inline-flex;
   align-items: center;

@@ -165,10 +165,10 @@ $bp-illustrated-header-image-width: 360px;
   }
 
   &__content {
-    background-color: $c-white;
+    background-color: $c-bg;//$c-white;
 
     &:after {
-      background-color: $c-white;
+      background-color: $c-bg;//$c-white;
     }
   }
 

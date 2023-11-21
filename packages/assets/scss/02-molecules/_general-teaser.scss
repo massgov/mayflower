@@ -84,7 +84,7 @@
     right: 10px;
     display: flex;
     align-items: center;
-    
+
     font-size: $fonts-xsmall;
     font-weight: $fonts-bold;
 
@@ -152,7 +152,7 @@
     font-weight: bold;
     text-align: center;
     border: 1px solid $c-gray-light;
-    background-color: $c-white;
+    background-color: $c-bg;//$c-white;
     padding: 0px 5px;
     min-width: 60px;
     display: inline-block;

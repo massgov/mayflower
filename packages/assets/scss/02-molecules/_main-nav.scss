@@ -259,7 +259,7 @@
     &:hover,
     &.is-open,
     &.has-focus {
-      background-color: $c-white;
+      background-color: $c-bg;//$c-white;
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
     }
 
@@ -273,7 +273,7 @@
     background-color: $c-bg-section;
 
     @media ($bp-header-toggle-min) {
-      background-color: $c-white;
+      background-color: $c-bg;//$c-white;
       box-shadow: 0 0.25em 0.5rem rgba(#000, 0.25);
     }
   }
@@ -281,7 +281,7 @@
   &__container {
 
     @media ($bp-header-toggle-max) {
-      background-color: $c-white;
+      background-color: $c-bg;//$c-white;
     }
   }
 

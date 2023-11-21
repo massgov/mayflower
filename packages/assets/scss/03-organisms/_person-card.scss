@@ -81,7 +81,7 @@
 .ma__person-card {
   position: relative;
   color: $c-font-base;
-  background-color: $c-white;
+  background-color: $c-bg;//$c-white;
 
   @media ($bp-large-extended-min) {
     border: 1px solid $c-primary-alt;

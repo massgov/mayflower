@@ -206,7 +206,7 @@ $border-width: 1px;
     }
 
     &--c-white {
-      background-color: $c-white;
+      background-color: $c-bg;//$c-white; <-- BASED ON THE CLASS, IS IT BETTER TO KEEP $c-white?
       #{$helpTipBaseClass}__close-desktop {
         fill: $c-gray-dark;
       }
@@ -266,7 +266,7 @@ $border-width: 1px;
       }
 
       &--c-white {
-        background-color: $c-white;
+        background-color: $c-bg;//$c-white; <-- BASED ON THE CLASS, IS IT BETTER TO KEEP $c-white?
         #{$helpTipBaseClass}__close-mobile {
           background-color: $c-gray-dark;
         }
@@ -328,7 +328,7 @@ $border-width: 1px;
         }
 
         &--c-white {
-          background-color: $c-white;
+          background-color: $c-bg;//$c-white; <-- BASED ON THE CLASS, IS IT BETTER TO KEEP $c-white?
         }
       }
 

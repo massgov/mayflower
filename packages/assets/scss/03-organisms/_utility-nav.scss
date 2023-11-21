@@ -36,7 +36,7 @@ $utility-nav-height: 43px;
       position: relative;
 
       &:hover {
-        background-color: $c-white;
+        background-color: $c-bg;//$c-white;
         box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
       }
     }

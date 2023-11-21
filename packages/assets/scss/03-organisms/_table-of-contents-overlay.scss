@@ -92,7 +92,7 @@
       content: "";
       position: fixed;
       z-index: -1;
-      background-color: $c-white;//#fff;
+      background-color: $c-bg;//$c-white;//#fff;
       opacity: 0;
       transition: opacity 0.2s ease;
     }

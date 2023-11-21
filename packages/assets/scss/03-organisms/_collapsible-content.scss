@@ -53,7 +53,7 @@
       }
 
       &__item {
-        background: $c-white;
+        background: $c-bg;//$c-white;
       }
     }
 
@@ -67,7 +67,7 @@
       }
 
       &__button {
-        background: $c-white;
+        background: $c-bg;//$c-white;
         padding-right: 66px;
       }
     }

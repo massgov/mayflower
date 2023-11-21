@@ -530,7 +530,7 @@ body {
       }
 
       &:focus {
-        background-color: $c-white;
+        background-color: $c-bg;//$c-white;
         border-color: $c-highlight !important;
       }
     }

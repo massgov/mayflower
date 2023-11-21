@@ -5,7 +5,7 @@
   border-width: 4px 4px 0 4px;
   border-radius: 5px 5px 0 0;
   border-color: rgba($c-primary-alt, 0.5);
-  background-color: $c-white;
+  background-color: $c-bg;//$c-white;
   display: inline-block;
   padding: 0 10px;
   margin-top: 0 !important;
@@ -15,7 +15,7 @@
   transform-origin: top right;
   transform: rotate(-90deg);
   pointer-events: none;
- 
+
 
   z-index: $z-feedback-button;
 
@@ -42,5 +42,5 @@
       visibility: hidden;
     }
   }
-} 
+}
 

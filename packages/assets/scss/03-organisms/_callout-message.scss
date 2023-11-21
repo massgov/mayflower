@@ -38,7 +38,7 @@
   }
 
   &--white {
-    background-color: $c-white;
+    background-color: $c-bg;//$c-white;
     border-color: mix($c-white, $c-font-detail,70%);//mix(#fff, $c-font-detail,70%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }

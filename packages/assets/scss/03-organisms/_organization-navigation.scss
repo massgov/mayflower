@@ -195,7 +195,7 @@ $menu-transition-time: 0.3s;
       border-width: 0;
 
       @media ($bp-large-min) {
-        background-color: $c-white;
+        background-color: $c-bg;//$c-white;
         margin-left: -3px;
         border-width: 2px;
       }
@@ -221,7 +221,7 @@ $menu-transition-time: 0.3s;
       }
 
       &:hover {
-        background-color: $c-white;
+        background-color: $c-bg;//$c-white;
 
         svg {
           fill: $c-primary-alt;

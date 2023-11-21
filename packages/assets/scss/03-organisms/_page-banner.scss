@@ -504,18 +504,18 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     // white background
 
     &--white {
-      background-color: $c-white;//white;
+      background-color: $c-bg;//$c-white;//white;
       color: $c-font-base;
 
       &:before {
-        background-color: $c-white;//white;
+        background-color: $c-bg;//$c-white;//white;
       }
 
       &.ma__page-banner--taper .ma__page-banner__content {
-        background-color: $c-white;//white;
+        background-color: $c-bg;//$c-white;//white;
 
         &:before {
-          background-color: $c-white;//white;
+          background-color: $c-bg;//$c-white;//white;
         }
       }
     }
