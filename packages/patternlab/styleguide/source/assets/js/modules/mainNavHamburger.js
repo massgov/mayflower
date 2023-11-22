@@ -1,5 +1,7 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
+const headerClass = document.querySelector("header").classList;
+
 const hamburgerMenuContainer = document.querySelector(
   ".ma__header__hamburger__nav-container"
 );
@@ -28,7 +30,6 @@ if (hamburgerMenuContainer) {
   const searchInput = document.querySelector(
     ".ma__header__hamburger__nav-container .ma__header-search__input"
   );
-
 
   let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 
@@ -60,8 +61,15 @@ if (hamburgerMenuContainer) {
     selectTopClickableItems(body.clientWidth);
   });
 
-  // Open and close the menu
+  // Add a label for the utility nav UL on non-home pages in desktop.
+  if (!headerClass.contains("ma__header__mixed") && utilNavWide) {
+      utilNavWide
+        .querySelector(".ma__utility-nav__items")
+        .setAttribute("title", "Language options and quick access links");
+  }
+
   if (menuButton !== null) {
+    // Open and close the menu
     menuButton.addEventListener("click", function (event) {
       event.preventDefault();
 
