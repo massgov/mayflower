@@ -54,6 +54,8 @@ $textcolors: (
   
   /* Style for the text content on the left side */
   &__content {
+    display: flex;
+    align-items: center;
     flex: 1.5; // width ratio to image 3:2
   }
   
@@ -78,6 +80,7 @@ $textcolors: (
       display: block;
       background-size: cover;
       width: 100%;
+      min-height: 200px;
     }
   }
   
@@ -87,6 +90,7 @@ $textcolors: (
       display: block;
       background-size: cover;
       width: 100%;
+      min-height: 200px;
     }
   }
   
