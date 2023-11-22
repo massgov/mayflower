@@ -968,7 +968,9 @@ if (hamburgerMenuContainer) {
     );
 
     // Hide "+" symbol from screen readers.
-    let hamburgerGTSymbol = utilNarrowNav.querySelector(".ma__utility-nav__translate #google_translate_element a span");
+    let hamburgerGTSymbol = utilNarrowNav.querySelector(
+      ".ma__utility-nav__translate #google_translate_element a span:nth-of-type(3)"
+    );
     if (hamburgerGTSymbol) {
       hamburgerGTSymbol.setAttribute("aria-hidden", "true");
     }
