@@ -200,30 +200,21 @@ $utility-nav-height: 43px;
         }
       }
 
-      // @media ($bp-header-toggle-max) {
+      @media ($bp-header-toggle-max) {
 
-      //   & span:nth-of-type(3) {// + symbol
+        & span {
 
-      //     @include ma-accordion-icon;
-      //     display: block;
-      //     width: 100%;
-      //     visibility: hidden;
+          @include ma-accordion-icon;
+          // display: block;
+          width: 100%;
 
-      //     display: inline-block;
-      //     background-color: pink;
-      //     // width: 1px;
-      //     // height: 1px;
+          &:after {
 
+            border: 0;
+          }
+        }
 
-      //     &:after {
-
-      //       border: 0;
-      //       // display: block;
-      //       // height: 1.6em;
-      //     }
-      //   }
-
-      // }
+      }
 
       & > * {
         display: none;
@@ -242,23 +233,10 @@ $utility-nav-height: 43px;
         transform: rotate(45deg) translateY(-45%);
 
         @media ($bp-header-toggle-max) {
-          display: none;// hide chevron in mobile
-        }
-      }
-
-      @media ($bp-header-toggle-max) {
-
-        & span:nth-of-type(3) {// + symbol
-
-          @include ma-accordion-icon;
-          display: inline;
-          visibility: hidden;
-
-          &:after {
-
-            border: 0;
-            visibility: visible;
-          }
+          border: 0;
+          transform: none;
+          margin: 0;
+          right: 20px;
         }
       }
     }
