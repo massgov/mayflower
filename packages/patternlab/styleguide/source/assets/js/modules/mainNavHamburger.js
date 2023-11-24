@@ -61,11 +61,9 @@ if (hamburgerMenuContainer) {
     selectTopClickableItems(body.clientWidth);
   });
 
-  // Add a label for the utility nav UL on non-home pages in desktop.
+  // Add a label for the utility nav UL on non-home pages in desktopgssssg.
   if (!headerClass.contains("ma__header__mixed") && utilNavWide) {
-      utilNavWide
-        .querySelector(".ma__utility-nav__items")
-        .setAttribute("title", "Language options and quick access links");
+    utilNavWide.querySelector(".ma__utility-nav__items").setAttribute("aria-label", "Language options and quick access links");
   }
 
   if (menuButton !== null) {
