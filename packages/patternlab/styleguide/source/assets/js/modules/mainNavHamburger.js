@@ -60,13 +60,6 @@ if (hamburgerMenuContainer) {
     selectTopClickableItems(body.clientWidth);
   });
 
-  // Add a label for the utility nav UL on non-home pages in desktop.
-  if (!headerClass.contains("ma__header__mixed") && utilNavWide) {
-      utilNavWide
-        .querySelector(".ma__utility-nav__items")
-        .setAttribute("title", "Language options and quick access links");
-  }
-
   // Open and close the menu
   if (menuButton !== null) {
     menuButton.addEventListener("click", function (event) {
