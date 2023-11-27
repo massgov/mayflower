@@ -39,6 +39,9 @@ $textcolors: (
 
   
   .ma__page-header {
+    margin-left: 0;
+    margin-right: 0;
+
     &__sub-title {
       width: 100%;
     }
@@ -54,6 +57,8 @@ $textcolors: (
   
   /* Style for the text content on the left side */
   &__content {
+    display: flex;
+    align-items: center;
     flex: 1.5; // width ratio to image 3:2
   }
   
@@ -69,7 +74,7 @@ $textcolors: (
   @media ($bp-large-extended-min) {
     &__container {
       flex-direction: row;
-      align-items: center;
+      align-items: stretch;
       max-width: 1320px;
     }
   
