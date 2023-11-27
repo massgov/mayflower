@@ -138,19 +138,19 @@ $dropdown-border-color: $border-color;
 
 
     &.is-triangle-top {
-        box-shadow: 0 -2px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 -2px 30px 0px $box-shadow;
     }
 
     &.is-triangle-right {
-        box-shadow: 2px 0px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 0px 30px 0px $box-shadow;
     }
 
     &.is-triangle-bottom {
-        box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 2px 30px 0px $box-shadow;
     }
 
     &.is-triangle-left {
-        box-shadow: -2px 0px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: -2px 0px 30px 0px $box-shadow;
     }
 }
 
