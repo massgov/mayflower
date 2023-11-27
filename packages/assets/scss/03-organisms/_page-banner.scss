@@ -54,8 +54,6 @@ $textcolors: (
   
   /* Style for the text content on the left side */
   &__content {
-    display: flex;
-    align-items: center;
     flex: 1.5; // width ratio to image 3:2
   }
   
@@ -71,7 +69,7 @@ $textcolors: (
   @media ($bp-large-extended-min) {
     &__container {
       flex-direction: row;
-      align-items: stretch;
+      align-items: center;
       max-width: 1320px;
     }
   
