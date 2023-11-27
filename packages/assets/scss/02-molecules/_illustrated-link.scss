@@ -80,7 +80,7 @@ $illustrated-link-image-width: 130px;
 
 .ma__illustrated-link {
   border-color: mix($c-white, $c-primary,50%);//mix(#fff, $c-primary,50%);
-  box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
+  box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;//rgba($c-black, 0.25);
 
   &__content {
     background-color: mix($c-white, $c-primary,89%);//mix(#fff, $c-primary,89%);

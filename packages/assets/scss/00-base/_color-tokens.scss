@@ -112,3 +112,8 @@ $c-error-red-lightest:              #FCF3F3 !default; //Commonly used in backgro
 
 // Focus Highlight (#3e94cf)
 $c-focus-hightlight:                #3e94cf !default;
+
+// Box shadow
+$c-box-shadow-black:                rgba($c-black, 0.25);
+$c-box-shadow-primary-40:           rgba($c-primary, 0.4);
+$c-box-shadow-primary-70:           rgba($c-primary, 0.7);

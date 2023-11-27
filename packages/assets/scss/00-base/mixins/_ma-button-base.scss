@@ -2,7 +2,7 @@
 
 @mixin ma-button-base {
   border: 3px solid;
-  box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+  box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;//rgba(1, 1, 1, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;

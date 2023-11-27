@@ -521,7 +521,7 @@ body {
       font-weight: $fonts-normal;
       background-color: mix($c-white, $c-font-link, 90%);//mix(#fff, $c-font-link, 90%);
       border-color: mix($c-white, $c-font-link, 50%);//mix(#fff, $c-font-link, 50%);
-      box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+      box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;//rgba(#000, 0.25);
       color: $c-font-link;
       font-size: $fonts-small;
 
