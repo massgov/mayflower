@@ -62,6 +62,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
     z-index: $z-dropdown;
 
     &-helper {
+
       @include ma-visually-hidden;
     }
 
@@ -85,6 +86,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
   }
 
       &-button {
+
       @include ma-button-reset;
       display: flex;
       align-items: center;
@@ -116,6 +118,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
     &-suggestion {
 
       &-option {
+
         @include ma-button-reset;
         display: flex;
         align-items: center;
