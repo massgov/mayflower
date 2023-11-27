@@ -106,7 +106,7 @@
   &--white {
     background-color: $c-bg;//$c-white;
     border-color: mix(#fff, $c-font-detail,70%);
-    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+    box-shadow: 0 0.25rem 0.5rem rgba($c-gray-darkest, 0.25);
   }
 
   // removed after version 5.5.0

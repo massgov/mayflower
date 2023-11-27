@@ -4,7 +4,7 @@ $colors: (
   "c-highlight": $c-highlight,
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
-  "c-black": $c-black,
+  "c-black": $c-gray-darkest,
   "c-gray-dark": $c-gray-dark,
   "c-white": $c-white
 );
@@ -12,7 +12,7 @@ $colors: (
 $quaternary-colors: (
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
-  "c-black": $c-black,
+  "c-black": $c-gray-darkest,
   "c-gray-dark": $c-gray-dark,
   "c-white": $c-white
 );
@@ -128,7 +128,7 @@ $quaternary-colors: (
     color: $c-font-base;//$c-black;
 
     svg {
-      fill: $c-black;
+      fill: $c-gray-darkest;
     }
   }
 
@@ -212,7 +212,7 @@ $quaternary-colors: (
     padding-right: .8em;
     text-transform: uppercase;
     white-space: nowrap;
-    box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
+    box-shadow: 0 0.25rem 0.5rem rgba($c-gray-darkest, 0.25);
     min-height: unset;
     border: none;
     display: inline-block;
@@ -232,7 +232,7 @@ $quaternary-colors: (
           color: $c-font-base;//$c-black;
 
           &.ma__button-icon > svg {
-            fill: rgba($c-black,.5);
+            fill: rgba($c-gray-darkest,.5);
           }
         }
       }

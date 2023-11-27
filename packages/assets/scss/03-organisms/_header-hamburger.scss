@@ -19,7 +19,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: rgba($c-black, 0.4);
+  background-color: rgba($c-gray-darkest, 0.4);
   top: 0;
   z-index: $z-overlay-shade;// Lay over the alerts.
 
@@ -37,7 +37,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: rgba($c-black, 0.4);
+  background-color: rgba($c-gray-darkest, 0.4);
   top: 0px;
   z-index: $z-overlay-shade;
 
@@ -533,7 +533,7 @@ body.show-menu {
 
             &:focus {
               background-color: $c-bd-divider;
-              outline: 2px solid $c-black;
+              outline: 2px solid $c-gray-darkest;
             }
 
             .toggle-indicator {

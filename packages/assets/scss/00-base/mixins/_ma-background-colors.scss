@@ -16,8 +16,8 @@
     //     "c-primary": $c-primary,
     //     "c-primary-alt": $c-primary-alt,
     //     "c-highlight": $c-highlight,
-    //     "c-gray": $c-black,
-    //     "c-black": $c-black
+    //     "c-gray": $c-gray-darkest,
+    //     "c-black": $c-gray-darkest
     // );
 
     @each $class, $c in $lightTheme {

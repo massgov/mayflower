@@ -49,7 +49,7 @@
 
     &:focus {
       background-color: $c-bd-divider;
-      outline: 2px solid $c-black;
+      outline: 2px solid $c-gray-darkest;
     }
 
     &.cv-alternate-style {
@@ -113,7 +113,7 @@
     font-weight: $fonts-normal;
     line-height: 1.33;
     padding: 10px 20px 10px 30px;
-    color: $c-black;
+    color: $c-gray-darkest;
 
     &:hover {
       text-decoration: underline;
@@ -146,7 +146,7 @@
       text-decoration: none;
 
       &>span {
-          border-bottom: 2px solid $c-black;
+          border-bottom: 2px solid $c-gray-darkest;
       }
     }
   }

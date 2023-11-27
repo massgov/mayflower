@@ -3,7 +3,7 @@
 $primarycolors: (
   "c-primary-alt": $c-primary-alt,
   "c-highlight": $c-highlight,
-  "c-black": $c-black,
+  "c-black": $c-gray-darkest,
   "c-gray-dark": $c-gray-dark,
   "c-white": $c-white
 );
@@ -75,7 +75,7 @@ button {
   color: $c-font-base;//$c-black;
 
   svg {
-    fill: $c-black;
+    fill: $c-gray-darkest;
   }
 }
 
