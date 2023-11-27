@@ -96,7 +96,8 @@ $c-overcast-gray:                   #DCDCDC !default;
 $c-platinum-gray:                   #F2F2F2 !default;
 
 // Gray Scale Spectrum Mapping
-$c-black:                           $c-revolution-gray !default;
+$c-black:                           #000000 !default;
+$c-gray-darkest:                    $c-revolution-gray !default;
 $c-gray-dark:                       $c-granite-gray !default;
 $c-gray:                            $c-atlantic-gray !default;
 $c-gray-light:                      $c-overcast-gray !default;
