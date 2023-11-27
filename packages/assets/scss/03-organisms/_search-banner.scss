@@ -181,7 +181,7 @@
   &__links {
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba($c-black, 0.5);
     padding: 10px 20px;
 
     @media ($bp-medium-min) {

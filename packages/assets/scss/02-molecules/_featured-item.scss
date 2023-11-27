@@ -19,7 +19,7 @@
   }
 
   &:hover:before {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba($c-black,0.1);
   }
 
   .ma__featured-item__image img,
