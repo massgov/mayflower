@@ -5,10 +5,10 @@
   padding-bottom: $standard-spacing--xxsmall;
 
   &--dark-font &--inner {
-    color: black;
+    color: $c-black;
 
     .blogpost-collection-header__content a {
-      color: black;
+      color: $c-black;
     }
   }
 }
