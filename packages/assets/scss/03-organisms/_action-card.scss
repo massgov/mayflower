@@ -166,8 +166,7 @@
 
     @include ma-link-transition;
     background-color: $c-bg-subtle;
-    box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;//rgba(1, 1, 1, 0.25);
-
+    box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
     &:hover {
       background-color: darken($c-bg-subtle, 10%);
 

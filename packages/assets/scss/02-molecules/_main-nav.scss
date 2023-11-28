@@ -260,8 +260,7 @@
     &.is-open,
     &.has-focus {
       background-color: $c-bg;//$c-white;
-      box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;//rgba(#000, 0.25);
-    }
+      box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
 
     &.is-active {
 
@@ -274,7 +273,7 @@
 
     @media ($bp-header-toggle-min) {
       background-color: $c-bg;//$c-white;
-      box-shadow: 0 0.25em 0.5rem $c-box-shadow-black;//rgba(#000, 0.25);
+      box-shadow: 0 0.25em 0.5rem $c-box-shadow-black;
     }
   }
 
