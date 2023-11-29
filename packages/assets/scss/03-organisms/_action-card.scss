@@ -239,7 +239,7 @@
   &__item--green &__category,
   &__item--dark-gray &__category {
     color: rgba($c-font-inverse,.8);
-    text-shadow: 0 0.125rem 0.125rem rgba(1, 1, 1, 0.5);
+    text-shadow: 0 0.125rem 0.125rem rgba($c-black, 0.5);//rgba(1,1,1, 0.5);
   }
 
   &__link {
