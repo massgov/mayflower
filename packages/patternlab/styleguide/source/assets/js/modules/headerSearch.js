@@ -51,8 +51,28 @@ export default (function (window, document,$) {
             }
         });
 
+        const handleSearchInputBlur = () => {
+            console.log($suggestions[0])
+            console.log(document.activeElement)
+            // Use a timeout to allow time for the dropdown to receive focus
+            setTimeout(() => {
+                if (!$suggestions[0].contains(document.activeElement)) {
+                closeDropdown();
+                }
+            }, 200);
+        };
+
+        const handleSuggestionsBlur = () => {
+            // Use a timeout to allow time for the dropdown to receive focus
+            setTimeout(() => {
+                if (!$suggestions[0].contains(document.activeElement)) {
+                closeDropdown();
+                }
+            }, 200);
+        };
+
         $searchInput.on('blur', function() {
-            closeDropdown();
+            handleSearchInputBlur();
         })
 
         $searchInput.on('focus', function() {
@@ -89,8 +109,7 @@ export default (function (window, document,$) {
                 }
                 // escape key hide the suggestions
                 if (key(e).escape) {
-                    $searchInput.attr("aria-expanded", false);
-                    $searchInput.next(".ma__header-search-suggestions").addClass("hidden");
+                    closeDropdown();
                     $searchInput.focus();
                 }
             }
@@ -103,6 +122,10 @@ export default (function (window, document,$) {
                 }
                 $form.submit();
             }
+
+            option.onblur = function(){
+                handleSuggestionsBlur();
+            };
         });
     });
 
