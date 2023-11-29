@@ -19,6 +19,15 @@ export default (function (window, document,$) {
             $options[index].classList.add('hover');
         }
         let timer;
+
+        const openDropdown = () => {
+            $searchInput.attr("aria-expanded", true);
+            $suggestions.removeClass("hidden");
+        }
+        const closeDropdown = () => {
+            $searchInput.attr("aria-expanded", false);
+            $suggestions.addClass("hidden");
+        }
         // On input value change, unhide or hide the suggestions.
         $searchInput.on('input', function() {
             clearTimeout(timer);
@@ -29,8 +38,7 @@ export default (function (window, document,$) {
                 $(".ma__header-search-suggestion-option-input").each(function() {
                     $(this).text(inputValue);
                 })
-                $searchInput.attr("aria-expanded", true);
-                $suggestions.removeClass("hidden");
+                openDropdown();
 
                 timer = setTimeout(function() {
                     // add a 2 second delay to avoid the status announcement getting cut off. 
@@ -39,10 +47,18 @@ export default (function (window, document,$) {
                 
             } // else, hide the suggestions
             else {
-                $searchInput.attr("aria-expanded", false);
-                $suggestions.addClass("hidden");
+                closeDropdown();
             }
         });
+
+        $searchInput.on('blur', function() {
+            closeDropdown();
+        })
+
+        $searchInput.on('focus', function() {
+            openDropdown();
+        })
+
         // keydown from input move focus into the suggestion options
         $searchInput.keydown(function(e) {
             if (key(e).arrowDown) {
@@ -54,16 +70,7 @@ export default (function (window, document,$) {
                 setFocus(focusIndex);
             }
         });
-
-        $searchInput.on('blur', function() {
-            $searchInput.attr("aria-expanded", false);
-            $suggestions.addClass("hidden");
-        })
-
-        $searchInput.on('focus', function() {
-            $searchInput.attr("aria-expanded", true);
-            $suggestions.removeClass("hidden");
-        })
+              
 
         // transform org name to value
         const slugify = (string = '') => (
