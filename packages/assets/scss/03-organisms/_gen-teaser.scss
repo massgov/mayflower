@@ -335,7 +335,7 @@
     font-weight: bold;
     text-align: center;
     border: 1px solid $c-gray-light;
-    background-color: $c-bg;//$c-white;
+    background-color: $c-bg;
     padding: 0px 5px;
     min-width: 60px;
     display: inline-block;
@@ -374,7 +374,7 @@
       .ma__button-icon.ma__button-search {
         height: 42px;
         min-height: 42px;
-        background-color: $c-bg;//$c-white;
+        background-color: $c-bg;
         border-color: $c-gray-light !important;
         color: $c-primary-alt;
 

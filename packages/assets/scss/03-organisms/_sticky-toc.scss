@@ -187,7 +187,7 @@
 
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
-    color: $c-font-inverse;//$c-white;
+    color: $c-font-inverse;
     font-weight: $fonts-bold;
   }
 
@@ -429,7 +429,7 @@
     width: 35px;
     height: 35px;
     background-color: $c-primary;
-    color: $c-font-inverse;//$c-white;
+    color: $c-font-inverse;
 
     .sticky-nav-open & {
       display: block;
@@ -456,7 +456,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: $fonts-bold;
-  color: $c-font-base;//$c-black;
+  color: $c-font-base;
   margin-bottom: 0;
   display: none;
 
@@ -473,7 +473,7 @@
   max-width: 550px;
   top: 0;
   z-index: 99;
-  background-color: $c-bg;//$c-white;
+  background-color: $c-bg;
   transition: right 0.3s ease-out;
 
   overflow: auto;
@@ -500,7 +500,7 @@
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
     color: $c-gray-dark;
-    background-color: $c-bg;//$c-white;
+    background-color: $c-bg;
     height: 65px;
     padding: 10px 20px;
     width: 100%;

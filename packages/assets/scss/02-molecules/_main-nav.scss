@@ -246,7 +246,7 @@
   }
 
   a {
-    color: $c-revolution-gray;//#141414;
+    color: $c-revolution-gray;
   }
 }
 
@@ -259,7 +259,7 @@
     &:hover,
     &.is-open,
     &.has-focus {
-      background-color: $c-bg;//$c-white;
+      background-color: $c-bg;
       box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
     }
 
@@ -273,7 +273,7 @@
     background-color: $c-bg-section;
 
     @media ($bp-header-toggle-min) {
-      background-color: $c-bg;//$c-white;
+      background-color: $c-bg;
       box-shadow: 0 0.25em 0.5rem $c-box-shadow-black;
     }
   }
@@ -281,7 +281,7 @@
   &__container {
 
     @media ($bp-header-toggle-max) {
-      background-color: $c-bg;//$c-white;
+      background-color: $c-bg;
     }
   }
 

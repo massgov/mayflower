@@ -84,8 +84,8 @@
   //default
 
   &__content {
-    background-color: mix($c-white, $c-warning, 90%);//mix(#fff, $c-warning, 90%);
-    border-color: mix($c-white, $c-warning, 50%);//mix(#fff, $c-warning, 50%);
+    background-color: mix($c-white, $c-warning, 90%);
+    border-color: mix($c-white, $c-warning, 50%);
     box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
   }
 
@@ -109,8 +109,8 @@
   //c-primary
 
   &--c-primary &__content {
-    background-color: mix($c-white, $c-primary, 90%);//mix(#fff, $c-primary, 90%);
-    border-color: mix($c-white, $c-primary, 50%);//mix(#fff, $c-primary, 50%);
+    background-color: mix($c-white, $c-primary, 90%);
+    border-color: mix($c-white, $c-primary, 50%);
     box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
   }
 
@@ -121,8 +121,8 @@
   //c-primary-alt
 
   &--c-primary-alt &__content {
-    background-color: mix($c-white, $c-primary-alt, 90%);//mix(#fff, $c-primary-alt, 90%);
-    border-color: mix($c-white, $c-primary-alt, 50%);//mix(#fff, $c-primary-alt, 50%);
+    background-color: mix($c-white, $c-primary-alt, 90%);
+    border-color: mix($c-white, $c-primary-alt, 50%);
     box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
   }
 
@@ -133,8 +133,8 @@
   //c-gray-dark
 
   &--c-gray-dark &__content {
-    background-color: mix($c-white, $c-gray-dark, 90%);//mix(#fff, $c-gray-dark, 90%);
-    border-color: mix($c-white, $c-gray-dark, 50%);//mix(#fff, $c-gray-dark, 50%);
+    background-color: mix($c-white, $c-gray-dark, 90%);
+    border-color: mix($c-white, $c-gray-dark, 50%);
     box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
   }
 
@@ -145,8 +145,8 @@
   //c-error-red
 
   &--c-error-red &__content {
-    background-color: mix($c-white, $c-error-red, 90%);//mix(#fff, $c-error-red, 90%);
-    border-color: mix($c-white, $c-error-red, 50%);//mix(#fff, $c-error-red, 50%);
+    background-color: mix($c-white, $c-error-red, 90%);
+    border-color: mix($c-white, $c-error-red, 50%);
     box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
   }
 
@@ -157,8 +157,8 @@
   //c-white
 
   &--c-white &__content {
-    background-color: mix($c-white, $c-white, 90%);//mix(#fff, $c-white, 90%);
-    border-color: mix($c-white, $c-gray-dark, 50%);//mix(#fff, $c-gray-dark, 50%);
+    background-color: mix($c-white, $c-white, 90%);
+    border-color: mix($c-white, $c-gray-dark, 50%);
     box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
   }
 

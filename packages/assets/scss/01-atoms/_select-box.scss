@@ -94,11 +94,11 @@
   }
 
   &__link {
-    background-color: $c-bg;//$c-white;
+    background-color: $c-bg;
     border-color: $c-bd-input;
 
     .ma__form--light & {
-      background-color: rgba($c-bg,.1);//rgba($c-white,.1);
+      background-color: rgba($c-bg,.1);
       border-color: rgba($c-bd-input,.5);
     }
   }

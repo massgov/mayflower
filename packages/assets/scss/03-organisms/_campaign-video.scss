@@ -17,10 +17,10 @@ $colors: (
       background-color: $c;
 
       @if ($c == $c-primary or $c == $c-primary-alt) {
-        color: $c-font-inverse;//$c-white;
+        color: $c-font-inverse;
 
         .ma__campaign-video__title {
-          color: $c-font-inverse;//$c-white;
+          color: $c-font-inverse;
         }
 
         a {
@@ -30,7 +30,7 @@ $colors: (
           &:hover,
           &:active,
           &:focus {
-            color: $c-font-inverse;//$c-white;//white;
+            color: $c-font-inverse;
           }
         }
 

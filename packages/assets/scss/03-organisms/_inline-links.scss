@@ -37,11 +37,11 @@
     a {
       line-height: 1rem;
       text-decoration: none;
-      box-shadow: inset 0 0 $c-white, inset 0px -1px $c-box-shadow-primary-40;//rgba($c-primary, 0.4);//white, inset 0px -1px rgba($c-primary, 0.4);
+      box-shadow: inset 0 0 $c-white, inset 0px -1px $c-box-shadow-primary-40;
       font-weight: $fonts-normal;
 
       &:hover {
-        box-shadow: inset 0 0 $c-white, inset 0px -2px $c-box-shadow-primary-70;//rgba($c-primary, 0.7);//white, inset 0px -2px rgba($c-primary, 0.7);
+        box-shadow: inset 0 0 $c-white, inset 0px -2px $c-box-shadow-primary-70;
       }
     }
 

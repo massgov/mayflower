@@ -63,7 +63,7 @@ $colors: (
   }
 
   &__content {
-    background-color: mix($c-white, $c-warning, 90%);//mix(#fff, $c-warning, 90%);
+    background-color: mix($c-white, $c-warning, 90%);
 
     .js & {
       display: none;
@@ -124,7 +124,7 @@ $colors: (
       transition: background-color .5s;
 
       .is-open & {
-        background-color: mix($c-white, $c-warning, 90%);//mix(#fff, $c-warning, 90%);
+        background-color: mix($c-white, $c-warning, 90%);
       }
 
       .ma__button-alert, .ma__button-icon--alert {
@@ -172,7 +172,7 @@ $colors: (
       }
     }
     &__content--#{$class} {
-      background-color: mix($c-white, $c, 90%);//mix(#fff, $c, 90%);
+      background-color: mix($c-white, $c, 90%);
     }
     &__header--#{$class} {
       background-color: rgba($c, 1);
@@ -180,7 +180,7 @@ $colors: (
     &__interface--#{$class} {
 
       &.open {
-       background-color: mix($c-white, $c, 90%);//mix(#fff, $c, 90%);
+       background-color: mix($c-white, $c, 90%);
       }
 
       &.closed {

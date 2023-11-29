@@ -159,7 +159,7 @@ $breadcrumbs-scrollbar-height: 12px;
     }
 
     a {
-      box-shadow: inset 0 0 $c-white, inset 0px -1px $c-box-shadow-primary-40;//rgba($c-primary, 0.4);//white, inset 0px -1px rgba($c-primary, 0.4);
+      box-shadow: inset 0 0 $c-white, inset 0px -1px $c-box-shadow-primary-40;
 
       svg {
         fill: $c-primary;
@@ -169,7 +169,7 @@ $breadcrumbs-scrollbar-height: 12px;
       }
 
       &:hover {
-        box-shadow: inset 0 0 $c-white, inset 0px -2px $c-box-shadow-primary-70;//rgba($c-primary, 0.7);//white, inset 0px -2px rgba($c-primary, 0.7);
+        box-shadow: inset 0 0 $c-white, inset 0px -2px $c-box-shadow-primary-70;
 
         svg {
           fill: $c-bay-blue-50-tint;
@@ -258,14 +258,13 @@ $breadcrumbs-scrollbar-height: 12px;
         /* Track */
 
         &::-webkit-scrollbar-track {
-          background: mix($c-bg, $c-granite-gray, 80)//mix($c-white, $c-granite-gray, 80);//mix(#fff, $c-granite-gray, 80);
+          background: mix($c-bg, $c-granite-gray, 80);
         }
 
         /* Handle */
 
         &::-webkit-scrollbar-thumb {
-          background: mix($c-bg, $c-granite-gray, 50);//mix($c-white, $c-granite-gray, 50);//mix(#fff, $c-granite-gray, 50);
-        }
+          background: mix($c-bg, $c-granite-gray, 50);
       }
     }
   }
@@ -288,12 +287,12 @@ $breadcrumbs-scrollbar-height: 12px;
   }
 
   &__sub-items {
-    background-color: $c-bg;//$c-white;
+    background-color: $c-bg;
     box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
   }
 
   &--light {
-    background-color: $c-bg;//$c-white;
+    background-color: $c-bg;
   }
 
   &--light &__items {

@@ -72,7 +72,7 @@ button {
 .ma__button--tertiary {
 
   @include ma-button("solid",$c-gray-light);
-  color: $c-font-base;//$c-black;
+  color: $c-font-base;
 
   svg {
     fill: $c-gray-darkest;

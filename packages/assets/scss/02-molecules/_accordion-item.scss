@@ -69,8 +69,8 @@
 
 
       &:focus {
-        -webkit-box-shadow: 0 0 0 2px $c-focus;//#9bdaf1;
-        box-shadow: 0 0 0 2px $c-focus;//#9bdaf1;
+        -webkit-box-shadow: 0 0 0 2px $c-focus;
+        box-shadow: 0 0 0 2px $c-focus;
       }
 
       &--trans {
@@ -91,8 +91,8 @@
       &.is-open {
 
         &:focus {
-          -webkit-box-shadow: 0 0 0 1px #9bdaf1;
-          box-shadow: 0 0 0 1px #9bdaf1;
+          -webkit-box-shadow: 0 0 0 1px $c-focus;
+          box-shadow: 0 0 0 1px $c-focus;
         }
 
         &:after {

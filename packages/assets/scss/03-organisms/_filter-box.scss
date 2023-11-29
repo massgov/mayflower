@@ -9,8 +9,8 @@
 
 	  &__form {
 	     box-sizing: border-box;
-	     border: 1px solid $c-bay-blue-50-tint;//#8AAAC7;
-	     background-color: $c-bay-blue-90-tint;//#E8EEF4;
+	     border: 1px solid $c-bay-blue-50-tint;
+	     background-color: $c-bay-blue-90-tint;
 
 			@media ($bp-large-max) {
 				border-width: 1px 0;

@@ -433,7 +433,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         display: block;
         height: 6px;
         width: 105px;
-        background-color: $c-berkshires-green;//#388557;
+        background-color: $c-berkshires-green;
         -webkit-transform: skew(-30deg);
         -ms-transform: skew(-30deg);
         transform: skew(-30deg);
@@ -504,18 +504,18 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     // white background
 
     &--white {
-      background-color: $c-bg;//$c-white;//white;
+      background-color: $c-bg;
       color: $c-font-base;
 
       &:before {
-        background-color: $c-bg;//$c-white;//white;
+        background-color: $c-bg;
       }
 
       &.ma__page-banner--taper .ma__page-banner__content {
-        background-color: $c-bg;//$c-white;//white;
+        background-color: $c-bg;
 
         &:before {
-          background-color: $c-bg;//$c-white;//white;
+          background-color: $c-bg;;
         }
       }
     }

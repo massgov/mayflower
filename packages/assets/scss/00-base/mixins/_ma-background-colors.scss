@@ -31,12 +31,12 @@
             background-color: $c;
 
             @if $class != "c-highlight" {
-            color: $c-white;//white;
+            color: $c-white;
 
                 & > * {
-                    fill: $c-white !important;//white !important;
-                    color: $c-white !important;//white !important;
-                    border-color: $c-white !important;//white !important;
+                    fill: $c-white !important;
+                    color: $c-white !important;
+                    border-color: $c-white !important;
                 }
             }
         }

@@ -76,7 +76,7 @@
 
   &__toggle {
     cursor: pointer;
-    color: $c-font-base;//$c-black;
+    color: $c-font-base;
     font-weight: $fonts-light;
 
     @media ($bp-small-max) {

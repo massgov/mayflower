@@ -36,7 +36,7 @@ $utility-nav-height: 43px;
       position: relative;
 
       &:hover {
-        background-color: $c-bg;//$c-white;
+        background-color: $c-bg;
         box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
       }
     }
@@ -368,7 +368,7 @@ $utility-nav-height: 43px;
       text-transform: uppercase;
       vertical-align: middle;
       letter-spacing: $letter-spacing-large;
-      color: $c-font-inverse;//$c-white;
+      color: $c-font-inverse;
       opacity: 0.7;
     }
 
@@ -394,7 +394,7 @@ $utility-nav-height: 43px;
       line-height: 1.45;
       font-weight: $fonts-normal;
       margin-bottom: 0;
-      color: $c-font-inverse;//$c-white;
+      color: $c-font-inverse;
     }
 
     @media ($bp-header-toggle-min) {

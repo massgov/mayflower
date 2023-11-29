@@ -115,13 +115,13 @@ body {
     @media ($bp-large-min) {
       height: 15px;
       background-color: $c-primary;
-      color: $c-font-inverse;//$c-white;
+      color: $c-font-inverse;
     }
 
     &--mobile {
       height: 15px;
       background-color: $c-primary;
-      color: $c-font-inverse;//$c-white;
+      color: $c-font-inverse;
       position: fixed;
         top: 0;
         left: 0;
@@ -519,8 +519,8 @@ body {
 
     a {
       font-weight: $fonts-normal;
-      background-color: mix($c-white, $c-font-link, 90%);//mix(#fff, $c-font-link, 90%);
-      border-color: mix($c-white, $c-font-link, 50%);//mix(#fff, $c-font-link, 50%);
+      background-color: mix($c-white, $c-font-link, 90%);
+      border-color: mix($c-white, $c-font-link, 50%);
       box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
       color: $c-font-link;
       font-size: $fonts-small;
@@ -530,7 +530,7 @@ body {
       }
 
       &:focus {
-        background-color: $c-bg;//$c-white;
+        background-color: $c-bg;
         border-color: $c-highlight !important;
       }
     }

@@ -19,7 +19,7 @@ $quaternary-colors: (
 
 
 .ma__button-icon {
-  background-color: $c-bg;//$c-white;
+  background-color: $c-bg;
   border: 2px solid $c-gray-light;
   display: inline-flex;
   align-items: center;
@@ -38,7 +38,7 @@ $quaternary-colors: (
 
       @if $c == $c-highlight {
         border-color: $c;
-        color: $c-font-base//$c-black
+        color: $c-font-base;
       } @else {
         color: $c;
       }
@@ -96,7 +96,7 @@ $quaternary-colors: (
   &--expanded, &:hover {
 
     @include ma-button("solid",$c-primary-alt);
-    color: $c-font-inverse;//$c-white;
+    color: $c-font-inverse;
 
     svg {
       fill: $c-white;
@@ -125,7 +125,7 @@ $quaternary-colors: (
   &--tertiary, &--expanded.ma__button-icon--tertiary, &:hover.ma__button-icon--tertiary {
 
     @include ma-button("solid",$c-gray-light);
-    color: $c-font-base;//$c-black;
+    color: $c-font-base;
 
     svg {
       fill: $c-gray-darkest;
@@ -216,7 +216,7 @@ $quaternary-colors: (
     min-height: unset;
     border: none;
     display: inline-block;
-    color: $c-font-inverse;//$c-white;
+    color: $c-font-inverse;
     background-color: $c-primary-alt;
 
     &.ma__button-icon > svg {
@@ -229,7 +229,7 @@ $quaternary-colors: (
         background-color: $c;
 
         @if $c == $c-highlight {
-          color: $c-font-base;//$c-black;
+          color: $c-font-base;
 
           &.ma__button-icon > svg {
             fill: rgba($c-gray-darkest,.5);

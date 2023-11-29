@@ -165,10 +165,10 @@ $bp-illustrated-header-image-width: 360px;
   }
 
   &__content {
-    background-color: $c-bg;//$c-white;
+    background-color: $c-bg;
 
     &:after {
-      background-color: $c-bg;//$c-white;
+      background-color: $c-bg;
     }
   }
 
@@ -182,7 +182,7 @@ $bp-illustrated-header-image-width: 360px;
   &,
   .ma__page-header__title,
   .ma__illustrated-header__category {
-    color: $c-font-inverse;//$c-white;
+    color: $c-font-inverse;
   }
 
   &,
