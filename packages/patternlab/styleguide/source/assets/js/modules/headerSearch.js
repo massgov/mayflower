@@ -67,7 +67,7 @@ export default (function (window, document,$) {
         $options.on('blur', function() {
             handleBlur();
         })
-        //
+        // when the input is in focus, show the suggestions
         $searchInput.on('focus', function() {
             openDropdown();
         })
