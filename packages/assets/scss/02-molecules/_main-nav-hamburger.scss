@@ -53,7 +53,7 @@
     }
 
     &.cv-alternate-style {
-      background-color: $c-bg-mainnav-top-alt;
+      background-color: $c-highlight;
 
       // Adding chevron for direct link.
 
@@ -64,7 +64,7 @@
       }
 
       &:hover {
-        background-color: $c-bg-mainnav-top-alt-hover;
+        background-color: $c-highlight-lightest;
       }
     }
   }
