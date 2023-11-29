@@ -51,30 +51,23 @@ export default (function (window, document,$) {
             }
         });
 
-        const handleSearchInputBlur = () => {
-            console.log($suggestions[0])
-            console.log(document.activeElement)
-            // Use a timeout to allow time for the dropdown to receive focus
+        // hide the suggestions when input and suggestions lose focus
+        // don't close the dropdown when the next element in focus is in the suggestions
+        const handleBlur = () => {
+            // Use a timeout to allow time for the suggestions to receive focus
             setTimeout(() => {
                 if (!$suggestions[0].contains(document.activeElement)) {
-                closeDropdown();
+                    closeDropdown();
                 }
             }, 200);
         };
-
-        const handleSuggestionsBlur = () => {
-            // Use a timeout to allow time for the dropdown to receive focus
-            setTimeout(() => {
-                if (!$suggestions[0].contains(document.activeElement)) {
-                closeDropdown();
-                }
-            }, 200);
-        };
-
         $searchInput.on('blur', function() {
-            handleSearchInputBlur();
+            handleBlur();
         })
-
+        $options.on('blur', function() {
+            handleBlur();
+        })
+        //
         $searchInput.on('focus', function() {
             openDropdown();
         })
@@ -122,10 +115,6 @@ export default (function (window, document,$) {
                 }
                 $form.submit();
             }
-
-            option.onblur = function(){
-                handleSuggestionsBlur();
-            };
         });
     });
 
