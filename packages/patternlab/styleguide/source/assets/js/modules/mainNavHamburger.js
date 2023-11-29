@@ -62,14 +62,13 @@ if (hamburgerMenuContainer) {
   });
 
   // Add a label for the utility nav UL on non-home pages in desktopgssssg.
-  if (headerClass) {
-      if (!headerClass.contains("ma__header__mixed") && utilNavWide) {
-        console.log("headerClass");
-        // utilNavWide
-        //   .querySelector(".ma__utility-nav__items")
-        //   .setAttribute("aria-label", "Language options and quick access links");
-      }
-  }
+  // if (headerClass) {
+  //     if (!headerClass.contains("ma__header__mixed") && utilNavWide) {
+  //       // utilNavWide
+  //       //   .querySelector(".ma__utility-nav__items")
+  //       //   .setAttribute("aria-label", "Language options and quick access links");
+  //     }
+  // }
 
   // Open and close the menu
   if (menuButton !== null) {
@@ -979,10 +978,10 @@ if (hamburgerMenuContainer) {
     );
 
     // Hide "+" symbol from screen readers.
-    if (utilNarrowNav) {
-      let hamburgerGTSymbol = utilNarrowNav.querySelector(".ma__utility-nav__translate #google_translate_element a span:nth-of-type(3)");
-      hamburgerGTSymbol.setAttribute("aria-hidden", "true");
-    }
+    // if (utilNarrowNav) {
+    //   let hamburgerGTSymbol = utilNarrowNav.querySelector(".ma__utility-nav__translate #google_translate_element a span:nth-of-type(3)");
+    //   hamburgerGTSymbol.setAttribute("aria-hidden", "true");
+    // }
 
     if (gTranslateOptionContainer) {
       gTranslateOptionContainer.contentWindow.document.addEventListener(
