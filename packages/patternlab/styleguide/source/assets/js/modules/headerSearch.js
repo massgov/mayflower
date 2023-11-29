@@ -20,7 +20,7 @@ export default (function (window, document,$) {
         }
         let timer;
         // On input value change, unhide or hide the suggestions.
-        $searchInput.on('input focus', function() {
+        $searchInput.on('input', function() {
             clearTimeout(timer);
             let inputValue = $(this).val();
             let helper = `${optionsCount} search scope suggestions are available for ${inputValue}; to navigate, use up and down arrow keys on desktop; to select, use space or enter keys`;
@@ -58,6 +58,11 @@ export default (function (window, document,$) {
         $searchInput.on('blur', function() {
             $searchInput.attr("aria-expanded", false);
             $suggestions.addClass("hidden");
+        })
+
+        $searchInput.on('focus', function() {
+            $searchInput.attr("aria-expanded", true);
+            $suggestions.removeClass("hidden");
         })
 
         // transform org name to value
