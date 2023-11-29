@@ -22,8 +22,7 @@ $c-error-lightest:       $c-error-red-lightest !default;
 $c-warning:              $c-duckling-yellow !default;
 $c-success:              $c-berkshires-green !default;
 $c-focus:                $c-focus-hightlight !default;
-// Need to add these colors to this listing new to add
-// $c-visited
+// $c-visited:              $c-color !default;
 
 $c-font-base:            $c-gray-darkest !default;
 $c-font-detail:          $c-gray-dark !default;
@@ -39,6 +38,9 @@ $c-bg:                   $c-white !default;
 $c-bg-comp-title:        $c-gray-dark !default;
 $c-bg-subtle:            $c-gray-lightest !default;
 $c-bg-section:           $c-gray-lightest !default;
+// Main navigation alternate top item (e.g., COVID-19 link)
+$c-bg-mainnav-top-alt:   $c-duckling-yellow;// original: #f7c600;
+$c-bg-mainnav-top-alt-hover: $c-duckling-yellow-50-tint;// original: #fce387;
 
 $c-bd:                   $c-gray-light !default;
 $c-bd-divider:           $c-gray-light !default;

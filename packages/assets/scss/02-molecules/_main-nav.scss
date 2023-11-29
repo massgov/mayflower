@@ -138,10 +138,10 @@
     }
 
     &.cv-alternate-style {
-      background-color: #f7c600;
+      background-color: $c-bg-mainnav-top-alt;
 
       &:hover {
-        background-color: #fce387;
+        background-color: $c-bg-mainnav-top-alt-hover;
       }
     }
   }
@@ -261,6 +261,7 @@
     &.has-focus {
       background-color: $c-bg;//$c-white;
       box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
+    }
 
     &.is-active {
 
