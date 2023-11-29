@@ -1,5 +1,7 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
+const headerClass = document.querySelector("header").classList;
+
 const hamburgerMenuContainer = document.querySelector(
   ".ma__header__hamburger__nav-container"
 );
@@ -28,7 +30,6 @@ if (hamburgerMenuContainer) {
   const searchInput = document.querySelector(
     ".ma__header__hamburger__nav-container .ma__header-search__input"
   );
-
 
   let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 
@@ -59,6 +60,14 @@ if (hamburgerMenuContainer) {
   window.addEventListener("resize", function (e) {
     selectTopClickableItems(body.clientWidth);
   });
+
+  // Add a label for the utility nav UL on non-home pages in desktopgssssg.
+  if (!headerClass.contains("ma__header__mixed") && utilNavWide) {
+    console.log("headerClass");
+    // utilNavWide
+    //   .querySelector(".ma__utility-nav__items")
+    //   .setAttribute("aria-label", "Language options and quick access links");
+  }
 
   // Open and close the menu
   if (menuButton !== null) {
@@ -968,7 +977,10 @@ if (hamburgerMenuContainer) {
     );
 
     // Hide "+" symbol from screen readers.
-    let hamburgerGTSymbol = utilNarrowNav.querySelector(".ma__utility-nav__translate #google_translate_element a span");
+    let hamburgerGTSymbol = utilNarrowNav.querySelector(
+      ".ma__utility-nav__translate #google_translate_element a span"
+    );
+    // ".ma__utility-nav__translate #google_translate_element a span:nth-of-type(3)"
     if (hamburgerGTSymbol) {
       hamburgerGTSymbol.setAttribute("aria-hidden", "true");
     }
