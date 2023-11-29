@@ -38,7 +38,7 @@ $quaternary-colors: (
 
       @if $c == $c-highlight {
         border-color: $c;
-        color: $c-font-base;
+        color: $c-font-base
       } @else {
         color: $c;
       }
