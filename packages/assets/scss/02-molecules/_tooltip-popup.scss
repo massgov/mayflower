@@ -8,10 +8,10 @@ $content-width: 240px;
 $popup-padding: 10px;
 $triangle-size: 16px; // should be an even number, match triangleSize in Popup.jsx
 $duration: 250ms;
-$border-color: #eee;
+$border-color: $c-bd;//#eee;
 $border-width: 1;
 $background-color: rgba($c-white, $opacity);//rgba(#fff, $opacity);
-$color: #222;
+$color: $c-font-base;//#222;
 $font: Helvetica, sans-serif;
 
 $dropdown-background-color: $background-color;
