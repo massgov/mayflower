@@ -43,46 +43,6 @@ $page-header-widget-width: 350px;
       }
     }
 
-    // .ma__social-links {
-    //   flex-grow: 0;
-
-    //   @media ($bp-small-max) {
-    //     width: 100%;
-    //   }
-
-    //   &__link[data-social-share="facebook"] {
-
-    //     svg,
-    //     svg path {
-    //       fill: #395999;
-    //     }
-    //   }
-
-    //   &__link[data-social-share="twitter"] {
-
-    //     svg,
-    //     svg path {
-    //       fill: #16a2f3;
-    //     }
-    //   }
-
-    //   &__link[data-social-share="linkedin"] {
-
-    //     svg,
-    //     svg path {
-    //       fill: #0078b6;
-    //     }
-    //   }
-
-    //   &__link[data-social-share="youtube"] {
-
-    //     svg,
-    //     svg path {
-    //       fill: #CC181E;
-    //     }
-    //   }
-    // }
-
     @media ($bp-medium-max) {
       border: 0;
     }
