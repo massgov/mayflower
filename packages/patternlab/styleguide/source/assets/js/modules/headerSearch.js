@@ -31,8 +31,8 @@ export default (function (window, document,$) {
         // On input value change, unhide or hide the suggestions.
         $searchInput.on('input', function() {
             clearTimeout(timer);
-            let inputValue = $(this).val();
-            let helper = `${optionsCount} search scope suggestions are available for ${inputValue}; to navigate, use up and down arrow keys on desktop; to select, use space or enter keys`;
+            const inputValue = $(this).val();
+            const helper = `${optionsCount} search scope suggestions are available for ${inputValue}; to navigate, use up and down arrow keys on desktop; to select, use space or enter keys`;
             // when the input has value, show the suggestions
             if (inputValue) {
                 $(".ma__header-search-suggestion-option-input").each(function() {
@@ -67,9 +67,12 @@ export default (function (window, document,$) {
         $options.on('blur', function() {
             handleBlur();
         })
-        // when the input is in focus, show the suggestions
+        // when the input is in focus and has a value, show the suggestions
         $searchInput.on('focus', function() {
-            openDropdown();
+            const inputValue = $(this).val();
+            if(inputValue) {
+                openDropdown();
+            }
         })
 
         // keydown from input move focus into the suggestion options
