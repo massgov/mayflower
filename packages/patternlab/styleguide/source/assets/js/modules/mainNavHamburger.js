@@ -1,6 +1,6 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
-// const headerClass = document.querySelector("header").classList;
+const headerClass = document.querySelector("header").classList;
 
 const hamburgerMenuContainer = document.querySelector(
   ".ma__header__hamburger__nav-container"
