@@ -62,11 +62,11 @@ if (hamburgerMenuContainer) {
   });
 
   // Add a label for the utility nav UL on non-home pages in desktop.
-  if (!headerClass.contains("ma__header__mixed") && width > 840) {
-    utilNavWide
-      .querySelector(".ma__utility-nav__items")
-      .setAttribute("aria-label", "Language options and quick access links");
-  }
+  // if (!headerClass.contains("ma__header__mixed") && width > 840) {
+  //   utilNavWide
+  //     .querySelector(".ma__utility-nav__items")
+  //     .setAttribute("aria-label", "Language options and quick access links");
+  // }
 
   if (menuButton !== null) {
     // Open and close the menu
