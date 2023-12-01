@@ -61,9 +61,11 @@ if (hamburgerMenuContainer) {
     selectTopClickableItems(body.clientWidth);
   });
 
-  // Add a label for the utility nav UL on non-home pages in desktopgssssg.
-  if (!headerClass.contains("ma__header__mixed") && utilNavWide) {
-    utilNavWide.querySelector(".ma__utility-nav__items").setAttribute("aria-label", "Language options and quick access links");
+  // Add a label for the utility nav UL on non-home pages in desktop.
+  if (!headerClass.contains("ma__header__mixed") && width > 840) {
+    utilNavWide
+      .querySelector(".ma__utility-nav__items")
+      .setAttribute("aria-label", "Language options and quick access links");
   }
 
   if (menuButton !== null) {
@@ -974,12 +976,12 @@ if (hamburgerMenuContainer) {
     );
 
     // Hide "+" symbol from screen readers.
-    let hamburgerGTSymbol = utilNarrowNav.querySelector(
-      ".ma__utility-nav__translate #google_translate_element a span:nth-of-type(3)"
-    );
-    if (hamburgerGTSymbol) {
-      hamburgerGTSymbol.setAttribute("aria-hidden", "true");
-    }
+    // let hamburgerGTSymbol = utilNarrowNav.querySelector(
+    //   ".ma__utility-nav__translate #google_translate_element a span:nth-of-type(3)"
+    // );
+    // if (hamburgerGTSymbol) {
+    //   hamburgerGTSymbol.setAttribute("aria-hidden", "true");
+    // }
 
     if (gTranslateOptionContainer) {
       gTranslateOptionContainer.contentWindow.document.addEventListener(
