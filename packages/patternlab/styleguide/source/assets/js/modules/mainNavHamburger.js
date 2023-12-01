@@ -1,7 +1,5 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
-const headerClass = document.querySelector("header").classList;
-
 const hamburgerMenuContainer = document.querySelector(
   ".ma__header__hamburger__nav-container"
 );
@@ -61,9 +59,12 @@ if (hamburgerMenuContainer) {
     selectTopClickableItems(body.clientWidth);
   });
 
-  // Add a label for the utility nav UL on non-home pages in desktopgssssg.
-  if (!headerClass.contains("ma__header__mixed") && utilNavWide) {
-    utilNavWide.querySelector(".ma__utility-nav__items").setAttribute("aria-label", "Language options and quick access links");
+  // Add a label for the utility nav UL on non-home pages in desktop.
+  if (width > 840) {
+    let headerClass = document.querySelector("header").classList;
+    if (!headerClass.contains("ma__header__mixed")) {
+      utilNavWide.querySelector(".ma__utility-nav__items").setAttribute("aria-label", "Language options and quick access links");
+    }
   }
 
   if (menuButton !== null) {
