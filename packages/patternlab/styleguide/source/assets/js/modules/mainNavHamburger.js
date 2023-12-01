@@ -1,7 +1,5 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
-const headerClass = document.querySelector("header").classList;
-
 const hamburgerMenuContainer = document.querySelector(
   ".ma__header__hamburger__nav-container"
 );
@@ -61,15 +59,8 @@ if (hamburgerMenuContainer) {
     selectTopClickableItems(body.clientWidth);
   });
 
-  // Add a label for the utility nav UL on non-home pages in desktop.
-  // if (!headerClass.contains("ma__header__mixed") && width > 840) {
-  //   utilNavWide
-  //     .querySelector(".ma__utility-nav__items")
-  //     .setAttribute("aria-label", "Language options and quick access links");
-  // }
-
+  // Open and close the menu
   if (menuButton !== null) {
-    // Open and close the menu
     menuButton.addEventListener("click", function (event) {
       event.preventDefault();
 
@@ -405,6 +396,7 @@ if (hamburgerMenuContainer) {
         .classList.remove("stickyTOCtmp");
     }
     menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "main menu for mass.gov");
 
     if (hamburgerMenuContainer.hasAttribute("style")) {
       hamburgerMenuContainer.removeAttribute("style");
@@ -452,6 +444,7 @@ if (hamburgerMenuContainer) {
     body.classList.add("show-menu");
 
     menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "main menu for mass.gov");
     menuButtonText.classList.remove("show");
     menuButtonTextMobile.classList.remove("show");
     menuButtonTextClose.classList.add("show");
@@ -974,14 +967,6 @@ if (hamburgerMenuContainer) {
     const gTranslateOptionContainer = document.querySelector(
       "iframe.goog-te-menu-frame.skiptranslate"
     );
-
-    // Hide "+" symbol from screen readers.
-    // let hamburgerGTSymbol = utilNarrowNav.querySelector(
-    //   ".ma__utility-nav__translate #google_translate_element a span:nth-of-type(3)"
-    // );
-    // if (hamburgerGTSymbol) {
-    //   hamburgerGTSymbol.setAttribute("aria-hidden", "true");
-    // }
 
     if (gTranslateOptionContainer) {
       gTranslateOptionContainer.contentWindow.document.addEventListener(
