@@ -102,12 +102,14 @@ $illustrated-link-image-width: 130px;
     a {
 
       &:hover {
-        border-bottom-color: rgba($c-font-link, .5);
+        border-bottom-color: $c-font-link-hover
+;
       }
     }
 
     svg {
-      fill: rgba($c-font-link, .5);
+      fill: $c-font-link-hover
+;
     }
   }
 

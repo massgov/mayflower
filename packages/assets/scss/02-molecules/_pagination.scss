@@ -59,11 +59,13 @@
     }
 
     &:before {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-font-link-hover
+;
     }
 
     &:hover:after {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-font-link-hover
+;
     }
 
     &:after {
@@ -111,11 +113,13 @@
     }
 
     &:hover:before {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-font-link-hover
+;
     }
 
     &:after {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-font-link-hover
+;
     }
   }
 
@@ -149,7 +153,8 @@
     }
 
     &:hover:after {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-font-link-hover
+;
     }
   }
 

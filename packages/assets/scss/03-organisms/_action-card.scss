@@ -249,7 +249,8 @@
     }
 
     svg {
-      fill: rgba($c-font-link, .5);
+      fill: $c-font-link-hover
+;
     }
   }
 
