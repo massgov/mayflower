@@ -160,6 +160,7 @@ $breadcrumbs-scrollbar-height: 12px;
 
     a {
       border-bottom: 1px solid $c-font-link-hover;
+      box-shadow: inset 0 0 white, inset 0px -1px $c-font-link-hover;
 
       svg {
         fill: $c-primary;
@@ -170,6 +171,7 @@ $breadcrumbs-scrollbar-height: 12px;
 
       &:hover {
         border-bottom: 2px solid $c-bay-blue-30-tint;
+        box-shadow: inset 0 0 white, inset 0px -2px $c-bay-blue-30-tint;
 
         svg {
           fill: $c-bay-blue-50-tint;
