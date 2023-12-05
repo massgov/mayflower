@@ -22,7 +22,7 @@
   padding: 15px 20px;
   background-color: mix($c-white, $c-font-link,90%);
   border-color: mix($c-white, $c-font-link,50%);
-  box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
+  box-shadow: $box-shadow;
 
   @media ($bp-small-min) {
     padding: 30px;
@@ -40,7 +40,7 @@
   &--white {
     background-color: $c-bg;
     border-color: mix($c-white, $c-font-detail,70%);
-    box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
+    box-shadow: $box-shadow;
   }
 
   @for $i from 2 through 6 {

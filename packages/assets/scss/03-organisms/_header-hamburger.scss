@@ -736,7 +736,7 @@ body.show-menu {
       font-weight: $fonts-semibold;
       background-color: tint($c-font-link, 90%);
       border-color: tint($c-font-link, 50%);
-      box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
+      box-shadow: $box-shadow;
       color: $c-font-link;
       font-size: 1.25rem;
 

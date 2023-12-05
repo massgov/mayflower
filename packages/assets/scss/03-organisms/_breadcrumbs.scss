@@ -289,7 +289,7 @@ $breadcrumbs-scrollbar-height: 12px;
 
   &__sub-items {
     background-color: $c-bg;
-    box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
+    box-shadow: $box-shadow;
   }
 
   &--light {
