@@ -29,7 +29,6 @@ if (hamburgerMenuContainer) {
     ".ma__header__hamburger__nav-container .ma__header-search__input"
   );
 
-
   let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 
   let utilNavWide = document.querySelector(".js-utility-nav--wide");
@@ -60,8 +59,16 @@ if (hamburgerMenuContainer) {
     selectTopClickableItems(body.clientWidth);
   });
 
-  // Open and close the menu
+  // Add a label for the utility nav UL on non-home pages in desktop.
+  if (width > 840) {
+    let headerClass = document.querySelector("header").classList;
+    if (!headerClass.contains("ma__header__mixed")) {
+      utilNavWide.querySelector(".ma__utility-nav__items").setAttribute("aria-label", "Language options and quick access links");
+    }
+  }
+
   if (menuButton !== null) {
+    // Open and close the menu
     menuButton.addEventListener("click", function (event) {
       event.preventDefault();
 
@@ -397,7 +404,6 @@ if (hamburgerMenuContainer) {
         .classList.remove("stickyTOCtmp");
     }
     menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "main menu for mass.gov");
 
     if (hamburgerMenuContainer.hasAttribute("style")) {
       hamburgerMenuContainer.removeAttribute("style");
@@ -445,7 +451,6 @@ if (hamburgerMenuContainer) {
     body.classList.add("show-menu");
 
     menuButton.setAttribute("aria-expanded", "true");
-    menuButton.setAttribute("aria-label", "main menu for mass.gov");
     menuButtonText.classList.remove("show");
     menuButtonTextMobile.classList.remove("show");
     menuButtonTextClose.classList.add("show");
@@ -968,6 +973,14 @@ if (hamburgerMenuContainer) {
     const gTranslateOptionContainer = document.querySelector(
       "iframe.goog-te-menu-frame.skiptranslate"
     );
+
+    // Hide "+" symbol from screen readers.
+    let hamburgerGTSymbol = utilNarrowNav.querySelector(
+      ".ma__utility-nav__translate #google_translate_element a span:nth-of-type(3)"
+    );
+    if (hamburgerGTSymbol) {
+      hamburgerGTSymbol.setAttribute("aria-hidden", "true");
+    }
 
     if (gTranslateOptionContainer) {
       gTranslateOptionContainer.contentWindow.document.addEventListener(
