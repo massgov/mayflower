@@ -160,8 +160,8 @@
 
         color: $c-primary;
         // box-shadow: inset 0 0 $c-white, inset 0px -1px $c-box-shadow-primary-40;
-        border-bottom: 1px solid $c-bay-blue-60-tint;
-        border-bottom: 1px solid rgba($c-font-link, .5);
+        // border-bottom: 1px solid $c-bay-blue-60-tint;
+        border-bottom: 1px solid $c-bay-blue-lighter;
 
         &:hover {
 

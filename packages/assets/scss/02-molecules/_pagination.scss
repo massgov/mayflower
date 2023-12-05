@@ -59,13 +59,11 @@
     }
 
     &:before {
-      border-color: $c-font-link-hover
-;
+      border-color: $c-font-link-hover;
     }
 
     &:hover:after {
-      border-color: $c-font-link-hover
-;
+      border-color: $c-font-link-hover;
     }
 
     &:after {
@@ -113,13 +111,11 @@
     }
 
     &:hover:before {
-      border-color: $c-font-link-hover
-;
+      border-color: $c-font-link-hover;
     }
 
     &:after {
-      border-color: $c-font-link-hover
-;
+      border-color: $c-font-link-hover;
     }
   }
 
@@ -153,8 +149,7 @@
     }
 
     &:hover:after {
-      border-color: $c-font-link-hover
-;
+      border-color: $c-font-link-hover;
     }
   }
 

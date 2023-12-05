@@ -253,14 +253,12 @@ $action-finder-border-color: mix($c-white, $c-primary,50%);
         color: $c-font-link;
 
         &:hover {
-          border-color: $c-font-link-hover
-;
+          border-color: $c-font-link-hover;
         }
       }
 
       svg {
-        fill: $c-font-link-hover
-;
+        fill: $c-font-link-hover;
       }
     }
   }

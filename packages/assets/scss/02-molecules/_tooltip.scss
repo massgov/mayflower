@@ -124,8 +124,7 @@
 
   &__control:focus ~ &__open,
   &__control:checked + &__open {
-    border-color: $c-font-link-hover
-;
+    border-color: $c-font-link-hover;
   }
 
   &__control:not(:focus) ~ &__open {

@@ -292,8 +292,7 @@ $heading-indent: $gutter;
   }
 
   a {
-    border-bottom-color: $c-font-link-hover
-;
+    border-bottom-color: $c-font-link-hover;
 
     &:hover {
       border-bottom-width: 3px;
