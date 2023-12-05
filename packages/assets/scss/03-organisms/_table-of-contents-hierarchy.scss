@@ -55,7 +55,7 @@
       a {
         border-bottom-width: 3px;
         border-bottom-style: solid;
-        border-bottom-color: rgba($c-bay-blue, 0.5);
+        border-bottom-color: $c-primary-lighter;
       }
     }
 
@@ -89,7 +89,7 @@
       a:hover {
         border-bottom-width: 3px;
         border-bottom-style: solid;
-        border-bottom-color: rgba($c-bay-blue, 0.5);
+        border-bottom-color: $c-primary-lighter;
       }
 
       li {

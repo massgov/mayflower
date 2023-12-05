@@ -79,13 +79,13 @@ $illustrated-link-image-width: 130px;
 //theme
 
 .ma__illustrated-link {
-  border-color: mix($c-white, $c-primary,50%);
+  border-color: $c-primary-lighter;
   box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black;
   &__content {
-    background-color: mix($c-white, $c-primary,89%);
+    background-color: $c-primary-lightest;
 
     &:after {
-      background-color: mix($c-white, $c-primary,89%);
+      background-color: $c-primary-lightest;
     }
   }
 
@@ -112,6 +112,6 @@ $illustrated-link-image-width: 130px;
   }
 
   &__image {
-    background-color: mix($c-white, $c-primary,50%);
+    background-color: $c-primary-lighter;
   }
 }
