@@ -51,7 +51,7 @@
   }
 
   &:hover {
-    background-color: $c-font-link-hover;
+    background-color: mix($c-white, $c-primary, 50%);
     border-radius: 0;
   }
 
