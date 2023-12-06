@@ -83,7 +83,7 @@ const layoutCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout
 const brandBannerCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/brand-banner.min.css">`;
 
 const notesTemplateSlim = `
-  // Link to CSS:
+  // Link to CSS inside the head tag:
   ${globalCSS}
   ${layoutCSS}
   ${brandBannerCSS}
@@ -92,7 +92,7 @@ const notesTemplateSlim = `
 `;
 
 const notesTemplate = `
-  // Link to CSS:
+  // Link to CSS inside the head tag:
   ${globalCSS}
   ${layoutCSS}
   ${brandBannerCSS}
