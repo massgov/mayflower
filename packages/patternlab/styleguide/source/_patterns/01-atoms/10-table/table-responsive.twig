@@ -11,7 +11,12 @@
       <span class="visually-hidden">Scroll left</span>
     </button>
 
-    <div class="ma__scroll-indicator" aria-controls="{{tableID}}" role="scrollbar" aria-orientation="horizontal">
+    <div class="ma__scroll-indicator" aria-controls="{{tableID}}"
+      role="scrollbar"
+      aria-orientation="horizontal"
+      aria-minvalue="0"
+      aria-maxvalue="100"
+      aria-valuenow="0">
       <div class="ma__scroll-indicator__button"></div>
     </div>
 
