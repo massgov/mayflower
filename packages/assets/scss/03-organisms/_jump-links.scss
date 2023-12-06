@@ -291,7 +291,7 @@
     }
 
     &:hover a {
-      border-bottom-color: rgba($c-font-link,.5);
+      border-bottom-color: $c-bay-blue-lighter;
     }
 
     @media ($bp-small-max) {

@@ -329,13 +329,13 @@
     border-bottom-color: $c-bd-divider;
 
     svg {
-      fill: rgba($c-font-link,.5);
+      fill: $c-bay-blue-lighter;
     }
 
     a:hover {
 
       @media ($bp-x-small-max) {
-        border-bottom-color: rgba($c-font-link,.5);
+        border-bottom-color: $c-bay-blue-lighter;
       }
     }
   }

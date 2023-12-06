@@ -113,8 +113,7 @@
     font-weight: bold;
 
     &:hover {
-      border-color: $c-font-link-hover
- !important;  // specificity war with &__control:not(:focus)
+      border-color: $c-bay-blue-lighter !important;  // specificity war with &__control:not(:focus)
     }
 
     & > svg {
@@ -124,7 +123,7 @@
 
   &__control:focus ~ &__open,
   &__control:checked + &__open {
-    border-color: $c-font-link-hover;
+    border-color: $c-bay-blue-lighter;
   }
 
   &__control:not(:focus) ~ &__open {

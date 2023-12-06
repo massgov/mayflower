@@ -32,7 +32,6 @@ $c-font-medium:          $c-gray !default;
 $c-font-heading:         $c-gray-darkest !default;
 $c-font-inverse:         $c-white !default;
 $c-font-link:            $c-bay-blue !default;
-$c-font-link-hover:      $c-bay-blue-lighter !default;// replace rgba($c-font-link, .5)
 $c-font-error:           $c-error !default;
 
 $c-bg:                   $c-white !default;
@@ -49,5 +48,3 @@ $c-bd-input-dark:        $c-gray !default;
 
 // Box shadow
 $c-box-shadow-black:      rgba($c-black, 0.25) !default;
-$c-box-shadow-primary-40: rgba($c-primary, 0.4) !default;
-$c-box-shadow-primary-70: rgba($c-primary, 0.7) !default;

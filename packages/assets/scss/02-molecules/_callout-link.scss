@@ -22,7 +22,7 @@
   &:focus {
 
     .ma__callout-link__text {
-      border-bottom-color: rgba($c-font-link,.5);
+      border-bottom-color: $c-bay-blue-lighter;
     }
   }
 
@@ -51,7 +51,7 @@
     svg {
 
       @include ma-link-arrow;
-      fill: rgba($c-font-link,.5);
+      fill: $c-bay-blue-lighter;
     }
   }
 

@@ -37,11 +37,11 @@
     a {
       line-height: 1rem;
       text-decoration: none;
-      box-shadow: inset 0 0 $c-white, inset 0px -1px $c-box-shadow-primary-40;
+      box-shadow: inset 0 0 $c-white, inset 0px -1px $c-bay-blue-lighter;
       font-weight: $fonts-normal;
 
       &:hover {
-        box-shadow: inset 0 0 $c-white, inset 0px -2px $c-box-shadow-primary-70;
+        box-shadow: inset 0 0 $c-white, inset 0px -2px $c-bay-blue-30-tint;
       }
     }
 
