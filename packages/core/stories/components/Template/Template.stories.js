@@ -100,7 +100,7 @@ const notesTemplate = `
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
 
   // Link to JS before the closing body tag:
-  <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
+  <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js"></script>
 `;
 
 export const notesTemplateCSS = `
