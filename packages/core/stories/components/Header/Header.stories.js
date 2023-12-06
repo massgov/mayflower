@@ -112,12 +112,12 @@ const notesHeaderSlim = `
 
 const notesHeader = `
   // Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
-  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
+  // Link to JS before the closing body tag: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
 `;
 
 const notesHeaderHamburger = `
   // Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-hamburger.css">
-  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header-hamburger.js" />
+  // Link to JS before the closing body tag: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header-hamburger.js" />
 `;
 
 export const headerExample = () => headerBasic;
