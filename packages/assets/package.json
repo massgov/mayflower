@@ -21,7 +21,7 @@
     "fonts"
   ],
   "scripts": {
-    "build-RENAME-ME-BACK": "gulp",
+    "build": "gulp",
     "prepublishOnly": "gulp",
     "test": "rushx stylelint",
     "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
