@@ -55,18 +55,21 @@ export default (function (document,$) {
 
   $utilityButtons.each(function () {
     const $thisButton = $(this);
+    console.log($thisButton)
     let $thisPanel = $thisButton.next('.js-util-nav-content');
-    const $closePanel = $thisPanel.find('.js-close-util-nav');
+    // const $closePanel = $thisPanel.find('.js-close-util-nav');
 
     $thisButton.on('click', function () {
-      if ($thisButton.closest(".ma__header__hamburger__utility-nav--narrow")) {
-        $thisPanel = null;
-      }
-      else {
+
+      // if ($thisButton.closest(".ma__header__hamburger__utility-nav--narrow")) {
+      //   $thisPanel = null;
+      //   console.log('no')
+      // }
+      // else {
         $thisPanel.removeClass('is-closed');
         $thisPanel.removeAttr('style');
         $thisPanel.attr("aria-hidden", "false");
-      }
+      // }
 
       $('body').addClass('show-submenu');
 
