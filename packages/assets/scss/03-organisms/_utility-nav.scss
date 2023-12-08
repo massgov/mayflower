@@ -131,7 +131,7 @@ $utility-nav-height: 43px;
 
     & > svg {
       height: 16px;
-      width: 20px;
+      width: 23px;
 
       @media ($bp-header-toggle-max) {
         position: absolute;
@@ -169,14 +169,7 @@ $utility-nav-height: 43px;
       }
 
       & > img {
-        margin-right: 15px;
-        margin-bottom: 0;
-        opacity: .7;
-
-        @media ($bp-header-toggle-max) {
-          margin-right: 1px;
-          margin-bottom: 2px;
-        }
+        display: none;
       }
 
       & > span {

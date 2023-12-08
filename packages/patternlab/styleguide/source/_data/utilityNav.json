@@ -132,7 +132,7 @@
         "id": "contrast",
         "text": "Contrast Settings",
         "ariaLabelText": "View color contrast settings",
-        "icon": "@atoms/05-icons/svg-login.twig",
+        "icon": "@atoms/05-icons/svg-contrast-eye.twig",
         "closeText": "Close",
         "panels": [
           {
