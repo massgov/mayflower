@@ -43,9 +43,21 @@ $utility-nav-height: 43px;
 
     @media ($bp-header-toggle-min) {
       display: inline-block;
-      padding-left: 30px;
-      vertical-align: middle;
     }
+
+    &:not(:last-child) {
+      @media ($bp-header-toggle-min) {
+        padding-right: 15px;
+      }
+    }
+
+    // Google translate button has an icon on the right, give it more space 
+    &:first-child {
+      @media ($bp-header-toggle-min) {
+        padding-right: 40px;
+      }
+    }
+
 
     // Adjusting the style to match other items.
     // Separate this style from react.
