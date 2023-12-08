@@ -2,6 +2,38 @@
   "utilityNav": {
     "items": [
       {
+        "id": "contrast",
+        "text": "Contrast Settings",
+        "ariaLabelText": "View color contrast settings",
+        "icon": "@atoms/05-icons/svg-contrast-eye.twig",
+        "closeText": "Close",
+        "panels": [
+          {
+            "description": {
+              "richText": {
+                "rteElements": [
+                  {
+                    "path": "@atoms/11-text/paragraph.twig",
+                    "data": {
+                      "paragraph": {
+                        "text": "We are testing Userway, a tool that will let you change color contrast and other visual styles. Push the button below to enable and an icon will appear in the lower right corner that will let you customize the appearance of the site."
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "links": [
+              {
+                "text": "Enable Custom Styles",
+                "href": "#",
+                "type": "external"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "stateOrgs",
         "text": "State Organizations",
         "ariaLabelText": "",
@@ -122,38 +154,6 @@
               {
                 "text": "Find a Commonwealth Job",
                 "href": "https://massanf.taleo.net/careersection/ex/jobsearch.ftl",
-                "type": "external"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "contrast",
-        "text": "Contrast Settings",
-        "ariaLabelText": "View color contrast settings",
-        "icon": "@atoms/05-icons/svg-contrast-eye.twig",
-        "closeText": "Close",
-        "panels": [
-          {
-            "description": {
-              "richText": {
-                "rteElements": [
-                  {
-                    "path": "@atoms/11-text/paragraph.twig",
-                    "data": {
-                      "paragraph": {
-                        "text": "We are testing Userway, a tool that will let you change color contrast and other visual styles. Push the button below to enable and an icon will appear in the lower right corner that will let you customize the appearance of the site."
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            "links": [
-              {
-                "text": "Enable Custom Styles",
-                "href": "#",
                 "type": "external"
               }
             ]
