@@ -643,8 +643,8 @@ if (hamburgerMenuContainer) {
 
   function closeUtilWideContent() {
     // Content state
-    utilWideContent.style.height = "0";
-    utilWideContent.style.opacity = "0";
+    // utilWideContent.style.height = "0";
+    // utilWideContent.style.opacity = "0";
     utilWideContent.classList.add("is-closed");
     utilWideContent.setAttribute("aria-hidden", "true");
 

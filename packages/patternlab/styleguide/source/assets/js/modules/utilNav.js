@@ -3,7 +3,6 @@ import focusTrapping from "../helpers/focusTrapping.js";
 export default (function (document,$) {
   const wideContainerClass = '.js-utility-nav--wide .js-util-nav-content';
   let $panels = $('.js-util-nav-content');
-  let $panel = "";
   let $utilityButtons = $('.js-util-nav-toggle');
 
   // Keyboard navigation.
@@ -21,13 +20,15 @@ export default (function (document,$) {
 
   // In the hamburger menu container.
   $panels.each(function () {
+    let $panel;
     if ($(this).closest(".ma__header__hamburger__utility-nav--narrow") !== true) {
       $panel = $(this);
     }
     const height = $panel.height();
+    $panel.css('top', '-' + height + 'px');
     const $closeButton = $panel.find('.js-close-util-nav');
 
-    $panel.css('top', '-' + height + 'px');
+    // $panel.css('top', '-' + height + 'px');
     $(window).on('resized', function () {
       if ($(window).width() > 840) {
         $panel.css('top', '-' + height + 'px');
@@ -38,16 +39,17 @@ export default (function (document,$) {
     });
 
     $closeButton.on('click', function () {
+      console.log('clicked close:' + height)
       $panel.css('top', '-' + height + 'px');
-      $panel.toggleClass('is-closed');
+      //$panel.toggleClass('is-closed');
       $panel.attr("aria-hidden", "true");
-      $utilityButtons.focus();
+      // $utilityButtons.focus();
     });
 
     $panel.on('keydown', function (e) {
       if (e.key == "Escape") {
         $panel.css('top', '-' + height + 'px');
-        $panel.toggleClass('is-closed');
+        //$panel.toggleClass('is-closed');
         $panel.attr("aria-hidden", "true");
       }
     });
@@ -55,21 +57,14 @@ export default (function (document,$) {
 
   $utilityButtons.each(function () {
     const $thisButton = $(this);
-    console.log($thisButton)
     let $thisPanel = $thisButton.next('.js-util-nav-content');
     // const $closePanel = $thisPanel.find('.js-close-util-nav');
 
     $thisButton.on('click', function () {
-
-      // if ($thisButton.closest(".ma__header__hamburger__utility-nav--narrow")) {
-      //   $thisPanel = null;
-      //   console.log('no')
-      // }
-      // else {
-        $thisPanel.removeClass('is-closed');
-        $thisPanel.removeAttr('style');
-        $thisPanel.attr("aria-hidden", "false");
-      // }
+      $thisPanel.removeClass('is-closed');
+      $thisPanel.css('top', '0px')
+      $thisPanel.removeAttr('style');
+      $thisPanel.attr("aria-hidden", "false");
 
       $('body').addClass('show-submenu');
 
@@ -86,11 +81,11 @@ export default (function (document,$) {
     });
   });
 
-  $('.js-close-sub-nav').on('click', function () {
-    $('.js-util-nav-content').addClass('is-closed');
-    $('.js-util-nav-content').removeAttr('style');
-    $('body').removeClass('show-submenu');
-  });
+  // $('.js-close-sub-nav').on('click', function () {
+  //   $('.js-util-nav-content').addClass('is-closed');
+  //   $('.js-util-nav-content').removeAttr('style');
+  //   $('body').removeClass('show-submenu');
+  // });
 
   // debouncer
   var resize_timeout;
