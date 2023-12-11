@@ -19,17 +19,67 @@
                         "text": "We are testing Userway, a tool that will let you change color contrast and other visual styles. Push the button below to enable and an icon will appear in the lower right corner that will let you customize the appearance of the site."
                       }
                     }
+                  },
+                  {
+                    "path": "@atoms/01-buttons/button.twig",
+                    "data": {
+                      "button": {
+                        "text": "Enable Custom Styles",
+                        "type": "button",
+                        "usage": "secondary"
+                      }
+                    }
                   }
                 ]
               }
-            },
-            "links": [
-              {
-                "text": "Enable Custom Styles",
-                "href": "#",
-                "type": "external"
+            }
+          },
+          {
+            "description": {
+              "richText": {
+                "rteElements": [
+                  {
+                    "path": "@atoms/11-text/paragraph.twig",
+                    "data": {
+                      "paragraph": {
+                        "text": "If we can email you to ask about your experience with this feature, please add your email here."
+                      }
+                    }
+                  },
+                  {
+                    "path": "@atoms/03-forms/input-text.twig",
+                    "data": {
+                      "inputText": {
+                        "hiddenLabel": false,
+                        "labelText": "Email",
+                        "required": true,
+                        "id": "userWay-email",
+                        "name": "userWay-email",
+                        "type": "text",
+                        "width": "",
+                        "maxlength": "",
+                        "pattern": "",
+                        "placeholder": "",
+                        "errorMsg": "you did not type something",
+                        "mode": "",
+                        "autocomplete": ""
+                      }
+                    }
+                  },
+                  {
+                    "path": "@atoms/01-buttons/button.twig",
+                    "data": {
+                      "button": {
+                        "text": "Submit",
+                        "type": "submit",
+                        "theme": "c-primary-alt",
+                        "size": "small"
+                      }
+                    }
+                  }
+                ]
               }
-            ]
+            }
           }
         ]
       },
