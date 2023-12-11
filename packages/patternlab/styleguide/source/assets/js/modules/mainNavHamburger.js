@@ -614,10 +614,6 @@ if (hamburgerMenuContainer) {
 
       if (thisWideContent.classList.contains("is-closed")) {
         //  To open
-        thisWideButton
-          .closest(".ma__header__hamburger__nav")
-          .classList.add("util-nav-content-open");
-
         thisWideContent.classList.remove("is-closed");
         thisWideContent.removeAttribute("aria-hidden");
         thisWideContent.removeAttribute("style");
@@ -643,8 +639,8 @@ if (hamburgerMenuContainer) {
 
   function closeUtilWideContent() {
     // Content state
-    // utilWideContent.style.height = "0";
-    // utilWideContent.style.opacity = "0";
+    utilWideContent.style.height = "0";
+    utilWideContent.style.opacity = "0";
     utilWideContent.classList.add("is-closed");
     utilWideContent.setAttribute("aria-hidden", "true");
 
@@ -654,10 +650,6 @@ if (hamburgerMenuContainer) {
     // Utility button state
     utilWideButton.setAttribute("aria-expanded", "false");
     utilWideButton.setAttribute("aria-pressed", "false");
-
-    utilWideButton
-      .closest(".ma__header__hamburger__nav")
-      .classList.toggle("util-nav-content-open");
   }
 
   // Narrow/in hamburger menu

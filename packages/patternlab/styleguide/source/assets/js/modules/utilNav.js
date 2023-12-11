@@ -12,7 +12,6 @@ export default (function (document,$) {
       focusTrapping({
         focusableSelectors: 'a, button',
         modalSelector: wideContainerClass,
-
         keyEvent: e
       });
     }
@@ -39,17 +38,15 @@ export default (function (document,$) {
     });
 
     $closeButton.on('click', function () {
-      console.log('clicked close:' + height)
       $panel.css('top', '-' + height + 'px');
-      //$panel.toggleClass('is-closed');
+      $panel.addClass('is-closed');
       $panel.attr("aria-hidden", "true");
-      // $utilityButtons.focus();
     });
 
     $panel.on('keydown', function (e) {
       if (e.key == "Escape") {
         $panel.css('top', '-' + height + 'px');
-        //$panel.toggleClass('is-closed');
+        $panel.addxClass('is-closed');
         $panel.attr("aria-hidden", "true");
       }
     });
@@ -58,7 +55,6 @@ export default (function (document,$) {
   $utilityButtons.each(function () {
     const $thisButton = $(this);
     let $thisPanel = $thisButton.next('.js-util-nav-content');
-    // const $closePanel = $thisPanel.find('.js-close-util-nav');
 
     $thisButton.on('click', function () {
       $thisPanel.removeClass('is-closed');
@@ -69,23 +65,16 @@ export default (function (document,$) {
       $('body').addClass('show-submenu');
 
       // Only affects utility nav on the utility nav bar with the hamburger menu.
-      if ($(this).closest(".ma__header__hamburger__utility-nav--wide")) {
-        if ($thisPanel && $thisPanel.hasClass("is-closed")) {
-          $(this).closest(".ma__header__hamburger__nav").removeClass("util-nav-content-open");
-        }
-        else {
-          $(this).closest(".ma__header__hamburger__nav").addClass("util-nav-content-open");
-        }
-      }
-
+      // if ($(this).closest(".ma__header__hamburger__utility-nav--wide")) {
+      //   if ($thisPanel && $thisPanel.hasClass("is-closed")) {
+      //     $(this).closest(".ma__header__hamburger__nav").removeClass("util-nav-content-open");
+      //   }
+      //   else {
+      //     $(this).closest(".ma__header__hamburger__nav").addClass("util-nav-content-open");
+      //   }
+      // }
     });
   });
-
-  // $('.js-close-sub-nav').on('click', function () {
-  //   $('.js-util-nav-content').addClass('is-closed');
-  //   $('.js-util-nav-content').removeAttr('style');
-  //   $('body').removeClass('show-submenu');
-  // });
 
   // debouncer
   var resize_timeout;
