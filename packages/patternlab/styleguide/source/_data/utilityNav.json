@@ -42,12 +42,14 @@
                     "path": "@molecules/forms/field-submit.twig",
                     "data": {
                       "fieldSubmit": {
+                        "isForm": true,
+                        "action": "https://search.mass.gov/",
+                        "labelText": "If we can email you to ask about your experience with this feature, please add your email here.",
                         "inputText": {
-                          "labelText": "If we can email you to ask about your experience with this feature, please add your email here.",
-                          "required": true,
+                          "required": false,
                           "id": "userWay-signup",
                           "name": "userWay-signup",
-                          "type": "text",
+                          "type": "email",
                           "placeholder": ""
                         },
                         "buttonSearch": {

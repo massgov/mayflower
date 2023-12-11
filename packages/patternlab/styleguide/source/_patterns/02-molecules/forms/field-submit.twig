@@ -1,17 +1,19 @@
+{% if fieldSubmit.isForm %}
+<form class="ma__field-submit" action={{ fieldSubmit.action }}>
+{% else %}
 <fieldset class="ma__field-submit">
-  {% if fieldSubmit.inputText.labelText %}
-    <label for="{{ fieldSubmit.inputText.id }}">{{ fieldSubmit.inputText.labelText }}</label>
+{% endif %}
+  {% if fieldSubmit.labelText %}
+    <label for="{{ fieldSubmit.inputText.id }}">{{ fieldSubmit.labelText }}</label>
   {% endif %}
   <div class="ma__field-submit__inputs">
-    <input 
-      class="{{ fieldSubmit.inputText.required ? 'js-is-required' : ''}}" 
-      name="{{ fieldSubmit.inputText.name }}" 
-      id="{{ fieldSubmit.inputText.id }}" 
-      type="text" 
-      placeholder="{{ fieldSubmit.inputText.placeholder }}" 
-      data-type="text"
-      {% if fieldSubmit.inputText.required %} required {% endif %}/>
+    {% set inputText = fieldSubmit.inputText %}
+    {% include "@atoms/03-forms/input-text.twig" %}
     {% set buttonSearch = fieldSubmit.buttonSearch %}
     {% include "@atoms/01-buttons/button-search.twig" %}
   </div>  
+{% if fieldSubmit.isForm %}
+</form>
+{% else %}
 </fieldset>
+{% endif %}
