@@ -167,9 +167,9 @@ const footer = (
   />
 );
 
-const notesFooterSlim = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">`;
+const notesFooterSlim = `// Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">`;
 
-const notesFooter = `// Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">`;
+const notesFooter = `// Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">`;
 
 export const footerExample = () => footerBasic;
 
