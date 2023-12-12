@@ -34,6 +34,9 @@
         role="group"
         >
     <table class="ma__table {{ tableWideClass }}">
+      {# TO DO:
+      - style caption for title
+      - hide when no content via class #}
       <caption id="cap-{{tableID}}">{% if table.caption %}{{ table.caption }}{% endif %}</caption>
       <thead>
         {% for row in table.head.rows %}
