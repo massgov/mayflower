@@ -107,17 +107,17 @@ const headerHamburger = (
 );
 
 const notesHeaderSlim = `
-  // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
+  // Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
 `;
 
 const notesHeader = `
-  // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
-  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
+  // Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
+  // Link to JS before the closing body tag: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js"></script>
 `;
 
 const notesHeaderHamburger = `
-  // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-hamburger.css">
-  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header-hamburger.js" />
+  // Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-hamburger.css">
+  // Link to JS before the closing body tag: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header-hamburger.js"></script>
 `;
 
 export const headerExample = () => headerBasic;
