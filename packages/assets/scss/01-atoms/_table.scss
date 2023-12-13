@@ -12,6 +12,15 @@
     text-align: left;
     margin-bottom: 0.8em;
 
+    @media ($bp-medium-max) {
+
+      display: block;
+    }
+
+    &.hide {
+      display: none;
+    }
+
     &__content {
       display: inline-block;
       width: 100%;
