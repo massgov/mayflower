@@ -4,9 +4,6 @@ export default (function (document,$) {
   const wideContainerClass = '.js-utility-nav--wide .js-util-nav-content';
   const $panels = $('.js-util-nav-content');
   const $utilityButtons = $('.js-utility-nav--wide .js-util-nav-toggle');
-  console.log($utilityButtons)
-  console.log($(wideContainerClass))
-  console.log($panels)
 
   // Keyboard navigation.
   $(document).keydown(function(e) {
@@ -61,8 +58,6 @@ export default (function (document,$) {
 
     $thisButton.on('click', function () {
       const $thisPanel = $thisButton.next('.js-util-nav-content');
-      console.log($thisPanel)
-      // console.log($thisPanel.hasClass("is-closed"))
       // if the panel is closed, then open it
       if ($thisPanel.hasClass("is-closed")) {
         $thisPanel.removeClass('is-closed');
