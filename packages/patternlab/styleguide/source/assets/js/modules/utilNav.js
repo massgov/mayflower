@@ -46,7 +46,7 @@ export default (function (document,$) {
     $panel.on('keydown', function (e) {
       if (e.key == "Escape") {
         $panel.css('top', '-' + height + 'px');
-        $panel.addxClass('is-closed');
+        $panel.addClass('is-closed');
         $panel.attr("aria-hidden", "true");
       }
     });
@@ -54,14 +54,26 @@ export default (function (document,$) {
 
   $utilityButtons.each(function () {
     const $thisButton = $(this);
-    let $thisPanel = $thisButton.next('.js-util-nav-content');
 
     $thisButton.on('click', function () {
-      $thisPanel.removeClass('is-closed');
-      $thisPanel.css('top', '0px')
-      $thisPanel.removeAttr('style');
-      $thisPanel.attr("aria-hidden", "false");
+      console.log($thisButton.attr('aria-expanded'))
+      const $thisPanel = $thisButton.next('.js-util-nav-content');
+      console.log($thisPanel)
+      console.log($thisPanel.hasClass("is-closed"))
+      // if the panel is closed, then open it
+      if ($thisPanel.hasClass("is-closed")) {
+        $thisPanel.removeClass('is-closed');
+        $thisPanel.attr("aria-hidden", "false");
+        $thisButton.attr("aria-expanded", "true");
+      } else {
+      // else close the panel
+        $thisPanel.addClass('is-closed');
+        $thisPanel.attr("aria-hidden", "true");
+        $thisButton.attr("aria-expanded", "false");
+      }
 
+      $thisPanel.css('top', '0px');
+      $thisPanel.removeAttr('style');
       $('body').addClass('show-submenu');
 
       // Only affects utility nav on the utility nav bar with the hamburger menu.
