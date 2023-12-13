@@ -14,6 +14,11 @@
       display: inline-block;
     }
   }
+
+  .sr-instructions {
+    // Ensure the content is announced via aria-labelledby only.
+    display: none;
+  }
 }
 
 .ma__table--responsive__wrapper {
