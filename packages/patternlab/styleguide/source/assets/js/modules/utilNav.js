@@ -1,20 +1,18 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
 export default (function (document,$) {
-  const wideContainerClass = '.js-utility-nav--wide .js-util-nav-content';
   const $panels = $('.js-util-nav-content');
   const $utilityButtons = $('.js-utility-nav--wide .js-util-nav-toggle');
 
   // Keyboard navigation.
   $(document).keydown(function(e) {
-    // check if menu open
-    if (!$(wideContainerClass).hasClass('is-closed')) {
-      focusTrapping({
-        focusableSelectors: 'a, button',
-        modalSelector: wideContainerClass,
-        keyEvent: e
-      });
-    }
+    // get the utility panel that is opened
+    const wideExpendedPanelClass = '.js-utility-nav--wide .js-util-nav-content:not(.is-closed)';
+    focusTrapping({
+      focusableSelectors: 'a, button, input',
+      modalSelector: wideExpendedPanelClass,
+      keyEvent: e
+    });
   });
 
   // In the hamburger menu container.

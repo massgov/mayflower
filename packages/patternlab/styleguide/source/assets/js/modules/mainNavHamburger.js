@@ -597,10 +597,9 @@ if (hamburgerMenuContainer) {
       utilNarrowButton.addEventListener(
         e,
         function (e) {
-          const thisButton = e.target.closest(".js-util-nav-toggle");
-          console.log(thisButton)
-          const thisNavContainer = e.target.closest(".ma__utility-nav__item");
-          utilNarrowContent = thisButton.nextElementSibling;
+          const thisButton = e.target;
+          const thisNavContainer = thisButton.closest(".ma__utility-nav__item");
+          const utilNarrowContent = thisButton.nextElementSibling;
 
           if (utilNarrowContent.classList.contains("is-closed")) {
             if (
