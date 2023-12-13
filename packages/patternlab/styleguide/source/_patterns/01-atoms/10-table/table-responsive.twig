@@ -37,7 +37,10 @@
       {# TO DO:
       - style caption for title
       - hide when no content via class #}
-      <caption id="cap-{{tableID}}">{% if table.caption %}{{ table.caption }}{% endif %}</caption>
+      <caption id="tbl-{{tableID}}" class="ma__table__caption">
+        {% if table.description %}<span class="ma__table__caption__content">{{ table.description }}</span>{% endif %}
+        <span class="ma__table__caption__scroll-info"> (Table in a scrolling container)</span>
+      </caption>
       <thead>
         {% for row in table.head.rows %}
           <tr>

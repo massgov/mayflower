@@ -4,13 +4,18 @@
   {% set tableWideClass = "ma__table--wide" %}
 {% endif %}
 <table class="ma__table {{ tableWideClass }}">
+{% if table.description %}
+  <caption class="ma__table__caption">
+    <span class="ma__table__caption__content">{{ table.description }}</span>
+  </caption>
+{% endif %}
   <thead>
     {% for row in table.head.rows %}
       <tr>
         {% for cell in row.cells %}
-          <th 
-            scope="col" 
-            {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %} 
+          <th
+            scope="col"
+            {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %}
             {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</th>
         {% endfor %}
       </tr>
@@ -23,15 +28,15 @@
           {% set tableIndexOffset = row.rowSpanOffset ? 0 : 1 %}
           {% for cell in row.cells %}
             {% if cell.heading == "true" %}
-              <th 
-                data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}" 
-                scope="row" 
-                {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %} 
+              <th
+                data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}"
+                scope="row"
+                {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %}
                 {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</th>
             {% else %}
               <td
-                data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}" 
-              {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %} 
+                data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}"
+              {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %}
               {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</td>
             {% endif %}
           {% endfor %}

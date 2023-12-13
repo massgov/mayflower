@@ -7,9 +7,9 @@ This Displays a styled table that converts to a list on narrow screens
 ### Variables
 ~~~
 table {
-  caption [
+  description [
     text:
-      type: string
+      type: string / optional
   ]
   head {
     rows [{
