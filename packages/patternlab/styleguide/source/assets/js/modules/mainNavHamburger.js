@@ -592,66 +592,6 @@ if (hamburgerMenuContainer) {
 
   // ** Utility nav
 
-  // Wide/utility nav bar
-  const utilWideButton = document.querySelector(
-    ".js-utility-nav--wide .js-util-nav-toggle"
-  );
-  const utilWideCloseButton = document.querySelector(
-    ".js-utility-nav--wide .js-close-util-nav"
-  );
-  const utilWideContent = document.querySelector(
-    ".js-utility-nav--wide .js-util-nav-content"
-  );
-  if (
-    utilWideButton !== null &&
-    utilWideCloseButton !== null &&
-    utilWideContent !== null
-  ) {
-    // Open
-    // utilWideButton.addEventListener("click", function (e) {
-    //   const thisWideButton = e.target.closest(".js-util-nav-toggle");
-    //   const thisWideContent = thisWideButton.nextElementSibling;
-
-    //   if (thisWideContent.classList.contains("is-closed")) {
-    //     //  To open
-    //     thisWideContent.classList.remove("is-closed");
-    //     thisWideContent.removeAttribute("aria-hidden");
-    //     thisWideContent.removeAttribute("style");
-    //     thisWideContent.style.height = "auto";
-    //     thisWideContent.style.opacity = "1";
-
-    //     // Button State
-    //     thisWideButton.setAttribute("aria-expanded", "true");
-    //     thisWideButton.setAttribute("aria-pressed", "true");
-    //   }
-
-    //   thisWideButton.setAttribute("aria-expanded", "true");
-    //   thisWideButton.setAttribute("aria-pressed", "true");
-    // });
-  }
-
-  // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
-  if (utilWideCloseButton !== null) {
-    utilWideCloseButton.addEventListener("click", function (e) {
-      closeUtilWideContent();
-    });
-  }
-
-  function closeUtilWideContent() {
-    // Content state
-    utilWideContent.style.height = "0";
-    utilWideContent.style.opacity = "0";
-    utilWideContent.classList.add("is-closed");
-    utilWideContent.setAttribute("aria-hidden", "true");
-
-    // Close button state
-    utilWideCloseButton.setAttribute("aria-expanded", "false");
-
-    // Utility button state
-    utilWideButton.setAttribute("aria-expanded", "false");
-    utilWideButton.setAttribute("aria-pressed", "false");
-  }
-
   // Narrow/in hamburger menu
   if (utilNarrowButton !== null) {
     // utilNarrowContent = utilNarrowButton.nextElementSibling;
@@ -749,9 +689,9 @@ if (hamburgerMenuContainer) {
 
       utilNarrowContent.style.maxHeight = "0";
       utilNarrowContainer.style.opacity = "0";
-      // setTimeout(function timeoutFunction() {
-      //   utilNarrowContent.classList.add("is-closed");
-      // }, 500);
+      setTimeout(function timeoutFunction() {
+        utilNarrowContent.classList.add("is-closed");
+      }, 500);
     }
   }
 
