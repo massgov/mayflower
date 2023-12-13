@@ -653,84 +653,85 @@ if (hamburgerMenuContainer) {
   }
 
   // Narrow/in hamburger menu
-  // if (utilNarrowButton !== null) {
-  //   // utilNarrowContent = utilNarrowButton.nextElementSibling;
-  //   utilNarrowContent.style.maxHeight = "0";
-  //   utilNarrowContainer.style.opacity = "0";
+  if (utilNarrowButton !== null) {
+    // utilNarrowContent = utilNarrowButton.nextElementSibling;
+    utilNarrowContent.style.maxHeight = "0";
+    utilNarrowContainer.style.opacity = "0";
 
-  //   ["click", "keyup"].forEach(function (e) {
-  //     utilNarrowButton.addEventListener(
-  //       e,
-  //       function (e) {
-  //         const thisButton = e.target.closest(".js-util-nav-toggle");
-  //         const thisNavContainer = e.target.closest(".ma__utility-nav__item");
-  //         utilNarrowContent = thisButton.nextElementSibling;
+    ["click", "keyup"].forEach(function (e) {
+      utilNarrowButton.addEventListener(
+        e,
+        function (e) {
+          const thisButton = e.target.closest(".js-util-nav-toggle");
+          console.log(thisButton)
+          const thisNavContainer = e.target.closest(".ma__utility-nav__item");
+          utilNarrowContent = thisButton.nextElementSibling;
 
-  //         if (utilNarrowContent.classList.contains("is-closed")) {
-  //           if (
-  //             e.type === "click" ||
-  //             e.key === "ArrowDown" ||
-  //             e.key === "ArrowUp"
-  //           ) {
-  //             // TO OPEN
+          if (utilNarrowContent.classList.contains("is-closed")) {
+            if (
+              e.type === "click" ||
+              e.key === "ArrowDown" ||
+              e.key === "ArrowUp"
+            ) {
+              // TO OPEN
 
-  //             closeSubMenu();
+              closeSubMenu();
 
-  //             thisButton.setAttribute("aria-expanded", "true");
-  //             utilNarrowContent.removeAttribute("aria-hidden");
-  //             thisNavContainer.style.pointerEvents = "none";
-  //             /** Slide down. */
-  //             thisNavContainer.removeAttribute("style");
+              thisButton.setAttribute("aria-expanded", "true");
+              utilNarrowContent.removeAttribute("aria-hidden");
+              thisNavContainer.style.pointerEvents = "none";
+              /** Slide down. */
+              thisNavContainer.removeAttribute("style");
 
-  //             /** Show the content. */
-  //             utilNarrowContent.classList.remove("is-closed");
-  //             utilNarrowContent.style.maxHeight = "auto";
+              /** Show the content. */
+              utilNarrowContent.classList.remove("is-closed");
+              utilNarrowContent.style.maxHeight = "auto";
 
-  //             /** Get the computed height of the content. */
-  //             var contentHeight =
-  //               utilNarrowContent.querySelector(
-  //                 ".ma__utility-nav__content-body"
-  //               ).clientHeight + "px";
+              /** Get the computed height of the content. */
+              var contentHeight =
+                utilNarrowContent.querySelector(
+                  ".ma__utility-nav__content-body"
+                ).clientHeight + "px";
 
-  //             /** Set the height of the submenu as 0px, */
-  //             /** so we can trigger the slide down animation. */
-  //             utilNarrowContent.style.maxHeight = "0";
-  //             utilNarrowContent.style.Height = "0";
+              /** Set the height of the submenu as 0px, */
+              /** so we can trigger the slide down animation. */
+              utilNarrowContent.style.maxHeight = "0";
+              utilNarrowContent.style.Height = "0";
 
-  //             // These height settings display the bottom border of the parent li at the correct spot.
-  //             utilNarrowContent.style.height = contentHeight;
-  //             utilNarrowContainer.style.height = contentHeight;
+              // These height settings display the bottom border of the parent li at the correct spot.
+              utilNarrowContent.style.height = contentHeight;
+              utilNarrowContainer.style.height = contentHeight;
 
-  //             utilNarrowContent.style.maxHeight = contentHeight;
-  //             utilNarrowContainer.style.opacity = "1";
-  //           }
-  //         } else {
-  //           if (e.type === "click") {
-  //             closeNarrowUtilContent();
-  //           }
-  //         }
+              utilNarrowContent.style.maxHeight = contentHeight;
+              utilNarrowContainer.style.opacity = "1";
+            }
+          } else {
+            if (e.type === "click") {
+              closeNarrowUtilContent();
+            }
+          }
 
-  //         if (e.type === "keyup") {
-  //           let clickableItems =
-  //             thisNavContainer &&
-  //             thisNavContainer.querySelectorAll(
-  //               ".js-util-nav-content a.js-clickable-link"
-  //             );
+          if (e.type === "keyup") {
+            let clickableItems =
+              thisNavContainer &&
+              thisNavContainer.querySelectorAll(
+                ".js-util-nav-content a.js-clickable-link"
+              );
 
-  //           if (e.key === "ArrowDown" || e.code === "ArrowDown") {
-  //             clickableItems[0].focus();
-  //           }
+            if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+              clickableItems[0].focus();
+            }
 
-  //           if (e.key === "ArrowUp" || e.code === "ArrowUp") {
-  //             let lastItemIndex = clickableItems.length - 1;
-  //             clickableItems[lastItemIndex].focus();
-  //           }
-  //         }
-  //       },
-  //       false
-  //     );
-  //   });
-  // }
+            if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+              let lastItemIndex = clickableItems.length - 1;
+              clickableItems[lastItemIndex].focus();
+            }
+          }
+        },
+        false
+      );
+    });
+  }
 
   function closeNarrowUtilContent() {
     if (utilNarrowContent) {

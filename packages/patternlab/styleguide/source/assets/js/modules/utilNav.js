@@ -2,8 +2,11 @@ import focusTrapping from "../helpers/focusTrapping.js";
 
 export default (function (document,$) {
   const wideContainerClass = '.js-utility-nav--wide .js-util-nav-content';
-  let $panels = $('.js-util-nav-content');
-  let $utilityButtons = $('.js-util-nav-toggle');
+  const $panels = $('.js-util-nav-content');
+  const $utilityButtons = $('.js-utility-nav--wide .js-util-nav-toggle');
+  console.log($utilityButtons)
+  console.log($(wideContainerClass))
+  console.log($panels)
 
   // Keyboard navigation.
   $(document).keydown(function(e) {
@@ -52,14 +55,14 @@ export default (function (document,$) {
     });
   });
 
+  // Utility toggles buttons desktop only
   $utilityButtons.each(function () {
     const $thisButton = $(this);
 
     $thisButton.on('click', function () {
-      console.log($thisButton.attr('aria-expanded'))
       const $thisPanel = $thisButton.next('.js-util-nav-content');
       console.log($thisPanel)
-      console.log($thisPanel.hasClass("is-closed"))
+      // console.log($thisPanel.hasClass("is-closed"))
       // if the panel is closed, then open it
       if ($thisPanel.hasClass("is-closed")) {
         $thisPanel.removeClass('is-closed');
@@ -75,18 +78,9 @@ export default (function (document,$) {
       $thisPanel.css('top', '0px');
       $thisPanel.removeAttr('style');
       $('body').addClass('show-submenu');
-
-      // Only affects utility nav on the utility nav bar with the hamburger menu.
-      // if ($(this).closest(".ma__header__hamburger__utility-nav--wide")) {
-      //   if ($thisPanel && $thisPanel.hasClass("is-closed")) {
-      //     $(this).closest(".ma__header__hamburger__nav").removeClass("util-nav-content-open");
-      //   }
-      //   else {
-      //     $(this).closest(".ma__header__hamburger__nav").addClass("util-nav-content-open");
-      //   }
-      // }
     });
   });
+
 
   // debouncer
   var resize_timeout;
@@ -96,5 +90,6 @@ export default (function (document,$) {
     resize_timeout = setTimeout(function () {
       $(window).trigger('resized');
     }, 150);
+
   });
 })(document,jQuery);
