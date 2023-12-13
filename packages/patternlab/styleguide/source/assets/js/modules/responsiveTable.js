@@ -108,7 +108,6 @@ export default (function (window, document, $) {
     }
     else {
       responsiveTables.push(rt);
-    //   rt.$root[0].addEventListener("scroll", handleTableScroll, true);
     }
     // Decide what should be showing or stuck.
     checkVisibility(rt);
@@ -118,11 +117,9 @@ export default (function (window, document, $) {
     let scrollInfo = $table.find(".ma__table__caption__scroll-info");
 
       if (rt.canScroll) {
-        //        SYNC THE JOB TO SCREEN RESIZE.
         const tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
         const caption = $(tableWrapper).find("caption");
         const captionId = $(caption).attr("id");
-        // const scrollInfo = $(tableWrapper).find(".ma__table__caption__scroll-info");
 
         $(tableWrapper).attr("tabindex", "0");
 
