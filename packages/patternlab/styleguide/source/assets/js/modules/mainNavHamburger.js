@@ -666,30 +666,24 @@ if (hamburgerMenuContainer) {
         false
       );
     });
+
+
+    function closeNarrowUtilContent() {
+      if (utilNarrowContent) {
+        const thisNavContainer = utilNarrowButton.closest(
+          ".ma__utility-nav__item"
+        );
+        utilNarrowButton.setAttribute("aria-expanded", "false");
+        utilNarrowContent.setAttribute("aria-hidden", "true");
+        thisNavContainer.style.pointerEvents = "none";
+        thisNavContainer.removeAttribute("style");
+        utilNarrowContent.style.maxHeight = "0";
+        utilNarrowContainer.style.opacity = "0";
+        utilNarrowContent.classList.add("is-closed");
+      }
+    }
   })
 
-
-  function closeNarrowUtilContent() {
-    if (utilNarrowContent) {
-      const thisNavContainer = utilNarrowButton.closest(
-        ".ma__utility-nav__item"
-      );
-
-      utilNarrowButton.setAttribute("aria-expanded", "false");
-      utilNarrowContent.setAttribute("aria-hidden", "true");
-      thisNavContainer.style.pointerEvents = "none";
-
-      setTimeout(function timeoutFunction() {
-        thisNavContainer.removeAttribute("style");
-      }, 700);
-
-      utilNarrowContent.style.maxHeight = "0";
-      utilNarrowContainer.style.opacity = "0";
-      setTimeout(function timeoutFunction() {
-        utilNarrowContent.classList.add("is-closed");
-      }, 500);
-    }
-  }
 
   // ** End util nav
 
