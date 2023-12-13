@@ -35,18 +35,6 @@ if (hamburgerMenuContainer) {
   const utilWideGTranslate = document.querySelector(
     ".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate"
   );
-  let utilNarrowNav = document.querySelector(
-    ".ma__header__hamburger__utility-nav--narrow"
-  );
-  const utilNarrowButton = document.querySelector(
-    ".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle"
-  );
-  let utilNarrowContent = utilNarrowButton
-    ? utilNarrowButton.nextElementSibling
-    : null;
-  let utilNarrowContainer = utilNarrowContent
-    ? utilNarrowContent.querySelector(".ma__utility-nav__container")
-    : null;
   // Define all top level clickable elements with current window width.
   let topLevelClickableItems;
   window.addEventListener("DOMContentLoaded", function (e) {
@@ -590,11 +578,18 @@ if (hamburgerMenuContainer) {
     }
   });
 
-  // ** Utility nav
+  // ** Utility nav on mobile
+  let utilNarrowNav = document.querySelector(
+    ".ma__header__hamburger__utility-nav--narrow"
+  );
+  const utilNarrowButtons = document.querySelectorAll(
+    ".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle"
+  );
 
-  // Narrow/in hamburger menu
-  if (utilNarrowButton !== null) {
-    // utilNarrowContent = utilNarrowButton.nextElementSibling;
+  utilNarrowButtons.forEach((utilNarrowButton) => {
+    let utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
+    let utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
+ 
     utilNarrowContent.style.maxHeight = "0";
     utilNarrowContainer.style.opacity = "0";
 
@@ -671,7 +666,8 @@ if (hamburgerMenuContainer) {
         false
       );
     });
-  }
+  })
+
 
   function closeNarrowUtilContent() {
     if (utilNarrowContent) {
@@ -694,6 +690,8 @@ if (hamburgerMenuContainer) {
       }, 500);
     }
   }
+
+  // ** End util nav
 
   function closeSubMenu() {
     let openSubMenu = document.querySelector(".submenu-open");
