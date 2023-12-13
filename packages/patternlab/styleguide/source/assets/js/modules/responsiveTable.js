@@ -50,37 +50,35 @@ export default (function (window, document, $) {
       // Only wrap the table if this is the first time we have encountered it.
       if (!reset) {
         $thead = $thead.clone();
-        $table.after("<div class='sticky-thead'><div class='sticky-thead-wrapper'><table></table></div></div>");
+        $table.after(
+          "<div class='sticky-thead'><div class='sticky-thead-wrapper'><table></table></div></div>"
+        );
 
         $stickyHeader = $element.find(".sticky-thead");
         $stickyHeader.find("table").append($thead);
-      }
-      else {
+      } else {
         $stickyHeader = $element.find(".sticky-thead");
       }
 
       // Setting it in a fixed position, but initially invisible.
       let tableLeft = $element.offset().left;
-      $stickyHeader
-        .css({
-          "pointer-events": "none",
-          "position": "fixed",
-          "left": tableLeft,
-          "top": getAdditionalOffset(),
-          "opacity": 0,
-          "z-index": 50,
-          "height": theadHeight
-        });
+      $stickyHeader.css({
+        "pointer-events": "none",
+        position: "fixed",
+        left: tableLeft,
+        top: getAdditionalOffset(),
+        opacity: 0,
+        "z-index": 50,
+        height: theadHeight,
+      });
       $stickyHeader[0].scrollLeft = 0;
     }
 
     // Add class, remove margins, reset width and wrap table.
-    $table
-      .addClass("sticky-enabled")
-      .css({
-        margin: 0,
-        width: "100%"
-      });
+    $table.addClass("sticky-enabled").css({
+      margin: 0,
+      width: "100%",
+    });
 
     $element.toggleClass("has-horizontal-scroll", canScroll);
     // Make sure the scrollbar is the width of the table.
@@ -99,7 +97,7 @@ export default (function (window, document, $) {
       theadHeight: theadHeight,
       headerStuck: false,
       scrollStuck: false,
-      canScroll
+      canScroll,
     };
     // Set the widths of the header.
     setWidths(rt);
@@ -122,35 +120,18 @@ export default (function (window, document, $) {
 
     if (rt.canScroll) {
       const tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
-      // const scrollbar = element.getElementsByClassName("ma__scroll-indicator")[0];
-    //   tableWrapper.scrollLeft = 0;
-    //   scrollbar.scrollLeft = scrollbar.scrollWidth - scrollbar.offsetWidth;
+      //   const scrollbar = element.getElementsByClassName("ma__scroll-indicator")[0];
+      //   tableWrapper.scrollLeft = 0;
+      //   scrollbar.scrollLeft = scrollbar.scrollWidth - scrollbar.offsetWidth;
 
-      // const caption = $(tableWrapper).find("caption");
-      // const captionId = $(caption).attr("id");
-      // // const scrollInfo = $(tableWrapper).find(".ma__table__caption__scroll-info");
+      const caption = $(tableWrapper).find("caption");
+      const captionId = $(caption).attr("id");
+      const scrollInfo = $(tableWrapper).find(".ma__table__caption__scroll-info");
 
       $(tableWrapper).attr("tabindex", "0");
-      // $(tableWrapper).attr("aria-labelledby", captionId);
-
-      // // console.log(scrollInfo);
-      // $(scrollInfo).addClass("show");
+      $(tableWrapper).attr("aria-labelledby", captionId);
+      $(scrollInfo).addClass("show");
     }
-    // else {
-    //   console.log("non responsive");
-    //   // console.log(scrollInfo.hasClass("show"));
-    //   console.log($(scrollInfo));
-
-
-    //   // console.log($element[0].find(".show"));
-
-
-    //   // remove class show
-    //   // if ($(scrollInfo).hasClass("show")) {
-    //   //   $table.find(".show").removeClass("show");
-    //   //   // remove aria-labelledby
-    //   // }
-    // }
   }
 
   // Certain other components that stick to the top of the page need to be accounted for.
