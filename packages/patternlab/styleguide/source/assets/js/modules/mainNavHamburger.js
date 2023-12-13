@@ -128,7 +128,7 @@ if (hamburgerMenuContainer) {
                 utilNarrowButton.focus();
               }
             }
-            closeNarrowUtilContent();
+            closeAllNarrowUtilContent();
           } else {
             let narrowNavItems = utilNarrowNav.querySelectorAll(
               ".ma__utility-nav__link"
@@ -587,8 +587,8 @@ if (hamburgerMenuContainer) {
   );
 
   utilNarrowButtons.forEach((utilNarrowButton) => {
-    let utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
-    let utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
+    const utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
+    const utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
  
     utilNarrowContent.style.maxHeight = "0";
     utilNarrowContainer.style.opacity = "0";
@@ -642,7 +642,7 @@ if (hamburgerMenuContainer) {
             }
           } else {
             if (e.type === "click") {
-              closeNarrowUtilContent();
+              closeNarrowUtilContent(utilNarrowButton);
             }
           }
 
@@ -666,24 +666,27 @@ if (hamburgerMenuContainer) {
         false
       );
     });
-
-
-    function closeNarrowUtilContent() {
-      if (utilNarrowContent) {
-        const thisNavContainer = utilNarrowButton.closest(
-          ".ma__utility-nav__item"
-        );
-        utilNarrowButton.setAttribute("aria-expanded", "false");
-        utilNarrowContent.setAttribute("aria-hidden", "true");
-        thisNavContainer.style.pointerEvents = "none";
-        thisNavContainer.removeAttribute("style");
-        utilNarrowContent.style.maxHeight = "0";
-        utilNarrowContainer.style.opacity = "0";
-        utilNarrowContent.classList.add("is-closed");
-      }
-    }
   })
 
+  function closeNarrowUtilContent(utilNarrowButton) {
+    const utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
+    const utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
+    if (utilNarrowContent) {
+      utilNarrowButton.setAttribute("aria-expanded", "false");
+      utilNarrowContent.setAttribute("aria-hidden", "true");
+      thisNavContainer.style.pointerEvents = "none";
+      thisNavContainer.removeAttribute("style");
+      utilNarrowContent.style.maxHeight = "0";
+      utilNarrowContainer.style.opacity = "0";
+      utilNarrowContent.classList.add("is-closed");
+    }
+  }
+
+  function closeAllNarrowUtilContent() {
+    utilNarrowButtons.forEach((utilNarrowButton) => {
+      closeNarrowUtilContent(utilNarrowButton);
+    })
+  }
 
   // ** End util nav
 
@@ -819,7 +822,7 @@ if (hamburgerMenuContainer) {
 
         /** Close Utility menu content when a sub menu is open. */
         if (width < 840) {
-          closeNarrowUtilContent();
+          closeAllNarrowUtilContent();
         }
       } else {
         item.querySelector(".js-main-nav-hamburger-content").style.height = "0";
