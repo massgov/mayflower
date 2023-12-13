@@ -118,31 +118,39 @@ export default (function (window, document, $) {
     checkVisibility(rt);
 
     // Reset scroll since this may have changed the max scroll amount.
+    // let scrollInfo = rt.$table.find(".ma__table__caption__scroll-info");
+
     if (rt.canScroll) {
       const tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
-    //   const scrollbar = element.getElementsByClassName("ma__scroll-indicator")[0];
+      // const scrollbar = element.getElementsByClassName("ma__scroll-indicator")[0];
     //   tableWrapper.scrollLeft = 0;
     //   scrollbar.scrollLeft = scrollbar.scrollWidth - scrollbar.offsetWidth;
 
-      const tableId = $(tableWrapper).attr("id");
-      const caption = $(tableWrapper).find("caption");
-      const captionId = $(caption).attr("id");
-      const scrollInfo = "Table in a scrolling container";
+      // const caption = $(tableWrapper).find("caption");
+      // const captionId = $(caption).attr("id");
+      // // const scrollInfo = $(tableWrapper).find(".ma__table__caption__scroll-info");
 
       $(tableWrapper).attr("tabindex", "0");
-      $(tableWrapper).attr("aria-labelledby", captionId);
+      // $(tableWrapper).attr("aria-labelledby", captionId);
 
-      console.log($(caption).text.length);
-
-      if ($(caption).text.length > 0) {
-      //   // $(targetTable).getElementByName("caption").attr("id", captionId);
-        $(caption).append(document.createTextNode(" (" + scrollInfo + ")"));
-      } else {
-        console.log($(targetTable));
-        $(caption).apepend(scrollInfo);
-      }
+      // // console.log(scrollInfo);
+      // $(scrollInfo).addClass("show");
     }
+    // else {
+    //   console.log("non responsive");
+    //   // console.log(scrollInfo.hasClass("show"));
+    //   console.log($(scrollInfo));
 
+
+    //   // console.log($element[0].find(".show"));
+
+
+    //   // remove class show
+    //   // if ($(scrollInfo).hasClass("show")) {
+    //   //   $table.find(".show").removeClass("show");
+    //   //   // remove aria-labelledby
+    //   // }
+    // }
   }
 
   // Certain other components that stick to the top of the page need to be accounted for.
