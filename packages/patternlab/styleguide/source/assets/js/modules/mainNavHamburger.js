@@ -665,10 +665,8 @@ if (hamburgerMenuContainer) {
   })
 
   function closeNarrowUtilContent(utilNarrowButton) {
-    console.log('close')
     const utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
     const utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
-    console.log()
     if (utilNarrowContent) {
       utilNarrowButton.setAttribute("aria-expanded", "false");
       utilNarrowContent.setAttribute("aria-hidden", "true");
