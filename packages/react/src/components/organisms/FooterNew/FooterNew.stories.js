@@ -3,7 +3,7 @@ import { StoryPage } from 'StorybookConfig/preview';
 import stateSeal from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import FooterNewLinksData from './FooterNewLinks.json';
 import FooterNewLinksLiveData from './FooterNewLinksLive.json';
-import styles from '@massds/mayflower-assets/build/scss/footer-new.scss';
+import stylesFooterNew from '@massds/mayflower-assets/build/scss/footer-new.scss';
 import FooterNew from './index';
 import FooterNewDocs from './FooterNew.md';
 
@@ -33,7 +33,7 @@ export default {
   component: FooterNew,
   parameters: {
     docs: {
-      page: () => <StoryPage styles={styles} Description={FooterNewDocs} />
+      page: () => <StoryPage styles={stylesFooterNew} Description={FooterNewDocs} />
     }
   }
 };

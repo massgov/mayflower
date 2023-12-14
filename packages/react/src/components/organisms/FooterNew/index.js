@@ -34,13 +34,13 @@ const FooterNew = ({
         <nav className="ma__footer-new__navlinks" aria-label="site navigation">
           {
             footerLinks.links.map((link, i) => (
-              <div><a href={link.href}>{link.text}</a></div>
+              <div key={`footerNewLinksNav_${i}`} index={i}><a href={link.href}>{link.text}</a></div>
             ))
           }
         </nav>
         <div className="ma__footer-new__copyright">
           <div className="ma__footer-new__copyright--bold">&copy; {copyright} Commonwealth of Massachusetts.</div>
-          <span>Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts.</span>
+          <span>Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts. </span>
           <a href={privacyPolicy.url}>{privacyPolicy.text}</a>
         </div>
       </div>
@@ -49,8 +49,10 @@ const FooterNew = ({
 );
 
 FooterNew.propTypes = {
-  /** `@molecules/FooterLinks` */
-  footerLinks: PropTypes.array.isRequired,
+  /** Footer links */
+  footerLinks: PropTypes.shape({
+    links: PropTypes.array
+  }).isRequired,
   /** Whether to display or visually hiding footer nav headings */
   // showNavHeading: PropTypes.bool,
   /** Adds footer logo. (Defaults to matching Mass.gov) <br />
