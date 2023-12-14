@@ -597,9 +597,6 @@ if (hamburgerMenuContainer) {
       utilNarrowButton.addEventListener(
         e,
         function (e) {
-          const thisButton = e.target;
-          const thisNavContainer = thisButton.closest(".ma__utility-nav__item");
-          const utilNarrowContent = thisButton.nextElementSibling;
 
           if (utilNarrowContent.classList.contains("is-closed")) {
             if (
@@ -611,11 +608,11 @@ if (hamburgerMenuContainer) {
 
               closeSubMenu();
 
-              thisButton.setAttribute("aria-expanded", "true");
+              utilNarrowButton.setAttribute("aria-expanded", "true");
               utilNarrowContent.removeAttribute("aria-hidden");
-              thisNavContainer.style.pointerEvents = "none";
+              utilNarrowContainer.style.pointerEvents = "none";
               /** Slide down. */
-              thisNavContainer.removeAttribute("style");
+              utilNarrowContainer.removeAttribute("style");
 
               /** Show the content. */
               utilNarrowContent.classList.remove("is-closed");
@@ -647,8 +644,8 @@ if (hamburgerMenuContainer) {
 
           if (e.type === "keyup") {
             let clickableItems =
-              thisNavContainer &&
-              thisNavContainer.querySelectorAll(
+              utilNarrowContainer &&
+              utilNarrowContainer.querySelectorAll(
                 ".js-util-nav-content a.js-clickable-link"
               );
 
@@ -668,13 +665,15 @@ if (hamburgerMenuContainer) {
   })
 
   function closeNarrowUtilContent(utilNarrowButton) {
+    console.log('close')
     const utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
     const utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
+    console.log()
     if (utilNarrowContent) {
       utilNarrowButton.setAttribute("aria-expanded", "false");
       utilNarrowContent.setAttribute("aria-hidden", "true");
-      thisNavContainer.style.pointerEvents = "none";
-      thisNavContainer.removeAttribute("style");
+      utilNarrowContainer.style.pointerEvents = "none";
+      utilNarrowContainer.removeAttribute("style");
       utilNarrowContent.style.maxHeight = "0";
       utilNarrowContainer.style.opacity = "0";
       utilNarrowContent.classList.add("is-closed");
