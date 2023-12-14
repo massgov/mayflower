@@ -116,13 +116,12 @@ export default (function (window, document, $) {
     checkVisibility(rt);
 
     // Reset scroll since this may have changed the max scroll amount.
+    let tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];;
     let tableTitleCount = $table.find(".ma__table__caption__content").length;
     let scrollInfo = $table.find(".ma__table__caption__scroll-info");
 
     if (rt.canScroll) {
-      const tableWrapper = element.getElementsByClassName(
-        "ma__table--responsive__wrapper"
-      )[0];
+      // const tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
       const caption = $(tableWrapper).find("caption");
       const captionId = $(caption).attr("id");
 
@@ -142,11 +141,12 @@ export default (function (window, document, $) {
     // Hide caption if no table title when no overflow.
     // scrollInfo is hardcoded in caption in the template. Don't remove caption.
     if (!rt.canScroll) {
+      $(tableWrapper).attr("tabindex", "-1");
+
       if (tableTitleCount == 0) {
         $table.find(".ma__table__caption").addClass("hide");
       }
 
-      // Remove the class at window size change.
       if ($(scrollInfo).hasClass("show")) {
         $(scrollInfo).removeClass("show");
       }

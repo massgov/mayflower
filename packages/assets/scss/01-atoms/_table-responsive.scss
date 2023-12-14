@@ -5,6 +5,10 @@
   margin-bottom: 1em;
   overflow: hidden;
 
+  // TODO: ADJUST THIS WITH PROPER CLASS.
+  // &.has-horizontal-scroll {
+  //   // to accommodate the sticky nav bar
+  //   padding-bottom: 50px;
   .ma__table__caption__scroll-info {
     display: none;
     font-size: $fonts-medium;
@@ -52,15 +56,15 @@
         z-index: -1;
     }
 
-    .sticky-thead-wrapper {
-      overflow-x: auto;
-      -ms-overflow-style: none;  // IE 10+
-      overflow: -moz-scrollbars-none;  // Firefox
+    // .sticky-thead-wrapper {
+    //   overflow-x: auto;
+    //   -ms-overflow-style: none;  // IE 10+
+    //   overflow: -moz-scrollbars-none;  // Firefox
 
-      &::-webkit-scrollbar {
-        display: none;  // Safari and Chrome
-      }
-    }
+    //   &::-webkit-scrollbar {
+    //     display: none;  // Safari and Chrome
+    //   }
+    // }
 
     table {
       margin-bottom: 0;
@@ -87,10 +91,10 @@
     box-shadow: 0 0 0 2px $c-gray-light;
 }
 
-.stickNav {
+// .stickNav {
 
-  .ma__table__horizontal-nav {
-    position: fixed;
-    bottom: 0;
-  }
-}
+//   .ma__table__horizontal-nav {
+//     position: fixed;
+//     bottom: 0;
+//   }
+// }
