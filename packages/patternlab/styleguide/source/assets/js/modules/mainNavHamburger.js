@@ -620,7 +620,6 @@ if (hamburgerMenuContainer) {
           // Util nav escape
           if (e.key === "Escape" || e.code === "Escape") {
             if (utilNarrowNav) {
-              console.log(utilNarrowButton)
               if (
                 utilNarrowButton !== document.activeElement && utilNarrowButton.attr("aria-expanded") === true
               ) {
