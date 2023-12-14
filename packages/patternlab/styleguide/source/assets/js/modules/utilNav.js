@@ -83,9 +83,8 @@ export default (function (document,$) {
         } 
       }
     });
-
-
   });
+
 
 
   // debouncer

@@ -635,7 +635,7 @@ if (hamburgerMenuContainer) {
                     utilNarrowButton.focus();
                   }
                 }
-                closeAllNarrowUtilContent();
+                closeNarrowUtilContent(utilNarrowButton);
               } else {
                 let narrowNavItems = utilNarrowNav.querySelectorAll(
                   ".ma__utility-nav__link"
