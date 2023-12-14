@@ -13,16 +13,6 @@ export default (function (document,$) {
       modalSelector: wideExpendedPanelClass,
       keyEvent: e
     });
-
-    // if (e.key === "Escape" || e.key === "Esc" || e.code === "Escape")  {
-    //   //console.log('escape')
-    //   // Log in to... in Utility nav bar
-    //   if ($panels.hasClass("is-closed")) {
-    //     console.log('close')
-    //     $panels.addClass("is-closed");
-    //     //utilNavWide.querySelector(".js-util-nav-toggle").focus();
-    //   } 
-    // }
   });
 
   // In the hamburger menu container.
@@ -87,7 +77,6 @@ export default (function (document,$) {
       if (e.key === "Escape")  {
         // If utility panel is open
         if (!$thisPanel.hasClass("is-closed")) {
-          console.log('close')
           $thisPanel.addClass('is-closed');
           $thisPanel.attr("aria-hidden", "true");
           $thisButton.attr("aria-expanded", "false");
