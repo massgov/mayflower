@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: HeaderSearch
+    description: Close search suggestions on blur. (#1851)
+    issue: DP-30988
+    impact: Patch

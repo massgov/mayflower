@@ -46,7 +46,8 @@ $bp-header-search-reduce-button: "max-width: 700px";
       @media ($bp-header-search-reduce-button) {
 
         span {
-          display: none;
+
+          @include ma-visually-hidden;
         }
       }
     }

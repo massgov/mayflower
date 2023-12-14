@@ -232,17 +232,6 @@ body.show-menu {
         span {
           display: inline-block;
         }
-
-        // not the button in navigation
-
-        .ma__button-search {
-
-          &,
-          &--secondary {
-
-            display: none;
-          }
-        }
       }
     }
 
@@ -461,10 +450,6 @@ body.show-menu {
 
       .ma__header-search {
         position: initial;
-      }
-
-      .ma__button-search__label {
-        display: none !important;
       }
 
       .ma__button-search--secondary {

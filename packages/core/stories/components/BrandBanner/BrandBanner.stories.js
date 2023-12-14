@@ -46,8 +46,8 @@ const brandBannerDarkThemeGray = (
 );
 
 const notesBrandBanner = `
-  // Link to CSS: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/brand-banner.css">
-  // Link to JS: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/brand-banner.js" />
+  // Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/brand-banner.css">
+  // Link to JS before the closing body tag: <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/brand-banner.js"></script>
 `;
 
 export const brandBannerExample = () => brandBannerBasic;
