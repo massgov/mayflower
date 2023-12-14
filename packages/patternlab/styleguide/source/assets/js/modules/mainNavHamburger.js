@@ -620,22 +620,20 @@ if (hamburgerMenuContainer) {
           // Util nav escape
           if (e.key === "Escape" || e.code === "Escape") {
             if (utilNarrowNav) {
+              console.log(utilNarrowButton)
               if (
-                utilNarrowButton !== document.activeElement &&
-                utilNarrowContainer.style.opacity === "1"
+                utilNarrowButton !== document.activeElement && utilNarrowButton.attr("aria-expanded") === true
               ) {
-                // Open Log in to... in Hamburger menu: To be consisitent with submenu, keep the content open and set focus on nav button.
                 let utilNavContentLinks =
-                  utilNarrowNav.querySelectorAll(".js-clickable-link");
+                  utilNarrowNav.querySelectorAll("button, [href], input");
                 for (let i = 0; i < utilNavContentLinks.length; i++) {
                   if (
                     utilNavContentLinks[i].innerText ===
                     document.activeElement.innerText
                   ) {
-                    utilNarrowButton.focus();
+                    closeNarrowUtilContent(utilNarrowButton);
                   }
                 }
-                closeNarrowUtilContent(utilNarrowButton);
               } else {
                 let narrowNavItems = utilNarrowNav.querySelectorAll(
                   ".ma__utility-nav__link"
@@ -644,6 +642,7 @@ if (hamburgerMenuContainer) {
                   if (
                     narrowNavItems[i].innerText === document.activeElement.innerText
                   ) {
+                    closeNarrowUtilContent(utilNarrowButton);
                     closeMenu();
                   }
                 }
@@ -669,6 +668,7 @@ if (hamburgerMenuContainer) {
       utilNarrowContent.style.maxHeight = "0";
       utilNarrowContainer.style.opacity = "0";
       utilNarrowContent.classList.add("is-closed");
+      utilNarrowButton.focus();
     }
   }
 
