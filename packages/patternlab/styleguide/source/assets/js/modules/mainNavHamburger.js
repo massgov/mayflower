@@ -102,55 +102,48 @@ if (hamburgerMenuContainer) {
       // ESC to close menus.
       // 'e.key === "Esc"' is necessary for IE11.
       if (e.key === "Escape" || e.key === "Esc" || e.code === "Escape") {
-        // Log in to... in Utility nav bar
-        if (
-          utilNavWide.querySelector(".js-util-nav-content").style.opacity ===
-          "1"
-        ) {
-          closeUtilWideContent();
-          utilNavWide.querySelector(".js-util-nav-toggle").focus();
-        }
 
-        // Util nav menus in the hamburger menu
-        if (utilNarrowNav) {
-          if (
-            utilNarrowButton !== document.activeElement &&
-            utilNarrowContainer.style.opacity === "1"
-          ) {
-            // Open Log in to... in Hamburger menu: To be consisitent with submenu, keep the content open and set focus on nav button.
-            let utilNavContentLinks =
-              utilNarrowNav.querySelectorAll(".js-clickable-link");
-            for (let i = 0; i < utilNavContentLinks.length; i++) {
-              if (
-                utilNavContentLinks[i].innerText ===
-                document.activeElement.innerText
-              ) {
-                utilNarrowButton.focus();
-              }
-            }
-            closeAllNarrowUtilContent();
-          } else {
-            let narrowNavItems = utilNarrowNav.querySelectorAll(
-              ".ma__utility-nav__link"
-            );
-            for (let i = 0; i < narrowNavItems.length; i++) {
-              if (
-                narrowNavItems[i].innerText === document.activeElement.innerText
-              ) {
-                closeMenu();
-              }
-            }
-          }
 
-          // Google Translage in the hamburger menu
-          if (
-            document.querySelector(
-              ".ma__header__hamburger__utility-nav--narrow .ma__utility-nav__translate #google_translate_element a"
-            ) === document.activeElement
-          ) {
-            closeMenu();
-          }
-        }
+        // // Util nav menus in the hamburger menu
+        // if (utilNarrowNav) {
+        //   if (
+        //     utilNarrowButton !== document.activeElement &&
+        //     utilNarrowContainer.style.opacity === "1"
+        //   ) {
+        //     // Open Log in to... in Hamburger menu: To be consisitent with submenu, keep the content open and set focus on nav button.
+        //     let utilNavContentLinks =
+        //       utilNarrowNav.querySelectorAll(".js-clickable-link");
+        //     for (let i = 0; i < utilNavContentLinks.length; i++) {
+        //       if (
+        //         utilNavContentLinks[i].innerText ===
+        //         document.activeElement.innerText
+        //       ) {
+        //         utilNarrowButton.focus();
+        //       }
+        //     }
+        //     closeAllNarrowUtilContent();
+        //   } else {
+        //     let narrowNavItems = utilNarrowNav.querySelectorAll(
+        //       ".ma__utility-nav__link"
+        //     );
+        //     for (let i = 0; i < narrowNavItems.length; i++) {
+        //       if (
+        //         narrowNavItems[i].innerText === document.activeElement.innerText
+        //       ) {
+        //         closeMenu();
+        //       }
+        //     }
+        //   }
+
+        //   // Google Translage in the hamburger menu
+        //   if (
+        //     document.querySelector(
+        //       ".ma__header__hamburger__utility-nav--narrow .ma__utility-nav__translate #google_translate_element a"
+        //     ) === document.activeElement
+        //   ) {
+        //     closeMenu();
+        //   }
+        // }
 
         let openSubmenu = document.querySelector(
           ".submenu-open .js-main-nav-hamburger__top-link"
