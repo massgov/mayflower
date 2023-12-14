@@ -55,17 +55,25 @@ export default (function (document,$) {
     const $thisButton = $(this);
     const $thisPanel = $thisButton.next('.js-util-nav-content');
 
+    const openPanel = () => {
+      $thisPanel.removeClass('is-closed');
+      $thisPanel.attr("aria-hidden", "false");
+      $thisButton.attr("aria-expanded", "true");
+    }
+
+    const closePanel = () => {
+      $thisPanel.addClass('is-closed');
+      $thisPanel.attr("aria-hidden", "true");
+      $thisButton.attr("aria-expanded", "false");
+    }
+
     $thisButton.on('click', function () {
       // if the panel is closed, then open it
       if ($thisPanel.hasClass("is-closed")) {
-        $thisPanel.removeClass('is-closed');
-        $thisPanel.attr("aria-hidden", "false");
-        $thisButton.attr("aria-expanded", "true");
+        openPanel()
       } else {
       // else close the panel
-        $thisPanel.addClass('is-closed');
-        $thisPanel.attr("aria-hidden", "true");
-        $thisButton.attr("aria-expanded", "false");
+        closePanel()
       }
 
       $thisPanel.css('top', '0px');
@@ -77,9 +85,7 @@ export default (function (document,$) {
       if (e.key === "Escape")  {
         // If utility panel is open
         if (!$thisPanel.hasClass("is-closed")) {
-          $thisPanel.addClass('is-closed');
-          $thisPanel.attr("aria-hidden", "true");
-          $thisButton.attr("aria-expanded", "false");
+          closePanel();
         } 
       }
     });
