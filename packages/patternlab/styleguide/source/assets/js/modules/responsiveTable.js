@@ -50,13 +50,12 @@ export default (function (window, document, $) {
       // Only wrap the table if this is the first time we have encountered it.
       if (!reset) {
         $thead = $thead.clone();
-        $table.after(
-          "<div class='sticky-thead'><div class='sticky-thead-wrapper'><table></table></div></div>"
-        );
+        $table.after("<div class='sticky-thead'><div class='sticky-thead-wrapper'><table></table></div></div>");
 
         $stickyHeader = $element.find(".sticky-thead");
         $stickyHeader.find("table").append($thead);
-      } else {
+      }
+      else {
         $stickyHeader = $element.find(".sticky-thead");
       }
 
@@ -75,10 +74,12 @@ export default (function (window, document, $) {
     }
 
     // Add class, remove margins, reset width and wrap table.
-    $table.addClass("sticky-enabled").css({
-      margin: 0,
-      width: "100%"
-    });
+    $table
+      .addClass("sticky-enabled")
+      .css({
+        margin: 0,
+        width: "100%"
+      });
 
     $element.toggleClass("has-horizontal-scroll", canScroll);
     // Make sure the scrollbar is the width of the table.
