@@ -1,17 +1,12 @@
 {
   "urlPath": "/?p=pages-ACTION-get-a-state-park-pass",
-
-  "pageBanner": {
-    "color": "white",
-    "icon":"lg-park",
+  "pageHeader": {
     "underline": true,
     "title":"Visiting & Exploring"
   },
-
   "catIcon": {
     "icon":"atoms-svg-camping"
   },
-
   "sectionThreeUp" : {
     "compHeading": {
       "title": "",

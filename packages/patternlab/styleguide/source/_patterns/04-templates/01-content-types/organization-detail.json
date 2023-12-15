@@ -1,11 +1,13 @@
 {
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x400.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "taper",
-    "icon": null,
-    "title": "Organization Detail Banner",
-    "titleSubText": ""
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1-mobile.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "theme": "c-primary-alt",
+    "pageHeader": {
+      "title": "Organization Detail Banner",
+      "headerTags": null
+    }
   },
   "breadcrumbs":{
     "light": true,

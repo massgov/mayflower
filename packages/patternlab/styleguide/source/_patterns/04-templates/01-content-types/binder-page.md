@@ -5,7 +5,7 @@ This pattern is used as a template for Policy Advisory type pages and is based o
 * Stable as of 5.11.0
 
 ### Pattern Contains
-* Illustrated Header
+* Page Banner
 * Contact List
 * Jump Links
 * Rich Text

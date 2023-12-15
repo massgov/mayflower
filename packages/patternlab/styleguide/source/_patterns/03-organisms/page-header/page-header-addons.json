@@ -1,5 +1,6 @@
 {
   "pageHeader": {
+    "divider": true,
     "optionalContents": [{
       "path": "@base/placeholder.twig",
       "data": {
