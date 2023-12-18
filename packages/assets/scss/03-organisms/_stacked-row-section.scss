@@ -63,7 +63,7 @@
   }
 
   &__section--restricted &__title {
-    max-width: 820px;
+    max-width: $l-max-content-width;
   }
 
   // margin adjustment for callout-message (feature message)
