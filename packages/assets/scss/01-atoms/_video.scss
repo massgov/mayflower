@@ -47,12 +47,28 @@
     font-size: $fonts-small;
     width: calc(100% - 26px);
   }
+
+  @include ma-skip-link;
+
+  // Make the skip link visible on focus.
+  // &__skip-link:focus + .fluid-width-video-wrapper {
+  //   margin-top: 30px;
+  // }
+  &__skip-link:focus {
+    position: absolute;
+    top: -20px;
+  }
+
+  // Position skip link target below the transcript link.
+  &__skip-link_target a {
+    position: absolute;
+    bottom: -35px;
+  }
 }
 
 // Backward Compatible - had to add the --new as a variant for the new styling
 
 .ma__video:not(.ma__video--new) {
-  padding: 13px;
 
   .main-content--full .page-content > & {
     // @include ma-container();  // can't use this due to bg color apply to padding
