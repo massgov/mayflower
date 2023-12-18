@@ -147,3 +147,25 @@
     }
   }
 }
+
+
+// two column and full width layout for a section within the general page layout or .ma__container
+// for full width: .ma__section-content-wrapper .ma__section-content
+// for two column: .ma__section-content-wrapper.ma__section-content-wrapper--two .ma__section-content
+
+.ma__section-content {
+  position: relative;
+  max-width: $l-max-content-width;
+
+  .ma__section-content-wrapper--two & {
+
+    @media ($bp-large-min) {
+      padding-right: $column;
+      width: calc(100% - #{$layout-sidebar-width});
+    }
+
+    @media ($bp-x-large-min) {
+      padding-right: $column + ($gutter * 2);
+    }
+  }
+}
