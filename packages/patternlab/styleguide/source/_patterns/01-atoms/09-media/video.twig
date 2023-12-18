@@ -1,8 +1,17 @@
 {% set posClass = video.position ? "ma__video--" ~ video.position : '' %}
+{# {% set headingLevel = video.level ? : 3 %}
+{% set skiplinkId = "video-" ~ random(9999) : "" %} #}
+
   {# backward compatibile with v5.6 - toggle new styles with ma__video--new #}
 <div class="ma__video ma__video--new {{ posClass }}">
+
   <div class="ma__video__container js-ma-responsive-video"{% if not video.link %} style="padding-bottom: 13px;"{% endif %}>
-    {% if video.link %}
+    {# <h{{ headingLevel }} class="ma__video-title">{{ video.label }}</h{{ headingLevel }}> #}
+
+    {# SKIP LINK #}
+    {# <a class="ma__video__skip-link" href="#{{ skiplinkId }}">Skip this video.</a> #}
+
+
       <div class="ma__video__link">
       {% set video = video|merge({'link': {
                                     'href': video.link.href,
@@ -15,5 +24,13 @@
       </div>
     {% endif %}
     <iframe width="{{ video.width }}" height="{{ video.height }}" src="{{ video.src }}" allowfullscreen allow="accelerometer; fullscreen; gyroscope; picture-in-picture" title="{{ video.label }}"></iframe>
+
+    {# SKIP LINK LANDING #}
+    {# <div class="ma__video__skip-link_target">
+      <a id="{{ skiplinkId }}" tabindex="-1">
+        You skipped the video, {{ video.label }}. <span class="ma__visually-hidden">Its transcript is presented next.</span>
+      </a>
+    </div> #}
+
   </div>
 </div>
