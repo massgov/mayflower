@@ -51,9 +51,7 @@
   @include ma-skip-link;
 
   // Make the skip link visible on focus.
-  // &__skip-link:focus + .fluid-width-video-wrapper {
-  //   margin-top: 30px;
-  // }
+  // Need the positioning adjiustment because of the transcript link's absolute positioning.
   &__skip-link:focus {
     position: absolute;
     top: -20px;

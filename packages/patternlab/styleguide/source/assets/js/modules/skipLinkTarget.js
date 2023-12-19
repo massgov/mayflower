@@ -10,55 +10,60 @@
 // See figure.twig and video.twig for markup.
 // ------------------------
 // Manage visibiliy of the link and its target.
-  document.querySelectorAll(".js-skiplink").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      // Find the matched linkTarget.
-      let targetId = e.target.getAttribute("href");
-      let skipTarget = document.querySelector(targetId);
-      skipTarget.setAttribute("tabindex", "0");
-      skipTarget.classList.add("visible");
-      // Offset timing to set focus from going to the link target.
-      setTimeout(function timeoutFunction() {
-        skipTarget.focus();
-      }, 200);
-    });
+document.querySelectorAll(".js-skiplink").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    // Find the matched linkTarget.
+    let targetId = e.target.getAttribute("href");
+    let skipTarget = document.querySelector(targetId);
+    skipTarget.removeAttribute("aria-hidden");
+    skipTarget.setAttribute("tabindex", "0");
+    skipTarget.classList.add("visible");
+    // Offset timing to set focus from going to the link target.
+    setTimeout(function timeoutFunction() {
+      skipTarget.focus();
+    }, 200);
   });
+});
 
-  // Hide the skipTargetAnchor/e.target as users move to next element.
-  // Check a keypress action with tab or arrow keys,
-  // which indicates that users attempts to leave the active anchor to another element.
-  // No need to display the active anchor at this point until its corresponding link gets clicked again.
-  document.querySelectorAll(".js-skiplink-target > a").forEach((anchor) => {
-    // For screen readers:
-    // When using arrow keys to move to another element, focus stays on the anchor and the anchor remains visible.
-    // Hide the anchor as they move to next element.
-    anchor.addEventListener("keydown", (e) => {
-      if (e.target.getAttribute("tabindex") === "0") {
-        if (
-          e.key === "Tab" ||
-          e.key === "ArrowUp" ||
-          e.key === "ArrowRight" ||
-          e.key === "ArrowDown" ||
-          e.key === "ArrowLeft"
-        ) {
-          e.target.classList.remove("visible");
-          e.target.setAttribute("tabindex", -1);
-        }
-      }
-    });
-
-    // For keyboard users, the anchor goes invisible as it loses focus.
-    anchor.addEventListener("blur", (e) => {
+// Hide the skipTargetAnchor/e.target as users move to next element.
+// Check a keypress action with tab or arrow keys,
+// which indicates that users attempts to leave the active anchor to another element.
+// No need to display the active anchor at this point until its corresponding link gets clicked again.
+document.querySelectorAll(".js-skiplink-target > a").forEach((anchor) => {
+  // For screen readers:
+  // When using arrow keys to move to another element, focus stays on the anchor and the anchor remains visible.
+  // Hide the anchor as they move to next element.
+  anchor.addEventListener("keydown", (e) => {
+    if (e.target.getAttribute("tabindex") === "0") {
       if (
-        e.target !== document.activeElement &&
-        e.target.getAttribute("tabindex") === "0"
+        e.key === "Tab" ||
+        e.key === "ArrowUp" ||
+        e.key === "ArrowRight" ||
+        e.key === "ArrowDown" ||
+        e.key === "ArrowLeft"
       ) {
-        e.target.classList.remove("visible");
-        e.target.setAttribute("tabindex", -1);
+        // e.target.classList.remove("visible");
+        // e.target.setAttribute("tabindex", -1);
+        skipLinkAnchor(e);
       }
-    });
+    }
   });
 
+  // For keyboard users, the anchor goes invisible as it loses focus.
+  anchor.addEventListener("blur", (e) => {
+    if (
+      e.target !== document.activeElement &&
+      e.target.getAttribute("tabindex") === "0"
+    ) {
+      skipLinkAnchor(e);
+    }
+  });
+});
+
+function skipLinkAnchor (e) {
+  e.target.classList.remove("visible");
+  e.target.setAttribute("tabindex", -1);
+}
 
 
 // For TOC skip link target
