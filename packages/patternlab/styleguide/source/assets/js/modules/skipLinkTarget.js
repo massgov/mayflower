@@ -31,8 +31,8 @@ document.querySelectorAll(".js-skiplink").forEach((link) => {
 // No need to display the active anchor at this point until its corresponding link gets clicked again.
 document.querySelectorAll(".js-skiplink-target > a").forEach((anchor) => {
   // For screen readers:
-  // When using arrow keys to move to another element, focus stays on the anchor and the anchor remains visible.
-  // Hide the anchor as they move to next element.
+  // When using arrow keys to move to another element, focus stays on the anchor and the target remains visible.
+  // Hide the anchor as they move to next element and remove focus from the target.
   anchor.addEventListener("keydown", (e) => {
     if (e.target.getAttribute("tabindex") === "0") {
       if (
@@ -42,9 +42,8 @@ document.querySelectorAll(".js-skiplink-target > a").forEach((anchor) => {
         e.key === "ArrowDown" ||
         e.key === "ArrowLeft"
       ) {
-        // e.target.classList.remove("visible");
-        // e.target.setAttribute("tabindex", -1);
         skipLinkAnchor(e);
+        e.target.blur();
       }
     }
   });
