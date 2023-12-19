@@ -2,14 +2,15 @@
  * Control display of a skip link target component.
  */
 
-skipLinkLoop(".ma__figure__skip-link");
-
-skipLinkLoop(".ma__video__skip-link");
-
 // For non-TOC skip links.
+// ------------------------
+// To set up a skip link, use classes 'ma__COMPONENT-NAME__skip-link' and 'ma__COMPONENT-NAME__skip-link_target'
+// for styling for a skip link and its target repectively.  Use the mixin ma-skip-link.
+// To add JS feature, use the classes, 'js-skiplink' and 'js-skiplink-target'.
+// See figure.twig and video.twig for markup.
+// ------------------------
 // Manage visibiliy of the link and its target.
-function skipLinkLoop (skipLinkClass) {
-  document.querySelectorAll(skipLinkClass).forEach((link) => {
+  document.querySelectorAll(".js-skiplink").forEach((link) => {
     link.addEventListener("click", (e) => {
       // Find the matched linkTarget.
       let targetId = e.target.getAttribute("href");
@@ -27,10 +28,10 @@ function skipLinkLoop (skipLinkClass) {
   // Check a keypress action with tab or arrow keys,
   // which indicates that users attempts to leave the active anchor to another element.
   // No need to display the active anchor at this point until its corresponding link gets clicked again.
-  let targetClass = skipLinkClass + "_target";
-  let targetAnchor = document.querySelectorAll(targetClass + " > a");
-
-  targetAnchor.forEach((anchor) => {
+  document.querySelectorAll(".js-skiplink-target > a").forEach((anchor) => {
+    // For screen readers:
+    // When using arrow keys to move to another element, focus stays on the anchor and the anchor remains visible.
+    // Hide the anchor as they move to next element.
     anchor.addEventListener("keydown", (e) => {
       if (e.target.getAttribute("tabindex") === "0") {
         if (
@@ -46,21 +47,18 @@ function skipLinkLoop (skipLinkClass) {
       }
     });
 
-  //   // For screen readers:
-  //   // When using arrow keys to move to another element, focus stays on the anchor.
-  //   // This results the anchor remains visible. Hide the anchor when another element gets focus to make it less distracting
-  //   // to screen reader users.
-  //   anchor.addEventListener("blur", (e) => {
-  //     if (
-  //       e.target !== document.activeElement &&
-  //       e.target.getAttribute("tabindex") === "0"
-  //     ) {
-  //       e.target.classList.remove("visible");
-  //       e.target.setAttribute("tabindex", -1);
-  //     }
-  //   });
+    // For keyboard users, the anchor goes invisible as it loses focus.
+    anchor.addEventListener("blur", (e) => {
+      if (
+        e.target !== document.activeElement &&
+        e.target.getAttribute("tabindex") === "0"
+      ) {
+        e.target.classList.remove("visible");
+        e.target.setAttribute("tabindex", -1);
+      }
+    });
   });
-}
+
 
 
 // For TOC skip link target
