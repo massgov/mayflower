@@ -10,7 +10,7 @@ $event-listing-bp-show-grid: $bp-medium-min;
     @include ma-container();
 
     .ma__event-teaser {
-      max-width: 820px;
+      max-width: $l-max-content-width;
     }
   }
 
