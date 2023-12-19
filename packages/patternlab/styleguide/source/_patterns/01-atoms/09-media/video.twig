@@ -23,7 +23,7 @@
     {% endif %}
 
     {# SKIP LINK #}
-    <a class="ma__video__skip-link js-skiplink" href="#{{ skiplinkId }}">Skip this video.</a>
+    <a class="ma__video__skip-link js-skiplink" href="#{{ skiplinkId }}">Skip this video<span class="ma__visually-hidden"> {{ video.label }}</span>.</a>
 
     <iframe width="{{ video.width }}" height="{{ video.height }}" src="{{ video.src }}" allowfullscreen allow="accelerometer; fullscreen; gyroscope; picture-in-picture" title="{{ video.label }}"></iframe>
 
