@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: Video
+    description: Add a heading and skiplink to video. (#1859)
+    issue: DP-29407
+    impact: Patch
