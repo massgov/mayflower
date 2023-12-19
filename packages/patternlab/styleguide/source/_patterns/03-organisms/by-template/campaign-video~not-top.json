@@ -10,7 +10,8 @@
         "href": "#",
         "text": "View transcript"
       },
-      "label": "Placeholder video"
+      "label": "Placeholder video",
+      "level": "2"
     }
   }
 }
