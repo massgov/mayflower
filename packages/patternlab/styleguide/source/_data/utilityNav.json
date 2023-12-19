@@ -26,7 +26,8 @@
                       "button": {
                         "text": "Enable Custom Styles",
                         "type": "button",
-                        "usage": "secondary"
+                        "usage": "secondary",
+                        "class": "ma__utility-nav__translate-icon"
                       }
                     }
                   }
