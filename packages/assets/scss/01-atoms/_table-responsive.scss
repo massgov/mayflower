@@ -3,7 +3,7 @@
 .ma__table--responsive {
   position: relative;
   margin-bottom: 1em;
-  overflow: hidden;
+  // overflow-y: hidden;
 
   // TODO: ADJUST THIS WITH PROPER CLASS.
   // &.has-horizontal-scroll {
@@ -30,8 +30,7 @@
   overflow-x: auto;
 
   &[tabindex="0"]:focus {
-    outline: 2px solid purple;
-    border: 2ps solid orange;
+    outline: 2px solid $c-gray-light;
   }
 
 }
@@ -61,15 +60,15 @@
         z-index: -1;
     }
 
-    // .sticky-thead-wrapper {
-    //   overflow-x: auto;
-    //   -ms-overflow-style: none;  // IE 10+
-    //   overflow: -moz-scrollbars-none;  // Firefox
+    .sticky-thead-wrapper {
+      overflow-x: auto;
+      -ms-overflow-style: none;  // IE 10+
+      overflow: -moz-scrollbars-none;  // Firefox
 
-    //   &::-webkit-scrollbar {
-    //     display: none;  // Safari and Chrome
-    //   }
-    // }
+      &::-webkit-scrollbar {
+        display: none;  // Safari and Chrome
+      }
+    }
 
     table {
       margin-bottom: 0;
@@ -95,11 +94,3 @@
     text-align: left;
     box-shadow: 0 0 0 2px $c-gray-light;
 }
-
-// .stickNav {
-
-//   .ma__table__horizontal-nav {
-//     position: fixed;
-//     bottom: 0;
-//   }
-// }
