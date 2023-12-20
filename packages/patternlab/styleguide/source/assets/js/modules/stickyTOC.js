@@ -121,7 +121,6 @@ export default (function (window, document) {
       const visibleLinks = tocSections.links.filter(link => link.style.display !== "none").length;
 
       // Show the "more" button only if there are more than a certain number of visible links.
-      // Adjust the number '9' based on your requirements.
       const moreButton = toc.querySelector(".ma__sticky-toc__footer");
       if (moreButton) {
         moreButton.style.display = visibleLinks > 9 && window.innerWidth > 480 ? "" : "none";
