@@ -2,9 +2,11 @@
  * Footer module.
  * @module @massds/mayflower-react/Footer
  * @requires module:@massds/mayflower-assets/scss/03-organisms/footer-new
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/buttons
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import ButtonFixedFeedback from 'MayflowerReactAtoms/buttons/ButtonFixedFeedback';
 
 const today = new Date();
 
@@ -21,7 +23,8 @@ const Footer = ({
     domain = '/',
     title = 'Mass.gov home page',
     src
-  }
+  },
+  floatingAction
 }) => (
   <footer data-nosnippet="true" className="ma__footer-new" id="footer">
     <div className="ma__footer-new__container">
@@ -45,6 +48,7 @@ const Footer = ({
         </div>
       </div>
     </div>
+    { floatingAction && <ButtonFixedFeedback /> }
   </footer>
 );
 
@@ -77,7 +81,9 @@ Footer.propTypes = {
       text: PropTypes.string,
       url: PropTypes.string
     })
-  })
+  }),
+  /** Adds feedback button. */
+  floatingAction: PropTypes.bool
 };
 
 export default Footer;

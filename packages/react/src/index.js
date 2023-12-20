@@ -141,7 +141,7 @@ export {
 // @organisms
 export GenTeaser from 'MayflowerReactOrganisms/GenTeaser';
 export Footer from 'MayflowerReactOrganisms/Footer';
-export FooterNew from 'MayflowerReactOrganisms/FooterNew';
+export FooterWithColumns from 'MayflowerReactOrganisms/FooterWithColumns';
 export FooterSlim from 'MayflowerReactOrganisms/FooterSlim';
 export RichText from 'MayflowerReactOrganisms/RichText';
 export UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';

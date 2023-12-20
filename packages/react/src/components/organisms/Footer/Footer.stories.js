@@ -15,7 +15,8 @@ FooterExample.args = {
   footerLogo: {
     src: stateSeal
   },
-  footerText: {}
+  footerText: {},
+  floatingAction: true
 };
 
 export const FooterLiveData = (args) => <Footer {...args} />;
@@ -25,7 +26,8 @@ FooterLiveData.args = {
   footerLogo: {
     src: stateSeal
   },
-  footerText: {}
+  footerText: {},
+  floatingAction: true
 };
 
 export default {
