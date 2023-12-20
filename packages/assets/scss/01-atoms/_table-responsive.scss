@@ -3,12 +3,7 @@
 .ma__table--responsive {
   position: relative;
   margin-bottom: 1em;
-  // overflow-y: hidden;
 
-  // TODO: ADJUST THIS WITH PROPER CLASS.
-  // &.has-horizontal-scroll {
-  //   // to accommodate the sticky nav bar
-  //   padding-bottom: 50px;
   .ma__table__caption__scroll-info {
     display: none;
     font-size: $fonts-medium;

@@ -61,15 +61,16 @@ export default (function (window, document, $) {
 
       // Setting it in a fixed position, but initially invisible.
       let tableLeft = $element.offset().left;
-      $stickyHeader.css({
-        "pointer-events": "none",
-        position: "fixed",
-        left: tableLeft,
-        top: getAdditionalOffset(),
-        opacity: 0,
-        "z-index": 50,
-        height: theadHeight
-      });
+      $stickyHeader
+        .css({
+          "pointer-events": "none",
+          position: "fixed",
+          left: tableLeft,
+          top: getAdditionalOffset(),
+          opacity: 0,
+          "z-index": 50,
+          height: theadHeight
+        });
       $stickyHeader[0].scrollLeft = 0;
     }
 
@@ -80,10 +81,6 @@ export default (function (window, document, $) {
         margin: 0,
         width: "100%"
       });
-
-    $element.toggleClass("has-horizontal-scroll", canScroll);
-    // Make sure the scrollbar is the width of the table.
-    $element.find(".ma__table__horizontal-nav").width($table.parent().width());
 
     // If we are not resetting, use the length as the index.
     if (index === false) {
@@ -102,15 +99,13 @@ export default (function (window, document, $) {
     };
     // Set the widths of the header.
     setWidths(rt);
-    // // Setup the scrollbar deminsions.
-    // recalcScrollbar(rt);
 
     // If we are reseting, replace the element. Otherwise, add it.
     if (reset) {
       responsiveTables[index] = rt;
-    } else {
+    }
+    else {
       responsiveTables.push(rt);
-      // rt.$root[0].addEventListener("scroll", handleTableScroll, true);
     }
     // Decide what should be showing or stuck.
     checkVisibility(rt);
