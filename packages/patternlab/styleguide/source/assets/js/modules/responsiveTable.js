@@ -176,10 +176,10 @@ export default (function (window, document, $) {
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
     const elementTop = rt.$root.offset().top;
-    // const windowTop = $window.scrollTop();
-    // const windowBottom = windowTop + $window.height();
+    const windowTop = $window.scrollTop();
+    const windowBottom = windowTop + $window.height();
     // + 50 to accommodate table padding for stickyNav
-    // const elementBottom = (elementTop + (rt.$root.height() + 50));
+    const elementBottom = (elementTop + (rt.$root.height() + 50));
     const tableBottom = elementTop + rt.$table.height();
 
     // Handle header visibility.
@@ -204,11 +204,11 @@ export default (function (window, document, $) {
   }
 
   // When scrolling the window, handle header / scrollbar visibility and position.
-  // function handleScroll() {
-  //   responsiveTables.forEach((rt) => {
-  //     checkVisibility(rt);
-  //   });
-  // }
+  function handleScroll() {
+    responsiveTables.forEach((rt) => {
+      checkVisibility(rt);
+    });
+  }
 
   // When the window is resized, reset the tables.
   function handleWindowResize() {
@@ -221,7 +221,7 @@ export default (function (window, document, $) {
   $(".js-ma-responsive-table").each((i, el) => initializeTable(el));
 
   // Set window scroll handler.
-  // $window.on("scroll", handleScroll);
+  $window.on("scroll", handleScroll);
   // Set window resize.
   $window.on("resize", handleWindowResize);
 
