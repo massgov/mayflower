@@ -116,6 +116,16 @@ export default (function (window, document) {
       if (tocSectionCount <= 9 && window.innerWidth > 480 ) {
         toc.querySelector(".ma__sticky-toc__footer").style.display = "none";
       }
+
+      // Determine the number of visible links.
+      const visibleLinks = tocSections.links.filter(link => link.style.display !== "none").length;
+
+      // Show the "more" button only if there are more than a certain number of visible links.
+      // Adjust the number '9' based on your requirements.
+      const moreButton = toc.querySelector(".ma__sticky-toc__footer");
+      if (moreButton) {
+        moreButton.style.display = visibleLinks > 9 && window.innerWidth > 480 ? "" : "none";
+      }
     }
 
     // Add the event listeners to handle all of the interaction.
