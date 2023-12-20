@@ -55,27 +55,24 @@
     }
   },
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x400.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "overlay",
-    "icon": "",
-    "title": "Required - Services title",
-    "titleSubText": "",
-    "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
-    "color": "blue",
-    "buttons": [{
-      "href": "#",
-      "text": "Log in to UI Online",
-      "size": "small",
-      "theme": "c-white",
-      "icon": "login"
-    },{
-      "href": "#",
-      "text": "Multilingual Online UI Application",
-      "size": "small",
-      "theme": "c-white",
-      "icon": "login"
-    }]
+    "pageHeader": {
+      "title": "Required - Services title",
+      "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
+      "headerTags": null,
+      "buttons": [{
+        "href": "#",
+        "text": "Log in to UI Online",
+        "size": "small",
+        "theme": "c-white",
+        "icon": "login"
+      },{
+        "href": "#",
+        "text": "Multilingual Online UI Application",
+        "size": "small",
+        "theme": "c-white",
+        "icon": "login"
+      }]
+    }
   },
   "introPageContent": {
     "video": {

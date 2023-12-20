@@ -1,6 +1,5 @@
 $header-mobile-menu-width: 300px;
 $header-logo-width: 150px;
-$bp-header-logo-min: "min-width: 1000px";
 $utility-nav-height: 44px;
 
 @use "00-base/configure" as *;
@@ -177,7 +176,7 @@ body.show-menu {
       float: none;
     }
 
-    @media ($bp-header-logo-min) {
+    @media ($bp-large-extended-min) {
 
       @include span-columns(3);
       display: inline-block;
@@ -218,7 +217,7 @@ body.show-menu {
       width: 66.12903%; //@include span-columns(8);
     }
 
-    @media ($bp-header-logo-min) {
+    @media ($bp-large-extended-min) {
       width: 74.59677%; //@include span-columns(9);
     }
 
