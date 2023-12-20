@@ -1,6 +1,6 @@
 /**
- * Footer module.
- * @module @massds/mayflower-react/Footer
+ * Footer With Columns module.
+ * @module @massds/mayflower-react/FooterWithColumns
  * @requires module:@massds/mayflower-assets/scss/03-organisms/footer
  * @requires module:@massds/mayflower-assets/scss/02-molecules/footer-links
  * @requires module:@massds/mayflower-assets/scss/01-atoms/sidebar-heading
@@ -17,7 +17,7 @@ import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 const today = new Date();
 const year = today.getFullYear();
 
-const Footer = ({
+const FooterWithColumns = ({
   footerLinks, socialLinks,
   footerText: {
     copyright = `${year} Commonwealth of Massachusetts.`,
@@ -71,7 +71,7 @@ const Footer = ({
   </footer>
 );
 
-Footer.propTypes = {
+FooterWithColumns.propTypes = {
   /** `@molecules/FooterLinks` */
   footerLinks: PropTypes.shape(FooterLinks.propTypes).isRequired,
   /** Whether to display or visually hiding footer nav headings */
@@ -105,4 +105,4 @@ Footer.propTypes = {
   })
 };
 
-export default Footer;
+export default FooterWithColumns;

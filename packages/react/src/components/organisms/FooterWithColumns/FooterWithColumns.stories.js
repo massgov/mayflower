@@ -6,13 +6,13 @@ import SocialLinksData from 'MayflowerReactMolecules/SocialLinks/SocialLinks.jso
 import FooterLinksLiveData from 'MayflowerReactMolecules/FooterLinks/FooterLinksLive.json';
 import SocialLinksLiveData from 'MayflowerReactMolecules/SocialLinks/SocialLinksLive.json';
 import styles from '@massds/mayflower-assets/build/scss/footer.scss';
-import Footer from './index';
-import FooterDocs from './Footer.md';
+import FooterWithColumns from './index';
+import FooterWithColumnsDocs from './FooterWithColumns.md';
 
-export const FooterExample = (args) => <Footer {...args} />;
+export const FooterWithColumnsExample = (args) => <FooterWithColumns {...args} />;
 
-FooterExample.storyName = 'Default';
-FooterExample.args = {
+FooterWithColumnsExample.storyName = 'Default';
+FooterWithColumnsExample.args = {
   footerLinks: FooterLinksData,
   showNavHeading: true,
   socialLinks: SocialLinksData,
@@ -22,9 +22,9 @@ FooterExample.args = {
   footerText: {}
 };
 
-export const FooterLiveData = (args) => <Footer {...args} />;
-FooterLiveData.storyName = 'Footer with live JSON';
-FooterLiveData.args = {
+export const FooterWithColumnsLiveData = (args) => <FooterWithColumns {...args} />;
+FooterWithColumnsLiveData.storyName = 'Footer With Columns with live JSON';
+FooterWithColumnsLiveData.args = {
   footerLinks: FooterLinksLiveData,
   showNavHeading: false,
   socialLinks: SocialLinksLiveData,
@@ -35,11 +35,11 @@ FooterLiveData.args = {
 };
 
 export default {
-  title: 'organisms/Footer',
-  component: Footer,
+  title: 'organisms/FooterWithColumns',
+  component: FooterWithColumns,
   parameters: {
     docs: {
-      page: () => <StoryPage styles={styles} Description={FooterDocs} />
+      page: () => <StoryPage styles={styles} Description={FooterWithColumnsDocs} />
     }
   }
 };
