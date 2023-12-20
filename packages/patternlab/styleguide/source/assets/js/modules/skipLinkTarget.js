@@ -25,25 +25,44 @@ document.querySelectorAll(".js-skiplink").forEach((link) => {
   });
 });
 
-// Hide the skipTargetAnchor/e.target as users move to next element.
+// Hide the anchor/e.target as users move to next element.
 // Check a keypress action with tab or arrow keys,
 // which indicates that users attempts to leave the active anchor to another element.
-// No need to display the active anchor at this point until its corresponding link gets clicked again.
+// No need to display the anchor at this point until its corresponding link gets clicked again.
 document.querySelectorAll(".js-skiplink-target > a").forEach((anchor) => {
   // For screen readers:
   // When using arrow keys to move to another element, focus stays on the anchor and the target remains visible.
   // Hide the anchor as they move to next element and remove focus from the target.
   anchor.addEventListener("keydown", (e) => {
+
+console.log(e);
+
     if (e.target.getAttribute("tabindex") === "0") {
-      if (
-        e.key === "Tab" ||
-        e.key === "ArrowUp" ||
-        e.key === "ArrowRight" ||
-        e.key === "ArrowDown" ||
-        e.key === "ArrowLeft"
-      ) {
-        skipLinkAnchor(e);
-        e.target.blur();
+
+      // if (
+      //   e.key === "Tab" ||
+      //   e.key === "ArrowUp" ||
+      //   e.key === "ArrowRight" ||
+      //   e.key === "ArrowDown" ||
+      //   e.key === "ArrowLeft" ||
+      //   e.key === "Control" ||
+      //   e.key === "Alt"
+      // ) {
+      //   skipLinkAnchor(e);
+      //   e.target.blur();
+      // }
+
+      switch (e.key) {
+        case "Tab":
+        case "ArrowUp":
+        case "ArrowDown":
+        case "ArrowLeft":
+        case "ArrowRight":
+        // case "Control":
+        // case "Alt":
+          skipLinkAnchor(e);
+          e.target.blur();
+          break;
       }
     }
   });
@@ -60,7 +79,7 @@ document.querySelectorAll(".js-skiplink-target > a").forEach((anchor) => {
 });
 
 function skipLinkAnchor (e) {
-  e.target.classList.remove("visible");
+  e.target.classList.toggle("visible");
   e.target.setAttribute("tabindex", -1);
 }
 
