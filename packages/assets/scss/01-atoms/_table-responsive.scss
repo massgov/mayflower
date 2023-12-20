@@ -29,6 +29,11 @@
 
   overflow-x: auto;
 
+  &[tabindex="0"]:focus {
+    outline: 2px solid purple;
+    border: 2ps solid orange;
+  }
+
 }
 
 .ma__table--responsive .sticky-thead {
