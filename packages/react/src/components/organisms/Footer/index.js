@@ -1,6 +1,6 @@
 /**
- * FooterNew module.
- * @module @massds/mayflower-react/FooterNew
+ * Footer module.
+ * @module @massds/mayflower-react/Footer
  * @requires module:@massds/mayflower-assets/scss/03-organisms/footer-new
  */
 import React from 'react';
@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 const today = new Date();
 
-const FooterNew = ({
+const Footer = ({
   footerLinks,
   footerText: {
     copyright = today.getFullYear(),
@@ -34,7 +34,7 @@ const FooterNew = ({
         <nav className="ma__footer-new__navlinks" aria-label="site navigation">
           {
             footerLinks.links.map((link, i) => (
-              <div key={`footerNewLinksNav_${i}`} index={i}><a href={link.href}>{link.text}</a></div>
+              <div key={`footerLinksNav_${i}`} index={i}><a href={link.href}>{link.text}</a></div>
             ))
           }
         </nav>
@@ -48,7 +48,7 @@ const FooterNew = ({
   </footer>
 );
 
-FooterNew.propTypes = {
+Footer.propTypes = {
   /** Footer links */
   footerLinks: PropTypes.shape({
     links: PropTypes.array
@@ -80,4 +80,4 @@ FooterNew.propTypes = {
   })
 };
 
-export default FooterNew;
+export default Footer;
