@@ -30,36 +30,18 @@ document.querySelectorAll(".js-skiplink").forEach((link) => {
 // which indicates that users attempts to leave the active anchor to another element.
 // No need to display the anchor at this point until its corresponding link gets clicked again.
 document.querySelectorAll(".js-skiplink-target > a").forEach((anchor) => {
-  // For screen readers:
-  // When using arrow keys to move to another element, focus stays on the anchor and the target remains visible.
-  // Hide the anchor as they move to next element and remove focus from the target.
+  // When using arrow keys to move to another element, focus stays on the anchor and it remains visible.
+  // Hide the anchor as they move to next element and remove focus from it.
+  // Note: In JAWS and NVDA, the anchor remains visible until another element gets focus.
+  //       Unable to capture e.key with screen readers running.  Leave this for future enhancement.
   anchor.addEventListener("keydown", (e) => {
-
-console.log(e);
-
     if (e.target.getAttribute("tabindex") === "0") {
-
-      // if (
-      //   e.key === "Tab" ||
-      //   e.key === "ArrowUp" ||
-      //   e.key === "ArrowRight" ||
-      //   e.key === "ArrowDown" ||
-      //   e.key === "ArrowLeft" ||
-      //   e.key === "Control" ||
-      //   e.key === "Alt"
-      // ) {
-      //   skipLinkAnchor(e);
-      //   e.target.blur();
-      // }
-
       switch (e.key) {
         case "Tab":
         case "ArrowUp":
         case "ArrowDown":
         case "ArrowLeft":
         case "ArrowRight":
-        // case "Control":
-        // case "Alt":
           skipLinkAnchor(e);
           e.target.blur();
           break;
