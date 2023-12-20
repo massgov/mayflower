@@ -16,7 +16,7 @@
                     "path": "@atoms/11-text/paragraph.twig",
                     "data": {
                       "paragraph": {
-                        "text": "We are testing Userway, a tool that will let you change color contrast and other visual styles. Click the button below to enable it."
+                        "text": "We are testing Userway, a tool that will let you change color contrast and other visual styles. Click the button below to open it."
                       }
                     }
                   },
@@ -24,7 +24,7 @@
                     "path": "@atoms/01-buttons/button.twig",
                     "data": {
                       "button": {
-                        "text": "Enable Userway",
+                        "text": "Open contrast settings",
                         "type": "button",
                         "usage": "secondary",
                         "theme": "c-primary-alt",
