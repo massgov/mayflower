@@ -35,6 +35,13 @@ export default (function (document,$) {
       }
     });
 
+    // close the utility menu when user opens Userway settings. [Temporary - remove after the testing phase] 
+    $('.ma__utility-nav__userway').on('click', function () {
+      $panel.css('top', '-' + height + 'px');
+      $panel.addClass('is-closed');
+      $panel.attr("aria-hidden", "true");
+    });
+
     $closeButton.on('click', function () {
       $panel.css('top', '-' + height + 'px');
       $panel.addClass('is-closed');
