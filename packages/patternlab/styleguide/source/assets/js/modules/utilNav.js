@@ -42,7 +42,7 @@ export default (function (document,$) {
         $panel.css('top', '-' + height + 'px');
         $panel.addClass('is-closed');
         $panel.attr("aria-hidden", "true");
-      }, 200);
+      }, 500);
     });
 
     $closeButton.on('click', function () {
