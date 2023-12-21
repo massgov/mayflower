@@ -1,5 +1,5 @@
 {% if fieldSubmit.isForm %}
-<form class="ma__field-submit" action={{ fieldSubmit.action }}>
+<form class="ma__field-submit" action={{ fieldSubmit.action }} {% if fieldSubmit.id %} id={{ fieldSubmit.id }} {% endif %}>
 {% else %}
 <fieldset class="ma__field-submit">
 {% endif %}
@@ -12,7 +12,7 @@
     {% include "@atoms/03-forms/input-text.twig" %}
     {% set buttonSearch = fieldSubmit.buttonSearch %}
     {% include "@atoms/01-buttons/button-search.twig" %}
-  </div>  
+  </div>
 {% if fieldSubmit.isForm %}
 </form>
 {% else %}

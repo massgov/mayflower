@@ -1,6 +1,7 @@
-{ 
+{
   "fieldSubmit": {
-    "isForm": true, 
+    "isForm": true,
+    "id": "test",
     "action": "https://search.mass.gov/",
     "labelText": "Filter by city, town or zipcode",
     "inputText": {
