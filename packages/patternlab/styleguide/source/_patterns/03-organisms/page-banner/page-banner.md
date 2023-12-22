@@ -1,54 +1,55 @@
 ### Description
-Page Banner component that is composed of an H1 page title, with optional icon, featured image and description.
+Page Banner component is a higher-order component of Page Header componet. Like Page Header, it's meant to be used above the main content of the page,it adds an `<h1>` page title and other helpful bit of content that helps define the page's purpose. On top of that, Page Banner allows an background color (theme) and a decorative image to add more visual interests and emphasis to Page Header.
+
+Note: If the Page Banner doesn't have a background color other white, or an image, use Page Header instead.
 
 ### Status
-* Stable as of 5.0.0
+* New after v12.7.0
+* This pattern will replace both Illustrated Header and Legacy Page Banner. 
 
 ### Variant options
-* Layouts: 
-  - ['taper'](./?p=organisms-page-banner-as-large) - Trepezoid solid color background, side-by-side image
-  - ['overlay'](./?p=organisms-page-banner-as-overlay) - Transparent background color over an image
-* Color themes:
-  - blue (./?p=organisms-page-banner)
-  - green
-* The icon and description are both optional
+* Themes:
+  - c-primary (Used on mass.gov for navigational pages)
+  - c-primary-alt (Used on mass.gov for organizational pages)
+  - c-white (Used on mass.gov for information pages)
+* Image
+  - renderImageOnMobile - whether to wrap the image under the 1000px breakpoint
+  - image - image path for wide screens/ 2:1 aspect ratio / max rendering size @ 800 x 400px
+  - imageMedium - image path for medium screens/ 4:3 aspect ratio / max rendering size @ 600 x 450px
+  - imageMobile - image path for mobile screens/ 2:1 aspect ratio / max rendering size @ 480 x 240px
 
 ### Variables
 ~~~
 pageBanner: {
-  bgWide:
-    type: string (image path - wide screens) / required
-  bgNarrow:
-    type: string (image path - narrow screens) / required
-  underline:
-    type: boolean / optional / default to false
-  layout:
-    type: string ('', 'taper', 'overlay') / optional
+  image:
+    type: string / optional (required as the default image)
+  imageMedium:
+    type: string / optional
+  imageMedium:
+    type: string / optional
   renderImageOnMobile:
-    type: boolean / optional / default to false
-  icon:
-    type: string (path to icon file) / optional
-  title:
-    type: string / required
-  titleSubText:
-    type: string / optional
-  description:
-    type: string / optional
-  color:
-    type: string ('', 'blue', 'green', 'white') / optional
-  primaryLink: / opional
-    text: string / required
-    href: string / optional
-    info: string / optional
-    description: string / optional
-  secondaryLink: / opional
-    text: string / required
-    href: string / optional
-    info: string / optional
-    description: string / optional
-  buttonLabel: / optional
-    type: text - label of the buttons, only rendered when buttons are added
-  buttons: / optional
-    type: array of buttons
+    type: boolean / optional - default to false
+  bgPositionX:
+    type: string with % / optional - Sets background position horizontall on desktop, e.g. 100% 
+  bgPositionY:
+    type: string with % / optional - Sets background position vertically on desktop e.g. 100%
+  theme:
+    type: string ('', 'c-primary', 'c-primary-alt', 'c-white') / optional - default as c-primary
+  pageHeader: 
+    type: pageHeader / required
+  {
+    category: 
+        type: string / optional,
+    title:
+        type: string / required
+    subTitle:
+        type: string / optional
+    description:
+        type: string / optional
+    ...
+   }
+
 }
 ~~~
+
+Refer to [page-header.md](../page-header/page-header.md)

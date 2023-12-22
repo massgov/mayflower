@@ -1,16 +1,20 @@
 {
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/800x400.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "taper",
-    "icon": null,
-    "title": "Office of the Treasurer & Receiver General",
-    "titleSubText": "(TRE)",
-    "primaryLink": {
-      "text": "Deborah B. Goldberg",
-      "href": "#",
-      "info": "",
-      "description": "Treasurer & Receiver General"
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "theme": "c-primary-alt",
+    "renderImageOnMobile": true,
+    "pageHeader": {
+      "title": "Office of the Treasurer & Receiver General",
+      "titleSubText": "(TRE)",
+      "links": [{
+        "text": "Deborah B. Goldberg",
+        "href": "#",
+        "info": "",
+        "description": "Treasurer & Receiver General",
+        "inverse": true
+      }]
     }
   },
   "stackedRows": [

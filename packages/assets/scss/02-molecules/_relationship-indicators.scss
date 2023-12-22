@@ -8,7 +8,7 @@
   padding: 0;
   font-weight: 600;
   border-bottom: 0;
-  margin: 10px 20px 0;
+  margin: 5px 20px;
   font-size: $fonts-smaller;
 
   @media ($bp-small-min) {
@@ -334,11 +334,11 @@
 
   & + .ma__illustrated-header,
   & + .ma__page-header,
-  & + .ma__page-banner {
+  & + .ma__page-banner-legacy {
     margin-top: 5px;
   }
 
-  & + .ma__page-banner--columns {
+  & + .ma__page-banner-legacy--columns {
 
     @media ($bp-medium-min) {
       padding-top: 25px;

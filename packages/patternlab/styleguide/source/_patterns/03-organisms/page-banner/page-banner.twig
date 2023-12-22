@@ -1,121 +1,41 @@
-{% set layoutClass = pageBanner.layout ? "ma__page-banner--" ~ pageBanner.layout : '' %}
-{% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
-{% set bgNarrowClass = pageBanner.bgNarrow ? "ma__page-banner--bg-narrow" : "" %}
-{% set bgWideClass = pageBanner.bgWide ? "ma__page-banner--bg-wide" : "" %}
-{% set noImage = (pageBanner.bgWide or pageBanner.bgNarrow) ? "" : "ma__page-banner--no-img" %}
-{% set imageOnMobileClass = pageBanner.renderImageOnMobile ? "" : "ma__page-banner--no-img-mobile" %}
-{% set iconClass = not pageBanner.icon ? "ma__page-banner--no-icon" : '' %}
-{% set bgNarrowWrapperClass = pageBanner.bgNarrow ? "ma__page-banner__content-wrapper--bg-narrow" : "" %}
-{% set bgWideWrapperClass = pageBanner.bgWide ? "ma__page-banner__content-wrapper--bg-wide" : "" %}
-{% if pageBanner.underline %}
-  {% if pageBanner.description %}
-    {% set underlineWrapperClass = "ma__page-banner__content-wrapper--underline-description" %}
-  {% else %}
-    {% set underlineWrapperClass = "ma__page-banner__content-wrapper--underline" %}
-  {% endif %}
-{% endif %}
+{% set theme = pageBanner.theme ? " ma__page-banner--" ~ pageBanner.theme : " ma__page-banner--c-primary" %}
 
-{% set sectionClass = "ma__page-banner #{layoutClass} #{colorClass} #{bgNarrowClass} #{bgWideClass} #{imageOnMobileClass} #{noImage} #{iconClass}" %}
-{% set wrapperClass = "ma__page-banner__content-wrapper #{bgNarrowWrapperClass} #{bgWideWrapperClass} #{underlineWrapperClass}" %}
-
-
-<section class="{{ sectionClass }}">
-  {% set classBgImage =
-    (pageBanner.layout == "taper") ? '.ma__page-banner__image' : '.ma__page-banner'
-  %}
-
-  {# pageBanner.bgWide #}
-  {% if not noImage %}
-    <style>
-      {% if pageBanner.renderImageOnMobile %}
-        {# Optional pageBanner.bgNarrow #}
-        {{ classBgImage }} {
-          background-image: url('{{ (bgNarrowClass) ? pageBanner.bgNarrow : pageBanner.bgWide }}');
-        }
-      {% endif %}
-
-      @media (min-width: 1051px) {
-        {{ classBgImage }} {
-          background-image: url('{{ pageBanner.bgWide }}');
-        }
-      }
-    </style>
-  {% endif %}
-
+<div class="ma__page-banner{{theme}}">
   <div class="ma__page-banner__container">
-    {% if (pageBanner.layout and pageBanner.layout == "taper") and bgWideWrapperClass %}
-      <div class="ma__page-banner__image"></div>
-    {% endif %}
-    <div class="ma__page-banner__content" property="mainEntityOfPage">
-      <div class="{{ wrapperClass }}">
-        <div class="ma__page-banner__title-wrapper">
-          {% if pageBanner.icon %}
-            <div class="ma__page-banner__icon">
-              {{ icon(pageBanner.icon) }}
-            </div>
-          {% endif %}
-          <h1 class="ma__page-banner__title">
-            {{ pageBanner.title }}
-            {% if pageBanner.titleSubText %}
-              <abbr title="{{ pageBanner.title }}"> {{ pageBanner.titleSubText }}</abbr>
-            {% endif %}
-          </h1>
-        </div>
-        {% if pageBanner.primaryLink %}
-          {% set decorativeLink = pageBanner.primaryLink %}
-          {% if pageBanner.primaryLink.href %}
-            {% include "@atoms/decorative-link.twig" %}
-          {% else %}
-            <p class="ma__page-banner__unlinked-title">
-              {{pageBanner.primaryLink.text}}
-            </p>
-          {% endif %}
-          {% if pageBanner.primaryLink.description %}
-            <div class="ma__page-banner__description">
-              {{pageBanner.primaryLink.description}}
-            </div>
-          {% endif %}
-        {% endif %}
-        {% if pageBanner.secondaryLink %}
-          {% set decorativeLink = pageBanner.secondaryLink %}
-          {% if pageBanner.secondaryLink.href %}
-            {% include "@atoms/decorative-link.twig" %}
-          {% else %}
-            <p class="ma__page-banner__unlinked-title">
-              {{pageBanner.secondaryLink.text}}
-            </p>
-          {% endif %}
-          {% if pageBanner.secondaryLink.description %}
-            <div class="ma__page-banner__description">
-              {{pageBanner.secondaryLink.description}}
-            </div>
-          {% endif %}
-        {% endif %}
-        {% if pageBanner.description %}
-          <p class="ma__page-banner__description">
-            {{ pageBanner.description }}
-            {% if pageBanner.descriptionSubText %}
-              <span class="ma__page-banner__descriptionSubText">
-                {{ pageBanner.descriptionSubText }}
-              </span>
-            {% endif %}
-          </p>
-        {% endif %}
-        {% if pageBanner.buttons %}
-          <div class="ma__page-banner__buttons-wrapper">
-            {% if pageBanner.buttonsLabel %}
-              <span  class="ma__page-banner__buttons-label">{{pageBanner.buttonsLabel}}</span>
-            {% endif %}
-            <ul class="ma__page-banner__buttons">
-              {% for button in pageBanner.buttons %}
-                <li class="ma__page-banner__button">
-                  {% include "@atoms/01-buttons/button.twig" %}
-                </li>
-              {% endfor %}
-            </ul>
-          <div>
-        {% endif %}
-      </div>
+    <div class="ma__page-banner__content">
+      {% set pageHeader = pageBanner.pageHeader  %}
+      {% include "@organisms/page-header/page-header.twig" %}
+      {% include "@organisms/page-header/page-header-addons.twig" %}
     </div>
+    {% if pageBanner.image %}
+        <div class="ma__page-banner__image"></div>
+    {% endif %}
   </div>
-</section>
+</div>
+
+{% if pageBanner.image %}
+    {% set imageMobile = pageBanner.imageMobile ?: pageBanner.image %}
+    {% set imageMedium = pageBanner.imageMedium ?: pageBanner.image %}
+    <style>
+        {% if pageBanner.renderImageOnMobile %}
+            .ma__page-banner__image {
+                background-image: url('{{ imageMobile }}');
+                display: block;
+            }
+        {% endif %}
+        @media (min-width: 1001px) {
+            .ma__page-banner__image {
+                background-image: url('{{ imageMedium }}');
+
+                {% if pageBanner.bgPositionX and pageBanner.bgPositionY %}
+                    background-position: {{ pageBanner.bgPositionX }} {{ pageBanner.bgPositionY }};
+                {% endif %}
+            }
+        }
+        @media (min-width: 1201px) {
+            .ma__page-banner__image {
+                background-image: url('{{ pageBanner.image }}');
+            }
+        }
+    </style>
+{% endif %}
