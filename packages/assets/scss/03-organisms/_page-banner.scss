@@ -86,33 +86,6 @@ $textcolors: (
       min-height: 200px;
     }
   }
-<<<<<<< HEAD
-}
-
-// config
-
-.ma__page-banner {
-
-  // With underline
-
-  &__content-wrapper {
-
-    &--underline .ma__page-banner__title,
-    &--underline-description {
-
-      &:after {
-        content: "";
-        position: absolute;
-        display: block;
-        height: 6px;
-        width: 105px;
-        background-color: $c-berkshires-green;
-        -webkit-transform: skew(-30deg);
-        -ms-transform: skew(-30deg);
-        transform: skew(-30deg);
-        margin-top: 1rem;
-      }
-=======
   
   @media ($bp-x-large-min) {
     &__image {
@@ -121,7 +94,6 @@ $textcolors: (
       background-size: cover;
       width: 100%;
       min-height: 200px;
->>>>>>> develop
     }
   }
   
@@ -133,59 +105,4 @@ $textcolors: (
       width: 100%;
     }
   }
-<<<<<<< HEAD
-
-    // green background
-
-    &--green {
-      background-color: $c-primary-alt;
-
-      &:before {
-        background-color: $c-primary-alt;
-      }
-
-      &.ma__page-banner--taper .ma__page-banner__content {
-        background-color: $c-primary-alt;
-
-        &:before {
-          background-color: $c-primary-alt;
-        }
-      }
-    }
-
-    // white background
-
-    &--white {
-      background-color: $c-bg;
-      color: $c-font-base;
-
-      &:before {
-        background-color: $c-bg;
-      }
-
-      &.ma__page-banner--taper .ma__page-banner__content {
-        background-color: $c-bg;
-
-        &:before {
-          background-color: $c-bg;;
-        }
-      }
-    }
-
-    &--white &__icon {
-
-      svg,
-      svg > g {
-        fill: $c-primary-alt;
-      }
-    }
-
-    &--white &__title,
-    &--white &__description {
-      color: $c-font-base;
-    }
-=======
->>>>>>> develop
 }
-
-
