@@ -84,11 +84,11 @@
     font-weight: $fonts-light;
 
     &:before {
-      background-color: $c-white;
+      background-color: $c-bg;
       border-color: $c-bd-input-dark;
 
       .ma__form--light & {
-        background-color: rgba($c-white, 0.1);
+        background-color: rgba($c-bg, 0.1);
         border-color: rgba($c-bd-input,.5);
       }
     }

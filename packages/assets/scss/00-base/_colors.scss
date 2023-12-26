@@ -22,15 +22,14 @@ $c-error-lightest:       $c-error-red-lightest !default;
 $c-warning:              $c-duckling-yellow !default;
 $c-success:              $c-berkshires-green !default;
 $c-focus:                $c-focus-hightlight !default;
-// Need to add these colors to this listing new to add
-// $c-visited
+$c-visited:              $c-independence-cranberry-10-tint !default;
 
-$c-font-base:            $c-black !default;
+$c-font-base:            $c-gray-darkest !default;
 $c-font-detail:          $c-gray-dark !default;
-$c-font-dark:            $c-black !default;
+$c-font-dark:            $c-gray-darkest !default;
 $c-font-medium:          $c-gray !default;
 
-$c-font-heading:         $c-black !default;
+$c-font-heading:         $c-gray-darkest !default;
 $c-font-inverse:         $c-white !default;
 $c-font-link:            $c-bay-blue !default;
 $c-font-error:           $c-error !default;
@@ -46,3 +45,6 @@ $c-bd-divider-dark:      $c-gray-dark !default;
 $c-bd-error:             $c-error !default;
 $c-bd-input:             $c-gray-light !default;
 $c-bd-input-dark:        $c-gray !default;
+
+// Box shadow
+$c-box-shadow-black:      rgba($c-black, 0.25) !default;

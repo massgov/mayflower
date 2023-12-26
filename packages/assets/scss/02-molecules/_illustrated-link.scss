@@ -79,14 +79,13 @@ $illustrated-link-image-width: 130px;
 //theme
 
 .ma__illustrated-link {
-  border-color: mix(#fff, $c-primary,50%);
-  box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
-
+  border-color: $c-primary-lighter;
+  box-shadow: $box-shadow;
   &__content {
-    background-color: mix(#fff, $c-primary,89%);
+    background-color: $c-primary-lightest;
 
     &:after {
-      background-color: mix(#fff, $c-primary,89%);
+      background-color: $c-primary-lightest;
     }
   }
 
@@ -103,16 +102,16 @@ $illustrated-link-image-width: 130px;
     a {
 
       &:hover {
-        border-bottom-color: rgba($c-font-link, .5);
+        border-bottom-color: $c-bay-blue-lighter;
       }
     }
 
     svg {
-      fill: rgba($c-font-link, .5);
+      fill: $c-bay-blue-lighter;
     }
   }
 
   &__image {
-    background-color: mix(#fff, $c-primary,50%);
+    background-color: $c-primary-lighter;
   }
 }
