@@ -5,16 +5,16 @@
   padding-bottom: $standard-spacing--xxsmall;
 
   &--dark-font &--inner {
-    color: black;
+    color: $c-black;
 
     .blogpost-collection-header__content a {
-      color: black;
+      color: $c-black;
     }
   }
 }
 
 .blogpost-collection-header--inner {
-  color: white;
+  color: $c-font-inverse;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,15 +43,15 @@
   font-size: $fonts-xlarge;
 
   a {
-    color: white;
+    color: $c-font-inverse;
 
     &:hover {
-      border-bottom-color: white;
+      border-bottom-color: $c-white;
     }
   }
 
   svg {
-    fill: white;
+    fill: $c-white;
     opacity: 0.5;
   }
 }

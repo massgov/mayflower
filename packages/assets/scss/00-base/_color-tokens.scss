@@ -96,7 +96,9 @@ $c-overcast-gray:                   #DCDCDC !default;
 $c-platinum-gray:                   #F2F2F2 !default;
 
 // Gray Scale Spectrum Mapping
-$c-black:                           $c-revolution-gray !default;
+$c-black:                           #000000 !default;
+$c-gray-darkest:                    $c-revolution-gray !default;
+// $c-gray-darker: (place holder)
 $c-gray-dark:                       $c-granite-gray !default;
 $c-gray:                            $c-atlantic-gray !default;
 $c-gray-light:                      $c-overcast-gray !default;
@@ -111,3 +113,4 @@ $c-error-red-lightest:              #FCF3F3 !default; //Commonly used in backgro
 
 // Focus Highlight (#3e94cf)
 $c-focus-hightlight:                #3e94cf !default;
+
