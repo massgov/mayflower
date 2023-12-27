@@ -18,7 +18,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: rgba($c-black, 0.4);
+  background-color: rgba($c-gray-darkest, 0.4);
   top: 0;
   z-index: $z-overlay-shade;// Lay over the alerts.
 
@@ -36,7 +36,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: rgba($c-black, 0.4);
+  background-color: rgba($c-gray-darkest, 0.4);
   top: 0px;
   z-index: $z-overlay-shade;
 
@@ -505,7 +505,7 @@ body.show-menu {
 
             &:focus {
               background-color: $c-bd-divider;
-              outline: 2px solid $c-black;
+              outline: 2px solid $c-gray-darkest;
             }
 
             .toggle-indicator {
@@ -555,7 +555,7 @@ body.show-menu {
             position: relative;
             top: auto;
             right: auto;
-            color: $c-black;
+            color: $c-font-base;
             z-index: $z-overlay;
 
             transition: max-height 0.6s ease-in-out;
@@ -603,7 +603,7 @@ body.show-menu {
 
             & .ma__utility-panel {
               background-color: $c-gray-lightest;
-              color: $c-black;
+              color: $c-font-base;
 
               @include ma-reset-list;
 
@@ -628,7 +628,7 @@ body.show-menu {
               position: relative;
               line-height: 1.33;
               padding: 0 20px 10px 20px;
-              color: $c-black;
+              color: $c-font-base;
               margin-bottom: 0;
             }
 
@@ -638,7 +638,7 @@ body.show-menu {
 
             & .ma__utility-panel__item {
               background-color: $c-gray-lightest;
-              color: $c-black;
+              color: $c-font-base;
               margin: 0;
               display: block;
             }
@@ -659,7 +659,7 @@ body.show-menu {
               font-weight: $fonts-normal;
               line-height: 1.33;
               padding: 10px 20px 10px 30px;
-              color: $c-black;
+              color: $c-font-base;
 
               &:hover {
                 text-decoration: underline;
@@ -723,7 +723,7 @@ body.show-menu {
       font-weight: $fonts-semibold;
       background-color: tint($c-font-link, 90%);
       border-color: tint($c-font-link, 50%);
-      box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+      box-shadow: $box-shadow;
       color: $c-font-link;
       font-size: 1.25rem;
 
@@ -757,7 +757,7 @@ body.show-menu {
       }
 
       &:focus {
-        background-color: $c-white;
+        background-color: $c-bg;
         border-color: $c-highlight !important;
       }
     }

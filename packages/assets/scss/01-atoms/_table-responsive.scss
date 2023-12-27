@@ -24,7 +24,7 @@
 }
 
 .ma__table--responsive .sticky-thead {
-    background: $c-white;
+    background: $c-bg;
     border-collapse: collapse;
     box-shadow: 0 0 0 2px $c-gray-light;
     left: 0;
@@ -38,7 +38,7 @@
     z-index: 50;
 
     &:before {
-        background: $c-white;
+        background: $c-bg;
         content: '';
         height: 100vh;
         left: 0;
@@ -85,7 +85,7 @@
 
 .ma__table__horizontal-nav {
     align-items: center;
-    background-color:$c-white;
+    background-color: $c-bg;
     border-top: 1px solid $c-gray-light;
     bottom: 0;
     display: none;
