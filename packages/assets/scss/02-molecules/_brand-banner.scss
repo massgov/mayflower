@@ -18,8 +18,8 @@
             "c-primary": $c-primary,
             "c-primary-alt": $c-primary-alt,
             "c-highlight": $c-highlight,
-            "c-gray": $c-black,
-            "c-black": $c-black
+            "c-gray": $c-gray-darkest,
+            "c-black": $c-gray-darkest
         )
     );
 
@@ -86,15 +86,15 @@
             // Icon colors
 
             &.light-c-primary > svg {
-                fill: $c-primary; //#14558F;
+                fill: $c-primary;
             }
 
             &.light-c-primary-alt>svg {
-                fill: $c-primary-alt; //#388557;
+                fill: $c-primary-alt;
             }
 
             &.dark > svg {
-                fill: #fff;
+                fill: $c-white;
             }
 
             & + & {
