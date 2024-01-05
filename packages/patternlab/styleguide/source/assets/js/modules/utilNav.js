@@ -1,7 +1,8 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
 export default (function (document,$) {
-  const $panels = $('.js-util-nav-content');
+  // desktop only
+  const $panels = $('.js-utility-nav--wide .js-util-nav-content');
   const $utilityButtons = $('.js-utility-nav--wide .js-util-nav-toggle');
 
   // Keyboard navigation.
@@ -17,10 +18,7 @@ export default (function (document,$) {
 
   // In the hamburger menu container.
   $panels.each(function () {
-    let $panel;
-    if ($(this).closest(".ma__header__hamburger__utility-nav--narrow") !== true) {
-      $panel = $(this);
-    }
+    let $panel = $(this);
     const height = $panel.height();
     $panel.css('top', '-' + height + 'px');
     const $closeButton = $panel.find('.js-close-util-nav');
