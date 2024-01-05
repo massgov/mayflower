@@ -25,7 +25,6 @@ export default (function (document,$) {
     $panel.css('top', '-' + height + 'px');
     const $closeButton = $panel.find('.js-close-util-nav');
 
-    // $panel.css('top', '-' + height + 'px');
     $(window).on('resized', function () {
       if ($(window).width() > 840) {
         $panel.css('top', '-' + height + 'px');
