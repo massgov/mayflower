@@ -1,0 +1,135 @@
+/* layout */
+.fsBody > div {
+  padding: 0 0 0 3px;
+}
+
+.fsBody .fsForm {
+  font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  max-width: 50rem;
+}
+
+/* Headings */
+.fsBody .fsSectionHeader {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.fsBody .fsSectionHeader .fsSectionHeading {
+  text-align: left;
+  position: relative;
+  padding-bottom: 15px;
+  color: #535353;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.07;
+}
+
+.fsBody .fsSectionHeader .fsSectionHeading:after {
+  content: "";
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0.075em;
+  width: 1.85em;
+  background-color: rgb(67, 149, 111);
+  background-color: rgba(67, 149, 111, 0.5);
+  -webkit-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  transform: skew(-30deg);
+}
+
+/* Labels */
+.fsBody .fsForm .fsLabel {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  color: #141414;
+}
+
+/** Optional **/
+.fsBody .fsForm .fsLabel:not(.fsRequiredLabel):after {
+  content: ' (optional)';
+  font-size: .8rem;
+}
+
+/** Required **/
+.fsRequiredMarker {
+  font-size: 1rem;
+  color: #CD0D0D;
+}
+
+/** Validation **/
+.fsValidationError > span {
+  display: flex;
+  align-items: center;
+}
+
+.fsValidationError > span > div:last-child {
+  margin-left: 0;
+}
+
+/* Radios, checkboxes */
+
+.fsBody .fsForm .fsOptionLabel {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  position: relative;
+  margin-bottom: 0;
+}
+
+
+.fsOptionLabel > input {
+  display: flex;
+  align-items: center;
+  width: unset;
+}
+
+
+.fsOptionLabel > input:before {
+  width: 18px;
+  height: 18px;
+  margin-right: 0;
+  outline: transparent solid 2px;
+}
+
+.fsOptionLabel > input[type="checkbox"]:checked::before {
+  background-color: #14558F;
+}
+
+.fsOptionLabel > input[type="radio"]:checked::before {
+  border-width: thick;
+  border-color: #14558F;
+  background-color: #fff;
+}
+
+/* text input, select */
+.fsForm input, .fsForm select {
+  font-size: 1.375rem;
+  line-height: 1.5;
+  height: unset;
+}
+
+/* Submit */
+.fsSubmit {
+  margin: 0;
+}
+
+.fsSubmit .fsSubmitButton {
+  margin: 0;
+}
+
+.fsSubmitButton:hover {
+  background-color: rgba(20, 85, 143, 0.75);
+  border-color: transparent;
+}
