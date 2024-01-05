@@ -24,6 +24,16 @@ export default (function (document,$) {
     const height = $panel.height();
     $panel.css('top', '-' + height + 'px');
     const $closeButton = $panel.find('.js-close-util-nav');
+    const $closestHamburgerNav = $panel.closest('.ma__header__hamburger__nav');
+    const $closestToggleButton = $panel.closest('.js-util-nav-toggle');
+    
+    const closePanel = () => {
+      $panel.css('top', '-' + height + 'px');
+      $panel.addClass('is-closed');
+      $panel.attr("aria-hidden", "true");
+      $closestToggleButton.attr("aria-expanded", "false");
+      $closestHamburgerNav.removeClass('util-nav-content-open');
+    }
 
     $(window).on('resized', function () {
       if ($(window).width() > 840) {
@@ -38,23 +48,17 @@ export default (function (document,$) {
     $('.ma__utility-nav__userway').on('click', function () {
 
       setTimeout(() => {
-        $panel.css('top', '-' + height + 'px');
-        $panel.addClass('is-closed');
-        $panel.attr("aria-hidden", "true");
+        closePanel();
       }, 500);
     });
 
     $closeButton.on('click', function () {
-      $panel.css('top', '-' + height + 'px');
-      $panel.addClass('is-closed');
-      $panel.attr("aria-hidden", "true");
+      closePanel();
     });
 
     $panel.on('keydown', function (e) {
       if (e.key == "Escape") {
-        $panel.css('top', '-' + height + 'px');
-        $panel.addClass('is-closed');
-        $panel.attr("aria-hidden", "true");
+        closePanel();
       }
     });
   });
@@ -63,17 +67,20 @@ export default (function (document,$) {
   $utilityButtons.each(function () {
     const $thisButton = $(this);
     const $thisPanel = $thisButton.next('.js-util-nav-content');
+    const $closestHamburgerNav = $thisButton.closest('.ma__header__hamburger__nav');
 
     const openPanel = () => {
       $thisPanel.removeClass('is-closed');
       $thisPanel.attr("aria-hidden", "false");
       $thisButton.attr("aria-expanded", "true");
+      $closestHamburgerNav.addClass('util-nav-content-open');
     }
 
     const closePanel = () => {
       $thisPanel.addClass('is-closed');
       $thisPanel.attr("aria-hidden", "true");
       $thisButton.attr("aria-expanded", "false");
+      $closestHamburgerNav.removeClass('util-nav-content-open');
     }
 
     $thisButton.on('click', function () {
