@@ -80,7 +80,7 @@
 
 /* Radios, checkboxes */
 
-.fsBody .fsForm .fsOptionLabel {
+.fsBody .fsForm label[class^="StyledOptionLabel-"] {
   font-size: 22px;
   font-size: 1.375rem;
   line-height: 1.5;
@@ -89,21 +89,21 @@
 }
 
 
-.fsOptionLabel > input {
+label[class^="StyledOptionLabel-"] > input {
   display: flex;
   align-items: center;
   width: unset;
 }
 
 
-.fsOptionLabel > input:before {
+label[class^="StyledOptionLabel-"] > input:before {
   width: 18px;
   height: 18px;
   margin-right: 0;
   outline: transparent solid 2px;
 }
 
-.fsOptionLabel > input[type="checkbox"]:checked::before {
+label[class^="StyledOptionLabel-"] > input[type="checkbox"]:checked::before {
   background-color: #14558F;
 }
 
