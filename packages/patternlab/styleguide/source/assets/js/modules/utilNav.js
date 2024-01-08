@@ -19,55 +19,19 @@ export default (function (document,$) {
   // In the hamburger menu container.
   $panels.each(function () {
     let $panel = $(this);
-    const $thisButton = $panel.prev('.js-util-nav-toggle');
+    const height = $panel.height();
+    $panel.css('top', '-' + height + 'px');
     const $closeButton = $panel.find('.js-close-util-nav');
     const $closestHamburgerNav = $panel.closest('.ma__header__hamburger__nav');
-
-    const height = $panel.height();
-
+    const $closestToggleButton = $panel.closest('.js-util-nav-toggle');
+    
     const closePanel = () => {
-      console.log('close')
       $panel.css('top', '-' + height + 'px');
-     // $panel.addClass('is-closed');
+      $panel.addClass('is-closed');
       $panel.attr("aria-hidden", "true");
-      $thisButton.attr("aria-expanded", "false");
+      $closestToggleButton.attr("aria-expanded", "false");
       $closestHamburgerNav.removeClass('util-nav-content-open');
     }
-
-    const openPanel = () => {
-      console.log('open')
-      $panel.css('top', '0px');
-      // $panel.removeClass('is-closed');
-      $panel.attr("aria-hidden", "false");
-      $thisButton.attr("aria-expanded", "true");
-      $closestHamburgerNav.addClass('util-nav-content-open');
-    }
-
-    closePanel();
-
-    $thisButton.on('click', function () {
-      // if the panel is closed, then open it
-      console.log($thisButton.attr("aria-expanded"))
-      if ($thisButton.attr("aria-expanded") == 'false') {
-        openPanel()
-      } else {
-      // else close the panel
-        closePanel()
-      }
-
-      // $panel.css('top', '0px');
-      // $panel.removeAttr('style');
-      // $('body').addClass('show-submenu');
-    });
-
-    $thisButton.on('keydown', function (e) {
-      if (e.key === "Escape")  {
-        // If utility panel is open
-        //if (!$panel.hasClass("is-closed")) {
-          closePanel();
-        //} 
-      }
-    });
 
     $(window).on('resized', function () {
       if ($(window).width() > 840) {
@@ -97,49 +61,49 @@ export default (function (document,$) {
     });
   });
 
-  // // Utility toggles buttons desktop only
-  // $utilityButtons.each(function () {
-  //   const $thisButton = $(this);
-  //   const $panel = $thisButton.next('.js-util-nav-content');
-  //   const $closestHamburgerNav = $thisButton.closest('.ma__header__hamburger__nav');
+  // Utility toggles buttons desktop only
+  $utilityButtons.each(function () {
+    const $thisButton = $(this);
+    const $thisPanel = $thisButton.next('.js-util-nav-content');
+    const $closestHamburgerNav = $thisButton.closest('.ma__header__hamburger__nav');
 
-  //   const openPanel = () => {
-  //     $panel.removeClass('is-closed');
-  //     $panel.attr("aria-hidden", "false");
-  //     $thisButton.attr("aria-expanded", "true");
-  //     $closestHamburgerNav.addClass('util-nav-content-open');
-  //   }
+    const openPanel = () => {
+      $thisPanel.removeClass('is-closed');
+      $thisPanel.attr("aria-hidden", "false");
+      $thisButton.attr("aria-expanded", "true");
+      $closestHamburgerNav.addClass('util-nav-content-open');
+    }
 
-  //   const closePanel = () => {
-  //     $panel.addClass('is-closed');
-  //     $panel.attr("aria-hidden", "true");
-  //     $thisButton.attr("aria-expanded", "false");
-  //     $closestHamburgerNav.removeClass('util-nav-content-open');
-  //   }
+    const closePanel = () => {
+      $thisPanel.addClass('is-closed');
+      $thisPanel.attr("aria-hidden", "true");
+      $thisButton.attr("aria-expanded", "false");
+      $closestHamburgerNav.removeClass('util-nav-content-open');
+    }
 
-  //   $thisButton.on('click', function () {
-  //     // if the panel is closed, then open it
-  //     if ($panel.hasClass("is-closed")) {
-  //       openPanel()
-  //     } else {
-  //     // else close the panel
-  //       closePanel()
-  //     }
+    $thisButton.on('click', function () {
+      // if the panel is closed, then open it
+      if ($thisPanel.hasClass("is-closed")) {
+        openPanel()
+      } else {
+      // else close the panel
+        closePanel()
+      }
 
-  //     $panel.css('top', '0px');
-  //     $panel.removeAttr('style');
-  //     $('body').addClass('show-submenu');
-  //   });
+      $thisPanel.css('top', '0px');
+      $thisPanel.removeAttr('style');
+      $('body').addClass('show-submenu');
+    });
 
-  //   $thisButton.on('keydown', function (e) {
-  //     if (e.key === "Escape")  {
-  //       // If utility panel is open
-  //       if (!$panel.hasClass("is-closed")) {
-  //         closePanel();
-  //       } 
-  //     }
-  //   });
-  // });
+    $thisButton.on('keydown', function (e) {
+      if (e.key === "Escape")  {
+        // If utility panel is open
+        if (!$thisPanel.hasClass("is-closed")) {
+          closePanel();
+        } 
+      }
+    });
+  });
 
 
 
