@@ -1,3 +1,7 @@
+{# Currently, opemass doesn't use MF templates render tables in RTE.
+   Tables are processed by ma__fields module, responsive-table.js in mass_theme/override/js/
+   to match the Mayflower implementation.
+#}
 {% set tableID = table.id or 'responsive-table-' ~ random() %}
 {% set tableHeaderRow = table.head.rows|last %}
 

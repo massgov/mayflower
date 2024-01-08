@@ -12,7 +12,7 @@
     text-align: left;
     margin-bottom: 0.8em;
 
-    @media ($bp-medium-max) {
+    @media ($bp-min-max) {
 
       display: block;
     }
@@ -126,6 +126,25 @@
       color: $c-font-heading;
       background-color: $c-bg-subtle;
     }
+  }
+}
+
+/* Tables in mobile display */
+@media ($bp-medium-max) {
+
+  // Remove left side space when table headers are not available.
+  // .no-headers is added by JS in openmass theming.
+  .ma__table.no-headers td {
+    padding-left: 0 !important;
+  }
+
+}
+
+@media ($bp-small-min) and ($bp-medium-max) {
+
+  .ma__table:not(.ma__table--wide) .ma__table__caption,
+  .ma__table--responsive__wrapper table:not(.ma__table--wide) .ma__table__caption {
+    display: table-caption;
   }
 }
 
