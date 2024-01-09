@@ -61,7 +61,7 @@ document.querySelectorAll(".js-skiplink-target > a").forEach((anchor) => {
 });
 
 function skipLinkAnchor (e) {
-  e.target.classList.toggle("visible");
+  e.target.classList.remove("visible");
   e.target.setAttribute("tabindex", -1);
 }
 
