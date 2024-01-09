@@ -78,9 +78,6 @@ export default (function (document,$) {
         closePanel()
       }
 
-      $thisPanel.css('top', '0px');
-      $thisPanel.removeAttr('style');
-      $('body').addClass('show-submenu');
     });
 
     $thisButton.on('keydown', function (e) {
