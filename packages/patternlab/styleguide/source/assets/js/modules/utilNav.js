@@ -37,7 +37,11 @@ export default (function (document,$) {
       $thisPanel.addClass('is-closed');
       $thisPanel.attr("aria-hidden", "true");
       $thisButton.attr("aria-expanded", "false");
-      $closestHamburgerNav.removeClass('util-nav-content-open');
+
+      // wait for retraction to remove full width layout
+      setTimeout(() => {
+        $closestHamburgerNav.removeClass('util-nav-content-open');
+      }, 500);
     }
 
     $(window).on('resized', function () {
