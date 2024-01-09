@@ -45,6 +45,11 @@
   transform: skew(-30deg);
 }
 
+/* Buttons (save incomplete)  */
+.fsBody .fsForm button {
+  font-weight: bold;
+}
+
 /* Labels */
 .fsBody .fsForm .fsLabel {
   font-weight: 500;
