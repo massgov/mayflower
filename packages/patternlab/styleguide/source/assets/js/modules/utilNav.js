@@ -3,7 +3,6 @@ import focusTrapping from "../helpers/focusTrapping.js";
 export default (function (document,$) {
   // desktop only
   const $panels = $('.js-utility-nav--wide .js-util-nav-content');
-  const $utilityButtons = $('.js-utility-nav--wide .js-util-nav-toggle');
 
   // Keyboard navigation.
   $(document).keydown(function(e) {
