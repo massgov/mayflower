@@ -107,7 +107,7 @@ label[class^="StyledOptionLabel-"] > input[type="checkbox"]:checked::before {
   background-color: #14558F;
 }
 
-.fsOptionLabel > input[type="radio"]:checked::before {
+label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
   border-width: thick;
   border-color: #14558F;
   background-color: #fff;
