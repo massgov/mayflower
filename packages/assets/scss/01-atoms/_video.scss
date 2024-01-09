@@ -118,3 +118,8 @@
 .ma__video:not(.ma__video--new) {
   background-color: rgba($c-primary,.1);
 }
+
+ // Override style for .ma__rich-text h2:first-child:not(.sticky-toc-jump-target).
+.ma__rich-text .ma__video .ma__video-title {
+  position: absolute;
+}
