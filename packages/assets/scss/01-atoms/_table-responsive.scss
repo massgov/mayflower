@@ -24,6 +24,11 @@
 
   overflow-x: auto;
 
+  @media ($bp-medium-max) {
+
+    overflow-y: clip;
+  }
+
   &[tabindex="0"]:focus {
     outline: 2px solid $c-gray-light;
   }
