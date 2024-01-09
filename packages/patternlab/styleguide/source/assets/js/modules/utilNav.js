@@ -18,27 +18,35 @@ export default (function (document,$) {
 
   // In the hamburger menu container.
   $panels.each(function () {
-    let $panel = $(this);
-    const height = $panel.height();
-    $panel.css('top', '-' + height + 'px');
-    const $closeButton = $panel.find('.js-close-util-nav');
-    const $closestHamburgerNav = $panel.closest('.ma__header__hamburger__nav');
-    const $closestToggleButton = $panel.closest('.js-util-nav-toggle');
+    let $thisPanel = $(this);
+    const height = $thisPanel.height();
+    $thisPanel.css('top', '-' + height + 'px');
+    const $closeButton = $thisPanel.find('.js-close-util-nav');
+    const $closestHamburgerNav = $thisPanel.closest('.ma__header__hamburger__nav');
+    const $thisButton = $thisPanel.prev('.js-util-nav-toggle');
+  
+    const openPanel = () => {
+      $thisPanel.css('top', '0px');
+      $thisPanel.removeClass('is-closed');
+      $thisPanel.attr("aria-hidden", "false");
+      $thisButton.attr("aria-expanded", "true");
+      $closestHamburgerNav.addClass('util-nav-content-open');
+    }
     
     const closePanel = () => {
-      $panel.css('top', '-' + height + 'px');
-      $panel.addClass('is-closed');
-      $panel.attr("aria-hidden", "true");
-      $closestToggleButton.attr("aria-expanded", "false");
+      $thisPanel.css('top', '-' + height + 'px');
+      $thisPanel.addClass('is-closed');
+      $thisPanel.attr("aria-hidden", "true");
+      $thisButton.attr("aria-expanded", "false");
       $closestHamburgerNav.removeClass('util-nav-content-open');
     }
 
     $(window).on('resized', function () {
       if ($(window).width() > 840) {
-        $panel.css('top', '-' + height + 'px');
+        $thisPanel.css('top', '-' + height + 'px');
       }
       else {
-        $panel.removeAttr('style')
+        $thisPanel.removeAttr('style')
       }
     });
 
@@ -54,33 +62,13 @@ export default (function (document,$) {
       closePanel();
     });
 
-    $panel.on('keydown', function (e) {
+    $thisPanel.on('keydown', function (e) {
       if (e.key == "Escape") {
         closePanel();
       }
     });
-  });
 
-  // Utility toggles buttons desktop only
-  $utilityButtons.each(function () {
-    const $thisButton = $(this);
-    const $thisPanel = $thisButton.next('.js-util-nav-content');
-    const $closestHamburgerNav = $thisButton.closest('.ma__header__hamburger__nav');
-
-    const openPanel = () => {
-      $thisPanel.removeClass('is-closed');
-      $thisPanel.attr("aria-hidden", "false");
-      $thisButton.attr("aria-expanded", "true");
-      $closestHamburgerNav.addClass('util-nav-content-open');
-    }
-
-    const closePanel = () => {
-      $thisPanel.addClass('is-closed');
-      $thisPanel.attr("aria-hidden", "true");
-      $thisButton.attr("aria-expanded", "false");
-      $closestHamburgerNav.removeClass('util-nav-content-open');
-    }
-
+    // Utility toggles buttons desktop only
     $thisButton.on('click', function () {
       // if the panel is closed, then open it
       if ($thisPanel.hasClass("is-closed")) {
@@ -104,6 +92,7 @@ export default (function (document,$) {
       }
     });
   });
+
 
 
 
