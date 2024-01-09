@@ -26,7 +26,7 @@ video {
     type: decorativeLink / optional
   position:
     type: string ('', 'right') / optional
-  level:
+  headingLevel:
     type: number / optional
 }
 ~~~
