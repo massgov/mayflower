@@ -133,3 +133,8 @@ label[class^="StyledOptionLabel-"] > input[type="checkbox"]:checked::before {
   background-color: rgba(20, 85, 143, 0.75);
   border-color: transparent;
 }
+
+/* Progress Bar */
+div[class^="StyledProgressIndicatorBar-"] {
+  background-color: #DCDCDC;
+}
