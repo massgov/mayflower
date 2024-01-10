@@ -566,6 +566,7 @@ if (hamburgerMenuContainer) {
               // TO OPEN
 
               closeSubMenu();
+              closeAllNarrowUtilContent();
 
               utilNarrowButton.setAttribute("aria-expanded", "true");
               utilNarrowContent.removeAttribute("aria-hidden");
@@ -576,6 +577,11 @@ if (hamburgerMenuContainer) {
               /** Show the content. */
               utilNarrowContent.classList.remove("is-closed");
               utilNarrowContent.style.maxHeight = "auto";
+
+              // Add submenu-open class to list item
+              const utilItem = utilNarrowButton && utilNarrowButton.parentElement;
+              utilItem.classList.add("subutil-open");
+
 
               /** Get the computed height of the content. */
               var contentHeight =
@@ -659,6 +665,7 @@ if (hamburgerMenuContainer) {
   function closeNarrowUtilContent(utilNarrowButton) {
     const utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
     const utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
+    const utilItem = utilNarrowButton && utilNarrowButton.parentElement;
     if (utilNarrowContent) {
       utilNarrowButton.setAttribute("aria-expanded", "false");
       utilNarrowContent.setAttribute("aria-hidden", "true");
@@ -667,6 +674,7 @@ if (hamburgerMenuContainer) {
       utilNarrowContent.style.maxHeight = "0";
       utilNarrowContainer.style.opacity = "0";
       utilNarrowContent.classList.add("is-closed");
+      utilItem.classList.remove("subutil-open");
       utilNarrowButton.focus();
     }
   }
