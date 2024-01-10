@@ -53,10 +53,18 @@ export default (function (document,$) {
       }
     });
 
+    console.log($('.ma__utility-nav__userway'))
     // close the utility menu when user opens Userway settings. [Temporary - remove after the testing phase] 
     $('.ma__utility-nav__userway').on('click', function () {
-      console.log('open settings')
+      console.log('click')
       closePanel();
+    });
+
+    $('.ma__utility-nav__userway').on('keydown', function (e) {
+      console.log('keydown')
+      if (e.key === ' ' || e.code === 'Space' || e.key ==='Enter' || e.code === 'Enter') {
+        closePanel();
+      }
     });
 
     $closeButton.on('click', function () {
