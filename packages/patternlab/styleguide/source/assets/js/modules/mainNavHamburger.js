@@ -196,66 +196,6 @@ if (hamburgerMenuContainer) {
         }
       });
     });
-
-    let narrowUtilContentLinks = document.querySelectorAll(
-      ".js-utility-nav--narrow .js-util-nav-content a.js-clickable-link"
-    );
-    const lastIndex = narrowUtilContentLinks.length - 1;
-    narrowUtilContentLinks.forEach(function (link, i) {
-      link.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowDown" || e.code === "ArrowDown") {
-          if (e.target === narrowUtilContentLinks[i]) {
-            if (e.target === narrowUtilContentLinks[lastIndex]) {
-              i = 0;
-            } else {
-              i++;
-            }
-          } else {
-            if (e.target === narrowUtilContentLinks[lastIndex]) {
-              i = 0;
-            } else {
-              let targetIndex;
-              for (
-                let index = 0;
-                index < narrowUtilContentLinks.length;
-                index++
-              ) {
-                if (e.target === narrowUtilContentLinks[index]) {
-                  targetIndex = index;
-                }
-              }
-              i = targetIndex;
-              i++;
-            }
-          }
-          narrowUtilContentLinks[i].focus();
-        }
-
-        if (e.key === "ArrowUp" || e.code === "ArrowUp") {
-          if (e.target === narrowUtilContentLinks[i]) {
-            if (e.target === narrowUtilContentLinks[0]) {
-              i = lastIndex;
-            } else {
-              i--;
-            }
-          } else {
-            if (e.target === narrowUtilContentLinks[0]) {
-              i = lastIndex;
-            } else {
-              let targetIndex;
-              for (let index = lastIndex; index > -1; index--) {
-                if (e.target === narrowUtilContentLinks[index]) {
-                  targetIndex = index;
-                }
-              }
-              i = targetIndex;
-              i--;
-            }
-          }
-          narrowUtilContentLinks[i].focus();
-        }
-      });
-    });
   }
 
   // hamburger menu keyboard nav
@@ -688,6 +628,69 @@ if (hamburgerMenuContainer) {
       closeNarrowUtilContent(utilNarrowButton);
     })
   }
+
+  // ** Utility submenu items
+
+  let narrowUtilContentLinks = document.querySelectorAll(
+    ".ma__header__hamburger__utility-nav--narrow .js-util-nav-content a.js-clickable-link"
+  );
+  const lastIndex = narrowUtilContentLinks.length - 1;
+
+  narrowUtilContentLinks.forEach(function (link, i) {
+    link.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+        if (e.target === narrowUtilContentLinks[i]) {
+          if (e.target === narrowUtilContentLinks[lastIndex]) {
+            i = 0;
+          } else {
+            i++;
+          }
+        } else {
+          if (e.target === narrowUtilContentLinks[lastIndex]) {
+            i = 0;
+          } else {
+            let targetIndex;
+            for (
+              let index = 0;
+              index < narrowUtilContentLinks.length;
+              index++
+            ) {
+              if (e.target === narrowUtilContentLinks[index]) {
+                targetIndex = index;
+              }
+            }
+            i = targetIndex;
+            i++;
+          }
+        }
+        narrowUtilContentLinks[i].focus();
+      }
+
+      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+        if (e.target === narrowUtilContentLinks[i]) {
+          if (e.target === narrowUtilContentLinks[0]) {
+            i = lastIndex;
+          } else {
+            i--;
+          }
+        } else {
+          if (e.target === narrowUtilContentLinks[0]) {
+            i = lastIndex;
+          } else {
+            let targetIndex;
+            for (let index = lastIndex; index > -1; index--) {
+              if (e.target === narrowUtilContentLinks[index]) {
+                targetIndex = index;
+              }
+            }
+            i = targetIndex;
+            i--;
+          }
+        }
+        narrowUtilContentLinks[i].focus();
+      }
+    });
+  });
 
   // ** End util nav
 
