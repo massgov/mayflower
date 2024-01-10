@@ -564,42 +564,9 @@ if (hamburgerMenuContainer) {
               e.key === "ArrowUp"
             ) {
               // TO OPEN
-
               closeSubMenu();
               closeAllNarrowUtilContent();
-
-              utilNarrowButton.setAttribute("aria-expanded", "true");
-              utilNarrowContent.removeAttribute("aria-hidden");
-              utilNarrowContainer.style.pointerEvents = "none";
-              /** Slide down. */
-              utilNarrowContainer.removeAttribute("style");
-
-              /** Show the content. */
-              utilNarrowContent.classList.remove("is-closed");
-              utilNarrowContent.style.maxHeight = "auto";
-
-              // Add submenu-open class to list item
-              const utilItem = utilNarrowButton && utilNarrowButton.parentElement;
-              utilItem.classList.add("subutil-open");
-
-
-              /** Get the computed height of the content. */
-              var contentHeight =
-                utilNarrowContent.querySelector(
-                  ".ma__utility-nav__content-body"
-                ).clientHeight + "px";
-
-              /** Set the height of the submenu as 0px, */
-              /** so we can trigger the slide down animation. */
-              utilNarrowContent.style.maxHeight = "0";
-              utilNarrowContent.style.Height = "0";
-
-              // These height settings display the bottom border of the parent li at the correct spot.
-              utilNarrowContent.style.height = contentHeight;
-              utilNarrowContainer.style.height = contentHeight;
-
-              utilNarrowContent.style.maxHeight = contentHeight;
-              utilNarrowContainer.style.opacity = "1";
+              openNarrowUtilContent(utilNarrowButton);
             }
           } else {
             if (e.type === "click") {
@@ -661,6 +628,43 @@ if (hamburgerMenuContainer) {
       );
     });
   })
+
+  function openNarrowUtilContent(utilNarrowButton) {
+    const utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
+    const utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
+    const utilItem = utilNarrowButton && utilNarrowButton.parentElement;
+
+    utilNarrowButton.setAttribute("aria-expanded", "true");
+    utilNarrowContent.removeAttribute("aria-hidden");
+    utilNarrowContainer.style.pointerEvents = "none";
+    /** Slide down. */
+    utilNarrowContainer.removeAttribute("style");
+
+    /** Show the content. */
+    utilNarrowContent.classList.remove("is-closed");
+    utilNarrowContent.style.maxHeight = "auto";
+
+    // Add submenu-open class to list item
+    utilItem.classList.add("subutil-open");
+
+    /** Get the computed height of the content. */
+    var contentHeight =
+      utilNarrowContent.querySelector(
+        ".ma__utility-nav__content-body"
+      ).clientHeight + "px";
+
+    /** Set the height of the submenu as 0px, */
+    /** so we can trigger the slide down animation. */
+    utilNarrowContent.style.maxHeight = "0";
+    utilNarrowContent.style.Height = "0";
+
+    // These height settings display the bottom border of the parent li at the correct spot.
+    utilNarrowContent.style.height = contentHeight;
+    utilNarrowContainer.style.height = contentHeight;
+
+    utilNarrowContent.style.maxHeight = contentHeight;
+    utilNarrowContainer.style.opacity = "1";
+  }
 
   function closeNarrowUtilContent(utilNarrowButton) {
     const utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
