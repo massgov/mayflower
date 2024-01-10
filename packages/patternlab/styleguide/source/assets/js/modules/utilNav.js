@@ -53,17 +53,18 @@ export default (function (document,$) {
       }
     });
 
-    console.log($('.ma__utility-nav__userway'))
     // close the utility menu when user opens Userway settings. [Temporary - remove after the testing phase] 
     $('.ma__utility-nav__userway').on('click', function () {
-      console.log('click')
-      closePanel();
-    });
-
-    $('.ma__utility-nav__userway').on('keydown', function (e) {
-      console.log('keydown')
-      if (e.key === ' ' || e.code === 'Space' || e.key ==='Enter' || e.code === 'Enter') {
+      setTimeout(() => {
         closePanel();
+      }, 500);
+    });
+    // openmass implementation doesn't recognize the click even on Enter and Space keys
+    $('.ma__utility-nav__userway').on('keydown', function (e) {
+      if (e.key === ' ' || e.code === 'Space' || e.key ==='Enter' || e.code === 'Enter') {
+        setTimeout(() => {
+          closePanel();
+        }, 500);
       }
     });
 
