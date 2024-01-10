@@ -56,10 +56,7 @@ export default (function (document,$) {
     // close the utility menu when user opens Userway settings. [Temporary - remove after the testing phase] 
     $('.ma__utility-nav__userway').on('click', function () {
       console.log('open settings')
-      setTimeout(() => {
-        console.log('close settings')
-        closePanel();
-      }, 500);
+      closePanel();
     });
 
     $closeButton.on('click', function () {
