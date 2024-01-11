@@ -95,16 +95,15 @@
       display: block;
     }
 
+    // td {
+
+    //   &:before {
+    //     color: $c-font-heading;
+    //     font-weight: $fonts-normal;
+    //   }
+    // }
+
     td {
-
-      &:before {
-        color: $c-font-heading;
-        font-weight: $fonts-normal;
-      }
-    }
-
-    td,
-    th {
       display: block;
       font-size: $fonts-medium;
       padding-left: 40% !important;
@@ -112,12 +111,16 @@
       position: relative;
 
       &:before {
+        color: $c-font-heading;
+        font-weight: $fonts-normal;
+
         content: attr(data-label);
         height: 100%;
         position: absolute;
           top: 10px;
           left: 0;
         width: 35%;
+        text-align: right;
       }
     }
 
@@ -125,6 +128,10 @@
       font-size: $fonts-medium;
       color: $c-font-heading;
       background-color: $c-bg-subtle;
+
+      &[scope="row"] {
+        padding-left: 3%;
+      }
     }
   }
 }
@@ -185,8 +192,7 @@
       }
     }
 
-    td,
-    th {
+    td {
       display: block;
       padding-left: 40% !important;
       position: relative;
@@ -196,6 +202,7 @@
         height: 100%;
         position: absolute;
           left: 0;
+        text-align: right;
       }
     }
 
@@ -203,6 +210,10 @@
       font-size: $fonts-medium;
       color: $c-font-heading;
       background-color: $c-bg-subtle;
+
+      &[scope="row"] {
+        padding-left: 3%;
+      }
     }
   }
 }
