@@ -16,7 +16,7 @@
     &:last-child {
 
       a {
-        color: $c-black;
+        color: $c-font-base;
         font-weight: $fonts-bold;
         cursor: text;
         pointer-events: none;
@@ -40,7 +40,7 @@
 
         &:hover {
           color: $c-primary;
-          border-bottom: 3px solid rgba($c-font-link,.5);
+          border-bottom: 3px solid $c-bay-blue-lighter;
         }
       }
     }

@@ -4,7 +4,7 @@ $colors: (
   "c-highlight": $c-highlight,
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
-  "c-black": $c-black,
+  "c-black": $c-gray-darkest,
   "c-gray-dark": $c-gray-dark,
   "c-white": $c-white
 );
@@ -12,14 +12,14 @@ $colors: (
 $quaternary-colors: (
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
-  "c-black": $c-black,
+  "c-black": $c-gray-darkest,
   "c-gray-dark": $c-gray-dark,
   "c-white": $c-white
 );
 
 
 .ma__button-icon {
-  background-color: $c-white;
+  background-color: $c-bg;
   border: 2px solid $c-gray-light;
   display: inline-flex;
   align-items: center;
@@ -38,7 +38,7 @@ $quaternary-colors: (
 
       @if $c == $c-highlight {
         border-color: $c;
-        color: $c-black
+        color: $c-font-base
       } @else {
         color: $c;
       }
@@ -96,7 +96,7 @@ $quaternary-colors: (
   &--expanded, &:hover {
 
     @include ma-button("solid",$c-primary-alt);
-    color: $c-white;
+    color: $c-font-inverse;
 
     svg {
       fill: $c-white;
@@ -125,10 +125,10 @@ $quaternary-colors: (
   &--tertiary, &--expanded.ma__button-icon--tertiary, &:hover.ma__button-icon--tertiary {
 
     @include ma-button("solid",$c-gray-light);
-    color: $c-black;
+    color: $c-font-base;
 
     svg {
-      fill: $c-black;
+      fill: $c-gray-darkest;
     }
   }
 
@@ -212,11 +212,11 @@ $quaternary-colors: (
     padding-right: .8em;
     text-transform: uppercase;
     white-space: nowrap;
-    box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
+    box-shadow: $box-shadow;
     min-height: unset;
     border: none;
     display: inline-block;
-    color: $c-white;
+    color: $c-font-inverse;
     background-color: $c-primary-alt;
 
     &.ma__button-icon > svg {
@@ -229,10 +229,10 @@ $quaternary-colors: (
         background-color: $c;
 
         @if $c == $c-highlight {
-          color: $c-black;
+          color: $c-font-base;
 
           &.ma__button-icon > svg {
-            fill: rgba($c-black,.5);
+            fill: rgba($c-gray-darkest,.5);
           }
         }
       }

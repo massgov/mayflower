@@ -68,7 +68,7 @@
 
     &--active {
       border-top: 5px solid $c-primary;
-      background-color: white;
+      background-color: $c-bg;
       z-index: 1;
       outline: $c-error-red;
 

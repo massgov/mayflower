@@ -2,6 +2,8 @@
 
 @use "variables" as *;
 
+@use "color-tokens" as *;
+
 @use "colors" as *;
 
 @use "sass:color" as *;
@@ -49,7 +51,7 @@
   }
 
   &:hover {
-    background-color: mix(#fff, $c-primary, 50%);
+    background-color: mix($c-white, $c-primary, 50%);
     border-radius: 0;
   }
 

@@ -1,10 +1,10 @@
 @use "00-base/configure" as *;
 
 .ma__card {
-  background-color: $c-gray-light;  
-  
+  background-color: $c-gray-light;
+
   &__wrapper {
-    color: $c-black;
+    color: $c-font-base;
     font-weight: normal;
     width: 100%;
     display: flex;
@@ -84,11 +84,11 @@
       display: inline;
 
       &:hover {
-        border-bottom-color: rgba($c-font-link,.5);
+        border-bottom-color: $c-bay-blue-lighter;
       }
 
       &:focus {
-        border-bottom-color: rgba($c-font-link,.5) !important;
+        border-bottom-color: $c-bay-blue-lighter !important;
       }
 
       svg {
@@ -96,7 +96,7 @@
         height: .6em;
         margin-right: -.8em;
         width: .6em;
-        fill: rgba($c-font-link,.5);
+        fill: $c-bay-blue-lighter;
       }
     }
   }
@@ -116,7 +116,7 @@
         display: none;
       }
     }
-    
+
     @media ($bp-medium-max) {
 
       img {
