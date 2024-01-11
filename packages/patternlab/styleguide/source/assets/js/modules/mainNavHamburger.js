@@ -522,12 +522,12 @@ if (hamburgerMenuContainer) {
               );
 
             if (e.key === "ArrowDown" || e.code === "ArrowDown") {
-              clickableItems[0].focus();
+              clickableItems[0] && clickableItems[0].focus();
             }
 
             if (e.key === "ArrowUp" || e.code === "ArrowUp") {
               let lastItemIndex = clickableItems.length - 1;
-              clickableItems[lastItemIndex].focus();
+              clickableItems[lastItemIndex] && clickableItems[lastItemIndex].focus();
             }
 
           }
