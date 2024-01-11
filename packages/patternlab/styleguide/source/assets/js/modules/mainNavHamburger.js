@@ -587,7 +587,6 @@ if (hamburgerMenuContainer) {
       utilNarrowContainer.style.opacity = "0";
       utilNarrowContent.classList.add("is-closed");
       utilItem.classList.remove("subutil-open");
-      utilNarrowButton.focus();
     }
   }
 
@@ -610,7 +609,9 @@ if (hamburgerMenuContainer) {
           for (let i = 0; i < utilNavContentLinks.length; i++) {
             if (utilNavContentLinks[i].innerText ===document.activeElement.innerText) {
               // close the open sub nav
-              closeNarrowUtilContent(narrowUtilNavContentActive.querySelector(".js-util-nav-toggle"));
+              const thisUtilButton = narrowUtilNavContentActive.querySelector(".js-util-nav-toggle");
+              closeNarrowUtilContent(thisUtilButton);
+              thisUtilButton.focus();
             }
           }
         // if no util sub nav is open
