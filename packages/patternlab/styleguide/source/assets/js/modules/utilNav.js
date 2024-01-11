@@ -1,7 +1,7 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
 export default (function (document,$) {
-  // desktop only
+  // desktop only, mobile JS for utilnav is in mainNavHamburger.js
   const $panels = $('.js-utility-nav--wide .js-util-nav-content');
 
   // Keyboard navigation.
@@ -99,9 +99,6 @@ export default (function (document,$) {
       }
     });
   });
-
-
-
 
   // debouncer
   var resize_timeout;
