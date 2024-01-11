@@ -479,10 +479,10 @@ if (hamburgerMenuContainer) {
 
   // ** Utility nav on mobile
   let utilNarrowNav = document.querySelector(
-    ".ma__header__hamburger__utility-nav--narrow"
+    ".js-utility-nav--narrow"
   );
   const utilNarrowButtons = document.querySelectorAll(
-    ".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle"
+    ".js-utility-nav--narrow button.js-util-nav-toggle"
   );
 
   utilNarrowButtons.forEach((utilNarrowButton) => {
@@ -529,38 +529,6 @@ if (hamburgerMenuContainer) {
               let lastItemIndex = clickableItems.length - 1;
               clickableItems[lastItemIndex].focus();
             }
-
-          // Util nav escape
-          if (e.key === "Escape" || e.code === "Escape") {
-            if (utilNarrowNav) {
-              if (
-                utilNarrowButton !== document.activeElement && utilNarrowButton.attr("aria-expanded") === true
-              ) {
-                let utilNavContentLinks =
-                  utilNarrowNav.querySelectorAll("button, [href], input");
-                for (let i = 0; i < utilNavContentLinks.length; i++) {
-                  if (
-                    utilNavContentLinks[i].innerText ===
-                    document.activeElement.innerText
-                  ) {
-                    closeNarrowUtilContent(utilNarrowButton);
-                  }
-                }
-              } else {
-                let narrowNavItems = utilNarrowNav.querySelectorAll(
-                  ".ma__utility-nav__link"
-                );
-                for (let i = 0; i < narrowNavItems.length; i++) {
-                  if (
-                    narrowNavItems[i].innerText === document.activeElement.innerText
-                  ) {
-                    closeNarrowUtilContent(utilNarrowButton);
-                    closeMenu();
-                  }
-                }
-              }
-            }
-          }
 
           }
         },
@@ -629,10 +597,41 @@ if (hamburgerMenuContainer) {
     })
   }
 
-  // ** Utility submenu items
+  // ** Utility keydown events
+  utilNarrowNav.addEventListener("keydown", function(e) {
+    // Util nav escape
+    if (e.key === "Escape" || e.code === "Escape") {
+      if (utilNarrowNav) {
+        let narrowUtilNavContentActive = document.querySelector('.js-utility-nav--narrow  .subutil-open')
+        // if a util sub nav is open
+        if (narrowUtilNavContentActive) {
+          // find all the interactive elements in the open sub nav
+          let utilNavContentLinks = narrowUtilNavContentActive.querySelectorAll("button, [href], input");
+          for (let i = 0; i < utilNavContentLinks.length; i++) {
+            if (utilNavContentLinks[i].innerText ===document.activeElement.innerText) {
+              // close the open sub nav
+              closeNarrowUtilContent(narrowUtilNavContentActive.querySelector(".js-util-nav-toggle"));
+            }
+          }
+        // if no util sub nav is open
+        } else {
+          // find all toggle buttons in the util nav
+          let narrowNavItems = utilNarrowNav.querySelectorAll(".js-util-nav-toggle");
+          for (let i = 0; i < narrowNavItems.length; i++) {
+            if (narrowNavItems[i].innerText === document.activeElement.innerText) {
+              // close the sub nav that is being focused on
+              closeNarrowUtilContent(narrowNavItems[i].querySelector(".js-util-nav-toggle"));
+              // close the hamburger menu
+              closeMenu();
+            }
+          }
+        }
+      }
+    }
+  })
 
   let narrowUtilContentLinks = document.querySelectorAll(
-    ".ma__header__hamburger__utility-nav--narrow .js-util-nav-content a.js-clickable-link"
+    ".js-utility-nav--narrow .js-util-nav-content a.js-clickable-link"
   );
   const lastIndex = narrowUtilContentLinks.length - 1;
 
