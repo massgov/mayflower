@@ -1,8 +1,10 @@
+@use "00-base/colors" as *;
+
 @use "00-base/variables" as *;
 
 @mixin ma-button-base {
   border: 3px solid;
-  box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+  box-shadow: $box-shadow;
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -287,7 +287,7 @@
     border-top-color: $c-bd-divider;
 
     &.is-open {
-      background-color: $c-white
+      background-color: $c-bg;
     }
 
     &:last-child {
@@ -329,13 +329,13 @@
     border-bottom-color: $c-bd-divider;
 
     svg {
-      fill: rgba($c-font-link,.5);
+      fill: $c-bay-blue-lighter;
     }
 
     a:hover {
 
       @media ($bp-x-small-max) {
-        border-bottom-color: rgba($c-font-link,.5);
+        border-bottom-color: $c-bay-blue-lighter;
       }
     }
   }

@@ -1,5 +1,9 @@
 @use "00-base/variables" as *;
 
+@use "00-base/color-tokens" as *;
+
+@use "00-base/colors" as *;
+
 @mixin background-colors ($lightTheme, $darkTheme) {
     // $lightTheme: (
     //     "c-primary": $c-primary-lightest,
@@ -12,8 +16,8 @@
     //     "c-primary": $c-primary,
     //     "c-primary-alt": $c-primary-alt,
     //     "c-highlight": $c-highlight,
-    //     "c-gray": $c-black,
-    //     "c-black": $c-black
+    //     "c-gray": $c-gray-darkest,
+    //     "c-black": $c-gray-darkest
     // );
 
     @each $class, $c in $lightTheme {
@@ -21,18 +25,18 @@
           background-color: $c;
         }
       }
-    
+
     @each $class, $c in $darkTheme {
         &--#{$class}-bg-dark {
             background-color: $c;
 
             @if $class != "c-highlight" {
-            color: white;
+            color: $c-white;
 
                 & > * {
-                    fill: white !important;
-                    color: white !important;
-                    border-color: white !important;
+                    fill: $c-white !important;
+                    color: $c-white !important;
+                    border-color: $c-white !important;
                 }
             }
         }
