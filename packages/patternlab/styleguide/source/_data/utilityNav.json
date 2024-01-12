@@ -2,6 +2,71 @@
   "utilityNav": {
     "items": [
       {
+        "id": "contrast",
+        "text": "Contrast Settings",
+        "ariaLabelText": "View color contrast settings",
+        "icon": "@atoms/05-icons/svg-contrast-eye.twig",
+        "closeText": "Close",
+        "panels": [
+          {
+            "description": {
+              "richText": {
+                "rteElements": [
+                  {
+                    "path": "@atoms/11-text/paragraph.twig",
+                    "data": {
+                      "paragraph": {
+                        "text": "We are testing UserWay, a tool that will let you change color contrast and other visual styles. Click the button below to open the settings."
+                      }
+                    }
+                  },
+                  {
+                    "path": "@atoms/01-buttons/button.twig",
+                    "data": {
+                      "button": {
+                        "text": "Open contrast settings",
+                        "type": "button",
+                        "usage": "secondary",
+                        "theme": "c-primary-alt",
+                        "class": "ma__utility-nav__userway"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "description": {
+              "richText": {
+                "rteElements": [
+                  {
+                    "path": "@molecules/forms/field-submit.twig",
+                    "data": {
+                      "fieldSubmit": {
+                        "isForm": true,
+                        "action": "https://search.mass.gov/",
+                        "labelText": "If we can email you to ask about your experience with this feature, please add your email.",
+                        "inputText": {
+                          "required": false,
+                          "id": "userWay-signup",
+                          "name": "userWay-signup",
+                          "type": "email",
+                          "placeholder": ""
+                        },
+                        "buttonSearch": {
+                          "text": "Submit"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
         "id": "stateOrgs",
         "text": "State Organizations",
         "ariaLabelText": "",

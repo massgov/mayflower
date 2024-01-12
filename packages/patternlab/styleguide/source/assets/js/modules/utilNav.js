@@ -1,92 +1,103 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
 export default (function (document,$) {
-  const wideContainerClass = '.js-utility-nav--wide .js-util-nav-content';
-  let $panels = $('.js-util-nav-content');
-  let $panel = "";
-  let $utilityButtons = $('.js-util-nav-toggle');
+  // desktop only, mobile JS for utilnav is in mainNavHamburger.js
+  const $panels = $('.js-utility-nav--wide .js-util-nav-content');
 
   // Keyboard navigation.
   $(document).keydown(function(e) {
-    // check if menu open
-    if (!$(wideContainerClass).hasClass('is-closed')) {
-      focusTrapping({
-        focusableSelectors: 'a, button',
-        modalSelector: wideContainerClass,
-
-        keyEvent: e
-      });
-    }
+    // get the utility panel that is opened
+    const wideExpendedPanelClass = '.js-utility-nav--wide .js-util-nav-content:not(.is-closed)';
+    focusTrapping({
+      focusableSelectors: 'a, button, input',
+      modalSelector: wideExpendedPanelClass,
+      keyEvent: e
+    });
   });
 
   // In the hamburger menu container.
   $panels.each(function () {
-    if ($(this).closest(".ma__header__hamburger__utility-nav--narrow") !== true) {
-      $panel = $(this);
+    let $thisPanel = $(this);
+    const height = $thisPanel.height();
+    $thisPanel.css('top', '-' + height + 'px');
+    const $closeButton = $thisPanel.find('.js-close-util-nav');
+    const $closestHamburgerNav = $thisPanel.closest('.ma__header__hamburger__nav');
+    const $thisButton = $thisPanel.prev('.js-util-nav-toggle');
+  
+    const openPanel = () => {
+      $thisPanel.css('top', '0px');
+      $thisPanel.removeClass('is-closed');
+      $thisPanel.attr("aria-hidden", "false");
+      $thisButton.attr("aria-expanded", "true");
+      $closestHamburgerNav.addClass('util-nav-content-open');
     }
-    const height = $panel.height();
-    const $closeButton = $panel.find('.js-close-util-nav');
+    
+    const closePanel = () => {
+      $thisPanel.css('top', '-' + height + 'px');
+      $thisPanel.addClass('is-closed');
+      $thisPanel.attr("aria-hidden", "true");
+      $thisButton.attr("aria-expanded", "false");
 
-    $panel.css('top', '-' + height + 'px');
+      // wait for retraction to remove full width layout
+      setTimeout(() => {
+        $closestHamburgerNav.removeClass('util-nav-content-open');
+      }, 500);
+    }
+
     $(window).on('resized', function () {
       if ($(window).width() > 840) {
-        $panel.css('top', '-' + height + 'px');
+        $thisPanel.css('top', '-' + height + 'px');
       }
       else {
-        $panel.removeAttr('style')
+        $thisPanel.removeAttr('style')
+      }
+    });
+
+    // close the utility menu when user opens Userway settings. [Temporary - remove after the testing phase] 
+    $('.ma__utility-nav__userway').on('click', function () {
+      setTimeout(() => {
+        closePanel();
+      }, 500);
+    });
+    // openmass implementation doesn't recognize the click even on Enter and Space keys
+    $('.ma__utility-nav__userway').on('keydown', function (e) {
+      if (e.key === ' ' || e.code === 'Space' || e.key ==='Enter' || e.code === 'Enter') {
+        setTimeout(() => {
+          closePanel();
+        }, 500);
       }
     });
 
     $closeButton.on('click', function () {
-      $panel.css('top', '-' + height + 'px');
-      $panel.toggleClass('is-closed');
-      $panel.attr("aria-hidden", "true");
-      $utilityButtons.focus();
+      closePanel();
     });
 
-    $panel.on('keydown', function (e) {
+    $thisPanel.on('keydown', function (e) {
       if (e.key == "Escape") {
-        $panel.css('top', '-' + height + 'px');
-        $panel.toggleClass('is-closed');
-        $panel.attr("aria-hidden", "true");
+        closePanel();
       }
     });
-  });
 
-  $utilityButtons.each(function () {
-    const $thisButton = $(this);
-    let $thisPanel = $thisButton.next('.js-util-nav-content');
-    const $closePanel = $thisPanel.find('.js-close-util-nav');
-
+    // Utility toggles buttons desktop only
     $thisButton.on('click', function () {
-      if ($thisButton.closest(".ma__header__hamburger__utility-nav--narrow")) {
-        $thisPanel = null;
-      }
-      else {
-        $thisPanel.removeClass('is-closed');
-        $thisPanel.removeAttr('style');
-        $thisPanel.attr("aria-hidden", "false");
-      }
-
-      $('body').addClass('show-submenu');
-
-      // Only affects utility nav on the utility nav bar with the hamburger menu.
-      if ($(this).closest(".ma__header__hamburger__utility-nav--wide")) {
-        if ($thisPanel && $thisPanel.hasClass("is-closed")) {
-          $(this).closest(".ma__header__hamburger__nav").removeClass("util-nav-content-open");
-        }
-        else {
-          $(this).closest(".ma__header__hamburger__nav").addClass("util-nav-content-open");
-        }
+      // if the panel is closed, then open it
+      if ($thisPanel.hasClass("is-closed")) {
+        openPanel()
+      } else {
+      // else close the panel
+        closePanel()
       }
 
     });
-  });
 
-  $('.js-close-sub-nav').on('click', function () {
-    $('.js-util-nav-content').addClass('is-closed');
-    $('.js-util-nav-content').removeAttr('style');
-    $('body').removeClass('show-submenu');
+    $thisButton.on('keydown', function (e) {
+      if (e.key === "Escape")  {
+        // If utility panel is open
+        if (!$thisPanel.hasClass("is-closed")) {
+          closePanel();
+        } 
+      }
+    });
   });
 
   // debouncer
@@ -97,5 +108,6 @@ export default (function (document,$) {
     resize_timeout = setTimeout(function () {
       $(window).trigger('resized');
     }, 150);
+
   });
 })(document,jQuery);
