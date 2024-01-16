@@ -61,10 +61,16 @@
   color: #141414;
 }
 
+/* Subfield Labels */
+.fsSubField > label {
+  color: #141414;
+}
+
+
 /** Optional **/
 .fsBody .fsForm .fsLabel:not(.fsRequiredLabel):after {
   content: ' (optional)';
-  font-size: .8rem;
+  font-size: 1rem;
 }
 
 /** Required **/
