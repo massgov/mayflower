@@ -106,6 +106,7 @@ label[class^="StyledOptionLabel-"] > input:before {
   height: 18px;
   margin-right: 0;
   outline: transparent solid 2px;
+  border: 2px solid #535353;
 }
 
 label[class^="StyledOptionLabel-"] > input[type="checkbox"]:checked::before {
@@ -123,6 +124,11 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
   font-size: 1.375rem;
   line-height: 1.5;
   height: unset;
+}
+
+/* Datepicker */
+.MuiTextField-root {
+  border: 1px solid #dcdcdc;
 }
 
 /* Submit */
