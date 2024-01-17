@@ -84,6 +84,15 @@
   margin-left: 0;
 }
 
+/* Inputs */
+.fsBody .fsForm input:not([type='button']), .fsBody .fsForm select, .fsBody .fsForm textarea {
+  color: #141414;
+}
+
+.fsBody .fsForm input::placeholder {
+  color: #535353;
+}
+
 
 /* Subfields */
 /** Safari misalign other input box on mobile **/
@@ -143,11 +152,6 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
 /* Datepicker */
 .MuiTextField-root {
   border: 1px solid #dcdcdc;
-}
-
-/** Placeholder **/
-.MuiTextField-root .MuiInputBase-input {
-  color: black;
 }
 
 /* Submit */
