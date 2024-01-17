@@ -61,11 +61,6 @@
   color: #141414;
 }
 
-/* Subfield Labels */
-.fsSubField > label {
-  color: #141414;
-}
-
 
 /** Optional **/
 .fsBody .fsForm .fsLabel:not(.fsRequiredLabel):after {
@@ -88,6 +83,19 @@
 .fsValidationError > span > div:last-child {
   margin-left: 0;
 }
+
+
+/* Subfields */
+/** Safari misalign other input box on mobile **/
+fieldset > div[class^="StyledSubField"].fsSubfield {
+  flex-basis: auto !important;
+}
+
+/** labels **/
+.fsSubField > label {
+  color: #141414;
+}
+
 
 /* Radios, checkboxes */
 
@@ -137,6 +145,11 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
   border: 1px solid #dcdcdc;
 }
 
+/** Placeholder **/
+.MuiTextField-root .MuiInputBase-input {
+  color: black;
+}
+
 /* Submit */
 .fsSubmit {
   margin: 0;
@@ -154,4 +167,9 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
 /* Progress Bar */
 div[class^="StyledProgressIndicatorBar-"] {
   background-color: #DCDCDC;
+}
+
+/* Next Prev buttons */
+.fsNextButton, .fsPreviousButton {
+  margin-bottom: 1rem;
 }
