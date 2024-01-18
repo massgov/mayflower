@@ -12,6 +12,11 @@
   max-width: 50rem;
 }
 
+/** prevent horizontal scrolling **/
+div[class^="InnerFormBody"] {
+  overflow-x: hidden;
+}
+
 /* Headings */
 .fsBody .fsSectionHeader {
   background-color: transparent;
