@@ -1,5 +1,6 @@
 ### Status
 * Obsolete as of 5.0.0
+* In use by utilityNav
 
 Description: Labelled input with inline submit button
 
