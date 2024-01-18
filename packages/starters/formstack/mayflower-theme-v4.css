@@ -96,8 +96,8 @@
 
 /* Subfields */
 /** Safari misalign other input box on mobile **/
-fieldset > div[class^="StyledSubField"].fsSubfield {
-  flex-basis: auto !important;
+.krREGe.fsSubField {
+  flex-basis: auto;
 }
 
 /** labels **/
@@ -152,6 +152,10 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
 /* Datepicker */
 .MuiTextField-root {
   border: 1px solid #dcdcdc;
+}
+
+input.MuiInputBase-input::placeholder {
+  opacity: 1;
 }
 
 /* Submit */
