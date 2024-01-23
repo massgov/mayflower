@@ -26,5 +26,7 @@ fieldSubmits: {
     type: inputText / required
   buttonSearch
     type: buttonSearch / required
+  hiddenInputs
+    type: HTML string / optional
 }
 ~~~

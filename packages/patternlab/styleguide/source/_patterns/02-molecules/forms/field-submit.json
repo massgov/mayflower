@@ -5,6 +5,7 @@
     "name": "constrast-settings",
     "action": "https://search.mass.gov/",
     "labelText": "Filter by city, town or zipcode",
+    "hiddenInputs": "<input type='hidden' tabindex='-1' name='formstackFormSchemaVersion' value='4'>",
     "inputText": {
       "required": false,
       "id": "filter-by-location",

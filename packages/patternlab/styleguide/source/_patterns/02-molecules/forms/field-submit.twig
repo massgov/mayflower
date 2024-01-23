@@ -5,6 +5,7 @@
   {% if fieldSubmit.id %} id={{ fieldSubmit.id }} {% endif %}
   {% if fieldSubmit.name %} name={{ fieldSubmit.name }} {% endif %}
 >
+  {{ fieldSubmit.hiddenInputs }}
 {% else %}
 <fieldset 
   class="ma__field-submit"
