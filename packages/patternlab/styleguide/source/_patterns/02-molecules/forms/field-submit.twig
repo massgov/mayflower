@@ -1,5 +1,10 @@
 {% if fieldSubmit.isForm %}
-<form class="ma__field-submit" action={{ fieldSubmit.action }} {% if fieldSubmit.id %} id={{ fieldSubmit.id }} {% endif %}>
+<form
+  class="ma__field-submit"
+  action={{ fieldSubmit.action }}
+  {% if fieldSubmit.id %} id={{ fieldSubmit.id }} {% endif %}
+  {% if fieldSubmit.name %} name={{ fieldSubmit.name }} {% endif %}
+>
 {% else %}
 <fieldset class="ma__field-submit">
 {% endif %}
