@@ -15,9 +15,9 @@ fieldSubmits: {
   isForm: 
     type: boolean / optional (whether as a form or a fieldset)
   id: 
-    type: string / optional (form id)
+    type: string / optional (form or fieldset id)
   name: 
-    type: string / optional (form name)
+    type: string / optional (form or fieldset name)
   action: 
     type: string / optional (form action)
   labelText: 
