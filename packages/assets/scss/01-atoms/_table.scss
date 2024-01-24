@@ -48,13 +48,6 @@
     padding: 10px 20px 10px 0;
     text-align: left;
     vertical-align: top;
-
-    @media($bp-small-min) {
-
-      &:first-child {
-        padding-left: 15px;
-      }
-    }
   }
 }
 
@@ -67,9 +60,6 @@
   th {
     color: $c-font-detail;
   }
-}
-
-.ma__table--wide {
 
   tr > *:first-child {
     padding-left: 10px;
