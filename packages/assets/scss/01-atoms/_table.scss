@@ -12,11 +12,6 @@
     text-align: left;
     margin-bottom: 0.8em;
 
-    @media ($bp-medium-max) {
-
-      display: block;
-    }
-
     &.hide {
       display: none;
     }
@@ -61,11 +56,6 @@
       }
     }
   }
-
-  .is-offset th:first-child,
-  .is-offset td:first-child {
-    padding-left: 0;
-  }
 }
 
 .ma__table {
@@ -77,142 +67,16 @@
   th {
     color: $c-font-detail;
   }
-
-  @media ($bp-small-max) {
-    display: block;
-
-    thead {
-      display: none;
-    }
-
-    tbody {
-      display: block;
-    }
-
-    thead + tbody,
-    tbody:first-child {
-      border-top: 0;
-    }
-
-    tr {
-      display: block;
-    }
-
-    td {
-      display: block;
-      font-size: $fonts-medium;
-      padding-left: 40% !important;
-      padding-bottom: 0;
-      position: relative;
-
-      &:before {
-        color: $c-font-heading;
-        font-weight: $fonts-normal;
-
-        content: attr(data-label);
-        height: 100%;
-        position: absolute;
-          top: 10px;
-          left: 0;
-        width: 35%;
-      }
-    }
-
-    th {
-      display: block;
-      font-size: $fonts-medium;
-      color: $c-font-heading;
-      background-color: $c-bg-subtle;
-
-      &[scope="row"] {
-        padding-left: 1%;
-      }
-    }
-  }
-}
-
-/* Tables in mobile display */
-@media ($bp-medium-max) {
-
-  // Remove left side space when table headers are not available.
-  // .no-headers is added by JS in openmass theming.
-  .ma__table.no-headers td {
-    padding-left: 0 !important;
-  }
-
-}
-
-@media ($bp-small-min) and ($bp-medium-max) {
-
-  .ma__table:not(.ma__table--wide) .ma__table__caption,
-  .ma__table--responsive__wrapper table:not(.ma__table--wide) .ma__table__caption {
-    display: table-caption;
-  }
 }
 
 .ma__table--wide {
 
-  @media($bp-medium-min) {
+  tr > *:first-child {
+    padding-left: 10px;
 
-    td,
-    th {
-        &:first-child {
-          padding-left: 15px;
-        }
-      }
-  }
+     @media($bp-medium-min) {
 
-  @media ($bp-medium-max) {
-    display: block;
-
-    thead {
-      display: none;
-    }
-
-    tbody {
-      display: block;
-    }
-
-    thead + tbody,
-    tbody:first-child {
-      border-top: 0;
-    }
-
-    tr {
-      display: block;
-    }
-
-    td {
-      display: block;
-      padding-left: 40% !important;
-      position: relative;
-
-      @media ($bp-medium-max) {
-        border-bottom: 1px solid $c-gray-lightest;
-        vertical-align: top;
-        min-height: 3rem; // set a min height when the cell value is empty on mobile
-      }
-
-      &:before {
-        color: $c-font-heading;
-        font-weight: $fonts-normal;
-
-        content: attr(data-label);
-        height: 100%;
-        position: absolute;
-          left: 0;
-      }
-    }
-
-    th {
-      display: block;
-      font-size: $fonts-medium;
-      color: $c-font-heading;
-      background-color: $c-bg-subtle;
-
-      &[scope="row"] {
-        padding-left: 1%;
-      }
-    }
+      padding-left: 15px;
+     }
   }
 }

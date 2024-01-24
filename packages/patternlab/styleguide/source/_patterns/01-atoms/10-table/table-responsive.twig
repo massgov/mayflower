@@ -36,13 +36,11 @@
               {% for cell in row.cells %}
                 {% if cell.heading == "true" %}
                   <th
-                    data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}"
                     scope="row"
                     {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %}
                     {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</th>
                 {% else %}
                   <td
-                    data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}"
                   {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %}
                   {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</td>
                 {% endif %}

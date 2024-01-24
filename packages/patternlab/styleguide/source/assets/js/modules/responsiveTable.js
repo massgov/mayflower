@@ -41,7 +41,7 @@ export default (function (window, document, $) {
     const isNestedThead = $thead.closest("table table").length;
     const hasTh = $table.find("th").length;
     let $stickyHeader = null;
-    const canScroll = $table.width() > $table.parent().width();
+    // const canScroll = $table.width() > $table.parent().width();
 
     // If the table has a thead with th elements, setup the sticky version.
     if (hasThead && hasTh && !isNestedThead) {
@@ -64,12 +64,12 @@ export default (function (window, document, $) {
       $stickyHeader
         .css({
           "pointer-events": "none",
-          position: "fixed",
-          left: tableLeft,
-          top: getAdditionalOffset(),
-          opacity: 0,
+          "position": "fixed",
+          "left": tableLeft,
+          "top": getAdditionalOffset(),
+          "opacity": 0,
           "z-index": 50,
-          height: theadHeight
+          "height": theadHeight
         });
       $stickyHeader[0].scrollLeft = 0;
     }
@@ -93,9 +93,7 @@ export default (function (window, document, $) {
       $table: $table,
       $stickyHeader: $stickyHeader,
       theadHeight: theadHeight,
-      headerStuck: false,
-      scrollStuck: false,
-      canScroll
+      headerStuck: false
     };
     // Set the widths of the header.
     setWidths(rt);
@@ -171,10 +169,6 @@ export default (function (window, document, $) {
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
     const elementTop = rt.$root.offset().top;
-    const windowTop = $window.scrollTop();
-    const windowBottom = windowTop + $window.height();
-    // + 50 to accommodate table padding for stickyNav
-    const elementBottom = (elementTop + (rt.$root.height() + 50));
     const tableBottom = elementTop + rt.$table.height();
 
     // Handle header visibility.
@@ -199,7 +193,7 @@ export default (function (window, document, $) {
   }
 
   // When scrolling the window, handle header / scrollbar visibility and position.
-  function handleScroll() {
+  function handleStickyHeader() {
     responsiveTables.forEach((rt) => {
       checkVisibility(rt);
     });
@@ -216,7 +210,7 @@ export default (function (window, document, $) {
   $(".js-ma-responsive-table").each((i, el) => initializeTable(el));
 
   // Set window scroll handler.
-  $window.on("scroll", handleScroll);
+  $window.on("scroll", handleStickyHeader);
   // Set window resize.
   $window.on("resize", handleWindowResize);
 
