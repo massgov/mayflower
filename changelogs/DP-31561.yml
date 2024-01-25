@@ -1,0 +1,12 @@
+Added:
+  - project: Patternlab
+    component: FieldSubmit
+    description: Add hiddenInputs field. (#1866)
+    issue: DP-31561
+    impact: Patch
+  - project: Patternlab
+    component: FieldSubmit,HeaderSearch,SearchBannerForm,SearchBoxWithLinks
+    description: Add name attribute to form elements. (#1866)
+    issue: DP-31561
+    impact: Patch
+
