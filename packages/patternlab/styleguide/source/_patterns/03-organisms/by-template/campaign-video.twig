@@ -23,6 +23,8 @@
 
     <div class="ma__campaign-video__video">
       {% set video = campaignVideo.video %}
+      {% set videoHeadingLevel = headingLevel + 1 %}
+      {% set video = video|merge({"headingLevel": videoHeadingLevel}) %}
       {% include "@atoms/09-media/video.twig" %}
     </div>
   </div>
