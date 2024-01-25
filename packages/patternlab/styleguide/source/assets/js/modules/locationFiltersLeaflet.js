@@ -33,26 +33,31 @@ export default (function (window,document,$,undefined) {
 
 
         var placeChanged = false;
-        var autocompleteListener = _.debounce(function(e) {
-          // place_changed is only triggered when an option is selected from the auto suggestion dropdown.
-          // This includes mouse click and keyboard enter on an option.
 
-          var place = ma.autocomplete.getPlace() || {};
-          if (!place.geometry || !place.geometry.location) {
-            // User entered the name of a Place that was not suggested and
-            // pressed the Enter key, or the Place Details request failed.
-            errorMessage.addClass('has-error');
-            placeChanged = false;
-            return;
-          }
+        const placeChangedHandler = function() {
+          ma.autocomplete.addListener('place_changed', function() {
+            // place_changed is only triggered when an option is selected from the auto suggestion dropdown.
+            // This includes mouse click and keyboard enter on an option.
 
-          placeChanged = true;
-          errorMessage.removeClass('has-error');
+            const place = ma.autocomplete.getPlace() || {};
+            if (!place.geometry || !place.geometry.location) {
+              // User entered the name of a Place that was not suggested and
+              // pressed the Enter key, or the Place Details request failed.
+              errorMessage.addClass('has-error');
+              placeChanged = false;
+              return;
+            }
 
-          $(document).trigger('ma:GoogleMaps:placeChanged', place);
-        }, 500);
+            placeChanged = true;
+            errorMessage.removeClass('has-error');
 
-        ma.autocomplete.addListener('place_changed', autocompleteListener, false);
+            $(document).trigger('ma:GoogleMaps:placeChanged', place);
+          });
+        };
+
+        setTimeout(function() {
+          placeChangedHandler();
+        }, 250);
 
         const showSuggestions = () => {
           // Update the top position of the dropdown, as the error message can add additional space above the input.
