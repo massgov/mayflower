@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonFixedFeedback from 'MayflowerReactAtoms/buttons/ButtonFixedFeedback';
+import ButtonFixedFeedback from 'MayflowerReactButtons/ButtonFixedFeedback';
 
 const today = new Date();
 
