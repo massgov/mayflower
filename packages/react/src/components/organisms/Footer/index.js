@@ -42,7 +42,10 @@ const Footer = ({
           }
         </nav>
         <div className="ma__footer-new__copyright">
-          <div className="ma__footer-new__copyright--bold">&copy; {copyright} Commonwealth of Massachusetts.</div>
+          <div className="ma__footer-new__copyright--bold">
+            &copy;
+            {` ${copyright} Commonwealth of Massachusetts.`}
+          </div>
           <span>Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts. </span>
           <a href={privacyPolicy.url}>{privacyPolicy.text}</a>
         </div>
