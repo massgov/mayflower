@@ -33,24 +33,31 @@ export default (function (window,document,$,undefined) {
 
 
         var placeChanged = false;
-        ma.autocomplete.addListener('place_changed', function() {
-          // place_changed is only triggered when an option is selected from the auto suggestion dropdown.
-          // This includes mouse click and keyboard enter on an option.
 
-          const place = ma.autocomplete.getPlace() || {};
-          if (!place.geometry || !place.geometry.location) {
-            // User entered the name of a Place that was not suggested and
-            // pressed the Enter key, or the Place Details request failed.
-            errorMessage.addClass('has-error');
-            placeChanged = false;
-            return;
-          }
+        const placeChangedHandler = function() {
+          ma.autocomplete.addListener('place_changed', function() {
+            // place_changed is only triggered when an option is selected from the auto suggestion dropdown.
+            // This includes mouse click and keyboard enter on an option.
 
-          placeChanged = true;
-          errorMessage.removeClass('has-error');
+            const place = ma.autocomplete.getPlace() || {};
+            if (!place.geometry || !place.geometry.location) {
+              // User entered the name of a Place that was not suggested and
+              // pressed the Enter key, or the Place Details request failed.
+              errorMessage.addClass('has-error');
+              placeChanged = false;
+              return;
+            }
 
-          $(document).trigger('ma:GoogleMaps:placeChanged', place);
-        }); 
+            placeChanged = true;
+            errorMessage.removeClass('has-error');
+
+            $(document).trigger('ma:GoogleMaps:placeChanged', place);
+          });
+        };
+
+        setTimeout(function() {
+          placeChangedHandler();
+        }, 250);
 
         const showSuggestions = () => {
           // Update the top position of the dropdown, as the error message can add additional space above the input.
@@ -59,26 +66,26 @@ export default (function (window,document,$,undefined) {
           $('.pac-container').css("top", positionTop);
         }
 
-        google.maps.event.addDomListener(locationInput, 'keydown', function(e) { 
-            if (e.key == 'Enter') {
-                if (!placeChanged) {
-                   // If an auto-suggested location is not selected, persist the dropdown list on the next ENTER.
-                   showSuggestions();
-                }
-                //only submits when the autocomplete dropdown is closed
-                if ($('.pac-container:visible').length) {
-                  e.preventDefault(); 
-                }
+        google.maps.event.addDomListener(locationInput, 'keydown', function(e) {
+          if (e.key == 'Enter') {
+            if (!placeChanged) {
+              // If an auto-suggested location is not selected, persist the dropdown list on the next ENTER.
+              showSuggestions();
             }
-        }); 
+            //only submits when the autocomplete dropdown is closed
+            if ($('.pac-container:visible').length) {
+              e.preventDefault();
+            }
+          }
+        });
 
         $submitButton.click(function(e) {
           //only submits the form when the autocomplete dropdown is closed and a valid place is selected
           if ($('.pac-container:visible').length || !placeChanged) {
             errorMessage.addClass('has-error');
-            e.preventDefault(); 
+            e.preventDefault();
           } else {
-            placeChanged = false; 
+            placeChanged = false;
           }
         })
       }
@@ -88,7 +95,7 @@ export default (function (window,document,$,undefined) {
   // When google map libraries are loaded, initialize places.autocomplete on the location input, if it exists.
   $(document).on('ma:LibrariesLoaded:GoogleMaps', function() {
     initFilters();
-  });  
+  });
 
   document.addEventListener('DOMContentLoaded', function() {
     if (window.googleMapsLoaded) {
