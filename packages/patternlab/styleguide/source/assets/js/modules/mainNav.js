@@ -1,5 +1,5 @@
 export default (function (window, document, $) {
-  
+
   $('.js-main-nav').each(function () {
     let openClass = "is-open",
       hasFocus = "has-focus",
@@ -31,7 +31,7 @@ export default (function (window, document, $) {
         $dropdownLinks = $dropdownContent.find('a'),
         dropdownLinksLength = $dropdownLinks.length,
         focusIndexInDropdown = $dropdownLinks.index($focusedElement);
-          
+
       // Default behavior is prevented for all actions except 'tab'.
       if (action.close || action.left || action.right || action.up || action.down) {
         e.preventDefault();
@@ -69,8 +69,8 @@ export default (function (window, document, $) {
             focusIndexInDropdown = dropdownLinksLength - 1;
           } else {
             focusIndexInDropdown = 0;
-          }  
-          $dropdownLinks[focusIndexInDropdown].focus(); 
+          }
+          $dropdownLinks[focusIndexInDropdown].focus();
         }
         else {
           // Adjust index of active menu item based on performed action.
@@ -105,14 +105,16 @@ export default (function (window, document, $) {
       }
     })
 
- 
+
     // mouse events + space and enter keyboard events
     $mainNavItemsToggle.on('click mouseenter', function (e) {
       let $topLevelButton = $(this), // button
         $topLevelItem = $topLevelButton.parent(), // li
         $dropdownContent = $topLevelItem.find('.js-main-nav-content'),
         isOpen = $dropdownContent.hasClass(openClass);
-
+        // DP-14430: In some cases after interaction with the li element some broken inline
+        // styles remain in place, we do clean up here before proceeding with the event handling.
+        $dropdownContent.removeAttr('style');
         switch(e.type) {
           case 'click':
             if (isOpen) {
