@@ -1,6 +1,7 @@
 import React from 'react';
-import FooterSlim from '@massds/mayflower-react/dist/FooterSlim';
 import Footer from '@massds/mayflower-react/dist/Footer';
+import FooterSlim from '@massds/mayflower-react/dist/FooterSlim';
+import FooterWithColumns from '@massds/mayflower-react/dist/FooterWithColumns';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import IconMarker from '@massds/mayflower-react/dist/Icon/IconMarker';
 import IconPhone from '@massds/mayflower-react/dist/Icon/IconPhone';
@@ -129,7 +130,7 @@ const footerDuelLogo = (
 );
 
 const footer = (
-  <Footer
+  <FooterWithColumns
     footerLinks={footerLinks}
     footerLogo={{
       src: logo
