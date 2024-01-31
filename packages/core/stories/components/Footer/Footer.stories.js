@@ -10,7 +10,7 @@ import IconMail from '@massds/mayflower-react/dist/Icon/IconMail';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import { attachHTML } from '../../util/renderCode';
 
-import footerLinks from './Footer.data';
+import footerWithColLinks from './FooterWithCols.data';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
@@ -33,26 +33,6 @@ const footerBasic = (
           <span className="ma__email">
             <a href="mailto:edu@state.ma.us" className="ma__email__email">edu@state.ma.us</a>
             <p className="ma__contact__details">Open Monday through Friday from 9:00 a.m. to 5:00 p.m.</p>
-          </span>
-        )
-      },
-      {
-        icon: <IconPhone />,
-        component: (
-          <span className="ma__phone-number">
-            <a href="tel:617-988-6600" className="ma__phone-number__number">(617) 988-6600</a>
-            <p className="ma__contact__details">
-              Our Customer Service Representatives can answer your questions in
-              <b>English</b>
-              ,
-              <b>Español</b>
-              ,
-              <b>Português</b>
-              . Translation services for up to
-              <b>240+ languages</b>
-              {' '}
-              are also available to better serve employees, employers and medical providers.
-            </p>
           </span>
         )
       }
@@ -93,7 +73,16 @@ const footerDuelLogo = (
         component: (
           <a href="https://www.mass.gov/orgs/department-of-early-education-and-care">EEC Official Website</a>
         )
-      }
+      },
+      {
+        icon: <IconMail />,
+        component: (
+          <span className="ma__email">
+            <a href="mailto:edu@state.ma.us" className="ma__email__email">edu@state.ma.us</a>
+            <p className="ma__contact__details">Open Monday through Friday from <b>9:00 a.m. to 5:00 p.m</b>.</p>
+          </span>
+        )
+      },
     ]}
     description="The Department of Early Education and Care's mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"
     links={[
@@ -131,7 +120,7 @@ const footerDuelLogo = (
 
 const footerWithCol = (
   <FooterWithColumns
-    footerLinks={footerLinks}
+    footerLinks={footerWithColLinks}
     footerLogo={{
       src: logo
     }}
