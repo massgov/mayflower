@@ -129,7 +129,7 @@ const footerDuelLogo = (
   />
 );
 
-const footer = (
+const footerWithCol = (
   <FooterWithColumns
     footerLinks={footerLinks}
     footerLogo={{
@@ -170,7 +170,7 @@ const footer = (
 
 const notesFooterSlim = `// Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">`;
 
-const notesFooter = `// Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">`;
+const notesFooterWithCol = `// Link to CSS inside the head tag: <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-with-columns.css">`;
 
 export const footerExample = () => footerBasic;
 
@@ -180,5 +180,5 @@ attachHTML(footerSlim, footerBasic, notesFooterSlim);
 export const footerSlimDuelLogo = () => footerDuelLogo;
 attachHTML(footerSlimDuelLogo, footerDuelLogo, notesFooterSlim);
 
-export const footerFullNav = () => footer;
-attachHTML(footerFullNav, footer, notesFooter);
+export const footerFullNav = () => footerWithCol;
+attachHTML(footerFullNav, footerWithCol, notesFooterWithCol);
