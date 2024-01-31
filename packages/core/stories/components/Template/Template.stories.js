@@ -65,7 +65,7 @@ const templateSlim = (
   <Template
     renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
     renderHeader={headerStories.headerSlimmest()}
-    renderFooter={footerStories.footerSlim()}
+    renderFooter={footerStories.footer()}
   />
 );
 
