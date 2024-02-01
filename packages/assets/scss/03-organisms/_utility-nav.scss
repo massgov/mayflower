@@ -46,13 +46,16 @@ $utility-nav-height: 43px;
     }
 
     &:not(:last-child) {
+
       @media ($bp-header-toggle-min) {
         padding-right: 15px;
       }
     }
 
-    // Google translate button has an icon on the right, give it more space 
+    // Google translate button has an icon on the right, give it more space
+
     &:first-child {
+
       @media ($bp-header-toggle-min) {
         padding-right: 40px;
       }
