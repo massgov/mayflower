@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [Heading1,Heading2,Heading3,Heading4,Heading5,Heading6] DP-28670: Add `id` prop. (#1819)
 - (Patternlab) [OrganizationNavigation] DP-28670: Only allow jump links in organization nav, add `id` to each section to become jump link anchors. (#1819)
 - (Patternlab) [key_actions] DP-28733: Remove aria-labelledby and correct the heading level. (#1830)
-- (React) [Footer] DP-28856: Updated Footer to match PatternLab version. (#1858)
+- (React) [Footer] DP-28856: Updated Footer to match PatternLab version. (#1858) [See breaking change notes](https://github.com/massgov/mayflower/pull/1858#issuecomment-1922288849)
 - (Assets) [Variables] DP-29104: Remove the lightest font-weight for text in the system. Space out font-weight scale evenly to better show visual hierarchy, bump up all text font weights by at least 50.  Consolidate hard-coded font weights into a new variable. (#1831)
 - (Patternlab) [ContactItem] DP-29104: Remove styling overrides on telephone links, so they appear as other contact links. (#1831)
 - (Assets) [Variables] DP-29107: Cleanup hex codes and the color values in the rgba with variables. Some variations are consolidated into one color. (#1848)
