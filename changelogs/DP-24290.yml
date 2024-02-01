@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: MainNavigation
-    description: Re-label navigation elements for screen readers. (#1743)
-    issue: DP-24290
-    impact: Patch

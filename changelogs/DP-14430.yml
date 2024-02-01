@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: MainNav
-    description: Homepage desktop global nav expansion bug. (#1869)
-    issue: DP-14430
-    impact: Patch
