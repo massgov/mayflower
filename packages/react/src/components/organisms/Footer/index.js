@@ -1,8 +1,7 @@
 /**
  * Footer module.
  * @module @massds/mayflower-react/Footer
- * @requires module:@massds/mayflower-assets/scss/03-organisms/footer-new
- * @requires module:@massds/mayflower-assets/scss/01-atoms/buttons
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/footer
  */
 import React from 'react';
 import PropTypes from 'prop-types';

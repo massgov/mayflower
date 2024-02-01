@@ -1,7 +1,7 @@
 /**
  * Footer With Columns module.
  * @module @massds/mayflower-react/FooterWithColumns
- * @requires module:@massds/mayflower-assets/scss/03-organisms/footer
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/footer-with-columns
  * @requires module:@massds/mayflower-assets/scss/02-molecules/footer-links
  * @requires module:@massds/mayflower-assets/scss/01-atoms/sidebar-heading
  * @requires module:@massds/mayflower-assets/scss/02-molecules/social-links
