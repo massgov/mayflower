@@ -14,9 +14,8 @@ import footerWithColsLinks from './FooterWithCols.data';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
-
 const footerBasic = (
-  <Footer 
+  <Footer
     footerLinks={footerLinks}
     footerLogo={{
       src: logo
@@ -43,7 +42,11 @@ const footerDuelLogo = (
         component: (
           <span className="ma__email">
             <a href="mailto:edu@state.ma.us" className="ma__email__email">edu@state.ma.us</a>
-            <p className="ma__contact__details">Open Monday through Friday from <b>9:00 a.m. to 5:00 p.m</b>.</p>
+            <p className="ma__contact__details">
+              Open Monday through Friday from
+              <b>9:00 a.m. to 5:00 p.m</b>
+              .
+            </p>
           </span>
         )
       }
