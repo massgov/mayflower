@@ -1,6 +1,6 @@
 {
   "name": "@massds/mayflower-assets",
-  "version": "10.4.0",
+  "version": "13.0.0",
   "description": "Mayflower Assets",
   "main": "index.js",
   "files": [
