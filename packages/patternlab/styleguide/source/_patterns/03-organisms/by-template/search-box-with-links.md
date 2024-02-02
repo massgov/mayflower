@@ -13,7 +13,8 @@ This Pattern shows a Search box with links.
       "headingText": "Search for data",
       "submitText": "SEARCH",
       "visuallyHiddenText": "Enter a subject or search term",
-      "actionUrl": "/"
+      "actionUrl": "/",
+      "name": "data-search"
     },
 
     "secondary": {

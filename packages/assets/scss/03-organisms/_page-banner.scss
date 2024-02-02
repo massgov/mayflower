@@ -13,6 +13,7 @@ $textcolors: (
 );
 
 /* Apply basic styling to the banner container */
+
 .ma__page-banner {
   background-color: $c-primary;
   color: $c-font-inverse;
@@ -56,6 +57,7 @@ $textcolors: (
   }
   
   /* Style for the text content on the left side */
+
   &__content {
     display: flex;
     align-items: center;
@@ -63,6 +65,7 @@ $textcolors: (
   }
   
   /* Style for the image on the right side */
+
   &__image {
     display: none;
     flex: 240px;
@@ -72,6 +75,7 @@ $textcolors: (
   }
   
   @media ($bp-large-extended-min) {
+
     &__container {
       flex-direction: row;
       align-items: stretch;
@@ -88,6 +92,7 @@ $textcolors: (
   }
   
   @media ($bp-x-large-min) {
+
     &__image {
       flex: 1;
       display: block;
@@ -99,6 +104,7 @@ $textcolors: (
   
   
   @media ($bp-x-small-max) {
+
     &__image {
       flex: 50vw;
       background-size: cover;

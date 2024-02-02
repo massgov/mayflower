@@ -470,18 +470,6 @@ body.show-menu {
 
   &__utility-nav {
 
-    & .ma__utility-nav {
-
-      &__item {
-
-        @media ($bp-header-toggle-min) {// Override original.
-          display: inline-block;
-          padding-left: 30px;
-          vertical-align: middle;
-        }
-      }
-    }
-
     &--narrow {
 
       @media ($bp-header-toggle-max) {

@@ -1,0 +1,30 @@
+{% if fieldSubmit.isForm %}
+<form
+  class="ma__field-submit"
+  action={{ fieldSubmit.action }}
+  {% if fieldSubmit.id %} id={{ fieldSubmit.id }} {% endif %}
+  {% if fieldSubmit.name %} name={{ fieldSubmit.name }} {% endif %}
+>
+  {{ fieldSubmit.hiddenInputs|raw }}
+{% else %}
+<fieldset 
+  class="ma__field-submit"
+  {% if fieldSubmit.id %} id={{ fieldSubmit.id }} {% endif %}
+  {% if fieldSubmit.name %} name={{ fieldSubmit.name }} {% endif %}
+>
+{% endif %}
+  {% if fieldSubmit.labelText %}
+    {# A custom label for layout purposes #}
+    <label for="{{ fieldSubmit.inputText.id }}">{{ fieldSubmit.labelText }}</label>
+  {% endif %}
+  <div class="ma__field-submit__inputs">
+    {% set inputText = fieldSubmit.inputText %}
+    {% include "@atoms/03-forms/input-text.twig" %}
+    {% set buttonSearch = fieldSubmit.buttonSearch %}
+    {% include "@atoms/01-buttons/button-search.twig" %}
+  </div>
+{% if fieldSubmit.isForm %}
+</form>
+{% else %}
+</fieldset>
+{% endif %}

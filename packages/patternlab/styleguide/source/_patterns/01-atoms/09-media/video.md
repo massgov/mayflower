@@ -14,18 +14,20 @@ Displays a video using an iframe with an optional link.
 ### Variables
 ~~~
 video {
-  src: 
+  src:
     type: string (video url) / required
-  label: 
+  label:
     type: string / required
-  width: 
+  width:
     type: string (numbers only) / required
-  height: 
+  height:
     type: string (numbers only) / required
-  link: 
+  link:
     type: decorativeLink / optional
-  position: 
+  position:
     type: string ('', 'right') / optional
+  headingLevel:
+    type: number / optional
 }
 ~~~
 
