@@ -1,15 +1,17 @@
 @use "00-base/variables" as *;
 
+@use "00-base/color-tokens" as *;
+
 @use "00-base/colors" as *;
 
 @use "sass:color" as *;
 
 @mixin ma-emergency-alert ($color) {
   color: $c-font-base;
-  background-color: mix(#fff, $color, 90%);
+  background-color: mix($c-bg, $color, 90%);
 
     & + & {
-    border-top-color: mix(#fff, $color, 50%);
+    border-top-color: mix($c-bg, $color, 50%);
   }
 
   .ma__emergency-alert__link {
@@ -21,7 +23,7 @@
 
     .ma__content-link {
       text-decoration: none;
-      
+
       span {
         display: inline;
         border-bottom: 1px solid rgba($c-font-base, .5);
@@ -32,7 +34,7 @@
       }
 
       svg {
-        fill: mix(#fff, $c-font-base, 50%);
+        fill: mix($c-white, $c-font-base, 50%);
       }
 
       &:hover {

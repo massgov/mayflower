@@ -23,7 +23,7 @@ export default ({
 }) => {
   // add all the elements inside modal which you want to make focusable
   const focusableElements = focusableSelectors;
-  const modal = document.querySelector(modalSelector); // select the modal by it's id
+  const modal = document.querySelector(modalSelector); // select the modal by its id
   const { key } = keyEvent;
 
   const action = {

@@ -1,6 +1,3 @@
-$c-gray-dcdcdc: #dcdcdc;
-$c-theme-green: #43956f;
-
 @use "00-base/configure" as *;
 
 .ma__results-list-container {
@@ -103,7 +100,7 @@ $c-theme-green: #43956f;
         span {
           font-size: $fonts-small;
           color: $c-gray-dark;
-          font-weight: 550;
+          font-weight: $fonts-bold;
         }
 
         > svg {

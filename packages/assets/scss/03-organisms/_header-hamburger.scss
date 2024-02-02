@@ -1,6 +1,5 @@
 $header-mobile-menu-width: 300px;
 $header-logo-width: 150px;
-$bp-header-logo-min: "min-width: 1000px";
 $utility-nav-height: 44px;
 
 @use "00-base/configure" as *;
@@ -19,7 +18,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: rgba($c-black, 0.4);
+  background-color: rgba($c-gray-darkest, 0.4);
   top: 0;
   z-index: $z-overlay-shade;// Lay over the alerts.
 
@@ -37,7 +36,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: rgba($c-black, 0.4);
+  background-color: rgba($c-gray-darkest, 0.4);
   top: 0px;
   z-index: $z-overlay-shade;
 
@@ -177,7 +176,7 @@ body.show-menu {
       float: none;
     }
 
-    @media ($bp-header-logo-min) {
+    @media ($bp-large-extended-min) {
 
       @include span-columns(3);
       display: inline-block;
@@ -218,7 +217,7 @@ body.show-menu {
       width: 66.12903%; //@include span-columns(8);
     }
 
-    @media ($bp-header-logo-min) {
+    @media ($bp-large-extended-min) {
       width: 74.59677%; //@include span-columns(9);
     }
 
@@ -232,17 +231,6 @@ body.show-menu {
 
         span {
           display: inline-block;
-        }
-
-        // not the button in navigation
-
-        .ma__button-search {
-
-          &,
-          &--secondary {
-
-            display: none;
-          }
         }
       }
     }
@@ -451,13 +439,6 @@ body.show-menu {
   &__nav-search {
     padding: 15px 20px 15px;
 
-    .ma__header-search {
-
-      span {
-        display: none;
-      }
-    }
-
     @media ($bp-small-min) {
       display: none;
     }
@@ -469,10 +450,6 @@ body.show-menu {
 
       .ma__header-search {
         position: initial;
-      }
-
-      .ma__button-search__label {
-        display: none !important;
       }
 
       .ma__button-search--secondary {
@@ -492,18 +469,6 @@ body.show-menu {
   }
 
   &__utility-nav {
-
-    & .ma__utility-nav {
-
-      &__item {
-
-        @media ($bp-header-toggle-min) {// Override original.
-          display: inline-block;
-          padding-left: 30px;
-          vertical-align: middle;
-        }
-      }
-    }
 
     &--narrow {
 
@@ -540,7 +505,7 @@ body.show-menu {
 
             &:focus {
               background-color: $c-bd-divider;
-              outline: 2px solid $c-black;
+              outline: 2px solid $c-gray-darkest;
             }
 
             .toggle-indicator {
@@ -590,7 +555,7 @@ body.show-menu {
             position: relative;
             top: auto;
             right: auto;
-            color: $c-black;
+            color: $c-font-base;
             z-index: $z-overlay;
 
             transition: max-height 0.6s ease-in-out;
@@ -638,7 +603,7 @@ body.show-menu {
 
             & .ma__utility-panel {
               background-color: $c-gray-lightest;
-              color: $c-black;
+              color: $c-font-base;
 
               @include ma-reset-list;
 
@@ -663,7 +628,7 @@ body.show-menu {
               position: relative;
               line-height: 1.33;
               padding: 0 20px 10px 20px;
-              color: $c-black;
+              color: $c-font-base;
               margin-bottom: 0;
             }
 
@@ -673,7 +638,7 @@ body.show-menu {
 
             & .ma__utility-panel__item {
               background-color: $c-gray-lightest;
-              color: $c-black;
+              color: $c-font-base;
               margin: 0;
               display: block;
             }
@@ -691,10 +656,10 @@ body.show-menu {
               display: block;
               position: relative;
               font-size: 1.25rem;
-              font-weight: 400;
+              font-weight: $fonts-normal;
               line-height: 1.33;
               padding: 10px 20px 10px 30px;
-              color: $c-black;
+              color: $c-font-base;
 
               &:hover {
                 text-decoration: underline;
@@ -755,10 +720,10 @@ body.show-menu {
       position: fixed;
       top: 0;
       white-space: nowrap;
-      font-weight: 500;
+      font-weight: $fonts-semibold;
       background-color: tint($c-font-link, 90%);
       border-color: tint($c-font-link, 50%);
-      box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+      box-shadow: $box-shadow;
       color: $c-font-link;
       font-size: 1.25rem;
 
@@ -792,7 +757,7 @@ body.show-menu {
       }
 
       &:focus {
-        background-color: $c-white;
+        background-color: $c-bg;
         border-color: $c-highlight !important;
       }
     }

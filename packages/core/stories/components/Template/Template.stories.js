@@ -65,7 +65,7 @@ const templateSlim = (
   <Template
     renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
     renderHeader={headerStories.headerSlimmest()}
-    renderFooter={footerStories.footerSlim()}
+    renderFooter={footerStories.footer()}
   />
 );
 
@@ -83,24 +83,24 @@ const layoutCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/layout
 const brandBannerCSS = `<link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/brand-banner.min.css">`;
 
 const notesTemplateSlim = `
-  // Link to CSS:
+  // Link to CSS inside the head tag:
   ${globalCSS}
   ${layoutCSS}
   ${brandBannerCSS}
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
 `;
 
 const notesTemplate = `
-  // Link to CSS:
+  // Link to CSS inside the head tag:
   ${globalCSS}
   ${layoutCSS}
   ${brandBannerCSS}
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-with-columns.css">
 
-  // Link to JS:
-  <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js" />
+  // Link to JS before the closing body tag:
+  <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js"></script>
 `;
 
 export const notesTemplateCSS = `

@@ -140,7 +140,7 @@ $breadcrumbs-scrollbar-height: 12px;
       font-size: $fonts-xsmall;
       line-height: 1;
       padding: 2px 0;
-      font-weight: 500;
+      font-weight: $fonts-semibold;
       text-decoration: none;
 
       &:hover {
@@ -159,7 +159,7 @@ $breadcrumbs-scrollbar-height: 12px;
     }
 
     a {
-      box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
+      box-shadow: inset 0 0 $c-white, inset 0px -1px $c-bay-blue-lighter;
 
       svg {
         fill: $c-primary;
@@ -169,7 +169,7 @@ $breadcrumbs-scrollbar-height: 12px;
       }
 
       &:hover {
-        box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary, 0.7);
+        box-shadow: inset 0 0 $c-white, inset 0px -2px $c-bay-blue-30-tint;
 
         svg {
           fill: $c-bay-blue-50-tint;
@@ -258,13 +258,13 @@ $breadcrumbs-scrollbar-height: 12px;
         /* Track */
 
         &::-webkit-scrollbar-track {
-          background: mix(#fff, $c-granite-gray, 80);
+          background: mix($c-bg, $c-granite-gray, 80);
         }
 
         /* Handle */
 
         &::-webkit-scrollbar-thumb {
-          background: mix(#fff, $c-granite-gray, 50);
+          background: mix($c-bg, $c-granite-gray, 50);
         }
       }
     }
@@ -288,12 +288,12 @@ $breadcrumbs-scrollbar-height: 12px;
   }
 
   &__sub-items {
-    background-color: $c-white;
-    box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
+    background-color: $c-bg;
+    box-shadow: $box-shadow;
   }
 
   &--light {
-    background-color: $c-white;
+    background-color: $c-bg;
   }
 
   &--light &__items {

@@ -10,7 +10,6 @@ $menu-transition-time: 0.3s;
   transition: opacity $menu-transition-time;
 
   @media ($bp-large-extended-min) {
-    margin-top: -40px;
     margin-bottom: 40px;
   }
 
@@ -57,9 +56,14 @@ $menu-transition-time: 0.3s;
 
   &__mobile-toggle {
 
+    @include ma-button-reset;
+
     @include ma-container;
+    margin-left: 0;
+    margin-right: 0;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,26 +81,8 @@ $menu-transition-time: 0.3s;
       line-height: 1.2em;
       // max-height = line-height (1.2) * lines max number (2)
       max-height: 2.4em;
-      max-width: 90%;
       margin-right: -1em;
       padding-right: 1em;
-
-      &::before {
-        content: '...';
-        position: absolute;
-        right: 0;
-        bottom: 0;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        width: 1em;
-        height: 1em;
-        margin-top: 0.2em;
-        background: $c-gray-lightest;
-      }
     }
 
     .mobile-toggle-icon {
@@ -138,7 +124,7 @@ $menu-transition-time: 0.3s;
 
       .mobile-toggle-icon {
         background-color: $c-primary;
-        color: $c-white;
+        color: $c-font-inverse;
         transition: $menu-transition-time;
 
         &::after {
@@ -208,7 +194,7 @@ $menu-transition-time: 0.3s;
       border-width: 0;
 
       @media ($bp-large-min) {
-        background-color: $c-white;
+        background-color: $c-bg;
         margin-left: -3px;
         border-width: 2px;
       }
@@ -234,7 +220,7 @@ $menu-transition-time: 0.3s;
       }
 
       &:hover {
-        background-color: $c-white;
+        background-color: $c-bg;
 
         svg {
           fill: $c-primary-alt;
@@ -250,7 +236,7 @@ $menu-transition-time: 0.3s;
       border-left: 1px solid $c-gray-light;
       font-size: $fonts-xsmall;
       font-weight: $fonts-bold;
-      color: $c-black;
+      color: $c-font-base;
       padding-left: 35px;
 
       @media ($bp-large-min) {

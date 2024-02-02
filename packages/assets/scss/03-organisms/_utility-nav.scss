@@ -36,16 +36,31 @@ $utility-nav-height: 43px;
       position: relative;
 
       &:hover {
-        background-color: $c-white;
-        box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+        background-color: $c-bg;
+        box-shadow: $box-shadow;
       }
     }
 
     @media ($bp-header-toggle-min) {
       display: inline-block;
-      padding-left: 30px;
-      vertical-align: middle;
     }
+
+    &:not(:last-child) {
+
+      @media ($bp-header-toggle-min) {
+        padding-right: 15px;
+      }
+    }
+
+    // Google translate button has an icon on the right, give it more space
+
+    &:first-child {
+
+      @media ($bp-header-toggle-min) {
+        padding-right: 40px;
+      }
+    }
+
 
     // Adjusting the style to match other items.
     // Separate this style from react.
@@ -131,7 +146,7 @@ $utility-nav-height: 43px;
 
     & > svg {
       height: 16px;
-      width: 20px;
+      width: 23px;
 
       @media ($bp-header-toggle-max) {
         position: absolute;
@@ -169,14 +184,7 @@ $utility-nav-height: 43px;
       }
 
       & > img {
-        margin-right: 15px;
-        margin-bottom: 0;
-        opacity: .7;
-
-        @media ($bp-header-toggle-max) {
-          margin-right: 1px;
-          margin-bottom: 2px;
-        }
+        display: none;
       }
 
       & > span {
@@ -200,18 +208,6 @@ $utility-nav-height: 43px;
         }
       }
 
-      @media ($bp-header-toggle-max) {
-
-        @include ma-accordion-icon;
-        display: block;
-        width: 100%;
-
-        &:after {
-
-          border: 0;
-        }
-      }
-
       & > * {
         display: none;
       }
@@ -229,10 +225,23 @@ $utility-nav-height: 43px;
         transform: rotate(45deg) translateY(-45%);
 
         @media ($bp-header-toggle-max) {
-          border: 0;
-          transform: none;
-          margin: 0;
-          right: 20px;
+          display: none;// hide chevron in mobile
+        }
+      }
+
+      @media ($bp-header-toggle-max) {
+
+        & span:nth-of-type(3) {// + symbol
+
+          @include ma-accordion-icon;
+          display: inline;
+          visibility: hidden;
+
+          &:after {
+
+            border: 0;
+            visibility: visible;
+          }
         }
       }
     }
@@ -242,7 +251,6 @@ $utility-nav-height: 43px;
     line-height: 1em;
     opacity: 0;
     position: absolute;
-      left: 30px;
       top: 54%;
     transform: translateY(-50%);
     transition: opacity .001s;
@@ -368,7 +376,7 @@ $utility-nav-height: 43px;
       text-transform: uppercase;
       vertical-align: middle;
       letter-spacing: $letter-spacing-large;
-      color: $c-white;
+      color: $c-font-inverse;
       opacity: 0.7;
     }
 
@@ -394,7 +402,7 @@ $utility-nav-height: 43px;
       line-height: 1.45;
       font-weight: $fonts-normal;
       margin-bottom: 0;
-      color: $c-white;
+      color: $c-font-inverse;
     }
 
     @media ($bp-header-toggle-min) {
@@ -414,12 +422,8 @@ $utility-nav-height: 43px;
 
     & > svg {
       height: 20px;
-      margin-right: 10px;
-      width: 20px;
-
-      &.svg-login {
-        width: 25px;
-      }
+      margin-right: 5px;
+      width: 25px;
     }
   }
 }

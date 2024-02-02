@@ -23,39 +23,39 @@
         {
           "class": "ma__relationship-indicators--term",
           "href": "#",
-          "title": "Department of Conservation and Recreation"
+          "title": "Department of Conservation & Recreation"
         },
         {
           "class": "ma__relationship-indicators--term",
           "href": "#",
-          "title": "Other agency or organization"
+          "title": "Executive Office of Energy and Environmental Affairs"
         }
       ]
     }
   },
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x400.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "overlay",
-    "icon": "",
-    "title": "Required - Services title",
-    "titleSubText": "",
-    "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
-    "color": "blue",
-    "buttonsLabel": "LOG IN:",
-    "buttons": [{
-      "href": "#",
-      "text": "Log in to UI Online",
-      "size": "small",
-      "theme": "c-white",
-      "icon": "login"
-    },{
-      "href": "#",
-      "text": "Multilingual Online UI Application",
-      "size": "small",
-      "theme": "c-white",
-      "icon": "login"
-    }]
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1-mobile.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "theme": "c-primary",
+    "pageHeader": {
+      "title": "Required - Services title",
+      "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
+      "buttonsLabel": "LOG IN:",
+      "buttons": [{
+        "href": "#",
+        "text": "Log in to UI Online",
+        "size": "small",
+        "theme": "c-white",
+        "icon": "login"
+      },{
+        "href": "#",
+        "text": "Multilingual Online UI Application",
+        "size": "small",
+        "theme": "c-white",
+        "icon": "login"
+      }]
+    }
   },
   "introPageContent": {
     "video": {
@@ -79,12 +79,12 @@
           {
             "class": "ma__relationship-indicators--term",
             "href": "#",
-            "title": "Department of Conservation and Recreation"
+            "title": "Department of Conservation & Recreation"
           },
           {
             "class": "ma__relationship-indicators--term",
             "href": "#",
-            "title": "Other agency or organization"
+            "title": "Executive Office of Energy and Environmental Affairs"
           }
         ]
       }
@@ -444,7 +444,7 @@
         "isExpanded": false,
         "subTitle": {
           "href": "",
-          "text": "Department of Conservation and Recreation"
+          "text": "Department of Conservation & Recreation"
         },
         "groups": [
           {
@@ -576,7 +576,7 @@
         "isExpanded": false,
         "subTitle": {
           "href": "",
-          "text": "Department of Conservation and Recreation"
+          "text": "Department of Conservation & Recreation"
         },
         "groups": [
           {

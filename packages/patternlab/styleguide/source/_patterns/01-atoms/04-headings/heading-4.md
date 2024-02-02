@@ -9,5 +9,7 @@ This is a H4 tag used in a Rich Text.
 heading4: {
   text:
     type: string / required
-  }
+  id:
+    type: string / optional
+}
 ~~~
