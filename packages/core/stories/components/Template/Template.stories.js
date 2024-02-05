@@ -65,7 +65,7 @@ const templateSlim = (
   <Template
     renderBrandBanner={brandBannerStories.brandBannerNoSeal()}
     renderHeader={headerStories.headerSlimmest()}
-    renderFooter={footerStories.footerSlim()}
+    renderFooter={footerStories.footer()}
   />
 );
 
@@ -88,7 +88,7 @@ const notesTemplateSlim = `
   ${layoutCSS}
   ${brandBannerCSS}
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header-slim.css">
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-slim.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
 `;
 
 const notesTemplate = `
@@ -97,7 +97,7 @@ const notesTemplate = `
   ${layoutCSS}
   ${brandBannerCSS}
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/header.css">
-  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer.css">
+  <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/footer-with-columns.css">
 
   // Link to JS before the closing body tag:
   <script type="text/javascript" src="${STORYBOOK_CDN_PATH}/js/header.js"></script>

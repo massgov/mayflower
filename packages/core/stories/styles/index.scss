@@ -50,8 +50,9 @@
 @use '@massds/mayflower-assets/scss/03-organisms/header-mixed';
 
 // Footer
-@use '@massds/mayflower-assets/scss/03-organisms/footer-slim';
 @use '@massds/mayflower-assets/scss/03-organisms/footer';
+@use '@massds/mayflower-assets/scss/03-organisms/footer-slim';
+@use '@massds/mayflower-assets/scss/03-organisms/footer-with-columns';
 @use '@massds/mayflower-assets/scss/02-molecules/footer-links';
 @use '@massds/mayflower-assets/scss/02-molecules/social-links';
 @use '@massds/mayflower-assets/scss/01-atoms/phone-number';

@@ -52,12 +52,14 @@
 
   // Make the skip link visible on focus.
   // Need the positioning adjiustment because of the transcript link's absolute positioning.
+
   &__skip-link:focus {
     position: absolute;
     top: -20px;
   }
 
   // Position skip link target below the transcript link.
+
   &__skip-link_target a {
     position: absolute;
     bottom: -35px;
@@ -120,6 +122,7 @@
 }
 
  // Override style for .ma__rich-text h2:first-child:not(.sticky-toc-jump-target).
+
 .ma__rich-text .ma__video .ma__video-title {
   position: absolute;
 }

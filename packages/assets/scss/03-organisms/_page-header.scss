@@ -52,7 +52,9 @@ $page-header-widget-width: 350px;
     padding: 30px 0;
 
     // With underline decoration
+
     &--underline {
+
       &:after {
         content: "";
         position: absolute;
@@ -186,7 +188,7 @@ $page-header-widget-width: 350px;
     padding-left: 0;
     margin-bottom: 0;
 
-    &-wrapper{
+    &-wrapper {
       display: flex;
       width: 100%;
       margin-top: 1.5rem;
@@ -215,6 +217,7 @@ $page-header-widget-width: 350px;
   }
 
 // links
+
   &__links {
     list-style: none;
     padding-left: 0;
