@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: LocationFilters
-    description: Fixed sporadic issues with location filters. (#1861)
-    issue: DP-31366
-    impact: Minor

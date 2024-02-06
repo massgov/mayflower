@@ -1,6 +1,0 @@
-Changed:
-  - project: Assets
-    component: Variables
-    description: Cleanup hex codes and the color values in the rgba with variables. Some variations are consolidated into one color. (#1848)
-    issue: DP-29107
-    impact: Patch
