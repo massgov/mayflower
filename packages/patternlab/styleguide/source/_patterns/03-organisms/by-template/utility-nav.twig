@@ -23,7 +23,10 @@
          {% endfor %}
         {% endfor %}
       {% else %}
-        <button class="ma__utility-nav__link js-util-nav-toggle"
+        <button
+            class="ma__utility-nav__link js-util-nav-toggle"
+            id="{{ item.id }}"
+            aria-controls="panel-{{ item.id }}"
             aria-haspopup="true"
             aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}"
             aria-expanded="false">
@@ -34,7 +37,10 @@
             {# Add toggle icon for hamburger menu item. #}
             <span class="toggle-indicator" aria-hidden="true"></span>
           </button>
-          <div aria-hidden="true" class="ma__utility-nav__content js-util-nav-content is-closed">
+          <div
+              aria-hidden="true"
+              class="ma__utility-nav__content js-util-nav-content is-closed"
+              id="panel-{{ item.id }}">
             <div class="ma__utility-nav__container">
               <div class="ma__utility-nav__content-title">
                 {{ icon(item.icon) }}
@@ -46,14 +52,10 @@
                 {% include "@organisms/by-template/utility-panel.twig" %}
                 {% endfor %}
               </div>
-
               <button class="ma__utility-nav__close js-close-util-nav">
                 <span>{{ item.closeText }}</span>
                 <span class="ma__utility-nav__close-icon" aria-hidden="true">+</span>
               </button>
-
-
-
             </div>
           </div>
         {% endif %}

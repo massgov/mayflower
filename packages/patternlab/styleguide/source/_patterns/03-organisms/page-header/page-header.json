@@ -1,0 +1,64 @@
+{
+  "pageHeader": {
+    "publishState": {
+      "text": "Draft"
+    },
+    "category": "Optional Category",
+    "subCategory": {
+      "title": "Optional Sub-category"
+    },
+    "prefix": "This is a default value for category",
+    "title": "Title Of The Page",
+    "titleSubText": "(TOTP)",
+    "subTitle": "This is an optional subTitle. Set 'nested' to true to include this as part of the H1. <a href=''>You can add a hyperlink in the subTitle</a>",
+    "description": "This is an optional description. This is an optional description. This is an optional description. <a href=''>You can add a hyperlink in the description.</a>",
+    "buttonsLabel": "Button:",
+    "buttons": [{
+      "href": "#",
+      "text": "Button 1",
+      "size": "small",
+      "theme": "c-primary",
+      "icon": "login"
+    },{
+      "href": "#",
+      "text": "Button 2",
+      "size": "small",
+      "theme": "c-primary",
+      "icon": "login"
+    }],
+    "links": [{
+      "text": "Hyperlink 1",
+      "href": "#",
+      "info": "",
+      "description": "Description 1"
+    },{
+      "text": "Hyperlink 2",
+      "href": "#",
+      "info": "",
+      "description": "Description 2"
+    },{
+      "text": "Hyperlink 3",
+      "href": "#",
+      "info": "",
+      "description": "Description 3"
+    }],
+    "underline": true,
+    "divider": true,
+    "optionalContents": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text": "Optional Content"
+        }
+      }      
+    }],
+    "widgets": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text": "Optional widgets"
+        }
+      }      
+    }]
+  }
+}

@@ -92,7 +92,7 @@
       content: "";
       position: fixed;
       z-index: -1;
-      background-color: #fff;
+      background-color: $c-bg;
       opacity: 0;
       transition: opacity 0.2s ease;
     }
@@ -193,7 +193,7 @@
   }
 
   .ma__toc__toc__toggle[aria-expanded="true"] {
-    color: $c-white;
+    color: $c-font-inverse;
     background: $c-primary;
   }
 

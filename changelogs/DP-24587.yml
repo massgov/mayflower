@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: TOC
+    description: TOC hierarchy style fix. (#1854)
+    issue: DP-24587
+    impact: Patch

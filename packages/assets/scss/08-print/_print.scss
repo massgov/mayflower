@@ -42,7 +42,7 @@
   *[aria-hidden="true"],
   .ma__download-link__icon,
   .ma__sidebar-widget__more,
-  .ma__page-banner__icon,
+  .ma__page-banner-legacy__icon,
   .ma__callout-time__icon,
   .ma__jump-links,
   .ma__header__nav,
@@ -56,8 +56,8 @@
   .ma__action-activities__link,
   .ma__action-header__divider,
   .ma__action-finder__see-all-container,
-  .ma__page-banner__icon,
-  .ma__page-banner--small .ma__page-banner__icon,
+  .ma__page-banner-legacy__icon,
+  .ma__page-banner-legacy--small .ma__page-banner-legacy__icon,
   .ma__banner-carousel,
   .ma__quick-actions,
   .ma__wait-time,
@@ -142,36 +142,36 @@
     display: none !important;
   }
 
-  .ma__page-banner {
+  .ma__page-banner-legacy {
     margin-bottom: 0;
     margin-top: 0 !important;
     padding: 0;
     min-height: 0;
     height: auto;
 
-    &.ma__page-banner--overlay {
+    &.ma__page-banner-legacy--overlay {
       height: auto;
     }
 
-    .ma__page-banner__container {
+    .ma__page-banner-legacy__container {
       min-height: 0;
     }
 
-    .ma__page-banner__content-wrapper,
-    .ma__page-banner__title,
-    .ma__page-banner__description {
+    .ma__page-banner-legacy__content-wrapper,
+    .ma__page-banner-legacy__title,
+    .ma__page-banner-legacy__description {
       width: 100%;
       color: $c-font-heading;
       padding: 0;
     }
 
-    .ma__page-banner__image {
+    .ma__page-banner-legacy__image {
       display: none;
       height: 0;
       position: unset;
     }
 
-    .ma__page-banner__content {
+    .ma__page-banner-legacy__content {
       padding: 0;
       margin: 0;
       position: relative;
@@ -191,21 +191,21 @@
     }
   }
 
-  .ma__page-banner--columns {
+  .ma__page-banner-legacy--columns {
     min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
 
-    .ma__page-banner__content {
+    .ma__page-banner-legacy__content {
       height: auto !important;
       top: auto !important;
     }
 
-    .ma__page-banner__container {
+    .ma__page-banner-legacy__container {
       min-height: 0 !important;
     }
 
-    .ma__page-banner__description {
+    .ma__page-banner-legacy__description {
       padding: 0 !important;
       float: none !important;
       width: 100% !important;
@@ -213,7 +213,7 @@
     }
   }
 
-  .ma__page-banner--large {
+  .ma__page-banner-legacy--large {
     height: auto !important;
     width: 100% !important;
     max-width: none;

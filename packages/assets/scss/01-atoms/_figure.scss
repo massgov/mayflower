@@ -8,44 +8,7 @@ $figures-gutter: 20px;
 .ma__figure {
   margin: 0 0 20px 0;
 
-  .ma__rich-text &__skip-link,
-  &__skip-link {
-    margin: -8px 0 2px 0;
-    padding: 0 10px 2px 10px;
-    float: left;
-    display: block;
-    border-bottom: 0; // Reset the link underline from .ma__rich-text a.
-    font-size: 1.25rem;
-    transition: none;
-
-    &:hover {
-      border: none;
-    }
-
-    &:not(:focus) {
-
-      @include ma-visually-hidden;
-    }
-  }
-
-  .ma__figure__skip-link_target {
-    z-index: -3;
-
-    a {
-      display: none;
-      padding: 0 10px;
-      font-size: 1.25rem;
-      font-weight: $fonts-bold;
-
-      border-bottom: 0;
-      transition: none;
-
-      &.visible {
-        display: block;
-        scroll-margin-top: 80px;
-      }
-    }
-  }
+  @include ma-skip-link;
 
   figure {
     margin: 0;
@@ -327,7 +290,7 @@ $figures-gutter: 20px;
     color: $c-font-detail;
     font-weight: bold;
     font-style: normal;
-    border-bottom: 1px solid $c-black;
+    border-bottom: 1px solid $c-gray-darkest;
     padding: 10px 0;
 
     @media ($bp-small-min) {
@@ -373,10 +336,10 @@ $figures-gutter: 20px;
     text-decoration: underline;
     height: auto;
     width: auto;
-    color: #14558f;
+    color: $c-bay-blue;
 
     &:visited {
-      color: #800080;
+      color: $c-visited;
     }
   }
 

@@ -1,0 +1,25 @@
+  {
+  "pageBanner": {
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1-mobile.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "theme": "c-primary-alt",
+    "renderImageOnMobile": true,
+    "pageHeader": {
+      "title": "Governor Maura Healey and Lt. Governor Kim Driscoll",
+      "links": [{
+        "text": "Maura Healey",
+        "href": "#",
+        "info": "",
+        "description": "Governor",
+        "inverse": true
+      },{
+        "text": "Kim Driscoll",
+        "href": "#",
+        "info": "",
+        "description": "Lieutenant Governor",
+        "inverse": true
+      }]
+    }
+  }
+}

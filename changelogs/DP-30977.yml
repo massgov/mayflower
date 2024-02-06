@@ -1,0 +1,6 @@
+Fixed:
+  - project: Core
+    component: Documentation
+    description: Update JS and CSS instructions. (#1855)
+    issue: DP-30977
+    impact: Patch

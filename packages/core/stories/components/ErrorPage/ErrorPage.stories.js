@@ -37,7 +37,7 @@ const err500 = (
   <Error500 siteLogo={siteLogo} />
 );
 const notesErrorPage = `
-  // Link to CSS: 
+  // Link to CSS inside the head tag: 
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/global.min.css">
   <link rel="stylesheet" href="${STORYBOOK_CDN_PATH}/css/error-page.min.css">
 `;

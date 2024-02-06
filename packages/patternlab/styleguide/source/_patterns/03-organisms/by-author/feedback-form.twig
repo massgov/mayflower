@@ -16,7 +16,7 @@
         <h2 class="ma__feedback-form__title">{{feedbackForm.title}}</h2>
         <p class="ma__feedback-form__description">{{feedbackForm.description}}</p>
       </header>
-      <form action="#" class="ma__form ma__form--light">
+      <form action="#" class="ma__form ma__form--light" name="feedback-form">
         <div class="ma__feedback-form__name">
           {% set inputText = feedbackForm.inputText %}
           {% include "@atoms/03-forms/input-text.twig" %}

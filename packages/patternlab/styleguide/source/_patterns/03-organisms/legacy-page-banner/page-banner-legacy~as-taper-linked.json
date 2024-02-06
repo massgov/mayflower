@@ -1,0 +1,24 @@
+{
+    "pageBanner": {
+      "bgWide": "https://www.mass.gov/files/2022-12/Healey%20Driscoll%20Org.png",
+      "bgNarrow": "https://www.mass.gov/files/2022-12/Healey%20Driscoll%20Org.png",
+      "renderImageOnMobile": true,
+      "layout": "taper",
+      "icon": "",
+      "title": "Office of the Treasurer & Receiver General",
+      "titleSubText": " (TRE)",
+      "primaryLink": {
+        "text": "Charlie Baker",
+        "info": "",
+        "description": "Governor"
+      },
+      "secondaryLink": {
+        "text": "Deborah B. Goldberg",
+        "href": "#",
+        "info": "",
+        "description": "Treasurer & Receiver General"
+      },
+      "color": "green"
+    }
+  }
+

@@ -8,16 +8,36 @@
   width: 100%;
 
   a:hover {
-    border-bottom-color: rgba($c-font-link,.5);
+    border-bottom-color: $c-bay-blue-lighter;
   }
 
   a:focus {
     // important needed to overwrite the focus border color
-    border-bottom-color: rgba($c-font-link,.5) !important;
+    border-bottom-color: $c-bay-blue-lighter !important;
   }
 
   svg {
-    fill: rgba($c-font-link,.5);
+    fill: $c-bay-blue-lighter;
+  }
+
+  &--inverse {
+
+    a {
+      color: $c-font-inverse;
+    }
+
+    a:hover {
+      border-bottom-color: rgba($c-font-inverse,.5);
+    }
+
+    a:focus {
+      // important needed to overwrite the focus border color
+      border-bottom-color: rgba($c-font-inverse,.5) !important;
+    }
+
+    svg {
+      fill: rgba($c-font-inverse,.5);
+    }
   }
 
   &.button-link {
@@ -25,7 +45,7 @@
     display: inline-block;
     width: auto;
     padding: .5rem 1.8rem .5rem .8rem;
-    background-color: $c-white;
+    background-color: $c-bg;
 
     &:hover,
     &:focus {

@@ -187,7 +187,7 @@
 
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
-    color: $c-white;
+    color: $c-font-inverse;
     font-weight: $fonts-bold;
   }
 
@@ -220,7 +220,7 @@
   }
 
     &:hover a {
-      border-bottom-color: rgba($c-font-link,.5);
+      border-bottom-color: $c-bay-blue-lighter;
     }
 
     &:nth-child(n+11) {
@@ -429,7 +429,7 @@
     width: 35px;
     height: 35px;
     background-color: $c-primary;
-    color: $c-white;
+    color: $c-font-inverse;
 
     .sticky-nav-open & {
       display: block;
@@ -456,7 +456,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: $fonts-bold;
-  color: $c-black;
+  color: $c-font-base;
   margin-bottom: 0;
   display: none;
 
@@ -473,7 +473,7 @@
   max-width: 550px;
   top: 0;
   z-index: 99;
-  background-color: $c-white;
+  background-color: $c-bg;
   transition: right 0.3s ease-out;
 
   overflow: auto;
@@ -500,7 +500,7 @@
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
     color: $c-gray-dark;
-    background-color: $c-white;
+    background-color: $c-bg;
     height: 65px;
     padding: 10px 20px;
     width: 100%;
@@ -581,7 +581,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba($c-black, 0.3);
+  background-color: rgba($c-gray-darkest, 0.3);
   pointer-events: none;
   z-index: 99;
 

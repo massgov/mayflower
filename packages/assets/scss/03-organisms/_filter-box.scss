@@ -9,15 +9,15 @@
 
 	  &__form {
 	     box-sizing: border-box;
-	     border: 1px solid #8AAAC7;
-	     background-color: #E8EEF4;
+	     border: 1px solid $c-bay-blue-50-tint;
+	     background-color: $c-bay-blue-90-tint;
 
 			@media ($bp-large-max) {
 				border-width: 1px 0;
 			}
 
 			 &--active {
-				 box-shadow: 0 0 1.25rem rgba(1, 1, 1, 0.25);
+				 box-shadow: 0 0 1.25rem $c-box-shadow-black;
 			 }
 
 			 .main-content--two {
@@ -51,7 +51,7 @@
 					 margin: 0.5rem 1rem 0.5rem 0;
 			 }
 	}
-	
+
 	&__controls {
 		align-items: baseline;
 	}

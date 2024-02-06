@@ -12,7 +12,7 @@
 
     @include ma-component-spacing;
   }
-  
+
   &__container {
     border-top-style: solid;
     border-top-width: 2px;
@@ -52,18 +52,18 @@
   &__prev {
 
     @include ma-chevron('left');
-    
+
     @media ($bp-small-max) {
       margin-right: .5em;
       min-width: 45%;
     }
 
     &:before {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-bay-blue-lighter;
     }
 
     &:hover:after {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-bay-blue-lighter;
     }
 
     &:after {
@@ -102,7 +102,7 @@
       left: 9px;
       width: calc(100% - 35px);
       border-color: transparent;
-      
+
 
       @media ($bp-small-min) {
 
@@ -111,11 +111,11 @@
     }
 
     &:hover:before {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-bay-blue-lighter;
     }
 
     &:after {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-bay-blue-lighter;
     }
   }
 
@@ -137,7 +137,7 @@
 
     &.is-active {
       background-color: $c-primary;
-      color: #fff;
+      color: $c-font-inverse;
 
       &:hover:after {
         border-color: transparent;
@@ -149,7 +149,7 @@
     }
 
     &:hover:after {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-bay-blue-lighter;
     }
   }
 
