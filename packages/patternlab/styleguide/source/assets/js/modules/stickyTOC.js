@@ -113,7 +113,7 @@ export default (function (window, document) {
       }
 
       // Show expander when more than 10 links.
-      if (tocSectionCount <= 9 && window.innerWidth > 480 ) {
+      if (tocSectionCount <= 10 && window.innerWidth > 480 ) {
         toc.querySelector(".ma__sticky-toc__footer").style.display = "none";
       }
     }

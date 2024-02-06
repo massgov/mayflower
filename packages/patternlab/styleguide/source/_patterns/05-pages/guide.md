@@ -8,7 +8,7 @@ Example of a Mass Gov Guide page using the stacked row template
 * Header
 * Footer
 * Stacked Row (template)
-* Illustrated Header
+* Page Banner
 * Suggested Pages
 
 ### Variables

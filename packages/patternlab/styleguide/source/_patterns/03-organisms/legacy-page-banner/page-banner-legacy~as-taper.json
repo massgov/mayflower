@@ -1,0 +1,13 @@
+{
+  "pageBanner": {
+    "bgWide": "https://www.mass.gov/files/2022-12/Healey%20Driscoll%20Org.png",
+    "bgNarrow": "https://www.mass.gov/files/2022-12/Healey%20Driscoll%20Org.png",
+    "renderImageOnMobile": false,
+    "layout": "taper",
+    "icon": "lg-picnic-table",
+    "title": "State Parks & Recreation",
+    "titleSubText": "",
+    "description": "",
+    "color": ""
+  }
+}

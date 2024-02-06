@@ -113,17 +113,17 @@
     font-weight: bold;
 
     &:hover {
-      border-color: rgba($c-font-link, .5) !important;  // specificity war with &__control:not(:focus)
+      border-color: $c-bay-blue-lighter !important;  // specificity war with &__control:not(:focus)
     }
 
     & > svg {
-      fill: mix(#fff, $c-font-link, 50%);  
+      fill: mix($c-white, $c-font-link, 50%);
     }
   }
 
   &__control:focus ~ &__open,
   &__control:checked + &__open {
-    border-color: rgba($c-font-link, .5);
+    border-color: $c-bay-blue-lighter;
   }
 
   &__control:not(:focus) ~ &__open {

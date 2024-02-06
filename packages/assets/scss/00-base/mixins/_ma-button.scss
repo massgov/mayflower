@@ -39,10 +39,10 @@
         }
 
       } @else if $color == $c-highlight {
-        color: $c-black;
+        color: $c-gray-darkest;
 
         svg {
-          fill: $c-black;
+          fill: $c-gray-darkest;
         }
       } @else {
         color: $c-font-inverse;
@@ -53,7 +53,7 @@
       }
 
     }
-    // outline - secondary usage 
+    // outline - secondary usage
     @else {
       background-color: $c-font-inverse;
       border-color: rgba($color,.5);
@@ -63,18 +63,18 @@
       }
 
       @if $color == $c-highlight {
-        color: $c-black;
+        color: $c-gray-darkest;
         border-color: rgba($c-highlight,.5);
 
         svg {
-          fill: $c-black;
+          fill: $c-gray-darkest;
         }
 
         &:hover:not(:disabled) {
-          color: $c-black;
-  
+          color: $c-gray-darkest;
+
           svg {
-            fill: $c-black;
+            fill: $c-gray-darkest;
           }
         }
 
@@ -87,7 +87,7 @@
 
         &:hover:not(:disabled) {
           color: $c-font-inverse;
-  
+
           svg {
             fill: $c-font-inverse;
           }

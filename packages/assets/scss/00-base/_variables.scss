@@ -1,3 +1,5 @@
+@use "colors" as *;
+
 $column: 85px;
 $gutter: 20px;
 /// Sets the total number of columns in the grid. Its value can be overridden inside a media query using the `media()` mixin.
@@ -103,3 +105,7 @@ $letter-spacing-large:   0.1em;
 $letter-spacing-medium:  0.05em;
 $letter-spacing-small:   0.02em;
 $letter-spacing-default: 0;
+
+
+// Box shadow
+$box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black !default;
