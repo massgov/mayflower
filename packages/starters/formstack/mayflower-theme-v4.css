@@ -80,6 +80,7 @@ div[class^="InnerFormBody"] {
 
 .fsValidationError > span > div:last-child {
   margin-left: 0;
+  width: calc(100% - 20px);/* prevent multi-line error message cuts off the icon */
 }
 
 /* Inputs */
