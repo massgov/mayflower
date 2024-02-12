@@ -1,6 +1,0 @@
-Fixed:
-  - project: Assets
-    component: Breakpoints
-    description: Increase `$bp-header-toggle-min` from 840px to 940px to prevent utility items wrapping. (#1864)
-    issue: DP-31527
-    impact: Minor

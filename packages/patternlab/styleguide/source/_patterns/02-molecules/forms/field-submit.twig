@@ -1,7 +1,17 @@
 {% if fieldSubmit.isForm %}
-<form class="ma__field-submit" action={{ fieldSubmit.action }} {% if fieldSubmit.id %} id={{ fieldSubmit.id }} {% endif %}>
+<form
+  class="ma__field-submit"
+  action={{ fieldSubmit.action }}
+  {% if fieldSubmit.id %} id={{ fieldSubmit.id }} {% endif %}
+  {% if fieldSubmit.name %} name={{ fieldSubmit.name }} {% endif %}
+>
+  {{ fieldSubmit.hiddenInputs|raw }}
 {% else %}
-<fieldset class="ma__field-submit">
+<fieldset 
+  class="ma__field-submit"
+  {% if fieldSubmit.id %} id={{ fieldSubmit.id }} {% endif %}
+  {% if fieldSubmit.name %} name={{ fieldSubmit.name }} {% endif %}
+>
 {% endif %}
   {% if fieldSubmit.labelText %}
     {# A custom label for layout purposes #}

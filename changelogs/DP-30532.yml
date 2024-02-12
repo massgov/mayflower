@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: StickyTOC
-    description: Fix TOC show more rendering issue. (#1863)
-    issue: DP-30532
-    impact: Patch

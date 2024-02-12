@@ -5,7 +5,7 @@
     "node": ">6.9.0",
     "npm": ">5.0.0"
   },
-  "version": "6.3.0",
+  "version": "13.0.0",
   "author": "Massachusetts Digital Services (MDS)",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/massgov/mayflower#readme",
   "devDependencies": {
-    "@massds/mayflower-assets": "^10.4.0",
+    "@massds/mayflower-assets": "^13.0.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babelify": "^8.0.0",

@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: SuggestedPages
-    description: Fixed suggested page item link covering the whole page. Clean up duplicative styles. (#1837)
-    issue: DP-29600
-    impact: Patch

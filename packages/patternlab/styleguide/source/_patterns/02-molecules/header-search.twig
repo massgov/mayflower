@@ -1,7 +1,7 @@
 {% set hasSuggestions = headerSearch.hasSuggestions %}
 {% set suggestedScopes = headerSearch.suggestedScopes %}
 <div class="ma__header-search">
-  <form role="search" action="https://search.mass.gov/" class="ma__form js-header-search-form">
+  <form role="search" action="https://search.mass.gov/" class="ma__form js-header-search-form" name="header-search">
     <label
         for="{{headerSearch.id}}"
         class="ma__header-search__label">{{headerSearch.label}}</label>

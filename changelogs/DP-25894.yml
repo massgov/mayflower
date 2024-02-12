@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: TableResponsive
-    description: Fix styling issues. (#1842)
-    issue: DP-25894
-    impact: Patch
