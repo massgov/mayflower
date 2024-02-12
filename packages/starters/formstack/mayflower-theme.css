@@ -489,6 +489,10 @@ div[fs-field-type="richtext"] a {
 }
 
 /* Radios, checkboxes */
+.fsBody .fsLabelVertical .fieldset-content label.vertical {
+  width: 100%;
+}
+
 div[fs-field-type="radio"] div.fieldset-content,
 div[fs-field-type="checkbox"] div.fieldset-content {
   display: flex;
@@ -498,6 +502,8 @@ div[fs-field-type="checkbox"] div.fieldset-content {
 .fsRowBody input[type="radio"],
 .fsRowBody input[type="checkbox"] {
   min-height: 1rem;
+  top: 3px;
+  height: 22px;
 }
 
 .fsBody .fsForm .fsOptionLabel {
