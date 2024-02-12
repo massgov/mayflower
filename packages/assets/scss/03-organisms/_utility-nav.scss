@@ -303,10 +303,6 @@ $utility-nav-height: 43px;
 
     .ma__rich-text {
       max-width: 720px;
-
-      a {
-        border-color: $c-font-inverse;
-      }
     }
 
     @media ($bp-header-toggle-min) {
