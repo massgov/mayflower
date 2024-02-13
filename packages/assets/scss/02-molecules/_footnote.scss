@@ -24,11 +24,11 @@
   & > &__link {
     border-width: 2px;
     border-style: solid;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;//1rem;//$fonts-2xsmall;
     line-height: 1;
-    padding: .05em .35em;
+    padding: 3px 6px;//.05em .35em;
     position: absolute;
-      top: 5px;
+      top: 3px;
       left: 0;
   }
 

@@ -60,11 +60,11 @@ $heading-indent: $gutter;
   & &__footnote {
     border-style: solid;
     border-width: 2px;
-    font-size: .6em;
+    font-size: .7em;//.6em;
     line-height: 1;
-    padding: 0 .3em;
+    padding: 1.3px 5px;//0 .3em;
     position: relative;
-    top: .25em;
+    top: .5em;//.25em;
     vertical-align: top;
     transition: all ease .4s;
 
