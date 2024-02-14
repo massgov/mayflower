@@ -2,7 +2,7 @@
 
 {# use the level passed, the gloval level, or the default #}
 {% set headingLevel = coloredHeading.level ? : 2 %}
-  
+
 <h{{ headingLevel }} class="ma__colored-heading {{class}}">{{coloredHeading.text}}
-{% if coloredHeading.titleContext %}<span class="visually-hidden"> {{coloredHeading.titleContext}}</span>{% endif %}
+{% if coloredHeading.titleContext %}<span class="visually-hidden">&nbsp; {{coloredHeading.titleContext}}</span>{% endif %}
 </h{{ headingLevel }}>

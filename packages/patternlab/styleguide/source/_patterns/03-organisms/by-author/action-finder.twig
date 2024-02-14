@@ -48,7 +48,7 @@
     {% endif %}
     {% if actionFinder.featuredLinks %}
       {% if actionFinder.featuredHeading %}
-        <h3 class="ma__action-finder__category">{{ actionFinder.featuredHeading }}{% if actionFinder.contextPositionTop == false and actionFinder.titleContext %}<span class="visually-hidden"> {{ actionFinder.titleContext }}</span>{% endif %}</h3>
+        <h3 class="ma__action-finder__category">{{ actionFinder.featuredHeading }}{% if actionFinder.contextPositionTop == false and actionFinder.titleContext %}<span class="visually-hidden">&nbsp; {{ actionFinder.titleContext }}</span>{% endif %}</h3>
       {% endif %}
       <div class="ma__action-finder__items">
         {% block featuredLinksList %}
