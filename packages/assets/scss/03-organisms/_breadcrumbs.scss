@@ -49,6 +49,7 @@ $breadcrumbs-scrollbar-height: 12px;
   &__container {
 
     @include ma-container;
+    margin-left: -3px; // wcag 2.2 adjustment
     z-index: 2;
     position: relative;
 
