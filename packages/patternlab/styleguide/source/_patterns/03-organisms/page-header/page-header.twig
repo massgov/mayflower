@@ -25,7 +25,7 @@
     {% if pageHeader.nested %}
         <h1 class="ma__page-header__title">
           {% if prefix %}
-            <span class="visually-hidden">{{ prefix }}&nbsp;</span>
+            <span class="ma__visually-hidden">{{ prefix }}&nbsp;</span>
           {% endif %}
           {{pageHeader.title}}
           {% if pageHeader.titleSubText %}
@@ -45,7 +45,7 @@
     {% else %}
       <h1 class="ma__page-header__title">
         {% if prefix %}
-          <span class="visually-hidden">{{ prefix }}&nbsp;</span>
+          <span class="ma__visually-hidden">{{ prefix }}&nbsp;</span>
         {% endif %}
         {{pageHeader.title}}
         {% if pageHeader.titleSubText %}
@@ -61,7 +61,7 @@
               <p class="ma__page-header__description">{{pageHeader.description}}</p>
             {% endif %}
           </div>
-      {% endif %}  
+      {% endif %}
       {% if pageHeader.links %}
         <div class="ma__page-header__links-wrapper">
             <ul class="ma__page-header__links">

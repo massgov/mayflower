@@ -5,7 +5,7 @@
   <div class="ma__related-locations__container">
   {% if relatedLocations.pages %}
     <h2 id="{{relatedLocations.customTitle ? 'nearby-locations' : 'related-locations'}}" class="ma__related-locations__title">{{relatedLocations.customTitle ? 'Nearby Locations' : 'Related Locations'}}
-    {% if relatedLocations.titleContext %}<span class="visually-hidden">&nbsp; {{relatedLocations.titleContext}}</span>{% endif %}</h2>
+    {% if relatedLocations.titleContext %}<span class="ma__visually-hidden">&nbsp; {{relatedLocations.titleContext}}</span>{% endif %}</h2>
   {% endif %}
     <div class="ma__related-locations__items">
       {% for page in relatedLocations.pages %}
