@@ -49,7 +49,6 @@ $breadcrumbs-scrollbar-height: 12px;
   &__container {
 
     @include ma-container;
-    margin-left: -3px;
     z-index: 2;
     position: relative;
 
@@ -183,6 +182,7 @@ $breadcrumbs-scrollbar-height: 12px;
       &.ma__breadcrumbs__item__icon-link {
         box-shadow: none;
         padding: 5px 3px;
+        margin-left: -3px;
 
         &:hover {
           box-shadow: none;
