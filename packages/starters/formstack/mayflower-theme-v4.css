@@ -141,10 +141,10 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
   background-color: #fff;
 }
 
-/* text input, select */
-.fsForm input, .fsForm select {
+/* text input, select, text area */
+.fsForm input, .fsForm select, .fsForm textarea {
   font-size: 1.375rem;
-  line-height: 1.5;
+  line-height: 1.25;
   height: unset;
 }
 
