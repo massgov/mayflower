@@ -54,19 +54,6 @@
     }
   }
 
-  &__footer {
-    align-self: flex-end;
-    border-top: 1px solid;
-    display: block;
-    font-size: $fonts-small;
-    padding: 5px 0;
-    width: 100%;
-
-    @media ($bp-x-small-max) {
-      display: none;
-    }
-  }
-
   &__icon {
     text-align: center;
 
@@ -173,7 +160,7 @@
       }
     }
 
-    .js-accordion & .ma__decorative-link {
+    .js-accordion & .ma__card-header {
 
       @media ($bp-x-small-max) {
         display: none;
@@ -292,20 +279,6 @@
 
     &:last-child {
       border-bottom-color: $c-bd-divider;
-    }
-  }
-
-  &__footer {
-    background-color: $c-overcast-gray;
-    border-top-color: $c-bd-divider;
-
-    &:hover,
-    &:focus {
-      background-color: $c-gray-lighter;
-    }
-
-    .ma__decorative-link {
-      padding: 15px 0 15px 30px;
     }
   }
 

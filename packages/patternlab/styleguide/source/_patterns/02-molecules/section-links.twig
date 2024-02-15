@@ -16,8 +16,14 @@
     {% if not sectionLinks.compact %}
       {% set headingLevel = sectionLinks.level ? : 2 %}
       <h{{ headingLevel }} class="ma__section-links__title" id="{{ titleId }}">
-        {% set decorativeLink = sectionLinks.title %}
-        {% include "@atoms/decorative-link.twig" %}
+        {% if sectionLinks.title.href is not empty %}
+          {% set decorativeLink = sectionLinks.title %}
+          {% include "@atoms/decorative-link.twig" %}
+        {% else %}
+          <span class="ma__card-header">
+            {{ sectionLinks.title.text }}
+          </span>
+        {% endif %}
         {# Make the accordioin available only in mobile view. #}
         <button class="ma__section-links--accordion__toggle js-accordion-link">
           {{ sectionLinks.title.text }}
@@ -66,16 +72,4 @@
       </span>
     {% endif %}
   </div>
-  {% if sectionLinks.seeAll %}
-    <div class="ma__section-links__footer">
-      {% set decorativeLink = {
-        "type": "",
-        "href": sectionLinks.seeAll.href,
-        "text": sectionLinks.seeAll.text,
-        "labelContext": (sectionLinks.seeAll.labelContext) ? sectionlinks.seeAll.labelContext : sectionLinks.title.text,
-      } %}
-      {% include "@atoms/decorative-link.twig" %}
-
-    </div>
-  {% endif %}
 </section>
