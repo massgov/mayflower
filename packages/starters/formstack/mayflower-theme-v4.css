@@ -157,6 +157,17 @@ input.MuiInputBase-input::placeholder {
   opacity: 1;
 }
 
+/* Number currency */
+/** Currency $ sign span **/
+.jjRdiv {
+  font-size: 1.375rem;
+  width: unset;
+}
+.ma__input-number > input {
+  width: 100%;
+}
+
+
 /* Submit */
 .fsSubmit {
   margin: 0;
