@@ -29,7 +29,7 @@
         {% endif %}
         {# Make the accordioin available only in mobile view. #}
         <button class="ma__section-links--accordion__toggle js-accordion-link">
-          <span class="ma_section_links_header_{% if titleLinked %}linked{% else %}not_linked{% endif %}">{{ sectionLinks.title.text }}</span>
+          <span class="ma_section_links--header_mobile">{{ sectionLinks.title.text }}</span>
           <span class="ma__section-links--accordion__toggle--status js-accordion-status" aria-hidden="true">+</span>
         </button>
       </h{{ headingLevel}}>
