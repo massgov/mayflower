@@ -181,6 +181,10 @@
     font-weight: $fonts-bold;
     text-align: left;
 
+    .ma_section_links_header_not_linked {
+      color: $c-font-heading;
+    }
+
     @media ($bp-x-small-max) {
 
       padding-right: 0.8em;
