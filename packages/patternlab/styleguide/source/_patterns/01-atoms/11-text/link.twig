@@ -18,5 +18,5 @@
   href="{{ link.href }}"
   {% if link.info %} title="{{ link.info }}"{% endif %}
   {% if link.ariaLabel %} aria-label="{{ link.ariaLabel }}"{% endif %}><span>{{ link.text }}</span>
-  {% if link.labelContext %}<span class="ma__visually-hidden"> {{ link.labelContext }}</span>{% endif %}
+  {% if link.labelContext %}<span class="ma__visually-hidden">&nbsp; {{ link.labelContext }}</span>{% endif %}
 </a>
