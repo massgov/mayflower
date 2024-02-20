@@ -1,5 +1,4 @@
 export default (function (window, document, $) {
-
   // Responsive table HTML structure
   // <div class="ma__table--responsive">
   //   <div class="ma__table--responsive__wrapper">
@@ -13,15 +12,9 @@ export default (function (window, document, $) {
   // Set the width of each sticky header cell and the width of the sticky
   // header table.
   function setWidths(rt) {
-
-    rt.$table
-      .find("thead th")
-      .each(function (i) {
-        rt.$stickyHeader
-          .find("th")
-          .eq(i)
-          .width($(this).width());
-      });
+    rt.$table.find("thead th").each(function (i) {
+      rt.$stickyHeader.find("th").eq(i).width($(this).width());
+    });
 
     if (rt.$stickyHeader) {
       // Set width of sticky table head.
@@ -50,37 +43,35 @@ export default (function (window, document, $) {
       // Only wrap the table if this is the first time we have encountered it.
       if (!reset) {
         $thead = $thead.clone();
-        $table.after("<div class='sticky-thead'><div class='sticky-thead-wrapper'><table></table></div></div>");
+        $table.after(
+          "<div class='sticky-thead'><div class='sticky-thead-wrapper'><table></table></div></div>"
+        );
 
         $stickyHeader = $element.find(".sticky-thead");
         $stickyHeader.find("table").append($thead);
-      }
-      else {
+      } else {
         $stickyHeader = $element.find(".sticky-thead");
       }
 
       // Setting it in a fixed position, but initially invisible.
       let tableLeft = $element.offset().left;
-      $stickyHeader
-        .css({
-          "pointer-events": "none",
-          "position": "fixed",
-          "left": tableLeft,
-          "top": getAdditionalOffset(),
-          "opacity": 0,
-          "z-index": 50,
-          "height": theadHeight
-        });
+      $stickyHeader.css({
+        "pointer-events": "none",
+        position: "fixed",
+        left: tableLeft,
+        top: getAdditionalOffset(),
+        opacity: 0,
+        "z-index": 50,
+        height: theadHeight,
+      });
       $stickyHeader[0].scrollLeft = 0;
     }
 
     // Add class, remove margins, reset width and wrap table.
-    $table
-      .addClass("sticky-enabled")
-      .css({
-        margin: 0,
-        width: "100%"
-      });
+    $table.addClass("sticky-enabled").css({
+      margin: 0,
+      width: "100%",
+    });
 
     // If we are not resetting, use the length as the index.
     if (index === false) {
@@ -94,7 +85,7 @@ export default (function (window, document, $) {
       $stickyHeader: $stickyHeader,
       theadHeight: theadHeight,
       canScroll,
-      headerStuck: false
+      headerStuck: false,
     };
     // Set the widths of the header.
     setWidths(rt);
@@ -102,15 +93,17 @@ export default (function (window, document, $) {
     // If we are reseting, replace the element. Otherwise, add it.
     if (reset) {
       responsiveTables[index] = rt;
-    }
-    else {
+    } else {
       responsiveTables.push(rt);
+      rt.$root[0].addEventListener("scroll", handleTableScroll, true);
     }
     // Decide what should be showing or stuck.
     checkVisibility(rt);
 
     // Reset scroll since this may have changed the max scroll amount.
-    let tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];;
+    let tableWrapper = element.getElementsByClassName(
+      "ma__table--responsive__wrapper"
+    )[0];
     let tableTitleCount = $table.find(".ma__table__caption__content").length;
     let scrollInfo = $table.find(".ma__table__caption__scroll-info");
 
@@ -151,15 +144,16 @@ export default (function (window, document, $) {
   // This calculates the additional offset that a table sticky header should drop down.
   function getAdditionalOffset() {
     let additionalOffset = 0;
-    if ($(".js-scroll-anchors")[0] &&
-      document.documentElement.clientWidth <= 765) {
+    if (
+      $(".js-scroll-anchors")[0] &&
+      document.documentElement.clientWidth <= 765
+    ) {
       additionalOffset += $(".js-scroll-anchors").height();
     }
     if (document.documentElement.classList.contains("stickyTOC")) {
       if (document.documentElement.clientWidth <= 841) {
         additionalOffset += 75;
-      }
-      else {
+      } else {
         additionalOffset += 70;
       }
     }
@@ -176,14 +170,20 @@ export default (function (window, document, $) {
     if (rt.$stickyHeader) {
       const stuckTop = rt.$stickyHeader.offset().top;
       const stuckBottom = stuckTop + rt.$stickyHeader.height();
-      if (!rt.headerStuck && elementTop < stuckTop && tableBottom > stuckBottom) {
+      if (
+        !rt.headerStuck &&
+        elementTop < stuckTop &&
+        tableBottom > stuckBottom
+      ) {
         responsiveTables[rt.index].headerStuck = true;
         rt.$stickyHeader.css("opacity", 1);
         rt.$stickyHeader.css("-webkit-box-shadow", "");
         rt.$stickyHeader.css("box-shadow", "");
         rt.$stickyHeader.css("pointer-events", "all");
-      }
-      else if (rt.headerStuck && (elementTop > stuckTop || tableBottom < stuckBottom)) {
+      } else if (
+        rt.headerStuck &&
+        (elementTop > stuckTop || tableBottom < stuckBottom)
+      ) {
         responsiveTables[rt.index].headerStuck = false;
         rt.$stickyHeader.css("opacity", 0);
         rt.$stickyHeader.css("-webkit-box-shadow", "none");
@@ -207,6 +207,46 @@ export default (function (window, document, $) {
     });
   }
 
+  // Allow a parameter to prevent triggering scrolling in an infinite loop.
+  let skip = 0;
+  // Calculate and set the scroll position of the other components when one component is scrolled.
+  function handleTableScroll(e) {
+    if (skip === 0) {
+      const t = e.target;
+      // No matter the element, the percentage as a decimal should be the amount of pixels scrolled
+      // divided by the max amount that can be scrolled which is the scroll width minus the width.
+      const scrollPercent = t.scrollLeft / (t.scrollWidth - t.offsetWidth);
+      [
+        "ma__table--responsive__wrapper",
+        "ma__scroll-indicator",
+        "sticky-thead-wrapper",
+      ].map((scrollable) => {
+        if (t.className !== scrollable) {
+          const elements = this.getElementsByClassName(scrollable);
+          if (elements.length > 0) {
+            let el = elements[0];
+            // If we are scrolling the scrollbar or the target is the scrollbar, inverse the scroll.
+            if (
+              scrollable === "ma__scroll-indicator" ||
+              t.className === "ma__scroll-indicator"
+            ) {
+              skip++;
+              el.scrollLeft =
+                (el.scrollWidth - el.offsetWidth) * (1 - scrollPercent);
+            }
+            // Set the scroll to the same as the target.
+            else {
+              skip++;
+              el.scrollLeft = t.scrollLeft;
+            }
+          }
+        }
+      });
+    } else {
+      skip--;
+    }
+  }
+
   // Initialize the tables.
   $(".js-ma-responsive-table").each((i, el) => initializeTable(el));
 
@@ -214,5 +254,4 @@ export default (function (window, document, $) {
   $window.on("scroll", handleStickyHeader);
   // Set window resize.
   $window.on("resize", handleWindowResize);
-
 })(window, document, jQuery);
