@@ -5,7 +5,8 @@
   border-collapse: collapse;
   width: 100%;
 
-  .ma__table__caption {
+  .ma__table__caption,
+  & td > table caption {
     color: $c-font-heading;
     font-weight: $fonts-bold;
     line-height: 1.3;
