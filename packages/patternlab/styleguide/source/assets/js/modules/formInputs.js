@@ -4,7 +4,7 @@ export default (function (window, document, $, undefined) {
   // since aria-live is announced only container which contains a change.
   // It doesn't announce nested containers to provide context.
 
-  $("textarea[maxlength]").each(function () {
+  $(".ma__textarea > textarea[maxlength]").each(function () {
     var $el = $(this);
     var maxlength = $el.attr("maxlength");
 
