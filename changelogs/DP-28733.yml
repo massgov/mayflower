@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: key_actions
-    description: Remove aria-labelledby and correct the heading level. (#1830)
-    issue: DP-28733
-    impact: Patch
