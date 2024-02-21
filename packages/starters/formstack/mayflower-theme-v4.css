@@ -198,6 +198,11 @@ div[data-testid="welcome-message-container"] {
 }
 
 div[data-testid="welcome-message-content"] {
-  font-size: 1.375rem;
+  padding: 0;
+  margin: 0;
+}
+
+div[data-testid="welcome-message-content"] > div {
+  font-size: 1.5rem;
   color: #141414;
 }
