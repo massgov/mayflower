@@ -191,3 +191,13 @@ div[class^="StyledProgressIndicatorBar-"] {
 .fsNextButton, .fsPreviousButton {
   margin-bottom: 1rem;
 }
+
+/* Success Message */
+div[data-testid="welcome-message-container"] {
+  text-align: left;
+}
+
+div[data-testid="welcome-message-content"] {
+  font-size: 1.375rem;
+  color: #141414;
+}
