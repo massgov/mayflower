@@ -2,5 +2,5 @@
 {% set headingLevel = sidebarHeading.level ? : 2 %}
 
 <h{{ headingLevel }} class="ma__sidebar-heading">{{sidebarHeading.title}}{% if sidebarHeading.titleContext %}
-  <span class="visually-hidden"> {{sidebarHeading.titleContext}}</span>{% endif %}
+  <span class="ma__visually-hidden">&nbsp; {{sidebarHeading.titleContext}}</span>{% endif %}
 </h{{ headingLevel }}>
