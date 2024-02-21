@@ -60,7 +60,7 @@ $heading-indent: $gutter;
   & &__footnote {
     border-style: solid;
     border-width: 2px;
-    font-size: .7em;
+    font-size: $fonts-smaller;
     line-height: 1;
     padding: 1.3px 6px;
     position: relative;
