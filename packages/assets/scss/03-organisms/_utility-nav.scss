@@ -297,12 +297,13 @@ $utility-nav-height: 43px;
       right: -300px;
     }
 
-    a {
-      color: $c-font-inverse;
-    }
-
     .ma__rich-text {
       max-width: 720px;
+
+      a {
+        color: $c-font-inverse;
+        border-bottom-color: $c-font-inverse;
+      }
     }
 
     @media ($bp-header-toggle-min) {
