@@ -192,7 +192,7 @@ div[class^="StyledProgressIndicatorBar-"] {
   margin-bottom: 1rem;
 }
 
-/* Success Message */
+/* Welcome Message */
 div[data-testid="welcome-message-container"] {
   text-align: left;
 }
@@ -205,4 +205,37 @@ div[data-testid="welcome-message-content"] {
 div[data-testid="welcome-message-content"] > div {
   font-size: 1.5rem;
   color: #141414;
+}
+
+/* Success Message (formstack domain) */
+html.wf-active {
+  font-size: calc(16px / 1.2);
+}
+
+.body-hosted-form > .fsForm {
+  width: 100%;
+  max-width: unset;
+}
+
+.body-hosted-form > .fsForm > .fsPage {
+  max-width: 50rem;
+  margin: 0 auto;
+  color:#141414;
+}
+
+.body-hosted-form > .fsForm > .fsPage p,
+.body-hosted-form > .fsForm > .fsPage ul {
+  text-align: left;
+}
+
+.body-hosted-form > .fsForm > .fsPage a {
+  color:#14558F;
+}
+
+#fsSubmissionCheckmark {
+  display: none;
+}
+
+#fsSubmissionCheckmark ~ .fsSectionText {
+  text-align: left;
 }
