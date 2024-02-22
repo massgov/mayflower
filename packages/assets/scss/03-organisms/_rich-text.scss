@@ -211,7 +211,11 @@ $heading-indent: $gutter;
   // link styles
 
   a:not(.ma__button) {
+
+    @include ma-link-underline;
+    border-bottom-width: 1px;
     overflow-wrap: break-word;
+    transition: border .3s;
     word-wrap: break-word;
     word-break: normal;
   }
