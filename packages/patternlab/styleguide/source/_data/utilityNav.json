@@ -44,20 +44,7 @@
                     "path": "@atoms/11-text/paragraph.twig",
                     "data": {
                       "paragraph": {
-                        "text": "If you'd like to share your feedback about this feature and help us make the site more accessible, please sign up with your email."
-                      }
-                    }
-                  },
-                  {
-                    "path": "@atoms/01-buttons/button.twig",
-                    "data": {
-                      "button": {
-                        "text": "I'd like to help",
-                        "type": "button",
-                        "usage": "secondary",
-                        "theme": "c-primary-alt",
-                        "class": "ma__utility-nav__userway-signup",
-                        "href": "https://massgov.formstack.com/forms/color_contrast_user_panel_new"
+                        "text": "If you'd like to share your feedback on this specific feature and help us make the site more accessible, please <a href='https://www.mass.gov/forms/help-us-test-the-contrast-settings-feature'>fill out this short survey</a>."
                       }
                     }
                   }
