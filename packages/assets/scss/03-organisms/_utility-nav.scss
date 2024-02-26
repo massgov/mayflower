@@ -297,15 +297,12 @@ $utility-nav-height: 43px;
       right: -300px;
     }
 
-    a {
-      color: $c-font-inverse;
-    }
-
     .ma__rich-text {
       max-width: 720px;
 
       a {
-        border-color: $c-font-inverse;
+        color: $c-font-link;
+        border-bottom-color: $c-font-link;
       }
     }
 
@@ -324,6 +321,13 @@ $utility-nav-height: 43px;
       &.is-closed {
         right: 0;
         transition: visibility .3s, top .3s;
+      }
+
+      .ma__rich-text {
+        a {
+          color: $c-font-inverse;
+          border-bottom-color: $c-font-inverse;
+        }
       }
     }
   }

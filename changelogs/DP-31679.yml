@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: UtilityNav,Button
+    description: Update contrast settings utility panel data and fix Button with `href` styles. (#1874)
+    issue: DP-31679
+    impact: Minor
