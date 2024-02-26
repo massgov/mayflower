@@ -93,7 +93,7 @@ $breadcrumbs-scrollbar-height: 12px;
     &:first-child {
 
       &:after {
-        margin-left: 0;
+        margin-left: -3px;
       }
     }
 
@@ -181,6 +181,8 @@ $breadcrumbs-scrollbar-height: 12px;
 
       &.ma__breadcrumbs__item__icon-link {
         box-shadow: none;
+        padding: 5px 3px;
+        margin-left: -3px;
 
         &:hover {
           box-shadow: none;
