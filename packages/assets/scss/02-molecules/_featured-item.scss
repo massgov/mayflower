@@ -38,6 +38,8 @@
 
 
   &__title {
+    width: 100%;
+
     &-container {
       display: flex;
       align-items: center;
@@ -66,7 +68,7 @@
       }
     }
 
-    .truncated {
+    &.truncated {
 
       span::after {
         content: ' . . . ';
