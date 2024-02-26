@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: ColoredHeading
+    description: Colored Heading component size fix for mobile devices. (#1882)
+    issue: DP-31925
+    impact: Patch
