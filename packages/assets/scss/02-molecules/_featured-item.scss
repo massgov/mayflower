@@ -7,6 +7,7 @@
   max-width: 100%;
   width: 100%;
   overflow: hidden;
+  background-color: $c-gray-lightest;
 
   // dimmer
   // this :before is set up in the aspect ratio mixin
@@ -22,13 +23,54 @@
     background-color: rgba($c-black,0.1);
   }
 
-  .ma__featured-item__image img,
-  .ma__featured-item__image--large img {
+  &:hover span {
+    border-bottom-color: $c-white;
+  }
+
+  &__image img,
+  &__image--large img {
     // position absolutely in the center
     position: absolute;
       left: 0;
       top: 0;
     width: 100%;
+  }
+
+
+  &__title-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2; // above the dimmer (:before)
+    height: 4rem;
+    padding: 5px 15px;
+    font-size: $fonts-smaller;
+    line-height: 1.25;
+    background-color: $c-primary-alt;
+    color: $c-font-inverse;
+
+    span {
+
+        @include ma-link-transition;
+        border-bottom: 3px solid transparent;
+    }
+
+    svg {
+
+      @include ma-link-arrow;
+      fill: $c-white;
+    }
+  }
+
+  &__title.truncated {
+
+    span::after {
+      content: ' . . . ';
+      white-space: nowrap;
+    }
   }
 }
 
@@ -56,58 +98,5 @@
       height: 100%;
     }
   }
-
-}
-
-.ma__featured-item__title-container {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2; // above the dimmer (:before)
-  height: 4rem;
-  padding: 5px 15px;
-  font-size: $fonts-smaller;
-  line-height: 1.25;
-
-  svg {
-
-    @include ma-link-arrow;
-  }
-}
-
-.ma__featured-item__title.truncated {
-
-  span::after {
-    content: ' . . . ';
-    white-space: nowrap;
-  }
-}
-
-//theme
-
-.ma__featured-item {
-    background-color: $c-gray-lightest;
-}
-
-.ma__featured-item__title-container {
-    background-color: $c-primary-alt;
-    color: $c-font-inverse;
-
-    span {
-
-        @include ma-link-transition;
-        border-bottom: 3px solid transparent;
-    }
-
-    .ma__featured-item:hover & span {
-        border-bottom-color: $c-white;
-    }
-
-    svg {
-        fill: $c-white;
-    }
 }
 
