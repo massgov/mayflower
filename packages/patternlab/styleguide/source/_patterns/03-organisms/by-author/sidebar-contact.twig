@@ -5,6 +5,8 @@
   {% endif %}
   {% for item in sidebarContact.items %}
     {% set contactUs = item.contactUs %}
+    {% set contactHeadingLevel = contactUs.level + 1 %}
+    {% set contactUs = contactUs|merge({"level": contactHeadingLevel}) %}
     {% include "@molecules/contact-us.twig" %}
   {% endfor %}
 {% endif %}
