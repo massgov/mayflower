@@ -210,7 +210,7 @@ $heading-indent: $gutter;
 
   // link styles
 
-  a:not(.ma__button) {
+  a {
 
     @include ma-link-underline;
     border-bottom-width: 1px;
