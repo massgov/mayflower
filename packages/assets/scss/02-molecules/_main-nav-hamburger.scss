@@ -105,6 +105,8 @@
   &__link {
 
     @include ma-button-reset;
+    @include ma-link-underline;
+    text-decoration: underline;
     width: 100%;
     text-align: left;
     display: block;
@@ -115,9 +117,6 @@
     padding: 10px 20px 10px 30px;
     color: $c-gray-darkest;
 
-    &:hover {
-      text-decoration: underline;
-    }
 
     &>svg,
     &>span {

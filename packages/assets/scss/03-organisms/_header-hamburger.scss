@@ -502,6 +502,7 @@ body.show-menu {
             text-align: left;
             background-color: $c-gray-lightest;
             width: 100%;
+            text-decoration: underline;
 
             &:focus {
               background-color: $c-bd-divider;
@@ -650,7 +651,7 @@ body.show-menu {
             & .ma__utility-panel__item .ma__decorative-link a {
 
               @include ma-button-reset;
-
+              @include ma-link-underline;
               width: 100%;
               text-align: left;
               display: block;
@@ -660,10 +661,7 @@ body.show-menu {
               line-height: 1.33;
               padding: 10px 20px 10px 30px;
               color: $c-font-base;
-
-              &:hover {
-                text-decoration: underline;
-              }
+              text-decoration: underline;
 
               & svg {
                 display: none;
