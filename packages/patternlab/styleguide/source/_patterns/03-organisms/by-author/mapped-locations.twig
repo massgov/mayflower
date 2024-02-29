@@ -26,10 +26,10 @@
   {% if mappedLocations.leafletMap %}
     <div class="ma__mapped-locations__map" aria-hidden="true">
       {% set id = 'dataviz-' ~ random(9999) %}
-      <a class="ma__map__skip-link js-skiplink" href="#map_{{ id }}">Skip this map.</a>
+      <a class="ma__mapped-locations__map__skip-link js-skiplink" href="#map_{{ id }}">Skip this map.</a>
       {% set leafletMap = mappedLocations.leafletMap %}
       {% include "@molecules/map-leaflet.twig" %}
-      <div class="ma__map_skip-link_target js-skiplink-target">
+      <div class="ma__mapped-locations__map__skip-link_target js-skiplink-target">
         <a id="map_{{ id }}" tabindex="-1">You skipped the map.</a>
       </div>
     </div>
