@@ -54,19 +54,6 @@
     }
   }
 
-  &__footer {
-    align-self: flex-end;
-    border-top: 1px solid;
-    display: block;
-    font-size: $fonts-small;
-    padding: 5px 0;
-    width: 100%;
-
-    @media ($bp-x-small-max) {
-      display: none;
-    }
-  }
-
   &__icon {
     text-align: center;
 
@@ -80,10 +67,8 @@
   }
 
   &__mobile-title {
-    border-bottom: 1px solid;
     font-size: $fonts-large;
-    margin-bottom: .75em;
-    padding: 0 16px .75em 0;
+    padding: 0 16px 0 0;
 
     @media ($bp-x-small-min) {
       display: none;
@@ -173,7 +158,8 @@
       }
     }
 
-    .js-accordion & .ma__decorative-link {
+    .js-accordion & .ma__decorative-link,
+    .js-accordion & .ma__card-header {
 
       @media ($bp-x-small-max) {
         display: none;
@@ -192,6 +178,10 @@
 
     font-weight: $fonts-bold;
     text-align: left;
+
+    .ma_section_links--header_mobile {
+      color: $c-font-heading;
+    }
 
     @media ($bp-x-small-max) {
 
@@ -246,7 +236,6 @@
   }
 
   &__items {
-
     @include ma-reset-list;
   }
 
@@ -295,20 +284,6 @@
     }
   }
 
-  &__footer {
-    background-color: $c-overcast-gray;
-    border-top-color: $c-bd-divider;
-
-    &:hover,
-    &:focus {
-      background-color: $c-gray-lighter;
-    }
-
-    .ma__decorative-link {
-      padding: 15px 0 15px 30px;
-    }
-  }
-
   &__title {
 
     a {
@@ -326,7 +301,13 @@
   }
 
   &__mobile-title {
-    border-bottom-color: $c-bd-divider;
+    & + .ma__section-links__items {
+      @media ($bp-x-small-max) {
+        border-top: 1px solid $c-bd-divider;
+        padding-top: 0.75em;
+        margin-top: 0.75em;
+      }
+    }
 
     svg {
       fill: $c-bay-blue-lighter;

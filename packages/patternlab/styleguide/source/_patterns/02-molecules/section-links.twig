@@ -1,4 +1,7 @@
 {% set titleId = "section_titles_" ~ sectionLinks.id %}
+{% if sectionLinks.title.href is not empty %}
+  {% set titleLinked = true %}
+{% endif %}
 
 <section class="ma__section-links {{ sectionLinks.compact ? "ma__section-links--compact" : "js-accordion ma__section-links--default"  }}">
   <div class="ma__section-links__content">
@@ -16,11 +19,17 @@
     {% if not sectionLinks.compact %}
       {% set headingLevel = sectionLinks.level ? : 2 %}
       <h{{ headingLevel }} class="ma__section-links__title" id="{{ titleId }}">
-        {% set decorativeLink = sectionLinks.title %}
-        {% include "@atoms/decorative-link.twig" %}
+        {% if titleLinked %}
+          {% set decorativeLink = sectionLinks.title %}
+          {% include "@atoms/decorative-link.twig" %}
+        {% else %}
+          <span class="ma__card-header">
+            {{ sectionLinks.title.text }}
+          </span>
+        {% endif %}
         {# Make the accordioin available only in mobile view. #}
         <button class="ma__section-links--accordion__toggle js-accordion-link">
-          {{ sectionLinks.title.text }}
+          <span class="ma_section_links--header_mobile">{{ sectionLinks.title.text }}</span>
           <span class="ma__section-links--accordion__toggle--status js-accordion-status" aria-hidden="true">+</span>
         </button>
       </h{{ headingLevel}}>
@@ -29,16 +38,18 @@
         {% if sectionLinks.description %}
           <p class="ma__section-links__description">{{sectionLinks.description}}</p>
         {% endif %}
-        <div class="ma__section-links__mobile-title">
-          {% set decorativeLink = {
-            "type": "",
-            "href": sectionLinks.title.href,
-            "text": "Learn More",
-            "labelContext": "about " ~ sectionLinks.title.text,
-            "info": "learn more about " ~ sectionLinks.title.text }
-          %}
-          {% include "@atoms/decorative-link.twig" %}
-        </div>
+        {% if titleLinked %}
+          <div class="ma__section-links__mobile-title">
+            {% set decorativeLink = {
+              "type": "",
+              "href": sectionLinks.title.href,
+              "text": "Learn More",
+              "labelContext": "about " ~ sectionLinks.title.text,
+              "info": "learn more about " ~ sectionLinks.title.text }
+            %}
+            {% include "@atoms/decorative-link.twig" %}
+          </div>
+        {% endif %}
         {% block sectionLinks %}
           {% if sectionLinks.links %}
             <ul class="ma__section-links__items">
@@ -66,16 +77,4 @@
       </span>
     {% endif %}
   </div>
-  {% if sectionLinks.seeAll %}
-    <div class="ma__section-links__footer">
-      {% set decorativeLink = {
-        "type": "",
-        "href": sectionLinks.seeAll.href,
-        "text": sectionLinks.seeAll.text,
-        "labelContext": (sectionLinks.seeAll.labelContext) ? sectionlinks.seeAll.labelContext : sectionLinks.title.text,
-      } %}
-      {% include "@atoms/decorative-link.twig" %}
-
-    </div>
-  {% endif %}
 </section>
