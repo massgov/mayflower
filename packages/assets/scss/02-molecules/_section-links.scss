@@ -236,6 +236,7 @@
   }
 
   &__items {
+
     @include ma-reset-list;
   }
 
@@ -301,7 +302,9 @@
   }
 
   &__mobile-title {
+
     & + .ma__section-links__items {
+
       @media ($bp-x-small-max) {
         border-top: 1px solid $c-bd-divider;
         padding-top: 0.75em;
