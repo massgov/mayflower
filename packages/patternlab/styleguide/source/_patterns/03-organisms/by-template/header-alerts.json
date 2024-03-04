@@ -9,7 +9,7 @@
     {
       "accordion": true,
       "isExpanded": false,
-      "icon": "input-warning",
+      "icon": "alert",
       "iconLabel": "notice",
       "level": "3",
       "title": "Actualizaciones sobre el desempleo",
@@ -72,7 +72,7 @@
       "suffix": "Updated: Mar. 23rd, 2021, 9:50 am"
     },
     {
-      "icon": "input-warning",
+      "icon": "alert",
       "iconLabel": "notice",
       "level": "3",
       "title": "Actualizaciones sobre el desempleo",
