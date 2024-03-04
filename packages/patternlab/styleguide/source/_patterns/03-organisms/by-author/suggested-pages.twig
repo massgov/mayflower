@@ -7,6 +7,7 @@
   <div class="ma__suggested-pages__container">
     <div class="ma__suggested-pages__inner-container">
       <h2 class="ma__suggested-pages__title">{{ suggestedPages.title }}{% if suggestedPages.titleContext %}<span class="ma__visually-hidden">&nbsp; {{suggestedPages.titleContext}}</span>{% endif %}</h2>
+      {% if suggestedPages.pages|length > 0 %}
       <ul class="ma__suggested-pages__items">
         {% if suggestedPages.view == "guide" %}
           {% for page in suggestedPages.pages %}
@@ -32,6 +33,7 @@
           {% endfor %}
         {% endif %}
       </ul>
+      {% endif %}
       {% if suggestedPages.moreLinks %}
         {% set linkList = suggestedPages.moreLinks %}
         {% include "@organisms/by-author/link-list.twig" %}
