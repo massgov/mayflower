@@ -648,20 +648,25 @@ body.show-menu {
               padding: 0;
             }
 
+            & .ma__utility-panel__item .ma__decorative-link {
+              padding: 10px 20px 10px 30px;
+            }
+
             & .ma__utility-panel__item .ma__decorative-link a {
 
               @include ma-button-reset;
               @include ma-link-underline;
-              width: 100%;
+              color: $c-font-link;
+              display: inline;
               text-align: left;
-              display: block;
               position: relative;
               font-size: 1.25rem;
               font-weight: $fonts-normal;
               line-height: 1.33;
-              padding: 10px 20px 10px 30px;
-              color: $c-font-base;
-              text-decoration: underline;
+              padding: 0;
+              border-bottom-width: 1px;
+              transition: border .3s;
+              border-bottom-color: $c-bay-blue-lighter;
 
               & svg {
                 display: none;

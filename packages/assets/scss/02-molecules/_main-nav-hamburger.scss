@@ -102,28 +102,32 @@
     }
   }
 
+  &__subitem {
+    padding: 10px 20px 10px 30px;
+  }
+
   &__link {
 
     @include ma-button-reset;
     @include ma-link-underline;
-    text-decoration: underline;
-    width: 100%;
+    display: inline;
     text-align: left;
-    display: block;
     position: relative;
     font-size: 1.25rem;
     font-weight: $fonts-normal;
     line-height: 1.33;
-    padding: 10px 20px 10px 30px;
-    color: $c-gray-darkest;
+    padding: 0;
+    border-bottom-width: 1px;
+    transition: border .3s;
+    border-bottom-color: $c-bay-blue-lighter;
 
-
-    &>svg,
-    &>span {
+    & > svg,
+    & > span {
       display: inline-block;
       vertical-align: middle;
     }
   }
+
 
   &__subitem--main &__link {
     font-size: 1.125rem;
