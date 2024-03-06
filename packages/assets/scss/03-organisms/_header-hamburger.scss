@@ -490,6 +490,7 @@ body.show-menu {
           &__link, a.direct-link {
 
             @include ma-button-reset;
+            text-decoration: none;
             position: relative;
             display: block;
             font-size: 1.25rem;
@@ -502,7 +503,6 @@ body.show-menu {
             text-align: left;
             background-color: $c-gray-lightest;
             width: 100%;
-            text-decoration: underline;
 
             &:focus {
               background-color: $c-bd-divider;
