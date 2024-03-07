@@ -30,6 +30,9 @@
     text-decoration: none;
   }
 
+  .ma__rich-text & {
+    border-bottom-width: 3px;
+  }
 
   & > span {
     width: 100%;
