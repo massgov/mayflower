@@ -112,7 +112,8 @@ div[class^="InnerFormBody"] {
   font-size: 1.375rem;
   line-height: 1.5;
   position: relative;
-  margin-bottom: 0;
+  margin-bottom: 0.25rem;
+  align-items: baseline;
 }
 
 
@@ -126,7 +127,7 @@ label[class^="StyledOptionLabel-"] > input {
 label[class^="StyledOptionLabel-"] > input:before {
   width: 18px;
   height: 18px;
-  margin-right: 0;
+  margin-right: 0.25rem;
   outline: transparent solid 2px;
   border: 2px solid #535353;
 }
