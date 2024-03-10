@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: PageHeader
+    description: Log in button style improvement for mobile devices. (#1892)
+    issue: DP-32068
+    impact: Patch
