@@ -2,7 +2,7 @@
 
 .ma__event-filters {
   padding-top: 30px;
-  
+
   form {
 
     @include ma-container;
@@ -33,7 +33,7 @@
 
   &__submit {
 
-    @include ma-button-size('small');
+    @include ma-button-size('xsmall');
   }
 }
 

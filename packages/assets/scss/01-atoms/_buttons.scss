@@ -26,10 +26,6 @@ button {
 
   @include ma-button-size;
 
-  &--text-regular {
-    text-decoration: none;
-  }
-
   &--small {
 
     @include ma-button-size("small");
