@@ -10,7 +10,7 @@
 
   &__back2top {
 
-    @include ma-button-size("small");
+    @include ma-button-size("xsmall");
     font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     opacity: 1;
@@ -62,7 +62,7 @@
     @media ($bp-large-max) {
       display: flex;
       flex-direction: column;
-    } 
+    }
   }
 
   &__nav {

@@ -108,9 +108,9 @@
       height: $fonts-small;
     }
   }
-  // small
+  // xsmall
 
-  @if ($size == "small") {
+  @if ($size == "xsmall") {
     font-size: $fonts-xsmall;
     line-height: 1.2;
 
@@ -119,6 +119,18 @@
       height: $fonts-xsmall;
     }
   }
+  // small
+
+  @if ($size == "small") {
+    font-size: $fonts-smaller;
+    line-height: 1.2;
+
+    svg {
+      width: $fonts-smaller;
+      height: $fonts-smaller;
+    }
+  }
+
   // large
 
   @if ($size == "large") {
