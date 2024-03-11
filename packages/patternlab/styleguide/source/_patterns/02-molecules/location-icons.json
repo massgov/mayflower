@@ -13,6 +13,9 @@
     },{
       "path":"dog",
       "name":"Dogs Allowed"
+    },{
+      "path":"wifi",
+      "name":"Public Wifi"
     }]
   }
 }
