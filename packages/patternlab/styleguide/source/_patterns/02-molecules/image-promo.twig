@@ -40,6 +40,14 @@
     {% endblock %}
 
     {% block imagePromoSubtitle %}
+      {# icon info for AT users #}
+      <dl class="ma__visually-hidden">
+        <dt>Amenities</dt>
+        {% for tag in imagePromo.tags %}
+          <dd>{{ tag.label }}</dd>
+        {% endfor %}
+      </dl>
+
       {% if imagePromo.location.subtitle %}
         <div class="ma__image-promo__location-subtitle">
           {{ imagePromo.location.subtitle }}
