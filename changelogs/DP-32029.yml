@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab,Assets
+    component: Icon,LocationIcons
+    description: Add wifi icon to assets and location icons component, adjust location icons spacing to prevent tight spacing between icon labels. (#1891)
+    issue: DP-32029
+    impact: Minor
