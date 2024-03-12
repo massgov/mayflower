@@ -29,7 +29,7 @@ const DecorativeLink = (props) => {
     'ma__download-link': showFileIcon,
     [props.className]: className
   });
-  let decIcon;
+  let preIcon;
   let title;
   if (showFileIcon) {
     // eslint-disable-next-line no-bitwise
@@ -40,19 +40,19 @@ const DecorativeLink = (props) => {
     ext = genericFile.indexOf(ext) !== -1 ? 'generic' : ext;
     switch (ext) {
       case 'pdf':
-        decIcon = <IconPdf title={title} width={35} height={36} />;
+        preIcon = <IconPdf title={title} width={35} height={36} />;
         break;
       case 'docx':
-        decIcon = <IconDocx title={title} width={35} height={36} />;
+        preIcon = <IconDocx title={title} width={35} height={36} />;
         break;
       case 'xlxs':
-        decIcon = <IconXlxs title={title} width={35} height={36} />;
+        preIcon = <IconXlxs title={title} width={35} height={36} />;
         break;
       case 'generic':
-        decIcon = <IconGeneric title={title} width={35} height={36} />;
+        preIcon = <IconGeneric title={title} width={35} height={36} />;
         break;
       default:
-        decIcon = null;
+        preIcon = null;
     }
   }
   return(
@@ -62,9 +62,9 @@ const DecorativeLink = (props) => {
         href={href}
         title={info || null}
       >
-        {(fileIcon || decIcon) && (
+        {(fileIcon || preIcon) && (
         <span className="ma__download-link--icon">
-          {fileIcon || decIcon}
+          {fileIcon || preIcon}
           <span>&nbsp;</span>
         </span>
         )}
