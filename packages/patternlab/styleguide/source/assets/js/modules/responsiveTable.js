@@ -215,30 +215,16 @@ export default (function (window, document, $) {
       const t = e.target;
       // No matter the element, the percentage as a decimal should be the amount of pixels scrolled
       // divided by the max amount that can be scrolled which is the scroll width minus the width.
-      const scrollPercent = t.scrollLeft / (t.scrollWidth - t.offsetWidth);
       [
         "ma__table--responsive__wrapper",
-        "ma__scroll-indicator",
         "sticky-thead-wrapper",
       ].map((scrollable) => {
         if (t.className !== scrollable) {
           const elements = this.getElementsByClassName(scrollable);
           if (elements.length > 0) {
             let el = elements[0];
-            // If we are scrolling the scrollbar or the target is the scrollbar, inverse the scroll.
-            if (
-              scrollable === "ma__scroll-indicator" ||
-              t.className === "ma__scroll-indicator"
-            ) {
-              skip++;
-              el.scrollLeft =
-                (el.scrollWidth - el.offsetWidth) * (1 - scrollPercent);
-            }
-            // Set the scroll to the same as the target.
-            else {
-              skip++;
-              el.scrollLeft = t.scrollLeft;
-            }
+            skip++;
+            el.scrollLeft = t.scrollLeft;
           }
         }
       });
