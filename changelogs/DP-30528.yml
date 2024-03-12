@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Breadcrumbs, Footnotes
+    description: Adjust target size for breadcrumbs home and footnotes to meet WCAG 2.2. (#1875)
+    issue: DP-30528
+    impact: Patch

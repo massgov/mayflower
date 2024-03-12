@@ -10,6 +10,7 @@
 
     color: $c-gray-darkest;
     margin-bottom: 0;
+    border: 1px solid $c-bd-divider-dark;
 
     &__button {
       color: $c-gray-darkest;
@@ -83,9 +84,10 @@
 
   .ma__action-step {
 
-    border-color: $c-bd-divider;
-    border-width: 2px;
+    border-color: $c-bd-divider-dark;
+    border-width: 1px;
     border-style: solid;
+    border-top: 0;
 
     &__header {
       color: $c-gray-darkest;

@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab,React
+    component: TextArea,FeedbackForm
+    description: Fix textarea js conflicts with Formstack. Fix label `for` attribute and add default classname. (#1864)
+    issue: DP-31616
+    impact: Patch
