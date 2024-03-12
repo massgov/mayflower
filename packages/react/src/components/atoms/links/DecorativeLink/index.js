@@ -22,14 +22,14 @@ import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
 const DecorativeLink = (props) => {
   const {
-    showFileIcon, className, href, info, text, details, icon, ...rest
+    showFileIcon, className, href, info, text, details, icon, fileIcon, ...rest
   } = props;
   const classes = classNames({
     'ma__decorative-link': true,
     'ma__download-link': showFileIcon,
     [props.className]: className
   });
-  let decIcon = null;
+  let decIcon;
   let title;
   if (showFileIcon) {
     // eslint-disable-next-line no-bitwise
@@ -62,9 +62,9 @@ const DecorativeLink = (props) => {
         href={href}
         title={info || null}
       >
-        {decIcon && (
+        {(fileIcon || decIcon) && (
         <span className="ma__download-link--icon">
-          {decIcon}
+          {fileIcon || decIcon}
           <span>&nbsp;</span>
         </span>
         )}
@@ -89,7 +89,8 @@ DecorativeLink.propTypes = {
   showFileIcon: PropTypes.bool,
   className: PropTypes.string,
   details: PropTypes.string,
-  icon: PropTypes.elementType
+  icon: PropTypes.elementType,
+  fileIcon: PropTypes.elementType
 };
 
 DecorativeLink.defaultProps = {
