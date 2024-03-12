@@ -14,7 +14,8 @@
     <table class="ma__table {{ tableWideClass }}">
       <caption id="tbl-{{tableID}}" class="ma__table__caption">
         {% if table.description %}<span class="ma__table__caption__content">{{ table.description }}</span>{% endif %}
-        <span class="ma__table__caption__scroll-info"> (Table in a horizontal scrolling container)</span>
+        <span class="ma__table__caption__scroll-info"> Note: Table has hidden columns, scroll horizontally to see more.</span>
+
       </caption>
       <thead>
         {% for row in table.head.rows %}
