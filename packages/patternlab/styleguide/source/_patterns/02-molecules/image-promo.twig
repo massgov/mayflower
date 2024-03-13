@@ -15,9 +15,10 @@
           }) %}
           {% include "@atoms/09-media/image.twig" %}
         {% if imagePromo.tags %}
+          {# Icon labels for AT are added to imagePromoTitle block below the heaidng. #}
           <div class="ma__image-promo__tags">
             {% for tag in imagePromo.tags %}
-              <span title="{{ tag.label }}" data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
+              <span data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
             {% endfor %}
           </div>
         {% endif %}
@@ -37,17 +38,18 @@
           {% endif %}
         </h{{ headingLevel }}>
       {% endif %}
+
+      {# Tag/icon info for AT users #}
+      {% if imagePromo.tags %}
+      <ul class="ma__visually-hidden" aria-label="Amenities">
+        {% for tag in imagePromo.tags %}
+          <li>{{ tag.label }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     {% endblock %}
 
     {% block imagePromoSubtitle %}
-      {# icon info for AT users #}
-      <dl class="ma__visually-hidden">
-        <dt>Amenities</dt>
-        {% for tag in imagePromo.tags %}
-          <dd>{{ tag.label }}</dd>
-        {% endfor %}
-      </dl>
-
       {% if imagePromo.location.subtitle %}
         <div class="ma__image-promo__location-subtitle">
           {{ imagePromo.location.subtitle }}
