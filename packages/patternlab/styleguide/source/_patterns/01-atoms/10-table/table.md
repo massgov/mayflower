@@ -7,6 +7,10 @@ This Displays a styled table that converts to a list on narrow screens
 ### Variables
 ~~~
 table {
+  description [
+    text:
+      type: string / optional
+  ]
   head {
     rows [{
       rowSpanOffset:

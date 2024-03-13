@@ -231,6 +231,10 @@ $heading-indent: $gutter;
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
+
+      & td > table {
+        margin-bottom: 0;
+      }
     }
   }
 

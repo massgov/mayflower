@@ -5,6 +5,24 @@
   border-collapse: collapse;
   width: 100%;
 
+  .ma__table__caption,
+  & td > table caption {
+    color: $c-font-heading;
+    font-weight: $fonts-bold;
+    line-height: 1.3;
+    text-align: left;
+    margin-bottom: 0.8em;
+
+    &.hide {
+      display: none;
+    }
+
+    &__content {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
   thead {
     background-color: $c-bg-subtle;
 
@@ -29,133 +47,25 @@
     padding: 10px 20px 10px 0;
     text-align: left;
     vertical-align: top;
-
-    &:first-child {
-      padding-left: 15px;
-    }
-  }
-
-  .is-offset th:first-child,
-  .is-offset td:first-child {
-    padding-left: 0;
   }
 }
 
 .ma__table {
 
+  .ma__table__caption {
+    font-size: $fonts-larger;
+  }
+
   th {
     color: $c-font-detail;
   }
 
-  @media ($bp-small-max) {
-    display: block;
+  tr > *:first-child {
+    padding-left: 10px;
 
-    thead {
-      display: none;
-    }
+     @media($bp-medium-min) {
 
-    tbody {
-      display: block;
-    }
-
-    thead + tbody,
-    tbody:first-child {
-      border-top: 0;
-    }
-
-    tr {
-      display: block;
-    }
-
-    td {
-
-      &:before {
-        color: $c-font-heading;
-        font-weight: $fonts-normal;
-      }
-    }
-
-    td,
-    th {
-      display: block;
-      font-size: $fonts-medium;
-      padding-left: 40% !important;
-      padding-bottom: 0;
-      position: relative;
-
-      &:before {
-        content: attr(data-label);
-        height: 100%;
-        position: absolute;
-          top: 10px;
-          left: 0;
-        width: 35%;
-      }
-    }
-
-    th {
-      font-size: $fonts-medium;
-      color: $c-font-heading;
-      background-color: $c-bg-subtle;
-    }
-  }
-}
-
-.ma__table--wide {
-
-  @media ($bp-medium-max) {
-    display: block;
-
-    thead {
-      display: none;
-    }
-
-    tbody {
-      display: block;
-    }
-
-    thead + tbody,
-    tbody:first-child {
-      border-top: 0;
-    }
-
-    tr {
-      display: block;
-    }
-
-
-    td {
-
-      @media ($bp-medium-max) {
-        border-bottom: 1px solid $c-gray-lightest;
-        vertical-align: top;
-        min-height: 3rem; // set a min height when the cell value is empty on mobile
-      }
-
-      &:before {
-        color: $c-font-heading;
-        font-weight: $fonts-normal;
-      }
-    }
-
-    td,
-    th {
-      display: block;
-      padding-left: 40% !important;
-      position: relative;
-
-      &:before {
-        content: attr(data-label);
-        height: 100%;
-        position: absolute;
-          left: 0;
-      }
-    }
-
-    th {
-      font-size: $fonts-medium;
-      color: $c-font-heading;
-      background-color: $c-bg-subtle;
-    }
+      padding-left: 15px;
+     }
   }
 }
