@@ -115,9 +115,9 @@
 
       {% block imagePromoHours %}
         {% if imagePromo.hours %}
-          <div class="ma__image-promo__hours">
+          <ul class="ma__image-promo__hours" aria-label="Hours">
             {% for hour in imagePromo.hours %}
-              <div class="ma__image-promo__hours-item">
+              <li class="ma__image-promo__hours-item">
                 {% if hour.label %}
                   <div class="ma__image-promo__label ma__image-promo__label--hours">
                     {{ hour.label }}
@@ -128,9 +128,9 @@
                     {{ hour.text }}
                   </div>
                 {% endif %}
-              </div>
+              </li>
             {% endfor %}
-          </div>
+          </ul>
         {% endif %}
       {% endblock %}
     </div>
