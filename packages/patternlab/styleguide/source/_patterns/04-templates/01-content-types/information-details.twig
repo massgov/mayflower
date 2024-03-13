@@ -2,7 +2,7 @@
 {% block header %}{% endblock %}
 
 <main id="main-content" class="ma__information-details" tabindex="-1" {% if schemaPageType %} typeof="{{schemaPageType}}" {% endif %}>
-	<div class="pre-content">
+	<div class="pre-content" lang="en" dir="ltr">
 		{% block preContent %}
 			{% if breadcrumbs %}
 				{% include "@organisms/by-template/breadcrumbs.twig" %}
@@ -63,7 +63,7 @@
 
 	</div>
 
-	<div class="post-content">
+	<div class="post-content" lang="en" dir="ltr">
 		{% block postContent %}
 			{% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
 		{% endblock %}

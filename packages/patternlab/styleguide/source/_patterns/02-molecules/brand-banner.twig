@@ -7,7 +7,7 @@
 {% set hasToggle = brandBanner.hasToggle %}
 {% set brandBannerContainerTag = hasToggle ? "button" : "div" %}
 
-<div class="ma__brand-banner ma__brand-banner--{{ brandBanner.bgColor ? brandBanner.bgColor : 'c-primary' }}-bg-{{ brandBanner.bgTheme ? brandBanner.bgTheme : 'light' }}">
+<div class="ma__brand-banner ma__brand-banner--{{ brandBanner.bgColor ? brandBanner.bgColor : 'c-primary' }}-bg-{{ brandBanner.bgTheme ? brandBanner.bgTheme : 'light' }}" lang="en" dir="ltr">
   <{{ brandBannerContainerTag }} class="ma__brand-banner-container">
     {% if brandBanner.hasSeal %}
       <img class="ma__brand-banner-logo ma__brand-banner-logo--{{ brandBanner.bgTheme }}"

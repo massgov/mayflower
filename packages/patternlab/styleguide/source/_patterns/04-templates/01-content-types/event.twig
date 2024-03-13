@@ -2,7 +2,7 @@
 {% block header %}{% endblock %}
 
 <main id="main-content" tabindex="-1" {% if schemaPageType %} typeof="{{schemaPageType}}" {% endif %}>
-	<div class="pre-content">
+	<div class="pre-content" lang="en" dir="ltr">
 		{% block preContent %}
 			{% if breadcrumbs %}
 				{% include "@organisms/by-template/breadcrumbs.twig" %}
@@ -106,7 +106,7 @@
 			{% endblock %}
 		</aside>
 	</div>
-	<div class="post-content">
+	<div class="post-content" lang="en" dir="ltr">
 		{% block postContent %}
 			{% if bottomContent.eventListing %}
 				{% set eventListing = bottomContent.eventListing %}

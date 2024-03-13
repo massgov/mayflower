@@ -1,6 +1,6 @@
 {% block header %}{% endblock %}
 <main id="main-content" {% if flexibleLinkGroup %} class="ma__services ma__services-flexible-link-groups" {% else %} class="ma__services" {% endif %} tabindex="-1" {% if schemaPageType %} typeof="{{schemaPageType}}" {% endif %}>
-	<div class="pre-content">
+	<div class="pre-content" lang="en" dir="ltr">
 		{% block preContent %}
 			{% if breadcrumbs %}
 				{% include "@organisms/by-template/breadcrumbs.twig" %}
