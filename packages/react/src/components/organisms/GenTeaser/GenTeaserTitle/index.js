@@ -20,6 +20,10 @@ const GenTeaserTitle = (props) => {
     const IconComponent = Icon[title.icon];
     decorativeProps.icon = <IconComponent width={15} height={15} aria-hidden="true" />;
   }
+  if (title.showFileIcon && title.fileIcon) {
+    const FileIconComponent = Icon[title.fileIcon];
+    decorativeProps.fileIcon = <FileIconComponent width={15} height={15} aria-hidden="true" />;
+  }
   const Element = `h${level || 2}`;
   return(
     <Element className="ma__gen-teaser__title" {...rest}>
