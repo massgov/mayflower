@@ -17,7 +17,7 @@
            Set it as visually hidden text to provide the content to SR users for now.
            Revisit the aria-describedby function at screen reader and WCAG updates. #}
         <div id="map-sr-info" class="ma__visually-hidden">
-          For screen reader users, we suggest skip the following interactive map and go to the location listing for a better user experience.
+          Note for screen reader users, we suggest skip the following interactive map and go to the location listing for a better user experience.
           Currently, the map is not accessible yet for a comprehensive experience.
         </div>
         <a href="#location-listing-results">Skip to the location listing</a>
@@ -25,6 +25,8 @@
           {% include "@molecules/map-leaflet.twig" %}
         </div>
       </div>
+      {# Set the skip link target on section instead of h2 since h2 is visually hidden text
+      and JAWS doesn't set focus on the target as the link gets activated. #}
       <section id="location-listing-results" class="ma__location-listing__results js-location-listing-results">
         <h2 class="ma__visually-hidden">Location Listing</h2>
         {% set resultsHeading = locationListing.resultsHeading %}
