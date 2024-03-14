@@ -36,7 +36,16 @@ GenTeaserTitle.propTypes = {
   /** The heading level of the title */
   level: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** The title object (text, info, href) */
-  title: PropTypes.shape(DecorativeLink.propTypes),
+  title: PropTypes.shape({
+    href: PropTypes.string,
+    info: PropTypes.string,
+    text: PropTypes.string,
+    showFileIcon: PropTypes.bool,
+    className: PropTypes.string,
+    details: PropTypes.string,
+    icon: PropTypes.string,
+    fileIcon: PropTypes.string
+  }),
   /** React children to render */
   children: PropTypes.node
 };
