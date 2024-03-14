@@ -93,8 +93,8 @@ DecorativeLink.propTypes = {
   showFileIcon: PropTypes.bool,
   className: PropTypes.string,
   details: PropTypes.string,
-  icon: PropTypes.elementType,
-  fileIcon: PropTypes.elementType
+  icon: PropTypes.element,
+  fileIcon: PropTypes.element
 };
 
 DecorativeLink.defaultProps = {
