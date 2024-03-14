@@ -14,7 +14,8 @@
         <h2 class="ma__visually-hidden">{{leafletMap.title}}</h2>
         {# #map-sr-info is supposed to be a target of the 'aria-describedby' in the following link
            but currently 'aria-describedby' on link is not wokring with any screen readers as of Mar 13 2024.
-           Set it as visually hidden text to provide the content to SR users. #}
+           Set it as visually hidden text to provide the content to SR users for now.
+           Revisit the aria-describedby function at screen reader and WCAG updates. #}
         <div id="map-sr-info" class="ma__visually-hidden">
           For screen reader users, we suggest skip the following interactive map and go to the location listing for a better user experience.
           Currently, the map is not accessible yet for a comprehensive experience.
@@ -24,8 +25,8 @@
           {% include "@molecules/map-leaflet.twig" %}
         </div>
       </div>
-      <div class="ma__location-listing__results js-location-listing-results">
-        <h2 id="location-listing-results" class="ma__visually-hidden">Location Listing Results</h2>
+      <section id="location-listing-results" class="ma__location-listing__results js-location-listing-results">
+        <h2 class="ma__visually-hidden">Location Listing</h2>
         {% set resultsHeading = locationListing.resultsHeading %}
         {% include "@molecules/results-heading.twig" %}
         {% set promoHeading = locationListing.imagePromos.promoHeading %}
@@ -45,7 +46,7 @@
             pages: pagination.pages|slice(0, 10)
           }
         } %}
-      </div>
+      </section>
     </div>
   </div>
 </div>
