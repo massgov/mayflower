@@ -52,7 +52,7 @@ export const FileDownloadExample = Template.bind({});
 FileDownloadExample.args = {
   info: 'This is a clickable styled link',
   text: 'File Download as a Link',
-  href: 'https://www.mass.gov/test.pdf',
+  href: 'https://www.mass.gov/download',
   details: '(30 MB)',
   showFileIcon: true,
   fileIcon: <IconGeneric width={15} height={15} />

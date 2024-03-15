@@ -201,7 +201,7 @@ GenTeaserDataDownload.args = {
   title: {
     info: 'This is the info',
     text: '2015 Monthly Electric Customer Migration Data',
-    href: 'https://www.mass.gov/files/documents/2018/06/15/2015%20Annual%20Electric%20Monthly%20Migration-Complete.xlxs',
+    href: 'https://www.mass.gov/files/documents/2018/06/15/download',
     icon: 'IconDownload',
     showFileIcon: true,
     fileIcon: 'IconGeneric',
