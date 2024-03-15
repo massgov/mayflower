@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: OrgContact
+    description: Org contact logo too large on mobile. (#1894)
+    issue: DP-32010
+    impact: Patch
