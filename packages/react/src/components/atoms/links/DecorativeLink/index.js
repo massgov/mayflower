@@ -31,7 +31,8 @@ const DecorativeLink = (props) => {
     'ma__download-link': showFileIcon,
     [props.className]: className
   });
-  let preIcon, title;
+  let preIcon; 
+  let title;
   let postIcon = <IconArrow aria-hidden="true" />;
   if (showFileIcon) {
     // eslint-disable-next-line no-bitwise
