@@ -38,6 +38,11 @@ button {
     @include ma-button-size("small");
   }
 
+  &--xsmall {
+
+    @include ma-button-size("xsmall");
+  }
+
   &--large {
 
     @include ma-button-size("large");
