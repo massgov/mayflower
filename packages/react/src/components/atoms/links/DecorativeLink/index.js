@@ -31,7 +31,7 @@ const DecorativeLink = (props) => {
     'ma__download-link': showFileIcon,
     [props.className]: className
   });
-  let preIcon; 
+  let preIcon;
   let title;
   let postIcon = <IconArrow aria-hidden="true" />;
   if (showFileIcon) {
