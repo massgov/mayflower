@@ -158,6 +158,36 @@ input.MuiInputBase-input::placeholder {
   opacity: 1;
 }
 
+/** Datepicker Calendar **/
+.MuiPickersCalendarHeader-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.MuiPaper-root {
+  color: #141414;
+}
+
+.MuiPickersYear-yearButton {
+  font-size: 1.125rem;
+}
+
+.MuiButton-root {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #14558F;
+  color:  white;
+}
+
+.MuiDayCalendar-weekDayLabel {
+  font-size: 1rem;
+}
+
+.MuiPickersDay-dayWithMargin {
+  color: #141414;
+}
+
+
 /* Number currency */
 /** Currency $ sign span **/
 .jjRdiv {
