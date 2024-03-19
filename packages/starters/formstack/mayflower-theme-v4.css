@@ -8,8 +8,19 @@
   font-size: 1.375rem;
   line-height: 1.5;
   margin: 0;
-  padding: 0;
+  /* prevent highlight left outline cutoff */
+  padding-left: 2px; 
   max-width: 50rem;
+  overflow-x: hidden;
+}
+
+/* prevent overflow-x cutoff */
+.fsPage {
+  width: calc(100%-2px);
+}
+
+.fsSection {
+  display: block;
 }
 
 /** prevent horizontal scrolling **/
@@ -244,6 +255,7 @@ div[class^="StyledProgressIndicatorBar-"] {
 /* Welcome Message */
 div[data-testid="welcome-message-container"] {
   text-align: left;
+  z-index: 0;
 }
 
 div[data-testid="welcome-message-content"] {
