@@ -36,7 +36,11 @@ button {
   &--small {
 
     @include ma-button-size("small");
-    padding: 0.2em 0.6em;
+  }
+
+  &--xsmall {
+
+    @include ma-button-size("xsmall");
   }
 
   &--large {
