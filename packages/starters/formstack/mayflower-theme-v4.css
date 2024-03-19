@@ -167,6 +167,24 @@ input.MuiInputBase-input::placeholder {
 .ma__input-number > input {
   width: 100%;
 }
+.ma__input-number {
+  min-width: 12rem;
+}
+
+
+/* Matrix */
+.fsBody .fsForm table {
+  color: #141414;
+}
+td.column.fsMatrixCol2 {
+  background: white;
+}
+.DWbWP::before {
+  height: 16px;
+  width: 16px;
+  border-width: 2px;
+  border-color: #535353;
+}
 
 
 /* Submit */
