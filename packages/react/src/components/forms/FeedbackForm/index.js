@@ -391,7 +391,7 @@ export default class FeedbackForm extends React.Component {
             <input
               id="submitButton2521317"
               ref={this.submitButton}
-              className="submitButton ma__button ma__button--small"
+              className="submitButton ma__button ma__button--small ma__button--uppercase"
               style={{ display: 'block' }}
               type="submit"
               value="Send Feedback"
