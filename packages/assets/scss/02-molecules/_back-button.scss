@@ -22,7 +22,7 @@
 
   a:not(.ma__button) {
 
-    @include ma-button-size("xsmall");
+    @include ma-button-size("small");
 
     @include ma-chevron("left");
 
