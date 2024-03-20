@@ -23,6 +23,8 @@ iframe {
       type: string / required
   height:
       type: string / optional
+  customClass:
+      type: string / optional    
   ratio:
       type: string / one of [
             "1-to-2": 200%, /* 2:3 Aspect Ratio - vertical */
