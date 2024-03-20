@@ -24,7 +24,7 @@
       </button>
     </h{{headingLevel}}>
   {% else %}
-    <header class="ma__action-step__header">
+    <div class="ma__action-step__header">
 
     {% set headingLevel = actionStep.level ? : 2 %}
     <h{{ headingLevel }} class="ma__action-step__title {{ link ? 'ma__decorative-link' : ''}}">
@@ -48,7 +48,7 @@
         <span>{{suffix}}</span>
       {% endif %}
     </h{{ headingLevel }}>
-    </header>
+    </div>
   {% endif %}
 
   {% if actionStep.richText or actionStep.decorativeLink or actionStep.downloadLinks or actionStep.content %}
