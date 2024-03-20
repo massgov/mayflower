@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
-    component: HeaderAlerts
+    component: HeaderAlerts,ActionStep
     description: Decrease spacing and minimize wrapping on mobile. (#1875)
     issue: DP-32003
     impact: Minor
