@@ -16,20 +16,16 @@
       color: $c-gray-darkest;
       background-color: $c-warning;
       padding: 12px 24px;
+      width: 100%;
       display: inline-flex;
-
+      justify-content: space-between;
       align-items: center;
       font-weight: $fonts-bold;
       font-size: $fonts-medium;
       line-height: 1.2;
       margin-bottom: 0;
-      width: 100%;
-
       border: 0;
 
-      @media ($bp-x-small-max) {
-        flex-direction: column;
-      }
 
       div {
         display: inline-flex;
