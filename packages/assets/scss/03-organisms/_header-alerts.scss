@@ -22,7 +22,6 @@
       align-items: center;
       font-weight: $fonts-bold;
       font-size: $fonts-medium;
-      line-height: 1.4;
       margin-bottom: 0;
       border: 0;
 
@@ -89,12 +88,11 @@
       color: $c-gray-darkest;
       border: none;
       display: block;
-      padding: 20px 40px 20px 50px;
+      padding: 20px 40px 15px 50px;
       text-align: left;
       width: 100%;
       background-color: $c-bg-section;
       font-size: $fonts-medium;
-      line-height: 1.4;
     }
 
     &__more {
@@ -112,6 +110,13 @@
 
     &__title {
       font-size: $fonts-medium;
+
+      &-link, &-suffix {
+        line-height: 1.6;
+      }
+      &-text {
+        line-height: 1.4;
+      }
 
       a {
 
