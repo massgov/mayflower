@@ -27,7 +27,6 @@
     padding: 20px 0 20px 60px;
     position: relative;
     font-weight: $fonts-bold;
-    min-height: 32px;
   }
 
   &--accordion &__header {
@@ -36,7 +35,6 @@
     padding: 20px 40px 20px 60px;
     text-align: left;
     width: 100%;
-    min-height: 72px;
 
     &__toggle {
       display: block;
