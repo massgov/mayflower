@@ -8,8 +8,19 @@
   font-size: 1.375rem;
   line-height: 1.5;
   margin: 0;
-  padding: 0;
+  /* prevent highlight left outline cutoff */
+  padding-left: 2px; 
   max-width: 50rem;
+  overflow-x: hidden;
+}
+
+/* prevent overflow-x cutoff */
+.fsPage {
+  width: calc(100%-2px);
+}
+
+.fsSection {
+  display: block;
 }
 
 /** prevent horizontal scrolling **/
@@ -112,7 +123,8 @@ div[class^="InnerFormBody"] {
   font-size: 1.375rem;
   line-height: 1.5;
   position: relative;
-  margin-bottom: 0;
+  margin-bottom: 0.25rem;
+  align-items: baseline;
 }
 
 
@@ -126,7 +138,7 @@ label[class^="StyledOptionLabel-"] > input {
 label[class^="StyledOptionLabel-"] > input:before {
   width: 18px;
   height: 18px;
-  margin-right: 0;
+  margin-right: 0.25rem;
   outline: transparent solid 2px;
   border: 2px solid #535353;
 }
@@ -141,10 +153,10 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
   background-color: #fff;
 }
 
-/* text input, select */
-.fsForm input, .fsForm select {
+/* text input, select, text area */
+.fsForm input, .fsForm select, .fsForm textarea {
   font-size: 1.375rem;
-  line-height: 1.5;
+  line-height: 1.25;
   height: unset;
 }
 
@@ -156,6 +168,65 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
 input.MuiInputBase-input::placeholder {
   opacity: 1;
 }
+
+/** Datepicker Calendar **/
+.MuiPickersCalendarHeader-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.MuiPaper-root {
+  color: #141414;
+}
+
+.MuiPickersYear-yearButton {
+  font-size: 1.125rem;
+}
+
+.MuiButton-root {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #14558F;
+  color:  white;
+}
+
+.MuiDayCalendar-weekDayLabel {
+  font-size: 1rem;
+}
+
+.MuiPickersDay-dayWithMargin {
+  color: #141414;
+}
+
+
+/* Number currency */
+/** Currency $ sign span **/
+.jjRdiv {
+  font-size: 1.375rem;
+  width: unset;
+}
+.ma__input-number > input {
+  width: 100%;
+}
+.ma__input-number {
+  min-width: 12rem;
+}
+
+
+/* Matrix */
+.fsBody .fsForm table {
+  color: #141414;
+}
+td.column.fsMatrixCol2 {
+  background: white;
+}
+.DWbWP::before {
+  height: 16px;
+  width: 16px;
+  border-width: 2px;
+  border-color: #535353;
+}
+
 
 /* Submit */
 .fsSubmit {
@@ -179,4 +250,53 @@ div[class^="StyledProgressIndicatorBar-"] {
 /* Next Prev buttons */
 .fsNextButton, .fsPreviousButton {
   margin-bottom: 1rem;
+}
+
+/* Welcome Message */
+div[data-testid="welcome-message-container"] {
+  text-align: left;
+  z-index: 0;
+}
+
+div[data-testid="welcome-message-content"] {
+  padding: 0;
+  margin: 0;
+}
+
+div[data-testid="welcome-message-content"] > div {
+  font-size: 1.5rem;
+  color: #141414;
+}
+
+/* Success Message (formstack domain) */
+html.wf-active {
+  font-size: calc(16px / 1.2);
+}
+
+.body-hosted-form > .fsForm {
+  width: 100%;
+  max-width: unset;
+}
+
+.body-hosted-form > .fsForm > .fsPage {
+  max-width: 50rem;
+  margin: 0 auto;
+  color:#141414;
+}
+
+.body-hosted-form > .fsForm > .fsPage p,
+.body-hosted-form > .fsForm > .fsPage ul {
+  text-align: left;
+}
+
+.body-hosted-form > .fsForm > .fsPage a {
+  color:#14558F;
+}
+
+#fsSubmissionCheckmark {
+  display: none;
+}
+
+#fsSubmissionCheckmark ~ .fsSectionText {
+  text-align: left;
 }
