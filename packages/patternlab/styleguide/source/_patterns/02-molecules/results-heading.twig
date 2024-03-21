@@ -1,14 +1,20 @@
 <div class="ma__results-heading js-results-heading">
   <div class="ma__results-heading__container">
     {% set headingLevel = resultsHeading.level ? resultsHeading.level : 2 %}
-    <h{{ headingLevel }} class="ma__results-heading__title">Showing {{ resultsHeading.numResults }} {% if resultsHeading.totalResults %} of {{ resultsHeading.totalResults }}{% endif %} results {% if resultsHeading.tags %}for:{% endif %}{% if resultsHeading.subject %}<span class="ma__visually-hidden">&nbsp; for {{ resultsHeading.subject }}</span>{% endif %}</h{{ headingLevel }}>
+    <div class="ma__results-heading__title" role="status">
+      Showing {{ resultsHeading.numResults }}
+      {% if resultsHeading.totalResults %} of {{ resultsHeading.totalResults }}{% endif %} results
+      {% if resultsHeading.tags %}for:{% endif %}
+      {% if resultsHeading.subject %}<span class="ma__visually-hidden">&nbsp; for {{ resultsHeading.subject }}</span>{% endif %}
+    </div>
     {% if resultsHeading.tags %}
-      <div class="ma__results-heading__tags">
+      <fieldset class="ma__results-heading__tags">
+        <legend class="ma__visually-hidden">Clear the active filters with the following buttons.</legend>
         {% for tag in resultsHeading.tags %}
           <button type="button" class="ma__results-heading__tag js-results-heading-tag"{% if tag.type %} data-ma-filter-type="{{ tag.type }}"{% endif %}{% if tag.value %} data-ma-filter-value="{{ tag.value }}"{%  endif %}>{{ tag.text }}</button>
         {% endfor %}
         <button type="button" class="ma__results-heading__clear js-results-heading-clear">Clear all</button>
-      </div>
+      </fieldset>
     {% endif %}
     {% if resultsHeading.sortResults %}
       <div class="ma__results-heading__sort">

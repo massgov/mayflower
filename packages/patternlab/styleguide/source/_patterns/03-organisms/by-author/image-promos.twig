@@ -1,5 +1,5 @@
 {% set promoHeading = (imagePromos.promoHeading|number_format(0) + 1) ? : 2 %}
-<section class="ma__image-promos js-image-promos">
+<div class="ma__image-promos js-image-promos">
   {% if imagePromos.compHeading %}
     {% set compHeading = imagePromos.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
@@ -19,4 +19,4 @@
       {% endfor %}
     {% endblock %}
   </ul>
-</section>
+</div>
