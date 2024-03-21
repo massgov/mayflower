@@ -1,6 +1,12 @@
 /* layout */
+:root {
+  font-size: 13.33px;
+}
+
 .fsBody > div {
   padding: 0 0 0 3px;
+  background-color: #f2f2f2;
+  color: #141414;
 }
 
 .fsBody .fsForm {
@@ -21,11 +27,6 @@
 
 .fsSection {
   display: block;
-}
-
-/** prevent horizontal scrolling **/
-div[class^="InnerFormBody"] {
-  overflow-x: hidden;
 }
 
 /* Headings */
