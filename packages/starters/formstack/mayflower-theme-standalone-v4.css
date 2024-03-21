@@ -3,8 +3,7 @@
   font-size: 13.33px;
 }
 
-.fsBody > div {
-  padding: 0 0 0 3px;
+.fsBody {
   background-color: #f2f2f2;
   color: #141414;
 }
@@ -32,11 +31,12 @@
 .fsBody .fsSectionHeader .fsSectionHeading {
   text-align: left;
   position: relative;
+  margin-top: 2.5rem;
   padding-bottom: 15px;
   color: #535353;
   font-weight: 700;
-  font-size: 3rem;
-  line-height: 1.07;
+  font-size: 2.25rem;
+  line-height: 1.25;
 }
 
 .fsBody .fsSectionHeader .fsSectionHeading:after {
