@@ -9,20 +9,13 @@
   color: #141414;
 }
 
-.fsBody .fsForm {
+.fsBody .fsForm, .fsBody div[data-testid="welcome-message-content"] {
   font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
   font-size: 1.375rem;
   line-height: 1.5;
-  margin: 0;
-  /* prevent highlight left outline cutoff */
-  padding-left: 2px; 
+  float: none;
+  margin: 0 auto;
   max-width: 50rem;
-  overflow-x: hidden;
-}
-
-/* prevent overflow-x cutoff */
-.fsPage {
-  width: calc(100%-2px);
 }
 
 .fsSection {
@@ -62,9 +55,34 @@
   transform: skew(-30deg);
 }
 
-/* Buttons (save incomplete)  */
-.fsBody .fsForm button {
+/* Buttons */
+/** (file upload)  **/
+.fsBody .fsForm input[type="button"] {
+  padding: 10px;
+  width: auto;
+}
+
+.fsBody .fsForm input[type="button"][data-testid="remove-button"] {
+  background-color: #535353;
+}
+/** No file chosen text  **/
+.fxrYEt {
+  font-size: 1.25rem;
+}
+
+/** (save incomplete)  **/
+.fsBody .fsForm button.fsSaveIncomplete {
   font-weight: bold;
+  color:#fff;
+  background-color: #535353;
+}
+
+/* Links  */
+.fsBody .fsForm a {
+  color: #14558F;
+  font-weight: 600;
+  /* Long HTML force breaks  */
+  word-wrap: break-word;
 }
 
 /* Labels */
@@ -255,8 +273,10 @@ div[class^="StyledProgressIndicatorBar-"] {
 
 /* Welcome Message */
 div[data-testid="welcome-message-container"] {
-  text-align: left;
-  z-index: 0;
+  float: none;
+  margin: 0 auto;
+  max-width: 50rem;
+  text-align: center;
 }
 
 div[data-testid="welcome-message-content"] {
