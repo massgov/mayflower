@@ -297,12 +297,15 @@ html.wf-active {
 .body-hosted-form > .fsForm {
   width: 100%;
   max-width: unset;
+  background-color: #f2f2f2;
 }
 
 .body-hosted-form > .fsForm > .fsPage {
   max-width: 50rem;
+  padding-top: 20px;
   margin: 0 auto;
   color:#141414;
+  background-color: #fff;
 }
 
 .body-hosted-form > .fsForm > .fsPage p,
