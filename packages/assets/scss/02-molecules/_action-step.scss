@@ -9,7 +9,7 @@
 
   &__icon {
     position: absolute;
-      top: 25px;
+      top: 22px;
       left: 20px;
     text-align: center;
 
@@ -27,7 +27,6 @@
     padding: 20px 0 20px 60px;
     position: relative;
     font-weight: $fonts-bold;
-    min-height: 32px;
   }
 
   &--accordion &__header {
@@ -36,7 +35,6 @@
     padding: 20px 40px 20px 60px;
     text-align: left;
     width: 100%;
-    min-height: 72px;
 
     &__toggle {
       display: block;
@@ -60,15 +58,15 @@
   }
 
   &__title {
-    min-height: 32px;
 
-    span {
+    &-suffix {
       font-size: $fonts-smaller;
       font-style: italic;
       font-weight: $fonts-light;
       border-left: 1px solid;
       padding-left: 12px;
       margin-left: 12px;
+      line-height: 2;
 
       @media ($bp-x-small-max) {
         display: block;

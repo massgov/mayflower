@@ -1,0 +1,13 @@
+{
+  "button": {
+    "href": "",
+    "info": "",
+    "text": "Button",
+    "type": "button",
+    "size": "",
+    "theme": "",
+    "usage": "",
+    "class": "custom-classname",
+    "uppercaseOverride": true
+  }
+}
