@@ -35,7 +35,7 @@
       text-align: left;
       border: 0;
       background-color: transparent;
-      padding: 1rem 0;
+      padding: 1rem 0.5rem;
       font-weight: $fonts-bold;
       font-size: $fonts-xsmall;
       color: $c-font-base;
@@ -47,6 +47,11 @@
       @media ($bp-large-min) {
         height: 100%;
         font-size: $fonts-smaller;
+      }
+
+      &.orgNav-active {
+        background-color: $c-primary-alt;
+        color: $c-white;
       }
     }
   }
