@@ -41,3 +41,10 @@
     {% endif %}
   </div>
 </nav>
+
+<script>
+  // Make organizationNavigation data object available in leaflet map module js.
+  var ma = ma || {};
+  ma.orgNav = ma.orgNav || [];
+  ma.orgNav.push({{ organizationNavigation|json_encode|raw }});
+</script>
