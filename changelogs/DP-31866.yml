@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: FeaturedItem
+    description: Fix link text wrapping too soon, increase link text font size. (#1883)
+    issue: DP-31866
+    impact: Minor

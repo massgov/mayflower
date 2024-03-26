@@ -166,7 +166,7 @@
 
     @include ma-link-transition;
     background-color: $c-bg-subtle;
-    box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+    box-shadow: $box-shadow;
 
     &:hover {
       background-color: darken($c-bg-subtle, 10%);
@@ -240,7 +240,7 @@
   &__item--green &__category,
   &__item--dark-gray &__category {
     color: rgba($c-font-inverse,.8);
-    text-shadow: 0 0.125rem 0.125rem rgba(1, 1, 1, 0.5);
+    text-shadow: 0 0.125rem 0.125rem rgba($c-black, 0.5);
   }
 
   &__link {
@@ -250,7 +250,7 @@
     }
 
     svg {
-      fill: rgba($c-font-link, .5);
+      fill: $c-bay-blue-lighter;
     }
   }
 

@@ -3,7 +3,7 @@
 $primarycolors: (
   "c-primary-alt": $c-primary-alt,
   "c-highlight": $c-highlight,
-  "c-black": $c-black,
+  "c-black": $c-gray-darkest,
   "c-gray-dark": $c-gray-dark,
   "c-white": $c-white
 );
@@ -18,7 +18,14 @@ button {
 .ma__button {
 
   @include ma-button-base;
-  
+  text-transform: none;
+  letter-spacing: $letter-spacing-small;
+
+  &--uppercase {
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-large;
+  }
+
   svg {
     margin-left: .5rem;
     flex-shrink: 0;
@@ -29,6 +36,7 @@ button {
   &--small {
 
     @include ma-button-size("small");
+    padding: 0.2em 0.6em;
   }
 
   &--large {
@@ -45,8 +53,6 @@ button {
     }
   }
 
-
-  
 }
 
 .ma__button--secondary {
@@ -72,10 +78,10 @@ button {
 .ma__button--tertiary {
 
   @include ma-button("solid",$c-gray-light);
-  color: $c-black;
+  color: $c-font-base;
 
   svg {
-    fill: $c-black;
+    fill: $c-gray-darkest;
   }
 }
 

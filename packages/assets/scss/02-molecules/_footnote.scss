@@ -3,7 +3,7 @@
 @use "00-base/configure" as *;
 
 .js-footnote {
-  
+
   &:before {
     content: "true";
     display: none;
@@ -24,11 +24,11 @@
   & > &__link {
     border-width: 2px;
     border-style: solid;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     line-height: 1;
-    padding: .05em .35em;
+    padding: 3px 6px;
     position: absolute;
-      top: 5px;
+      top: 3px;
       left: 0;
   }
 
@@ -62,7 +62,7 @@
 .ma__footnote {
 
   & > &__link {
-    border-color: rgba($c-font-link,.5);
+    border-color: $c-bay-blue-lighter;
 
     &:hover {
       background-color: $c-font-link;

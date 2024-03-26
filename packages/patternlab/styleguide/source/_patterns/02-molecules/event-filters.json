@@ -47,7 +47,8 @@
       "text": "Submit",
       "type": "submit",
       "theme": "",
-      "outline": false
+      "outline": false,
+      "class": "ma__event-filters__submit"
     }]
   }
 }

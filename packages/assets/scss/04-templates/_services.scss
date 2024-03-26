@@ -90,7 +90,7 @@
       width: 100%;
 
       @media ($bp-large-min) {
-        max-width: 820px;
+        max-width: $l-max-content-width;
       }
     }
 

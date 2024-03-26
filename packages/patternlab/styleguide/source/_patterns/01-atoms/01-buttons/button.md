@@ -32,5 +32,7 @@ button: {
     type: string / optional ("","secondary","tertiary","quaternary")
   class:
     type: string / optional (custom classname)
+  uppercaseOverride:
+    type: boolean / optional
 }
 ~~~

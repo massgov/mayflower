@@ -9,9 +9,9 @@
   flex-flow: column wrap;
   justify-content: center;
   padding: 15px 20px;
-  background-color: mix(#fff, $c-font-link,90%);
-  border-color: mix(#fff, $c-font-link,50%);
-  box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+  background-color: mix($c-bg, $c-font-link,90%);
+  border-color: mix($c-white, $c-font-link,50%);
+  box-shadow: $box-shadow;
   text-decoration: none;
 
   @media ($bp-small-min) {
@@ -22,7 +22,7 @@
   &:focus {
 
     .ma__callout-link__text {
-      border-bottom-color: rgba($c-font-link,.5);
+      border-bottom-color: $c-bay-blue-lighter;
     }
   }
 
@@ -30,6 +30,9 @@
     text-decoration: none;
   }
 
+  .ma__rich-text & {
+    border-bottom-width: 3px;
+  }
 
   & > span {
     width: 100%;
@@ -51,7 +54,7 @@
     svg {
 
       @include ma-link-arrow;
-      fill: rgba($c-font-link,.5);
+      fill: $c-bay-blue-lighter;
     }
   }
 
@@ -104,9 +107,9 @@
   }
 
   &--white {
-    background-color: $c-white;
-    border-color: mix(#fff, $c-font-detail,70%);
-    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+    background-color: $c-bg;
+    border-color: mix($c-white, $c-font-detail,70%);
+    box-shadow: $box-shadow;
   }
 
   // removed after version 5.5.0

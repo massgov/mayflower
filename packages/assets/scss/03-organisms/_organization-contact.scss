@@ -35,4 +35,15 @@
       order: 0;
     }
   }
+
+  @media ($bp-large-max) {
+
+    &__last {
+
+      img {
+        max-height: 80px;
+      }
+    }
+  }
+
 }

@@ -25,23 +25,26 @@
         {
           "class": "",
           "href": "#",
-          "title": "Department of Conservation and Recreation"
+          "title": "Department of Conservation & Recreation"
         },
         {
           "class": "",
           "href": "#",
-          "title": "Other agency or organization"
+          "title": "Executive Office of Energy and Environmental Affairs"
         }
       ]
     }
   },
   "pageBanner": {
-    "bgWide": "../../assets/images/placeholder/1600x400.png",
-    "bgNarrow": "../../assets/images/placeholder/800x400.png",
-    "layout": "taper",
-    "icon": null,
-    "title": "Executive Office of Health and Human Services",
-    "titleSubText": "(EOHHS)"
+    "image": "../../assets/images/placeholder/2x1.png",
+    "imageMobile": "../../assets/images/placeholder/2x1-mobile.png",
+    "imageMedium": "../../assets/images/placeholder/4x3.png",
+    "theme": "c-primary-alt",
+    "renderImageOnMobile": false,
+    "pageHeader": {
+      "title": "Executive Office of Health and Human Services",
+      "titleSubText": "(EOHHS)"
+    }
   },
   "organizationNavigation": {
     "orgNavTitle": "Executive Office of Energy and Environmental Affairs",
@@ -49,6 +52,7 @@
     "orgId": "6676",
     "orgSearch": true,
     "orgNav": [
+
       {
         "text": "Contact",
         "id": "contact"
@@ -1046,7 +1050,7 @@
                     },
                     "label": "A",
                     "infoWindow": {
-                      "name": "Department of Conservation and Recreation",
+                      "name": "Department of Conservation & Recreation",
                       "link": "#",
                       "phone": "16176261250",
                       "fax": "16176261351",

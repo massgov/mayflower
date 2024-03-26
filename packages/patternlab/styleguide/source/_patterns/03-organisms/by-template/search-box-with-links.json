@@ -3,6 +3,7 @@
     "form": {
       "headingText": "Search for data",
       "submitText": "SEARCH",
+      "name": "data-search",
       "visuallyHiddenText": "Enter a subject or search term",
       "actionUrl": "/",
       "inputName": "title",

@@ -8,7 +8,7 @@
       {% for nav in organizationNavigation.orgNav %}
         {% if nav.text %}
           {% set href =  '#' ~ nav.id %}
-          <li class="ma__organization-navigation__item" aria-haspopup="true">
+          <li class="ma__organization-navigation__item">
             <a href={{href}}>{{nav.text}}</a>
           </li>
         {% endif %}
@@ -27,7 +27,9 @@
               id="organization-navigation-search"
               class="ma__form js-organization-navigation__search-input"
               placeholder="Search {{ organizationNavigation.orgNavTitle }}{% if organizationNavigation.orgNavAbbrev %}({{ organizationNavigation.orgNavAbbrev }}){% endif %}"
-              type="text"
+              type="search"
+              autocomplete="off"
+              inputmode="search"
               name="q" />
           {% if organizationNavigation.orgId %}
             <input type="hidden" name="org" value="{{ organizationNavigation.orgId }}" />

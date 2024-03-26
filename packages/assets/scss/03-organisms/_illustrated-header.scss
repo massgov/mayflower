@@ -1,5 +1,3 @@
-$bp-illustrated-header-columns-min: "min-width: 1001px";
-$bp-illustrated-header-columns-max: "max-width: 1000px";
 $bp-illustrated-header-image-width: 360px;
 
 @use "00-base/configure" as *;
@@ -8,7 +6,7 @@ $bp-illustrated-header-image-width: 360px;
   margin-bottom: 40px;
   position: relative;
 
-  @media ($bp-illustrated-header-columns-min) {
+  @media ($bp-large-extended-min) {
     margin: 60px 0;
   }
 
@@ -24,7 +22,7 @@ $bp-illustrated-header-image-width: 360px;
     background-position: center;
     background-size: cover;
 
-    @media ($bp-illustrated-header-columns-min) {
+    @media ($bp-large-extended-min) {
       background-position: center left;
       height: 100%;
       position: absolute;
@@ -33,7 +31,7 @@ $bp-illustrated-header-image-width: 360px;
       width: $bp-illustrated-header-image-width + 40px; // 40px is right padding of the page
     }
 
-    @media ($bp-illustrated-header-columns-max) {
+    @media ($bp-large-extended-max) {
       min-height: 300px;
     }
 
@@ -55,7 +53,7 @@ $bp-illustrated-header-image-width: 360px;
     position: relative;
     z-index: 2;
 
-    @media ($bp-illustrated-header-columns-min) {
+    @media ($bp-large-extended-min) {
       float: none;
       width: calc(100% - #{$bp-illustrated-header-image-width}); // width of right rail
 
@@ -121,7 +119,7 @@ $bp-illustrated-header-image-width: 360px;
     &.ma__illustrated-header {
       margin-top: 0;
 
-      @media ($bp-illustrated-header-columns-min) {
+      @media ($bp-large-extended-min) {
         margin-bottom: 0;
       }
     }
@@ -150,7 +148,7 @@ $bp-illustrated-header-image-width: 360px;
 
   .ma__illustrated-header__image {
 
-    @media ($bp-illustrated-header-columns-min) {
+    @media ($bp-large-extended-min) {
       background-position: center;
     }
   }
@@ -165,10 +163,10 @@ $bp-illustrated-header-image-width: 360px;
   }
 
   &__content {
-    background-color: $c-white;
+    background-color: $c-bg;
 
     &:after {
-      background-color: $c-white;
+      background-color: $c-bg;
     }
   }
 
@@ -182,7 +180,7 @@ $bp-illustrated-header-image-width: 360px;
   &,
   .ma__page-header__title,
   .ma__illustrated-header__category {
-    color: $c-white;
+    color: $c-font-inverse;
   }
 
   &,

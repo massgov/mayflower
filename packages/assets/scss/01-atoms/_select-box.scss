@@ -90,15 +90,15 @@
 
   &__select {
     color: $c-font-base;
-    font-weight: $fonts-lighter;
+    font-weight: $fonts-light;
   }
 
   &__link {
-    background-color: $c-white;
+    background-color: $c-bg;
     border-color: $c-bd-input;
 
     .ma__form--light & {
-      background-color: rgba($c-white,.1);
+      background-color: rgba($c-bg,.1);
       border-color: rgba($c-bd-input,.5);
     }
   }

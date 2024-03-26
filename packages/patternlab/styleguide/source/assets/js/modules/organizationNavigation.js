@@ -49,7 +49,7 @@ export default (function (window, document, $, undefined) {
       });
     }
 
-    // Mobile toggle. 
+    // Mobile toggle.
     $mobileToggle.on('click', function () {
       const $this = $(this);
       $this.add($menuWrapper).toggleClass('menu-open');
@@ -104,7 +104,10 @@ export default (function (window, document, $, undefined) {
       // Close open menus and reset markup.
       $('.menu-open').removeClass('menu-open');
 
-      e.preventDefault();
+      if ($('body').hasClass('scroll-disabled')) {
+        $('body').removeClass('scroll-disabled');
+      }
+
       let location = $(this).attr('href');
       $('html, body').animate({ scrollTop: $(location).offset().top - 120 }, 1000);
 

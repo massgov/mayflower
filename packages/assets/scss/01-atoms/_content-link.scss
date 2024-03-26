@@ -15,7 +15,7 @@
     display: inline-block;
     padding-right: .75em;
     position: relative;
-  
+
     &:hover {
       border-bottom: none;
     }
@@ -33,39 +33,25 @@
       @include ma-link-underline;
     }
   }
-
-  &--phone {
-    border: none;
-    padding-bottom: 0;
-
-    &:hover {
-      border: none;
-    }
-  }
 }
 
 //theme
 
 .ma__content-link {
-  color: $c-font-link; 
+  color: $c-font-link;
 
   &:hover {
-    border-bottom-color: rgba($c-font-link, .5);
+    border-bottom-color: $c-bay-blue-lighter;
   }
 
   &--chevron {
 
     &:after {
-      border-color: rgba($c-font-link, .5);
+      border-color: $c-bay-blue-lighter;
     }
 
     span:hover {
-      border-bottom-color: rgba($c-font-link, .5);
+      border-bottom-color: $c-bay-blue-lighter;
     }
-  }
-
-  &--phone {
-    color: inherit; 
-    font-weight: inherit;
   }
 }

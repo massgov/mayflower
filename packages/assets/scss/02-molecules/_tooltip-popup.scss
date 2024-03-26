@@ -1,3 +1,6 @@
+@use "00-base/configure" as *;
+
+@use "00-base/color-tokens" as *;
 // borrowed code that can eventually be applied to the Tooltips pattern
 
 $opacity: 0.95;
@@ -5,10 +8,10 @@ $content-width: 240px;
 $popup-padding: 10px;
 $triangle-size: 16px; // should be an even number, match triangleSize in Popup.jsx
 $duration: 250ms;
-$border-color: #eee;
+$border-color: $c-bd;
 $border-width: 1;
-$background-color: rgba(#fff, $opacity);
-$color: #222;
+$background-color: rgba($c-white, $opacity);
+$color: $c-font-base;
 $font: Helvetica, sans-serif;
 
 $dropdown-background-color: $background-color;
@@ -135,19 +138,19 @@ $dropdown-border-color: $border-color;
 
 
     &.is-triangle-top {
-        box-shadow: 0 -2px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 -2px 30px 0px $c-box-shadow-black;
     }
 
     &.is-triangle-right {
-        box-shadow: 2px 0px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 0px 30px 0px $c-box-shadow-black;
     }
 
     &.is-triangle-bottom {
-        box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 2px 30px 0px $c-box-shadow-black;
     }
 
     &.is-triangle-left {
-        box-shadow: -2px 0px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: -2px 0px 30px 0px $c-box-shadow-black;
     }
 }
 
@@ -159,7 +162,7 @@ $dropdown-border-color: $border-color;
     color: $color;
     font-family: $font;
     font-size: $fonts-2xsmall;
-    font-weight: $fonts-lighter;
+    font-weight: $fonts-light;
     line-height: 21px;
     text-align: left;
     padding: 28px;

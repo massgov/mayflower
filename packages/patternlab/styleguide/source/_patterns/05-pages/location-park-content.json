@@ -19,7 +19,7 @@
         "accordion": true,
         "isExpanded": false,
         "accordionLabel": "Expand Actualizaciones sobre el desempleo",
-        "icon": "input-warning",
+        "icon": "alert",
         "title": "Actualizaciones sobre el desempleo",
         "suffix": "Updated: Mar. 17th, 2021, 11:10 am",
         "richText": {
@@ -148,8 +148,8 @@
                 "name": "Transit Friendly"
               },
               {
-                "path": "castle",
-                "name": "Historic Site"
+                "path": "wifi",
+                "name": "Public Wifi"
               },
               {
                 "path": "wheelchair",
@@ -193,7 +193,7 @@
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
         "text": "Get Directions",
-        "info": "Department of Conservation and Recreation"
+        "info": "Department of Conservation & Recreation"
       },
       "map": {
         "center": {
@@ -404,7 +404,7 @@
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
         "text": "Get Directions",
-        "info": "Department of Conservation and Recreation"
+        "info": "Department of Conservation & Recreation"
       },
       "map": {
         "center": {

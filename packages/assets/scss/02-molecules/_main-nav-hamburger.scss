@@ -49,11 +49,11 @@
 
     &:focus {
       background-color: $c-bd-divider;
-      outline: 2px solid $c-black;
+      outline: 2px solid $c-gray-darkest;
     }
 
     &.cv-alternate-style {
-      background-color: #f7c600;
+      background-color: $c-highlight;
 
       // Adding chevron for direct link.
 
@@ -64,7 +64,7 @@
       }
 
       &:hover {
-        background-color: #fce387;
+        background-color: $c-highlight-lightest;
       }
     }
   }
@@ -110,10 +110,10 @@
     display: block;
     position: relative;
     font-size: 1.25rem;
-    font-weight: 400;
+    font-weight: $fonts-normal;
     line-height: 1.33;
     padding: 10px 20px 10px 30px;
-    color: $c-black;
+    color: $c-gray-darkest;
 
     &:hover {
       text-decoration: underline;
@@ -146,7 +146,7 @@
       text-decoration: none;
 
       &>span {
-          border-bottom: 2px solid $c-black;
+          border-bottom: 2px solid $c-gray-darkest;
       }
     }
   }

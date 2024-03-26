@@ -2,7 +2,7 @@
 
 .ma__event-filters {
   padding-top: 30px;
-  
+
   form {
 
     @include ma-container;
@@ -24,7 +24,7 @@
   &__by-location {
 
     input {
-      max-width: 820px;
+      max-width: $l-max-content-width;
       width: 100%;
     }
   }

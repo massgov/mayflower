@@ -18,7 +18,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
     font-size: $fonts-small;
     height: $header-search-height;
     padding-right: 128px;
-    padding-left: 17px;
+    padding-left: 1rem;
     width: 100%;
 
     &::-ms-clear {
@@ -46,12 +46,109 @@ $bp-header-search-reduce-button: "max-width: 700px";
       @media ($bp-header-search-reduce-button) {
 
         span {
-          display: none;
+
+          @include ma-visually-hidden;
         }
       }
     }
 
   }
+
+  &-suggestions {
+
+    position: absolute;
+    width: 100%;
+    border: 2px solid $c-bd;
+    margin-top: -2px;
+    z-index: $z-dropdown;
+
+    &-helper {
+
+      @include ma-visually-hidden;
+    }
+
+    &.hidden {
+      display: none;
+    }
+
+    &-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      background-color: $c-bg;
+
+      svg {
+        width: $fonts-small;
+        height: $fonts-small; 
+        margin-right: 1rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+      &-button {
+
+      @include ma-button-reset;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      padding: 0.5rem 1rem;
+      border-top: 1px solid $c-bd;
+      font-size: $fonts-small;
+
+      &:hover {
+        background-color: $c-bg-section;
+      }
+
+      &-text {
+        display: block;
+      }
+
+      &-input {
+        font-weight: $fonts-bold;
+      }
+
+      &-scope {
+        font-size: $fonts-smaller;
+        color: $c-font-detail;
+        font-style: italic;
+        margin-left: 0.5rem;
+      }
+    }
+
+    &-suggestion {
+
+      &-option {
+
+        @include ma-button-reset;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 0.5rem 1rem;
+        font-size: $fonts-small;
+        border-top: 1px solid $c-bd;
+        width: 100%;
+  
+        &:hover, &.hover {
+          background-color: $c-bg-section;
+        }
+  
+        &-text {
+          display: block;
+        }
+  
+        &-input {
+          font-weight: $fonts-bold;
+        }
+  
+        &-scope {
+          font-size: $fonts-smaller;
+          color: $c-font-detail;
+          font-style: italic;
+          margin-left: 0.5rem;
+        }
+      }
+    }
 
   .ma__narrow-template & {
     margin-bottom: 75px;

@@ -1,6 +1,5 @@
 $header-mobile-menu-width: 300px;
 $header-logo-width: 150px;
-$bp-header-logo-min: "min-width: 1000px";
 
 @use "00-base/configure" as *;
 
@@ -98,7 +97,7 @@ body {
       float: none;
     }
 
-    @media ($bp-header-logo-min) {
+    @media ($bp-large-extended-min) {
 
       @include span-columns(3);
       display: inline-block;
@@ -115,13 +114,13 @@ body {
     @media ($bp-large-min) {
       height: 15px;
       background-color: $c-primary;
-      color: $c-white;
+      color: $c-font-inverse;
     }
 
     &--mobile {
       height: 15px;
       background-color: $c-primary;
-      color: $c-white;
+      color: $c-font-inverse;
       position: fixed;
         top: 0;
         left: 0;
@@ -145,7 +144,7 @@ body {
       width: 66.12903%; //@include span-columns(8);
     }
 
-    @media ($bp-header-logo-min) {
+    @media ($bp-large-extended-min) {
       width: 74.59677%; //@include span-columns(9);
     }
 
@@ -365,14 +364,6 @@ body {
   &__nav-search {
     padding: 15px 20px 15px;
 
-    .ma__header-search {
-
-      span {
-        display: none;
-      }
-
-    }
-
     @media ($bp-small-min) {
       display: none;
     }
@@ -527,9 +518,9 @@ body {
 
     a {
       font-weight: $fonts-normal;
-      background-color: mix(#fff, $c-font-link, 90%);
-      border-color: mix(#fff, $c-font-link, 50%);
-      box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+      background-color: mix($c-white, $c-font-link, 90%);
+      border-color: mix($c-white, $c-font-link, 50%);
+      box-shadow: $box-shadow;
       color: $c-font-link;
       font-size: $fonts-small;
 
@@ -538,7 +529,7 @@ body {
       }
 
       &:focus {
-        background-color: $c-white;
+        background-color: $c-bg;
         border-color: $c-highlight !important;
       }
     }

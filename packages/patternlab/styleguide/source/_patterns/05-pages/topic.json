@@ -23,23 +23,19 @@
         {
           "class": "",
           "href": "#",
-          "title": "Department of Conservation and Recreation"
+          "title": "Department of Conservation & Recreation"
         },
         {
           "class": "",
           "href": "#",
-          "title": "Other agency or organization"
+          "title": "Executive Office of Energy and Environmental Affairs"
         }
       ]
     }
   },
-  "pageBanner": {
-    "size": "full",
-    "icon": "lg-picnic-table",
-    "color": "white",
+  "pageHeader": {
     "underline": true,
-    "title": "State Parks & Recreation",
-    "description": "First line of this Topic that feeds description on cards.  This description can span multiple lines."
+    "title": "State Parks & Recreation"
   },
   "sectionThreeUp": {
     "compHeading": null,

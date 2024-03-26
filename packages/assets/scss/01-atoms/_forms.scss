@@ -12,7 +12,7 @@ input {
   }
 
   .ma__form--light & {
-    background-color: rgba($c-white, 0.1);
+    background-color: rgba($c-bg, 0.1);
     border-color: rgba($c-bd-input,.5);
     color: $c-font-inverse;
 
@@ -23,7 +23,7 @@ input {
 }
 
 input {
-  background-color: $c-white;
+  background-color: $c-bg;
   border: 2px solid $c-bd-input;
   color: $c-font-base;
   font-size: $fonts-medium;
@@ -66,7 +66,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 textarea {
-  background-color: $c-white;
+  background-color: $c-bg;
   border: 2px solid $c-bd-input;
   outline: none;
   font-size: $fonts-medium;
@@ -81,7 +81,7 @@ textarea {
   }
 
   .ma__form--light & {
-    background-color: rgba($c-white, 0.1);
+    background-color: rgba($c-bg, 0.1);
     border-color: rgba($c-bd-input, 0.5);
     color: $c-font-inverse;
 

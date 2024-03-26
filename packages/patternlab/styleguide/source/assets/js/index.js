@@ -17,6 +17,7 @@ import feedbackForm from "./modules/feedbackForm.js";
 import footnote from "./modules/footnote.js";
 import formValidation from "./modules/formValidation.js";
 import helpTip from "./modules/helpTip.js";
+import headerSearch from "./modules/headerSearch.js";
 import headerTags from "./modules/headerTags.js";
 import hideAlert from "./modules/hideAlert.js";
 import inlineOverlay from "./modules/inlineOverlay.js";

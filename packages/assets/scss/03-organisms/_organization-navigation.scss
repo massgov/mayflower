@@ -10,7 +10,6 @@ $menu-transition-time: 0.3s;
   transition: opacity $menu-transition-time;
 
   @media ($bp-large-extended-min) {
-    margin-top: -40px;
     margin-bottom: 40px;
   }
 
@@ -123,7 +122,7 @@ $menu-transition-time: 0.3s;
 
       .mobile-toggle-icon {
         background-color: $c-primary;
-        color: $c-white;
+        color: $c-font-inverse;
         transition: $menu-transition-time;
 
         &::after {
@@ -193,7 +192,7 @@ $menu-transition-time: 0.3s;
       border-width: 0;
 
       @media ($bp-large-min) {
-        background-color: $c-white;
+        background-color: $c-bg;
         margin-left: -3px;
         border-width: 2px;
       }
@@ -219,7 +218,7 @@ $menu-transition-time: 0.3s;
       }
 
       &:hover {
-        background-color: $c-white;
+        background-color: $c-bg;
 
         svg {
           fill: $c-primary-alt;
@@ -235,7 +234,7 @@ $menu-transition-time: 0.3s;
       border-left: 1px solid $c-gray-light;
       font-size: $fonts-xsmall;
       font-weight: $fonts-bold;
-      color: $c-black;
+      color: $c-font-base;
       padding-left: 35px;
 
       @media ($bp-large-min) {
