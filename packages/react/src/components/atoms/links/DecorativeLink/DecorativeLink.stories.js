@@ -1,8 +1,8 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-import IconDownload from 'MayflowerReactBase/Icon/IconDownload';
 import DecorativeLink from './index';
 import DecorativeLinkDocs from './DecorativeLink.md';
+import IconGeneric from 'MayflowerReactBase/Icon/IconGeneric';
 
 const Template = (args) => <DecorativeLink {...args} />;
 
@@ -21,6 +21,11 @@ DecorativeLinkExample.argTypes = {
     control: {
       disable: true
     }
+  },
+  fileIcon: {
+    control: {
+      disable: true
+    }
   }
 };
 
@@ -36,19 +41,29 @@ FileExample.argTypes = {
     control: {
       disable: true
     }
+  },
+  fileIcon: {
+    control: {
+      disable: true
+    }
   }
 };
 export const FileDownloadExample = Template.bind({});
 FileDownloadExample.args = {
   info: 'This is a clickable styled link',
   text: 'File Download as a Link',
-  href: 'https://www.mass.gov/test.pdf',
+  href: 'https://www.mass.gov/download',
   details: '(30 MB)',
   showFileIcon: true,
-  icon: <IconDownload width={15} height={15} />
+  fileIcon: <IconGeneric width={15} height={15} />
 };
 FileDownloadExample.argTypes = {
   icon: {
+    control: {
+      disable: true
+    }
+  },
+  fileIcon: {
     control: {
       disable: true
     }
