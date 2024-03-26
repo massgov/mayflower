@@ -19,10 +19,6 @@
   width: calc(100%-2px);
 }
 
-.fsSection {
-  display: block;
-}
-
 /** prevent horizontal scrolling **/
 div[class^="InnerFormBody"] {
   overflow-x: hidden;
