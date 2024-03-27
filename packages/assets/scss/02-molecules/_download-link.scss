@@ -96,12 +96,14 @@
 
   &__file-link {
 
-    // &:hover {
-      border-bottom-color: $c-bay-blue-lighter;
-    // }
     // Override normal state
     border-bottom-width: 1px;
     border-bottom-style: solid;
+    // border-bottom-color: $c-font-link;
+
+    // &:hover {
+      border-bottom-color: $c-bay-blue-lighter;
+    // }
   }
 
   &__file-spec {
