@@ -21,21 +21,13 @@
   &__item {
     list-style: none;
 
-    @media ($bp-large-min) {
-      padding: 0 10px;
-    }
-
-    @media ($bp-x-large-min) {
-      padding: 0 20px;
-    }
-
     a {
       width: 100%;
       display: block;
       text-align: left;
       border: 0;
       background-color: transparent;
-      padding: 1rem 0.5rem;
+      padding: 1rem;
       font-weight: $fonts-bold;
       font-size: $fonts-xsmall;
       color: $c-font-base;
@@ -52,6 +44,7 @@
       &.orgNav-active {
         background-color: $c-primary-alt;
         color: $c-white;
+        transition: all 0.25s ease-in-out;
       }
     }
   }
