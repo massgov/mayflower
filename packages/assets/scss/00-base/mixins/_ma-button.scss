@@ -108,17 +108,19 @@
       height: $fonts-small;
     }
   }
+
   // small
 
   @if ($size == "small") {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 1.2;
 
     svg {
-      width: $fonts-xsmall;
-      height: $fonts-xsmall;
+      width: $fonts-smaller;
+      height: $fonts-smaller;
     }
   }
+
   // large
 
   @if ($size == "large") {

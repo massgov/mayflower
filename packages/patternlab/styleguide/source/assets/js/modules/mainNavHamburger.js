@@ -488,7 +488,7 @@ if (hamburgerMenuContainer) {
   utilNarrowButtons.forEach((utilNarrowButton) => {
     const utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
     const utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
- 
+
     utilNarrowContent.style.maxHeight = "0";
     utilNarrowContainer.style.opacity = "0";
 
@@ -815,12 +815,13 @@ if (hamburgerMenuContainer) {
         setTimeout(function timeoutFunction() {
           item.querySelector(".js-main-nav-hamburger-content").style.height =
             height;
-          item.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "start",
-          });
-
+          if (!body.classList.contains("ios-safari-less-than-11")) {
+            item.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+              inline: "start",
+            });
+          }
           subItems.style.opacity = "1";
         }, 500);
 

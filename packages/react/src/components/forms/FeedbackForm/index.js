@@ -237,7 +237,7 @@ export default class FeedbackForm extends React.Component {
       name: this.prefixField(refererId),
       size: '50',
       value: window.location.href,
-      className: 'fsField'
+      className: 'ma__textarea fsField'
     };
     const yesFieldSetClassNames = classNames({
       'radio-yes': true,
@@ -248,7 +248,7 @@ export default class FeedbackForm extends React.Component {
       error: (hasError.includes(noFeedbackId))
     });
     const noTextAreaClassNames = classNames({
-      'fsField required': true,
+      'ma__textarea fsField required': true,
       error: (hasError.includes(noFeedbackId))
     });
     const radiosClassNames = (hasError.includes(radioId)) ? 'error' : null;
@@ -391,7 +391,7 @@ export default class FeedbackForm extends React.Component {
             <input
               id="submitButton2521317"
               ref={this.submitButton}
-              className="submitButton ma__button ma__button--small"
+              className="submitButton ma__button ma__button--small ma__button--uppercase"
               style={{ display: 'block' }}
               type="submit"
               value="Send Feedback"

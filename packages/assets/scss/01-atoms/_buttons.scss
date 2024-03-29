@@ -18,6 +18,13 @@ button {
 .ma__button {
 
   @include ma-button-base;
+  text-transform: none;
+  letter-spacing: $letter-spacing-small;
+
+  &--uppercase {
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-large;
+  }
 
   svg {
     margin-left: .5rem;
@@ -29,6 +36,7 @@ button {
   &--small {
 
     @include ma-button-size("small");
+    padding: 0.2em 0.6em;
   }
 
   &--large {
@@ -44,8 +52,6 @@ button {
       @include ma-button("solid",$c);
     }
   }
-
-
 
 }
 

@@ -47,13 +47,15 @@
         "text": "Log in to UI Online",
         "size": "small",
         "theme": "c-white",
-        "icon": "login"
+        "icon": "login",
+        "uppercaseOverride": true
       },{
         "href": "#",
         "text": "Multilingual Online UI Application",
         "size": "small",
         "theme": "c-white",
-        "icon": "login"
+        "icon": "login",
+        "uppercaseOverride": true
       }]
     }
   },

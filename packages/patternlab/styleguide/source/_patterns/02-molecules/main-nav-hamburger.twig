@@ -6,7 +6,7 @@
       <li role="{{ nav.subNav ? 'menuitem' : 'none' }}"  class="ma__main__hamburger-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-hamburger-toggle' : 'js-main-nav-hamburger-top-link' }}">
         {% if nav.subNav %}
           <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-expanded="false" aria-haspopup="true">
-          <span class="visually-hidden show-label">Show the sub topics of </span>
+          <span class="ma__visually-hidden show-label">Show the sub topics of </span>
               {{ nav.text }}
           <span class="toggle-indicator" aria-hidden="true"></span>
           </button>

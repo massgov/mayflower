@@ -9,6 +9,7 @@ import classNames from 'classnames';
 const Button = (button) => {
   const buttonClasses = classNames({
     ma__button: true,
+    'ma__button--uppercase': !button.uppercaseOverride,
     [`ma__button--${button.usage}`]: button.usage,
     [`ma__button--${button.size}`]: button.size,
     [`ma__button--${button.theme}`]: button.theme,
@@ -61,7 +62,8 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   /** Custom classnames appending to the button */
   classes: PropTypes.arrayOf(PropTypes.string),
-
+  /** If true, the button text will use regular case */
+  uppercaseOverride: PropTypes.bool,
   children: PropTypes.node
 };
 
@@ -73,7 +75,8 @@ Button.defaultProps = {
   theme: '',
   usage: '',
   disabled: false,
-  classes: ['']
+  classes: [''],
+  uppercaseOverride: false
 };
 
 export default Button;
