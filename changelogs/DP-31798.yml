@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: MappedLocations
-    description: A11y - Hide the map from keyboard and AT users. (#1881)
-    issue: DP-31798
-    impact: Patch

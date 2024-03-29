@@ -1,6 +1,32 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 13.1.0 (3/29/2024)
+### Changed 
+- (Patternlab) [Breadcrumbs, Footnotes] DP-30528: Adjust target size for breadcrumbs home and footnotes to meet WCAG 2.2. (#1875)
+- (Patternlab) [Sidebar Contact] DP-30655: Correct the heading level for sidebar contact items. (#1887)
+- (Patternlab) [UtilityNav,Button] DP-31679: Update contrast settings utility panel data and fix Button with `href` styles. (#1874)
+- (Patternlab) [SectionLinks] DP-31690: Change card component to render title as text instead of decorative link. Remove see all link on desktop. (#1877)
+- (Patternlab) [HeaderAlerts] DP-31793: Add border for the component and chnage icon for notice to improve the color contrasts. (#1884)
+- (Patternlab) [MappedLocations] DP-31798: A11y - Hide the map from keyboard and AT users. (#1881)
+- (Patternlab) [FeaturedItem] DP-31866: Fix link text wrapping too soon, increase link text font size. (#1883)
+- (Patternlab) [Suggested Pages] DP-31955: Add a condition to check suggested page items. (#1886)
+- (Patternlab) [HeaderAlerts,ActionStep] DP-32003: Decrease spacing and minimize wrapping on mobile. (#1898)
+- (Patternlab) [OrgContact] DP-32010: Org contact logo too large on mobile. (#1894)
+- (Patternlab) [Button] DP-32068: Button component changes, added new class and logic to override default uppercase letters. (#1892)
+- (Patternlab) [Iframe] DP-32109: Changed iframe component to allow adding custom class (#1897)
+
+### Fixed 
+- (Patternlab) [UtilityNav] DP-31616: Add `aria-controls` to utility nav buttons. (#1864)
+- (Patternlab) [multiple components] DP-31780: Add space to screen reader only text containers where screen readers announce the text sequentially as a part of its parent contetiner's last word. (#1876)
+- (Patternlab,React) [TextArea,FeedbackForm] DP-31616: Fix textarea js conflicts with Formstack. Fix label `for` attribute and add default classname. (#1864)
+- (Patternlab) [mainNavHamburger] DP-31923: Hamburger menu bug fix for mobile devices. (#1890)
+- (React) [DecorativeLink,GenTeaserTitle] DP-32127: Fix proptype checks for the icon props. (#1875)
+
+### Added 
+- (Patternlab,Assets) [Icon,LocationIcons] DP-32029: Add wifi icon to assets and location icons component, adjust location icons spacing to prevent tight spacing between icon labels. (#1891)
+- (React) [DecorativeLink,GenTeaserTitle] DP-32127: Add fileIcon prop, to allow overriding existing download link icons logic in search.mass.gov to render Mass.gov media entity for documents as download links. (#1875)
+
 ## 13.0.0 (2/1/2024)
 ### Fixed 
 - (Patternlab) [MainNav] DP-14430: Homepage desktop global nav expansion bug. (#1869)
