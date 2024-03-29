@@ -6,6 +6,56 @@
 
 .ma__sticky-nav {
 
+  &--horizontal {
+
+    position: relative;
+    padding: 0 20px;
+    margin-bottom: 0;
+    order: 2;
+
+    @media ($bp-large-min) {
+      order: 1;
+      display: flex;
+          flex-wrap: wrap;
+      padding: 0;
+      border-bottom: 0;
+      position: static;
+    }
+  
+    .ma__sticky-nav__link {
+      list-style: none;
+  
+      @media ($bp-large-min) {
+        padding: 0 10px;
+      }
+  
+      @media ($bp-x-large-min) {
+        padding: 0 20px;
+      }
+  
+      a {
+        width: 100%;
+        display: block;
+        text-align: left;
+        border: 0;
+        background-color: transparent;
+        padding: 1rem 0;
+        font-weight: $fonts-bold;
+        font-size: $fonts-xsmall;
+        color: $c-font-base;
+  
+        @media ($bp-large-max) {
+          text-transform: uppercase;
+        }
+  
+        @media ($bp-large-min) {
+          height: 100%;
+          font-size: $fonts-smaller;
+        }
+      }
+    }
+  }    
+
   @include clearfix;
 
   @media ($bp-medium-min) {
