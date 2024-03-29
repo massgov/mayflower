@@ -1,5 +1,6 @@
 {
   "iframe": {
+    "customClass": "",
     "src": "https://massgov.github.io",
     "title": "Embed page title for accessibility",
     "height": "853",

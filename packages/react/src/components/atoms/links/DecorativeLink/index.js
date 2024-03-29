@@ -19,18 +19,21 @@ import IconXlxs from 'MayflowerReactBase/Icon/IconXlxs';
 import IconGeneric from 'MayflowerReactBase/Icon/IconGeneric';
 // eslint-disable-next-line import/no-unresolved
 import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
+// eslint-disable-next-line import/no-unresolved
+import IconDownload from 'MayflowerReactBase/Icon/IconDownload';
 
 const DecorativeLink = (props) => {
   const {
-    showFileIcon, className, href, info, text, details, icon, ...rest
+    showFileIcon, className, href, info, text, details, icon, fileIcon, ...rest
   } = props;
   const classes = classNames({
     'ma__decorative-link': true,
     'ma__download-link': showFileIcon,
     [props.className]: className
   });
-  let decIcon = null;
+  let preIcon;
   let title;
+  let postIcon = <IconArrow aria-hidden="true" />;
   if (showFileIcon) {
     // eslint-disable-next-line no-bitwise
     const getFileExtension = (filename) => filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2);
@@ -38,21 +41,23 @@ const DecorativeLink = (props) => {
     title = `${ext} file`;
     const genericFile = ['csv', 'doc', 'docm', 'dot', 'dotx', 'dwg', 'geojson', 'gif', 'json', 'jpg', 'kml', 'kmz', 'mp3', 'mpp', 'msg', 'odf', 'ods', 'odt', 'png', 'pps', 'ppsx', 'potx', 'ppt', 'pptm', 'pptx', 'ppsm', 'prx', 'pub', 'rdf', 'rtf', 'tiff', 'tsv', 'txt', 'xls', 'xlsb', 'xlsm', 'xml', 'zip'];
     ext = genericFile.indexOf(ext) !== -1 ? 'generic' : ext;
+    postIcon = <IconDownload aria-hidden="true" />;
     switch (ext) {
       case 'pdf':
-        decIcon = <IconPdf title={title} width={35} height={36} />;
+        preIcon = <IconPdf title={title} width={35} height={36} />;
         break;
       case 'docx':
-        decIcon = <IconDocx title={title} width={35} height={36} />;
+        preIcon = <IconDocx title={title} width={35} height={36} />;
         break;
       case 'xlxs':
-        decIcon = <IconXlxs title={title} width={35} height={36} />;
+        preIcon = <IconXlxs title={title} width={35} height={36} />;
         break;
       case 'generic':
-        decIcon = <IconGeneric title={title} width={35} height={36} />;
+        preIcon = <IconGeneric title={title} width={35} height={36} />;
         break;
       default:
-        decIcon = null;
+        preIcon = null;
+        postIcon = <IconArrow aria-hidden="true" />;
     }
   }
   return(
@@ -62,9 +67,9 @@ const DecorativeLink = (props) => {
         href={href}
         title={info || null}
       >
-        {decIcon && (
+        {(fileIcon || preIcon) && (
         <span className="ma__download-link--icon">
-          {decIcon}
+          {fileIcon || preIcon}
           <span>&nbsp;</span>
         </span>
         )}
@@ -76,7 +81,7 @@ const DecorativeLink = (props) => {
         </span>
         )}
         <span>&nbsp;</span>
-        {icon || <IconArrow aria-hidden="true" />}
+        {icon || postIcon}
       </a>
     </span>
   );
@@ -89,7 +94,8 @@ DecorativeLink.propTypes = {
   showFileIcon: PropTypes.bool,
   className: PropTypes.string,
   details: PropTypes.string,
-  icon: PropTypes.elementType
+  icon: PropTypes.element,
+  fileIcon: PropTypes.element
 };
 
 DecorativeLink.defaultProps = {

@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Iframe
+    description: Changed iframe component to allow adding custom class (#1897)
+    issue: DP-32109
+    impact: Patch
