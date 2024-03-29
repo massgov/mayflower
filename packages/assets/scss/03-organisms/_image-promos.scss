@@ -1,6 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__image-promos {
+  margin: 0;
 
   .pre-content > &,
   .post-content > &,
