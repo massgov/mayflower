@@ -4,74 +4,7 @@
 
 @use "00-base/configure" as *;
 
-.ma__sticky-nav {
-
-  &--horizontal {
-  
-    @media ($bp-medium-min) {
-      background-color: $c-gray-lightest;
-      margin-top: -20px;
-      margin-bottom: 20px;
-      opacity: 1;
-      transition: opacity 0.3s;
-      position: relative;
-    }
-
-    .ma__sticky-nav__container {
-      
-      @media ($bp-medium-min) {
-        @include ma-container;
-        display: flex;
-        flex-wrap: wrap;
-      }
-    }
-
-    .ma__sticky-nav__link {
-      list-style: none;
-
-      a {
-        width: 100%;
-        display: block;
-        text-align: left;
-        background-color: transparent;
-        padding: 1rem 0 0.75rem;
-        font-weight: $fonts-bold;
-        color: $c-font-link;
-
-        &.is-active {
-          color: $c-font-base;
-          border-bottom-color: $c-primary-alt;
-        }
-      }
-
-      // horizontal sticky nav links on desktop
-      @media ($bp-medium-min) {
-        padding: 0 15px;
-        height: 100%;
-        color: $c-font-base;
-
-        &.is-top {
-          padding-left: 0;
-        }
-
-        &.is-active {
-          &:hover {
-            a {
-              color: $c-font-base;
-              border-bottom-color: $c-primary-alt-lighter;
-            }
-          }
-
-          &:hover {
-            a {
-              color: $c-font-base;
-              border-bottom-color: $c-primary-alt-lighter;
-            }
-          }
-        }
-      }
-    }
-  }    
+.ma__sticky-nav { 
 
   @include clearfix;
 
@@ -146,9 +79,8 @@
     display: none;
     line-height: 1.2;
     padding: 10px 15px;
-    min-height: 47px;
     border-top-color: $c-gray-light;
-    padding: 0 15px;
+    padding: 15px;
 
     @media ($bp-small-min) {
       line-height: 1.5;
@@ -274,4 +206,72 @@
       display: none;
     }
   }
+
+  // horizontal layout
+  &--horizontal {
+  
+    @media ($bp-medium-min) {
+      background-color: $c-gray-lightest;
+      margin-top: -20px;
+      margin-bottom: 20px;
+      opacity: 1;
+      transition: opacity 0.3s;
+      position: relative;
+    }
+
+    .ma__sticky-nav__container {
+      
+      @media ($bp-medium-min) {
+        @include ma-container;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    .ma__sticky-nav__link {
+      list-style: none;
+
+      a {
+        width: 100%;
+        display: block;
+        text-align: left;
+        background-color: transparent;
+        //padding: 1rem 0 0.75rem;
+        font-weight: $fonts-bold;
+        color: $c-font-link;
+
+        &.is-active {
+          color: $c-font-base;
+          border-bottom-color: $c-primary-alt;
+        }
+      }
+
+      // horizontal sticky nav links on desktop
+      @media ($bp-medium-min) {
+        padding: 15px;
+        height: 100%;
+        color: $c-font-base;
+
+        &.is-top {
+          padding-left: 0;
+        }
+
+        &.is-active {
+          &:hover {
+            a {
+              color: $c-font-base;
+              border-bottom-color: $c-primary-alt-lighter;
+            }
+          }
+
+          &:hover {
+            a {
+              color: $c-font-base;
+              border-bottom-color: $c-primary-alt-lighter;
+            }
+          }
+        }
+      }
+    }
+  }   
 }
