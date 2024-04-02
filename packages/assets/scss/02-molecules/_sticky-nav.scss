@@ -129,7 +129,7 @@
       &.is-active {
 
         div {
-          font-weight: 700;
+          font-weight: $fonts-bold;
         }
       }
 
@@ -236,13 +236,13 @@
         display: block;
         text-align: left;
         background-color: transparent;
-        //padding: 1rem 0 0.75rem;
         font-weight: $fonts-bold;
         color: $c-font-link;
+      }
 
-        &.is-active {
+      &.is-active {
+        a {
           color: $c-font-base;
-          border-bottom-color: $c-primary-alt;
         }
       }
 
