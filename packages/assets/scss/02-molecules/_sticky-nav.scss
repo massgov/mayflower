@@ -212,10 +212,9 @@
   
     @media ($bp-medium-min) {
       background-color: $c-gray-lightest;
+      box-shadow: $box-shadow;
       margin-top: -20px;
       margin-bottom: 20px;
-      opacity: 1;
-      transition: opacity 0.3s;
       position: relative;
     }
 
