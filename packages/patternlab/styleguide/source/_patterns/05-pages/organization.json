@@ -48,6 +48,7 @@
   },
   "stickyNav": {
     "titleContext": "",
+    "horizontalLayout": true,
     "anchorLinks":[
       {
         "text": "Contact",
