@@ -16,7 +16,8 @@
       <div class="ma__press-listing__items">
         {% block featuredItems %}
           {% for pressTeaser in pressListing.items %}
-            {% set pressTeaser = pressTeaser|merge({"level":teaserHeading + 1}) %}
+            {% set pressTeaserHeading = (sidebarHeading.level ? : teaserHeading) + 1 %}
+            {% set pressTeaser = pressTeaser|merge({"level":pressTeaserHeading}) %}
             {% include "@molecules/press-teaser.twig" %}
           {% endfor %}
         {% endblock %}
