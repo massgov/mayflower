@@ -194,7 +194,7 @@
     overflow: hidden;
     position: absolute;
     right: 10px;
-    top: 9px;
+    top: 12px;
     transition: all .2s ease;
     transform-origin: center center;
 
@@ -247,26 +247,32 @@
 
       // horizontal sticky nav links on desktop
       @media ($bp-medium-min) {
-        padding: 15px;
+        padding: 15px 15px 10px;
         height: 100%;
-        color: $c-font-base;
+        border-bottom: 3px solid transparent;
+        a {
+          color: $c-font-base;
+          border-bottom: none;
+        }
 
         &.is-top {
           padding-left: 0;
         }
 
-        &.is-active {
-          &:hover {
-            a {
-              color: $c-font-base;
-              border-bottom-color: $c-primary-alt-lighter;
-            }
+        &:hover {
+          border-bottom-color: $c-primary-alt-lighter;
+          a {
+            color: $c-font-base;
           }
+        }
 
+        &.is-active {
+          border-bottom-color: $c-primary-alt;
+          
           &:hover {
+            border-bottom-color: $c-primary-alt-lighter;
             a {
               color: $c-font-base;
-              border-bottom-color: $c-primary-alt-lighter;
             }
           }
         }
