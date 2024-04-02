@@ -27,18 +27,42 @@
 
     .ma__sticky-nav__link {
       list-style: none;
-  
+
       @media ($bp-medium-min) {
-        padding: 0 10px;
+        padding: 0 15px;
+      }
+
+      &.is-top {
+        padding-left: 0;
+      }
+
+      &.is-active {
+        a {
+          color: $c-font-base;
+          border-bottom-color: $c-primary-alt;
+        }
+        
+        &:hover {
+          a {
+            color: $c-font-base;
+            border-bottom-color: $c-primary-alt-lighter;
+          }
+        }
+      }
+
+      &:hover {
+        a {
+          color: $c-font-base;
+          border-bottom-color: $c-primary-alt-lighter;
+        }
       }
   
       a {
         width: 100%;
         display: block;
         text-align: left;
-        border: 0;
         background-color: transparent;
-        padding: 1rem 0;
+        padding: 1rem 0 0.75rem;
         font-weight: $fonts-bold;
         font-size: $fonts-xsmall;
         color: $c-font-base;
@@ -52,10 +76,6 @@
   }    
 
   @include clearfix;
-
-  // @media ($bp-medium-min) {
-  //   position: absolute;
-  // }
 
   transition: top .3s;
   width: 100%;
@@ -129,6 +149,8 @@
     line-height: 1.2;
     padding: 10px 15px;
     min-height: 47px;
+    border-top-color: $c-gray-light;
+    padding: 0 15px;
 
     @media ($bp-small-min) {
       line-height: 1.5;
@@ -138,6 +160,15 @@
       display: block;
       padding: 0;
       padding-bottom: 12px;
+      border-top-width: 1px;
+      border-top-style: solid;
+    }
+
+    &.is-top {
+
+      @media ($bp-medium-min) {
+        border-top-width: 0;
+      }
     }
 
     &.is-title {
@@ -210,22 +241,6 @@
 
       @include ma-link-underline;
       font-weight: $fonts-normal;
-    }
-
-    & + & {
-      border-top-color: $c-gray-light;
-
-      @media ($bp-medium-min) {
-        border-top-width: 1px;
-        border-top-style: solid;
-      }
-    }
-
-    &.is-top {
-
-      @media ($bp-medium-min) {
-        border-top-width: 0;
-      }
     }
 
   }
