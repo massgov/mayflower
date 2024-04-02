@@ -31,6 +31,10 @@
     background-color: $c-gray-lightest;
     border: 1px solid $c-gray-light;
     left: 0;
+    // when the nav is sticky, add a box shadow
+    &[data-sticky="middle"] {
+      box-shadow: $box-shadow;
+    }
   }
 
   .page-content & {
@@ -73,7 +77,6 @@
     }
   }
 
-
   &__link {
     cursor: pointer;
     display: none;
@@ -82,22 +85,11 @@
     border-top-color: $c-gray-light;
     padding: 15px;
 
-    @media ($bp-small-min) {
-      line-height: 1.5;
-    }
-
     @media ($bp-medium-min) {
       display: block;
       padding: 12px 0;
       border-top-width: 1px;
       border-top-style: solid;
-    }
-
-    &.is-top {
-
-      @media ($bp-medium-min) {
-        border-top-width: 0;
-      }
     }
 
     &.is-title {
@@ -178,9 +170,6 @@
 
   &.is-open &__link {
     display: block;
-  }
-
-  &.is-open &__link + &__link {
     border-top-width: 1px;
     border-top-style: solid;
   }
@@ -249,14 +238,12 @@
       @media ($bp-medium-min) {
         padding: 15px 15px 10px;
         height: 100%;
-        border-bottom: 3px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-top: none;
+
         a {
           color: $c-font-base;
           border-bottom: none;
-        }
-
-        &.is-top {
-          padding-left: 0;
         }
 
         &:hover {
