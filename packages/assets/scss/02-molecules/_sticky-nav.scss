@@ -83,7 +83,7 @@
     line-height: 1.2;
     padding: 10px 15px;
     border-top-color: $c-gray-light;
-    padding: 15px;
+    padding: 12px;
 
     @media ($bp-medium-min) {
       display: block;
@@ -183,7 +183,7 @@
     overflow: hidden;
     position: absolute;
     right: 10px;
-    top: 12px;
+    top: 10px;
     transition: all .2s ease;
     transform-origin: center center;
 
@@ -197,7 +197,8 @@
   }
 
   // horizontal layout
-  &--horizontal {
+  &--horizontal.ma__sticky-nav {
+    width: 100%;
   
     @media ($bp-medium-min) {
       background-color: $c-gray-lightest;
