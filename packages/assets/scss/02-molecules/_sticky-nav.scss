@@ -212,6 +212,13 @@
       position: relative;
     }
 
+    &[data-sticky="middle"],&[data-sticky="bottom"] {
+      top: 0;
+      bottom: auto;
+      margin: 0;
+      position: fixed;
+    }
+
     .ma__sticky-nav__container {
       
       @media ($bp-medium-min) {
