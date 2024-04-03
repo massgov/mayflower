@@ -37,6 +37,10 @@
     }
   }
 
+  @media ($bp-medium-min) {
+    position: absolute;
+  }
+
   .page-content & {
 
     @include ma-layout-left-col;
