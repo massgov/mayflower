@@ -4,7 +4,7 @@ export default (function (window,document,$,undefined) {
 
   $(".js-scroll-anchors").each(function() {
     let $el = $(this),
-        $elParent = $el.parent().css('position') === 'relative' ? $el.parent() : $el.parent().offsetParent(),
+        $elParent = $el.css('position') === 'relative' ? $el.parent() : $el.offsetParent(),
         $titleLink = $el.find('.is-title'),
         $links = $el.find('.js-scroll-anchors-link'),
         elHeight,
@@ -149,6 +149,9 @@ export default (function (window,document,$,undefined) {
           top = attr !== 'top' && windowTop <= upperLimit,
           middle = attr !== 'middle' && windowTop < lowerLimit && windowTop > upperLimit,
           bottom = attr !== 'bottom' && windowTop >= lowerLimit;
+
+          console.log("window: "+windowTop);
+          console.log("offset: "+upperLimit);
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
