@@ -94,6 +94,10 @@
       padding: 12px 0;
       border-top-width: 1px;
       border-top-style: solid;
+
+      &.is-top {
+        border-top: none;
+      }
     }
 
     &.is-title {
