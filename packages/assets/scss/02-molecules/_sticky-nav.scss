@@ -203,13 +203,13 @@
   // horizontal layout
   &--horizontal.ma__sticky-nav {
     width: 100%;
+    position: relative;
   
     @media ($bp-medium-min) {
       background-color: $c-gray-lightest;
       box-shadow: $box-shadow;
       margin-top: -20px;
       margin-bottom: 20px;
-      position: relative;
     }
 
     &[data-sticky="middle"],&[data-sticky="bottom"] {
