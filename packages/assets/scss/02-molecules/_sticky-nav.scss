@@ -32,7 +32,7 @@
     border: 1px solid $c-gray-light;
     left: 0;
     // when the nav is sticky, add a box shadow
-    &[data-sticky="middle"] {
+    &[data-sticky="middle"],&[data-sticky="bottom"] {
       box-shadow: $box-shadow;
     }
   }
@@ -213,10 +213,10 @@
     }
 
     &[data-sticky="middle"],&[data-sticky="bottom"] {
+      position: fixed;
       top: 0;
       bottom: auto;
       margin: 0;
-      position: fixed;
     }
 
     .ma__sticky-nav__container {
