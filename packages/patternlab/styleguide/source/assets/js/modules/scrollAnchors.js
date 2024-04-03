@@ -150,9 +150,6 @@ export default (function (window,document,$,undefined) {
           middle = attr !== 'middle' && windowTop < lowerLimit && windowTop > upperLimit,
           bottom = attr !== 'bottom' && windowTop >= lowerLimit;
 
-          console.log("window: "+windowTop);
-          console.log("offset: "+upperLimit);
-
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
       }
