@@ -13,7 +13,7 @@ export default (function (window,document,$,undefined) {
         upperLimit,
         debounceTimer,
         activeClass = "is-active",
-        activeAnchorIndex = 0,
+        activeAnchorIndex = -1,
         anchors = [],
         numAnchors = 0,
         isMobile = false,
@@ -94,11 +94,25 @@ export default (function (window,document,$,undefined) {
       },300);
     });
 
+    var scrollPos = 0;
     $(window).scroll(function () {
       setPosition();
 
+
+      var direction;
+      // detects new state and compares it with the new one
+      if ((document.body.getBoundingClientRect()).top > scrollPos) {
+          direction = 'up';
+      }     
+      else {
+          direction = 'down';
+      }
+        // saves the new position for iteration.
+        scrollPos = (document.body.getBoundingClientRect()).top;
+      console.log(direction)
+
       if(!linkScrolling){
-        activateLink();
+        activateLink(direction);
       }
     });
 
@@ -190,7 +204,8 @@ export default (function (window,document,$,undefined) {
       }
     }
 
-    function activateLink() {
+    console.log(anchors)
+    function activateLink(dir) {
       // do we have more than one anchor
       if(numAnchors < 2 || linkScrolling) {
         return;
@@ -199,23 +214,27 @@ export default (function (window,document,$,undefined) {
       // get the current scroll position and trigger change when new link is 10% down the page
       let windowTop = $(window).scrollTop() + (window.innerHeight/9),
           currentAnchor = activeAnchorIndex;
-         
 
-      // is there a prev target
-      // and
-      // is the current scroll position above the current target
-      if(currentAnchor > 0 && windowTop < anchors[activeAnchorIndex].position) {
+      if(currentAnchor === -1) {
+        // console.log('no active')
+        mobileTitleOn();
+      }
+      // console.log('current: '+windowTop)
+      // console.log('next: '+anchors[activeAnchorIndex+1].position)
+      console.log(activeAnchorIndex)
+      // scrolling down & there is a next target & the current scroll position is below the next target
+      if(dir === 'down' && currentAnchor < numAnchors-1 && windowTop > anchors[activeAnchorIndex+1].position) {
+        // make the next link active
+        ++activeAnchorIndex;
+      }
+
+      // scrolling up & there is a prev target & the current scroll position is above the next target
+      if(dir === 'up' && currentAnchor > -1 && windowTop < anchors[activeAnchorIndex].position) {
         // make the prev link active
         --activeAnchorIndex;
       }
 
-      // is there a next target
-      // and
-      // is the current scroll position below the next target
-      else if(currentAnchor < numAnchors-1 && windowTop > anchors[activeAnchorIndex+1].position) {
-        // make the next link active
-        ++activeAnchorIndex;
-      }
+
 
       if (currentAnchor !== activeAnchorIndex) {
         // move the active flag

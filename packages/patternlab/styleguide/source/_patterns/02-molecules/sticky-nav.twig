@@ -12,7 +12,7 @@
     </div>
     <div class="ma__sticky-nav__container">
     {% for anchorLink in stickyNav.anchorLinks %}
-        <div class="ma__sticky-nav__link js-scroll-anchors-link {{ loop.first ? 'is-active is-top' : '' }}">
+        <div class="ma__sticky-nav__link js-scroll-anchors-link {{ loop.first ? 'is-top' : '' }}">
           <a href="#{{ anchorLink.href }}"
             title="{{ anchorLink.info }}">{{ anchorLink.text }}</a>
         </div>
