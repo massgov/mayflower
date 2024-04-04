@@ -16,7 +16,7 @@ $c-bay-blue-40-shade:               #0C3356 !default;
 $c-bay-blue-50-shade:               #0A2B48 !default;
 
 $c-bay-blue-light:                  $c-bay-blue-20-tint; //Commonly used in outlines
-$c-bay-blue-lighter:                $c-bay-blue-50-tint !default; //Commonly used in outlines
+$c-bay-blue-lighter:                $c-bay-blue-40-tint !default; //Commonly used in outlines
 $c-bay-blue-lightest:               $c-bay-blue-90-tint !default; //Commonly used in background
 $c-bay-blue-darker:                 $c-bay-blue-30-shade !default;
 $c-bay-blue-darkest:                $c-bay-blue-50-shade !default;
@@ -38,7 +38,7 @@ $c-berkshires-green-30-shade:       #275D3D !default;
 $c-berkshires-green-40-shade:       #225034 !default;
 $c-berkshires-green-50-shade:       #1C432C !default;
 
-$c-berkshires-green-lighter:        $c-berkshires-green-50-tint !default; //Commonly used in outlines
+$c-berkshires-green-lighter:        $c-berkshires-green-40-tint !default; //Commonly used in outlines
 $c-berkshires-green-lightest:       $c-berkshires-green-80-tint !default; //Commonly used in background
 $c-berkshires-green-dark:           #214F34 !default; // Followup needed: should be replaced with one of the gradient colors
 $c-berkshires-green-darker:         $c-berkshires-green-30-shade !default;
