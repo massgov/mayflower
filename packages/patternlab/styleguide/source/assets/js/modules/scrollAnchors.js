@@ -109,7 +109,6 @@ export default (function (window,document,$,undefined) {
       }
         // saves the new position for iteration.
         scrollPos = (document.body.getBoundingClientRect()).top;
-      console.log(direction)
 
       if(!linkScrolling){
         activateLink(direction);
@@ -125,8 +124,6 @@ export default (function (window,document,$,undefined) {
 
       // Add a top offset of the height of the horizontal nav on desktop
       let topOffset = horizontalLayout && !isMobile ? elHeight * 2 : 0;
-
-      console.log(topOffset)
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
@@ -216,12 +213,9 @@ export default (function (window,document,$,undefined) {
           currentAnchor = activeAnchorIndex;
 
       if(currentAnchor === -1) {
-        // console.log('no active')
         mobileTitleOn();
       }
-      // console.log('current: '+windowTop)
-      // console.log('next: '+anchors[activeAnchorIndex+1].position)
-      console.log(activeAnchorIndex)
+
       // scrolling down & there is a next target & the current scroll position is below the next target
       if(dir === 'down' && currentAnchor < numAnchors-1 && windowTop > anchors[activeAnchorIndex+1].position) {
         // make the next link active
