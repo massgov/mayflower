@@ -17,7 +17,8 @@ export default (function (window,document,$,undefined) {
         anchors = [],
         numAnchors = 0,
         isMobile = false,
-        linkScrolling = false;
+        linkScrolling = false,
+        horizontalLayout = $el.hasClass('ma__sticky-nav--horizontal');
 
     setVariables();
 
@@ -102,12 +103,14 @@ export default (function (window,document,$,undefined) {
     });
 
     function setVariables() {
-      let topOffset = 0;
 
       headerBuffer = 0;
       elHeight = $el.outerHeight(true);
       upperLimit = $elParent.offset().top;
       isMobile = checkMobile($el);
+
+      // Add a top offset of the height of the horizontal nav on desktop
+      let topOffset = horizontalLayout && !isMobile ? elHeight : 0;
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
@@ -133,11 +136,16 @@ export default (function (window,document,$,undefined) {
           $link = $el.is('a') ? $el : $el.find('a'),
           hash = $link[0].hash,
           position = $(hash).offset() ? $(hash).offset().top - headerBuffer - topOffset : upperLimit;
+          console.log('link: '+$(hash).offset().top)
+          console.log('buffer: '+headerBuffer)
+          console.log('offset: '+topOffset)
 
         anchors[i] = { hash, position };
 
         $el.data('index',i);
       });
+
+      console.log(anchors)
 
       // record the number of anchors for performance
       numAnchors = anchors.length;
