@@ -136,16 +136,11 @@ export default (function (window,document,$,undefined) {
           $link = $el.is('a') ? $el : $el.find('a'),
           hash = $link[0].hash,
           position = $(hash).offset() ? $(hash).offset().top - headerBuffer - topOffset : upperLimit;
-          console.log('link: '+$(hash).offset().top)
-          console.log('buffer: '+headerBuffer)
-          console.log('offset: '+topOffset)
 
         anchors[i] = { hash, position };
 
         $el.data('index',i);
       });
-
-      console.log(anchors)
 
       // record the number of anchors for performance
       numAnchors = anchors.length;
