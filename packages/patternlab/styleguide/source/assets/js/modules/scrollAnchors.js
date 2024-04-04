@@ -110,7 +110,9 @@ export default (function (window,document,$,undefined) {
       isMobile = checkMobile($el);
 
       // Add a top offset of the height of the horizontal nav on desktop
-      let topOffset = horizontalLayout && !isMobile ? elHeight : 0;
+      let topOffset = horizontalLayout && !isMobile ? elHeight * 2 : 0;
+
+      console.log(topOffset)
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
