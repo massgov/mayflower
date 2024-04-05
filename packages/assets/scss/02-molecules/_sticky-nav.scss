@@ -209,11 +209,11 @@
     width: 100%;
     position: relative;
     margin-top: -20px;
+    margin-bottom: 20px;
   
     @media ($bp-medium-min) {
       background-color: $c-gray-lightest;
       box-shadow: $box-shadow;
-      margin-bottom: 20px;
     }
 
     &[data-sticky="middle"],&[data-sticky="bottom"] {
