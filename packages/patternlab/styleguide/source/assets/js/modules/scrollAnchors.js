@@ -127,7 +127,7 @@ export default (function (window,document,$,undefined) {
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
-      }
+      }f
 
       if(isMobile) {
         headerBuffer = $('.js-sticky-header').height() || 0;
@@ -212,6 +212,7 @@ export default (function (window,document,$,undefined) {
       let windowTop = $(window).scrollTop() + (window.innerHeight/9),
           currentAnchor = activeAnchorIndex;
 
+      // set the title to active before reaching the first anchor
       if(currentAnchor === -1) {
         mobileTitleOn();
       }
