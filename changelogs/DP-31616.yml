@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: UtilityNav
-    description: Add `aria-controls` to utility nav buttons. (#1864)
-    issue: DP-31616
-    impact: Patch
