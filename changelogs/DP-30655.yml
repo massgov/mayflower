@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Sidebar Contact
-    description: Correct the heading level for sidebar contact items. (#1887)
-    issue: DP-30655
-    impact: Patch

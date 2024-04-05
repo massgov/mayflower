@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: HeaderAlerts
-    description: Add border for the component and chnage icon for notice to improve the color contrasts. (#1884)
-    issue: DP-31793
-    impact: Patch
