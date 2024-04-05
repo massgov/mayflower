@@ -127,7 +127,7 @@ export default (function (window,document,$,undefined) {
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
-      }f
+      }
 
       if(isMobile) {
         headerBuffer = $('.js-sticky-header').height() || 0;
