@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: SectionLinks
-    description: Change card component to render title as text instead of decorative link. Remove see all link on desktop. (#1877)
-    issue: DP-31690
-    impact: Patch

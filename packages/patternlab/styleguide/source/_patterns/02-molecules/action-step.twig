@@ -16,15 +16,15 @@
         {% if actionStep.iconLabel %}<span class="ma__visually-hidden">{{actionStep.iconLabel}}</span>{% endif %}
       </div>
     {% endif %}
-      {{ actionStep.title }}
+      <span class="ma__action-step__title-text">{{ actionStep.title }}</span>
       {% if suffix %}
-        <span>{{suffix}}</span>
+        <span class="ma__action-step__title-suffix">{{suffix}}</span>
       {% endif %}
       <span class="ma__action-step__header__toggle" aria-hidden="true">+</span>
       </button>
     </h{{headingLevel}}>
   {% else %}
-    <header class="ma__action-step__header">
+    <div class="ma__action-step__header">
 
     {% set headingLevel = actionStep.level ? : 2 %}
     <h{{ headingLevel }} class="ma__action-step__title {{ link ? 'ma__decorative-link' : ''}}">
@@ -38,17 +38,17 @@
 
 
       {% if link %}
-        <a href="{{link}}" class="js-clickable-link">
+        <a href="{{link}}" class="ma__action-step__title-link js-clickable-link">
           {{ actionStep.title }} &nbsp;{{ icon('arrow') }}
         </a>
       {% else %}
-        {{ actionStep.title }}
+        <span class="ma__action-step__title-text">{{ actionStep.title }}</span>
       {% endif %}
       {% if suffix %}
-        <span>{{suffix}}</span>
+        <span class="ma__action-step__title-suffix">{{suffix}}</span>
       {% endif %}
     </h{{ headingLevel }}>
-    </header>
+    </div>
   {% endif %}
 
   {% if actionStep.richText or actionStep.decorativeLink or actionStep.downloadLinks or actionStep.content %}
