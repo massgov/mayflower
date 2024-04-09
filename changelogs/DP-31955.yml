@@ -1,7 +1,0 @@
-
-Changed:
-  - project: Patternlab
-    component: Suggested Pages
-    description: Add a condition to check suggested page items. (#1886)
-    issue: DP-31955
-    impact: Patch
