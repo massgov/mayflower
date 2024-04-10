@@ -1,7 +1,13 @@
 <!-- test edit -->
 <div class="alert-overlay"></div>
 <!-- Begin .header -->
-<header class="ma__header__hamburger ma__header__mixed" id="header" lang="en" dir="ltr">
+<header class="ma__header__hamburger ma__header__mixed" id="header"
+  {% if patternLanguage %}
+    lang="{{ patternLanguage.lang }}"
+    dir="{{ patternLanguage.dir }}"
+    translate="{{ patternLanguage.translate }}"
+  {% endif %}
+>
   <div class="menu-overlay"></div>
   {% if not header.hideBackTo %}
     <div class="ma__header__hamburger__backto">

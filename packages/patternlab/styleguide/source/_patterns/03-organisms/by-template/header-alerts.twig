@@ -1,5 +1,11 @@
 {% if headerAlerts %}
-<section data-nosnippet="true" class="ma__header-alerts js-accordion js-header-alerts is-open" lang="en" dir="ltr">
+<section data-nosnippet="true" class="ma__header-alerts js-accordion js-header-alerts is-open"
+  {% if patternLanguage %}
+    lang="{{ patternLanguage.lang }}"
+    dir="{{ patternLanguage.dir }}"
+    translate="{{ patternLanguage.translate }}"
+  {% endif %}
+>
   <h2 class="ma__header-alerts__header">
     <button class="ma__header-alerts__header__button js-accordion-link">
 

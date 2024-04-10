@@ -36,4 +36,8 @@ header: {
     text: string / optional
   }
 }
+
+patternLangauge: {
+  type: object of patternLanguage / optional
+}
 ~~~
