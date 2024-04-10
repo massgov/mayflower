@@ -37,4 +37,8 @@ stackedRows: [{
     }
   }]
 }]
+
+patternLanguage: {
+  type: object / optional
+}
 ~~~

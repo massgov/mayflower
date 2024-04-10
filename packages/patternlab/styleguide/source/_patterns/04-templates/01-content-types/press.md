@@ -61,4 +61,8 @@ sidebar: {
     type: pressListing / optional
   }
 }
+
+patternLanguage: {
+  type: patternLanguage / optional
+}
 ~~~

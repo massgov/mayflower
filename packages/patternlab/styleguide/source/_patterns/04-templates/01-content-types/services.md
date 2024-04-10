@@ -90,4 +90,8 @@ Displays a collection of components to help describe an available Service on Mas
     type: splitColumns / optional
   }
 }
+
+patternLanguage: {
+  type: patternLanguage / optional
+}
 ~~~

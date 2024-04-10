@@ -2,7 +2,13 @@
 {% block header %}{% endblock %}
 
 <main id="main-content" class="ma__press" tabindex="-1" {% if schemaPageType %} typeof="{{schemaPageType}}" {% endif %}>
-	<div class="pre-content" lang="en" dir="ltr">
+	<div class="pre-content"
+	  {% if patternLanguage %}
+		lang="{{ patternLanguage.lang }}"
+		dir="{{ patternLanguage.dir }}"
+		translate="{{ patternLanguage.translate }}"
+	  {% endif %}
+	>
 		{% block preContent %}
 			{% if breadcrumbs %}
 				{% include "@organisms/by-template/breadcrumbs.twig" %}
@@ -70,8 +76,15 @@
 			{% endblock %}
 		</aside>
 	</div>
-	<div class="post-content" lang="en" dir="ltr"> {% block postContent %}{% endblock %}
-		</div>
+	<div class="post-content"
+	  {% if patternLanguage %}
+		lang="{{ patternLanguage.lang }}"
+		dir="{{ patternLanguage.dir }}"
+		translate="{{ patternLanguage.translate }}"
+	  {% endif %}
+	>
+		{% block postContent %}{% endblock %}
+	</div>
 		{% block schemaContent %}{% endblock %}
 	</main>
 
