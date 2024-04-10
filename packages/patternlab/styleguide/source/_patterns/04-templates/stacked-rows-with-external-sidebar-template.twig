@@ -11,7 +11,13 @@
 {% endblock %}
 
 <main id="main-content" class="{{ mainContentClass }}" tabindex="-1">
-  <div class="pre-content" lang="en" dir="ltr">
+  <div class="pre-content"
+    {% if patternLanguage %}
+      lang="{{ patternLanguage.lang }}"
+      dir="{{ patternLanguage.dir }}"
+      translate="{{ patternLanguage.translate }}"
+    {% endif %}
+  >
     {% block preContent %}
       {% include "@base/placeholder.twig" with {'placeholder':{'text':'Pre Content'}} %}
     {% endblock %}
@@ -47,7 +53,13 @@
       {% endblock %}
     </aside>
   </div>
-  <div class="post-content post-content__stacked-row-external-sidebar" lang="en" dir="ltr">
+  <div class="post-content post-content__stacked-row-external-sidebar"
+    {% if patternLanguage %}
+      lang="{{ patternLanguage.lang }}"
+      dir="{{ patternLanguage.dir }}"
+      translate="{{ patternLanguage.translate }}"
+    {% endif %}
+  >
     {% block postContent %}
       {% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
     {% endblock %}

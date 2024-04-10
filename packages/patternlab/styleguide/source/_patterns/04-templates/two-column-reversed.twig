@@ -4,7 +4,13 @@
 {% endblock %}
 
 <main id="main-content" tabindex="-1">
-  <div class="pre-content" lang="en" dir="ltr">
+  <div class="pre-content"
+    {% if patternLanguage %}
+      lang="{{ patternLanguage.lang }}"
+      dir="{{ patternLanguage.dir }}"
+      translate="{{ patternLanguage.translate }}"
+    {% endif %}
+  >
     {% block preContent %}
       {% include "@base/placeholder.twig" with {'placeholder':{'text':'Pre Content'}} %}
     {% endblock %}
@@ -15,13 +21,25 @@
         {% include "@base/placeholder.twig" with {'placeholder':{'text':'Left Rail'}} %}
       {% endblock %}
     </aside>
-    <div class="page-content" lang="en" dir="ltr">
+    <div class="page-content"
+      {% if patternLanguage %}
+        lang="{{ patternLanguage.lang }}"
+        dir="{{ patternLanguage.dir }}"
+        translate="{{ patternLanguage.translate }}"
+      {% endif %}
+    >
       {% block pageContent %}
         {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page content'}} %}
       {% endblock %}
     </div>
   </div>
-  <div class="post-content" lang="en" dir="ltr">
+  <div class="post-content"
+    {% if patternLanguage %}
+      lang="{{ patternLanguage.lang }}"
+      dir="{{ patternLanguage.dir }}"
+      translate="{{ patternLanguage.translate }}"
+    {% endif %}
+  >
     {% block postContent %}
       {% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
     {% endblock %}
