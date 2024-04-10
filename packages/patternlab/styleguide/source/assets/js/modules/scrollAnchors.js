@@ -120,6 +120,8 @@ export default (function (window,document,$,undefined) {
       headerBuffer = 0;
       elHeight = $el.outerHeight(true);
       upperLimit = $elParent.offset().top;
+      console.log($elParent)
+      console.log("upper: "+upperLimit)
       isMobile = checkMobile($el);
 
       // Add a top offset of the height of the horizontal nav on desktop
@@ -141,6 +143,7 @@ export default (function (window,document,$,undefined) {
       }
       
       lowerLimit = upperLimit + $elParent.outerHeight(true) - $el.height();
+      console.log("lower: "+lowerLimit)
 
       // locate the position of all of the anchor targets
       anchors = new Array;
@@ -161,6 +164,7 @@ export default (function (window,document,$,undefined) {
 
     function setPosition() {
       let windowTop = $(window).scrollTop(),
+      console.log("window top: "+windowTop)
           attr = $el.attr('data-sticky'),
           top = attr !== 'top' && windowTop <= upperLimit,
           middle = attr !== 'middle' && windowTop < lowerLimit && windowTop > upperLimit,
