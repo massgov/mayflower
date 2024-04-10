@@ -1,7 +1,13 @@
 {% block header %}{% endblock %}
 
 <main class="ma__form-page" id="main-content" tabindex="-1">
-	<div class="pre-content" lang="en" dir="ltr">
+	<div class="pre-content"
+	  {% if patternLanguage %}
+		lang="{{ patternLanguage.lang }}"
+		dir="{{ patternLanguage.dir }}"
+		translate="{{ patternLanguage.translate }}"
+	  {% endif %}
+	>
 		{% block preContent %}
 			{% if breadcrumbs %}
 				{% include "@organisms/by-template/breadcrumbs.twig" %}
@@ -58,7 +64,13 @@
 			{% endblock %}
 		</aside>
 	</div>
-	<div class="post-content" lang="en" dir="ltr">
+	<div class="post-content"
+	  {% if patternLanguage %}
+		lang="{{ patternLanguage.lang }}"
+		dir="{{ patternLanguage.dir }}"
+		translate="{{ patternLanguage.translate }}"
+	  {% endif %}
+	>
 		{% block postContent %}
 			{% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
 		{% endblock %}
