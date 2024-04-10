@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
     component: BrandBanner, Breadcrumbs, Footer, HeaderAlerts, HeaderHamburger, HeaderMixed
-    description: Set lang and dir attributes to non-content UI elements
+    description: Added ability to set lang, dir, and translate attributes to non-content UI elements
     issue: DP-24572
     impact: Patch
