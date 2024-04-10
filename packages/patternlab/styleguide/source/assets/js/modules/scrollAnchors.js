@@ -164,11 +164,13 @@ export default (function (window,document,$,undefined) {
 
     function setPosition() {
       let windowTop = $(window).scrollTop(),
-      console.log("window top: "+windowTop)
           attr = $el.attr('data-sticky'),
           top = attr !== 'top' && windowTop <= upperLimit,
           middle = attr !== 'middle' && windowTop < lowerLimit && windowTop > upperLimit,
           bottom = attr !== 'bottom' && windowTop >= lowerLimit;
+
+          console.log("window top: "+windowTop)
+
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
