@@ -57,4 +57,8 @@ This Pattern is a variant of the [details](./?p=templates-details) template that
     }
   }
 }
+
+patternLanguage: {
+  type: patternLanguage / optional.
+}
 ~~~
