@@ -1,9 +1,9 @@
 {% set noBottomBorderClass = breadcrumbs.noBottomBorder ? 'ma__breadcrumbs--no-bottom-border' : ''  %}
 <div class="ma__breadcrumbs {{breadcrumbs.light ? ' ma__breadcrumbs--light' : ''}} {{ noBottomBorderClass }}"
-    {% if breadcrumbs.language %}
-        lang="{{ breadcrumbs.language.lang }}"
-        dir="{{ breadcrumbs.language.dir }}"
-        translate="{{ breadcrumbs.language.translate }}"
+    {% if patternLanguage %}
+        lang="{{ patternLanguage.lang }}"
+        dir="{{ patternLanguage.dir }}"
+        translate="{{ patternLanguage.translate }}"
     {% endif %}
 >
   <nav aria-label="Breadcrumbs" class="ma__breadcrumbs__container">

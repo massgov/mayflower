@@ -3,11 +3,6 @@
     "bgTheme": "",
     "bgColor": "",
     "hasSeal": true,
-    "hasToggle": true,
-    "language": {
-      "lang": "en",
-      "dir": "ltr",
-      "translate": "no"
-    }
+    "hasToggle": true
   }
 }

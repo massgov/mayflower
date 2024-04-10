@@ -15,8 +15,12 @@ footerLinks: {
   type: footerLinks / required
 }
 
-privacyPolicy {
+privacyPolicy: {
   type: privacyPolicy / required
+}
+
+patternLanguage: {
+  type: patternLanguage / optional
 }
 ~~~
 

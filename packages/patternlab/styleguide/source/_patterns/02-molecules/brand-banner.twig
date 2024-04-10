@@ -8,10 +8,10 @@
 {% set brandBannerContainerTag = hasToggle ? "button" : "div" %}
 
 <div class="ma__brand-banner ma__brand-banner--{{ brandBanner.bgColor ? brandBanner.bgColor : 'c-primary' }}-bg-{{ brandBanner.bgTheme ? brandBanner.bgTheme : 'light' }}"
-     {% if brandBanner.language %}
-       lang="{{ brandBanner.language.lang }}"
-       dir="{{ brandBanner.language.dir }}"
-       translate="{{ brandBanner.language.translate }}"
+     {% if patternLanguage %}
+       lang="{{ patternLanguage.lang }}"
+       dir="{{ patternLanguage.dir }}"
+       translate="{{ patternLanguage.translate }}"
      {% endif %}
 >
   <{{ brandBannerContainerTag }} class="ma__brand-banner-container">
