@@ -1,4 +1,10 @@
-<footer data-nosnippet="true" class="ma__footer-new" id="footer" lang="en" dir="ltr">
+<footer data-nosnippet="true" class="ma__footer-new" id="footer"
+        {% if footer.language %}
+          lang="{{ footer.language.lang }}"
+          dir="{{ footer.language.dir }}"
+          translate="{{ footer.language.translate }}"
+        {% endif %}
+>
   <div class="ma__footer-new__container">
     <div class="ma__footer-new__logo">
       <a href="/" title="Mass.gov home page">
