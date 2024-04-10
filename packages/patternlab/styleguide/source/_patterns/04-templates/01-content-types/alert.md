@@ -40,4 +40,8 @@ sideContent: {
     type: contactList / required
   }
 }
+
+patternLanguage: {
+  type: patternLanguage / optional
+}
 ~~~
