@@ -201,7 +201,6 @@ export default (function (window,document,$,undefined) {
       }
     }
 
-    console.log(anchors)
     function activateLink(dir) {
       // do we have more than one anchor
       if(numAnchors < 2 || linkScrolling) {
