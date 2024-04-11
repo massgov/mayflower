@@ -120,8 +120,6 @@ export default (function (window,document,$,undefined) {
       headerBuffer = 0;
       elHeight = $el.outerHeight(true);
       upperLimit = $elParent.offset().top;
-      console.log($elParent)
-      console.log("upper: "+upperLimit)
       isMobile = checkMobile($el);
 
       // Add a top offset of the height of the horizontal nav on desktop
@@ -143,8 +141,6 @@ export default (function (window,document,$,undefined) {
       }
       
       lowerLimit = upperLimit + $elParent.outerHeight(true) - $el.height();
-      console.log("lower: "+lowerLimit)
-
       // locate the position of all of the anchor targets
       anchors = new Array;
       $links.each(function(i,e){
@@ -168,8 +164,6 @@ export default (function (window,document,$,undefined) {
           top = attr !== 'top' && windowTop <= upperLimit,
           middle = attr !== 'middle' && windowTop < lowerLimit && windowTop > upperLimit,
           bottom = attr !== 'bottom' && windowTop >= lowerLimit;
-
-          console.log("window top: "+windowTop)
 
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
