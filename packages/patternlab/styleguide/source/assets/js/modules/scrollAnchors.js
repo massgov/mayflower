@@ -122,8 +122,8 @@ export default (function (window,document,$,undefined) {
       upperLimit = $elParent.offset().top;
       isMobile = checkMobile($el);
 
-      // Add a top offset of the height of the horizontal nav on desktop
-      let topOffset = horizontalLayout && !isMobile ? elHeight * 2 : 0;
+      // Add a top offset of the height of the horizontal nav
+      let topOffset = horizontalLayout ? elHeight * 2 : 0;
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
