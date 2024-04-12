@@ -4,7 +4,7 @@ export default (function (window,document,$,undefined) {
 
   $(".js-scroll-anchors").each(function() {
     let $el = $(this),
-        $elParent = $el.parent().css('position') === 'relative' ? $el.parent() : $el.parent().offsetParent(),
+        $elParent = $el.css('position') === 'relative' ? $el.parent() : $el.offsetParent(),
         $titleLink = $el.find('.is-title'),
         $links = $el.find('.js-scroll-anchors-link'),
         elHeight,
@@ -13,11 +13,12 @@ export default (function (window,document,$,undefined) {
         upperLimit,
         debounceTimer,
         activeClass = "is-active",
-        activeAnchorIndex = 0,
+        activeAnchorIndex = -1,
         anchors = [],
         numAnchors = 0,
         isMobile = false,
-        linkScrolling = false;
+        linkScrolling = false,
+        horizontalLayout = $el.hasClass('ma__sticky-nav--horizontal');
 
     setVariables();
 
@@ -93,21 +94,36 @@ export default (function (window,document,$,undefined) {
       },300);
     });
 
+    var scrollPos = 0;
     $(window).scroll(function () {
       setPosition();
 
+
+      var direction;
+      // detects new state and compares it with the new one
+      if ((document.body.getBoundingClientRect()).top > scrollPos) {
+          direction = 'up';
+      }     
+      else {
+          direction = 'down';
+      }
+        // saves the new position for iteration.
+        scrollPos = (document.body.getBoundingClientRect()).top;
+
       if(!linkScrolling){
-        activateLink();
+        activateLink(direction);
       }
     });
 
     function setVariables() {
-      let topOffset = 0;
 
       headerBuffer = 0;
       elHeight = $el.outerHeight(true);
       upperLimit = $elParent.offset().top;
       isMobile = checkMobile($el);
+
+      // Add a top offset of the height of the horizontal nav
+      let topOffset = horizontalLayout ? elHeight * 2 : 0;
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
@@ -125,7 +141,6 @@ export default (function (window,document,$,undefined) {
       }
       
       lowerLimit = upperLimit + $elParent.outerHeight(true) - $el.height();
-
       // locate the position of all of the anchor targets
       anchors = new Array;
       $links.each(function(i,e){
@@ -149,6 +164,7 @@ export default (function (window,document,$,undefined) {
           top = attr !== 'top' && windowTop <= upperLimit,
           middle = attr !== 'middle' && windowTop < lowerLimit && windowTop > upperLimit,
           bottom = attr !== 'bottom' && windowTop >= lowerLimit;
+
 
       if($elParent[0].hasAttribute("style") && !isMobile) {
         $elParent.removeAttr('style');
@@ -185,7 +201,7 @@ export default (function (window,document,$,undefined) {
       }
     }
 
-    function activateLink() {
+    function activateLink(dir) {
       // do we have more than one anchor
       if(numAnchors < 2 || linkScrolling) {
         return;
@@ -194,23 +210,25 @@ export default (function (window,document,$,undefined) {
       // get the current scroll position and trigger change when new link is 10% down the page
       let windowTop = $(window).scrollTop() + (window.innerHeight/9),
           currentAnchor = activeAnchorIndex;
-         
 
-      // is there a prev target
-      // and
-      // is the current scroll position above the current target
-      if(currentAnchor > 0 && windowTop < anchors[activeAnchorIndex].position) {
+      // set the title to active before reaching the first anchor
+      if(currentAnchor === -1) {
+        mobileTitleOn();
+      }
+
+      // scrolling down & there is a next target & the current scroll position is below the next target
+      if(dir === 'down' && currentAnchor < numAnchors-1 && windowTop > anchors[activeAnchorIndex+1].position) {
+        // make the next link active
+        ++activeAnchorIndex;
+      }
+
+      // scrolling up & there is a prev target & the current scroll position is above the next target
+      if(dir === 'up' && currentAnchor > -1 && windowTop < anchors[activeAnchorIndex].position) {
         // make the prev link active
         --activeAnchorIndex;
       }
 
-      // is there a next target
-      // and
-      // is the current scroll position below the next target
-      else if(currentAnchor < numAnchors-1 && windowTop > anchors[activeAnchorIndex+1].position) {
-        // make the next link active
-        ++activeAnchorIndex;
-      }
+
 
       if (currentAnchor !== activeAnchorIndex) {
         // move the active flag
