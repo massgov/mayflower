@@ -93,6 +93,7 @@ dependencies:
   gulp-header: 2.0.9
   gulp-if: 2.0.2
   gulp-pixrem: 1.0.0
+  gulp-postcss: 10.0.0
   gulp-replace: 1.1.3
   gulp-run-command: 0.0.10
   gulp-sourcemaps: 2.6.5
@@ -114,6 +115,7 @@ dependencies:
   numbro: 2.3.2
   object.entries: 1.1.3
   picturefill: 3.0.3
+  postcss-selector-prepend: 0.5.0
   pre-push: 0.1.1
   react-autosuggest: 9.4.3
   react-autowhatever: 10.2.1
@@ -13771,6 +13773,14 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-k9oEhlyc0FrVh25qYuSELjr8oxsCoc4/LEZfg2iJJrfEk/tZL9bCoJE47gqAvI2m/AUjluCS4+3I0eTx8n3AEw==
+  /fancy-log/2.0.0:
+    dependencies:
+      color-support: 1.1.3
+    dev: false
+    engines:
+      node: '>=10.13.0'
+    resolution:
+      integrity: sha512-9CzxZbACXMUXW13tS0tI8XsGGmxWzO2DmYrGuBJOJ8k8q2K7hwfJA5qHjuPPe8wtsco33YR9wc+Rlr5wYFvhSA==
   /fast-copy/2.1.0:
     dev: false
     resolution:
@@ -16186,6 +16196,19 @@ packages:
     dev: false
     resolution:
       integrity: sha1-b0p1tPtTOBWGJh4zkfywzArjLcI=
+  /gulp-postcss/10.0.0:
+    dependencies:
+      fancy-log: 2.0.0
+      plugin-error: 2.0.1
+      postcss-load-config: 5.0.3
+      vinyl-sourcemaps-apply: 0.2.1
+    dev: false
+    engines:
+      node: '>=18'
+    peerDependencies:
+      postcss: ^8.0.0
+    resolution:
+      integrity: sha512-z1RF2RJEX/BvFsKN11PXai8lRmihZTiHnlJf7Zu8uHaA/Q7Om4IeN8z1NtMAW5OiLwUY02H0DIFl9tHl0CNSgA==
   /gulp-rename/2.0.0:
     dev: false
     engines:
@@ -16398,7 +16421,7 @@ packages:
     engines:
       node: '>=0.10.0'
     resolution:
-      integrity: sha1-nZ55MWXOAXoA8AQYxD+UKnsdEfo=
+      integrity: sha512-DyYHfIYwAJmjAjSSPKANxI8bFY9YtFrgkAfinBojQ8YJTOuOuav64tMUJv584SES4xl74PmuaevIyaLESHdTAA==
   /has-flag/3.0.0:
     dev: false
     engines:
@@ -18761,6 +18784,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-DlIPlJUkCV0Ips2zf2pJP0unEoT1kwYhiiPUGF3s/jtxTCjziNLoiVVh+jqWOWeFi6mmwQ5fNxvAUyPad4Dfog==
+  /lilconfig/3.1.1:
+    dev: false
+    engines:
+      node: '>=14'
+    resolution:
+      integrity: sha512-O18pf7nyvHTckunPWCV1XUNXU1piu01y2b7ATJ0ppkUkk8ocqVWBrYjJBCwHDjD/ZWcfyrA0P4gKhzWGi5EINQ==
   /limiter/1.1.5:
     dev: false
     resolution:
@@ -21666,6 +21695,14 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-L1zP0dk7vGweZME2i+EeakvUNqSrdiI3F91TwEoYiGrAfUXmVv6fJIq4g82PAXxNsWOp0J7ZqQy/3Szz0ajTxA==
+  /plugin-error/2.0.1:
+    dependencies:
+      ansi-colors: 1.1.0
+    dev: false
+    engines:
+      node: '>=10.13.0'
+    resolution:
+      integrity: sha512-zMakqvIDyY40xHOvzXka0kUvf40nYIuwRE8dWhti2WtjQZ31xAgBZBhxsK7vK3QbRXS1Xms/LO7B5cuAsfB2Gg==
   /plur/3.1.1:
     dependencies:
       irregular-plurals: 2.0.0
@@ -21843,6 +21880,23 @@ packages:
       node: '>= 4'
     resolution:
       integrity: sha512-/rDeGV6vMUo3mwJZmeHfEDvwnTKKqQ0S7OHUi/kJvvtx3aWtyWG2/0ZWnzCt2keEclwN6Tf0DST2v9kITdOKYw==
+  /postcss-load-config/5.0.3:
+    dependencies:
+      lilconfig: 3.1.1
+      yaml: 2.4.1
+    dev: false
+    engines:
+      node: '>= 18'
+    peerDependencies:
+      jiti: '>=1.21.0'
+      postcss: '>=8.0.9'
+    peerDependenciesMeta:
+      jiti:
+        optional: true
+      postcss:
+        optional: true
+    resolution:
+      integrity: sha512-90pBBI5apUVruIEdCxZic93Wm+i9fTrp7TXbgdUCH+/L+2WnfpITSpq5dFU/IPvbv7aNiMlQISpUkAm3fEcvgQ==
   /postcss-loader/3.0.0:
     dependencies:
       loader-utils: 1.4.0
@@ -22158,6 +22212,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-gjMeXBempyInaBqpp8gODmwZ52WaYsVOsfr4L4lDQ7n3ncD6mEyySiDtgzCT+NYC0mmeOLvtsF8iaEf0YT6dBw==
+  /postcss-selector-prepend/0.5.0:
+    dependencies:
+      postcss: 5.2.18
+    dev: false
+    resolution:
+      integrity: sha512-7kcO+TElvVFxVESJl2k1A7MZhEb6u7mUElx8n+USdCH58vKK+M0FPtyYaE21FyfxJXsRhMioyzeN++KkJJOJAA==
   /postcss-svgo/4.0.2:
     dependencies:
       is-svg: 3.0.0
@@ -26196,7 +26256,7 @@ packages:
     engines:
       node: '>=0.8.0'
     resolution:
-      integrity: sha1-ZawFBLOVQXHYpklGsq48u4pfVPY=
+      integrity: sha512-Jds2VIYDrlp5ui7t8abHN2bjAu4LV/q4N2KivFPpGH0lrka0BMq/33AmECUXlKPcHigkNaqfXRENFju+rlcy+A==
   /supports-color/5.5.0:
     dependencies:
       has-flag: 3.0.0
@@ -27788,7 +27848,7 @@ packages:
       source-map: 0.5.7
     dev: false
     resolution:
-      integrity: sha1-q2VJ1h0XLCsbh75cUI0jnI74dwU=
+      integrity: sha512-+oDh3KYZBoZC8hfocrbrxbLUeaYtQK7J5WU5Br9VqWqmCll3tFJqKp97GC9GmMsVIL0qnx2DgEDVxdo5EZ5sSw==
   /vinyl/0.5.3:
     dependencies:
       clone: 1.0.4
@@ -28488,6 +28548,13 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
+  /yaml/2.4.1:
+    dev: false
+    engines:
+      node: '>= 14'
+    hasBin: true
+    resolution:
+      integrity: sha512-pIXzoImaqmfOrL7teGUBt/T7ZDnyeGBWyXQBvOVhLkWLN37GXv8NMLK406UY6dS51JfcQHsmcW5cJ441bHg6Lg==
   /yargs-parser/13.1.2:
     dependencies:
       camelcase: 5.3.1
@@ -28735,7 +28802,7 @@ packages:
       typescript: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-X1yl2h3B/SxlRFxGHfo9Xu4zZq4m6MZU6aDA94TH+qySAakXvlgy6Vkz3Dc4TKh/1jcj3NzvvFPGfP2grDEE6w==
+      integrity: sha512-kB+7SgGMzPCpMY5nANtho0Ca1X+4ay1uQeYEi2yD1urEOIrPzQT32dafPHIEl/K4t19HYlUR/Nf3xFbou6o9ww==
       tarball: 'file:projects/mayflower-core.tgz'
     version: 0.0.0
   'file:projects/mayflower-react.tgz_react-is@16.13.1':
@@ -28846,7 +28913,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-fLN9ZHo2eEF2ymwaG/nCnoBn20zz4kOeLg238SrOjMqFTOs4zzRoYq85/PtdMy5HV2QaPcHUUuEpwxZ5mEEHLg==
+      integrity: sha512-AmrFUbAIlstwV8c4MudDEbaZg+UoWrfesJVhL1CA5nmKyt5sqpRE0dSgy62AEE6jbe/D5HNrwiRqw2z6OrjjKQ==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_b7ec7fc0b3c58499ecbfa8b667e39e33':
@@ -28895,7 +28962,7 @@ packages:
       typescript: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-mWqZHBIfAXYgHbxI0RTqDbqcN9gw6HaTo2OCm/J6zmPAJA+I6fL+cD0ePCDvfZbH/Wmb0eptUCuadoVKiSeqrA==
+      integrity: sha512-ILmfNHfZvjLsve8byC2beVn16pVrZWouisaIiZluc5Gz8VJAP9ztDRXH19s036/7IGlFrrNab4F4/Y6c8YXdkg==
       tarball: 'file:projects/mayflower-site.tgz'
     version: 0.0.0
   'file:projects/mayflower.tgz':
@@ -28922,6 +28989,7 @@ packages:
       gulp-header: 2.0.9
       gulp-if: 2.0.2
       gulp-pixrem: 1.0.0
+      gulp-postcss: 10.0.0
       gulp-rename: 2.0.0
       gulp-sass: 4.1.0
       gulp-sourcemaps: 2.6.5
@@ -28936,6 +29004,7 @@ packages:
       normalize-scss: 7.0.1
       picturefill: 3.0.3
       pikaday: 1.8.2
+      postcss-selector-prepend: 0.5.0
       sass: 1.30.0
       smoothscroll-polyfill: 0.4.4
       svg4everybody: 2.1.9
@@ -28949,7 +29018,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-tNCaAaUG+raFnB2SaiODirrQUwBxN0MwB8Bwy67MxGIarbF63qblIZ650MhvoozTIsmnxt9UhfJ/GFjAqzSqng==
+      integrity: sha512-JndZfbQyZoSv6Ppeoxx61YkWlzAQvgiSnsz0aB7V+SAPTZHUBZ4p4JsdQSsMbumiSHhNH8zuioomAbdYF/Dnvw==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
 registry: ''
@@ -29048,6 +29117,7 @@ specifiers:
   gulp-header: ^2.0.5
   gulp-if: ^2.0.2
   gulp-pixrem: ^1.0.0
+  gulp-postcss: ^10.0.0
   gulp-replace: ~1.1.3
   gulp-run-command: 0.0.10
   gulp-sourcemaps: ^2.6.4
@@ -29069,6 +29139,7 @@ specifiers:
   numbro: ^2.1.2
   object.entries: ^1.0.4
   picturefill: ^3.0.3
+  postcss-selector-prepend: ^0.5.0
   pre-push: ^0.1.1
   react-autosuggest: ^9.4.3
   react-autowhatever: ^10.2.0
