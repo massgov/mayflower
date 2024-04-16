@@ -10,7 +10,7 @@
   justify-content: center;
   padding: 15px 20px;
   background-color: mix($c-bg, $c-font-link,90%);
-  border-color: mix($c-white, $c-font-link,50%);
+  border-color: $c-primary-lighter;//mix($c-white, $c-font-link,50%);
   box-shadow: $box-shadow;
   text-decoration: none;
 
