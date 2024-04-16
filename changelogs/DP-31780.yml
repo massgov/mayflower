@@ -1,6 +1,0 @@
-Fixed: 
-  - project: Patternlab
-    component: multiple components
-    description: Add space to screen reader only text containers where screen readers announce the text sequentially as a part of its parent contetiner's last word. (#1876)
-    issue: DP-31780
-    impact: Patch

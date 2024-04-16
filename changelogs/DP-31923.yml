@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: mainNavHamburger
-    description: Hamburger menu bug fix for mobile devices. (#1890)
-    issue: DP-31923
-    impact: Patch
