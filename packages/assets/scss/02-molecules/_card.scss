@@ -84,11 +84,11 @@
       display: inline;
 
       &:hover {
-        border-bottom-color: $c-bay-blue-lighter;
+        border-bottom-color: $c-link;//$c-bay-blue-lighter;
       }
 
       &:focus {
-        border-bottom-color: $c-bay-blue-lighter !important;
+        border-bottom-color: $c-link !important;//$c-bay-blue-lighter !important;
       }
 
       svg {
@@ -96,7 +96,7 @@
         height: .6em;
         margin-right: -.8em;
         width: .6em;
-        fill: $c-bay-blue-lighter;
+        fill: $c-link;//$c-bay-blue-lighter;
       }
     }
   }

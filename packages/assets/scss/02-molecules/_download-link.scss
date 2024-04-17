@@ -91,7 +91,7 @@
 .ma__download-link {
 
   &__icon {
-    fill: rgba($c-font-link,.7);
+    fill: $c-link;//rgba($c-font-link,.7);
   }
 
   &__file-link {
@@ -100,7 +100,7 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
 
-    border-bottom-color: $c-bay-blue-lighter;
+    border-bottom-color: $c-link;//$c-bay-blue-lighter;
   }
 
   &__file-spec {
