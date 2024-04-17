@@ -41,17 +41,17 @@
   color: $c-font-link;
 
   &:hover {
-    border-bottom-color: $c-bay-blue-lighter;
+    border-bottom-color: $c-link;//$c-bay-blue-lighter;
   }
 
   &--chevron {
 
     &:after {
-      border-color: $c-bay-blue-lighter;
+      border-color: $c-link;//$c-bay-blue-lighter;
     }
 
     span:hover {
-      border-bottom-color: $c-bay-blue-lighter;
+      border-bottom-color: $c-link;//$c-bay-blue-lighter;
     }
   }
 }
