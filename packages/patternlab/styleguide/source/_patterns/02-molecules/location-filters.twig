@@ -5,6 +5,7 @@
 {% set neLng = locationFilters.zipcode.placeAutocomplete.bounds.ne.lng ? locationFilters.zipcode.placeAutocomplete.bounds.ne.lng : -69.845299 %}
 
 <section class="ma__location-filters">
+  <h2 class="ma__visually-hidden">Location listing filters</h2>
   <form class="js-location-filters">
     <div class="ma__location-filters__row">
       <div class="ma__location-filters__by-location js-filter-by-location" data-ma-place-bounds-sw-lat="{{ swLat }}" data-ma-place-bounds-sw-lng="{{ swLng }}" data-ma-place-bounds-ne-lat="{{ neLat }}" data-ma-place-bounds-ne-lng="{{ neLng }}">
@@ -25,13 +26,14 @@
       {% endif %}
     </div>
     {% if locationFilters.tags %}
-      <div class="ma__location-filters__by-tags  js-filter-by-tags">
+      <fieldset class="ma__location-filters__by-tags  js-filter-by-tags">
+        <legend class="ma__visually-hidden">Other options</legend>
         {% for inputCheckbox in locationFilters.tags %}
           <div class="ma__location-filters__tag">
             {% include "@atoms/03-forms/input-checkbox.twig" %}
           </div>
         {% endfor %}
-      </div>
+      </fieldset>
     {% endif %}
     <div class="ma__location-filters__buttons">
       {% if locationFilters.buttons %}
