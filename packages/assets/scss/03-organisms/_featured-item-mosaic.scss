@@ -131,11 +131,11 @@
   font-weight: $fonts-bold;
 
   &:after {
-    border-color: $c-font-link;
-    opacity: .5;
+    color: $c-link;// $c-font-link;
+    // opacity: .5;
   }
 
   &:hover {
-    border-color: $c-bay-blue-lighter;
+    border-color: $c-link;// $c-bay-blue-lighter;
   }
 }

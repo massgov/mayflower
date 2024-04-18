@@ -24,18 +24,18 @@ $accordion-break: 720px;
   .ma__contact-row__columns {
 
     @media (min-width: $accordion-break) {
-      column-count: 2; 
-      column-gap: 40px; 
+      column-count: 2;
+      column-gap: 40px;
       column-rule: 1px solid $c-bd-divider;
 
-      
-      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
         .ma__contact-set {
           overflow: hidden;
         }
       }
-      
+
 
       .ma__contact-group {
         break-inside: avoid;
@@ -91,7 +91,7 @@ $accordion-break: 720px;
       // button text
 
       .ma__contact-row__expand {
-        
+
         &.toggle-sets {
           display: inline;
 
@@ -107,6 +107,10 @@ $accordion-break: 720px;
             color: $c-font-link;
             padding-right: 10px;
 
+            &:hover {
+              border-bottom-color: $c-link;
+            }
+
             span:first-child {
               display: inline;
             }
@@ -117,8 +121,8 @@ $accordion-break: 720px;
 
             &:after {
               transform: translateY(-45%) rotate(45deg);
-              border-color: $c-font-link;
-              opacity: .5;
+              border-color: $c-link;// $c-font-link;
+              //opacity: .5;
             }
           }
         }
