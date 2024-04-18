@@ -79,7 +79,7 @@ $illustrated-link-image-width: 130px;
 //theme
 
 .ma__illustrated-link {
-  border-color: $c-link;//$c-primary-lighter;
+  border-color: $c-link;
   box-shadow: $box-shadow;
 
   &__content {
@@ -103,16 +103,16 @@ $illustrated-link-image-width: 130px;
     a {
 
       &:hover {
-        border-bottom-color: $c-link;// $c-bay-blue-lighter;
+        border-bottom-color: $c-link;
       }
     }
 
     svg {
-      fill: $c-font-link;// $c-bay-blue-lighter;
+      fill: $c-font-link;
     }
   }
 
   &__image {
-    background-color: $c-link;// $c-primary-lighter;
+    background-color: $c-link;
   }
 }

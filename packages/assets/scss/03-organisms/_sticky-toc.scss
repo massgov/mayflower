@@ -220,7 +220,7 @@
   }
 
     &:hover a {
-      border-bottom-color: $c-link;//$c-bay-blue-lighter;
+      border-bottom-color: $c-link;
     }
 
     &:nth-child(n+11) {
@@ -365,12 +365,12 @@
     border-right: 1px solid $c-bd-divider;
 
     button {
-      border: 4px solid $c-link;// rgba($c-primary, .5);
+      border: 4px solid $c-link;
       height: 47px;
       position: relative;
 
       svg {
-        fill: $c-font-link;// rgba($c-primary, 0.5);
+        fill: $c-font-link;
         transform: rotate(-90deg);
         width: 11px;
         height: 12px;

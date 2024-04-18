@@ -139,12 +139,12 @@ $quaternary-colors: (
     border: none;
     padding: 0;
     text-transform: none;
-    border-bottom: 2px solid $c-link;// rgba($c-primary, 0.5);
+    border-bottom: 2px solid $c-link;
     color: $c-primary;
     letter-spacing: $letter-spacing-default;
 
     svg {
-      fill: $c-link;// rgba($c-primary, 0.5);
+      fill: $c-link;
     }
 
     &:hover, &.active {

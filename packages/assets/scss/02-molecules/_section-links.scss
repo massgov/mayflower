@@ -292,7 +292,7 @@
     }
 
     svg {
-      fill: $c-font-link;// rgba($c-primary,.5);
+      fill: $c-font-link;
     }
 
   }
@@ -313,13 +313,13 @@
     }
 
     svg {
-      fill: $c-font-link;//$c-bay-blue-lighter;
+      fill: $c-font-link;
     }
 
     a:hover {
 
       @media ($bp-x-small-max) {
-        border-bottom-color: $c-link;//$c-bay-blue-lighter;
+        border-bottom-color: $c-link;
       }
     }
   }
@@ -327,7 +327,7 @@
   &__link {
 
     &:hover {
-      border-bottom-color: $c-link;//rgba($c-primary,.5);
+      border-bottom-color: $c-link;
     }
   }
 
