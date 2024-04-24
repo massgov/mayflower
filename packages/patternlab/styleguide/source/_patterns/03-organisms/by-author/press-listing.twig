@@ -1,23 +1,33 @@
-{% set teaserHeading = 2 %}
+{# Default heading level for 'ma__stacked-row__section' #}
+{% set teaserHeadingLevel = 3 %}
 
 <section class="ma__press-listing">
+{# {{ dump(pressListing) }} #}
   <div class="ma__press-listing__container">
     {% if pressListing.compHeading %}
       {% set compHeading = pressListing.compHeading %}
+      {% set compHeading.level = 6 %}
       {% include "@atoms/04-headings/comp-heading.twig" %}
-      {% set teaserHeading = (compHeading.level ? : teaserHeading) + 1 %}
+      {# When a section has a compHeading, its heading level is generally 2. Set 3 as the default level for main content listing items. #}
+      {% set teasteaserHeadingLevelerHeading = compHeading.level ? (compHeading.level + 1) : 3 %}
+    {% else %}
+    <h5 style="color: pink;">comp heading null</h5>
+      {# When no comp heading e.g., press listing page #}
+      {% set teaserHeadingLevel = pressListing.teaserHeading ? pressListing.teaserHeading: 2 %}
     {% endif %}
     {% if pressListing.sidebarHeading %}
       {% set sidebarHeading = pressListing.sidebarHeading %}
       {% include "@atoms/04-headings/sidebar-heading.twig" %}
-      {% set teaserHeading = (sidebarHeading.level ? : teaserHeading) + 1 %}
+      {# When a section has a sidebarHeading, its heading level is generally 2. Set 3 as the default level for side content listing items. #}
+      {% set teaserHeadingLevel = sidebarHeading.level ? (sidebarHeading.level + 1) : 3 %}
     {% endif %}
     {% if pressListing.items %}
+      <h5 style="color: orange;">press listing: {{ teaserHeadingLevel }}</h5>
       <div class="ma__press-listing__items">
         {% block featuredItems %}
           {% for pressTeaser in pressListing.items %}
-            {% set pressTeaserHeading = (sidebarHeading.level ? : teaserHeading) + 1 %}
-            {% set pressTeaser = pressTeaser|merge({"level":pressTeaserHeading}) %}
+            {# {% set pressTeaserHeading = (sidebarHeading.level ? : teaserHeading) + 1 %} #}
+            {% set pressTeaser = pressTeaser|merge({"level": teaserHeadingLevel}) %}
             {% include "@molecules/press-teaser.twig" %}
           {% endfor %}
         {% endblock %}
@@ -28,7 +38,7 @@
         {% block secondaryItems %}
           {% for pressTeaser in pressListing.secondaryItems %}
             <li class="ma__press-listing__secondary-item">
-              {% set pressTeaser = pressTeaser|merge({"level":teaserHeading + 1}) %}
+              {% set pressTeaser = pressTeaser|merge({"level": teaserHeadingLevel}) %}
               {% include "@molecules/press-teaser.twig" %}
             </li>
           {% endfor %}
