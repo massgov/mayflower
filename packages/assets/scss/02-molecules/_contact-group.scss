@@ -82,10 +82,6 @@
 
     border-bottom-width: 1px;
     border-bottom-color: $c-bay-blue-50-tint;// Update with the value of DP-32007.
-
-    @media ($bp-small-max) {
-      display: inline;
-    }
   }
 
   &__directions {
