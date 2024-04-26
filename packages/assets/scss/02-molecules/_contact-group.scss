@@ -77,13 +77,32 @@
     }
   }
 
-  .ma__content-link {
+  .ma__content-link__container {
+    // padding-top: 3px;
+    // padding-bottom: 5px;
+    margin-top: 6px;
+    margin-bottom: 10px;
 
-    @include ma-link-underline;
 
-    display: inline;
-    border-bottom-color: $c-bay-blue-50-tint;// Update with the value of DP-32007.
-    border-bottom-width: 1px;
+    // background-color: pink;
+
+      // &:hover {
+      //   border-bottom: none;
+      // }
+
+    .ma__content-link {
+
+      // background-color: yellow;
+
+      @include ma-link-underline;
+
+      display: inline;
+      // padding-inline: 3px 0 3px 0;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      border-bottom-color: $c-bay-blue-50-tint;// Update with the value of DP-32007.
+      border-bottom-width: 1px;
+    }
   }
 
   &__directions {
