@@ -59,10 +59,11 @@
     }
   }
 
-  .ma__content-link,
+  .ma__content-link__container,
   .ma__decorative-link {
     display: inline-block;
 
+    .ma__content-link,
     a {
       overflow-wrap: break-word;
       -ms-word-break: break-all;
@@ -80,8 +81,9 @@
 
     @include ma-link-underline;
 
-    border-bottom-width: 1px;
+    display: inline;
     border-bottom-color: $c-bay-blue-50-tint;// Update with the value of DP-32007.
+    border-bottom-width: 1px;
   }
 
   &__directions {
