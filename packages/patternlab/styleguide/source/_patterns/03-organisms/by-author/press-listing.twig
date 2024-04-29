@@ -34,6 +34,10 @@
         {% block secondaryItems %}
           {% for pressTeaser in pressListing.secondaryItems %}
             <li class="ma__press-listing__secondary-item">
+              
+              {# For 'ma__stacked-row__section' items. #}
+              {% set teaserHeadingLevel = pressTeaser.level ? pressTeaser.level : teaserHeadingLevel %}
+
               {% set pressTeaser = pressTeaser|merge({"level": teaserHeadingLevel}) %}
               {% include "@molecules/press-teaser.twig" %}
             </li>
