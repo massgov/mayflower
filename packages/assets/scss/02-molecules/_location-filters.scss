@@ -2,7 +2,7 @@
 
 .ma__location-filters {
   padding-top: 30px;
-  
+
   form {
 
     @include ma-container;
@@ -51,7 +51,7 @@
   }
 
   &__by-activity + &__by-keyword {
-    
+
     @media ($bp-medium-min) {
 
       @include span-columns(4 of 8);
