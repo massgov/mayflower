@@ -34,7 +34,7 @@ export default (function (window, document, $) {
     const isNestedThead = $thead.closest("table table").length;
     const hasTh = $table.find("th").length;
     let $stickyHeader = null;
-    const canScroll = $table.width() > $table.parent().width();
+    const horizontalScrollable = $table.width() > $table.parent().width();
 
     // If the table has a thead with th elements, setup the sticky version.
     if (hasThead && hasTh && !isNestedThead) {
@@ -84,7 +84,7 @@ export default (function (window, document, $) {
       $table: $table,
       $stickyHeader: $stickyHeader,
       theadHeight: theadHeight,
-      canScroll,
+      horizontalScrollable,
       headerStuck: false,
     };
     // Set the widths of the header.
@@ -107,7 +107,7 @@ export default (function (window, document, $) {
     let tableTitleCount = $table.find(".ma__table__caption__content").length;
     let scrollInfo = $table.find(".ma__table__caption__scroll-info");
 
-    if (rt.canScroll) {
+    if (rt.horizontalScrollable) {
       // const tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
       const caption = $(tableWrapper).find("caption");
       const captionId = $(caption).attr("id");
@@ -127,7 +127,7 @@ export default (function (window, document, $) {
 
     // Hide caption if no table title when no overflow.
     // scrollInfo is hardcoded in caption in the template. Don't remove caption.
-    if (!rt.canScroll) {
+    if (!rt.horizontalScrollable) {
       $(tableWrapper).attr("tabindex", "-1");
 
       if (tableTitleCount == 0) {
