@@ -6,8 +6,24 @@
 
   .ma__table__caption__scroll-info {
     display: none;
-    font-size: $fonts-medium;
-    font-weight: $fonts-normal;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.5), #fff, #fff);
+    font-weight: $fonts-bold;
+
+    &-text {
+      position: absolute;
+      top: 50%;
+      left: 75%;
+      transform: translate(-50%) rotate(90deg);
+      width: max-content;
+      color: $c-font-link;
+      font-size: $fonts-small;
+      font-weight: $fonts-bold;
+    }
 
     &.show {
       display: inline-block;
