@@ -103,7 +103,7 @@ export default (function (window, document, $) {
 
     // Reset scroll since this may have changed the max scroll amount.
     let tableTitleCount = $table.find(".ma__table__caption__content").length;
-    let scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
+    let $scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
 
     if (rt.horizontalScrollable) {
       // const $tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
@@ -116,7 +116,7 @@ export default (function (window, document, $) {
       // Caption is announced first, then the instrucions follow.
       let srInfo = captionId + " sr-instructions";
       $tableWrapper.attr("aria-labelledby", srInfo);
-      $(scrollInfo).addClass("show");
+      $scrollInfo.addClass("show");
 
       if ($(caption).hasClass("hide")) {
         $(caption).removeClass("hide");
@@ -124,7 +124,7 @@ export default (function (window, document, $) {
     }
 
     // Hide caption if no table title when no overflow.
-    // scrollInfo is hardcoded in caption in the template. Don't remove caption.
+    // $scrollInfo is hardcoded in caption in the template. Don't remove caption.
     if (!rt.horizontalScrollable) {
       $tableWrapper.attr("tabindex", "-1");
 
@@ -132,20 +132,20 @@ export default (function (window, document, $) {
         $table.find(".ma__table__caption").addClass("hide");
       }
 
-      if ($(scrollInfo).hasClass("show")) {
-        $(scrollInfo).removeClass("show");
+      if ($scrollInfo.hasClass("show")) {
+        $scrollInfo.removeClass("show");
       }
     }
 
-      // Hide scrollInfo when there's a scrolling and the default scrollbar is active (iOS Safari > 13 and Firefox)
+      // Hide $scrollInfo when there's a scrolling and the default scrollbar is active (iOS Safari > 13 and Firefox)
       // Function to handle the scroll event
       function handleScroll() {
         // Check if the div is scrolled horizontally
         if ($tableWrapper.scrollLeft() > 0) {
             // Hide the element when the div is scrolled horizontally
-            $(scrollInfo).removeClass("show");
+            $scrollInfo.removeClass("show");
         } else {
-          $(scrollInfo).addClass("show");
+          $scrollInfo.addClass("show");
         }
     }
 
