@@ -221,6 +221,7 @@ export default (function (window, document, $) {
     });
   }
 
+  // Sync horizontal scrolling in sticky table header and table
   // Allow a parameter to prevent triggering scrolling in an infinite loop.
   let skip = 0;
   // Calculate and set the scroll position of the other components when one component is scrolled.
@@ -230,7 +231,7 @@ export default (function (window, document, $) {
       // No matter the element, the percentage as a decimal should be the amount of pixels scrolled
       // divided by the max amount that can be scrolled which is the scroll width minus the width.
       [
-        "ma__table--responsive__wrapper thead",
+        "ma__table--responsive__wrapper",
         "sticky-thead-wrapper",
       ].map((scrollable) => {
         if (t.className !== scrollable) {
