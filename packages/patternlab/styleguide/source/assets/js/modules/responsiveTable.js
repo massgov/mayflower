@@ -104,7 +104,6 @@ export default (function (window, document, $) {
     // Reset scroll since this may have changed the max scroll amount.
     let tableTitleCount = $table.find(".ma__table__caption__content").length;
     let scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
-    console.log(scrollInfo)
 
     if (rt.horizontalScrollable) {
       // const $tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
@@ -141,7 +140,6 @@ export default (function (window, document, $) {
       // Hide scrollInfo when there's a scrolling and the default scrollbar is active (iOS Safari > 13 and Firefox)
       // Function to handle the scroll event
       function handleScroll() {
-        console.log($tableWrapper.scrollLeft())
         // Check if the div is scrolled horizontally
         if ($tableWrapper.scrollLeft() > 0) {
             // Hide the element when the div is scrolled horizontally
