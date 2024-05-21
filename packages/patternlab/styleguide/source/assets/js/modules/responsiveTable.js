@@ -108,15 +108,15 @@ export default (function (window, document, $) {
 
     if (rt.horizontalScrollable) {
       // const $tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
-      const caption = $($tableWrapper).find("caption");
+      const caption = $tableWrapper.find("caption");
       const captionId = $(caption).attr("id");
 
-      $($tableWrapper).attr("tabindex", "0");
+      $tableWrapper.attr("tabindex", "0");
 
       // Table caption and screen reader instructions are separated.
       // Caption is announced first, then the instrucions follow.
       let srInfo = captionId + " sr-instructions";
-      $($tableWrapper).attr("aria-labelledby", srInfo);
+      $tableWrapper.attr("aria-labelledby", srInfo);
       $(scrollInfo).addClass("show");
 
       if ($(caption).hasClass("hide")) {
@@ -127,7 +127,7 @@ export default (function (window, document, $) {
     // Hide caption if no table title when no overflow.
     // scrollInfo is hardcoded in caption in the template. Don't remove caption.
     if (!rt.horizontalScrollable) {
-      $($tableWrapper).attr("tabindex", "-1");
+      $tableWrapper.attr("tabindex", "-1");
 
       if (tableTitleCount == 0) {
         $table.find(".ma__table__caption").addClass("hide");
