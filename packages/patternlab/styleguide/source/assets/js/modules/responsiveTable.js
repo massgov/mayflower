@@ -103,7 +103,8 @@ export default (function (window, document, $) {
 
     // Reset scroll since this may have changed the max scroll amount.
     let tableTitleCount = $table.find(".ma__table__caption__content").length;
-    let scrollInfo = $table.find(".ma__table__caption__scroll-info");
+    let scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
+    console.log(scrollInfo)
 
     if (rt.horizontalScrollable) {
       // const $tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
@@ -150,7 +151,6 @@ export default (function (window, document, $) {
         }
     }
 
-    console.log($tableWrapper)
     // Add a scroll event listener to the scrollable div
     $tableWrapper.on('scroll', handleScroll);
   }
