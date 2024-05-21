@@ -176,32 +176,33 @@ export default (function (window, document, $) {
   // Based on the scroll position, decide whether or not to show or hide or scroll
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
-    const elementTop = rt.$root.offset().top;
-    const tableBottom = elementTop + rt.$table.height();
+    const { index, $root, $table, $stickyHeader, headerStuck } = rt
+    const elementTop = $root.offset().top;
+    const tableBottom = elementTop + $table.height();
 
     // Handle header visibility.
-    if (rt.$stickyHeader) {
-      const stuckTop = rt.$stickyHeader.offset().top;
-      const stuckBottom = stuckTop + rt.$stickyHeader.height();
+    if ($stickyHeader) {
+      const stuckTop = $stickyHeader.offset().top;
+      const stuckBottom = stuckTop + $stickyHeader.height();
       if (
-        !rt.headerStuck &&
+        !headerStuck &&
         elementTop < stuckTop &&
         tableBottom > stuckBottom
       ) {
-        responsiveTables[rt.index].headerStuck = true;
-        rt.$stickyHeader.css("opacity", 1);
-        rt.$stickyHeader.css("-webkit-box-shadow", "");
-        rt.$stickyHeader.css("box-shadow", "");
-        rt.$stickyHeader.css("pointer-events", "all");
+        responsiveTables[index].headerStuck = true;
+        $stickyHeader.css("opacity", 1);
+        $stickyHeader.css("-webkit-box-shadow", "");
+        $stickyHeader.css("box-shadow", "");
+        $stickyHeader.css("pointer-events", "all");
       } else if (
-        rt.headerStuck &&
+        headerStuck &&
         (elementTop > stuckTop || tableBottom < stuckBottom)
       ) {
-        responsiveTables[rt.index].headerStuck = false;
-        rt.$stickyHeader.css("opacity", 0);
-        rt.$stickyHeader.css("-webkit-box-shadow", "none");
-        rt.$stickyHeader.css("box-shadow", "none");
-        rt.$stickyHeader.css("pointer-events", "none");
+        responsiveTables[index].headerStuck = false;
+        $stickyHeader.css("opacity", 0);
+        $stickyHeader.css("-webkit-box-shadow", "none");
+        $stickyHeader.css("box-shadow", "none");
+        $stickyHeader.css("pointer-events", "none");
       }
     }
   }
@@ -229,7 +230,7 @@ export default (function (window, document, $) {
       // No matter the element, the percentage as a decimal should be the amount of pixels scrolled
       // divided by the max amount that can be scrolled which is the scroll width minus the width.
       [
-        "ma__table--responsive__wrapper",
+        "ma__table--responsive__wrapper thead",
         "sticky-thead-wrapper",
       ].map((scrollable) => {
         if (t.className !== scrollable) {
