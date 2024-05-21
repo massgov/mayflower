@@ -34,7 +34,8 @@ export default (function (window, document, $) {
     const isNestedThead = $thead.closest("table table").length;
     const hasTh = $table.find("th").length;
     let $stickyHeader = null;
-    const horizontalScrollable = $table.width() > $table.parent().width();
+    const $tableWrapper = $table.parent();
+    const horizontalScrollable = $table.width() > $tableWrapper.width();
 
     // If the table has a thead with th elements, setup the sticky version.
     if (hasThead && hasTh && !isNestedThead) {
@@ -101,23 +102,20 @@ export default (function (window, document, $) {
     checkVisibility(rt);
 
     // Reset scroll since this may have changed the max scroll amount.
-    let tableWrapper = element.getElementsByClassName(
-      "ma__table--responsive__wrapper"
-    )[0];
     let tableTitleCount = $table.find(".ma__table__caption__content").length;
     let scrollInfo = $table.find(".ma__table__caption__scroll-info");
 
     if (rt.horizontalScrollable) {
-      // const tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
-      const caption = $(tableWrapper).find("caption");
+      // const $tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
+      const caption = $($tableWrapper).find("caption");
       const captionId = $(caption).attr("id");
 
-      $(tableWrapper).attr("tabindex", "0");
+      $($tableWrapper).attr("tabindex", "0");
 
       // Table caption and screen reader instructions are separated.
       // Caption is announced first, then the instrucions follow.
       let srInfo = captionId + " sr-instructions";
-      $(tableWrapper).attr("aria-labelledby", srInfo);
+      $($tableWrapper).attr("aria-labelledby", srInfo);
       $(scrollInfo).addClass("show");
 
       if ($(caption).hasClass("hide")) {
@@ -128,7 +126,7 @@ export default (function (window, document, $) {
     // Hide caption if no table title when no overflow.
     // scrollInfo is hardcoded in caption in the template. Don't remove caption.
     if (!rt.horizontalScrollable) {
-      $(tableWrapper).attr("tabindex", "-1");
+      $($tableWrapper).attr("tabindex", "-1");
 
       if (tableTitleCount == 0) {
         $table.find(".ma__table__caption").addClass("hide");
@@ -138,6 +136,23 @@ export default (function (window, document, $) {
         $(scrollInfo).removeClass("show");
       }
     }
+
+      // Hide scrollInfo when there's a scrolling and the default scrollbar is active (iOS Safari > 13 and Firefox)
+      // Function to handle the scroll event
+      function handleScroll() {
+        console.log($tableWrapper.scrollLeft())
+        // Check if the div is scrolled horizontally
+        if ($tableWrapper.scrollLeft() > 0) {
+            // Hide the element when the div is scrolled horizontally
+            $(scrollInfo).removeClass("show");
+        } else {
+          $(scrollInfo).addClass("show");
+        }
+    }
+
+    console.log($tableWrapper)
+    // Add a scroll event listener to the scrollable div
+    $tableWrapper.on('scroll', handleScroll);
   }
 
   // Certain other components that stick to the top of the page need to be accounted for.
