@@ -23,12 +23,24 @@
       color: $c-font-link;
       font-size: $fonts-small;
       font-weight: $fonts-bold;
+      display: flex;
+      align-items: center;
+
+      svg {
+        fill: $c-font-link;
+        width: 18px;
+        height: 15px;
+        margin: 0 1rem;
+        transform: rotate(-90deg);
+      }
     }
 
     &.show {
       display: inline-block;
     }
   }
+
+
 
   #sr-instructions {
     // Ensure the content is announced via aria-labelledby only.
