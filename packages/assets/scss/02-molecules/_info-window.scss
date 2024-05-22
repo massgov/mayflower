@@ -13,9 +13,12 @@
   &__name {
     font-size: $fonts-large;
     margin-bottom: 0;
+    margin-right: 20px;
+    line-height: 1.4;// Prevent link underline to cover the line below.
 
     .ma__decorative-link {
       margin-bottom: 0.5rem;
+      padding-right: 0;
     }
   }
 

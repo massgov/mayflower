@@ -30,10 +30,10 @@
     {% include "@atoms/decorative-link.twig" %}
     {# Phone - add tel: to href #}
   {% elseif item.type == "phone" %}
-    <a
-      href="tel:{{ link.href }}"
-      class="ma__content-link">
-      {% if item.contactName %}<span class="ma__visually-hidden">Call {{ item.contactName }}{% if item.label %}, {{item.label}}{% endif %} at </span>{% endif %}{{ link.text }}</a>
+    <span class="ma__content-link__container">
+      <a class="ma__content-link" href="tel:{{ link.href }}">
+        {% if item.contactName %}<span class="ma__visually-hidden">Call {{ item.contactName }}{% if item.label %}, {{item.label}}{% endif %} at </span>{% endif %}{{ link.text }}</a>
+    </span>
 
  {# Phone - add tel: to href #}
   {% elseif item.type == "fax" %}
@@ -41,15 +41,16 @@
 
     {# Email - add mailto: to href #}
   {% elseif item.type == "email" %}
-    <a
-      href="mailto:{{ link.href }}"
-      class="ma__content-link">{% if item.contactName %}<span class="ma__visually-hidden">Email {{ item.contactName }} at </span>{% endif %}{{ link.text }}</a>
+    <span class="ma__content-link__container">
+      <a class="ma__content-link" href="mailto:{{ link.href }}">
+        {% if item.contactName %}<span class="ma__visually-hidden">Email {{ item.contactName }} at </span>{% endif %}{{ link.text }}
+      </a>
+    </span>
 
    {% elseif item.type == "login" %}
-    <a
-      href="{{ link.href }}"
-      class="ma__content-link">{{ link.text }}</a>
-
+    <span class="ma__content-link__container">
+      <a class="ma__content-link" href="{{ link.href }}">{{ link.text }}</a>
+    </span>
     {# Address - RTE version of value and look for directions link #}
   {% elseif item.type == "address" %}
     <div class="ma__contact-group__address">
