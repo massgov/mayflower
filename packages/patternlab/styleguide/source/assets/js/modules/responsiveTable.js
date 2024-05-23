@@ -62,7 +62,7 @@ export default (function (window, document, $) {
         left: tableLeft,
         top: getAdditionalOffset(),
         opacity: 0,
-        "z-index": 50,
+        // "z-index": 50,
         height: theadHeight,
       });
       $stickyHeader[0].scrollLeft = 0;
@@ -176,8 +176,10 @@ export default (function (window, document, $) {
   // Based on the scroll position, decide whether or not to show or hide or scroll
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
-    const { index, $root, $table, $stickyHeader, headerStuck } = rt
-    const elementTop = $root.offset().top;
+    const { index, $root, $table, $stickyHeader, headerStuck } = rt   
+    const $tableHeader = $table.find('thead');
+    console.log($tableHeader.offset().top);
+    const elementTop = $tableHeader.offset().top;
     const tableBottom = elementTop + $table.height();
 
     // Handle header visibility.
