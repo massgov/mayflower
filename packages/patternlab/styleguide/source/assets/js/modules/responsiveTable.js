@@ -62,7 +62,6 @@ export default (function (window, document, $) {
         left: tableLeft,
         top: getAdditionalOffset(),
         opacity: 0,
-        // "z-index": 50,
         height: theadHeight,
       });
       $stickyHeader[0].scrollLeft = 0;
