@@ -37,6 +37,7 @@
     background-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.5), #fff, #fff);
     font-weight: $fonts-bold;
     transition: right 0.3s, opacity 0.1s;
+    z-index: calc(#{$z-sticky-header} + 1); //overlay sticky table header
 
     &-text {
       position: absolute;
@@ -61,7 +62,7 @@
 
     &.show {
       opacity: 1;
-      right: 0;
+      right: -2px;
     }
   }
 
@@ -100,7 +101,7 @@
     transition: all 0.04s ease-in-out;
     // Prevent table from stretching to full size.
     width: auto;
-    z-index: 50;
+    z-index: $z-sticky-header;
 
     &:before {
         background: $c-bg;
@@ -140,7 +141,6 @@
 .ma__table--responsive.has-top-visible .sticky-thead {
     // Force stretch.
     width: 100%;
-    z-index: 50;
 }
 
 .ma__table--responsive td,
