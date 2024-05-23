@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html class="{{ htmlClass }} no-js" lang="en">
+<html class="{{ htmlClass }} no-js"
+  {% if patternLanguage %}
+    lang="{{ patternLanguage.lang }}"
+    dir="{{ patternLanguage.dir }}"
+    translate="{{ patternLanguage.translate }}"
+  {% endif %}
+>
   <head>
     <title>{{ title }}</title>
     <meta charset="UTF-8">
