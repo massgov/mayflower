@@ -32,6 +32,22 @@
         height: 500px;
       }
     }
+
+    // skip link
+
+    @include ma-skip-link;
+
+    &__skip-link {
+      // override mixin to take advantage of flexbox on map.
+      margin-top: 0;
+      float: none;
+
+      flex: 0 1 auto;
+    }
+
+    &__skip-link_target {
+      flex: 0 1 auto;
+    }
   }
 
   &__aside {
@@ -50,9 +66,14 @@
 
     @media ($bp-large-extended-min) {
       order: 1;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      width: 40%;
+    }
+
+    @media ($bp-x-large-min) {
       padding-left: 3rem;
       padding-right: 3rem;
-      width: 40%;
     }
   }
 

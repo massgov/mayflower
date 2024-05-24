@@ -172,17 +172,17 @@ $action-finder-bp: 900px;
 }
 
 //theme
-$action-finder-bg-color: mix(#fff, $c-primary,89%);
-$action-finder-border-color: mix(#fff, $c-primary,50%);
+$action-finder-bg-color: mix($c-bg, $c-primary,89%);
+$action-finder-border-color: mix($c-white, $c-primary,50%);
 
 .ma__action-finder {
 
   &:after {
-    background-image: linear-gradient(180deg, rgba(#000,.6), transparent 90%, transparent);
+    background-image: linear-gradient(180deg, rgba($c-black,.6), transparent 90%, transparent);
   }
 
   &--no-background {
-    background-image: linear-gradient(180deg, $c-white 50px, $c-bg-section 51px);
+    background-image: linear-gradient(180deg, $c-bg 50px, $c-bg-section 51px);
   }
 
   &__category {
@@ -208,7 +208,7 @@ $action-finder-border-color: mix(#fff, $c-primary,50%);
   &__items--all {
 
     .ma__callout-link {
-      background-color: $c-white;
+      background-color: $c-bg;
       box-shadow: none;
     }
 
@@ -216,10 +216,10 @@ $action-finder-border-color: mix(#fff, $c-primary,50%);
       box-shadow: none;
 
       &__content {
-        background-color: $c-white;
+        background-color: $c-bg;
 
         &:after {
-          background-color: $c-white;
+          background-color: $c-bg;
         }
       }
     }
@@ -253,12 +253,12 @@ $action-finder-border-color: mix(#fff, $c-primary,50%);
         color: $c-font-link;
 
         &:hover {
-          border-color: rgba($c-font-link, .5);
+          border-color: $c-bay-blue-lighter;
         }
       }
 
       svg {
-        fill: rgba($c-font-link, .5);
+        fill: $c-bay-blue-lighter;
       }
     }
   }

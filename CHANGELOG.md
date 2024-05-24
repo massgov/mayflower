@@ -1,6 +1,83 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 13.1.0 (3/29/2024)
+### Changed 
+- (Patternlab) [Breadcrumbs, Footnotes] DP-30528: Adjust target size for breadcrumbs home and footnotes to meet WCAG 2.2. (#1875)
+- (Patternlab) [Sidebar Contact] DP-30655: Correct the heading level for sidebar contact items. (#1887)
+- (Patternlab) [UtilityNav,Button] DP-31679: Update contrast settings utility panel data and fix Button with `href` styles. (#1874)
+- (Patternlab) [SectionLinks] DP-31690: Change card component to render title as text instead of decorative link. Remove see all link on desktop. (#1877)
+- (Patternlab) [HeaderAlerts] DP-31793: Add border for the component and chnage icon for notice to improve the color contrasts. (#1884)
+- (Patternlab) [MappedLocations] DP-31798: A11y - Hide the map from keyboard and AT users. (#1881)
+- (Patternlab) [FeaturedItem] DP-31866: Fix link text wrapping too soon, increase link text font size. (#1883)
+- (Patternlab) [Suggested Pages] DP-31955: Add a condition to check suggested page items. (#1886)
+- (Patternlab) [HeaderAlerts,ActionStep] DP-32003: Decrease spacing and minimize wrapping on mobile. (#1898)
+- (Patternlab) [OrgContact] DP-32010: Org contact logo too large on mobile. (#1894)
+- (Patternlab) [Button] DP-32068: Button component changes, added new class and logic to override default uppercase letters. (#1892)
+- (Patternlab) [Iframe] DP-32109: Changed iframe component to allow adding custom class (#1897)
+
+### Fixed 
+- (Patternlab) [UtilityNav] DP-31616: Add `aria-controls` to utility nav buttons. (#1864)
+- (Patternlab) [multiple components] DP-31780: Add space to screen reader only text containers where screen readers announce the text sequentially as a part of its parent contetiner's last word. (#1876)
+- (Patternlab,React) [TextArea,FeedbackForm] DP-31616: Fix textarea js conflicts with Formstack. Fix label `for` attribute and add default classname. (#1864)
+- (Patternlab) [mainNavHamburger] DP-31923: Hamburger menu bug fix for mobile devices. (#1890)
+- (React) [DecorativeLink,GenTeaserTitle] DP-32127: Fix proptype checks for the icon props. (#1875)
+
+### Added 
+- (Patternlab,Assets) [Icon,LocationIcons] DP-32029: Add wifi icon to assets and location icons component, adjust location icons spacing to prevent tight spacing between icon labels. (#1891)
+- (React) [DecorativeLink,GenTeaserTitle] DP-32127: Add fileIcon prop, to allow overriding existing download link icons logic in search.mass.gov to render Mass.gov media entity for documents as download links. (#1875)
+
+## 13.0.0 (2/1/2024)
+### Fixed 
+- (Patternlab) [MainNav] DP-14430: Homepage desktop global nav expansion bug. (#1869)
+- (Patternlab) [TableResponsive] DP-25894: Fix styling issues. (#1842)
+- (Patternlab) [OrganizationNavigation] DP-28670: Improve desktop and mobile keyboard and screen reader user experience. Label elements correctly and concisely, make interactive elements keyboard accessible and announce the state to screen readers. (#1819)
+- (Assets, React) [FilterBox] DP-28670: Fixed `.ma__visually-hidden` typo. (#1819)
+- (Patternlab) [SuggestedPages] DP-29600: Fixed suggested page item link covering the whole page. Clean up duplicative styles. (#1837)
+- (Patternlab) [PageHeader] DP-30296: Fix subCategory tag from h3 to div for semantic markup. (#1845)
+- (Patternlab) [StickyTOC] DP-30532: Fix TOC show more rendering issue. (#1863)
+- (Core) [Documentation] DP-30977: Update JS and CSS instructions. (#1855)
+- (Patternlab) [UtilityPanel] DP-31038: Fixed UtilityPanel data and patternlab display. (#1856)
+- (Patternlab) [LocationFilters] DP-31366: Fixed sporadic issues with location filters. (#1861)
+- (Assets) [Breakpoints] DP-31527: Increase `$bp-header-toggle-min` from 840px to 940px to prevent utility items wrapping. (#1864)
+- (Patternlab) [PressListing] DP-31620: Fix press listing heading levels. (#1867)
+
+### Changed 
+- (Assets) [RichText] DP-20609: Made change to not set image width to 100%. (#1828)
+- (Patternlab) [MainNavigation] DP-24290: Re-label navigation elements for screen readers. (#1743)
+- (Patternlab) [TOC] DP-24587: TOC hierarchy style fix. (#1854)
+- (Patternlab) [SuggestedPages] DP-26359: Remove a link from the image. Exclude the more link from AT users. (#1824)
+- (Patternlab) [ImagePromos] DP-26359: Remove a link from the image. Exclude the more link from AT users. (#1824)
+- (Patternlab) [Heading1,Heading2,Heading3,Heading4,Heading5,Heading6] DP-28670: Add `id` prop. (#1819)
+- (Patternlab) [OrganizationNavigation] DP-28670: Only allow jump links in organization nav, add `id` to each section to become jump link anchors. (#1819)
+- (Patternlab) [key_actions] DP-28733: Remove aria-labelledby and correct the heading level. (#1830)
+- (React) [Footer] DP-28856: Updated Footer to match PatternLab version. (#1858) [See breaking change notes](https://github.com/massgov/mayflower/pull/1858#issuecomment-1922288849)
+- (Assets) [Variables] DP-29104: Remove the lightest font-weight for text in the system. Space out font-weight scale evenly to better show visual hierarchy, bump up all text font weights by at least 50.  Consolidate hard-coded font weights into a new variable. (#1831)
+- (Patternlab) [ContactItem] DP-29104: Remove styling overrides on telephone links, so they appear as other contact links. (#1831)
+- (Assets) [Variables] DP-29107: Cleanup hex codes and the color values in the rgba with variables. Some variations are consolidated into one color. (#1848)
+- (Patternlab) [OrganizationNavigation] DP-29849: Accessibility error fix. (#1840)
+- (Patternlab) [PageBanner] DP-30296: Created new PageBanner component, and renamed old pattern to PageBannerLegacy. PageBannerLegacy and Illustrator Header will be deprecated and replaced by the new PageBanner. (#1845)
+- (Patternlab) [PageBanner, PageBannerLegacy, IllustratedHeader, PageHeader] DP-30296: Move patterns from by-template directory into each individual directory. (#1845)
+- (Patternlab) [PageHeader] DP-30296: Consolidate all page banner content configuration into PageHeader, e.g. buttons, links, description. Consolidate all variants into one. (#1845)
+- (Assets) [Breakpoints] DP-30296: Consolidated `1000px` and `1050px` breakpoints. (#1845)
+- (Patternlab) [HeaderSearch] DP-30988: Close search suggestions on blur. (#1851)
+- (Patternlab) [UtilityNav] DP-31038: Enable adding additional panels and triggers to UtilityNav. Cleanup JS overrides between mobile and desktop (#1856)
+- (Patternlab) [FieldSubmit] DP-31038: Restore the pattern and add form options. (#1856)
+
+### Removed 
+- (Patternlab) [OrgNavContactMenu,OrgNavContactRow,OrgNavIWantToMenu] DP-28670: Removed deprecated subcomponents used in the OrganizationNavigation. (#1819)
+- (Patternlab) [HeaderTags] DP-30296: Remove headerTags from Page Header. (#1845)
+
+### Added 
+- (Patternlab) [Iframe] DP-29229: Added loading="lazy" attribute to iframes. (#1829)
+- (Patternlab) [Video] DP-29407: Add a heading and skiplink to video. (#1859)
+- (Assets,React,Patternlab,Core) [Icon] DP-29416: Change twigger .svg to X and add Threads .svg
+- (Patternlab) [HeaderSearch] DP-29927: Add scoped search options. (#1843)
+- (Patternlab) [HeaderTags] DP-30296: Add inverse color config to decorative link. (#1845)
+- (Assets,Patternlab) [Icon] DP-31038: Add contrast eye icon. (#1856)
+- (Patternlab) [FieldSubmit] DP-31561: Add hiddenInputs field. (#1866)
+- (Patternlab) [FieldSubmit,HeaderSearch,SearchBannerForm,SearchBoxWithLinks] DP-31561: Add name attribute to form elements. (#1866)
+
 ## 12.7.0 (7/26/2023)
 ### Added 
 - (Assets, Patternlab) [Icons] DP-28600: Add lg-form and lg-checklist icons. (#1820)

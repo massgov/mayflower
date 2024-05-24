@@ -60,11 +60,11 @@ $heading-indent: $gutter;
   & &__footnote {
     border-style: solid;
     border-width: 2px;
-    font-size: .6em;
+    font-size: $fonts-smaller;
     line-height: 1;
-    padding: 0 .3em;
+    padding: 0.5px 6.5px;
     position: relative;
-    top: .25em;
+    top: .5em;
     vertical-align: top;
     transition: all ease .4s;
 
@@ -274,7 +274,7 @@ $heading-indent: $gutter;
   }
 
   &__footnote {
-    border-color: rgba($c-font-link,.5);
+    border-color: $c-bay-blue-lighter;
 
     &:hover {
       background-color: $c-font-link;
@@ -292,7 +292,7 @@ $heading-indent: $gutter;
   }
 
   a {
-    border-bottom-color: rgba($c-font-link, .5);
+    border-bottom-color: $c-bay-blue-lighter;
 
     &:hover {
       border-bottom-width: 3px;

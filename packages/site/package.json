@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "author": "Minghua Sun <clairesunstudio@gmail.com>",
   "dependencies": {
-    "@massds/mayflower-assets": "^12.2.1",
-    "@massds/mayflower-react": "^12.2.1",
+    "@massds/mayflower-assets": "^13.0.0",
+    "@massds/mayflower-react": "^13.0.0",
     "bootstrap": "^4.4.1",
     "classname": "^0.0.0",
     "gatsby": "~2.25.0",

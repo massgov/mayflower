@@ -81,11 +81,11 @@
 .ma__person-card {
   position: relative;
   color: $c-font-base;
-  background-color: $c-white;
+  background-color: $c-bg;
 
   @media ($bp-large-extended-min) {
     border: 1px solid $c-primary-alt;
-    box-shadow: 4px 2px 5px 0px rgba($c-black,0.3);
+    box-shadow: 4px 2px 5px 0px rgba($c-gray-darkest,0.3);
   }
 
   &::before,

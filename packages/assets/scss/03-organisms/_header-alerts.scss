@@ -7,29 +7,25 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-  
-    color: $c-black;
+
+    color: $c-gray-darkest;
     margin-bottom: 0;
-  
+    border: 1px solid $c-bd-divider-dark;
+
     &__button {
-      color: $c-black;
+      color: $c-gray-darkest;
       background-color: $c-warning;
-      padding: 12px 24px;
+      padding: 10px 15px;
+      width: 100%;
       display: inline-flex;
-  
+      justify-content: space-between;
       align-items: center;
       font-weight: $fonts-bold;
       font-size: $fonts-medium;
-      line-height: 1.2;
       margin-bottom: 0;
-      width: 100%;
-  
       border: 0;
-  
-      @media ($bp-x-small-max) {
-        flex-direction: column;
-      }
-  
+
+
       div {
         display: inline-flex;
         align-items: center;
@@ -83,20 +79,20 @@
 
   .ma__action-step {
 
-    border-color: $c-bd-divider;
-    border-width: 2px;
+    border-color: $c-bd-divider-dark;
+    border-width: 1px;
     border-style: solid;
+    border-top: 0;
 
     &__header {
-      color: $c-black;
+      color: $c-gray-darkest;
       border: none;
       display: block;
-      padding: 20px 40px 20px 60px;
+      padding: 20px 40px 15px 50px;
       text-align: left;
       width: 100%;
       background-color: $c-bg-section;
-      font-size: $fonts-large;
-      line-height: 29px;
+      font-size: $fonts-medium;
     }
 
     &__more {
@@ -104,8 +100,8 @@
     }
 
     &__icon {
-
-      line-height: 1.15;
+      top: 25px;
+      left: 10px;
 
       svg {
         width: 20px;
@@ -114,6 +110,15 @@
     }
 
     &__title {
+      font-size: $fonts-medium;
+
+      &-link, &-suffix {
+        line-height: 1.6;
+      }
+
+      &-text {
+        line-height: 1.4;
+      }
 
       a {
 

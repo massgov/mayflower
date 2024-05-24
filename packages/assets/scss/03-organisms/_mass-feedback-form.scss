@@ -5,7 +5,7 @@ $formQuickTransitions: max-height 0.3s linear;
 
 .ma__mass-feedback-form {
   border: 2px solid $c-gray-light;
-  background: $c-white;
+  background: $c-bg;
   max-width: 35em;
   margin: 0 0.5rem 5rem;
 
@@ -41,6 +41,7 @@ $formQuickTransitions: max-height 0.3s linear;
 
       legend {
         font-weight: $fonts-bold;
+        margin-bottom: 0.5em;
       }
     }
 

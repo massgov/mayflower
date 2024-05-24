@@ -15,7 +15,6 @@ function hideHamburgerMenu () {
     if (mixedBody.classList.contains("show-menu")) {
       mixedBody.classList.remove("show-menu");
       mixedMenuButton.setAttribute("aria-expanded", "false");
-      mixedMenuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
       mixedMenuOverlay.classList.remove("overlay-open");
     }
   }
@@ -51,11 +50,14 @@ function toggleGoogleTranslate() {
 // Set aria-label of nav based on the screen size.
 function navAriaLabel() {
   if (document.querySelector('header.ma__header__mixed')) {
-    if (window.innerWidth > 840) {
-      document.querySelector('nav.ma__header__hamburger__nav').setAttribute('aria-label', 'utility options');
-    }
-    else {
-      document.querySelector('nav.ma__header__hamburger__nav').setAttribute('aria-label', 'main navigation');
+    if (!mfIsMobile()) {
+      document
+        .querySelector("nav.ma__header__hamburger__nav")
+        .setAttribute("aria-label", "Language options and quick access links");
+    } else {
+      document
+        .querySelector("nav.ma__header__hamburger__nav")
+        .setAttribute("aria-label", "main navigation");
     }
   }
 }

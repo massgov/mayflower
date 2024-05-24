@@ -5,7 +5,7 @@ This pattern is used as a template for Internal Binder Page type pages and is ba
 * Stable as of 5.11.0
 
 ### Pattern Contains
-* Illustrated Header
+* Page Banner
 * Contact List
 * Jump Links
 * Rich Text

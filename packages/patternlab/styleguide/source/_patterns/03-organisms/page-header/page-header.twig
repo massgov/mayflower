@@ -1,0 +1,104 @@
+{% set prefix = pageHeader.category|default(pageHeader.prefix) %}
+{% set optClass = pageHeader.optionalContents ? " ma__page-header--has-optional-content" : "" %}
+{% set contentClass = pageHeader.underline ? " ma__page-header__content--underline" : "" %}
+
+<section class="ma__page-header{{optClass}}">
+  <div class="ma__page-header__content{{contentClass}}">
+    {% if pageHeader.publishState %}
+      <div class="ma__page-header__publish-state">
+        {% set publishState = pageHeader.publishState %}
+        {% include "@atoms/11-text/publish-state.twig" %}
+      </div>
+    {% endif %}
+    {% if pageHeader.category %}
+      <div class="ma__page-header__category">
+        {{ pageHeader.category }}
+      </div>
+    {% endif %}
+
+    {% if pageHeader.subCategory %}
+      <div class="ma__page-header__subCategory">
+        {% set compHeading = pageHeader.subCategory|merge({'level': 3, 'tag': 'div'}) %}
+        {% include "@atoms/04-headings/comp-heading.twig" %}
+      </div>
+    {% endif %}
+    {% if pageHeader.nested %}
+        <h1 class="ma__page-header__title">
+          {% if prefix %}
+            <span class="ma__visually-hidden">{{ prefix }}&nbsp;</span>
+          {% endif %}
+          {{pageHeader.title}}
+          {% if pageHeader.titleSubText %}
+            <abbr title="{{ pageHeader.title }}"> {{ pageHeader.titleSubText }}</abbr>
+          {% endif %}
+          {% if pageHeader.subTitle %}
+              <div class="ma__section-content">
+                <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
+              </div>
+          {% endif %}
+        </h1>
+        {% if pageHeader.description %}
+            <div class="ma__section-content">
+              <p class="ma__page-header__description">{{pageHeader.description}}</p>
+            </div>
+        {% endif %}
+    {% else %}
+      <h1 class="ma__page-header__title">
+        {% if prefix %}
+          <span class="ma__visually-hidden">{{ prefix }}&nbsp;</span>
+        {% endif %}
+        {{pageHeader.title}}
+        {% if pageHeader.titleSubText %}
+          <abbr title="{{ pageHeader.title }}"> {{ pageHeader.titleSubText }}</abbr>
+        {% endif %}
+      </h1>
+      {% if (pageHeader.subTitle or pageHeader.description) %}
+          <div class="ma__section-content">
+            {% if pageHeader.subTitle %}
+              <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
+            {% endif %}
+            {% if pageHeader.description %}
+              <p class="ma__page-header__description">{{pageHeader.description}}</p>
+            {% endif %}
+          </div>
+      {% endif %}
+      {% if pageHeader.links %}
+        <div class="ma__page-header__links-wrapper">
+            <ul class="ma__page-header__links">
+                {% for link in pageHeader.links %}
+                  <li class="ma__page-header__link">
+                    {% if link.href %}
+                    {% set decorativeLink = link %}
+                      {% include "@atoms/decorative-link.twig" %}
+                    {% else %}
+                      <p class="ma__page-header__unlinked-title">
+                        {{link.text}}
+                      </p>
+                    {% endif %}
+                    {% if link.description %}
+                      <div class="ma__page-header-legacy__description">
+                        {{link.description}}
+                      </div>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+            </ul>
+          </div>
+      {% endif %}
+      {% if pageHeader.buttons %}
+        <div class="ma__page-header__buttons-wrapper">
+        {% if pageHeader.buttonsLabel %}
+            <span  class="ma__page-header__buttons-label">{{pageHeader.buttonsLabel}}</span>
+        {% endif %}
+            <ul class="ma__page-header__buttons">
+                {% for button in pageHeader.buttons %}
+                <li class="ma__page-header__button">
+                    {% include "@atoms/01-buttons/button.twig" %}
+                </li>
+                {% endfor %}
+            </ul>
+        <div>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>

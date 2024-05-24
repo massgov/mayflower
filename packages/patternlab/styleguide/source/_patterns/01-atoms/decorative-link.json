@@ -6,6 +6,7 @@
     "button": false,
     "info": "",
     "labelContext": "",
-    "ariaLabel": ""
+    "ariaLabel": "",
+    "inverse": false
   }
 }

@@ -53,8 +53,8 @@ export default (function (window, document) {
       Array.from(tocSections.headings).forEach((section, index) => {
         let sectionId = section.id;
         // Remove span element before passing to the a tag.
-        if (section.querySelector('span.visually-hidden') !== null) {
-          section.querySelector('span.visually-hidden').remove();
+        if (section.querySelector('span.ma__visually-hidden') !== null) {
+          section.querySelector('span.ma__visually-hidden').remove();
         }
         const sectionTitle = section.innerText;
         const titleCheck = sectionTitle.trim();
@@ -113,7 +113,7 @@ export default (function (window, document) {
       }
 
       // Show expander when more than 10 links.
-      if (tocSectionCount <= 9 && window.innerWidth > 480 ) {
+      if (tocSectionCount <= 10 && window.innerWidth > 480 ) {
         toc.querySelector(".ma__sticky-toc__footer").style.display = "none";
       }
     }

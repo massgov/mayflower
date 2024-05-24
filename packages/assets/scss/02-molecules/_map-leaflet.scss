@@ -81,6 +81,19 @@
     @media ($bp-x-small-min) {
       height: 500px;
     }
+
+    // Override the style in the distribution.
+    .leaflet-pane a.leaflet-popup-close-button {
+      margin-top: 2px;
+      width: 24px;
+      height: 24px;
+      font-size: 26px;
+      color: $c-bay-blue-40-tint;//<-- Change to $c-link after DP-32007 is released
+
+      &:hover {
+        color: $c-font-link;
+      }
+    }
   }
 
   .ma__location-listing__map & {
@@ -99,7 +112,7 @@
     font-size: $fonts-large;
 
     span {
-      color: $c-white;
+      color: $c-font-inverse;
 
       svg {
         fill: rgba($c-white, 0.7);

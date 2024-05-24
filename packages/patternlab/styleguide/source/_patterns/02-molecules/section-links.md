@@ -33,8 +33,5 @@ sectionLinks: {
   links: [{
     type: decorativeLink and calloutLink / required
   }]
-  seeAll: {
-    type: decorativeLink / optional
-  }
 }
 ~~~

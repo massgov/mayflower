@@ -16,6 +16,7 @@ decorativeLink {
     type: string (adds more description to the link) / optional
   labelContext:
     type: string (adds context to the "more" link label) / optional
-
+  inverse:
+    type: boolean (invert the color to white) / optional - default as false
 }
 ~~~
