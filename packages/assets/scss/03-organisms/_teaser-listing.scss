@@ -231,6 +231,12 @@
       padding-left: 0;
       background: transparent;
 
+      @include ma-link-underline;
+
+      &:hover {
+        border-bottom-color: $c-link;
+      }
+
       &:after {
         top: 20%;
         right: 0;

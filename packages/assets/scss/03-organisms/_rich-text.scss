@@ -274,7 +274,7 @@ $heading-indent: $gutter;
   }
 
   &__footnote {
-    border-color: $c-bay-blue-lighter;
+    border-color: $c-link;
 
     &:hover {
       background-color: $c-font-link;
@@ -292,7 +292,7 @@ $heading-indent: $gutter;
   }
 
   a {
-    border-bottom-color: $c-bay-blue-lighter;
+    border-bottom-color: $c-link;
 
     &:hover {
       border-bottom-width: 3px;

@@ -8,16 +8,16 @@
   width: 100%;
 
   a:hover {
-    border-bottom-color: $c-bay-blue-lighter;
+    border-bottom-color: $c-link;
   }
 
   a:focus {
     // important needed to overwrite the focus border color
-    border-bottom-color: $c-bay-blue-lighter !important;
+    border-bottom-color: $c-link !important;
   }
 
   svg {
-    fill: $c-bay-blue-lighter;
+    fill: $c-font-link;
   }
 
   &--inverse {
