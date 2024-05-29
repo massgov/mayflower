@@ -18,7 +18,8 @@ import IconLinkedin from 'MayflowerReactBase/Icon/IconLinkedin';
 import IconYoutube from 'MayflowerReactBase/Icon/IconYoutube';
 // eslint-disable-next-line import/no-unresolved
 import IconInstagram from 'MayflowerReactBase/Icon/IconInstagram';
-import { IconVimeo } from '../../base/Icon';
+// eslint-disable-next-line import/no-unresolved
+import IconVimeo from 'MayflowerReactBase/Icon/IconVimeo';
 
 const SocialLinks = (socialLinks) => {
   const linkClasses = classNames({
