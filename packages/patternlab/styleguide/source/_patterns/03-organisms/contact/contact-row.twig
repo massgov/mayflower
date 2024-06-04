@@ -62,14 +62,13 @@
       {% endif %}
     </div>
 
-
+    {% if contactRow.image %}
     <div class="ma__contact-row__last">
-      {% block contactImage %}
-        {% if contactRow.image %}
-          {% set image = contactRow.image %}
-          {% include "@atoms/09-media/image.twig" %}
-        {% endif %}
-      {% endblock %}
+          {% block contactImage %}
+              {% set image = contactRow.image %}
+              {% include "@atoms/09-media/image.twig" %}
+          {% endblock %}
     </div>
+    {% endif %}
   </div>
 </section>
