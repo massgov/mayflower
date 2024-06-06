@@ -1,4 +1,5 @@
-export default (function (window, document, $) {
+// export default (function (window, document, $) {
+export default (function (window, document, $, undefined) {
   // Responsive table HTML structure
   // <div class="ma__table--responsive">
   //   <div class="ma__table--responsive__wrapper">
@@ -62,7 +63,7 @@ export default (function (window, document, $) {
         left: tableLeft,
         top: getAdditionalOffset(),
         opacity: 0,
-        height: theadHeight,
+        height: theadHeight
       });
       $stickyHeader[0].scrollLeft = 0;
     }
@@ -70,7 +71,7 @@ export default (function (window, document, $) {
     // Add class, remove margins, reset width and wrap table.
     $table.addClass("sticky-enabled").css({
       margin: 0,
-      width: "100%",
+      width: "100%"
     });
 
     // If we are not resetting, use the length as the index.
@@ -85,7 +86,7 @@ export default (function (window, document, $) {
       $stickyHeader: $stickyHeader,
       theadHeight: theadHeight,
       horizontalScrollable,
-      headerStuck: false,
+      headerStuck: false
     };
     // Set the widths of the header.
     setWidths(rt);
@@ -101,7 +102,6 @@ export default (function (window, document, $) {
     checkVisibility(rt);
 
     // Reset scroll since this may have changed the max scroll amount.
-    let tableTitleCount = $table.find(".ma__table__caption__content").length;
     let $scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
 
     if (rt.horizontalScrollable) {
@@ -116,20 +116,11 @@ export default (function (window, document, $) {
       let srInfo = captionId + " sr-instructions";
       $tableWrapper.attr("aria-labelledby", srInfo);
       $scrollInfo.addClass("show");
-
-      if ($(caption).hasClass("hide")) {
-        $(caption).removeClass("hide");
-      }
     }
 
-    // Hide caption if no table title when no overflow.
     // $scrollInfo is hardcoded in caption in the template. Don't remove caption.
     if (!rt.horizontalScrollable) {
       $tableWrapper.attr("tabindex", "-1");
-
-      if (tableTitleCount == 0) {
-        $table.find(".ma__table__caption").addClass("hide");
-      }
 
       if ($scrollInfo.hasClass("show")) {
         $scrollInfo.removeClass("show");
@@ -149,7 +140,7 @@ export default (function (window, document, $) {
     }
 
     // Add a scroll event listener to the scrollable div
-    $tableWrapper.on('scroll', handleScroll);
+    $tableWrapper.on("scroll", handleScroll);
   }
 
   // Certain other components that stick to the top of the page need to be accounted for.
@@ -175,35 +166,38 @@ export default (function (window, document, $) {
   // Based on the scroll position, decide whether or not to show or hide or scroll
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
-    const { index, $root, $table, $stickyHeader, headerStuck } = rt   
-    const $tableHeader = $table.find('thead');
-    console.log($tableHeader.offset().top);
-    const elementTop = $tableHeader.offset().top;
-    const tableBottom = elementTop + $table.height();
+    const { index, $table, $stickyHeader, headerStuck } = rt;
 
-    // Handle header visibility.
-    if ($stickyHeader) {
-      const stuckTop = $stickyHeader.offset().top;
-      const stuckBottom = stuckTop + $stickyHeader.height();
-      if (
-        !headerStuck &&
-        elementTop < stuckTop &&
-        tableBottom > stuckBottom
-      ) {
-        responsiveTables[index].headerStuck = true;
-        $stickyHeader.css("opacity", 1);
-        $stickyHeader.css("-webkit-box-shadow", "");
-        $stickyHeader.css("box-shadow", "");
-        $stickyHeader.css("pointer-events", "all");
-      } else if (
-        headerStuck &&
-        (elementTop > stuckTop || tableBottom < stuckBottom)
-      ) {
-        responsiveTables[index].headerStuck = false;
-        $stickyHeader.css("opacity", 0);
-        $stickyHeader.css("-webkit-box-shadow", "none");
-        $stickyHeader.css("box-shadow", "none");
-        $stickyHeader.css("pointer-events", "none");
+    if ($table.find("thead").length > 0) {
+      const $tableHeader = $table.find("thead");
+      console.log($tableHeader.offset().top);
+      const elementTop = $tableHeader.position().top;
+      const tableBottom = elementTop + $table.height();
+
+      // Handle header visibility.
+      if ($stickyHeader) {
+        const stuckTop = $stickyHeader.offset().top;
+        const stuckBottom = stuckTop + $stickyHeader.height();
+        if (
+          !headerStuck &&
+          elementTop < stuckTop &&
+          tableBottom > stuckBottom
+        ) {
+          responsiveTables[index].headerStuck = true;
+          $stickyHeader.css("opacity", 1);
+          $stickyHeader.css("-webkit-box-shadow", "");
+          $stickyHeader.css("box-shadow", "");
+          $stickyHeader.css("pointer-events", "all");
+        } else if (
+          headerStuck &&
+          (elementTop > stuckTop || tableBottom < stuckBottom)
+        ) {
+          responsiveTables[index].headerStuck = false;
+          $stickyHeader.css("opacity", 0);
+          $stickyHeader.css("-webkit-box-shadow", "none");
+          $stickyHeader.css("box-shadow", "none");
+          $stickyHeader.css("pointer-events", "none");
+        }
       }
     }
   }
@@ -233,7 +227,7 @@ export default (function (window, document, $) {
       // divided by the max amount that can be scrolled which is the scroll width minus the width.
       [
         "ma__table--responsive__wrapper",
-        "sticky-thead-wrapper",
+        "sticky-thead-wrapper"
       ].map((scrollable) => {
         if (t.className !== scrollable) {
           const elements = this.getElementsByClassName(scrollable);
