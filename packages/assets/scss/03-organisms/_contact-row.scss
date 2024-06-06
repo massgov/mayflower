@@ -39,9 +39,22 @@ $accordion-break: 720px;
   &__columns {
 
     @media (min-width: $accordion-break) {
-      column-count: 2; 
-      column-gap: 40px; 
-      column-rule: 1px solid $c-bd-divider;
+      // column-count: 2; 
+      // column-gap: 40px; 
+      // column-rule: 1px solid $c-bd-divider;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        background-color: $c-bd-divider;
+        transform: translateX(-50%);
+    }
 
 
       /* Prevent a single contact-set from breaking across columns */
