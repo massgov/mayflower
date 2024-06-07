@@ -1,5 +1,4 @@
-// export default (function (window, document, $) {
-export default (function (window, document, $, undefined) {
+export default (function (window, document, $) {
   // Responsive table HTML structure
   // <div class="ma__table--responsive">
   //   <div class="ma__table--responsive__wrapper">
@@ -35,8 +34,7 @@ export default (function (window, document, $, undefined) {
     const isNestedThead = $thead.closest("table table").length;
     const hasTh = $table.find("th").length;
     let $stickyHeader = null;
-    const $tableWrapper = $table.parent();
-    const horizontalScrollable = $table.width() > $tableWrapper.width();
+    const canScroll = $table.width() > $table.parent().width();
 
     // If the table has a thead with th elements, setup the sticky version.
     if (hasThead && hasTh && !isNestedThead) {
@@ -121,10 +119,6 @@ export default (function (window, document, $, undefined) {
     // $scrollInfo is hardcoded in caption in the template. Don't remove caption.
     if (!rt.horizontalScrollable) {
       $tableWrapper.attr("tabindex", "-1");
-
-      if ($scrollInfo.hasClass("show")) {
-        $scrollInfo.removeClass("show");
-      }
     }
 
       // Hide $scrollInfo when there's a scrolling and the default scrollbar is active (iOS Safari > 13 and Firefox)
@@ -176,27 +170,30 @@ export default (function (window, document, $, undefined) {
 
       // Handle header visibility.
       if ($stickyHeader) {
-        const stuckTop = $stickyHeader.offset().top;
-        const stuckBottom = stuckTop + $stickyHeader.height();
+        console.log("Bello!");
+        // console.log($stickyHeader.offset().);
+        // console.log("Banana!");
+        const stuckTop = rt.$stickyHeader.offset().top;
+        const stuckBottom = stuckTop + rt.$stickyHeader.height();
         if (
           !headerStuck &&
           elementTop < stuckTop &&
           tableBottom > stuckBottom
         ) {
           responsiveTables[index].headerStuck = true;
-          $stickyHeader.css("opacity", 1);
-          $stickyHeader.css("-webkit-box-shadow", "");
-          $stickyHeader.css("box-shadow", "");
-          $stickyHeader.css("pointer-events", "all");
+          rt.$stickyHeader.css("opacity", 1);
+          rt.$stickyHeader.css("-webkit-box-shadow", "");
+          rt.$stickyHeader.css("box-shadow", "");
+          rt.$stickyHeader.css("pointer-events", "all");
         } else if (
           headerStuck &&
           (elementTop > stuckTop || tableBottom < stuckBottom)
         ) {
           responsiveTables[index].headerStuck = false;
-          $stickyHeader.css("opacity", 0);
-          $stickyHeader.css("-webkit-box-shadow", "none");
-          $stickyHeader.css("box-shadow", "none");
-          $stickyHeader.css("pointer-events", "none");
+          rt.$stickyHeader.css("opacity", 0);
+          rt.$stickyHeader.css("-webkit-box-shadow", "none");
+          rt.$stickyHeader.css("box-shadow", "none");
+          rt.$stickyHeader.css("pointer-events", "none");
         }
       }
     }
