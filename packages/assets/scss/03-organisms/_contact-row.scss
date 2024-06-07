@@ -28,24 +28,19 @@ $accordion-break: 720px;
       column-gap: 40px;
       column-rule: 1px solid $c-bd-divider;
 
-
-      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-
-        .ma__contact-set {
-          overflow: hidden;
-        }
-      }
-
-
-      /* Prevent a single contact-set from breaking across columns */
       .ma__contact-set {
+        /* Prevent a single contact-set from breaking across columns */
         break-inside: avoid;
         will-change: transform;
-      }
 
-      /* Use break-before to control column breaks */
-      .ma__contact-set:nth-child(odd) {
-        break-before: column;
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+          overflow: hidden;
+        }
+
+        &:nth-child(odd) {
+          /* Use break-before to control column breaks */
+          break-before: column;
+        }
       }
     }
   }
