@@ -315,6 +315,8 @@
     background-color: $c-bg-subtle;
     z-index: $z-sticky-content;
 
+    box-shadow: $box-shadow;
+
     @media ($bp-header-toggle-max) {
        // Sticky toc is over the nav bar.
        $z-sticky-content: 101;
