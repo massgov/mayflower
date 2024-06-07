@@ -165,27 +165,27 @@ export default (function (window, document, $) {
         console.log("Bello!");
         // console.log($stickyHeader.offset().);
         // console.log("Banana!");
-        const stuckTop = rt.$stickyHeader.offset().top;
-        const stuckBottom = stuckTop + rt.$stickyHeader.height();
+        const stuckTop = $stickyHeader.offset().top;
+        const stuckBottom = stuckTop + $stickyHeader.height();
         if (
           !headerStuck &&
           elementTop < stuckTop &&
           tableBottom > stuckBottom
         ) {
           responsiveTables[index].headerStuck = true;
-          rt.$stickyHeader.css("opacity", 1);
-          rt.$stickyHeader.css("-webkit-box-shadow", "");
-          rt.$stickyHeader.css("box-shadow", "");
-          rt.$stickyHeader.css("pointer-events", "all");
+          $stickyHeader.css("opacity", 1);
+          $stickyHeader.css("-webkit-box-shadow", "");
+          $stickyHeader.css("box-shadow", "");
+          $stickyHeader.css("pointer-events", "all");
         } else if (
           headerStuck &&
           (elementTop > stuckTop || tableBottom < stuckBottom)
         ) {
           responsiveTables[index].headerStuck = false;
-          rt.$stickyHeader.css("opacity", 0);
-          rt.$stickyHeader.css("-webkit-box-shadow", "none");
-          rt.$stickyHeader.css("box-shadow", "none");
-          rt.$stickyHeader.css("pointer-events", "none");
+          $stickyHeader.css("opacity", 0);
+          $stickyHeader.css("-webkit-box-shadow", "none");
+          $stickyHeader.css("box-shadow", "none");
+          $stickyHeader.css("pointer-events", "none");
         }
       }
     }
