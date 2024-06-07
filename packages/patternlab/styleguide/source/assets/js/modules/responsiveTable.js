@@ -1,5 +1,4 @@
-// export default (function (window, document, $) {
-export default (function (window, document, $, undefined) {
+export default (function (window, document, $) {
   // Responsive table HTML structure
   // <div class="ma__table--responsive">
   //   <div class="ma__table--responsive__wrapper">
@@ -105,16 +104,8 @@ export default (function (window, document, $, undefined) {
     let $scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
 
     if (rt.horizontalScrollable) {
-      // const $tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
-      const caption = $tableWrapper.find("caption");
-      const captionId = $(caption).attr("id");
-
       $tableWrapper.attr("tabindex", "0");
-
-      // Table caption and screen reader instructions are separated.
-      // Caption is announced first, then the instrucions follow.
-      let srInfo = captionId + " sr-instructions";
-      $tableWrapper.attr("aria-labelledby", srInfo);
+      $tableWrapper.attr("aria-labelledby", "sr-instructions");
       $scrollInfo.addClass("show");
     }
 
