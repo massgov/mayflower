@@ -67,11 +67,11 @@
   &__link {
 
     a:hover {
-      border-bottom-color: rgba($c-primary, .5);
+      border-bottom-color: $c-link;
     }
 
     svg {
-      fill: rgba($c-primary, .5);
+      fill: $c-font-link;
     }
   }
 }

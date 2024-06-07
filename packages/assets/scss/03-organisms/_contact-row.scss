@@ -6,66 +6,40 @@ $accordion-break: 720px;
 .ma__contact-row {
   position: relative;
 
-  @include ma-container();
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
 
-  .ma__comp-heading {
-    width: 100%;
-  }
-
-  &__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  &__first, &__second {
-    flex-basis: 100%;
-    order: 2;
+    @include ma-container();
   }
 
   @media ($bp-large-min) {
 
-    &__first {
-      flex-basis: 70%;
-      order: 0;
-    }
-
-    &__second {
-      flex-basis: 30%;
-      order: 0;
+    .ma__comp-heading,
+    .ma__contact-row__columns {
+      width: calc(100% - 300px);
     }
   }
 
-  &__columns {
+  .ma__contact-row__columns {
 
     @media (min-width: $accordion-break) {
-      column-count: 2; 
-      // column-gap: 40px; 
-      // column-rule: 1px solid $c-bd-divider;
-      // display: grid;
-      // grid-template-columns: 1fr 1fr;
-
-    //   &::before {
-    //     content: '';
-    //     position: absolute;
-    //     top: 0;
-    //     bottom: 0;
-    //     left: 50%;
-    //     width: 1px;
-    //     background-color: $c-bd-divider;
-    //     transform: translateX(-50%);
-    // }
+      column-count: 2;
+      column-gap: 40px;
+      column-rule: 1px solid $c-bd-divider;
 
 
-      /* Prevent a single contact-set from breaking across columns */
-      .ma__contact-set {
-        break-inside: avoid; 
-        display: inline-block;
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+        .ma__contact-set {
+          overflow: hidden;
+        }
       }
 
-      /* Use break-before to control column breaks */
-      .ma__contact-set:nth-child(odd) {
-        break-before: column;
+
+      .ma__contact-group {
+        break-inside: avoid;
+        will-change: transform;
       }
     }
   }
@@ -85,5 +59,90 @@ $accordion-break: 720px;
       top: 0;
       right: 30px;
     }
+  }
+
+  .ma__contact-row__more-info {
+    margin-top: 40px;
+  }
+
+  .ma__contact-row__expand {
+    display: none;
+  }
+
+  // Accordion behavior for mobile
+
+  @media (max-width: $accordion-break) {
+
+    .ma__contact-row__columns.has-many  .ma__contact-set:nth-child(n+3) {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding: 0;
+      transition: all 350ms ease-in-out;
+    }
+
+
+      .ma__contact-row__columns.is-open .ma__contact-set:nth-child(n+3) {
+        max-height: 100vh; //arbitrarily large max height for contact groups to avoid clipping
+        opacity: 1;
+        padding-top: 20px;
+      }
+
+      // button text
+
+      .ma__contact-row__expand {
+
+        &.toggle-sets {
+          display: inline;
+
+          button {
+
+            @include ma-button-reset;
+
+            @include ma-link-underline;
+
+            @include ma-chevron;
+            font-size: $fonts-medium;
+            font-weight: $fonts-bold;
+            color: $c-font-link;
+            padding-right: 10px;
+
+            &:hover {
+              border-bottom-color: $c-link;
+            }
+
+            span:first-child {
+              display: inline;
+            }
+
+            span:nth-child(2) {
+              display: none;
+            }
+
+            &:after {
+              transform: translateY(-45%) rotate(45deg);
+              border-color: $c-link;
+            }
+          }
+        }
+
+        &.is-open {
+
+          button {
+
+            span:first-child {
+              display: none;
+            }
+
+            span:nth-child(2) {
+              display: inline;
+            }
+
+            &:after {
+              transform: translateY(-45%) rotate(-135deg);
+            }
+          }
+        }
+      }
   }
 }

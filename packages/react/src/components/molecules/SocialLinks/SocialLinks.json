@@ -15,5 +15,9 @@
     "altText": "Follow us on Youtube",
     "href": "#",
     "linkType": "youtube"
+  },{
+    "altText": "Follow us on Vimeo",
+    "href": "#",
+    "linkType": "vimeo"
   }]
 }
