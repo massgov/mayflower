@@ -37,10 +37,14 @@ $accordion-break: 720px;
           overflow: hidden;
         }
 
-        &:nth-child(odd) {
-          /* Use break-before to control column breaks */
-          break-before: column;
-        }
+        // &:nth-child(even) {
+        //   /* Use break-before to control column breaks */
+        //   break-before: column;
+        // }
+      }
+
+      &:has(.ma__contact-set:nth-child(2)) {
+        column-count: 2;
       }
     }
   }
