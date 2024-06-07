@@ -37,9 +37,15 @@ $accordion-break: 720px;
       }
 
 
-      .ma__contact-group {
+      /* Prevent a single contact-set from breaking across columns */
+      .ma__contact-set {
         break-inside: avoid;
         will-change: transform;
+      }
+
+      /* Use break-before to control column breaks */
+      .ma__contact-set:nth-child(odd) {
+        break-before: column;
       }
     }
   }
