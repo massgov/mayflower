@@ -5,9 +5,7 @@
 {% endif %}
 <table class="ma__table {{ tableWideClass }}">
 {% if table.description %}
-  <caption class="ma__table__caption">
-    <span class="ma__table__caption__content">{{ table.description }}</span>
-  </caption>
+  <caption class="ma__table__caption">{{ table.description }}</caption>
 {% endif %}
   <thead>
     {% for row in table.head.rows %}
