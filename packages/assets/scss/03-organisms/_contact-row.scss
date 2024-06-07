@@ -37,12 +37,9 @@ $accordion-break: 720px;
           overflow: hidden;
         }
 
-        // &:nth-child(even) {
-        //   /* Use break-before to control column breaks */
-        //   break-before: column;
-        // }
       }
 
+      /* Force two columns for 2 and more items (backstop) */
       &:has(.ma__contact-set:nth-child(2)) {
         column-count: 2;
       }
