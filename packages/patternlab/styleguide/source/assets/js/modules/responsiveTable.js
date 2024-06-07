@@ -164,34 +164,37 @@ export default (function (window, document, $) {
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
     const { index, $root, $table, $stickyHeader, headerStuck } = rt
-    const $tableHeader = $table.find('thead');
-    console.log($tableHeader.offset().top);
-    const elementTop = $tableHeader.offset().top;
-    const tableBottom = elementTop + $table.height();
 
-    // Handle header visibility.
-    if ($stickyHeader) {
-      const stuckTop = $stickyHeader.offset().top;
-      const stuckBottom = stuckTop + $stickyHeader.height();
-      if (
-        !headerStuck &&
-        elementTop < stuckTop &&
-        tableBottom > stuckBottom
-      ) {
-        responsiveTables[index].headerStuck = true;
-        $stickyHeader.css("opacity", 1);
-        $stickyHeader.css("-webkit-box-shadow", "");
-        $stickyHeader.css("box-shadow", "");
-        $stickyHeader.css("pointer-events", "all");
-      } else if (
-        headerStuck &&
-        (elementTop > stuckTop || tableBottom < stuckBottom)
-      ) {
-        responsiveTables[index].headerStuck = false;
-        $stickyHeader.css("opacity", 0);
-        $stickyHeader.css("-webkit-box-shadow", "none");
-        $stickyHeader.css("box-shadow", "none");
-        $stickyHeader.css("pointer-events", "none");
+    if ($table.find("thead").length > 0) {
+      const $tableHeader = $table.find('thead');
+      console.log($tableHeader.offset().top);
+      const elementTop = $tableHeader.offset().top;
+      const tableBottom = elementTop + $table.height();
+
+      // Handle header visibility.
+      if ($stickyHeader) {
+        const stuckTop = $stickyHeader.offset().top;
+        const stuckBottom = stuckTop + $stickyHeader.height();
+        if (
+          !headerStuck &&
+          elementTop < stuckTop &&
+          tableBottom > stuckBottom
+        ) {
+          responsiveTables[index].headerStuck = true;
+          $stickyHeader.css("opacity", 1);
+          $stickyHeader.css("-webkit-box-shadow", "");
+          $stickyHeader.css("box-shadow", "");
+          $stickyHeader.css("pointer-events", "all");
+        } else if (
+          headerStuck &&
+          (elementTop > stuckTop || tableBottom < stuckBottom)
+        ) {
+          responsiveTables[index].headerStuck = false;
+          $stickyHeader.css("opacity", 0);
+          $stickyHeader.css("-webkit-box-shadow", "none");
+          $stickyHeader.css("box-shadow", "none");
+          $stickyHeader.css("pointer-events", "none");
+        }
       }
     }
   }
