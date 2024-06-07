@@ -105,21 +105,9 @@ export default (function (window, document, $) {
     let $scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
 
     if (rt.horizontalScrollable) {
-      // const $tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
-      const caption = $tableWrapper.find("caption");
-      const captionId = $(caption).attr("id");
-
       $tableWrapper.attr("tabindex", "0");
-
-      // Table caption and screen reader instructions are separated.
-      // Caption is announced first, then the instrucions follow.
-      let srInfo = captionId + " sr-instructions";
-      $tableWrapper.attr("aria-labelledby", srInfo);
+      $tableWrapper.attr("aria-labelledby", "sr-instructions");
       $scrollInfo.addClass("show");
-
-      if ($(caption).hasClass("hide")) {
-        $(caption).removeClass("hide");
-      }
     }
 
     // Hide caption if no table title when no overflow.
@@ -175,7 +163,7 @@ export default (function (window, document, $) {
   // Based on the scroll position, decide whether or not to show or hide or scroll
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
-    const { index, $root, $table, $stickyHeader, headerStuck } = rt   
+    const { index, $root, $table, $stickyHeader, headerStuck } = rt
     const $tableHeader = $table.find('thead');
     console.log($tableHeader.offset().top);
     const elementTop = $tableHeader.offset().top;
