@@ -40,6 +40,7 @@ $accordion-break: 720px;
       }
 
       /* Force two columns for 2 and more items (backstop) */
+
       &:has(.ma__contact-set:nth-child(2)) {
         column-count: 2;
       }
