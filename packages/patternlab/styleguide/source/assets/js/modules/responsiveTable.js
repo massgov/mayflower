@@ -170,7 +170,6 @@ export default (function (window, document, $) {
 
     if ($table.find("thead").length > 0) {
       const $tableHeader = $table.find('thead');
-      console.log($tableHeader.offset().top);
       const elementTop = $tableHeader.offset().top;
       const tableBottom = elementTop + $table.height();
 
@@ -179,8 +178,6 @@ export default (function (window, document, $) {
         const scrollInfoLeft = $scrollInfo.offset().left;
         const stuckTop = $stickyHeader.offset().top;
         const stuckBottom = stuckTop + $stickyHeader.height();
-        console.log($scrollInfoText)
-        console.log(scrollInfoLeft)
         if (
           !headerStuck &&
           elementTop < stuckTop &&
