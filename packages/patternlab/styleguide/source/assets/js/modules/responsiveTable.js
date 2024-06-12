@@ -167,11 +167,12 @@ export default (function (window, document, $) {
   function checkVisibility(rt) {
     const { index, $table, $stickyHeader, headerStuck, $scrollInfo } = rt;
     const $scrollInfoText = $scrollInfo.find('.ma__table__caption__scroll-info-text');
+    const tableBottomOffset = $scrollInfo.hasClass('show') ? $scrollInfoText.width() : 0;
 
     if ($table.find("thead").length > 0) {
       const $tableHeader = $table.find('thead');
       const elementTop = $tableHeader.offset().top;
-      const tableBottom = elementTop + $table.height();
+      const tableBottom = elementTop + $table.height() - tableBottomOffset;
 
       // Handle header visibility.
       if ($stickyHeader) {
