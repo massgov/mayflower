@@ -41,8 +41,7 @@
 
     &-text {
       position: absolute;
-      top: 50%;//50%;
-      left: 75%;//75%;
+      top: 200px;
       transform: rotate(90deg);
       transform-origin: 45px 13px; // left center of the text
       width: max-content;

@@ -176,12 +176,11 @@ export default (function (window, document, $) {
 
       // Handle header visibility.
       if ($stickyHeader) {
-        const headerHeight = $stickyHeader.height();
-        const headerWidth = $stickyHeader.width();
+        const scrollInfoLeft = $scrollInfo.offset().left;
         const stuckTop = $stickyHeader.offset().top;
         const stuckBottom = stuckTop + $stickyHeader.height();
         console.log($scrollInfoText)
-        console.log(headerHeight, headerWidth)
+        console.log(scrollInfoLeft)
         if (
           !headerStuck &&
           elementTop < stuckTop &&
@@ -193,8 +192,7 @@ export default (function (window, document, $) {
           $stickyHeader.css("box-shadow", "");
           $stickyHeader.css("pointer-events", "all");
           $scrollInfoText.css("position", "fixed");
-          $scrollInfoText.css("top", headerHeight); // sticky header bottom
-          $scrollInfoText.css("left", headerWidth); // sticky header width
+          $scrollInfoText.css("left", scrollInfoLeft); // sticky header width
         } else if (
           headerStuck &&
           (elementTop > stuckTop || tableBottom < stuckBottom)
@@ -205,8 +203,7 @@ export default (function (window, document, $) {
           $stickyHeader.css("box-shadow", "none");
           $stickyHeader.css("pointer-events", "none");
           $scrollInfoText.css("position", "absolute");
-          $scrollInfoText.css("top", '50%');
-          $scrollInfoText.css("left", '75%'); 
+          $scrollInfoText.css("left", 0);
         }
       }
     }
