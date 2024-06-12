@@ -36,6 +36,7 @@ export default (function (window, document, $) {
     let $stickyHeader = null;
     const $tableWrapper = $table.parent();
     const horizontalScrollable = $table.width() > $tableWrapper.width();
+    let $scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
 
     // If the table has a thead with th elements, setup the sticky version.
     if (hasThead && hasTh && !isNestedThead) {
@@ -79,13 +80,14 @@ export default (function (window, document, $) {
     }
 
     let rt = {
-      index: index,
+      index,
       $root: $element,
-      $table: $table,
-      $stickyHeader: $stickyHeader,
-      theadHeight: theadHeight,
+      $table,
+      $stickyHeader,
+      theadHeight,
       horizontalScrollable,
       headerStuck: false,
+      $scrollInfo
     };
     // Set the widths of the header.
     setWidths(rt);
@@ -102,7 +104,7 @@ export default (function (window, document, $) {
 
     // Reset scroll since this may have changed the max scroll amount.
     let tableTitleCount = $table.find(".ma__table__caption__content").length;
-    let $scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
+
 
     if (rt.horizontalScrollable) {
       $tableWrapper.attr("tabindex", "0");
@@ -163,7 +165,8 @@ export default (function (window, document, $) {
   // Based on the scroll position, decide whether or not to show or hide or scroll
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
-    const { index, $root, $table, $stickyHeader, headerStuck } = rt
+    const { index, $table, $stickyHeader, headerStuck, $scrollInfo } = rt;
+    const $scrollInfoText = $scrollInfo.find('.ma__table__caption__scroll-info-text');
 
     if ($table.find("thead").length > 0) {
       const $tableHeader = $table.find('thead');
@@ -173,8 +176,12 @@ export default (function (window, document, $) {
 
       // Handle header visibility.
       if ($stickyHeader) {
+        const headerHeight = $stickyHeader.height();
+        const headerWidth = $stickyHeader.width();
         const stuckTop = $stickyHeader.offset().top;
         const stuckBottom = stuckTop + $stickyHeader.height();
+        console.log($scrollInfoText)
+        console.log(headerHeight, headerWidth)
         if (
           !headerStuck &&
           elementTop < stuckTop &&
@@ -185,6 +192,9 @@ export default (function (window, document, $) {
           $stickyHeader.css("-webkit-box-shadow", "");
           $stickyHeader.css("box-shadow", "");
           $stickyHeader.css("pointer-events", "all");
+          $scrollInfoText.css("position", "fixed");
+          $scrollInfoText.css("top", headerHeight); // sticky header bottom
+          $scrollInfoText.css("left", headerWidth); // sticky header width
         } else if (
           headerStuck &&
           (elementTop > stuckTop || tableBottom < stuckBottom)
@@ -194,6 +204,9 @@ export default (function (window, document, $) {
           $stickyHeader.css("-webkit-box-shadow", "none");
           $stickyHeader.css("box-shadow", "none");
           $stickyHeader.css("pointer-events", "none");
+          $scrollInfoText.css("position", "absolute");
+          $scrollInfoText.css("top", '50%');
+          $scrollInfoText.css("left", '75%'); 
         }
       }
     }

@@ -41,9 +41,10 @@
 
     &-text {
       position: absolute;
-      top: 50%;
-      left: 75%;
-      transform: translate(-50%) rotate(90deg);
+      top: 50%;//50%;
+      left: 75%;//75%;
+      transform: rotate(90deg);
+      transform-origin: 45px 13px; // left center of the text
       width: max-content;
       color: $c-font-link;
       font-size: $fonts-small;
