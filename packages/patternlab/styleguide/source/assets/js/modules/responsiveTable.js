@@ -61,7 +61,7 @@ export default (function (window, document, $) {
         "pointer-events": "none",
         position: "fixed",
         left: tableLeft,
-        top: getAdditionalOffset(),
+        top: getAdditionalOffset() + "px",
         opacity: 0,
         height: theadHeight,
       });
@@ -159,7 +159,7 @@ export default (function (window, document, $) {
         additionalOffset += 70;
       }
     }
-    return additionalOffset > 0 ? additionalOffset + "px" : 0;
+    return additionalOffset > 0 ? additionalOffset : 0;
   }
 
   // Based on the scroll position, decide whether or not to show or hide or scroll
@@ -172,10 +172,9 @@ export default (function (window, document, $) {
       const scrollInfoLeft = $scrollInfo.offset().left;
       const stuckTop = $stickyHeader.offset().top;
       const stuckBottom = stuckTop + $stickyHeader.height();
-      console.log(tableBottom, stuckTop, stuckBottom)
 
       const $scrollInfoText = $scrollInfo.find('.ma__table__caption__scroll-info-text');
-      const tableBottomOffset = $scrollInfo.hasClass('show') ? $scrollInfoText.width() - 60 : 0;
+      const tableBottomOffset = $scrollInfo.hasClass('show') ? $scrollInfoText.width() - getAdditionalOffset() : 0;
 
       const $tableHeader = $table.find('thead');
       const elementTop = $tableHeader.offset().top;
@@ -193,6 +192,7 @@ export default (function (window, document, $) {
         $stickyHeader.css("pointer-events", "all");
         $scrollInfoText.css("position", "fixed");
         $scrollInfoText.css("left", scrollInfoLeft); // position the scroll info text horizontally in relation to the scroll info container
+        $scrollInfoText.css("top", (getAdditionalOffset() + 40) + "px"); // add offset top when there's another sticky element
       } else if (
         headerStuck &&
         (elementTop > stuckTop || tableBottom < stuckBottom)
@@ -204,6 +204,7 @@ export default (function (window, document, $) {
         $stickyHeader.css("pointer-events", "none");
         $scrollInfoText.css("position", "absolute");
         $scrollInfoText.css("left", 0);
+        $scrollInfoText.css("top", "60px"); // reset to match css
       }
     }
   }
