@@ -192,9 +192,7 @@ export default (function (window, document, $) {
         $stickyHeader.css("pointer-events", "all");
         $scrollInfoText.css("position", "fixed");
         $scrollInfoText.css("left", scrollInfoLeft); // position the scroll info text horizontally in relation to the scroll info container
-        $scrollInfoText.css("top", (getAdditionalOffset() + 40) + "px"); // add offset top when there's another sticky elemen
-        console.log((getAdditionalOffset() + 40) + "px")
-        console.log(tableBottom, stuckBottom)
+        $scrollInfoText.css("top", (getAdditionalOffset() + 40) + "px"); // add offset top when there's another sticky element
       } else if (
         headerStuck &&
         (elementTop > stuckTop || tableBottom < stuckBottom)
@@ -206,7 +204,7 @@ export default (function (window, document, $) {
         $stickyHeader.css("pointer-events", "none");
         $scrollInfoText.css("position", "absolute");
         $scrollInfoText.css("left", 0);
-        $scrollInfoText.css("top", "60px"); // reset to match initial state defined in css
+        $scrollInfoText.css("top", "60px"); // reset to match css
       }
     }
   }
