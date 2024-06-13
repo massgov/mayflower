@@ -190,7 +190,7 @@ export default (function (window, document, $) {
           $stickyHeader.css("box-shadow", "");
           $stickyHeader.css("pointer-events", "all");
           $scrollInfoText.css("position", "fixed");
-          $scrollInfoText.css("left", scrollInfoLeft); // sticky header width
+          $scrollInfoText.css("left", scrollInfoLeft); // position the scroll info text horizontally in relation to the scroll info container
         } else if (
           headerStuck &&
           (elementTop > stuckTop || tableBottom < stuckBottom)
