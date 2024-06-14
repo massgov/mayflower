@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Assets
+    description: Hamburger Menu Mobile Link Styles inconsistency. (#1888)
+    issue: DP-17338
+    impact: Patch
