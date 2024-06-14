@@ -1,0 +1,6 @@
+Changed:
+  - project: Docs
+    component: Docs
+    description: Onboarding documentation improvements. (#1626)
+    issue: DP-24730
+    impact: Patch

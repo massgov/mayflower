@@ -20,6 +20,12 @@ Please follow the steps in [Contributing docs](.github/CONTRIBUTING.md) to set u
 
 Element base accessibility resource. It can be used while coding or after coding to check your markup for accessibility.
 
+## Testing
+
+### Visual regression testing
+
+See [separate documentation](docs/visual-regression.md).
+
 ## Deployment
 
 ### Developer Deployment
