@@ -65,7 +65,8 @@
   &__file-link {
 
     @include ma-link-underline;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
+
     margin-right: .2em;
   }
 
@@ -91,14 +92,16 @@
 .ma__download-link {
 
   &__icon {
-    fill: rgba($c-font-link,.7);
+    fill: $c-font-link;
   }
 
   &__file-link {
 
-    &:hover {
-      border-bottom-color: $c-bay-blue-lighter;
-    }
+    // Override normal state
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    border-bottom-color: $c-link;
   }
 
   &__file-spec {

@@ -18,6 +18,8 @@ import IconLinkedin from 'MayflowerReactBase/Icon/IconLinkedin';
 import IconYoutube from 'MayflowerReactBase/Icon/IconYoutube';
 // eslint-disable-next-line import/no-unresolved
 import IconInstagram from 'MayflowerReactBase/Icon/IconInstagram';
+// eslint-disable-next-line import/no-unresolved
+import IconVimeo from 'MayflowerReactBase/Icon/IconVimeo';
 
 const SocialLinks = (socialLinks) => {
   const linkClasses = classNames({
@@ -47,7 +49,8 @@ const SocialLink = (socialLink) => {
     twitter: IconTwitter,
     linkedin: IconLinkedin,
     youtube: IconYoutube,
-    instagram: IconInstagram
+    instagram: IconInstagram,
+    vimeo: IconVimeo
   };
   const IconComponent = socialLink.linkType ? icons[socialLink.linkType] : null;
 
@@ -69,7 +72,7 @@ SocialLink.propTypes = {
   /** The URL for the link */
   href: PropTypes.string.isRequired,
   /** The type of social link and the icon name */
-  linkType: PropTypes.oneOf(['facebook', 'twitter', 'linkedin', 'youtube', 'instagram']).isRequired,
+  linkType: PropTypes.oneOf(['facebook', 'twitter', 'linkedin', 'youtube', 'instagram', 'vimeo']).isRequired,
   /** Alt text for accessibility */
   altText: PropTypes.string.isRequired
 };

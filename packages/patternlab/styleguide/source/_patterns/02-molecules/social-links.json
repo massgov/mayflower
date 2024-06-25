@@ -23,6 +23,11 @@
       "href": "#",
       "icon": "youtube",
       "linkType": "youtube"
+    },{
+      "altText": "Follow us on Vimeo",
+      "href": "#",
+      "icon": "vimeo",
+      "linkType": "vimeo"
     }]
   }
 }
