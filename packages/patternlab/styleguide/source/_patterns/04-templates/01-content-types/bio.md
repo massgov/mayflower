@@ -52,4 +52,8 @@ teaserListing: {
     }
   }
 }
+
+patternLanguage: {
+  type: patternLanguage / optional
+}
 ~~~

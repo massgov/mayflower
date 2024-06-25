@@ -25,6 +25,11 @@
       {
         "text": "Formularios e información en español",
         "url": "/"
-      }]
+      }],
+    "language": {
+      "lang": "en",
+      "dir": "ltr",
+      "translate": "no"
+    }
   }
 }

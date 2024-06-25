@@ -3,6 +3,11 @@
     "bgTheme": "dark",
     "bgColor": "c-primary-alt",
     "hasSeal": true,
-    "hasToggle": true
+    "hasToggle": true,
+    "language": {
+      "lang": "en",
+      "dir": "ltr",
+      "translate": "no"
+    }
   }
 }

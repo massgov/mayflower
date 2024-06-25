@@ -61,4 +61,8 @@ form: {
     }]
   }]
 }
+
+patternLanguage: {
+  type: object / optional
+}
 ~~~

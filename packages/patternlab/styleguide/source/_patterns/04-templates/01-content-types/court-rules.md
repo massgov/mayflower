@@ -68,4 +68,8 @@ sideContent: {
     type: eventListing / optional
   }
 }
+
+patternLanguage: {
+  type: patternLanguage / optional
+}
 ~~~

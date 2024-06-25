@@ -18,4 +18,7 @@ bannerCredit: {
   bgTheme (default: 'light'):
     options: '', 'light', 'dark' 
 }
+
+patternLanguage:
+  type: object
 ~~~

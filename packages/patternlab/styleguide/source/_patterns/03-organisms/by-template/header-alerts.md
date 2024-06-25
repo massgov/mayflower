@@ -15,4 +15,8 @@ This is a group of page level alert messages.
 headerAlerts: [{
   type: array of headerAlert / required
 }]
+
+patternLangauge: {
+  type: object of patternLanguage / optional
+}
 ~~~
