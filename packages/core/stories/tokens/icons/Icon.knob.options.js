@@ -34,6 +34,7 @@ export const assets = {
   setting: 'setting',
   threads: 'threads',
   twitter: 'twitter',
+  vimeo: 'vimeo',
   wheelchair: 'wheelchair',
   xlxs: 'xlxs',
   docx: 'docx',
