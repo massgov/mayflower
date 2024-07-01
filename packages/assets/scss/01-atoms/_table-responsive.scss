@@ -4,15 +4,70 @@
   position: relative;
   margin-bottom: 1em;
 
+  /* 
+    Default Scrollbars
+    For WebKit (Chrome, Safari, Opera) 
+    Note: These selectors dont' work with Firefox or IOS Safari 
+  */
+
+  ::-webkit-scrollbar {
+    height: 12px; /* Width of the scrollbar for scrollbar x*/
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fff; 
+    border: 2px solid #8AAAC7;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #8AAAC7;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #14558F;
+  }
+
   .ma__table__caption__scroll-info {
-    display: none;
-    font-size: $fonts-medium;
-    font-weight: $fonts-normal;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: -50px;
+    width: 50px;
+    height: 100%;
+    background-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.5), #fff, #fff);
+    font-weight: $fonts-bold;
+    transition: right 0.3s, opacity 0.1s;
+    z-index: calc(#{$z-sticky-header} + 1); //overlay sticky table header
+
+    &-text {
+      position: absolute;
+      top: 60px;
+      transform: rotate(90deg);
+      transform-origin: 45px 13px; // left center of the text
+      transition: position 0.3s;
+      width: max-content;
+      color: $c-font-link;
+      font-size: $fonts-small;
+      font-weight: $fonts-bold;
+      display: flex;
+      align-items: center;
+
+      svg {
+        fill: $c-font-link;
+        width: 18px;
+        height: 15px;
+        margin: 0 1rem;
+        transform: rotate(-90deg);
+      }
+    }
 
     &.show {
-      display: inline-block;
+      opacity: 1;
+      right: -2px;
     }
   }
+
+
 
   #sr-instructions {
     // Ensure the content is announced via aria-labelledby only.
@@ -47,7 +102,7 @@
     transition: all 0.04s ease-in-out;
     // Prevent table from stretching to full size.
     width: auto;
-    z-index: 50;
+    z-index: $z-sticky-header;
 
     &:before {
         background: $c-bg;
@@ -87,7 +142,6 @@
 .ma__table--responsive.has-top-visible .sticky-thead {
     // Force stretch.
     width: 100%;
-    z-index: 50;
 }
 
 .ma__table--responsive td,

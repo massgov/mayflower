@@ -34,7 +34,9 @@ export default (function (window, document, $) {
     const isNestedThead = $thead.closest("table table").length;
     const hasTh = $table.find("th").length;
     let $stickyHeader = null;
-    const canScroll = $table.width() > $table.parent().width();
+    const $tableWrapper = $table.parent();
+    const horizontalScrollable = $table.width() > $tableWrapper.width();
+    let $scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
 
     // If the table has a thead with th elements, setup the sticky version.
     if (hasThead && hasTh && !isNestedThead) {
@@ -59,9 +61,8 @@ export default (function (window, document, $) {
         "pointer-events": "none",
         position: "fixed",
         left: tableLeft,
-        top: getAdditionalOffset(),
+        top: getAdditionalOffset() + "px",
         opacity: 0,
-        "z-index": 50,
         height: theadHeight,
       });
       $stickyHeader[0].scrollLeft = 0;
@@ -79,13 +80,14 @@ export default (function (window, document, $) {
     }
 
     let rt = {
-      index: index,
+      index,
       $root: $element,
-      $table: $table,
-      $stickyHeader: $stickyHeader,
-      theadHeight: theadHeight,
-      canScroll,
+      $table,
+      $stickyHeader,
+      theadHeight,
+      horizontalScrollable,
       headerStuck: false,
+      $scrollInfo
     };
     // Set the widths of the header.
     setWidths(rt);
@@ -101,43 +103,43 @@ export default (function (window, document, $) {
     checkVisibility(rt);
 
     // Reset scroll since this may have changed the max scroll amount.
-    let tableWrapper = element.getElementsByClassName(
-      "ma__table--responsive__wrapper"
-    )[0];
     let tableTitleCount = $table.find(".ma__table__caption__content").length;
-    let scrollInfo = $table.find(".ma__table__caption__scroll-info");
 
-    if (rt.canScroll) {
-      // const tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
-      const caption = $(tableWrapper).find("caption");
-      const captionId = $(caption).attr("id");
 
-      $(tableWrapper).attr("tabindex", "0");
-
-      // Table caption and screen reader instructions are separated.
-      // Caption is announced first, then the instrucions follow.
-      let srInfo = captionId + " sr-instructions";
-      $(tableWrapper).attr("aria-labelledby", srInfo);
-      $(scrollInfo).addClass("show");
-
-      if ($(caption).hasClass("hide")) {
-        $(caption).removeClass("hide");
-      }
+    if (rt.horizontalScrollable) {
+      $tableWrapper.attr("tabindex", "0");
+      $tableWrapper.attr("aria-labelledby", "sr-instructions");
+      $scrollInfo.addClass("show");
     }
 
     // Hide caption if no table title when no overflow.
-    // scrollInfo is hardcoded in caption in the template. Don't remove caption.
-    if (!rt.canScroll) {
-      $(tableWrapper).attr("tabindex", "-1");
+    // $scrollInfo is hardcoded in caption in the template. Don't remove caption.
+    if (!rt.horizontalScrollable) {
+      $tableWrapper.attr("tabindex", "-1");
 
       if (tableTitleCount == 0) {
         $table.find(".ma__table__caption").addClass("hide");
       }
 
-      if ($(scrollInfo).hasClass("show")) {
-        $(scrollInfo).removeClass("show");
+      if ($scrollInfo.hasClass("show")) {
+        $scrollInfo.removeClass("show");
       }
     }
+
+      // Hide $scrollInfo when there's a scrolling and the default scrollbar is active (iOS Safari > 13 and Firefox)
+      // Function to handle the scroll event
+      function handleScroll() {
+        // Check if the div is scrolled horizontally
+        if ($tableWrapper.scrollLeft() > 0) {
+            // Hide the element when the div is scrolled horizontally
+            $scrollInfo.removeClass("show");
+        } else {
+          $scrollInfo.addClass("show");
+        }
+    }
+
+    // Add a scroll event listener to the scrollable div
+    $tableWrapper.on('scroll', handleScroll);
   }
 
   // Certain other components that stick to the top of the page need to be accounted for.
@@ -157,38 +159,52 @@ export default (function (window, document, $) {
         additionalOffset += 70;
       }
     }
-    return additionalOffset > 0 ? additionalOffset + "px" : 0;
+    return additionalOffset > 0 ? additionalOffset : 0;
   }
 
   // Based on the scroll position, decide whether or not to show or hide or scroll
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
-    const elementTop = rt.$root.offset().top;
-    const tableBottom = elementTop + rt.$table.height();
+    const { index, $table, $stickyHeader, headerStuck, $scrollInfo } = rt;
 
-    // Handle header visibility.
-    if (rt.$stickyHeader) {
-      const stuckTop = rt.$stickyHeader.offset().top;
-      const stuckBottom = stuckTop + rt.$stickyHeader.height();
+      // Handle header visibility.
+    if ($stickyHeader && $table.find("thead").length > 0) {
+      const scrollInfoLeft = $scrollInfo.offset().left;
+      const stuckTop = $stickyHeader.offset().top;
+      const stuckBottom = stuckTop + $stickyHeader.height();
+
+      const $scrollInfoText = $scrollInfo.find('.ma__table__caption__scroll-info-text');
+      const tableBottomOffset = $scrollInfo.hasClass('show') ? $scrollInfoText.width() - getAdditionalOffset() : 0;
+
+      const $tableHeader = $table.find('thead');
+      const elementTop = $tableHeader.offset().top;
+      const tableBottom = elementTop + $table.height() - tableBottomOffset;
+
       if (
-        !rt.headerStuck &&
+        !headerStuck &&
         elementTop < stuckTop &&
         tableBottom > stuckBottom
       ) {
-        responsiveTables[rt.index].headerStuck = true;
-        rt.$stickyHeader.css("opacity", 1);
-        rt.$stickyHeader.css("-webkit-box-shadow", "");
-        rt.$stickyHeader.css("box-shadow", "");
-        rt.$stickyHeader.css("pointer-events", "all");
+        responsiveTables[index].headerStuck = true;
+        $stickyHeader.css("opacity", 1);
+        $stickyHeader.css("-webkit-box-shadow", "");
+        $stickyHeader.css("box-shadow", "");
+        $stickyHeader.css("pointer-events", "all");
+        $scrollInfoText.css("position", "fixed");
+        $scrollInfoText.css("left", scrollInfoLeft); // position the scroll info text horizontally in relation to the scroll info container
+        $scrollInfoText.css("top", (getAdditionalOffset() + 40) + "px"); // add offset top when there's another sticky element
       } else if (
-        rt.headerStuck &&
+        headerStuck &&
         (elementTop > stuckTop || tableBottom < stuckBottom)
       ) {
-        responsiveTables[rt.index].headerStuck = false;
-        rt.$stickyHeader.css("opacity", 0);
-        rt.$stickyHeader.css("-webkit-box-shadow", "none");
-        rt.$stickyHeader.css("box-shadow", "none");
-        rt.$stickyHeader.css("pointer-events", "none");
+        responsiveTables[index].headerStuck = false;
+        $stickyHeader.css("opacity", 0);
+        $stickyHeader.css("-webkit-box-shadow", "none");
+        $stickyHeader.css("box-shadow", "none");
+        $stickyHeader.css("pointer-events", "none");
+        $scrollInfoText.css("position", "absolute");
+        $scrollInfoText.css("left", 0);
+        $scrollInfoText.css("top", "60px"); // reset to match css
       }
     }
   }
@@ -207,6 +223,7 @@ export default (function (window, document, $) {
     });
   }
 
+  // Sync horizontal scrolling in sticky table header and table
   // Allow a parameter to prevent triggering scrolling in an infinite loop.
   let skip = 0;
   // Calculate and set the scroll position of the other components when one component is scrolled.
