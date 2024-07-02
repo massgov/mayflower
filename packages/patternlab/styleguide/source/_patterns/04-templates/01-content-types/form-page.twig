@@ -50,7 +50,7 @@
 		<aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
 			{% if sideContent.contactList %}
 				{% set contactList = sideContent.contactList %}
-				{% include "@organisms/by-author/contact-list.twig" %}
+				{% include "@organisms/contact/contact-list.twig" %}
 			{% endif %}
 
 			{% block sidebar %}

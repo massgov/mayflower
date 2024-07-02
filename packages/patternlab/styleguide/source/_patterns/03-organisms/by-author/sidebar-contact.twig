@@ -7,6 +7,6 @@
     {% set contactUs = item.contactUs %}
     {% set contactHeadingLevel = contactUs.level + 1 %}
     {% set contactUs = contactUs|merge({"level": contactHeadingLevel}) %}
-    {% include "@molecules/contact-us.twig" %}
+    {% include "@organisms/contact/contact-us.twig" %}
   {% endfor %}
 {% endif %}

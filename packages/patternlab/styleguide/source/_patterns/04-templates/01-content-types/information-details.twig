@@ -52,7 +52,7 @@
 				{% block sidebar %}
 					{% if sidebar.contactList %}
 						{% set contactList = sidebar.contactList %}
-						{% include "@organisms/by-author/contact-list.twig" %}
+						{% include "@organisms/contact/contact-list.twig" %}
 					{% endif %}
 					{% if sidebar %}
 						{% include "@base/placeholder.twig" with {'placeholder':{'text':'Right Rail'}} %}
