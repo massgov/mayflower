@@ -112,14 +112,9 @@ export default (function (window, document, $) {
       $scrollInfo.addClass("show");
     }
 
-    // Hide caption if no table title when no overflow.
     // $scrollInfo is hardcoded in caption in the template. Don't remove caption.
     if (!rt.horizontalScrollable) {
       $tableWrapper.attr("tabindex", "-1");
-
-      if (tableTitleCount == 0) {
-        $table.find(".ma__table__caption").addClass("hide");
-      }
 
       if ($scrollInfo.hasClass("show")) {
         $scrollInfo.removeClass("show");
