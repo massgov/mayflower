@@ -69,10 +69,17 @@
     }
   }
 
+  &__subitem {
+
+    &:hover {
+      background-color: $c-bg-section;
+    }
+  }
+
   &__subitems {
     text-align: left;
     z-index: $z-dropdown;
-    background-color: $c-bg-section;
+    background-color: $c-bg;
     transition: height 0.4s;
 
     &.is-closed {
