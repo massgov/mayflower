@@ -4,7 +4,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
 @use "00-base/configure" as *;
 
 .ma__utility-panel {
-  background-color: $c-primary; 
+  background-color: $c-primary;
   color: $c-font-inverse;
 
   @media ($bp-header-toggle-min) {
@@ -56,14 +56,10 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       width: 23%;
       margin-right: 2.5%;
       min-height: 70px;
-      
+
       .no-flex & {
         display: table-cell;
       }
-    }
-
-    &:hover {
-      opacity: .8;
     }
 
     & > .ma__decorative-link {
