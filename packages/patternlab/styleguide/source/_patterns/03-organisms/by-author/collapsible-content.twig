@@ -21,17 +21,27 @@
         {% set stateValue = item.expanded ? 'true' : 'false' %}
         {% set collapsibleHeader = collapsibleHeader|merge({'state': stateValue}) %}
         {% include "@molecules/collapsible-header.twig" %}
-        <ul class="ma__collapsible-content__body js-accordion-content  {{ collapsibleHeader.icon ? '' : ' ma__collapsible-content__body--without-icon' }}">
+        <div class="ma__collapsible-content__body js-accordion-content  {{ collapsibleHeader.icon ? '' : ' ma__collapsible-content__body--without-icon' }}">
+          {% if item.includes.path == '@atoms/decorative-link.twig' %}
+          <ul>
+            {% for pattern in item.includes %}
+            <li class="ma__collapsible-content__body-item">{% include pattern.path with pattern.data %}</li>
+            {% endfor %}
+          {% else %}
           {% for pattern in item.includes %}
-           <li class="ma__collapsible-content__body-item">{% include pattern.path with pattern.data %}</li>
+           <span class="ma__collapsible-content__body-item">{% include pattern.path with pattern.data %}</span>
           {% endfor %}
+          {% endif %}
           {% if item.more %}
             <div class="ma__collapsible-content__link">
               {% set decorativeLink = item.more %}
               {% include "@atoms/decorative-link.twig" %}
             </div>
           {% endif %}
-        </ul>
+          {% if item.includes.path == '@atoms/decorative-link.twig' %}
+          </ul>
+          {% endif %}
+        </div>
       </div>
     {% endfor %}
   </div>
