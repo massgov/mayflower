@@ -91,28 +91,29 @@
     &:first-of-type {
       margin-top: 10px;
     }
-
-    ul {
-      margin: 0;
-      padding-left: 25px;
-    }
-
-    li {
-      list-style: none;
-    }
   }
 
   &__body {
+    margin: 0;
+    margin-left: 25px;
+    padding-left: 32px;
     padding-bottom: 30px;
-    padding-left: 60px;
     padding-right: 40px;
 
-    &--without-icon {
-      padding-left: 40px;
-    }
+    // &--without-icon {
+    //   padding-left: 40px;
+    // }
 
     & > * {
       margin-top: 1em;
+    }
+
+    & > li {
+      margin-top: 0.5em;
+
+      & > .ma__decorative-link {
+        vertical-align: top;
+      }
     }
 
     & > :first-child {
