@@ -22,7 +22,8 @@
         {% set collapsibleHeader = collapsibleHeader|merge({'state': stateValue}) %}
         {% include "@molecules/collapsible-header.twig" %}
         <div class="ma__collapsible-content__body js-accordion-content  {{ collapsibleHeader.icon ? '' : ' ma__collapsible-content__body--without-icon' }}">
-          {% if item.includes.path == '@atoms/decorative-link.twig' %}
+          {% set firstItem = item.includes|first %}
+          {% if firstItem.path == '@atoms/decorative-link.twig' %}
           <ul>
             {% for pattern in item.includes %}
             <li class="ma__collapsible-content__body-item">{% include pattern.path with pattern.data %}</li>
@@ -38,7 +39,8 @@
               {% include "@atoms/decorative-link.twig" %}
             </div>
           {% endif %}
-          {% if item.includes.path == '@atoms/decorative-link.twig' %}
+          {% set firstItem = item.includes|first %}
+          {% if firstItem.path == '@atoms/decorative-link.twig' %}
           </ul>
           {% endif %}
         </div>
