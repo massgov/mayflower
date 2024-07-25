@@ -301,7 +301,7 @@ if (hamburgerMenuContainer) {
     }
 
     if (feedbackButton) {
-      feedbackButton.classList.remove("hide-button");
+      feedbackButton.classList.add("hide-button");
     }
     jumpToSearchButton.setAttribute("aria-expanded", "false");
     if (menuOverlay) {
@@ -343,7 +343,7 @@ if (hamburgerMenuContainer) {
     menuButtonTextClose.classList.add("show");
 
     if (feedbackButton) {
-      feedbackButton.classList.add("hide-button");
+      feedbackButton.classList.remove("hide-button");
     }
     jumpToSearchButton.setAttribute("aria-expanded", "true");
 
