@@ -9,7 +9,6 @@ if (hamburgerMenuContainer) {
   const body = document.querySelector("body");
   let width = body.clientWidth;
   let alertlOffsetPosition;
-  const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
   const menuOverlay = document.querySelector(".menu-overlay");
   const alertOverlay = document.querySelector(".alert-overlay");
 
@@ -299,10 +298,6 @@ if (hamburgerMenuContainer) {
     if (searchInput.hasAttribute("autofocus")) {
       searchInput.removeAttribute("autofocus");
     }
-
-    if (feedbackButton) {
-      feedbackButton.classList.add("hide-button");
-    }
     jumpToSearchButton.setAttribute("aria-expanded", "false");
     if (menuOverlay) {
       menuOverlay.classList.remove("overlay-open");
@@ -341,10 +336,6 @@ if (hamburgerMenuContainer) {
     menuButtonText.classList.remove("show");
     menuButtonTextMobile.classList.remove("show");
     menuButtonTextClose.classList.add("show");
-
-    if (feedbackButton) {
-      feedbackButton.classList.remove("hide-button");
-    }
     jumpToSearchButton.setAttribute("aria-expanded", "true");
 
     menuButton.setAttribute("aria-pressed", "true");

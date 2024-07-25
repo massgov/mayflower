@@ -5,7 +5,6 @@ export default (function (document,$) {
   const containerClass = '.js-inline-overlay';
   const toggleClassName = '.js-inline-overlay-toggle';
   const titleClass  = '.js-inline-overlay-title';
-  const feedbackButton = $('body').find('.ma__fixed-feedback-button');
   const mainPageToggleButtton = $(".js-inline-overlay-title .js-inline-overlay-toggle");
 
   function initialize () {
@@ -25,8 +24,6 @@ export default (function (document,$) {
     $containerEl.toggleClass('is-open', !isOpen);
 
     $(`${toggleClassName}[aria-expanded=${!isOpen}]`).parents(titleClass).focus();
-
-    feedbackButton.toggleClass('hide-button');
   }
 
 
