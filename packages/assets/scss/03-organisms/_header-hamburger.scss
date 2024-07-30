@@ -578,7 +578,7 @@ body.show-menu {
 
             & .ma__utility-nav__container {
               padding: 0;
-              background-color: $c-gray-lightest;
+              background-color: $c-white;
               overflow-y: visible;
               max-height: auto;
 
@@ -602,7 +602,7 @@ body.show-menu {
             }
 
             & .ma__utility-panel {
-              background-color: $c-gray-lightest;
+              background-color: $c-white;
               color: $c-font-base;
 
               @include ma-reset-list;
@@ -637,10 +637,14 @@ body.show-menu {
             }
 
             & .ma__utility-panel__item {
-              background-color: $c-gray-lightest;
+              background-color: $c-white;
               color: $c-font-base;
               margin: 0;
               display: block;
+
+              &:hover {
+                background-color: $c-bg-section;
+              }
             }
 
             & .ma__utility-panel__item .ma__decorative-link {
