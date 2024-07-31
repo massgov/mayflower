@@ -59,10 +59,11 @@
     }
   }
 
-  .ma__content-link,
+  .ma__content-link__container,
   .ma__decorative-link {
     display: inline-block;
 
+    .ma__content-link,
     a {
       overflow-wrap: break-word;
       -ms-word-break: break-all;
@@ -73,6 +74,22 @@
 
     @media ($bp-small-min) {
       font-size: $fonts-small;
+    }
+  }
+
+  .ma__content-link__container {
+    margin-top: 3px;
+    margin-bottom: 4px;
+
+    .ma__content-link {
+
+      @include ma-link-underline;
+
+      display: inline;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      border-bottom-color: $c-bay-blue-50-tint;// Update with the value of DP-32007.
+      border-bottom-width: 1px;
     }
   }
 

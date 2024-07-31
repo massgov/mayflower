@@ -1,5 +1,6 @@
 {
   "table": {
+    "description": "Table caption",
     "head": {
       "rows": [{
         "rowSpanOffset":false,

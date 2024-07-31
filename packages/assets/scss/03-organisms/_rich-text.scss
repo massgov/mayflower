@@ -231,6 +231,10 @@ $heading-indent: $gutter;
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
+
+      & td > table {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -274,7 +278,7 @@ $heading-indent: $gutter;
   }
 
   &__footnote {
-    border-color: $c-bay-blue-lighter;
+    border-color: $c-link;
 
     &:hover {
       background-color: $c-font-link;
@@ -292,7 +296,7 @@ $heading-indent: $gutter;
   }
 
   a {
-    border-bottom-color: $c-bay-blue-lighter;
+    border-bottom-color: $c-link;
 
     &:hover {
       border-bottom-width: 3px;
