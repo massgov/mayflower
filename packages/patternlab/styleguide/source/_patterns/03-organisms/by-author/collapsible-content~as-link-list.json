@@ -75,24 +75,21 @@
         },
         "more": null,
         "includes": [{
-          "path": "@atoms/decorative-link.twig",
+          "path": "@organisms/by-author/link-list.twig",
           "data": {
-            "decorativeLink": {
-              "text": "Information for MassHealth Applicants",
-              "href": "/"
-            }
-          }
-        },
-          {
-            "path": "@atoms/decorative-link.twig",
-            "data": {
-              "decorativeLink": {
+            "linkList" : {
+              "stacked": true,
+              "hideBullets": false,
+              "links" : [{
+                "text": "Information for MassHealth Applicants",
+                "href": "/"
+              },{
                 "text": "Provider Directory",
                 "href": "/"
-              }
+              }]
             }
-          }
-        ]
+          }        
+        }]
       }]
   }
 }
