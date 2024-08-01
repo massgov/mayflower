@@ -6,7 +6,7 @@ Description: Displays a set of contact information in the header.
 ## State: Depreciated.
 
 ### Contains:
-- [@molecules/contact-group](/?p=organisms-contact-group)
+- [@molecules/contact/contact-group](/?p=organisms-contact-group)
 
 ### Used in:
 - [@organisms/by-author/action-header](/?p=organisms-action-header)
