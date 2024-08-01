@@ -1,0 +1,98 @@
+{
+  "collapsibleContent": {
+    "extended": true,
+    "compHeading": {
+      "title": "Collapsible Content Extended",
+      "sub": "",
+      "color": "",
+      "id": "GUID2095-254293851",
+      "centered": ""
+    },
+
+    "items": [{
+      "expanded": true,
+      "collapsibleHeader": {
+        "title": "MassHealth Publications and Other Resources",
+        "description": "A short description for this item in particular."
+      },
+      "more": null,
+      "includes": [{
+        "path": "@organisms/by-author/link-list.twig",
+        "data": {
+          "linkList" : {
+            "stacked": true,
+            "hideBullets": false,
+            "links" : [{
+              "text": "Information for MassHealth Applicants",
+              "href": "/"
+            },{
+              "text": "Provider Directory",
+              "href": "/"
+            },{
+              "text": "MassHealth Plans and Enrollment Guide",
+              "href": "/"
+            }]
+          }
+        }        
+      }]
+    },
+      {
+        "expanded": false,
+        "collapsibleHeader": {
+          "title": "MassHealth Plans"
+        },
+        "more": null,
+        "includes": [{
+          "path": "@organisms/by-author/link-list.twig",
+          "data": {
+            "linkList" : {
+              "stacked": true,
+              "hideBullets": false,
+              "links" : [{
+                "text": "Information for MassHealth Applicants",
+                "href": "/"
+              },{
+                "text": "Provider Directory",
+                "href": "/"
+              },{
+                "text": "MassHealth Plans and Enrollment Guide",
+                "href": "/"
+              },{
+                "text": "Provider Directory",
+                "href": "/"
+              },{
+                "text": "MassHealth Plans and Enrollment Guide",
+                "href": "/"
+              }]
+            }
+          }        
+        }]
+      },
+      {
+        "expanded": false,
+        "collapsibleHeader": {
+          "title": "MassHealth for Providers"
+        },
+        "more": null,
+        "includes": [{
+          "path": "@atoms/decorative-link.twig",
+          "data": {
+            "decorativeLink": {
+              "text": "Information for MassHealth Applicants",
+              "href": "/"
+            }
+          }
+        },
+          {
+            "path": "@atoms/decorative-link.twig",
+            "data": {
+              "decorativeLink": {
+                "text": "Provider Directory",
+                "href": "/"
+              }
+            }
+          }
+        ]
+      }]
+  }
+}
