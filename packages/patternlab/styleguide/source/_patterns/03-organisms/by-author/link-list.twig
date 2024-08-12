@@ -25,7 +25,11 @@
             <li class="ma__link-list__item">
               {% if decorativeLink.icon %}
                 {% set downloadLink = decorativeLink %}
-                {% include "@molecules/download-link.twig" %}
+                {% if downloadLink.inlineLinks %}
+                  {% include "@molecules/download-link-multilang.twig" %}
+                {% else %}
+                  {% include "@molecules/download-link.twig" %}
+                {% endif %}
               {% elseif decorativeLink.href %}
                 {% include "@atoms/decorative-link.twig" %}
               {% else %}
