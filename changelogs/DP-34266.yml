@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: ContactList
+    description: Add `level` property to allow override default contactHeading. (#1926)
+    issue: DP-34266
+    impact: Minor
