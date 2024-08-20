@@ -69,7 +69,7 @@
     "errorMsg": "Please let us know how we can improve this page.",
     "errorIds": "negative-textarea-error-alert"
   },
-  "alertMsg": "Please remove any contact information or personal data from your feedback.",
+  "alertMsg": "Please remove any contact information or personal data from your feedback. <strong>You will NOT get a response.</strong>",
   "warnMsg": "If you need assistance, please <a href='mass.gov'>contact the Department of xxxxx.</a>",
   "hiddenElements": [
     {
