@@ -2,7 +2,7 @@
   {
     name: "phone",
     re: /(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/i
-    /* 
+    /*
       1234567890
       123-456-7890
       (123) 456-7890
@@ -13,12 +13,12 @@
   },
   {
     name: "email",
-    re: /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/i
+    re: /\b[\w\.-]+@[\w\.-]+\.[a-z]{2,}\b/i
   },
   {
     name: "ssn",
     re: /\b\d{3}[-]?\d{2}[-]?\d{4}\b/i
-    /* 
+    /*
       XXX-XX-XXXX
       XXXXXXXXX
     */
@@ -26,8 +26,8 @@
   {
     name: "driver",
     re: /\b([A-Z]{1}[0-9]{8})|([A-Z]{2}[0-9]{7})|([0-9]{9})\b/i
-    /* 
-      https://ntsi.com/drivers-license-format/ 
+    /*
+      https://ntsi.com/drivers-license-format/
       https://github.com/adambullmer/USDLRegex/blob/master/regex.json
       MA driver's license
           "1 Alpha + 8 Numeric",
@@ -42,7 +42,7 @@ export const filtersOptional = [
   {
     name: "date",
     re: /(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-](?!22|23|2022|2023)([\d]{2,4})|((Jan(|uary)|Feb(|ruary)|Mar(|ch)|Apr(|il)|May|Jun(|e)|Jul(|y)|Aug(|ust)|Sept(|ember)|Oct(|ober)|(Nov|Dec)(|ember))([\s\-])((0?[1-9]|[12][0-9]|3[01])([\s\-]|\,[\s]?))(?!2022|2023)([\d]+){4})/i
-    /* 
+    /*
       dd/mm/yyyy
       d/m/yyyy
       d/m/yy
