@@ -1,11 +1,6 @@
 {% set sizeClass = downloadLink.iconSize ? "ma__download-link--" ~ downloadLink.iconSize : "" %}
 
 <div class="ma__download-link {{ sizeClass }}">
-  {% if downloadLink.icon %}
-    <div class="ma__download-link__icon">
-      {{ icon(downloadLink.icon) }}
-    </div>
-  {% endif %}
   <div class="ma__download-link__title">
     {% if downloadLink.format == "form" %}
       {% set decorativeLink = downloadLink.decorativeLink %}
@@ -14,8 +9,13 @@
       <a
         class="ma__download-link__file-link"
         href="{{ downloadLink.decorativeLink.href}}">
+        {% if downloadLink.icon %}
+          <span class="ma__download-link__icon">
+            {{ icon(downloadLink.icon) }}
+          </span>
+        {% endif %}
         <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
-          {{ downloadLink.decorativeLink.text }}
+        <span>{{ downloadLink.decorativeLink.text }}</span>
       </a>
       {% if downloadLink.format or downloadLink.size %}
         <span class="ma__download-link__file-spec">({{ downloadLink.format }} {{ downloadLink.size }})</span>

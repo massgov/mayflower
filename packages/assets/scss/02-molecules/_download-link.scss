@@ -2,8 +2,6 @@
 
 .ma__download-link {
 
-  @include clearfix();
-
   & + & {
     padding-top: 25px;
   }
@@ -13,11 +11,9 @@
   }
 
   &__icon {
-    float: left;
     height: 36px;
     opacity: .75;
-    width: 55px;
-    overflow: hidden;
+    min-width: 45px;
 
     & > svg {
       height: 36px;
@@ -40,8 +36,6 @@
     display: inline-block;
     font-size: $fonts-medium;
     margin-bottom: 0;
-    width: calc(100% - 66px);
-
   }
 
   .ma__inline-links {
