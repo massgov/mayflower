@@ -1,9 +1,6 @@
 @use "00-base/configure" as *;
 
 .ma__download-link {
-
-  // @include clearfix();
-
   & + & {
     padding-top: 25px;
   }
@@ -13,22 +10,20 @@
   }
 
   &__icon {
-    // float: left;
     height: 36px;
     opacity: .75;
-    width: 55px;
-    display: inline;
+    margin-right: 0.5rem;
+    display: inline-block;
 
     & > svg {
       height: 36px;
       width: 34px;
+      margin-bottom: -8px;
     }
   }
 
   &--small &__icon {
     height: 25px;
-    margin-top: 4px;
-    width: 40px;
 
     & > svg {
       height: 25px;
@@ -40,7 +35,6 @@
     display: inline;
     font-size: $fonts-medium;
     margin-bottom: 0;
-    // width: calc(100% - 66px);
   }
 
   .ma__inline-links {
