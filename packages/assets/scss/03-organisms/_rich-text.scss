@@ -73,8 +73,13 @@ $heading-indent: $gutter;
     }
   }
 
-  // rich text has an optional title
+  // clear float for all headings after left of right floating figures
 
+  h1, h2, h3, h4, h5, h6 {
+    clear: both;
+  }
+
+  // rich text has an optional title
   h2:not(.ma__comp-heading),
   h3:not(.ma__comp-heading),
   h3:not(.ma__sidebar-heading),
