@@ -73,7 +73,7 @@ $heading-indent: $gutter;
     }
   }
 
-  // clear float for all headings after left of right floating figures
+  // clear float for all headings after left floating elements
 
   h1, h2, h3, h4, h5, h6 {
     clear: both;
