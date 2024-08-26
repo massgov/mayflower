@@ -186,7 +186,7 @@ $heading-indent: $gutter;
 
   ol {
     margin-bottom: $rich-text-spacing-mobile;
-    padding-left: 30px;
+    padding-left: 20px;
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
