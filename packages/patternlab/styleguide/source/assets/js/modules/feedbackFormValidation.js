@@ -16,6 +16,10 @@
     re: /\b[\w\.-]+@[\w\.-]+\.[a-z]{2,}\b/i
   },
   {
+    name: "nonLatinEmail",
+    re: /[\u0100-\uFFFF\.-]+@[\u0100-\uFFFF\.-]+\.[\u0100-\uFFFF]{2,}/i
+  },
+  {
     name: "ssn",
     re: /\b\d{3}[-]?\d{2}[-]?\d{4}\b/i
     /*
