@@ -12,6 +12,10 @@
     text-align: left;
     width: 100%;
 
+    @media($bp-small-max) {
+      padding-left: 20px;
+    }
+
     &__status-icon {
       display: block;
       font-size: $fonts-4xlarge;
