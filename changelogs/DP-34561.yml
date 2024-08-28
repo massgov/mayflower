@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: CollapsibleContent, CollapsibleHeader, LinkList
+    description: Fix list bullet points alignment on mobile, adjust spacing to better display accordion and content. (#1926)
+    issue: DP-34561
+    impact: Patch
