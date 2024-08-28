@@ -69,6 +69,10 @@
       &__button {
         background: $c-bg;
         padding-right: 66px;
+
+        @media($bp-small-max) {
+          padding-left: 20px;
+        }
       }
     }
 
@@ -100,6 +104,11 @@
 
     &--without-icon {
       padding-left: 40px;
+
+      @media ($bp-small-max) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
 
     & > * {
