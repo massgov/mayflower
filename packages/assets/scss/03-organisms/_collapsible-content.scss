@@ -99,12 +99,8 @@
 
   &__body {
     padding-bottom: 30px;
-    padding-left: 60px;
+    padding-left: 40px;
     padding-right: 40px;
-
-    &--without-icon {
-      padding-left: 40px;
-    }
 
     @media ($bp-small-max) {
       padding-left: 20px;
