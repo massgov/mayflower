@@ -1,0 +1,6 @@
+Changed:
+  - project: Assets
+    component: feebackFormValidation
+    description: Modified feeback form validation js to include TLD and non-Latin validation. (#1929)
+    issue: DP-34515
+    impact: Patch
