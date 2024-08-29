@@ -12,12 +12,12 @@
   <div class="ma__sticky-nav__link js-scroll-anchors-toggle is-title" aria-hidden="true">
     <span>Table of Contents</span>
   </div>
-  <div class="ma__sticky-nav__container">
+  <ul class="ma__sticky-nav__container">
   {% for anchorLink in stickyNav.anchorLinks %}
-      <div class="ma__sticky-nav__link js-scroll-anchors-link {{ loop.first ? 'is-top' : '' }}">
+      <li class="ma__sticky-nav__link js-scroll-anchors-link {{ loop.first ? 'is-top' : '' }}">
         <a href="#{{ anchorLink.href }}"
           title="{{ anchorLink.info }}">{{ anchorLink.text }}</a>
-      </div>
+      </li>
   {% endfor %}
-  </div>
+  </ul>
 </nav>
