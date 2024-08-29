@@ -210,6 +210,7 @@
     position: relative;
     margin-top: -20px;
     margin-bottom: 20px;
+    padding-bottom: 3px;
   
     @media ($bp-medium-min) {
       background-color: $c-gray-lightest;
