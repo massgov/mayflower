@@ -180,7 +180,12 @@
 @use "03-organisms/location-banner";
 @use "03-organisms/mapped-locations";
 @use "03-organisms/mass-feedback-form";
+<<<<<<< HEAD
 @use "03-organisms/_organization-contact";
+=======
+@use "03-organisms/organization-navigation-item";
+@use "03-organisms/organization-navigation";
+>>>>>>> develop
 @use "03-organisms/page-banner";
 @use "03-organisms/page-banner-legacy";
 @use "03-organisms/page-discourse";

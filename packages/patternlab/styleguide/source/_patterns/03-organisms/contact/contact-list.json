@@ -1,6 +1,7 @@
 {
   "contactList": {
     "viewSpecific": false,
+    "level": 2,
     "compHeading": {
       "title": "Contacts",
       "sub": "",

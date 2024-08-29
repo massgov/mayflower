@@ -45,7 +45,7 @@
 				{% block contactList %}
 					{% if mainContent.contactList %}
 						{% set contactList = mainContent.contactList %}
-						{% include "@organisms/by-author/contact-list.twig" %}
+						{% include "@organisms/contact/contact-list.twig" %}
 					{% endif %}
 				{% endblock %}
 
@@ -53,7 +53,7 @@
 			<aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
 				{% if sideContent.contactList %}
 					{% set contactList = sideContent.contactList %}
-					{% include "@organisms/by-author/contact-list.twig" %}
+					{% include "@organisms/contact/contact-list.twig" %}
 				{% endif %}
 
 				{% if sideContent.pressListing %}

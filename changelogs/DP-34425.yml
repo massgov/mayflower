@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Feedback
+    description: "Allow 'alertMsg' render HTML."
+    issue: DP-34425
+    impact: Patch

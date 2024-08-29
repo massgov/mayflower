@@ -23,6 +23,8 @@ Displays one of more Contacts Us patterns as a stacked list of accordions.
 contactList: {
   viewSpecific: 
     type: boolean,
+  level:
+    type: number,
   compHeading: {
     type: compHeading / optional
   },

@@ -1,0 +1,13 @@
+Removed:
+  - project: Patternlab
+    component: CollapsibleContent
+    description: Remove CollapsibleContent extended example. (#1925)
+    issue: DP-32036
+    impact: Patch
+Added:
+  - project: Patternlab
+    component: CollapsibleContent
+    description: Remove CollapsibleContent as LinkList example. This fixes the link list markup semantic and styles (#1925)
+    issue: DP-32036
+    impact: Patch
+
