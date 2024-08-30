@@ -204,6 +204,11 @@
     }
   }
 
+  &__container {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
   // horizontal layout
   &--horizontal.ma__sticky-nav {
     width: 100%;
@@ -225,9 +230,7 @@
     }
 
     .ma__sticky-nav__container {
-      
-      margin-bottom: 0;
-      
+
       @media ($bp-medium-min) {
         @include ma-container;
         display: flex;
