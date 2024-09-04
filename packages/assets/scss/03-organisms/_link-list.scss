@@ -60,8 +60,11 @@
 
     &:not(.ma__link-list__items--no-bullets) {
       // align bullet point with download link icon
+
       .ma__link-list__item {
+
         .ma__download-link {
+
           &__icon {
             float: none;
             display: inline-block;
