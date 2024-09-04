@@ -2,11 +2,11 @@
 
 <div class="ma__download-link {{ sizeClass }}">
   {% if downloadLink.icon %}
-    <div class="ma__download-link__icon">
+    <span class="ma__download-link__icon">
       {{ icon(downloadLink.icon) }}
-    </div>
+    </span>
   {% endif %}
-  <div class="ma__download-link__title">
+  <span class="ma__download-link__title">
     {% if downloadLink.format == "form" %}
       {% set decorativeLink = downloadLink.decorativeLink %}
       {% include "@atoms/decorative-link.twig" %}
@@ -21,7 +21,7 @@
         <span class="ma__download-link__file-spec">({{ downloadLink.format }} {{ downloadLink.size }})</span>
       {% endif %}
     {% endif %}
-  </div>
+  </span>
   {% if downloadLink.description %}
     {% set richText = downloadLink.description %}
     <div class="ma__download-link__description">
