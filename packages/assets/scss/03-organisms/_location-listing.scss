@@ -232,11 +232,11 @@ $location-listin--map-min-width: 315px;
     }
 
     &__location-subtitle {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
     }
 
     &__location {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       font-weight: $fonts-normal;
       line-height: 1.5;
       padding-bottom: 0;
@@ -273,7 +273,7 @@ $location-listin--map-min-width: 315px;
     }
 
     &__link {
-      font-size: $fonts-smaller;
+      font-size: $fonts-small;
     }
 
     &__contact {

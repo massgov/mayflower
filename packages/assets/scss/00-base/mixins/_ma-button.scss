@@ -100,24 +100,24 @@
 @mixin ma-button-size ($size:"normal") {
 
   @if ($size == "normal") {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     line-height: 1.4;
 
     svg {
-      width: $fonts-small;
-      height: $fonts-small;
+      width: $fonts-medium;
+      height: $fonts-medium;
     }
   }
 
   // small
 
   @if ($size == "small") {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     line-height: 1.2;
 
     svg {
-      width: $fonts-smaller;
-      height: $fonts-smaller;
+      width: $fonts-small;
+      height: $fonts-small;
     }
   }
 

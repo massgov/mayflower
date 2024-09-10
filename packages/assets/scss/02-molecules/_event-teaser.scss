@@ -94,7 +94,7 @@
   &__location,
   &__date,
   &__time {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
 
     .ma__page-header &,
     .ma__page-header-addons & {
@@ -104,22 +104,22 @@
   }
 
   &__location {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     margin-bottom: .25em;
   }
 
   &__date {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     line-height: 1.2;
   }
 
   &__time {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     line-height: 1.2;
   }
 
   &__description {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     margin-top: 18px;
 
     @media ($bp-x-small-max) {

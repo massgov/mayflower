@@ -37,13 +37,13 @@
   }
 
   &__job-title {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     margin-top: .5em;
     margin-bottom: 0;
   }
 
   &__content {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
 
     .ma__rich-text {
       margin-bottom: 10px;

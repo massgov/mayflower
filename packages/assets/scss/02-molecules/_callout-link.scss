@@ -61,7 +61,7 @@
   &__description {
     display: none;
     padding-top: 10px;
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     font-weight: $fonts-light;
     color: rgba($c-font-link,1);
 
@@ -91,14 +91,14 @@
   }
 
   &__eyebrow, &__time {
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
     padding: 5px 7px;
   }
 
   &__emphasized {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     line-height: 1;
     padding-top: 15px;
     display: flex;

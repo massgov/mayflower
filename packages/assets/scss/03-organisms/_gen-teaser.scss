@@ -62,7 +62,7 @@
     margin-bottom: 5px;
     display: inline-flex;
     align-items: center;
-    font-size: $fonts-3xsmall;
+    font-size: $fonts-2xsmall;
     line-height: 12px;
     letter-spacing: $letter-spacing-large;
     padding: 5px 7px;
@@ -97,18 +97,18 @@
 
       &__details {
         font-style: italic;
-        font-size: $fonts-xsmall;
+        font-size: $fonts-smaller;
       }
 
       &__item {
-        font-size: $fonts-small;
+        font-size: $fonts-medium;
       }
 
       &__name {
          margin-bottom: 0;
 
          span {
-          font-size: $fonts-small;
+          font-size: $fonts-medium;
           color: $c-gray-dark;
           font-weight: $fonts-bold;
          }
@@ -129,7 +129,7 @@
 
   &__date,
   &__org {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     line-height: 1;
     margin-bottom: 1em;
     color: $c-font-dark;
@@ -167,13 +167,13 @@
     }
 
     .ma__decorative-link {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       line-height: 1.25;
       font-style: italic;
     }
 
     p {
-      font-size: $fonts-xsmall;
+      font-size: $fonts-smaller;
       line-height: 1rem;
       margin-bottom: 0px;
       margin-top: 0.3rem;
@@ -208,10 +208,10 @@
   }
 
   &__description {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
 
     @media ($bp-x-small-max) {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
     }
 
     p {
@@ -282,7 +282,7 @@
         flex-flow: row;
         align-items: flex-start;
         margin-bottom: 0.5rem;
-        font-size: $fonts-small;
+        font-size: $fonts-medium;
         line-height: 1.2rem;
 
       .ma__decorative-link {
@@ -301,7 +301,7 @@
   }
 
   &__infoitem {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
 
     & + & {
       margin-top: 0.5rem;
@@ -310,7 +310,7 @@
     .ma__contact {
 
       &__details {
-        font-size: $fonts-2xsmall;
+        font-size: $fonts-xsmall;
       }
     }
     line-height: 1.2rem;
@@ -331,7 +331,7 @@
 
   &__tag {
     color: $c-gray;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     font-weight: bold;
     text-align: center;
     border: 1px solid $c-gray-light;
@@ -356,7 +356,7 @@
     top: 10px;
     right: 10px;
     position: absolute;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
   }
 
   &__search {

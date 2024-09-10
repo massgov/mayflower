@@ -47,7 +47,7 @@
       transition: position 0.3s;
       width: max-content;
       color: $c-font-link;
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       font-weight: $fonts-bold;
       display: flex;
       align-items: center;
@@ -147,7 +147,7 @@
 .ma__table--responsive td,
 .ma__table--responsive th {
     box-sizing: border-box;
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     padding: 0.5rem;
 }
 

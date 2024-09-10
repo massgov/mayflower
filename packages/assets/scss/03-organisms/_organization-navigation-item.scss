@@ -37,7 +37,7 @@
       background-color: transparent;
       padding: 1rem 0;
       font-weight: $fonts-bold;
-      font-size: $fonts-xsmall;
+      font-size: $fonts-smaller;
       color: $c-font-base;
 
       @media ($bp-large-max) {
@@ -46,7 +46,7 @@
 
       @media ($bp-large-min) {
         height: 100%;
-        font-size: $fonts-smaller;
+        font-size: $fonts-small;
       }
     }
   }

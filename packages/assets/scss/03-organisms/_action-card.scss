@@ -126,13 +126,13 @@
   }
 
   &__category {
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     line-height: 1.5;
     text-transform: uppercase;
 
     @media ($bp-large-min) {
-      font-size: $fonts-xsmall;
+      font-size: $fonts-smaller;
     }
   }
 

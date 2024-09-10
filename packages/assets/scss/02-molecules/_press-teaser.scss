@@ -59,7 +59,7 @@
     margin-bottom: 5px;
 
     span {
-      font-size: $fonts-2xsmall;
+      font-size: $fonts-xsmall;
       letter-spacing: $letter-spacing-large;
       padding: 5px 7px;
       text-transform: uppercase;
@@ -82,7 +82,7 @@
 
   &__date,
   &__org {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     line-height: 1;
     margin-bottom: 1em;
   }
@@ -95,7 +95,7 @@
   }
 
   &__description {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
 
     @media ($bp-x-small-max) {
       display: none;

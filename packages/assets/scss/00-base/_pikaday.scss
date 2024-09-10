@@ -18,21 +18,21 @@
 
 .pika-label {
   color: $c-font-dark;
-  font-size: $fonts-smaller;
+  font-size: $fonts-small;
 }
 
 .pika-table {
 
   th {
     color: $c-font-dark;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
   }
 }
 
 .pika-button {
   background-color: $c-bg-section;
   color: $c-font-base;
-  font-size: $fonts-2xsmall;
+  font-size: $fonts-xsmall;
   font-weight: $fonts-normal;
   text-align: center;
 

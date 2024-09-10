@@ -67,7 +67,7 @@ $menu-transition-time: 0.3s;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     font-weight: $fonts-bold;
     line-height: 1.2;
     color: $c-font-dark;
@@ -161,7 +161,7 @@ $menu-transition-time: 0.3s;
     .ma__form {
       display: flex;
       width: 100%;
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
     }
 
     .visuallyhidden {
@@ -200,7 +200,7 @@ $menu-transition-time: 0.3s;
       }
 
       @media ($bp-large-extended-min) {
-        font-size: $fonts-small;
+        font-size: $fonts-medium;
       }
 
       svg {
@@ -234,14 +234,14 @@ $menu-transition-time: 0.3s;
       border: 0;
       background-color: transparent;
       border-left: 1px solid $c-gray-light;
-      font-size: $fonts-xsmall;
+      font-size: $fonts-smaller;
       font-weight: $fonts-bold;
       color: $c-font-base;
       padding-left: 35px;
 
       @media ($bp-large-min) {
         display: block;
-        font-size: $fonts-smaller;
+        font-size: $fonts-small;
         white-space: nowrap;
       }
 
@@ -250,7 +250,7 @@ $menu-transition-time: 0.3s;
       }
 
       .form-open & {
-        font-size: $fonts-smaller;
+        font-size: $fonts-small;
         padding-right: 1.5rem;
         padding-left: 1rem;
         font-weight: $fonts-normal;

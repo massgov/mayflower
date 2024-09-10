@@ -8,7 +8,7 @@
   @media ($bp-small-min) {
     margin-bottom: 60px;
     padding-top: 30px;
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
   }
 
   @media print {
@@ -386,7 +386,7 @@
       span {
         display: block;
         text-transform: uppercase;
-        font-size: $fonts-3xsmall;
+        font-size: $fonts-2xsmall;
         font-weight: $fonts-bold;
         color: $c-primary;
         letter-spacing: $letter-spacing-large;
