@@ -525,7 +525,7 @@ body {
       font-size: $fonts-small;
 
       @media ($bp-large-min) {
-        font-size: $fonts-medium;
+        font-size: $fonts-large;
       }
 
       &:focus {

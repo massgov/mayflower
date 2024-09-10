@@ -100,7 +100,7 @@ $page-header-widget-width: 350px;
   }
 
   &__category {
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
     padding-bottom: 1rem;
     line-height: 1.1;
     font-weight: $fonts-bold;
@@ -124,7 +124,7 @@ $page-header-widget-width: 350px;
     }
 
     & > abbr {
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       border: none;
       text-decoration: none;
     }

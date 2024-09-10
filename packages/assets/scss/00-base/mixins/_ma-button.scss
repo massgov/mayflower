@@ -124,12 +124,12 @@
   // large
 
   @if ($size == "large") {
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
     line-height: 1.61;
 
     svg {
-      width: $fonts-medium;
-      height: $fonts-medium;
+      width: $fonts-large;
+      height: $fonts-large;
     }
   }
 }

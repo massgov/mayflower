@@ -3,7 +3,7 @@
 .ma__sticky-toc {
   margin-bottom: 30px;
   //position: relative // can't have position relative here or the links won't stick for the height of page-content
-  font-size: $fonts-medium;
+  font-size: $fonts-large;
 
   @media ($bp-small-min) {
     margin-bottom: 60px;
@@ -401,7 +401,7 @@
     button {
 
       @include ma-button("solid",$c-primary);
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       padding: 10px 0;
       width: 100%;
     }
@@ -502,7 +502,7 @@
     align-items: center;
     justify-content: space-between;
     border: 0;
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
     font-weight: $fonts-normal;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
@@ -535,7 +535,7 @@
 
     a {
       font-weight: $fonts-bold;
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       display: flex;
 
       svg {

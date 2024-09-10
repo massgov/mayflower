@@ -39,7 +39,7 @@
 
     @include ma-container;
     padding-bottom: 25px;
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
     position: relative;
     z-index: 2;
 
@@ -189,7 +189,7 @@
     }
 
     .ma__comp-heading {
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       letter-spacing: $letter-spacing-large;
       margin-bottom: .75em;
       text-transform: uppercase;
