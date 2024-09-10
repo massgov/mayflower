@@ -58,7 +58,7 @@
 
   &__day {
     display: block;
-    font-size: $fonts-9xlarge;
+    font-size: $fonts-10xlarge;
     line-height: 1;
   }
 
@@ -68,7 +68,7 @@
     margin-bottom: 0;
 
     a {
-      font-size: $fonts-larger;
+      font-size: $fonts-xlarge;
       line-height: 1.2;
     }
   }
@@ -98,7 +98,7 @@
 
     .ma__page-header &,
     .ma__page-header-addons & {
-      font-size: $fonts-larger;
+      font-size: $fonts-xlarge;
       line-height: 1.3;
     }
   }

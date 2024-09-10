@@ -391,7 +391,7 @@ $utility-nav-height: 43px;
   }
 
   &__close-icon {
-    font-size: $fonts-4xlarge;
+    font-size: $fonts-5xlarge;
     line-height: .5em;
     margin-left: .2em;
     transform: rotate(45deg);
@@ -403,7 +403,7 @@ $utility-nav-height: 43px;
     h2, div {
       display: inline-block;
       vertical-align: middle;
-      font-size: $fonts-larger;
+      font-size: $fonts-xlarge;
       line-height: 1.45;
       font-weight: $fonts-normal;
       margin-bottom: 0;

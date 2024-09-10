@@ -82,11 +82,11 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: $c-font-inverse;
 
     @media ($bp-medium-min) {
-      font-size: $fonts-7xlarge;
+      font-size: $fonts-8xlarge;
     }
 
     @media ($bp-large-min) {
-      font-size: $fonts-8xlarge;
+      font-size: $fonts-9xlarge;
     }
 
     & > abbr {
@@ -120,13 +120,13 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &__description {
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
     line-height: 1.5;
   }
 
   &__unlinked-title,
   .ma__decorative-link {
-    font-size:  $fonts-xlarge;
+    font-size:  $fonts-2xlarge;
   }
 
   .ma__decorative-link a {
@@ -145,7 +145,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &__unlinked-title + &__description {
     margin-top: .5rem;
     width: 100%;
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
   }
 
   &__buttons-wrapper {
@@ -244,7 +244,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
         @media ($bp-large-extended-min) {
           // increase font size to ensure description readablity when overlaying an image
-          font-size: $fonts-xlarge;
+          font-size: $fonts-2xlarge;
           max-width: $l-max-content-width;
           width: 100%;
         }
@@ -403,10 +403,10 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   .decision-tree & {
 
     h1 {
-      font-size: $fonts-2xlarge;
+      font-size: $fonts-3xlarge;
 
       @media ($bp-large-extended-min) {
-        font-size: $fonts-xlarge;
+        font-size: $fonts-2xlarge;
       }
     }
 

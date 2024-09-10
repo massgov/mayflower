@@ -97,7 +97,7 @@ $menu-transition-time: 0.3s;
 
       &::after {
         content: $close-icon;
-        font-size: $fonts-2xlarge;
+        font-size: $fonts-3xlarge;
         font-weight: $fonts-normal;
         line-height: 0;
         position: absolute;
@@ -258,7 +258,7 @@ $menu-transition-time: 0.3s;
         &::after {
           color: $c-primary-alt;
           content: $close-icon;
-          font-size: $fonts-2xlarge;
+          font-size: $fonts-3xlarge;
           font-weight: 600;
           line-height: 0;
           position: absolute;
