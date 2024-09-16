@@ -81,7 +81,7 @@ $heading-indent: $gutter;
   h4 {
 
     @include ma-comp-heading;
-    display: flow-root;
+    display: flow-root;  // https://dev.to/baooab/what-is-display-flow-root-28ph
   }
 
   & h2,
