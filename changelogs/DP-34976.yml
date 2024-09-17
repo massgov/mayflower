@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: RichText
+    description: Rollback heading clear floats and fix the comp heading styles in floats  (#1934)
+    issue: DP-34424,DP-34976
+    impact: Patch
