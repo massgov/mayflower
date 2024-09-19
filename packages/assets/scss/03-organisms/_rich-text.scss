@@ -73,12 +73,6 @@ $heading-indent: $gutter;
     }
   }
 
-  // clear float for all headings after left floating elements
-
-  h1, h2, h3, h4, h5, h6 {
-    clear: left;
-  }
-
   // rich text has an optional title
 
   h2:not(.ma__comp-heading),
@@ -87,7 +81,7 @@ $heading-indent: $gutter;
   h4 {
 
     @include ma-comp-heading;
-    display: block;
+    display: flow-root;  // https://dev.to/baooab/what-is-display-flow-root-28ph
   }
 
   & h2,
