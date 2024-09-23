@@ -4,7 +4,12 @@
 
     width: 100%;
     background-color: $c-primary-lightest;
-    font-size: $fonts-smaller;
+    font-size: $fonts-xsmall;
+
+    @media ($bp-small-min) {
+        padding-top: 0.2rem;
+        font-size: $fonts-smaller;
+      }
 
     @include background-colors(
         $lightTheme: (
