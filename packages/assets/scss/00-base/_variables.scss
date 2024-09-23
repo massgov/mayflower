@@ -79,10 +79,10 @@ $fonts-base:        100% !default;
 $fonts-base-mobile: 100% !default;
 $fonts-print:       100% !default;
 // ----------------------------
-$fonts-2xsmall : 0.688rem !default;
-$fonts-xsmall  : 0.766rem !default;
-$fonts-smaller : 0.844rem !default;
-$fonts-small   : 0.922rem !default;
+$fonts-2xsmall : calc(11rem/16) !default; //11px
+$fonts-xsmall  : calc(12.25rem/16) !default; //12.25px
+$fonts-smaller : calc(13.5rem/16) !default; //13.5px
+$fonts-small   : calc(14.75rem/16) !default; // 14.75px
 $fonts-medium  : 1rem !default;      // normal paragraph text
 $fonts-large   : 1.125rem !default;
 $fonts-larger  : 1.25rem !default;   // H6
