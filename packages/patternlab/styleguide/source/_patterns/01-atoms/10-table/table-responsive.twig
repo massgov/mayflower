@@ -15,9 +15,6 @@
     {% if table.description %}
       <caption id="tbl-{{tableID}}" class="ma__table__caption">{{ table.description }}</caption>
     {% endif %}
-      <div class="ma__table__caption__scroll-info" aria-hidden="true">
-        <div class="ma__table__caption__scroll-info-text">{{icon('scroll')}} Scroll to see more {{icon('scroll')}}</div>
-      </div>
       <thead>
         {% for row in table.head.rows %}
           <tr>

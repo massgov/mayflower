@@ -36,7 +36,6 @@ export default (function (window, document, $) {
     let $stickyHeader = null;
     const $tableWrapper = $table.parent();
     const horizontalScrollable = $table.width() > $tableWrapper.width();
-    let $scrollInfo = $tableWrapper.find(".ma__table__caption__scroll-info");
 
     // If the table has a thead with th elements, setup the sticky version.
     if (hasThead && hasTh && !isNestedThead) {
@@ -109,6 +108,9 @@ export default (function (window, document, $) {
     if (rt.horizontalScrollable) {
       $tableWrapper.attr("tabindex", "0");
       $tableWrapper.attr("aria-labelledby", "sr-instructions");
+      $stickyHeader.removeAttr("aria-labelledby");
+      $stickyHeader.attr("aria-hidden", "true");
+      $stickyHeader.attr("tabindex", "-1");
       $scrollInfo.addClass("show");
     }
 
@@ -160,16 +162,12 @@ export default (function (window, document, $) {
   // Based on the scroll position, decide whether or not to show or hide or scroll
   // or stick the header and scrollbar.
   function checkVisibility(rt) {
-    const { index, $table, $stickyHeader, headerStuck, $scrollInfo } = rt;
+    const { index, $table, $stickyHeader, headerStuck } = rt;
 
       // Handle header visibility.
     if ($stickyHeader && $table.find("thead").length > 0) {
-      const scrollInfoLeft = $scrollInfo.offset().left;
       const stuckTop = $stickyHeader.offset().top;
       const stuckBottom = stuckTop + $stickyHeader.height();
-
-      const $scrollInfoText = $scrollInfo.find('.ma__table__caption__scroll-info-text');
-      const tableBottomOffset = $scrollInfo.hasClass('show') ? $scrollInfoText.width() - getAdditionalOffset() : 0;
 
       const $tableHeader = $table.find('thead');
       const elementTop = $tableHeader.offset().top;
@@ -185,9 +183,6 @@ export default (function (window, document, $) {
         $stickyHeader.css("-webkit-box-shadow", "");
         $stickyHeader.css("box-shadow", "");
         $stickyHeader.css("pointer-events", "all");
-        $scrollInfoText.css("position", "fixed");
-        $scrollInfoText.css("left", scrollInfoLeft); // position the scroll info text horizontally in relation to the scroll info container
-        $scrollInfoText.css("top", (getAdditionalOffset() + 40) + "px"); // add offset top when there's another sticky element
       } else if (
         headerStuck &&
         (elementTop > stuckTop || tableBottom < stuckBottom)
@@ -197,9 +192,6 @@ export default (function (window, document, $) {
         $stickyHeader.css("-webkit-box-shadow", "none");
         $stickyHeader.css("box-shadow", "none");
         $stickyHeader.css("pointer-events", "none");
-        $scrollInfoText.css("position", "absolute");
-        $scrollInfoText.css("left", 0);
-        $scrollInfoText.css("top", "60px"); // reset to match css
       }
     }
   }
