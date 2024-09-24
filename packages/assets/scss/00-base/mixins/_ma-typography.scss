@@ -7,6 +7,7 @@
 @mixin ma-h1 {
   font-size: $fonts-6xlarge;
   line-height: 1.1;
+  margin-bottom: .5em;
 
   @media ($bp-medium-min) {
     font-size: $fonts-7xlarge;
@@ -20,7 +21,7 @@
 @mixin ma-h2 {
   font-size: $fonts-4xlarge;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: .5em;
 
   @media ($bp-medium-min) {
     font-size: $fonts-5xlarge;
@@ -34,16 +35,13 @@
 @mixin ma-h3 {
   font-size: $fonts-3xlarge;
   line-height: 1.2;
-  margin-bottom: .75em;
-
-  @media ($bp-small-min) {
-    margin-bottom: 1em;
-  }
+  margin-bottom: .5em;
 }
 
 @mixin ma-h4 {
   font-size: $fonts-2xlarge;
   line-height: 1.2;
+  margin-bottom: .5em;
 }
 
 @mixin ma-h5 {
@@ -55,7 +53,7 @@
 @mixin ma-h6 {
   font-size: $fonts-larger;
   line-height: 1.4;
-  margin-bottom: .25em;
+  margin-bottom: .5em;
 }
 
 @mixin ma-heading($level: 1) {
