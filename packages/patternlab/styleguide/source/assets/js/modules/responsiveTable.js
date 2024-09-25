@@ -171,7 +171,7 @@ export default (function (window, document, $) {
 
       const $tableHeader = $table.find('thead');
       const elementTop = $tableHeader.offset().top;
-      const tableBottom = elementTop + $table.height() - tableBottomOffset;
+      const tableBottom = elementTop + $table.height();
 
       if (
         !headerStuck &&
