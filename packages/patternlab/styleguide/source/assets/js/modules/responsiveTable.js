@@ -85,8 +85,7 @@ export default (function (window, document, $) {
       $stickyHeader,
       theadHeight,
       horizontalScrollable,
-      headerStuck: false,
-      $scrollInfo
+      headerStuck: false
     };
     // Set the widths of the header.
     setWidths(rt);
@@ -111,32 +110,12 @@ export default (function (window, document, $) {
       $stickyHeader.removeAttr("aria-labelledby");
       $stickyHeader.attr("aria-hidden", "true");
       $stickyHeader.attr("tabindex", "-1");
-      $scrollInfo.addClass("show");
     }
 
     // $scrollInfo is hardcoded in caption in the template. Don't remove caption.
     if (!rt.horizontalScrollable) {
       $tableWrapper.attr("tabindex", "-1");
-
-      if ($scrollInfo.hasClass("show")) {
-        $scrollInfo.removeClass("show");
-      }
     }
-
-      // Hide $scrollInfo when there's a scrolling and the default scrollbar is active (iOS Safari > 13 and Firefox)
-      // Function to handle the scroll event
-      function handleScroll() {
-        // Check if the div is scrolled horizontally
-        if ($tableWrapper.scrollLeft() > 0) {
-            // Hide the element when the div is scrolled horizontally
-            $scrollInfo.removeClass("show");
-        } else {
-          $scrollInfo.addClass("show");
-        }
-    }
-
-    // Add a scroll event listener to the scrollable div
-    $tableWrapper.on('scroll', handleScroll);
   }
 
   // Certain other components that stick to the top of the page need to be accounted for.
