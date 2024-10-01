@@ -106,7 +106,6 @@ export default (function (window, document, $) {
 
     if (rt.horizontalScrollable) {
       $tableWrapper.attr("tabindex", "0");
-      $stickyHeader.removeAttr("aria-labelledby");
       $stickyHeader.attr("aria-hidden", "true");
       $stickyHeader.attr("tabindex", "-1");
     }
