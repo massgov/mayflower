@@ -55,7 +55,7 @@ export default (function (window, document, $) {
       }
 
       // Setting it in a fixed position, but initially invisible.
-      let tableLeft = $element.offset().left;
+      let tableLeft = $element.offset().left + 2;
       $stickyHeader.css({
         "pointer-events": "none",
         position: "fixed",
@@ -106,7 +106,6 @@ export default (function (window, document, $) {
 
     if (rt.horizontalScrollable) {
       $tableWrapper.attr("tabindex", "0");
-      $tableWrapper.attr("aria-labelledby", "sr-instructions");
       $stickyHeader.removeAttr("aria-labelledby");
       $stickyHeader.attr("aria-hidden", "true");
       $stickyHeader.attr("tabindex", "-1");

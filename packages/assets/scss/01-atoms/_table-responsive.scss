@@ -26,15 +26,11 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #14558F;
   }
-
-  #sr-instructions {
-    // Ensure the content is announced via aria-labelledby only.
-    display: none;
-  }
 }
 
 .ma__table--responsive__wrapper {
-
+  // Pure CSS scrolling shadows with background-attachment: local.
+  // Code taken from https://codepen.io/aardrian/pen/MWeRJWd
   background: linear-gradient(to right, #fff 30%, rgba(255, 255, 255, 0)),
   linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%) 0 100%,
   radial-gradient(
