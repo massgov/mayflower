@@ -46,42 +46,38 @@
       "titleSubText": "(EOHHS)"
     }
   },
-  "organizationNavigation": {
-    "orgNavTitle": "Executive Office of Energy and Environmental Affairs",
-    "orgNavAbbrev": "EOEEA",
-    "orgId": "6676",
-    "orgSearch": true,
-    "orgNav": [
-
+  "stickyNav": {
+    "titleContext": "Executive Office of Health and Human Services",
+    "horizontalLayout": true,
+    "anchorLinks":[
       {
         "text": "Contact",
-        "id": "contact"
+        "href": "contact"
       },
       {
         "text": "About",
-        "id": "about"
+        "href": "about"
       },
       {
         "text": "Actions & Services",
-        "id": "actions"
+        "href": "actions"
       },
       {
         "text": "Our Organizations",
-        "id": "organizations"
+        "href": "organizations"
       },
       {
         "text": "News",
-        "id": "news"
+        "href": "news"
       },
       {
         "text": "Events",
-        "id": "events"
+        "href": "events"
       },
       {
         "text": "Locations",
-        "id": "locations"
-      }
-  ]
+        "href": "locations"
+      }]
   },
   "short_description": {
     "richText": {

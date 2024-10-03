@@ -4,13 +4,9 @@
 
 @use "00-base/configure" as *;
 
-.ma__sticky-nav {
+.ma__sticky-nav { 
 
   @include clearfix;
-
-  @media ($bp-medium-min) {
-    position: absolute;
-  }
 
   transition: top .3s;
   width: 100%;
@@ -35,6 +31,14 @@
     background-color: $c-gray-lightest;
     border: 1px solid $c-gray-light;
     left: 0;
+    // when the nav is sticky, add a box shadow
+    &[data-sticky="middle"],&[data-sticky="bottom"] {
+      box-shadow: $box-shadow;
+    }
+  }
+
+  @media ($bp-medium-min) {
+    position: absolute;
   }
 
   .page-content & {
@@ -77,22 +81,23 @@
     }
   }
 
-
   &__link {
     cursor: pointer;
     display: none;
     line-height: 1.2;
     padding: 10px 15px;
-    min-height: 47px;
-
-    @media ($bp-small-min) {
-      line-height: 1.5;
-    }
+    border-top-color: $c-gray-light;
+    padding: 12px;
 
     @media ($bp-medium-min) {
       display: block;
-      padding: 0;
-      padding-bottom: 12px;
+      padding: 12px 0;
+      border-top-width: 1px;
+      border-top-style: solid;
+
+      &.is-top {
+        border-top: none;
+      }
     }
 
     &.is-title {
@@ -124,7 +129,7 @@
       &.is-active {
 
         div {
-          font-weight: 700;
+          font-weight: $fonts-bold;
         }
       }
 
@@ -167,32 +172,12 @@
       font-weight: $fonts-normal;
     }
 
-    & + & {
-      border-top-color: $c-gray-light;
-
-      @media ($bp-medium-min) {
-        border-top-width: 1px;
-        border-top-style: solid;
-        padding-top: 12px;
-      }
-    }
-
-    &.is-top {
-
-      @media ($bp-medium-min) {
-        border-top-width: 0;
-      }
-    }
-
   }
 
 
 
   &.is-open &__link {
     display: block;
-  }
-
-  &.is-open &__link + &__link {
     border-top-width: 1px;
     border-top-style: solid;
   }
@@ -206,7 +191,7 @@
     overflow: hidden;
     position: absolute;
     right: 10px;
-    top: 9px;
+    top: 10px;
     transition: all .2s ease;
     transform-origin: center center;
 
@@ -218,4 +203,90 @@
       display: none;
     }
   }
+
+  &__container {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  // horizontal layout
+  &--horizontal.ma__sticky-nav {
+    width: 100%;
+    position: relative;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    padding-bottom: 3px;
+  
+    @media ($bp-medium-min) {
+      background-color: $c-gray-lightest;
+      box-shadow: $box-shadow;
+    }
+
+    &[data-sticky="middle"],&[data-sticky="bottom"] {
+      position: fixed;
+      top: 0;
+      bottom: auto;
+      margin: 0;
+    }
+
+    .ma__sticky-nav__container {
+
+      @media ($bp-medium-min) {
+        @include ma-container;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    .ma__sticky-nav__link {
+      list-style: none;
+      padding: 12px 20px;
+
+      a {
+        width: 100%;
+        display: block;
+        text-align: left;
+        background-color: transparent;
+        font-weight: $fonts-bold;
+        color: $c-font-link;
+      }
+
+      &.is-active {
+        a {
+          color: $c-font-base;
+        }
+      }
+
+      // horizontal sticky nav links on desktop
+      @media ($bp-medium-min) {
+        padding: 15px 15px 10px;
+        height: 100%;
+        border-bottom: 4px solid transparent;
+        border-top: none;
+
+        a {
+          color: $c-font-base;
+          border-bottom: none;
+        }
+
+        &:hover {
+          border-bottom-color: $c-primary-alt-lighter;
+          a {
+            color: $c-font-base;
+          }
+        }
+
+        &.is-active {
+          border-bottom-color: $c-primary-alt;
+          
+          &:hover {
+            border-bottom-color: $c-primary-alt-lighter;
+            a {
+              color: $c-font-base;
+            }
+          }
+        }
+      }
+    }
+  }   
 }
