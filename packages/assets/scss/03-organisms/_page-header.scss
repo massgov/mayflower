@@ -100,12 +100,17 @@ $page-header-widget-width: 350px;
   }
 
   &__category {
-    font-size: $fonts-large;
+    font-size: $fonts-medium;
     padding-bottom: 1rem;
     line-height: 1.1;
     font-weight: $fonts-bold;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
+    color: $c-font-detail;
+
+    @media ($bp-small-min) {
+      font-size: $fonts-large;
+    }
   }
 
   &__title {
@@ -247,10 +252,6 @@ $page-header-widget-width: 350px;
     .ma__social-links {
       border-color: $c-bd-divider;
     }
-  }
-
-  &__category {
-    color: $c-font-detail;
   }
 
   &__sub-title {
