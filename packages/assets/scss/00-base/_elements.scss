@@ -33,14 +33,14 @@ html {
 body {
   width: 100vw;
   margin: 0;
-  font-size: $fonts-large;
+  font-size: $fonts-medium;
   line-height: 1.6;
   color: $c-font-base;
   font-family: $fonts;
   font-weight: $fonts-light;
 
   @media ($bp-small-min) {
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
   }
 }
 
