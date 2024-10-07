@@ -27,11 +27,7 @@
 }
 
 html {
-  font-size: $fonts-base-mobile;
-
-  @media ($bp-small-min) {
-    font-size: $fonts-base;
-  }
+  font-size: $fonts-base;
 }
 
 body {
@@ -42,6 +38,10 @@ body {
   color: $c-font-base;
   font-family: $fonts;
   font-weight: $fonts-light;
+
+  @media ($bp-small-min) {
+    font-size: $fonts-medium;
+  }
 }
 
 a {
