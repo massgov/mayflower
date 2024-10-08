@@ -18,7 +18,7 @@
   }
   
   &-condition {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
   }
 
   &--hidden {
@@ -35,6 +35,6 @@
   }
 
   &--small {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
   }
 }

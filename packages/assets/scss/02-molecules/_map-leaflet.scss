@@ -27,7 +27,7 @@
 }
 
 .ma__location-listing__map  > a {
-  font-size: $fonts-smaller;
+  font-size: $fonts-small;
   text-align: center;
   display: block;
 
@@ -110,7 +110,7 @@
     width: 100%;
     background-color: $c-primary-alt;
     padding: 0.2rem 0.9rem;
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
 
     span {
       color: $c-font-inverse;

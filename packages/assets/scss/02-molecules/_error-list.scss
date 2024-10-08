@@ -36,7 +36,7 @@
   }
 
   &__title {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
   }
 
   &__icon {
@@ -46,7 +46,7 @@
 
 
   &__messages {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     margin-bottom: 0;
     padding-left: 53px;
   }
@@ -55,7 +55,7 @@
     border-bottom-style: solid;
     border-bottom-width: 1px;
     display: inline-block;
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     margin-bottom: 2px;
 
     &:hover {

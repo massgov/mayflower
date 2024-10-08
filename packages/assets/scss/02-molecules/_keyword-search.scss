@@ -14,7 +14,7 @@ $header-search-height: 46px;
   }
 
   &__input {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     height: $header-search-height;
     padding-right: $header-search-height + 16;
     padding-left: 16px;
@@ -57,7 +57,7 @@ $header-search-height: 46px;
 
 
   &__reset {
-    font-size: $fonts-5xlarge;
+    font-size: $fonts-6xlarge;
     line-height: 1rem;
     opacity: 0;
     overflow: hidden;

@@ -29,7 +29,7 @@
 
   &__title {
     font-weight: $fonts-bold;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
     line-height: 1.875rem;
     text-transform: uppercase;
@@ -60,7 +60,7 @@
   }
 
   &__name {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     margin-bottom: .5em;
   }
 }

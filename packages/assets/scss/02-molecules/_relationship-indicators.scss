@@ -9,10 +9,10 @@
   font-weight: 600;
   border-bottom: 0;
   margin: 5px 20px;
-  font-size: $fonts-smaller;
+  font-size: $fonts-small;
 
   @media ($bp-small-min) {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
   }
 
   @media ($bp-medium-min) {
@@ -299,7 +299,7 @@
               content: "";
               width: 10px;
               position: absolute;
-              height: $fonts-smaller;
+              height: $fonts-small;
               right: -10px;
               bottom: 1px;
               border-right: 1px solid $c-gray-light;

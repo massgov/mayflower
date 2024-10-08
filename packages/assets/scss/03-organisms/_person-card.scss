@@ -26,7 +26,7 @@
       font-weight: $fonts-normal;
 
       @media ($bp-small-min) {
-        font-size: $fonts-4xlarge;
+        font-size: $fonts-5xlarge;
       }
     }
 
@@ -41,7 +41,7 @@
       margin-bottom: 0;
 
       @media ($bp-small-min) {
-        font-size: $fonts-medium;
+        font-size: $fonts-large;
       }
     }
   }
@@ -64,7 +64,7 @@
         display: block;
         line-height: 1;
         font-weight: $fonts-normal;
-        font-size: $fonts-small;
+        font-size: $fonts-medium;
       }
     }
 

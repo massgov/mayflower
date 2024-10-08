@@ -13,7 +13,7 @@
   &__content {
     display: block;
     padding-top: 35px;
-    font-size: $fonts-xlarge;
+    font-size: $fonts-2xlarge;
     font-weight: $fonts-bold;
     line-height: 1.285;
     color: $c-gray-dark;
@@ -31,7 +31,7 @@
     }
 
     @media ($bp-small-min) {
-      font-size: $fonts-4xlarge;
+      font-size: $fonts-5xlarge;
     }
   }
 }

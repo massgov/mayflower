@@ -31,7 +31,7 @@ $steps-ordered-icon-border: 3px;
       border-radius: 50%;
       content: counter(li); // Use the counter as content
       counter-increment: li; // Increment the counter by 1
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       height: 36px;
       line-height: 36px - $steps-ordered-icon-border * 2;
       position: absolute;

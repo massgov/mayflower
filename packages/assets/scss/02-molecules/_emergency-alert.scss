@@ -4,7 +4,7 @@
 
 .ma__emergency-alert {
   background-color: $c-highlight-lightest;
-  font-size: $fonts-small;
+  font-size: $fonts-medium;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 0;
@@ -14,7 +14,7 @@
   }
 
   &__time-stamp {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     font-style: italic;
     font-weight: $fonts-normal;
   }
@@ -29,7 +29,7 @@
 
       span {
         border-bottom-width: 1px;
-        font-size: $fonts-small;
+        font-size: $fonts-medium;
         border-bottom-color: rgba($c-font-base, .5);
         color: $c-font-base;
 

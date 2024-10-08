@@ -58,7 +58,7 @@
     margin-bottom: 25px;
 
     @media ($bp-small-min) {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
     }
   }
 
@@ -66,7 +66,7 @@
     align-self: flex-end;
     border-top: 1px solid;
     display: block;
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     padding: 0 20px 20px 0;
     width: 100%;
     border-top-color: $c-bd-divider;
@@ -97,7 +97,7 @@
 
   &__mobile-title {
     border-bottom: 1px solid;
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
     margin-bottom: .75em;
     padding: 0 16px .75em 0;
     border-bottom-color: $c-bd-divider;
@@ -273,7 +273,7 @@
   &__item > .ma__decorative-link {
 
       &__item > .ma__decorative-link {
-      font-size: $fonts-larger;
+      font-size: $fonts-xlarge;
       line-height: 1.3;
     }
   }

@@ -75,7 +75,7 @@
 
 .accessibleCharCount-wrapperElem {
   display: block;
-  font-size: $fonts-xsmall;
+  font-size: $fonts-smaller;
   line-height: 1.625rem;
   text-align: right;
 }
@@ -89,7 +89,7 @@
 }
 
 .ma__disclaimer {
-  font-size: $fonts-small;/* in mass_decision_tree, this is set to 19px, but here make it relatively adjustable based on the root font size set to viewports. In full screen display, it's equivalent to 20px. */
+  font-size: $fonts-medium;/* in mass_decision_tree, this is set to 19px, but here make it relatively adjustable based on the root font size set to viewports. In full screen display, it's equivalent to 20px. */
 }
 
 .ma__disclaimer strong {

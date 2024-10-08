@@ -79,7 +79,7 @@ $utility-nav-height: 43px;
   &__link,
   &__translate {
     display: block;
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     line-height: 1.45;
     color: $c-font-base;
 
@@ -168,12 +168,12 @@ $utility-nav-height: 43px;
     position: relative;
 
     .goog-te-gadget {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       font-weight: $fonts-light;
     }
 
     .goog-te-gadget-simple {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       background-color: transparent;
       border: none;
       font-weight: $fonts-normal;
@@ -366,7 +366,7 @@ $utility-nav-height: 43px;
 
     @include ma-button-reset;
     cursor: pointer;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     font-weight: $fonts-bold;
     position: absolute;
     top: 0;
@@ -391,7 +391,7 @@ $utility-nav-height: 43px;
   }
 
   &__close-icon {
-    font-size: $fonts-4xlarge;
+    font-size: $fonts-5xlarge;
     line-height: .5em;
     margin-left: .2em;
     transform: rotate(45deg);
@@ -403,7 +403,7 @@ $utility-nav-height: 43px;
     h2, div {
       display: inline-block;
       vertical-align: middle;
-      font-size: $fonts-larger;
+      font-size: $fonts-xlarge;
       line-height: 1.45;
       font-weight: $fonts-normal;
       margin-bottom: 0;

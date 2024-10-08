@@ -15,7 +15,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
   }
 
   &__input {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     height: $header-search-height;
     padding-right: 128px;
     padding-left: 1rem;
@@ -78,8 +78,8 @@ $bp-header-search-reduce-button: "max-width: 700px";
       background-color: $c-bg;
 
       svg {
-        width: $fonts-small;
-        height: $fonts-small; 
+        width: $fonts-medium;
+        height: $fonts-medium; 
         margin-right: 1rem;
         flex-shrink: 0;
       }
@@ -94,7 +94,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
       text-align: left;
       padding: 0.5rem 1rem;
       border-top: 1px solid $c-bd;
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
 
       &:hover {
         background-color: $c-bg-section;
@@ -109,7 +109,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
       }
 
       &-scope {
-        font-size: $fonts-smaller;
+        font-size: $fonts-small;
         color: $c-font-detail;
         font-style: italic;
         margin-left: 0.5rem;
@@ -125,7 +125,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
         align-items: center;
         text-align: left;
         padding: 0.5rem 1rem;
-        font-size: $fonts-small;
+        font-size: $fonts-medium;
         border-top: 1px solid $c-bd;
         width: 100%;
   
@@ -142,7 +142,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
         }
   
         &-scope {
-          font-size: $fonts-smaller;
+          font-size: $fonts-small;
           color: $c-font-detail;
           font-style: italic;
           margin-left: 0.5rem;

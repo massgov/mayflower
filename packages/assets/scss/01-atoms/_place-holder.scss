@@ -1,8 +1,16 @@
+@use "00-base/configure" as *;
+
 .ma__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height:400px;
+  padding: 20px;
   color:#bbb;
-  min-height:200px;
   border:4px dashed #ddd;
-  font-size:2rem;
-  line-height:200px;
-  text-align:center;
+  font-size: $fonts-xlarge;
+
+  @media ($bp-small-min) {
+    font-size: $fonts-3xlarge;
+  }
 }

@@ -6,6 +6,11 @@
     background-color: $c-primary-lightest;
     font-size: $fonts-xsmall;
 
+    @media ($bp-small-min) {
+        padding-top: 0.2rem;
+        font-size: $fonts-smaller;
+      }
+
     @include background-colors(
         $lightTheme: (
             "c-primary": $c-primary-lightest,

@@ -2,7 +2,7 @@
 
 .ma__footer-slim {
   background-color: $c-platinum-gray;
-  font-size: $fonts-small;
+  font-size: $fonts-medium;
   line-height: 1.2;
   padding: 20px 0 30px;
   position: relative;
@@ -71,11 +71,11 @@
   &__title {
 
     @include ma-heading(3);
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
   }
 
   &__copyright {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     font-weight: $fonts-bold;
   }
 

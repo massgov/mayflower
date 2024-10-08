@@ -21,7 +21,7 @@
       justify-content: space-between;
       align-items: center;
       font-weight: $fonts-bold;
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       margin-bottom: 0;
       border: 0;
 
@@ -45,7 +45,7 @@
 
     &__toggle {
       margin-left: auto;
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       font-weight: $fonts-light;
       text-decoration: underline;
 
@@ -92,7 +92,7 @@
       text-align: left;
       width: 100%;
       background-color: $c-bg-section;
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
     }
 
     &__more {
@@ -110,7 +110,7 @@
     }
 
     &__title {
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
 
       &-link, &-suffix {
         line-height: 1.6;

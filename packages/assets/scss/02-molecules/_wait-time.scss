@@ -26,7 +26,7 @@
     }
 
     span {
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       letter-spacing: $letter-spacing-large;
       line-height: 1.39;
       padding-left: 5px;
@@ -61,7 +61,7 @@
   }
 
   &__label {
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     line-height: 1.27;
     margin-bottom: 0;
@@ -69,11 +69,11 @@
   }
 
   &__time {
-    font-size: $fonts-2xlarge;
+    font-size: $fonts-3xlarge;
   }
 
   &__units {
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
   }
 }
 
