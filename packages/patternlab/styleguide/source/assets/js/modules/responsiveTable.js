@@ -45,7 +45,7 @@ export default (function (window, document, $) {
       if (!reset) {
         $thead = $thead.clone();
         $table.after(
-          "<div class='sticky-thead'><div class='sticky-thead-wrapper'><table></table></div></div>"
+          "<div class='sticky-thead' tabindex='-1' aria-hidden='true'><div class='sticky-thead-wrapper'><table></table></div></div>"
         );
 
         $stickyHeader = $element.find(".sticky-thead");
@@ -99,21 +99,6 @@ export default (function (window, document, $) {
     }
     // Decide what should be showing or stuck.
     checkVisibility(rt);
-
-    // Reset scroll since this may have changed the max scroll amount.
-    let tableTitleCount = $table.find(".ma__table__caption__content").length;
-
-
-    if (rt.horizontalScrollable) {
-      $tableWrapper.attr("tabindex", "0");
-      $stickyHeader.attr("aria-hidden", "true");
-      $stickyHeader.attr("tabindex", "-1");
-    }
-
-    // $scrollInfo is hardcoded in caption in the template. Don't remove caption.
-    if (!rt.horizontalScrollable) {
-      $tableWrapper.attr("tabindex", "-1");
-    }
   }
 
   // Certain other components that stick to the top of the page need to be accounted for.
