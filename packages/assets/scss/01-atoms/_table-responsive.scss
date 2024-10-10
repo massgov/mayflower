@@ -4,10 +4,10 @@
   position: relative;
   margin-bottom: 1em;
 
-  /* 
+  /*
     Default Scrollbars
-    For WebKit (Chrome, Safari, Opera) 
-    Note: These selectors dont' work with Firefox or IOS Safari 
+    For WebKit (Chrome, Safari, Opera)
+    Note: These selectors dont' work with Firefox or IOS Safari
   */
 
   ::-webkit-scrollbar {
@@ -15,7 +15,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #fff; 
+    background: #fff;
     border: 2px solid #8AAAC7;
   }
 
@@ -26,57 +26,22 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #14558F;
   }
-
-  .ma__table__caption__scroll-info {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: -50px;
-    width: 50px;
-    height: 100%;
-    background-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.5), #fff, #fff);
-    font-weight: $fonts-bold;
-    transition: right 0.3s, opacity 0.1s;
-    z-index: calc(#{$z-sticky-header} + 1); //overlay sticky table header
-
-    &-text {
-      position: absolute;
-      top: 60px;
-      transform: rotate(90deg);
-      transform-origin: 45px 13px; // left center of the text
-      transition: position 0.3s;
-      width: max-content;
-      color: $c-font-link;
-      font-size: $fonts-small;
-      font-weight: $fonts-bold;
-      display: flex;
-      align-items: center;
-
-      svg {
-        fill: $c-font-link;
-        width: 18px;
-        height: 15px;
-        margin: 0 1rem;
-        transform: rotate(-90deg);
-      }
-    }
-
-    &.show {
-      opacity: 1;
-      right: -2px;
-    }
-  }
-
-
-
-  #sr-instructions {
-    // Ensure the content is announced via aria-labelledby only.
-    display: none;
-  }
 }
 
 .ma__table--responsive__wrapper {
-
+  // Pure CSS scrolling shadows with background-attachment: local.
+  // Code taken from https://codepen.io/aardrian/pen/MWeRJWd
+  background: linear-gradient(to right, #fff 30%, rgba(255, 255, 255, 0)),
+  linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%) 0 100%,
+  linear-gradient(to right, $c-gray-light 30%, rgba(255, 255, 255, 0)),
+  linear-gradient(to right, rgba(255, 255, 255, 0), $c-gray-light 70%) 0 100%,
+  0 100%;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-position: 0 0, 100%, 0 0, 100%;
+  background-attachment: local, local, scroll, scroll;
+  border: 2px solid $c-gray-light;
   overflow-x: auto;
 
   @media ($bp-medium-max) {
@@ -85,7 +50,8 @@
   }
 
   &[tabindex="0"]:focus {
-    outline: 2px solid $c-gray-light;
+    outline: 3px solid $c-focus-hightlight;
+    outline-offset: 3px;
   }
 
 }

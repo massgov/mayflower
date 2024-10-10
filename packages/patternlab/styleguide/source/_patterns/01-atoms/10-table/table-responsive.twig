@@ -15,9 +15,6 @@
     {% if table.description %}
       <caption id="tbl-{{tableID}}" class="ma__table__caption">{{ table.description }}</caption>
     {% endif %}
-      <div class="ma__table__caption__scroll-info" aria-hidden="true">
-        <div class="ma__table__caption__scroll-info-text">{{icon('scroll')}} Scroll to see more {{icon('scroll')}}</div>
-      </div>
       <thead>
         {% for row in table.head.rows %}
           <tr>
@@ -52,12 +49,5 @@
         </tbody>
       {% endfor %}
     </table>
-
-    {# Screen reader instructions are announced when users reach the table wrapper. #}
-    <div id="sr-instructions" aria-hidden="true">
-      <p>To show the overflow content, use left and right arrow keys.</p>
-      <p>For VoiceOver users, use VO keys + R to get an entire row content including the overflow part. </p>
-    </div>
-
   </div>
 </div>
