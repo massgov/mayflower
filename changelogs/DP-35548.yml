@@ -1,0 +1,6 @@
+Changed:
+  - project: Assets
+    component: Figure
+    description: Images in image paragraphs are stretched when smaller than allowed area. (#1936)
+    issue: DP-35548
+    impact: Patch
