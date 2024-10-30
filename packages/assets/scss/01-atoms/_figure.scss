@@ -32,7 +32,7 @@ $figures-gutter: 20px;
     &.align-left {
       float: left;
       margin-left: 0;
-      width: 50%;
+      max-width: 50%;
     }
 
     &--right,
