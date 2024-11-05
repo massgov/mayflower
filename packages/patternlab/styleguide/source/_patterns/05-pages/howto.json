@@ -41,6 +41,29 @@
     "divider": false,
     "title": "Apply for unemployment benefits",
     "subTitle": "Have you lost your job?  You may qualify for temporary income to support you while you look for a new one.",
+    "buttonsLabel": "LOG IN:",
+    "buttons": [{
+      "href": "#",
+      "text": "DLS Gateway Application Log-in",
+      "size": "small",
+      "theme": "c-primary",
+      "icon": "login",
+      "uppercaseOverride": true
+    },{
+      "href": "#",
+      "text": "Join the DLS Mailing List",
+      "size": "small",
+      "theme": "c-primary",
+      "icon": "login",
+      "uppercaseOverride": true
+    },{
+      "href": "#",
+      "text": "Visit the DLS YouTube Channel",
+      "size": "small",
+      "theme": "c-primary",
+      "icon": "login",
+      "uppercaseOverride": true
+    }],
     "optionalContents": [
       {
         "path": "@organisms/by-author/callout-time.twig",
