@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: ResponsiveTables
+    description: Usability improvements to rich text tables related to horizontal scrolling. (#1935)
+    issue: DP-35080
+    impact: Minor
