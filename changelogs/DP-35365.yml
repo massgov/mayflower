@@ -1,6 +1,6 @@
 Changed:
-  - project: Assets
-    component: Figure
+  - project: Patternlab
+    component: Assets
     description: Fix image styles in rich text with text wrapping. (#1938)
     issue: DP-35365
     impact: Patch
