@@ -1,0 +1,7 @@
+Added:
+  - project: Asset, Patternlab
+    component: FeedbackButton
+    description: Increase color contrast on feedback button border. (#1937)
+    issue: 
+    impact: Minor
+
