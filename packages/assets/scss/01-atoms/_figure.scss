@@ -270,7 +270,8 @@ $figures-gutter: 20px;
 
       @media ($bp-small-min) {
         // 621~
-        width: 100%;
+        width: auto;
+        max-width: 100%;
         padding-left: calc(100% / 3 * 2); //66.66%
       }
     }
@@ -286,7 +287,8 @@ $figures-gutter: 20px;
 
       @media ($bp-small-min) {
         // 621~
-        width: 100%;
+        width: auto;
+        max-width: 100%;
         padding-left: 50%;
       }
     }
