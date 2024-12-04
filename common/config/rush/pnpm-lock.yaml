@@ -8,7 +8,6 @@ dependencies:
   '@babel/plugin-syntax-dynamic-import': 7.8.3
   '@babel/plugin-transform-runtime': 7.12.10
   '@babel/preset-react': 7.12.10
-  '@massds/mayflower-react': 12.2.1
   '@proscom/gulp-svgr': 0.1.5
   '@rush-temp/mayflower': 'file:projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:projects/mayflower-assets.tgz'
@@ -114,6 +113,8 @@ dependencies:
   numbro: 2.3.2
   object.entries: 1.1.3
   picturefill: 3.0.3
+  postcss-remove-root: 0.0.2
+  postcss-selector-prepend: 0.5.0
   pre-push: 0.1.1
   react-autosuggest: 9.4.3
   react-autowhatever: 10.2.1
@@ -852,6 +853,7 @@ packages:
       '@babel/core': 7.12.10
       '@babel/helper-create-class-features-plugin': 7.20.2_@babel+core@7.12.10
       '@babel/helper-plugin-utils': 7.20.2
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
     dev: false
     engines:
       node: '>=6.9.0'
@@ -864,6 +866,7 @@ packages:
       '@babel/core': 7.20.2
       '@babel/helper-create-class-features-plugin': 7.20.2_@babel+core@7.20.2
       '@babel/helper-plugin-utils': 7.20.2
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
     dev: false
     engines:
       node: '>=6.9.0'
@@ -1113,6 +1116,7 @@ packages:
       '@babel/core': 7.12.10
       '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-syntax-nullish-coalescing-operator': 7.8.3_@babel+core@7.12.10
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
     dev: false
     engines:
       node: '>=6.9.0'
@@ -1125,6 +1129,7 @@ packages:
       '@babel/core': 7.20.2
       '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-syntax-nullish-coalescing-operator': 7.8.3_@babel+core@7.20.2
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
     dev: false
     engines:
       node: '>=6.9.0'
@@ -1252,6 +1257,7 @@ packages:
       '@babel/helper-plugin-utils': 7.20.2
       '@babel/helper-skip-transparent-expression-wrappers': 7.20.0
       '@babel/plugin-syntax-optional-chaining': 7.8.3_@babel+core@7.12.10
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
     dev: false
     engines:
       node: '>=6.9.0'
@@ -1265,6 +1271,7 @@ packages:
       '@babel/helper-plugin-utils': 7.20.2
       '@babel/helper-skip-transparent-expression-wrappers': 7.20.0
       '@babel/plugin-syntax-optional-chaining': 7.8.3_@babel+core@7.20.2
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
     dev: false
     engines:
       node: '>=6.9.0'
@@ -4135,38 +4142,6 @@ packages:
       sass: ~1.30.0
     resolution:
       integrity: sha512-gICxvSroPqWDOThPvIGlRjHV+u/JWCGDrN2JwFUsupIaV7GJEV1U5hokaj9XIJTZLfrWH6Zkw2jAzSqydsLkJA==
-  /@massds/mayflower-react/12.2.1:
-    dependencies:
-      autosuggest-highlight: 3.1.1
-      b-jsonp: 1.2.0
-      classnames: 2.2.6
-      dom-helpers: 3.4.0
-      fuse.js: 6.4.6
-      html-react-parser: 1.4.14
-      is: 3.3.0
-      moment: 2.29.1
-      nanoid: 2.1.11
-      normalize-scss: 7.0.1
-      numbro: 2.3.2
-      object.entries: 1.1.3
-      pikaday: 1.8.2
-      react-autosuggest: 9.4.3
-      react-autowhatever: 10.2.1
-      react-character-counter: 1.0.1
-      react-compound-slider: 0.19.2
-      react-html-parser: 2.0.2
-      react-portal: 4.2.1
-      react-select: 1.3.0
-      react-table: 6.11.5
-      react-transition-group: 2.9.0
-      react-virtualized: 9.22.3
-    dev: false
-    peerDependencies:
-      '@massds/mayflower-assets': ^12.0.0
-      react: ^16.13.1 || ^17 || ^18
-      react-dom: ^16.13.1 || ^17 || ^18
-    resolution:
-      integrity: sha512-gKaTN5Hpj/c8ge1cPX9nWCdsTjemwLdSegUIGoe74AES7NYHHl8mWzWbVfXVBTBKAjTGK3RCnGIt5+iAHdk9LA==
   /@massds/mayflower-react/12.2.1_3dd512835ed974832e2ddbc502df4fd2:
     dependencies:
       '@massds/mayflower-assets': 12.2.1_sass@1.30.0
@@ -14579,6 +14554,7 @@ packages:
       inherits: 2.0.4
       mkdirp: 0.5.5
       rimraf: 2.7.1
+    deprecated: This package is no longer supported.
     dev: false
     engines:
       node: '>=0.6'
@@ -20320,6 +20296,7 @@ packages:
       sass-graph: 2.2.5
       stdout-stream: 1.4.1
       true-case-path: 1.0.3
+    deprecated: Node Sass is no longer supported. Please use `sass` or `sass-embedded` instead.
     dev: false
     engines:
       node: '>=0.10.0'
@@ -20888,6 +20865,7 @@ packages:
     dependencies:
       os-homedir: 1.0.2
       os-tmpdir: 1.0.2
+    deprecated: This package is no longer supported.
     dev: false
     resolution:
       integrity: sha512-0CWcCECdMVc2Rw3U5w9ZjqX6ga6ubk1xDVKxtBQPK7wis/0F2r9T6k4ydGYhecl7YUBxBVxhL5oisPsNxAPe2g==
@@ -22110,6 +22088,12 @@ packages:
       node: '>=6.9.0'
     resolution:
       integrity: sha512-EEVig1Q2QJ4ELpJXMZR8Vt5DQx8/mo+dGWSR7vWXqcob2gQLyQGsionYcGKATXvQzMPn6DSN1vTN7yFximdIAg==
+  /postcss-remove-root/0.0.2:
+    dependencies:
+      postcss: 5.2.18
+    dev: false
+    resolution:
+      integrity: sha512-tY0+YdY07ryQ3p8in37TXpGvK6HIbnybOiLM4UUL6tIJdEHAIZLJ5ucH5Z1OYmsb4rfJ67ulReMcQCPey1qSrg==
   /postcss-resolve-nested-selector/0.1.1:
     dev: false
     resolution:
@@ -22158,6 +22142,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-gjMeXBempyInaBqpp8gODmwZ52WaYsVOsfr4L4lDQ7n3ncD6mEyySiDtgzCT+NYC0mmeOLvtsF8iaEf0YT6dBw==
+  /postcss-selector-prepend/0.5.0:
+    dependencies:
+      postcss: 5.2.18
+    dev: false
+    resolution:
+      integrity: sha512-7kcO+TElvVFxVESJl2k1A7MZhEb6u7mUElx8n+USdCH58vKK+M0FPtyYaE21FyfxJXsRhMioyzeN++KkJJOJAA==
   /postcss-svgo/4.0.2:
     dependencies:
       is-svg: 3.0.0
@@ -28735,7 +28725,7 @@ packages:
       typescript: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-X1yl2h3B/SxlRFxGHfo9Xu4zZq4m6MZU6aDA94TH+qySAakXvlgy6Vkz3Dc4TKh/1jcj3NzvvFPGfP2grDEE6w==
+      integrity: sha512-kB+7SgGMzPCpMY5nANtho0Ca1X+4ay1uQeYEi2yD1urEOIrPzQT32dafPHIEl/K4t19HYlUR/Nf3xFbou6o9ww==
       tarball: 'file:projects/mayflower-core.tgz'
     version: 0.0.0
   'file:projects/mayflower-react.tgz_react-is@16.13.1':
@@ -28846,7 +28836,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-fLN9ZHo2eEF2ymwaG/nCnoBn20zz4kOeLg238SrOjMqFTOs4zzRoYq85/PtdMy5HV2QaPcHUUuEpwxZ5mEEHLg==
+      integrity: sha512-AmrFUbAIlstwV8c4MudDEbaZg+UoWrfesJVhL1CA5nmKyt5sqpRE0dSgy62AEE6jbe/D5HNrwiRqw2z6OrjjKQ==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower-site.tgz_b7ec7fc0b3c58499ecbfa8b667e39e33':
@@ -28895,7 +28885,7 @@ packages:
       typescript: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-mWqZHBIfAXYgHbxI0RTqDbqcN9gw6HaTo2OCm/J6zmPAJA+I6fL+cD0ePCDvfZbH/Wmb0eptUCuadoVKiSeqrA==
+      integrity: sha512-ILmfNHfZvjLsve8byC2beVn16pVrZWouisaIiZluc5Gz8VJAP9ztDRXH19s036/7IGlFrrNab4F4/Y6c8YXdkg==
       tarball: 'file:projects/mayflower-site.tgz'
     version: 0.0.0
   'file:projects/mayflower.tgz':
@@ -28936,6 +28926,8 @@ packages:
       normalize-scss: 7.0.1
       picturefill: 3.0.3
       pikaday: 1.8.2
+      postcss-remove-root: 0.0.2
+      postcss-selector-prepend: 0.5.0
       sass: 1.30.0
       smoothscroll-polyfill: 0.4.4
       svg4everybody: 2.1.9
@@ -28949,7 +28941,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-tNCaAaUG+raFnB2SaiODirrQUwBxN0MwB8Bwy67MxGIarbF63qblIZ650MhvoozTIsmnxt9UhfJ/GFjAqzSqng==
+      integrity: sha512-XWj7zBMdb9qGfpLpqDAD/AwH1Qd5cRWDzndeBxpiMk5g73AwV1JmyGW0saOLmnyvVopPPlY20bPyM9esiBHMxQ==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
 registry: ''
@@ -28963,7 +28955,6 @@ specifiers:
   '@babel/plugin-syntax-dynamic-import': ^7.2.0
   '@babel/plugin-transform-runtime': ^7.10.1
   '@babel/preset-react': ^7.10.1
-  '@massds/mayflower-react': ^12.2.1
   '@proscom/gulp-svgr': ^0.1.3
   '@rush-temp/mayflower': 'file:./projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:./projects/mayflower-assets.tgz'
@@ -29069,6 +29060,8 @@ specifiers:
   numbro: ^2.1.2
   object.entries: ^1.0.4
   picturefill: ^3.0.3
+  postcss-remove-root: 0.0.2
+  postcss-selector-prepend: ^0.5.0
   pre-push: ^0.1.1
   react-autosuggest: ^9.4.3
   react-autowhatever: ^10.2.0
