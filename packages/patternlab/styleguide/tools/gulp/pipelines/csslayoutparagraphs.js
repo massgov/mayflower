@@ -56,7 +56,7 @@ postcssRemoveSpecificFont.postcss = true;
  */
 module.exports = function (minify, root) {
   const sassOptions = {
-    outputStyle: minify ? "expanded" : "expanded", // Minify or expanded output
+    outputStyle: minify ? "compressed" : "expanded", // Minify or expanded output
     sourceMap: process.env.NODE_ENV !== "production",
     sourceComments: process.env.NODE_ENV !== "production",
     includePaths: assetsPaths
