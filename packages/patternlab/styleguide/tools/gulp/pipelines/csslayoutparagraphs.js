@@ -10,7 +10,6 @@ const gulpIf = require("gulp-if");
 const lazypipe = require("lazypipe");
 const gulpPostcss = require("gulp-postcss");
 const postcssSelectorPrepend = require("postcss-selector-prepend");
-const postcssRemoveRoot = require("postcss-remove-root"); // Existing plugin for :root
 
 gulpSass.compiler = require("sass");
 
@@ -40,11 +39,15 @@ postcssRemoveFontFaceAndHtml.postcss = true;
 const postcssRemoveSpecificFont = () => {
   return {
     postcssPlugin: "remove-specific-font",
-    Declaration(decl) {
-      if (
-        decl.prop === "font" || decl.prop === 'font-size'
-      ) {
-        decl.remove(); // Remove the specific font declaration
+    Rule(rule) {
+      // Check if the selector contains `.js-lpb-component-list`
+      if (!rule.selector.includes(".js-lpb-component-list")) {
+        // Loop through declarations to find `font` or `font-size`
+        rule.walkDecls((decl) => {
+          if (decl.prop === "font" || decl.prop === "font-size") {
+            decl.remove(); // Remove the specific font declaration
+          }
+        });
       }
     },
   };
@@ -69,7 +72,6 @@ module.exports = function (minify, root) {
     selector: ".js-lpb-component-list ", // Prepend this selector
   });
 
-  const removeRoot = postcssRemoveRoot(); // Plugin to remove :root
   const removeFontFaceAndHtml = postcssRemoveFontFaceAndHtml(); // Custom plugin to remove @font-face and html
   const removeSpecificFont = postcssRemoveSpecificFont(); // Custom plugin to remove specific font declaration
 
@@ -81,7 +83,6 @@ module.exports = function (minify, root) {
     .pipe(pixrem, { rootValue: "16px", atrules: true, html: false })
     .pipe(gulpPostcss, [
       prependSelector,
-      removeRoot,
       removeFontFaceAndHtml,
       removeSpecificFont, // Add the font-removal plugin here
     ])
