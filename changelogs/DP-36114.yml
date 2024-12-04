@@ -1,0 +1,7 @@
+Changed:
+  - project: Patternlab, Assets
+    component: FeedbackButton
+    description: Increase border color contrast for a11y. (#1937)
+    issue: DP-36114
+    impact: Minor
+
