@@ -28,6 +28,7 @@ dependencies:
   '@svgr/plugin-jsx': 5.5.0
   '@svgr/webpack': 5.5.0
   '@types/react-dom': 17.0.25
+  autoprefixer: 10.4.20_postcss@8.4.49
   autosuggest-highlight: 3.3.4
   b-jsonp: 1.2.0
   babel-core: 6.26.3
@@ -92,7 +93,7 @@ dependencies:
   gulp-header: 2.0.9
   gulp-if: 2.0.2
   gulp-pixrem: 1.0.0
-  gulp-postcss: 8.0.0
+  gulp-postcss: 9.0.1_postcss@8.4.49
   gulp-replace: 1.1.4
   gulp-run-command: 0.0.10
   gulp-sourcemaps: 2.6.5
@@ -114,7 +115,8 @@ dependencies:
   numbro: 2.5.0
   object.entries: 1.1.8
   picturefill: 3.0.3
-  postcss-remove-root: 0.0.2
+  pixrem: 5.0.0
+  postcss: 8.4.49
   postcss-selector-prepend: 0.5.0
   pre-push: 0.1.4
   react-autosuggest: 9.4.3
@@ -1244,7 +1246,7 @@ packages:
   /@babel/plugin-proposal-object-rest-spread/7.12.1_@babel+core@7.12.9:
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.25.9
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.25.9_@babel+core@7.12.9
     deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
@@ -9152,6 +9154,23 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+  /autoprefixer/10.4.20_postcss@8.4.49:
+    dependencies:
+      browserslist: 4.24.2
+      caniuse-lite: 1.0.30001686
+      fraction.js: 4.3.7
+      normalize-range: 0.1.2
+      picocolors: 1.1.1
+      postcss: 8.4.49
+      postcss-value-parser: 4.2.0
+    dev: false
+    engines:
+      node: ^10 || ^12 || >=14
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+    resolution:
+      integrity: sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==
   /autoprefixer/8.6.5:
     dependencies:
       browserslist: 3.2.8
@@ -12704,6 +12723,10 @@ packages:
       node: '>=8.0.0'
     resolution:
       integrity: sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q==
+  /css-unit-converter/1.1.2:
+    dev: false
+    resolution:
+      integrity: sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==
   /css-what/3.4.2:
     dev: false
     engines:
@@ -16173,6 +16196,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==
+  /fraction.js/4.3.7:
+    dev: false
+    resolution:
+      integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
   /fragment-cache/0.2.1:
     dependencies:
       map-cache: 0.2.2
@@ -18016,16 +18043,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-KodKAfMs3vym/4Sixg/sDFupXA38w4t71lDJ2aN6/bxeI6BV8RgvK1xEFm/EnHEJy3HMyHh06VxG4ChafvD9RQ==
-  /gulp-postcss/8.0.0:
+  /gulp-postcss/9.0.1_postcss@8.4.49:
     dependencies:
       fancy-log: 1.3.3
       plugin-error: 1.0.1
-      postcss: 7.0.39
-      postcss-load-config: 2.1.2
+      postcss: 8.4.49
+      postcss-load-config: 3.1.4_postcss@8.4.49
       vinyl-sourcemaps-apply: 0.2.1
     dev: false
+    engines:
+      node: ^10 || ^12 || >=14
+    peerDependencies:
+      postcss: ^8.0.0
     resolution:
-      integrity: sha512-Wtl6vH7a+8IS/fU5W9IbOpcaLqKxd5L1DUOzaPmlnCbX1CrG0aWdwVnC3Spn8th0m8D59YbysV5zPUe1n/GJYg==
+      integrity: sha512-9QUHam5JyXwGUxaaMvoFQVT44tohpEFpM8xBdPfdwTYGM0AItS1iTQz0MpsF8Jroh7GF5Jt2GVPaYgvy8qD2Fw==
   /gulp-rename/2.0.0:
     dev: false
     engines:
@@ -20838,6 +20869,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-DlIPlJUkCV0Ips2zf2pJP0unEoT1kwYhiiPUGF3s/jtxTCjziNLoiVVh+jqWOWeFi6mmwQ5fNxvAUyPad4Dfog==
+  /lilconfig/2.1.0:
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==
   /limiter/1.1.5:
     dev: false
     resolution:
@@ -21302,7 +21339,7 @@ packages:
       integrity: sha512-RPNliZOFkqFumDhvYqOaNY4Uz9oJM2K9tC6JWsJJsNdhuONW4LQHRBpb0qf4pJApVffI5N39SwzWZJuEhfd7eQ==
   /lower-case/2.0.2:
     dependencies:
-      tslib: 2.2.0
+      tslib: 2.8.1
     dev: false
     resolution:
       integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==
@@ -22631,7 +22668,7 @@ packages:
   /no-case/3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.2.0
+      tslib: 2.8.1
     dev: false
     resolution:
       integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==
@@ -24118,6 +24155,17 @@ packages:
       npm: '>=1.2.10'
     resolution:
       integrity: sha512-sOvRS25lBgH91Isn2ewxpc3GRvkRlXW1hgb/hcjXz1URERtLVsT3fblTpKyBXP8Cw/EOjUqwtIs7x4uG7sppVg==
+  /pixrem/5.0.0:
+    dependencies:
+      browserslist: 4.24.2
+      postcss: 7.0.39
+      reduce-css-calc: 2.1.8
+    dev: false
+    engines:
+      node: '>=4.0.0'
+      npm: '>=1.2.10'
+    resolution:
+      integrity: sha512-ugJ4Imy92u55zeznaN/5d7iqOBIZjZ7q10/T+dcd0IuFtbLlsGDvAUabFu1cafER+G9f0T1WtTqvzm4KAdcDgQ==
   /pkg-dir/1.0.0:
     dependencies:
       find-up: 1.1.2
@@ -24385,6 +24433,24 @@ packages:
       node: '>= 4'
     resolution:
       integrity: sha512-/rDeGV6vMUo3mwJZmeHfEDvwnTKKqQ0S7OHUi/kJvvtx3aWtyWG2/0ZWnzCt2keEclwN6Tf0DST2v9kITdOKYw==
+  /postcss-load-config/3.1.4_postcss@8.4.49:
+    dependencies:
+      lilconfig: 2.1.0
+      postcss: 8.4.49
+      yaml: 1.10.2
+    dev: false
+    engines:
+      node: '>= 10'
+    peerDependencies:
+      postcss: '>=8.0.9'
+      ts-node: '>=9.0.0'
+    peerDependenciesMeta:
+      postcss:
+        optional: true
+      ts-node:
+        optional: true
+    resolution:
+      integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==
   /postcss-loader/3.0.0:
     dependencies:
       loader-utils: 1.4.2
@@ -24803,6 +24869,16 @@ packages:
       node: '>=6.0.0'
     resolution:
       integrity: sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==
+  /postcss/8.4.49:
+    dependencies:
+      nanoid: 3.3.8
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+    dev: false
+    engines:
+      node: ^10 || ^12 || >=14
+    resolution:
+      integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==
   /potrace/2.1.8:
     dependencies:
       jimp: 0.14.0
@@ -26281,6 +26357,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-0dVfwYVOlf/LBA2ec4OwQ6p3X9mYxn/wOl2xTcLwjnPYrkgEfPx3VI4eGCH3rQLlPISG5v9I9bkZosKsNRTRKA==
+  /reduce-css-calc/2.1.8:
+    dependencies:
+      css-unit-converter: 1.1.2
+      postcss-value-parser: 3.3.1
+    dev: false
+    resolution:
+      integrity: sha512-8liAVezDmUcH+tdzoEGrhfbGcP7nOV4NkGE3a74+qqvE7nt9i4sKLGBuZNOnpI4WiGksiNPklZxva80061QiPg==
   /reduce-function-call/1.0.3:
     dependencies:
       balanced-match: 1.0.2
@@ -27914,6 +27997,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==
+  /source-map-js/1.2.1:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
   /source-map-resolve/0.5.3:
     dependencies:
       atob: 2.1.2
@@ -31852,6 +31941,7 @@ packages:
     version: 0.0.0
   'file:projects/mayflower.tgz':
     dependencies:
+      autoprefixer: 10.4.20_postcss@8.4.49
       babel-core: 6.26.3
       babel-preset-env: 1.7.0
       babelify: 8.0.0_babel-core@6.26.3
@@ -31874,7 +31964,7 @@ packages:
       gulp-header: 2.0.9
       gulp-if: 2.0.2
       gulp-pixrem: 1.0.0
-      gulp-postcss: 8.0.0
+      gulp-postcss: 9.0.1_postcss@8.4.49
       gulp-rename: 2.0.0
       gulp-sass: 4.1.1
       gulp-sourcemaps: 2.6.5
@@ -31889,6 +31979,8 @@ packages:
       normalize-scss: 7.0.1
       picturefill: 3.0.3
       pikaday: 1.8.2
+      pixrem: 5.0.0
+      postcss: 8.4.49
       postcss-remove-root: 0.0.2
       postcss-selector-prepend: 0.5.0
       sass: 1.30.0
@@ -31904,7 +31996,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-5N2xGykUR15+UqYVfQ30OoA8shv11QWOf4tgyESJlnK7R/t/Nhw1EeW6ljfadDVqDgNJrcndApKn4IbL0bNcKw==
+      integrity: sha512-Xz/Oxf6VlZwsIOKbWBB+oNfOxGsh/3QGWPPqST8+I7NLbIhAFpwCCx8+32r24hz2r5T+w8v6ml4sW5clIPJU9g==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
 registry: ''
@@ -31938,6 +32030,7 @@ specifiers:
   '@svgr/plugin-jsx': ^5.5.0
   '@svgr/webpack': ^5.5.0
   '@types/react-dom': ^17
+  autoprefixer: ^10.4.20
   autosuggest-highlight: ^3.1.1
   b-jsonp: ^1.2.0
   babel-core: ^6.26.3
@@ -32002,7 +32095,7 @@ specifiers:
   gulp-header: ^2.0.5
   gulp-if: ^2.0.2
   gulp-pixrem: ^1.0.0
-  gulp-postcss: ^8.0.0
+  gulp-postcss: ^9.0.1
   gulp-replace: ~1.1.3
   gulp-run-command: 0.0.10
   gulp-sourcemaps: ^2.6.4
@@ -32024,7 +32117,8 @@ specifiers:
   numbro: ^2.1.2
   object.entries: ^1.0.4
   picturefill: ^3.0.3
-  postcss-remove-root: 0.0.2
+  pixrem: ^5.0.0
+  postcss: ^8.4.49
   postcss-selector-prepend: ^0.5.0
   pre-push: ^0.1.1
   react-autosuggest: ^9.4.3
