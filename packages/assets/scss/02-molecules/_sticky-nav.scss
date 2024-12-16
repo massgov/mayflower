@@ -32,6 +32,7 @@
     border: 1px solid $c-gray-light;
     left: 0;
     // when the nav is sticky, add a box shadow
+
     &[data-sticky="middle"],&[data-sticky="bottom"] {
       box-shadow: $box-shadow;
     }
@@ -210,6 +211,7 @@
   }
 
   // horizontal layout
+
   &--horizontal.ma__sticky-nav {
     width: 100%;
     position: relative;
@@ -232,6 +234,7 @@
     .ma__sticky-nav__container {
 
       @media ($bp-medium-min) {
+
         @include ma-container;
         display: flex;
         flex-wrap: wrap;
@@ -252,12 +255,14 @@
       }
 
       &.is-active {
+
         a {
           color: $c-font-base;
         }
       }
 
       // horizontal sticky nav links on desktop
+
       @media ($bp-medium-min) {
         padding: 15px 15px 10px;
         height: 100%;
@@ -271,6 +276,7 @@
 
         &:hover {
           border-bottom-color: $c-primary-alt-lighter;
+
           a {
             color: $c-font-base;
           }
@@ -281,6 +287,7 @@
           
           &:hover {
             border-bottom-color: $c-primary-alt-lighter;
+
             a {
               color: $c-font-base;
             }
