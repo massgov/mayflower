@@ -3,16 +3,16 @@
     {% set compHeading = downloadList.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
   {% endif %}
-  {% if formDownloads.sidebarHeading %}
+  {% if downloadList.sidebarHeading %}
     {% set sidebarHeading = downloadList.sidebarHeading %}
     {% include "@atoms/04-headings/sidebar-heading.twig" %}
   {% endif %}
-    {% block formDownloadLinks %}
-      <ul class="ma__downloads-listing__links">
-          {% for item in downloadList.downloadLinks %}
-            {% set downloadLink = item.downloadLink %}
-            {% include "@molecules/download-link-multilang.twig" %}
-          {% endfor %}
-      </ul>
+  <ul class="ma__downloads-listing__links">
+    {% block downloadListLinks %}
+      {% for item in downloadList.downloadLinks %}
+        {% set downloadLink = item.downloadLink %}
+        {% include "@molecules/download-link-multilang.twig" %}
+      {% endfor %}
     {% endblock %}
+  </ul>
 </section>
