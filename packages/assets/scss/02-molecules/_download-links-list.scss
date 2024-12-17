@@ -1,0 +1,17 @@
+@use "00-base/configure" as *;
+
+.ma__downloads-listing {
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container('restricted');
+  }
+
+  &__links {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+}

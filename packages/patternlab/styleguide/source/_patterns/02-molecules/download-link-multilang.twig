@@ -1,6 +1,6 @@
 {% set sizeClass = downloadLink.iconSize ? "ma__download-link--" ~ downloadLink.iconSize : "" %}
-
-<div class="ma__download-link {{ sizeClass }}">
+{% set tag = downloadLink.listing ? 'li' : 'div' %}
+<{{ tag }} class="ma__download-link {{ sizeClass }}">
   {% if downloadLink.icon %}
     <div class="ma__download-link__icon">
       {{ icon(downloadLink.icon) }}
@@ -32,4 +32,4 @@
       {% include "@organisms/by-author/rich-text.twig" %}
     </div>
   {% endif %}
-</div>
+</{{ tag }}>
