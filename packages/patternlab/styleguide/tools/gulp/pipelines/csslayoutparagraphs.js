@@ -72,8 +72,29 @@ module.exports = function (minify, root) {
     selector: ".js-lpb-component-list ", // Prepend this selector
   });
 
+  const postcssAdjustFontSizeForLPB = () => {
+    return {
+      postcssPlugin: "adjust-font-size-for-lpb",
+      Rule(rule) {
+        // Check if the selector includes `.js-lpb-component-list`
+        if (rule.selector.includes(".js-lpb-component-list")) {
+          // Add or adjust the font-size declaration
+          rule.walkDecls("font-size", (decl) => {
+            // Skip if already adjusted
+            if (decl.value.includes("calc")) return;
+
+            // Wrap the font-size in a calc expression to apply scaling
+            decl.value = `calc(${decl.value} * 0.8)`;
+          });
+        }
+      },
+    };
+  };
+  postcssAdjustFontSizeForLPB.postcss = true;
+
   const removeFontFaceAndHtml = postcssRemoveFontFaceAndHtml(); // Custom plugin to remove @font-face and html
   const removeSpecificFont = postcssRemoveSpecificFont(); // Custom plugin to remove specific font declaration
+  const adjustFontSizeForLPB = postcssAdjustFontSizeForLPB(); // Custom plugin to remove specific font declaration
 
   return lazypipe()
     .pipe(sourcemaps.init, { loadMaps: true, largeFile: true })
@@ -84,7 +105,8 @@ module.exports = function (minify, root) {
     .pipe(gulpPostcss, [
       prependSelector,
       removeFontFaceAndHtml,
-      removeSpecificFont, // Add the font-removal plugin here
+      removeSpecificFont,
+      adjustFontSizeForLPB
     ])
     .pipe(rename, { suffix: "-lp" })
     .pipe(function () {
