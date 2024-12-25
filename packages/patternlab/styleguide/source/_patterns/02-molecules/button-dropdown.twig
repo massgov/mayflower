@@ -1,0 +1,23 @@
+{% set buttonSize = button.size ? "ma__button--" ~ button.size : "" %}
+
+{% set buttonUsage = button.usage ? "ma__button--" ~ button.usage : "" %}
+
+{% set buttonTheme = button.theme ? "ma__button--" ~ button.theme : "" %}
+
+{% set buttonUppercaseOverride = button.uppercaseOverride ? "" : "ma__button--uppercase" %}
+
+<div class="ma__button-dropdown-wrapper js-button-dropdown">
+  <button id="{{ button.id }}" class="ma__button ma__button-dropdown__top-link js-button-dropdown-toggle {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{button.class}} {{ buttonUppercaseOverride }}" aria-haspopup="true" aria-expanded="false" tabindex="0">
+    <span class="ma__visually-hidden show-label">Show the sub topics of </span>
+    {{ button.text }}
+  </button>
+  <div class="ma__button-dropdown__subitems js-button-dropdown-content is-closed">
+    <ul id="{{ button.menuId }}" role="menu" aria-labelledby="{{ button.id }}" class="ma__button-dropdown__subitems-container">
+      {% for item in button.items %}
+        <li role="none" class="ma__button-dropdown__subitem">
+          <a role="menuitem" href="{{ item.href }}" class="ma__button-dropdown__link" tabindex="0">{{ item.text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

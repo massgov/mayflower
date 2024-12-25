@@ -1,0 +1,66 @@
+@use "00-base/configure" as *;
+
+.ma__button-dropdown-wrapper {
+  position: relative;
+
+  &.is-open, &.is-open-react {
+
+    .ma__button-dropdown:after {
+      transform: translateY(-45%) rotate(-135deg);
+    }
+  }
+
+  .ma__button-dropdown {
+    @include ma-chevron;
+
+    &:after {
+      cursor: pointer;
+      margin-left: 6px;
+      transform: translateY(-45%) rotate(45deg);
+    }
+  }
+
+  .ma__button-dropdown__subitems {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 0.25em 0.5rem $c-box-shadow-black;
+    transition: visibility .5s ease, right .5s ease;
+    z-index: $z-overlay;
+
+    &.is-open {
+      display: inline-block;
+    }
+    &.is-closed {
+      display: none !important;
+    }
+
+    &-container {
+      @include ma-reset-list;
+
+      background-color: $c-bg;
+    }
+  }
+
+  .ma__button-dropdown__subitem {
+    border-bottom: 1px solid;
+    border-bottom-color: $c-bd-divider;
+
+    .ma__button-dropdown__link {
+      @include ma-button-reset;
+      width: 100%;
+      text-align: left;
+      display: inline-block;
+      font-size: $fonts-small;
+      line-height: 1.33;
+      padding: 10px 20px;
+      font-weight: $fonts-normal;
+      white-space: nowrap;
+
+      &:hover,
+      &:focus {
+        background-color: $c-bg-subtle;
+      }
+    }
+  }
+}

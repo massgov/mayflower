@@ -93,7 +93,11 @@
             <ul class="ma__page-header__buttons">
                 {% for button in pageHeader.buttons %}
                 <li class="ma__page-header__button">
+                  {% if button.items %}
+                    {% include "@molecules/button-dropdown.twig" %}
+                  {% else %}
                     {% include "@atoms/01-buttons/button.twig" %}
+                  {% endif %}
                 </li>
                 {% endfor %}
             </ul>
