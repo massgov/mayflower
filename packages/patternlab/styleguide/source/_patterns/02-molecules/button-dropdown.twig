@@ -7,7 +7,7 @@
 {% set buttonUppercaseOverride = button.uppercaseOverride ? "" : "ma__button--uppercase" %}
 
 <div class="ma__button-dropdown-wrapper js-button-dropdown">
-  <button id="{{ button.id }}" class="ma__button ma__button-dropdown__top-link js-button-dropdown-toggle {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{button.class}} {{ buttonUppercaseOverride }}" aria-haspopup="true" aria-expanded="false" tabindex="0">
+  <button id="{{ button.id }}" class="ma__button ma__button-dropdown js-button-dropdown-toggle {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{button.class}} {{ buttonUppercaseOverride }}" aria-haspopup="true" aria-expanded="false" tabindex="0">
     <span class="ma__visually-hidden show-label">Show the sub topics of </span>
     {{ button.text }}
   </button>
