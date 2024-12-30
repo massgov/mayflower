@@ -2,6 +2,7 @@ export const assets = {
   alert: 'alert',
   arrow: 'arrow',
   arrowbent: 'arrowbent',
+  bluesky: 'bluesky',
   building: 'building',
   calendar: 'calendar',
   catalog: 'catalog',
