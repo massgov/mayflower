@@ -264,7 +264,7 @@ Your new or modified pattern should follow Mayflowers coding guidelines below.
 - Vendor files should always be loaded asychronously to avoid blocking the page from loading (ie: google APIs js files)
 
 #### SVG icons
-See [Adding a new icon to Mayflower](packages/assets/static/images/icons/_readme.md)
+See [Adding a new icon to Mayflower](../packages/assets/static/images/icons/_readme.md)
 
 
 ### Submitting your work
