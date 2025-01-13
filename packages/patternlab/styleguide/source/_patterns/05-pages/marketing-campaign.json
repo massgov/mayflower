@@ -85,7 +85,7 @@
         "link": "#",
         "thumbnail": "../../assets/images/placeholder/400x300.png",
         "title": "From an IT training program to EOTSS Team Lead",
-        "text": "<p>“I’m really impressed with the people who work here. I’ve met individuals who have mentored me and helped me build the skills needed to be successful.”</p><p><b>John Smith</b>, Identity & Access Management Specialist</p>"
+        "text": "<p>“I’m really impressed with the people who work here. I’ve met individuals who have mentored me and helped me build the skills needed to be successful.”</p><p><b>John Smith</b><a mailto='#'>John Smith</a>, Identity & Access Management Specialist</p>"
       },
       {
         "id": "",
