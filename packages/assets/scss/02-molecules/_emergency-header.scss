@@ -80,7 +80,7 @@
     font-weight: $fonts-light;
 
     @media ($bp-small-max) {
-      font-size: 1.2rem;
+      font-size: $fonts-medium;
     }
 
     @include ma-button-reset;

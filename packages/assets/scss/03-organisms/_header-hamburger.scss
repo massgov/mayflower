@@ -729,7 +729,7 @@ body.show-menu {
       border-color: tint($c-font-link, 50%);
       box-shadow: $box-shadow;
       color: $c-font-link;
-      font-size: 1.25rem;
+      font-size: $fonts-medium;
 
       @media ($bp-x-small-max) {
 
@@ -745,7 +745,7 @@ body.show-menu {
       @media ($bp-large-min) {
 
         padding: 7px 15px;
-        font-size: 1.375rem;
+        font-size: $fonts-large;
       }
 
       &::before {

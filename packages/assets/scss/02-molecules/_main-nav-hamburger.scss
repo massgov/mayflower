@@ -116,7 +116,7 @@
     text-align: left;
     display: block;
     position: relative;
-    font-size: 1.25rem;
+    font-size: $fonts-medium;
     font-weight: $fonts-normal;
     line-height: 1.33;
     padding: 10px 20px 10px 30px;
@@ -134,7 +134,7 @@
   }
 
   &__subitem--main &__link {
-    font-size: 1.125rem;
+    font-size: $fonts-small;
     letter-spacing: $letter-spacing-medium;
     text-transform: uppercase;
 
