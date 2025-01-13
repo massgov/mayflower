@@ -9,6 +9,27 @@ export default (function (window, document, $) {
       $mainNavItems = $mainNavList.find('.js-button-dropdown-toggle'), // li
       $mainNavItemsToggle = $mainNavList.find('button.js-button-dropdown-toggle'); // button
 
+    // Close dropdown when clicking outside of it
+    $(document).on('click', function (e) {
+      // Check if the click is outside the dropdown
+      // Not clicking on the dropdown itself
+      // Not clicking on a child element of the dropdown
+      if (
+        !$mainNavList.is(e.target) &&
+        $mainNavList.has(e.target).length === 0
+      ) {
+        let $topLevelButton = $mainNavItemsToggle, //
+        $topLevelItem = $topLevelButton.parent(), //div
+        $dropdownContent = $topLevelItem.find('.js-button-dropdown-content'),
+        isOpen = $dropdownContent.hasClass(openClass);
+        if (isOpen) {
+          hide($dropdownContent);
+          $topLevelButton.attr('aria-expanded', 'false');
+          $topLevelItem.removeClass('is-open');
+        }
+      }
+    });
+
     // mouse events + space and enter keyboard events
     $mainNavItemsToggle.on('click', function (e) {
       let $topLevelButton = $(this), // button
