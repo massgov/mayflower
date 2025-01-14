@@ -102,18 +102,18 @@
     {
       "commandKind": "global",
       "name": "backstop:patternlab",
-      "summary": "Runs 'gulp prod && docker-compose run backstop test' for the patternlab package.",
+      "summary": "Runs 'gulp prod && docker compose run backstop test' for the patternlab package.",
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true,
-      "shellCommand": "cd packages/patternlab/styleguide && gulp prod && docker-compose run backstop test"
+      "shellCommand": "cd packages/patternlab/styleguide && gulp prod && docker compose run backstop test"
     },
     {
       "commandKind": "global",
       "name": "backstop-approve:patternlab",
-      "summary": "Runs 'rushx docker-compose run backstop approve' for the patternlab package.",
+      "summary": "Runs 'rushx docker compose run backstop approve' for the patternlab package.",
       "safeForSimultaneousRushProcesses": true,
       "allowWarningsInSuccessfulBuild": true,
-      "shellCommand": "cd packages/patternlab && docker-compose run backstop approve"
+      "shellCommand": "cd packages/patternlab && docker compose run backstop approve"
     },
     {
       "commandKind": "global",

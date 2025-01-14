@@ -73,7 +73,7 @@ $figures-gutter: 20px;
   }
 
   &__caption {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     font-style: italic;
     line-height: 1.57;
   }
@@ -379,8 +379,7 @@ $figures-gutter: 20px;
   // Reset initial styles on elements in iframe container.
 
   .ma__figure__skip-link {
-    font-size: 1.25rem;
-    // font-size: 1.375rem;
+    font-size: $fonts-medium;
     text-decoration: underline;
     height: auto;
     width: auto;
@@ -394,7 +393,7 @@ $figures-gutter: 20px;
   .ma__figure__skip-link_destination {
     height: auto;
     width: auto;
-    font-size: 1.375rem;
+    font-size: $fonts-large;
   }
 }
 

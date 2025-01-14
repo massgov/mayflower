@@ -66,7 +66,7 @@
     // text
 
     & > span {
-      font-size: $fonts-xsmall;
+      font-size: $fonts-smaller;
       line-height: 1.13;
       text-transform: uppercase;
       vertical-align: middle;
@@ -80,7 +80,7 @@
     font-weight: $fonts-light;
 
     @media ($bp-small-max) {
-      font-size: 1.2rem;
+      font-size: $fonts-medium;
     }
 
     @include ma-button-reset;
@@ -139,7 +139,7 @@
 
     .ma__emergency-header__title {
       display: block;
-      font-size: $fonts-large;
+      font-size: $fonts-larger;
       line-height: 1.4;
       margin-bottom: 0;
       font-weight: $fonts-bold;
