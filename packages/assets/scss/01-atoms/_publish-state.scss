@@ -1,12 +1,12 @@
 @use "00-base/configure" as *;
 
 .ma__publish-state {
-  font-size: $fonts-2xlarge;
+  font-size: $fonts-3xlarge;
   text-transform: uppercase;
   letter-spacing: $letter-spacing-large;
 
   @media ($bp-small-min) {
-    font-size: $fonts-6xlarge;
+    font-size: $fonts-7xlarge;
   }
 
   .pre-content > &,

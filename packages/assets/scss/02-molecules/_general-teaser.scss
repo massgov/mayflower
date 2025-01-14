@@ -63,7 +63,7 @@
     margin-bottom: 5px;
     display: inline-flex;
     align-items: center;
-    font-size: $fonts-3xsmall;
+    font-size: $fonts-2xsmall;
     line-height: 12px;
     letter-spacing: $letter-spacing-large;
     padding: 5px 7px;
@@ -85,7 +85,7 @@
     display: flex;
     align-items: center;
 
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     font-weight: $fonts-bold;
 
     svg {
@@ -96,7 +96,7 @@
   }
 
   &__title {
-    font-size: $fonts-larger;
+    font-size: $fonts-xlarge;
     line-height: 1.2em;
     margin-bottom: .25em;
 
@@ -105,13 +105,13 @@
     }
 
     .ma__decorative-link {
-      font-size: $fonts-larger;
+      font-size: $fonts-xlarge;
       line-height: 1.2;
     }
   }
 
   &__emph-text {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     line-height: 1;
     margin-bottom: 1em;
     font-style: italic;
@@ -131,7 +131,7 @@
   }
 
   &__contents {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
 
     p {
       margin-bottom: 0.5rem;
@@ -148,7 +148,7 @@
 
   &__tag {
     color: $c-gray;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     font-weight: bold;
     text-align: center;
     border: 1px solid $c-gray-light;

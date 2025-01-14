@@ -12,10 +12,10 @@
   width: 100%;
   z-index: $z-sticky-content;
 
-  font-size: $fonts-medium;
+  font-size: $fonts-large;
 
   @media ($bp-small-min) {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
   }
 
   &:before {
@@ -86,7 +86,6 @@
     cursor: pointer;
     display: none;
     line-height: 1.2;
-    padding: 10px 15px;
     border-top-color: $c-gray-light;
     padding: 12px;
 
@@ -187,7 +186,7 @@
 
     @include ma-button-reset;
     color: $c-primary-alt;
-    font-size: $fonts-6xlarge;
+    font-size: $fonts-7xlarge;
     line-height: .65em;
     overflow: hidden;
     position: absolute;

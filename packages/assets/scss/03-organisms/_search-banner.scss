@@ -39,7 +39,7 @@
 
     @include ma-container;
     padding-bottom: 25px;
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
     position: relative;
     z-index: 2;
 
@@ -54,7 +54,7 @@
     h1 {
 
       @media ($bp-large-min) {
-        font-size: $fonts-10xlarge;
+        font-size: $fonts-11xlarge;
       }
     }
 
@@ -73,7 +73,7 @@
     text-align: center;
 
     @media ($bp-large-min) {
-      font-size: $fonts-10xlarge;
+      font-size: $fonts-11xlarge;
     }
   }
 
@@ -117,12 +117,12 @@
 
     input {
       border: none;
-      font-size: $fonts-large;
+      font-size: $fonts-larger;
       height: 100%;
       width: 100%;
 
       @media ($bp-small-min) {
-        font-size: $fonts-2xlarge;
+        font-size: $fonts-3xlarge;
       }
     }
   }
@@ -133,7 +133,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: auto;
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     letter-spacing: $letter-spacing-large;
     height: 40px;
     padding-left: 15px;
@@ -189,7 +189,7 @@
     }
 
     .ma__comp-heading {
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       letter-spacing: $letter-spacing-large;
       margin-bottom: .75em;
       text-transform: uppercase;
@@ -206,7 +206,7 @@
     }
 
     .ma__content-link {
-      font-size: $fonts-large;
+      font-size: $fonts-larger;
 
       span {
         border-bottom-width: 1px;
@@ -264,12 +264,12 @@
   }
 
   &__image-name {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 1.125rem;
   }
 
   &__image-author {
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     line-height: 1.125rem;
   }
   // End backward compatible with v5.7 - converted image-credit to new Banner Credit molecule
