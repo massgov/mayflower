@@ -5,7 +5,7 @@
   text-align: center;
 
   &__label {
-    font-size: $fonts-11xlarge;
+    font-size: $fonts-12xlarge;
     line-height: 0.72;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -16,27 +16,27 @@
   }
 
   &__type {
-    font-size: $fonts-xlarge;
+    font-size: $fonts-2xlarge;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
   }
 
   &__title {
-    font-size: $fonts-xlarge;
+    font-size: $fonts-2xlarge;
     line-height: 1.31;
 
     @media ($bp-small-min) {
-      font-size: $fonts-4xlarge;
+      font-size: $fonts-5xlarge;
     }
   }
 
   &__message {
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
     line-height: 1.5;
     margin-bottom: 1.75em;
 
     @media ($bp-small-min) {
-      font-size: $fonts-larger;
+      font-size: $fonts-xlarge;
     }
   }
 }

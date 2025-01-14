@@ -79,7 +79,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
   }
 
   &__description {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     margin-top: 10px;
   }
 
@@ -88,12 +88,12 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
   }
 
   &__location {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     padding-bottom: 5px;
   }
 
   &__phone {
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
 
     & > a {
       align-items: center;

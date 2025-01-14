@@ -30,7 +30,7 @@
     display: inline-block;
 
     @media ($bp-small-min) {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
     }
 
   }
@@ -40,12 +40,12 @@
     line-height: 1.75;
 
     @media ($bp-small-min) {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
     }
   }
 
   &__details {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 1.5;
     margin-bottom: .35em;
     margin-top: -.25em;
@@ -55,7 +55,7 @@
     line-height: 1.5;
 
     @media ($bp-small-min) {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
     }
   }
 
@@ -73,7 +73,7 @@
     }
 
     @media ($bp-small-min) {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
     }
   }
 
