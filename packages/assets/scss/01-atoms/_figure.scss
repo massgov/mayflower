@@ -24,12 +24,6 @@ $figures-gutter: 20px;
     margin: 10px $figures-gutter 10px $figures-gutter;
   }
 
-  @media ($bp-x-small-max) {
-    &.ma__figure-image {
-      margin: 10px $figures-gutter 10px 0;
-    }
-  }
-
   @media ($bp-small-min) {
     // support pre-existing figure elements besides dataviz.
 
