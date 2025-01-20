@@ -166,7 +166,7 @@ $heading-indent: $gutter;
 
   // List styles
 
-  ul {
+  ul:not(.ma__link-list__items--no-bullets) {
     margin-bottom: $rich-text-spacing-mobile;
     padding-left: 20px;
 
