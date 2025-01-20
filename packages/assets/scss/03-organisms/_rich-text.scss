@@ -156,7 +156,8 @@ $heading-indent: $gutter;
     margin-left: $heading-indent * 5; // 2.
   }
 
-  p {
+  p,
+  section.ma__link-list {
     margin-bottom: $rich-text-spacing-mobile;
 
     @media ($bp-small-min) {
