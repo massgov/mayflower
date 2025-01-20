@@ -15,7 +15,7 @@ $formQuickTransitions: max-height 0.3s linear;
 
   &__heading {
     padding: 1rem 20px;
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
     border-bottom: 2px solid $c-gray-light;
     margin-bottom: 0;
 
@@ -97,7 +97,7 @@ $formQuickTransitions: max-height 0.3s linear;
     }
 
     .ma__help-tip {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       font-weight: $fonts-bold;
 
       &-container {
@@ -107,7 +107,7 @@ $formQuickTransitions: max-height 0.3s linear;
       &__label {
 
         @media ($bp-small-min) {
-          font-size: $fonts-xsmall;
+          font-size: $fonts-smaller;
         }
       }
 
@@ -137,12 +137,12 @@ $formQuickTransitions: max-height 0.3s linear;
     .feedback-alert {
       display: flex;
       align-items: center;
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       font-weight: $fonts-normal;
       margin-bottom: 0.5rem;
 
       @media ($bp-small-min) {
-        font-size: $fonts-xsmall;
+        font-size: $fonts-smaller;
       }
 
       &-icon {
@@ -166,7 +166,7 @@ $formQuickTransitions: max-height 0.3s linear;
 
     .ma__alert-msg, .ma__warn-msg, .ma__error-msg {
       display: none;
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       font-weight: $fonts-normal;
       line-height: 1.5;
       margin: .3em 0;

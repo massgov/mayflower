@@ -131,7 +131,7 @@ span.ma__decorative-link  {
 // Header story
 .ma__header_slim {
   &__utility-link {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     display: inline-flex;
     align-items: center;
 
@@ -219,7 +219,7 @@ p.lang-label {
           display: none;
         }
         textarea {
-          font-size: $fonts-medium;
+          font-size: $fonts-large;
         }
       }
     }
