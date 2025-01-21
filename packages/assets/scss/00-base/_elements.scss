@@ -27,21 +27,21 @@
 }
 
 html {
-  font-size: $fonts-base-mobile;
-
-  @media ($bp-small-min) {
-    font-size: $fonts-base;
-  }
+  font-size: $fonts-base;
 }
 
 body {
   width: 100vw;
   margin: 0;
-  font-size: $fonts-medium;
+  font-size: $fonts-medium; //16px
   line-height: 1.6;
   color: $c-font-base;
   font-family: $fonts;
   font-weight: $fonts-light;
+
+  @media ($bp-small-min) {
+    font-size: $fonts-large; //18px
+  }
 }
 
 a {
