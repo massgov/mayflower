@@ -28,6 +28,13 @@
     box-shadow: 0 0.25em 0.5rem $c-box-shadow-black;
     transition: visibility .5s ease, right .5s ease;
     z-index: $z-overlay;
+    min-width: 340px;
+    max-width: 340px;
+    width: 100%;
+    @media ($bp-x-small-max) {
+      min-width: initial;
+      max-width: 96%;
+    }
 
     &.is-open {
       display: inline-block;
@@ -56,7 +63,7 @@
       line-height: 1.33;
       padding: 10px 20px;
       font-weight: $fonts-normal;
-      white-space: nowrap;
+      word-break: break-word;
 
       &:hover,
       &:focus {
