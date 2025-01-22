@@ -6,7 +6,7 @@
   &.is-open, &.is-open-react {
 
     .ma__button-dropdown:after {
-      transform: translateY(-45%) rotate(-135deg);
+      transform: translateY(-30%) rotate(-135deg);
     }
   }
 
@@ -15,7 +15,9 @@
 
     &:after {
       cursor: pointer;
-      transform: translateY(-45%) rotate(45deg);
+      transform: translateY(-30%) rotate(45deg);
+      transform-origin: 65% 65%;
+      transition: transform .5s;
     }
   }
 
