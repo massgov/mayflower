@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: PressListing
-    description: Fix A11y heading issue on news page. (#1904)
-    issue: DP-32426
-    impact: Minor

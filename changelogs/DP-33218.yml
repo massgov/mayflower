@@ -1,6 +1,0 @@
-Added:
-  - project: Patternlab,Assets,React,Core
-    component: Icon,SocialLinks
-    description: Add Vimeo icon. (#1914)
-    issue: DP-33218
-    impact: Minor

@@ -1,6 +1,45 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 13.2.0 (1/22/2025)
+### Added 
+- (Patternlab) [RichText] DP-22509: Add list style classnames to match openmass ckeditor specific classes. (#1927)
+- (Patternlab) [StickyNav] DP-28816: Add horizontalLayout variant in place of OrganizationNavigation. (#1905)
+- (Patternlab) [CollapsibleContent] DP-32036: Remove CollapsibleContent as LinkList example. This fixes the link list markup semantic and styles (#1925)
+- (Patternlab,Assets,React,Core) [Icon,SocialLinks] DP-33218: Add Vimeo icon. (#1914)
+- (Patternlab) [UtilityPanel] DP-34033: Allow passable classnames on the container for analytics. (#1921)
+- (Patternlab) [ContactList] DP-34266: Add `level` property to allow override default contactHeading. (#1926)
+
+### Removed 
+- (Patternlab) [OrgContact] DP-26650: Consoldated OrgContact into ContactRow. (#1847)
+- (Patternlab) [CollapsibleContent] DP-32036: Remove CollapsibleContent extended example. (#1925)
+
+### Changed 
+- (Patternlab) [ContactRow,ContactUs,ContactList] DP-26650: Move all three of the contact patterns from 'organisms/by-template', 'organisms/by-author', and 'molecules' under 'organisms/contact'. (#1847)
+- (Patternlab) [ContactRow] DP-26650: Remove folding logic, and reorder contact items. (#1847)
+- (Patternlab) [ResponsiveTable] DP-28505: Replace the custom scroll bar with the native one. (#1857)
+- (Patternlab) [Location Listing] DP-31802: Accessibility improvement for the locatio listing page. (#1893)
+- (Patternlab) [Assets] DP-17338: Hamburger Menu Mobile Link Styles inconsistency. (#1920)
+- (Patternlab) [LeafletMap] DP-32001: Enlarge the popup close button. (#1909)
+- (Patternlab) [ColorToken] DP-32007: Add a underline to a download link and darken the underline color to meet WCAG. (#1901)
+- (Patternlab) [ContactGroup] DP-32013: Match contact group link style to RTE links'. (#1910)
+- (Patternlab) [MassFeedback] DP-17338: Adjust legend spacing. (#1906)
+- (Patternlab) [rich-text] DP-34424: Add floats clearing to headings in rich-text styles
+- (Patternlab) [Feedback] DP-34425: Allow 'alertMsg' render HTML.
+- (Assets) [feebackFormValidation] DP-34515: Modified feeback form validation js to include TLD and non-Latin validation. (#1929)
+- (Patternlab) [ResponsiveTables] DP-35080: Usability improvements to rich text tables related to horizontal scrolling. (#1935)
+- (Patternlab) [Assets] DP-35365: Fix image styles in rich text with text wrapping. (#1938)
+
+### Remove 
+- (Patternlab) [OrganizationNavigation] DP-28816: Remove the pattern and its assets, replace that with a new variant of StickyNav. (#1905)
+
+### Fixed 
+- (Patternlab) [PressListing] DP-32426: Fix A11y heading issue on news page. (#1904)
+- (Patternlab) [HelpTip] DP-33135: Fix help tip close button accessibility issues. (#1911)
+- (Patternlab) [CollapsibleContent, CollapsibleHeader, LinkList] DP-34561: Fix list bullet points alignment on mobile, adjust spacing to better display accordion and content. (#1926)
+- (Patternlab) [RichText] DP-34424,DP-34976: Rollback heading clear floats and fix the comp heading styles in floats  (#1934)
+- (Patternlab, Assets) [FeedbackButton] DP-36114: Increase border color contrast for a11y. (#1937)
+
 ## 13.1.0 (3/29/2024)
 ### Changed 
 - (Patternlab) [Breadcrumbs, Footnotes] DP-30528: Adjust target size for breadcrumbs home and footnotes to meet WCAG 2.2. (#1875)
