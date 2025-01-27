@@ -1,5 +1,6 @@
 const gulpSass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
+const pixrem = require("gulp-pixrem");
 const rename = require("gulp-rename");
 const header = require("gulp-header");
 const sourcemaps = require("gulp-sourcemaps");
@@ -9,7 +10,6 @@ const gulpIf = require("gulp-if");
 const lazypipe = require("lazypipe");
 const gulpPostcss = require("gulp-postcss");
 const postcssPrefixSelector = require("postcss-prefix-selector");
-const postcssRemToPx = require("@thedutchcoder/postcss-rem-to-px");
 
 gulpSass.compiler = require("sass");
 
@@ -102,19 +102,18 @@ module.exports = function (minify, root) {
   const removeFontFaceAndHtml = postcssRemoveFontFaceAndHtml(); // Custom plugin to remove @font-face and html
   const removeSpecificFont = postcssRemoveSpecificFont(); // Custom plugin to remove specific font declaration
   const adjustFontSizeForLPB = postcssAdjustFontSizeForLPB(); // Custom plugin to remove specific font declaration
-  const remToPx = postcssRemToPx({ baseValue: 16 });
 
   return lazypipe()
     .pipe(sourcemaps.init, { loadMaps: true, largeFile: true })
     .pipe(sourcemaps.identityMap)
     .pipe(gulpSass, sassOptions)
     .pipe(autoprefixer)
+    .pipe(pixrem, { rootValue: "16px", atrules: true, html: false })
     .pipe(gulpPostcss, [
       prependSelector,
       removeFontFaceAndHtml,
       removeSpecificFont,
-      adjustFontSizeForLPB,
-      remToPx,
+      adjustFontSizeForLPB
     ])
     .pipe(rename, { suffix: "-lp" })
     .pipe(function () {

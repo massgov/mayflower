@@ -45,6 +45,7 @@
     "gulp-filter": "^5.1.0",
     "gulp-header": "^2.0.5",
     "gulp-if": "^2.0.2",
+    "gulp-pixrem": "^1.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
@@ -75,7 +76,7 @@
     "gulp-postcss": "^9.0.1",
     "leaflet": "~1.7.1",
     "normalize-scss": "~7.0.1",
-    "postcss-rem-to-pixel": "^4.1.2",
+    "pixrem": "^5.0.0",
     "postcss": "^8.4.49"
   },
   "scripts": {

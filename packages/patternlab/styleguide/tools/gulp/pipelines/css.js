@@ -1,6 +1,7 @@
 
 var gulpSass          = require("gulp-sass"),
     autoprefixer  = require("gulp-autoprefixer"),
+    pixrem        = require("gulp-pixrem"),
     rename        = require("gulp-rename"),
     header        = require("gulp-header"),
     sourcemaps    = require("gulp-sourcemaps"),
@@ -8,7 +9,6 @@ var gulpSass          = require("gulp-sass"),
     path          = require("path"),
     gulpIf        = require("gulp-if"),
     lazypipe      = require("lazypipe");
-const postcssRemToPx = require("@thedutchcoder/postcss-rem-to-px");
 
 gulpSass.compiler = require("sass");
 /**
@@ -34,15 +34,13 @@ module.exports = function(minify, root) {
             )
             .concat([`${root}/node_modules`])
     };
-    const remToPx = postcssRemToPx({ baseValue: 16 });
-
     console.log(sassOptions);
     return lazypipe()
         .pipe(sourcemaps.init, { loadMaps: true, largeFile: true})
         .pipe(sourcemaps.identityMap)
         .pipe(gulpSass, sassOptions)
         .pipe(autoprefixer)
-        .pipe(gulpPostcss, [remToPx])
+        .pipe(pixrem, { rootValue: '16px', atrules: true, html: false })
         .pipe(rename, {suffix: "-generated"})
         .pipe(function() {
             return gulpIf(!minify, header("/* This file is generated.  DO NOT EDIT. */ \n"));
