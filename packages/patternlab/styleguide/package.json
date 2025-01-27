@@ -58,7 +58,7 @@
     "moment": "^2.24.0",
     "picturefill": "^3.0.3",
     "pikaday": "^1.8.0",
-    "postcss-selector-prepend": "^0.5.0",
+    "postcss-prefix-selector": "^2.1.0",
     "sass": "~1.30.0",
     "smoothscroll-polyfill": "^0.4.4",
     "svg4everybody": "^2.1.9",

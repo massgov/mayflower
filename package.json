@@ -2,8 +2,6 @@
   "dependencies": {
     "@octokit/rest": "^18.12.0",
     "js-yaml": "^3.13.1",
-    "postcss-remove-root": "0.0.2",
-    "postcss-selector-prepend": "^0.5.0",
     "semver": "^6.3.0",
     "shelljs": "^0.8.3",
     "simple-git": "^1.126.0"

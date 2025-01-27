@@ -9,7 +9,7 @@ const path = require("path");
 const gulpIf = require("gulp-if");
 const lazypipe = require("lazypipe");
 const gulpPostcss = require("gulp-postcss");
-const postcssSelectorPrepend = require("postcss-selector-prepend");
+const postcssPrefixSelector = require("postcss-prefix-selector");
 
 gulpSass.compiler = require("sass");
 
@@ -68,8 +68,15 @@ module.exports = function (minify, root) {
       .concat([`${root}/node_modules`]),
   };
 
-  const prependSelector = postcssSelectorPrepend({
-    selector: ".js-lpb-component-list ", // Prepend this selector
+  const prependSelector = postcssPrefixSelector({
+    prefix: ".js-lpb-component-list ", // Prefix this selector
+    transform(prefix, selector, prefixedSelector) {
+      // Avoid prefixing keyframes or root-level selectors
+      if (selector.startsWith("@keyframes") || selector === ":root") {
+        return selector;
+      }
+      return prefixedSelector;
+    },
   });
 
   const postcssAdjustFontSizeForLPB = () => {
