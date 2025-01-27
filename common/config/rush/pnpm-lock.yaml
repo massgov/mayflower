@@ -115,9 +115,9 @@ dependencies:
   numbro: 2.5.0
   object.entries: 1.1.8
   picturefill: 3.0.3
-  pixrem: 5.0.0
   postcss: 8.4.49
   postcss-prefix-selector: 2.1.0_postcss@8.4.49
+  postcss-rem-to-pixel: 4.1.2
   pre-push: 0.1.4
   react-autosuggest: 9.4.3
   react-autowhatever: 10.2.1
@@ -24743,6 +24743,13 @@ packages:
       node: '>=6.9.0'
     resolution:
       integrity: sha512-EEVig1Q2QJ4ELpJXMZR8Vt5DQx8/mo+dGWSR7vWXqcob2gQLyQGsionYcGKATXvQzMPn6DSN1vTN7yFximdIAg==
+  /postcss-rem-to-pixel/4.1.2:
+    dependencies:
+      object-assign: 4.1.1
+      postcss: 5.2.18
+    dev: false
+    resolution:
+      integrity: sha512-EaA1Ak5SxmT31KA1clM4jRcEXQQ7oceXM2WF59fJw/mhspn1fhm202ZIfto5qFCX4QVuk/WVvATfkWaIlMomSw==
   /postcss-remove-root/0.0.2:
     dependencies:
       postcss: 5.2.18
@@ -31990,6 +31997,7 @@ packages:
       pixrem: 5.0.0
       postcss: 8.4.49
       postcss-prefix-selector: 2.1.0_postcss@8.4.49
+      postcss-rem-to-pixel: 4.1.2
       postcss-remove-root: 0.0.2
       postcss-selector-prepend: 0.5.0
       sass: 1.30.0
@@ -32005,7 +32013,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-mJ/j6jR27egU4rzWW5dbXajeuiQc9pvOe9TitWtDb8YSFcyGYfwCWvc8+8u1c4q9L+yEqOv2ET3Tpm1cMMOv7A==
+      integrity: sha512-nvHkXnAmx/S6vh/BBn9hNU5K9o+RsZRSsf6jNyzYfTxALXsoSkcHJDSN9w/u+D0vx8NQlrmdtKduaHxM48Vn2Q==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
 registry: ''
@@ -32126,9 +32134,9 @@ specifiers:
   numbro: ^2.1.2
   object.entries: ^1.0.4
   picturefill: ^3.0.3
-  pixrem: ^5.0.0
   postcss: ^8.4.49
   postcss-prefix-selector: ^2.1.0
+  postcss-rem-to-pixel: ^4.1.2
   pre-push: ^0.1.1
   react-autosuggest: ^9.4.3
   react-autowhatever: ^10.2.0

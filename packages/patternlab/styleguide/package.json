@@ -76,7 +76,7 @@
     "gulp-postcss": "^9.0.1",
     "leaflet": "~1.7.1",
     "normalize-scss": "~7.0.1",
-    "pixrem": "^5.0.0",
+    "postcss-rem-to-pixel": "^4.1.2",
     "postcss": "^8.4.49"
   },
   "scripts": {
