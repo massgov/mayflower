@@ -8,8 +8,5 @@
   },
   "volta": {
     "node": "14.17.3"
-  },
-  "devDependencies": {
-    "pre-push": "^0.1.4"
   }
 }
