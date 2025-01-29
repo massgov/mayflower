@@ -60,7 +60,7 @@ $breadcrumbs-scrollbar-height: 12px;
 
   &__label {
     display: inline-block;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
   }
@@ -137,7 +137,7 @@ $breadcrumbs-scrollbar-height: 12px;
     a, button {
       color: $c-primary;
       display: inline-block;
-      font-size: $fonts-xsmall;
+      font-size: $fonts-smaller;
       line-height: 1;
       padding: 2px 0;
       font-weight: $fonts-semibold;

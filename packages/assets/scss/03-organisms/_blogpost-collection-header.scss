@@ -40,7 +40,7 @@
 .blogpost-collection-header__content {
   font-weight: $fonts-normal;
   flex-grow: 1;
-  font-size: $fonts-xlarge;
+  font-size: $fonts-2xlarge;
 
   a {
     color: $c-font-inverse;
@@ -57,6 +57,6 @@
 }
 
 .blogpost-collection-header__description {
-  font-size: $fonts-medium;
+  font-size: $fonts-large;
   font-weight: $fonts-normal;
 }

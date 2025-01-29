@@ -14,11 +14,11 @@
   }
 
   &__message {
-    font-size: $fonts-xlarge;
+    font-size: $fonts-2xlarge;
     line-height: 1.31;
 
     @media ($bp-small-min) {
-      font-size: $fonts-4xlarge;
+      font-size: $fonts-5xlarge;
     }
   }
 
