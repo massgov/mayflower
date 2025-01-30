@@ -13,7 +13,7 @@
       @include ma-link-underline;
 
       @include ma-chevron;
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       padding-right: 10px;
 
       .less {
@@ -131,11 +131,10 @@
   font-weight: $fonts-bold;
 
   &:after {
-    border-color: $c-font-link;
-    opacity: .5;
+    color: $c-link;
   }
 
   &:hover {
-    border-color: $c-bay-blue-lighter;
+    border-color: $c-link;
   }
 }

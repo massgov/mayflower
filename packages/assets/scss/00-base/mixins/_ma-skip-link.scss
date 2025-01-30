@@ -11,7 +11,7 @@
     float: left;
     display: block;
     border-bottom: 0; // Reset the link underline from .ma__rich-text a.
-    font-size: 1.25rem;
+    font-size: $fonts-medium;
     transition: none;
 
     &:hover {
@@ -30,7 +30,7 @@
     a {
       display: none;
       padding: 0 10px;
-      font-size: 1.25rem;
+      font-size: $fonts-medium;
       font-weight: $fonts-bold;
 
       border-bottom: 0;

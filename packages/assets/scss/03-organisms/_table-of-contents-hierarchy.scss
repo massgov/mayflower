@@ -55,7 +55,7 @@
       a {
         border-bottom-width: 3px;
         border-bottom-style: solid;
-        border-bottom-color: $c-primary-lighter;
+        border-bottom-color: $c-link;
       }
     }
 
@@ -89,7 +89,7 @@
       a:hover {
         border-bottom-width: 3px;
         border-bottom-style: solid;
-        border-bottom-color: $c-primary-lighter;
+        border-bottom-color: $c-link;
       }
 
       li {
@@ -129,7 +129,7 @@
       color: $c-primary;
 
       &:after {
-        font-size: $fonts-4xlarge;
+        font-size: $fonts-5xlarge;
         content: "+";
         color: $c-primary-alt;
         line-height: .65em;
@@ -218,7 +218,7 @@
     }
 
     &__title {
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
     }
   }
 

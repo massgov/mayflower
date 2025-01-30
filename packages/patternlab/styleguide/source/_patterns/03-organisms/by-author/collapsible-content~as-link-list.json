@@ -1,0 +1,143 @@
+{
+  "collapsibleContent": {
+    "extended": true,
+    "compHeading": {
+      "title": "Collapsible Content Extended",
+      "sub": "",
+      "color": "",
+      "id": "GUID2095-254293851",
+      "centered": ""
+    },
+
+    "items": [{
+      "expanded": true,
+      "collapsibleHeader": {
+        "title": "MassHealth Publications and Other Resources",
+        "description": "A short description for this item in particular."
+      },
+      "more": null,
+      "includes": [{
+        "path": "@organisms/by-author/link-list.twig",
+        "data": {
+          "linkList" : {
+            "stacked": true,
+            "hideBullets": false,
+            "links" : [{
+              "text": "Information for MassHealth Applicants",
+              "href": "/"
+            },{
+              "text": "Provider Directory",
+              "href": "/"
+            },{
+              "text": "MassHealth Plans and Enrollment Guide",
+              "href": "/"
+            },{
+              "iconSize": "",
+              "icon": "doc-docx",
+              "decorativeLink": {
+                "text": "Link to a file for download",
+                "href": "#",
+                "info": ""
+              },
+              "size": "40kb",
+              "format": "DOCX"
+            },{
+              "iconSize": "",
+              "icon": "doc-docx",
+              "decorativeLink": {
+                "text": "Link to a file for download",
+                "href": "#",
+                "info": ""
+              },
+              "size": "40kb",
+              "format": "DOCX",
+              "language": "English",
+              "inlineLinks": {
+                "ariaLabel": "Available Translations",
+                "links": [{
+                  "text": "English",
+                  "href": "#",
+                  "info": "",
+                  "lang_label": "English"
+                },
+                  {
+                    "text": "Español",
+                    "href": "#",
+                    "info": "",
+                    "lang_label": "Spanish"
+                  },
+                  {
+                    "text": "漢語",
+                    "href": "#",
+                    "info": "",
+                    "lang_label": "Chinese"
+                  },
+                  {
+                    "text": "Português",
+                    "href": "#",
+                    "info": "",
+                    "lang_label": "Portuguese"
+                  }]
+              }
+            }]
+          }
+        }        
+      }]
+    },
+      {
+        "expanded": false,
+        "collapsibleHeader": {
+          "title": "MassHealth Plans"
+        },
+        "more": null,
+        "includes": [{
+          "path": "@organisms/by-author/link-list.twig",
+          "data": {
+            "linkList" : {
+              "stacked": true,
+              "hideBullets": false,
+              "links" : [{
+                "text": "Information for MassHealth Applicants",
+                "href": "/"
+              },{
+                "text": "Provider Directory",
+                "href": "/"
+              },{
+                "text": "MassHealth Plans and Enrollment Guide",
+                "href": "/"
+              },{
+                "text": "Provider Directory",
+                "href": "/"
+              },{
+                "text": "MassHealth Plans and Enrollment Guide",
+                "href": "/"
+              }]
+            }
+          }        
+        }]
+      },
+      {
+        "expanded": false,
+        "collapsibleHeader": {
+          "title": "MassHealth for Providers"
+        },
+        "more": null,
+        "includes": [{
+          "path": "@organisms/by-author/link-list.twig",
+          "data": {
+            "linkList" : {
+              "stacked": true,
+              "hideBullets": false,
+              "links" : [{
+                "text": "Information for MassHealth Applicants",
+                "href": "/"
+              },{
+                "text": "Provider Directory",
+                "href": "/"
+              }]
+            }
+          }        
+        }]
+      }]
+  }
+}

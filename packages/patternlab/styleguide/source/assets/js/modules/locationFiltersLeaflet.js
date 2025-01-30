@@ -66,7 +66,7 @@ export default (function (window,document,$,undefined) {
           $('.pac-container').css("top", positionTop);
         }
 
-        google.maps.event.addDomListener(locationInput, 'keydown', function(e) {
+        locationInput.addEventListener('keydown', function(e) {
           if (e.key == 'Enter') {
             if (!placeChanged) {
               // If an auto-suggested location is not selected, persist the dropdown list on the next ENTER.

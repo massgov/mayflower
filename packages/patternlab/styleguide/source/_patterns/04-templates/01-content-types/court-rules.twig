@@ -16,7 +16,7 @@
 		<div class="page-content">
 			{% if sideContent.contactList %}
 				{% set contactList = sideContent.contactList %}
-				{% include "@organisms/by-author/contact-list.twig" %}
+				{% include "@organisms/contact/contact-list.twig" %}
 			{% endif %}
 		</div>
 	</div>
@@ -43,7 +43,7 @@
 
 				{% if mainContent.contactList %}
 					{% set contactList = mainContent.contactList %}
-					{% include "@organisms/by-author/contact-list.twig" %}
+					{% include "@organisms/contact/contact-list.twig" %}
 				{% endif %}
 
 				{% if mainContent.footnoteList %}
@@ -65,7 +65,7 @@
 			<aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
 				{% if sideContent.contactList %}
 					{% set contactList = sideContent.contactList %}
-					{% include "@organisms/by-author/contact-list.twig" %}
+					{% include "@organisms/contact/contact-list.twig" %}
 				{% endif %}
 
 				{% if sideContent.pressListing %}

@@ -1,22 +1,29 @@
-{% set teaserHeading = 2 %}
+{# Default listing item heading level when no section heading. #}
+{% set teaserHeadingLevel = 2 %}
 
 <section class="ma__press-listing">
   <div class="ma__press-listing__container">
     {% if pressListing.compHeading %}
       {% set compHeading = pressListing.compHeading %}
       {% include "@atoms/04-headings/comp-heading.twig" %}
-      {% set teaserHeading = (compHeading.level ? : teaserHeading) + 1 %}
+      {# When a section has a compHeading, its heading level is generally 2. Set 3 as the default level for main content listing items. #}
+      {% set teaserHeadingLevel = compHeading.level ? (compHeading.level + 1) : 3 %}
     {% endif %}
     {% if pressListing.sidebarHeading %}
       {% set sidebarHeading = pressListing.sidebarHeading %}
       {% include "@atoms/04-headings/sidebar-heading.twig" %}
-      {% set teaserHeading = (sidebarHeading.level ? : teaserHeading) + 1 %}
+      {# When a section has a sidebarHeading, its heading level is generally 2. Set 3 as the default level for side content listing items. #}
+      {% set teaserHeadingLevel = sidebarHeading.level ? (sidebarHeading.level + 1) : 3 %}
     {% endif %}
     {% if pressListing.items %}
       <div class="ma__press-listing__items">
         {% block featuredItems %}
           {% for pressTeaser in pressListing.items %}
-            {% set pressTeaser = pressTeaser|merge({"level":teaserHeading + 1}) %}
+
+            {# For 'ma__stacked-row__section' items. #}
+            {% set teaserHeadingLevel = pressTeaser.level ? pressTeaser.level : teaserHeadingLevel %}
+
+            {% set pressTeaser = pressTeaser|merge({"level": teaserHeadingLevel}) %}
             {% include "@molecules/press-teaser.twig" %}
           {% endfor %}
         {% endblock %}
@@ -27,7 +34,11 @@
         {% block secondaryItems %}
           {% for pressTeaser in pressListing.secondaryItems %}
             <li class="ma__press-listing__secondary-item">
-              {% set pressTeaser = pressTeaser|merge({"level":teaserHeading + 1}) %}
+              
+              {# For 'ma__stacked-row__section' items. #}
+              {% set teaserHeadingLevel = pressTeaser.level ? pressTeaser.level : teaserHeadingLevel %}
+
+              {% set pressTeaser = pressTeaser|merge({"level": teaserHeadingLevel}) %}
               {% include "@molecules/press-teaser.twig" %}
             </li>
           {% endfor %}

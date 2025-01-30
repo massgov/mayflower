@@ -26,7 +26,7 @@
   &__page {
 
     @include ma-button-reset;
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     line-height: 1;
     padding: 8px 10px;
     position: relative;
@@ -59,11 +59,11 @@
     }
 
     &:before {
-      border-color: $c-bay-blue-lighter;
+      border-color: $c-link;
     }
 
     &:hover:after {
-      border-color: $c-bay-blue-lighter;
+      border-color: $c-link;
     }
 
     &:after {
@@ -111,11 +111,11 @@
     }
 
     &:hover:before {
-      border-color: $c-bay-blue-lighter;
+      border-color: $c-link;
     }
 
     &:after {
-      border-color: $c-bay-blue-lighter;
+      border-color: $c-link;
     }
   }
 
@@ -149,7 +149,7 @@
     }
 
     &:hover:after {
-      border-color: $c-bay-blue-lighter;
+      border-color: $c-link;
     }
   }
 

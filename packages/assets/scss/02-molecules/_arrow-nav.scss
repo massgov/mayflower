@@ -46,7 +46,7 @@
   }
 
   &__title {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
     line-height: 1.625rem;
     margin-bottom: 0;
@@ -107,7 +107,7 @@
   &__link {
 
     &:hover {
-      border-color: $c-bay-blue-lighter;
+      border-color: $c-link;
     }
   }
 }

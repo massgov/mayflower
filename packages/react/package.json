@@ -2,7 +2,7 @@
   "name": "@massds/mayflower-react",
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
-  "version": "13.0.0",
+  "version": "13.2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "sideEffects": [
@@ -13,9 +13,9 @@
     "dist"
   ],
   "scripts": {
-    "backstop:test": "docker-compose run backstop test --rm",
+    "backstop:test": "docker compose run backstop test --rm",
     "backstop": "rushx build-storybook && rushx storybook:extract && rushx backstop:test",
-    "backstop:approve": "docker-compose run backstop approve",
+    "backstop:approve": "docker compose run backstop approve",
     "build": "gulp",
     "build:icons": "gulp cleanIconDir && svgr --out-dir ./src/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js --ext js",
     "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",

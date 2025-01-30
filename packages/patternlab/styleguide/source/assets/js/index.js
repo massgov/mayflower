@@ -8,7 +8,6 @@ import activateBodyTextTruncation from "./modules/activateBodyTextTruncation.js"
 import back2top from "./modules/back2top.js";
 import brandBanner from "./modules/brandBanner.js";
 import clickable from "./modules/clickable.js";
-import contactAccordion from "./modules/contactAccordion.js";
 import dropdown from "./modules/dropdown.js";
 import eventFilters from "./modules/eventFilters";
 import eventListingInteractive from "./modules/eventListingInteractive";
@@ -36,7 +35,6 @@ import mapGoogle from "./modules/mapGoogle.js";
 import mapLeaflet from "./modules/mapLeaflet.js";
 import mobileNav from "./modules/mobileNav.js";
 import orgSelector from "./modules/orgSelector.js";
-import organizationNavigation from "./modules/organizationNavigation.js";
 import pageFlipper from "./modules/pageFlipper.js";
 import pagination from "./modules/pagination.js";
 import pikaday from "./modules/pikaday.js";

@@ -118,7 +118,7 @@
   &__toggle-link {
 
     @include ma-button-reset;
-    font-size: $fonts-4xlarge;
+    font-size: $fonts-5xlarge;
     line-height: .65em;
     overflow: hidden;
     position: absolute;
@@ -200,7 +200,7 @@
 
     @media ($bp-small-max) {
       display: none;
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       line-height: 1.2;
       padding: 10px 35px 10px 15px;
 
@@ -291,7 +291,7 @@
     }
 
     &:hover a {
-      border-bottom-color: $c-bay-blue-lighter;
+      border-bottom-color: $c-link;
     }
 
     @media ($bp-small-max) {

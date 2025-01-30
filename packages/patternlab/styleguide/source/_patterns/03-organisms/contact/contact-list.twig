@@ -1,5 +1,5 @@
 <section class="ma__contact-list {{ contactList.viewSpecific ? 'ma__contact-list--view-specific' : '' }}">
-  {% set contactHeading = 2 %}
+  {% set contactHeading = contactList.level ? : 2 %}
 
   {% if contactList.compHeading %}
     {% set compHeading = contactList.compHeading %}
@@ -21,7 +21,7 @@
   {% block contactListContacts %}
     {% for contact in contactList.contacts %}
       {% set contactUs = contact|merge({"level": contactHeading}) %}
-      {% include "@molecules/contact-us.twig" %}
+      {% include "@organisms/contact/contact-us.twig" %}
     {% endfor %}
   {% endblock %}
 </section>

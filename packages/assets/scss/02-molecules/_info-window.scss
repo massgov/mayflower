@@ -4,18 +4,21 @@
 @use "00-base/configure" as *;
 
 .ma__info-window {
-  font-size: $fonts-small;
+  font-size: $fonts-medium;
   line-height: 1.4;
   padding: 10px;
   padding-right: 0;
   text-align: left;
 
   &__name {
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
     margin-bottom: 0;
+    margin-right: 20px;
+    line-height: 1.4;// Prevent link underline to cover the line below.
 
     .ma__decorative-link {
       margin-bottom: 0.5rem;
+      padding-right: 0;
     }
   }
 
@@ -52,6 +55,6 @@
   }
 
   &__email-link:hover {
-    border-color: $c-bay-blue-lighter;
+    border-color: $c-link;
   }
 }

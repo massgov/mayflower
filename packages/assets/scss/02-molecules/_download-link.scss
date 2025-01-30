@@ -38,7 +38,7 @@
 
   &__title {
     display: inline-block;
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
     margin-bottom: 0;
     width: calc(100% - 66px);
 
@@ -65,18 +65,19 @@
   &__file-link {
 
     @include ma-link-underline;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
+
     margin-right: .2em;
   }
 
   &__file-spec {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 2.14;
     white-space: nowrap;
   }
 
   &__description {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     margin-top: 10px;
   }
 
@@ -91,14 +92,16 @@
 .ma__download-link {
 
   &__icon {
-    fill: rgba($c-font-link,.7);
+    fill: $c-font-link;
   }
 
   &__file-link {
 
-    &:hover {
-      border-bottom-color: $c-bay-blue-lighter;
-    }
+    // Override normal state
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+
+    border-bottom-color: $c-link;
   }
 
   &__file-spec {

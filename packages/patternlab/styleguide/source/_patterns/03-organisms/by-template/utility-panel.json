@@ -1,5 +1,6 @@
 {
   "item": {
+    "class": "gtm-userway",
     "description": {
       "richText": {
         "rteElements": [

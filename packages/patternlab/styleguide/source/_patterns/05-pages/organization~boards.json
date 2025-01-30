@@ -11,6 +11,31 @@
       "titleSubText": "(FLB)"
     }
   },
+  "stickyNav": {
+    "titleContext": "",
+    "horizontalLayout": true,
+    "anchorLinks":[
+      {
+        "text": "Contact",
+        "href": "contact"
+      },
+      {
+        "text": "About",
+        "href": "about"
+      },
+      {
+        "text": "Board Members",
+        "href": "members"
+      },
+      {
+        "text": "Events",
+        "href": "events"
+      },
+      {
+        "text": "News",
+        "href": "news"
+      }]
+  },
   "short_description": {
     "richText": {
       "rteElements": [
@@ -123,14 +148,14 @@
       "id": "",
       "pageContent": [
         {
-          "path": "@organisms/by-author/contact-row.twig",
+          "path": "@organisms/contact/contact-row.twig",
           "data": {
             "contactRow": {
               "compHeading": {
                 "title": "Contact Us",
                 "sub": "",
                 "color": "",
-                "id": "contact us",
+                "id": "contact",
                 "centered": ""
               },
               "image": {
@@ -263,7 +288,7 @@
     },
     {
       "title": "About Us",
-      "id": "",
+      "id": "about",
       "pageContent": [
         {
           "path": "@organisms/by-author/rich-text.twig",
@@ -337,7 +362,7 @@
     },
     {
       "title": "Board Members",
-      "id": "",
+      "id": "members",
       "pageContent": [
         {
           "path": "@organisms/by-author/teaser-listing-group.twig",
@@ -731,7 +756,8 @@
               "grid": true,
               "compHeading": {
                 "title": "Upcoming Events",
-                "level": 2
+                "level": 2,
+                "id": "events"
               },
               "events": [
                 {
@@ -949,7 +975,7 @@
                 "title": "Recent news & announcements",
                 "sub": "",
                 "color": "",
-                "id": "",
+                "id": "news",
                 "centered": ""
               },
               "items": [

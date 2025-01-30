@@ -23,7 +23,7 @@
     @include ma-button-reset;
     position: relative;
     display: block;
-    font-size: 1.25rem;
+    font-size: $fonts-medium;
     font-weight: 700;
     letter-spacing: $letter-spacing-large;
     line-height: 1.45;
@@ -69,10 +69,17 @@
     }
   }
 
+  &__subitem {
+
+    &:hover {
+      background-color: $c-bg-section;
+    }
+  }
+
   &__subitems {
     text-align: left;
     z-index: $z-dropdown;
-    background-color: $c-bg-section;
+    background-color: $c-bg;
     transition: height 0.4s;
 
     &.is-closed {
@@ -109,7 +116,7 @@
     text-align: left;
     display: block;
     position: relative;
-    font-size: 1.25rem;
+    font-size: $fonts-medium;
     font-weight: $fonts-normal;
     line-height: 1.33;
     padding: 10px 20px 10px 30px;
@@ -127,7 +134,7 @@
   }
 
   &__subitem--main &__link {
-    font-size: 1.125rem;
+    font-size: $fonts-small;
     letter-spacing: $letter-spacing-medium;
     text-transform: uppercase;
 

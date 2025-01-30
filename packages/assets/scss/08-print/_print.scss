@@ -104,10 +104,6 @@
     }
   }
 
-  .ma__organization-navigation {
-    display: none !important;
-  }
-
   .sidebar--colored .ma__comp-heading {
     padding-left: 0;
     margin-left: 0;
@@ -439,7 +435,7 @@
       width: 100%;
       height: auto;
       padding-left: 0;
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       page-break-inside: avoid !important;
       break-inside: avoid !important;
     }
@@ -501,7 +497,7 @@
         // checkbox
         content: "\2610";
         margin-right:5px;
-        font-size: $fonts-4xlarge;
+        font-size: $fonts-5xlarge;
       }
     }
   }

@@ -6,15 +6,18 @@
 
   &__button {
     border: none;
-    display: block;
     padding: 20px 40px;
     position: relative;
     text-align: left;
     width: 100%;
 
+    @media ($bp-small-max) {
+      padding-left: 20px;
+    }
+
     &__status-icon {
       display: block;
-      font-size: $fonts-4xlarge;
+      font-size: $fonts-5xlarge;
       line-height: .65em;
       position: absolute;
         right: 15px;
@@ -29,11 +32,12 @@
     }
   }
 
+  &__container {
+    display: flex;
+    align-items: flex-start;
+  }
+
   &__icon {
-    position: absolute;
-      top: 25px;
-      left: 20px;
-    text-align: center;
 
     & > svg {
       height: 25px;
@@ -46,16 +50,25 @@
     @include ma-h2;
     margin-bottom: 0;
     min-height: 32px;
+    line-height: 1.4;
+
+    @media ($bp-medium-min) {
+      margin-top: 4px;
+    }
+  
+    @media ($bp-x-large-min) {
+      margin-top: 8px;
+    }
   }
 
   &__icon + &__title,
   &__icon + &__title + &__description {
-    padding-left: 20px;
+    padding-left: 10px;
   }
 
   &__description p {
     margin: 0.5rem 0 0 0;
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
   }
 }
 

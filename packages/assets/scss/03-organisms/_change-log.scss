@@ -21,7 +21,7 @@
   }
 
   &__item {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
     padding-bottom: 30px;
     padding-top: 30px;
     position: relative;
@@ -33,7 +33,7 @@
   }
 
   &__date {
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
     line-height: 1.35;
     position: absolute;
       top: 0;
@@ -87,7 +87,7 @@
     .ma__split50__container > *:nth-last-child(n+2) ~ & {
 
       .ma__change-log__title {
-        font-size: $fonts-2xlarge;
+        font-size: $fonts-3xlarge;
         line-height: 1.214287;
 
         &:after {
@@ -121,7 +121,7 @@
 
       &:hover,
       &:after {
-        border-color: $c-bay-blue-lighter;
+        border-color: $c-link;
       }
     }
   }
