@@ -13,16 +13,22 @@ export default (function (window, document) {
     };
 
     let tocSectionCount = tocSections.headings.length;
-    var additionalCount = 0;
     var i;
     var totalSections = tocSectionCount;
 
+
     // Remove Related and Contact sections from total amount of sections.
     for (i = 0; i < tocSectionCount; i++) {
-      if (tocSections.headings[i].innerText.toLowerCase() == "related" || tocSections.headings[i].innerText.toLowerCase() == "contact") {
+      // Remove visually hidden elements from the heading
+      tocSections.headings[i].querySelectorAll('.ma__visually-hidden').forEach((hidden) => hidden.remove());
+
+      // Get the cleaned text content
+      const headingText = tocSections.headings[i].textContent.trim().toLowerCase();
+      // Check for "Related" or "Contact" and update totalSections
+      if (headingText == "related" || headingText == "contact") {
         totalSections--;
       }
-    };
+    }
     tocSectionCount = totalSections;
     // Another wrapper around the links, probably originally to put the links in two columns.
     const tocColumn = toc.querySelector(".ma__sticky-toc__column");
@@ -33,7 +39,7 @@ export default (function (window, document) {
     // The minimum number of sections set by data
     const minToShow = Number(toc.getAttribute('data-min-to-show'))
     // The minimum number of sections required on the page to display the table of contents, default to 2.
-    const minSectionsToShow = minToShow || 2;
+    const minSectionsToShow = minToShow || 3;
     // The overlay div that shows when the stuck menu is shown.
     const stuckOverlay = toc.querySelector(".ma__sticky-toc__overlay");
     // The stuck header.
@@ -88,7 +94,6 @@ export default (function (window, document) {
     // Set the various visibility rules.
     function handleResize() {
       tocSectionCount = 0;
-      additionalCount = 0;
       Array.from(tocSections.headings).forEach((heading, index) => {
         // If the section isn't visible, set the link not to display.
         const isVisible = heading.offsetHeight * heading.offsetWidth;
@@ -98,19 +103,14 @@ export default (function (window, document) {
           if ((heading.innerText.toLowerCase() != 'related') && (heading.innerText.toLowerCase() != 'contact')) {
             tocSectionCount++;
           }
-          else if (heading.innerText.toLowerCase() == 'contact') {
-            additionalCount++;
+          else {
+            tocSections.links[index].style.display = "none";
           }
         }
         else {
           tocSections.links[index].style.display = "none";
         }
       });
-
-      // Get the final count of sections we'll use to determine if we display.
-      if ((tocSectionCount >= 1) && (additionalCount >= 1)) {
-        tocSectionCount = tocSectionCount + additionalCount;
-      }
 
       // Show expander when more than 10 links.
       if (tocSectionCount <= 10 && window.innerWidth > 480 ) {
