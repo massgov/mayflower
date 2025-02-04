@@ -1,6 +1,7 @@
 export { default as IconAlert } from './IconAlert'
 export { default as IconArrow } from './IconArrow'
 export { default as IconArrowbent } from './IconArrowbent'
+export { default as IconBluesky } from './IconBluesky'
 export { default as IconBuilding } from './IconBuilding'
 export { default as IconCalendar } from './IconCalendar'
 export { default as IconCatalog } from './IconCatalog'
