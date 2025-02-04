@@ -1,27 +1,20 @@
 /* layout */
-.fsBody > div {
-  padding: 0 0 0 3px;
+:root {
+  font-size: 13.33px;
 }
 
-.fsBody .fsForm {
+.fsBody {
+  background-color: #f2f2f2;
+  color: #141414;
+}
+
+.fsBody .fsForm, .fsBody div[data-testid="welcome-message-content"] {
   font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   line-height: 1.5;
-  margin: 0;
-  /* prevent highlight left outline cutoff */
-  padding-left: 2px; 
+  float: none;
+  margin: 0 auto;
   max-width: 50rem;
-  overflow-x: hidden;
-}
-
-/* prevent overflow-x cutoff */
-.fsPage {
-  width: calc(100%-2px);
-}
-
-/** prevent horizontal scrolling **/
-div[class^="InnerFormBody"] {
-  overflow-x: hidden;
 }
 
 /* Headings */
@@ -34,11 +27,12 @@ div[class^="InnerFormBody"] {
 .fsBody .fsSectionHeader .fsSectionHeading {
   text-align: left;
   position: relative;
+  margin-top: 2.5rem;
   padding-bottom: 15px;
   color: #535353;
   font-weight: 700;
-  font-size: 2.5rem;
-  line-height: 1.07;
+  font-size: 2.25rem;
+  line-height: 1.25;
 }
 
 .fsBody .fsSectionHeader .fsSectionHeading:after {
@@ -57,9 +51,34 @@ div[class^="InnerFormBody"] {
   transform: skew(-30deg);
 }
 
-/* Buttons (save incomplete)  */
-.fsBody .fsForm button {
+/* Buttons */
+/** (file upload)  **/
+.fsBody .fsForm input[type="button"] {
+  padding: 10px;
+  width: auto;
+}
+
+.fsBody .fsForm input[type="button"][data-testid="remove-button"] {
+  background-color: #535353;
+}
+/** No file chosen text  **/
+.fxrYEt {
+  font-size: 1.25rem;
+}
+
+/** (save incomplete)  **/
+.fsBody .fsForm button.fsSaveIncomplete {
   font-weight: bold;
+  color:#fff;
+  background-color: #535353;
+}
+
+/* Links  */
+.fsBody .fsForm a {
+  color: #14558F;
+  font-weight: 600;
+  /* Long HTML force breaks  */
+  word-wrap: break-word;
 }
 
 /* Labels */
@@ -68,14 +87,14 @@ div[class^="InnerFormBody"] {
   margin-bottom: 0.5rem;
   display: block;
   font-size: 22px;
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   line-height: 1.5;
   color: #141414;
 }
 
 /** Required **/
 .fsRequiredMarker {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #CD0D0D;
 }
 
@@ -116,7 +135,7 @@ div[class^="InnerFormBody"] {
 
 .fsBody .fsForm label[class^="StyledOptionLabel-"] {
   font-size: 22px;
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   line-height: 1.5;
   position: relative;
   margin-bottom: 0.25rem;
@@ -151,7 +170,7 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
 
 /* text input, select, text area */
 .fsForm input, .fsForm select, .fsForm textarea {
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   line-height: 1.25;
   height: unset;
 }
@@ -167,7 +186,7 @@ input.MuiInputBase-input::placeholder {
 
 /** Datepicker Calendar **/
 .MuiPickersCalendarHeader-label {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
@@ -176,18 +195,18 @@ input.MuiInputBase-input::placeholder {
 }
 
 .MuiPickersYear-yearButton {
-  font-size: 0.93rem;
+  font-size: 1.125rem;
 }
 
 .MuiButton-root {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 600;
   background-color: #14558F;
   color:  white;
 }
 
 .MuiDayCalendar-weekDayLabel {
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .MuiPickersDay-dayWithMargin {
@@ -196,39 +215,38 @@ input.MuiInputBase-input::placeholder {
 
 /* Time picker  */
 button.MuiPickersToolbar-root {
-  background: white;
+      background: white;
 }
 .ipjwSe.MuiPickersToolbarText-root, .xAbeN.MuiPickersToolbarText-root {
-color:  #141414;
+  color:  #141414;
 }
 
 .ipjwSe.MuiPickersToolbarText-root.Mui-selected  {
-/* color: rgb(20, 85, 143) !important; */
-color:  rgb(20, 85, 143);
-font-weight: 600;
+  /* color: rgb(20, 85, 143) !important; */
+  color:  rgb(20, 85, 143);
+  font-weight: 600;
 }
 
 .xAbeN.MuiPickersToolbarText-root.Mui-selected {
-color:  #fff;
-background-color: rgb(20, 85, 143);
-padding: 2px 4px;
-font-weight: 600;
+  color:  #fff;
+  background-color: rgb(20, 85, 143);
+  padding: 2px 4px;
+  font-weight: 600;
 }
 
 .MuiTypography-root.MuiTypography-overline {
-font-size: 1rem;
+  font-size: 1rem;
 }
 
 /** desktop ok button **/
 .MuiButton-textPrimary:hover {
-background-color: rgba(20, 85, 143, 0.8);
+  background-color: rgba(20, 85, 143, 0.8);
 }
-
 
 /* Number currency */
 /** Currency $ sign span **/
 .jjRdiv {
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   width: unset;
 }
 .ma__input-number > input {
@@ -280,8 +298,10 @@ div[class^="StyledProgressIndicatorBar-"] {
 
 /* Welcome Message */
 div[data-testid="welcome-message-container"] {
-  text-align: left;
-  z-index: 0;
+  float: none;
+  margin: 0 auto;
+  max-width: 50rem;
+  text-align: center;
 }
 
 div[data-testid="welcome-message-content"] {
@@ -290,24 +310,27 @@ div[data-testid="welcome-message-content"] {
 }
 
 div[data-testid="welcome-message-content"] > div {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #141414;
 }
 
 /* Success Message (formstack domain) */
 html.wf-active {
-  font-size: 0.85rem;
+  font-size: calc(16px / 1.2);
 }
 
 .body-hosted-form > .fsForm {
   width: 100%;
   max-width: unset;
+  background-color: #f2f2f2;
 }
 
 .body-hosted-form > .fsForm > .fsPage {
   max-width: 50rem;
+  padding-top: 20px;
   margin: 0 auto;
   color:#141414;
+  background-color: #fff;
 }
 
 .body-hosted-form > .fsForm > .fsPage p,
