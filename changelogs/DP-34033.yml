@@ -1,6 +1,0 @@
-Added:
-  - project: Patternlab
-    component: UtilityPanel
-    description: Allow passable classnames on the container for analytics. (#1921)
-    issue: DP-34033
-    impact: Minor

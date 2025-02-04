@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: LeafletMap
-    description: Enlarge the popup close button. (#1909)
-    issue: DP-32001
-    impact: Patch

@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: MassFeedback
-    description: Adjust legend spacing. (#1906)
-    issue: DP-17338
-    impact: Patch

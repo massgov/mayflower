@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Location Listing
-    description: Accessibility improvement for the locatio listing page. (#1893)
-    issue: DP-31802
-    impact: Patch

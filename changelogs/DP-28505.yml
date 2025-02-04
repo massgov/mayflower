@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: ResponsiveTable
-    description: Replace the custom scroll bar with the native one. (#1857)
-    issue: DP-28505
-    impact: Patch
