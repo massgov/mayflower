@@ -170,6 +170,7 @@ $heading-indent: $gutter;
   ul {
     margin-bottom: $rich-text-spacing-mobile;
     padding-left: 20px;
+    
     &.ma__link-list__items--no-bullets {
       padding-left: 0;
     }
