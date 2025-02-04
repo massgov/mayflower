@@ -36,7 +36,7 @@ const Footer = ({
         <nav className="ma__footer-new__navlinks" aria-label="site navigation">
           {
             footerLinks.links.map((link, i) => (
-              <div key={`footerLinksNav_${i}`} index={i}><a href={link.href}>{link.text}</a></div>
+              <div key={`footerLinksNav_${i}`} data-index={i}><a href={link.href}>{link.text}</a></div>
             ))
           }
         </nav>
