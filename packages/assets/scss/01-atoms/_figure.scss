@@ -34,7 +34,9 @@ $figures-gutter: 20px;
       margin-left: 0;
       width: 50%;
     }
+
     &:not(.ma__figure-iframe) {
+
       &.align-left {
         max-width: 50%;
         width: auto;
@@ -48,7 +50,9 @@ $figures-gutter: 20px;
       margin-right: 0;
       width: 50%;
     }
+
     &:not(&-iframe) {
+
       &.align-right {
         max-width: 50%;
         width: auto;
@@ -162,6 +166,7 @@ $figures-gutter: 20px;
     @media ($bp-small-min) {
       // 621~
       width: calc(#{$medium} - #{$figures-gutter});
+
       &:not(.ma__figure-iframe) {
         max-width: calc(#{$medium} - #{$figures-gutter});
         width: auto;

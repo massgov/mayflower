@@ -1,0 +1,6 @@
+Changed:
+  - project: Assets
+    component: StickyTOC
+    description: Table of contents is displaying for info details pages even when <3 sections. (#1948)
+    issue: DP-36608
+    impact: Patch
