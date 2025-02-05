@@ -2,7 +2,7 @@
   "button": {
     "id": "random-id",
     "info": "",
-    "text": "Button",
+    "text": "Log in to...",
     "size": "",
     "theme": "c-primary",
     "usage": "secondary",
