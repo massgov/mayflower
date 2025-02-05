@@ -4,12 +4,14 @@
 
 {% set buttonTheme = button.theme ? "ma__button--" ~ button.theme : "" %}
 
-{% set buttonUppercaseOverride = button.uppercaseOverride ? "" : "ma__button--uppercase" %}
+{% set buttonClass = button.class %}
+
+{% set buttonUppercaseOverride = button ? "" : "ma__button--uppercase" %}
 
 {% if button.href %}
   <a
     href="{{ button.href }}"
-    class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{ buttonUppercaseOverride }}"
+    class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{buttonClass}} {{ buttonUppercaseOverride }}"
     {% if button.info %} title="{{ button.info }}"{% endif %}>
       {{ button.text }}
     {% if button.icon %}
@@ -19,7 +21,7 @@
 {% else %}
   <button
     type="{{ button.type }}"
-    class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{button.class}} {{ buttonUppercaseOverride }}"
+    class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{buttonClass}} {{ buttonUppercaseOverride }}"
     aria-label="{{ button.info }}">
       {{ button.text }}
       {% if button.icon %}
