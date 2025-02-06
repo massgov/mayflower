@@ -31,9 +31,6 @@
     min-width: 340px;
     max-width: 340px;
     width: 100%;
-    @media ($bp-x-small-max) {
-      max-width: 96%;
-    }
 
     &.is-open {
       display: inline-block;
