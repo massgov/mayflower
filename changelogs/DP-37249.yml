@@ -1,0 +1,6 @@
+Changed:
+  - project: Assets
+    component: StickyTOC
+    description: We should see contact in the table of contents. (#1949)
+    issue: DP-37249
+    impact: Patch
