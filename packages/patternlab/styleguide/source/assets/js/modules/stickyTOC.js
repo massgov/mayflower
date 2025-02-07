@@ -100,7 +100,7 @@ export default (function (window, document) {
         if (isVisible) {
           tocSections.links[index].style.display = "";
           // If the section is the related or contact sections we don't want to count those.
-          if ((heading.innerText.toLowerCase() != 'related') && (heading.innerText.toLowerCase() != 'contact')) {
+          if ((heading.innerText.toLowerCase() != 'related')) {
             tocSectionCount++;
           }
           else {
