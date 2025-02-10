@@ -20,12 +20,12 @@ $event-listing-bp-show-grid: $bp-medium-min;
   }
 
   &__empty {
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
     margin-bottom: .25em;
 
     .ma__page-header &,
     .ma__page-header-addons & {
-      font-size: $fonts-xlarge;
+      font-size: $fonts-2xlarge;
     }
   }
 

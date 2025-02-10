@@ -5,7 +5,7 @@
 
 .fsBody .fsForm {
   font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   line-height: 1.5;
   margin: 0;
   /* prevent highlight left outline cutoff */
@@ -41,7 +41,7 @@ div[class^="InnerFormBody"] {
   padding-bottom: 15px;
   color: #535353;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1.07;
 }
 
@@ -72,14 +72,14 @@ div[class^="InnerFormBody"] {
   margin-bottom: 0.5rem;
   display: block;
   font-size: 22px;
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   line-height: 1.5;
   color: #141414;
 }
 
 /** Required **/
 .fsRequiredMarker {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: #CD0D0D;
 }
 
@@ -120,7 +120,7 @@ div[class^="InnerFormBody"] {
 
 .fsBody .fsForm label[class^="StyledOptionLabel-"] {
   font-size: 22px;
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   line-height: 1.5;
   position: relative;
   margin-bottom: 0.25rem;
@@ -155,7 +155,7 @@ label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
 
 /* text input, select, text area */
 .fsForm input, .fsForm select, .fsForm textarea {
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   line-height: 1.25;
   height: unset;
 }
@@ -171,7 +171,7 @@ input.MuiInputBase-input::placeholder {
 
 /** Datepicker Calendar **/
 .MuiPickersCalendarHeader-label {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -180,18 +180,18 @@ input.MuiInputBase-input::placeholder {
 }
 
 .MuiPickersYear-yearButton {
-  font-size: 1.125rem;
+  font-size: 0.93rem;
 }
 
 .MuiButton-root {
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 600;
   background-color: #14558F;
   color:  white;
 }
 
 .MuiDayCalendar-weekDayLabel {
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
 
 .MuiPickersDay-dayWithMargin {
@@ -202,7 +202,7 @@ input.MuiInputBase-input::placeholder {
 /* Number currency */
 /** Currency $ sign span **/
 .jjRdiv {
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   width: unset;
 }
 .ma__input-number > input {
@@ -264,13 +264,13 @@ div[data-testid="welcome-message-content"] {
 }
 
 div[data-testid="welcome-message-content"] > div {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #141414;
 }
 
 /* Success Message (formstack domain) */
 html.wf-active {
-  font-size: calc(16px / 1.2);
+  font-size: 0.85rem;
 }
 
 .body-hosted-form > .fsForm {

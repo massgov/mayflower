@@ -9,7 +9,7 @@ var gulpSass          = require("gulp-sass"),
     path          = require("path"),
     gulpIf        = require("gulp-if"),
     lazypipe      = require("lazypipe");
-    
+
 gulpSass.compiler = require("sass");
 /**
  * Contains pipeline definitions for transforming CSS.
@@ -22,7 +22,7 @@ gulpSass.compiler = require("sass");
 
 module.exports = function(minify, root) {
     var sassOptions = {
-        outputStyle: minify ? "compressed" : "nested",
+        outputStyle: minify ? "compressed" : "expanded",
         sourceMap: process.env.NODE_ENV !== "production",
         sourceComments: process.env.NODE_ENV !== "production",
         includePaths: assetsPaths

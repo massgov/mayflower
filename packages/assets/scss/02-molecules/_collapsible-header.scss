@@ -17,7 +17,7 @@
 
     &__status-icon {
       display: block;
-      font-size: $fonts-4xlarge;
+      font-size: $fonts-5xlarge;
       line-height: .65em;
       position: absolute;
         right: 15px;
@@ -68,7 +68,7 @@
 
   &__description p {
     margin: 0.5rem 0 0 0;
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
   }
 }
 

@@ -47,13 +47,13 @@
   }
 
   &__link {
-    font-size: $fonts-larger;
+    font-size: $fonts-xlarge;
     line-height: 1.2;
     margin-bottom: 10px;
   }
 
   &__description {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
   }
 
   &__view-all {
@@ -103,7 +103,7 @@
     .ma__split50__container > *:nth-last-child(n+2) ~ & {
 
       .ma__test-feed__title {
-        font-size: $fonts-2xlarge;
+        font-size: $fonts-3xlarge;
         line-height: 1.214287;
 
         &:after {
