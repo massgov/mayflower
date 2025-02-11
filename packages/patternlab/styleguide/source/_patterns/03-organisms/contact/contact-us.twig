@@ -33,9 +33,10 @@
       {% block primaryContactGroups %}
         {# Show first 2 contact groups outside of accordion #}
         {% for group in contactUs.groups[:2] %}
-          {% set contactGroup = group|merge({
-                               "level": groupHeading,
-                               "contactName": contactName })  %}
+          {% set contactGroup = (group is iterable ? group : [])|merge({
+            "level": groupHeading,
+            "contactName": contactName
+          }) %}
           {% include "@molecules/contact/contact-group.twig" %}
         {% endfor %}
       {% endblock %}
@@ -55,9 +56,10 @@
         <div class="ma__contact-us__extra js-accordion-content">
           {% block secondaryContactGroups %}
             {% for group in contactUs.groups[2:last] %}
-              {% set contactGroup = group|merge({
-                                 "level": groupHeading,
-                                 "contactName": contactName })  %}
+              {% set contactGroup = (group is iterable ? group : [])|merge({
+                "level": groupHeading,
+                "contactName": contactName
+              }) %}
               {% include "@molecules/contact/contact-group.twig" %}
             {% endfor %}
           {% endblock %}
@@ -67,9 +69,10 @@
       <div class="ma__contact-us__content js-accordion-content">
         <div class="ma__contact-us__content-wrap">
           {% for group in contactUs.groups %}
-            {% set contactGroup = group|merge({
-                             "level": groupHeading,
-                             "contactName": contactName })  %}
+            {% set contactGroup = (group is iterable ? group : [])|merge({
+              "level": groupHeading,
+              "contactName": contactName
+            }) %}
             {% include "@molecules/contact/contact-group.twig" %}
           {% endfor %}
           {% if contactUs.decorativeLink %}
