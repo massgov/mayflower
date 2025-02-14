@@ -318,7 +318,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-26
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-2
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest@18.12.0 semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
@@ -332,7 +332,7 @@ jobs:
       - *no_host_check
       - restore_cache:
           keys:
-            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-26
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run: sudo npm install -g js-yaml@3.13.1 @octokit/rest semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
