@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [CollapsibleContent] DP-32036: Remove CollapsibleContent extended example. (#1925)
 
 ### Changed 
+- (Assets,Patternlab,React) Make font scale responsive to browser settings (#1933)
 - (Patternlab) [ContactRow,ContactUs,ContactList] DP-26650: Move all three of the contact patterns from 'organisms/by-template', 'organisms/by-author', and 'molecules' under 'organisms/contact'. (#1847)
 - (Patternlab) [ContactRow] DP-26650: Remove folding logic, and reorder contact items. (#1847)
 - (Patternlab) [ResponsiveTable] DP-28505: Replace the custom scroll bar with the native one. (#1857)
