@@ -1,0 +1,22 @@
+{
+  "button": {
+    "id": "random-id",
+    "info": "",
+    "text": "Log in to...",
+    "size": "",
+    "theme": "c-primary",
+    "usage": "secondary",
+    "class": "ma__button-dropdown",
+    "menuId": "random-menu-id",
+    "items": [{
+      "href": "https://mass.gov",
+      "text": "Random text"
+    },{
+      "href": "https://mass.gov",
+      "text": "Random text 2"
+    },{
+      "href": "https://mass.gov",
+      "text": "Random text ver long super long text with second line"
+    }]
+  }
+}
