@@ -39,7 +39,7 @@ const FooterWithColumns = ({
     <div className="ma__footer__container">
       <section className="ma__footer__info">
         <div className="ma__footer__logo">
-          <a href={domain} title={title}>
+          <a href={domain} title={title} aria-label={title}>
             <img src={src} alt="" width="100" height="100" />
           </a>
         </div>
