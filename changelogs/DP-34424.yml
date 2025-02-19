@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: rich-text
-    description: Add floats clearing to headings in rich-text styles
-    issue: DP-34424
-    impact: Patch

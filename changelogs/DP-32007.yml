@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: ColorToken
-    description: Add a underline to a download link and darken the underline color to meet WCAG. (#1901)
-    issue: DP-32007
-    impact: Patch

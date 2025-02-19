@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: ContactGroup
-    description: Match contact group link style to RTE links'. (#1910)
-    issue: DP-32013
-    impact: Patch
