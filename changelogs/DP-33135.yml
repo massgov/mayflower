@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: HelpTip
-    description: Fix help tip close button accessibility issues. (#1911)
-    issue: DP-33135
-    impact: Patch

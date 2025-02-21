@@ -1,7 +1,0 @@
-Added:
-  - project: Patternlab
-    component: RichText
-    description: Add list style classnames to match openmass ckeditor specific classes. (#1927)
-    issue: DP-22509
-    impact: Minor
-
