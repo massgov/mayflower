@@ -1,18 +1,31 @@
 <div class="ma__button-dropdown-wrapper js-button-dropdown">
+  {% set menuId = button.menuId ?? 'menu-' ~ random() %}
   {% set buttonClass = 'ma__button-dropdown js-button-dropdown-toggle' %}
   {% include "@atoms/01-buttons/button.twig" with {
     button: button|merge({
-      'class': 'ma__button-dropdown js-button-dropdown-toggle'
+      'class': buttonClass,
+      'aria-haspopup': 'true',
+      'aria-controls': menuId
     })
-   } 
+  }
   %}
   <div class="ma__button-dropdown__subitems js-button-dropdown-content is-closed">
-    <ul id="{{ button.menuId }}" role="menu" aria-labelledby="{{ button.id }}" class="ma__button-dropdown__subitems-container">
+    {% if button.items|length > 1 %}
+      <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ button.id }}" class="ma__button-dropdown__subitems-container">
+        {% for item in button.items %}
+          <li role="none" class="ma__button-dropdown__subitem">
+            <a role="menuitem" href="{{ item.href }}" class="ma__button-dropdown__link" tabindex="0">{{ item.text }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
       {% for item in button.items %}
-        <li role="none" class="ma__button-dropdown__subitem">
-          <a role="menuitem" href="{{ item.href }}" class="ma__button-dropdown__link" tabindex="0">{{ item.text }}</a>
-        </li>
+        <div class="ma__button-dropdown__subitems-container" id="{{ menuId }}">
+          <div role="none" class="ma__button-dropdown__subitem">
+            <a role="menuitem" href="{{ item.href }}" class="ma__button-dropdown__link" tabindex="0">{{ item.text }}</a>
+          </div>
+        </div>
       {% endfor %}
-    </ul>
+    {% endif %}
   </div>
 </div>
