@@ -2,7 +2,7 @@
 {% set buttonUsage = button.usage ? "ma__button--" ~ button.usage : "" %}
 {% set buttonTheme = button.theme ? "ma__button--" ~ button.theme : "" %}
 {% set buttonClass = button.class %}
-{% set buttonUppercaseOverride = button ? "" : "ma__button--uppercase" %}
+{% set buttonUppercaseOverride = button.uppercaseOverride ? "" : "ma__button--uppercase" %}
 
 {% if button.href %}
   <a
