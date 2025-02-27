@@ -141,4 +141,19 @@
       @include ma-component-spacing;
     }
   }
+
+  // Clear floats within a Service section
+  .service-section .main-content .page-content{
+    
+    .ma__rich-text {
+
+      .ma__callout-stats ~ *:not(.ma__callout-stats) {
+        clear: both;
+      }
+
+      .ma__callout-message__container:has(~ *) {
+        margin-block-end: 20px;
+      }
+    }
+  }
 }
