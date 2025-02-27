@@ -196,6 +196,7 @@ $page-header-widget-width: 350px;
     &-wrapper {
       display: flex;
       width: 100%;
+      margin-top: 1.5rem;
 
       @media ($bp-medium-max) {
         flex-direction: column;
