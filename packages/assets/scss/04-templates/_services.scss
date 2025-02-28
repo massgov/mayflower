@@ -142,18 +142,34 @@
     }
   }
 
-  // Clear floats within a Service section
+  // Handles wrapping within a Service section
   .service-section .main-content .page-content{
     
     .ma__rich-text {
 
-      .ma__callout-stats ~ *:not(.ma__callout-stats) {
-        clear: both;
+      .ma__callout-stats {
+        inline-size: auto;
+        max-inline-size: 45%;
+      }
+
+      .ma__callout-stats ~ *:not(.ma__callout-stats)  {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 30px;
+      }
+
+      .ma__callout-stats ~ .ma__callout-stats {
+        inline-size: auto;
       }
 
       .ma__callout-message__container:has(~ *) {
         margin-block-end: 20px;
       }
+
+      .ma__callout-message__container {
+        clear: both;
+      }
     }
+
   }
 }
