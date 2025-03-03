@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Card Group & Stat
+    description: Add accordion styling to Cards & bring background color up for Stat, if within an "enhanced" heading. 
+    issue: DP-37544
+    impact: Patch
