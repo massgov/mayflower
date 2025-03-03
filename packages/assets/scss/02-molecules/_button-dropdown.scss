@@ -28,9 +28,12 @@
     box-shadow: 0 0.25em 0.5rem $c-box-shadow-black;
     transition: visibility .5s ease, right .5s ease;
     z-index: $z-overlay;
-    min-width: 340px;
-    max-width: 340px;
-    width: 100%;
+    width: 260px;
+
+    @media ($bp-x-small-min) {
+      width: 340px;
+    }
+
 
     &.is-open {
       display: inline-block;
