@@ -41,14 +41,13 @@
     "pageHeader": {
       "title": "Required - Services title",
       "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
-      "buttonsLabel": "LOG IN:",
       "buttons": [{
         "id": "random-id",
         "info": "",
         "text": "Button",
         "size": "small",
-        "theme": "c-primary",
-        "usage": "secondary",
+        "theme": "c-white",
+        "usage": "primary",
         "class": "ma__button-dropdown",
         "menuId": "random-menu-id",
         "items": [{
@@ -58,13 +57,6 @@
           "href": "https://mass.gov",
           "text": "Random text 2"
         }]
-      },{
-        "href": "#",
-        "text": "Multilingual Online UI Application",
-        "size": "small",
-        "theme": "c-white",
-        "icon": "login",
-        "uppercaseOverride": true
       }]
     }
   },
