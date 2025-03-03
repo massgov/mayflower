@@ -4,7 +4,6 @@ export default (function (window, document, $) {
 
   function isHighZoom() {
     const zoomLevel = Math.round((window.outerWidth / window.innerWidth) * 100);
-    console.log(`[DEBUG] Zoom Level Detected: ${zoomLevel}%`);
     return zoomLevel >= 400;
   }
 
@@ -20,7 +19,6 @@ export default (function (window, document, $) {
   }
 
   function initializeTable(element, reset = false, index = false) {
-    console.log("[DEBUG] Initializing table... Reset:", reset);
     const $element = $(element);
     let $table = $element.find("table").not("table table");
     let $thead = $table.find("thead").not("table table thead");
@@ -121,12 +119,10 @@ export default (function (window, document, $) {
       });
 
       if (activeHeader) {
-        console.log(`[DEBUG] Active Header: ${activeHeader}`);
         $stickyHeader.find("th").text(activeHeader);
       }
 
       if (!headerStuck && elementTop < stuckTop && tableBottom > stuckBottom) {
-        console.log(`[DEBUG] Enabling sticky header for table index: ${index}`);
         responsiveTables[index].headerStuck = true;
         $stickyHeader.css({
           opacity: 1,
@@ -134,7 +130,6 @@ export default (function (window, document, $) {
           "box-shadow": "0px 2px 10px rgba(0, 0, 0, 0.1)",
         });
       } else if (headerStuck && (elementTop > stuckTop || tableBottom < stuckBottom)) {
-        console.log(`[DEBUG] Disabling sticky header for table index: ${index}`);
         responsiveTables[index].headerStuck = false;
         $stickyHeader.css({
           opacity: 0,
@@ -146,25 +141,20 @@ export default (function (window, document, $) {
   }
 
   function handleStickyHeader() {
-    console.log("[DEBUG] Scrolling detected, updating sticky header visibility...");
     responsiveTables.forEach((rt) => {
       checkVisibility(rt);
     });
   }
 
   function handleWindowResize() {
-    console.log(`[DEBUG] Window resized - Checking zoom level...`);
     const highZoom = isHighZoom();
-    console.log(`[DEBUG] Is High Zoom? ${highZoom}`);
 
     responsiveTables.forEach((rt) => {
       if (highZoom) {
         if (rt.$stickyHeader) {
-          console.log("[DEBUG] Hiding sticky header due to high zoom");
           rt.$stickyHeader.hide();
         }
       } else {
-        console.log("[DEBUG] Re-enabling sticky header after resize");
         initializeTable(rt.$root[0], true, rt.index);
         if (rt.$stickyHeader) {
           rt.$stickyHeader.show();
