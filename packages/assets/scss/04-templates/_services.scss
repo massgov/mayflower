@@ -141,4 +141,58 @@
       @include ma-component-spacing;
     }
   }
+
+  // Adjust Paragraphs width
+  .service-section .main-content .page-content>.ma__callout {
+    max-inline-size: 1240px;
+    margin-inline: 20px;
+
+    @media ($bp-medium-min) {
+      margin-inline: 30px;
+    }
+
+    @media ($bp-large-min) {
+      margin-inline: 40px;
+    } 
+
+    @media ($bp-x-large-min) {
+      margin-inline: auto;
+    }
+
+    // One off due to positioning without a wrapper container.
+    @media (min-width: 1201px) and (max-width: 1320px) {
+      margin-inline: 40px;
+    }
+  }
+
+  // Handles wrapping within a Service section
+  .service-section .main-content .page-content{
+    
+    .ma__rich-text {
+
+      .ma__callout-stats {
+        inline-size: auto;
+        max-inline-size: 45%;
+      }
+
+      .ma__callout-stats ~ *:not(.ma__callout-stats)  {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 30px;
+      }
+
+      .ma__callout-stats ~ .ma__callout-stats {
+        inline-size: auto;
+      }
+
+      .ma__callout-message__container:has(~ *) {
+        margin-block-end: 20px;
+      }
+
+      .ma__callout-message__container {
+        clear: both;
+      }
+    }
+
+  }
 }
