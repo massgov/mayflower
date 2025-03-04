@@ -28,6 +28,7 @@ import inlineLinksLanguageToggle from "./modules/inlineLinksLanguageToggle.js";
 import listAfterFloat from "./modules/listAfterFloat.js";
 import locationListingLeaflet from "./modules/locationListingLeaflet.js";
 import locationFiltersLeaflet from "./modules/locationFiltersLeaflet.js";
+import buttonDropdown from "./modules/buttonDropdown.js";
 import mainNav from "./modules/mainNav.js";
 import mainNavHamburger from "./modules/mainNavHamburger.js";
 import mainNavMIxed from "./modules/mainNavMixed.js";
