@@ -127,14 +127,12 @@ export default (function (window, document, $) {
         $stickyHeader.css({
           opacity: 1,
           "pointer-events": "all",
-          "box-shadow": "0px 2px 10px rgba(0, 0, 0, 0.1)",
         });
       } else if (headerStuck && (elementTop > stuckTop || tableBottom < stuckBottom)) {
         responsiveTables[index].headerStuck = false;
         $stickyHeader.css({
           opacity: 0,
           "pointer-events": "none",
-          "box-shadow": "none",
         });
       }
     }
