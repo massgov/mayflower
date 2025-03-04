@@ -4,7 +4,7 @@ export default (function (window, document, $) {
 
   function isHighZoom() {
     const zoomLevel = Math.round((window.outerWidth / window.innerWidth) * 100);
-    return zoomLevel >= 400;
+    return zoomLevel >= 300;
   }
 
   function setWidths(rt) {
