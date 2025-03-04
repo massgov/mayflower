@@ -1,0 +1,7 @@
+Added:
+  - project: Patternlab
+    component: ButtonDropdown
+    description: Add ButtonDropdown component. Make it passable to PageHeader to render login options. (#1943)
+    issue: DP-36147
+    impact: Minor
+
