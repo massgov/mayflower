@@ -1,29 +1,31 @@
 {% set buttonSize = button.size ? "ma__button--" ~ button.size : "" %}
-
 {% set buttonUsage = button.usage ? "ma__button--" ~ button.usage : "" %}
-
 {% set buttonTheme = button.theme ? "ma__button--" ~ button.theme : "" %}
-
+{% set buttonClass = button.class %}
 {% set buttonUppercaseOverride = button.uppercaseOverride ? "" : "ma__button--uppercase" %}
 
 {% if button.href %}
   <a
-    href="{{ button.href }}"
-    class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{ buttonUppercaseOverride }}"
-    {% if button.info %} title="{{ button.info }}"{% endif %}>
-      {{ button.text }}
+      href="{{ button.href }}"
+      class="ma__button {{ buttonSize }} {{ buttonTheme }} {{ buttonUsage }} {{ buttonClass }} {{ buttonUppercaseOverride }}"
+      {% if button.info %} title="{{ button.info }}"{% endif %}
+  >
+    {{ button.text }}
     {% if button.icon %}
-        {{ icon(button.icon) }}
+      {{ icon(button.icon) }}
     {% endif %}
   </a>
 {% else %}
   <button
-    type="{{ button.type }}"
-    class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}} {{button.class}} {{ buttonUppercaseOverride }}"
-    aria-label="{{ button.info }}">
-      {{ button.text }}
-      {% if button.icon %}
-        {{ icon(button.icon) }}
-      {% endif %}
+      type="{{ button.type }}"
+      class="ma__button {{ buttonSize }} {{ buttonTheme }} {{ buttonUsage }} {{ buttonClass }} {{ buttonUppercaseOverride }}"
+      aria-label="{{ button.info }}"
+      {% if button['aria-haspopup'] %} aria-haspopup="true"{% endif %}
+      {% if button['aria-controls'] %} aria-controls="{{ button['aria-controls'] }}"{% endif %}
+  >
+    {{ button.text }}
+    {% if button.icon %}
+      {{ icon(button.icon) }}
+    {% endif %}
   </button>
 {% endif %}
