@@ -85,19 +85,34 @@
             </ul>
           </div>
       {% endif %}
-      {% if pageHeader.buttons %}
+      {% if pageHeader.buttons is not empty %}
         <div class="ma__page-header__buttons-wrapper">
-        {% if pageHeader.buttonsLabel %}
-            <span  class="ma__page-header__buttons-label">{{pageHeader.buttonsLabel}}</span>
-        {% endif %}
+          {% if pageHeader.buttonsLabel %}
+            <span class="ma__page-header__buttons-label">{{ pageHeader.buttonsLabel }}</span>
+          {% endif %}
+          {% if pageHeader.buttons|length > 1 %}
             <ul class="ma__page-header__buttons">
-                {% for button in pageHeader.buttons %}
+              {% for button in pageHeader.buttons %}
                 <li class="ma__page-header__button">
+                  {% if button.items %}
+                    {% include "@molecules/button-dropdown.twig" %}
+                  {% else %}
                     {% include "@atoms/01-buttons/button.twig" %}
+                  {% endif %}
                 </li>
-                {% endfor %}
+              {% endfor %}
             </ul>
-        <div>
+          {% else %}
+            {% set button = pageHeader.buttons[0] %}
+            <div class="ma__page-header__button">
+              {% if button.items %}
+                {% include "@molecules/button-dropdown.twig" %}
+              {% else %}
+                {% include "@atoms/01-buttons/button.twig" %}
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
       {% endif %}
     {% endif %}
   </div>
