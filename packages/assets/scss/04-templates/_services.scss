@@ -195,4 +195,105 @@
     }
 
   }
+
+  // Additional Heading styles
+
+  .ma__service-heading-content {
+    display: flex;
+    flex-flow: column;
+    margin-block-end: 32px;
+
+    @media ($bp-large-min) {
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ma__service-subtitle {
+      font-weight: $fonts-bold;
+    }
+
+    .ma__decorative-link a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: $fonts-bolder;
+    }
+  }
+
+  .service-section--enhanced {
+    .ma__service-heading-content {
+      @include ma-container;
+    }
+  }
+
+  .service-section--simple,
+  .service-section--simple-two-column-white,
+  .service-section--simple-two-column-gray {
+    .ma__stacked-row__section {
+      max-inline-size: $max-width;
+      margin-inline: auto;
+    }
+  }
+
+  .service-section--simple-two-column-white,
+  .service-section--simple-two-column-gray {
+    padding-block: 80px;
+
+    .ma__stacked-row__section {
+      display: flex;
+      flex-flow: column;
+
+      @media ($bp-large-min) {
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .ma__stacked-row__section {
+        display: block;
+      }
+    }
+
+    .ma__service-heading-content {
+      flex-flow: column;
+
+      .ma__service-subtitle {
+        margin-block-end: 20px;
+      }
+    }
+
+    .ma__decorative-link {
+      a {
+        display: inline;
+      }
+    }
+
+    // Adjusts for Paragraph types within a more narrow Service section
+    .main-content .page-content {
+
+      > .ma__video--new {
+        padding-inline-end: 0;
+      }
+
+      > .ma__rich-text .ma__rich-text {
+        clear: both;
+      }
+
+      > .ma__callout-message__container .ma__callout-message {
+        inline-size: 100%;
+      }
+
+      > .ma__callout {
+        clear: both;
+        margin-inline-start: 40px;
+      }
+    }
+    
+    
+  }
+
+  .service-section--simple-two-column-gray {
+    background: $c-platinum-gray;
+  }
 }
