@@ -38,7 +38,7 @@ $textcolors: (
     }
   }
 
-  
+
   .ma__page-header {
     margin-left: 0;
     margin-right: 0;
@@ -51,11 +51,10 @@ $textcolors: (
   &__container {
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
   }
-  
+
   /* Style for the text content on the left side */
 
   &__content {
@@ -63,7 +62,7 @@ $textcolors: (
     align-items: center;
     flex: 1.5; // width ratio to image 3:2
   }
-  
+
   /* Style for the image on the right side */
 
   &__image {
@@ -73,7 +72,7 @@ $textcolors: (
     background-size: contain;
     background-repeat: no-repeat;
   }
-  
+
   @media ($bp-large-extended-min) {
 
     &__container {
@@ -81,7 +80,7 @@ $textcolors: (
       align-items: stretch;
       max-width: 1320px;
     }
-  
+
     &__image {
       flex: 1;
       display: block;
@@ -90,7 +89,7 @@ $textcolors: (
       min-height: 200px;
     }
   }
-  
+
   @media ($bp-x-large-min) {
 
     &__image {
@@ -101,8 +100,8 @@ $textcolors: (
       min-height: 200px;
     }
   }
-  
-  
+
+
   @media ($bp-x-small-max) {
 
     &__image {

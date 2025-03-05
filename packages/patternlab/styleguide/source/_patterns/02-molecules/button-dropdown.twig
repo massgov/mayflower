@@ -1,0 +1,21 @@
+<div class="ma__button-dropdown-wrapper js-button-dropdown">
+  {% set menuId = button.menuId ?? 'menu-' ~ random() %}
+  {% set buttonClass = 'ma__button-dropdown js-button-dropdown-toggle' %}
+  {% include "@atoms/01-buttons/button.twig" with {
+    button: (button is iterable ? button : {})|merge({
+      'class': buttonClass|default(''),
+      'aria-haspopup': 'true',
+      'aria-controls': menuId|default('')
+    })
+  }
+  %}
+  <div class="ma__button-dropdown__subitems js-button-dropdown-content is-closed">
+    <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ button.id }}" class="ma__button-dropdown__subitems-container">
+      {% for item in button.items %}
+        <li role="none" class="ma__button-dropdown__subitem">
+          <a role="menuitem" href="{{ item.href }}" class="ma__button-dropdown__link" tabindex="0">{{ item.text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
