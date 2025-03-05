@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Service Section & Key Message Section
+    description: Add two new display options for Service Section, both two column, one white and one light grey like "enhanced". Adds additional "subtitle" and "link" field to Service Section and an "eyebrow" field to Key Message Section.
+    issue: DP-37834
+    impact: Patch
