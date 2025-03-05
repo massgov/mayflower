@@ -238,6 +238,10 @@
   .service-section--simple-two-column-gray {
     padding-block: 80px;
 
+    .ma__stacked-row__container {
+      margin-inline: 0;
+    }
+
     .ma__stacked-row__section {
       display: flex;
       flex-flow: column;
@@ -255,6 +259,7 @@
 
     .ma__service-heading-content {
       flex-flow: column;
+      align-items: flex-start;
 
       .ma__service-subtitle {
         margin-block-end: 20px;
@@ -262,6 +267,7 @@
     }
 
     .ma__decorative-link {
+      display: inline;
       a {
         display: inline;
       }
