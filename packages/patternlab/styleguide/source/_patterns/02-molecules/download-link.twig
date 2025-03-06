@@ -18,7 +18,11 @@
           {{ downloadLink.decorativeLink.text }}
       </a>
       {% if downloadLink.format or downloadLink.size or downloadLink.language %}
-        <span class="ma__download-link__file-spec">({{ downloadLink.language ~ ',' }} {{ downloadLink.format }} {{ downloadLink.size }})</span>
+        <span class="ma__download-link__file-spec">(
+          {{ downloadLink.language ~ (downloadLink.language and (downloadLink.format or downloadLink.size) ? ', ' : '') }}
+          {{ downloadLink.format ~ (downloadLink.format and downloadLink.size ? ' ' : '') }}
+          {{ downloadLink.size }}
+        )</span>
       {% endif %}
     {% endif %}
   </span>
