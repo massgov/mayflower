@@ -112,3 +112,28 @@
     border-color: $c-bd-divider;
   }
 }
+
+.ma__download-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+
+  &__icon {
+    flex-shrink: 0;
+    width: 55px;
+    height: 36px;
+  }
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .ma__inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+}
