@@ -17,12 +17,21 @@
         <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
           {{ downloadLink.decorativeLink.text }}
       </a>
-      {% if downloadLink.format or downloadLink.size or downloadLink.language %}
-        <span class="ma__download-link__file-spec">(
-          {{ downloadLink.language ~ (downloadLink.language and (downloadLink.format or downloadLink.size) ? ', ' : '') }}
-          {{ downloadLink.format ~ (downloadLink.format and downloadLink.size ? ' ' : '') }}
-          {{ downloadLink.size }}
-        )</span>
+      {% set specs = [] %}
+      {% if downloadLink.language %}
+        {% set specs = specs|merge([downloadLink.language]) %}
+      {% endif %}
+      {% if downloadLink.format %}
+        {% set specs = specs|merge([downloadLink.format]) %}
+      {% endif %}
+      {% if downloadLink.size %}
+        {% set specs = specs|merge([downloadLink.size]) %}
+      {% endif %}
+
+      {% if specs %}
+        <span class="ma__download-link__file-spec">
+          ({{ specs|first }}{% if specs|length > 1 %}, {% endif %}{{ specs|slice(1)|join(' ') }})
+        </span>
       {% endif %}
     {% endif %}
   </div>
