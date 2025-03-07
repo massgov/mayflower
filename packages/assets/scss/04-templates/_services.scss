@@ -226,20 +226,24 @@
   }
 
   .service-section--simple,
-  .service-section--simple-two-column-white,
-  .service-section--simple-two-column-gray {
+  .service-section--simple-two-column,
+  .service-section--enhanced-two-column {
     .ma__stacked-row__section {
       max-inline-size: $max-width;
       margin-inline: auto;
     }
   }
 
-  .service-section--simple-two-column-white,
-  .service-section--simple-two-column-gray {
+  .service-section--simple-two-column,
+  .service-section--enhanced-two-column {
     padding-block: 80px;
 
     .ma__stacked-row__container {
       margin-inline: 0;
+      @media ($bp-large-min) {
+        max-inline-size: 384px;
+        min-inline-size: 336px;
+      }
     }
 
     .ma__stacked-row__section {
@@ -297,7 +301,7 @@
     
   }
 
-  .service-section--simple-two-column-gray {
+  .service-section--enhanced-two-column {
     background: $c-platinum-gray;
   }
 }
