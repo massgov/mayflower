@@ -11,6 +11,7 @@
   }
 
   .ma__button-dropdown {
+
     @include ma-chevron;
 
     &:after {
@@ -38,11 +39,13 @@
     &.is-open {
       display: inline-block;
     }
+
     &.is-closed {
       display: none !important;
     }
 
     &-container {
+
       @include ma-reset-list;
 
       background-color: $c-bg;
@@ -54,6 +57,7 @@
     border-bottom-color: $c-bd-divider;
 
     .ma__button-dropdown__link {
+
       @include ma-button-reset;
       width: 100%;
       text-align: left;
