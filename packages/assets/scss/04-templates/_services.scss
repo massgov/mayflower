@@ -238,7 +238,7 @@
   .service-section--enhanced-two-column {
     padding-block: 80px;
 
-    .ma__stacked-row__container {
+    .ma__stacked-row__section > .ma__stacked-row__container {
       margin-inline: 0;
       @media ($bp-large-min) {
         max-inline-size: 384px;
