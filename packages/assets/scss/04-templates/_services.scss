@@ -194,17 +194,18 @@
 
   }
 
-  // Additional Heading styles
+  // Two column split
 
   .ma__service-heading-content {
     display: flex;
     flex-flow: column;
-    margin-block-end: 32px;
+    
 
     @media ($bp-large-min) {
       flex-flow: row;
       justify-content: space-between;
       align-items: center;
+      margin-block-end: 32px;
     }
 
     .ma__service-subtitle {
@@ -236,7 +237,16 @@
 
   .service-section--simple-two-column,
   .service-section--enhanced-two-column {
-    padding-block: 80px;
+    padding-block: 20px;
+
+    @media ($bp-large-min) {
+      padding-block: 80px;
+    }
+
+    .main-content {
+      flex: 1;
+      inline-size: 100%;
+    }
 
     .ma__stacked-row__section > .ma__stacked-row__container {
       margin-inline: 0;
@@ -271,14 +281,23 @@
     }
 
     .ma__decorative-link {
-      display: inline;
-      a {
+
         display: inline;
-      }
+        a {
+          display: inline;
+        }
     }
 
     // Adjusts for Paragraph types within a more narrow Service section
     .main-content .page-content {
+
+      > .ma__social-links-bar {
+        padding-inline-end: 0;
+      }
+
+      > .ma__contact-list {
+        padding-inline-start: 0;
+      }
 
       > .ma__video--new {
         padding-inline-end: 0;
@@ -296,9 +315,20 @@
         clear: both;
         margin-inline-start: 40px;
       }
-    }
-    
-    
+
+      .ma__section-links__content {
+        .ma__decorative-link {
+          display: none;
+
+          @media($bp-small-min) {
+            display: inline;
+            a {
+              display: inline;
+            }
+          }
+        }
+      }
+    } 
   }
 
   .service-section--enhanced-two-column {
