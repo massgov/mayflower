@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: FeaturedItemMosaic
+    description: Remove collapse on mobile (#1953). 
+    issue: DP-37567
+    impact: Minor
