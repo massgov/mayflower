@@ -3,62 +3,6 @@
 .ma__featured-item-mosaic {
 
     @include ma-container();
-
-    // Accordion behavior
-
-    .ma__featured-item-mosaic__toggle {
-
-      @include ma-button-reset;
-
-      @include ma-link-underline;
-
-      @include ma-chevron;
-      font-size: $fonts-large;
-      padding-right: 10px;
-
-      .less {
-        display: none;
-      }
-
-      &[aria-expanded="true"] {
-
-        .more {
-          display: none;
-        }
-
-        .less {
-          display: inline;
-        }
-      }
-
-      &:after {
-        margin-left: 0;
-        transform: translateY(-45%) rotate(45deg);
-
-      }
-
-      &[aria-expanded="true"]:after {
-          transform: translateY(-55%) rotate(-135deg);
-        }
-
-      @media ($bp-small-min) {
-        display: none;
-      }
-    }
-
-    @media ($bp-small-max) {
-
-      &.is-open {
-
-        .js-accordion-content {
-          display: initial;
-        }
-      }
-
-      .js-accordion-content {
-        display: none;
-      }
-    }
 }
 
 .ma__featured-item-mosaic__container {
@@ -122,19 +66,4 @@
       }
     }
 
-}
-
-//theme
-
-.ma__featured-item-mosaic__toggle {
-  color: $c-font-link;
-  font-weight: $fonts-bold;
-
-  &:after {
-    color: $c-link;
-  }
-
-  &:hover {
-    border-color: $c-link;
-  }
 }
