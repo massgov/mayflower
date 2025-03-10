@@ -237,6 +237,14 @@
 
   .service-section--simple-two-column,
   .service-section--enhanced-two-column {
+
+    .ma__action-finder--no-background {
+      background-image: none;
+    }
+
+    .ma__mapped-locations {
+      padding-inline: 0;
+    }
     
     .main-content {
       flex: 1;
@@ -245,9 +253,10 @@
 
     .ma__stacked-row__section > .ma__stacked-row__container {
       margin-inline: 0;
-      @media ($bp-large-min) {
+      @media ($bp-x-large-min) {
         max-inline-size: 384px;
         min-inline-size: 336px;
+        inline-size: 50%;
       }
     }
 
@@ -255,7 +264,7 @@
       display: flex;
       flex-flow: column;
 
-      @media ($bp-large-min) {
+      @media ($bp-x-large-min) {
         flex-flow: row;
         justify-content: space-between;
         align-items: flex-start;
@@ -328,5 +337,15 @@
 
   .service-section--enhanced-two-column {
     background: $c-platinum-gray;
+    padding-block: 20px;
+
+    @media ($bp-large-min) {
+      padding-block: 80px;
+    }
+
+    .ma__mapped-locations__aside,
+    .ma__mapped-locations__map {
+      background-color: $c-white;
+    }
   }
 }
