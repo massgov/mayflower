@@ -237,12 +237,7 @@
 
   .service-section--simple-two-column,
   .service-section--enhanced-two-column {
-    padding-block: 20px;
-
-    @media ($bp-large-min) {
-      padding-block: 80px;
-    }
-
+    
     .main-content {
       flex: 1;
       inline-size: 100%;
