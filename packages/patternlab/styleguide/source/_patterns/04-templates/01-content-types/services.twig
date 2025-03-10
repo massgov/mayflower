@@ -29,6 +29,12 @@
 		<section class="ma__stacked-row__section">
 			<div class="main-content main-content--full">
 				<div class="page-content">
+				{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
+						{% if introPageContent.keyActions %}
+							{% set keyActions = introPageContent.keyActions %}
+							{% include "@organisms/by-author/key-actions.twig" %}
+						{% endif %}
+					{% endif %}
 					{# Simple example #}
 					{% if twoColumn %}
 						<div class="service-section service-section--simple-two-column">
