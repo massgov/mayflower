@@ -6,26 +6,28 @@
       {{ icon(downloadLink.icon) }}
     </span>
   {% endif %}
-  <span class="ma__download-link__title">
-    {% if downloadLink.format == "form" %}
-      {% set decorativeLink = downloadLink.decorativeLink %}
-      {% include "@atoms/decorative-link.twig" %}
-    {% else %}
-      <a
-        class="ma__download-link__file-link"
-        href="{{ downloadLink.decorativeLink.href}}">
-        <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
-          {{ downloadLink.decorativeLink.text }}
-      </a>
-      {% if downloadLink.format or downloadLink.size %}
-        <span class="ma__download-link__file-spec">({{ downloadLink.format }} {{ downloadLink.size }})</span>
+  <div class="ma__download-link_wrapper">
+    <span class="ma__download-link__title">
+      {% if downloadLink.format == "form" %}
+        {% set decorativeLink = downloadLink.decorativeLink %}
+        {% include "@atoms/decorative-link.twig" %}
+      {% else %}
+        <a
+          class="ma__download-link__file-link"
+          href="{{ downloadLink.decorativeLink.href}}">
+          <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
+            {{ downloadLink.decorativeLink.text }}
+        </a>
+        {% if downloadLink.format or downloadLink.size %}
+          <span class="ma__download-link__file-spec">({{ downloadLink.format }} {{ downloadLink.size }})</span>
+        {% endif %}
       {% endif %}
+    </span>
+    {% if downloadLink.description %}
+      {% set richText = downloadLink.description %}
+      <div class="ma__download-link__description">
+        {% include "@organisms/by-author/rich-text.twig" %}
+      </div>
     {% endif %}
-  </span>
-  {% if downloadLink.description %}
-    {% set richText = downloadLink.description %}
-    <div class="ma__download-link__description">
-      {% include "@organisms/by-author/rich-text.twig" %}
-    </div>
-  {% endif %}
+  </div>
 </div>
