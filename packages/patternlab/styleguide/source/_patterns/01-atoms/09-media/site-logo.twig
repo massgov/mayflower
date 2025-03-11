@@ -1,7 +1,9 @@
 <div class="ma__site-logo">
-  <a href="/" title="Mass.gov home page">
-    <img src="{{ sealImage }}" alt="" width="45" height="45" />
+  <a href="{{ url ? url : '/' }}" title="{{ altTitle ? altTitle : 'Mass.gov home page' }}">
+    {% if not hideImage %}
+      <img src="{{ sealImage }}" alt="" width="45" height="45" />
+    {% endif %}
 
-    <span>Mass.gov</span>
+    <span>{{ title ? title : 'Mass.gov' }}</span>
   </a>
 </div>
