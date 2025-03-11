@@ -76,11 +76,6 @@
 									</div>           
 								</div>
 							</div>
-						{% else %}
-							{% if learnActionFinder %}
-								{% set actionFinder = learnActionFinder.actionFinder %}
-								{% include "@organisms/by-author/action-finder.twig" %}
-							{% endif %}
 						{% endif %}
 						{# Simple example #}
 						{% if twoColumn %}
