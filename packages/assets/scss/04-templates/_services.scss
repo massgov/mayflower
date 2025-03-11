@@ -242,8 +242,11 @@
       background-image: none;
     }
 
-    .ma__mapped-locations {
-      padding-inline: 0;
+    .ma__mapped-locations,
+    .ma__collapsible-content {
+      @media ($bp-x-large-min) {
+        padding-inline-start: 0;
+      }
     }
     
     .main-content {
@@ -300,7 +303,9 @@
       }
 
       > .ma__contact-list {
-        padding-inline-start: 0;
+        @media ($bp-x-large-min) {
+          padding-inline-start: 0;
+        }
       }
 
       > .ma__video--new {
@@ -324,7 +329,7 @@
         .ma__decorative-link {
           display: none;
 
-          @media($bp-small-min) {
+          @media($bp-x-small-min) {
             display: inline;
             a {
               display: inline;
