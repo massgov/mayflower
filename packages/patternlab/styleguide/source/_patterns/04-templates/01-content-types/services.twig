@@ -76,6 +76,13 @@
 									</div>           
 								</div>
 							</div>
+						{% else %}
+							{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
+								{% if learnActionFinder %}
+									{% set actionFinder = learnActionFinder.actionFinder %}
+									{% include "@organisms/by-author/action-finder.twig" %}
+								{% endif %}
+							{% endif %}
 						{% endif %}
 						{# Simple example #}
 						{% if twoColumn %}
