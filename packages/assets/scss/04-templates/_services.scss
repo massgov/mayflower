@@ -332,7 +332,7 @@
       }
 
       .ma__section-links__content {
-        .ma__decorative-link {
+        .ma__section-links__title .ma__decorative-link {
           display: none;
 
           @media($bp-x-small-min) {
