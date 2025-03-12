@@ -266,8 +266,10 @@
     .ma__stacked-row__section {
       display: flex;
       flex-flow: column;
+      gap: 30px;
 
       @media ($bp-x-large-min) {
+        gap: 0;
         flex-flow: row;
         justify-content: space-between;
         align-items: flex-start;
@@ -283,7 +285,11 @@
       align-items: flex-start;
 
       .ma__service-subtitle {
-        margin-block-end: 20px;
+        margin-block-end: 10px;
+
+        @media ($bp-x-large-min) {
+          margin-block-end: 20px;
+        }
       }
     }
 
