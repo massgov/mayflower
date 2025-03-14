@@ -143,17 +143,15 @@
     }
   }
 
-  // Image Card variant
+  // Vertical Card variant
 
-  &.ma__card--image-card {
+  &.ma__card--vertical-card {
     inline-size: 100%;
 
     @media ($bp-small-min) {
-      max-inline-size: 345px;
       inline-size: auto
     }
     @media ($bp-large-min) {
-      max-inline-size: 395px;
       inline-size: fit-content;
     }
 
@@ -163,6 +161,9 @@
 
     .ma__card__img {
       img {
+        inline-size: 100%;
+        block-size: 100%;
+        aspect-ratio: 4/3;
         display: block;
       }
 
@@ -171,7 +172,7 @@
       }
     }
 
-    .ma__card__eyebrow--image-card {
+    .ma__card__eyebrow--vertical-card {
       margin-block-end: 20px;
       padding-inline: 0;
       background-color: transparent;
@@ -194,7 +195,8 @@
 
 }
 
-// Image Card variant
-.ma__card--image-card-link {
+// Vertical Card variant
+.ma__card--vertical-card-link {
   text-decoration: none;
+  background-color: $c-overcast-gray;
 }

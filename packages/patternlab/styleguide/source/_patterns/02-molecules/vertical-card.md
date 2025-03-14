@@ -3,9 +3,6 @@ Description: This pattern is a variant of card, with a vertical image and eyebro
 ### Status
 * Added as beta version of molecule in 9.25.0
 
-### Variant options
-* As [secondary](./?p=molecules-card-as-secondary) with usage set to `"secondary"`.
-
 ### Variables
 ~~~
 card: {

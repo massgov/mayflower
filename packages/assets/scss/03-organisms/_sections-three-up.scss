@@ -84,11 +84,12 @@ $bp-section-3up-large-max: "max-width:950px";
     }
   }
 
-  // Image Card variant
-  &.ma__image-card-group--wrapper {
+  // Vertical Card variant
+  &.ma__vertical-card-group--wrapper {
 
-    .ma__card--image-card-link {
+    .ma__card--vertical-card-link {
       text-decoration: none;
+      margin-block-end: 20px;
     }
   }
 }
@@ -103,6 +104,13 @@ $bp-section-3up-large-max: "max-width:950px";
     & > * {
       border: 2px solid $c-bd-divider;
       background-color: $c-bg;
+    }
+  }
+
+  .ma__vertical-card-group--wrapper {
+
+    .ma__card.ma__card--vertical-card {
+      background-color: $c-white;
     }
   }
 

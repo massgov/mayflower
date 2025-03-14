@@ -1,10 +1,10 @@
 {% set thumbnail = card.thumbnail %}
-{% set cardClass = " ma__card--image-card" %}
-{% set contentClass = " ma__card__content--image-card" %}
+{% set cardClass = " ma__card--vertical-card" %}
+{% set contentClass = " ma__card__content--vertical-card" %}
 {% set imgClass = card.id %}
-{% set detailsClass = " ma__card__details--image-card"  %}
+{% set detailsClass = " ma__card__details--vertical-card"  %}
 
-<a href="{{ card.link }}" class="ma__card--image-card-link">
+<a href="{{ card.link }}" class="ma__card--vertical-card-link">
   <div id="{{ card.id }}" class="ma__card{{ cardClass }}">
     {% if not card.usage %}
       <style>
@@ -18,7 +18,7 @@
           <img src="{{ card.thumbnail }}" alt="">
         </div>
       <div class="ma__card__content{{ contentClass }}">
-        <div class="ma__general-teaser__eyebrow ma__card__eyebrow--image-card">{{ card.eyebrow }}</div>
+        <div class="ma__general-teaser__eyebrow ma__card__eyebrow--vertical-card">{{ card.eyebrow }}</div>
           
             {% set headingLevel = card.level ? card.level : 3 %}
             <h{{ headingLevel }} class="ma__card__title"><span>{{card.title}}&nbsp;{{ icon('arrow') }}</span></h{{ headingLevel }}>
