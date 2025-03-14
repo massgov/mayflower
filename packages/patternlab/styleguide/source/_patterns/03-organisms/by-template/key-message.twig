@@ -15,6 +15,7 @@
 {% set descClass = theme ? " ma__key-message__description--" ~ theme : "" %}
 {% set titleClass = theme ? " ma__key-message__title--" ~ theme : "" %}
 {% set subClass = theme ? " ma__key-message__title--" ~ theme : "" %}
+{% set eyebrowClass = theme ? " ma__key-message__title--" ~ theme : "" %}
 {% set blockClass = theme ? " ma__key-message__block--" ~ theme : "" %}
 {% set wrapperClass = keyMessage.textOverlay ? " ma__key-message__wrapper--overlay" : "" %}
 
@@ -96,6 +97,9 @@
     <div id="blck{{ id }}" class="ma__key-message__block {{ blockClass }} {{ halfImageBlockClass }}">
       {% if keyMessage.compHeading.title or keyMessage.subtitle %}
         <header>
+        {% if keyMessage.eyebrow %}
+          <p class="ma__key-message__eyebrow{{ eyebrowClass }}">{{ keyMessage.eyebrow }}</p>
+        {% endif %}                
         {% if keyMessage.compHeading.title %}
           <h{{ headingLevel }} class="ma__key-message__title{{ titleClass }}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
         {% endif %}
