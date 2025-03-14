@@ -83,6 +83,14 @@ $bp-section-3up-large-max: "max-width:950px";
       }
     }
   }
+
+  // Image Card variant
+  &.ma__image-card-group--wrapper {
+
+    .ma__card--image-card-link {
+      text-decoration: none;
+    }
+  }
 }
 
 .service-section--enhanced,
