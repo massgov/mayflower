@@ -145,16 +145,8 @@
 
   // Vertical Card variant
 
-  &.ma__card--vertical-card {
-    inline-size: 100%;
-
-    @media ($bp-small-min) {
-      inline-size: auto
-    }
-    @media ($bp-large-min) {
-      inline-size: fit-content;
-    }
-
+  &.ma__card--vertical {
+    
     .ma__card__wrapper {
       flex-flow: column;
     }
@@ -172,7 +164,13 @@
       }
     }
 
-    .ma__card__eyebrow--vertical-card {
+    .ma__card__details--vertical {
+      .ma__card__thumbnail {
+        display: none;
+      }
+    }
+
+    .ma__card__eyebrow--vertical {
       margin-block-end: 20px;
     }
 
@@ -191,10 +189,4 @@
     }
   }
 
-}
-
-// Vertical Card variant
-.ma__card--vertical-card-link {
-  text-decoration: none;
-  background-color: $c-overcast-gray;
 }
