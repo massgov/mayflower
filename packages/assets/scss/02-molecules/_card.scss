@@ -81,6 +81,12 @@
         }
       }
     }
+
+    &--vertical {
+      .ma__card__thumbnail {
+        display: none;
+      }
+    }
   }
 
   &__title {
@@ -143,6 +149,25 @@
     }
   }
 
+  &__eyebrow {
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    font-size: $fonts-2xsmall;
+    line-height: 12px;
+    letter-spacing: $letter-spacing-large;
+    padding: 5px 7px;
+    text-transform: uppercase;
+    background-color: $c-bg-section;
+    font-weight: $fonts-bold;
+
+    svg {
+      max-height: 18px;
+      max-width: 18px;
+      margin-right: 5px;
+    }
+  }
+
   // Vertical Card variant
 
   &.ma__card--vertical {
@@ -162,16 +187,6 @@
       &:before {
         padding-block-start: 0;
       }
-    }
-
-    .ma__card__details--vertical {
-      .ma__card__thumbnail {
-        display: none;
-      }
-    }
-
-    .ma__card__eyebrow--vertical {
-      margin-block-end: 20px;
     }
 
     .ma__card__title {

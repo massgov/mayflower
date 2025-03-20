@@ -4,7 +4,6 @@
 {% set contentClass = card.usage ? " ma__card__content--" ~ card.usage : "" %}
 {% set imgClass = card.usage ? card.usage : card.id %}
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
-{% set eyebrowClass = card.usage ? " ma__card__eyebrow--" ~ card.usage : "" %}
 
 <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }}">
   {% if not card.usage %}
@@ -20,7 +19,7 @@
     </div>
     <div class="ma__card__content{{ contentClass }}">
       {% if eyebrow %}
-        <div class="ma__general-teaser__eyebrow{{ eyebrowClass }}">{{ card.eyebrow }}</div>
+        <div class="ma__card__eyebrow">{{ card.eyebrow }}</div>
       {% endif %}
       {% set headingLevel = card.level ? card.level : 3 %}
       <h{{ headingLevel }} class="ma__card__title"><span>{{card.title}}&nbsp;{{ icon('arrow') }}</span></h{{ headingLevel }}>
