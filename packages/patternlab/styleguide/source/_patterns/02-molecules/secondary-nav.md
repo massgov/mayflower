@@ -9,7 +9,7 @@ An alternate navigation bar for the site.
 
 ### Variables
 ~~~
-mainNav: [{
+navItems: [{
   href:
     type: url/required
   text:

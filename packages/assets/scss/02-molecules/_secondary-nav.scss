@@ -3,6 +3,11 @@
 .ma__secondary-nav {
   @include ma-container;
 
+  // Used in openmass to help reliably detect item wrapping.
+  &__container {
+    position: relative;
+  }
+
   &__items {
     @include ma-reset-list;
 
@@ -14,6 +19,7 @@
 
   &__subitems-container {
     display: none;
+    padding-block: 0.5rem;
   }
 
   &__item {
@@ -32,7 +38,7 @@
       }
 
       .ma__secondary-nav__top-link-trigger {
-        padding-inline-end: 1.25rem;
+        padding-inline: 0 1.25rem;
       }
     }
 
@@ -69,7 +75,7 @@
   &__link {
     color: inherit;
     font-weight: $fonts-medium;
-    line-height: 1.77;
+    line-height: 1.78;
     text-decoration: none;
     transition: none;
 
@@ -103,6 +109,8 @@
 
     .ma__secondary-nav__link {
       display: block;
+      font-size: 1rem;
+      line-height: 1.5;
       padding-block: 0.75rem;
       padding-inline: 1rem;
     }
@@ -124,12 +132,16 @@
     &__item {
       gap: 0 0.5rem;
 
-      &.is-active:after {
-        display: block;
-        width: 100%;
-        height: 4px;
-        inset-inline-start: 0;
-        inset-block-end: 0;
+      &.is-active,
+      &.is-open,
+      &:hover {
+        &::after {
+          display: block;
+          width: 100%;
+          height: 4px;
+          inset-inline-start: 0;
+          inset-block-end: 0;
+        }
       }
 
       &.is-open {
@@ -142,7 +154,7 @@
 
       &:hover,
       &.is-open {
-        background-color: $c-gray-light;
+        background-color: $c-gray-lightest;
       }
     }
 
