@@ -170,8 +170,10 @@
 
   // Vertical Card variant
 
-  &.ma__card--vertical {
-    
+  &--vertical {
+
+    max-width: 600px;
+
     .ma__card__wrapper {
       flex-flow: column;
     }
