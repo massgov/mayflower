@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
     component: SiteLogo
-    description: Make site logo values configurable. (#1957)
+    description: Microsite header updates (#1957)
     issue: DP-37552
     impact: Minor
