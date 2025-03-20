@@ -1,7 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__card {
-  background-color: $c-gray-light;
+  background-color: $c-gray-lightest;
   max-width: 1240px;
 
   &__wrapper {
@@ -45,7 +45,6 @@
   }
 
   &--secondary {
-    background-color: $c-gray-lightest;
 
     @media ($bp-small-min) {
       flex-flow: column;
@@ -168,7 +167,7 @@
     letter-spacing: $letter-spacing-large;
     padding: 5px 7px;
     text-transform: uppercase;
-    background-color: $c-bg-section;
+    background-color: $c-white;
     font-weight: $fonts-bold;
 
     svg {
