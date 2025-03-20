@@ -100,14 +100,6 @@
       transition: border 0.4s ease;
       display: inline;
 
-      &:hover {
-        border-bottom-color: $c-link;
-      }
-
-      &:focus {
-        border-bottom-color: $c-link !important;
-      }
-
       svg {
         display: inline-block;
         height: .6em;
