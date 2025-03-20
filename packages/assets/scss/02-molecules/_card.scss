@@ -25,6 +25,23 @@
         border-block-end-color: $c-link;
       }
     }
+
+    &:has(.ma__card--vertical) {
+      border-block-end: 0;
+
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:focus-within {
+        border-block-end: 0;
+      }
+
+      .ma__card__title {
+        &:after {
+          display: none;
+        }
+      }
+    }
   }
 
   &--secondary {
@@ -166,6 +183,7 @@
   &--vertical {
 
     max-width: 600px;
+    block-size: 100%;
 
     .ma__card__wrapper {
       flex-flow: column;
@@ -176,6 +194,7 @@
         inline-size: 100%;
         block-size: 100%;
         aspect-ratio: 4/3;
+        object-fit: cover;
         display: block;
       }
 
