@@ -714,11 +714,8 @@ body.show-menu {
     }
   }
 }
-
-.ma__header__container {
-
+.ma__header__hamburger__container {
   @media ($bp-small-max) {
-
     display: none;
   }
 }
