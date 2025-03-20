@@ -5,6 +5,7 @@
 {% set imgClass = card.usage ? card.usage : card.id %}
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
 
+<a class="ma__card__wrapper" href="{{ card.link }}">
 <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }}">
   {% if not card.usage %}
     <style>
@@ -13,7 +14,7 @@
       }
     </style>
   {% endif %}
-  <a class="ma__card__wrapper" href="{{ card.link }}">
+  
     <div class="ma__card__img ma__card__img--{{ imgClass }}">
       <img src="{{ card.thumbnail }}" alt="">
     </div>
@@ -34,5 +35,6 @@
         </div>
       </div>
     </div>
-  </a>
+  
 </div>
+</a>
