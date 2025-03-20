@@ -177,10 +177,19 @@
     }
   }
 
+  &__link {
+    text-decoration: none;
+  }
+
+  &__theme--c-white {
+    background-color: $c-white;
+    border: 2px solid $c-gray-light;
+  }
+
   // Vertical Card variant
 
   &--vertical {
-
+    display: block;
     max-width: 600px;
     block-size: 100%;
 

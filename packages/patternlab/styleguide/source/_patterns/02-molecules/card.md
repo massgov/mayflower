@@ -27,6 +27,11 @@ card: {
   text:
     type: string of rich text / required
     description: Rich text description field of the card.
+  theme:
+    type: string ("" or "c-white") / optional / default ""
+    description: 
+        - "" default with a light grey background
+        - "c-white" white background with a light grey outline  
   usage:
     type: string ("" or "secondary" or "vertical") / optional / default ""
     description: 
