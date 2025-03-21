@@ -87,6 +87,13 @@ body.show-menu {
     background-color: $c-primary;
     position: relative;
     z-index: $z-overlay;
+
+    // This is a temporary fix to ease visual regression testing.
+    // It should be removed ASAP.
+    @media ($bp-medium-min) {
+      border-bottom: 1px solid $c-primary;
+    }
+
   }
 
   &-wrapper {
