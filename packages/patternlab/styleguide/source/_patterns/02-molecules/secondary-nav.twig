@@ -14,12 +14,12 @@
           {% if item.subNav %}
             <button type="button" id="{{ buttonId }}" class="ma__secondary-nav__top-link-trigger js-secondary-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-hidden="true">
               <span class="ma__visually-hidden">Show the sub topics of {{item.text}}</span>
-              <svg class="ma__secondary-nav__top-link-icon icon-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path id="Vector" d="M19.5306 9.53055L12.0306 17.0306C11.961 17.1003 11.8782 17.1556 11.7872 17.1933C11.6961 17.2311 11.5986 17.2505 11.5 17.2505C11.4014 17.2505 11.3038 17.2311 11.2128 17.1933C11.1217 17.1556 11.039 17.1003 10.9694 17.0306L3.46936 9.53055C3.32863 9.38982 3.24957 9.19895 3.24957 8.99993C3.24957 8.80091 3.32863 8.61003 3.46936 8.4693C3.6101 8.32857 3.80097 8.24951 3.99999 8.24951C4.19901 8.24951 4.38988 8.32857 4.53061 8.4693L11.5 15.4396L18.4694 8.4693C18.539 8.39962 18.6218 8.34435 18.7128 8.30663C18.8039 8.26892 18.9014 8.24951 19 8.24951C19.0985 8.24951 19.1961 8.26892 19.2872 8.30663C19.3782 8.34435 19.4609 8.39962 19.5306 8.4693C19.6003 8.53899 19.6556 8.62171 19.6933 8.71276C19.731 8.8038 19.7504 8.90138 19.7504 8.99993C19.7504 9.09847 19.731 9.19606 19.6933 9.2871C19.6556 9.37815 19.6003 9.46087 19.5306 9.53055Z" fill="currentColor"/>
-              </svg>
-              <svg class="ma__secondary-nav__top-link-icon icon-plus" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path id="Vector" d="M21 12C21 12.1989 20.921 12.3897 20.7803 12.5303C20.6397 12.671 20.4489 12.75 20.25 12.75H12.75V20.25C12.75 20.4489 12.671 20.6397 12.5303 20.7803C12.3897 20.921 12.1989 21 12 21C11.8011 21 11.6103 20.921 11.4697 20.7803C11.329 20.6397 11.25 20.4489 11.25 20.25V12.75H3.75C3.55109 12.75 3.36032 12.671 3.21967 12.5303C3.07902 12.3897 3 12.1989 3 12C3 11.8011 3.07902 11.6103 3.21967 11.4697C3.36032 11.329 3.55109 11.25 3.75 11.25H11.25V3.75C11.25 3.55109 11.329 3.36032 11.4697 3.21967C11.6103 3.07902 11.8011 3 12 3C12.1989 3 12.3897 3.07902 12.5303 3.21967C12.671 3.36032 12.75 3.55109 12.75 3.75V11.25H20.25C20.4489 11.25 20.6397 11.329 20.7803 11.4697C20.921 11.6103 21 11.8011 21 12Z" fill="currentColor"/>
-              </svg>
+              {% include "@atoms/05-icons/svg-chevron.twig" with {
+                additionalClasses: 'ma__secondary-nav__top-link-icon'
+              } %}
+              {% include "@atoms/05-icons/svg-plus.twig" with {
+                additionalClasses: 'ma__secondary-nav__top-link-icon'
+              } %}
             </button>
             <div class="ma__secondary-nav__subitems-container js-secondary-nav-content">
               <ul id="{{ menuId }}" aria-labelledby="{{ buttonId }}" class="ma__secondary-nav__subitems">
