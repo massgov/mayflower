@@ -52,6 +52,10 @@ $bp-section-3up-large-max: "max-width:950px";
           @include omega(3n);
       }
     }
+
+    & > .ma__card__wrapper {
+      padding-bottom: 0;
+    }
   }
 
   &--compact {
@@ -83,18 +87,4 @@ $bp-section-3up-large-max: "max-width:950px";
       }
     }
   }
-}
-
-.service-section--enhanced,
-.service-section--simple-two-column-gray,
-.org-section--enhanced {
-
-  .ma__sections-3up__container {
-
-    & > * {
-      border: 2px solid $c-bd-divider;
-      background-color: $c-bg;
-    }
-  }
-
 }

@@ -48,6 +48,32 @@
         "href" : "#",
         "text" : "Information for MassHealth Providers"
       }
+    }],
+    "cards": [{
+      "id": "dfg1234",
+      "link": "#",
+      "eyebrow": "feature 1",
+      "usage": "vertical",
+      "thumbnail": "../../assets/images/placeholder/400x300.png",
+      "title": "Improving emergency response with mapping technology",
+      "text": "<p>“The work we do at MassGIS supports dispatch, police, fire, and medical professionals who respond to emergency situations. It could benefit all of those who live, visit, and work in the Commonwealth.”</p><p><b>John Smith Doe</b>, GIS Analyst</p>"
+    },{
+      "id": "",
+      "link": "#",
+      "eyebrow": "feature 2",
+      "usage": "vertical",
+      "thumbnail": "../../assets/images/placeholder/400x300.png",
+      "title": "From an IT training program to EOTSS Team Lead",
+      "text": "<p>“I’m really impressed with the people who work here. I’ve met individuals who have mentored me and helped me build the skills needed to be successful.”</p><p><b>John Smith</b>, Identity & Access Management Specialist</p>"
+    },
+    {
+      "id": "",
+      "link": "#",
+      "eyebrow": "feature 3",
+      "usage": "vertical",
+      "thumbnail": "../../assets/images/placeholder/400x300.png",
+      "title": "How a Texas transplant makes Mass.gov work for content authors",
+      "text": "<p>“It’s fun and exciting to have an opportunity to work hand-in-hand with partner agencies who want to understand and improve the constituent experience.”</p><p><b>Jane Doe</b>, Project Manager</p>"
     }]
   }
 }
