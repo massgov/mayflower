@@ -16,5 +16,10 @@
         {% include "@molecules/section-links.twig" with sectionLinks %}
       {% endfor %}
     {% endblock %}
+    {% block cards %}
+      {% for card in sectionThreeUp.cards %}
+        {% include "@molecules/card.twig" with card %}
+      {% endfor %}
+    {% endblock %}
   </div>
 </section>
