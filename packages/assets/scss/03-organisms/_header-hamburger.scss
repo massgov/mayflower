@@ -175,8 +175,8 @@ body.show-menu {
   }
 
   &__search {
-    flex-shrink: 0.5;
-    flex-basis: 450px;
+    flex-shrink: 0.75;
+    flex-basis: 560px;
 
     @media ($bp-small-max) {
       display: none;
