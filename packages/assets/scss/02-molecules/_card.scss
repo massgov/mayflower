@@ -181,9 +181,15 @@
     text-decoration: none;
   }
 
-  &__theme--c-white {
+  // White Card variant
+
+  &--c-white {
     background-color: $c-white;
     border: 2px solid $c-gray-light;
+
+    .ma__card__eyebrow {
+      background-color: $c-gray-lightest;
+    }
   }
 
   // Vertical Card variant

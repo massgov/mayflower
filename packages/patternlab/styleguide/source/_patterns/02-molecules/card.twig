@@ -1,10 +1,10 @@
 {% set thumbnail = card.thumbnail %}
 {% set eyebrow = card.eyebrow %}
 {% set cardClass = card.usage ? " ma__card--" ~ card.usage : "" %}
+{% set cardThemeClass = card.theme ? "ma__card--" ~ card.theme : "" %}
 {% set contentClass = card.usage ? " ma__card__content--" ~ card.usage : "" %}
 {% set imgClass = card.usage ? card.usage : card.id %}
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
-{% set cardThemeClass = card.theme ? "ma__card__theme--" ~ card.theme : "ma__card__theme--default" %}
 
 <a class="ma__card__link" href="{{ card.link }}" aria-labelledby="{{ card.id }}-title">
   <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }} {{ cardThemeClass }} ma__card__wrapper">
