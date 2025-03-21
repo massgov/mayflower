@@ -73,11 +73,7 @@
 
   <div class="ma__header__hamburger__container">
     <div class="ma__header__hamburger__logo" tabindex="-1">
-      {% include "@atoms/09-media/site-logo.twig" with {
-        url: '#',
-        title: 'An Absurdly Long Title for the Site Logo',
-        altTitle: 'Mass.gov home page',
-      } %}
+      {% include "@atoms/09-media/site-logo.twig" %}
     </div>
     {% if not hideHeaderSearch %}
       <div class="ma__header__hamburger__search ma__header__hamburger__search-bar js-header-search-menu">
