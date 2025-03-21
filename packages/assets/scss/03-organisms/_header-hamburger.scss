@@ -187,10 +187,18 @@ body.show-menu {
 
   &__search {
     flex-shrink: 0.75;
-    flex-basis: 560px;
+    flex-basis: 350px;
 
     @media ($bp-small-max) {
       display: none;
+    }
+
+    @media ($bp-medium-min) {
+      flex-basis: 430px;
+    }
+
+    @media ($bp-header-toggle-min) {
+      flex-basis: 560px;
     }
 
     & .ma__header-search__input {
