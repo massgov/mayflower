@@ -15,6 +15,10 @@
   &__primary {
     margin-top: 20px;
     margin-bottom: 20px;
+
+    .ma__card__wrapper {
+      margin-block-end: 0;
+    }
   }
 
   &__title {
