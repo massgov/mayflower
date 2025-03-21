@@ -51,6 +51,10 @@ body.show-menu {
   position: relative;
   background-color: $c-bg-section;
 
+  @media ($bp-small-max) {
+    border-bottom: 1px solid $c-gray-lightest;
+  }
+
   &--slim {
 
     @media ($bp-large-min) {

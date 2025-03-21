@@ -413,6 +413,10 @@ body {
 .ma__header {
   background-color: $c-bg-section;
 
+  @media ($bp-small-max) {
+    border-bottom: 1px solid $c-gray-lightest;
+  }
+
   &__nav-container {
 
     @media ($bp-header-toggle-max) {
