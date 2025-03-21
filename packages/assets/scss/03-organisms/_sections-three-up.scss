@@ -83,13 +83,4 @@ $bp-section-3up-large-max: "max-width:950px";
       }
     }
   }
-
-  // Vertical Card variant
-  &.ma__vertical-card-group--wrapper {
-
-    .ma__card--vertical-card-link {
-      text-decoration: none;
-      margin-block-end: 20px;
-    }
-  }
 }

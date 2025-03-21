@@ -15,33 +15,6 @@
     @media ($bp-medium-min) {
       flex-flow: row;
     }
-
-    &:hover,
-    &:focus,
-    &:focus-visible,
-    &:focus-within {
-
-      .ma__card__title span {
-        border-block-end-color: $c-link;
-      }
-    }
-
-    &:has(.ma__card--vertical) {
-      border-block-end: 0;
-
-      &:hover,
-      &:focus,
-      &:focus-visible,
-      &:focus-within {
-        border-block-end: 0;
-      }
-
-      .ma__card__title {
-        &:after {
-          display: none;
-        }
-      }
-    }
   }
 
   &--secondary {
@@ -179,6 +152,16 @@
 
   &__link {
     text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+
+      .ma__card__title span {
+        border-block-end-color: $c-link;
+      }
+    }
   }
 
   // White Card variant
@@ -198,6 +181,20 @@
     display: block;
     max-width: 600px;
     block-size: 100%;
+    border-block-end: 0;
+
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:focus-within {
+        border-block-end: 0;
+      }
+
+      .ma__card__title {
+        &:after {
+          display: none;
+        }
+      }
 
     .ma__card__wrapper {
       flex-flow: column;
