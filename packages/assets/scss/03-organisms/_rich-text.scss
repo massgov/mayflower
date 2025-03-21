@@ -344,4 +344,10 @@ $heading-indent: $gutter;
     list-style-type: upper-alpha;
   }
 
+  // Cards
+  a.ma__card__wrapper {
+    border-block-end: 0;
+    border-block-end-color: transparent;
+  }
+
 }

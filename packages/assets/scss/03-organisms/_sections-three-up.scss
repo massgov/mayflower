@@ -52,6 +52,10 @@ $bp-section-3up-large-max: "max-width:950px";
           @include omega(3n);
       }
     }
+
+    & > .ma__card__wrapper {
+      padding-bottom: 0;
+    }
   }
 
   &--compact {

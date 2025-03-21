@@ -6,8 +6,8 @@
 {% set imgClass = card.usage ? card.usage : card.id %}
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
 
-<a class="ma__card__link" href="{{ card.link }}" aria-labelledby="{{ card.id }}-title">
-  <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }} {{ cardThemeClass }} ma__card__wrapper">
+<a class="ma__card__wrapper" href="{{ card.link }}" aria-labelledby="{{ card.id }}-title">
+  <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }} {{ cardThemeClass }}">
     {% if not card.usage %}
       <style>
         .ma__card__img--{{ card.id }} {
@@ -34,6 +34,6 @@
             {{card.text}}
           </div>
         </div>
-      </div>
+      </div>  
   </div>
 </a>
