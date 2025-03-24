@@ -18,15 +18,26 @@ card: {
   title:
     type: string / required
     description: The title of the card.
+  title:
+    type: string / optional
+    description: Eyebrow of the card, displayed above the title link.
   thumbnail:
     type: string / required
     description: A link to an image to include in the card. Should work with aspect ration 4:3.
   text:
     type: string of rich text / required
     description: Rich text description field of the card.
+  theme:
+    type: string ("" or "c-white") / optional / default ""
+    description: 
+        - "" default with a light grey background
+        - "c-white" white background with a light grey outline  
   usage:
-    type: string ("" or "secondary") / optional / default ""
-    description: Whether to treat the card as Primary Card or Secondary Card.
+    type: string ("" or "secondary" or "vertical") / optional / default ""
+    description: 
+        - "" treats the card as Primary Card
+        - "secondary" treats the card as Secondary Card
+        - "vertical" stacks the image and card content on both desktop and mobile
   level:
     type: number / optional / default 3
     description: The heading level the title.
