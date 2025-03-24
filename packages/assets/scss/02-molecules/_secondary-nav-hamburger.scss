@@ -1,0 +1,154 @@
+@use "00-base/configure" as *;
+
+.ma__secondary-nav-hamburger {
+  padding: 0;
+  margin: 0;
+  background-color: $c-gray-lightest;
+
+  &__items {
+    @include ma-reset-list;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: $z-overlay;
+  }
+
+  &__subitems-container {
+    display: none;
+    background-color: $c-white;
+    width: 100%;
+    flex-shrink: 0;
+
+    .is-open > & {
+      display: block;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    border-block-end: 1px solid $c-gray-light;
+    align-items: stretch;
+
+    &:first-of-type {
+      border-block-start: 1px solid $c-gray-light;
+    }
+
+    &:last-of-type {
+      .ma__secondary-nav-hamburger__subitems-container {
+        inset-inline-start: auto;
+        inset-inline-end: 0;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      background-color: $c-primary;
+      display: none;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    font-weight: $fonts-medium;
+    line-height: 1.77;
+    text-decoration: none;
+    transition: none;
+    flex-basis: calc(100% - 3.5rem);
+    flex-grow: 1;
+    border-inline-start: 4px solid transparent;
+    display: block;
+    padding: 1rem;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      background-color: $c-gray-light;
+    }
+
+    .is-active > & {
+      border-inline-start-color: $c-primary;
+    }
+
+    .ma__secondary-nav-hamburger__subitem & {
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__top-link-trigger {
+    color: $c-primary-alt;
+    background: transparent;
+    border: none;
+    border-inline-start: 1px solid $c-gray-light;
+    padding: 1rem;
+    width: 3.5rem;
+
+    &:hover,
+    &:focus {
+      background-color: $c-gray-light;
+    }
+  }
+
+  &__top-link-icon {
+    width: 1.5rem;
+    height: auto;
+    color: $c-primary-alt;
+
+    .is-open & {
+      transform: rotateZ(45deg);
+    }
+  }
+
+  &__subitems {
+    @include ma-reset-list;
+  }
+
+  &__subitem {
+    width: 100%;
+    border-block-end: 1px solid $c-gray-light;
+
+    &:hover {
+      background-color: $c-primary;
+      color: $c-white;
+    }
+
+    .ma__secondary-nav-hamburger__link {
+      display: block;
+      padding-block: 0.75rem;
+      padding-inline: 1rem;
+    }
+  }
+}
+
+
+// Show subitems on keyboard focus when JS is disabled.
+html:not(.js) .ma__secondary-nav-hamburger {
+  &__item:hover {
+    background-color: $c-gray-light;
+  }
+  &__item:focus-within {
+    .ma__secondary-nav-hamburger__subitems-container {
+      display: block;
+    }
+  }
+
+  @media ($bp-header-toggle-min) {
+    &__item {
+      &:hover {
+        .ma__secondary-nav-hamburger__subitems-container {
+          display: block;
+        }
+      }
+    }
+  }
+}
