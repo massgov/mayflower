@@ -56,7 +56,7 @@ export default (function (window, document,$) {
         const handleBlur = () => {
             // Use a timeout to allow time for the suggestions to receive focus
             setTimeout(() => {
-                if (!$suggestions[0].contains(document.activeElement)) {
+                if (!$suggestions[0] || !$suggestions[0].contains(document.activeElement)) {
                     closeDropdown();
                 }
             }, 200);
