@@ -31,6 +31,16 @@
     }
   }
 
+  &__inner {
+    display: flex;
+    flex-flow: column;
+    
+    @media ($bp-medium-min) {
+      flex-flow: row;
+      max-inline-size: fit-content;
+    }
+  }
+
   &--secondary {
 
     @media ($bp-small-min) {
