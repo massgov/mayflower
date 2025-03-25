@@ -1,0 +1,13 @@
+Added:
+  - project: Patternlab
+    component: SecondaryNav,SecondaryNavHamburger
+    description: Microsite header updates (#1957)
+    issue: DP-37552
+    impact: Minor
+Changed:
+  - project: Patternlab
+    component: SiteLogo
+    description: Microsite header updates (#1957)
+    issue: DP-37552
+    impact: Minor
+

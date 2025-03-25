@@ -31,6 +31,7 @@ if (hamburgerMenuContainer) {
   let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 
   let utilNavWide = document.querySelector(".js-utility-nav--wide");
+  const utilityNavOrgsLink = document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link");
   const utilWideGTranslate = document.querySelector(
     ".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate"
   );
@@ -247,21 +248,14 @@ if (hamburgerMenuContainer) {
     }, 100);
 
     if (
-      document
-        .querySelector(
-          ".js-utility-nav--wide .ma__utility-nav__item .direct-link"
-        )
-        .hasAttribute("tabindex")
+      utilityNavOrgsLink &&
+      utilityNavOrgsLink.hasAttribute("tabindex")
     ) {
       if (utilWideGTranslate.querySelector("a")) {
         // Google translate elements aren't rendered screen width under 840px and the object is null.
         utilWideGTranslate.querySelector("a").removeAttribute("tabindex");
       }
-      document
-        .querySelector(
-          ".js-utility-nav--wide .ma__utility-nav__item .direct-link"
-        )
-        .removeAttribute("tabindex");
+      utilityNavOrgsLink.removeAttribute("tabindex");
       document
         .querySelector(
           ".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle"
@@ -347,11 +341,11 @@ if (hamburgerMenuContainer) {
       // Google translate elements aren't rendered screen width under 840px, and the object is null.
       utilWideGTranslate.querySelector("a").setAttribute("tabindex", "-1");
     }
-    document
-      .querySelector(
-        ".js-utility-nav--wide .ma__utility-nav__item .direct-link"
-      )
-      .setAttribute("tabindex", "-1");
+
+    if (utilityNavOrgsLink) {
+      utilityNavOrgsLink.setAttribute("tabindex", "-1");
+    }
+
     document
       .querySelector(
         ".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle"
