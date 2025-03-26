@@ -13,7 +13,7 @@
     right: 32px; // the height of the button before rotation
     top: 50%; // fixes the button in the verticle middle of the screen
   transform-origin: top right;
-  transform: rotate(-90deg);
+  transform: rotate(-90deg)  translateX(100%);
   pointer-events: none;
 
 
