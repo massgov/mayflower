@@ -1,0 +1,26 @@
+### Description
+An alternate navigation bar for the site.
+
+### Status
+* Stable as of 5.0.0
+
+### JavaScript Used
+* Main Nav (js/modules/mainNav.js)
+
+### Variables
+~~~
+navItems: [{
+  href:
+    type: url/required
+  text:
+    type: string/required
+  active:
+    type: boolean
+  subNav:[{
+    href:
+      type: url/required
+    text:
+      type: string/required
+  }]
+}]
+~~~
