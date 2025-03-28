@@ -1,0 +1,6 @@
+Removed:
+  - project: Assets
+    component: Heading
+    description: removed aria-hidden text trying to add context to headings that is not helpful and needs to be
+    issue: DP-35812
+    impact: minor
