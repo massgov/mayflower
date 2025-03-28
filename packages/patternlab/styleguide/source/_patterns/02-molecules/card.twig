@@ -7,7 +7,7 @@
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
 
 <a class="ma__card__wrapper" href="{{ card.link }}" aria-labelledby="{{ card.id }}-title">
-  <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }} {{ cardThemeClass }} ma__card__wrapper">
+  <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }} {{ cardThemeClass }}">
     {% if not card.usage %}
       <style>
         .ma__card__img--{{ card.id }} {
