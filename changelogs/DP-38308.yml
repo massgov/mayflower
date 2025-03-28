@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Card
+    description: Makes the image field on a vertical card optional.
+    issue: DP-38308
+    impact: Patch
