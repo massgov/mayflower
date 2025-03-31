@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Button Dropdown
+    description: Added conditional `id` attribute to the button in the Button Dropdown component to support analytics tracking for specific use cases like the "log in to" button. (#1967)
+    issue: DP-38339
+    impact: Minor
