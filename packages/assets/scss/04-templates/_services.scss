@@ -199,8 +199,9 @@
   .ma__service-heading-content {
     display: flex;
     flex-flow: column;
-    
+
     @media ($bp-large-min) {
+
       flex-flow: row;
       justify-content: space-between;
       align-items: center;
@@ -212,6 +213,7 @@
     }
 
     .ma__decorative-link a {
+
       display: flex;
       align-items: center;
       gap: 8px;
@@ -220,7 +222,9 @@
   }
 
   .service-section--enhanced {
+
     .ma__service-heading-content {
+
       @include ma-container;
     }
   }
@@ -228,6 +232,7 @@
   .service-section--simple,
   .service-section--simple-two-column,
   .service-section--enhanced-two-column {
+
     .ma__stacked-row__section {
       max-inline-size: $max-width;
       margin-inline: auto;
@@ -243,19 +248,23 @@
 
     .ma__mapped-locations,
     .ma__collapsible-content {
+
       @media ($bp-x-large-min) {
         padding-inline-start: 0;
       }
     }
-    
+
     .main-content {
       flex: 1;
       inline-size: 100%;
     }
 
     .ma__stacked-row__section > .ma__stacked-row__container {
+
       margin-inline: 0;
+
       @media ($bp-x-large-min) {
+
         max-inline-size: 384px;
         min-inline-size: 336px;
         inline-size: 50%;
@@ -295,12 +304,14 @@
     .ma__decorative-link {
 
         display: inline;
+
         a {
           display: inline;
         }
     }
 
     // Adjusts for Paragraph types within a more narrow Service section
+
     .main-content .page-content {
 
       > .ma__social-links-bar {
@@ -308,6 +319,7 @@
       }
 
       > .ma__contact-list {
+
         @media ($bp-x-large-min) {
           padding-inline-start: 0;
         }
@@ -331,18 +343,20 @@
       }
 
       .ma__section-links__content {
+
         .ma__section-links__title .ma__decorative-link {
           display: none;
 
-          @media($bp-x-small-min) {
+          @media ($bp-x-small-min) {
             display: inline;
+
             a {
               display: inline;
             }
           }
         }
       }
-    } 
+    }
   }
 
   .service-section--enhanced-two-column {
