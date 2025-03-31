@@ -5,7 +5,8 @@
     button: (button is iterable ? button : {})|merge({
       'class': buttonClass|default(''),
       'aria-haspopup': 'true',
-      'aria-controls': menuId|default('')
+      'aria-controls': menuId|default(''),
+      'id': button.id|default(null)
     })
   }
   %}
