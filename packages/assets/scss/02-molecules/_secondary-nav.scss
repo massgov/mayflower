@@ -1,20 +1,22 @@
 @use "00-base/configure" as *;
 
 .ma__secondary-nav {
+
   @include ma-container;
 
   // Used in openmass to help reliably detect item wrapping.
+
   &__container {
     position: relative;
   }
 
   &__items {
+
     @include ma-reset-list;
 
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    z-index: $z-overlay;
   }
 
   &__subitems-container {
@@ -33,6 +35,7 @@
     }
 
     &.has-subnav {
+
       .ma__secondary-nav__link {
         padding-inline-start: 1.25rem;
       }
@@ -43,12 +46,14 @@
     }
 
     &:not(.has-subnav) {
+
       .ma__secondary-nav__link {
         padding-inline: 1.25rem;
       }
     }
 
     &:last-of-type {
+
       .ma__secondary-nav__subitems-container {
         inset-inline-start: auto;
         inset-inline-end: 0;
@@ -56,7 +61,9 @@
     }
 
     &.is-open {
+
       .ma__secondary-nav {
+
         &__subitems-container {
           display: block;
         }
@@ -66,7 +73,7 @@
     &::after {
       content: '';
       position: absolute;
-      z-index: 1;
+      z-index: $z-low;
       background-color: $c-primary;
       display: none;
     }
@@ -98,10 +105,12 @@
   }
 
   &__subitems {
+
     @include ma-reset-list;
   }
 
   &__subitem {
+
     &:hover {
       background-color: $c-primary;
       color: $c-white;
@@ -117,11 +126,12 @@
   }
 
   // Desktop-specific Styles
+
   @media ($bp-header-toggle-min) {
 
     &__subitems-container {
       position: absolute;
-      z-index: 2;
+      z-index: $z-dropdown;
       inset-block-start: 100%;
       inset-inline-start: 0;
       background-color: $c-bg;
@@ -135,6 +145,7 @@
       &.is-active,
       &.is-open,
       &:hover {
+
         &::after {
           display: block;
           width: 100%;
@@ -145,7 +156,9 @@
       }
 
       &.is-open {
+
         .ma__secondary-nav {
+
           &__top-link-icon {
             transform: rotateX(180deg);
           }
@@ -164,7 +177,9 @@
   }
 
   // Mobile-specific Styles
+
   @media ($bp-header-toggle-max) {
+
     padding: 0;
     margin: 0;
     background-color: $c-gray-lightest;
@@ -179,12 +194,13 @@
       border-block-end: 1px solid $c-gray-light;
       align-items: stretch;
 
-      &::first-of-type {
+      &:first-of-type {
         border-block-start: 1px solid $c-gray-light;
       }
 
       &.has-subnav,
       &:not(.has-subnav) {
+
         .ma__secondary-nav__link,
         .ma__secondary-nav__top-link-trigger {
           padding-block: 1rem;
@@ -201,7 +217,9 @@
       }
 
       &.is-open {
+
         .ma__secondary-nav {
+
           &__top-link-icon {
             transform: rotateZ(45deg);
           }
@@ -224,6 +242,7 @@
 
     &__item > &__link,
     &__item > &__top-link-trigger {
+
       &:hover {
         background-color: $c-gray-light;
       }
@@ -240,6 +259,7 @@
 
     &__top-link-trigger {
       border-inline-start: 1px solid $c-gray-light;
+
       .icon-chevron {
         display: none;
       }
@@ -248,19 +268,26 @@
 }
 
 // Show subitems on keyboard focus when JS is disabled.
+
 html:not(.js) .ma__secondary-nav {
+
   &__item:hover {
     background-color: $c-gray-light;
   }
+
   &__item:focus-within {
+
     .ma__secondary-nav__subitems-container {
       display: block;
     }
   }
 
   @media ($bp-header-toggle-min) {
+
     &__item {
+
       &:hover {
+
         .ma__secondary-nav__subitems-container {
           display: block;
         }
