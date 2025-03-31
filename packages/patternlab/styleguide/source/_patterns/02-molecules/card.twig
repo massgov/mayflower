@@ -15,9 +15,11 @@
         }
       </style>
     {% endif %}
-      <div class="ma__card__img ma__card__img--{{ imgClass }}">
-        <img src="{{ card.thumbnail }}" alt="">
-      </div>
+      {% if card.thumbnail %}
+        <div class="ma__card__img ma__card__img--{{ imgClass }}">
+          <img src="{{ card.thumbnail }}" alt="">
+        </div>
+      {% endif %}
       <div class="ma__card__content{{ contentClass }}">
         {% if eyebrow %}
           <div class="ma__card__eyebrow">{{ card.eyebrow }}</div>
