@@ -1,0 +1,38 @@
+<nav class="ma__secondary-nav">
+  <div class="ma__secondary-nav__container">
+    <ul class="ma__secondary-nav__items js-secondary-nav">
+      {% for item in navItems %}
+        {% set buttonId =  'button' ~ loop.index %}
+        {% set menuId =  'menu' ~ loop.index %}
+        <li class="ma__secondary-nav__item {{ item.active ? 'is-active' : '' }} {{ item.subNav ? 'has-subnav js-secondary-nav-top-item' : 'js-secondary-nav-top-link' }}">
+          {% if item.href %}
+            <a href="{{ item.href }}" class="ma__secondary-nav__link">{{ item.text }}</a>
+          {% else %}
+            <span id="{{ buttonId }}" class="ma__secondary-nav__link">{{ item.text }}</span>
+          {% endif %}
+
+          {% if item.subNav %}
+            <button type="button" id="{{ buttonId }}" class="ma__secondary-nav__top-link-trigger js-secondary-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-hidden="true">
+              <span class="ma__visually-hidden">Show the sub topics of {{item.text}}</span>
+              {% include "@atoms/05-icons/svg-chevron.twig" with {
+                additionalClasses: 'ma__secondary-nav__top-link-icon'
+              } %}
+              {% include "@atoms/05-icons/svg-plus.twig" with {
+                additionalClasses: 'ma__secondary-nav__top-link-icon'
+              } %}
+            </button>
+            <div class="ma__secondary-nav__subitems-container js-secondary-nav-content">
+              <ul id="{{ menuId }}" aria-labelledby="{{ buttonId }}" class="ma__secondary-nav__subitems">
+                {% for subitem in item.subNav %}
+                  <li class="ma__secondary-nav__subitem">
+                    <a href="{{ subitem.href }}" class="ma__secondary-nav__link">{{ subitem.text }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

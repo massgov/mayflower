@@ -24,6 +24,11 @@
     .ma__card {
       height: 100%;
     }
+
+    .ma__card__wrapper {
+      block-size: 100%;
+      margin-block-end: 0;
+    }
   }
 
   @media ($bp-small-min) {

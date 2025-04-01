@@ -4,6 +4,7 @@
 
   a {
     display: flex;
+    gap: 0.4rem;
     font-size: 0px;
     align-items: center;
     text-decoration: none;
@@ -11,15 +12,9 @@
     span {
       font-size: $fonts-3xlarge;
       display: inline-block;
-      width: 112px;// 119px - margin-left(7)
-      margin-left: 0.4rem;
       line-height: 1;
       letter-spacing: $letter-spacing-small;
-
-      @media ($bp-small-max) {
-        width: 102px;// 108px - margin-left(6)
-        margin-left: 0.3rem;
-      }
+      text-wrap: balance;
     }
   }
 }

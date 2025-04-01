@@ -58,13 +58,13 @@ body {
 
   &__container {
 
-    @include ma-valign-block;
-
     @include ma-container;
-    font-size: 0; // inline-block fix
-    height: 100px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100px;
+    padding-block: 8px;
+    gap: 1rem;
 
     & .ma__header-search__wrapper {
       float: right;
@@ -81,31 +81,25 @@ body {
   }
 
   &__logo {
-    display: inline-block;
-    float: none;
-    vertical-align: middle;
-    width: $header-logo-width; // width of the image
-
-    @media ($bp-small-min) {
-      width: 210px;
-    }
-
-    @media ($bp-small-min) {
-
-      @include span-columns(4);
-      display: inline-block;
-      float: none;
-    }
-
-    @media ($bp-large-extended-min) {
-
-      @include span-columns(3);
-      display: inline-block;
-      float: none;
-    }
+    flex-shrink: 1;
 
     .ma__site-logo a {
       margin: 0;
+    }
+
+    &--mobile {
+      padding: 20px;
+      width: 100%;
+      border-bottom: 2px solid $c-bd-divider;
+
+      a img {
+        width: 45px;
+        height: 45px;
+      }
+
+      @media ($bp-small-min) {
+        display: none;
+      }
     }
   }
 
@@ -135,56 +129,20 @@ body {
   }
 
   &__search {
-    display: inline-block;
-    text-align: right;
-    vertical-align: middle;
-    width: calc(100% - #{$header-logo-width});
-
-    @media ($bp-small-min) {
-      width: 66.12903%; //@include span-columns(8);
-    }
-
-    @media ($bp-large-extended-min) {
-      width: 74.59677%; //@include span-columns(9);
-    }
+    flex-shrink: 0.75;
+    flex-basis: 560px;
 
     @media ($bp-small-max) {
+      display: none;
+    }
 
-      .ma__header-search {
+    & .ma__header-search__input {
 
-        &__input {
-          display:none;
-        }
+      @media ($bp-x-small-max) {
 
-        span {
-          display: inline-block;
-        }
-
-        // not the button in navigation
-
-        .ma__button-search {
-
-          &, &--secondary {
-
-            @media ($bp-small-max) {
-
-              @include ma-valign-block;
-              border-width: 2px;
-              border-style: solid;
-              display: inline-block;
-              position: static;
-              transition: opacity .4s;
-              vertical-align: middle;
-
-              .show-menu & {
-                opacity: 0;
-              }
-            }
-          }
-
-        }
+        // Respect Mayflower style over the ios default styles of rounded corners.
+        -webkit-appearance: none;
       }
-
     }
   }
 
@@ -455,6 +413,10 @@ body {
 
 .ma__header {
   background-color: $c-bg-section;
+
+  @media ($bp-small-max) {
+    border-bottom: 1px solid $c-gray-lightest;
+  }
 
   &__nav-container {
 

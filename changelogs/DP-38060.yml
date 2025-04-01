@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Card
+    description: Added new variant of "Card" to make the content vertical, with an included image. An optional eyebrow is also added. (#1960)
+    issue: DP-38060
+    impact: Patch

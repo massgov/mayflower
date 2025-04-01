@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Card
+    description: Fixes the max width for first card used in Campaign Feature.
+    issue: DP-38325
+    impact: Patch
