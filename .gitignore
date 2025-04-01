@@ -74,3 +74,6 @@ yalc.lock
 
 # local api key
 packages/patternlab/styleguide/source/_data/api.json
+
+#IDE local settings
+.idea
