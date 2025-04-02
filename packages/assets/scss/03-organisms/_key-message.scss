@@ -19,16 +19,14 @@ $colors: (
     position: relative;
 
     @media ($bp-small-min) {
-      padding-top: 60px;
-      padding-bottom: 60px;
+      padding-block: 64px;
     }
 
     &--top {
       padding: 40px 20px;
 
       @media ($bp-small-min) {
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-block: 64px;
       }
 
       .ma__key-message__cta {
@@ -129,7 +127,19 @@ $colors: (
 
   &__content {
     margin-top: 20px;
+
+    .ma__rich-text {
+      font-size: $fonts-medium;
+    }
   }
+
+  &__content + &__cta {
+    margin-top: 20px;
+
+    .ma__button {
+      box-shadow: none;
+    }
+  }  
 
   &__block {
     max-width: 840px;
@@ -138,10 +148,12 @@ $colors: (
       margin-left: auto;
       margin-right: auto;
     }
-  }
 
-  &__content + &__cta {
-    margin-top: 20px;
+    &--c-gray-lightest {
+      .ma__key-message__content+.ma__key-message__cta .ma__button {
+        box-shadow: $box-shadow;
+      }
+    }
   }
 
   &--image {
@@ -207,8 +219,12 @@ $colors: (
         }
 
         .ma__key-message__block {
-          padding: 20px 20px;
+          padding: 40px 20px;
           transform: translateY(0%);
+
+          @media ($bp-small-min) {
+            padding: 64px;
+          }
 
           @each $class, $c in $colors {
             &--#{$class} {
@@ -247,6 +263,10 @@ $colors: (
           display: flex;
           justify-content: flex-start;
           top: 100px;
+        }
+
+        .ma__key-message__block {
+          padding: 48px 60px;
         }
       }
 
@@ -293,17 +313,31 @@ $colors: (
       }
     }
   }
-}
 
+  // Two column layout
+  &__columns--two {
+    display: flex;
+    flex-flow: column;
+    gap: $standard-spacing--xsmall;
+    text-align: left;
 
-// Get heading level higher styles for sub-title
+    @media ($bp-medium-min) {
+      flex-flow: row;
+      align-items: flex-start;
+    }
 
-@for $i from 1 through 5 {
-  h#{$i}.ma__key-message__title + .ma__key-message__sub-title {
+    > * {
+      @media ($bp-medium-min) {
+        inline-size: 50%;
+      }
+    }
 
-    @include ma-heading($i+1);
+    .ma__key-message__sub-title {
+      margin-top: 0;
+    }
   }
 }
+
 
 // Override the message block max width in the content area only.
 
