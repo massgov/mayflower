@@ -3,6 +3,8 @@
 $rich-text-spacing: 1.75rem;
 $rich-text-spacing-mobile: 1.5rem;
 $heading-indent: $gutter;
+$bp-section-3up-large-min: "min-width:951px";
+$bp-section-3up-large-max: "max-width:950px";
 
 .ma__rich-text {
 
@@ -346,9 +348,29 @@ $heading-indent: $gutter;
 
   // Cards
   
-  a.ma__card__wrapper {
-    border-block-end: 0;
-    border-block-end-color: transparent;
-  }
+  .ma__sections-3up__container:has(.ma__card__wrapper) {
+    
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
 
+    @media ($bp-small-min) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media ($bp-large-min) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    a.ma__card__wrapper {
+      border-block-end: 0;
+      border-block-end-color: transparent;
+      inline-size: 100%;
+      max-inline-size: 100%;
+      margin-inline-end: 0;
+      float: none;
+      margin-block-end: 0;
+    }
+  }
+  
 }
