@@ -1,3 +1,7 @@
+{# Currently, opemass doesn't use MF templates render tables in RTE.
+   Tables are processed by ma__fields module, responsive-table.js in mass_theme/override/js/
+   to match the Mayflower implementation.
+#}
 {% set tableID = table.id or 'responsive-table-' ~ random() %}
 {% set tableHeaderRow = table.head.rows|last %}
 
@@ -6,21 +10,11 @@
 {% endif %}
 <div class="ma__table--responsive js-ma-responsive-table">
 
-  <nav class="ma__table__horizontal-nav">
-    <button class="ma__table__horizontal-nav__left" aria-controls="{{tableID}}">
-      <span class="visually-hidden">Scroll left</span>
-    </button>
-
-    <div class="ma__scroll-indicator" aria-controls="{{tableID}}" role="scrollbar" aria-orientation="horizontal">
-      <div class="ma__scroll-indicator__button"></div>
-    </div>
-
-    <button class="ma__table__horizontal-nav__right" aria-controls="{{tableID}}">
-      <span class="visually-hidden">Scroll right</span>
-    </button>
-  </nav>
-  <div class="ma__table--responsive__wrapper {{ mergedCells ? 'ma__table--merged-cells' : ''}}" id="{{tableID}}" tabindex="0" role="region" aria-orientation="horizontal" aria-label="{{table.description}}">
+  <div class="ma__table--responsive__wrapper {{ mergedCells ? 'ma__table--merged-cells' : ''}}" id="{{tableID}}" role="group" tabindex="-1">
     <table class="ma__table {{ tableWideClass }}">
+    {% if table.description %}
+      <caption id="tbl-{{tableID}}" class="ma__table__caption">{{ table.description }}</caption>
+    {% endif %}
       <thead>
         {% for row in table.head.rows %}
           <tr>
@@ -41,13 +35,11 @@
               {% for cell in row.cells %}
                 {% if cell.heading == "true" %}
                   <th
-                    data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}"
                     scope="row"
                     {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %}
                     {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</th>
                 {% else %}
                   <td
-                    data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}"
                   {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %}
                   {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</td>
                 {% endif %}

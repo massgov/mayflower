@@ -59,7 +59,7 @@
   }
 
   &__date {
-    font-size: $fonts-medium;
+    font-size: $fonts-large;
     line-height: 1.79;
     padding: 0 10px;
     position: absolute;
@@ -76,12 +76,12 @@
   }
 
   &__link {
-    font-size: $fonts-larger;
+    font-size: $fonts-xlarge;
     margin-bottom: .5em;
   }
 
   &__description {
-    font-size: $fonts-small;
+    font-size: $fonts-medium;
   }
 
   &__view-all {
@@ -123,7 +123,7 @@
 
       &:hover,
       &:after {
-        border-color: $c-bay-blue-lighter;
+        border-color: $c-link;
       }
     }
   }

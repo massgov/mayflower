@@ -14,6 +14,8 @@ A Rich Text field followed by 1-3 optional decorative links.
 ### Variables
 ~~~
 contactList: {
+  class:
+    type: string / optional
   description: 
     type: richText / required
   },

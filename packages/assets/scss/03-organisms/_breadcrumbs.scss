@@ -60,7 +60,7 @@ $breadcrumbs-scrollbar-height: 12px;
 
   &__label {
     display: inline-block;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
   }
@@ -93,7 +93,7 @@ $breadcrumbs-scrollbar-height: 12px;
     &:first-child {
 
       &:after {
-        margin-left: 0;
+        margin-left: -3px;
       }
     }
 
@@ -137,7 +137,7 @@ $breadcrumbs-scrollbar-height: 12px;
     a, button {
       color: $c-primary;
       display: inline-block;
-      font-size: $fonts-xsmall;
+      font-size: $fonts-smaller;
       line-height: 1;
       padding: 2px 0;
       font-weight: $fonts-semibold;
@@ -172,7 +172,7 @@ $breadcrumbs-scrollbar-height: 12px;
         box-shadow: inset 0 0 $c-white, inset 0px -2px $c-bay-blue-30-tint;
 
         svg {
-          fill: $c-bay-blue-50-tint;
+          fill: $c-link;
           stroke: $c-bay-blue-50-tint;
         }
       }
@@ -181,6 +181,8 @@ $breadcrumbs-scrollbar-height: 12px;
 
       &.ma__breadcrumbs__item__icon-link {
         box-shadow: none;
+        padding: 5px 3px;
+        margin-left: -3px;
 
         &:hover {
           box-shadow: none;

@@ -4,7 +4,7 @@
 
   @include ma-container();
 
-  
+
   &__columns {
     margin-top: 45px;
 
@@ -18,7 +18,7 @@
   &__column {
 
     @media ($bp-medium-min) {
-      flex: 1; 
+      flex: 1;
     }
 
     &:first-child {
@@ -45,7 +45,7 @@
     }
 
     .ma__link-list__item {
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
       line-height: 1.2;
       padding: 0;
       margin-bottom: 1.2rem;
@@ -95,11 +95,16 @@
     font-weight: $fonts-bold;
     background-color: transparent;
     border: none;
-    padding: 3px 20px 1px;
+    padding: 3px 20px 1px 0;
+    margin-top: 16px;
+    margin-left: 20px;
     border-bottom: 3px solid transparent;
     transition: border 0.4s ease;
-    font-size: $fonts-smaller;
-    margin-top: 16px;
+    font-size: $fonts-small;
+
+   &:hover {
+    border-bottom-color: $c-link;
+   }
 
     &::after {
       content: "";
@@ -108,8 +113,8 @@
       transform: translateY(-50%) rotate(45deg);
       right: 0;
       display: inline-block;
-      border-right: 4px solid rgba($c-primary, 0.3);
-      border-bottom: 4px solid rgba($c-primary, 0.3);
+      border-right: 4px solid $c-link;
+      border-bottom: 4px solid $c-link;
       height: 10px;
       width: 10px;
       transition: all .2s;
@@ -125,7 +130,7 @@
     }
 
     &.open {
-      
+
       &::after {
         transform: translateY(-50%) rotate(225deg);
       }

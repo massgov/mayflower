@@ -21,6 +21,7 @@ const filter = require("gulp-filter");
 
 const e = require("./helpers/escape");
 const cssPipe = require("./pipelines/css");
+const cssLayoutParagraphsPipe = require("./pipelines/csslayoutparagraphs");
 const jsPipe = require("./pipelines/js");
 
 
@@ -49,6 +50,12 @@ class DistRegistry extends DefaultRegistry {
                 .pipe(gulp.dest(self.resolveDist("assets/css")));
         });
         css.watchFiles = config.sources.scss;
+        const cssLayoutParagraphs = task("cssLayoutParagraphsPipe", function() {
+          return gulp.src(sources.scss)
+            .pipe(cssLayoutParagraphsPipe(config.minify, self.resolveRoot()))
+            .pipe(gulp.dest(self.resolveDist("assets/css")));
+        });
+      cssLayoutParagraphs.watchFiles = config.sources.scss;
         const assets = task("assets", function() {
             var pipes = [
                 gulp.src(sources.distFiles).pipe(gulp.dest(self.resolveDist())),
@@ -75,11 +82,13 @@ class DistRegistry extends DefaultRegistry {
 
         taker.task("dist:build", taker.series(clean, taker.parallel(
             css,
+          cssLayoutParagraphs,
             js,
             assets
         )));
         taker.task("dist:watch", taker.series("dist:build", task("watcher", function() {
             taker.watch(css.watchFiles, css);
+            taker.watch(cssLayoutParagraphs.watchFiles, cssLayoutParagraphs);
             taker.watch(js.watchFiles, js);
             taker.watch(assets.watchFiles, assets);
         })));

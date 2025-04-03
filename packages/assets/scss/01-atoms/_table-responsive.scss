@@ -3,24 +3,57 @@
 .ma__table--responsive {
   position: relative;
   margin-bottom: 1em;
-  overflow: hidden;
 
-  &.has-horizontal-scroll {
-    // to accommodate the sticky nav bar
-    padding-bottom: 50px;
+  /*
+    Default Scrollbars
+    For WebKit (Chrome, Safari, Opera)
+    Note: These selectors dont' work with Firefox or IOS Safari
+  */
+
+  ::-webkit-scrollbar {
+    height: 12px; /* Width of the scrollbar for scrollbar x*/
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fff;
+    border: 2px solid #8AAAC7;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #8AAAC7;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #14558F;
   }
 }
 
 .ma__table--responsive__wrapper {
-    overflow-x: scroll;
-    width: 100%;
-    position: relative;
-    -ms-overflow-style: none;  // IE 10+
-    overflow: -moz-scrollbars-none;  // Firefox
+  // Pure CSS scrolling shadows with background-attachment: local.
+  // Code taken from https://codepen.io/aardrian/pen/MWeRJWd
+  background: linear-gradient(to right, #fff 30%, rgba(255, 255, 255, 0)),
+  linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%) 0 100%,
+  linear-gradient(to right, $c-gray-light 30%, rgba(255, 255, 255, 0)),
+  linear-gradient(to right, rgba(255, 255, 255, 0), $c-gray-light 70%) 0 100%,
+  0 100%;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-position: 0 0, 100%, 0 0, 100%;
+  background-attachment: local, local, scroll, scroll;
+  border: 2px solid $c-gray-light;
+  overflow-x: auto;
 
-    &::-webkit-scrollbar {
-      display: none;  // Safari and Chrome
-    }
+  @media ($bp-medium-max) {
+
+    overflow-y: hidden;
+  }
+
+  &[tabindex="0"]:focus {
+    outline: 3px solid $c-focus-hightlight;
+    outline-offset: 3px;
+  }
+
 }
 
 .ma__table--responsive .sticky-thead {
@@ -35,7 +68,7 @@
     transition: all 0.04s ease-in-out;
     // Prevent table from stretching to full size.
     width: auto;
-    z-index: 50;
+    z-index: $z-sticky-header;
 
     &:before {
         background: $c-bg;
@@ -60,19 +93,27 @@
 
     table {
       margin-bottom: 0;
+
+      tr > *:first-child {
+        padding-left: 10px;
+
+        @media ($bp-medium-min) {
+
+          padding-left: 15px;
+        }
+      }
     }
 }
 
 .ma__table--responsive.has-top-visible .sticky-thead {
     // Force stretch.
     width: 100%;
-    z-index: 50;
 }
 
 .ma__table--responsive td,
 .ma__table--responsive th {
     box-sizing: border-box;
-    font-size: $fonts-smaller;
+    font-size: $fonts-small;
     padding: 0.5rem;
 }
 
@@ -81,139 +122,4 @@
     border-spacing: 0;
     text-align: left;
     box-shadow: 0 0 0 2px $c-gray-light;
-}
-
-.ma__table__horizontal-nav {
-    align-items: center;
-    background-color: $c-bg;
-    border-top: 1px solid $c-gray-light;
-    bottom: 0;
-    display: none;
-    height: 50px;
-    justify-content: space-between;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 50;
-
-
-    // Native position is at the bottom of the responsive container;
-    // so show the bar.
-
-    .has-horizontal-scroll & {
-        display: flex;
-    }
-
-    // Bottom is visble, anchor it.
-
-    .has-horizontal-scroll.has-bottom-visible & {
-        bottom: 0;
-        left: auto;
-        position: fixed;
-        right: auto;
-    }
-
-    .is-out-of-view.has-bottom-visible &,
-    .is-out-of-view.has-top-visible & {
-        display: none;
-    }
-
-    button {
-        background:none;
-        border: none;
-        padding: 0;
-
-        &:after {
-            content: "";
-            border-right: 4px solid;
-            border-bottom: 4px solid;
-            display: inline-block;
-            height: 10px;
-            margin-top: 3px;
-            margin-left: .3em;
-            transition: all .2s;
-            vertical-align: middle;
-            width: 10px;
-            border-color: $c-primary;
-            opacity: 0.5;
-        }
-    }
-
-    &__left {
-        margin-right: 15px;
-        visibility: visible;
-        opacity: 1;
-
-        .full-left & {
-          visibility: hidden;
-          opacity: 0;
-          width: 0;
-          margin: 0;
-          transition: 0.3s linear;
-        }
-
-        &:after {
-            transform: translateY(-4px)  translateX(0px) rotate(135deg);
-        }
-    }
-
-    &__right {
-        margin-left: 15px;
-        visibility: visible;
-        opacity: 1;
-
-        .full-right & {
-          visibility: hidden;
-          opacity: 0;
-          width: 0;
-          margin: 0;
-          transition: 0.3s linear;
-        }
-
-        &:after {
-            transform: translateY(-4px) translateX(-6px) rotate(-45deg);
-        }
-    }
-}
-
-.clip-scrollbar {
-  overflow-x: hidden;
-  border: 2px solid rgba($c-primary, 0.5);
-  -ms-overflow-style: none;  // IE 10+
-  overflow: -moz-scrollbars-none;  // Firefox
-
-  &::-webkit-scrollbar {
-    display: none;  // Safari and Chrome
-  }
-}
-
-.ma__scroll-indicator {
-    position: relative;
-    overflow-x: auto;
-    -ms-overflow-style: none;  // IE 10+
-    overflow: -moz-scrollbars-none;  // Firefox
-
-    &::-webkit-scrollbar {
-      display: none;  // Safari and Chrome
-    }
-
-    .ma__scroll-indicator--bar {
-      height: 8px;
-    }
-
-    .ma__scroll-indicator__button {
-      margin: auto;
-      height: calc(100% + 8px);
-      top: -4px;
-      background: rgba($c-primary, 0.5);
-      cursor: grab;
-    }
-}
-
-.stickNav {
-
-  .ma__table__horizontal-nav {
-    position: fixed;
-    bottom: 0;
-  }
 }

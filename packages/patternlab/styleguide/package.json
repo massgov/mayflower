@@ -5,7 +5,7 @@
     "node": ">6.9.0",
     "npm": ">5.0.0"
   },
-  "version": "6.3.0",
+  "version": "13.2.0",
   "author": "Massachusetts Digital Services (MDS)",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/massgov/mayflower#readme",
   "devDependencies": {
-    "@massds/mayflower-assets": "^10.4.0",
+    "@massds/mayflower-assets": "^13.0.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babelify": "^8.0.0",
@@ -58,8 +58,9 @@
     "moment": "^2.24.0",
     "picturefill": "^3.0.3",
     "pikaday": "^1.8.0",
-    "smoothscroll-polyfill": "^0.4.4",
+    "postcss-prefix-selector": "^2.1.0",
     "sass": "~1.30.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "svg4everybody": "^2.1.9",
     "terser": "^4.6.3",
     "through2": "^3.0.1",
@@ -70,9 +71,12 @@
     "whatwg-fetch": "^3.0.0"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.20",
     "del": "~6.0.0",
+    "gulp-postcss": "^9.0.1",
+    "leaflet": "~1.7.1",
     "normalize-scss": "~7.0.1",
-    "leaflet": "~1.7.1"
+    "postcss": "^8.4.49"
   },
   "scripts": {
     "start": "gulp",

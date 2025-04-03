@@ -48,12 +48,11 @@ body.show-menu {
 }
 
 .ma__header__hamburger {
-  padding-top: 44px;
   position: relative;
   background-color: $c-bg-section;
 
-  @media ($bp-medium-min) {
-    padding-top: 43px;
+  @media ($bp-small-max) {
+    border-bottom: 1px solid $c-gray-lightest;
   }
 
   &--slim {
@@ -86,9 +85,7 @@ body.show-menu {
 
   &__nav {
     background-color: $c-primary;
-    position: absolute;
-    top: 0px;
-    width: 100%;
+    position: relative;
     z-index: $z-overlay;
   }
 
@@ -137,13 +134,13 @@ body.show-menu {
 
   &__container {
 
-    @include ma-valign-block;
-
     @include ma-container;
-    font-size: 0; // inline-block fix
-    height: 100px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100px;
+    padding-block: 8px;
+    gap: 1rem;
 
     & .ma__header-search__wrapper {
       float: right;
@@ -155,33 +152,12 @@ body.show-menu {
     }
 
     @media ($bp-header-toggle-min) {
-      padding-top: 20px;
+      padding-block: 20px;
     }
   }
 
   &__logo {
-    display: inline-block;
-    float: none;
-    vertical-align: middle;
-    width: $header-logo-width; // width of the image
-
-    @media ($bp-small-min) {
-      width: 210px;
-    }
-
-    @media ($bp-small-min) {
-
-      @include span-columns(4);
-      display: inline-block;
-      float: none;
-    }
-
-    @media ($bp-large-extended-min) {
-
-      @include span-columns(3);
-      display: inline-block;
-      float: none;
-    }
+    flex-shrink: 1;
 
     .ma__site-logo a {
       margin: 0;
@@ -204,35 +180,19 @@ body.show-menu {
   }
 
   &__search {
-    display: inline-block;
-    text-align: right;
-    vertical-align: middle;
-    width: calc(100% - #{$header-logo-width});
+    flex-shrink: 0.75;
+    flex-basis: 350px;
 
     @media ($bp-small-max) {
       display: none;
     }
 
-    @media ($bp-small-min) {
-      width: 66.12903%; //@include span-columns(8);
+    @media ($bp-medium-min) {
+      flex-basis: 430px;
     }
 
-    @media ($bp-large-extended-min) {
-      width: 74.59677%; //@include span-columns(9);
-    }
-
-    @media ($bp-small-max) {
-
-      .ma__header-search {
-
-        &__input {
-          display: none;
-        }
-
-        span {
-          display: inline-block;
-        }
-      }
+    @media ($bp-header-toggle-min) {
+      flex-basis: 560px;
     }
 
     & .ma__header-search__input {
@@ -492,7 +452,7 @@ body.show-menu {
             @include ma-button-reset;
             position: relative;
             display: block;
-            font-size: 1.25rem;
+            font-size: $fonts-medium;
             font-weight: 700;
             letter-spacing: $letter-spacing-large;
             line-height: 1.45;
@@ -578,7 +538,7 @@ body.show-menu {
 
             & .ma__utility-nav__container {
               padding: 0;
-              background-color: $c-gray-lightest;
+              background-color: $c-white;
               overflow-y: visible;
               max-height: auto;
 
@@ -602,7 +562,7 @@ body.show-menu {
             }
 
             & .ma__utility-panel {
-              background-color: $c-gray-lightest;
+              background-color: $c-white;
               color: $c-font-base;
 
               @include ma-reset-list;
@@ -637,10 +597,14 @@ body.show-menu {
             }
 
             & .ma__utility-panel__item {
-              background-color: $c-gray-lightest;
+              background-color: $c-white;
               color: $c-font-base;
               margin: 0;
               display: block;
+
+              &:hover {
+                background-color: $c-bg-section;
+              }
             }
 
             & .ma__utility-panel__item .ma__decorative-link {
@@ -655,7 +619,7 @@ body.show-menu {
               text-align: left;
               display: block;
               position: relative;
-              font-size: 1.25rem;
+              font-size: $fonts-medium;
               font-weight: $fonts-normal;
               line-height: 1.33;
               padding: 10px 20px 10px 30px;
@@ -725,7 +689,7 @@ body.show-menu {
       border-color: tint($c-font-link, 50%);
       box-shadow: $box-shadow;
       color: $c-font-link;
-      font-size: 1.25rem;
+      font-size: $fonts-medium;
 
       @media ($bp-x-small-max) {
 
@@ -741,7 +705,7 @@ body.show-menu {
       @media ($bp-large-min) {
 
         padding: 7px 15px;
-        font-size: 1.375rem;
+        font-size: $fonts-large;
       }
 
       &::before {
@@ -764,10 +728,9 @@ body.show-menu {
   }
 }
 
-.ma__header__container {
+.ma__header__hamburger__container {
 
   @media ($bp-small-max) {
-
     display: none;
   }
 }

@@ -8,6 +8,10 @@ Note that this structure implements a responsive table with a custom scrollbar a
 ### Variables
 ~~~
 table {
+  description [
+    text:
+      type: string / optional
+  ]
   head {
     rows [{
       rowSpanOffset:

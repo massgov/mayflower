@@ -9,7 +9,6 @@ if (hamburgerMenuContainer) {
   const body = document.querySelector("body");
   let width = body.clientWidth;
   let alertlOffsetPosition;
-  const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
   const menuOverlay = document.querySelector(".menu-overlay");
   const alertOverlay = document.querySelector(".alert-overlay");
 
@@ -32,6 +31,7 @@ if (hamburgerMenuContainer) {
   let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 
   let utilNavWide = document.querySelector(".js-utility-nav--wide");
+  const utilityNavOrgsLink = document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link");
   const utilWideGTranslate = document.querySelector(
     ".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate"
   );
@@ -248,21 +248,14 @@ if (hamburgerMenuContainer) {
     }, 100);
 
     if (
-      document
-        .querySelector(
-          ".js-utility-nav--wide .ma__utility-nav__item .direct-link"
-        )
-        .hasAttribute("tabindex")
+      utilityNavOrgsLink &&
+      utilityNavOrgsLink.hasAttribute("tabindex")
     ) {
       if (utilWideGTranslate.querySelector("a")) {
         // Google translate elements aren't rendered screen width under 840px and the object is null.
         utilWideGTranslate.querySelector("a").removeAttribute("tabindex");
       }
-      document
-        .querySelector(
-          ".js-utility-nav--wide .ma__utility-nav__item .direct-link"
-        )
-        .removeAttribute("tabindex");
+      utilityNavOrgsLink.removeAttribute("tabindex");
       document
         .querySelector(
           ".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle"
@@ -298,10 +291,6 @@ if (hamburgerMenuContainer) {
 
     if (searchInput.hasAttribute("autofocus")) {
       searchInput.removeAttribute("autofocus");
-    }
-
-    if (feedbackButton) {
-      feedbackButton.classList.remove("hide-button");
     }
     jumpToSearchButton.setAttribute("aria-expanded", "false");
     if (menuOverlay) {
@@ -341,10 +330,6 @@ if (hamburgerMenuContainer) {
     menuButtonText.classList.remove("show");
     menuButtonTextMobile.classList.remove("show");
     menuButtonTextClose.classList.add("show");
-
-    if (feedbackButton) {
-      feedbackButton.classList.add("hide-button");
-    }
     jumpToSearchButton.setAttribute("aria-expanded", "true");
 
     menuButton.setAttribute("aria-pressed", "true");
@@ -356,11 +341,11 @@ if (hamburgerMenuContainer) {
       // Google translate elements aren't rendered screen width under 840px, and the object is null.
       utilWideGTranslate.querySelector("a").setAttribute("tabindex", "-1");
     }
-    document
-      .querySelector(
-        ".js-utility-nav--wide .ma__utility-nav__item .direct-link"
-      )
-      .setAttribute("tabindex", "-1");
+
+    if (utilityNavOrgsLink) {
+      utilityNavOrgsLink.setAttribute("tabindex", "-1");
+    }
+
     document
       .querySelector(
         ".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle"
@@ -488,7 +473,7 @@ if (hamburgerMenuContainer) {
   utilNarrowButtons.forEach((utilNarrowButton) => {
     const utilNarrowContent = utilNarrowButton && utilNarrowButton.nextElementSibling;
     const utilNarrowContainer = utilNarrowContent && utilNarrowContent.querySelector(".ma__utility-nav__container");
- 
+
     utilNarrowContent.style.maxHeight = "0";
     utilNarrowContainer.style.opacity = "0";
 
@@ -815,12 +800,13 @@ if (hamburgerMenuContainer) {
         setTimeout(function timeoutFunction() {
           item.querySelector(".js-main-nav-hamburger-content").style.height =
             height;
-          item.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "start",
-          });
-
+          if (!body.classList.contains("ios-safari-less-than-11")) {
+            item.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+              inline: "start",
+            });
+          }
           subItems.style.opacity = "1";
         }, 500);
 

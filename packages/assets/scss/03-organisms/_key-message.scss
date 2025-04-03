@@ -49,6 +49,11 @@ $colors: (
     }
   }
 
+  .ma__key-message__eyebrow {
+    font-size: 14px;
+    font-weight: $fonts-bold;
+  }
+
   .ma__key-message__wrapper header + .ma__key-message__cta {
     margin-top: 40px;
   }

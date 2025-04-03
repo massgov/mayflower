@@ -5,8 +5,8 @@
 	<p class="ma__callout__text">
 		&#8220;{{callOut.text}}&#8221;
 	</p>
-  <div calss="ma__callout__citation">
-    <span class="ma__callout__author">&mdash; {{callOut.author}}</span>
+  <div class="ma__callout__citation">
+    <span class="ma__callout__author">{% if callOut.author %} &mdash; {% endif %} {{ callOut.author }}</span>
     <span class="ma__callout__auth-title">{{callOut.title}}</span>
   </div>
 </section>

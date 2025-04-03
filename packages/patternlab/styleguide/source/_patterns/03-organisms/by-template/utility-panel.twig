@@ -1,10 +1,9 @@
-
-<div class="ma__utility-panel">
+<div class="ma__utility-panel{% if item.class %} {{ item.class }}{% endif %}">
   <div class="ma__utility-panel__description {{ item.links ? '' : 'ma__utility-panel__description--full' }}">
     {% set richText = item.description.richText %}
     {% include "@organisms/by-author/rich-text.twig" %}
   </div>
-  
+
   <ul class="ma__utility-panel__items">
     {% for decorativeLink in item.links %}
     <li class="ma__utility-panel__item js-clickable">
@@ -13,4 +12,3 @@
     {% endfor %}
   </ul>
 </div>
-

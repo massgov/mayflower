@@ -1,17 +1,23 @@
+{% set navLayoutClass = stickyNav.horizontalLayout ? ' ma__sticky-nav--horizontal' %}
+{% set navAriaLabel = stickyNav.titleContext ? 'the contents of the ' ~ stickyNav.titleContext ~ ' page' : "page contents" %}
+
 <nav
-  class="ma__sticky-nav js-scroll-anchors"
-  aria-label="Page Contents">
-  <h3 class="visually-hidden">the Contents{% if stickyNav.titleContext %} of the {{stickyNav.titleContext}} page{% endif %}</h3>
+  class="ma__sticky-nav js-scroll-anchors {{navLayoutClass}}"
+  aria-label="{{navAriaLabel}}">
   <button
     class="ma__sticky-nav__toggle-link js-scroll-anchors-toggle"
-    aria-label="expand or collapse side nav">+</button>
-    <div class="ma__sticky-nav__link js-scroll-anchors-toggle is-title" aria-hidden="true">
-      <span>Table of Contents</span>
-    </div>
+    aria-label="expand or collapse side nav">
+    +
+  </button>
+  <div class="ma__sticky-nav__link js-scroll-anchors-toggle is-title" aria-hidden="true">
+    <span>Table of Contents</span>
+  </div>
+  <ul role="menubar" class="ma__sticky-nav__container">
   {% for anchorLink in stickyNav.anchorLinks %}
-    <div class="ma__sticky-nav__link js-scroll-anchors-link {{ loop.first ? 'is-active is-top' : '' }}">
-      <a href="#{{ anchorLink.href }}"
-        title="{{ anchorLink.info }}">{{ anchorLink.text }}</a>
-    </div>
+      <li role="menuitem" class="ma__sticky-nav__link js-scroll-anchors-link {{ loop.first ? 'is-top' : '' }}">
+        <a href="#{{ anchorLink.href }}"
+          title="{{ anchorLink.info }}">{{ anchorLink.text }}</a>
+      </li>
   {% endfor %}
+  </ul>
 </nav>

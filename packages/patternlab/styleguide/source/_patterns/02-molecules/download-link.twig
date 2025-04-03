@@ -2,11 +2,11 @@
 
 <div class="ma__download-link {{ sizeClass }}">
   {% if downloadLink.icon %}
-    <div class="ma__download-link__icon">
+    <span class="ma__download-link__icon">
       {{ icon(downloadLink.icon) }}
-    </div>
+    </span>
   {% endif %}
-  <div class="ma__download-link__title">
+  <span class="ma__download-link__title">
     {% if downloadLink.format == "form" %}
       {% set decorativeLink = downloadLink.decorativeLink %}
       {% include "@atoms/decorative-link.twig" %}
@@ -14,14 +14,14 @@
       <a
         class="ma__download-link__file-link"
         href="{{ downloadLink.decorativeLink.href}}">
-        <span class="visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
+        <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
           {{ downloadLink.decorativeLink.text }}
       </a>
-      {% if downloadLink.format or downloadLink.size %}
-        <span class="ma__download-link__file-spec">({{ downloadLink.format }} {{ downloadLink.size }})</span>
+      {% if downloadLink.format or downloadLink.size or downloadLink.language %}
+        <span class="ma__download-link__file-spec">({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})</span>
       {% endif %}
     {% endif %}
-  </div>
+  </span>
   {% if downloadLink.description %}
     {% set richText = downloadLink.description %}
     <div class="ma__download-link__description">

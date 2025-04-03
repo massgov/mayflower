@@ -20,6 +20,10 @@ const GenTeaserTitle = (props) => {
     const IconComponent = Icon[title.icon];
     decorativeProps.icon = <IconComponent width={15} height={15} aria-hidden="true" />;
   }
+  if (title.showFileIcon && title.fileIcon) {
+    const FileIconComponent = Icon[title.fileIcon];
+    decorativeProps.fileIcon = <FileIconComponent width={15} height={15} aria-hidden="true" />;
+  }
   const Element = `h${level || 2}`;
   return(
     <Element className="ma__gen-teaser__title" {...rest}>
@@ -32,7 +36,16 @@ GenTeaserTitle.propTypes = {
   /** The heading level of the title */
   level: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** The title object (text, info, href) */
-  title: PropTypes.shape(DecorativeLink.propTypes),
+  title: PropTypes.shape({
+    href: PropTypes.string,
+    info: PropTypes.string,
+    text: PropTypes.string,
+    showFileIcon: PropTypes.bool,
+    className: PropTypes.string,
+    details: PropTypes.string,
+    icon: PropTypes.string,
+    fileIcon: PropTypes.string
+  }),
   /** React children to render */
   children: PropTypes.node
 };

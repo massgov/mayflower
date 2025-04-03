@@ -60,11 +60,11 @@ $heading-indent: $gutter;
   & &__footnote {
     border-style: solid;
     border-width: 2px;
-    font-size: .6em;
+    font-size: $fonts-small;
     line-height: 1;
-    padding: 0 .3em;
+    padding: 0.5px 6.5px;
     position: relative;
-    top: .25em;
+    top: .5em;
     vertical-align: top;
     transition: all ease .4s;
 
@@ -81,7 +81,7 @@ $heading-indent: $gutter;
   h4 {
 
     @include ma-comp-heading;
-    display: block;
+    display: flow-root;  // https://dev.to/baooab/what-is-display-flow-root-28ph
   }
 
   & h2,
@@ -156,7 +156,8 @@ $heading-indent: $gutter;
     margin-left: $heading-indent * 5; // 2.
   }
 
-  p {
+  p,
+  section.ma__link-list {
     margin-bottom: $rich-text-spacing-mobile;
 
     @media ($bp-small-min) {
@@ -169,6 +170,10 @@ $heading-indent: $gutter;
   ul {
     margin-bottom: $rich-text-spacing-mobile;
     padding-left: 20px;
+
+    &.ma__link-list__items--no-bullets {
+      padding-left: 0;
+    }
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
@@ -186,7 +191,7 @@ $heading-indent: $gutter;
 
   ol {
     margin-bottom: $rich-text-spacing-mobile;
-    padding-left: 30px;
+    padding-left: 20px;
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
@@ -231,6 +236,10 @@ $heading-indent: $gutter;
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
+
+      & td > table {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -274,7 +283,7 @@ $heading-indent: $gutter;
   }
 
   &__footnote {
-    border-color: $c-bay-blue-lighter;
+    border-color: $c-link;
 
     &:hover {
       background-color: $c-font-link;
@@ -292,10 +301,54 @@ $heading-indent: $gutter;
   }
 
   a {
-    border-bottom-color: $c-bay-blue-lighter;
+    border-bottom-color: $c-link;
 
     &:hover {
       border-bottom-width: 3px;
     }
   }
+
+  .list-style-disc {
+    list-style-type: disc;
+  }
+
+  .list-style-circle {
+    list-style-type: circle;
+  }
+
+  .list-style-square {
+    list-style-type: square;
+  }
+
+  .list-style-decimal {
+    list-style-type: decimal;
+  }
+
+  .list-style-decimal-leading-zero {
+    list-style-type: decimal-leading-zero;
+  }
+
+  .list-style-lower-roman {
+    list-style-type: lower-roman;
+  }
+
+  .list-style-upper-roman {
+    list-style-type: upper-roman;
+  }
+
+  .list-style-lower-alpha {
+    list-style-type: lower-alpha;
+  }
+
+  .list-style-upper-alpha {
+    list-style-type: upper-alpha;
+  }
+
+  // Cards
+  
+  a.ma__card__wrapper {
+    border-block-end: 0;
+    border-block-end-color: transparent;
+  }
+
 }

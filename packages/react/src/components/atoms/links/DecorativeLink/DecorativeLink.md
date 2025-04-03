@@ -14,5 +14,9 @@ decorativeLink {
     type: string (adds more description to the link) / optional
   showFileIcon:
     type: boolean (displays icon related to file extension of url) / optional / default value is false (do not display icon)
+  fileIcon:
+    type: element (file type icon React element to render before the link)
+  icon:
+    type: element (icon React element to render after the link)
 }
 ~~~

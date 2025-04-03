@@ -1,6 +1,0 @@
-Changed:
-  - project: React
-    component: Footer
-    description: Updated Footer to match PatternLab version. (#1858)
-    issue: DP-28856
-    impact: Major

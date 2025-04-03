@@ -26,7 +26,7 @@ input {
   background-color: $c-bg;
   border: 2px solid $c-bd-input;
   color: $c-font-base;
-  font-size: $fonts-medium;
+  font-size: $fonts-large;
   font-weight: $fonts-light;
   max-width: 100%;
   min-height: 40px;
@@ -45,7 +45,7 @@ select,
 textarea {
   font-family: $fonts;
   font-weight: $fonts-light;
-  font-size: $fonts-medium;
+  font-size: $fonts-large;
 }
 
 input[type=file] {
@@ -69,7 +69,7 @@ textarea {
   background-color: $c-bg;
   border: 2px solid $c-bd-input;
   outline: none;
-  font-size: $fonts-medium;
+  font-size: $fonts-large;
   font-weight: $fonts-light;
   max-width: 100%;
   min-height: 135px;
@@ -109,7 +109,7 @@ fieldset {
 optgroup,
 select {
   font-weight: $fonts-light;
-  font-size: $fonts-medium;
+  font-size: $fonts-large;
   max-width: 100%;
 }
 

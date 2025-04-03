@@ -232,13 +232,13 @@ $location-listin--map-min-width: 315px;
     }
 
     &__location-subtitle {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
     }
 
     &__location {
-      font-size: $fonts-small;
+      font-size: $fonts-medium;
       font-weight: $fonts-normal;
-      line-height: 1.15;
+      line-height: 1.5;
       padding-bottom: 0;
 
       // Location street address, and city-state-zip, should be wrapped
@@ -273,7 +273,7 @@ $location-listin--map-min-width: 315px;
     }
 
     &__link {
-      font-size: $fonts-smaller;
+      font-size: $fonts-small;
     }
 
     &__contact {
@@ -298,7 +298,7 @@ $location-listin--map-min-width: 315px;
 
     &__phone {
       // Matches font-size defined on <body>.
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
 
       svg {
         height: 25px;

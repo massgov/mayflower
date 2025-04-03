@@ -29,29 +29,104 @@
 		<section class="ma__stacked-row__section">
 			<div class="main-content main-content--full">
 				<div class="page-content">
-					{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
+				{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
 						{% if introPageContent.keyActions %}
 							{% set keyActions = introPageContent.keyActions %}
 							{% include "@organisms/by-author/key-actions.twig" %}
 						{% endif %}
 					{% endif %}
-					{% block pageContent %}
+					{# Simple example #}
+					{% if twoColumn %}
+						<div class="service-section service-section--simple-two-column">
+							<div class="ma__stacked-row__section  ma__stacked-row__section--borderless ma__stacked-row--restricted no-sidebar">
+								<div class="ma__stacked-row__container">
+              						<div class="ma__stacked-row__title">
+										<h2 class="ma__comp-heading" tabindex="-1">What would you like to do?</h2>
+									</div>
+								</div>
+								<div class="main-content">
+									{% if doActionFinder %}
+										{% set actionFinder = doActionFinder.actionFinder %}
+										{% include "@organisms/by-author/action-finder.twig" %}
+									{% endif %}
+								</div>           
+							</div>
+						</div>
+					{% else %}
 						{% if doActionFinder %}
 							{% set actionFinder = doActionFinder.actionFinder %}
 							{% include "@organisms/by-author/action-finder.twig" %}
 						{% endif %}
-						{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
-							{% if learnActionFinder %}
-								{% set actionFinder = learnActionFinder.actionFinder %}
-								{% include "@organisms/by-author/action-finder.twig" %}
+					{% endif %}
+					{% block pageContent %}
+						{# Enhanced example #}
+						{% if twoColumn %}
+							<div class="service-section service-section--enhanced-two-column">
+								<div class="ma__stacked-row__section  ma__stacked-row__section--borderless ma__stacked-row--restricted no-sidebar">
+									<div class="ma__stacked-row__container">
+										<div class="ma__stacked-row__title">
+											<h2 class="ma__comp-heading" tabindex="-1">What you need to know</h2>
+										</div>
+									</div>
+									<div class="main-content">
+										{% if learnActionFinder %}
+											{% set actionFinder = learnActionFinder.actionFinder %}
+											{% include "@organisms/by-author/action-finder.twig" %}
+										{% endif %}
+									</div>           
+								</div>
+							</div>
+						{% else %}
+							{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
+								{% if learnActionFinder %}
+									{% set actionFinder = learnActionFinder.actionFinder %}
+									{% include "@organisms/by-author/action-finder.twig" %}
+								{% endif %}
 							{% endif %}
 						{% endif %}
-						{% if contactList %}
-							{% include "@organisms/by-author/contact-list.twig" %}
+						{# Simple example #}
+						{% if twoColumn %}
+							<div class="service-section service-section--simple-two-column">
+								<div class="ma__stacked-row__section  ma__stacked-row__section--borderless ma__stacked-row--restricted no-sidebar">
+									<div class="ma__stacked-row__container">
+										<div class="ma__stacked-row__title">
+											<h2 class="ma__comp-heading" tabindex="-1">Contact</h2>
+										</div>
+									</div>
+									<div class="main-content">
+										{% if contactList %}
+											{% include "@organisms/contact/contact-list.twig" %}
+										{% endif %}
+									</div>           
+								</div>
+							</div>
+						{% else %}
+							{% if contactList %}
+								{% include "@organisms/contact/contact-list.twig" %}
+							{% endif %}
 						{% endif %}
-						{% if mappedLocations %}
-							{% include "@organisms/by-author/mapped-locations.twig" %}
-						{% endif %}
+
+						{# Enhanced example #}
+						{% if twoColumn %}
+							<div class="service-section service-section--enhanced-two-column">
+								<div class="ma__stacked-row__section  ma__stacked-row__section--borderless ma__stacked-row--restricted no-sidebar">
+									<div class="ma__stacked-row__container">
+										<div class="ma__stacked-row__title">
+											<h2 class="ma__comp-heading" tabindex="-1">Location</h2>
+										</div>
+									</div>
+									<div class="main-content">
+										{% if mappedLocations %}
+											{% include "@organisms/by-author/mapped-locations.twig" %}
+										{% endif %}
+									</div>           
+								</div>
+							</div>
+						{% else %}
+							{% if mappedLocations %}
+								{% include "@organisms/by-author/mapped-locations.twig" %}
+							{% endif %}
+						{% endif %}			
 						{% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is same as(false) %}
 							{% if eventListing %}
 								{% include "@organisms/by-author/event-listing.twig" %}
