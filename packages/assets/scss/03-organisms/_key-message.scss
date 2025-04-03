@@ -333,7 +333,11 @@ $colors: (
     }
 
     .ma__key-message__sub-title {
-      margin-top: 0;
+      margin-block-start: 0;
+    }
+
+    .ma__key-message--message-text:not(:has(.ma__key-message__sub-title)) .ma__key-message__content {
+      margin-block-start: 0;
     }
   }
 }
