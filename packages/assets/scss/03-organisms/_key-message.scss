@@ -31,13 +31,16 @@ $colors: (
 
       .ma__key-message__cta {
         margin-top: 20px;
-        margin-bottom: 10px;
+        
+        @media ($bp-medium-min) {
+          margin-bottom: 10px;
+        }
       }
     }
   }
 
   .ma__key-message__sub-title {
-    margin-top: 20px;
+    margin-top: 25px;
     font-weight: $fonts-bold;
 
     @each $class, $c in $colors {
@@ -126,7 +129,7 @@ $colors: (
 
 
   &__content {
-    margin-top: 20px;
+    margin-top: 25px;
 
     .ma__rich-text {
       font-size: $fonts-medium;
@@ -134,7 +137,7 @@ $colors: (
   }
 
   &__content + &__cta {
-    margin-top: 20px;
+    margin-top: 25px;
 
     .ma__button {
       box-shadow: none;
@@ -215,14 +218,18 @@ $colors: (
         padding: 0px;
 
         @media ($bp-medium-min) {
-          top: 50%;
+          top: 72%;
         }
 
         .ma__key-message__block {
-          padding: 40px 20px;
+          padding: 32px 24px;
           transform: translateY(0%);
 
-          @media ($bp-small-min) {
+          @media ($bp-medium-min) {
+            padding: 40px;
+          }
+
+          @media ($bp-large-min) {
             padding: 64px;
           }
 
@@ -230,6 +237,12 @@ $colors: (
             &--#{$class} {
               background: $c;
             }
+          }
+        }
+
+        &:has(.ma__key-message__columns--two) {
+          @media ($bp-medium-min) {
+            top: 85%;
           }
         }
 
@@ -248,7 +261,7 @@ $colors: (
             margin-left: auto;
             margin-right: auto;
             transform: translateY(33%);
-            box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,0.25);
+            box-shadow: 0px 0px 8px -4px rgba(0, 0, 0, 0.16), 0px 8px 16px -8px rgba(0, 0, 0, 0.08), 0px 16px 64px -16px rgba(0, 0, 0, 0.12);
 
             &--half-image {
               transform: translateY(0%);
@@ -262,11 +275,19 @@ $colors: (
         @media ($bp-medium-min) {
           display: flex;
           justify-content: flex-start;
-          top: 100px;
+          top: 65%;
         }
 
         .ma__key-message__block {
-          padding: 48px 60px;
+          padding: 32px 24px;
+
+          @media ($bp-medium-min) {
+            padding: 40px;
+          }
+
+          @media ($bp-large-min) {
+            padding: 48px 64px;
+          }
         }
       }
 
@@ -275,6 +296,13 @@ $colors: (
 
   &__title {
     margin-bottom: 0;
+    font-size: 32px;
+    line-height: 1.25; // 40px;
+
+    @media($bp-large-min) {
+      font-size: 46px;
+      line-height: 1.0435; // 48px;
+    }
   }
 
   @each $class, $c in $colors {
@@ -315,6 +343,20 @@ $colors: (
   }
 
   // Two column layout
+
+  .ma__key-message__block:has(.ma__key-message__columns--two) {
+    padding: 32px 24px;
+    transform: translateY(0%);
+
+    @media ($bp-medium-min) {
+      padding: 40px;
+    }
+
+    @media ($bp-large-min) {
+      padding: 64px;
+    }
+  }
+
   &__columns--two {
     display: flex;
     flex-flow: column;
