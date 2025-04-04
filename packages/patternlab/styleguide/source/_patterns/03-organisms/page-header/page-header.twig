@@ -95,9 +95,9 @@
               {% for button in pageHeader.buttons %}
                 <li class="ma__page-header__button">
                   {% if button.items %}
-                    {% include "@molecules/button-dropdown.twig" %}
+                    {% include "@molecules/button-dropdown.twig" with { button: button } %}
                   {% else %}
-                    {% include "@atoms/01-buttons/button.twig" %}
+                    {% include "@atoms/01-buttons/button.twig" with { button: button } %}
                   {% endif %}
                 </li>
               {% endfor %}
@@ -106,9 +106,9 @@
             {% set button = pageHeader.buttons[0] %}
             <div class="ma__page-header__button">
               {% if button.items %}
-                {% include "@molecules/button-dropdown.twig" %}
+                {% include "@molecules/button-dropdown.twig" with { button: button } %}
               {% else %}
-                {% include "@atoms/01-buttons/button.twig" %}
+                {% include "@atoms/01-buttons/button.twig" with { button: button } %}
               {% endif %}
             </div>
           {% endif %}
