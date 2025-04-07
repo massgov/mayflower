@@ -6,6 +6,7 @@
   background-color: $c-gray-lightest;
 
   &__items {
+
     @include ma-reset-list;
 
     display: flex;
@@ -27,7 +28,6 @@
 
   &__item {
     display: flex;
-    align-items: center;
     position: relative;
     width: 100%;
     flex-wrap: wrap;
@@ -39,6 +39,7 @@
     }
 
     &:last-of-type {
+
       .ma__secondary-nav-hamburger__subitems-container {
         inset-inline-start: auto;
         inset-inline-end: 0;
@@ -77,6 +78,7 @@
     }
 
     .ma__secondary-nav-hamburger__subitem & {
+
       &:hover,
       &:focus {
         text-decoration: underline;
@@ -110,6 +112,7 @@
   }
 
   &__subitems {
+
     @include ma-reset-list;
   }
 
@@ -132,19 +135,26 @@
 
 
 // Show subitems on keyboard focus when JS is disabled.
+
 html:not(.js) .ma__secondary-nav-hamburger {
+
   &__item:hover {
     background-color: $c-gray-light;
   }
+
   &__item:focus-within {
+
     .ma__secondary-nav-hamburger__subitems-container {
       display: block;
     }
   }
 
   @media ($bp-header-toggle-min) {
+
     &__item {
+
       &:hover {
+
         .ma__secondary-nav-hamburger__subitems-container {
           display: block;
         }

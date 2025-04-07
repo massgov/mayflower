@@ -133,6 +133,7 @@ body.show-menu {
   }
 
   &__container {
+
     @include ma-container;
     display: flex;
     align-items: center;
@@ -726,7 +727,9 @@ body.show-menu {
     }
   }
 }
+
 .ma__header__hamburger__container {
+
   @media ($bp-small-max) {
     display: none;
   }
