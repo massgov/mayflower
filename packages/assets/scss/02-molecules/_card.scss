@@ -5,7 +5,7 @@
   max-width: 1240px;
   display: flex;
   flex-flow: column;
-  
+
   @media ($bp-medium-min) {
     flex-flow: row;
     max-inline-size: fit-content;
@@ -94,6 +94,7 @@
     }
 
     &--vertical {
+
       .ma__card__thumbnail {
         display: none;
       }
@@ -191,6 +192,7 @@
     border-block-end: 0;
 
       .ma__card__title {
+
         &:after {
           display: none;
         }
@@ -201,6 +203,7 @@
     }
 
     .ma__card__img {
+
       img {
         inline-size: 100%;
         block-size: 100%;
@@ -215,6 +218,7 @@
     }
 
     .ma__card__title {
+
       span {
         border-inline-start: 0;
       }

@@ -1,0 +1,6 @@
+Fixed:
+  - project: Assets
+    component: FixedFeedbackButton
+    description: moves feedback button to the vertical middle of the screen. (#1962)
+    issue: DP-36941
+    impact: minor

@@ -57,6 +57,7 @@ body {
   }
 
   &__container {
+
     @include ma-container;
     display: flex;
     align-items: center;
