@@ -20,6 +20,9 @@
           aria-owns="search-suggestions"
         {% endif %}
     />
+    {% for name, value in headerSearch.additionalParameters %}
+      <input type="hidden" name="{{ name }}" value="{{ value }}" />
+    {% endfor %}
     {% if hasSuggestions %}
       <div class="ma__header-search-suggestions hidden">
         <span role="status" aria-live="polite" class="ma__header-search-suggestions-helper"></span>
