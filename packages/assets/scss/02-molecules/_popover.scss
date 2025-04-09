@@ -27,6 +27,8 @@
     border: 1px solid $c-gray-light;
     border-radius: 0.5rem;
     width: max-content;
+    max-width: min(480px, calc(100vw - 2rem));
+    /* stylelint-disable-next-line */
     max-width: min(480px, calc(100svw - 2rem));
     position: absolute;
     inset: calc(100% + 1rem) auto auto 50%;
@@ -72,6 +74,7 @@
     }
 
     &:hover {
+
       svg {
         fill: $c-primary-light;
       }
@@ -97,6 +100,7 @@
   }
 
   &--open {
+
     .popover__dialog,
     .popover__caret {
       visibility: visible;
