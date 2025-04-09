@@ -1,5 +1,5 @@
 <span class="popover" tabindex="-1">
-  <button class="popover__trigger js-popover-trigger">{{tooltip.openText}}</button>
+  <a role="button" class="popover__trigger js-popover-trigger">{{tooltip.openText}}</a>
   <span role="dialog" id="popover-{{ tooltip.controlId }}" aria-labelledby="popover-{{ tooltip.controlId }}-label" aria-modal="true" class="popover__dialog js-popover-dialog" tabindex="-1">
     <button class="popover__close js-popover-close" aria-label="{{ tooltip.closeText }}">{{icon('close')}}</button>
     {% if tooltip.title %}
