@@ -24,6 +24,9 @@
     {% endif %}
     {% if pageHeader.nested %}
         <h1 class="ma__page-header__title">
+          {% if prefix %}
+            <span class="ma__visually-hidden">{{ prefix }}&nbsp;</span>
+          {% endif %}
           {{pageHeader.title}}
           {% if pageHeader.titleSubText %}
             <abbr title="{{ pageHeader.title }}"> {{ pageHeader.titleSubText }}</abbr>
@@ -41,6 +44,9 @@
         {% endif %}
     {% else %}
       <h1 class="ma__page-header__title">
+        {% if prefix %}
+          <span class="ma__visually-hidden">{{ prefix }}&nbsp;</span>
+        {% endif %}
         {{pageHeader.title}}
         {% if pageHeader.titleSubText %}
           <abbr title="{{ pageHeader.title }}"> {{ pageHeader.titleSubText }}</abbr>
