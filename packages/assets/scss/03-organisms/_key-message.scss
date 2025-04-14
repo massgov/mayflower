@@ -218,7 +218,7 @@ $colors: (
         padding: 0px;
 
         @media ($bp-medium-min) {
-          top: 72%;
+          top: 50%;
         }
 
         .ma__key-message__block {
@@ -242,7 +242,7 @@ $colors: (
 
         &:has(.ma__key-message__columns--two) {
           @media ($bp-medium-min) {
-            top: 75%;
+            top: 60%;
           }
         }
 
@@ -275,7 +275,7 @@ $colors: (
         @media ($bp-medium-min) {
           display: flex;
           justify-content: flex-start;
-          top: 65%;
+          top: 100px;
         }
 
         .ma__key-message__block {
