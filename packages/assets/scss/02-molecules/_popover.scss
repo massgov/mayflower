@@ -18,8 +18,7 @@
     background-position: 0 100%;
     background-repeat: repeat-x;
     background-size: 0.5em 0.1em;
-
-
+    border-bottom: 0; // Reset the link underline from .ma__rich-text a.
 
     &:hover {
       color: $c-primary-light;
