@@ -360,11 +360,12 @@ $colors: (
   &__columns--two {
     display: flex;
     flex-flow: column;
-    gap: 48px;
+    gap: 24px;
     text-align: left;
 
     @media ($bp-medium-min) {
       flex-flow: row;
+      gap: 48px;
       align-items: flex-start;
     }
 
