@@ -296,13 +296,6 @@ $colors: (
 
   &__title {
     margin-bottom: 0;
-    font-size: 32px;
-    line-height: 1.25; // 40px;
-
-    @media($bp-large-min) {
-      font-size: 46px;
-      line-height: 1.0435; // 48px;
-    }
   }
 
   @each $class, $c in $colors {
