@@ -360,7 +360,7 @@ $colors: (
   &__columns--two {
     display: flex;
     flex-flow: column;
-    gap: $standard-spacing--xsmall;
+    gap: 48px;
     text-align: left;
 
     @media ($bp-medium-min) {

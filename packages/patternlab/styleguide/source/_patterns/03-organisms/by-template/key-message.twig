@@ -43,45 +43,45 @@
 
   var id = "{{ id }}";
   var blckid = "blck{{ id }}";
-  var halfImage = `{{ keyMessage.halfImage }}` // this returns '1' for true, '' or '0' for false or undefined. 
+  var halfImage = `{{ keyMessage.halfImage }}`; // '1' for true, '' or '0' for false/undefined
 
   function marginSet() {
     var block = document.getElementById(blckid);
     var mainContent = document.getElementById("main-content");
-    var keyMessageSection = document.getElementById(id)
+    // Check if within a microsite
+    var keyMessageSection = document.getElementById(id);
+    var keyMessageExtra = document.querySelector('.ma__microsite-key-message');
     var blockHeight = block ? block.clientHeight : 0;
     var separationAtBottom = 60;
-    var mrgWrapper = mainContent ? blockHeight * (1/3) + separationAtBottom : separationAtBottom;
+    var mrgWrapper = mainContent ? blockHeight * (1 / 3) + separationAtBottom : separationAtBottom;
 
-    // Get the height difference between the wrapper and the block.
-    // The block is usually bigger than its wrapper.
-    // The block is usually moved a few pixels from top.
-    // separationAtBottom is the distance from the content below the key message.
     if (halfImage && halfImage !== '0') {
       var sectionHeight = keyMessageSection ? keyMessageSection.clientHeight : 0;
-      const blockBottomOffset = blockHeight + block.parentNode.offsetTop
+      const blockBottomOffset = blockHeight + block.parentNode.offsetTop;
       const isBlockBottomLower = blockBottomOffset > sectionHeight;
-      mrgWrapper = isBlockBottomLower ? blockBottomOffset - sectionHeight + separationAtBottom : separationAtBottom;
+
+      var extraOffset = keyMessageExtra ? 64 : 0;
+      mrgWrapper = isBlockBottomLower ? blockBottomOffset - sectionHeight + separationAtBottom + extraOffset : separationAtBottom + extraOffset;
     }
 
     var style = document.createElement('style');
     style.innerHTML =
-    `#${id} {` +
-    '  margin-bottom: 0;' +
-    '}' +
-    '@media(min-width: 781px) {' +
-    `  #${id} {` +
-    `    margin-bottom: ${mrgWrapper}px;` +
+      `#${id} {` +
+      '  margin-bottom: 0;' +
       '}' +
-    '}';
+      '@media(min-width: 781px) {' +
+      `  #${id} {` +
+      `    margin-bottom: ${mrgWrapper}px;` +
+      '  }' +
+      '}';
     var ref = document.querySelector('script');
     ref.parentNode.insertBefore(style, ref);
   }
-  window.onload = function() {
+
+  window.onload = function () {
     marginSet();
   };
   window.addEventListener("resize", marginSet);
-
 </script>
 {% endif %}
 
