@@ -41,10 +41,10 @@ export default (function (window, document,$) {
                 openDropdown();
 
                 timer = setTimeout(function() {
-                    // add a 2 second delay to avoid the status announcement getting cut off. 
+                    // add a 2 second delay to avoid the status announcement getting cut off.
                     $suggestions.find('.ma__header-search-suggestions-helper').text(helper);
                 },2000);
-                
+
             } // else, hide the suggestions
             else {
                 closeDropdown();
@@ -81,17 +81,12 @@ export default (function (window, document,$) {
                 focusIndex = 0;
                 setFocus(focusIndex);
             }
-            if (key(e).arrowUp) { 
+            if (key(e).arrowUp) {
                 focusIndex = [optionsCount -1];
                 setFocus(focusIndex);
             }
         });
-              
 
-        // transform org name to value
-        const slugify = (string = '') => (
-            string.trim().replace(/[\s_]+/g, '-').toLowerCase().replace(/[^a-z\d-]/g, '')
-        );
         Array.from($options).forEach(function(option) {
             option.onkeydown = function (e) {
                 // keyup and keydown loop through the options
@@ -110,16 +105,14 @@ export default (function (window, document,$) {
                 }
             }
             // on option button click, append the search parameter to the form and submits it
-            option.onclick = function(){
-                const optionText = $(option).find(".ma__header-search-suggestion-option-scope-value").text();
-                const optionValue = slugify(optionText);
-                if (optionText && optionText.length > 0) {
-                    $form.append(`<input type="hidden" name="org" value=${optionValue} />`);
-                }
+            option.onclick = function(e){
+                const { value, type } = option.dataset;
+
+                $('input[id$="default-scope"]', $form).remove();
+                $form.append(`<input type="hidden" name="${type}" value="${value}" />`);
                 $form.submit();
             }
         });
     });
 
   })(window, document,jQuery);
-  

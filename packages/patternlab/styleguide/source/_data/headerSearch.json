@@ -8,6 +8,17 @@
       "text": "Search",
       "usage": "secondary"
     },
-    "suggestedScopes": ["Department of Conservation & Recreation", "Executive Office of Energy and Environmental Affairs"]
+    "suggestedScopes": [
+      {
+        "value": "Department of Conservation & Recreation",
+        "type": "org",
+        "label": "in Department of Conservation & Recreation"
+      },
+      {
+        "value": "Executive Office of Energy and Environmental Affairs",
+        "type": "org",
+        "label": "in Executive Office of Energy and Environmental Affairs"
+      }
+    ]
   }
 }
