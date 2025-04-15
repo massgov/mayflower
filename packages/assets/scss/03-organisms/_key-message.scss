@@ -19,27 +19,28 @@ $colors: (
     position: relative;
 
     @media ($bp-small-min) {
-      padding-top: 60px;
-      padding-bottom: 60px;
+      padding-block: 64px;
     }
 
     &--top {
       padding: 40px 20px;
 
       @media ($bp-small-min) {
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-block: 64px;
       }
 
       .ma__key-message__cta {
         margin-top: 20px;
-        margin-bottom: 10px;
+
+        @media ($bp-medium-min) {
+          margin-bottom: 10px;
+        }
       }
     }
   }
 
   .ma__key-message__sub-title {
-    margin-top: 20px;
+    margin-top: 25px;
     font-weight: $fonts-bold;
 
     @each $class, $c in $colors {
@@ -128,7 +129,20 @@ $colors: (
 
 
   &__content {
-    margin-top: 20px;
+    margin-top: 25px;
+
+    .ma__rich-text {
+      font-size: $fonts-medium;
+    }
+  }
+
+  &__content + &__cta {
+    margin-top: 25px;
+
+    .ma__button {
+      box-shadow: none;
+    }
+
   }
 
   &__block {
@@ -138,10 +152,13 @@ $colors: (
       margin-left: auto;
       margin-right: auto;
     }
-  }
 
-  &__content + &__cta {
-    margin-top: 20px;
+    &--c-gray-lightest {
+
+      .ma__key-message__content+.ma__key-message__cta .ma__button {
+        box-shadow: $box-shadow;
+      }
+    }
   }
 
   &--image {
@@ -207,13 +224,28 @@ $colors: (
         }
 
         .ma__key-message__block {
-          padding: 20px 20px;
+          padding: 32px 24px;
           transform: translateY(0%);
+
+          @media ($bp-medium-min) {
+            padding: 40px;
+          }
+
+          @media ($bp-large-min) {
+            padding: 64px;
+          }
 
           @each $class, $c in $colors {
             &--#{$class} {
               background: $c;
             }
+          }
+        }
+
+        &:has(.ma__key-message__columns--two) {
+
+          @media ($bp-medium-min) {
+            top: 60%;
           }
         }
 
@@ -232,7 +264,7 @@ $colors: (
             margin-left: auto;
             margin-right: auto;
             transform: translateY(33%);
-            box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,0.25);
+            box-shadow: $box-shadow;
 
             &--half-image {
               transform: translateY(0%);
@@ -247,6 +279,18 @@ $colors: (
           display: flex;
           justify-content: flex-start;
           top: 100px;
+        }
+
+        .ma__key-message__block {
+          padding: 32px 24px;
+
+          @media ($bp-medium-min) {
+            padding: 40px;
+          }
+
+          @media ($bp-large-min) {
+            padding: 48px 64px;
+          }
         }
       }
 
@@ -293,17 +337,51 @@ $colors: (
       }
     }
   }
-}
 
+  // Two column layout
 
-// Get heading level higher styles for sub-title
+  .ma__key-message__block:has(.ma__key-message__columns--two) {
+    padding: 32px 24px;
+    transform: translateY(0%);
 
-@for $i from 1 through 5 {
-  h#{$i}.ma__key-message__title + .ma__key-message__sub-title {
+    @media ($bp-medium-min) {
+      padding: 40px;
+    }
 
-    @include ma-heading($i+1);
+    @media ($bp-large-min) {
+      padding: 64px;
+    }
+  }
+
+  &__columns--two {
+    display: flex;
+    flex-flow: column;
+    gap: 24px;
+    text-align: left;
+
+    @media ($bp-medium-min) {
+      flex-flow: row;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    > * {
+
+      @media ($bp-medium-min) {
+        inline-size: 50%;
+      }
+    }
+
+    .ma__key-message__sub-title {
+      margin-block-start: 0;
+    }
+
+    .ma__key-message--message-text:not(:has(.ma__key-message__sub-title)) .ma__key-message__content {
+      margin-block-start: 0;
+    }
   }
 }
+
 
 // Override the message block max width in the content area only.
 
