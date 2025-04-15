@@ -31,7 +31,7 @@ $colors: (
 
       .ma__key-message__cta {
         margin-top: 20px;
-        
+
         @media ($bp-medium-min) {
           margin-bottom: 10px;
         }
@@ -142,7 +142,8 @@ $colors: (
     .ma__button {
       box-shadow: none;
     }
-  }  
+
+  }
 
   &__block {
     max-width: 840px;
@@ -153,6 +154,7 @@ $colors: (
     }
 
     &--c-gray-lightest {
+
       .ma__key-message__content+.ma__key-message__cta .ma__button {
         box-shadow: $box-shadow;
       }
@@ -241,6 +243,7 @@ $colors: (
         }
 
         &:has(.ma__key-message__columns--two) {
+
           @media ($bp-medium-min) {
             top: 60%;
           }
@@ -363,6 +366,7 @@ $colors: (
     }
 
     > * {
+
       @media ($bp-medium-min) {
         inline-size: 50%;
       }
