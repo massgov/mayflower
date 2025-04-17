@@ -1,11 +1,8 @@
+import isHighZoom from "../helpers/isHighZoom";
+
 export default (function (window, document, $) {
   const $window = $(window);
   let responsiveTables = [];
-
-  function isHighZoom() {
-    const zoomLevel = Math.round((window.outerWidth / window.innerWidth) * 100);
-    return zoomLevel >= 300;
-  }
 
   function setWidths(rt) {
     rt.$table.find("thead th").each(function (i) {
