@@ -1,3 +1,5 @@
+import isHighZoom from "../helpers/isHighZoom";
+
 export default (function (window, document) {
 
   const tocs = Array.from(document.getElementsByClassName("ma__sticky-toc"));
