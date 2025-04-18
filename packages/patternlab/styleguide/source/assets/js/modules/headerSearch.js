@@ -1,35 +1,35 @@
-export default (function (window, document,$) {
+export default (function (window, document, $) {
     "use strict";
 
-    $('.ma__header-search > form').each(function(){
+    $(".ma__header-search > form").each(function(){
         let $form = $(this);
-        let $searchInput = $form.find('.ma__header-search__input');
+        let $searchInput = $form.find(".ma__header-search__input");
         let $suggestions = $searchInput.next(".ma__header-search-suggestions");
-        let $options = $form.find('.ma__header-search-suggestion-option');
+        let $options = $form.find(".ma__header-search-suggestion-option");
         let optionsCount = $options.length;
         let focusIndex = 0;
         let key = (e) => ({
             arrowDown: e.key === "ArrowDown" || e.code === "ArrowDown",
             arrowUp: e.key === "ArrowUp" || e.code === "ArrowUp",
-            escape: e.key === "Escape" || e.code === "Escape",
+            escape: e.key === "Escape" || e.code === "Escape"
         });
         let setFocus = function(index) {
             $options[index].focus();
-            $options.removeClass('hover');
-            $options[index].classList.add('hover');
-        }
+            $options.removeClass("hover");
+            $options[index].classList.add("hover");
+        };
         let timer;
 
         const openDropdown = () => {
             $searchInput.attr("aria-expanded", true);
             $suggestions.removeClass("hidden");
-        }
+        };
         const closeDropdown = () => {
             $searchInput.attr("aria-expanded", false);
             $suggestions.addClass("hidden");
-        }
+        };
         // On input value change, unhide or hide the suggestions.
-        $searchInput.on('input', function() {
+        $searchInput.on("input", function() {
             clearTimeout(timer);
             const inputValue = $(this).val();
             const helper = `${optionsCount} search scope suggestions are available for ${inputValue}; to navigate, use up and down arrow keys on desktop; to select, use space or enter keys`;
@@ -37,12 +37,12 @@ export default (function (window, document,$) {
             if (inputValue) {
                 $(".ma__header-search-suggestion-option-input").each(function() {
                     $(this).text(inputValue);
-                })
+                });
                 openDropdown();
 
                 timer = setTimeout(function() {
                     // add a 2 second delay to avoid the status announcement getting cut off.
-                    $suggestions.find('.ma__header-search-suggestions-helper').text(helper);
+                    $suggestions.find(".ma__header-search-suggestions-helper").text(helper);
                 },2000);
 
             } // else, hide the suggestions
@@ -61,19 +61,19 @@ export default (function (window, document,$) {
                 }
             }, 200);
         };
-        $searchInput.on('blur', function() {
+        $searchInput.on("blur", function() {
             handleBlur();
-        })
-        $options.on('blur', function() {
+        });
+        $options.on("blur", function() {
             handleBlur();
-        })
+        });
         // when the input is in focus and has a value, show the suggestions
-        $searchInput.on('focus', function() {
+        $searchInput.on("focus", function() {
             const inputValue = $(this).val();
             if(inputValue) {
                 openDropdown();
             }
-        })
+        });
 
         // keydown from input move focus into the suggestion options
         $searchInput.keydown(function(e) {
@@ -103,16 +103,23 @@ export default (function (window, document,$) {
                     closeDropdown();
                     $searchInput.focus();
                 }
-            }
+            };
             // on option button click, append the search parameter to the form and submits it
             option.onclick = function(e){
+                e.preventDefault();
                 const { value, type } = option.dataset;
 
                 $('input[id$="default-scope"]', $form).remove();
-                $form.append(`<input type="hidden" name="${type}" value="${value}" />`);
-                $form.submit();
-            }
+                const host = $form.attr("action");
+                const query = $searchInput.val();
+                const url = new URL(host);
+                url.searchParams.set("q", query);
+                if (type && value) {
+                    url.searchParams.set(type, value);
+                }
+                window.location.href = url.toString();
+            };
         });
     });
 
-  })(window, document,jQuery);
+  })(window, document, window.jQuery);
