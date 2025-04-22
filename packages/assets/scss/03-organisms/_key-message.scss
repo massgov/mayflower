@@ -282,14 +282,10 @@ $colors: (
         }
 
         .ma__key-message__block {
-          padding: 32px 24px;
+          padding: $standard-spacing--xsmall;
 
           @media ($bp-medium-min) {
-            padding: 40px;
-          }
-
-          @media ($bp-large-min) {
-            padding: 48px 64px;
+            padding: $standard-spacing--small;
           }
         }
       }
@@ -341,15 +337,11 @@ $colors: (
   // Two column layout
 
   .ma__key-message__block:has(.ma__key-message__columns--two) {
-    padding: 32px 24px;
+    padding: $standard-spacing--xsmall;
     transform: translateY(0%);
 
     @media ($bp-medium-min) {
-      padding: 40px;
-    }
-
-    @media ($bp-large-min) {
-      padding: 64px;
+      padding: $standard-spacing--small;
     }
   }
 
