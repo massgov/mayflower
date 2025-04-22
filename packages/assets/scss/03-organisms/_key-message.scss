@@ -19,7 +19,7 @@ $colors: (
     position: relative;
 
     @media ($bp-small-min) {
-      padding-block: 64px;
+      padding-block: $standard-spacing--small;
     }
 
     &--top {
@@ -225,15 +225,15 @@ $colors: (
         }
 
         .ma__key-message__block {
-          padding: 32px 24px;
+          padding: $standard-spacing--xsmall;
           transform: translateY(0%);
 
           @media ($bp-medium-min) {
-            padding: 40px;
+            padding: $standard-spacing--small;
           }
 
           @media ($bp-large-min) {
-            padding: 64px;
+            padding: $standard-spacing--medium;
           }
 
           @each $class, $c in $colors {
@@ -287,6 +287,10 @@ $colors: (
 
           @media ($bp-medium-min) {
             padding: $standard-spacing--small;
+          }
+
+          @media ($bp-large-min) {
+            padding: $standard-spacing--small $standard-spacing--medium;
           }
         }
       }
