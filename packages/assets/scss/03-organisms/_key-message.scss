@@ -41,6 +41,7 @@ $colors: (
 
   .ma__key-message__sub-title {
     margin-top: 25px;
+    font-size: $fonts-xlarge;
     font-weight: $fonts-bold;
 
     @each $class, $c in $colors {
