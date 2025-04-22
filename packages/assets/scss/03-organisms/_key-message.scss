@@ -225,7 +225,7 @@ $colors: (
         }
 
         .ma__key-message__block {
-          padding: $standard-spacing--xsmall;
+          padding: 32px $standard-spacing--xsmall;
           transform: translateY(0%);
 
           @media ($bp-medium-min) {
@@ -283,14 +283,14 @@ $colors: (
         }
 
         .ma__key-message__block {
-          padding: $standard-spacing--xsmall;
+          padding: 32px $standard-spacing--xsmall;
 
           @media ($bp-medium-min) {
             padding: $standard-spacing--small;
           }
 
           @media ($bp-large-min) {
-            padding: $standard-spacing--small $standard-spacing--medium;
+            padding: $standard-spacing--medium;
           }
         }
       }
@@ -342,7 +342,7 @@ $colors: (
   // Two column layout
 
   .ma__key-message__block:has(.ma__key-message__columns--two) {
-    padding: $standard-spacing--xsmall;
+    padding: 32px $standard-spacing--xsmall;
     transform: translateY(0%);
 
     @media ($bp-medium-min) {
