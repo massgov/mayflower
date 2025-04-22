@@ -51,7 +51,7 @@ $colors: (
   }
 
   .ma__key-message__eyebrow {
-    font-size: 14px;
+    font-size: $fonts-medium;
     font-weight: $fonts-bold;
   }
 
@@ -132,7 +132,7 @@ $colors: (
     margin-top: 25px;
 
     .ma__rich-text {
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
     }
   }
 
