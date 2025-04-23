@@ -19,7 +19,7 @@ $colors: (
     position: relative;
 
     @media ($bp-small-min) {
-      padding-block: 64px;
+      padding-block: $standard-spacing--small;
     }
 
     &--top {
@@ -41,6 +41,7 @@ $colors: (
 
   .ma__key-message__sub-title {
     margin-top: 25px;
+    font-size: $fonts-xlarge;
     font-weight: $fonts-bold;
 
     @each $class, $c in $colors {
@@ -51,7 +52,7 @@ $colors: (
   }
 
   .ma__key-message__eyebrow {
-    font-size: 14px;
+    font-size: $fonts-medium;
     font-weight: $fonts-bold;
   }
 
@@ -132,7 +133,7 @@ $colors: (
     margin-top: 25px;
 
     .ma__rich-text {
-      font-size: $fonts-medium;
+      font-size: $fonts-large;
     }
   }
 
@@ -224,15 +225,15 @@ $colors: (
         }
 
         .ma__key-message__block {
-          padding: 32px 24px;
+          padding: 32px $standard-spacing--xsmall;
           transform: translateY(0%);
 
           @media ($bp-medium-min) {
-            padding: 40px;
+            padding: $standard-spacing--small;
           }
 
           @media ($bp-large-min) {
-            padding: 64px;
+            padding: $standard-spacing--medium;
           }
 
           @each $class, $c in $colors {
@@ -282,14 +283,14 @@ $colors: (
         }
 
         .ma__key-message__block {
-          padding: 32px 24px;
+          padding: 32px $standard-spacing--xsmall;
 
           @media ($bp-medium-min) {
-            padding: 40px;
+            padding: $standard-spacing--small;
           }
 
           @media ($bp-large-min) {
-            padding: 48px 64px;
+            padding: $standard-spacing--medium;
           }
         }
       }
@@ -341,15 +342,11 @@ $colors: (
   // Two column layout
 
   .ma__key-message__block:has(.ma__key-message__columns--two) {
-    padding: 32px 24px;
+    padding: 32px $standard-spacing--xsmall;
     transform: translateY(0%);
 
     @media ($bp-medium-min) {
-      padding: 40px;
-    }
-
-    @media ($bp-large-min) {
-      padding: 64px;
+      padding: $standard-spacing--small;
     }
   }
 
