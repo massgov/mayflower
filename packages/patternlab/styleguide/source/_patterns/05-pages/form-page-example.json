@@ -497,7 +497,7 @@
                     "location": "",
                     "openText": "What is this?",
                     "closeText": "Close",
-                    "title": "",
+                    "title": "What is this?",
                     "message": "You can find your CVV number on the back of your credit card.  It is usually a three or four digit number"
                   }
                 }
