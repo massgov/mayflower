@@ -1,29 +1,26 @@
 @use "00-base/configure" as *;
 
 .popover {
-
+  display: inline;
   position: relative;
 
-  button {
+  :where(button) {
     appearance: none;
     border: none;
-    background: transparent;
+    background-color: transparent;
     margin: 0;
     padding: 0;
   }
 
   &__trigger {
     color: $c-primary;
-    background-image: linear-gradient(to right, currentcolor 50%, transparent 50%);
-    background-position: 0 100%;
-    background-repeat: repeat-x;
-    background-size: 0.5em 0.1em;
-    border-bottom: 0; // Reset the link underline from .ma__rich-text a.
+    display: inline;
+    border-bottom: 3px dashed currentcolor;
 
     &:hover {
       color: $c-primary-light;
-      background-size: 0.5em 0.2em;
       cursor: pointer;
+      border-bottom-width: 4px;
     }
   }
 
