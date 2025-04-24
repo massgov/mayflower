@@ -9,15 +9,15 @@
     //     "c-primary": $c-primary-lightest,
     //     "c-primary-alt": $c-primary-alt-lightest,
     //     "c-highlight": $c-highlight-lightest,
-    //     "c-gray": $c-platinum-gray,
-    //     "c-white": $c-white
+    //     "c-gray": var(--mf-c-platinum-gray),
+    //     "c-white": var(--mf-c-white)
     // );
     // $darkTheme: (
     //     "c-primary": $c-primary,
     //     "c-primary-alt": $c-primary-alt,
     //     "c-highlight": $c-highlight,
-    //     "c-gray": $c-gray-darkest,
-    //     "c-black": $c-gray-darkest
+    //     "c-gray": var(--mf-c-gray-darkest),
+    //     "c-black": var(--mf-c-gray-darkest)
     // );
 
     @each $class, $c in $lightTheme {
@@ -31,12 +31,12 @@
             background-color: $c;
 
             @if $class != "c-highlight" {
-            color: $c-white;
+            color: var(--mf-c-white);
 
                 & > * {
-                    fill: $c-white !important;
-                    color: $c-white !important;
-                    border-color: $c-white !important;
+                    fill: var(--mf-c-white) !important;
+                    color: var(--mf-c-white) !important;
+                    border-color: var(--mf-c-white) !important;
                 }
             }
         }

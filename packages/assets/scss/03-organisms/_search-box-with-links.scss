@@ -69,7 +69,7 @@
         border-right: 0;
 
         &::placeholder {
-          color: $c-atlantic-gray;
+          color: var(--mf-c-atlantic-gray);
         }
       }
 
@@ -90,13 +90,13 @@
         &:hover,
         &:active,
         &:focus {
-          color:$c-white;
+          color:var(--mf-c-white);
         }
 
         &:hover,
         &:active,
         &:focus {
-          border-bottom-color: rgba($c-white, 0.5);
+          border-bottom-color: rgba(var(--mf-c-white), 0.5);
         }
       }
     }
@@ -112,7 +112,7 @@
 
   &__secondary {
     flex-basis: 40%;
-    background-color: $c-platinum-gray;
+    background-color: var(--mf-c-platinum-gray);
     padding: 40px;
 
     @media (max-width: 910px) {

@@ -166,7 +166,7 @@ $colors: (
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
   "c-error": $c-error,
-  "c-gray": $c-gray
+  "c-gray": var(--mf-c-gray)
 );
 
 @each $class, $c in $colors {

@@ -11,7 +11,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
 
     &:nth-child(2) {
       padding-top: 20px;
-      border-top: 2px solid rgba($c-white, 0.4);
+      border-top: 2px solid rgba(var(--mf-c-white), 0.4);
     }
   }
 
@@ -44,7 +44,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
     cursor: pointer;
     font-size: 0;
     margin-bottom: 1.5%;
-    background-color: rgba($c-white, 0.2);
+    background-color: rgba(var(--mf-c-white), 0.2);
     display: flex;
     align-items: center;
 

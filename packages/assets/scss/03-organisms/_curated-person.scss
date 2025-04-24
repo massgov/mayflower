@@ -18,7 +18,7 @@
   &--meta-wrapper {
     display: flex;
     font-style: italic;
-    color: $c-gray-dark;
+    color: var(--mf-c-gray-dark);
 
     font-weight: $fonts-bold;
     font-size: $fonts-larger;

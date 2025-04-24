@@ -15,7 +15,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   color: $c-font-inverse;
-  background-color: $c-gray-darkest;
+  background-color: var(--mf-c-gray-darkest);
   box-shadow: $box-shadow;
 
   &:after {

@@ -1,7 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__footer-slim {
-  background-color: $c-platinum-gray;
+  background-color: var(--mf-c-platinum-gray);
   font-size: $fonts-medium;
   line-height: 1.2;
   padding: 20px 0 30px;

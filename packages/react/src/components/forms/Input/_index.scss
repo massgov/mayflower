@@ -46,7 +46,7 @@
 
 input:disabled {
   @extend %disabled;
-  background-color: $c-gray-lightest;
+  background-color: var(--mf-c-gray-lightest);
 }
 
 button:disabled {
@@ -59,7 +59,7 @@ button:disabled {
 .ma__input-number-unit{
   &--disabled {
     @extend %disabled;
-    background-color: $c-gray-lightest;
+    background-color: var(--mf-c-gray-lightest);
   }
 }
 

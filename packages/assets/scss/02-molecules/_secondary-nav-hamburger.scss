@@ -3,7 +3,7 @@
 .ma__secondary-nav-hamburger {
   padding: 0;
   margin: 0;
-  background-color: $c-gray-lightest;
+  background-color: var(--mf-c-gray-lightest);
 
   &__items {
 
@@ -17,7 +17,7 @@
 
   &__subitems-container {
     display: none;
-    background-color: $c-white;
+    background-color: var(--mf-c-white);
     width: 100%;
     flex-shrink: 0;
 
@@ -31,11 +31,11 @@
     position: relative;
     width: 100%;
     flex-wrap: wrap;
-    border-block-end: 1px solid $c-gray-light;
+    border-block-end: 1px solid var(--mf-c-gray-light);
     align-items: stretch;
 
     &:first-of-type {
-      border-block-start: 1px solid $c-gray-light;
+      border-block-start: 1px solid var(--mf-c-gray-light);
     }
 
     &:last-of-type {
@@ -70,7 +70,7 @@
     &:hover,
     &:focus {
       text-decoration: underline;
-      background-color: $c-gray-light;
+      background-color: var(--mf-c-gray-light);
     }
 
     .is-active > & {
@@ -91,13 +91,13 @@
     color: $c-primary-alt;
     background: transparent;
     border: none;
-    border-inline-start: 1px solid $c-gray-light;
+    border-inline-start: 1px solid var(--mf-c-gray-light);
     padding: 1rem;
     width: 3.5rem;
 
     &:hover,
     &:focus {
-      background-color: $c-gray-light;
+      background-color: var(--mf-c-gray-light);
     }
   }
 
@@ -118,11 +118,11 @@
 
   &__subitem {
     width: 100%;
-    border-block-end: 1px solid $c-gray-light;
+    border-block-end: 1px solid var(--mf-c-gray-light);
 
     &:hover {
       background-color: $c-primary;
-      color: $c-white;
+      color: var(--mf-c-white);
     }
 
     .ma__secondary-nav-hamburger__link {
@@ -139,7 +139,7 @@
 html:not(.js) .ma__secondary-nav-hamburger {
 
   &__item:hover {
-    background-color: $c-gray-light;
+    background-color: var(--mf-c-gray-light);
   }
 
   &__item:focus-within {

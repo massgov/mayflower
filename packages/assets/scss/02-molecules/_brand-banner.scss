@@ -16,15 +16,15 @@
             "c-primary": $c-primary-lightest,
             "c-primary-alt": $c-primary-alt-lightest,
             "c-highlight": $c-highlight-lightest,
-            "c-gray": $c-platinum-gray,
-            "c-white": $c-white
+            "c-gray": var(--mf-c-platinum-gray),
+            "c-white": var(--mf-c-white)
         ),
         $darkTheme: (
             "c-primary": $c-primary,
             "c-primary-alt": $c-primary-alt,
             "c-highlight": $c-highlight,
-            "c-gray": $c-gray-darkest,
-            "c-black": $c-gray-darkest
+            "c-gray": var(--mf-c-gray-darkest),
+            "c-black": var(--mf-c-gray-darkest)
         )
     );
 
@@ -99,7 +99,7 @@
             }
 
             &.dark > svg {
-                fill: $c-white;
+                fill: var(--mf-c-white);
             }
 
             & + & {

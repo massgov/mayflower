@@ -24,7 +24,7 @@
 
     &:after {
       content: "";
-      background: $c-gray-light;
+      background: var(--mf-c-gray-light);
       margin: 0 10px;
       width: 1px;
       height: $fonts-smaller;
@@ -37,11 +37,11 @@
     a {
       line-height: 1rem;
       text-decoration: none;
-      box-shadow: inset 0 0 $c-white, inset 0px -1px $c-bay-blue-lighter;
+      box-shadow: inset 0 0 var(--mf-c-white), inset 0px -1px var(--mf-c-bay-blue-lighter);
       font-weight: $fonts-normal;
 
       &:hover {
-        box-shadow: inset 0 0 $c-white, inset 0px -2px $c-bay-blue-30-tint;
+        box-shadow: inset 0 0 var(--mf-c-white), inset 0px -2px var(--mf-c-bay-blue-50-tint);
       }
     }
 
@@ -52,12 +52,12 @@
   }
 
   &--bg-gray {
-    background: $c-gray-lightest;
+    background: var(--mf-c-gray-lightest);
 
     .ma__inline-links_item {
 
       &:after {
-        background: $c-gray;
+        background: var(--mf-c-gray);
       }
 
       span {

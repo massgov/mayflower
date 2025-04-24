@@ -3,7 +3,7 @@
 $bgcolors: (
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
-  "c-white": $c-white
+  "c-white": var(--mf-c-white)
 );
 
 $textcolors: (

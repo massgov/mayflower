@@ -49,7 +49,7 @@
     font-size: $fonts-smaller;
     font-family: $fonts-mono;
     span {
-      background-color: $c-gray-lightest;
+      background-color: var(--mf-c-gray-lightest);
       padding: 0.1em 0.2em;
     }
   }
@@ -86,11 +86,11 @@ $tiles: 10;
 }
 
 $colors: (
-  "c-duckling-yellow": $c-duckling-yellow,
-  "c-bay-blue": $c-bay-blue,
-  "c-berkshires-green": $c-berkshires-green,
-  "c-independence-cranberry": $c-independence-cranberry,
-  "c-granite-gray": $c-granite-gray
+  "c-duckling-yellow": var(--mf-c-duckling-yellow),
+  "c-bay-blue": var(--mf-c-bay-blue),
+  "c-berkshires-green": var(--mf-c-berkshires-green),
+  "c-independence-cranberry": var(--mf-c-independence-cranberry),
+  "c-granite-gray": var(--mf-c-granite-gray)
 );
 
 @each $class, $c in $colors {

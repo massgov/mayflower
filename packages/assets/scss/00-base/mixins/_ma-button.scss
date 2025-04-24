@@ -27,7 +27,7 @@
         background-color: rgba($color,.75);
       }
 
-      @if $color == $c-white {
+      @if $color == var(--mf-c-white) {
         color: $c-primary;
 
         svg {
@@ -35,14 +35,14 @@
         }
 
         &:hover:not(:disabled) {
-          background-color: $c-gray-light;
+          background-color: var(--mf-c-gray-light);
         }
 
       } @else if $color == $c-highlight {
-        color: $c-gray-darkest;
+        color: var(--mf-c-gray-darkest);
 
         svg {
-          fill: $c-gray-darkest;
+          fill: var(--mf-c-gray-darkest);
         }
       } @else {
         color: $c-font-inverse;
@@ -63,18 +63,18 @@
       }
 
       @if $color == $c-highlight {
-        color: $c-gray-darkest;
+        color: var(--mf-c-gray-darkest);
         border-color: rgba($c-highlight,.5);
 
         svg {
-          fill: $c-gray-darkest;
+          fill: var(--mf-c-gray-darkest);
         }
 
         &:hover:not(:disabled) {
-          color: $c-gray-darkest;
+          color: var(--mf-c-gray-darkest);
 
           svg {
-            fill: $c-gray-darkest;
+            fill: var(--mf-c-gray-darkest);
           }
         }
 

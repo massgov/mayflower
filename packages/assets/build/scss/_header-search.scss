@@ -41,12 +41,12 @@
 
     & {
 
-      @include ma-button-search($c-primary-alt, $c-white);
+      @include ma-button-search($c-primary-alt, var(--mf-c-white));
     }
 
     &--secondary {
 
-      @include ma-button-search($c-white, $c-primary-alt);
+      @include ma-button-search(var(--mf-c-white), $c-primary-alt);
     }
   }
 

@@ -24,7 +24,7 @@
       border-bottom: none;
 
       .ma__sidebar-heading {
-        color: $c-gray;
+        color: var(--mf-c-gray);
         font-size: $fonts-smaller;
       }
     }

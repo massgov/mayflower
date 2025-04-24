@@ -180,12 +180,12 @@
 .ma__toc--overlay {
 
   .ma__toc__toc__title {
-    background: $c-gray-lightest;
+    background: var(--mf-c-gray-lightest);
     color: $c-primary;
   }
 
   .ma__toc--hierarchy {
-    border-bottom: 1px solid $c-gray-light;
+    border-bottom: 1px solid var(--mf-c-gray-light);
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
@@ -198,7 +198,7 @@
   }
 
   .ma__toc__subtitle {
-    color: $c-gray-dark;
+    color: var(--mf-c-gray-dark);
   }
 
   .ma__toc--hierarchy__accordion {
@@ -213,7 +213,7 @@
   }
 
   .ma__toc--overlay__container {
-    background: $c-white;
+    background: var(--mf-c-white);
   }
 
   li.is-current:before {

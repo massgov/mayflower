@@ -85,7 +85,7 @@
 
   @media ($bp-large-extended-min) {
     border: 1px solid $c-primary-alt;
-    box-shadow: 4px 2px 5px 0px rgba($c-gray-darkest,0.3);
+    box-shadow: 4px 2px 5px 0px rgba(var(--mf-c-gray-darkest),0.3);
   }
 
   &::before,
@@ -114,7 +114,7 @@
     margin-top: 0;
 
     &::after {
-      background-color: $c-gray-dark;
+      background-color: var(--mf-c-gray-dark);
     }
   }
 }

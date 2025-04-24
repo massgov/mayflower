@@ -29,7 +29,7 @@
       white-space: nowrap;
       background-color: transparent;
       border: 0;
-      border: 1px solid $c-gray-light;
+      border: 1px solid var(--mf-c-gray-light);
 
       a, a:hover, a:hover {
         border-bottom: none;
@@ -37,7 +37,7 @@
       }
 
       &:hover, &:focus {
-        background-color: $c-gray-lightest;
+        background-color: var(--mf-c-gray-lightest);
       }
 
       .ma__input-checkbox {

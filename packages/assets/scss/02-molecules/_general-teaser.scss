@@ -147,11 +147,11 @@
   }
 
   &__tag {
-    color: $c-gray;
+    color: var(--mf-c-gray);
     font-size: $fonts-xsmall;
     font-weight: bold;
     text-align: center;
-    border: 1px solid $c-gray-light;
+    border: 1px solid var(--mf-c-gray-light);
     background-color: $c-bg;
     padding: 0px 5px;
     min-width: 60px;

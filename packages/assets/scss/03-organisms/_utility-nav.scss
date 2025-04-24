@@ -416,7 +416,7 @@ $utility-nav-height: 43px;
 
     svg {
       opacity: 0.7;
-      fill: $c-white;
+      fill: var(--mf-c-white);
     }
 
     & > span,

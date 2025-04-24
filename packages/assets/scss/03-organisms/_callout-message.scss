@@ -20,8 +20,8 @@
   display:block;
   width: 100%;
   padding: 15px 20px;
-  background-color: mix($c-white, $c-font-link,90%);
-  border-color: mix($c-white, $c-font-link,50%);
+  background-color: mix(var(--mf-c-white), $c-font-link,90%);
+  border-color: mix(var(--mf-c-white), $c-font-link,50%);
   box-shadow: $box-shadow;
 
   @media ($bp-small-min) {
@@ -39,7 +39,7 @@
 
   &--white {
     background-color: $c-bg;
-    border-color: mix($c-white, $c-font-detail,70%);
+    border-color: mix(var(--mf-c-white), $c-font-detail,70%);
     box-shadow: $box-shadow;
   }
 

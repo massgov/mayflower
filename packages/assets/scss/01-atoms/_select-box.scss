@@ -131,6 +131,6 @@
   }
 
   &__disabled {
-    background-color: $c-overcast-gray;
+    background-color: var(--mf-c-overcast-gray);
   }
 }

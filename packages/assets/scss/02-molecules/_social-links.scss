@@ -91,7 +91,7 @@
 
       & > svg,
       & > svg path {
-        fill: $c-white;    
+        fill: var(--mf-c-white);    
       }
     }
 
@@ -100,7 +100,7 @@
 
       & > svg,
       & > svg path {
-        fill: $c-white;    
+        fill: var(--mf-c-white);    
       }
     }
 

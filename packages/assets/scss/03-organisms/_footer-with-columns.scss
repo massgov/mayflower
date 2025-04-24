@@ -123,7 +123,7 @@
   &__back2top {
 
     @include ma-button("outline",$c-primary);
-    background-color: rgba($c-white, .9);
+    background-color: rgba(var(--mf-c-white), .9);
 
     svg {
       fill: rgba($c-primary, .5);
@@ -138,7 +138,7 @@
   }
 
   &__copyright {
-    color: $c-gray-dark;
+    color: var(--mf-c-gray-dark);
     font-weight: $fonts-light;
 
     &--date {

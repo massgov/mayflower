@@ -33,7 +33,7 @@
       }
 
       &:hover, &:focus {
-        background-color: $c-gray-light;
+        background-color: var(--mf-c-gray-light);
       }
     }
 

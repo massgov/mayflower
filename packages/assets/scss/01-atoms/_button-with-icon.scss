@@ -4,23 +4,23 @@ $colors: (
   "c-highlight": $c-highlight,
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
-  "c-black": $c-gray-darkest,
-  "c-gray-dark": $c-gray-dark,
-  "c-white": $c-white
+  "c-black": var(--mf-c-gray-darkest),
+  "c-gray-dark": var(--mf-c-gray-dark),
+  "c-white": var(--mf-c-white)
 );
 
 $quaternary-colors: (
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
-  "c-black": $c-gray-darkest,
-  "c-gray-dark": $c-gray-dark,
-  "c-white": $c-white
+  "c-black": var(--mf-c-gray-darkest),
+  "c-gray-dark": var(--mf-c-gray-dark),
+  "c-white": var(--mf-c-white)
 );
 
 
 .ma__button-icon {
   background-color: $c-bg;
-  border: 2px solid $c-gray-light;
+  border: 2px solid var(--mf-c-gray-light);
   display: inline-flex;
   align-items: center;
   font-weight: $fonts-bold;
@@ -79,7 +79,7 @@ $quaternary-colors: (
   }
 
   & > svg {
-    fill: $c-gray-dark;
+    fill: var(--mf-c-gray-dark);
     height: 20px;
     transition: transform .5s, fill .4s;
   }
@@ -99,7 +99,7 @@ $quaternary-colors: (
     color: $c-font-inverse;
 
     svg {
-      fill: $c-white;
+      fill: var(--mf-c-white);
     }
 
     @each $class, $c in $colors {
@@ -124,11 +124,11 @@ $quaternary-colors: (
 
   &--tertiary, &--expanded.ma__button-icon--tertiary, &:hover.ma__button-icon--tertiary {
 
-    @include ma-button("solid",$c-gray-light);
+    @include ma-button("solid",var(--mf-c-gray-light));
     color: $c-font-base;
 
     svg {
-      fill: $c-gray-darkest;
+      fill: var(--mf-c-gray-darkest);
     }
   }
 
@@ -169,7 +169,7 @@ $quaternary-colors: (
   }
 
   &--expanded.ma__button-icon--quaternary-simple, &:hover.ma__button-icon--quaternary-simple:hover {
-    background-color: $c-gray-light;
+    background-color: var(--mf-c-gray-light);
   }
 
   &--quaternary-simple {
@@ -220,7 +220,7 @@ $quaternary-colors: (
     background-color: $c-primary-alt;
 
     &.ma__button-icon > svg {
-      fill: rgba($c-white,.5);
+      fill: rgba(var(--mf-c-white),.5);
       width: 10px;
     }
 
@@ -232,7 +232,7 @@ $quaternary-colors: (
           color: $c-font-base;
 
           &.ma__button-icon > svg {
-            fill: rgba($c-gray-darkest,.5);
+            fill: rgba(var(--mf-c-gray-darkest),.5);
           }
         }
       }

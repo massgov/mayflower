@@ -20,7 +20,7 @@ The Mayflower brand colors were selected to meet our brand and accessibility sta
 
 ## Theme Colors
 Theme colors are brand colors and their variants mapped to a color hierarchy, to define their specific roles and usage in the system. 
-For examples, `$c-bay-blue`, as the **Primary Color**, is the default color for links and primary action buttons. Accompanying shades and tints can be used to create depth. It's also used in headings, titles, icons, graphics, and calls to action. `$c-berkshires-green`, as the **Alternate Primary Color**, usually does the same job as the primary color, but when the surrounding context is different, for example in a call-to-action block. `$c-duckling-ellow`, as the **Highlight Color**, is used for time sensitive information like updates and alerts. "Revolution Gray" or `$c-black`, the darkest gray on the gray scale, is primarily used as base text color.
+For examples, `var(--mf-c-bay-blue)`, as the **Primary Color**, is the default color for links and primary action buttons. Accompanying shades and tints can be used to create depth. It's also used in headings, titles, icons, graphics, and calls to action. `var(--mf-c-berkshires-green)`, as the **Alternate Primary Color**, usually does the same job as the primary color, but when the surrounding context is different, for example in a call-to-action block. `var(--mf-c-duckling-yellow)`, as the **Highlight Color**, is used for time sensitive information like updates and alerts. "Revolution Gray" or `var(--mf-c-black)`, the darkest gray on the gray scale, is primarily used as base text color.
 
 Accompanying shades and tints can be used to create depth. In general, the lighter variants are used for outline, and the lightest variants are used as background colors. The light variants should never be used as text colors. 
 
@@ -43,7 +43,7 @@ Accompanying shades and tints can be used to create depth. In general, the light
 </ul>
 
 ### Highlight Colors
-The purpose of the highlight colors are to to draw attention to key sections or information that usually is time sensitive. **Examples:** Updates, time changes, alerts. When being used as background colors, always pair with the dark text color `$c-black`.
+The purpose of the highlight colors are to to draw attention to key sections or information that usually is time sensitive. **Examples:** Updates, time changes, alerts. When being used as background colors, always pair with the dark text color `var(--mf-c-black)`.
 
 <ul className="sg-colors">
   {
@@ -65,7 +65,7 @@ A range of neutral grays for text and backgrounds.
 
 These colors add specific meanings bassed on UI conventions*. Red connotes "stop", "warning", or "danger"; green connotes "go", or "success". For accessibility avoid using color alone to convey meaning, semantic colors should augment text and images.
 
-Some brand colors like `$c-duckling-ellow` and `$c-berkshires-green` are doing double duty as semantic colors while others like `$c-bay-blue` and `$c-independence-cranberry` are not. We wanted to keep our palette compact, but be careful not to use `$c-bay-blue` as a focus color or `$c-independence-cranberry` as a warning color.
+Some brand colors like `var(--mf-c-duckling-yellow)` and `var(--mf-c-berkshires-green)` are doing double duty as semantic colors while others like `var(--mf-c-bay-blue)` and `var(--mf-c-independence-cranberry)` are not. We wanted to keep our palette compact, but be careful not to use `var(--mf-c-bay-blue)` as a focus color or `var(--mf-c-independence-cranberry)` as a warning color.
 
 <ul className="sg-colors">
   {

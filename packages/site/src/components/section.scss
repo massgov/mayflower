@@ -12,7 +12,7 @@
   }
 
   &--gray-light {
-    background-color: $c-gray-lightest;
+    background-color: var(--mf-c-gray-lightest);
   }
 
   &--primary-alt {

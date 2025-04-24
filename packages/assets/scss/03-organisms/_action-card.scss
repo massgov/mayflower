@@ -201,10 +201,10 @@
     }
 
     &--dark-gray {
-      background-color: $c-gray-dark;
+      background-color: var(--mf-c-gray-dark);
 
       &:hover {
-        background-color: rgba($c-gray-dark,.8);
+        background-color: rgba(var(--mf-c-gray-dark),.8);
 
         a {
           border-bottom-color: $c-font-inverse;
@@ -240,7 +240,7 @@
   &__item--green &__category,
   &__item--dark-gray &__category {
     color: rgba($c-font-inverse,.8);
-    text-shadow: 0 0.125rem 0.125rem rgba($c-black, 0.5);
+    text-shadow: 0 0.125rem 0.125rem rgba(var(--mf-c-black), 0.5);
   }
 
   &__link {
@@ -250,7 +250,7 @@
     }
 
     svg {
-      fill: $c-bay-blue-lighter;
+      fill: var(--mf-c-bay-blue-lighter);
     }
   }
 

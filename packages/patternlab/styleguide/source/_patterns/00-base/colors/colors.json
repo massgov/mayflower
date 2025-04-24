@@ -7,12 +7,12 @@
         "value": "#14558f"
       },
       {
-        "name": "$c-bay-blue-lighter",
+        "name": "var(--mf-c-bay-blue-lighter)",
         "color": "50% Bay Blue",
         "value": "#8aaac7"
       },
       {
-        "name": "$c-bay-blue-lightest",
+        "name": "var(--mf-c-bay-blue-lightest)",
         "color": "10% Bay Blue",
         "value": "#e7eef4"
       }]
@@ -24,12 +24,12 @@
         "value": "#388557"
       },
       {
-        "name": "$c-berkshires-green-lighter",
+        "name": "var(--mf-c-berkshires-green-lighter)",
         "color": "50% Berkshires Green",
         "value": "#9CC2AB"
       },
       {
-        "name": "$c-berkshires-green-lightest",
+        "name": "var(--mf-c-berkshires-green-lightest)",
         "color": "20% Berkshires Green",
         "value": "#d6E7dd"
       }]
@@ -41,39 +41,39 @@
         "value": "#f6c51b"
       },
       {
-        "name": "$c-duckling-yellow-lighter",
+        "name": "var(--mf-c-duckling-yellow)-lighter",
         "color": "50% Duckling Yellow",
         "value": "#fbe28d"
       },
       {
-        "name": "$c-duckling-yellow-lightest",
+        "name": "var(--mf-c-duckling-yellow)-lightest",
         "color": "10% Duckling Yellow",
         "value": "#fef9e8"
       }]
     },{
     "items": [
       {
-        "name": "$c-black",
+        "name": "var(--mf-c-black)",
         "color": "Revolution Gray",
         "value": "#141414"
       },
       {
-        "name": "$c-gray-dark",
+        "name": "var(--mf-c-gray-dark)",
         "color": "Granite Gray",
         "value": "#535353"
       },
       {
-        "name": "$c-gray",
+        "name": "var(--mf-c-gray)",
         "color": "Atlantic Gray",
         "value": "#707070"
       },
       {
-        "name": "$c-gray-light",
+        "name": "var(--mf-c-gray-light)",
         "color": "Overcast Gray",
         "value": "#dcdcdc"
       },
       {
-        "name": "$c-gray-lightest",
+        "name": "var(--mf-c-gray-lightest)",
         "color": "Platinum Gray",
         "value": "#f2f2f2"
       }]

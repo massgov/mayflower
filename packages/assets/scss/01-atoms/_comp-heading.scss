@@ -69,6 +69,6 @@
 
   &--gray {
 
-    @include ma-border-decorative($c-gray, 1);
+    @include ma-border-decorative(var(--mf-c-gray), 1);
   }
 }

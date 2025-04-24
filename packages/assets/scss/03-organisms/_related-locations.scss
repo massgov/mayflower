@@ -56,7 +56,7 @@
 
       @media ($bp-large-extended-min) {
         width: 39%;
-        border-left: 1px solid $c-gray-light;
+        border-left: 1px solid var(--mf-c-gray-light);
 
         a {
           margin: 0 auto;
@@ -67,7 +67,7 @@
     &:nth-child(3) {
 
       @media ($bp-large-extended-min) {
-        border-left: 1px solid $c-gray-light;
+        border-left: 1px solid var(--mf-c-gray-light);
 
         a {
           float: right;
@@ -97,7 +97,7 @@
           display: inline-block;
           height: .6em;
           width: .6em;
-          fill: $c-bay-blue-lighter;
+          fill: var(--mf-c-bay-blue-lighter);
           margin-left: 5px;
         }
 

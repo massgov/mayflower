@@ -3,7 +3,7 @@
 .ma__accordion {
 
   &-item {
-    border: 2px solid $c-gray-light;
+    border: 2px solid var(--mf-c-gray-light);
 
     &--borderless {
       border: none;
@@ -84,7 +84,7 @@
 
         &.is-open {
           margin-bottom: 22px;
-          border-bottom: 2px solid $c-gray-light;
+          border-bottom: 2px solid var(--mf-c-gray-light);
         }
       }
 

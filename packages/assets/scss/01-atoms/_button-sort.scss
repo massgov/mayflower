@@ -49,7 +49,7 @@
   }
 
   &--asc:before {
-    border-bottom-color: $c-gray;
+    border-bottom-color: var(--mf-c-gray);
   }
 
   &:after {
@@ -57,6 +57,6 @@
   }
 
   &--dsc:after {
-    border-top-color: $c-gray;
+    border-top-color: var(--mf-c-gray);
   }
 }

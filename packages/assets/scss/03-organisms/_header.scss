@@ -331,7 +331,7 @@ body {
   &__main-nav {
 
     @media ($bp-header-toggle-max) {
-      border-bottom: 2px solid; // $c-gray-light;
+      border-bottom: 2px solid; // var(--mf-c-gray-light);
       margin-bottom: 15px;
       padding-bottom: 15px;
     }
@@ -415,7 +415,7 @@ body {
   background-color: $c-bg-section;
 
   @media ($bp-small-max) {
-    border-bottom: 1px solid $c-gray-lightest;
+    border-bottom: 1px solid var(--mf-c-gray-lightest);
   }
 
   &__nav-container {
@@ -480,8 +480,8 @@ body {
 
     a {
       font-weight: $fonts-normal;
-      background-color: mix($c-white, $c-font-link, 90%);
-      border-color: mix($c-white, $c-font-link, 50%);
+      background-color: mix(var(--mf-c-white), $c-font-link, 90%);
+      border-color: mix(var(--mf-c-white), $c-font-link, 50%);
       box-shadow: $box-shadow;
       color: $c-font-link;
       font-size: $fonts-medium;

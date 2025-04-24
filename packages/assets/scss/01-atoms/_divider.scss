@@ -41,7 +41,7 @@
   &--thin {
 
     &:after {
-      background-color: $c-overcast-gray;
+      background-color: var(--mf-c-overcast-gray);
     }
   }
 }

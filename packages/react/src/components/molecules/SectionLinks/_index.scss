@@ -10,10 +10,10 @@
     margin: 0 -20px;
     width: calc(100% + 40px);
     border-top-color: $c-bd-divider;
-    background-color: $c-white;
+    background-color: var(--mf-c-white);
 
     &.is-open {
-      background-color: $c-white
+      background-color: var(--mf-c-white)
     }
 
     &:last-child {

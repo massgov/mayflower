@@ -246,7 +246,7 @@
   }
 
   a {
-    color: $c-revolution-gray;
+    color: var(--mf-c-revolution-gray);
   }
 }
 
@@ -305,7 +305,7 @@
     font-weight: $fonts-bold;
 
     &:hover {
-      background-color: $c-gray-light;
+      background-color: var(--mf-c-gray-light);
     }
 
     & > svg {

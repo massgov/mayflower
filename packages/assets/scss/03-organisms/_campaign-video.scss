@@ -5,8 +5,8 @@ $colors: (
   "c-primary-lightest":  $c-primary-lightest,
   "c-primary-alt": $c-primary-alt,
   "c-primary-alt-lightest": $c-primary-alt-lightest,
-  "c-white": $c-white,
-  "c-gray-lightest": $c-gray-lightest
+  "c-white": var(--mf-c-white),
+  "c-gray-lightest": var(--mf-c-gray-lightest)
 );
 
 .ma__campaign-video {
@@ -41,12 +41,12 @@ $colors: (
             &:hover,
             &:active,
             &:focus {
-              border-bottom-color: rgba($c-white, 0.5);
+              border-bottom-color: rgba(var(--mf-c-white), 0.5);
             }
           }
 
           svg {
-            fill: rgba($c-white, 0.5);
+            fill: rgba(var(--mf-c-white), 0.5);
           }
         }
       }

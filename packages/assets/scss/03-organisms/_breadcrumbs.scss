@@ -87,7 +87,7 @@ $breadcrumbs-scrollbar-height: 12px;
       margin-left: 0;
       margin-right: 3px;
       width: 7px;
-      border-color: $c-gray-dark;
+      border-color: var(--mf-c-gray-dark);
     }
 
     &:first-child {
@@ -120,7 +120,7 @@ $breadcrumbs-scrollbar-height: 12px;
     }
 
     button {
-      border: 2px solid $c-bay-blue-50-tint;
+      border: 2px solid var(--mf-c-bay-blue-50-tint);
       background: transparent;
       width: 27px;
       height: 25px;
@@ -159,7 +159,7 @@ $breadcrumbs-scrollbar-height: 12px;
     }
 
     a {
-      box-shadow: inset 0 0 $c-white, inset 0px -1px $c-bay-blue-lighter;
+      box-shadow: inset 0 0 var(--mf-c-white), inset 0px -1px var(--mf-c-bay-blue-lighter);
 
       svg {
         fill: $c-primary;
@@ -169,11 +169,11 @@ $breadcrumbs-scrollbar-height: 12px;
       }
 
       &:hover {
-        box-shadow: inset 0 0 $c-white, inset 0px -2px $c-bay-blue-30-tint;
+        box-shadow: inset 0 0 var(--mf-c-white), inset 0px -2px var(--mf-c-bay-blue-30-tint);
 
         svg {
           fill: $c-link;
-          stroke: $c-bay-blue-50-tint;
+          stroke: var(--mf-c-bay-blue-50-tint);
         }
       }
 
@@ -200,7 +200,7 @@ $breadcrumbs-scrollbar-height: 12px;
       height: 7px;
       margin-right: 5px;
       width: 7px;
-      border-color: $c-gray-dark;
+      border-color: var(--mf-c-gray-dark);
     }
 
     &:after {
@@ -260,13 +260,13 @@ $breadcrumbs-scrollbar-height: 12px;
         /* Track */
 
         &::-webkit-scrollbar-track {
-          background: mix($c-bg, $c-granite-gray, 80);
+          background: mix($c-bg, var(--mf-c-granite-gray), 80);
         }
 
         /* Handle */
 
         &::-webkit-scrollbar-thumb {
-          background: mix($c-bg, $c-granite-gray, 50);
+          background: mix($c-bg, var(--mf-c-granite-gray), 50);
         }
       }
     }

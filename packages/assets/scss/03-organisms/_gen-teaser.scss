@@ -109,7 +109,7 @@
 
          span {
           font-size: $fonts-medium;
-          color: $c-gray-dark;
+          color: var(--mf-c-gray-dark);
           font-weight: $fonts-bold;
          }
 
@@ -269,7 +269,7 @@
     @media ($bp-small-min) {
       padding-left: .75em;
       margin-left: .75em;
-      border-left: 1px solid $c-gray-light;
+      border-left: 1px solid var(--mf-c-gray-light);
 
       & > *:first-child {
         margin-top: 0rem;
@@ -330,11 +330,11 @@
   }
 
   &__tag {
-    color: $c-gray;
+    color: var(--mf-c-gray);
     font-size: $fonts-xsmall;
     font-weight: bold;
     text-align: center;
-    border: 1px solid $c-gray-light;
+    border: 1px solid var(--mf-c-gray-light);
     background-color: $c-bg;
     padding: 0px 5px;
     min-width: 60px;
@@ -375,7 +375,7 @@
         height: 42px;
         min-height: 42px;
         background-color: $c-bg;
-        border-color: $c-gray-light !important;
+        border-color: var(--mf-c-gray-light) !important;
         color: $c-primary-alt;
 
         svg {

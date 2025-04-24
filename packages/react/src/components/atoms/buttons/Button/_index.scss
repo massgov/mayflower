@@ -5,7 +5,7 @@
   &.ma__button--c-primary-alt{
     color: $c-primary-alt;
     &:hover {
-      color: $c-white;
+      color: var(--mf-c-white);
       background-color: $c-primary-alt;
     }
   }

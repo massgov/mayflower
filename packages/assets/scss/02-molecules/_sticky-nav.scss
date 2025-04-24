@@ -28,8 +28,8 @@
   }
 
   @media ($bp-medium-max) {
-    background-color: $c-gray-lightest;
-    border: 1px solid $c-gray-light;
+    background-color: var(--mf-c-gray-lightest);
+    border: 1px solid var(--mf-c-gray-light);
     left: 0;
     // when the nav is sticky, add a box shadow
 
@@ -86,7 +86,7 @@
     cursor: pointer;
     display: none;
     line-height: 1.2;
-    border-top-color: $c-gray-light;
+    border-top-color: var(--mf-c-gray-light);
     padding: 12px;
 
     @media ($bp-medium-min) {
@@ -103,7 +103,7 @@
     &.is-title {
 
       span {
-        color: $c-gray-dark;
+        color: var(--mf-c-gray-dark);
         border-bottom: 3px solid transparent;
         padding-top: 3px;
         padding-bottom: 1px;
@@ -115,7 +115,7 @@
       }
 
       a {
-        color: $c-gray-dark !important;
+        color: var(--mf-c-gray-dark) !important;
 
         &:focus {
           border-bottom-width: 0;
@@ -219,7 +219,7 @@
     padding-bottom: 3px;
   
     @media ($bp-medium-min) {
-      background-color: $c-gray-lightest;
+      background-color: var(--mf-c-gray-lightest);
       box-shadow: $box-shadow;
     }
 

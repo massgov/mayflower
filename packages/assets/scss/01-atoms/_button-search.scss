@@ -25,7 +25,7 @@
 
   background-color: $background-color;
 
-  @if $background-color==$c-white {
+  @if $background-color==var(--mf-c-white) {
     border-color: $c-bd-input !important;
   } @else {
     border-color: $background-color !important;
@@ -38,7 +38,7 @@
   &:focus {
     background-color: $color;
 
-    @if $color==$c-white {
+    @if $color==var(--mf-c-white) {
       border-color: $c-bd-input !important;
     } @else {
       border-color: $color !important;
@@ -59,12 +59,12 @@
 
   //primary button search
 
-  @include ma-button-search($c-primary-alt, $c-white);
+  @include ma-button-search($c-primary-alt, var(--mf-c-white));
 
   //secondary button search
 
   &--secondary {
 
-    @include ma-button-search($c-white, $c-primary-alt);
+    @include ma-button-search(var(--mf-c-white), $c-primary-alt);
   }
 }

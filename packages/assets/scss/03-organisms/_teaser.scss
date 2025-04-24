@@ -10,7 +10,7 @@
     }
 
     &--active {
-      background-color: $c-gray-lightest;
+      background-color: var(--mf-c-gray-lightest);
     }
   }
 }
@@ -99,7 +99,7 @@
 
         span {
           font-size: $fonts-medium;
-          color: $c-gray-dark;
+          color: var(--mf-c-gray-dark);
           font-weight: $fonts-bold;
         }
 
@@ -208,13 +208,13 @@
       flex: 1 1 40%;
       flex-grow: 1;
       padding-left: 0.75em;
-      border-left: 1px solid $c-gray-light;
+      border-left: 1px solid var(--mf-c-gray-light);
     }
 
     @media ($bp-small-min) {
       flex: 1 1 40%;
       flex-grow: 1;
-      border-left: 1px solid $c-gray-light;
+      border-left: 1px solid var(--mf-c-gray-light);
       align-content: flex-start;
     }
   }

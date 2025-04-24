@@ -34,7 +34,7 @@
       }
 
       svg {
-        fill: mix($c-white, $c-font-base, 50%);
+        fill: mix(var(--mf-c-white), $c-font-base, 50%);
       }
 
       &:hover {

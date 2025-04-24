@@ -89,7 +89,7 @@
           width: .5em;
           border-right: 3px solid;
           border-bottom: 3px solid;
-          border-color: $c-gray-darkest;
+          border-color: var(--mf-c-gray-darkest);
         }
       }
     }
@@ -108,7 +108,7 @@ $colors: (
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
   "c-error": $c-error,
-  "c-gray": $c-gray
+  "c-gray": var(--mf-c-gray)
 );
 
 @each $class, $c in $colors {

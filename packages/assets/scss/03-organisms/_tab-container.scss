@@ -34,15 +34,15 @@
 
   &-body {
     padding: 1rem;
-    border: 1px solid $c-gray-light;
+    border: 1px solid var(--mf-c-gray-light);
     margin-top: -1px;
 
     @extend %focus;
   }
 
   .ma__tab-title {
-    border-left: 1px solid $c-gray-light;
-    border-top: 1px solid $c-gray-light;
+    border-left: 1px solid var(--mf-c-gray-light);
+    border-top: 1px solid var(--mf-c-gray-light);
     border-right: none;
     border-bottom: none;
     margin-bottom: -1px;
@@ -52,7 +52,7 @@
     }
 
     &:last-child {
-      border-right: 1px solid $c-gray-light;
+      border-right: 1px solid var(--mf-c-gray-light);
     }
 
 
@@ -70,7 +70,7 @@
       border-top: 5px solid $c-primary;
       background-color: $c-bg;
       z-index: 1;
-      outline: $c-error-red;
+      outline: var(--mf-c-error-red);
 
       button {
         padding-top: 1.5rem;
@@ -87,7 +87,7 @@
     .ma__tab-container {
 
       &-head {
-        border-bottom: 1px solid $c-gray-light;
+        border-bottom: 1px solid var(--mf-c-gray-light);
       }
 
       &-body {

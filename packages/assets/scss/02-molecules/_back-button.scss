@@ -39,7 +39,7 @@
   .ma__button {
 
     &:before {
-      border-color: $c-bay-blue-lighter;
+      border-color: var(--mf-c-bay-blue-lighter);
       transition: all 0.4s ease;
     }
 
@@ -53,10 +53,10 @@
   a:not(.ma__button) {
 
     @include ma-button("",$c-font-link);
-    border-color: $c-bay-blue-lighter;
+    border-color: var(--mf-c-bay-blue-lighter);
 
     &:before {
-      border-color: $c-bay-blue-lighter;
+      border-color: var(--mf-c-bay-blue-lighter);
       transition: all 0.4s ease;
     }
 

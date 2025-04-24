@@ -7,7 +7,7 @@
   max-width: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: $c-gray-lightest;
+  background-color: var(--mf-c-gray-lightest);
 
   // dimmer
   // this :before is set up in the aspect ratio mixin
@@ -20,11 +20,11 @@
   }
 
   &:hover:before {
-    background-color: rgba($c-black,0.1);
+    background-color: rgba(var(--mf-c-black),0.1);
   }
 
   &:hover span {
-    border-bottom-color: $c-white;
+    border-bottom-color: var(--mf-c-white);
   }
 
   &__image img,
@@ -64,7 +64,7 @@
       svg {
   
         @include ma-link-arrow;
-        fill: $c-white;
+        fill: var(--mf-c-white);
       }
     }
 

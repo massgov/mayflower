@@ -12,7 +12,7 @@ $margin: 20px;
 
   .ma__slider {
     &-rail {
-     background-color: $c-gray-light;
+     background-color: var(--mf-c-gray-light);
      position: absolute;
     }
     &-track {
@@ -22,7 +22,7 @@ $margin: 20px;
       cursor: pointer;
     }
     &-handle {
-      border: 1px solid $c-white;
+      border: 1px solid var(--mf-c-white);
       width: 26px;
       height: 26px;
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
@@ -59,11 +59,11 @@ $margin: 20px;
     opacity: 0.5;
     .ma__slider {
       &-track {
-        background-color: $c-gray;
+        background-color: var(--mf-c-gray);
         cursor: not-allowed;
       }
       &-handle {
-        background-color: $c-gray-dark;
+        background-color: var(--mf-c-gray-dark);
         cursor: not-allowed;
         opacity: 1;
         &:hover {
@@ -71,7 +71,7 @@ $margin: 20px;
         }
 
         &-value {
-          color: $c-black;
+          color: var(--mf-c-black);
         }
       }
     }
@@ -109,7 +109,7 @@ $margin: 20px;
           margin-left: -0.5px;
           width: 1px;
           height: 8px;
-          background-color: $c-gray-light;
+          background-color: var(--mf-c-gray-light);
         }
         &--bottom {
           margin-top: 60px;
@@ -151,7 +151,7 @@ $margin: 20px;
           margin-left: 10px;
           height: 1px;
           width: 6px;
-          background-color: $c-gray-light;
+          background-color: var(--mf-c-gray-light);
         }
         &--bottom {
          margin-top: -5px;

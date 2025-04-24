@@ -18,7 +18,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: rgba($c-gray-darkest, 0.4);
+  background-color: rgba(var(--mf-c-gray-darkest), 0.4);
   top: 0;
   z-index: $z-overlay-shade;// Lay over the alerts.
 
@@ -36,7 +36,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: rgba($c-gray-darkest, 0.4);
+  background-color: rgba(var(--mf-c-gray-darkest), 0.4);
   top: 0px;
   z-index: $z-overlay-shade;
 
@@ -52,7 +52,7 @@ body.show-menu {
   background-color: $c-bg-section;
 
   @media ($bp-small-max) {
-    border-bottom: 1px solid $c-gray-lightest;
+    border-bottom: 1px solid var(--mf-c-gray-lightest);
   }
 
   &--slim {
@@ -206,7 +206,7 @@ body.show-menu {
   }
 
   &__nav-container {
-    background-color: $c-gray-lightest;
+    background-color: var(--mf-c-gray-lightest);
     height: calc(100vh - 44px);
     top: 44px;
     overflow-y: auto;
@@ -386,7 +386,7 @@ body.show-menu {
     }
 
     & svg {
-      fill: $c-white;
+      fill: var(--mf-c-white);
       height: 20px;
       -o-transition: fill .4s;
       transition: fill .4s;
@@ -423,7 +423,7 @@ body.show-menu {
       }
 
       svg {
-        fill: $c-white;
+        fill: var(--mf-c-white);
       }
     }
   }
@@ -442,7 +442,7 @@ body.show-menu {
             padding: 0;
 
             &:hover {
-              background-color: $c-gray-lightest;
+              background-color: var(--mf-c-gray-lightest);
               box-shadow: none;
             }
           }
@@ -460,12 +460,12 @@ body.show-menu {
             text-transform: uppercase;
             transition: all 0.4s ease;
             text-align: left;
-            background-color: $c-gray-lightest;
+            background-color: var(--mf-c-gray-lightest);
             width: 100%;
 
             &:focus {
               background-color: $c-bd-divider;
-              outline: 2px solid $c-gray-darkest;
+              outline: 2px solid var(--mf-c-gray-darkest);
             }
 
             .toggle-indicator {
@@ -538,7 +538,7 @@ body.show-menu {
 
             & .ma__utility-nav__container {
               padding: 0;
-              background-color: $c-white;
+              background-color: var(--mf-c-white);
               overflow-y: visible;
               max-height: auto;
 
@@ -562,7 +562,7 @@ body.show-menu {
             }
 
             & .ma__utility-panel {
-              background-color: $c-white;
+              background-color: var(--mf-c-white);
               color: $c-font-base;
 
               @include ma-reset-list;
@@ -597,7 +597,7 @@ body.show-menu {
             }
 
             & .ma__utility-panel__item {
-              background-color: $c-white;
+              background-color: var(--mf-c-white);
               color: $c-font-base;
               margin: 0;
               display: block;

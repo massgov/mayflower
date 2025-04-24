@@ -108,7 +108,7 @@
 
   &--white {
     background-color: $c-bg;
-    border-color: mix($c-white, $c-font-detail,70%);
+    border-color: mix(var(--mf-c-white), $c-font-detail,70%);
     box-shadow: $box-shadow;
   }
 

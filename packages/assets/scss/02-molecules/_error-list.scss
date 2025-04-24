@@ -70,7 +70,7 @@
 .ma__error-list {
 
   &__container {
-    background-color: $c-error-red-lightest;
+    background-color: var(--mf-c-error-red-lightest);
     border-color: $c-bd-error;
     color: $c-font-error;
   }

@@ -68,7 +68,7 @@
     border-color: $c-bd-input;
 
     &:after {
-      border-color: $c-gray-darkest;
+      border-color: var(--mf-c-gray-darkest);
       border-left-color: transparent;
       border-right-color: transparent;
     }

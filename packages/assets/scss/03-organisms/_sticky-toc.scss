@@ -506,7 +506,7 @@
     font-weight: $fonts-normal;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
-    color: $c-gray-dark;
+    color: var(--mf-c-gray-dark);
     background-color: $c-bg;
     height: 65px;
     padding: 10px 20px;
@@ -523,7 +523,7 @@
       width: calc(100% - 40px);
       height: 1px;
       bottom: 0;
-      background-color: $c-gray-dark;
+      background-color: var(--mf-c-gray-dark);
     }
   }
 
@@ -588,7 +588,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba($c-gray-darkest, 0.3);
+  background-color: rgba(var(--mf-c-gray-darkest), 0.3);
   pointer-events: none;
   z-index: 99;
 

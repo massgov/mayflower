@@ -84,8 +84,8 @@
   //default
 
   &__content {
-    background-color: mix($c-white, $c-warning, 90%);
-    border-color: mix($c-white, $c-warning, 50%);
+    background-color: mix(var(--mf-c-white), $c-warning, 90%);
+    border-color: mix(var(--mf-c-white), $c-warning, 50%);
     box-shadow: $box-shadow;
   }
 
@@ -109,8 +109,8 @@
   //c-primary
 
   &--c-primary &__content {
-    background-color: mix($c-white, $c-primary, 90%);
-    border-color: mix($c-white, $c-primary, 50%);
+    background-color: mix(var(--mf-c-white), $c-primary, 90%);
+    border-color: mix(var(--mf-c-white), $c-primary, 50%);
     box-shadow: $box-shadow;
   }
 
@@ -121,8 +121,8 @@
   //c-primary-alt
 
   &--c-primary-alt &__content {
-    background-color: mix($c-white, $c-primary-alt, 90%);
-    border-color: mix($c-white, $c-primary-alt, 50%);
+    background-color: mix(var(--mf-c-white), $c-primary-alt, 90%);
+    border-color: mix(var(--mf-c-white), $c-primary-alt, 50%);
     box-shadow: $box-shadow;
   }
 
@@ -133,37 +133,37 @@
   //c-gray-dark
 
   &--c-gray-dark &__content {
-    background-color: mix($c-white, $c-gray-dark, 90%);
-    border-color: mix($c-white, $c-gray-dark, 50%);
+    background-color: mix(var(--mf-c-white), var(--mf-c-gray-dark), 90%);
+    border-color: mix(var(--mf-c-white), var(--mf-c-gray-dark), 50%);
     box-shadow: $box-shadow;
   }
 
   &--c-gray-dark &__icon svg {
-    fill: $c-gray-dark;
+    fill: var(--mf-c-gray-dark);
   }
 
   //c-error-red
 
   &--c-error-red &__content {
-    background-color: mix($c-white, $c-error-red, 90%);
-    border-color: mix($c-white, $c-error-red, 50%);
+    background-color: mix(var(--mf-c-white), var(--mf-c-error-red), 90%);
+    border-color: mix(var(--mf-c-white), var(--mf-c-error-red), 50%);
     box-shadow: $box-shadow;
   }
 
   &--c-error-red &__icon svg {
-    fill: $c-error-red;
+    fill: var(--mf-c-error-red);
   }
 
   //c-white
 
   &--c-white &__content {
-    background-color: mix($c-white, $c-white, 90%);
-    border-color: mix($c-white, $c-gray-dark, 50%);
+    background-color: mix(var(--mf-c-white), var(--mf-c-white), 90%);
+    border-color: mix(var(--mf-c-white), var(--mf-c-gray-dark), 50%);
     box-shadow: $box-shadow;
   }
 
   &--c-white &__icon svg {
-    fill: $c-white;
+    fill: var(--mf-c-white);
   }
 
 }

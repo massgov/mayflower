@@ -12,7 +12,7 @@
       padding-right: 5px;
       padding-top: 4px;
       border-left: none;
-      color: $c-gray-dark;
+      color: var(--mf-c-gray-dark);
 
       &--showButtons {
         border-right: none;
@@ -53,7 +53,7 @@
   	    width: 40px;
 
   	    &:after {
-  	      border: 5px solid $c-gray-darkest;
+  	      border: 5px solid var(--mf-c-gray-darkest);
   	      border-top: none;
   	      border-bottom-width: 6px;
   	      content: "";

@@ -1,7 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__card {
-  background-color: $c-gray-lightest;
+  background-color: var(--mf-c-gray-lightest);
   max-width: 1240px;
   display: flex;
   flex-flow: column;
@@ -162,7 +162,7 @@
     letter-spacing: $letter-spacing-large;
     padding: 5px 7px;
     text-transform: uppercase;
-    background-color: $c-white;
+    background-color: var(--mf-c-white);
     font-weight: $fonts-bold;
 
     svg {
@@ -175,11 +175,11 @@
   // White Card variant
 
   &--c-white {
-    background-color: $c-white;
-    border: 2px solid $c-gray-light;
+    background-color: var(--mf-c-white);
+    border: 2px solid var(--mf-c-gray-light);
 
     .ma__card__eyebrow {
-      background-color: $c-gray-lightest;
+      background-color: var(--mf-c-gray-lightest);
     }
   }
 

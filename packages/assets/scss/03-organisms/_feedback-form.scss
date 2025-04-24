@@ -167,7 +167,7 @@ $feedback-form-bp-min: "min-width: 751px";
 .ma__feedback-form {
 
   &__overlay {
-    background-color: rgba($c-black,.6);
+    background-color: rgba(var(--mf-c-black),.6);
     color: $c-font-inverse;
   }
 

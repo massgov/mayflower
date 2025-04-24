@@ -8,12 +8,12 @@
     align-items: center;
     flex-wrap: wrap;
 
-    color: $c-gray-darkest;
+    color: var(--mf-c-gray-darkest);
     margin-bottom: 0;
     border: 1px solid $c-bd-divider-dark;
 
     &__button {
-      color: $c-gray-darkest;
+      color: var(--mf-c-gray-darkest);
       background-color: $c-warning;
       padding: 10px 15px;
       width: 100%;
@@ -85,7 +85,7 @@
     border-top: 0;
 
     &__header {
-      color: $c-gray-darkest;
+      color: var(--mf-c-gray-darkest);
       border: none;
       display: block;
       padding: 20px 40px 15px 50px;

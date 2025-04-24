@@ -51,7 +51,7 @@
 
   svg,
   svg > g {
-    fill: $c-white;
+    fill: var(--mf-c-white);
   }
 
   &:after {

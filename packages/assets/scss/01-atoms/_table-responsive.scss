@@ -33,15 +33,15 @@
   // Code taken from https://codepen.io/aardrian/pen/MWeRJWd
   background: linear-gradient(to right, #fff 30%, rgba(255, 255, 255, 0)),
   linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%) 0 100%,
-  linear-gradient(to right, $c-gray-light 30%, rgba(255, 255, 255, 0)),
-  linear-gradient(to right, rgba(255, 255, 255, 0), $c-gray-light 70%) 0 100%,
+  linear-gradient(to right, var(--mf-c-gray-light) 30%, rgba(255, 255, 255, 0)),
+  linear-gradient(to right, rgba(255, 255, 255, 0), var(--mf-c-gray-light) 70%) 0 100%,
   0 100%;
   background-repeat: no-repeat;
   background-color: #fff;
   background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
   background-position: 0 0, 100%, 0 0, 100%;
   background-attachment: local, local, scroll, scroll;
-  border: 2px solid $c-gray-light;
+  border: 2px solid var(--mf-c-gray-light);
   overflow-x: auto;
 
   @media ($bp-medium-max) {
@@ -50,7 +50,7 @@
   }
 
   &[tabindex="0"]:focus {
-    outline: 3px solid $c-focus-hightlight;
+    outline: 3px solid var(--mf-c-focus-hightlight);
     outline-offset: 3px;
   }
 
@@ -59,7 +59,7 @@
 .ma__table--responsive .sticky-thead {
     background: $c-bg;
     border-collapse: collapse;
-    box-shadow: 0 0 0 2px $c-gray-light;
+    box-shadow: 0 0 0 2px var(--mf-c-gray-light);
     left: 0;
     opacity: 0;
     overflow: hidden;
@@ -121,5 +121,5 @@
     border-collapse: collapse;
     border-spacing: 0;
     text-align: left;
-    box-shadow: 0 0 0 2px $c-gray-light;
+    box-shadow: 0 0 0 2px var(--mf-c-gray-light);
 }

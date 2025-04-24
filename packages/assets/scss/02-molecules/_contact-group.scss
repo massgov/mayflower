@@ -88,7 +88,7 @@
       display: inline;
       padding-top: 3px;
       padding-bottom: 3px;
-      border-bottom-color: $c-bay-blue-50-tint;// Update with the value of DP-32007.
+      border-bottom-color: var(--mf-c-bay-blue-50-tint);// Update with the value of DP-32007.
       border-bottom-width: 1px;
     }
   }

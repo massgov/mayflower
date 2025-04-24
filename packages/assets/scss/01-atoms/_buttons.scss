@@ -3,9 +3,9 @@
 $primarycolors: (
   "c-primary-alt": $c-primary-alt,
   "c-highlight": $c-highlight,
-  "c-black": $c-gray-darkest,
-  "c-gray-dark": $c-gray-dark,
-  "c-white": $c-white
+  "c-black": var(--mf-c-gray-darkest),
+  "c-gray-dark": var(--mf-c-gray-dark),
+  "c-white": var(--mf-c-white)
 );
 
 
@@ -71,17 +71,17 @@ button {
 
   &.ma__button--c-gray-dark {
 
-    @include ma-button("outline",$c-gray-dark);
+    @include ma-button("outline",var(--mf-c-gray-dark));
   }
 }
 
 .ma__button--tertiary {
 
-  @include ma-button("solid",$c-gray-light);
+  @include ma-button("solid",var(--mf-c-gray-light));
   color: $c-font-base;
 
   svg {
-    fill: $c-gray-darkest;
+    fill: var(--mf-c-gray-darkest);
   }
 }
 

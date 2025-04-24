@@ -5,10 +5,10 @@
   padding-bottom: $standard-spacing--xxsmall;
 
   &--dark-font &--inner {
-    color: $c-black;
+    color: var(--mf-c-black);
 
     .blogpost-collection-header__content a {
-      color: $c-black;
+      color: var(--mf-c-black);
     }
   }
 }
@@ -46,12 +46,12 @@
     color: $c-font-inverse;
 
     &:hover {
-      border-bottom-color: $c-white;
+      border-bottom-color: var(--mf-c-white);
     }
   }
 
   svg {
-    fill: $c-white;
+    fill: var(--mf-c-white);
     opacity: 0.5;
   }
 }
