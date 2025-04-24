@@ -59,6 +59,6 @@ Fixed:
 Removed:
   - project: Patternlab,React,Assets
     component: Tooltip
-    description: Archive Tooltip component (#1979)
+    description: REmove Tooltip component, replace tooltip with popover (#1979)
     issue: DP-37992
     impact: Major
