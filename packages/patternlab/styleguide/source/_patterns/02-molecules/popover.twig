@@ -11,9 +11,9 @@
  # users interact with the popover content, preventing it from closing on 'focusout'
  #}
 <span class="popover">
-  <button class="popover__trigger js-popover-trigger">{{tooltip.openText}}</button>
+  <button type="button" class="popover__trigger js-popover-trigger">{{tooltip.openText}}</button>
   <span role="dialog" id="popover-{{ tooltip.controlId }}" aria-labelledby="popover-{{ tooltip.controlId }}-label" aria-modal="true" class="popover__dialog js-popover-dialog" tabindex="-1">
-    <button class="popover__close js-popover-close" aria-label="{{ tooltip.closeText }}">{{icon('close')}}</button>
+    <button type="button" class="popover__close js-popover-close" aria-label="{{ tooltip.closeText }}">{{icon('close')}}</button>
     {% if tooltip.title %}
       {% set headingLevel = tooltip.level ? : 2 %}
       <span role="heading" aria-level="{{ headingLevel }}" class="popover__title" id="popover-{{ tooltip.controlId }}-label">{{ tooltip.title }}</span>
