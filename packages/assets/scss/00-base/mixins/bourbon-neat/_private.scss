@@ -73,7 +73,7 @@
 
 @function gradient-stops($grid-columns, $color: $visual-grid-color) {
   $transparent: transparent;
-  $alt-color: darken($color, 10%);
+  $alt-color: color-mix(in srgb, var(--mf-c-black) 10%, $color 90%);
 
   $column-width: flex-grid(1, $grid-columns);
   $gutter-width: flex-gutter($grid-columns);

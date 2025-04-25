@@ -169,7 +169,7 @@
     box-shadow: $box-shadow;
 
     &:hover {
-      background-color: darken($c-bg-subtle, 10%);
+      background-color: color-mix(in srgb, var(--mf-c-black) 10%, $c-bg-subtle 90%);
 
       a {
         border-bottom-color: $c-font-link;
