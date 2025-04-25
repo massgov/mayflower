@@ -56,3 +56,9 @@ Fixed:
     description: fix accessibility issues (#1976)
     issue: DP-37992
     impact: Minor
+Removed:
+  - project: Patternlab,React,Assets
+    component: Tooltip
+    description: Remove Tooltip component, replace tooltip with popover (#1979)
+    issue: DP-37992
+    impact: Major
