@@ -79,7 +79,7 @@ $border-width: 1px;
       color: $c-font-inverse;
 
       svg {
-        fill: mix(var(--mf-c-white), $c-font-link, 70%);
+        fill: color-mix(in srgb, var(--mf-c-white) 70%, $c-font-link 30%);
       }
     }
 

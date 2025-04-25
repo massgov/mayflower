@@ -8,10 +8,10 @@
 
 @mixin ma-emergency-alert ($color) {
   color: $c-font-base;
-  background-color: mix($c-bg, $color, 90%);
+  background-color: color-mix(in srgb, $c-bg 90%, $color 10%);
 
     & + & {
-    border-top-color: mix($c-bg, $color, 50%);
+    border-top-color: color-mix(in srgb, $c-bg 50%, $color 50%);
   }
 
   .ma__emergency-alert__link {
@@ -34,7 +34,7 @@
       }
 
       svg {
-        fill: mix(var(--mf-c-white), $c-font-base, 50%);
+        fill: color-mix(in srgb, var(--mf-c-white) 50%, $c-font-base 50%);
       }
 
       &:hover {

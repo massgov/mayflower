@@ -9,7 +9,7 @@
   flex-flow: column wrap;
   justify-content: center;
   padding: 15px 20px;
-  background-color: mix($c-bg, $c-font-link,90%);
+  background-color: color-mix(in srgb, $c-bg 90%, $c-font-link 10%);
   border-color: $c-link;
   box-shadow: $box-shadow;
   text-decoration: none;
@@ -108,7 +108,7 @@
 
   &--white {
     background-color: $c-bg;
-    border-color: mix(var(--mf-c-white), $c-font-detail,70%);
+    border-color: color-mix(in srgb, var(--mf-c-white) 70%, $c-font-detail 30%);
     box-shadow: $box-shadow;
   }
 

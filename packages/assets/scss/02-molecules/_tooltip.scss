@@ -117,7 +117,7 @@
     }
 
     & > svg {
-      fill: mix(var(--mf-c-white), $c-font-link, 50%);
+      fill: color-mix(in srgb, var(--mf-c-white) 50%, $c-font-link 50%);
     }
   }
 

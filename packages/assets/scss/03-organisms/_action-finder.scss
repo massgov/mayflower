@@ -172,8 +172,8 @@ $action-finder-bp: 900px;
 }
 
 //theme
-$action-finder-bg-color: mix($c-bg, $c-primary,89%);
-$action-finder-border-color: mix(var(--mf-c-white), $c-primary,50%);
+$action-finder-bg-color: color-mix(in srgb, $c-bg 89%, $c-primary,11%);
+$action-finder-border-color: color-mix(in srgb, var(--mf-c-white) 50%, $c-primary 50%);
 
 .ma__action-finder {
 

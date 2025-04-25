@@ -260,13 +260,13 @@ $breadcrumbs-scrollbar-height: 12px;
         /* Track */
 
         &::-webkit-scrollbar-track {
-          background: mix($c-bg, var(--mf-c-granite-gray), 80);
+          background: color-mix(in srgb, $c-bg 80%, var(--mf-c-granite-gray) 20%);
         }
 
         /* Handle */
 
         &::-webkit-scrollbar-thumb {
-          background: mix($c-bg, var(--mf-c-granite-gray), 50);
+          background: color-mix(in srgb, $c-bg 50%, var(--mf-c-granite-gray) 50%);
         }
       }
     }
