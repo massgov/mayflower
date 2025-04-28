@@ -1,7 +1,19 @@
-<span class="popover" tabindex="-1">
-  <a role="button" class="popover__trigger js-popover-trigger">{{tooltip.openText}}</a>
+{#
+ # The popover component requires what may appear to be some strange decisions.
+ # For example, the use of <span> tags with roles instead of <dialog> or <h2>.
+ #
+ # This is required to allow popovers to work within page content. <p> tags only
+ # support phrasing (text) content. The more semantically obvious alternatives
+ # therefore break containing paragraphs into multiple separate paragraphs.
+ # @see: https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#phrasing_content
+ #
+ # Additionally, we add tabindex="-1" to the dialog element to catch focus if
+ # users interact with the popover content, preventing it from closing on 'focusout'
+ #}
+<span class="popover">
+  <button type="button" class="popover__trigger js-popover-trigger">{{tooltip.openText}}</button>
   <span role="dialog" id="popover-{{ tooltip.controlId }}" aria-labelledby="popover-{{ tooltip.controlId }}-label" aria-modal="true" class="popover__dialog js-popover-dialog" tabindex="-1">
-    <button class="popover__close js-popover-close" aria-label="{{ tooltip.closeText }}">{{icon('close')}}</button>
+    <button type="button" class="popover__close js-popover-close" aria-label="{{ tooltip.closeText }}">{{icon('close')}}</button>
     {% if tooltip.title %}
       {% set headingLevel = tooltip.level ? : 2 %}
       <span role="heading" aria-level="{{ headingLevel }}" class="popover__title" id="popover-{{ tooltip.controlId }}-label">{{ tooltip.title }}</span>

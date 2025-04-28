@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
     component: Key Message
-    description: Adjusts the font sizing of the subtitle. Adds additional padding around the container. Adds a new variant for two columns of text. (#1969)
+    description: Adjusts the font sizing of the subtitle. Adds additional padding around the container. Adds a new variant for two columns of text. (#1969,#1977)
     issue: DP-38400
     impact: Patch
