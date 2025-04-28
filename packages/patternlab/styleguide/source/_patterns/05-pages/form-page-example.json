@@ -490,16 +490,14 @@
                 }
               },
               {
-                "path": "@molecules/tooltip.twig",
+                "path": "@molecules/popover.twig",
                 "data": {
                   "tooltip": {
                     "controlId": "GUID278590287",
                     "location": "",
-                    "info": "what is a cvv value",
                     "openText": "What is this?",
-                    "openIcon": "question-mark",
                     "closeText": "Close",
-                    "title": "",
+                    "title": "What is this?",
                     "message": "You can find your CVV number on the back of your credit card.  It is usually a three or four digit number"
                   }
                 }
