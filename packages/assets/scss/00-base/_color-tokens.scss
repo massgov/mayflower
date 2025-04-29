@@ -132,11 +132,11 @@ $c-focus-hightlight:                #3e94cf !default;
     --mf-c-bay-blue-40-shade:               $c-bay-blue-40-shade;
     --mf-c-bay-blue-50-shade:               $c-bay-blue-50-shade;
 
-    --mf-c-bay-blue-light:                  $c-bay-blue-20-tint; //Commonly used in outlines
-    --mf-c-bay-blue-lighter:                $c-bay-blue-50-tint; //Commonly used in outlines
-    --mf-c-bay-blue-lightest:               $c-bay-blue-90-tint; //Commonly used in background
-    --mf-c-bay-blue-darker:                 $c-bay-blue-30-shade;
-    --mf-c-bay-blue-darkest:                $c-bay-blue-50-shade;
+    --mf-c-bay-blue-light:                  $c-bay-blue-light; //Commonly used in outlines
+    --mf-c-bay-blue-lighter:                $c-bay-blue-lighter; //Commonly used in outlines
+    --mf-c-bay-blue-lightest:               $c-bay-blue-lightest; //Commonly used in background
+    --mf-c-bay-blue-darker:                 $c-bay-blue-darker;
+    --mf-c-bay-blue-darkest:                $c-bay-blue-darkest;
 
     // Berkshires Green (#388557)
     --mf-c-berkshires-green-90-tint:        $c-berkshires-green-90-tint;
@@ -155,11 +155,11 @@ $c-focus-hightlight:                #3e94cf !default;
     --mf-c-berkshires-green-40-shade:       $c-berkshires-green-40-shade;
     --mf-c-berkshires-green-50-shade:       $c-berkshires-green-50-shade;
 
-    --mf-c-berkshires-green-lighter:        $c-berkshires-green-50-tint; //Commonly used in outlines
-    --mf-c-berkshires-green-lightest:       $c-berkshires-green-80-tint; //Commonly used in background
+    --mf-c-berkshires-green-lighter:        $c-berkshires-green-lighter; //Commonly used in outlines
+    --mf-c-berkshires-green-lightest:       $c-berkshires-green-lightest; //Commonly used in background
     --mf-c-berkshires-green-dark:           $c-berkshires-green-dark; // Followup needed: should be replaced with one of the gradient colors
-    --mf-c-berkshires-green-darker:         $c-berkshires-green-30-shade;
-    --mf-c-berkshires-green-darkest:        $c-berkshires-green-50-shade;
+    --mf-c-berkshires-green-darker:         $c-berkshires-green-darker;
+    --mf-c-berkshires-green-darkest:        $c-berkshires-green-darkest;
 
     // Duckling Yellow (#f6c51b)
     --mf-c-duckling-yellow-90-tint:         $c-duckling-yellow-90-tint;
@@ -178,10 +178,10 @@ $c-focus-hightlight:                #3e94cf !default;
     --mf-c-duckling-yellow-40-shade:        $c-duckling-yellow-40-shade;
     --mf-c-duckling-yellow-50-shade:        $c-duckling-yellow-50-shade;
 
-    --mf-c-duckling-yellow-lighter:         $c-duckling-yellow-50-tint; //Commonly used in outlines
-    --mf-c-duckling-yellow-lightest:        $c-duckling-yellow-90-tint; //Commonly used in background
-    --mf-c-duckling-yellow-darker:          $c-duckling-yellow-30-shade;
-    --mf-c-duckling-yellow-darkest:         $c-duckling-yellow-50-shade;
+    --mf-c-duckling-yellow-lighter:         $c-duckling-yellow-lighter; //Commonly used in outlines
+    --mf-c-duckling-yellow-lightest:        $c-duckling-yellow-lightest; //Commonly used in background
+    --mf-c-duckling-yellow-darker:          $c-duckling-yellow-darker;
+    --mf-c-duckling-yellow-darkest:         $c-duckling-yellow-darkest;
 
     // Independence Cranberry (#680A1D)
     --mf-c-independence-cranberry-90-tint:  $c-independence-cranberry-90-tint;
@@ -200,10 +200,10 @@ $c-focus-hightlight:                #3e94cf !default;
     --mf-c-independence-cranberry-40-shade: $c-independence-cranberry-40-shade;
     --mf-c-independence-cranberry-50-shade: $c-independence-cranberry-50-shade;
 
-    --mf-c-independence-cranberry-lighter:  $c-independence-cranberry-50-tint;  //Commonly used in outlines
-    --mf-c-independence-cranberry-lightest: $c-independence-cranberry-90-tint;  //Commonly used in outlines
-    --mf-c-independence-cranberry-darker:   $c-independence-cranberry-30-shade;
-    --mf-c-independence-cranberry-darkest:  $c-independence-cranberry-50-shade;
+    --mf-c-independence-cranberry-lighter:  $c-independence-cranberry-lighter;  //Commonly used in outlines
+    --mf-c-independence-cranberry-lightest: $c-independence-cranberry-lightest;  //Commonly used in outlines
+    --mf-c-independence-cranberry-darker:   $c-independence-cranberry-darker;
+    --mf-c-independence-cranberry-darkest:  $c-independence-cranberry-darkest;
 
     // Base Gray Scale Colors
     --mf-c-revolution-gray:                 $c-revolution-gray;
@@ -214,13 +214,13 @@ $c-focus-hightlight:                #3e94cf !default;
 
     // Gray Scale Spectrum Mapping
     --mf-c-black:                           $c-black;
-    --mf-c-gray-darkest:                    $c-revolution-gray;
+    --mf-c-gray-darkest:                    $c-gray-darkest;
     // --mf-c-gray-darker: (place holder)
-    --mf-c-gray-dark:                       $c-granite-gray;
-    --mf-c-gray:                            $c-atlantic-gray;
-    --mf-c-gray-light:                      $c-overcast-gray;
+    --mf-c-gray-dark:                       $c-gray-dark;
+    --mf-c-gray:                            $c-gray;
+    --mf-c-gray-light:                      $c-gray-light;
     --mf-c-gray-lighter:                    $c-gray-lighter; // Followup needed: should be added as a base color or be replaced as a gradient color from granite gray
-    --mf-c-gray-lightest:                   $c-platinum-gray;
+    --mf-c-gray-lightest:                   $c-gray-lightest;
     --mf-c-white:                           $c-white;
 
     // Error Red (#CD0D0D)
