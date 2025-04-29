@@ -2,65 +2,65 @@
   "themeColors": [
     {
       "variable": "$c-primary",
-      "token": "var(--mf-c-bay-blue)",
+      "token": "$c-bay-blue",
       "name": "Bay Blue",
       "value": "#14558f"
     },
     {
       "variable": "$c-primary-alt",
-      "token": "var(--mf-c-berkshires-green)",
+      "token": "$c-berkshires-green",
       "name": "Berkshires Green",
       "value": "#388557"
     },
     {
       "variable": "$c-highlight",
-      "token": "var(--mf-c-duckling-yellow)",
+      "token": "$c-duckling-yellow",
       "name": "Duckling Yellow",
       "value": "#f6c51b"
     },
     {
-      "variable": "var(--mf-c-gray-dark)",
-      "token": "var(--mf-c-gray-dark)",
+      "variable": "$c-gray-dark",
+      "token": "$c-granite-gray",
       "name": "Granite Gray",
       "value": "#535353"
     },
     {
-      "variable": "var(--mf-c-independence-cranberry)",
-      "token": "var(--mf-c-independence-cranberry)",
+      "variable": "$c-independence-cranberry",
+      "token": "$c-independence-cranberry",
       "name": "Independent Cranberry",
       "value": "#680A1D"
     }
   ],
   "grayScaleColors":[
     {
-      "variable": "var(--mf-c-black)",
+      "variable": "$c-black",
       "name": "Revolution Gray",
       "value": "#141414"
     },
     {
-      "variable": "var(--mf-c-gray-dark)",
+      "variable": "$c-gray-dark",
       "name": "Granite Gray",
       "value": "#535353"
     },
     {
-      "variable": "var(--mf-c-gray)",
+      "variable": "$c-gray",
       "name": "Atlantic Gray",
       "value": "#707070"
     },
     {
-      "variable": "var(--mf-c-gray-light)",
+      "variable": "$c-gray-light",
       "name": "Overcast Gray",
       "value": "#dcdcdc"
     },
     {
-      "variable": "var(--mf-c-gray-lightest)",
+      "variable": "$c-gray-lightest",
       "name": "Platinum Gray",
       "value": "#f2f2f2"
     }
   ],
   "utilityColors": [
     {
-      "variable": "var(--mf-c-error-red)",
+      "variable": "$c-error-red",
       "name": "Error Red",
       "value": "#CD0D0D"
     },
