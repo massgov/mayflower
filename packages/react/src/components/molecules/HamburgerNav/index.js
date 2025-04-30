@@ -20,8 +20,8 @@ const HamburgerNav = ({
   NavSearch,
   Logo,
   siteName = 'Mass.gov',
-  siteUrl = 'https://mass.gov',
   mainItems = [],
+  homeLink = {},
   utilityItems = [],
   headerType = 'hamburger'
 }) => {
@@ -270,7 +270,7 @@ const HamburgerNav = ({
         <nav className="ma__header__hamburger__nav" aria-label={(headerType === 'mixed' && !isMobileWindow) ? 'Language options and quick access links' : 'main navigation'} id="hamburger-main-navigation">
           <div className="ma__header__hamburger-wrapper">
             <div className="ma__header__hamburger__button-container js-sticky-header">
-              {mainItems.length ? (
+              {mainItems.length > 0 && (
                 <button
                   ref={menuButtonRef}
                   type="button"
@@ -289,10 +289,11 @@ const HamburgerNav = ({
                     Close
                   </span>
                 </button>
-              ) : (
-                <a className="ma__header__hamburger__menu-home-link" href={siteUrl}>
+              )}
+              {homeLink && homeLink.text && homeLink.url && (
+                <a className="ma__header__hamburger__menu-home-link" href={homeLink.url}>
                   <IconHome />
-                  <span>{siteName}</span>
+                  <span>{homeLink.text}</span>
                 </a>
               )}
               {navSearch && (
@@ -337,8 +338,6 @@ HamburgerNav.propTypes = {
   Logo: propTypes.elementType,
   /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile, or fallback link */
   siteName: propTypes.string,
-  /** Override default siteUrl rendered as the hamburger fallback link href */
-  siteUrl: propTypes.string,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
   /** An array of items used to create the menu. */
@@ -351,6 +350,11 @@ HamburgerNav.propTypes = {
       text: propTypes.string
     }))
   })),
+  /** Render a link to home site in place of the hamburger menu. */
+  homeLink: propTypes.shape({
+    text: propTypes.string,
+    url: propTypes.string
+  }),
   /** An array of uninstantiated components to render within the utility navigation.  */
   utilityItems: propTypes.arrayOf(propTypes.elementType),
   /** A string that represents the type of header this component is displayed in. This is needed for figuring out when to display using slim or not. Currently only supports hamburger and mixed. */
