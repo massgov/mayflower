@@ -96,7 +96,7 @@
         &:hover,
         &:active,
         &:focus {
-          border-bottom-color: rgba($c-white, 0.5);
+          border-bottom-color: color-mix(in srgb, var(--mf-c-white) 50%, transparent 50%);
         }
       }
     }

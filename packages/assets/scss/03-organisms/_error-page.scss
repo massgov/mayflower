@@ -46,7 +46,7 @@
 .ma__error-page {
 
   &:before {
-    background-color: rgba($c-warning, .15);
+    background-color: color-mix(in srgb, var(--mf-c-warning) 15%, transparent 85%);
   }
 
   &__label {

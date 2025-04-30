@@ -41,7 +41,7 @@
 .ma__transition-page {
 
   &:before {
-    background-color: rgba($c-primary-alt, .15);
+    background-color: color-mix(in srgb, var(--mf-c-primary-alt) 15%, transparent 85%);
   }
 
   &__icon {

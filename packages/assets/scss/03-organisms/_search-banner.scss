@@ -181,7 +181,7 @@
   &__links {
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba($c-black, 0.5);
+    background-color: color-mix(in srgb, var(--mf-c-black) 50%, transparent 50%);
     padding: 10px 20px;
 
     @media ($bp-medium-min) {
@@ -284,7 +284,7 @@
   position: relative;
 
   &:after {
-    background-color: rgba($c-gray-darkest, .6);
+    background-color: color-mix(in srgb, var(--mf-c-gray-darkest) 60%, transparent 40%);
   }
 
   &__container {
@@ -322,7 +322,7 @@
   &__input {
 
     input {
-      background-color: rgba($c-white,0.75);
+      background-color: color-mix(in srgb, var(--mf-c-white) 75%, transparent 25%);
       font-weight: $fonts-light;
     }
 
@@ -352,7 +352,7 @@
   }
 
   &__button {
-    background-color: rgba($c-white,0.75);
+    background-color: color-mix(in srgb, var(--mf-c-white) 75%, transparent 25%);
     color: var(--mf-c-font-base);
     font-weight: $fonts-bold;
 
@@ -381,11 +381,11 @@
       font-weight: $fonts-light;
 
       &:hover {
-        border-bottom-color: rgba($c-font-inverse, .5);
+        border-bottom-color: color-mix(in srgb, var(--mf-c-font-inverse) 50%, transparent 50%);
       }
 
       & svg {
-        fill: rgba($c-font-inverse, .5);
+        fill: color-mix(in srgb, var(--mf-c-font-inverse) 50%, transparent 50%);
       }
     }
   }
@@ -400,11 +400,11 @@
     }
 
     &__image-name {
-      color: rgba($c-font-inverse,.9);
+      color: color-mix(in srgb, var(--mf-c-font-inverse) 90%, transparent 10%);
     }
 
     &__image-author {
-      color: rgba($c-font-inverse, .5);
+      color: color-mix(in srgb, var(--mf-c-font-inverse) 50%, transparent 50%);
     }
   }
 
@@ -416,12 +416,12 @@
   }
 
   &__image-name {
-    color: rgba($c-font-inverse,.9);
+    color: color-mix(in srgb, var(--mf-c-font-inverse) 90%, transparent 10%);
     font-weight: $fonts-light;
   }
 
   &__image-author {
-    color: rgba($c-font-inverse, .5);
+    color: color-mix(in srgb, var(--mf-c-font-inverse) 50%, transparent 50%);
     font-weight: $fonts-light;
   }
   // End backward compatible with v5.7 - converted image-credit to new Banner Credit molecule

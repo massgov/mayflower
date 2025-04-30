@@ -11,7 +11,7 @@
   margin-right: .25em;
   padding: 8px 11px;
   white-space: nowrap;
-  background-color: mix($c-bg, $c-font-link,90%);
+  background-color: color-mix(in srgb, var(--c-font-link) 90%, transparent 10%);
   color: var(--mf-c-font-link);
   font-weight: $fonts-bold;
 

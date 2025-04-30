@@ -79,7 +79,7 @@
   &__link {
 
     &:hover {
-      border-bottom-color: rgba($c-primary,.5);
+      border-bottom-color: color-mix(in srgb, var(--mf-c-primary) 50%, transparent 50%);
     }
   }
 
@@ -116,7 +116,7 @@
     }
 
     svg {
-      fill: rgba($c-font-link,.5);
+      fill: color-mix(in srgb, var(--mf-c-font-link) 50%, transparent 50%);
     }
 
     a {
@@ -127,7 +127,7 @@
       &:hover {
 
         @media ($bp-x-small-max) {
-          border-bottom-color: rgba($c-font-link,.5);
+          border-bottom-color: color-mix(in srgb, var(--mf-c-font-link) 50%, transparent 50%);
         }
       }
     }
@@ -173,7 +173,7 @@
     }
 
     svg {
-      fill: rgba($c-font-heading,.5);
+      fill: color-mix(in srgb, var(--mf-c-font-heading) 50%, transparent 50%);
     }
 
     a {

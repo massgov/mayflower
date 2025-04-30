@@ -12,8 +12,8 @@ input {
   }
 
   .ma__form--light & {
-    background-color: rgba($c-bg, 0.1);
-    border-color: rgba($c-bd-input,.5);
+    background-color: color-mix(in srgb, var(--mf-c-bg) 10%, transparent 90%);
+    border-color: color-mix(in srgb, var(--mf-c-bd-input) 50%, transparent 50%);
     color: var(--mf-c-font-inverse);
 
     &.has-error {
@@ -81,8 +81,8 @@ textarea {
   }
 
   .ma__form--light & {
-    background-color: rgba($c-bg, 0.1);
-    border-color: rgba($c-bd-input, 0.5);
+    background-color: color-mix(in srgb, var(--mf-c-bg) 10%, transparent 90%);
+    border-color: color-mix(in srgb, var(--mf-c-bd-input) 50%, transparent 50%);
     color: var(--mf-c-font-inverse);
 
     &.has-error {

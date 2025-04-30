@@ -27,7 +27,7 @@
     transform-origin: 65% 65%;
     transition: transform .5s;
     width: 8px;
-    border-color: rgba($c-font-inverse,.5);
+    border-color: color-mix(in srgb, var(--mf-c-font-inverse) 50%, transparent 50%);
   }
 
   // If the parent of the button-alert is an open accordion, then flip the arrow up.
@@ -51,7 +51,7 @@
 
   &:hover {
     transition: background-color .4s, color .4s, border .4s, fill .4s;
-    background-color: rgba($c-font-dark, 0.75);
+    background-color: color-mix(in srgb, var(--mf-c-font-dark) 75%, transparent 25%);
   }
 
   &__hide {

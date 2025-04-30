@@ -51,7 +51,7 @@
   }
 
   &:hover {
-    background-color: mix($c-white, $c-primary, 50%);
+    background-color: color-mix(in srgb, var(--mf-c-white) 50%, var(--mf-c-primary) 50%);
     border-radius: 0;
   }
 

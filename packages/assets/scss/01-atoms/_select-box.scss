@@ -98,8 +98,8 @@
     border-color: var(--mf-c-bd-input);
 
     .ma__form--light & {
-      background-color: rgba($c-bg,.1);
-      border-color: rgba($c-bd-input,.5);
+      background-color: color-mix(in srgb, var(--mf-c-bg) 10%, transparent 90%);
+      border-color: color-mix(in srgb, var(--mf-c-bd-input) 50%, transparent 50%);
     }
   }
 
@@ -111,7 +111,7 @@
     border-color: var(--mf-c-bd-input);
 
     .ma__form--light & {
-      border-color: rgba($c-bd-input,.5);
+      border-color: color-mix(in srgb, var(--mf-c-bd-input) 50%, transparent 50%);
     }
   }
 

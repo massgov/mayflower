@@ -9,8 +9,8 @@
   flex-flow: column wrap;
   justify-content: center;
   padding: 15px 20px;
-  background-color: mix($c-bg, $c-font-link,90%);
-  border-color: $c-link;
+  background-color: color-mix(in srgb, var(--mf-c-bg) 90%, var(--mf-c-font-link) 10%);
+  border-color: var(--mf-c-link);
   box-shadow: $box-shadow;
   text-decoration: none;
 
@@ -22,7 +22,7 @@
   &:focus {
 
     .ma__callout-link__text {
-      border-bottom-color: $c-link;
+      border-bottom-color: var(--mf-c-link);
     }
   }
 
@@ -54,7 +54,7 @@
     svg {
 
       @include ma-link-arrow;
-      fill: $c-font-link;
+      fill: var(--mf-c-font-link);
     }
   }
 
@@ -63,7 +63,7 @@
     padding-top: 10px;
     font-size: $fonts-medium;
     font-weight: $fonts-light;
-    color: rgba($c-font-link,1);
+    color: color-mix(in srgb, var(--mf-c-font-link) 100%, transparent 0%);
 
     @media ($bp-x-small-min) {
       display: flex;
@@ -73,7 +73,7 @@
   }
 
   &__eyebrow {
-    background-color: $c-bg-section;
+    background-color: var(--mf-c-bg-section);
     font-weight: $fonts-bold;
   }
 
@@ -83,7 +83,7 @@
     display: inline-flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
 
     @media ($bp-small-min) {
         margin-bottom: 15px;
@@ -102,13 +102,13 @@
     line-height: 1;
     padding-top: 15px;
     display: flex;
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: $fonts-bold;
   }
 
   &--white {
-    background-color: $c-bg;
-    border-color: mix($c-white, $c-font-detail,70%);
+    background-color: var(--mf-c-bg);
+    border-color: color-mix(in srgb, var(--mf-c-white) 70%, var(--mf-c-font-detail) 30%);
     box-shadow: $box-shadow;
   }
 

@@ -12,7 +12,7 @@
     padding: 13px;
     position: relative;
     padding-bottom: 12px + 29px + 13px;// 12px + 1.5rem + 13px
-    background-color: rgba($c-primary,.1);
+    background-color: color-mix(in srgb, var(--mf-c-primary) 10%, transparent 90%);
 
     @media ($bp-large-min) {
       padding-bottom: 12px + 32px + 13px;
@@ -118,7 +118,7 @@
 // Backward Compatible - had to add the --new as a variant for the new styling
 
 .ma__video:not(.ma__video--new) {
-  background-color: rgba($c-primary,.1);
+  background-color: color-mix(in srgb, var(--mf-c-primary) 10%, transparent 90%);
 }
 
  // Override style for .ma__rich-text h2:first-child:not(.sticky-toc-jump-target).

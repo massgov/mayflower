@@ -112,7 +112,7 @@
   }
 
   &__date {
-    background-color: rgba($c-white,.8);
+    background-color: color-mix(in srgb, var(--mf-c-white) 80%, transparent 20%);
     color: var(--mf-c-font-base);
     font-weight: 900;
   }
