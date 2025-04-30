@@ -51,49 +51,48 @@ $c-bd-input-dark:        $c-gray !default;
 $c-box-shadow-black:      rgba($c-black, 0.25) !default;
 
 :root {
-    --mf-c-primary:              var(--mf-c-bay-blue);
-    --mf-c-primary-light:        var(--mf-c-bay-blue-light);
-    --mf-c-primary-lighter:      var(--mf-c-bay-blue-lighter);
-    --mf-c-primary-lightest:     var(--mf-c-bay-blue-lightest);
-    --mf-c-primary-alt:          var(--mf-c-berkshires-green);
-    --mf-c-primary-alt-lighter:  var(--mf-c-berkshires-green-lighter);
-    --mf-c-primary-alt-lightest: var(--mf-c-berkshires-green-lightest);
-    --mf-c-primary-alt-dark:     var(--mf-c-berkshires-green-dark);
-    --mf-c-highlight:            var(--mf-c-duckling-yellow);
-    --mf-c-highlight-lighter:    var(--mf-c-duckling-yellow-lighter);
-    --mf-c-highlight-lightest:   var(--mf-c-duckling-yellow-lightest);
+    --mf-c-primary:              $c-primary;
+    --mf-c-primary-light:        $c-primary-light;
+    --mf-c-primary-lighter:      $c-primary-lighter;
+    --mf-c-primary-lightest:     $c-primary-lightest;
+    --mf-c-primary-alt:          $c-primary-alt;
+    --mf-c-primary-alt-lighter:  $c-primary-alt-lighter;
+    --mf-c-primary-alt-lightest: $c-primary-alt-lightest;
+    --mf-c-primary-alt-dark:     $c-primary-alt-dark;
+    --mf-c-highlight:            $c-highlight;
+    --mf-c-highlight-lighter:    $c-highlight-lighter;
+    --mf-c-highlight-lightest:   $c-highlight-lightest;
 
-    // Utility Colors Variables
-    --mf-c-error:                var(--mf-c-error-red);
-    --mf-c-error-lighter:        var(--mf-c-error-red);
-    --mf-c-error-lightest:       var(--mf-c-error-red-lightest);
-    --mf-c-warning:              var(--mf-c-duckling-yellow);
-    --mf-c-success:              var(--mf-c-berkshires-green);
-    --mf-c-focus:                var(--mf-c-focus-hightlight);
-    --mf-c-link:                 var(--mf-c-bay-blue-50-tint);// For non text link elements
-    --mf-c-visited:              var(--mf-c-independence-cranberry-10-tint);
+    --mf-c-error:                $c-error;
+    --mf-c-error-lighter:        $c-error-lighter;
+    --mf-c-error-lightest:       $c-error-lightest;
+    --mf-c-warning:              $c-warning;
+    --mf-c-success:              $c-success;
+    --mf-c-focus:                $c-focus;
+    --mf-c-link:                 $c-link;
+    --mf-c-visited:              $c-visited;
 
-    --mf-c-font-base:            var(--mf-c-gray-darkest);
-    --mf-c-font-detail:          var(--mf-c-gray-dark);
-    --mf-c-font-dark:            var(--mf-c-gray-darkest);
-    --mf-c-font-medium:          var(--mf-c-gray);
+    --mf-c-font-base:            $c-font-base;
+    --mf-c-font-detail:          $c-font-detail;
+    --mf-c-font-dark:            $c-font-dark;
+    --mf-c-font-medium:          $c-font-medium;
 
-    --mf-c-font-heading:         var(--mf-c-gray-darkest);
-    --mf-c-font-inverse:         var(--mf-c-white);
-    --mf-c-font-link:            var(--mf-c-bay-blue);
-    --mf-c-font-error:           --mf-c-error;
+    --mf-c-font-heading:         $c-font-heading;
+    --mf-c-font-inverse:         $c-font-inverse;
+    --mf-c-font-link:            $c-font-link;
+    --mf-c-font-error:           $c-font-error;
 
-    --mf-c-bg:                   var(--mf-c-white);
-    --mf-c-bg-comp-title:        var(--mf-c-gray-dark);
-    --mf-c-bg-subtle:            var(--mf-c-gray-lightest);
-    --mf-c-bg-section:           var(--mf-c-gray-lightest);
+    --mf-c-bg:                   $c-bg;
+    --mf-c-bg-comp-title:        $c-bg-comp-title;
+    --mf-c-bg-subtle:            $c-bg-subtle;
+    --mf-c-bg-section:           $c-bg-section;
 
-    --mf-c-bd:                   var(--mf-c-gray-light);
-    --mf-c-bd-divider:           var(--mf-c-gray-light);
-    --mf-c-bd-divider-dark:      var(--mf-c-gray-dark);
-    --mf-c-bd-error:             --mf-c-error;
-    --mf-c-bd-input:             var(--mf-c-gray-light);
-    --mf-c-bd-input-dark:        var(--mf-c-gray);
+    --mf-c-bd:                   $c-bd;
+    --mf-c-bd-divider:           $c-bd-divider;
+    --mf-c-bd-divider-dark:      $c-bd-divider-dark;
+    --mf-c-bd-error:             $c-bd-error;
+    --mf-c-bd-input:             $c-bd-input;
+    --mf-c-bd-input-dark:        $c-bd-input-dark;
 
     // Box shadow
     --mf-c-box-shadow-black:      $c-box-shadow-black;
