@@ -29,7 +29,9 @@ const HeaderHamburger = ({
   NavItem,
   Container,
   mainItems = [],
-  utilityItems = []
+  utilityItems = [],
+  siteName = 'Mass.gov',
+  siteUrl = 'https://mass.gov'
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
@@ -69,6 +71,8 @@ const HeaderHamburger = ({
           NavSearch={RenderedMobileNavSearch}
           mainItems={mainItems}
           utilityItems={fallbackUtilityItems}
+          siteName={siteName}
+          siteUrl={siteUrl}
         />
         { !isMobileWindow && (<RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />) }
       </header>
@@ -81,8 +85,10 @@ HeaderHamburger.propTypes = {
   Logo: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo on mobile. */
   MobileLogo: propTypes.elementType,
-  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile */
+  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile, or fallback link */
   siteName: propTypes.string,
+  /** Override default siteUrl rendered as the hamburger fallback link href */
+  siteUrl: propTypes.string,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
   /** An uninstantiated component which handles search functionality on mobile. */

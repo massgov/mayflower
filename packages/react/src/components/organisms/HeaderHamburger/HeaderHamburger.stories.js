@@ -48,7 +48,9 @@ HeaderHamburgerWithoutUtilityNav.storyName = 'Header Hamburger without UtilityNa
 
 export const HeaderHamburgerWithoutNavItems = Template.bind({});
 HeaderHamburgerWithoutNavItems.args = {
-  mainItems: []
+  mainItems: [],
+  siteName: 'Mass.gov',
+  siteUrl: 'https://mass.gov'
 };
 HeaderHamburgerWithoutNavItems.parameters = {
   docs: {

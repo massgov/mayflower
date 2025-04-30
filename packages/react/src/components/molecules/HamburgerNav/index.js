@@ -20,9 +20,10 @@ const HamburgerNav = ({
   NavSearch,
   Logo,
   siteName = 'Mass.gov',
+  siteUrl = 'https://mass.gov',
   mainItems = [],
   utilityItems = [],
-  headerType
+  headerType = 'hamburger'
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840; // desktop breakpoint
@@ -289,9 +290,9 @@ const HamburgerNav = ({
                   </span>
                 </button>
               ) : (
-                <a className="ma__header__hamburger__menu-home-link" href="https://mass.gov">
+                <a className="ma__header__hamburger__menu-home-link" href={siteUrl}>
                   <IconHome />
-                  <span>Mass.gov</span>
+                  <span>{siteName}</span>
                 </a>
               )}
               {navSearch && (
@@ -334,8 +335,10 @@ HamburgerNav.propTypes = {
   NavItem: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo. */
   Logo: propTypes.elementType,
-  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile */
+  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile, or fallback link */
   siteName: propTypes.string,
+  /** Override default siteUrl rendered as the hamburger fallback link href */
+  siteUrl: propTypes.string,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
   /** An array of items used to create the menu. */
