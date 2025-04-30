@@ -3,49 +3,98 @@
 @use 'color-tokens' as *;
 
 // Theme Color Variables
-$c-primary:              var(--mf-c-bay-blue)!default;
-$c-primary-light:        var(--mf-c-bay-blue-light) !default;
-$c-primary-lighter:      var(--mf-c-bay-blue-lighter) !default;
-$c-primary-lightest:     var(--mf-c-bay-blue-lightest) !default;
-$c-primary-alt:          var(--mf-c-berkshires-green) !default;
-$c-primary-alt-lighter:  var(--mf-c-berkshires-green-lighter) !default;
-$c-primary-alt-lightest: var(--mf-c-berkshires-green-lightest) !default;
-$c-primary-alt-dark:     var(--mf-c-berkshires-green-dark) !default;
-$c-highlight:            var(--mf-c-duckling-yellow) !default;
-$c-highlight-lighter:    var(--mf-c-duckling-yellow-lighter) !default;
-$c-highlight-lightest:   var(--mf-c-duckling-yellow-lightest) !default;
+$c-primary:              $c-bay-blue !default;
+$c-primary-light:        $c-bay-blue-light !default;
+$c-primary-lighter:      $c-bay-blue-lighter !default;
+$c-primary-lightest:     $c-bay-blue-lightest !default;
+$c-primary-alt:          $c-berkshires-green !default;
+$c-primary-alt-lighter:  $c-berkshires-green-lighter !default;
+$c-primary-alt-lightest: $c-berkshires-green-lightest !default;
+$c-primary-alt-dark:     $c-berkshires-green-dark !default;
+$c-highlight:            $c-duckling-yellow !default;
+$c-highlight-lighter:    $c-duckling-yellow-lighter !default;
+$c-highlight-lightest:   $c-duckling-yellow-lightest !default;
 
 // Utility Colors Variables
-$c-error:                var(--mf-c-error-red) !default;
-$c-error-lighter:        var(--mf-c-error-red) !default;
-$c-error-lightest:       var(--mf-c-error-red-lightest) !default;
-$c-warning:              var(--mf-c-duckling-yellow) !default;
-$c-success:              var(--mf-c-berkshires-green) !default;
-$c-focus:                var(--mf-c-focus-hightlight) !default;
-$c-link:                 var(--mf-c-bay-blue-50-tint) !default;// For non text link elements
-$c-visited:              var(--mf-c-independence-cranberry-10-tint) !default;
+$c-error:                $c-error-red !default;
+$c-error-lighter:        $c-error-red-lighter !default;
+$c-error-lightest:       $c-error-red-lightest !default;
+$c-warning:              $c-duckling-yellow !default;
+$c-success:              $c-berkshires-green !default;
+$c-focus:                $c-focus-hightlight !default;
+$c-link:                 $c-bay-blue-40-tint !default;// For non text link elements
+$c-visited:              $c-independence-cranberry-10-tint !default;
 
-$c-font-base:            var(--mf-c-gray-darkest) !default;
-$c-font-detail:          var(--mf-c-gray-dark) !default;
-$c-font-dark:            var(--mf-c-gray-darkest) !default;
-$c-font-medium:          var(--mf-c-gray) !default;
+$c-font-base:            $c-gray-darkest !default;
+$c-font-detail:          $c-gray-dark !default;
+$c-font-dark:            $c-gray-darkest !default;
+$c-font-medium:          $c-gray !default;
 
-$c-font-heading:         var(--mf-c-gray-darkest) !default;
-$c-font-inverse:         var(--mf-c-white) !default;
-$c-font-link:            var(--mf-c-bay-blue)!default;
+$c-font-heading:         $c-gray-darkest !default;
+$c-font-inverse:         $c-white !default;
+$c-font-link:            $c-bay-blue !default;
 $c-font-error:           $c-error !default;
 
-$c-bg:                   var(--mf-c-white) !default;
-$c-bg-comp-title:        var(--mf-c-gray-dark) !default;
-$c-bg-subtle:            var(--mf-c-gray-lightest) !default;
-$c-bg-section:           var(--mf-c-gray-lightest) !default;
+$c-bg:                   $c-white !default;
+$c-bg-comp-title:        $c-gray-dark !default;
+$c-bg-subtle:            $c-gray-lightest !default;
+$c-bg-section:           $c-gray-lightest !default;
 
-$c-bd:                   var(--mf-c-gray-light) !default;
-$c-bd-divider:           var(--mf-c-gray-light) !default;
-$c-bd-divider-dark:      var(--mf-c-gray-dark) !default;
+$c-bd:                   $c-gray-light !default;
+$c-bd-divider:           $c-gray-light !default;
+$c-bd-divider-dark:      $c-gray-dark !default;
 $c-bd-error:             $c-error !default;
-$c-bd-input:             var(--mf-c-gray-light) !default;
-$c-bd-input-dark:        var(--mf-c-gray) !default;
+$c-bd-input:             $c-gray-light !default;
+$c-bd-input-dark:        $c-gray !default;
 
 // Box shadow
-$c-box-shadow-black:      rgba(var(--mf-c-black), 0.25) !default;
+$c-box-shadow-black:      rgba($c-black, 0.25) !default;
+
+:root {
+    --mf-c-primary:              var(--mf-c-bay-blue);
+    --mf-c-primary-light:        var(--mf-c-bay-blue-light);
+    --mf-c-primary-lighter:      var(--mf-c-bay-blue-lighter);
+    --mf-c-primary-lightest:     var(--mf-c-bay-blue-lightest);
+    --mf-c-primary-alt:          var(--mf-c-berkshires-green);
+    --mf-c-primary-alt-lighter:  var(--mf-c-berkshires-green-lighter);
+    --mf-c-primary-alt-lightest: var(--mf-c-berkshires-green-lightest);
+    --mf-c-primary-alt-dark:     var(--mf-c-berkshires-green-dark);
+    --mf-c-highlight:            var(--mf-c-duckling-yellow);
+    --mf-c-highlight-lighter:    var(--mf-c-duckling-yellow-lighter);
+    --mf-c-highlight-lightest:   var(--mf-c-duckling-yellow-lightest);
+
+    // Utility Colors Variables
+    --mf-c-error:                var(--mf-c-error-red);
+    --mf-c-error-lighter:        var(--mf-c-error-red);
+    --mf-c-error-lightest:       var(--mf-c-error-red-lightest);
+    --mf-c-warning:              var(--mf-c-duckling-yellow);
+    --mf-c-success:              var(--mf-c-berkshires-green);
+    --mf-c-focus:                var(--mf-c-focus-hightlight);
+    --mf-c-link:                 var(--mf-c-bay-blue-50-tint);// For non text link elements
+    --mf-c-visited:              var(--mf-c-independence-cranberry-10-tint);
+
+    --mf-c-font-base:            var(--mf-c-gray-darkest);
+    --mf-c-font-detail:          var(--mf-c-gray-dark);
+    --mf-c-font-dark:            var(--mf-c-gray-darkest);
+    --mf-c-font-medium:          var(--mf-c-gray);
+
+    --mf-c-font-heading:         var(--mf-c-gray-darkest);
+    --mf-c-font-inverse:         var(--mf-c-white);
+    --mf-c-font-link:            var(--mf-c-bay-blue);
+    --mf-c-font-error:           --mf-c-error;
+
+    --mf-c-bg:                   var(--mf-c-white);
+    --mf-c-bg-comp-title:        var(--mf-c-gray-dark);
+    --mf-c-bg-subtle:            var(--mf-c-gray-lightest);
+    --mf-c-bg-section:           var(--mf-c-gray-lightest);
+
+    --mf-c-bd:                   var(--mf-c-gray-light);
+    --mf-c-bd-divider:           var(--mf-c-gray-light);
+    --mf-c-bd-divider-dark:      var(--mf-c-gray-dark);
+    --mf-c-bd-error:             --mf-c-error;
+    --mf-c-bd-input:             var(--mf-c-gray-light);
+    --mf-c-bd-input-dark:        var(--mf-c-gray);
+
+    // Box shadow
+    --mf-c-box-shadow-black:      rgba(var(--mf-c-black), 0.25);
+}
