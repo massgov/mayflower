@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
+import IconHome from 'MayflowerReactBase/Icon/IconHome';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
@@ -268,26 +269,32 @@ const HamburgerNav = ({
         <nav className="ma__header__hamburger__nav" aria-label={(headerType === 'mixed' && !isMobileWindow) ? 'Language options and quick access links' : 'main navigation'} id="hamburger-main-navigation">
           <div className="ma__header__hamburger-wrapper">
             <div className="ma__header__hamburger__button-container js-sticky-header">
-              <button
-                ref={menuButtonRef}
-                type="button"
-                aria-expanded="false"
-                aria-label={`Open the main menu for ${siteName}`}
-                className="ma__header__hamburger__menu-button js-header-menu-button"
-              >
-                <span className="ma__header__hamburger__menu-icon" />
-                <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
-                  {siteName}
-                </span>
-                <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
-                  Menu
-                </span>
-                <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
-                  Close
-                </span>
-              </button>
-              {
-              navSearch && (
+              {mainItems.length ? (
+                <button
+                  ref={menuButtonRef}
+                  type="button"
+                  aria-expanded="false"
+                  aria-label={`Open the main menu for ${siteName}`}
+                  className="ma__header__hamburger__menu-button js-header-menu-button"
+                >
+                  <span className="ma__header__hamburger__menu-icon" />
+                  <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
+                    {siteName}
+                  </span>
+                  <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
+                    Menu
+                  </span>
+                  <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
+                    Close
+                  </span>
+                </button>
+              ) : (
+                <a className="ma__header__hamburger__menu-home-link" href="https://mass.gov">
+                  <IconHome />
+                  <span>Mass.gov</span>
+                </a>
+              )}
+              {navSearch && (
                 <button
                   type="button"
                   aria-expanded="false"
@@ -296,19 +303,18 @@ const HamburgerNav = ({
                   <span className="ma__visually-hidden">Access to search</span>
                   <IconSearch />
                 </button>
-              )
-            }
+              )}
             </div>
             {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
-            {(headerType !== 'mixed' || (headerType === 'mixed' && isMobileWindow)) && (
-            <NavContainer
-              logo={logo}
-              mainNav={mainNav}
-              utilityNav={utilityNav}
-              navSearch={navSearch}
-              className="ma__header__hamburger__nav-container"
-            />
-            )}
+            {((headerType !== 'mixed' || (headerType === 'mixed' && isMobileWindow)) && mainItems.length) ? (
+              <NavContainer
+                logo={logo}
+                mainNav={mainNav}
+                utilityNav={utilityNav}
+                navSearch={navSearch}
+                className="ma__header__hamburger__nav-container"
+              />
+            ) : null}
           </div>
         </nav>
       </HamburgerContext.Provider>
