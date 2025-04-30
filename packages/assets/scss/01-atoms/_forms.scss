@@ -7,25 +7,25 @@ input {
   }
 
   &.has-error {
-    border-color: $c-bd-error;
+    border-color: var(--mf-c-bd-error);
     border-width: 3px;
   }
 
   .ma__form--light & {
     background-color: rgba($c-bg, 0.1);
     border-color: rgba($c-bd-input,.5);
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
 
     &.has-error {
-      border-color: $c-bd-error;
+      border-color: var(--mf-c-bd-error);
     }
   }
 }
 
 input {
-  background-color: $c-bg;
-  border: 2px solid $c-bd-input;
-  color: $c-font-base;
+  background-color: var(--mf-c-bg);
+  border: 2px solid var(--mf-c-bd-input);
+  color: var(--mf-c-font-base);
   font-size: $fonts-large;
   font-weight: $fonts-light;
   max-width: 100%;
@@ -66,8 +66,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 textarea {
-  background-color: $c-bg;
-  border: 2px solid $c-bd-input;
+  background-color: var(--mf-c-bg);
+  border: 2px solid var(--mf-c-bd-input);
   outline: none;
   font-size: $fonts-large;
   font-weight: $fonts-light;
@@ -76,17 +76,17 @@ textarea {
   padding: 18px;
 
   &.has-error {
-    border-color: $c-bd-error;
+    border-color: var(--mf-c-bd-error);
     border-width: 3px;
   }
 
   .ma__form--light & {
     background-color: rgba($c-bg, 0.1);
     border-color: rgba($c-bd-input, 0.5);
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
 
     &.has-error {
-      border-color: $c-bd-error;
+      border-color: var(--mf-c-bd-error);
     }
   }
 }
@@ -138,7 +138,7 @@ select {
 }
 
 :focus {
-  border-color: $c-focus-hightlight;
+  border-color: var(--mf-c-focus-hightlight);
 }
 
 // Chrome/Opera/Safari.

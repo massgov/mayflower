@@ -6,8 +6,8 @@ $utility-nav-height: 43px;
   position: relative;
 
   @media ($bp-header-toggle-min) {
-    background-color: $c-primary;
-    color: $c-font-inverse;
+    background-color: var(--mf-c-primary);
+    color: var(--mf-c-font-inverse);
   }
 
   &__items {
@@ -36,7 +36,7 @@ $utility-nav-height: 43px;
       position: relative;
 
       &:hover {
-        background-color: $c-bg;
+        background-color: var(--mf-c-bg);
         box-shadow: $box-shadow;
       }
     }
@@ -81,12 +81,12 @@ $utility-nav-height: 43px;
     display: block;
     font-size: $fonts-medium;
     line-height: 1.45;
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
 
     @media ($bp-header-toggle-min) {
       line-height: 2;
       transition: opacity .4s ease;
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
 
       &:hover {
         opacity: .7;
@@ -94,15 +94,15 @@ $utility-nav-height: 43px;
     }
 
     &:after {
-      border-right-color: $c-primary-alt;
-      border-bottom-color: $c-primary-alt;
+      border-right-color: var(--mf-c-primary-alt);
+      border-bottom-color: var(--mf-c-primary-alt);
     }
 
     svg {
-      fill: $c-primary;
+      fill: var(--mf-c-primary);
 
       @media ($bp-header-toggle-min) {
-        fill: $c-font-inverse;
+        fill: var(--mf-c-font-inverse);
         opacity: .7;
         stroke: transparent;
       }
@@ -133,8 +133,8 @@ $utility-nav-height: 43px;
         position: absolute;
         right: 20px;
         top: 18px;
-        border-right-color: $c-primary-alt;
-      border-bottom-color: $c-primary-alt;
+        border-right-color: var(--mf-c-primary-alt);
+      border-bottom-color: var(--mf-c-primary-alt);
       }
     }
 
@@ -196,12 +196,12 @@ $utility-nav-height: 43px;
     .goog-te-gadget-simple a {
 
       @include ma-chevron;
-      color: $c-font-base;
+      color: var(--mf-c-font-base);
       transform: none;
       border: 0;
 
       @media ($bp-header-toggle-min) {
-        color: $c-font-inverse;
+        color: var(--mf-c-font-inverse);
 
         &:after {
           opacity: .7;
@@ -281,7 +281,7 @@ $utility-nav-height: 43px;
     transition: visibility .5s ease, right .5s ease;
     width: 300px;
     z-index: $z-modal;
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
 
     .translated-rtl &,
     .translated-ltr & {
@@ -301,15 +301,15 @@ $utility-nav-height: 43px;
       max-width: 720px;
 
       a {
-        color: $c-font-link;
-        border-bottom-color: $c-font-link;
+        color: var(--mf-c-font-link);
+        border-bottom-color: var(--mf-c-font-link);
       }
     }
 
     @media ($bp-header-toggle-min) {
       margin-top: 0;
       overflow: visible;
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
       padding-left: 0;
       position: absolute;
       left: 0;
@@ -326,8 +326,8 @@ $utility-nav-height: 43px;
       .ma__rich-text {
 
         a {
-          color: $c-font-inverse;
-          border-bottom-color: $c-font-inverse;
+          color: var(--mf-c-font-inverse);
+          border-bottom-color: var(--mf-c-font-inverse);
         }
       }
     }
@@ -353,7 +353,7 @@ $utility-nav-height: 43px;
       height: calc(100vh - #{$header-mobile-controls-height});
       padding-left: 20px;
       padding-right: 20px;
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
 
       .translated-rtl &,
       .translated-ltr & {
@@ -381,7 +381,7 @@ $utility-nav-height: 43px;
       text-transform: uppercase;
       vertical-align: middle;
       letter-spacing: $letter-spacing-large;
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
       opacity: 0.7;
     }
 
@@ -407,7 +407,7 @@ $utility-nav-height: 43px;
       line-height: 1.45;
       font-weight: $fonts-normal;
       margin-bottom: 0;
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
     }
 
     @media ($bp-header-toggle-min) {
@@ -416,7 +416,7 @@ $utility-nav-height: 43px;
 
     svg {
       opacity: 0.7;
-      fill: $c-white;
+      fill: var(--mf-c-white);
     }
 
     & > span,

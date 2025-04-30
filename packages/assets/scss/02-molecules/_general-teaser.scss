@@ -20,7 +20,7 @@
   & + & {
     border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: $c-bd-divider;
+    border-top-color: var(--mf-c-bd-divider);
 
     @media ($bp-large-max) {
       margin-top: 30px;
@@ -68,7 +68,7 @@
     letter-spacing: $letter-spacing-large;
     padding: 5px 7px;
     text-transform: uppercase;
-    background-color: $c-bg-section;
+    background-color: var(--mf-c-bg-section);
     font-weight: $fonts-bold;
 
     svg {
@@ -116,7 +116,7 @@
     margin-bottom: 1em;
     font-style: italic;
     font-weight: $fonts-bold;
-    border-left-color: $c-bd-divider;
+    border-left-color: var(--mf-c-bd-divider);
 
     & + & {
       border-left-style: solid;
@@ -147,12 +147,12 @@
   }
 
   &__tag {
-    color: $c-gray;
+    color: var(--mf-c-gray);
     font-size: $fonts-xsmall;
     font-weight: bold;
     text-align: center;
-    border: 1px solid $c-gray-light;
-    background-color: $c-bg;
+    border: 1px solid var(--mf-c-gray-light);
+    background-color: var(--mf-c-bg);
     padding: 0px 5px;
     min-width: 60px;
     display: inline-block;

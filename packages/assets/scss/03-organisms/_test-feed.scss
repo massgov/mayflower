@@ -132,7 +132,7 @@
   &__icon {
 
     svg {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
     }
   }
 
@@ -142,7 +142,7 @@
 
       &:hover,
       &:after {
-        border-color: $c-link;
+        border-color: var(--mf-c-link);
       }
     }
   }

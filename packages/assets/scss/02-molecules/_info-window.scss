@@ -50,11 +50,11 @@
   }
 
   &__phone {
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: inherit;
   }
 
   &__email-link:hover {
-    border-color: $c-link;
+    border-color: var(--mf-c-link);
   }
 }

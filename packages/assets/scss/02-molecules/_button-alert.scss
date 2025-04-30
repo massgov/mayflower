@@ -14,8 +14,8 @@
   padding-right: .8em;
   text-transform: uppercase;
   white-space: nowrap;
-  color: $c-font-inverse;
-  background-color: $c-gray-darkest;
+  color: var(--mf-c-font-inverse);
+  background-color: var(--mf-c-gray-darkest);
   box-shadow: $box-shadow;
 
   &:after {

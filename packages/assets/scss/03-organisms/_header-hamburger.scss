@@ -49,10 +49,10 @@ body.show-menu {
 
 .ma__header__hamburger {
   position: relative;
-  background-color: $c-bg-section;
+  background-color: var(--mf-c-bg-section);
 
   @media ($bp-small-max) {
-    border-bottom: 1px solid $c-gray-lightest;
+    border-bottom: 1px solid var(--mf-c-gray-lightest);
   }
 
   &--slim {
@@ -84,7 +84,7 @@ body.show-menu {
   }
 
   &__nav {
-    background-color: $c-primary;
+    background-color: var(--mf-c-primary);
     position: relative;
     z-index: $z-overlay;
   }
@@ -109,7 +109,7 @@ body.show-menu {
       left: 0;
       width: 100%;
       z-index: $z-overlay;
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
     }
   }
 
@@ -166,7 +166,7 @@ body.show-menu {
     &--mobile {
       padding: 20px;
       width: 100%;
-      border-bottom: 2px solid $c-bd-divider;
+      border-bottom: 2px solid var(--mf-c-bd-divider);
 
       a img {
         width: 45px;
@@ -206,7 +206,7 @@ body.show-menu {
   }
 
   &__nav-container {
-    background-color: $c-gray-lightest;
+    background-color: var(--mf-c-gray-lightest);
     height: calc(100vh - 44px);
     top: 44px;
     overflow-y: auto;
@@ -258,12 +258,12 @@ body.show-menu {
   }
 
   &__menu-button {
-    background-color: $c-primary;
+    background-color: var(--mf-c-primary);
     text-align: left;
     border: none;
     font-size: 19.2px;// Maintain the same font size regardless of the screensize.
     font-weight: 700;
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     padding-right: 30px;
     padding-left: 20px;
     transition: transform 0.5s ease;
@@ -302,7 +302,7 @@ body.show-menu {
   &__menu-icon {
     border-radius: 1px;
     cursor: pointer;
-    background-color: $c-font-inverse;
+    background-color: var(--mf-c-font-inverse);
     display: block;
     height: 2px;
     position: absolute;
@@ -317,7 +317,7 @@ body.show-menu {
     &:after {
       cursor: pointer;
       content: '';
-      background-color: $c-font-inverse;
+      background-color: var(--mf-c-font-inverse);
       display: block;
       height: 2px;
       position: absolute;
@@ -379,14 +379,14 @@ body.show-menu {
   .ma__header__hamburger__search-access-button {
     padding: 0 20px;
     border: 0;
-    background-color: $c-primary;
+    background-color: var(--mf-c-primary);
 
     @media ($bp-small-min) {
       display: none;
     }
 
     & svg {
-      fill: $c-white;
+      fill: var(--mf-c-white);
       height: 20px;
       -o-transition: fill .4s;
       transition: fill .4s;
@@ -423,7 +423,7 @@ body.show-menu {
       }
 
       svg {
-        fill: $c-white;
+        fill: var(--mf-c-white);
       }
     }
   }
@@ -438,11 +438,11 @@ body.show-menu {
 
           &__item {
 
-            border-bottom: 2px solid $c-bd-divider;
+            border-bottom: 2px solid var(--mf-c-bd-divider);
             padding: 0;
 
             &:hover {
-              background-color: $c-gray-lightest;
+              background-color: var(--mf-c-gray-lightest);
               box-shadow: none;
             }
           }
@@ -460,12 +460,12 @@ body.show-menu {
             text-transform: uppercase;
             transition: all 0.4s ease;
             text-align: left;
-            background-color: $c-gray-lightest;
+            background-color: var(--mf-c-gray-lightest);
             width: 100%;
 
             &:focus {
-              background-color: $c-bd-divider;
-              outline: 2px solid $c-gray-darkest;
+              background-color: var(--mf-c-bd-divider);
+              outline: 2px solid var(--mf-c-gray-darkest);
             }
 
             .toggle-indicator {
@@ -515,7 +515,7 @@ body.show-menu {
             position: relative;
             top: auto;
             right: auto;
-            color: $c-font-base;
+            color: var(--mf-c-font-base);
             z-index: $z-overlay;
 
             transition: max-height 0.6s ease-in-out;
@@ -538,7 +538,7 @@ body.show-menu {
 
             & .ma__utility-nav__container {
               padding: 0;
-              background-color: $c-white;
+              background-color: var(--mf-c-white);
               overflow-y: visible;
               max-height: auto;
 
@@ -562,8 +562,8 @@ body.show-menu {
             }
 
             & .ma__utility-panel {
-              background-color: $c-white;
-              color: $c-font-base;
+              background-color: var(--mf-c-white);
+              color: var(--mf-c-font-base);
 
               @include ma-reset-list;
 
@@ -577,7 +577,7 @@ body.show-menu {
 
               & .ma__rich-text {
                 padding-top: 0.8em;
-                border-top: 2px solid $c-bd-divider;
+                border-top: 2px solid var(--mf-c-bd-divider);
               }
             }
 
@@ -588,7 +588,7 @@ body.show-menu {
               position: relative;
               line-height: 1.33;
               padding: 0 20px 10px 20px;
-              color: $c-font-base;
+              color: var(--mf-c-font-base);
               margin-bottom: 0;
             }
 
@@ -597,13 +597,13 @@ body.show-menu {
             }
 
             & .ma__utility-panel__item {
-              background-color: $c-white;
-              color: $c-font-base;
+              background-color: var(--mf-c-white);
+              color: var(--mf-c-font-base);
               margin: 0;
               display: block;
 
               &:hover {
-                background-color: $c-bg-section;
+                background-color: var(--mf-c-bg-section);
               }
             }
 
@@ -623,7 +623,7 @@ body.show-menu {
               font-weight: $fonts-normal;
               line-height: 1.33;
               padding: 10px 20px 10px 30px;
-              color: $c-font-base;
+              color: var(--mf-c-font-base);
 
               &:hover {
                 text-decoration: underline;
@@ -688,7 +688,7 @@ body.show-menu {
       background-color: tint($c-font-link, 90%);
       border-color: tint($c-font-link, 50%);
       box-shadow: $box-shadow;
-      color: $c-font-link;
+      color: var(--mf-c-font-link);
       font-size: $fonts-medium;
 
       @media ($bp-x-small-max) {
@@ -721,8 +721,8 @@ body.show-menu {
       }
 
       &:focus {
-        background-color: $c-bg;
-        border-color: $c-highlight !important;
+        background-color: var(--mf-c-bg);
+        border-color: var(--mf-c-highlight) !important;
       }
     }
   }

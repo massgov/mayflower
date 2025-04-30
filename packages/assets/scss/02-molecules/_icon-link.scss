@@ -14,7 +14,7 @@
       width: 20px;
 
       &, path {
-        fill: $c-primary-alt;
+        fill: var(--mf-c-primary-alt);
       }
     }
   }

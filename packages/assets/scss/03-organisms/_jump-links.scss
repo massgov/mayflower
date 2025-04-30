@@ -259,31 +259,31 @@
   &__inner {
 
     @media ($bp-small-min) {
-      background-color: $c-bg-section;
+      background-color: var(--mf-c-bg-section);
     }
   }
 
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     font-weight: $fonts-bold;
   }
 
   &__links {
 
     @media ($bp-small-max) {
-      background-color: $c-bg-section;
+      background-color: var(--mf-c-bg-section);
     }
   }
 
   &__column {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 
   &__link {
 
     & > svg {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
 
       @media ($bp-small-max) {
         display: none;
@@ -291,7 +291,7 @@
     }
 
     &:hover a {
-      border-bottom-color: $c-link;
+      border-bottom-color: var(--mf-c-link);
     }
 
     @media ($bp-small-max) {
@@ -301,23 +301,23 @@
       }
 
       &.is-active a {
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
         font-weight: $fonts-bold;
       }
 
       &.is-active:hover a {
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
         border-bottom-color: transparent;
       }
 
       & + & {
-        border-top-color: $c-bd-divider;
+        border-top-color: var(--mf-c-bd-divider);
       }
 
     }
   }
 
   &__toggle-link {
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
   }
 }

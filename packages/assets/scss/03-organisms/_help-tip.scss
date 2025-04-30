@@ -18,7 +18,7 @@ $border-width: 1px;
 
   &__container {
     position: relative;
-    background-color: $c-primary-lightest;
+    background-color: var(--mf-c-primary-lightest);
     margin-top: .5rem;
 
     &.collapsing, &.expanding {
@@ -56,8 +56,8 @@ $border-width: 1px;
     cursor: pointer;
     border: none;
     padding: 0px 2px;
-    border-bottom: 2px dotted $c-primary;
-    background-color: $c-bay-blue-lightest;
+    border-bottom: 2px dotted var(--mf-c-primary);
+    background-color: var(--mf-c-bay-blue-lightest);
     font-weight: $fonts-bold;
 
 
@@ -66,17 +66,17 @@ $border-width: 1px;
       margin-bottom: -.1em;
       width: 1em;
       height: 1em;
-      fill: $c-font-link;
+      fill: var(--mf-c-font-link);
     }
 
     &:focus {
-      box-shadow: 0 0 3px 3px $c-focus;
+      box-shadow: 0 0 3px 3px var(--mf-c-focus);
       outline: 0;
     }
 
     &--active, &:hover {
-      background-color: $c-primary;
-      color: $c-font-inverse;
+      background-color: var(--mf-c-primary);
+      color: var(--mf-c-font-inverse);
 
       svg {
         fill: mix($c-white, $c-font-link, 70%);
@@ -127,7 +127,7 @@ $border-width: 1px;
       margin-left: 5px;
       width: 1rem;
       height: 1rem;
-      fill: $c-white;
+      fill: var(--mf-c-white);
     }
   }
 
@@ -156,59 +156,59 @@ $border-width: 1px;
   #{$helpTipBaseClass}__container {
 
     &--c-primary {
-      background-color: $c-primary-lightest;
+      background-color: var(--mf-c-primary-lightest);
       #{$helpTipBaseClass}__close-desktop {
 
         svg {
-          fill: $c-primary;
+          fill: var(--mf-c-primary);
         }
       }
     }
 
     &--c-primary-alt {
-      background-color: $c-primary-alt-lightest;
+      background-color: var(--mf-c-primary-alt-lightest);
       #{$helpTipBaseClass}__close-desktop {
 
         svg {
-          fill: $c-primary-alt;
+          fill: var(--mf-c-primary-alt);
         }
       }
     }
 
     &--c-highlight {
-      background-color: $c-highlight-lightest;
+      background-color: var(--mf-c-highlight-lightest);
       #{$helpTipBaseClass}__close-desktop {
 
         svg {
-          fill: $c-gray-dark;
+          fill: var(--mf-c-gray-dark);
         }
       }
     }
 
     &--c-gray-dark {
-      background-color: $c-gray-lightest;
+      background-color: var(--mf-c-gray-lightest);
       #{$helpTipBaseClass}__close-desktop {
 
         svg {
-          fill: $c-gray-dark;
+          fill: var(--mf-c-gray-dark);
         }
       }
     }
 
      &--c-error-red {
-      background-color: $c-error-red-lightest;
+      background-color: var(--mf-c-error-red-lightest);
       #{$helpTipBaseClass}__close-desktop {
 
         svg {
-          fill: $c-error-red;
+          fill: var(--mf-c-error-red);
         }
       }
     }
 
     &--c-white {
-      background-color: $c-bg;//<-- BASED ON THE CLASS, IS IT BETTER TO KEEP $c-white?
+      background-color: var(--mf-c-bg);//<-- BASED ON THE CLASS, IS IT BETTER TO KEEP $c-white?
       #{$helpTipBaseClass}__close-desktop {
-        fill: $c-gray-dark;
+        fill: var(--mf-c-gray-dark);
       }
     }
   }
@@ -231,44 +231,44 @@ $border-width: 1px;
       }
 
       &--c-primary {
-        background-color: $c-primary-lightest;
+        background-color: var(--mf-c-primary-lightest);
         #{$helpTipBaseClass}__close-mobile {
-          background-color: $c-primary;
+          background-color: var(--mf-c-primary);
         }
       }
 
       &--c-primary-alt {
-        background-color: $c-primary-alt-lightest;
+        background-color: var(--mf-c-primary-alt-lightest);
         #{$helpTipBaseClass}__close-mobile {
-          background-color: $c-primary-alt;
+          background-color: var(--mf-c-primary-alt);
         }
       }
 
       &--c-highlight {
-        background-color: $c-highlight-lightest;
+        background-color: var(--mf-c-highlight-lightest);
         #{$helpTipBaseClass}__close-mobile {
-          background-color: $c-highlight;
+          background-color: var(--mf-c-highlight);
         }
       }
 
       &--c-gray-dark {
-        background-color: $c-gray-lightest;
+        background-color: var(--mf-c-gray-lightest);
         #{$helpTipBaseClass}__close-mobile {
-          background-color: $c-gray-dark;
+          background-color: var(--mf-c-gray-dark);
         }
       }
 
       &--c-error-red {
-        background-color: $c-error-red-lightest;
+        background-color: var(--mf-c-error-red-lightest);
         #{$helpTipBaseClass}__close-mobile {
-          background-color: $c-error-red;
+          background-color: var(--mf-c-error-red);
         }
       }
 
       &--c-white {
-        background-color: $c-bg;// <-- BASED ON THE CLASS, IS IT BETTER TO KEEP $c-white?
+        background-color: var(--mf-c-bg);// <-- BASED ON THE CLASS, IS IT BETTER TO KEEP $c-white?
         #{$helpTipBaseClass}__close-mobile {
-          background-color: $c-gray-dark;
+          background-color: var(--mf-c-gray-dark);
         }
       }
     }
@@ -279,7 +279,7 @@ $border-width: 1px;
         margin: 0px;
         font-size: $fonts-medium;
         line-height: 1.1;
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
       }
     }
     #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
@@ -308,27 +308,27 @@ $border-width: 1px;
         bottom: auto;
 
         &--c-primary {
-          background-color: $c-primary-lightest;
+          background-color: var(--mf-c-primary-lightest);
         }
 
         &--c-primary-alt {
-          background-color: $c-primary-alt-lightest;
+          background-color: var(--mf-c-primary-alt-lightest);
         }
 
         &--c-highlight {
-          background-color: $c-highlight-lightest;
+          background-color: var(--mf-c-highlight-lightest);
         }
 
         &--c-gray-dark {
-          background-color: $c-gray-lightest;
+          background-color: var(--mf-c-gray-lightest);
         }
 
         &--c-error-red {
-          background-color: $c-error-red-lightest;
+          background-color: var(--mf-c-error-red-lightest);
         }
 
         &--c-white {
-          background-color: $c-bg;//<-- BASED ON THE CLASS, IS IT BETTER TO KEEP $c-white?
+          background-color: var(--mf-c-bg);//<-- BASED ON THE CLASS, IS IT BETTER TO KEEP $c-white?
         }
       }
 

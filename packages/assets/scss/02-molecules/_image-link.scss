@@ -42,7 +42,7 @@
 //theme
 
 .ma__image-link--block {
-    background: $c-gray-lightest;
+    background: var(--mf-c-gray-lightest);
 
     &:hover,
     &:active,
@@ -54,10 +54,10 @@
     }
 
     .ma__image-link__text {
-        color: $c-gray-dark;
+        color: var(--mf-c-gray-dark);
     }
 
     svg {
-        fill: $c-gray-dark;
+        fill: var(--mf-c-gray-dark);
     }
 }

@@ -50,12 +50,12 @@
   }
 
   &__label {
-    color: $c-warning;
+    color: var(--mf-c-warning);
     font-weight: 900;
   }
 
   &__type {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
     font-weight: $fonts-bold;
   }
 
@@ -64,7 +64,7 @@
   }
 
   &__message {
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: $fonts-light;
   }
 }

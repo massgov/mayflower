@@ -17,7 +17,7 @@
   }
 
   &__label {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
     display: inline-block;
     font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
@@ -79,37 +79,37 @@
   &__link {
 
     &, &--c-primary {
-      fill: $c-primary;
+      fill: var(--mf-c-primary);
     }
 
     &--c-primary-alt {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
     }
 
     &--inverted, &--c-primary--inverted {
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
 
       & > svg,
       & > svg path {
-        fill: $c-white;    
+        fill: var(--mf-c-white);    
       }
     }
 
     &--c-primary-alt--inverted {
-      background-color: $c-primary-alt;
+      background-color: var(--mf-c-primary-alt);
 
       & > svg,
       & > svg path {
-        fill: $c-white;    
+        fill: var(--mf-c-white);    
       }
     }
 
     &[data-social-share = blog] > svg path {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
     }
 
     &[data-social-share = email] > svg path {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
     }
   }
 }

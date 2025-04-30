@@ -20,7 +20,7 @@
     border-top-style: solid;
     margin-top: 20px;
     padding-top: 20px;
-    border-top-color: $c-bd-divider;
+    border-top-color: var(--mf-c-bd-divider);
 
     @media ($bp-large-min) {
       margin-top: 30px;
@@ -67,7 +67,7 @@
     letter-spacing: $letter-spacing-large;
     padding: 5px 7px;
     text-transform: uppercase;
-    background-color: $c-bg-section;
+    background-color: var(--mf-c-bg-section);
     font-weight: $fonts-bold;
 
     svg {
@@ -109,7 +109,7 @@
 
          span {
           font-size: $fonts-medium;
-          color: $c-gray-dark;
+          color: var(--mf-c-gray-dark);
           font-weight: $fonts-bold;
          }
 
@@ -132,13 +132,13 @@
     font-size: $fonts-small;
     line-height: 1;
     margin-bottom: 1em;
-    color: $c-font-dark;
+    color: var(--mf-c-font-dark);
     font-style: italic;
     font-weight: $fonts-bold;
   }
 
   &__date + &__org {
-    border-left: 1px solid $c-bd-divider;
+    border-left: 1px solid var(--mf-c-bd-divider);
     margin-left: .75em;
     padding-left: .75em;
   }
@@ -200,7 +200,7 @@
       @media ($bp-small-min) {
         flex: 1 50%;
         align-content: flex-start;
-        border-left: 1px solid $c-bd-divider;
+        border-left: 1px solid var(--mf-c-bd-divider);
         margin-left: .75em;
         padding-left: .75em;
       }
@@ -269,7 +269,7 @@
     @media ($bp-small-min) {
       padding-left: .75em;
       margin-left: .75em;
-      border-left: 1px solid $c-gray-light;
+      border-left: 1px solid var(--mf-c-gray-light);
 
       & > *:first-child {
         margin-top: 0rem;
@@ -297,7 +297,7 @@
   &__secondaryicon svg {
     display: inline-block;
     vertical-align: middle;
-    fill: $c-primary-alt;
+    fill: var(--mf-c-primary-alt);
   }
 
   &__infoitem {
@@ -321,7 +321,7 @@
       svg {
         display: inline-block;
         vertical-align: middle;
-        fill: $c-primary-alt;
+        fill: var(--mf-c-primary-alt);
         margin-right: 0.5em;
       }
     }
@@ -330,12 +330,12 @@
   }
 
   &__tag {
-    color: $c-gray;
+    color: var(--mf-c-gray);
     font-size: $fonts-xsmall;
     font-weight: bold;
     text-align: center;
-    border: 1px solid $c-gray-light;
-    background-color: $c-bg;
+    border: 1px solid var(--mf-c-gray-light);
+    background-color: var(--mf-c-bg);
     padding: 0px 5px;
     min-width: 60px;
     display: inline-block;
@@ -374,12 +374,12 @@
       .ma__button-icon.ma__button-search {
         height: 42px;
         min-height: 42px;
-        background-color: $c-bg;
-        border-color: $c-gray-light !important;
-        color: $c-primary-alt;
+        background-color: var(--mf-c-bg);
+        border-color: var(--mf-c-gray-light) !important;
+        color: var(--mf-c-primary-alt);
 
         svg {
-          fill: $c-primary-alt;
+          fill: var(--mf-c-primary-alt);
           height: 13px;
           width: 14px;
         }

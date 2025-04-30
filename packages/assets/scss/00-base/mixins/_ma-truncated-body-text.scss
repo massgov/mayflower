@@ -62,11 +62,11 @@
     background: transparent;
     border: 0;
     font-weight: $fonts-bold;
-    color: $c-primary;
+    color: var(--mf-c-primary);
 
     &::after {
       transform: translateY(-35%) rotate(45deg);
-      color: $c-link;
+      color: var(--mf-c-link);
     }
   }
 }

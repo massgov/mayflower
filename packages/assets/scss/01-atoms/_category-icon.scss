@@ -47,14 +47,14 @@
 //theme
 
 .ma__category-icon {
-  background-color: $c-primary-alt;
+  background-color: var(--mf-c-primary-alt);
 
   svg,
   svg > g {
-    fill: $c-white;
+    fill: var(--mf-c-white);
   }
 
   &:after {
-    background-color: $c-primary-alt;
+    background-color: var(--mf-c-primary-alt);
   }
 }

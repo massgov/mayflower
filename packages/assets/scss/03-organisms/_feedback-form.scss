@@ -168,13 +168,13 @@ $feedback-form-bp-min: "min-width: 751px";
 
   &__overlay {
     background-color: rgba($c-black,.6);
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
   }
 
   &__title {
 
     @include ma-border-decorative($c-highlight,1);
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
   }
 
   &__controls {
@@ -188,6 +188,6 @@ $feedback-form-bp-min: "min-width: 751px";
   }
 
   &__error-message {
-    color: $c-font-error;
+    color: var(--mf-c-font-error);
   }
 }
