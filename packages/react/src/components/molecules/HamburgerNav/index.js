@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
+import IconHome from 'MayflowerReactBase/Icon/IconHome';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
@@ -20,8 +21,9 @@ const HamburgerNav = ({
   Logo,
   siteName = 'Mass.gov',
   mainItems = [],
+  homeLink = {},
   utilityItems = [],
-  headerType
+  headerType = 'hamburger'
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840; // desktop breakpoint
@@ -257,6 +259,8 @@ const HamburgerNav = ({
   // Enables jump to search events.
   useJumpToSearch(openMenu);
 
+  const renderHomeLink = homeLink && homeLink.text && homeLink.url;
+
   return(
     <>
       <HamburgerContext.Provider value={{
@@ -268,26 +272,33 @@ const HamburgerNav = ({
         <nav className="ma__header__hamburger__nav" aria-label={(headerType === 'mixed' && !isMobileWindow) ? 'Language options and quick access links' : 'main navigation'} id="hamburger-main-navigation">
           <div className="ma__header__hamburger-wrapper">
             <div className="ma__header__hamburger__button-container js-sticky-header">
-              <button
-                ref={menuButtonRef}
-                type="button"
-                aria-expanded="false"
-                aria-label={`Open the main menu for ${siteName}`}
-                className="ma__header__hamburger__menu-button js-header-menu-button"
-              >
-                <span className="ma__header__hamburger__menu-icon" />
-                <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
-                  {siteName}
-                </span>
-                <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
-                  Menu
-                </span>
-                <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
-                  Close
-                </span>
-              </button>
-              {
-              navSearch && (
+              {mainItems.length > 0 && !renderHomeLink && (
+                <button
+                  ref={menuButtonRef}
+                  type="button"
+                  aria-expanded="false"
+                  aria-label={`Open the main menu for ${siteName}`}
+                  className="ma__header__hamburger__menu-button js-header-menu-button"
+                >
+                  <span className="ma__header__hamburger__menu-icon" />
+                  <span className={`ma__header__hamburger__menu-text--mobile js-header__menu-text--mobile ${menuOpen ? '' : 'show'}`}>
+                    {siteName}
+                  </span>
+                  <span className={`ma__header__hamburger__menu-text js-header__menu-text ${menuOpen ? '' : 'show'}`}>
+                    Menu
+                  </span>
+                  <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
+                    Close
+                  </span>
+                </button>
+              )}
+              {renderHomeLink && (
+                <a className="ma__header__hamburger__menu-home-link" href={homeLink.url}>
+                  <IconHome />
+                  <span>{homeLink.text}</span>
+                </a>
+              )}
+              {navSearch && (
                 <button
                   type="button"
                   aria-expanded="false"
@@ -296,19 +307,18 @@ const HamburgerNav = ({
                   <span className="ma__visually-hidden">Access to search</span>
                   <IconSearch />
                 </button>
-              )
-            }
+              )}
             </div>
             {RenderedUtilityNav !== null && <RenderedUtilityNav items={utilityItems} UtilityItem={RenderedUtilityItem} narrow={false} />}
-            {(headerType !== 'mixed' || (headerType === 'mixed' && isMobileWindow)) && (
-            <NavContainer
-              logo={logo}
-              mainNav={mainNav}
-              utilityNav={utilityNav}
-              navSearch={navSearch}
-              className="ma__header__hamburger__nav-container"
-            />
-            )}
+            {((headerType !== 'mixed' || (headerType === 'mixed' && isMobileWindow)) && mainItems.length) ? (
+              <NavContainer
+                logo={logo}
+                mainNav={mainNav}
+                utilityNav={utilityNav}
+                navSearch={navSearch}
+                className="ma__header__hamburger__nav-container"
+              />
+            ) : null}
           </div>
         </nav>
       </HamburgerContext.Provider>
@@ -328,7 +338,7 @@ HamburgerNav.propTypes = {
   NavItem: propTypes.elementType,
   /** An uninstantiated component which handles displaying the site logo. */
   Logo: propTypes.elementType,
-  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile */
+  /** Override default siteName rendered as the hamburger menu toggle button text and aria-label on mobile, or fallback link */
   siteName: propTypes.string,
   /** An uninstantiated component which handles search functionality. */
   NavSearch: propTypes.elementType,
@@ -342,6 +352,11 @@ HamburgerNav.propTypes = {
       text: propTypes.string
     }))
   })),
+  /** Render a link to home site in place of the hamburger menu. */
+  homeLink: propTypes.shape({
+    text: propTypes.string,
+    url: propTypes.string
+  }),
   /** An array of uninstantiated components to render within the utility navigation.  */
   utilityItems: propTypes.arrayOf(propTypes.elementType),
   /** A string that represents the type of header this component is displayed in. This is needed for figuring out when to display using slim or not. Currently only supports hamburger and mixed. */
