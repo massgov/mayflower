@@ -102,9 +102,6 @@ body.show-menu {
     // THIS BLOCK MIGHT BE OVERRIDE IN DRUPAL.
 
     @media ($bp-header-toggle-max) {
-
-      padding-right: 0;
-      padding-left: 0;
       height: $utility-nav-height;
       left: 0;
       width: 100%;
@@ -264,8 +261,6 @@ body.show-menu {
     font-size: 19.2px;// Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
-    padding-right: 30px;
-    padding-left: 20px;
     transition: transform 0.5s ease;
     display: flex;
     align-items: center;
@@ -281,21 +276,6 @@ body.show-menu {
 
     span:first-child {
       opacity: 0.7;
-    }
-
-    @media ($bp-header-toggle-max) {
-
-      padding-left: 30px;
-    }
-
-    @media ($bp-header-toggle-min) {
-
-      padding-left: 0;
-    }
-
-    @media ($bp-medium-max) {
-
-      padding-left: 20px;
     }
   }
 
