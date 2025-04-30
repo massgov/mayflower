@@ -27,7 +27,7 @@
           color: var(--mf-c-font-inverse);
 
           svg {
-            fill: color-mix(in srgb, var(--mf-c-white) 70%, transparent 30%);
+            fill: rgba($c-white, 0.7);
             width: 12px;
             height: 12px;
             margin-bottom: -1px;

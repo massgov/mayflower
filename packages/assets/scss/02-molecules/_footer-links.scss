@@ -39,7 +39,7 @@
     font-weight: $fonts-normal;
 
     &:hover {
-      border-bottom-color: color-mix(in srgb, var(--mf-c-font-dark) 50%, transparent 50%);
+      border-bottom-color: rgba($c-font-dark,.5);
     }
   }
 }

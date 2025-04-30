@@ -588,7 +588,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: color-mix(in srgb, var(--mf-c-gray-darkest) 30%, transparent 70%);
+  background-color: rgba($c-gray-darkest, 0.3);
   pointer-events: none;
   z-index: 99;
 

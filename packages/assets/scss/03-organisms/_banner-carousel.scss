@@ -126,7 +126,7 @@
     }
 
     &:before {
-      background-color: color-mix(in srgb, var(--mf-c-primary) 50%, transparent 50%);
+      background-color: rgba($c-primary,.5);
     }
 
     &:hover:before {

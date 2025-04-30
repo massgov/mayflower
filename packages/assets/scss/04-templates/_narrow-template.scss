@@ -158,14 +158,14 @@ $narrow-template-header-height: 170px;
   //theme
 
   &--blue:before {
-    background-color: color-mix(in srgb, var(--mf-c-primary) 15%, transparent 85%);
+    background-color: rgba($c-primary, .15);
   }
 
   &--green:before {
-    background-color: color-mix(in srgb, var(--mf-c-primary-alt) 15%, transparent 85%);
+    background-color: rgba($c-primary-alt, .15);
   }
 
   &--yellow:before {
-    background-color: color-mix(in srgb, var(--mf-c-highlight) 15%, transparent 85%);
+    background-color: rgba($c-highlight, .15);
   }
 }

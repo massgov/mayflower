@@ -35,7 +35,7 @@
         left: 0.075rem;
         transform: skew(-30deg);
         width: 1.85em;
-        background-color: color-mix(in srgb, var(--mf-c-primary-alt) 50%, transparent 50%);
+        background-color: rgba($c-primary-alt, 0.5);
       }
     }
 

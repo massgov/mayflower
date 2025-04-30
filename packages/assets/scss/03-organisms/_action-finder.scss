@@ -234,12 +234,12 @@ $action-finder-border-color: mix($c-white, $c-primary,50%);
         color: var(--mf-c-font-inverse);
 
         &:hover {
-          border-color: color-mix(in srgb, var(--mf-c-font-inverse) 50%, transparent 50%);
+          border-color: rgba($c-font-inverse, .5);
         }
       }
 
       svg {
-        fill: color-mix(in srgb, var(--mf-c-font-inverse) 50%, transparent 50%);
+        fill: rgba($c-font-inverse, .5);
       }
     }
   }

@@ -99,7 +99,7 @@
 .ma__arrow-nav {
 
   &__title {
-    color: color-mix(in srgb, var(--mf-c-font-link) 80%, transparent 20%);
+    color: rgba($c-font-link, .8);
     font-weight: $fonts-bold;
 
   }

@@ -208,7 +208,7 @@
     }
 
     .ma__toc--hierarchy__title.is-current {
-      border-left-color: color-mix(in srgb, var(--mf-c-primary-alt) 50%, transparent 50%) !important;
+      border-left-color: rgba($c-primary-alt, 0.5) !important;
     }
   }
 

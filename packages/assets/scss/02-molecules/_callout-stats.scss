@@ -72,7 +72,7 @@
   font-weight: 900;
 
   &:before {
-    background-color: color-mix(in srgb, var(--mf-c-primary-alt) 20%, transparent 80%);
+    background-color: rgba($c-primary-alt,.2);
   }
 
   &__stat {

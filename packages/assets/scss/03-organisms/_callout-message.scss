@@ -20,8 +20,8 @@
   display:block;
   width: 100%;
   padding: 15px 20px;
-  background-color: color-mix(in srgb, var(--mf-c-white) 90%, var(--mf-c-font-link) 10%);
-  border-color: color-mix(in srgb, var(--mf-c-white) 50%, var(--mf-c-font-link) 50%);
+  background-color: mix($c-white, $c-font-link,90%);
+  border-color: mix($c-white, $c-font-link,50%);
   box-shadow: $box-shadow;
 
   @media ($bp-small-min) {
@@ -39,7 +39,7 @@
 
   &--white {
     background-color: var(--mf-c-bg);
-    border-color: color-mix(in srgb, var(--mf-c-white) 70%, var(--mf-c-font-detail) 30%);
+    border-color: mix($c-white, $c-font-detail,70%);
     box-shadow: $box-shadow;
   }
 

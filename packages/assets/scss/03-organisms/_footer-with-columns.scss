@@ -123,10 +123,10 @@
   &__back2top {
 
     @include ma-button("outline",$c-primary);
-    background-color: color-mix(in srgb, var(--mf-c-white) 90%, transparent 10%);
+    background-color: rgba($c-white, .9);
 
     svg {
-      fill: color-mix(in srgb, var(--mf-c-primary) 50%, transparent 50%);
+      fill: rgba($c-primary, .5);
     }
 
     &:hover {

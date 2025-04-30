@@ -216,7 +216,7 @@
     }
 
     svg {
-      fill: color-mix(in srgb, var(--mf-c-font-link) 50%, transparent 50%);
+      fill: rgba($c-font-link, 0.5);
     }
   }
 

@@ -18,7 +18,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: color-mix(in srgb, var(--mf-c-gray-darkest) 40%, transparent 60%);
+  background-color: rgba($c-gray-darkest, 0.4);
   top: 0;
   z-index: $z-overlay-shade;// Lay over the alerts.
 
@@ -36,7 +36,7 @@ body.show-menu {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
-  background-color: color-mix(in srgb, var(--mf-c-gray-darkest) 40%, transparent 60%);
+  background-color: rgba($c-gray-darkest, 0.4);
   top: 0px;
   z-index: $z-overlay-shade;
 
@@ -685,8 +685,8 @@ body.show-menu {
       top: 0;
       white-space: nowrap;
       font-weight: $fonts-semibold;
-      background-color: color-mix(in srgb, var(--mf-c-font-link) 90%, var(--mf-c-white) 10%);
-      border-color: color-mix(in srgb, var(--mf-c-font-link) 50%, var(--mf-c-white) 50%);
+      background-color: tint($c-font-link, 90%);
+      border-color: tint($c-font-link, 50%);
       box-shadow: $box-shadow;
       color: var(--mf-c-font-link);
       font-size: $fonts-medium;

@@ -20,7 +20,7 @@
   }
 
   &:hover:before {
-    background-color: color-mix(in srgb, var(--mf-c-black) 10%, transparent 90%);
+    background-color: rgba($c-black,0.1);
   }
 
   &:hover span {
