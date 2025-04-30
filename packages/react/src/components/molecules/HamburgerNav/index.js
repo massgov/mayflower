@@ -259,6 +259,8 @@ const HamburgerNav = ({
   // Enables jump to search events.
   useJumpToSearch(openMenu);
 
+  const renderHomeLink = homeLink && homeLink.text && homeLink.url;
+
   return(
     <>
       <HamburgerContext.Provider value={{
@@ -270,7 +272,7 @@ const HamburgerNav = ({
         <nav className="ma__header__hamburger__nav" aria-label={(headerType === 'mixed' && !isMobileWindow) ? 'Language options and quick access links' : 'main navigation'} id="hamburger-main-navigation">
           <div className="ma__header__hamburger-wrapper">
             <div className="ma__header__hamburger__button-container js-sticky-header">
-              {mainItems.length > 0 && (
+              {mainItems.length > 0 && !renderHomeLink && (
                 <button
                   ref={menuButtonRef}
                   type="button"
@@ -290,7 +292,7 @@ const HamburgerNav = ({
                   </span>
                 </button>
               )}
-              {homeLink && homeLink.text && homeLink.url && (
+              {renderHomeLink && (
                 <a className="ma__header__hamburger__menu-home-link" href={homeLink.url}>
                   <IconHome />
                   <span>{homeLink.text}</span>
