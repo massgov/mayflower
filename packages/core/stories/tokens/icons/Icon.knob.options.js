@@ -2,6 +2,7 @@ export const assets = {
   alert: 'alert',
   arrow: 'arrow',
   arrowbent: 'arrowbent',
+  bluesky: 'bluesky',
   building: 'building',
   calendar: 'calendar',
   catalog: 'catalog',
@@ -44,7 +45,8 @@ export const assets = {
   zoomin: 'zoomin',
   zoomout: 'zoomout',
   github: 'github',
-  slack: 'slack'
+  slack: 'slack',
+  lock: 'lock'
 };
 
 export const svgOptions = {

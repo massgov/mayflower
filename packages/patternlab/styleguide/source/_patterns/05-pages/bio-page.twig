@@ -2,7 +2,9 @@
 
 {% block header %}
   {% include "@organisms/by-template/emergency-alerts.twig" %}
-  {% include "@organisms/by-template/header-hamburger.twig" %}
+  {% include "@organisms/by-template/header-hamburger.twig" with {
+    title: 'Mass.gov',
+  } %}
 {% endblock %}
 
 {% block pageContent %}{% endblock %}

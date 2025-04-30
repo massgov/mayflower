@@ -1,6 +1,44 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 14.0.0 (4/30/2025)
+### Changed 
+- (Docs) [Docs] DP-24730: Onboarding documentation improvements. (#1626)
+- (Assets) [StickyTOC] DP-36608: Table of contents is displaying for info details pages even when <3 sections. (#1948)
+- (Assets) [StickyTOC] DP-37249: We should see contact in the table of contents. (#1949)
+- (Patternlab) [Card Group & Stat] DP-37544: Add accordion styling to Cards & bring background color up for Stat, if within an "enhanced" heading.
+- (Patternlab) [SiteLogo] DP-37552: Microsite header updates (#1957)
+- (Patternlab) [FeaturedItemMosaic] DP-37567: Remove collapse on mobile (#1953).
+- (Patternlab) [Services, KeyMessage] DP-37834: Add two new display options for Service Section, both two column, one white and one light grey like "enhanced". Adds additional "subtitle" and "link" field to Service Section and an "eyebrow" field to Key Message Section. (#1954)
+- (Patternlab) [Card] DP-38060: Added new variant of "Card" to make the content vertical, with an included image. An optional eyebrow is also added. (#1960)
+- (Patternlab) [Card] DP-38226: Adjusts the CSS for a Card to use a separate class for inside the Card and avoid repeating .ma__card__wrapper.
+- (Patternlab) [Card] DP-38308: Makes the image field on a vertical card optional.
+- (Patternlab) [figureImage] DP-38324: Make sure meta information for the atom does not depend on image or content key availability.
+- (Patternlab) [Card] DP-38325: Fixes the max width for first card used in Campaign Feature.
+- (Patternlab) [Button Dropdown] DP-38339: Added conditional `id` attribute to the button in the Button Dropdown component to support analytics tracking for specific use cases like the "log in to" button. (#1967)
+- (Patternlab) [Image, featuredItem] DP-38375: Allow externally rendered image in featuredItem and Image components.
+- (Patternlab) [Key Message] DP-38400: Adjusts the font sizing of the subtitle. Adds additional padding around the container. Adds a new variant for two columns of text. (#1969,#1977)
+- (Patternlab) [Card] DP-38411: Adjusts image cards within a .ma__rich-text to ensure they are equal width even if there are no images.
+- (React) [HeaderHamburger] DP-38622: Make hamburger menu conditional, and add a homeLink option. (#1982)
+
+### Removed 
+- (Assets) [Heading] DP-35812: removed aria-hidden text trying to add context to headings that is not helpful.
+- (Patternlab) [Download Link Multilang] DP-36970: Fix inconsistent indentation for translated text
+- (Patternlab,React,Assets) [Tooltip] DP-37992: Remove Tooltip component, replace tooltip with popover (#1979)
+
+### Added 
+- (Assets) [Icon] DP-35898: Add Bluesky icon. (#1944)
+- (Docs) [Icon] DP-35898: Add icon contribution documentation. (#1944)
+- (Patternlab) [ButtonDropdown] DP-36147: Add ButtonDropdown component. Make it passable to PageHeader to render login options. (#1943)
+- (Patternlab) [SecondaryNav,SecondaryNavHamburger] DP-37552: Microsite header updates (#1957)
+- (React, Patternlab) [Popover] DP-37841: Add Popover component to patternlab. (#1971)
+- (Patternlab) [HeaderSearch] DP-38621: Allow HeaderSearch to add additional query parameters as hidden inputs. (#1973)
+
+### Fixed 
+- (Assets) [FixedFeedbackButton] DP-36941: moves feedback button to the vertical middle of the screen. (#1962)
+- (Patternlab) [Popover] DP-37992: fix accessibility issues (#1976)
+- (Patternlab) [Header] DP-38268: Fix z-index collision (#1963)
+
 ## 13.2.0 (1/22/2025)
 ### Added 
 - (Patternlab) [RichText] DP-22509: Add list style classnames to match openmass ckeditor specific classes. (#1927)

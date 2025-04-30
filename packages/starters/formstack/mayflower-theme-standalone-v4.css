@@ -1,0 +1,351 @@
+/* layout */
+:root {
+  font-size: 13.33px;
+}
+
+.fsBody {
+  background-color: #f2f2f2;
+  color: #141414;
+}
+
+.fsBody .fsForm, .fsBody div[data-testid="welcome-message-content"] {
+  font-family: "Noto Sans VF", "Noto Sans", "Helvetica", "Arial", sans-serif;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  float: none;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+/* Headings */
+.fsBody .fsSectionHeader {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.fsBody .fsSectionHeader .fsSectionHeading {
+  text-align: left;
+  position: relative;
+  margin-top: 2.5rem;
+  padding-bottom: 15px;
+  color: #535353;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 1.25;
+}
+
+.fsBody .fsSectionHeader .fsSectionHeading:after {
+  content: "";
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0.075em;
+  width: 1.85em;
+  background-color: rgb(67, 149, 111);
+  background-color: rgba(67, 149, 111, 0.5);
+  -webkit-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  transform: skew(-30deg);
+}
+
+/* Buttons */
+/** (file upload)  **/
+.fsBody .fsForm input[type="button"] {
+  padding: 10px;
+  width: auto;
+}
+
+.fsBody .fsForm input[type="button"][data-testid="remove-button"] {
+  background-color: #535353;
+}
+/** No file chosen text  **/
+.fxrYEt {
+  font-size: 1.25rem;
+}
+
+/** (save incomplete)  **/
+.fsBody .fsForm button.fsSaveIncomplete {
+  font-weight: bold;
+  color:#fff;
+  background-color: #535353;
+}
+
+/* Links  */
+.fsBody .fsForm a {
+  color: #14558F;
+  font-weight: 600;
+  /* Long HTML force breaks  */
+  word-wrap: break-word;
+}
+
+/* Labels */
+.fsBody .fsForm .fsLabel {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  color: #141414;
+}
+
+/** Required **/
+.fsRequiredMarker {
+  font-size: 1rem;
+  color: #CD0D0D;
+}
+
+/** Validation **/
+.fsValidationError > span {
+  display: flex;
+  align-items: center;
+}
+
+.fsValidationError > span > div:last-child {
+  margin-left: 0;
+  width: calc(100% - 20px);/* prevent multi-line error message cuts off the icon */
+}
+
+/* Inputs */
+.fsBody .fsForm input:not([type='button']), .fsBody .fsForm select, .fsBody .fsForm textarea {
+  color: #141414;
+}
+
+.fsBody .fsForm input::placeholder {
+  color: #535353;
+}
+
+
+/* Subfields */
+/** Safari misalign other input box on mobile **/
+.krREGe.fsSubField {
+  flex-basis: auto;
+}
+
+/** labels **/
+.fsSubField > label {
+  color: #141414;
+}
+
+
+/* Radios, checkboxes */
+
+.fsBody .fsForm label[class^="StyledOptionLabel-"] {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  position: relative;
+  margin-bottom: 0.25rem;
+  align-items: baseline;
+}
+
+
+label[class^="StyledOptionLabel-"] > input {
+  display: flex;
+  align-items: center;
+  width: unset;
+}
+
+
+label[class^="StyledOptionLabel-"] > input:before {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.25rem;
+  outline: transparent solid 2px;
+  border: 2px solid #535353;
+}
+
+label[class^="StyledOptionLabel-"] > input[type="checkbox"]:checked::before {
+  background-color: #14558F;
+}
+
+label[class^="StyledOptionLabel-"] > input[type="radio"]:checked::before {
+  border-width: thick;
+  border-color: #14558F;
+  background-color: #fff;
+}
+
+/* text input, select, text area */
+.fsForm input, .fsForm select, .fsForm textarea {
+  font-size: 1.375rem;
+  line-height: 1.25;
+  height: unset;
+}
+
+/* Datepicker */
+.MuiTextField-root {
+  border: 1px solid #dcdcdc;
+}
+
+input.MuiInputBase-input::placeholder {
+  opacity: 1;
+}
+
+/** Datepicker Calendar **/
+.MuiPickersCalendarHeader-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.MuiPaper-root {
+  color: #141414;
+}
+
+.MuiPickersYear-yearButton {
+  font-size: 1.125rem;
+}
+
+.MuiButton-root {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #14558F;
+  color:  white;
+}
+
+.MuiDayCalendar-weekDayLabel {
+  font-size: 1rem;
+}
+
+.MuiPickersDay-dayWithMargin {
+  color: #141414;
+}
+
+/* Time picker  */
+button.MuiPickersToolbar-root {
+      background: white;
+}
+.ipjwSe.MuiPickersToolbarText-root, .xAbeN.MuiPickersToolbarText-root {
+  color:  #141414;
+}
+
+.ipjwSe.MuiPickersToolbarText-root.Mui-selected  {
+  /* color: rgb(20, 85, 143) !important; */
+  color:  rgb(20, 85, 143);
+  font-weight: 600;
+}
+
+.xAbeN.MuiPickersToolbarText-root.Mui-selected {
+  color:  #fff;
+  background-color: rgb(20, 85, 143);
+  padding: 2px 4px;
+  font-weight: 600;
+}
+
+.MuiTypography-root.MuiTypography-overline {
+  font-size: 1rem;
+}
+
+/** desktop ok button **/
+.MuiButton-textPrimary:hover {
+  background-color: rgba(20, 85, 143, 0.8);
+}
+
+/* Number currency */
+/** Currency $ sign span **/
+.jjRdiv {
+  font-size: 1.375rem;
+  width: unset;
+}
+.ma__input-number > input {
+  width: 100%;
+}
+.ma__input-number {
+  min-width: 12rem;
+}
+
+
+/* Matrix */
+.fsBody .fsForm table {
+  color: #141414;
+}
+td.column.fsMatrixCol2 {
+  background: white;
+}
+.DWbWP::before {
+  height: 16px;
+  width: 16px;
+  border-width: 2px;
+  border-color: #535353;
+}
+
+
+/* Submit */
+.fsSubmit {
+  margin: 0;
+}
+
+.fsSubmit .fsSubmitButton {
+  margin: 0;
+}
+
+.fsSubmitButton:hover {
+  background-color: rgba(20, 85, 143, 0.75);
+  border-color: transparent;
+}
+
+/* Progress Bar */
+div[class^="StyledProgressIndicatorBar-"] {
+  background-color: #DCDCDC;
+}
+
+/* Next Prev buttons */
+.fsNextButton, .fsPreviousButton {
+  margin-bottom: 1rem;
+}
+
+/* Welcome Message */
+div[data-testid="welcome-message-container"] {
+  float: none;
+  margin: 0 auto;
+  max-width: 50rem;
+  text-align: center;
+}
+
+div[data-testid="welcome-message-content"] {
+  padding: 0;
+  margin: 0;
+}
+
+div[data-testid="welcome-message-content"] > div {
+  font-size: 1.5rem;
+  color: #141414;
+}
+
+/* Success Message (formstack domain) */
+html.wf-active {
+  font-size: calc(16px / 1.2);
+}
+
+.body-hosted-form > .fsForm {
+  width: 100%;
+  max-width: unset;
+  background-color: #f2f2f2;
+}
+
+.body-hosted-form > .fsForm > .fsPage {
+  max-width: 50rem;
+  padding-top: 20px;
+  margin: 0 auto;
+  color:#141414;
+  background-color: #fff;
+}
+
+.body-hosted-form > .fsForm > .fsPage p,
+.body-hosted-form > .fsForm > .fsPage ul {
+  text-align: left;
+}
+
+.body-hosted-form > .fsForm > .fsPage a {
+  color:#14558F;
+}
+
+#fsSubmissionCheckmark {
+  display: none;
+}
+
+#fsSubmissionCheckmark ~ .fsSectionText {
+  text-align: left;
+}

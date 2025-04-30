@@ -6,6 +6,9 @@
 {% else %}
  {% set theme = keyMessage.backgroundColor ? keyMessage.backgroundColor : "c-gray-lightest" %}
 {% endif %}
+{% if keyMessage.columns %}
+  {% set columns = keyMessage.columns ? keyMessage.columns : "" %}
+{% endif %}
 
 {% set bgImage = keyMessage.bgImage %}
 {% set positionTop = keyMessage.positionTop %}
@@ -15,8 +18,10 @@
 {% set descClass = theme ? " ma__key-message__description--" ~ theme : "" %}
 {% set titleClass = theme ? " ma__key-message__title--" ~ theme : "" %}
 {% set subClass = theme ? " ma__key-message__title--" ~ theme : "" %}
+{% set eyebrowClass = theme ? " ma__key-message__title--" ~ theme : "" %}
 {% set blockClass = theme ? " ma__key-message__block--" ~ theme : "" %}
 {% set wrapperClass = keyMessage.textOverlay ? " ma__key-message__wrapper--overlay" : "" %}
+{% set columnsClass = columns ? "ma__key-message__columns--" ~ columns : "" %}
 
 {# Half Image classes #}
 {% set halfImageClassSection = keyMessage.halfImage ? " ma__key-message--half-image " : "" %}
@@ -95,28 +100,67 @@
   <div class="ma__key-message__wrapper{{ wrapperClass }}{{ halfImageClassWrapper }}{% if positionTop %} ma__key-message__wrapper--top{% endif %}">
     <div id="blck{{ id }}" class="ma__key-message__block {{ blockClass }} {{ halfImageBlockClass }}">
       {% if keyMessage.compHeading.title or keyMessage.subtitle %}
-        <header>
-        {% if keyMessage.compHeading.title %}
-          <h{{ headingLevel }} class="ma__key-message__title{{ titleClass }}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
-        {% endif %}
-        {% if keyMessage.subtitle %}
-          <p class="ma__key-message__sub-title{{ subClass }}">{{ keyMessage.subtitle }}</p>
-        {% endif %}
-        </header>
-      {% endif %}
-      {% if keyMessage.description %}
-        <div class="ma__key-message__content">
-          <div class="ma__key-message__description{{ descClass }}">
-            {% set richText = keyMessage.description %}
-            {% include "@organisms/by-author/rich-text.twig" %}
+      
+        {# Conditionally wrap text in two columns for two column variant #}
+        {% if columnsClass %}
+          <div class="{{ columnsClass }}">
+            <header>
+              {% if keyMessage.eyebrow %}
+                <p class="ma__key-message__eyebrow{{ eyebrowClass }}">{{ keyMessage.eyebrow }}</p>
+              {% endif %}       
+              {% if keyMessage.compHeading.title %}
+                <h{{ headingLevel }} class="ma__key-message__title{{ titleClass }}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
+              {% endif %}         
+            </header>
+            <div class="ma__key-message--message-text">
+              {% if keyMessage.subtitle %}
+                <p class="ma__key-message__sub-title{{ subClass }}">{{ keyMessage.subtitle }}</p>
+              {% endif %}
+              {% if keyMessage.description %}
+                <div class="ma__key-message__content">
+                  <div class="ma__key-message__description{{ descClass }}">
+                    {% set richText = keyMessage.description %}
+                    {% include "@organisms/by-author/rich-text.twig" %}
+                  </div>
+                </div>
+              {% endif %}
+              {% if keyMessage.button.text %}
+                <div class="ma__key-message__cta">
+                  {% set button = keyMessage.button|merge(buttontheme) %}
+                  {% include "@atoms/01-buttons/button.twig" %}
+                </div>
+              {% endif %}
+            </div>
           </div>
-        </div>
+        {% else %}
+          <header>
+          {% if keyMessage.eyebrow %}
+            <p class="ma__key-message__eyebrow{{ eyebrowClass }}">{{ keyMessage.eyebrow }}</p>
+          {% endif %}                
+          {% if keyMessage.compHeading.title %}
+            <h{{ headingLevel }} class="ma__key-message__title{{ titleClass }}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
+          {% endif %}
+          {% if keyMessage.subtitle %}
+            <p class="ma__key-message__sub-title{{ subClass }}">{{ keyMessage.subtitle }}</p>
+          {% endif %}
+          </header>
+        {% endif %}
       {% endif %}
-      {% if keyMessage.button.text %}
-        <div class="ma__key-message__cta">
-          {% set button = keyMessage.button|merge(buttontheme) %}
-          {% include "@atoms/01-buttons/button.twig" %}
-        </div>
+      {% if not columnsClass %}
+        {% if keyMessage.description %}
+          <div class="ma__key-message__content">
+            <div class="ma__key-message__description{{ descClass }}">
+              {% set richText = keyMessage.description %}
+              {% include "@organisms/by-author/rich-text.twig" %}
+            </div>
+          </div>
+        {% endif %}
+        {% if keyMessage.button.text %}
+          <div class="ma__key-message__cta">
+            {% set button = keyMessage.button|merge(buttontheme) %}
+            {% include "@atoms/01-buttons/button.twig" %}
+          </div>
+        {% endif %}
       {% endif %}
     </div>
   </div>

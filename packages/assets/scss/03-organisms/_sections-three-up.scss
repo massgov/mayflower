@@ -52,6 +52,10 @@ $bp-section-3up-large-max: "max-width:950px";
           @include omega(3n);
       }
     }
+
+    & > .ma__card__wrapper {
+      padding-bottom: 0;
+    }
   }
 
   &--compact {
@@ -82,5 +86,30 @@ $bp-section-3up-large-max: "max-width:950px";
         }
       }
     }
+  }
+}
+
+// Single CTA cards
+  
+.ma__sections-3up__container:has(.ma__card__wrapper) {
+    
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+
+  @media ($bp-medium-min) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media ($bp-large-min) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  a.ma__card__wrapper {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    margin-inline-end: 0;
+    float: none;
+    margin-block-end: 0;
   }
 }

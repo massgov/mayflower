@@ -1,0 +1,71 @@
+{
+  "navItems": [
+    {
+      "href": "#",
+      "text": "Lorem Ipsum",
+      "active": ""
+    },
+    {
+      "href": "#",
+      "text": "Dolor Sit Amet",
+      "active": "",
+      "subNav": []
+    },
+    {
+      "href": "#",
+      "text": "Consectetur",
+      "active": "",
+      "subNav": [
+        {
+          "href": "#",
+          "text": "Lorem Ipsum"
+        },
+        {
+          "href": "#",
+          "text": "Dolor Sit Amet"
+        },
+        {
+          "href": "#",
+          "text": "Adipiscing Elit"
+        }
+      ]
+    },
+    {
+      "href": "#",
+      "text": "Adipiscing Elit",
+      "active": "true",
+      "subNav": []
+    },
+    {
+      "href": "#",
+      "text": "Eleifend Maecenas Risus",
+      "active": "",
+      "subNav": [
+        {
+          "href": "#",
+          "text": "Lorem Ipsum"
+        },
+        {
+          "href": "#",
+          "text": "Dolor Sit Amet"
+        },
+        {
+          "href": "#",
+          "text": "Adipiscing Elit"
+        },
+        {
+          "href": "#",
+          "text": "Lorem Ipsum"
+        },
+        {
+          "href": "#",
+          "text": "Dolor Sit Amet"
+        },
+        {
+          "href": "#",
+          "text": "Adipiscing Elit"
+        }
+      ]
+    }
+  ]
+}

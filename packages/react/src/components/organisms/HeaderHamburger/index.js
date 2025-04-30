@@ -29,7 +29,9 @@ const HeaderHamburger = ({
   NavItem,
   Container,
   mainItems = [],
-  utilityItems = []
+  utilityItems = [],
+  siteName = 'Mass.gov',
+  homeLink = {}
 }) => {
   const windowWidth = useWindowWidth();
   const isMobileWindow = windowWidth !== null && windowWidth < 840;
@@ -69,6 +71,8 @@ const HeaderHamburger = ({
           NavSearch={RenderedMobileNavSearch}
           mainItems={mainItems}
           utilityItems={fallbackUtilityItems}
+          siteName={siteName}
+          homeLink={homeLink}
         />
         { !isMobileWindow && (<RenderedContainer Logo={DesktopLogo} NavSearch={RenderedNavSearch} />) }
       </header>
@@ -109,6 +113,11 @@ HeaderHamburger.propTypes = {
       text: propTypes.string
     }))
   })),
+  /** Render a link to home site in place of the hamburger menu. */
+  homeLink: propTypes.shape({
+    text: propTypes.string,
+    url: propTypes.string
+  }),
   /** An array of uninstantiated components to render within the utility navigation.  */
   utilityItems: propTypes.arrayOf(propTypes.elementType)
 };

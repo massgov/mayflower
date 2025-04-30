@@ -58,8 +58,9 @@
     "moment": "^2.24.0",
     "picturefill": "^3.0.3",
     "pikaday": "^1.8.0",
-    "smoothscroll-polyfill": "^0.4.4",
+    "postcss-prefix-selector": "^2.1.0",
     "sass": "~1.30.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "svg4everybody": "^2.1.9",
     "terser": "^4.6.3",
     "through2": "^3.0.1",
@@ -70,9 +71,12 @@
     "whatwg-fetch": "^3.0.0"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.20",
     "del": "~6.0.0",
+    "gulp-postcss": "^9.0.1",
+    "leaflet": "~1.7.1",
     "normalize-scss": "~7.0.1",
-    "leaflet": "~1.7.1"
+    "postcss": "^8.4.49"
   },
   "scripts": {
     "start": "gulp",

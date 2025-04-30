@@ -156,7 +156,8 @@ $heading-indent: $gutter;
     margin-left: $heading-indent * 5; // 2.
   }
 
-  p {
+  p,
+  section.ma__link-list {
     margin-bottom: $rich-text-spacing-mobile;
 
     @media ($bp-small-min) {
@@ -169,6 +170,10 @@ $heading-indent: $gutter;
   ul {
     margin-bottom: $rich-text-spacing-mobile;
     padding-left: 20px;
+
+    &.ma__link-list__items--no-bullets {
+      padding-left: 0;
+    }
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
@@ -337,6 +342,13 @@ $heading-indent: $gutter;
 
   .list-style-upper-alpha {
     list-style-type: upper-alpha;
+  }
+
+  // Cards
+
+  a.ma__card__wrapper {
+    border-block-end: 0;
+    border-block-end-color: transparent;
   }
 
 }

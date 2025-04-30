@@ -15,6 +15,16 @@
   &__primary {
     margin-top: 20px;
     margin-bottom: 20px;
+
+    .ma__card__wrapper {
+      margin-block-end: 0;
+      max-inline-size: 100%;
+
+      .ma__card {
+        flex-grow: 1;
+        max-inline-size: 100%;
+      }
+    }
   }
 
   &__title {
