@@ -96,5 +96,5 @@ $c-box-shadow-black:      rgba($c-black, 0.25) !default;
     --mf-c-bd-input-dark:        var(--mf-c-gray);
 
     // Box shadow
-    --mf-c-box-shadow-black:      rgba(var(--mf-c-black), 0.25);
+    --mf-c-box-shadow-black:      $c-box-shadow-black;
 }
