@@ -159,12 +159,12 @@
       a {
 
         color: var(--mf-c-primary);
-        box-shadow: inset 0 0 $c-white, inset 0px -1px $c-bay-blue-lighter;
+        box-shadow: inset 0 0 var(--mf-c-white), inset 0px -1px var(--mf-c-bay-blue-lighter);
         // border-bottom: 1px solid $c-bay-blue-lighter;
 
         &:hover {
 
-          box-shadow: inset 0 0 $c-white, inset 0px -2px $c-bay-blue-30-tint;
+          box-shadow: inset 0 0 var(--mf-c-white), inset 0px -2px var(--mf-c-bay-blue-30-tint);
           // border-bottom: 2px solid $c-bay-blue-30-tint;
         }
       }

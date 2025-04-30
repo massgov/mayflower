@@ -20,7 +20,7 @@
       border-right-color: rgba($c-font-base,.3);
 
       svg {
-        fill: $c-font-base;
+        fill: var(--mf-c-font-base);
       }
     } @else {
       color: var(--mf-c-font-inverse);
