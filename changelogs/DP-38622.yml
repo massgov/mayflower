@@ -53,6 +53,6 @@
 Changed:
   - project: React
     component: HeaderHamburger
-    description: Update HeaderHamburger to support empty navs. (#1982)
+    description: Make hamburger menu conditional, and add a homeLink option. (#1982)
     issue: DP-38622
     impact: Minor
