@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: figureImage
-    description: Make sure meta information for the atom does not depend on image or content key availability.
-    issue: DP-38324
-    impact: Minor

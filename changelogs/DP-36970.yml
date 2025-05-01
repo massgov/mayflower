@@ -1,6 +1,0 @@
-Removed:
-  - project: Patternlab
-    component: Download Link Multilang
-    description: Fix inconsistent indentation for translated text
-    issue: DP-36970
-    impact: Patch
