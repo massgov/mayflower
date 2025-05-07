@@ -92,7 +92,7 @@
       content: "";
       position: fixed;
       z-index: -1;
-      background-color: $c-bg;
+      background-color: var(--mf-c-bg);
       opacity: 0;
       transition: opacity 0.2s ease;
     }
@@ -180,25 +180,25 @@
 .ma__toc--overlay {
 
   .ma__toc__toc__title {
-    background: $c-gray-lightest;
-    color: $c-primary;
+    background: var(--mf-c-gray-lightest);
+    color: var(--mf-c-primary);
   }
 
   .ma__toc--hierarchy {
-    border-bottom: 1px solid $c-gray-light;
+    border-bottom: 1px solid var(--mf-c-gray-light);
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
-    color: $c-primary;
+    color: var(--mf-c-primary);
   }
 
   .ma__toc__toc__toggle[aria-expanded="true"] {
-    color: $c-font-inverse;
-    background: $c-primary;
+    color: var(--mf-c-font-inverse);
+    background: var(--mf-c-primary);
   }
 
   .ma__toc__subtitle {
-    color: $c-gray-dark;
+    color: var(--mf-c-gray-dark);
   }
 
   .ma__toc--hierarchy__accordion {
@@ -213,10 +213,10 @@
   }
 
   .ma__toc--overlay__container {
-    background: $c-white;
+    background: var(--mf-c-white);
   }
 
   li.is-current:before {
-    background: $c-primary-alt;
+    background: var(--mf-c-primary-alt);
   }
 }

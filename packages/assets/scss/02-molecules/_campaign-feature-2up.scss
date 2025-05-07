@@ -15,7 +15,7 @@
   &__card {
     flex: 1 1 auto;
     margin-bottom: 20px;
-    background-color: $c-platinum-gray;
+    background-color: var(--mf-c-platinum-gray);
 
     @media ($bp-small-min) {
       margin-bottom: 0;

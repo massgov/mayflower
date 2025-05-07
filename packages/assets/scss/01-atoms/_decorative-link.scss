@@ -8,22 +8,22 @@
   width: 100%;
 
   a:hover {
-    border-bottom-color: $c-link;
+    border-bottom-color: var(--mf-c-link);
   }
 
   a:focus {
     // important needed to overwrite the focus border color
-    border-bottom-color: $c-link !important;
+    border-bottom-color: var(--mf-c-link) !important;
   }
 
   svg {
-    fill: $c-font-link;
+    fill: var(--mf-c-font-link);
   }
 
   &--inverse {
 
     a {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
     }
 
     a:hover {
@@ -45,7 +45,7 @@
     display: inline-block;
     width: auto;
     padding: .5rem 1.8rem .5rem .8rem;
-    background-color: $c-bg;
+    background-color: var(--mf-c-bg);
 
     &:hover,
     &:focus {

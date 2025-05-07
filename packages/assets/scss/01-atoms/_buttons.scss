@@ -78,10 +78,10 @@ button {
 .ma__button--tertiary {
 
   @include ma-button("solid",$c-gray-light);
-  color: $c-font-base;
+  color: var(--mf-c-font-base);
 
   svg {
-    fill: $c-gray-darkest;
+    fill: var(--mf-c-gray-darkest);
   }
 }
 
@@ -89,18 +89,18 @@ button {
   background-color: transparent;
   box-shadow: none;
   border: none;
-  border-bottom: 2px solid $c-link;
-  color: $c-primary;
+  border-bottom: 2px solid var(--mf-c-link);
+  color: var(--mf-c-primary);
   padding: 0;
   text-transform: none;
   letter-spacing: $letter-spacing-default;
 
   svg {
-    fill: $c-primary;
+    fill: var(--mf-c-primary);
   }
 
   &:hover:not(:disabled) {
-   border-bottom: 3px solid $c-primary;
+   border-bottom: 3px solid var(--mf-c-primary);
    background-color: transparent;
   }
 }

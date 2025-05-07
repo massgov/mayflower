@@ -15,7 +15,7 @@
 }
 
 .leaflet-container a {
-  color: $c-bay-blue;
+  color: var(--mf-c-bay-blue);
 }
 
 .leaflet-popup-content {
@@ -89,10 +89,10 @@
       width: 24px;
       height: 24px;
       font-size: 26px;
-      color: $c-bay-blue-40-tint;//<-- Change to $c-link after DP-32007 is released
+      color: var(--mf-c-bay-blue-40-tint);//<-- Change to $c-link after DP-32007 is released
 
       &:hover {
-        color: $c-font-link;
+        color: var(--mf-c-font-link);
       }
     }
   }
@@ -108,12 +108,12 @@
 
   &__directions-link {
     width: 100%;
-    background-color: $c-primary-alt;
+    background-color: var(--mf-c-primary-alt);
     padding: 0.2rem 0.9rem;
     font-size: $fonts-larger;
 
     span {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
 
       svg {
         fill: rgba($c-white, 0.7);

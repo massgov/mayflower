@@ -49,3 +49,50 @@ $c-bd-input-dark:        $c-gray !default;
 
 // Box shadow
 $c-box-shadow-black:      rgba($c-black, 0.25) !default;
+
+:root {
+    --mf-c-primary:              #{$c-primary};
+    --mf-c-primary-light:        #{$c-primary-light};
+    --mf-c-primary-lighter:      #{$c-primary-lighter};
+    --mf-c-primary-lightest:     #{$c-primary-lightest};
+    --mf-c-primary-alt:          #{$c-primary-alt};
+    --mf-c-primary-alt-lighter:  #{$c-primary-alt-lighter};
+    --mf-c-primary-alt-lightest: #{$c-primary-alt-lightest};
+    --mf-c-primary-alt-dark:     #{$c-primary-alt-dark};
+    --mf-c-highlight:            #{$c-highlight};
+    --mf-c-highlight-lighter:    #{$c-highlight-lighter};
+    --mf-c-highlight-lightest:   #{$c-highlight-lightest};
+
+    --mf-c-error:                #{$c-error};
+    --mf-c-error-lighter:        #{$c-error-lighter};
+    --mf-c-error-lightest:       #{$c-error-lightest};
+    --mf-c-warning:              #{$c-warning};
+    --mf-c-success:              #{$c-success};
+    --mf-c-focus:                #{$c-focus};
+    --mf-c-link:                 #{$c-link};
+    --mf-c-visited:              #{$c-visited};
+
+    --mf-c-font-base:            #{$c-font-base};
+    --mf-c-font-detail:          #{$c-font-detail};
+    --mf-c-font-dark:            #{$c-font-dark};
+    --mf-c-font-medium:          #{$c-font-medium};
+
+    --mf-c-font-heading:         #{$c-font-heading};
+    --mf-c-font-inverse:         #{$c-font-inverse};
+    --mf-c-font-link:            #{$c-font-link};
+    --mf-c-font-error:           #{$c-font-error};
+
+    --mf-c-bg:                   #{$c-bg};
+    --mf-c-bg-comp-title:        #{$c-bg-comp-title};
+    --mf-c-bg-subtle:            #{$c-bg-subtle};
+    --mf-c-bg-section:           #{$c-bg-section};
+
+    --mf-c-bd:                   #{$c-bd};
+    --mf-c-bd-divider:           #{$c-bd-divider};
+    --mf-c-bd-divider-dark:      #{$c-bd-divider-dark};
+    --mf-c-bd-error:             #{$c-bd-error};
+    --mf-c-bd-input:             #{$c-bd-input};
+    --mf-c-bd-input-dark:        #{$c-bd-input-dark};
+
+    --mf-c-box-shadow-black:     #{$c-box-shadow-black};
+}

@@ -133,7 +133,7 @@
 .ma__event-teaser {
 
   & + & {
-    border-top-color: $c-bd-divider;
+    border-top-color: var(--mf-c-bd-divider);
   }
 
   &__graphic {
@@ -141,7 +141,7 @@
   }
 
   &__spacer {
-    background-color: $c-font-dark;
+    background-color: var(--mf-c-font-dark);
   }
 
   &__month {
@@ -149,7 +149,7 @@
   }
 
   &__day {
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
     font-weight: $fonts-bold;
   }
 

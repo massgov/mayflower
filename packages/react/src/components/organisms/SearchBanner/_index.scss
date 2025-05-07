@@ -1,9 +1,9 @@
 @use "00-base/configure" as *;
 
 .ma__search-banner__top {
-  background: $c-gray-lightest;
-  border-top: 1px solid $c-gray-light;
-  border-bottom: 1px solid $c-gray-light;
+  background: var(--mf-c-gray-lightest);
+  border-top: 1px solid var(--mf-c-gray-light);
+  border-bottom: 1px solid var(--mf-c-gray-light);
   padding-top: 30px;
   margin-bottom: 50px;
   position: relative;
@@ -51,7 +51,7 @@
 
   .ma__input-typeahead {
     &--boxed {
-      background-color: $c-gray-lightest;
+      background-color: var(--mf-c-gray-lightest);
     }
   }
 
@@ -62,7 +62,7 @@
     padding: 8px 10px;
     font-size: $fonts-small;
     font-weight: 700;
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     background-color: #E8EEF4;
     border: 1px solid #8AAAC7;
     border-width: 1px 0;
@@ -71,7 +71,7 @@
     & > svg {
       display: inline-block;
       vertical-align: middle;
-      fill: $c-font-base;
+      fill: var(--mf-c-font-base);
     }
 
     @media ($bp-large-min) {
@@ -112,7 +112,7 @@
 
       @media ($bp-large-min) {
         border: 1px solid #8AAAC7;
-        border-top: 5px solid $c-primary;
+        border-top: 5px solid var(--mf-c-primary);
         border-bottom-color: #E8EEF4;
 
         & > svg {

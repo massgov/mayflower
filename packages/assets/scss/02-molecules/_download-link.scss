@@ -92,7 +92,7 @@
 .ma__download-link {
 
   &__icon {
-    fill: $c-font-link;
+    fill: var(--mf-c-font-link);
   }
 
   &__file-link {
@@ -101,7 +101,7 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
 
-    border-bottom-color: $c-link;
+    border-bottom-color: var(--mf-c-link);
   }
 
   &__file-spec {
@@ -109,6 +109,6 @@
   }
 
   .ma__form-downloads--listing & {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 }

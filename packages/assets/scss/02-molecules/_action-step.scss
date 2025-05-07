@@ -112,11 +112,11 @@
 .ma__action-step {
 
   &--accordion {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 
   &--accordion:not(.is-open) &__header {
-    background-color: $c-bg-section;
+    background-color: var(--mf-c-bg-section);
   }
 
   &--accordion.is-open &__header {
@@ -124,13 +124,13 @@
   }
 
   &--accordion &__header__toggle {
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
   }
 
   &__icon {
 
     svg {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
     }
   }
 

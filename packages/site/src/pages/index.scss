@@ -59,12 +59,12 @@
 }
 
 .ma__search--tabs {
-  background-color: $c-gray-lightest;
+  background-color: var(--mf-c-gray-lightest);
 }
 
 .ma__gen-teaser__image {
   overflow: hidden;
-  border-color: $c-gray-lighter;
+  border-color: var(--mf-c-gray-lighter);
 }
 
 .ma__section-wrapper h2.ma__gen-teaser__title {

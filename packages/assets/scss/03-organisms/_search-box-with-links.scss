@@ -34,7 +34,7 @@
 
   &__form {
     padding: 40px;
-    background-color: $c-primary;
+    background-color: var(--mf-c-primary);
     flex-basis: 60%;
 
     @media (max-width: 910px) {
@@ -46,7 +46,7 @@
     }
 
     h3 {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
       margin-bottom: 30px;
       display: block;
     }
@@ -69,7 +69,7 @@
         border-right: 0;
 
         &::placeholder {
-          color: $c-atlantic-gray;
+          color: var(--mf-c-atlantic-gray);
         }
       }
 
@@ -81,7 +81,7 @@
     }
 
     .ma__search-box-with-links__footer {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
 
       a {
 
@@ -90,7 +90,7 @@
         &:hover,
         &:active,
         &:focus {
-          color:$c-white;
+          color:var(--mf-c-white);
         }
 
         &:hover,
@@ -112,7 +112,7 @@
 
   &__secondary {
     flex-basis: 40%;
-    background-color: $c-platinum-gray;
+    background-color: var(--mf-c-platinum-gray);
     padding: 40px;
 
     @media (max-width: 910px) {

@@ -6,7 +6,7 @@
   padding: 0;
 
   @media ($bp-header-toggle-max) {
-    border-top: 2px solid $c-bd-divider;
+    border-top: 2px solid var(--mf-c-bd-divider);
   }
 
   &__items {
@@ -15,7 +15,7 @@
   }
 
   &__item {
-    border-bottom: 2px solid $c-bd-divider;
+    border-bottom: 2px solid var(--mf-c-bd-divider);
   }
 
   &__top-link {
@@ -31,7 +31,7 @@
     text-transform: uppercase;
     transition: all 0.4s ease;
     text-align: left;
-    background-color: $c-gray-lightest;
+    background-color: var(--mf-c-gray-lightest);
     width: 100%;
     color: inherit;
 
@@ -48,12 +48,12 @@
     }
 
     &:focus {
-      background-color: $c-bd-divider;
-      outline: 2px solid $c-gray-darkest;
+      background-color: var(--mf-c-bd-divider);
+      outline: 2px solid var(--mf-c-gray-darkest);
     }
 
     &.cv-alternate-style {
-      background-color: $c-highlight;
+      background-color: var(--mf-c-highlight);
 
       // Adding chevron for direct link.
 
@@ -64,7 +64,7 @@
       }
 
       &:hover {
-        background-color: $c-highlight-lightest;
+        background-color: var(--mf-c-highlight-lightest);
       }
     }
   }
@@ -72,14 +72,14 @@
   &__subitem {
 
     &:hover {
-      background-color: $c-bg-section;
+      background-color: var(--mf-c-bg-section);
     }
   }
 
   &__subitems {
     text-align: left;
     z-index: $z-dropdown;
-    background-color: $c-bg;
+    background-color: var(--mf-c-bg);
     transition: height 0.4s;
 
     &.is-closed {
@@ -120,7 +120,7 @@
     font-weight: $fonts-normal;
     line-height: 1.33;
     padding: 10px 20px 10px 30px;
-    color: $c-gray-darkest;
+    color: var(--mf-c-gray-darkest);
 
     &:hover {
       text-decoration: underline;
@@ -139,7 +139,7 @@
     text-transform: uppercase;
 
     & > svg {
-      fill: $c-atlantic-gray;
+      fill: var(--mf-c-atlantic-gray);
       height: 20px;
       width: 20px;
     }
@@ -153,7 +153,7 @@
       text-decoration: none;
 
       &>span {
-          border-bottom: 2px solid $c-gray-darkest;
+          border-bottom: 2px solid var(--mf-c-gray-darkest);
       }
     }
   }

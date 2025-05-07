@@ -77,15 +77,15 @@
 .ma__input-checkbox {
 
   & > svg {
-    fill: $c-primary-alt;
+    fill: var(--mf-c-primary-alt);
   }
 
   label {
     font-weight: $fonts-light;
 
     &:before {
-      background-color: $c-bg;
-      border-color: $c-bd-input-dark;
+      background-color: var(--mf-c-bg);
+      border-color: var(--mf-c-bd-input-dark);
 
       .ma__form--light & {
         background-color: rgba($c-bg, 0.1);
@@ -95,7 +95,7 @@
   }
 
   input.has-error ~ label:before {
-    border-color: $c-bd-error;
+    border-color: var(--mf-c-bd-error);
   }
 
   input:focus ~ label:before {
