@@ -1,13 +1,13 @@
 Added:
   - project: Assets
     component: _color-tokens, _colors
-    description: Added css variables for colors (#1981)
+    description: Added CSS variables for colors (#1981)
     issue: DP-38077
     impact: Patch
 
 Changed:
   - project: Assets, Core, Patternlab, React, Site
-    component: scss files
-    description: Changed colors to use the new css variables rather than scss variables (#1981)
+    component: SCSS files
+    description: Changed colors to use the new CSS variables rather than SCSS variables (#1981)
     issue: DP-38077
     impact: Major
