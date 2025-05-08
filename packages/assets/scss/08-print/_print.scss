@@ -62,6 +62,12 @@
   .ma__quick-actions,
   .ma__wait-time,
   .ma__video,
+  .ma__breadcrumbs,
+  .ma__header__hamburger__search,
+  .ma__header__hamburger__nav,
+  .ma__brand-banner,
+  #gtm-loginto,
+  #specto-widget-root,
   .ma__sticky-toc__stuck {
     display: none !important;
   }
@@ -135,7 +141,27 @@
   }
 
   .ma__relationship-indicators {
-    display: none !important;
+    .ma__relationship-indicators--terms {
+      a {
+        text-decoration: none;
+        color: black;
+        pointer-events: none;
+      }
+      a:after {
+        content: "";
+      }
+    }
+  }
+
+  .ma__footer-new__container {
+    .ma__footer-new__logo {
+      display: none !important;
+    }
+    .ma__footer-new__content {
+      .ma__footer-new__navlinks {
+        display: none !important;
+      }
+    }
   }
 
   .ma__page-banner-legacy {
@@ -501,4 +527,19 @@
       }
     }
   }
+
+  a[href^="tel:"],
+  a[href^="#"],
+  a[href^="mailto:"] {
+    text-decoration: none;
+    color: black;
+    pointer-events: none;
+  }
+
+  a[href^="tel:"]::after,
+  a[href^="#"]:after,
+  a[href^="mailto:"]:after {
+    content: "";
+  }
+
 }
