@@ -157,19 +157,15 @@
     }
   }
 
-  .ma__footer-new__container {
-
-    .ma__footer-new__logo {
+  .ma__footer-new {
+    &__logo {
 
       display: none !important;
     }
 
-    .ma__footer-new__content {
+    &__navlinks {
 
-      .ma__footer-new__navlinks {
-
-        display: none !important;
-      }
+      display: none !important;
     }
   }
 
