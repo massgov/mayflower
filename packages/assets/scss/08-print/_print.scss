@@ -515,6 +515,19 @@
     display: none;
   }
 
+
+  a[href^="tel:"],
+  a[href^="#"],
+  a[href^="mailto:"] {
+    text-decoration: none;
+    color: black;
+    pointer-events: none;
+
+    &::after {
+      content: "";
+    }
+  }
+
   // Page level custom print styles
 
   .ma__details__content .ma__rich-text {
@@ -531,20 +544,6 @@
         font-size: $fonts-5xlarge;
       }
     }
-  }
-
-  a[href^="tel:"],
-  a[href^="#"],
-  a[href^="mailto:"] {
-    text-decoration: none;
-    color: black;
-    pointer-events: none;
-  }
-
-  a[href^="tel:"]::after,
-  a[href^="#"]:after,
-  a[href^="mailto:"]:after {
-    content: "";
   }
 
 }
