@@ -141,24 +141,33 @@
   }
 
   .ma__relationship-indicators {
+
     .ma__relationship-indicators--terms {
+
       a {
         text-decoration: none;
         color: black;
         pointer-events: none;
       }
+      
       a:after {
+
         content: "";
       }
     }
   }
 
   .ma__footer-new__container {
+
     .ma__footer-new__logo {
+
       display: none !important;
     }
+
     .ma__footer-new__content {
+
       .ma__footer-new__navlinks {
+
         display: none !important;
       }
     }
