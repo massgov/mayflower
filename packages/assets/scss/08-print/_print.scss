@@ -62,6 +62,12 @@
   .ma__quick-actions,
   .ma__wait-time,
   .ma__video,
+  .ma__breadcrumbs,
+  .ma__header__hamburger__search,
+  .ma__header__hamburger__nav,
+  .ma__brand-banner,
+  #gtm-loginto, // contextual login buttons
+  #specto-widget-root, // chatbot region
   .ma__sticky-toc__stuck {
     display: none !important;
   }
@@ -135,7 +141,33 @@
   }
 
   .ma__relationship-indicators {
-    display: none !important;
+
+    &--terms {
+
+      a {
+        text-decoration: none;
+        color: black;
+        pointer-events: none;
+      }
+      
+      a:after {
+
+        content: "";
+      }
+    }
+  }
+
+  .ma__footer-new {
+
+    &__logo {
+
+      display: none !important;
+    }
+
+    &__navlinks {
+
+      display: none !important;
+    }
   }
 
   .ma__page-banner-legacy {
@@ -484,6 +516,19 @@
     display: none;
   }
 
+
+  a[href^="tel:"],
+  a[href^="#"],
+  a[href^="mailto:"] {
+    text-decoration: none;
+    color: black;
+    pointer-events: none;
+
+    &::after {
+      content: "";
+    }
+  }
+
   // Page level custom print styles
 
   .ma__details__content .ma__rich-text {
@@ -501,4 +546,5 @@
       }
     }
   }
+
 }
