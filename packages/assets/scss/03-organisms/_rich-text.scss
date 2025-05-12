@@ -356,6 +356,7 @@ $heading-indent: $gutter;
 // auto clearl foat after floating images
 .ma__figure--large + .ma__rich-text,
 .ma__figure--medium + .ma__figure--medium + .ma__rich-text,
-.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text {
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__rich-text {
   clear: both;
 }
