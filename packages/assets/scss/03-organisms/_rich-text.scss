@@ -81,7 +81,6 @@ $heading-indent: $gutter;
   h4 {
 
     @include ma-comp-heading;
-    display: flow-root;  // https://dev.to/baooab/what-is-display-flow-root-28ph
   }
 
   & h2,
@@ -351,4 +350,12 @@ $heading-indent: $gutter;
     border-block-end-color: transparent;
   }
 
+}
+
+
+// auto wrapping after images float
+.ma__figure--large + .ma__rich-text,
+.ma__figure--medium + .ma__figure--medium + .ma__rich-text,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text {
+  clear: both;
 }
