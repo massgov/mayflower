@@ -57,3 +57,8 @@ Fixed:
     description: Revert heading flow-root fix and conditionally clear fix after multiple floating images. (#1987)
     issue: DP-37275
     impact: Patch
+  - project: Patternlab
+    component: Figure, RichText
+    description: Fixed single image and list overlap (#1987)
+    issue: DP-39383
+    impact: Patch
