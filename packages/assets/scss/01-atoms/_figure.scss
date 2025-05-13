@@ -3,10 +3,10 @@
 $x-small: 100% / 4;
 $small: 100% / 3;
 $medium: 100% / 2;
-$figures-gutter: 20px;
+$figures-gutter: 30px;
 
 .ma__figure {
-  margin: 0 0 20px 0;
+  margin: 0 0 $figures-gutter 0;
 
   @include ma-skip-link;
 

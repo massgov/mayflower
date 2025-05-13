@@ -360,3 +360,8 @@ $heading-indent: $gutter;
 .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__rich-text {
   clear: both;
 }
+
+// prevent floating image and list overlap
+.ma__rich-text > .ma__figure--left:only-child {
+  margin-right: 40px;
+}
