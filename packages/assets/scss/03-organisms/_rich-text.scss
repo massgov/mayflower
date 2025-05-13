@@ -203,7 +203,6 @@ $heading-indent: $gutter;
 
   li {
     margin-bottom: .5em;
-    padding-left: 10px;
 
     &:last-child {
       margin-bottom: 0;
@@ -359,9 +358,4 @@ $heading-indent: $gutter;
 .ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text
 .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__rich-text {
   clear: both;
-}
-
-// prevent floating image and list overlap
-.ma__rich-text > .ma__figure--left:only-child {
-  margin-right: 40px;
 }
