@@ -6,7 +6,7 @@
 {% set imgClass = card.usage ? card.usage : card.id %}
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
 
-<a class="ma__card__wrapper" href="{{ card.link }}" aria-labelledby="{{ card.id }}-title">
+<a class="ma__card__wrapper" href="{{ card.link }}" aria-labelledby="{{ card.id }}-title" aria-describedby="{{ card.id }}-eyebrow {{ card.id }}-description">
   <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }} {{ cardThemeClass }}">
     {% if not card.usage %}
       <style>
@@ -22,7 +22,7 @@
       {% endif %}
       <div class="ma__card__content{{ contentClass }}">
         {% if eyebrow %}
-          <div class="ma__card__eyebrow">{{ card.eyebrow }}</div>
+          <div class="ma__card__eyebrow" id="{{ card.id }}-eyebrow">{{ card.eyebrow }}</div>
         {% endif %}
         {% set headingLevel = card.level ? card.level : 3 %}
         <h{{ headingLevel }} class="ma__card__title" id="{{ card.id }}-title"><span>{{card.title}}&nbsp;{{ icon('arrow') }}</span></h{{ headingLevel }}>
@@ -32,7 +32,7 @@
             <img src="{{card.thumbnail}}" alt="">
           </div>
           {% endif %}
-          <div class="ma__card__text">
+          <div class="ma__card__text" id="{{ card.id }}-description">
             {{card.text}}
           </div>
         </div>
