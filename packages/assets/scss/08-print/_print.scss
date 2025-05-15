@@ -173,16 +173,6 @@
     }
   }
 
-  .ma__location-listing__sticky {
-
-    .ma__leaflet-map__map {
-
-      .leaflet-map-pane {
-
-      }
-    }
-  }
-
   .ma__sticky-toc__link:nth-child(n+11) {
     display: block !important;
   }
@@ -204,6 +194,7 @@
   .ma__page-banner {
 
     &.ma__page-banner--c-primary {
+
       .ma__page-header__title, .ma__page-header__description {
         color: #000000 !important;
       }
