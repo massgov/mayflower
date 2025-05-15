@@ -52,8 +52,8 @@
 
 #___EXAMPLE___
 Fixed:
-  - project: Patternlab
-    component: Header
-    description: Fix z-index collision (#1963)
-    issue: DP-38268
-    impact: Patch
+  - project: Patternlab,Assets
+    component: Print
+    description: Hide feedback, chatbot, TOC links and contact links in print. Simplify Header and FooterNew in print (#1986)
+    issue: DP-38159
+    impact: Minor

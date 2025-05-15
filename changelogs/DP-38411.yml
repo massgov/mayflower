@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Card
-    description: Adjusts image cards within a .ma__rich-text to ensure they are equal width even if there are no images.
-    issue: DP-38411
-    impact: Patch

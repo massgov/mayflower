@@ -15,6 +15,7 @@ export const assets = {
   expand: 'expand',
   facebook: 'facebook',
   fax: 'fax',
+  home: 'home',
   inputerror: 'inputerror',
   inputsuccess: 'inputsuccess',
   instagram: 'instagram',

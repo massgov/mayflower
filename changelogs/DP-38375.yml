@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Image, featuredItem
-    description: Allow externally rendered image in featuredItem and Image components.
-    issue: DP-38375
-    impact: Minor

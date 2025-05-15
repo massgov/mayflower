@@ -10,22 +10,22 @@
     ensurePositioning();
     activePopup.classList.add("popover--open");
     activePopup.querySelector(".js-popover-close").focus();
-    activePopup.addEventListener("focusout", closeOnFocusOut);
-    activePopup.addEventListener("keydown", closeOnEscape);
+    activePopup.addEventListener("focusout", onFocusOut);
+    activePopup.addEventListener("keydown", onKeyDown);
   }
 
   // Removes classes & modifies aria attributes to close the popup
   function closePopup() {
     if (activePopup) {
-      activePopup.removeEventListener("focusout", closeOnFocusOut);
-      activePopup.removeEventListener("keydown", closeOnEscape);
+      activePopup.removeEventListener("focusout", onFocusOut);
+      activePopup.removeEventListener("keydown", onKeyDown);
       activePopup.classList.remove("popover--open");
       activePopup = null;
     }
   }
 
   // Closes the activePopup if the focus has moved outside of it.
-  function closeOnFocusOut(event) {
+  function onFocusOut(event) {
     const {relatedTarget} = event;
 
     // If there is not relatedTarget, focus has moved outside the page.
@@ -45,10 +45,21 @@
   }
 
   // Closes the activePopup if the escape key is pressed
-  function closeOnEscape(event) {
-    if (event.key === "Escape") {
-      activePopup.querySelector(".js-popover-trigger").focus();
-      closePopup();
+  function onKeyDown(event) {
+    switch (event.key) {
+      case "Escape":
+        activePopup.querySelector(".js-popover-trigger").focus();
+        closePopup();
+        break;
+
+      // Popovers are designed for plain-text only, so we can prevent tabbing
+      // off of the close button.
+      case "Tab":
+        event.preventDefault();
+        break;
+
+      default:
+        break;
     }
   }
 
