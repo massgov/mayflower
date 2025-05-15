@@ -1,8 +1,8 @@
 ### Description
-This pattern show a modal with helpful information.
+This pattern show a inline modal with helpful information.
 
 ### Status
-* Stable as of 5.0.0
+* New as of 13.3.0
 
 ### Variables
 ~~~

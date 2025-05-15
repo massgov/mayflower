@@ -1,12 +1,18 @@
 {
   "headerSearch" : {
     "hasSuggestions": true,
-    "placeholder":"Search Mass.gov",
+    "placeholder":"Search the microsite",
     "id":"header-search",
     "label": "Search terms",
     "buttonSearch" : {
       "text": "Search",
       "usage": "secondary"
+    },
+    "defaultScope":  {
+      "value": "microsite-title",
+      "type": "microsite",
+      "label": "in this microsite",
+      "hideLabel": false
     },
     "suggestedScopes": [
       {

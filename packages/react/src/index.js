@@ -89,7 +89,6 @@ export ContactGroup from 'MayflowerReactMolecules/ContactGroup';
 export ImagePromo from 'MayflowerReactMolecules/ImagePromo';
 export Tabs from 'MayflowerReactMolecules/Tabs';
 export Tags from 'MayflowerReactMolecules/Tags';
-export Tooltip from 'MayflowerReactMolecules/Tooltip';
 export AccordionItem from 'MayflowerReactMolecules/AccordionItem';
 export ListingTable from 'MayflowerReactMolecules/ListingTable';
 export Breadcrumb from 'MayflowerReactMolecules/Breadcrumb';

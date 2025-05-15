@@ -51,9 +51,9 @@
 #    impact: Enter a valid impact, e.g. Minor
 
 #___EXAMPLE___
-Added:
-  - project: React, Patternlab
-    component: Popover
-    description: Add Popover component to patternlab. (#1971)
-    issue: DP-37841
-    impact: Minor
+Fixed:
+  - project: Patternlab
+    component: Card
+    description: Add aria-describedby to make card text accessible. (#1988)
+    issue: DP-39436
+    impact: Patch
