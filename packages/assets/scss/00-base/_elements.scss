@@ -32,6 +32,7 @@ html {
 
 body {
   width: 100vw;
+  overflow-x: hidden;
   margin: 0;
   font-size: $fonts-medium; //16px
   line-height: 1.6;
