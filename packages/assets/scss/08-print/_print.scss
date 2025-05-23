@@ -39,7 +39,7 @@
   .post-content #feedback,
   .post-content .feedback-steps,
   .messages--error,
-  *[aria-hidden="true"],
+  *[aria-hidden="true"]:not(svg),
   .ma__download-link__icon,
   .ma__sidebar-widget__more,
   .ma__page-banner-legacy__icon,
@@ -66,6 +66,9 @@
   .ma__header__hamburger__search,
   .ma__header__hamburger__nav,
   .ma__brand-banner,
+  .ma__sticky-toc__footer,
+  .ma__mass-feedback-form,
+  .ma__fixed-feedback-button,
   #gtm-loginto, // contextual login buttons
   #specto-widget-root, // chatbot region
   .ma__sticky-toc__stuck {
@@ -146,10 +149,10 @@
 
       a {
         text-decoration: none;
-        color: black;
+        color: $c-black;
         pointer-events: none;
       }
-      
+
       a:after {
 
         content: "";
@@ -167,6 +170,46 @@
     &__navlinks {
 
       display: none !important;
+    }
+  }
+
+  .ma__sticky-toc__link:nth-child(n+11) {
+    display: block !important;
+  }
+
+  .ma__location-listing {
+
+    .ma__image-promo__contact-info {
+      display: inline-block;
+    }
+
+    .ma__image-promo__directions {
+
+      a:after {
+        white-space: normal;
+      }
+    }
+  }
+
+  .ma__page-banner {
+
+    &.ma__page-banner--c-primary {
+
+      .ma__page-header__title, .ma__page-header__description {
+        color: $c-black !important;
+      }
+    }
+  }
+
+  .ma__header-alerts {
+
+    .ma__header-alerts__content {
+
+      .ma__header-alerts__container li {
+        border: 1px solid $c-gray-dark;
+        border-top: 0;
+        padding: 10px 15px;
+      }
     }
   }
 
@@ -510,10 +553,6 @@
     .ma__action-step__header {
       padding: 0 !important;
     }
-  }
-
-  .ma__fixed-feedback-button {
-    display: none;
   }
 
 

@@ -81,7 +81,6 @@ $heading-indent: $gutter;
   h4 {
 
     @include ma-comp-heading;
-    display: flow-root;  // https://dev.to/baooab/what-is-display-flow-root-28ph
   }
 
   & h2,
@@ -204,7 +203,7 @@ $heading-indent: $gutter;
 
   li {
     margin-bottom: .5em;
-    padding-left: 10px;
+    padding-left: 5px;
 
     &:last-child {
       margin-bottom: 0;
@@ -351,4 +350,13 @@ $heading-indent: $gutter;
     border-block-end-color: transparent;
   }
 
+}
+
+
+// auto clearl foat after floating images
+.ma__figure--large + .ma__rich-text,
+.ma__figure--medium + .ma__figure--medium + .ma__rich-text,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__rich-text {
+  clear: both;
 }
