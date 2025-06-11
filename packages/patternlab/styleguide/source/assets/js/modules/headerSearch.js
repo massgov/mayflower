@@ -109,15 +109,24 @@ export default (function (window, document, $) {
                 e.preventDefault();
                 const { value, type } = option.dataset;
 
+                // Remove old hidden input if any
                 $('input[id$="default-scope"]', $form).remove();
-                const host = $form.attr("action");
-                const query = $searchInput.val();
-                const url = new URL(host);
-                url.searchParams.set("q", query);
+
+                // Add new hidden input for the dropdown-selected parameter
                 if (type && value) {
-                    url.searchParams.set(type, value);
+                    $('<input>')
+                    .attr({
+                        type: 'hidden',
+                        name: type,
+                        value: value,
+                        id: 'default-scope' // so you can remove it later
+                    })
+                    .appendTo($form);
                 }
-                window.location.href = url.toString();
+
+                // Let the form submit naturally
+                // Use the native DOM method, not jQuery's `.submit()`
+                $form[0].submit();
             };
         });
     });
