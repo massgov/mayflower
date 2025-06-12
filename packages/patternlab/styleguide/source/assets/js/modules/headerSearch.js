@@ -11,8 +11,7 @@ export default (function (window, document, $) {
         let key = (e) => ({
             arrowDown: e.key === "ArrowDown" || e.code === "ArrowDown",
             arrowUp: e.key === "ArrowUp" || e.code === "ArrowUp",
-            escape: e.key === "Escape" || e.code === "Escape",
-            enter: e.key === "Enter" || e.code === "Enter"
+            escape: e.key === "Escape" || e.code === "Escape"
         });
         let setFocus = function(index) {
             $options[index].focus();
@@ -86,16 +85,6 @@ export default (function (window, document, $) {
                 focusIndex = [optionsCount -1];
                 setFocus(focusIndex);
             }
-            if (key(e).enter) {
-                // Only submit if no suggestion button has focus
-                const activeEl = document.activeElement;
-                if (activeEl === this || !$form.has(activeEl).length) {
-                    // Close suggestions, let native form submit
-                    closeDropdown();
-                    console.log('enter submit')
-                    //$form[0].submit(); // Native submit for GA4 tracking
-                }
-            }
         });
 
         Array.from($options).forEach(function(option) {
@@ -130,7 +119,6 @@ export default (function (window, document, $) {
                         type: 'hidden',
                         name: type,
                         value: value,
-                        id: 'default-scope' // so you can remove it later
                     })
                     .appendTo($form);
                 }
