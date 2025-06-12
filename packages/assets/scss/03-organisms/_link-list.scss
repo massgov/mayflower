@@ -4,6 +4,7 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
 
     @include ma-container;
@@ -72,7 +73,7 @@
             margin-right: 0.5rem;
             margin-bottom: -6px;
           }
-    
+
           &__title {
             display: inline;
             width: unset;

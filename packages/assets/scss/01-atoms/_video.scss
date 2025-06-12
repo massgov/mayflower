@@ -35,6 +35,7 @@
 
   // Backward Compatible - had to add the --new as a variant for the new styling
 
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
 
     @include ma-container('restricted');
@@ -70,6 +71,7 @@
 
 .ma__video:not(.ma__video--new) {
 
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
     // @include ma-container();  // can't use this due to bg color apply to padding
     margin-left: 20px;

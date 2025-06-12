@@ -8,6 +8,7 @@ $accordion-break: 720px;
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
 
     @include ma-container();
@@ -53,13 +54,13 @@ $accordion-break: 720px;
       margin-bottom: 1rem;
       width: auto;
       max-width: 300px;
-  
+
       @media ($bp-large-min) {
         position: absolute;
         top: 0;
         right: 30px;
       }
-  
+
       @media ($bp-large-max) {
         max-height: 80px;
       }

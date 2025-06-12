@@ -6,6 +6,7 @@ $steps-ordered-icon-border: 3px;
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
 
     @include ma-container('restricted');
@@ -58,7 +59,7 @@ $steps-ordered-icon-border: 3px;
   &__item {
 
     .ma__action-step {
-      
+
       &__header,
       &__content {
 
@@ -71,7 +72,7 @@ $steps-ordered-icon-border: 3px;
 
   .ma__action-step__header + .ma__action-step__content {
     padding-left: 0 !important;
-    
+
     @media ($bp-small-max) {
       padding-left: 0 !important;
     }
