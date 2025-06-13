@@ -30,7 +30,7 @@ Accompanying shades and tints can be used to create depth. In general, the light
 
 <ul className="sg-colors">
   {
-    primaryColors.map((color, i) => <li key={`primaryColors${i}`}><ColorSwatch  {...color} /></li>)
+    primaryColors.map((color, i) => <li key={`primaryColors${i}`}><ColorSwatch {...color} variable={color.token}/></li>)
   }
 </ul>
 
@@ -38,7 +38,7 @@ Accompanying shades and tints can be used to create depth. In general, the light
 
 <ul className="sg-colors">
   {
-    primaryAltColors.map((color, i) => <li key={`primaryAltColors${i}`}><ColorSwatch  {...color} /></li>)
+    primaryAltColors.map((color, i) => <li key={`primaryAltColors${i}`}><ColorSwatch {...color} variable={color.token}/></li>)
   }
 </ul>
 
@@ -47,7 +47,7 @@ The purpose of the highlight colors are to to draw attention to key sections or 
 
 <ul className="sg-colors">
   {
-    highLightColors.map((color, i) => <li key={`highLightColors${i}`}><ColorSwatch {...color} /></li>)
+    highLightColors.map((color, i) => <li key={`highLightColors${i}`}><ColorSwatch {...color} variable={color.token}/></li>)
   }
 </ul>
 
@@ -57,7 +57,7 @@ A range of neutral grays for text and backgrounds.
 
 <ul className="sg-colors">
   {
-    grayScaleColors.map((color, i) => <li key={`grayScaleColors${i}`}><ColorSwatch {...color} /></li>)
+    grayScaleColors.map((color, i) => <li key={`grayScaleColors${i}`}><ColorSwatch {...color} variable={color.token}/></li>)
   }
 </ul>
 
@@ -69,7 +69,7 @@ Some brand colors like `$c-duckling-ellow` and `$c-berkshires-green` are doing d
 
 <ul className="sg-colors">
   {
-    utilityColors.map((color, i) => <li key={`utilityColors${i}`}><ColorSwatch {...color} /></li>)
+    utilityColors.map((color, i) => <li key={`utilityColors${i}`}><ColorSwatch {...color} variable={color.token}/></li>)
   }
 </ul>
 
@@ -91,7 +91,7 @@ A `tint` takes a `$color` and mixes it with white. A 0% `tint` is the original `
   {
     brandColors.map(({ token, name }, i) => {
       const props = {
-        token: token.match(/\$(.*)/)[1],
+        token: token.replace(/^--mf-/, ''),
         name,
         effect: 'tint'
       };
@@ -111,7 +111,7 @@ A `shade` takes a `$color` and mixes it with black. A 0% `shade` is the original
   {
     brandColors.map(({ token, name }, i) => {
       const props = {
-        token: token.match(/\$(.*)/)[1],
+        token: token.replace(/^--mf-/, ''),
         name,
         effect: 'shade'
       };

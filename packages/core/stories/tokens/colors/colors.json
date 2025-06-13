@@ -2,126 +2,144 @@
   "brandColors": [
     {
       "variable": "--mf-c-primary",
-      "token": "--mf-c-bay-blue",
+      "token": "c-bay-blue",
       "name": "Bay Blue",
       "value": "#14558f"
     },
     {
       "variable": "--mf-c-primary-alt",
-      "token": "--mf-c-berkshires-green",
+      "token": "c-berkshires-green",
       "name": "Berkshires Green",
       "value": "#388557"
     },
     {
       "variable": "--mf-c-highlight",
-      "token": "--mf-c-duckling-yellow",
+      "token": "c-duckling-yellow",
       "name": "Duckling Yellow",
       "value": "#f6c51b"
     },
     {
       "variable": "--mf-c-gray-dark",
-      "token": "--mf-c-granite-gray",
+      "token": "c-granite-gray",
       "name": "Granite Gray",
       "value": "#535353"
     },
     {
       "variable": "--mf-c-independence-cranberry",
-      "token": "--mf-c-independence-cranberry",
+      "token": "c-independence-cranberry",
       "name": "Independence Cranberry",
       "value": "#680A1D"
     }],
   "grayScaleColors":[
     {
       "variable": "--mf-c-black",
+      "token": "c-black",
       "name": "Revolution Gray",
       "value": "#141414"
     },
     {
       "variable": "--mf-c-gray-dark",
+      "token": "c-gray-dark",
       "name": "Granite Gray",
       "value": "#535353"
     },
     {
       "variable": "--mf-c-gray",
+      "token": "c-gray",
       "name": "Atlantic Gray",
       "value": "#707070"
     },
     {
       "variable": "--mf-c-gray-light",
+      "token": "c-gray-light",
       "name": "Overcast Gray",
       "value": "#dcdcdc"
     },
     {
       "variable": "--mf-c-gray-lightest",
+      "token": "c-gray-lightest",
       "name": "Platinum Gray",
       "value": "#f2f2f2"
     }],
 	"primaryColors": [
 		{
 			"variable": "--mf-c-primary",
+      "token": "c-primary",
 			"name": "Bay Blue",
 			"value": "#14558f"
 		},
 		{
 			"variable": "--mf-c-primary-lighter",
+      "token": "c-primary-lighter",
 			"name": "50% Bay Blue",
 			"value": "#8aaac7"
 		},
 		{
 			"variable": "--mf-c-primary-lightest",
+      "token": "c-primary-lightest",
 			"name": "10% Bay Blue",
 			"value": "#e7eef4"
 		}],
 	"primaryAltColors": [
 		{
 			"variable": "--mf-c-primary-alt",
+      "token": "c-primary-alt",
 			"name": "Berkshires Green",
 			"value": "#388557"
 		},
 		{
 			"variable": "--mf-c-primary-alt-lighter",
+      "token": "c-primary-alt-lighter",
 			"name": "50% Berkshires Green",
 			"value": "#9CC2AB"
 		},
 		{
 			"variable": "--mf-c-primary-alt-lightest",
+      "token": "c-primary-alt-lightest",
 			"name": "10% Berkshires Green",
 			"value": "#EBF3EE"
 		}],
 	"highLightColors": [
 		{
 			"variable": "--mf-c-highlight",
+      "token": "c-highlight",
 			"name": "Duckling Yellow",
 			"value": "#f6c51b"
 		},
 		{
 			"variable": "--mf-c-highlight-lighter",
+      "token": "c-highlight-lighter",
 			"name": "50% Duckling Yellow",
 			"value": "#fbe28d"
 		},
 		{
 			"variable": "--mf-c-highlight-lightest",
+      "token": "c-highlight-lightest",
 			"name": "10% Duckling Yellow",
 			"value": "#fef9e8"
     }],
   "utilityColors": [
     {
       "variable": "--mf-c-error-red",
+      "token": "c-error-red",
       "name": "Error Red",
       "value": "#CD0D0D"
     },
     {
       "variable": "--mf-c-warning",
+      "token": "c-warning",
       "name": "Warning Yellow",
       "value": "#f6c51b"
     },
     {
       "variable": "--mf-c-success",
+      "token": "c-success",
       "name": "Success Green",
       "value": "#388557"
     },
     {
       "variable": "--mf-c-focus",
+      "token": "c-focus",
       "name": "Focus Hightlight",
       "value": "#3e94cf"
     }]
