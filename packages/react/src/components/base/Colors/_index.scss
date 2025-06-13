@@ -55,29 +55,14 @@
 
 // Programetically generate gradient colors
 $tiles: 10;
-@mixin ma_gradient($name) {
+@mixin ma_gradient($name, $mode, $base) {
   .#{$name} {
-    &--tint {
+    &--#{$mode} {
       @for $i from 0 through $tiles {
         $amount: $i * 10%;
         &:nth-child(#{$i + 1}) {
           .sg-swatch {
-            background-color: color-mix(in srgb, white $amount, var(--mf-#{$name}));
-          }
-        }
-      }
-    }
-  }
-}
-
-@mixin ma_gradient_dark($name) {
-  .#{$name} {
-    &--shade {
-      @for $i from 0 through $tiles {
-        $amount: $i * 10%;
-        &:nth-child(#{$i + 1}) {
-          .sg-swatch {
-            background-color: color-mix(in srgb, black $amount, var(--mf-#{$name}));
+            background-color: color-mix(in srgb, #{$base} $amount, var(--mf-#{$name}));
           }
         }
       }
@@ -92,6 +77,6 @@ $tiles: 10;
   "c-independence-cranberry",
   "c-granite-gray"
 ) {
-  @include ma_gradient($name);
-  @include ma_gradient_dark($name);
+  @include ma_gradient($name, 'tint', white);
+  @include ma_gradient($name, 'shade', black);
 }
