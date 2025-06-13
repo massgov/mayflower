@@ -45,13 +45,14 @@
     font-size: $fonts-medium;
     text-align: left;
     vertical-align: top;
+    padding: 0.5rem;
   }
 }
 
 .ma__table {
 
   .ma__table__caption {
-    font-size: $fonts-xlarge;
+    font-size: $fonts-medium
   }
 
   th {
