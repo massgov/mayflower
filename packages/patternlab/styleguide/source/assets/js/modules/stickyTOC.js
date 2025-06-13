@@ -1,3 +1,5 @@
+import isHighZoom from "../helpers/isHighZoom";
+
 export default (function (window, document) {
 
   const tocs = Array.from(document.getElementsByClassName("ma__sticky-toc"));
@@ -116,6 +118,7 @@ export default (function (window, document) {
       if (tocSectionCount <= 10 && window.innerWidth > 480 ) {
         toc.querySelector(".ma__sticky-toc__footer").style.display = "none";
       }
+      
     }
 
     // Add the event listeners to handle all of the interaction.
@@ -185,7 +188,7 @@ export default (function (window, document) {
           }
 
           // Active Sticky TOC when on page TOC scrolls past.
-          if (stickyNavActive > 0) {
+          if (stickyNavActive > 0 || isHighZoom()) {
             toc.classList.remove("stuck");
           }
           else {
