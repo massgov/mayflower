@@ -38,7 +38,6 @@ const GradientTile = (props) => {
     const hexVal = Math.round(x).toString(16);
     return hexVal.length === 1 ? '0' + hexVal : hexVal;
   };
-  
   const rgbToHex = (rgbVal) => {
     // Match color(srgb R G B)
     const rgbValues = rgbVal && rgbVal.match(/^color\(srgb\s*([\d.]+)\s*([\d.]+)\s*([\d.]+)\)$/);
@@ -56,9 +55,10 @@ const GradientTile = (props) => {
   const firstTile = index === 0;
   const name = firstTile ? props.name : `${index * 10} % ${effect}`;
   let token;
+
   switch (name) {
     case props.name:
-      token = `$${props.token}`;
+      token = `--mf-${props.token}`;
       break;
     case '50 % tint':
       token = 'lighter';
