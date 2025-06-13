@@ -63,7 +63,9 @@ const GradientTile = (props) => {
     default:
       token = '';
   }
-  const hexValue = rgbToHex(rgb).toUpperCase();
+
+  console.log(rgb);
+  const hexValue = rgbToHex(rgb) ? rgbToHex(rgb).toUpperCase() : '';
   return(
     <li className={`${props.token}--${effect}`}>
       <h3 className="ma__sidebar-heading">{name}</h3>
