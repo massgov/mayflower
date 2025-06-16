@@ -53,7 +53,7 @@
 Removed:
   - project: Patternlab
   - component: UtilityNav
-  - description: Removed the "Contrast Settings" button entry from utilityNav.json as part of phasing out the Userway accessibility tool.
+  - description: Removed the "Contrast Settings" button entry from utilityNav.json as part of phasing out the Userway accessibility tool. (#1993)
   - issue: DP-39770
   - impact: Minor
 
