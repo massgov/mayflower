@@ -33,23 +33,23 @@ const GradientTile = (props) => {
   React.useEffect(() => {
     const computedStyles = window.getComputedStyle(colorRef.current).getPropertyValue('background-color');
     setRgb(() => computedStyles);
-  },[]);
+  }, []);
   const hex = (x) => {
     const hexVal = Math.round(x).toString(16);
-    return hexVal.length === 1 ? '0' + hexVal : hexVal;
+    return hexVal.length === 1 ? `0${hexVal}` : hexVal;
   };
   const rgbToHex = (rgbVal) => {
     // Match color(srgb R G B)
     const rgbValues = rgbVal && rgbVal.match(/^color\(srgb\s*([\d.]+)\s*([\d.]+)\s*([\d.]+)\)$/);
     if (!rgbValues) return null;
-  
+
     // Extract decimal floats
     const r = parseFloat(rgbValues[1]) * 255;
     const g = parseFloat(rgbValues[2]) * 255;
     const b = parseFloat(rgbValues[3]) * 255;
-  
+
     // Convert to hex string
-    return `#${hex(r)}${hex(g)}${hex(b)}`.toUpperCase();
+    return`#${hex(r)}${hex(g)}${hex(b)}`.toUpperCase();
   };
   const { index, effect } = props;
   const firstTile = index === 0;
