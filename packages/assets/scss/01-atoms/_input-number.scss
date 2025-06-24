@@ -65,10 +65,10 @@
 
   &__plus,
   &__minus {
-    border-color: $c-bd-input;
+    border-color: var(--mf-c-bd-input);
 
     &:after {
-      border-color: $c-gray-darkest;
+      border-color: var(--mf-c-gray-darkest);
       border-left-color: transparent;
       border-right-color: transparent;
     }
@@ -76,6 +76,6 @@
 
   input.has-error ~ &__plus,
   input.has-error ~ &__minus {
-    border-color: $c-bd-error;
+    border-color: var(--mf-c-bd-error);
   }
 }

@@ -77,22 +77,22 @@
 .ma__collapsible-header {
 
   &__button {
-    color: $c-font-base;
-    background-color: $c-bg-section;
+    color: var(--mf-c-font-base);
+    background-color: var(--mf-c-bg-section);
 
     .is-open & {
       background-color: transparent;
     }
 
     &__status-icon {
-      color: $c-primary-alt;
+      color: var(--mf-c-primary-alt);
     }
   }
 
   &__icon {
 
     & > svg {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
     }
   }
 

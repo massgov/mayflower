@@ -15,8 +15,8 @@ $textcolors: (
 /* Apply basic styling to the banner container */
 
 .ma__page-banner {
-  background-color: $c-primary;
-  color: $c-font-inverse;
+  background-color: var(--mf-c-primary);
+  color: var(--mf-c-font-inverse);
   margin-bottom: 20px;
 
   @each $class, $c in $bgcolors {

@@ -15,7 +15,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: inset 0px 0px 2px 2px $c-focus;
+    box-shadow: inset 0px 0px 2px 2px var(--mf-c-focus);
   }
 }
 
@@ -34,15 +34,15 @@
 
   &-body {
     padding: 1rem;
-    border: 1px solid $c-gray-light;
+    border: 1px solid var(--mf-c-gray-light);
     margin-top: -1px;
 
     @extend %focus;
   }
 
   .ma__tab-title {
-    border-left: 1px solid $c-gray-light;
-    border-top: 1px solid $c-gray-light;
+    border-left: 1px solid var(--mf-c-gray-light);
+    border-top: 1px solid var(--mf-c-gray-light);
     border-right: none;
     border-bottom: none;
     margin-bottom: -1px;
@@ -52,7 +52,7 @@
     }
 
     &:last-child {
-      border-right: 1px solid $c-gray-light;
+      border-right: 1px solid var(--mf-c-gray-light);
     }
 
 
@@ -67,15 +67,15 @@
     }
 
     &--active {
-      border-top: 5px solid $c-primary;
-      background-color: $c-bg;
+      border-top: 5px solid var(--mf-c-primary);
+      background-color: var(--mf-c-bg);
       z-index: 1;
-      outline: $c-error-red;
+      outline: var(--mf-c-error-red);
 
       button {
         padding-top: 1.5rem;
         font-weight: $fonts-bold;
-        color: $c-primary;
+        color: var(--mf-c-primary);
 
         @extend %focus;
       }
@@ -87,7 +87,7 @@
     .ma__tab-container {
 
       &-head {
-        border-bottom: 1px solid $c-gray-light;
+        border-bottom: 1px solid var(--mf-c-gray-light);
       }
 
       &-body {
@@ -107,8 +107,8 @@
       }
 
       &--active {
-        color: $c-primary;
-        border-bottom: 5px solid $c-primary;
+        color: var(--mf-c-primary);
+        border-bottom: 5px solid var(--mf-c-primary);
 
         button {
           padding-bottom: 1.25rem;

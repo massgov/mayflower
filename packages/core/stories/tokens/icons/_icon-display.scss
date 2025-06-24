@@ -31,7 +31,7 @@
         margin-top: 20px;
       }
       span {
-        background-color: $c-gray-lightest;
+        background-color: var(--mf-c-gray-lightest);
         padding: 0.1em 0.2em;
       }
     }

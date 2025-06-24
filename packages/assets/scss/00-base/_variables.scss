@@ -107,4 +107,4 @@ $letter-spacing-default: 0;
 
 
 // Box shadow
-$box-shadow: 0 0.25rem 0.5rem $c-box-shadow-black !default;
+$box-shadow: 0 0.25rem 0.5rem var(--mf-c-box-shadow-black) !default;

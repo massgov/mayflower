@@ -168,20 +168,20 @@ $collage-header-bp-min: "min-width: 701px";
 $collage-header-bp-max: "max-width: 700px";
 
 .ma__collage-header {
-  background-color: $c-bg-subtle;
+  background-color: var(--mf-c-bg-subtle);
 
   &__title {
 
     @media ($collage-header-bp-max) {
-      background-color: $c-primary-alt;
+      background-color: var(--mf-c-primary-alt);
     }
 
     &:before {
-      background-color: $c-primary-alt;
+      background-color: var(--mf-c-primary-alt);
     }
 
     h1 {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
       font-weight: $fonts-light;
     }
   }

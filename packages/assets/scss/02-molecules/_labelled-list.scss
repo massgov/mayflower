@@ -26,7 +26,7 @@
 
   &__label {
     font-size: $fonts-small;
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
     font-weight: $fonts-bold;
   }
 }

@@ -86,7 +86,7 @@
     @include ma-border-decorative($c-highlight);
 
     svg {
-      fill: $c-highlight;
+      fill: var(--mf-c-highlight);
     }
 
   }
@@ -94,12 +94,12 @@
   &__item {
 
     &:nth-child(even) {
-      border-color: $c-bd-divider;
+      border-color: var(--mf-c-bd-divider);
     }
   }
 
   &__label {
-    color: $c-font-medium;
+    color: var(--mf-c-font-medium);
     font-weight: $fonts-bold;
   }
 

@@ -106,7 +106,7 @@ $page-header-widget-width: 350px;
     font-weight: $fonts-bold;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
 
     @media ($bp-small-min) {
       font-size: $fonts-large;
@@ -245,17 +245,17 @@ $page-header-widget-width: 350px;
   &__tags {
 
     @media ($bp-medium-min) {
-      border-color: $c-bd-divider;
+      border-color: var(--mf-c-bd-divider);
     }
 
     .ma__header-tags,
     .ma__social-links {
-      border-color: $c-bd-divider;
+      border-color: var(--mf-c-bd-divider);
     }
   }
 
   &__sub-title {
-    color: $c-font-heading;
+    color: var(--mf-c-font-heading);
     font-weight: $fonts-bold;
   }
 
