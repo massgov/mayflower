@@ -102,15 +102,15 @@ $location-listin--map-min-width: 315px;
   }
 
   &__filters {
-    background-color: $c-bg-subtle;
+    background-color: var(--mf-c-bg-subtle);
 
     .ma__button-search {
-      color: $c-font-base;
+      color: var(--mf-c-font-base);
 
       &:hover {
-        background-color: $c-font-base;
-        border-color: $c-font-base;
-        color: $c-font-inverse;
+        background-color: var(--mf-c-font-base);
+        border-color: var(--mf-c-font-base);
+        color: var(--mf-c-font-inverse);
       }
     }
   }

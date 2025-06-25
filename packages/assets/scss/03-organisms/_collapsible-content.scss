@@ -22,7 +22,7 @@
       &__toggle-all {
         background: none;
         border: 0;
-        color: $c-font-detail;
+        color: var(--mf-c-font-detail);
         display: block;
         margin-left: auto;
         margin-right: 0;
@@ -54,7 +54,7 @@
       }
 
       &__item {
-        background: $c-bg;
+        background: var(--mf-c-bg);
       }
     }
 
@@ -68,7 +68,7 @@
       }
 
       &__button {
-        background: $c-bg;
+        background: var(--mf-c-bg);
         padding-right: 66px;
 
         @media ($bp-small-max) {
@@ -81,7 +81,7 @@
       position: absolute;
       top: 24px;
       right: 40px;
-      color: $c-primary-alt;
+      color: var(--mf-c-primary-alt);
       font-weight: $fonts-bolder;
       font-style: italic;
       font-size: $fonts-medium;
@@ -127,6 +127,6 @@
 .ma__collapsible-content {
 
   &__item {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 }

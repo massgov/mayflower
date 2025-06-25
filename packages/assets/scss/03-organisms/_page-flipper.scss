@@ -85,7 +85,7 @@
 .ma__page-flipper {
 
   &__container {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 
   &__context-label {
@@ -94,6 +94,6 @@
 
   &__blank,
   .ma__arrow-nav {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 }

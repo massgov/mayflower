@@ -360,7 +360,7 @@
   }
 
   .service-section--enhanced-two-column {
-    background: $c-platinum-gray;
+    background: var(--mf-c-platinum-gray);
     padding-block: 20px;
 
     @media ($bp-large-min) {
@@ -369,7 +369,7 @@
 
     .ma__mapped-locations__aside,
     .ma__mapped-locations__map {
-      background-color: $c-white;
+      background-color: var(--mf-c-white);
     }
   }
 }

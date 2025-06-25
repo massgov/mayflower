@@ -8,14 +8,14 @@
   }
 
   &--primary {
-    background-color: $c-primary-lightest;
+    background-color: var(--mf-c-primary-lightest);
   }
 
   &--gray-light {
-    background-color: $c-gray-lightest;
+    background-color: var(--mf-c-gray-lightest);
   }
 
   &--primary-alt {
-    background-color: $c-primary-alt-lightest;
+    background-color: var(--mf-c-primary-alt-lightest);
   }
 }

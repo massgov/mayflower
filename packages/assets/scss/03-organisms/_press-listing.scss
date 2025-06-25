@@ -159,14 +159,14 @@
 .ma__press-listing {
 
   &__secondary-items {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 
   &__secondary-item {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
 
     &:after {
-      border-color: $c-bd-divider;
+      border-color: var(--mf-c-bd-divider);
     }
   }
 }
@@ -193,7 +193,7 @@
     width: 1px;
     height: 100%;
     position: absolute;
-    background-color: $c-bd-divider;
+    background-color: var(--mf-c-bd-divider);
     top: 0;
     right: -30px;
   }

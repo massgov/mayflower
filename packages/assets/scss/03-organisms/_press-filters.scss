@@ -93,21 +93,21 @@
 .ma__press-filters {
 
   &__container {
-    background-color: $c-bg-section;
+    background-color: var(--mf-c-bg-section);
   }
 
   &__organizations {
-    border-bottom-color: $c-bd-divider;
+    border-bottom-color: var(--mf-c-bd-divider);
   }
 
   label,
   legend {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
   }
 
   &__clear {
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: $fonts-bold;
-    border-bottom-color: $c-font-base;
+    border-bottom-color: var(--mf-c-font-base);
   }
 }

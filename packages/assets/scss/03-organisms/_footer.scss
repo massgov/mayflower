@@ -3,7 +3,7 @@
 .ma__footer-new {
 
   // height: 100px;
-  background-color: $c-bg-section;
+  background-color: var(--mf-c-bg-section);
   
   &__container {
 
@@ -59,7 +59,7 @@
       
         @include ma-link-underline;
         padding-bottom: 3px;
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
         font-weight: $fonts-normal;
     
         &:hover {
@@ -72,7 +72,7 @@
 
   &__copyright {
     font-size: $fonts-smaller;
-    color: $c-gray-dark;
+    color: var(--mf-c-gray-dark);
     font-weight: $fonts-light;
 
     &--bold {

@@ -79,14 +79,14 @@ $illustrated-link-image-width: 130px;
 //theme
 
 .ma__illustrated-link {
-  border-color: $c-link;
+  border-color: var(--mf-c-link);
   box-shadow: $box-shadow;
 
   &__content {
-    background-color: $c-primary-lightest;
+    background-color: var(--mf-c-primary-lightest);
 
     &:after {
-      background-color: $c-primary-lightest;
+      background-color: var(--mf-c-primary-lightest);
     }
   }
 
@@ -103,16 +103,16 @@ $illustrated-link-image-width: 130px;
     a {
 
       &:hover {
-        border-bottom-color: $c-link;
+        border-bottom-color: var(--mf-c-link);
       }
     }
 
     svg {
-      fill: $c-font-link;
+      fill: var(--mf-c-font-link);
     }
   }
 
   &__image {
-    background-color: $c-link;
+    background-color: var(--mf-c-link);
   }
 }

@@ -9,7 +9,7 @@
   padding: 10px 20px;
   font-weight: $fonts-light;
   font-size: $fonts-large;
-  border: 2px solid $c-gray-light;
+  border: 2px solid var(--mf-c-gray-light);
   -webkit-appearance: none;
 
   &--focused {
@@ -34,7 +34,7 @@
     overflow: scroll;
     overflow-y: auto;
     box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,0.2);
-    background: $c-bg;//$c-white; <-- THIS MIGHT BE INTENTIONALLY SET $c-white.
+    background: var(--mf-c-bg);//$c-white; <-- THIS MIGHT BE INTENTIONALLY SET $c-white.
   }
 }
 
@@ -49,6 +49,6 @@
   padding: 10px 20px;
 
   &--highlighted {
-    background-color: $c-gray-lightest;
+    background-color: var(--mf-c-gray-lightest);
   }
 }

@@ -19,7 +19,7 @@
   &--meta-wrapper {
     display: flex;
     font-style: italic;
-    color: $c-gray-dark;
+    color: var(--mf-c-gray-dark);
 
     font-weight: $fonts-bold;
     font-size: $fonts-larger;
@@ -32,12 +32,12 @@
 
     .curated-person--org {
       padding-left: 1rem;
-      border-left: 1px solid $c-bd-divider;
+      border-left: 1px solid var(--mf-c-bd-divider);
     }
   }
 
   .ma__contact-us__content-wrap {
-    border-bottom: 1px solid $c-bd-divider;
+    border-bottom: 1px solid var(--mf-c-bd-divider);
     padding-bottom: 1rem;
 
     @media ($bp-large-min) {
@@ -62,7 +62,7 @@
         position: absolute;
         right: 20px;
         top: 0;
-        background-color: $c-bd-divider;
+        background-color: var(--mf-c-bd-divider);
       }
     }
 
@@ -75,7 +75,7 @@
 
       &:not(:first-child) {
         padding: 0 10px;
-        border-left: 1px solid $c-bd-divider;
+        border-left: 1px solid var(--mf-c-bd-divider);
       }
     }
   }

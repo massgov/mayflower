@@ -8,11 +8,11 @@
 
 
     &-unit {
-      border: 2px solid $c-bd-input;
+      border: 2px solid var(--mf-c-bd-input);
       padding-right: 5px;
       padding-top: 4px;
       border-left: none;
-      color: $c-gray-dark;
+      color: var(--mf-c-gray-dark);
 
       &--showButtons {
         border-right: none;
@@ -40,20 +40,20 @@
       }
 
   	  input.has-error {
-  	    border-color: $c-bd-error;
+  	    border-color: var(--mf-c-bd-error);
   	  }
 
   	  &-plus,
   	  &-minus {
 
   	    @include ma-button-reset;
-  	    border: 2px solid $c-bd-input;
+  	    border: 2px solid var(--mf-c-bd-input);
   	    border-bottom: none;
   	    height: 50%;
   	    width: 40px;
 
   	    &:after {
-  	      border: 5px solid $c-gray-darkest;
+  	      border: 5px solid var(--mf-c-gray-darkest);
   	      border-top: none;
   	      border-bottom-width: 6px;
   	      content: "";

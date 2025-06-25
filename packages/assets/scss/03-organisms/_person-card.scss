@@ -80,11 +80,11 @@
 
 .ma__person-card {
   position: relative;
-  color: $c-font-base;
-  background-color: $c-bg;
+  color: var(--mf-c-font-base);
+  background-color: var(--mf-c-bg);
 
   @media ($bp-large-extended-min) {
-    border: 1px solid $c-primary-alt;
+    border: 1px solid var(--mf-c-primary-alt);
     box-shadow: 4px 2px 5px 0px rgba($c-gray-darkest,0.3);
   }
 
@@ -95,7 +95,7 @@
     height: 5px;
     transform: skew(-30deg);
     width: 100%;
-    background-color: $c-bd-input;
+    background-color: var(--mf-c-bd-input);
 
     @media ($bp-large-extended-min) {
       display: none;
@@ -105,7 +105,7 @@
   &__image {
 
     img {
-      border: 7px solid $c-bd-input;
+      border: 7px solid var(--mf-c-bd-input);
     }
   }
 
@@ -114,7 +114,7 @@
     margin-top: 0;
 
     &::after {
-      background-color: $c-gray-dark;
+      background-color: var(--mf-c-gray-dark);
     }
   }
 }

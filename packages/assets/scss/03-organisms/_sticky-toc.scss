@@ -181,20 +181,20 @@
   &__inner {
 
     @media ($bp-x-small-min) {
-      background-color: $c-bg-section;
+      background-color: var(--mf-c-bg-section);
     }
   }
 
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     font-weight: $fonts-bold;
   }
 
   &__links {
 
     @media ($bp-x-small-max) {
-      background-color: $c-bg-section;
+      background-color: var(--mf-c-bg-section);
     }
   }
 
@@ -207,7 +207,7 @@
     a {
 
     & > svg {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
 
       @media ($bp-x-small-max) {
         display: none;
@@ -220,7 +220,7 @@
   }
 
     &:hover a {
-      border-bottom-color: $c-link;
+      border-bottom-color: var(--mf-c-link);
     }
 
     &:nth-child(n+11) {
@@ -242,28 +242,28 @@
       }
 
       &.is-active a {
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
         font-weight: $fonts-bold;
       }
 
       &.is-active:hover a {
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
         border-bottom-color: transparent;
       }
 
       & + & {
-        border-top-color: $c-bd-divider;
+        border-top-color: var(--mf-c-bd-divider);
       }
 
     }
   }
 
   &__toggle-link {
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
   }
 
   &__footer {
-    border-top: 1px solid $c-bd-divider;
+    border-top: 1px solid var(--mf-c-bd-divider);
     padding: 20px;
     width: 95%;
     margin: 0 auto;
@@ -274,7 +274,7 @@
 
     button {
       position: relative;
-      color: $c-primary;
+      color: var(--mf-c-primary);
       font-weight: $fonts-bold;
       background-color: transparent;
       border: none;
@@ -284,7 +284,7 @@
       transition: border 0.4s ease;
 
       &:hover {
-        border-bottom-color: $c-font-link;
+        border-bottom-color: var(--mf-c-font-link);
       }
 
       &::after {
@@ -294,8 +294,8 @@
         transform: translateY(-50%) rotate(45deg);
         right: 0;
         display: inline-block;
-        border-right: 4px solid $c-font-link;
-        border-bottom: 4px solid $c-font-link;
+        border-right: 4px solid var(--mf-c-font-link);
+        border-bottom: 4px solid var(--mf-c-font-link);
         height: 10px;
         width: 10px;
         transition: all .2s;
@@ -317,7 +317,7 @@
     left: 0;
     transition: height 0.1s ease-out;
     width: 100%;
-    background-color: $c-bg-subtle;
+    background-color: var(--mf-c-bg-subtle);
     z-index: $z-sticky-content;
 
     box-shadow: $box-shadow;
@@ -364,15 +364,15 @@
   .ma__sticky-toc__sticky-top {
     padding-right: 30px;
     margin-right: 30px;
-    border-right: 1px solid $c-bd-divider;
+    border-right: 1px solid var(--mf-c-bd-divider);
 
     button {
-      border: 4px solid $c-link;
+      border: 4px solid var(--mf-c-link);
       height: 47px;
       position: relative;
 
       svg {
-        fill: $c-font-link;
+        fill: var(--mf-c-font-link);
         transform: rotate(-90deg);
         width: 11px;
         height: 12px;
@@ -388,7 +388,7 @@
         text-transform: uppercase;
         font-size: $fonts-2xsmall;
         font-weight: $fonts-bold;
-        color: $c-primary;
+        color: var(--mf-c-primary);
         letter-spacing: $letter-spacing-large;
         margin-top: -4px;
       }
@@ -412,7 +412,7 @@
   font-weight: $fonts-bold;
   line-height: 1.2;
   padding: 10px 35px 10px 15px;
-  border: 1px solid $c-bd-divider;
+  border: 1px solid var(--mf-c-bd-divider);
   border-width: 1px 0 1px 0;
 
   + ul {
@@ -435,8 +435,8 @@
     position: relative;
     width: 35px;
     height: 35px;
-    background-color: $c-primary;
-    color: $c-font-inverse;
+    background-color: var(--mf-c-primary);
+    color: var(--mf-c-font-inverse);
 
     .sticky-nav-open & {
       display: block;
@@ -463,7 +463,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: $fonts-bold;
-  color: $c-font-base;
+  color: var(--mf-c-font-base);
   margin-bottom: 0;
   display: none;
 
@@ -480,7 +480,7 @@
   max-width: 550px;
   top: 0;
   z-index: 99;
-  background-color: $c-bg;
+  background-color: var(--mf-c-bg);
   transition: right 0.3s ease-out;
 
   overflow: auto;
@@ -506,8 +506,8 @@
     font-weight: $fonts-normal;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
-    color: $c-gray-dark;
-    background-color: $c-bg;
+    color: var(--mf-c-gray-dark);
+    background-color: var(--mf-c-bg);
     height: 65px;
     padding: 10px 20px;
     width: 100%;
@@ -523,7 +523,7 @@
       width: calc(100% - 40px);
       height: 1px;
       bottom: 0;
-      background-color: $c-gray-dark;
+      background-color: var(--mf-c-gray-dark);
     }
   }
 

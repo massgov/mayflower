@@ -243,37 +243,37 @@ $event-listing-bp-show-grid: $bp-medium-min;
   }
 
   &--grid &__item {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
 
     &:after {
-      border-color: $c-bd-divider;
+      border-color: var(--mf-c-bd-divider);
     }
   }
 
   &__item + &__item {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 
   .post-content > & {
-    background-color: $c-bg-subtle;
+    background-color: var(--mf-c-bg-subtle);
   }
 
   .post-content > & &__container {
 
     & > *:last-child {
-      border-bottom-color: $c-bd-divider;
+      border-bottom-color: var(--mf-c-bd-divider);
     }
   }
 
   .post-content > & &__item {
-    border-left-color: $c-bd-divider;
+    border-left-color: var(--mf-c-bd-divider);
   }
 }
 
 .ma__event-filters {
 
   legend, label {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
   }
 }
 

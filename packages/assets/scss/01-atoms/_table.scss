@@ -7,7 +7,7 @@
 
   .ma__table__caption,
   & td > table caption {
-    color: $c-font-heading;
+    color: var(--mf-c-font-heading);
     font-weight: $fonts-bold;
     line-height: 1.3;
     text-align: left;
@@ -24,21 +24,21 @@
   }
 
   thead {
-    background-color: $c-bg-subtle;
+    background-color: var(--mf-c-bg-subtle);
 
     th {
-      color: $c-font-heading;
+      color: var(--mf-c-font-heading);
       border: none;
       line-height: 1.3;
     }
   }
 
   tbody {
-    border-top: 2px solid $c-bd-divider;
+    border-top: 2px solid var(--mf-c-bd-divider);
   }
 
   tr + tr {
-    border-top: 1px solid $c-bd-divider;
+    border-top: 1px solid var(--mf-c-bd-divider);
   }
 
   th, td {
@@ -56,7 +56,7 @@
   }
 
   th {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
   }
 
   tr > *:first-child {

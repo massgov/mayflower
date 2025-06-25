@@ -16,7 +16,7 @@
     border-bottom-style: solid;
     border-bottom-width: 2px;
     padding-bottom: 10px;
-    border-bottom-color: $c-bd-divider;
+    border-bottom-color: var(--mf-c-bd-divider);
   }
 
   &__title {

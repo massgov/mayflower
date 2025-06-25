@@ -4,7 +4,7 @@
   font-size: $fonts-medium;
 
   .highlight {
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
     font-weight: bold;
   }
 
@@ -23,14 +23,14 @@
     padding: 0px;
 
     li {
-      border: 1px solid $c-gray-light;
+      border: 1px solid var(--mf-c-gray-light);
       width: 100%;
       padding: 0px 18px;
     }
   }
 
   &--boxed {
-    border: 1px solid $c-gray-light;
+    border: 1px solid var(--mf-c-gray-light);
 
     input {
       margin: .75rem;
@@ -39,11 +39,11 @@
   }
 
   &--disabled {
-    color: $c-gray;
+    color: var(--mf-c-gray);
 
     input {
-      background-color: $c-gray-lightest;
-      color: $c-gray;
+      background-color: var(--mf-c-gray-lightest);
+      color: var(--mf-c-gray);
     }
   }
 }
@@ -75,7 +75,7 @@ input[type=search] {
     }
 
     &--highlighted {
-      background-color: $c-gray-lightest;
+      background-color: var(--mf-c-gray-lightest);
     }
   }
 
@@ -90,7 +90,7 @@ input[type=search] {
       max-height: 15.6em;
       overflow-y: auto;
       box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,0.2);
-      background: $c-bg;
+      background: var(--mf-c-bg);
     }
   }
 }

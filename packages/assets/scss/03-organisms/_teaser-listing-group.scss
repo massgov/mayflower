@@ -40,7 +40,7 @@
     @include ma-link-underline;
 
     &:hover {
-      border-bottom-color: $c-link;
+      border-bottom-color: var(--mf-c-link);
     }
 
     &:after {

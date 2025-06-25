@@ -27,7 +27,7 @@ $accordion-break: 720px;
     @media (min-width: $accordion-break) {
       column-count: 2;
       column-gap: 40px;
-      column-rule: 1px solid $c-bd-divider;
+      column-rule: 1px solid var(--mf-c-bd-divider);
 
       .ma__contact-set {
         /* Prevent a single contact-set from breaking across columns */

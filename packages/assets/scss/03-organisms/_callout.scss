@@ -61,14 +61,14 @@
 //theme
 
 .ma__callout {
-  border-left-color: $c-highlight;
-  color: $c-font-heading;
+  border-left-color: var(--mf-c-highlight);
+  color: var(--mf-c-font-heading);
   font-weight: $fonts-bolder;
 
   &__header {
 
     svg {
-      fill: $c-highlight;
+      fill: var(--mf-c-highlight);
     }
   }
 }

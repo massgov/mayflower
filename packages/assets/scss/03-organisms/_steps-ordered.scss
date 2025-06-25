@@ -86,7 +86,7 @@ $steps-ordered-icon-border: 3px;
   &__item {
 
     &:before {
-      color: $c-primary-alt;
+      color: var(--mf-c-primary-alt);
       font-weight: $fonts-bold;
     }
   }

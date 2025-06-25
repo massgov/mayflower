@@ -27,11 +27,11 @@
   line-height: 1.75rem;
   margin-bottom: .5em;
 
-  color: $c-font-error;
+  color: var(--mf-c-font-error);
   font-weight: 500;
 
   &--success {
-    color: $c-primary-alt !important;
+    color: var(--mf-c-primary-alt) !important;
   }
 
   &.has-error {
@@ -46,7 +46,7 @@
 
 input:disabled {
   @extend %disabled;
-  background-color: $c-gray-lightest;
+  background-color: var(--mf-c-gray-lightest);
 }
 
 button:disabled {
@@ -59,7 +59,7 @@ button:disabled {
 .ma__input-number-unit{
   &--disabled {
     @extend %disabled;
-    background-color: $c-gray-lightest;
+    background-color: var(--mf-c-gray-lightest);
   }
 }
 

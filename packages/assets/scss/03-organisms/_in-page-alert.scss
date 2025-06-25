@@ -1,7 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__in-page-alert {
-  background-color: $c-warning;
+  background-color: var(--mf-c-warning);
   font-size: 0;
   position: relative;
   z-index:1;
@@ -36,7 +36,7 @@
 
     a {
       display: inline;
-      color: $c-font-base;
+      color: var(--mf-c-font-base);
 
       svg {
         fill: rgba($c-font-base, .5);

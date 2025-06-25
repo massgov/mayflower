@@ -108,8 +108,8 @@
       &:after {
         cursor: pointer;
         margin-left: 6px;
-        border-right-color: $c-primary-alt;
-        border-bottom-color: $c-primary-alt;
+        border-right-color: var(--mf-c-primary-alt);
+        border-bottom-color: var(--mf-c-primary-alt);
 
         @media ($bp-header-toggle-max) {
           position: absolute;
@@ -138,10 +138,10 @@
     }
 
     &.cv-alternate-style {
-      background-color: $c-highlight;
+      background-color: var(--mf-c-highlight);
 
       &:hover {
-        background-color: $c-highlight-lightest;
+        background-color: var(--mf-c-highlight-lightest);
       }
     }
   }
@@ -246,7 +246,7 @@
   }
 
   a {
-    color: $c-revolution-gray;
+    color: var(--mf-c-revolution-gray);
   }
 }
 
@@ -259,7 +259,7 @@
     &:hover,
     &.is-open,
     &.has-focus {
-      background-color: $c-bg;
+      background-color: var(--mf-c-bg);
       box-shadow: $box-shadow;
     }
 
@@ -270,46 +270,46 @@
   }
 
   &__subitems {
-    background-color: $c-bg-section;
+    background-color: var(--mf-c-bg-section);
 
     @media ($bp-header-toggle-min) {
-      background-color: $c-bg;
-      box-shadow: 0 0.25em 0.5rem $c-box-shadow-black;
+      background-color: var(--mf-c-bg);
+      box-shadow: 0 0.25em 0.5rem var(--mf-c-box-shadow-black);
     }
   }
 
   &__container {
 
     @media ($bp-header-toggle-max) {
-      background-color: $c-bg;
+      background-color: var(--mf-c-bg);
     }
   }
 
   &__subitem {
-    border-bottom-color: $c-bd-divider;
+    border-bottom-color: var(--mf-c-bd-divider);
   }
 
   &__link {
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: $fonts-normal;
 
     &:hover,
     &:focus {
-      background-color: $c-bg-subtle;
+      background-color: var(--mf-c-bg-subtle);
     }
   }
 
   &__subitem--main &__link {
-    background-color: $c-bg-subtle;
-    color: $c-font-link;
+    background-color: var(--mf-c-bg-subtle);
+    color: var(--mf-c-font-link);
     font-weight: $fonts-bold;
 
     &:hover {
-      background-color: $c-gray-light;
+      background-color: var(--mf-c-gray-light);
     }
 
     & > svg {
-      fill: $c-link;
+      fill: var(--mf-c-link);
       height: 20px;
       width: 20px;
       margin-right: 0.1rem;
