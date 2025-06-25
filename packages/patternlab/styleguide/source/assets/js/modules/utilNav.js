@@ -28,7 +28,9 @@ export default (function (document,$) {
       $thisPanel.css('top', '0px');
       $thisPanel.removeClass('is-closed');
       $thisPanel.attr("aria-hidden", "false");
-      $thisButton.attr("aria-expanded", "true");
+      if ($thisButton.length) {
+        $thisButton.attr("aria-expanded", "true");
+      }
       $closestHamburgerNav.addClass('util-nav-content-open');
     }
     
@@ -36,7 +38,9 @@ export default (function (document,$) {
       $thisPanel.css('top', '-' + height + 'px');
       $thisPanel.addClass('is-closed');
       $thisPanel.attr("aria-hidden", "true");
-      $thisButton.attr("aria-expanded", "false");
+      if ($thisButton.length) {
+        $thisButton.attr("aria-expanded", "false");
+      }
 
       // wait for retraction to remove full width layout
       setTimeout(() => {
@@ -63,26 +67,28 @@ export default (function (document,$) {
       }
     });
 
-    // Utility toggles buttons desktop only
-    $thisButton.on('click', function () {
-      // if the panel is closed, then open it
-      if ($thisPanel.hasClass("is-closed")) {
-        openPanel()
-      } else {
-      // else close the panel
-        closePanel()
-      }
+    if ($thisButton.length) {
+      // Utility toggles buttons desktop only
+      $thisButton.on('click', function () {
+        // if the panel is closed, then open it
+        if ($thisPanel.hasClass("is-closed")) {
+          openPanel()
+        } else {
+        // else close the panel
+          closePanel()
+        }
 
-    });
+      });
 
-    $thisButton.on('keydown', function (e) {
-      if (e.key === "Escape")  {
-        // If utility panel is open
-        if (!$thisPanel.hasClass("is-closed")) {
-          closePanel();
-        } 
-      }
-    });
+      $thisButton.on('keydown', function (e) {
+        if (e.key === "Escape")  {
+          // If utility panel is open
+          if (!$thisPanel.hasClass("is-closed")) {
+            closePanel();
+          } 
+        }
+      });
+    }
   });
 
   // debouncer
