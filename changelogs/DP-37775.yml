@@ -1,0 +1,12 @@
+Changed:
+  - project: Patternlab
+    component: StickyTOC
+    description: Make StickyTOC stickiness responsive to browser zoom leve. (#1975)
+    issue: DP-37775
+    impact: Patch
+Add:
+  - project: Patternlab
+    component: isHighZoom
+    description: Add isHighZoom helper function to handle zoom level responsiveness. (#1975)
+    issue: DP-37775
+    impact: Patch
