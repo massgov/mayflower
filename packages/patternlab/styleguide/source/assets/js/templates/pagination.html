@@ -1,0 +1,49 @@
+<div class="ma__pagination js-pagination">
+    <nav class="ma__pagination__container" aria-label="Pagination Navigation">
+        <a
+                class="ma__pagination__prev js-pagination-prev {{#if pagination.prev.disabled}}disabled{{/if}}"
+                role="button"
+                {{#if pagination.prev.disabled}}
+                aria-disabled="true"
+                {{else}}
+                aria-label="Go to {{pagination.prev.text}} page"
+                {{/if}}
+        href="#"
+        >
+        {{pagination.prev.text}}
+        </a>
+
+        {{#each pagination.pages}}
+        {{#if (eq this.text "spacer")}}
+        <span class="ma__pagination__spacer">&hellip;</span>
+        {{else}}
+        <a
+                class="ma__pagination__page js-pagination-page {{#if this.active}}is-active{{/if}}"
+                href="#"
+                role="button"
+                data-page="{{this.text}}"
+                {{#if this.active}}
+                aria-label="Currently on Page {{this.text}}"
+                {{else}}
+                aria-label="Go to Page {{this.text}}"
+                {{/if}}
+        >
+        {{this.text}}
+        </a>
+        {{/if}}
+        {{/each}}
+
+        <a
+                class="ma__pagination__next js-pagination-next {{#if pagination.next.disabled}}disabled{{/if}}"
+                {{#if pagination.next.disabled}}
+                aria-disabled="true"
+                {{else}}
+                aria-label="Go to {{pagination.next.text}} page"
+                {{/if}}
+        role="button"
+        href="#"
+        >
+        {{pagination.next.text}}
+        </a>
+    </nav>
+</div>

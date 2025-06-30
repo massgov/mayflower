@@ -1,4 +1,4 @@
-import twiggy from '../helpers/twiggy';
+import getTemplate from '../helpers/getHandlebarTemplate';
 
 export default (function (window, document, $, undefined) {
   if ($('.js-pagination').length === 0) {
@@ -65,28 +65,17 @@ export default (function (window, document, $, undefined) {
    *      context: the parent component selector
    */
   function renderPagination(args) {
-    // Don't attempt to render anything if we don't have new data.
     if (!args.data) {
       return;
     }
 
-    // Render async with Twig.
-    return twiggy('@molecules/pagination.twig')
-      .then(template => {
-        // Truncate the pagination with ellipsis to prevent it from showing
-        // all page numbers if there are a lot.
-        let pagination = truncatePaginationDisplay(args.data);
-        // Render the pagination Twig async.
-        return template.renderAsync({ pagination: pagination });
-      })
-      .then(markup => {
-        // twiggy is appending the entire pagiantion.twig template
-        // to itself, causing a double .ma__pagination wrapper
-        // unwrappedMarkup is the markup unwrapped and still contains the 
-        // original handlers 
-        const unwrapperMarkup = $($.parseHTML(markup)).html();
-        args.$el.html(unwrapperMarkup);
-      });
+    // Truncate the pagination with ellipsis
+    let pagination = truncatePaginationDisplay(args.data);
+
+    // Compile and render Handlebars template
+    const template = getTemplate('pagination');
+    const markup = template({ pagination: pagination });
+    args.$el.html(markup);
   }
 
   /**

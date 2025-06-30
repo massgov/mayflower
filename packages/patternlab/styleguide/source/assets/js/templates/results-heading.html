@@ -1,0 +1,50 @@
+<div class="ma__results-heading js-results-heading">
+    <div class="ma__results-heading__container">
+        {{!-- headingLevel should be handled in JS logic before rendering --}}
+
+        <div class="ma__results-heading__title" role="status">
+            Showing {{resultsHeading.numResults}}
+            {{#if resultsHeading.totalResults}} of {{resultsHeading.totalResults}}{{/if}} results
+            {{#if resultsHeading.tags}}for:{{/if}}
+            {{#if resultsHeading.subject}}<span class="ma__visually-hidden">&nbsp; for {{resultsHeading.subject}}</span>{{/if}}
+        </div>
+
+        {{#if resultsHeading.tags}}
+        <fieldset class="ma__results-heading__tags">
+            <legend class="ma__visually-hidden">Clear the active filters with the following buttons.</legend>
+            {{#each resultsHeading.tags}}
+            <button
+                    type="button"
+                    class="ma__results-heading__tag js-results-heading-tag"
+                    {{#if type}}data-ma-filter-type="{{type}}"{{/if}}
+            {{#if value}}data-ma-filter-value="{{value}}"{{/if}}
+            >
+            {{text}}
+            </button>
+            {{/each}}
+            <button type="button" class="ma__results-heading__clear js-results-heading-clear">Clear all</button>
+        </fieldset>
+        {{/if}}
+
+        {{#if resultsHeading.sortResults}}
+        <div class="ma__results-heading__sort">
+            {{#with resultsHeading.sortResults as |sortResults|}}
+            <div class="ma__sort-results js-sort-results">
+                {{#if sortResults.label}}
+                <span class="ma__sort-results__label">{{sortResults.label}}</span>
+                {{/if}}
+
+                {{#each sortResults.sortButtons}}
+                <button
+                        type="button"
+                        class="ma__button-sort js-button-sort {{#if direction}}ma__button-sort--{{direction}}{{/if}}"
+                >
+                    {{text}}
+                </button>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+        {{/if}}
+    </div>
+</div>
