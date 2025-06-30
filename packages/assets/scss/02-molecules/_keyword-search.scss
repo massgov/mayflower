@@ -84,11 +84,11 @@ $header-search-height: 46px;
 
   .ma__button-search {
     background-color: transparent;
-    border-left-color: $c-bd-input;
+    border-left-color: var(--mf-c-bd-input);
 
     &:hover {
-      background: $c-primary-alt;
-      border-left-color: $c-primary-alt;
+      background: var(--mf-c-primary-alt);
+      border-left-color: var(--mf-c-primary-alt);
     }
   }
 
@@ -96,13 +96,13 @@ $header-search-height: 46px;
     border-left-color: rgba($c-bd-input,.5);
 
     &:hover {
-      border-left-color: $c-primary-alt;
+      border-left-color: var(--mf-c-primary-alt);
     }
   }
 
 
   &__reset {
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
     font-weight: $fonts-bold;
   }
 }

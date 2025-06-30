@@ -61,17 +61,17 @@
   }
 
   &__item {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 
   &__link {
 
     a:hover {
-      border-bottom-color: $c-link;
+      border-bottom-color: var(--mf-c-link);
     }
 
     svg {
-      fill: $c-font-link;
+      fill: var(--mf-c-font-link);
     }
   }
 }

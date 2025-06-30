@@ -5,7 +5,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
 .ma__image-promo {
 
   @include clearfix();
-  border-color: $c-bd-divider;
+  border-color: var(--mf-c-bd-divider);
   display: flex;
   flex-wrap: wrap;
 
@@ -68,7 +68,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
     }
 
     svg {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
       height: 30px;
       width: 30px;
     }
@@ -97,7 +97,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
 
     & > a {
       align-items: center;
-      color: $c-font-base;
+      color: var(--mf-c-font-base);
       display: flex;
       font-weight: $fonts-light;
       text-decoration: none;
@@ -105,7 +105,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
 
     svg {
       display: inline-block;
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
       height: 20px;
       margin-right: 0.5rem;
       width: 20px;

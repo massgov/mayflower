@@ -122,7 +122,7 @@
   .slick-arrow {
 
     &:after {
-      border-color: $c-white;
+      border-color: var(--mf-c-white);
     }
 
     &:before {
@@ -130,18 +130,18 @@
     }
 
     &:hover:before {
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
     }
   }
 
   .slick-dots {
 
     button {
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
     }
 
     .slick-active button {
-      background-color: $c-bg;
+      background-color: var(--mf-c-bg);
     }
   }
 }

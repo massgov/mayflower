@@ -103,7 +103,7 @@
 }
 
 #fsForm2521317 .messages .error {
-  color: $c-error-red;
+  color: var(--mf-c-error-red);
   text-align: left;
 }
 
@@ -115,11 +115,11 @@
 
 #fsForm2521317 fieldset.error textarea {
   width: 100%;
-  border: 1px solid $c-error-red !important;
+  border: 1px solid var(--mf-c-error-red) !important;
 }
 
 #fsForm2521317 fieldset.error legend {
-  color: $c-error-red;
+  color: var(--mf-c-error-red);
 }
 
 @media (min-width: 621px) {/* $bp-small-min */

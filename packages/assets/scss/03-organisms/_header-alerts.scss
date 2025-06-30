@@ -8,13 +8,13 @@
     align-items: center;
     flex-wrap: wrap;
 
-    color: $c-gray-darkest;
+    color: var(--mf-c-gray-darkest);
     margin-bottom: 0;
-    border: 1px solid $c-bd-divider-dark;
+    border: 1px solid var(--mf-c-bd-divider-dark);
 
     &__button {
-      color: $c-gray-darkest;
-      background-color: $c-warning;
+      color: var(--mf-c-gray-darkest);
+      background-color: var(--mf-c-warning);
       padding: 10px 15px;
       width: 100%;
       display: inline-flex;
@@ -79,19 +79,19 @@
 
   .ma__action-step {
 
-    border-color: $c-bd-divider-dark;
+    border-color: var(--mf-c-bd-divider-dark);
     border-width: 1px;
     border-style: solid;
     border-top: 0;
 
     &__header {
-      color: $c-gray-darkest;
+      color: var(--mf-c-gray-darkest);
       border: none;
       display: block;
       padding: 20px 40px 15px 50px;
       text-align: left;
       width: 100%;
-      background-color: $c-bg-section;
+      background-color: var(--mf-c-bg-section);
       font-size: $fonts-large;
     }
 
@@ -132,7 +132,7 @@
 
       &:after {
         content: "";
-        border-color: $c-bd-divider;
+        border-color: var(--mf-c-bd-divider);
         border-width: 1px;
         border-style: solid;
         margin-top: 20px;

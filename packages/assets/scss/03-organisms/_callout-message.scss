@@ -38,7 +38,7 @@
   }
 
   &--white {
-    background-color: $c-bg;
+    background-color: var(--mf-c-bg);
     border-color: mix($c-white, $c-font-detail,70%);
     box-shadow: $box-shadow;
   }
@@ -46,7 +46,7 @@
   @for $i from 2 through 6 {
     h#{$i} {
       margin-top: 0;
-      color: $c-font-heading;
+      color: var(--mf-c-font-heading);
       font-weight: $fonts-bold;
 
       @include ma-heading($i+1);

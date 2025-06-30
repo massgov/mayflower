@@ -33,20 +33,32 @@ const GradientTile = (props) => {
   React.useEffect(() => {
     const computedStyles = window.getComputedStyle(colorRef.current).getPropertyValue('background-color');
     setRgb(() => computedStyles);
-  });
-  const hex = (x) => `0${Number(x).toString(16)}`.slice(-2);
+  }, []);
+  const hex = (x) => {
+    const hexVal = Math.round(x).toString(16);
+    return hexVal.length === 1 ? `0${hexVal}` : hexVal;
+  };
   const rgbToHex = (rgbVal) => {
-    const rgbValues = rgbVal && rgbVal.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    const hexValue = rgbValues && `#${hex(rgbValues[1])}${hex(rgbValues[2])}${hex(rgbValues[3])}`;
-    return hexValue;
+    // Match color(srgb R G B)
+    const rgbValues = rgbVal && rgbVal.match(/^color\(srgb\s*([\d.]+)\s*([\d.]+)\s*([\d.]+)\)$/);
+    if (!rgbValues) return null;
+
+    // Extract decimal floats
+    const r = parseFloat(rgbValues[1]) * 255;
+    const g = parseFloat(rgbValues[2]) * 255;
+    const b = parseFloat(rgbValues[3]) * 255;
+
+    // Convert to hex string
+    return`#${hex(r)}${hex(g)}${hex(b)}`.toUpperCase();
   };
   const { index, effect } = props;
   const firstTile = index === 0;
   const name = firstTile ? props.name : `${index * 10} % ${effect}`;
   let token;
+
   switch (name) {
     case props.name:
-      token = `$${props.token}`;
+      token = `--mf-${props.token}`;
       break;
     case '50 % tint':
       token = 'lighter';
@@ -63,7 +75,8 @@ const GradientTile = (props) => {
     default:
       token = '';
   }
-  const hexValue = rgbToHex(rgb).toUpperCase();
+
+  const hexValue = rgbToHex(rgb) ? rgbToHex(rgb).toUpperCase() : '';
   return(
     <li className={`${props.token}--${effect}`}>
       <h3 className="ma__sidebar-heading">{name}</h3>

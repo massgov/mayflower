@@ -117,7 +117,7 @@
   font-weight: 600;
 
   &__label {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
   }
 
   &__terms {
@@ -127,12 +127,12 @@
       font-weight: $fonts-normal;
 
       &:hover {
-        border-color: $c-font-link;
+        border-color: var(--mf-c-font-link);
       }
     }
 
     > button {
-      color: $c-primary;
+      color: var(--mf-c-primary);
       font-weight: $fonts-normal;
     }
   }

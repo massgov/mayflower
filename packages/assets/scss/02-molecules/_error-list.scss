@@ -70,9 +70,9 @@
 .ma__error-list {
 
   &__container {
-    background-color: $c-error-red-lightest;
-    border-color: $c-bd-error;
-    color: $c-font-error;
+    background-color: var(--mf-c-error-red-lightest);
+    border-color: var(--mf-c-bd-error);
+    color: var(--mf-c-font-error);
   }
 
   &__title {
@@ -80,8 +80,8 @@
   }
 
   &__label {
-    border-color: $c-bd-error;
-    color: $c-font-error;
+    border-color: var(--mf-c-bd-error);
+    color: var(--mf-c-font-error);
     font-weight: $fonts-light;
   }
 }

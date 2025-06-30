@@ -44,7 +44,7 @@
   &__icon {
 
     & > svg {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
     }
   }
 }

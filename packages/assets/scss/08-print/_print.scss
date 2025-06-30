@@ -14,7 +14,7 @@
   }
 
   body {
-    color: $c-font-heading !important;
+    color: var(--mf-c-font-heading) !important;
   }
 
   .main-content--two .page-content > *,
@@ -100,7 +100,7 @@
     }
 
     .ma__page-title {
-      color: $c-black !important;
+      color: var(--mf-c-black) !important;
     }
 
     .ma__search-banner {
@@ -116,7 +116,7 @@
   .sidebar--colored .ma__comp-heading {
     padding-left: 0;
     margin-left: 0;
-    color: $c-font-heading !important;
+    color: var(--mf-c-font-heading) !important;
   }
 
   .ma__location-listing__results,
@@ -232,7 +232,7 @@
     .ma__page-banner-legacy__title,
     .ma__page-banner-legacy__description {
       width: 100%;
-      color: $c-font-heading;
+      color: var(--mf-c-font-heading);
       padding: 0;
     }
 
@@ -250,7 +250,7 @@
       width: 100%;
       height: auto;
       top: 0;
-      color: $c-font-heading;
+      color: var(--mf-c-font-heading);
 
       &::before, {
         display: none;
@@ -316,7 +316,7 @@
   .ma__colored-heading,
   .ma__comp-heading {
     padding: 0 !important;
-    color: $c-font-heading !important;
+    color: var(--mf-c-font-heading) !important;
   }
 
   .ma__rich-text,
@@ -391,7 +391,7 @@
 
     .ma__action-step__header {
       padding: 20px 0 0;
-      color: $c-font-heading;
+      color: var(--mf-c-font-heading);
     }
 
     .ma__action-step__icon {
@@ -504,7 +504,7 @@
 
     .ma__featured-item__title-container {
       background-color: transparent;
-      color: $c-font-heading;
+      color: var(--mf-c-font-heading);
       position: relative;
       display: inline-block;
       width: 100%;

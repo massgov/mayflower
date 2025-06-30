@@ -28,34 +28,34 @@
       }
 
       @if $color == $c-white {
-        color: $c-primary;
+        color: var(--mf-c-primary);
 
         svg {
-          fill: $c-primary;
+          fill: var(--mf-c-primary);
         }
 
         &:hover:not(:disabled) {
-          background-color: $c-gray-light;
+          background-color: var(--mf-c-gray-light);
         }
 
       } @else if $color == $c-highlight {
-        color: $c-gray-darkest;
+        color: var(--mf-c-gray-darkest);
 
         svg {
-          fill: $c-gray-darkest;
+          fill: var(--mf-c-gray-darkest);
         }
       } @else {
-        color: $c-font-inverse;
+        color: var(--mf-c-font-inverse);
 
         svg {
-          fill: $c-font-inverse;
+          fill: var(--mf-c-font-inverse);
         }
       }
 
     }
     // outline - secondary usage
     @else {
-      background-color: $c-font-inverse;
+      background-color: var(--mf-c-font-inverse);
       border-color: rgba($color,.5);
 
       &:hover:not(:disabled) {
@@ -63,18 +63,18 @@
       }
 
       @if $color == $c-highlight {
-        color: $c-gray-darkest;
+        color: var(--mf-c-gray-darkest);
         border-color: rgba($c-highlight,.5);
 
         svg {
-          fill: $c-gray-darkest;
+          fill: var(--mf-c-gray-darkest);
         }
 
         &:hover:not(:disabled) {
-          color: $c-gray-darkest;
+          color: var(--mf-c-gray-darkest);
 
           svg {
-            fill: $c-gray-darkest;
+            fill: var(--mf-c-gray-darkest);
           }
         }
 
@@ -86,10 +86,10 @@
         }
 
         &:hover:not(:disabled) {
-          color: $c-font-inverse;
+          color: var(--mf-c-font-inverse);
 
           svg {
-            fill: $c-font-inverse;
+            fill: var(--mf-c-font-inverse);
           }
         }
       }

@@ -22,7 +22,7 @@
   padding: 8px;
   font-size: inherit;
   line-height: inherit;
-  background-color: $c-warning;
+  background-color: var(--mf-c-warning);
 
   @media ($bp-small-max) {
     text-align: center;
@@ -76,7 +76,7 @@
 
   &__toggle {
     cursor: pointer;
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: $fonts-light;
 
     @media ($bp-small-max) {

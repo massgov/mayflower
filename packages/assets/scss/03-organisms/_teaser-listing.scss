@@ -234,7 +234,7 @@
       @include ma-link-underline;
 
       &:hover {
-        border-bottom-color: $c-link;
+        border-bottom-color: var(--mf-c-link);
       }
 
       &:after {
@@ -298,7 +298,7 @@
 .ma__teaser-listing {
 
   &__optional-content, &__featured-items, &__items, &__extra {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 
   &__featured-items .ma__general-teaser,
@@ -306,7 +306,7 @@
   &__item {
 
     &, &:after {
-      border-color: $c-bd-divider;
+      border-color: var(--mf-c-bd-divider);
     }
   }
 }

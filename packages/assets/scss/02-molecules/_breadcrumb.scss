@@ -16,7 +16,7 @@
     &:last-child {
 
       a {
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
         font-weight: $fonts-bold;
         cursor: text;
         pointer-events: none;
@@ -31,7 +31,7 @@
       }
 
       a {
-        color: $c-gray-dark;
+        color: var(--mf-c-gray-dark);
         font-weight: $fonts-normal;
 
         @include ma-link-transition;
@@ -39,8 +39,8 @@
         @include ma-link-underline;
 
         &:hover {
-          color: $c-primary;
-          border-bottom: 3px solid $c-bay-blue-lighter;
+          color: var(--mf-c-primary);
+          border-bottom: 3px solid var(--mf-c-bay-blue-lighter);
         }
       }
     }

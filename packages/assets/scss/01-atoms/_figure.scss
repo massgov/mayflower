@@ -334,10 +334,10 @@ $figures-gutter: 30px;
   // caption
 
   &__caption {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
     font-weight: bold;
     font-style: normal;
-    border-bottom: 1px solid $c-gray-darkest;
+    border-bottom: 1px solid var(--mf-c-gray-darkest);
     padding: 10px 0;
 
     @media ($bp-small-min) {
@@ -382,10 +382,10 @@ $figures-gutter: 30px;
     text-decoration: underline;
     height: auto;
     width: auto;
-    color: $c-bay-blue;
+    color: var(--mf-c-bay-blue);
 
     &:visited {
-      color: $c-visited;
+      color: var(--mf-c-visited);
     }
   }
 

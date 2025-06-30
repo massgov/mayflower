@@ -22,7 +22,7 @@ $colors: (
   z-index: $z-dropdown - 1;
 
   &__header {
-    background-color: $c-warning;
+    background-color: var(--mf-c-warning);
 
     .ma__emergency-header {
       margin-left: 0;
@@ -118,7 +118,7 @@ $colors: (
     }
 
     @media ($bp-small-max) {
-      background-color: $c-warning;
+      background-color: var(--mf-c-warning);
       padding: 20px;
       padding-top: 0;
       transition: background-color .5s;
@@ -140,10 +140,10 @@ $colors: (
     &__hide--#{$class} {
 
       @if $c == $c-warning {
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
 
       } @else {
-        color: $c-font-inverse;
+        color: var(--mf-c-font-inverse);
       }
     }
     &--#{$class} {
