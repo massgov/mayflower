@@ -33,7 +33,7 @@ export default (function (window, document, $) {
       if (!reset) {
         $thead = $thead.clone();
         $table.after(
-          "<div class='sticky-thead' tabindex='-1' aria-hidden='true'><div class='sticky-thead-wrapper'><table></table></div></div>"
+          "<div class='sticky-thead' aria-hidden='true'><div class='sticky-thead-wrapper' tabindex='-1'><table></table></div></div>"
         );
 
         $stickyHeader = $element.find(".sticky-thead");

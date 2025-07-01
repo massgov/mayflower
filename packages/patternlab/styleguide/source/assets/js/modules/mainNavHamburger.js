@@ -580,6 +580,7 @@ if (hamburgerMenuContainer) {
             if (utilNavContentLinks[i].innerText ===document.activeElement.innerText) {
               // close the open sub nav
               const thisUtilButton = narrowUtilNavContentActive.querySelector(".js-util-nav-toggle");
+              if (!thisUtilButton) return;
               closeNarrowUtilContent(thisUtilButton);
               thisUtilButton.focus();
             }
@@ -591,7 +592,9 @@ if (hamburgerMenuContainer) {
           for (let i = 0; i < narrowNavItems.length; i++) {
             if (narrowNavItems[i].innerText === document.activeElement.innerText) {
               // close the sub nav that is being focused on
-              closeNarrowUtilContent(narrowNavItems[i].querySelector(".js-util-nav-toggle"));
+              const thisUtilButton = narrowNavItems[i].querySelector(".js-util-nav-toggle");
+              if (!thisUtilButton) return;
+              closeNarrowUtilContent(thisUtilButton);
               // close the hamburger menu
               closeMenu();
             }
