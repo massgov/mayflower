@@ -38,10 +38,16 @@ export default (function(window, document, $) {
                 minZoom: 7,
                 scrollWheelZoom: false,
                 dragging: false
-                    // maxBounds is disabled due to unexpected shifting when popups are hitting the boundaries.
-                    // This can be turned back on when the tiles are large enough so that the min zoom level shows the whole state and have enough tiles padded for popups.
-                    // maxBounds,
+                // maxBounds is disabled due to unexpected shifting when popups are hitting the boundaries.
+                // This can be turned back on when the tiles are large enough so that the min zoom level shows the whole state and have enough tiles padded for popups.
+                // maxBounds,
             });
+
+        // Observe and react to container resizing
+        const resizeObserver = new ResizeObserver(() => {
+            mymap.invalidateSize();
+        });
+        resizeObserver.observe(mapWrapper);
 
         // if map is not static, add zoom control with custom position
         if (!isStatic) {
@@ -62,28 +68,27 @@ export default (function(window, document, $) {
             mapWrapper.querySelector('.leaflet-control-attribution').style.display = 'none';
         }
 
-        // if zoom is not specified, set map bounds automatically by markers
-        if (!map.zoom) {
-            // set bounds by markers
-            const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]); // Array of [lat, lng] coordinates to be used as bounds in fitBounds()
-            function setMapBounds() {
-                mymap.fitBounds(markerArray, {
-                    padding: [60, 60]
-                })
-            }
-            setMapBounds();
+        // use marker count to determine if map bounds should be set
+        const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]);
 
-            // Store the window width
-            let windowWidth = window.innerWidth
-                // Resize Event
-            window.addEventListener("resize", function() {
-                // Check window width has actually changed and it's not just iOS triggering a resize event on scroll
-                if (window.innerWidth != windowWidth) {
-                    // Update the window width for next time
-                    windowWidth = window.innerWidth
-                    window.addEventListener('resize', setMapBounds);
-                }
-            })
+        const shouldFitBounds = !map.zoom || map.zoom === 0;
+
+        function setMapBounds() {
+          if (markerArray.length) {
+            mymap.fitBounds(markerArray, {
+              padding: [60, 60]
+            });
+          }
+        }
+
+        if (shouldFitBounds) {
+          const observer = new ResizeObserver(() => {
+            if (mapWrapper.offsetWidth > 0 && mapWrapper.offsetHeight > 0) {
+              setMapBounds();
+              observer.disconnect();
+            }
+          });
+          observer.observe(mapWrapper);
         }
 
         // custom marker icon
