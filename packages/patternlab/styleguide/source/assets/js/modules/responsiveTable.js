@@ -107,18 +107,6 @@ export default (function (window, document, $) {
       const elementTop = $tableHeader.offset().top;
       const tableBottom = elementTop + $table.height();
 
-      let activeHeader = null;
-      $table.find("tbody tr").each(function () {
-        let rowTop = $(this).offset().top;
-        if (rowTop <= window.scrollY + stuckBottom) {
-          activeHeader = $(this).find("th").text().trim();
-        }
-      });
-
-      if (activeHeader) {
-        $stickyHeader.find("th").text(activeHeader);
-      }
-
       if (!headerStuck && elementTop < stuckTop && tableBottom > stuckBottom) {
         responsiveTables[index].headerStuck = true;
         $stickyHeader.css({
