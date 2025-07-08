@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 14.0.0 (7/08/2025)
+### Changed
+- (Root) DP-35448: Update docs and add to central location for SSR
+
 ## 14.0.0 (4/30/2025)
 ### Changed 
 - (Docs) [Docs] DP-24730: Onboarding documentation improvements. (#1626)
