@@ -1,0 +1,26 @@
+name: "PR: Workflows"
+
+on:
+  push:
+    branches:
+      - develop
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -eo pipefail {0}
+
+jobs:
+  docs:
+    permissions:
+      id-token: write
+      contents: read
+
+    name: Push docs to s3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload files
+        uses: "massgov/mds-gh-actions/actions/push_central_docs@main"
+        with:
+          file_path: "./docs.manifest"
+          repo: "mayflower"

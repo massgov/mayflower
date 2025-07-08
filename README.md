@@ -1,11 +1,31 @@
 # Mayflower
 
+## Table of Contents
+- [Overview](#overview)
+- [Project Contacts](#project-contacts)
+- [Knowledge History](#knowledge-history)
+
+
+## Overview
 Mayflower is the enterprise design system for the state government of Massachusetts.
 
 - [Core Documentation](/packages/core): The official documentation of Mayflower design system, live at [mayflower.digital.mass.gov/core](https://mayflower.digital.mass.gov/core)
 - Experimental component libraries: component libraries created by Massachusetts Digital Service to build sites like Mass.gov, Search.mass.gov, and Massachusetts budget sites.
   - [Mayflower Patternlab](/packages/patternlab) [![GitHub version][patternlab-github-badge]](/patternlab)
   - [Mayflower React](/packages/react) [![npm package][react-npm-badge]](npm)
+
+
+## Project Contacts
+
+| Name     | Role  | Email                                                                |
+|----------|-------|----------------------------------------------------------------------|
+| SSR-Team | Infra | [EOTSS-DL-DigitalSSR@ma ss.gov](mailto:EOTSS-DL-DigitalSSR@mass.gov) |
+|          |       |                                                                      |
+
+
+## Knowledge History
+See `Mayflower Release Notes`
+
 
 ## License
 
