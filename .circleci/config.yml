@@ -104,22 +104,12 @@ jobs:
             git config core.bare false
             git rev-parse --verify -q "$CIRCLE_BRANCH" || git branch "$CIRCLE_BRANCH" $(git show-ref -s master)
             git symbolic-ref HEAD "refs/heads/$CIRCLE_BRANCH"
-            git add .
+            git add . && git add twig/.htaccess
             if git diff-index --quiet HEAD; then
               echo "Nothing to commit"
             else
               git commit -m "Automated commit based on $CIRCLE_SHA1"
               git push origin "$CIRCLE_BRANCH"
-            fi
-      - run:
-          name: 'Debug: Check for .htaccess existence'
-          command: |
-            echo "Looking for twig/.htaccess file..."
-            ls -al packages/patternlab/styleguide/public/twig || echo "Directory not found"
-            if [ -f packages/patternlab/styleguide/public/twig/.htaccess ]; then
-              echo ".htaccess exists ✅"
-            else
-              echo ".htaccess is missing ❌"
             fi
       - run:
           name: 'Deploy S3 Branch'
