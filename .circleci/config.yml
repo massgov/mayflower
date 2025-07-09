@@ -113,7 +113,12 @@ jobs:
             fi
       - run:
           name: 'Deploy S3 Branch'
-          command: aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH" --profile default
+          command: aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH" \
+            --exclude ".*" \
+            --include "*/.htaccess" \
+            --include "*" \
+            --profile default \
+            --exact-timestamps
 
   patternlab_deploy_tag:
     <<: *patternlab_defaults
