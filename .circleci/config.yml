@@ -112,6 +112,16 @@ jobs:
               git push origin "$CIRCLE_BRANCH"
             fi
       - run:
+          name: 'Debug: Check for .htaccess existence'
+          command: |
+            echo "Looking for twig/.htaccess file..."
+            ls -al packages/patternlab/styleguide/public/twig || echo "Directory not found"
+            if [ -f packages/patternlab/styleguide/public/twig/.htaccess ]; then
+              echo ".htaccess exists ✅"
+            else
+              echo ".htaccess is missing ❌"
+            fi
+      - run:
           name: 'Deploy S3 Branch'
           command: aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH" --profile default
 
