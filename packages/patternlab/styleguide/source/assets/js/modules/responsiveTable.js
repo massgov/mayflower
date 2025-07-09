@@ -33,7 +33,7 @@ export default (function (window, document, $) {
       if (!reset) {
         $thead = $thead.clone();
         $table.after(
-          "<div class='sticky-thead' tabindex='-1' aria-hidden='true'><div class='sticky-thead-wrapper'><table></table></div></div>"
+          "<div class='sticky-thead' aria-hidden='true'><div class='sticky-thead-wrapper' tabindex='-1'><table></table></div></div>"
         );
 
         $stickyHeader = $element.find(".sticky-thead");
@@ -106,18 +106,6 @@ export default (function (window, document, $) {
       const $tableHeader = $table.find("thead");
       const elementTop = $tableHeader.offset().top;
       const tableBottom = elementTop + $table.height();
-
-      let activeHeader = null;
-      $table.find("tbody tr").each(function () {
-        let rowTop = $(this).offset().top;
-        if (rowTop <= window.scrollY + stuckBottom) {
-          activeHeader = $(this).find("th").text().trim();
-        }
-      });
-
-      if (activeHeader) {
-        $stickyHeader.find("th").text(activeHeader);
-      }
 
       if (!headerStuck && elementTop < stuckTop && tableBottom > stuckBottom) {
         responsiveTables[index].headerStuck = true;
