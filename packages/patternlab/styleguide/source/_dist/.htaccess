@@ -1,0 +1,8 @@
+<Directory "twig">
+  <FilesMatch "\.twig$">
+    Require all granted
+    ForceType text/plain
+    Header set Content-Disposition "inline"
+    Header set X-Robots-Tag "noindex"
+  </FilesMatch>
+</Directory>

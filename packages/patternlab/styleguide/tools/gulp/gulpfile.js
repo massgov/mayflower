@@ -65,27 +65,6 @@ const defaults = {
 if(process.env.MAYFLOWER_DIST) {
     defaults.dest.dist = untildify(process.env.MAYFLOWER_DIST);
 }
-
-const twigHtaccessPath = path.resolve(defaults.dest.patternlab, "twig");
-const htaccessContent = `
-<FilesMatch "\\.twig$">
-  Require all granted
-  ForceType text/plain
-  Header set Content-Disposition "inline"
-  Header set X-Robots-Tag "noindex"
-</FilesMatch>
-`;
-
-try {
-    fs.mkdirSync(twigHtaccessPath, { recursive: true });
-    fs.writeFileSync(path.join(twigHtaccessPath, ".htaccess"), htaccessContent);
-    if (defaults.verbose) {
-        console.log("✔ .htaccess written to", twigHtaccessPath);
-    }
-} catch (err) {
-    console.warn("⚠ Failed to write .htaccess to", twigHtaccessPath, err.message);
-}
-
 gulp.registry(new DistRegistry(defaults));
 
 gulp.task("default", gulp.series("patternlab:serve"));

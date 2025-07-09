@@ -104,7 +104,7 @@ jobs:
             git config core.bare false
             git rev-parse --verify -q "$CIRCLE_BRANCH" || git branch "$CIRCLE_BRANCH" $(git show-ref -s master)
             git symbolic-ref HEAD "refs/heads/$CIRCLE_BRANCH"
-            git add . && git add twig/.htaccess
+            git add .
             if git diff-index --quiet HEAD; then
               echo "Nothing to commit"
             else
