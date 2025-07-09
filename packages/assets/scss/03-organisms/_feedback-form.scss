@@ -185,7 +185,7 @@ $feedback-form-bp-min: "min-width: 751px";
 
   &__title {
 
-    @include ma-border-decorative($c-highlight, 1);
+    @include ma-border-decorative(var(--mf-c-highlight), 1);
     color: var(--mf-c-font-inverse);
   }
 
@@ -195,7 +195,7 @@ $feedback-form-bp-min: "min-width: 751px";
     input[type="button"],
     input[type="submit"] {
 
-      @include ma-button("solid", $c-primary);
+      @include ma-button("solid", var(--mf-c-primary));
     }
   }
 

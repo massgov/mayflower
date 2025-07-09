@@ -265,7 +265,7 @@
 
     &.is-active {
 
-      @include ma-border-decorative($c-primary-alt);
+      @include ma-border-decorative(var(--mf-c-primary-alt));
     }
   }
 

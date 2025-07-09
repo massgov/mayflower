@@ -300,7 +300,7 @@ body.show-menu {
   }
 
   &__menu-home-link {
-    color: $c-white;
+    color: var(--mf-c-white);
     display: inline-flex;
     gap: 0.5em;
     align-items: center;

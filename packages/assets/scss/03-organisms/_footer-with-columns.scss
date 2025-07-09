@@ -131,7 +131,7 @@
 
   &__back2top {
 
-    @include ma-button("outline", $c-primary);
+    @include ma-button("outline", var(--mf-c-primary));
     background-color: rgba($c-white, 0.9);
 
     svg {

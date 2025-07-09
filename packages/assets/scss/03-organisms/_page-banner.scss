@@ -1,15 +1,15 @@
 @use "00-base/configure" as *;
 
 $bgcolors: (
-  "c-primary": $c-primary,
-  "c-primary-alt": $c-primary-alt,
-  "c-white": $c-white
+  "c-primary": var(--mf-c-primary),
+  "c-primary-alt": var(--mf-c-primary-alt),
+  "c-white": var(--mf-c-white)
 );
 
 $textcolors: (
-  "c-primary": $c-font-inverse,
-  "c-primary-alt": $c-font-inverse,
-  "c-white": $c-font-base,
+  "c-primary": var(--mf-c-font-inverse),
+  "c-primary-alt": var(--mf-c-font-inverse),
+  "c-white": var(--mf-c-font-base),
 );
 
 /* Apply basic styling to the banner container */

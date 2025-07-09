@@ -124,7 +124,7 @@ $quaternary-colors: (
 
   &--tertiary, &--expanded.ma__button-icon--tertiary, &:hover.ma__button-icon--tertiary {
 
-    @include ma-button("solid",$c-gray-light);
+    @include ma-button("solid",var(--mf-c-gray-light));
     color: var(--mf-c-font-base);
 
     svg {
