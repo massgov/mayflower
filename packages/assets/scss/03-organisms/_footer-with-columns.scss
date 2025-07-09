@@ -1,5 +1,7 @@
 @use "00-base/configure" as *;
 
+@use "00-base/mixins/ma-grid" as *;
+
 .ma__footer {
   padding: 20px 0 30px;
   position: relative;
@@ -8,24 +10,28 @@
     padding: 40px 0 50px;
   }
 
+  .main-content--full .page-content > & {
+    margin-top: 0;
+  }
+
   &__back2top {
 
     @include ma-button-size("small");
     letter-spacing: $letter-spacing-large;
     opacity: 1;
-    padding: .5em .7em;
+    padding: 0.5em 0.7em;
     position: fixed;
-      bottom: 1.3125rem;
-      right: 1.5625rem;
-    transition: all .5s;
+    bottom: 1.3125rem;
+    right: 1.5625rem;
+    transition: all 0.5s;
     visibility: visible;
     z-index: $z-sticky-content;
 
     @media ($bp-small-max) {
-      padding: .4em .4em 0 .4em;
+      padding: 0.4em 0.4em 0 0.4em;
       position: fixed;
-        bottom: 1rem;
-        right: 1rem;
+      bottom: 1rem;
+      right: 1rem;
     }
 
     &.is-hidden {
@@ -39,7 +45,7 @@
       height: 18px;
       transform: rotate(-90deg);
       transform-origin: center center;
-      transition: all .5s;
+      transition: all 0.5s;
     }
 
     span {
@@ -56,11 +62,14 @@
 
     @include ma-container;
 
-    @include clearfix;
-
     @media ($bp-large-max) {
       display: flex;
       flex-direction: column;
+    }
+
+    @media ($bp-large-min) {
+
+      @include ma-grid(12);
     }
   }
 
@@ -69,9 +78,8 @@
 
     @media ($bp-large-min) {
 
-      @include span-columns(9);
-      float: right;
-      margin-right: 0;
+      @include ma-grid-span(9);
+      grid-column: 4 / -1;
       margin-bottom: 20px;
     }
   }
@@ -84,7 +92,8 @@
 
     @media ($bp-large-min) {
 
-      @include span-columns(3);
+      @include ma-grid-span(3);
+      grid-row: 1;
     }
   }
 
@@ -122,11 +131,11 @@
 
   &__back2top {
 
-    @include ma-button("outline",$c-primary);
-    background-color: rgba($c-white, .9);
+    @include ma-button("outline", $c-primary);
+    background-color: rgba($c-white, 0.9);
 
     svg {
-      fill: rgba($c-primary, .5);
+      fill: rgba($c-primary, 0.5);
     }
 
     &:hover {

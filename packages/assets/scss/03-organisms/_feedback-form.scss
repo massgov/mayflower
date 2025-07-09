@@ -14,6 +14,11 @@ $feedback-form-bp-min: "min-width: 751px";
     max-width: ($column + $gutter) * 8 - $gutter;
     padding-top: 60px;
     padding-bottom: 60px;
+
+    @media ($feedback-form-bp-min) {
+
+      @include ma-grid(2);
+    }
   }
 
   &__header {
@@ -21,6 +26,10 @@ $feedback-form-bp-min: "min-width: 751px";
 
     @media ($bp-small-min) {
       margin-bottom: $feedback-form-spacing;
+    }
+
+    @media ($feedback-form-bp-min) {
+      grid-column: 1 / -1;
     }
   }
 
@@ -60,11 +69,6 @@ $feedback-form-bp-min: "min-width: 751px";
       margin-bottom: $feedback-form-spacing;
     }
 
-    @media ($feedback-form-bp-min) {
-
-      @include span-columns(4 of 8);
-    }
-
     input {
       width: 100%;
     }
@@ -75,7 +79,6 @@ $feedback-form-bp-min: "min-width: 751px";
     @media ($feedback-form-bp-min) {
       margin-bottom: 0;
     }
-
   }
 
   &__email {
@@ -88,6 +91,10 @@ $feedback-form-bp-min: "min-width: 751px";
 
     @media ($bp-small-min) {
       margin-bottom: $feedback-form-spacing;
+    }
+
+    @media ($feedback-form-bp-min) {
+      grid-column: 1 / -1;
     }
 
     textarea {
@@ -103,8 +110,7 @@ $feedback-form-bp-min: "min-width: 751px";
     }
 
     @media ($feedback-form-bp-min) {
-
-      @include span-columns(4 of 8);
+      grid-column: 1 / -1;
     }
 
     .ma__select-box {
@@ -121,11 +127,13 @@ $feedback-form-bp-min: "min-width: 751px";
     padding-left: 0;
     padding-right: 0;
 
-
     @media ($bp-small-min) {
       margin-bottom: $feedback-form-spacing;
     }
 
+    @media ($feedback-form-bp-min) {
+      grid-column: 1 / -1;
+    }
 
     legend {
       font-size: $fonts-medium;
@@ -139,6 +147,10 @@ $feedback-form-bp-min: "min-width: 751px";
 
   &__controls {
     text-align: right;
+
+    @media ($feedback-form-bp-min) {
+      grid-column: 1 / -1;
+    }
 
     button,
     input[type="submit"],
@@ -167,13 +179,13 @@ $feedback-form-bp-min: "min-width: 751px";
 .ma__feedback-form {
 
   &__overlay {
-    background-color: rgba($c-black,.6);
+    background-color: rgba($c-black, 0.6);
     color: var(--mf-c-font-inverse);
   }
 
   &__title {
 
-    @include ma-border-decorative($c-highlight,1);
+    @include ma-border-decorative($c-highlight, 1);
     color: var(--mf-c-font-inverse);
   }
 
@@ -183,7 +195,7 @@ $feedback-form-bp-min: "min-width: 751px";
     input[type="button"],
     input[type="submit"] {
 
-      @include ma-button("solid",$c-primary);
+      @include ma-button("solid", $c-primary);
     }
   }
 

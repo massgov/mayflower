@@ -13,11 +13,6 @@
     margin-bottom: 1em;
   }
 
-  &__container {
-
-    @include clearfix;
-  }
-
   &__items {
     margin-bottom: 0;
     padding-left: 20px;
@@ -31,12 +26,7 @@
 
       @media ($bp-medium-min) {
 
-        .item-left {
-
-          @include span-columns(6);
-          margin-right: calc(#{flex-gutter(12)} + 10px);
-          display: list-item;
-        }
+        @include ma-grid(2, 0);
       }
     }
 
@@ -44,12 +34,7 @@
 
       @media ($bp-medium-min) {
 
-        .item-left {
-
-          @include span-columns(6);
-          margin-right: flex-gutter(12);
-          display: list-item;
-        }
+        @include ma-grid(2, 0);
       }
     }
 
@@ -72,7 +57,7 @@
             margin-right: 0.5rem;
             margin-bottom: -6px;
           }
-    
+
           &__title {
             display: inline;
             width: unset;
@@ -90,8 +75,6 @@
       display: block;
     }
   }
-
-
 
   .sidebar &__item + &__item {
     border-top-style: solid;

@@ -6,26 +6,65 @@
   form {
 
     @include ma-container;
-    display: flex;
+
+    @media ($bp-medium-min) and ($bp-large-extended-max) {
+
+      @include ma-grid(2, $gutter);
+    }
+
+    @media ($bp-large-extended-min) and ($bp-x-large-max) {
+
+      @include ma-grid(2, $gutter);
+    }
+
+    @media ($bp-x-large-min) {
+
+      @include ma-grid(3, $gutter);
+    }
+
+    @media ($bp-medium-max) {
+      display: flex;
       flex-wrap: wrap;
+    }
   }
 
   &__row {
-
-    @include clearfix;
-    display: flex;
-      flex-wrap: wrap;
     width: 100%;
 
+    @media ($bp-medium-min) and ($bp-large-extended-max) {
+
+      @include ma-grid-span(2);
+
+      @include ma-grid(2);
+    }
+
+    @media ($bp-large-extended-min) and ($bp-x-large-max) {
+
+      @include ma-grid-span(2);
+
+      @include ma-grid(2);
+    }
+
     @media ($bp-x-large-min) {
-      margin-right: 1.6129%;
-      width: 66.12903%; //@include span-columns(8 of 12);
+
+      @include ma-grid-span(2);
+
+      @include ma-grid(2);
+    }
+
+    @media ($bp-medium-max) {
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 
   &__by-location {
     margin-bottom: 30px;
     width: 100%;
+
+    @media ($bp-medium-min) {
+      grid-column: 1 / -1;
+    }
 
     input {
       width: 100%;
@@ -36,25 +75,16 @@
   &__by-keyword {
     margin-bottom: 30px;
     width: 100%;
+
+    @media ($bp-medium-min) {
+      margin-bottom: 0;
+    }
   }
 
   &__by-activity {
 
-    @media ($bp-medium-min) {
-
-      @include span-columns(4 of 8);
-    }
-
     .ma__select-box {
       width: 100%;
-    }
-  }
-
-  &__by-activity + &__by-keyword {
-
-    @media ($bp-medium-min) {
-
-      @include span-columns(4 of 8);
     }
   }
 
@@ -73,8 +103,14 @@
       margin-top: 10px;
     }
 
+    @media ($bp-medium-min) and ($bp-x-large-max) {
+      grid-column: 1 / -1;
+      margin-bottom: 30px;
+    }
+
     @media ($bp-x-large-min) {
-      width: 32.25806%; //@include span-columns(4 of 12);
+
+      @include ma-grid-span(1);
       margin-bottom: 30px;
       padding-left: 80px;
       padding-top: 45px;
@@ -111,6 +147,10 @@
     margin-bottom: 30px;
     width: 100%;
 
+    @media ($bp-medium-min) {
+      grid-column: 1 / -1;
+    }
+
     @media ($bp-x-large-min) {
       margin-bottom: 45px;
     }
@@ -118,7 +158,7 @@
 
   &__submit {
 
-    @include ma-button-size('small');
+    @include ma-button-size("small");
   }
 }
 
@@ -136,6 +176,6 @@
 
   &__submit {
 
-    @include ma-button('solid',$c-primary);
+    @include ma-button("solid", $c-primary);
   }
 }

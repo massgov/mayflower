@@ -1,0 +1,70 @@
+// Modern CSS Grid System to replace span-columns mixin
+// Based on a 12-column grid with 20px gaps
+// Full backward compatibility with span-columns syntax
+
+@use "00-base/variables" as *;
+
+@use "00-base/breakpoints" as *;
+
+/// Primary grid container mixin
+/// @param {Number} $columns [12] - Number of columns in the grid
+/// @param {Number} $gap [$gutter] - Gap between grid items
+
+@mixin ma-grid($columns: 12, $gap: $gutter) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+/// Grid item spanning mixin with full span-columns compatibility
+/// @param {Number|List} $span - Number of columns to span or "X of Y" syntax
+/// @param {Number} $start [auto] - Starting column position
+
+@mixin ma-grid-span($span, $start: auto) {
+
+  @if type-of($span) == list {
+    // Handle "X of Y" syntax like "4 of 8"
+    $columns: nth($span, 1);
+
+    // If "of Y" is provided, we could use this for subgrid in the future
+    // For now, just span the specified columns
+    grid-column: span $columns;
+  } @else {
+    // Handle simple number like "6"
+    grid-column: span $span;
+  }
+
+  @if $start != auto {
+    grid-column-start: $start;
+  }
+}
+
+/// Responsive grid with mobile-first approach
+/// @param {Number} $mobile [1] - Columns on mobile
+/// @param {Number} $tablet [2] - Columns on tablet
+/// @param {Number} $desktop [12] - Columns on desktop
+/// @param {Number} $gap [$gutter] - Gap between grid items
+
+@mixin ma-grid-responsive($mobile: 1, $tablet: 2, $desktop: 12, $gap: $gutter) {
+  display: grid;
+  grid-template-columns: repeat($mobile, 1fr);
+  gap: $gap;
+
+  @media ($bp-medium-min) {
+    grid-template-columns: repeat($tablet, 1fr);
+  }
+
+  @media ($bp-large-min) {
+    grid-template-columns: repeat($desktop, 1fr);
+  }
+}
+
+/// Two-column grid layout with customizable ratio
+/// @param {Number} $gap [$gutter] - Gap between grid items
+/// @param {List} $ratio [1fr 1fr] - Column width ratio (e.g., 1fr 2fr, 30% 70%)
+
+@mixin ma-grid-two-column($gap: $gutter, $ratio: 1fr 1fr) {
+  display: grid;
+  grid-template-columns: $ratio;
+  gap: $gap;
+}
