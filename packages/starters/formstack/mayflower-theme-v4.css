@@ -301,3 +301,11 @@ html.wf-active {
 #fsSubmissionCheckmark ~ .fsSectionText {
   text-align: left;
 }
+
+/* file upload */
+[class^=AsyncFileUploadstyles__StyledDragAndDropContainer] {
+    background: white !important;
+}
+[class^="AsyncFileUploadstyles__StyledFileItemContainer"] {
+    background: #E7EEF4 !important;
+}
