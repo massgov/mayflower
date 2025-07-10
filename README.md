@@ -19,7 +19,7 @@ Mayflower is the enterprise design system for the state government of Massachuse
 
 | Name     | Role  | Email                                                                |
 |----------|-------|----------------------------------------------------------------------|
-| SSR-Team | Infra | [EOTSS-DL-DigitalSSR@ma ss.gov](mailto:EOTSS-DL-DigitalSSR@mass.gov) |
+| SSR-Team | Infra | [EOTSS-DL-DigitalSSR@mass.gov](mailto:EOTSS-DL-DigitalSSR@mass.gov) |
 |          |       |                                                                      |
 
 
