@@ -25,6 +25,7 @@ $heading-indent: $gutter;
   .post-content > &__container,
   .main-content--full .page-content > &__container,
   .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component > &,
   .main-content--full .page-content > & {
 
     // By default richt text have a right padding, unless a .no-sidebar class is added to the section container.
