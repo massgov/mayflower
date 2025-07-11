@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 ## 14.0.0 (4/30/2025)
 ### Changed 
 - (Docs) [Docs] DP-24730: Onboarding documentation improvements. (#1626)
-- (Assets) [StickyTOC] DP-36608: Table of contents is displaying for info details pages even when <3 sections. (#1948)
+- (Assets) [StickyTOC] DP-36608: Table of contents is displaying for info details pages even when \<3 sections. (#1948)
 - (Assets) [StickyTOC] DP-37249: We should see contact in the table of contents. (#1949)
 - (Patternlab) [Card Group & Stat] DP-37544: Add accordion styling to Cards & bring background color up for Stat, if within an "enhanced" heading.
 - (Patternlab) [SiteLogo] DP-37552: Microsite header updates (#1957)
@@ -1028,7 +1028,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
-- (Patternlab) [Figure] DP-19233: Fix the width of small size <figure> and adjust side margins for side by side layout of <figure>s. (#1227)
+- (Patternlab) [Figure] DP-19233: Fix the width of small size `<figure>` and adjust side margins for side by side layout of `<figure>s`. (#1227)
 
 ### Added
 
@@ -1894,7 +1894,7 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [CampaignVideo] DP-15564: Add campaign video component #716
 - (Patternlab) [CampaignFeature] DP-15583: Adds campaign feature molecules and organism #717
 - (React) [Icon] DP-15599: Added social media icons into Icon component options and added option to set icon fill color #712
-- (React) [SocialLinks] DP-15599: Replaced `title` with `arial-label` in SocialLinks <a> to follow best practices for Screen Readers. #712
+- (React) [SocialLinks] DP-15599: Replaced `title` with `arial-label` in SocialLinks `<a>` to follow best practices for Screen Readers. #712
 
 ### Changed
 
@@ -3019,7 +3019,7 @@ Monorepo with shared assets and synced releases going forward ;)
 
 ### Removed
 
-- DP-1234: Removed alt value from the state seal since the text "Mass.gov" is duplicate to the content in the followed <span>.
+- DP-1234: Removed alt value from the state seal since the text "Mass.gov" is duplicate to the content in the followed `<span>`.
 
 ## 5.28.0 (6/13/2018)
 
@@ -3285,7 +3285,7 @@ Monorepo with shared assets and synced releases going forward ;)
 - DP-3222-3914: [a11y] heading levels adjustment for imagePromo items #682
 - DP-6351: [a11y] Change pagination on location listing to be heading #679
 - DP-6350: [a11y] Change search query field place holder text in location #683
-- DP-2405: Change the container for an abbreviation in a page banner title to <abbr> from <span> #688
+- DP-2405: Change the container for an abbreviation in a page banner title to `<abbr>` from `<span>` #688
 
 ### Fixed
 
@@ -3376,7 +3376,7 @@ Monorepo with shared assets and synced releases going forward ;)
 
 ### Changed
 
-- DP-7252 - We've made the ajax pattern respect cache (i.e. the get request no longer appends a cache busting querystring "\_=<timestamp> parameter).
+- DP-7252 - We've made the ajax pattern respect cache (i.e. the get request no longer appends a cache busting querystring `"\_=<timestamp>` parameter).
 
 ## 5.10.0 (12/13/2017)
 
@@ -3570,7 +3570,7 @@ We hope to see you all around in code. :)
 
 - DP-4181 - Folks browsing through the repository will notice new documentation which explains how to get set up, develop, and make other contributions to Mayflower! This documentation is linked from the [shiny new repo readme](https://github.com/massgov/mayflower). ([PR #532](https://github.com/massgov/mayflower/pull/532))
 - DP-4053 - Developers can now follow a documented build + deploy process to ship their code to their own GitHub Pages where their work can be seen and tested! This documentation is linked from the [shiny new repo readme](https://github.com/massgov/mayflower). ([PR #530](https://github.com/massgov/mayflower/pull/530))
-- DP-4046 - The change above is possible because we can now host Mayflower from a subdirectory (i.e. <myname>.github.io/mayflower)! ([PR #503](https://github.com/massgov/mayflower/pull/503))
+- DP-4046 - The change above is possible because we can now host Mayflower from a subdirectory (i.e. `<myname>.github.io/mayflower`)! ([PR #503](https://github.com/massgov/mayflower/pull/503))
 - DP-4080 - Developers, reviewers, and release managers can (and should!) now follow documentation on Semantic Versioning as it applies to Mayflower. This means we have guidelines to help reviewers understand what kind of change the code they are reviewing is and to help release managers understand what kind of version of Mayflower they are releasing. This documentation is linked from the [shiny new repo readme](https://github.com/massgov/mayflower). ([PR #504](https://github.com/massgov/mayflower/pull/504))
 - We documented all the things! Well, almost all. :) Check out patterns used on [Service](http://mayflower.digital.mass.gov/?p=pages-service), [How-To's](http://mayflower.digital.mass.gov/?p=pages-howto), [Guides](http://mayflower.digital.mass.gov/?p=pages-guide), [Locations](http://mayflower.digital.mass.gov/?p=pages-location-park-content), [Topics](http://mayflower.digital.mass.gov/?p=pages-topic), and [Events](http://mayflower.digital.mass.gov/?p=pages-event) and prepare ready to be informed! (Remember you can navigate to child patterns by clicking links down in the "Lineage" section.) More goodness coming soon. (PRs [#521](https://github.com/massgov/mayflower/pull/521), [#523](https://github.com/massgov/mayflower/pull/523), [#524](https://github.com/massgov/mayflower/pull/524), [#527](https://github.com/massgov/mayflower/pull/527), [#529](https://github.com/massgov/mayflower/pull/529), [#533](https://github.com/massgov/mayflower/pull/533))
 
@@ -3615,7 +3615,7 @@ Here comes another Mayflower release, hot off the summertime presses! We've got 
 
 - The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should render (See [PR #493](https://github.com/massgov/mayflower/pull/493))
 - Assistive tech like screenreaders will now read callout stats ([@molecules/callout-stats](http://mayflower.digital.mass.gov/?p=molecules-callout-stats)) more naturally (See [PR #500](https://github.com/massgov/mayflower/pull/500) - Markup + CSS)
-- Semantic search form ([@molecules/header-search]()) label and placeholder text are more understandable (See [PR #485](https://github.com/massgov/mayflower/pull/485) - Markup + demo content)
+- Semantic search form (`@molecules/header-search`) label and placeholder text are more understandable (See [PR #485](https://github.com/massgov/mayflower/pull/485) - Markup + demo content)
 
 ## 5.4.0
 
