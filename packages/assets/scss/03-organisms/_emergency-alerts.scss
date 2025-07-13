@@ -177,7 +177,9 @@ $colors: (
       } @else if $c == $c-gray {
         background-color: var(--mf-c-bg-gray-90);
       } @else {
-        background-color: mix(white, $c, 90%);
+        @include neat-warn("emergency-alerts: No CSS variable found for color '#{$c}' mixed with white at 90%. Please add '--mf-c-bg-#{$c}-90' to _color-tokens.scss");
+        // Fallback to solid color
+        background-color: $c;
       }
     }
     &__header--#{$class} {
@@ -196,7 +198,9 @@ $colors: (
         } @else if $c == $c-gray {
           background-color: var(--mf-c-bg-gray-90);
         } @else {
-          background-color: mix(white, $c, 90%);
+          @include neat-warn("emergency-alerts: No CSS variable found for color '#{$c}' mixed with white at 90%. Please add '--mf-c-bg-#{$c}-90' to _color-tokens.scss");
+          // Fallback to solid color
+          background-color: $c;
         }
       }
 

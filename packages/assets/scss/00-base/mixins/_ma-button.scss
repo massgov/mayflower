@@ -13,6 +13,8 @@
 
 @use "ma-button-base" as *;
 
+@use "bourbon-neat/neat-warn" as *;
+
 @mixin ma-button($type: "solid", $color: "transparent") {
   @if ($color != "transparent") {
     font-weight: $fonts-bold;
@@ -72,8 +74,16 @@
         border-color: var(--mf-c-error-50);
       } @else if $color == $c-gray-dark {
         border-color: var(--mf-c-font-dark-50);
+      } @else if $color == $c-gray-darkest {
+        border-color: var(--mf-c-gray-darkest-50);
+      } @else if $color == $c-white {
+        border-color: var(--mf-c-white-50);
+      } @else if $color == $c-gray {
+        border-color: var(--mf-c-gray-50);
       } @else {
-        border-color: rgba($color, 0.5);
+        @include neat-warn("ma-button: No CSS variable found for color '#{$color}' with 50% opacity. Please add '--mf-c-#{$color}-50' to _color-tokens.scss");
+        // Fallback to solid color for border
+        border-color: $color;
       }
 
       &:hover:not(:disabled) {
