@@ -33,11 +33,11 @@
     flex-basis: auto;
     letter-spacing: $letter-spacing-large;
     white-space: nowrap;
-    color: rgba($c-font-base,.8);
+    color: var(--mf-c-font-base-80);
     font-weight: $fonts-bold;
     border-right-width: 1px;
     border-right-style: solid;
-    border-right-color: rgba($c-font-base,.3);
+    border-right-color: var(--mf-c-font-base-30);
     padding-right: .5rem;
     margin-right: .5rem;
 

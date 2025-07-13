@@ -3,7 +3,7 @@
 $icon-width: 3.5rem;
 $page-banner-legacy-icon-width: $icon-width + 1rem;
 $page-banner-legacy-height: 273px;
-$text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+$text-shadow: 0px 4px 4px var(--mf-c-black-25);
 
 .ma__page-banner-legacy {
   background-size: cover;
@@ -52,7 +52,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       width: 100%;
 
       &, & > g {
-        fill: rgba(var(--mf-c-font-inverse),.5);
+        fill: var(--mf-c-font-inverse-50);
       }
 
       @media ($bp-large-extended-min) {
@@ -133,11 +133,11 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: var(--mf-c-font-inverse);
 
     &:hover {
-      border-bottom-color: rgba($c-font-inverse, 0.5);
+      border-bottom-color: var(--mf-c-font-inverse-50);
     }
 
     svg {
-      fill: rgba(var(--mf-c-font-inverse), 0.5);
+      fill: var(--mf-c-font-inverse-50);
     }
   }
 
@@ -207,7 +207,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     .ma__page-banner-legacy__container {
 
       &:before {
-        background-color: rgba($c-primary-alt, 0.8);
+        background-color: var(--mf-c-primary-alt-80);
       }
     }
 
@@ -221,7 +221,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           align-items: stretch;
 
           &:before {
-            background-color: rgba($c-primary, 0.8);
+            background-color: var(--mf-c-primary-80);
           }
         }
       }

@@ -13,8 +13,7 @@
 
 @use "ma-button-base" as *;
 
-@mixin ma-button ($type:"solid", $color:"transparent") {
-
+@mixin ma-button($type: "solid", $color: "transparent") {
   @if ($color != "transparent") {
     font-weight: $fonts-bold;
     // solid - primary usage (default)
@@ -24,7 +23,17 @@
       border-color: transparent;
 
       &:hover:not(:disabled) {
-        background-color: rgba($color,.75);
+        @if $color == $c-primary {
+          background-color: var(--mf-c-primary-75);
+        } @else if $color == $c-primary-alt {
+          background-color: var(--mf-c-primary-alt-75);
+        } @else if $color == $c-error {
+          background-color: var(--mf-c-error-75);
+        } @else if $color == $c-gray-dark {
+          background-color: var(--mf-c-gray-dark-75);
+        } @else {
+          background-color: $color;
+        }
       }
 
       @if $color == $c-white {
@@ -37,7 +46,6 @@
         &:hover:not(:disabled) {
           background-color: var(--mf-c-gray-light);
         }
-
       } @else if $color == $c-highlight {
         color: var(--mf-c-gray-darkest);
 
@@ -51,20 +59,30 @@
           fill: var(--mf-c-font-inverse);
         }
       }
-
     }
     // outline - secondary usage
     @else {
       background-color: var(--mf-c-font-inverse);
-      border-color: rgba($color,.5);
+
+      @if $color == $c-primary {
+        border-color: var(--mf-c-primary-50);
+      } @else if $color == $c-primary-alt {
+        border-color: var(--mf-c-primary-alt-50);
+      } @else if $color == $c-error {
+        border-color: var(--mf-c-error-50);
+      } @else if $color == $c-gray-dark {
+        border-color: var(--mf-c-font-dark-50);
+      } @else {
+        border-color: rgba($color, 0.5);
+      }
 
       &:hover:not(:disabled) {
-        background-color: rgba($color,1);
+        background-color: $color;
       }
 
       @if $color == $c-highlight {
         color: var(--mf-c-gray-darkest);
-        border-color: rgba($c-highlight,.5);
+        border-color: var(--mf-c-highlight-50);
 
         svg {
           fill: var(--mf-c-gray-darkest);
@@ -77,7 +95,6 @@
             fill: var(--mf-c-gray-darkest);
           }
         }
-
       } @else {
         color: $color;
 
@@ -97,8 +114,7 @@
   }
 }
 
-@mixin ma-button-size ($size:"normal") {
-
+@mixin ma-button-size($size: "normal") {
   @if ($size == "normal") {
     font-size: $fonts-medium;
     line-height: 1.4;

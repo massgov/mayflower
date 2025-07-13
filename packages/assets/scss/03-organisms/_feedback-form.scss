@@ -179,7 +179,7 @@ $feedback-form-bp-min: "min-width: 751px";
 .ma__feedback-form {
 
   &__overlay {
-    background-color: rgba($c-black, 0.6);
+    background-color: var(--mf-c-black-60);
     color: var(--mf-c-font-inverse);
   }
 

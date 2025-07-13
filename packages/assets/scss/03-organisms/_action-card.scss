@@ -155,17 +155,17 @@
 
   &__title {
 
-    @include ma-border-decorative(var(--mf-c-primary-alt));
+    @include ma-border-decorative(var(--mf-c-primary-alt-50));
   }
 
   &__item {
 
     @include ma-link-transition;
     background-color: var(--mf-c-bg-subtle);
-    box-shadow: $box-shadow;
+    box-shadow: var(--mf-box-shadow);
 
     &:hover {
-      background-color: darken($c-bg-subtle, 10%);
+      background-color: var(--mf-c-bg-subtle-black-90);
 
       a {
         border-bottom-color: var(--mf-c-font-link);
@@ -176,7 +176,7 @@
       background-color: var(--mf-c-primary);
 
       &:hover {
-        background-color: rgba($c-primary, 0.8);
+        background-color: var(--mf-c-primary-80);
 
         a {
           border-bottom-color: var(--mf-c-font-inverse);
@@ -188,7 +188,7 @@
       background-color: var(--mf-c-primary-alt);
 
       &:hover {
-        background-color: rgba($c-primary-alt, 0.8);
+        background-color: var(--mf-c-primary-alt-80);
 
         a {
           border-bottom-color: var(--mf-c-font-inverse);
@@ -200,7 +200,7 @@
       background-color: var(--mf-c-gray-dark);
 
       &:hover {
-        background-color: rgba($c-gray-dark, 0.8);
+        background-color: var(--mf-c-gray-dark-80);
 
         a {
           border-bottom-color: var(--mf-c-font-inverse);
@@ -213,7 +213,7 @@
 
     svg,
     svg > g {
-      fill: rgba($c-font-medium, 0.7);
+      fill: var(--mf-c-font-medium-70);
     }
   }
 
@@ -223,20 +223,20 @@
 
     svg,
     svg > g {
-      fill: rgba($c-font-inverse, 0.7);
+      fill: var(--mf-c-font-inverse-70);
     }
   }
 
   &__category {
-    color: rgba($c-font-base, 0.85);
+    color: var(--mf-c-font-base-85);
     font-weight: $fonts-bold;
   }
 
   &__item--blue &__category,
   &__item--green &__category,
   &__item--dark-gray &__category {
-    color: rgba($c-font-inverse, 0.8);
-    text-shadow: 0 0.125rem 0.125rem rgba($c-black, 0.5);
+    color: var(--mf-c-font-inverse-80);
+    text-shadow: 0 0.125rem 0.125rem var(--mf-c-black-50);
   }
 
   &__link {
@@ -263,7 +263,7 @@
     }
 
     svg {
-      fill: rgba(var(--mf-c-font-inverse), 0.5);
+      fill: var(--mf-c-font-inverse-50);
     }
   }
 }

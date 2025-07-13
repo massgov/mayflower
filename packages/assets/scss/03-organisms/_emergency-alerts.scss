@@ -14,7 +14,7 @@ $colors: (
   "c-primary": $c-primary,
   "c-primary-alt": $c-primary-alt,
   "c-error": $c-error,
-  "c-gray": $c-gray
+  "c-gray": $c-gray,
 );
 
 .ma__emergency-alerts {
@@ -33,14 +33,13 @@ $colors: (
   }
 
   &__hide {
-
     @include ma-button-reset;
     font-size: $fonts-7xlarge;
-    line-height: .65;
+    line-height: 0.65;
     overflow: hidden;
     position: absolute;
-      top: 50%;
-      right: 10px;
+    top: 50%;
+    right: 10px;
     transform: translateY(-50%) rotate(45deg);
   }
 
@@ -53,17 +52,16 @@ $colors: (
     }
 
     @media ($bp-small-min) and ($bp-large-max) {
-
       @include ma-container;
       margin: 0;
       position: absolute;
-        top: 0;
-        right: 0;
+      top: 0;
+      right: 0;
     }
   }
 
   &__content {
-    background-color: mix($c-white, $c-warning, 90%);
+    background-color: var(--mf-c-bg-warning-90);
 
     .js & {
       display: none;
@@ -74,7 +72,8 @@ $colors: (
       height: 0px;
     }
 
-    &.collapsing, &.expanding {
+    &.collapsing,
+    &.expanding {
       position: relative;
       overflow: hidden;
       visibility: visible;
@@ -87,15 +86,13 @@ $colors: (
     }
 
     &.expanded {
-       height: auto;
-       visibility: visible;
-       display: block;
+      height: auto;
+      visibility: visible;
+      display: block;
     }
-
   }
 
   &__container {
-
     @include ma-container;
   }
 
@@ -109,7 +106,6 @@ $colors: (
   }
 
   &__interface {
-
     @include ma-container;
     font-size: 0;
 
@@ -121,13 +117,14 @@ $colors: (
       background-color: var(--mf-c-warning);
       padding: 20px;
       padding-top: 0;
-      transition: background-color .5s;
+      transition: background-color 0.5s;
 
       .is-open & {
-        background-color: mix($c-white, $c-warning, 90%);
+        background-color: var(--mf-c-bg-warning-90);
       }
 
-      .ma__button-alert, .ma__button-icon--alert {
+      .ma__button-alert,
+      .ma__button-icon--alert {
         width: 100%;
       }
     }
@@ -135,25 +132,22 @@ $colors: (
 }
 
 @each $class, $c in $colors {
-
   .ma__emergency-alerts {
     &__hide--#{$class} {
-
       @if $c == $c-warning {
         color: var(--mf-c-font-base);
-
       } @else {
         color: var(--mf-c-font-inverse);
       }
     }
     &--#{$class} {
-
       &.collapsed {
         visibility: hidden;
         height: 0px;
       }
 
-      &.collapsing, &.expanding {
+      &.collapsing,
+      &.expanding {
         position: relative;
         overflow: hidden;
         visibility: visible;
@@ -166,25 +160,48 @@ $colors: (
       }
 
       &.expanded {
-         height: auto;
-         visibility: visible;
-         display: block;
+        height: auto;
+        visibility: visible;
+        display: block;
       }
     }
     &__content--#{$class} {
-      background-color: mix($c-white, $c, 90%);
+      @if $c == $c-warning {
+        background-color: var(--mf-c-bg-warning-90);
+      } @else if $c == $c-primary {
+        background-color: var(--mf-c-bg-primary-90);
+      } @else if $c == $c-primary-alt {
+        background-color: var(--mf-c-bg-primary-alt-90);
+      } @else if $c == $c-error {
+        background-color: var(--mf-c-bg-error-90);
+      } @else if $c == $c-gray {
+        background-color: var(--mf-c-bg-gray-90);
+      } @else {
+        background-color: mix(white, $c, 90%);
+      }
     }
     &__header--#{$class} {
-      background-color: rgba($c, 1);
+      background-color: $c;
     }
     &__interface--#{$class} {
-
       &.open {
-       background-color: mix($c-white, $c, 90%);
+        @if $c == $c-warning {
+          background-color: var(--mf-c-bg-warning-90);
+        } @else if $c == $c-primary {
+          background-color: var(--mf-c-bg-primary-90);
+        } @else if $c == $c-primary-alt {
+          background-color: var(--mf-c-bg-primary-alt-90);
+        } @else if $c == $c-error {
+          background-color: var(--mf-c-bg-error-90);
+        } @else if $c == $c-gray {
+          background-color: var(--mf-c-bg-gray-90);
+        } @else {
+          background-color: mix(white, $c, 90%);
+        }
       }
 
       &.closed {
-       background-color: rgba($c, 1);
+        background-color: $c;
       }
     }
   }

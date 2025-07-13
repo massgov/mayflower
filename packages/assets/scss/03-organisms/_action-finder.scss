@@ -156,15 +156,15 @@ $action-finder-bp: 900px;
 }
 
 //theme
-$action-finder-bg-color: mix($c-bg, $c-primary, 89%);
-$action-finder-border-color: mix($c-white, $c-primary, 50%);
+$action-finder-bg-color: var(--mf-c-bg-primary-89);
+$action-finder-border-color: var(--mf-c-bg-primary-50);
 
 .ma__action-finder {
 
   &:after {
     background-image: linear-gradient(
       180deg,
-      rgba($c-black, 0.6),
+      var(--mf-c-black-60),
       transparent 90%,
       transparent
     );
@@ -222,12 +222,12 @@ $action-finder-border-color: mix($c-white, $c-primary, 50%);
         color: var(--mf-c-font-inverse);
 
         &:hover {
-          border-color: rgba($c-font-inverse, 0.5);
+          border-color: var(--mf-c-font-inverse-50);
         }
       }
 
       svg {
-        fill: rgba($c-font-inverse, 0.5);
+        fill: var(--mf-c-font-inverse-50);
       }
     }
   }

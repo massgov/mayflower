@@ -157,7 +157,7 @@ $colors: (
     &--c-gray-lightest {
 
       .ma__key-message__content+.ma__key-message__cta .ma__button {
-        box-shadow: $box-shadow;
+        box-shadow: var(--mf-box-shadow);
       }
     }
   }
@@ -265,7 +265,7 @@ $colors: (
             margin-left: auto;
             margin-right: auto;
             transform: translateY(33%);
-            box-shadow: $box-shadow;
+            box-shadow: var(--mf-box-shadow);
 
             &--half-image {
               transform: translateY(0%);

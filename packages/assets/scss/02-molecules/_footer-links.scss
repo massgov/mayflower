@@ -42,7 +42,7 @@
     font-weight: $fonts-normal;
 
     &:hover {
-      border-bottom-color: rgba($c-font-dark, 0.5);
+      border-bottom-color: var(--mf-c-font-dark-50);
     }
   }
 }

@@ -132,10 +132,10 @@
   &__back2top {
 
     @include ma-button("outline", var(--mf-c-primary));
-    background-color: rgba($c-white, 0.9);
+    background-color: var(--mf-c-white-90);
 
     svg {
-      fill: rgba($c-primary, 0.5);
+      fill: var(--mf-c-primary-50);
     }
 
     &:hover {

@@ -101,11 +101,11 @@
 
   &__title {
 
-    @include ma-border-decorative(var(--mf-c-primary-alt));
+    @include ma-border-decorative(var(--mf-c-primary-alt-50));
   }
 
   &__date {
-    background-color: rgba($c-white, 0.8);
+    background-color: var(--mf-c-white-80);
     color: var(--mf-c-font-base);
     font-weight: 900;
   }

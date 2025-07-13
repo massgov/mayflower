@@ -31,10 +31,10 @@
 .ma__table--responsive__wrapper {
   // Pure CSS scrolling shadows with background-attachment: local.
   // Code taken from https://codepen.io/aardrian/pen/MWeRJWd
-  background: linear-gradient(to right, #fff 30%, rgba(255, 255, 255, 0)),
-  linear-gradient(to right, rgba(255, 255, 255, 0), #fff 70%) 0 100%,
-  linear-gradient(to right, $c-gray-light 30%, rgba(255, 255, 255, 0)),
-  linear-gradient(to right, rgba(255, 255, 255, 0), $c-gray-light 70%) 0 100%,
+  background: linear-gradient(to right, #fff 30%, transparent),
+  linear-gradient(to right, transparent, #fff 70%) 0 100%,
+  linear-gradient(to right, var(--mf-c-gray-light) 30%, transparent),
+  linear-gradient(to right, transparent, var(--mf-c-gray-light) 70%) 0 100%,
   0 100%;
   background-repeat: no-repeat;
   background-color: #fff;

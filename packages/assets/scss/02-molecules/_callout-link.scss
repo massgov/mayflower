@@ -4,14 +4,14 @@
 
 .ma__callout-link {
   border: 3px solid;
-  display:flex;
+  display: flex;
   width: 100%;
   flex-flow: column wrap;
   justify-content: center;
   padding: 15px 20px;
-  background-color: mix($c-bg, $c-font-link,90%);
+  background-color: var(--mf-c-font-link-white-90);
   border-color: var(--mf-c-link);
-  box-shadow: $box-shadow;
+  box-shadow: var(--mf-box-shadow);
   text-decoration: none;
 
   @media ($bp-small-min) {
@@ -20,7 +20,6 @@
 
   &:hover,
   &:focus {
-
     .ma__callout-link__text {
       border-bottom-color: var(--mf-c-link);
     }
@@ -42,17 +41,15 @@
     font-size: $fonts-xlarge;
     line-height: 1.3;
     vertical-align: middle;
-    padding-right: .8em;
+    padding-right: 0.8em;
     width: 100%;
   }
 
   &__text {
-
     @include ma-link-underline;
     display: inline;
 
     svg {
-
       @include ma-link-arrow;
       fill: var(--mf-c-font-link);
     }
@@ -63,7 +60,7 @@
     padding-top: 10px;
     font-size: $fonts-medium;
     font-weight: $fonts-light;
-    color: rgba($c-font-link,1);
+    color: var(--mf-c-font-link);
 
     @media ($bp-x-small-min) {
       display: flex;
@@ -86,11 +83,12 @@
     color: var(--mf-c-font-detail);
 
     @media ($bp-small-min) {
-        margin-bottom: 15px;
+      margin-bottom: 15px;
     }
   }
 
-  &__eyebrow, &__time {
+  &__eyebrow,
+  &__time {
     font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
@@ -108,14 +106,13 @@
 
   &--white {
     background-color: var(--mf-c-bg);
-    border-color: mix($c-white, $c-font-detail,70%);
-    box-shadow: $box-shadow;
+    border-color: var(--mf-c-font-detail-white-70);
+    box-shadow: var(--mf-box-shadow);
   }
 
   // removed after version 5.5.0
 
   &__info {
-
     @include ma-visually-hidden;
   }
 }

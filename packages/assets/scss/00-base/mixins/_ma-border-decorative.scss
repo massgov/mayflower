@@ -5,28 +5,63 @@
 
 @use "00-base/colors" as *;
 
-@mixin ma-border-decorative($fg: transparent, $opacity: .5) {
+@use "00-base/color-tokens" as *;
 
+@mixin ma-border-decorative($fg: transparent, $opacity: 0.5) {
   @if ($fg == transparent) {
     position: relative;
   }
 
   &:after {
-
     @if ($fg == transparent) {
       content: "";
       height: 3px;
       position: absolute;
-        bottom: 0;
-        left: 0.075em;
+      bottom: 0;
+      left: 0.075em;
       transform: skew(-30deg);
-      width: $column;  //85px
+      width: $column; //85px
 
       @media print {
         display: none;
       }
     } @else {
-      background-color: rgba($fg,$opacity);
+      // Handle different opacity values with pre-calculated CSS variables
+
+      // Check if it's a CSS variable and use them directly
+
+      @if (type-of($fg) == "string" and str-slice(#{$fg}, 1, 4) == "var(") {
+        background-color: $fg;
+      } @else {
+        @if $opacity == 0.5 {
+          @if $fg == $c-primary {
+            background-color: var(--mf-c-primary-50);
+          } @else if $fg == $c-primary-alt {
+            background-color: var(--mf-c-primary-alt-50);
+          } @else if $fg == $c-highlight {
+            background-color: var(--mf-c-highlight-50);
+          } @else if $fg == $c-error {
+            background-color: var(--mf-c-error-50);
+          } @else {
+            // Fallback for unknown colors
+            background-color: rgba($fg, $opacity);
+          }
+        } @else if $opacity == 0.75 {
+          @if $fg == $c-primary {
+            background-color: var(--mf-c-primary-75);
+          } @else if $fg == $c-primary-alt {
+            background-color: var(--mf-c-primary-alt-75);
+          } @else if $fg == $c-error {
+            background-color: var(--mf-c-error-75);
+          } @else {
+            // Fallback for unknown colors
+            background-color: rgba($fg, $opacity);
+          }
+        } @else {
+          // Fallback for other opacity values
+          background-color: rgba($fg, $opacity);
+        }
+      }
 
       .no-cssgradients & {
         background-color: $fg;

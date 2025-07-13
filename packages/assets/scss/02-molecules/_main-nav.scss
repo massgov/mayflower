@@ -260,12 +260,12 @@
     &.is-open,
     &.has-focus {
       background-color: var(--mf-c-bg);
-      box-shadow: $box-shadow;
+      box-shadow: var(--mf-box-shadow);
     }
 
     &.is-active {
 
-      @include ma-border-decorative(var(--mf-c-primary-alt));
+      @include ma-border-decorative(var(--mf-c-primary-alt-50));
     }
   }
 

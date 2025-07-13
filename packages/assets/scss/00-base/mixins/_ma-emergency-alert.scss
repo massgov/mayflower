@@ -8,10 +8,46 @@
 
 @mixin ma-emergency-alert ($color) {
   color: var(--mf-c-font-base);
-  background-color: mix($c-bg, $color, 90%);
-
+  
+  // Use pre-defined color mixes for known colors
+  
+  @if $color == $c-warning {
+    background-color: var(--mf-c-bg-warning-90);
+    
     & + & {
-    border-top-color: mix($c-bg, $color, 50%);
+      border-top-color: var(--mf-c-bg-warning-50);
+    }
+  } @else if $color == $c-primary {
+    background-color: var(--mf-c-bg-primary-90);
+    
+    & + & {
+      border-top-color: var(--mf-c-bg-primary-50);
+    }
+  } @else if $color == $c-primary-alt {
+    background-color: var(--mf-c-bg-primary-alt-90);
+    
+    & + & {
+      border-top-color: var(--mf-c-bg-primary-alt-50);
+    }
+  } @else if $color == $c-error {
+    background-color: var(--mf-c-bg-error-90);
+    
+    & + & {
+      border-top-color: var(--mf-c-bg-error-50);
+    }
+  } @else if $color == $c-gray {
+    background-color: var(--mf-c-bg-gray-90);
+    
+    & + & {
+      border-top-color: var(--mf-c-bg-gray-50);
+    }
+  } @else {
+    // Fallback for unknown colors
+    background-color: var(--mf-c-bg);
+    
+    & + & {
+      border-top-color: var(--mf-c-bd-divider);
+    }
   }
 
   .ma__emergency-alert__link {
@@ -26,15 +62,15 @@
 
       span {
         display: inline;
-        border-bottom: 1px solid rgba($c-font-base, .5);
+        border-bottom: 1px solid var(--mf-c-font-base-50);
 
         &:hover {
-          border-bottom: 3px solid rgba($c-font-base, .75);
+          border-bottom: 3px solid var(--mf-c-font-base-75);
         }
       }
 
       svg {
-        fill: mix($c-white, $c-font-base, 50%);
+        fill: var(--mf-c-white-font-base-mix);
       }
 
       &:hover {

@@ -4,7 +4,7 @@
 
 @mixin ma-button-base {
   border: 3px solid;
-  box-shadow: $box-shadow;
+  box-shadow: var(--mf-box-shadow);
   display: inline-flex;
   align-items: center;
   justify-content: center;

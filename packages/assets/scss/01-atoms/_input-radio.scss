@@ -163,40 +163,40 @@ $control-height: 1.2rem;
       &::after {
         background-color: $background-color;
         border-color: $border-color;
-        box-shadow: 0 0 2px 2px $box-shadow;
+        box-shadow: 0 0 2px 2px var(--mf-box-shadow);
       }
     }
   }
 
 //label-appearance(text-color, background-color, border-color, box-shadow, control-state, class-modifier)
 
-  @include label-appearance($c-primary, $c-white, $c-primary, '','', '');
+  @include label-appearance(var(--mf-c-primary), var(--mf-c-white), var(--mf-c-primary), '','', '');
 
-  @include label-appearance($c-primary, $c-primary-lightest, $c-primary, '', ':hover', '');
+  @include label-appearance(var(--mf-c-primary), var(--mf-c-primary-lightest), var(--mf-c-primary), '', ':hover', '');
 
-  @include label-appearance($c-white, $c-primary, $c-primary, '',':checked', '');
+  @include label-appearance(var(--mf-c-white), var(--mf-c-primary), var(--mf-c-primary), '',':checked', '');
 
-  @include label-appearance($c-white, $c-primary-light, $c-primary, '', ':checked:hover', '');
+  @include label-appearance(var(--mf-c-white), var(--mf-c-primary-light), var(--mf-c-primary), '', ':checked:hover', '');
 
-  @include label-appearance($c-white, $c-primary, $c-primary, $c-focus, ':focus', '');
+  @include label-appearance(var(--mf-c-white), var(--mf-c-primary), var(--mf-c-primary), var(--mf-box-shadow), ':focus', '');
 
   //:disabled
 
-  @include label-appearance($c-white, $c-gray-light, $c-gray-dark, '', ':disabled', '');
+  @include label-appearance(var(--mf-c-white), var(--mf-c-gray-light), var(--mf-c-gray-dark), '', ':disabled', '');
 
-  @include label-appearance($c-gray-dark, $c-gray-light, $c-gray-dark, '', ':checked:disabled', '');
+  @include label-appearance(var(--mf-c-gray-dark), var(--mf-c-gray-light), var(--mf-c-gray-dark), '', ':checked:disabled', '');
 
   //--error
 
-  @include label-appearance($c-error, $c-white, $c-error, '', '', '--error');
+  @include label-appearance(var(--mf-c-error), var(--mf-c-white), var(--mf-c-error), '', '', '--error');
 
-  @include label-appearance($c-error, $c-error-lightest, $c-error, '', ':hover', '--error');
+  @include label-appearance(var(--mf-c-error), var(--mf-c-error-lightest), var(--mf-c-error), '', ':hover', '--error');
 
-  @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked', '--error');
+  @include label-appearance(var(--mf-c-error), var(--mf-c-error-lighter), var(--mf-c-error), '', ':checked', '--error');
 
-  @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked:hover', '--error');
+  @include label-appearance(var(--mf-c-error), var(--mf-c-error-lighter), var(--mf-c-error), '', ':checked:hover', '--error');
 
-  @include label-appearance($c-error, $c-error-lighter, $c-error, $c-error-lighter, ':focus', '--error');
+  @include label-appearance(var(--mf-c-error), var(--mf-c-error-lighter), var(--mf-c-error), var(--mf-box-shadow), ':focus', '--error');
 
   &__control:disabled + &__label {
     pointer-events: none;

@@ -40,7 +40,7 @@
     grid-template-rows: auto auto;
     grid-template-columns: auto 2.75rem;
     grid-template-areas: "title close" "content content";
-    box-shadow: 0 0.75rem 3rem rgba(0,0,0,0.16);
+    box-shadow: 0 0.75rem 3rem var(--mf-c-black-16);
     visibility: hidden;
     z-index: $z-skyline;
   }
