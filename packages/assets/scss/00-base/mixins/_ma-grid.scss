@@ -6,14 +6,25 @@
 
 @use "00-base/breakpoints" as *;
 
+@use "bourbon-neat/neat-warn" as *;
+
 /// Primary grid container mixin
 /// @param {Number} $columns [12] - Number of columns in the grid
 /// @param {Number} $gap [$gutter] - Gap between grid items
+/// @param {String} $align [stretch] - Align items (stretch, start, end, center)
+/// @param {String} $justify [stretch] - Justify items (stretch, start, end, center)
 
-@mixin ma-grid($columns: 12, $gap: $gutter) {
+@mixin ma-grid(
+  $columns: 12,
+  $gap: $gutter,
+  $align: stretch,
+  $justify: stretch
+) {
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
   gap: $gap;
+  align-items: $align;
+  justify-items: $justify;
 }
 
 /// Grid item spanning mixin with full span-columns compatibility
@@ -21,21 +32,29 @@
 /// @param {Number} $start [auto] - Starting column position
 
 @mixin ma-grid-span($span, $start: auto) {
+  @if type-of($span) == number and $span < 1 {
+    @include neat-warn(
+      "ma-grid-span: Column span must be at least 1, got #{$span}"
+    );
+    $span: 1;
+  }
 
+  $columns: $span;
   @if type-of($span) == list {
-    // Handle "X of Y" syntax like "4 of 8"
     $columns: nth($span, 1);
 
-    // If "of Y" is provided, we could use this for subgrid in the future
-    // For now, just span the specified columns
-    grid-column: span $columns;
-  } @else {
-    // Handle simple number like "6"
-    grid-column: span $span;
+    @if $columns < 1 {
+      @include neat-warn(
+        "ma-grid-span: Column span must be at least 1, got #{$columns}"
+      );
+      $columns: 1;
+    }
   }
 
   @if $start != auto {
-    grid-column-start: $start;
+    grid-column: #{$start} / span #{$columns};
+  } @else {
+    grid-column: span #{$columns};
   }
 }
 
@@ -44,17 +63,32 @@
 /// @param {Number} $tablet [2] - Columns on tablet
 /// @param {Number} $desktop [12] - Columns on desktop
 /// @param {Number} $gap [$gutter] - Gap between grid items
+/// @param {String} $tablet-breakpoint [$bp-medium-min] - Tablet breakpoint
+/// @param {String} $desktop-breakpoint [$bp-large-min] - Desktop breakpoint
+/// @param {String} $align [stretch] - Align items
+/// @param {String} $justify [stretch] - Justify items
 
-@mixin ma-grid-responsive($mobile: 1, $tablet: 2, $desktop: 12, $gap: $gutter) {
+@mixin ma-grid-responsive(
+  $mobile: 1,
+  $tablet: 2,
+  $desktop: 12,
+  $gap: $gutter,
+  $tablet-breakpoint: $bp-medium-min,
+  $desktop-breakpoint: $bp-large-min,
+  $align: stretch,
+  $justify: stretch
+) {
   display: grid;
   grid-template-columns: repeat($mobile, 1fr);
   gap: $gap;
+  align-items: $align;
+  justify-items: $justify;
 
-  @media ($bp-medium-min) {
+  @media ($tablet-breakpoint) {
     grid-template-columns: repeat($tablet, 1fr);
   }
 
-  @media ($bp-large-min) {
+  @media ($desktop-breakpoint) {
     grid-template-columns: repeat($desktop, 1fr);
   }
 }
@@ -67,4 +101,11 @@
   display: grid;
   grid-template-columns: $ratio;
   gap: $gap;
+}
+
+/// Helper to span from a column to the end of the grid
+/// @param {Number} $start - Starting column position
+
+@mixin ma-grid-span-to-end($start) {
+  grid-column: #{$start} / -1;
 }

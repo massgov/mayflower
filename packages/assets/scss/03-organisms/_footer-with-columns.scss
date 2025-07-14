@@ -78,8 +78,7 @@
 
     @media ($bp-large-min) {
 
-      @include ma-grid-span(9);
-      grid-column: 4 / -1;
+      @include ma-grid-span-to-end(4);
       margin-bottom: 20px;
     }
   }
