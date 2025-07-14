@@ -75,6 +75,7 @@
   }
 
   &--expanded {
+
     & > svg {
       transform: rotate(-180deg);
     }
@@ -102,6 +103,7 @@
 
   &--expanded,
   &:hover {
+
     @include ma-button("solid", var(--button-color));
     color: var(--mf-c-font-inverse);
 
@@ -113,12 +115,14 @@
   &--secondary,
   &--expanded.ma__button-icon--secondary,
   &:hover.ma__button-icon--secondary {
+
     @include ma-button("outline", var(--button-color));
   }
 
   &--tertiary,
   &--expanded.ma__button-icon--tertiary,
   &:hover.ma__button-icon--tertiary {
+
     @include ma-button("solid", var(--mf-c-gray-light));
     color: var(--mf-c-font-base);
 
@@ -201,6 +205,7 @@
     }
 
     // Special case for highlight color on alert buttons
+
     &.ma__button-icon--c-highlight {
       color: var(--mf-c-font-base);
 

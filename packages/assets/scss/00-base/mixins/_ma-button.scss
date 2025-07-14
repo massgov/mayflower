@@ -16,6 +16,7 @@
 @use "bourbon-neat/neat-warn" as *;
 
 @mixin ma-button($type: "solid", $color: "transparent") {
+
   @if ($color != "transparent") {
     font-weight: $fonts-bold;
     // solid - primary usage (default)
@@ -25,6 +26,7 @@
       border-color: transparent;
 
       &:hover:not(:disabled) {
+
         @if $color == $c-primary {
           background-color: var(--mf-c-primary-75);
         } @else if $color == $c-primary-alt {
@@ -81,6 +83,7 @@
       } @else if $color == $c-gray {
         border-color: var(--mf-c-gray-50);
       } @else {
+
         @include neat-warn("ma-button: No CSS variable found for color '#{$color}' with 50% opacity. Please add '--mf-c-#{$color}-50' to _color-tokens.scss");
         // Fallback to solid color for border
         border-color: $color;
@@ -125,6 +128,7 @@
 }
 
 @mixin ma-button-size($size: "normal") {
+
   @if ($size == "normal") {
     font-size: $fonts-medium;
     line-height: 1.4;

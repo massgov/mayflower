@@ -32,7 +32,9 @@
 /// @param {Number} $start [auto] - Starting column position
 
 @mixin ma-grid-span($span, $start: auto) {
+
   @if type-of($span) == number and $span < 1 {
+
     @include neat-warn(
       "ma-grid-span: Column span must be at least 1, got #{$span}"
     );
@@ -40,10 +42,12 @@
   }
 
   $columns: $span;
+
   @if type-of($span) == list {
     $columns: nth($span, 1);
 
     @if $columns < 1 {
+
       @include neat-warn(
         "ma-grid-span: Column span must be at least 1, got #{$columns}"
       );

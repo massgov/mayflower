@@ -20,6 +20,7 @@
 
   &:hover,
   &:focus {
+
     .ma__callout-link__text {
       border-bottom-color: var(--mf-c-link);
     }
@@ -46,10 +47,12 @@
   }
 
   &__text {
+
     @include ma-link-underline;
     display: inline;
 
     svg {
+
       @include ma-link-arrow;
       fill: var(--mf-c-font-link);
     }
@@ -113,6 +116,7 @@
   // removed after version 5.5.0
 
   &__info {
+
     @include ma-visually-hidden;
   }
 }

@@ -33,6 +33,7 @@ $colors: (
   }
 
   &__hide {
+
     @include ma-button-reset;
     font-size: $fonts-7xlarge;
     line-height: 0.65;
@@ -52,6 +53,7 @@ $colors: (
     }
 
     @media ($bp-small-min) and ($bp-large-max) {
+
       @include ma-container;
       margin: 0;
       position: absolute;
@@ -93,6 +95,7 @@ $colors: (
   }
 
   &__container {
+
     @include ma-container;
   }
 
@@ -106,6 +109,7 @@ $colors: (
   }
 
   &__interface {
+
     @include ma-container;
     font-size: 0;
 
@@ -132,8 +136,10 @@ $colors: (
 }
 
 @each $class, $c in $colors {
+
   .ma__emergency-alerts {
     &__hide--#{$class} {
+
       @if $c == $c-warning {
         color: var(--mf-c-font-base);
       } @else {
@@ -141,6 +147,7 @@ $colors: (
       }
     }
     &--#{$class} {
+
       &.collapsed {
         visibility: hidden;
         height: 0px;
@@ -166,6 +173,7 @@ $colors: (
       }
     }
     &__content--#{$class} {
+
       @if $c == $c-warning {
         background-color: var(--mf-c-bg-warning-90);
       } @else if $c == $c-primary {
@@ -177,6 +185,7 @@ $colors: (
       } @else if $c == $c-gray {
         background-color: var(--mf-c-bg-gray-90);
       } @else {
+
         @include neat-warn("emergency-alerts: No CSS variable found for color '#{$c}' mixed with white at 90%. Please add '--mf-c-bg-#{$c}-90' to _color-tokens.scss");
         // Fallback to solid color
         background-color: $c;
@@ -186,7 +195,9 @@ $colors: (
       background-color: $c;
     }
     &__interface--#{$class} {
+
       &.open {
+
         @if $c == $c-warning {
           background-color: var(--mf-c-bg-warning-90);
         } @else if $c == $c-primary {
@@ -198,6 +209,7 @@ $colors: (
         } @else if $c == $c-gray {
           background-color: var(--mf-c-bg-gray-90);
         } @else {
+
           @include neat-warn("emergency-alerts: No CSS variable found for color '#{$c}' mixed with white at 90%. Please add '--mf-c-bg-#{$c}-90' to _color-tokens.scss");
           // Fallback to solid color
           background-color: $c;

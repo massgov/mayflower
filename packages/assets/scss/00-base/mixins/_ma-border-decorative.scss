@@ -10,11 +10,13 @@
 @use "bourbon-neat/neat-warn" as *;
 
 @mixin ma-border-decorative($fg: transparent, $opacity: 0.5) {
+
   @if ($fg == transparent) {
     position: relative;
   }
 
   &:after {
+
     @if ($fg == transparent) {
       content: "";
       height: 3px;
@@ -35,7 +37,9 @@
       @if (type-of($fg) == "string" and str-slice(#{$fg}, 1, 4) == "var(") {
         background-color: $fg;
       } @else {
+
         @if $opacity == 0.5 {
+
           @if $fg == $c-primary {
             background-color: var(--mf-c-primary-50);
           } @else if $fg == $c-primary-alt {
@@ -53,11 +57,13 @@
           } @else if $fg == $c-white {
             background-color: var(--mf-c-white-50);
           } @else {
+
             @include neat-warn("ma-border-decorative: No CSS variable found for color '#{$fg}' with opacity 0.5. Please add '--mf-c-#{$fg}-50' to _color-tokens.scss");
             // Fallback to solid color
             background-color: $fg;
           }
         } @else if $opacity == 0.75 {
+
           @if $fg == $c-primary {
             background-color: var(--mf-c-primary-75);
           } @else if $fg == $c-primary-alt {
@@ -73,31 +79,37 @@
           } @else if $fg == $c-white {
             background-color: var(--mf-c-white-75);
           } @else {
+
             @include neat-warn("ma-border-decorative: No CSS variable found for color '#{$fg}' with opacity 0.75. Please add '--mf-c-#{$fg}-75' to _color-tokens.scss");
             // Fallback to solid color
             background-color: $fg;
           }
         } @else if $opacity == 0.89 {
+
           @if $fg == $c-primary {
             background-color: var(--mf-c-primary-89);
           } @else if $fg == $c-gray {
             background-color: var(--mf-c-gray-89);
           } @else {
+
             @include neat-warn("ma-border-decorative: No CSS variable found for color '#{$fg}' with opacity 0.89. Please add '--mf-c-#{$fg}-89' to _color-tokens.scss");
             // Fallback to solid color
             background-color: $fg;
           }
         } @else if $opacity == 0.8 {
+
           @if $fg == $c-primary {
             background-color: var(--mf-c-primary-80);
           } @else if $fg == $c-gray {
             background-color: var(--mf-c-gray-80);
           } @else {
+
             @include neat-warn("ma-border-decorative: No CSS variable found for color '#{$fg}' with opacity 0.8. Please add '--mf-c-#{$fg}-80' to _color-tokens.scss");
             // Fallback to solid color
             background-color: $fg;
           }
         } @else {
+
           @include neat-warn("ma-border-decorative: No CSS variable found for color '#{$fg}' with opacity #{$opacity}. Please add the appropriate CSS variable to _color-tokens.scss");
           // Fallback to solid color
           background-color: $fg;
