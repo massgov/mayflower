@@ -1,15 +1,21 @@
-// Custom Checkboxes
-
 @use "00-base/configure" as *;
 
 .ma__input-checkbox {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   position: relative;
 
   input {
-
-    @include ma-visually-hidden;
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    
+    @media (forced-colors: active) {
+      appearance: auto;
+    }
   }
+
 
   & > svg {
     height: 24px;
@@ -42,6 +48,10 @@
         left: 0;
       text-align: center;
       width: 2em;
+
+      @media (forced-colors: active) {
+        display: none;
+      }
     }
 
     span {
