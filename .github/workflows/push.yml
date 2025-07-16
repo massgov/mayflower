@@ -1,4 +1,4 @@
-name: "PR: Workflows"
+name: "Push docs to SSR"
 
 on:
   push:
