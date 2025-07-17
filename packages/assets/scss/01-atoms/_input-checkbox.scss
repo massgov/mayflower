@@ -8,114 +8,123 @@
 
   input {
     appearance: none;
+    border: none;
+    outline: none;
     width: 1.2em;
     height: 1.2em;
+    margin: 0;
+    flex-shrink: 0;
     
+    // Hide custom checkbox in high contrast mode
     @media (forced-colors: active) {
       appearance: auto;
+      border: initial;
+      position: static;
     }
   }
 
+  // Custom checkbox visual element
+  &__custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.2em;
+    height: 1.2em;
+    border: 2px solid var(--mf-c-bd-input-dark);
+    flex-shrink: 0;
+    pointer-events: none; // Let clicks pass through to input
+    
+    // Hide in high contrast mode (native input will show)
+    @media (forced-colors: active) {
+      display: none;
+    }
+  }
 
-  & > svg {
-    height: 24px;
+  &__checkmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    
+    svg {
+      width: 0.8em;
+      height: 0.8em;
+      fill: white;
+    }
+  }
+
+  // Position custom checkbox over native input
+  &__custom {
     position: absolute;
-      top: 0;
-      right: 0;
-    vertical-align: top;
-    width: 24px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   label {
     font-size: $fonts-large;
-    line-height: 1rem;
-    padding-left: 1.25em;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:before {
-      border: 2px solid;
-      content: "";
-      display: inline-block;
-      height: 2em;
-      font-size: .5em;
-      line-height: 1.5;
-      padding-top: .25em;
-      position: absolute;
-        top: 0.125em;
-        left: 0;
-      text-align: center;
-      width: 2em;
-
-      @media (forced-colors: active) {
-        display: none;
-      }
-    }
-
+    font-weight: $fonts-light;
+    line-height: 1.4;
+    cursor: pointer;
+    margin: 0;
+    
     span {
       line-height: 1.2em;
     }
   }
 
-  &--disabled {
+  // Icon spacing
+  & > svg {
+    height: 24px;
+    width: 24px;
+    fill: var(--mf-c-primary-alt);
+  }
 
+  // States
+  input:checked ~ &__custom {
+    
+    .ma__input-checkbox__checkmark {
+      opacity: 1;
+    }
+  }
+
+  input:focus ~ &__custom {
+    border-color: var(--mf-c-focus);
+    outline: 2px solid var(--mf-c-focus);
+    outline-offset: 2px;
+    
+    @media (-webkit-min-device-pixel-ratio:0) {
+      outline: var(--mf-c-focus) auto 5px;
+    }
+  }
+
+  input.has-error ~ &__custom {
+    border-color: var(--mf-c-bd-error);
+  }
+
+  // Disabled state
+  &--disabled {
     label {
       opacity: 0.5;
     }
-
+    
+    &__custom {
+      opacity: 0.5;
+    }
+    
     svg {
       opacity: 0.5;
     }
   }
 
-  input:checked ~ label {
-
-    &:before {
-      content: url("#{$assets-path}/images/icons/checkmark.svg"); //"✔";
-    }
-  }
-
-  svg ~ label {
-    padding-right: 30px;
-  }
-}
-
-//theme
-
-.ma__input-checkbox {
-
-  & > svg {
-    fill: var(--mf-c-primary-alt);
-  }
-
-  label {
-    font-weight: $fonts-light;
-
-    &:before {
-      background-color: var(--mf-c-bg);
-      border-color: var(--mf-c-bd-input-dark);
-
-      .ma__form--light & {
-        background-color: rgba($c-bg, 0.1);
-        border-color: rgba($c-bd-input,.5);
-      }
-    }
-  }
-
-  input.has-error ~ label:before {
-    border-color: var(--mf-c-bd-error);
-  }
-
-  input:focus ~ label:before {
-    border-color: Highlight !important;
-
-    /* WebKit gets its native focus styles.
-     */
-
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline: -webkit-focus-ring-color auto 5px;
+  // Light theme
+  .ma__form--light & {
+    &__custom {
+      background-color: rgba($c-bg, 0.1);
+      border-color: rgba($c-bd-input, 0.5);
     }
   }
 }

@@ -5,6 +5,11 @@
 
 <span class="ma__input-checkbox">
   <input type="checkbox" value="{{ inputCheckbox.value }}" id="{{ inputCheckbox.id }}" {{ inputCheckbox.checked ? 'checked' : '' }}>
+  <span class="ma__input-checkbox__custom" aria-hidden="true">
+    <span class="ma__input-checkbox__checkmark">
+      {{icon('checkmark')}}
+    </span>
+  </span>
   {% if inputCheckbox.icon %}
     {{ icon(inputCheckbox.icon) }}
   {% endif %}
