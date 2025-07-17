@@ -25,6 +25,11 @@
 
   // Custom checkbox visual element
   &__custom {
+    // Position custom checkbox over native input
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -56,13 +61,7 @@
     }
   }
 
-  // Position custom checkbox over native input
-  &__custom {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+
 
   label {
     font-size: $fonts-large;
@@ -92,13 +91,9 @@
   }
 
   input:focus ~ &__custom {
-    border-color: var(--mf-c-focus);
     outline: 2px solid var(--mf-c-focus);
     outline-offset: 2px;
     
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline: var(--mf-c-focus) auto 5px;
-    }
   }
 
   input.has-error ~ &__custom {
