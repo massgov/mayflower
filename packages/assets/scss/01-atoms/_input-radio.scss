@@ -7,13 +7,23 @@
   input {
     position: absolute;
     opacity: 0;
+    
+    // Show native input in high contrast mode
+    @media (forced-colors: active) {
+      position: static;
+      opacity: 1;
+      appearance: auto;
+      margin-right: 0.5em;
+      width: auto;
+      height: auto;
+    }
   }
 
   &__label {
     font-size: $fonts-large;
     font-weight: $fonts-light;
     display: flex;
-      align-items: center;
+    align-items: center;
 
     &:before {
       content: '';
@@ -30,12 +40,20 @@
       text-align: center;
       transition: all 250ms ease;
       background-color: var(--mf-c-bg);
+      
+      // Hide custom radio in high contrast mode
+      @media (forced-colors: active) {
+        display: none;
+      }
+    }
+    
+    // Adjust label spacing in high contrast mode
+    @media (forced-colors: active) {
+      padding-left: 0;
     }
   }
 
-
   input:checked ~ &__label {
-
     &:before {
       background-color: var(--mf-c-primary);
       box-shadow: inset 0 0 0 4px var(--mf-c-white);
@@ -43,21 +61,25 @@
   }
 
   input:focus ~ &__label {
-
     &:before {
       box-shadow: inset 0 0 0 4px var(--mf-c-white), 0 0 2px 2px var(--mf-c-focus-hightlight);
     }
   }
 
+  // Focus on native input in high contrast mode
+  input:focus {
+    @media (forced-colors: active) {
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
+    }
+  }
 
-// patternlab
-
+  // patternlab
   input.has-error ~ &__label:before {
     border-color: var(--mf-c-bd-error);
   }
 
-// react
-
+  // react
   input ~ &__label--error, input:checked ~ &__label--error {
     color: var(--mf-c-error);
 
@@ -67,7 +89,6 @@
   }
 
   input:checked ~ &__label--error {
-
     &::before {
       color: var(--mf-c-error);
     }
@@ -76,7 +97,6 @@
   input:checked ~ &__label--error:before {
     color: var(--mf-c-error);
   }
-
 
   input:focus ~ &__label:after {
     box-shadow: 0 0 2px 2px var(--mf-c-focus-hightlight);
@@ -94,9 +114,7 @@
   }
 }
 
-
 // Custom styling for button like radio inputs
-
 $spacing: 1rem;
 $border-radius: 4px;
 $control-height: 1.2rem;
@@ -104,19 +122,28 @@ $control-height: 1.2rem;
 .ma__input-radio--outline {
 
   &__control {
-
     @include ma-visually-hidden;
+    
+    // Show native input in high contrast mode
+    @media (forced-colors: active) {
+      position: static;
+      opacity: 1;
+      appearance: auto;
+      margin-right: 0.5em;
+      width: auto;
+      height: auto;
+    }
   }
 
   &__label {
-    display: block; // so that `label` expands to fill space and respects padding
-    position: relative; // so that pseudoelements are positioned relative to this container
+    display: block;
+    position: relative;
     min-height: $control-height;
     line-height: $control-height;
     padding: 0.5rem $spacing 0.5rem ($spacing * 2.75);
     cursor: pointer;
     user-select: none;
-    z-index: 0; // create new stacking context so ::after pseudoelement doesn't go behind document
+    z-index: 0;
 
     &::before {
       left: $spacing;
@@ -125,7 +152,12 @@ $control-height: 1.2rem;
       border-radius: 100%;
       top: 50%;
       transform: translateY(-50%);
-      border: 1px solid
+      border: 1px solid;
+      
+      // Hide custom styling in high contrast mode
+      @media (forced-colors: active) {
+        display: none;
+      }
     }
 
     &::after {
@@ -134,10 +166,15 @@ $control-height: 1.2rem;
       width: 100%;
       height: 100%;
       border-radius: $border-radius * 8;
-      z-index: -1; // so that background is behind everything
-      font-weight: $fonts-bold; //fixed
+      z-index: -1;
+      font-weight: $fonts-bold;
       transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-      border: 1px solid
+      border: 1px solid;
+      
+      // Hide custom styling in high contrast mode
+      @media (forced-colors: active) {
+        display: none;
+      }
     }
 
     &::before,
@@ -145,7 +182,19 @@ $control-height: 1.2rem;
       content: '';
       position: absolute;
     }
+    
+    // Adjust spacing in high contrast mode
+    @media (forced-colors: active) {
+      padding-left: 0;
+    }
+  }
 
+  // Focus on native input in high contrast mode for outline variant
+  &__control:focus {
+    @media (forced-colors: active) {
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
+    }
   }
 
   @mixin label-appearance($text-color, $background-color, $border-color, $box-shadow:'transparent', $state:'', $modifier:'') {
@@ -168,7 +217,7 @@ $control-height: 1.2rem;
     }
   }
 
-//label-appearance(text-color, background-color, border-color, box-shadow, control-state, class-modifier)
+  //label-appearance(text-color, background-color, border-color, box-shadow, control-state, class-modifier)
 
   @include label-appearance($c-primary, $c-white, $c-primary, '','', '');
 
