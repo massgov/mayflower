@@ -10,8 +10,8 @@
     appearance: none;
     border: none;
     outline: none;
-    width: 1.2em;
-    height: 1.2em;
+    width: $fonts-large;
+    height: $fonts-large;
     margin: 0;
     flex-shrink: 0;
     
@@ -19,6 +19,7 @@
     @media (forced-colors: active) {
       appearance: auto;
       border: initial;
+      outline: initial;
       position: static;
     }
   }
@@ -33,8 +34,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.2em;
-    height: 1.2em;
+    width: $fonts-large;
+    height: $fonts-large;
     border: 2px solid var(--mf-c-bd-input-dark);
     flex-shrink: 0;
     pointer-events: none; // Let clicks pass through to input
@@ -53,7 +54,8 @@
     height: 100%;
     opacity: 0;
     transition: opacity 0.2s ease;
-    
+    transform: translate(1px, 2px);
+
     svg {
       width: 0.8em;
       height: 0.8em;
@@ -71,7 +73,7 @@
     margin: 0;
     
     span {
-      line-height: 1.2em;
+      line-height: 1;
     }
   }
 
@@ -93,7 +95,13 @@
   input:focus ~ &__custom {
     outline: 2px solid var(--mf-c-focus);
     outline-offset: 2px;
-    
+  }
+
+  input:focus {
+    @media (forced-colors: active) {
+      outline: 2px solid ButtonText;
+      outline-offset: 2px;
+    }
   }
 
   input.has-error ~ &__custom {
