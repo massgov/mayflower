@@ -63,8 +63,6 @@
     }
   }
 
-
-
   label {
     font-size: $fonts-large;
     font-weight: $fonts-light;
@@ -99,7 +97,7 @@
 
   input:focus {
     @media (forced-colors: active) {
-      outline: 2px solid ButtonText;
+      outline: 2px solid Highlight;
       outline-offset: 2px;
     }
   }
