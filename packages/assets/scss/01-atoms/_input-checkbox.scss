@@ -35,7 +35,7 @@
     position: relative;
     // Checkmark using :before pseudo-element with SVG
     &:before {
-      content: url("#{$assets-path}/images/icons/checkmark.svg");
+      content: '';
       position: absolute;
       left: 0;
       top: 50%;
@@ -46,7 +46,6 @@
       align-items: center;
       justify-content: center;
       border: 2px solid var(--mf-c-bd-input);
-      opacity: 0;
       transition: opacity 0.2s ease;
       pointer-events: none;
 
@@ -54,10 +53,10 @@
       @media (forced-colors: active) {
         display: none;
       }
+    }
 
-      span {
-        font-size: $fonts-large;
-      }
+    span {
+      font-size: $fonts-large;
     }
     
     // Adjust spacing in high contrast mode
@@ -76,32 +75,12 @@
   // States - Show checkmark when checked
   input:checked ~ label {
     &:before {
-      opacity: 1;
-    }
-  }
-
-  // Unchecked state - show empty checkbox
-  input:not(:checked) ~ label {
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: $fonts-larger;
-      height: $fonts-larger;
-      border: 2px solid var(--mf-c-bd-input);
-      display: inline-flex;
-      
-      @media (forced-colors: active) {
-        display: none;
-      }
+      content: url("#{$assets-path}/images/icons/checkmark.svg");
     }
   }
 
   input:focus ~ label {
-    &:before,
-    &:after {
+    &:before {
       outline: 2px solid var(--mf-c-focus);
       outline-offset: 2px;
     }
