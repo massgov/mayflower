@@ -29,8 +29,11 @@ input {
   font-size: $fonts-large;
   font-weight: $fonts-light;
   max-width: 100%;
-  min-height: 40px;
   padding: 0 18px;
+
+  &:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 40px;
+  }
 
   &.has-error:not(:focus) {
     background-position: center right 10px;

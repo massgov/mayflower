@@ -10,8 +10,8 @@
     appearance: none;
     border: none;
     outline: none;
-    width: $fonts-large;
-    height: $fonts-large;
+    width: $fonts-larger;
+    height: $fonts-larger;
     margin: 0;
     flex-shrink: 0;
     
@@ -34,8 +34,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: $fonts-large;
-    height: $fonts-large;
+    width: $fonts-larger;
+    height: $fonts-larger;
     border: 2px solid var(--mf-c-bd-input);
     flex-shrink: 0;
     pointer-events: none; // Let clicks pass through to input
@@ -66,13 +66,9 @@
   label {
     font-size: $fonts-large;
     font-weight: $fonts-light;
-    line-height: 1.4;
+    line-height: 1.6;
     cursor: pointer;
     margin: 0;
-    
-    span {
-      line-height: 1;
-    }
   }
 
   // Icon spacing
