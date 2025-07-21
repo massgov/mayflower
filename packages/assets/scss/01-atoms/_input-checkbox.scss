@@ -2,7 +2,7 @@
 
 .ma__input-checkbox {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   gap: 0.5rem;
 
@@ -29,16 +29,17 @@
     cursor: pointer;
     margin: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding-left: calc(#{$fonts-2xlarge} + 0.5rem); // Space for checkbox
     position: relative;
+    
     // Checkmark using :before pseudo-element with SVG
     &:before {
       content: '';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
+      transform: translateY(-0.1em);     // Small adjustment to align with text baseline
       width: $fonts-2xlarge;
       height: $fonts-2xlarge;
       display: inline-flex;
@@ -76,6 +77,7 @@
   input:checked ~ label {
     &:before {
       content: url("#{$assets-path}/images/icons/checkmark.svg");
+      background-color: var(--mf-c-bg);  // Add background color when checked
     }
   }
 
