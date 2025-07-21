@@ -24,16 +24,15 @@
   }
 
   label {
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
     font-weight: $fonts-light;
-    line-height: 1.6;
+    line-height: 1.2;
     cursor: pointer;
     margin: 0;
     display: flex;
     align-items: center;
     padding-left: calc(#{$fonts-larger} + 0.5rem); // Space for checkbox
     position: relative;
-
     // Checkmark using :before pseudo-element with SVG
     &:before {
       content: url("#{$assets-path}/images/icons/checkmark.svg");
@@ -50,10 +49,14 @@
       opacity: 0;
       transition: opacity 0.2s ease;
       pointer-events: none;
-      
+
       // Hide in high contrast mode
       @media (forced-colors: active) {
         display: none;
+      }
+
+      span {
+        font-size: $fonts-large;
       }
     }
     
