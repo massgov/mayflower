@@ -3,8 +3,8 @@
 .ma__input-checkbox {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   position: relative;
+  gap: 0.5rem;
 
   input {
     position: absolute;
@@ -19,19 +19,18 @@
       position: static;
       opacity: 1;
       appearance: auto;
-      margin-right: 0.5em;
     }
   }
 
   label {
-    font-size: $fonts-larger;
+    font-size: $fonts-large;
     font-weight: $fonts-light;
-    line-height: 1.2;
+    line-height: 1.33;  // $fonts-2xlarge/$fonts-large
     cursor: pointer;
     margin: 0;
     display: flex;
     align-items: center;
-    padding-left: calc(#{$fonts-larger} + 0.5rem); // Space for checkbox
+    padding-left: calc(#{$fonts-2xlarge} + 0.5rem); // Space for checkbox
     position: relative;
     // Checkmark using :before pseudo-element with SVG
     &:before {
@@ -40,14 +39,15 @@
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      width: $fonts-larger;
-      height: $fonts-larger;
+      width: $fonts-2xlarge;
+      height: $fonts-2xlarge;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border: 2px solid var(--mf-c-bd-input);
       transition: opacity 0.2s ease;
       pointer-events: none;
+      margin-right: 0.25em;
 
       // Hide in high contrast mode
       @media (forced-colors: active) {

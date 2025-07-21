@@ -17,7 +17,6 @@
       position: static;
       opacity: 1;
       appearance: auto;
-      margin-right: 0.5em;
       width: 1.4em;
       height: 1.4em;
     }
@@ -28,18 +27,18 @@
     font-weight: $fonts-light;
     display: flex;
     align-items: center;
-    line-height: 1.2;
+    line-height: 1.33;
+    margin-bottom: 0;
 
     &:before {
       content: '';
       border-radius: 100%;
       border: 2px solid var(--mf-c-bd-input);
       display: inline-block;
-      width: 1.4em;
-      min-width: 1.4em;
-      height: 1.4em;
+      width: $fonts-2xlarge;
+      height: $fonts-2xlarge;
       position: relative;
-      margin-right: 0.5em;
+      margin-right: 0.25em;
       vertical-align: top;
       cursor: pointer;
       text-align: center;
