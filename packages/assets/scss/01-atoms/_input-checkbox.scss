@@ -7,59 +7,19 @@
   position: relative;
 
   input {
-    appearance: none;
-    border: none;
-    outline: none;
+    position: absolute;
+    opacity: 0;
     width: $fonts-larger;
     height: $fonts-larger;
     margin: 0;
     flex-shrink: 0;
     
-    // Hide custom checkbox in high contrast mode
+    // Show native checkbox in high contrast mode
     @media (forced-colors: active) {
-      appearance: auto;
-      border: initial;
-      outline: initial;
       position: static;
-    }
-  }
-
-  // Custom checkbox visual element
-  &__custom {
-    // Position custom checkbox over native input
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: $fonts-larger;
-    height: $fonts-larger;
-    border: 2px solid var(--mf-c-bd-input);
-    flex-shrink: 0;
-    pointer-events: none; // Let clicks pass through to input
-    
-    // Hide in high contrast mode (native input will show)
-    @media (forced-colors: active) {
-      display: none;
-    }
-  }
-
-  &__checkmark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    transform: translate(2px, 2px);
-
-    svg {
-      width: 0.8em;
-      height: 0.8em;
-      fill: white;
+      opacity: 1;
+      appearance: auto;
+      margin-right: 0.5em;
     }
   }
 
@@ -69,6 +29,38 @@
     line-height: 1.6;
     cursor: pointer;
     margin: 0;
+    display: flex;
+    align-items: center;
+    padding-left: calc(#{$fonts-larger} + 0.5rem); // Space for checkbox
+    position: relative;
+
+    // Checkmark using :before pseudo-element with SVG
+    &:before {
+      content: url("#{$assets-path}/images/icons/checkmark.svg");
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: $fonts-larger;
+      height: $fonts-larger;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--mf-c-bd-input);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+      
+      // Hide in high contrast mode
+      @media (forced-colors: active) {
+        display: none;
+      }
+    }
+    
+    // Adjust spacing in high contrast mode
+    @media (forced-colors: active) {
+      padding-left: 0;
+    }
   }
 
   // Icon spacing
@@ -78,19 +70,41 @@
     fill: var(--mf-c-primary-alt);
   }
 
-  // States
-  input:checked ~ &__custom {
-    
-    .ma__input-checkbox__checkmark {
+  // States - Show checkmark when checked
+  input:checked ~ label {
+    &:before {
       opacity: 1;
     }
   }
 
-  input:focus ~ &__custom {
-    outline: 2px solid var(--mf-c-focus);
-    outline-offset: 2px;
+  // Unchecked state - show empty checkbox
+  input:not(:checked) ~ label {
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: $fonts-larger;
+      height: $fonts-larger;
+      border: 2px solid var(--mf-c-bd-input);
+      display: inline-flex;
+      
+      @media (forced-colors: active) {
+        display: none;
+      }
+    }
   }
 
+  input:focus ~ label {
+    &:before,
+    &:after {
+      outline: 2px solid var(--mf-c-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  // Focus on native input in high contrast mode
   input:focus {
     @media (forced-colors: active) {
       outline: 2px solid Highlight;
@@ -98,7 +112,14 @@
     }
   }
 
-  input.has-error ~ &__custom {
+  input.has-error ~ label:before,
+  input.has-error ~ label:after {
+    border-color: var(--mf-c-bd-error);
+  }
+
+  // Error state
+  input ~ label.has-error:before,
+  input ~ label.has-error:after {
     border-color: var(--mf-c-bd-error);
   }
 
@@ -106,10 +127,12 @@
   &--disabled {
     label {
       opacity: 0.5;
-    }
-    
-    &__custom {
-      opacity: 0.5;
+      cursor: not-allowed;
+      
+      &:before,
+      &:after {
+        opacity: 0.5;
+      }
     }
     
     svg {
@@ -119,7 +142,7 @@
 
   // Light theme
   .ma__form--light & {
-    &__custom {
+    label:after {
       background-color: rgba($c-bg, 0.1);
       border-color: rgba($c-bd-input, 0.5);
     }
