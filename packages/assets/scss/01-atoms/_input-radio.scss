@@ -4,12 +4,15 @@
 
 .ma__input-radio {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
 
   input {
     position: absolute;
     opacity: 0;
+    width: $fonts-2xlarge;
+    height: $fonts-2xlarge;
+    margin: 0;
     flex-shrink: 0;
     
     // Show native input in high contrast mode
@@ -17,18 +20,22 @@
       position: static;
       opacity: 1;
       appearance: auto;
-      width: 1.4em;
-      height: 1.4em;
+      margin-right: 0.5em;
     }
   }
 
   &__label {
     font-size: $fonts-large;
     font-weight: $fonts-light;
+    line-height: 1.33;  // ratio of $fonts-2xlarge/$fonts-large
+    cursor: pointer;
+    margin: 0;
     display: flex;
-    align-items: center;
-    line-height: 1.33;
-    margin-bottom: 0;
+    align-items: flex-start; 
+    padding-left: calc(#{$fonts-2xlarge} + 0.5rem);
+    position: relative;
+    min-width: 0;      // Allow text to wrap
+    word-wrap: break-word;
 
     &:before {
       content: '';
@@ -37,18 +44,26 @@
       display: inline-block;
       width: $fonts-2xlarge;
       height: $fonts-2xlarge;
-      position: relative;
-      margin-right: 0.25em;
-      vertical-align: top;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(-0.1em); // Align with text baseline
       cursor: pointer;
       text-align: center;
       transition: all 250ms ease;
       background-color: var(--mf-c-bg);
+      flex-shrink: 0;
       
       // Hide custom radio in high contrast mode
       @media (forced-colors: active) {
         display: none;
       }
+    }
+    
+    span {
+      font-size: $fonts-large;
+      flex: 1;
+      min-width: 0; // Allow text to wrap
     }
     
     // Adjust label spacing in high contrast mode
