@@ -95,7 +95,7 @@
     height: 5px;
     transform: skew(-30deg);
     width: 100%;
-    background-color: var(--mf-c-bd-input);
+    background-color: var(--mf-c-bd);
 
     @media ($bp-large-extended-min) {
       display: none;
@@ -105,7 +105,7 @@
   &__image {
 
     img {
-      border: 7px solid var(--mf-c-bd-input);
+      border: 7px solid var(--mf-c-bd);
     }
   }
 
