@@ -14,12 +14,6 @@
       border-right: none;
     }
 
-    &__post-filter {
-      .ma__select-box__link, .ma__select-box__icon {
-        border-color: var(--mf-c-bd);
-      }
-    }
-
     &--responsive {
 
       @media ($bp-medium-max) {
@@ -73,6 +67,11 @@
       height: 100%;
       display: flex;
       align-items: center;
+      border-color: var(--mf-c-bd);;
+    }
+
+    &__icon {
+      border-color: var(--mf-c-bd);;
     }
 
     label {
