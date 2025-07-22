@@ -14,6 +14,12 @@
       border-right: none;
     }
 
+    &__post-filter {
+      .ma__select-box__link, .ma__select-box__icon {
+        border-color: var(--mf-c-bd);
+      }
+    }
+
     &--responsive {
 
       @media ($bp-medium-max) {
