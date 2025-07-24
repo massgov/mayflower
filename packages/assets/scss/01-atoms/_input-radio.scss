@@ -14,9 +14,8 @@
     height: $fonts-2xlarge;
     margin: 0;
     flex-shrink: 0;
-    
-    // Show native input in high contrast mode
-    @media (forced-colors: active) {
+
+    @media (forced-colors: active) { // Show native input in high contrast mode
       position: static;
       opacity: 1;
       appearance: auto;
@@ -31,7 +30,7 @@
     cursor: pointer;
     margin: 0;
     display: flex;
-    align-items: flex-start; 
+    align-items: flex-start;
     padding-left: calc(#{$fonts-2xlarge} + 0.5rem);
     position: relative;
     min-width: 0;      // Allow text to wrap
@@ -53,26 +52,25 @@
       transition: all 250ms ease;
       background-color: var(--mf-c-bg);
       flex-shrink: 0;
-      
-      // Hide custom radio in high contrast mode
-      @media (forced-colors: active) {
+
+      @media (forced-colors: active) { // Hide custom radio in high contrast mode
         display: none;
       }
     }
-    
+
     span {
       font-size: $fonts-large;
       flex: 1;
       min-width: 0; // Allow text to wrap
     }
-    
-    // Adjust label spacing in high contrast mode
-    @media (forced-colors: active) {
+
+    @media (forced-colors: active) { // Adjust label spacing in high contrast mode
       padding-left: 0;
     }
   }
 
   input:checked ~ &__label {
+    
     &:before {
       background-color: var(--mf-c-primary);
       box-shadow: inset 0 0 0 4px var(--mf-c-white);
@@ -80,27 +78,26 @@
   }
 
   input:focus ~ &__label {
+
     &:before {
       outline: 2px solid var(--mf-c-focus);
       outline-offset: 2px;
     }
   }
 
-  // Focus on native input in high contrast mode
-  input:focus {
+  input:focus { // Focus on native input in high contrast mode
+
     @media (forced-colors: active) {
       outline: 2px solid Highlight;
       outline-offset: 2px;
     }
   }
 
-  // patternlab
-  input.has-error ~ &__label:before {
+  input.has-error ~ &__label:before { // patternlab
     border-color: var(--mf-c-bd-error);
   }
 
-  // react
-  input ~ &__label--error, input:checked ~ &__label--error {
+  input ~ &__label--error, input:checked ~ &__label--error { // react
     color: var(--mf-c-error);
 
     &::before {
@@ -109,6 +106,7 @@
   }
 
   input:checked ~ &__label--error {
+
     &::before {
       color: var(--mf-c-error);
     }
@@ -142,10 +140,10 @@ $control-height: 1.2rem;
 .ma__input-radio--outline {
 
   &__control {
+
     @include ma-visually-hidden;
-    
-    // Show native input in high contrast mode
-    @media (forced-colors: active) {
+
+    @media (forced-colors: active) { // Show native input in high contrast mode
       position: static;
       opacity: 1;
       appearance: auto;
@@ -173,9 +171,8 @@ $control-height: 1.2rem;
       top: 50%;
       transform: translateY(-50%);
       border: 1px solid;
-      
-      // Hide custom styling in high contrast mode
-      @media (forced-colors: active) {
+
+      @media (forced-colors: active) { // Hide custom styling in high contrast mode
         display: none;
       }
     }
@@ -190,9 +187,8 @@ $control-height: 1.2rem;
       font-weight: $fonts-bold;
       transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
       border: 1px solid;
-      
-      // Hide custom styling in high contrast mode
-      @media (forced-colors: active) {
+
+      @media (forced-colors: active) { // Hide custom styling in high contrast mode
         display: none;
       }
     }
@@ -202,15 +198,14 @@ $control-height: 1.2rem;
       content: '';
       position: absolute;
     }
-    
-    // Adjust spacing in high contrast mode
-    @media (forced-colors: active) {
+
+    @media (forced-colors: active) { // Adjust spacing in high contrast mode
       padding-left: 0;
     }
   }
 
-  // Focus on native input in high contrast mode for outline variant
-  &__control:focus {
+  &__control:focus { // Focus on native input in high contrast mode for outline variant
+
     @media (forced-colors: active) {
       outline: 2px solid Highlight;
       outline-offset: 2px;

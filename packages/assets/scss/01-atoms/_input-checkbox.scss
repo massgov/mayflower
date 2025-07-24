@@ -13,9 +13,9 @@
     height: $fonts-larger;
     margin: 0;
     flex-shrink: 0;
-    
-    // Show native checkbox in high contrast mode
+
     @media (forced-colors: active) {
+      // Show native checkbox in high contrast mode
       position: static;
       opacity: 1;
       appearance: auto;
@@ -32,14 +32,14 @@
     align-items: flex-start;
     padding-left: calc(#{$fonts-2xlarge} + 0.5rem); // Space for checkbox
     position: relative;
-    
-    // Checkmark using :before pseudo-element with SVG
+
     &:before {
+      // Checkmark using :before pseudo-element with SVG
       content: '';
       position: absolute;
       left: 0;
       top: 0;
-      transform: translateY(-0.1em);     // Small adjustment to align with text baseline
+      transform: translateY(-0.1em); // Small adjustment to align with text baseline
       width: $fonts-2xlarge;
       height: $fonts-2xlarge;
       display: inline-flex;
@@ -50,8 +50,8 @@
       pointer-events: none;
       margin-right: 0.25em;
 
-      // Hide in high contrast mode
       @media (forced-colors: active) {
+        // Hide in high contrast mode
         display: none;
       }
     }
@@ -59,38 +59,44 @@
     span {
       font-size: $fonts-large;
     }
-    
-    // Adjust spacing in high contrast mode
+
     @media (forced-colors: active) {
+      // Adjust spacing in high contrast mode
       padding-left: 0;
     }
   }
 
-  // Icon spacing
   & > svg {
+    // Icon spacing
     height: 24px;
     width: 24px;
     fill: var(--mf-c-primary-alt);
   }
 
-  // States - Show checkmark when checked
   input:checked ~ label {
+    // States - Show checkmark when checked
+
     &:before {
+
       content: url("#{$assets-path}/images/icons/checkmark.svg");
       background-color: var(--mf-c-bg);  // Add background color when checked
     }
   }
 
   input:focus ~ label {
+
     &:before {
+
       outline: 2px solid var(--mf-c-focus);
       outline-offset: 2px;
     }
   }
 
-  // Focus on native input in high contrast mode
   input:focus {
+    // Focus on native input in high contrast mode
+
     @media (forced-colors: active) {
+
       outline: 2px solid Highlight;
       outline-offset: 2px;
     }
@@ -98,35 +104,44 @@
 
   input.has-error ~ label:before,
   input.has-error ~ label:after {
+
     border-color: var(--mf-c-bd-error);
   }
 
-  // Error state
+
   input ~ label.has-error:before,
   input ~ label.has-error:after {
+    // Error state
+
     border-color: var(--mf-c-bd-error);
   }
 
-  // Disabled state
   &--disabled {
+    // Disabled state
+
     label {
+
       opacity: 0.5;
       cursor: not-allowed;
-      
+
       &:before,
       &:after {
+
         opacity: 0.5;
       }
     }
-    
+
     svg {
+
       opacity: 0.5;
     }
   }
 
-  // Light theme
   .ma__form--light & {
+    // Light theme
+
     label:after {
+
       background-color: rgba($c-bg, 0.1);
       border-color: rgba($c-bd-input, 0.5);
     }
