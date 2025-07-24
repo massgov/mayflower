@@ -250,7 +250,7 @@
     .ma__collapsible-content {
 
       @media ($bp-x-large-min) {
-        padding-inline-start: 0;
+        padding-inline-start: 0 !important;
       }
     }
 
