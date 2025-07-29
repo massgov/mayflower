@@ -7,6 +7,7 @@
   &__label {
     display: block;
     font-size: $fonts-large;
+    font-weight: $fonts-normal;
   }
 
   &--optional &__label {
@@ -34,6 +35,8 @@
       left: 0;
     width: 100%;
     z-index: 2;
+    color: var(--mf-c-font-base);
+    font-weight: $fonts-light;
     
     // Show native select in high contrast mode
     @media (forced-colors: active) {
@@ -41,6 +44,52 @@
       position: static;
       height: auto;
       min-height: 40px;
+    }
+
+    &:focus {
+      outline: 2px solid var(--mf-c-focus);
+      outline-offset: 2px;
+
+      /* WebKit gets its native focus styles. */
+      @media (-webkit-min-device-pixel-ratio:0) {
+        outline-style: auto;
+      }
+    
+      // Focus on native select in high contrast mode
+      // @media (forced-colors: active) {
+      //   outline: 2px solid Highlight;
+      // }
+
+      + .ma__select-box__link {
+        outline: 2px solid var(--mf-c-focus);
+        outline-offset: 2px;
+
+        /* WebKit gets its native focus styles. */
+        @media (-webkit-min-device-pixel-ratio:0) {
+          outline-color: -webkit-focus-ring-color;
+        }
+      }
+    }
+
+    &.has-error ~ .ma__select-box__link {
+      border-color: var(--mf-c-bd-error);
+      
+      // Fix error visibility in high contrast mode
+      @media (forced-colors: active) {
+        border-color: Mark;
+        border-width: 3px;
+        outline: 2px solid Mark;
+        outline-offset: 1px;
+      }
+
+      .ma__select-box__icon {
+        border-color: var(--mf-c-bd-error);
+        
+        @media (forced-colors: active) {
+          border-color: Mark;
+          border-width: 3px;
+        }
+      }
     }
   }
 
@@ -55,15 +104,21 @@
     position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
+    background-color: var(--mf-c-bg);
+    border-color: var(--mf-c-bd-input);
     
     // Hide custom link in high contrast mode
     @media (forced-colors: active) {
       display: none;
     }
+
+    .ma__form--light & {
+      background-color: rgba($c-bg,.1);
+      border-color: rgba($c-bd-input,.5);
+    }
   }
 
   &__icon {
-
     @include ma-chevron;
     border-left: 2px solid;
     height: 100%;
@@ -73,6 +128,7 @@
       right: 0;
     text-align: center;
     width: 40px;
+    border-color: var(--mf-c-bd-input);
 
     &:after {
       margin: 0;
@@ -83,70 +139,9 @@
     @media (forced-colors: active) {
       display: none;
     }
-  }
-
-  &__select:focus {
-    outline: 2px solid var(--mf-c-focus);
-    outline-offset: 2px;
-
-    /* WebKit gets its native focus styles. */
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline-style: auto;
-    }
-  
-    // Focus on native select in high contrast mode
-    // @media (forced-colors: active) {
-    //   outline: 2px solid Highlight;
-    // }
-  }
-
-}
-
-//theme
-.ma__select-box {
-
-  &__label {
-    font-weight: $fonts-normal;
-  }
-
-  &__select {
-    color: var(--mf-c-font-base);
-    font-weight: $fonts-light;
-  }
-
-  &__link {
-    background-color: var(--mf-c-bg);
-    border-color: var(--mf-c-bd-input);
-
-    .ma__form--light & {
-      background-color: rgba($c-bg,.1);
-      border-color: rgba($c-bd-input,.5);
-    }
-  }
-
-  &__select.has-error ~ &__link {
-    border-color: var(--mf-c-bd-error);
-  }
-
-  &__icon {
-    border-color: var(--mf-c-bd-input);
 
     .ma__form--light & {
       border-color: rgba($c-bd-input,.5);
-    }
-  }
-
-  &__select.has-error ~ &__link &__icon {
-    border-color: var(--mf-c-bd-error);
-  }
-
-  &__select:focus + &__link {
-    outline: 2px solid var(--mf-c-focus);
-    outline-offset: 2px;
-
-    /* WebKit gets its native focus styles. */
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline-color: -webkit-focus-ring-color;
     }
   }
 
