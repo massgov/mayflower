@@ -63,11 +63,6 @@
       + .ma__select-box__link {
         outline: 2px solid var(--mf-c-focus);
         outline-offset: 2px;
-
-        /* WebKit gets its native focus styles. */
-        @media (-webkit-min-device-pixel-ratio:0) {
-          outline-color: -webkit-focus-ring-color;
-        }
       }
     }
 

@@ -117,7 +117,7 @@
   }
 
   input:focus ~ &__label:after {
-    box-shadow: 0 0 2px 2px var(--mf-c-focus-hightlight);
+    box-shadow: 0 0 2px 2px var(--mf-c-focus);
   }
 
   input:focus ~ &__label--error:before {
