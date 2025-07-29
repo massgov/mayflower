@@ -85,7 +85,7 @@
     }
   }
 
-  &__select:focus + &__link {
+  &__select:focus {
     outline: 2px solid var(--mf-c-focus);
     outline-offset: 2px;
 
@@ -93,15 +93,13 @@
     @media (-webkit-min-device-pixel-ratio:0) {
       outline-style: auto;
     }
+  
+    // Focus on native select in high contrast mode
+    // @media (forced-colors: active) {
+    //   outline: 2px solid Highlight;
+    // }
   }
 
-  // Focus on native select in high contrast mode
-  &__select:focus {
-    @media (forced-colors: active) {
-      outline: 2px solid Highlight;
-      outline-offset: 2px;
-    }
-  }
 }
 
 //theme
