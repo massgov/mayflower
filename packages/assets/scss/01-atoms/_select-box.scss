@@ -25,15 +25,23 @@
   }
 
   &__select {
-    -webkit-appearance: menulist-button;
+    appearance: auto; // Use native select styling
     font-size: $fonts-medium;
     height: 100%;
-    opacity: 0;
+    opacity: 0;  // Hidden in normal mode
     position: absolute;
       top: 0;
       left: 0;
     width: 100%;
     z-index: 2;
+    
+    // Show native select in high contrast mode
+    @media (forced-colors: active) {
+      opacity: 1;
+      position: static;
+      height: auto;
+      min-height: 40px;
+    }
   }
 
   &__link {
@@ -47,6 +55,11 @@
     position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
+    
+    // Hide custom link in high contrast mode
+    @media (forced-colors: active) {
+      display: none;
+    }
   }
 
   &__icon {
@@ -65,23 +78,33 @@
       margin: 0;
       transform: translateY(-2px) rotate(45deg);
     }
+    
+    // Hide custom icon in high contrast mode
+    @media (forced-colors: active) {
+      display: none;
+    }
   }
 
   &__select:focus + &__link {
-    outline-width: 2px;
-    outline-style: solid;
+    outline: 2px solid var(--mf-c-focus);
+    outline-offset: 2px;
 
-    /* WebKit gets its native focus styles.
-     */
-
+    /* WebKit gets its native focus styles. */
     @media (-webkit-min-device-pixel-ratio:0) {
       outline-style: auto;
+    }
+  }
+
+  // Focus on native select in high contrast mode
+  &__select:focus {
+    @media (forced-colors: active) {
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
     }
   }
 }
 
 //theme
-
 .ma__select-box {
 
   &__label {
@@ -120,11 +143,10 @@
   }
 
   &__select:focus + &__link {
-    border-color: Highlight;
+    outline: 2px solid var(--mf-c-focus);
+    outline-offset: 2px;
 
-    /* WebKit gets its native focus styles.
-     */
-
+    /* WebKit gets its native focus styles. */
     @media (-webkit-min-device-pixel-ratio:0) {
       outline-color: -webkit-focus-ring-color;
     }
