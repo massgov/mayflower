@@ -1,23 +1,6 @@
 @use "00-base/configure" as *;
 
 input {
-
-  &.has-error {
-    border-color: var(--mf-c-bd-error);
-  }
-
-  .ma__form--light & {
-    background-color: rgba($c-bg, 0.1);
-    border-color: rgba($c-bd-input,.5);
-    color: var(--mf-c-font-inverse);
-
-    &.has-error {
-      border-color: var(--mf-c-bd-error);
-    }
-  }
-}
-
-input {
   background-color: var(--mf-c-bg);
   border: 2px solid var(--mf-c-bd-input);
   color: var(--mf-c-font-base);
@@ -30,10 +13,38 @@ input {
     min-height: 40px;
   }
 
-  &.has-error:not(:focus) {
-    background-position: center right 10px;
-    background-repeat: no-repeat;
-    padding-right: 40px;
+  &:focus {
+    outline: 2px solid var(--mf-c-focus);
+    outline-offset: 2px;
+    border-color: var(--mf-c-bd-input); // Keep original border color
+  }
+
+  &.has-error {
+    border-color: var(--mf-c-bd-error);
+
+    &:not(:focus) {
+      background-position: center right 10px;
+      background-repeat: no-repeat;
+      padding-right: 40px;
+    }
+
+    // High contrast mode error visibility
+    @media (forced-colors: active) {
+      border-color: Mark;
+      border-width: 3px;
+      outline: 2px solid Mark;
+      outline-offset: 1px;
+    }
+  }
+
+  .ma__form--light & {
+    background-color: rgba($c-bg, 0.1);
+    border-color: rgba($c-bd-input,.5);
+    color: var(--mf-c-font-inverse);
+
+    &.has-error {
+      border-color: var(--mf-c-bd-error);
+    }
   }
 }
 
@@ -59,23 +70,35 @@ input[type=number] {
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  // Removes leftover margin.
   margin: 0;
 }
 
 textarea {
   background-color: var(--mf-c-bg);
   border: 2px solid var(--mf-c-bd-input);
-  outline: none;
   font-size: $fonts-large;
   font-weight: $fonts-light;
   max-width: 100%;
   min-height: 135px;
   padding: 18px;
 
+  &:focus {
+    outline: 2px solid var(--mf-c-focus);
+    outline-offset: 2px;
+    border-color: var(--mf-c-bd-input); // Keep original border color
+  }
+
   &.has-error {
     border-color: var(--mf-c-bd-error);
     border-width: 3px;
+
+    // High contrast mode error visibility
+    @media (forced-colors: active) {
+      border-color: Mark;
+      border-width: 3px;
+      outline: 2px solid Mark;
+      outline-offset: 1px;
+    }
   }
 
   .ma__form--light & {
@@ -97,7 +120,6 @@ label {
   font-weight: $fonts-normal;
 }
 
-
 fieldset {
   border: none;
   margin: 0;
@@ -113,9 +135,7 @@ select {
 
 // override if an input label combo is added directly to the page-content area
 // This is mainly for Pattern Lab
-
 .main-content .page-content > label:not(.ma__label--hidden) {
-
   & + textarea,
   & + .ma__textarea__wrapper,
   & + .ma__input-number,
@@ -135,12 +155,7 @@ select {
   }
 }
 
-:focus {
-  border-color: var(--mf-c-focus);
-}
-
 // Chrome/Opera/Safari.
-
 ::-webkit-input-placeholder {
   color: inherit;
   font-style: italic;
@@ -148,7 +163,6 @@ select {
 }
 
 // Firefox 19+.
-
 ::-moz-placeholder {
   color: inherit;
   font-style: italic;
@@ -156,7 +170,6 @@ select {
 }
 
 // IE 10+.
-
 :-ms-input-placeholder {
   color: inherit;
   font-style: italic;
@@ -164,7 +177,6 @@ select {
 }
 
 // Firefox 18-.
-
 :-moz-placeholder {
   color: inherit;
   font-style: italic;
