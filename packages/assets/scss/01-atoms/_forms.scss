@@ -2,10 +2,6 @@
 
 input {
 
-  &.has-error:not(:focus) {
-    background-image: url('#{$assets-path}/images/icons/input-error.svg');
-  }
-
   &.has-error {
     border-color: var(--mf-c-bd-error);
     border-width: 3px;

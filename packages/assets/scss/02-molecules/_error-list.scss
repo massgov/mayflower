@@ -42,13 +42,17 @@
   &__icon {
     font-size: 0;
     margin-right: 7px;
+    
+    & > svg {
+      width: $fonts-large;
+      height: $fonts-large;
+    }
   }
 
 
   &__messages {
-    font-size: $fonts-smaller;
     margin-bottom: 0;
-    padding-left: 53px;
+    padding-left: 3rem;
   }
 
   &__label {
