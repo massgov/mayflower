@@ -6,16 +6,13 @@
       {{ icon(downloadLink.icon) }}
     </div>
   {% endif %}
-
   <div class="ma__download-link__title">
     {% if downloadLink.format == "form" %}
       {% set decorativeLink = downloadLink.decorativeLink %}
       {% include "@atoms/decorative-link.twig" %}
     {% else %}
       <a
-              {% if downloadLink.inlineLinks.document_id %}
-                id="{{ downloadLink.inlineLinks.document_id }}"
-              {% endif %}
+              id="{{ downloadLink.main_link_id }}"
               class="ma__download-link__file-link"
               href="{{ downloadLink.decorativeLink.href }}">
         <span class="ma__visually-hidden">
@@ -23,13 +20,6 @@
         </span>
         {{ downloadLink.decorativeLink.text }}
       </a>
-
-      {% if downloadLink.inlineLinks.document_title %}
-        <span id="{{ downloadLink.inlineLinks.document_id }}" class="ma__visually-hidden">
-          {{ downloadLink.inlineLinks.document_title }}
-        </span>
-      {% endif %}
-
       {% if downloadLink.format or downloadLink.size or downloadLink.language %}
         <span class="ma__download-link__file-spec">
           ({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})
@@ -37,12 +27,16 @@
       {% endif %}
     {% endif %}
 
+    {# Clean hidden document title span for screen readers ONLY #}
+    <span id="{{ downloadLink.document_id }}" class="ma__visually-hidden">
+      {{ downloadLink.document_title }}
+    </span>
+
     {% if downloadLink.inlineLinks %}
       {% set inlineLinks = downloadLink.inlineLinks %}
       {% include "@organisms/by-author/inline-links-language.twig" %}
     {% endif %}
   </div>
-
   {% if downloadLink.description %}
     {% set richText = downloadLink.description %}
     <div class="ma__download-link__description">
