@@ -7,9 +7,16 @@
   function openPopup(popupRoot) {
     closePopup();
     activePopup = popupRoot;
-    ensurePositioning();
+    
+    // Add the open class first
     activePopup.classList.add("popover--open");
-    activePopup.querySelector(".js-popover-close").focus();
+    
+    // Position after the element is visible
+    requestAnimationFrame(() => {
+      ensurePositioning();
+      activePopup.querySelector(".js-popover-close").focus();
+    });
+    
     activePopup.addEventListener("focusout", onFocusOut);
     activePopup.addEventListener("keydown", onKeyDown);
   }
@@ -63,59 +70,87 @@
     }
   }
 
-  // Adjusts the position of the popup to be in the viewport and within containers
+  // Positions the popover relative to the trigger using fixed positioning
   function ensurePositioning() {
     const dialog = activePopup.querySelector(".js-popover-dialog");
-    dialog.style.translate = "";
-    dialog.style.maxWidth = "";
+    const caret = activePopup.querySelector(".js-popover-caret");
+    const trigger = activePopup.querySelector(".js-popover-trigger");
     
-    const position = dialog.getBoundingClientRect();
+    // Get trigger position relative to viewport
+    const triggerRect = trigger.getBoundingClientRect();
+    const dialogRect = dialog.getBoundingClientRect();
     
-    // Find the closest scrollable container or table
-    const container = findConstrainingContainer(activePopup);
-    const containerRect = container ? container.getBoundingClientRect() : {
-      left: 0,
-      right: document.documentElement.clientWidth,
-      width: document.documentElement.clientWidth
+    // Calculate preferred position (centered below trigger)
+    const gap = 16; // Gap between trigger and dialog
+    let dialogLeft = triggerRect.left + (triggerRect.width / 2) - (dialogRect.width / 2);
+    let dialogTop = triggerRect.bottom + gap;
+    
+    // Viewport boundaries
+    const viewport = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+      scrollY: window.scrollY
     };
-
-    // Calculate available space
-    const availableWidth = containerRect.width - 32; // 16px padding on each side
-    const popoverWidth = Math.min(position.width, availableWidth);
     
-    // Set max width if popover is wider than container
-    if (position.width > availableWidth) {
-      dialog.style.maxWidth = `${availableWidth}px`;
+    const margin = 16; // Margin from viewport edges
+    
+    // Horizontal positioning - keep within viewport
+    const minLeft = margin;
+    const maxLeft = viewport.width - dialogRect.width - margin;
+    
+    if (dialogLeft < minLeft) {
+      dialogLeft = minLeft;
+    } else if (dialogLeft > maxLeft) {
+      dialogLeft = maxLeft;
     }
-
-    // Check horizontal positioning relative to container
-    const leftOverflow = position.left - containerRect.left;
-    const rightOverflow = position.right - containerRect.right;
-
-    let translateX = "-50%"; // Default center alignment
-
-    if (leftOverflow < 16) {
-      // Too far left, align to container left edge with padding
-      const adjustment = Math.abs(leftOverflow) + 16;
-      translateX = `calc(-50% + ${adjustment}px)`;
-    } else if (rightOverflow > -16) {
-      // Too far right, align to container right edge with padding
-      const adjustment = rightOverflow + 16;
-      translateX = `calc(-50% - ${adjustment}px)`;
+    
+    // Vertical positioning - flip if no space below
+    const spaceBelow = viewport.height - (triggerRect.bottom + gap);
+    const spaceAbove = triggerRect.top - gap;
+    
+    let caretTop = dialogTop - 8; // Position caret just above dialog
+    let flipped = false;
+    
+    if (dialogRect.height > spaceBelow && spaceAbove > spaceBelow) {
+      // Flip to above trigger
+      dialogTop = triggerRect.top - dialogRect.height - gap;
+      caretTop = triggerRect.top - 8; // Position caret just below trigger
+      flipped = true;
+      
+      // Update transform origin for flipped state
+      dialog.style.transformOrigin = 'bottom center';
+    } else {
+      // Keep below trigger
+      dialog.style.transformOrigin = 'top center';
+      
+      // If still doesn't fit, adjust max-height
+      if (dialogTop + dialogRect.height > viewport.height - margin) {
+        const maxHeight = viewport.height - dialogTop - margin;
+        dialog.style.maxHeight = `${maxHeight}px`;
+        dialog.style.overflowY = 'auto';
+      }
     }
-
-    // Also check viewport boundaries as fallback
-    if (position.left < 0) {
-      const overflow = Math.abs(position.left);
-      translateX = `calc(-50% + 1rem + ${overflow}px)`;
+    
+    // Calculate caret position (always centered on trigger)
+    const caretLeft = triggerRect.left + (triggerRect.width / 2) - 8; // 8px = half caret width
+    
+    // Apply positioning using CSS custom properties
+    dialog.style.setProperty('--popover-x', `${dialogLeft}px`);
+    dialog.style.setProperty('--popover-y', `${dialogTop}px`);
+    
+    if (caret) {
+      caret.style.setProperty('--caret-x', `${caretLeft}px`);
+      caret.style.setProperty('--caret-y', `${caretTop}px`);
+      
+      // Flip caret if dialog is flipped
+      if (flipped) {
+        caret.style.rotate = '135deg'; // Point upward
+        caret.style.clipPath = 'polygon(0 100%, 100% 0, 0 0)';
+      } else {
+        caret.style.rotate = '-45deg'; // Point downward
+        caret.style.clipPath = 'polygon(0 0, 100% 100%, 100% 0)';
+      }
     }
-
-    if (position.right > document.documentElement.clientWidth) {
-      const overflow = position.right - document.documentElement.clientWidth;
-      translateX = `calc(-50% - 1rem - ${overflow}px)`;
-    }
-
-    dialog.style.translate = `${translateX} 0`;
   }
 
   // Find the closest constraining container (table, scrollable element, etc.)
@@ -160,8 +195,14 @@
     }
   });
 
-  // Reposition on window resize
+  // Reposition on window resize and scroll
   window.addEventListener('resize', function() {
+    if (activePopup) {
+      ensurePositioning();
+    }
+  });
+  
+  window.addEventListener('scroll', function() {
     if (activePopup) {
       ensurePositioning();
     }

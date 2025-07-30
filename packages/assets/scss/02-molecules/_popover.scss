@@ -33,15 +33,27 @@
     /* stylelint-disable-next-line */
     max-width: min(480px, calc(100svw - 2rem));
     font-size: clamp($fonts-small, 1em, $fonts-large);
-    position: absolute;
-    inset: calc(100% + 1rem) auto auto 50%;
-    translate: -50% 0;
+    
+    // Use fixed positioning to escape table flow
+    position: fixed;
+    z-index: $z-skyline;
+    
+    // Will be positioned by JavaScript
+    left: var(--popover-x, 0);
+    top: var(--popover-y, 0);
+    
+    // Hide by default
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.8);
+    transform-origin: top center;
+    
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto 2.75rem;
     grid-template-areas: "title close" "content content";
     box-shadow: 0 0.75rem 3rem rgba(0,0,0,0.16);
-    visibility: hidden;
+    // visibility: hidden;
     z-index: $z-skyline;
   }
 
@@ -53,11 +65,11 @@
     height: 1rem;
     rotate: -45deg;
     clip-path: polygon(0 0, 100% 100%, 100% 0);
-    position: absolute;
-    inset: calc(100% + 0.56rem) auto auto 50%;
-    translate: -50% 0;
+    
+    // Also use fixed positioning
+    position: fixed;
     z-index: $z-skyline;
-    visibility: hidden;
+    // visibility: hidden;
   }
 
   &__close {
@@ -77,11 +89,9 @@
     }
 
     &:hover {
-
       svg {
         fill: var(--mf-c-primary-light);
       }
-      // background-color: $c-gray-lightest;
     }
   }
 
@@ -102,10 +112,11 @@
   }
 
   &--open {
-
     .popover__dialog,
     .popover__caret {
       visibility: visible;
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }
