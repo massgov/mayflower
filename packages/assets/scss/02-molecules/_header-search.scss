@@ -3,8 +3,6 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
 @use "00-base/configure" as *;
 
-@use "01-atoms/input" as *;
-
 .ma__header-search {
   display: inline-block;
   max-width: 560px;
@@ -18,7 +16,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
   &__input {
 
-    @extend .ma__input;
+    @include input-base;
     font-size: $fonts-medium;
     height: $header-search-height;
     padding-right: 128px;
