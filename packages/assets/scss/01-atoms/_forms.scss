@@ -31,9 +31,6 @@ input {
     // High contrast mode error visibility
     @media (forced-colors: active) {
       border-color: Mark;
-      border-width: 3px;
-      outline: 2px solid Mark;
-      outline-offset: 1px;
     }
   }
 
@@ -90,14 +87,10 @@ textarea {
 
   &.has-error {
     border-color: var(--mf-c-bd-error);
-    border-width: 3px;
 
     // High contrast mode error visibility
     @media (forced-colors: active) {
       border-color: Mark;
-      border-width: 3px;
-      outline: 2px solid Mark;
-      outline-offset: 1px;
     }
   }
 

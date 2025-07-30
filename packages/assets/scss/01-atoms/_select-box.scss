@@ -37,6 +37,7 @@
     z-index: 2;
     color: var(--mf-c-font-base);
     font-weight: $fonts-light;
+    border-width: 2px;
     
     // Show native select in high contrast mode
     @media (forced-colors: active) {
@@ -44,6 +45,7 @@
       position: static;
       height: auto;
       min-height: 40px;
+      padding-left: 0.25rem;
     }
 
     &:focus {
@@ -56,9 +58,9 @@
       }
     
       // Focus on native select in high contrast mode
-      // @media (forced-colors: active) {
-      //   outline: 2px solid Highlight;
-      // }
+      @media (forced-colors: active) {
+        outline: 2px solid Highlight;
+      }
 
       + .ma__select-box__link {
         outline: 2px solid var(--mf-c-focus);
@@ -66,15 +68,12 @@
       }
     }
 
-    &.has-error ~ .ma__select-box__link {
+    &.has-error  {
       border-color: var(--mf-c-bd-error);
       
       // Fix error visibility in high contrast mode
       @media (forced-colors: active) {
         border-color: Mark;
-        border-width: 3px;
-        outline: 2px solid Mark;
-        outline-offset: 1px;
       }
 
       .ma__select-box__icon {
