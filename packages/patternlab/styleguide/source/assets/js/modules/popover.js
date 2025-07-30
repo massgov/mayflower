@@ -13,7 +13,7 @@
     
     // Position after the element is visible
     requestAnimationFrame(() => {
-      ensurePositioning();
+      positionDialog();
       activePopup.querySelector(".js-popover-close").focus();
     });
     
@@ -71,7 +71,7 @@
   }
 
   // Positions the popover relative to the trigger using fixed positioning
-  function ensurePositioning() {
+  function positionDialog() {
     const dialog = activePopup.querySelector(".js-popover-dialog");
     const caret = activePopup.querySelector(".js-popover-caret");
     const trigger = activePopup.querySelector(".js-popover-trigger");
@@ -153,32 +153,6 @@
     }
   }
 
-  // Find the closest constraining container (table, scrollable element, etc.)
-  function findConstrainingContainer(element) {
-    let parent = element.parentElement;
-    
-    while (parent && parent !== document.body) {
-      const style = window.getComputedStyle(parent);
-      
-      // Check if it's a table or has overflow constraints
-      if (
-        parent.tagName === 'TABLE' ||
-        parent.classList.contains('ma__table--responsive') ||
-        parent.classList.contains('dataTable') ||
-        style.overflow === 'auto' ||
-        style.overflow === 'scroll' ||
-        style.overflowX === 'auto' ||
-        style.overflowX === 'scroll'
-      ) {
-        return parent;
-      }
-      
-      parent = parent.parentElement;
-    }
-    
-    return null;
-  }
-
   // Handles opening and closing the popup on mouse/pointer/keyboard clicks.
   document.addEventListener("click", function (event) {
     if (event.target.classList.contains("js-popover-trigger")) {
@@ -198,13 +172,13 @@
   // Reposition on window resize and scroll
   window.addEventListener('resize', function() {
     if (activePopup) {
-      ensurePositioning();
+      positionDialog();
     }
   });
   
   window.addEventListener('scroll', function() {
     if (activePopup) {
-      ensurePositioning();
+      positionDialog();
     }
   });
 })();

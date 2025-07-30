@@ -53,8 +53,8 @@
     grid-template-columns: auto 2.75rem;
     grid-template-areas: "title close" "content content";
     box-shadow: 0 0.75rem 3rem rgba(0,0,0,0.16);
-    // visibility: hidden;
     z-index: $z-skyline;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   }
 
   &__caret {
@@ -69,7 +69,17 @@
     // Also use fixed positioning
     position: fixed;
     z-index: $z-skyline;
-    // visibility: hidden;
+    
+    // Will be positioned by JavaScript
+    left: var(--caret-x, 0);
+    top: var(--caret-y, 0);
+    
+    // Hide by default (same as dialog)
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.8);
+    
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   }
 
   &__close {
