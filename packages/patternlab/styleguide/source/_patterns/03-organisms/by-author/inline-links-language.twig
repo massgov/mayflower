@@ -1,16 +1,23 @@
-{% if inlineLinks and inlineLinks.links %}
-    <div class="ma__inline-links">
-        <ul class="ma__inline-links__container" aria-label="{{ inlineLinks.ariaLabel }}">
+{% if inlineLinks.links %}
+    <div class="ma__inline-links {{ (inlineLinks.background)?"ma__inline-links--bg-"~inlineLinks.background:"" }}">
+        <ul class="ma__inline-links__container" {% if inlineLinks.ariaLabel %} aria-label="{{ inlineLinks.ariaLabel }}"{% endif %}>
             {% for link in inlineLinks.links %}
                 <li class="ma__inline-links__item">
-                    <a id="{{ link.translation_id }}"
-                       href="{{ link.href }}"
-                       aria-labelledby="{{ link.translation_id }} {{ link.document_id }}"
-                            {% if link.lang_label %}
-                        data-label="{{ link.lang_label }}"
-                            {% endif %}>
-                        {{ link.text }}
-                    </a>
+                    {% if link.href %}
+                        <a href="{{ link.href }}"
+                           title="{{ link.info }}"
+                           data-label="{{ link.lang_label }}"
+                           {% if link.translation_id and link.document_id %}aria-labelledby="{{ link.translation_id }} {{ link.document_id }}"{% endif %}
+                                {% if link.translation_id %}id="{{ link.translation_id }}"{% endif %}>
+                            {{ link.text }}
+                        </a>
+                    {% else %}
+                        <span title="{{ link.info }}"
+                              data-label="{{ link.lang_label }}"
+                              {% if link.translation_id %}id="{{ link.translation_id }}"{% endif %}>
+              {{ link.text }}
+            </span>
+                    {% endif %}
                 </li>
             {% endfor %}
             <li class="ma__inline-links__item lang-toggle-container">
