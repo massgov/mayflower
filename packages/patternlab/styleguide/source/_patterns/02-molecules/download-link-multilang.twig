@@ -1,4 +1,3 @@
-
 {% set sizeClass = downloadLink.iconSize ? "ma__download-link--" ~ downloadLink.iconSize : "" %}
 
 <div class="ma__download-link {{ sizeClass }}">
@@ -7,27 +6,43 @@
       {{ icon(downloadLink.icon) }}
     </div>
   {% endif %}
+
   <div class="ma__download-link__title">
     {% if downloadLink.format == "form" %}
       {% set decorativeLink = downloadLink.decorativeLink %}
       {% include "@atoms/decorative-link.twig" %}
     {% else %}
       <a
-              {% if downloadLink.inlineLinks.document_id %}id="{{ downloadLink.inlineLinks.document_id }}"{% endif %}
+              {% if downloadLink.inlineLinks.document_id %}
+                id="{{ downloadLink.inlineLinks.document_id }}"
+              {% endif %}
               class="ma__download-link__file-link"
-              href="{{ downloadLink.decorativeLink.href}}">
-        <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
+              href="{{ downloadLink.decorativeLink.href }}">
+        <span class="ma__visually-hidden">
+          Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;
+        </span>
         {{ downloadLink.decorativeLink.text }}
       </a>
+
+      {% if downloadLink.inlineLinks.document_title %}
+        <span id="{{ downloadLink.inlineLinks.document_id }}" class="ma__visually-hidden">
+          {{ downloadLink.inlineLinks.document_title }}
+        </span>
+      {% endif %}
+
       {% if downloadLink.format or downloadLink.size or downloadLink.language %}
-        <span class="ma__download-link__file-spec">({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})</span>
+        <span class="ma__download-link__file-spec">
+          ({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})
+        </span>
       {% endif %}
     {% endif %}
+
     {% if downloadLink.inlineLinks %}
       {% set inlineLinks = downloadLink.inlineLinks %}
       {% include "@organisms/by-author/inline-links-language.twig" %}
     {% endif %}
   </div>
+
   {% if downloadLink.description %}
     {% set richText = downloadLink.description %}
     <div class="ma__download-link__description">
