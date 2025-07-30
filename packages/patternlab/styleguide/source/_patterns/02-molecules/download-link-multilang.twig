@@ -1,3 +1,4 @@
+
 {% set sizeClass = downloadLink.iconSize ? "ma__download-link--" ~ downloadLink.iconSize : "" %}
 
 <div class="ma__download-link {{ sizeClass }}">
@@ -12,6 +13,7 @@
             {% include "@atoms/decorative-link.twig" %}
         {% else %}
             <a
+                    {% if downloadLink.inlineLinks.document_id %}id="{{ downloadLink.inlineLinks.document_id }}"{% endif %}
                     class="ma__download-link__file-link"
                     href="{{ downloadLink.decorativeLink.href}}">
                 <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
@@ -21,12 +23,6 @@
                 <span class="ma__download-link__file-spec">({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})</span>
             {% endif %}
         {% endif %}
-
-        {# Add visually hidden title span for accessibility #}
-        {% if downloadLink.document_id and downloadLink.document_title %}
-            <span id="{{ downloadLink.document_id }}" class="ma__visually-hidden">{{ downloadLink.document_title }}</span>
-        {% endif %}
-
         {% if downloadLink.inlineLinks %}
             {% set inlineLinks = downloadLink.inlineLinks %}
             {% include "@organisms/by-author/inline-links-language.twig" %}
