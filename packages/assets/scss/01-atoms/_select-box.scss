@@ -40,6 +40,7 @@
     border-width: 2px;
     
     // Show native select in high contrast mode
+
     @media (forced-colors: active) {
       opacity: 1;
       position: static;
@@ -53,11 +54,13 @@
       outline-offset: 2px;
 
       /* WebKit gets its native focus styles. */
+
       @media (-webkit-min-device-pixel-ratio:0) {
         outline-style: auto;
       }
     
       // Focus on native select in high contrast mode
+
       @media (forced-colors: active) {
         outline: 2px solid Highlight;
       }
@@ -68,10 +71,11 @@
       }
     }
 
-    &.has-error  {
+    &.has-error {
       border-color: var(--mf-c-bd-error);
       
       // Fix error visibility in high contrast mode
+
       @media (forced-colors: active) {
         border-color: Mark;
       }
@@ -102,6 +106,7 @@
     border-color: var(--mf-c-bd-input);
     
     // Hide custom link in high contrast mode
+
     @media (forced-colors: active) {
       display: none;
     }
@@ -113,6 +118,7 @@
   }
 
   &__icon {
+
     @include ma-chevron;
     border-left: 2px solid;
     height: 100%;
@@ -130,6 +136,7 @@
     }
     
     // Hide custom icon in high contrast mode
+
     @media (forced-colors: active) {
       display: none;
     }

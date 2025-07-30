@@ -78,6 +78,7 @@
     border-color: var(--mf-c-bd-error);
     color: var(--mf-c-font-error);
     // High contrast mode error visibility
+
     @media (forced-colors: active) {
       color: Mark;
     }
@@ -92,6 +93,7 @@
     color: var(--mf-c-font-error);
     font-weight: $fonts-light;
     // High contrast mode error visibility
+
     @media (forced-colors: active) {
       color: Mark;
     }

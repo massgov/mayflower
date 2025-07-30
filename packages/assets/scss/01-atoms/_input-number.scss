@@ -8,6 +8,7 @@
     padding-right: 58px;
 
     // Show native number input controls in high contrast mode
+
     @media (forced-colors: active) {
       padding-right: 0;          // Remove space for custom buttons
       -webkit-appearance: auto;   // Show native spinner controls
@@ -17,6 +18,7 @@
 
   &__plus,
   &__minus {
+
     @include ma-button-reset;
     border-style: solid;
     border-width: 2px;
@@ -29,6 +31,7 @@
     width: 40px;
 
     // Hide custom controls in high contrast mode
+
     @media (forced-colors: active) {
       display: none;
     }
@@ -38,6 +41,7 @@
       border-bottom-width: 1px;
 
       // Use outline instead of border for focus in high contrast
+
       @media (forced-colors: active) {
         outline: 2px solid Highlight;
         outline-offset: 2px;
@@ -62,6 +66,7 @@
       width: 0;
 
       // Hide triangle in high contrast mode
+
       @media (forced-colors: active) {
         display: none;
       }
@@ -83,6 +88,7 @@
 }
 
 //theme
+
 .ma__input-number {
 
   &__plus,
