@@ -1,12 +1,24 @@
 {% if inlineLinks.links %}
-    <div class="ma__inline-links {{ (inlineLinks.background)?"ma__inline-links--bg-"~inlineLinks.background:"" }}">
-        <ul class="ma__inline-links__container" {% if inlineLinks.ariaLabel %} aria-label="{{ inlineLinks.ariaLabel }} {% endif %}">
+    <div class="ma__inline-links {{ (inlineLinks.background) ? "ma__inline-links--bg-" ~ inlineLinks.background : "" }}">
+        <ul class="ma__inline-links__container" {% if inlineLinks.ariaLabel %} aria-label="{{ inlineLinks.ariaLabel }}"{% endif %}>
+            {% set document_titles = {} %}
+            {# Gather document_ids and corresponding titles for later rendering #}
+            {% for link in inlineLinks.links %}
+                {% set document_titles = document_titles | merge({ (link.document_id) : link.text }) %}
+            {% endfor %}
             {% for link in inlineLinks.links %}
                 <li class="ma__inline-links__item">
                     {% if link.href %}
-                        <a href="{{ link.href }}" title="{{ link.info }}" data-label="{{ link.lang_label }}">{{ link.text }}</a>
+                        <a
+                                id="{{ link.translation_id }}"
+                                href="{{ link.href }}"
+                                aria-labelledby="{{ link.translation_id }} {{ link.document_id }}"
+                                data-label="{{ link.lang_label }}"
+                        >
+                            {{ link.text }}
+                        </a>
                     {% else %}
-                        <span title="{{ link.info }}" data-label="{{ link.lang_label }}"> {{ link.text }} </span>
+                        <span>{{ link.text }}</span>
                     {% endif %}
                 </li>
             {% endfor %}
@@ -14,5 +26,9 @@
                 <a href="#" class="lang-toggle">Translate labels</a>
             </li>
         </ul>
+        {# Render hidden document title spans once per unique document ID #}
+        {% for document_id, doc_title in document_titles %}
+            <span id="{{ document_id }}" class="visually-hidden">{{ doc_title }}</span>
+        {% endfor %}
     </div>
 {% endif %}
