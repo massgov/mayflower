@@ -1,4 +1,3 @@
-
 {% set sizeClass = downloadLink.iconSize ? "ma__download-link--" ~ downloadLink.iconSize : "" %}
 
 <div class="ma__download-link {{ sizeClass }}">
@@ -8,6 +7,11 @@
     </div>
   {% endif %}
   <div class="ma__download-link__title">
+    {# Add visually-hidden document title label for accessibility #}
+    {% if downloadLink.inlineLinks and downloadLink.inlineLinks.document_title %}
+      <span id="{{ downloadLink.inlineLinks.document_id }}-label" class="ma__visually-hidden">{{ downloadLink.inlineLinks.document_title }}</span>
+    {% endif %}
+
     {% if downloadLink.format == "form" %}
       {% set decorativeLink = downloadLink.decorativeLink %}
       {% include "@atoms/decorative-link.twig" %}
