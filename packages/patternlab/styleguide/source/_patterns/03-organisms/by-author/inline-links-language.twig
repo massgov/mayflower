@@ -27,8 +27,6 @@
             </li>
         </ul>
         {# Render hidden document title spans once per unique document ID #}
-        {% for document_id, doc_title in document_titles %}
-            <span id="{{ document_id }}" class="visually-hidden">{{ doc_title }}</span>
-        {% endfor %}
+            <span id="test" class="visually-hidden">test</span>
     </div>
 {% endif %}
