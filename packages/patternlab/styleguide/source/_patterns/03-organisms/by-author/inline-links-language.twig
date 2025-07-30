@@ -5,7 +5,7 @@
                 <li class="ma__inline-links__item">
                     <a {% if link.translation_id %}id="{{ link.translation_id }}"{% endif %}
                        href="{{ link.href }}"
-                            {% if link.aria_labelledby %}aria-labelledby="{{ link.aria_labelledby }}"{% endif %}
+                            {% if link.translation_id and link.document_id %}aria-labelledby="{{ link.translation_id }} {{ link.document_id }}"{% endif %}
                             {% if link.lang_label %}data-label="{{ link.lang_label }}"{% endif %}>
                         {{ link.text }}
                     </a>
