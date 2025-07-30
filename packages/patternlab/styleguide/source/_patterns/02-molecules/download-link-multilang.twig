@@ -28,10 +28,11 @@
       {% endif %}
     {% endif %}
 
-    {# Clean hidden document title span for screen readers ONLY (outside the main link) #}
-    <span id="{{ downloadLink.document_id }}" class="ma__visually-hidden">
-      {{ downloadLink.document_title }}
-    </span>
+    {% if downloadLink.document_id and downloadLink.document_title %}
+      <span id="{{ downloadLink.document_id }}" class="ma__visually-hidden">
+        {{ downloadLink.document_title }}
+      </span>
+    {% endif %}
 
     {% if downloadLink.inlineLinks %}
       {% set inlineLinks = downloadLink.inlineLinks %}
