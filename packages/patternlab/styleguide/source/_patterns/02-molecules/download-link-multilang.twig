@@ -20,6 +20,7 @@
         </span>
         {{ downloadLink.decorativeLink.text }}
       </a>
+
       {% if downloadLink.format or downloadLink.size or downloadLink.language %}
         <span class="ma__download-link__file-spec">
           ({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})
@@ -27,7 +28,7 @@
       {% endif %}
     {% endif %}
 
-    {# Clean hidden document title span for screen readers ONLY #}
+    {# Clean hidden document title span for screen readers ONLY (outside the main link) #}
     <span id="{{ downloadLink.document_id }}" class="ma__visually-hidden">
       {{ downloadLink.document_title }}
     </span>
@@ -37,6 +38,7 @@
       {% include "@organisms/by-author/inline-links-language.twig" %}
     {% endif %}
   </div>
+
   {% if downloadLink.description %}
     {% set richText = downloadLink.description %}
     <div class="ma__download-link__description">
