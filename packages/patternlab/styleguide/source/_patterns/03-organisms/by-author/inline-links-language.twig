@@ -4,10 +4,12 @@
             {% for link in inlineLinks.links %}
                 <li class="ma__inline-links__item">
                     {% if link.href %}
-                        <a href="{{ link.href }}" title="{{ link.info }}" data-label="{{ link.lang_label }}"
+                        <a href="{{ link.href }}" 
+                           title="{{ link.info }}" 
+                           data-label="{{ link.lang_label }}"
                            {% if link.id %}id="{{ link.id }}"{% endif %}
-                                {% if link.aria_labelledby %}aria-labelledby="{{ link.aria_labelledby }}"{% endif %}
-                                {% if link.lang %}lang="{{ link.lang }}"{% endif %}>{{ link.text }}</a>
+                           {% if link.aria_labelledby %}aria-labelledby="{{ link.aria_labelledby }}"{% endif %}
+                           {% if link.lang %}lang="{{ link.lang }}"{% endif %}>{{ link.text }}</a>
                     {% else %}
                         <span title="{{ link.info }}" data-label="{{ link.lang_label }}"> {{ link.text }} </span>
                     {% endif %}
