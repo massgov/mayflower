@@ -5,6 +5,7 @@
   position: relative;
 
   input {
+    @include input-base;
     padding-right: 58px;
 
     // Show native number input controls in high contrast mode
