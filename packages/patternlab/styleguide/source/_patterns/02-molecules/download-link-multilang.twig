@@ -1,3 +1,4 @@
+
 {% set sizeClass = downloadLink.iconSize ? "ma__download-link--" ~ downloadLink.iconSize : "" %}
 
 <div class="ma__download-link {{ sizeClass }}">
@@ -7,43 +8,26 @@
         </div>
     {% endif %}
     <div class="ma__download-link__title">
-
-        {# ——— Hidden label span for aria-labelledby ——— #}
-        {% if downloadLink.inlineLinks.document_id %}
-            <span id="{{ downloadLink.inlineLinks.document_id }}" class="ma__visually-hidden">
-                {{ downloadLink.decorativeLink.text }}
-            </span>
-        {% endif %}
-
-        {# ——— Main link ——— #}
         {% if downloadLink.format == "form" %}
             {% set decorativeLink = downloadLink.decorativeLink %}
             {% include "@atoms/decorative-link.twig" %}
         {% else %}
             <a
+                    {% if downloadLink.inlineLinks.document_id %}id="{{ downloadLink.inlineLinks.document_id }}"{% endif %}
                     class="ma__download-link__file-link"
-                    href="{{ downloadLink.decorativeLink.href }}">
-                <span class="ma__visually-hidden">
-                    Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;
-                </span>
+                    href="{{ downloadLink.decorativeLink.href}}">
+                <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
                 {{ downloadLink.decorativeLink.text }}
             </a>
             {% if downloadLink.format or downloadLink.size or downloadLink.language %}
-                <span class="ma__download-link__file-spec">
-                    ({{ downloadLink.language ? downloadLink.language ~ ', ' : '' }}
-                    {{ downloadLink.format }} {{ downloadLink.size }})
-                </span>
+                <span class="ma__download-link__file-spec">({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})</span>
             {% endif %}
         {% endif %}
-
-        {# ——— Translation inline links ——— #}
         {% if downloadLink.inlineLinks %}
             {% set inlineLinks = downloadLink.inlineLinks %}
             {% include "@organisms/by-author/inline-links-language.twig" %}
         {% endif %}
     </div>
-
-    {# ——— Optional description ——— #}
     {% if downloadLink.description %}
         {% set richText = downloadLink.description %}
         <div class="ma__download-link__description">
