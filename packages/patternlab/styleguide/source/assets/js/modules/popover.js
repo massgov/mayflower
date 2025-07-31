@@ -80,16 +80,15 @@
     const triggerRect = trigger.getBoundingClientRect();
     const dialogRect = dialog.getBoundingClientRect();
     
-    // Calculate preferred position (centered below trigger)
+    // Calculate position (always below trigger)
     const gap = 16; // Gap between trigger and dialog
     let dialogLeft = triggerRect.left + (triggerRect.width / 2) - (dialogRect.width / 2);
-    let dialogTop = triggerRect.bottom + gap;
+    const dialogTop = triggerRect.bottom + gap;
     
     // Viewport boundaries
     const viewport = {
       width: window.innerWidth,
-      height: window.innerHeight,
-      scrollY: window.scrollY
+      height: window.innerHeight
     };
     
     const margin = 16; // Margin from viewport edges
@@ -104,35 +103,25 @@
       dialogLeft = maxLeft;
     }
     
-    // Vertical positioning - flip if no space below
-    const spaceBelow = viewport.height - (triggerRect.bottom + gap);
-    const spaceAbove = triggerRect.top - gap;
+    // Always position below - no flipping
+    dialog.style.transformOrigin = 'top center';
     
-    let caretTop = dialogTop - 8; // Position caret just above dialog
-    let flipped = false;
-    
-    if (dialogRect.height > spaceBelow && spaceAbove > spaceBelow) {
-      // Flip to above trigger
-      dialogTop = triggerRect.top - dialogRect.height - gap;
-      caretTop = triggerRect.top - 8; // Position caret just below trigger
-      flipped = true;
-      
-      // Update transform origin for flipped state
-      dialog.style.transformOrigin = 'bottom center';
-    } else {
-      // Keep below trigger
-      dialog.style.transformOrigin = 'top center';
-      
-      // If still doesn't fit, adjust max-height
-      if (dialogTop + dialogRect.height > viewport.height - margin) {
-        const maxHeight = viewport.height - dialogTop - margin;
+    // If dialog would go below viewport, adjust max-height to fit
+    if (dialogTop + dialogRect.height > viewport.height - margin) {
+      const maxHeight = viewport.height - dialogTop - margin;
+      if (maxHeight > 100) { // Only apply if there's reasonable space
         dialog.style.maxHeight = `${maxHeight}px`;
         dialog.style.overflowY = 'auto';
       }
+    } else {
+      // Reset max-height if not needed
+      dialog.style.maxHeight = '';
+      dialog.style.overflowY = '';
     }
     
-    // Calculate caret position (always centered on trigger)
+    // Calculate caret position (always above dialog, centered on trigger)
     const caretLeft = triggerRect.left + (triggerRect.width / 2) - 8; // 8px = half caret width
+    const caretTop = dialogTop - 8; // Position caret just above dialog
     
     // Apply positioning using CSS custom properties
     dialog.style.setProperty('--popover-x', `${dialogLeft}px`);
@@ -142,14 +131,9 @@
       caret.style.setProperty('--caret-x', `${caretLeft}px`);
       caret.style.setProperty('--caret-y', `${caretTop}px`);
       
-      // Flip caret if dialog is flipped
-      if (flipped) {
-        caret.style.rotate = '135deg'; // Point upward
-        caret.style.clipPath = 'polygon(0 100%, 100% 0, 0 0)';
-      } else {
-        caret.style.rotate = '-45deg'; // Point downward
-        caret.style.clipPath = 'polygon(0 0, 100% 100%, 100% 0)';
-      }
+      // Always point downward (no flipping)
+      caret.style.rotate = '-45deg';
+      caret.style.clipPath = 'polygon(0 0, 100% 100%, 100% 0)';
     }
   }
 
