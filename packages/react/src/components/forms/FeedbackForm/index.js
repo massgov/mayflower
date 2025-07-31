@@ -247,6 +247,9 @@ export default class FeedbackForm extends React.Component {
       'radio-no': true,
       error: (hasError.includes(noFeedbackId))
     });
+    const yesTextAreaClassNames = classNames({
+      'ma__textarea fsField': true
+    });
     const noTextAreaClassNames = classNames({
       'ma__textarea fsField required': true,
       error: (hasError.includes(noFeedbackId))
@@ -372,6 +375,7 @@ export default class FeedbackForm extends React.Component {
                   <textarea
                     ref={this.yesTextArea}
                     onChange={this.handleChange}
+                    className={yesTextAreaClassNames}
                     id={yesId}
                     name={yesId}
                     maxLength="10000"
