@@ -12,10 +12,11 @@
       {% include "@atoms/decorative-link.twig" %}
     {% else %}
       <a
-        class="ma__download-link__file-link"
-        href="{{ downloadLink.decorativeLink.href}}">
+              class="ma__download-link__file-link"
+              href="{{ downloadLink.decorativeLink.href}}"
+              {% if downloadLink.inlineLinks.docId %}id="doc-{{ downloadLink.inlineLinks.docId }}-title"{% endif %}>
         <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
-          {{ downloadLink.decorativeLink.text }}
+        {{ downloadLink.decorativeLink.text }}
       </a>
       {% if downloadLink.format or downloadLink.size or downloadLink.language %}
         <span class="ma__download-link__file-spec">({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})</span>
