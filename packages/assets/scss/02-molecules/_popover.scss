@@ -33,26 +33,25 @@
     /* stylelint-disable-next-line */
     max-width: min(480px, calc(100svw - 2rem));
     font-size: clamp($fonts-small, 1em, $fonts-large);
-    
+
     // Use fixed positioning to escape table flow
     position: fixed;
     z-index: $z-skyline;
-    
+
     // Will be positioned by JavaScript
     left: var(--popover-x, 0);
     top: var(--popover-y, 0);
-    
+
     // Hide by default
     visibility: hidden;
     opacity: 0;
-    transform: scale(0.8);
     transform-origin: top center;
-    
+
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto 2.75rem;
     grid-template-areas: "title close" "content content";
-    box-shadow: 0 0.75rem 3rem rgba(0,0,0,0.16);
+    box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.16);
     z-index: $z-skyline;
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   }
@@ -65,20 +64,20 @@
     height: 1rem;
     rotate: -45deg;
     clip-path: polygon(0 0, 100% 100%, 100% 0);
-    
+
     // Also use fixed positioning
     position: fixed;
     z-index: $z-skyline;
-    
+
     // Will be positioned by JavaScript
     left: var(--caret-x, 0);
     top: var(--caret-y, 0);
-    
+
     // Hide by default (same as dialog)
     visibility: hidden;
     opacity: 0;
     transform: scale(0.8);
-    
+
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   }
 
