@@ -80,7 +80,7 @@
     const triggerRect = trigger.getBoundingClientRect();
     const dialogRect = dialog.getBoundingClientRect();
 
-    // Calculate position (always below trigger)
+    // Calculate position
     const gap = 16; // Gap between trigger and dialog
     let dialogLeft =
       triggerRect.left + triggerRect.width / 2 - dialogRect.width / 2;
@@ -104,26 +104,12 @@
       dialogLeft = maxLeft;
     }
 
-    // Always position below - no flipping
+    // Always position below
     dialog.style.transformOrigin = "top center";
-
-    // If dialog would go below viewport, adjust max-height to fit
-    if (dialogTop + dialogRect.height > viewport.height - margin) {
-      const maxHeight = viewport.height - dialogTop - margin;
-      if (maxHeight > 100) {
-        // Only apply if there's reasonable space
-        dialog.style.maxHeight = `${maxHeight}px`;
-        dialog.style.overflowY = "auto";
-      }
-    } else {
-      // Reset max-height if not needed
-      dialog.style.maxHeight = "";
-      dialog.style.overflowY = "";
-    }
 
     // Calculate caret position (always above dialog, centered on trigger)
     const caretLeft = triggerRect.left + triggerRect.width / 2 - 8; // 8px = half caret width
-    const caretTop = dialogTop - 8; // Position caret just above dialog
+    const caretTop = dialogTop - 7; // Position caret just above dialog - overlap by 1px to merge borders
 
     // Apply positioning using CSS custom properties
     dialog.style.setProperty("--popover-x", `${dialogLeft}px`);
