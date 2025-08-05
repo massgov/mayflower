@@ -71,6 +71,7 @@
     // Will be positioned by JavaScript
     left: var(--caret-x, 0);
     top: var(--caret-y, 0);
+    transform: translateY(1px);
 
     // Hide by default (same as dialog)
     visibility: hidden;
