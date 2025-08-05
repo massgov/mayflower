@@ -104,9 +104,6 @@
       dialogLeft = maxLeft;
     }
 
-    // Always position below
-    dialog.style.transformOrigin = "top center";
-
     // Calculate caret position (always above dialog, centered on trigger)
     const caretLeft = triggerRect.left + triggerRect.width / 2 - 8; // 8px = half caret width
     const caretTop = dialogTop - 7; // Position caret just above dialog - overlap by 1px to merge borders

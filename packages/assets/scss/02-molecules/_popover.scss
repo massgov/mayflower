@@ -44,15 +44,13 @@
     visibility: hidden;
     opacity: 0;
 
-    transform-origin: top center;
-
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto 2.75rem;
     grid-template-areas: "title close" "content content";
     box-shadow: 0 0.75rem 3rem rgba(0, 0, 0, 0.16);
     z-index: $z-skyline;
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
   }
 
   &__caret {
@@ -76,7 +74,7 @@
     visibility: hidden;
     opacity: 0;
 
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
   }
 
   &__close {
