@@ -2,12 +2,10 @@
   // Tracks the currently open popup. There can only be one.
   let activePopup = null;
 
-  // Applies classes & modifies aria attributes to open the popup
   function openPopup(popupRoot) {
     closePopup();
     activePopup = popupRoot;
 
-    // Add the open class first
     activePopup.classList.add("popover--open");
 
     // Position after the element is visible
@@ -37,12 +35,12 @@
     // If there is not relatedTarget, focus has moved outside the page.
     if (!relatedTarget) {
       closePopup();
+      return;
     }
 
     // if the focus has moved to another element within the active popup, do nothing.
     const positionComparison =
       activePopup.compareDocumentPosition(relatedTarget);
-    // eslint-disable-next-line no-bitwise
     if (positionComparison & Node.DOCUMENT_POSITION_CONTAINED_BY) {
       return;
     }
