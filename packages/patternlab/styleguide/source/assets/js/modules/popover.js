@@ -123,13 +123,6 @@
       caret.style.setProperty("--caret-x", `${caretLeft}px`);
       caret.style.setProperty("--caret-y", `${caretTop}px`);
     }
-
-    // Scroll to show dialog area - 50px below trigger
-    const scrollToY = window.scrollY + triggerRect.bottom + 50;
-    window.scrollTo({
-      top: scrollToY,
-      behavior: "smooth",
-    });
   }
 
   // Handles opening and closing the popup on mouse/pointer/keyboard clicks.
