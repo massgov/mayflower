@@ -30,8 +30,6 @@
     border-radius: 0.5rem;
     width: max-content;
     max-width: min(480px, calc(100vw - 2rem));
-    /* stylelint-disable-next-line */
-    max-width: min(480px, calc(100svw - 2rem));
     font-size: clamp($fonts-small, 1em, $fonts-large);
 
     // Use fixed positioning to escape table flow
@@ -45,6 +43,7 @@
     // Hide by default
     visibility: hidden;
     opacity: 0;
+
     transform-origin: top center;
 
     display: grid;
@@ -67,7 +66,7 @@
 
     // Also use fixed positioning
     position: fixed;
-    z-index: $z-skyline;
+    z-index: $z-skyline + 1;
 
     // Will be positioned by JavaScript
     left: var(--caret-x, 0);
@@ -76,7 +75,6 @@
     // Hide by default (same as dialog)
     visibility: hidden;
     opacity: 0;
-    transform: scale(0.8);
 
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   }
@@ -125,7 +123,6 @@
     .popover__caret {
       visibility: visible;
       opacity: 1;
-      transform: scale(1);
     }
   }
 }
