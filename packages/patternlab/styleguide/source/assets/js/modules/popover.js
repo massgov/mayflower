@@ -7,24 +7,33 @@
     activePopup = popupRoot;
 
     activePopup.classList.add("popover--open");
+    positionDialog();
 
-    // Position after the element is visible
-    requestAnimationFrame(() => {
-      positionDialog();
-      activePopup.querySelector(".js-popover-close").focus();
-    });
+    // Wait for transition to complete before focusing
+    setTimeout(() => {
+      const closeButton = activePopup.querySelector(".js-popover-close");
+      if (closeButton) {
+        closeButton.focus();
+      }
+    }, 250); // Wait for CSS transition to complete so that the the button is focusable
 
     activePopup.addEventListener("focusout", onFocusOut);
     activePopup.addEventListener("keydown", onKeyDown);
   }
 
-  // Removes classes & modifies aria attributes to close the popup
   function closePopup() {
     if (activePopup) {
+      const trigger = activePopup.querySelector(".js-popover-trigger");
+
       activePopup.removeEventListener("focusout", onFocusOut);
       activePopup.removeEventListener("keydown", onKeyDown);
       activePopup.classList.remove("popover--open");
       activePopup = null;
+
+      // Return focus to trigger
+      if (trigger) {
+        trigger.focus();
+      }
     }
   }
 
