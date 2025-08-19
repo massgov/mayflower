@@ -4,34 +4,34 @@
  * @requires module:@massds/mayflower-assets/scss/02-molecules/brand-banner
  * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
  */
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import Image from "MayflowerReactMedia/Image";
-import IconChevron from "MayflowerReactBase/Icon/IconChevron";
-import IconBuilding from "MayflowerReactBase/Icon/IconBuilding";
-import IconLock from "MayflowerReactBase/Icon/IconLock";
+import Image from 'MayflowerReactMedia/Image';
+import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
+import IconLock from 'MayflowerReactBase/Icon/IconLock';
 
 const BrandBanner = ({
   hasSeal = true,
-  bgTheme = "light",
-  bgColor = "c-primary",
+  bgTheme = 'light',
+  bgColor = 'c-primary',
   seal = null,
-  text = "An official website of the Commonwealth of Massachusetts",
+  text = 'An official website of the Commonwealth of Massachusetts'
 }) => {
-  const lightTheme = bgTheme === "light";
-  const brandBannerClasses = classNames("ma__brand-banner", {
-    [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme,
+  const lightTheme = bgTheme === 'light';
+  const brandBannerClasses = classNames('ma__brand-banner', {
+    [`ma__brand-banner--${bgColor}-bg-${bgTheme}`]: bgColor && bgTheme
   });
 
-  const brandBannerToggleColor = bgTheme === "light" ? bgColor : "c-white";
+  const brandBannerToggleColor = bgTheme === 'light' ? bgColor : 'c-white';
 
   const [hovered, setHovered] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
 
-  const brandBannerExpansionClasses = classNames("ma__brand-banner-expansion", {
-    "ma__brand-banner-expansion--expanded": expanded,
+  const brandBannerExpansionClasses = classNames('ma__brand-banner-expansion', {
+    'ma__brand-banner-expansion--expanded': expanded
   });
 
   const handleOnToggle = () => {
@@ -39,16 +39,16 @@ const BrandBanner = ({
   };
 
   const brandBannerToggleClasses = classNames(
-    "ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary",
+    'ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary',
     {
       [`ma__button-icon--${brandBannerToggleColor}`]: bgColor && bgTheme,
-      active: hovered,
+      active: hovered
     }
   );
 
-  const contentId = "ma__brand-banner-content";
+  const contentId = 'ma__brand-banner-content';
 
-  return (
+  return(
     <div className={brandBannerClasses}>
       <button
         className="ma__brand-banner-container"
@@ -86,7 +86,7 @@ const BrandBanner = ({
           <IconBuilding
             width={30}
             height={30}
-            fill={lightTheme ? "#14558F" : "#fff"}
+            fill={lightTheme ? '#14558F' : '#fff'}
           />
           <div className="ma__brand-banner-expansion-item-content">
             <p>Official websites use .mass.gov</p>
@@ -100,13 +100,14 @@ const BrandBanner = ({
           <IconLock
             width={30}
             height={30}
-            fill={lightTheme ? "#388557" : "#fff"}
+            fill={lightTheme ? '#388557' : '#fff'}
           />
           <div className="ma__brand-banner-expansion-item-content">
             <p>Secure websites use HTTPS certificate</p>
             <p>
               A lock icon (
-              <IconLock width={12} height={12} />) or https:// means you've
+              <IconLock width={12} height={12} />
+              ) or https:// means you've
               safely connected to the official website. Share sensitive
               information only on official, secure websites.
             </p>
@@ -126,9 +127,9 @@ BrandBanner.propTypes = {
   /** Whether to include seal */
   hasSeal: PropTypes.bool,
   /** Background color option */
-  bgColor: PropTypes.oneOf(["", "c-primary", "c-primary-alt", "c-gray"]),
+  bgColor: PropTypes.oneOf(['', 'c-primary', 'c-primary-alt', 'c-gray']),
   /** Background color theme */
-  bgTheme: PropTypes.oneOf(["", "light", "dark"]),
+  bgTheme: PropTypes.oneOf(['', 'light', 'dark'])
 };
 
 export default BrandBanner;
