@@ -51,6 +51,7 @@ const BrandBanner = ({
   return(
     <div className={brandBannerClasses}>
       <button
+        type="button"
         className="ma__brand-banner-container"
         id="ma__brand-banner-button"
         onClick={handleOnToggle}
@@ -107,7 +108,7 @@ const BrandBanner = ({
             <p>
               A lock icon (
               <IconLock width={12} height={12} />
-              ) or https:// means you've
+              ) or https:// means you&apos;ve
               safely connected to the official website. Share sensitive
               information only on official, secure websites.
             </p>
