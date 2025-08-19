@@ -52,6 +52,7 @@ const BrandBanner = ({
     <div className={brandBannerClasses}>
       <button
         className="ma__brand-banner-container"
+        id="ma__brand-banner-button"
         onClick={handleOnToggle}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -75,7 +76,12 @@ const BrandBanner = ({
         </span>
       </button>
 
-      <ul className={brandBannerExpansionClasses} id={contentId}>
+      <ul
+        className={brandBannerExpansionClasses}
+        id={contentId}
+        role="region"
+        aria-labelledby="ma__brand-banner-button"
+      >
         <li className="ma__brand-banner-expansion-item">
           <IconBuilding
             width={30}
