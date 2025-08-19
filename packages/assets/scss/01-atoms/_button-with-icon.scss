@@ -34,6 +34,7 @@ $quaternary-colors: (
 
   @each $class, $c in $colors {
     &--#{$class} {
+
       @if $c == $c-highlight {
         border-color: $c;
         color: var(--mf-c-font-base);
@@ -65,6 +66,7 @@ $quaternary-colors: (
   }
 
   &--expanded {
+
     & > svg {
       transform: rotate(-180deg);
     }
@@ -92,6 +94,7 @@ $quaternary-colors: (
 
   &--expanded,
   &:hover {
+
     @include ma-button("solid", $c-primary-alt);
     color: var(--mf-c-font-inverse);
 
@@ -101,6 +104,7 @@ $quaternary-colors: (
 
     @each $class, $c in $colors {
       &.ma__button-icon--#{$class} {
+
         @include ma-button("solid", $c);
       }
     }
@@ -109,10 +113,12 @@ $quaternary-colors: (
   &--secondary,
   &--expanded.ma__button-icon--secondary,
   &:hover.ma__button-icon--secondary {
+
     @include ma-button("outline", $c-primary-alt);
 
     @each $class, $c in $colors {
       &.ma__button-icon--#{$class} {
+
         @include ma-button("outline", $c);
       }
     }
@@ -121,6 +127,7 @@ $quaternary-colors: (
   &--tertiary,
   &--expanded.ma__button-icon--tertiary,
   &:hover.ma__button-icon--tertiary {
+
     @include ma-button("solid", $c-gray-light);
     color: var(--mf-c-font-base);
 
