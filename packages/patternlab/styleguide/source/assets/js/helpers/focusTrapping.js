@@ -31,7 +31,9 @@ export default ({
     const focusableNodeArray = Array.from(
       modal.querySelectorAll(focusableElements)
     );
+
     let focusableContent = modal && filterDisplayedElements(focusableNodeArray);
+    console.log(focusableContent);
     if (closeButtonSelector) {
       const closeButton = document.querySelector(closeButtonSelector);
       focusableContent = [closeButton, ...focusableContent];
