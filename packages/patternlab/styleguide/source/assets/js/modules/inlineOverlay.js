@@ -5,7 +5,7 @@ export default (function (document, $) {
   const containerClass = ".js-inline-overlay";
   const toggleClassName = ".js-inline-overlay-toggle";
   const titleClass = ".js-inline-overlay-title";
-  const mainPageToggleButtton = $(
+  const mainPageToggleButton = $(
     ".js-inline-overlay-title .js-inline-overlay-toggle"
   );
 
@@ -49,7 +49,7 @@ export default (function (document, $) {
         // Close the overlay.
         $(".ma__toc--overlay__container").removeClass("is-open");
         // Set focus on the toggle GamepadButton.
-        mainPageToggleButtton.focus();
+        mainPageToggleButton.focus();
       }
     }
   });
