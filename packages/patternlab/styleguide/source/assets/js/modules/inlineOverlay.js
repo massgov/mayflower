@@ -5,7 +5,7 @@ export default (function (document, $) {
   const containerClass = ".js-inline-overlay";
   const toggleClassName = ".js-inline-overlay-toggle";
   const titleClass = ".js-inline-overlay-title";
-  const mainPageToggleButton = $(
+  const mainPageToggleButtton = $(
     ".js-inline-overlay-title .js-inline-overlay-toggle"
   );
 
@@ -38,6 +38,8 @@ export default (function (document, $) {
     // check if menu open
     if ($(containerClass).hasClass("is-open")) {
       focusTrapping({
+        focusableSelectors:
+          ".js-accordion.is-open a, li.ma__toc--hierarchy__link a, button, .js-inline-overlay-title a",
         modalSelector: ".ma__toc--overlay__container.is-open",
         keyEvent: e,
       });
@@ -49,7 +51,7 @@ export default (function (document, $) {
         // Close the overlay.
         $(".ma__toc--overlay__container").removeClass("is-open");
         // Set focus on the toggle GamepadButton.
-        mainPageToggleButton.focus();
+        mainPageToggleButtton.focus();
       }
     }
   });
