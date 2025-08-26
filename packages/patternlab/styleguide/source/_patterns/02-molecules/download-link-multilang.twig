@@ -24,7 +24,7 @@
     {% endif %}
     {% if downloadLink.inlineLinks %}
       {% set inlineLinks = downloadLink.inlineLinks %}
-      {% include "@organisms/by-author/inline-links-language.twig" %}
+      {% include "@molecules/inline-links-language.twig" %}
     {% endif %}
   </div>
   {% if downloadLink.description %}
