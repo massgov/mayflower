@@ -39,7 +39,7 @@ export default (function (document, $) {
     if ($(containerClass).hasClass("is-open")) {
       focusTrapping({
         focusableSelectors:
-          ".js-accordion.is-open a, li.ma__toc--hierarchy__link a, button, .js-inline-overlay-title a",
+          ".js-accordion.is-open a, ul.ma__toc--hierarchy__container > li.ma__toc--hierarchy__link a, button, .js-inline-overlay-title a",
         modalSelector: ".ma__toc--overlay__container.is-open",
         keyEvent: e,
       });
