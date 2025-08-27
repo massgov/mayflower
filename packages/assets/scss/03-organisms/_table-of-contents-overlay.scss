@@ -1,10 +1,9 @@
 @use "00-base/configure" as *;
 
 .ma__toc--overlay {
-
   @include ma-container();
   margin-top: 20px;
-  transition: background .2s ease;
+  transition: background 0.2s ease;
 
   .ma__toc--overlay__container .ma__toc__toc__title,
   .ma__toc__toc__title {
@@ -21,7 +20,6 @@
       width: auto;
       min-width: 60vw; // fix for windows firefox which wraps early. 60 is a reasonable width to ensure
     }
-
   }
 
   .ma__toc__subtitle {
@@ -42,7 +40,6 @@
   }
 
   .ma__toc--hierarchy__accordion {
-
     .ma__toc--hierarchy__title {
       padding-left: 16px;
       border-left: 10px solid transparent;
@@ -67,18 +64,17 @@
 
   .ma__toc--overlay__container {
     position: fixed;
-      top: -100vh;
-      left: 0;
-      right: 0;
+    top: -100vh;
+    left: 0;
+    right: 0;
     height: 100vh;
     opacity: 0;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
     z-index: $z-overlay;
-    display: flex;
+    display: none;
     flex-direction: column;
 
     > * {
-
       @include ma-container();
       display: none;
       width: 100%;
@@ -118,18 +114,15 @@
       transition: transform 1s ease;
       display: inline-block;
     }
-
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
-
     .hide {
       display: none;
     }
   }
 
   .ma__toc__toc__toggle[aria-expanded="true"] {
-
     .show {
       display: none;
     }
@@ -139,6 +132,7 @@
     top: 0;
     bottom: 0;
     opacity: 1;
+    display: flex;
 
     > * {
       display: block;
@@ -151,7 +145,6 @@
       right: 0;
       opacity: 1;
     }
-
   }
 
   // current page indicator
@@ -162,11 +155,11 @@
     &.is-current:before {
       content: "";
       position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 10px;
-        height:100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 10px;
+      height: 100%;
     }
 
     .ma__toc--hierarchy__accordion-content .is-current:before {
@@ -178,7 +171,6 @@
 //theme
 
 .ma__toc--overlay {
-
   .ma__toc__toc__title {
     background: var(--mf-c-gray-lightest);
     color: var(--mf-c-primary);
@@ -202,7 +194,6 @@
   }
 
   .ma__toc--hierarchy__accordion {
-
     .ma__toc--hierarchy__title {
       border-left-color: transparent;
     }
