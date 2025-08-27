@@ -7,8 +7,8 @@
 			{% endif %}:</span>
 		{% set decorativeLink = tableOfContentsOverlay.title %}
 		{% include "@atoms/decorative-link.twig" %}
-		<button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="false" aria-controls="{{tableOfContentsOverlay.id}}">
-			<span class="show" aria-label="Show the table of contents{% if tableOfContentsOverlay.typeContext %} for the {{ tableOfContentsOverlay.typeContext }}{% endif %}">+</span>
+		<button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="false" aria-controls="{{tableOfContentsOverlay.id}}" aria-label="Show the table of contents {{tableOfContentsOverlay.title.text}}">
+			<span class="show">+</span>
 		</button>
 	</div>
 	<div class="ma__toc--overlay__container js-inline-overlay" id="{{tableOfContentsOverlay.id}}">
