@@ -1,31 +1,39 @@
 <div class="ma__toc--overlay js-toc-container">
-  <div class="ma__toc__toc__title js-inline-overlay-title" tab-index="-1">
-    <span class="ma__toc__subtitle">This is a part of{% if tableOfContentsOverlay.typeContext %}<span class="ma__visually-hidden">&nbsp; the {{ tableOfContentsOverlay.typeContext }}</span>{% endif %}:</span>
-    {% set decorativeLink = tableOfContentsOverlay.title %}
-    {% include "@atoms/decorative-link.twig" %}
-    <button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="false" aria-controls="{{tableOfContentsOverlay.id}}">
-      <span class="show" aria-label="Show the table of contents{% if tableOfContentsOverlay.typeContext %} for the {{ tableOfContentsOverlay.typeContext }}{% endif %}">+</span>
-    </button>
-  </div>
-  <div class="ma__toc--overlay__container js-inline-overlay" id="{{tableOfContentsOverlay.id}}">
-    <div class="ma__toc__toc__title js-inline-overlay-title" tab-index="-1">
-      <span class="ma__toc__subtitle">This is a part of{% if tableOfContentsOverlay.typeContext %}<span class="ma__visually-hidden">&nbsp; the {{ tableOfContentsOverlay.typeContext }}</span>{% endif %}:</span>
-      {% set decorativeLink = tableOfContentsOverlay.title %}
-      {% include "@atoms/decorative-link.twig" %}
-      <button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="true" aria-controls="{{tableOfContentsOverlay.id}}">
-        <span class="hide" aria-label="Hide the table of contents{% if tableOfContentsOverlay.typeContext %} for the {{ tableOfContentsOverlay.typeContext }}{% endif %}">
-          &times;
-        </span>
-      </button>
-    </div>
-    <div class="ma__toc--overlay__content">
-      {% block tableOfContentsOverlaySections %}
-        {% for tocSection in tableOfContentsOverlay.tocSections %}
-          {% set tocSection = tocSection|merge({'background': "none"}) %}
-          {% set tableOfContentsHierarchy = tocSection %}
-          {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
-        {% endfor %}
-      {% endblock %}
-    </div>
-  </div>
+	<div class="ma__toc__toc__title js-inline-overlay-title" tab-index="-1">
+		<span class="ma__toc__subtitle">This is a part of
+			{% if tableOfContentsOverlay.typeContext %}
+				<span class="ma__visually-hidden">&nbsp; the
+					{{ tableOfContentsOverlay.typeContext }}</span>
+			{% endif %}:</span>
+		{% set decorativeLink = tableOfContentsOverlay.title %}
+		{% include "@atoms/decorative-link.twig" %}
+		<button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="false" aria-controls="{{tableOfContentsOverlay.id}}">
+			<span class="show" aria-label="Show the table of contents{% if tableOfContentsOverlay.typeContext %} for the {{ tableOfContentsOverlay.typeContext }}{% endif %}">+</span>
+		</button>
+	</div>
+	<div class="ma__toc--overlay__container js-inline-overlay" id="{{tableOfContentsOverlay.id}}">
+		<div class="ma__toc__toc__title js-inline-overlay-title" tab-index="-1">
+			<span class="ma__toc__subtitle">This is a part of
+				{% if tableOfContentsOverlay.typeContext %}
+					<span class="ma__visually-hidden">&nbsp; the
+						{{ tableOfContentsOverlay.typeContext }}</span>
+				{% endif %}:</span>
+			{% set decorativeLink = tableOfContentsOverlay.title %}
+			{% include "@atoms/decorative-link.twig" %}
+			<button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="true" aria-controls="{{tableOfContentsOverlay.id}}" aria-label="Hide the table of contents {{tableOfContentsOverlay.title.text}}">
+				<span class="hide">
+					&times;
+				</span>
+			</button>
+		</div>
+		<div class="ma__toc--overlay__content">
+			{% block tableOfContentsOverlaySections %}
+				{% for tocSection in tableOfContentsOverlay.tocSections %}
+					{% set tocSection = tocSection|merge({'background': "none"}) %}
+					{% set tableOfContentsHierarchy = tocSection %}
+					{% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
+				{% endfor %}
+			{% endblock %}
+		</div>
+	</div>
 </div>
