@@ -1,6 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__toc--overlay {
+
   @include ma-container();
   margin-top: 20px;
   transition: background 0.2s ease;
@@ -40,6 +41,7 @@
   }
 
   .ma__toc--hierarchy__accordion {
+
     .ma__toc--hierarchy__title {
       padding-left: 16px;
       border-left: 10px solid transparent;
@@ -75,6 +77,7 @@
     flex-direction: column;
 
     > * {
+
       @include ma-container();
       display: none;
       width: 100%;
@@ -117,12 +120,14 @@
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
+
     .hide {
       display: none;
     }
   }
 
   .ma__toc__toc__toggle[aria-expanded="true"] {
+
     .show {
       display: none;
     }
@@ -171,6 +176,7 @@
 //theme
 
 .ma__toc--overlay {
+
   .ma__toc__toc__title {
     background: var(--mf-c-gray-lightest);
     color: var(--mf-c-primary);
@@ -194,6 +200,7 @@
   }
 
   .ma__toc--hierarchy__accordion {
+
     .ma__toc--hierarchy__title {
       border-left-color: transparent;
     }
