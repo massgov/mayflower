@@ -7,7 +7,7 @@
 			{% endif %}:</span>
 		{% set decorativeLink = tableOfContentsOverlay.title %}
 		{% include "@atoms/decorative-link.twig" %}
-		<button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="false" aria-controls="{{tableOfContentsOverlay.id}}" aria-label="Show the table of contents {{tableOfContentsOverlay.title.text}}">
+		<button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="false" aria-controls="{{tableOfContentsOverlay.id}}" aria-label="Show the table of contents for {{tableOfContentsOverlay.title.text}}">
 			<span class="show">+</span>
 		</button>
 	</div>
@@ -20,7 +20,7 @@
 				{% endif %}:</span>
 			{% set decorativeLink = tableOfContentsOverlay.title %}
 			{% include "@atoms/decorative-link.twig" %}
-			<button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="true" aria-controls="{{tableOfContentsOverlay.id}}" aria-label="Hide the table of contents {{tableOfContentsOverlay.title.text}}">
+			<button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="true" aria-controls="{{tableOfContentsOverlay.id}}" aria-label="Hide the table of contents for {{tableOfContentsOverlay.title.text}}">
 				<span class="hide">
 					&times;
 				</span>
