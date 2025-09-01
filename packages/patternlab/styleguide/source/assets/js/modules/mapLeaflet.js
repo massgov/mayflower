@@ -3,10 +3,6 @@ import getTemplate from "../helpers/getHandlebarTemplate.js";
 import * as L from '../vendor/leaflet-src.js'; // wait for the bug fix to get into a released version to remove this local JS file and import from the leaflet package
 
 export default (function(window, document, $) {
-    // Only run this code if there is a leaflet map component on the page.
-    if (!document.querySelectorAll('.js-leaflet-map').length) {
-        return;
-    }
 
     // Initialize the map
     function initMaps(el, i) {
@@ -14,6 +10,12 @@ export default (function(window, document, $) {
         console.log(new Date().toLocaleTimeString())
 
         const mapWrapper = el;
+
+        if (mapWrapper.hasAttribute('data-leaflet-init')) {
+            // already initialized for this element
+            return;
+        }
+        mapWrapper.setAttribute('data-leaflet-init', '1');
 
         const compiledTemplate = getTemplate('mapMarkerInfo');
 
@@ -327,11 +329,23 @@ export default (function(window, document, $) {
         return phoneTemp ? phoneTemp.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') : null;
     }
 
+    function initAllInContext(ctx) {
+        const uninitialized = ctx.querySelectorAll('.js-leaflet-map:not([data-leaflet-init])');
+        if (!uninitialized.length) return;
+        // Compute stable index based on order in the full document to match ma.leafletMapData[i]
+        const all = document.querySelectorAll('.js-leaflet-map');
+        uninitialized.forEach((el) => {
+            const idx = Array.prototype.indexOf.call(all, el);
+            initMaps(el, idx);
+        });
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll(".js-leaflet-map").forEach(function(el, i) {
-            initMaps(el, i);
-        })
-    })
+        initAllInContext(document);
+    });
+
+    $(document).on('ajaxComplete', function () {
+        initAllInContext(document);
+    });
 
 })(window, document, jQuery);
