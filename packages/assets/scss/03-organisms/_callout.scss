@@ -11,6 +11,8 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component  > &,
   .main-content--full .page-content > & {
 
     @include ma-container();
