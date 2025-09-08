@@ -8,9 +8,7 @@ import { attachHTML } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
-const brandBannerWithoutSeal = (
-  <BrandBanner seal={logo} hasToggle hasSeal={false} />
-);
+const brandBannerWithoutSeal = <BrandBanner seal={logo} hasSeal={false} />;
 
 const brandBannerWithoutSealWithHeader = (
   <>
@@ -20,29 +18,25 @@ const brandBannerWithoutSealWithHeader = (
 );
 
 // Light
-const brandBannerBasic = (
-  <BrandBanner seal={logo} hasToggle />
-);
+const brandBannerBasic = <BrandBanner seal={logo} />;
 
 const brandBannerLightThemePrimaryAlt = (
-  <BrandBanner seal={logo} hasToggle bgTheme="light" bgColor="c-primary-alt" />
+  <BrandBanner seal={logo} bgTheme="light" bgColor="c-primary-alt" />
 );
 
 const brandBannerLightThemeGray = (
-  <BrandBanner seal={logo} hasToggle bgTheme="light" bgColor="c-gray" />
+  <BrandBanner seal={logo} bgTheme="light" bgColor="c-gray" />
 );
 
 // Dark
-const brandBannerDarkTheme = (
-  <BrandBanner seal={logoWhite} hasToggle bgTheme="dark" />
-);
+const brandBannerDarkTheme = <BrandBanner seal={logoWhite} bgTheme="dark" />;
 
 const brandBannerDarkThemePrimaryAlt = (
-  <BrandBanner seal={logoWhite} hasToggle bgTheme="dark" bgColor="c-primary-alt" />
+  <BrandBanner seal={logoWhite} bgTheme="dark" bgColor="c-primary-alt" />
 );
 
 const brandBannerDarkThemeGray = (
-  <BrandBanner seal={logoWhite} hasToggle bgTheme="dark" bgColor="c-gray" />
+  <BrandBanner seal={logoWhite} bgTheme="dark" bgColor="c-gray" />
 );
 
 const notesBrandBanner = `
@@ -60,7 +54,11 @@ export const brandBannerLight = () => brandBannerBasic;
 attachHTML(brandBannerLight, brandBannerBasic, notesBrandBanner);
 
 export const brandBannerLightPrimaryAlt = () => brandBannerLightThemePrimaryAlt;
-attachHTML(brandBannerLightPrimaryAlt, brandBannerLightThemePrimaryAlt, notesBrandBanner);
+attachHTML(
+  brandBannerLightPrimaryAlt,
+  brandBannerLightThemePrimaryAlt,
+  notesBrandBanner
+);
 
 export const brandBannerLightGray = () => brandBannerLightThemeGray;
 attachHTML(brandBannerLightGray, brandBannerLightThemeGray, notesBrandBanner);
@@ -69,7 +67,11 @@ export const brandBannerDark = () => brandBannerDarkTheme;
 attachHTML(brandBannerDark, brandBannerDarkTheme, notesBrandBanner);
 
 export const brandBannerDarkPrimaryAlt = () => brandBannerDarkThemePrimaryAlt;
-attachHTML(brandBannerDarkPrimaryAlt, brandBannerDarkThemePrimaryAlt, notesBrandBanner);
+attachHTML(
+  brandBannerDarkPrimaryAlt,
+  brandBannerDarkThemePrimaryAlt,
+  notesBrandBanner
+);
 
 export const brandBannerDarkGray = () => brandBannerDarkThemeGray;
 attachHTML(brandBannerDarkGray, brandBannerDarkThemeGray, notesBrandBanner);

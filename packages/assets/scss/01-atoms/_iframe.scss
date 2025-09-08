@@ -29,13 +29,13 @@ $iframe-ratios: (
       height: 0;
       overflow: hidden;
       padding-top: 56.25%;/* default to 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-  
+
         @each $option, $ratio in $iframe-ratios {
           &--#{$option} {
             padding-top: $ratio;
           }
         }
-  
+
         iframe, object, embed {
           position: absolute;
           top: 0;
@@ -56,6 +56,8 @@ $iframe-ratios: (
     }
   }
 
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component  > &,
   .main-content--full .page-content > & {
 
     @include ma-container('restricted');
@@ -71,7 +73,7 @@ $iframe-ratios: (
   }
 }
 
-// Full page display 
+// Full page display
 
 .ma__figure--full.ma__iframe__container,
 .ma__figure--full .ma__iframe__container {

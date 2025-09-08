@@ -142,7 +142,7 @@
     }
   }
 
-  .service-section .main-content .page-content>.ma__callout {
+  .service-section .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .ma__callout {
     max-inline-size: 1240px;
     margin-inline: 20px;
 
@@ -250,7 +250,7 @@
     .ma__collapsible-content {
 
       @media ($bp-x-large-min) {
-        padding-inline-start: 0;
+        padding-inline-start: 0 !important;
       }
     }
 
@@ -312,7 +312,8 @@
 
     // Adjusts for Paragraph types within a more narrow Service section
 
-    .main-content .page-content {
+    .main-content .page-content .layout--onecol-mass-service-section .layout__region--content,
+    .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component {
 
       > .ma__social-links-bar {
         padding-inline-end: 0;
