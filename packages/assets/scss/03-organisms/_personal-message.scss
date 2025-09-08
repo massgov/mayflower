@@ -29,6 +29,7 @@
 
     .pre-content > &,
     .post-content > &,
+    .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
     .main-content--full .page-content > & {
 
       @include ma-container('restricted');

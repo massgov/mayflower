@@ -1,0 +1,45 @@
+{
+  "inlineLinks": {
+    "ariaLabel": "Available Translations",
+    "links": [{
+      "text": "English",
+      "href": "#",
+      "info": "",
+      "lang_label": "English",
+      "translation_id": "doc-123-en",
+      "document_id": "doc-123-title",
+      "aria_labelledby": "doc-123-en doc-123-title",
+      "lang": "en"
+    },
+    {
+      "text": "Español",
+      "href": "",
+      "info": "",
+      "lang_label": "Spanish",
+      "translation_id": "doc-123-es",
+      "document_id": "doc-123-title",
+      "aria_labelledby": "doc-123-es doc-123-title",
+      "lang": "es"
+    },
+    {
+      "text": "漢語",
+      "href": "#",
+      "info": "",
+      "lang_label": "Chinese",
+      "translation_id": "doc-123-zh",
+      "document_id": "doc-123-title",
+      "aria_labelledby": "doc-123-zh doc-123-title",
+      "lang": "zh"
+    },
+      {
+      "text": "Português",
+      "href": "#",
+      "info": "",
+      "lang_label": "Portuguese",
+      "translation_id": "doc-123-pt",
+      "document_id": "doc-123-title",
+      "aria_labelledby": "doc-123-pt doc-123-title",
+      "lang": "pt"
+    }]
+  }
+}
