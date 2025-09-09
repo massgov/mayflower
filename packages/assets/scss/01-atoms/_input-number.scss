@@ -5,7 +5,16 @@
   position: relative;
 
   input {
+    @include input-base;
     padding-right: 58px;
+
+    // Show native number input controls in high contrast mode
+
+    @media (forced-colors: active) {
+      padding-right: 0;          // Remove space for custom buttons
+      -webkit-appearance: auto;   // Show native spinner controls
+      appearance: auto;
+    }
   }
 
   &__plus,
@@ -19,12 +28,26 @@
     height: 50%;
     padding: 0;
     position: absolute;
-      right: 0;
+    right: 0;
     width: 40px;
+
+    // Hide custom controls in high contrast mode
+
+    @media (forced-colors: active) {
+      display: none;
+    }
 
     &:focus {
       border-bottom-style: dotted;
       border-bottom-width: 1px;
+
+      // Use outline instead of border for focus in high contrast
+
+      @media (forced-colors: active) {
+        outline: 2px solid Highlight;
+        outline-offset: 2px;
+        border-bottom: none;
+      }
     }
 
     &:after {
@@ -37,11 +60,17 @@
       height: 0;
       margin: 0 auto;
       position: absolute;
-        bottom: 2px;
-        left: 50%;
+      bottom: 2px;
+      left: 50%;
       transform: translateX(-50%);
       vertical-align: bottom;
       width: 0;
+
+      // Hide triangle in high contrast mode
+
+      @media (forced-colors: active) {
+        display: none;
+      }
     }
 
     &:focus:after {

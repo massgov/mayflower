@@ -10,6 +10,8 @@
 
 .pika-single {
   font-family: $fonts;
+  background-color: var(--mf-c-bg-section);
+  padding: 1rem;
 
   abbr[title] {
     text-decoration: none;

@@ -1,14 +1,5 @@
 @use "00-base/configure" as *;
 
-.ma__feedback-form {
-  textarea {
-    resize: none;
-    overflow: hidden;
-    width: 100%;
-    border: 2px solid #dcdcdc !important;
-  }
-}
-
 /**
 * Override css for the Formstack multi page feedback form.
 */
