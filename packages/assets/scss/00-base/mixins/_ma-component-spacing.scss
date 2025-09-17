@@ -28,7 +28,7 @@
     }
   }
 
-  &:first-child:not(.ma__stacked-row__container) {
+  &:first-child {
     margin-top: 0;
   }
 
