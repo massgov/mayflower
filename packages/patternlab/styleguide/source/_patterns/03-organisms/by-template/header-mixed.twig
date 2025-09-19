@@ -21,7 +21,6 @@
       <div class="ma__header__hamburger__button-container js-sticky-header">
         <button type="button"
                 aria-expanded="false"
-                aria-label="Main menu for mass.gov"
                 class="ma__header__hamburger__menu-button js-header-menu-button">
           <span class="ma__header__hamburger__menu-icon"></span>
           {# Visible menu label is managed with CSS.  The button has aria-label and the button label via aria-label is visible to screen reader users. #}
@@ -32,7 +31,7 @@
             Menu
           </span>
           <span class="ma__header__hamburger__menu-text--close js-header__menu-text--close">
-            Close
+            Close <span class="ma__visually-hidden">menu</span>
           </span>
         </button>
         {# Skip button to search. #}
