@@ -287,7 +287,9 @@ const HamburgerNav = ({
                     Menu
                   </span>
                   <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
-                    Close <span class="ma__visually-hidden">menu</span>
+                    Close
+                    {' '}
+                    <span className="ma__visually-hidden">menu</span>
                   </span>
                 </button>
               )}
