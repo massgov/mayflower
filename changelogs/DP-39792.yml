@@ -52,7 +52,7 @@
 
 #___EXAMPLE___
 Fixed:
-  - project: Patternlab
+  - project: Patternlab, React
     component: HamburgerNav, HeaderHamburger, HeaderMixedSecondary, HeaderMixed
     description: Fix screen reader label for the menu/close button. (#2016)
     issue: DP-39792
