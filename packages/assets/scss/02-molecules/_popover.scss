@@ -94,6 +94,7 @@
     }
 
     &:hover {
+
       svg {
         fill: var(--mf-c-primary-light);
       }
@@ -117,6 +118,7 @@
   }
 
   &--open {
+
     .popover__dialog,
     .popover__caret {
       visibility: visible;
