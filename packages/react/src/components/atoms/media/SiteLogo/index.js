@@ -19,9 +19,7 @@ const SiteLogo = ({
     <RenderedWrapper>
       <div className="ma__site-logo">
         <a href={url?.domain || '/'}>
-          {image?.src &&
-            <Image {...image} alt={computedAlt}/>
-          }
+          {image?.src && <Image {...image} alt={computedAlt} />}
           {siteName && <span aria-hidden="true">{siteName}</span>}
         </a>
       </div>
