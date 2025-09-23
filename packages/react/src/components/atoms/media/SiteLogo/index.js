@@ -13,12 +13,16 @@ const SiteLogo = ({
   url, image, siteName, title, Wrapper
 }) => {
   const RenderedWrapper = getFallbackComponent(Wrapper, React.Fragment);
+  // Compute alt text for the image: prefer image.alt, fall back to title, then default.
+  const computedAlt = image?.alt ?? (title || 'Mass.gov home');
   return(
     <RenderedWrapper>
       <div className="ma__site-logo">
-        <a href={url.domain} title={title}>
-          {image?.src && <Image {...image} />}
-          {siteName && <span>{siteName}</span>}
+        <a href={url?.domain || '/'}>
+          {image?.src &&
+            <Image {...image} alt={computedAlt}/>
+          }
+          {siteName && <span aria-hidden="true">{siteName}</span>}
         </a>
       </div>
     </RenderedWrapper>
