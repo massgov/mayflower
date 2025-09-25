@@ -277,7 +277,6 @@ const HamburgerNav = ({
                   ref={menuButtonRef}
                   type="button"
                   aria-expanded="false"
-                  aria-label={`Open the main menu for ${siteName}`}
                   className="ma__header__hamburger__menu-button js-header-menu-button"
                 >
                   <span className="ma__header__hamburger__menu-icon" />
@@ -289,6 +288,8 @@ const HamburgerNav = ({
                   </span>
                   <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
                     Close
+                    {' '}
+                    <span className="ma__visually-hidden">menu</span>
                   </span>
                 </button>
               )}
