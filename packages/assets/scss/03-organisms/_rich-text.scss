@@ -301,7 +301,7 @@ $heading-indent: $gutter;
 
   h2.ma__collapsible-header,
   h3.ma__collapsible-header,
-  h4:not(.ma__collapsible-header) {
+  h4.ma__collapsible-header {
 
     &:after {
       display: none;
