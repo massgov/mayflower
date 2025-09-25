@@ -13,8 +13,8 @@ const SiteLogo = ({
   url, image, siteName, title, Wrapper
 }) => {
   const RenderedWrapper = getFallbackComponent(Wrapper, React.Fragment);
-  // Compute alt text for the image: prefer image.alt, fall back to title, then default.
-  const computedAlt = image?.alt ?? (title || 'Mass.gov home');
+  // Remove title attribute and use alt attribute for image as screen reader label.
+  const computedAlt = title || 'Mass.gov home';
   return(
     <RenderedWrapper>
       <div className="ma__site-logo">
