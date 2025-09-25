@@ -37,7 +37,7 @@ SiteLogo.propTypes = {
   image: PropTypes.shape(Image.propTypes),
   /** An optional label to display next to the site logo. */
   siteName: PropTypes.string,
-  /** The title attribute for the site logo link. */
+  /** The screen reader label forthe site logo link. */
   title: PropTypes.string,
   /** An uninstantiated component for rendering a wrapper around the site logo div. */
   Wrapper: PropTypes.elementType
@@ -45,7 +45,6 @@ SiteLogo.propTypes = {
 
 SiteLogo.defaultProps = {
   image: {
-    alt: '',
     width: 45,
     height: 45
   }
