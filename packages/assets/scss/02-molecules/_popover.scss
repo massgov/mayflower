@@ -34,7 +34,6 @@
 
     // Use fixed positioning to escape table flow
     position: fixed;
-    z-index: $z-skyline;
 
     // Will be positioned by JavaScript
     left: var(--popover-x, 0);
@@ -121,6 +120,7 @@
 
     .popover__dialog,
     .popover__caret {
+
       visibility: visible;
       opacity: 1;
     }
