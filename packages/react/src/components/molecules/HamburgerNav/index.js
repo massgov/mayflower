@@ -720,7 +720,6 @@ export const HamburgerSiteLogo = ({ Wrapper }) => {
     },
     image: {
       src: 'https://unpkg.com/@massds/mayflower-assets/static/images/logo/stateseal.png',
-      alt: 'Massachusetts state seal',
       width: 45,
       height: 45
     },
