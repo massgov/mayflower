@@ -39,9 +39,9 @@ const headerUtil = (
     siteLogo={(
       <SiteLogo
         image={{
-          height: 45, 
+          height: 45,
           width: 45,
-          src: logo,
+          src: logo
         }}
         siteName="Mass.gov"
         title="Mass.gov homepage"
