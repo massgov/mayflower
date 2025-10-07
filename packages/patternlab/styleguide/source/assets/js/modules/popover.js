@@ -1,41 +1,55 @@
-(function() {
-
+(function () {
   // Tracks the currently open popup. There can only be one.
   let activePopup = null;
 
-  // Applies classes & modifies aria attributes to open the popup
   function openPopup(popupRoot) {
     closePopup();
     activePopup = popupRoot;
-    ensurePositioning();
+
     activePopup.classList.add("popover--open");
-    activePopup.querySelector(".js-popover-close").focus();
+    positionDialog();
+
+    // Wait for transition to complete before focusing
+    setTimeout(() => {
+      const closeButton = activePopup.querySelector(".js-popover-close");
+      if (closeButton) {
+        closeButton.focus();
+      }
+    }, 250); // Wait for CSS transition to complete so that the the button is focusable
+
     activePopup.addEventListener("focusout", onFocusOut);
     activePopup.addEventListener("keydown", onKeyDown);
   }
 
-  // Removes classes & modifies aria attributes to close the popup
   function closePopup() {
     if (activePopup) {
+      const trigger = activePopup.querySelector(".js-popover-trigger");
+
       activePopup.removeEventListener("focusout", onFocusOut);
       activePopup.removeEventListener("keydown", onKeyDown);
       activePopup.classList.remove("popover--open");
       activePopup = null;
+
+      // Return focus to trigger
+      if (trigger) {
+        trigger.focus();
+      }
     }
   }
 
   // Closes the activePopup if the focus has moved outside of it.
   function onFocusOut(event) {
-    const {relatedTarget} = event;
+    const { relatedTarget } = event;
 
     // If there is not relatedTarget, focus has moved outside the page.
     if (!relatedTarget) {
       closePopup();
+      return;
     }
 
     // if the focus has moved to another element within the active popup, do nothing.
-    const positionComparison = activePopup.compareDocumentPosition(relatedTarget);
-    // eslint-disable-next-line no-bitwise
+    const positionComparison =
+      activePopup.compareDocumentPosition(relatedTarget);
     if (positionComparison & Node.DOCUMENT_POSITION_CONTAINED_BY) {
       return;
     }
@@ -63,20 +77,51 @@
     }
   }
 
-  // Adjusts the position of the popup to be in the viewport, if needed.
-  function ensurePositioning() {
+  // Positions the popover relative to the trigger using fixed positioning
+  function positionDialog() {
     const dialog = activePopup.querySelector(".js-popover-dialog");
-    dialog.style.translate = "";
-    const position = dialog.getBoundingClientRect();
+    const caret = activePopup.querySelector(".js-popover-caret");
+    const trigger = activePopup.querySelector(".js-popover-trigger");
 
-    if (position.left < 0) {
-      const overflow = Math.abs(position.left);
-      dialog.style.translate = `calc(-50% + 1rem + ${overflow}px) 0`;
+    // Get trigger position relative to viewport
+    const triggerRect = trigger.getBoundingClientRect();
+    const dialogRect = dialog.getBoundingClientRect();
+
+    // Calculate position
+    const gap = 16; // Gap between trigger and dialog
+    let dialogLeft =
+      triggerRect.left + triggerRect.width / 2 - dialogRect.width / 2;
+    const dialogTop = triggerRect.bottom + gap;
+
+    // Viewport boundaries
+    const viewport = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+
+    const margin = 16; // Margin from viewport edges
+
+    // Horizontal positioning - keep within viewport
+    const minLeft = margin;
+    const maxLeft = viewport.width - dialogRect.width - margin;
+
+    if (dialogLeft < minLeft) {
+      dialogLeft = minLeft;
+    } else if (dialogLeft > maxLeft) {
+      dialogLeft = maxLeft;
     }
 
-    if (position.right > document.documentElement.clientWidth) {
-      const overflow = position.right - document.documentElement.clientWidth;
-      dialog.style.translate = `calc(-50% - 1rem - ${overflow}px) 0`;
+    // Calculate caret position (always above dialog, centered on trigger)
+    const caretLeft = triggerRect.left + triggerRect.width / 2 - 8; // 8px = half caret width
+    const caretTop = dialogTop - 7; // Position caret just above dialog - overlap by 1px to merge borders
+
+    // Apply positioning using CSS custom properties
+    dialog.style.setProperty("--popover-x", `${dialogLeft}px`);
+    dialog.style.setProperty("--popover-y", `${dialogTop}px`);
+
+    if (caret) {
+      caret.style.setProperty("--caret-x", `${caretLeft}px`);
+      caret.style.setProperty("--caret-y", `${caretTop}px`);
     }
   }
 
@@ -93,6 +138,19 @@
     if (event.target.classList.contains("js-popover-close")) {
       activePopup.querySelector(".js-popover-trigger").focus();
       closePopup();
+    }
+  });
+
+  // Reposition on window resize and scroll
+  window.addEventListener("resize", function () {
+    if (activePopup) {
+      positionDialog();
+    }
+  });
+
+  window.addEventListener("scroll", function () {
+    if (activePopup) {
+      positionDialog();
     }
   });
 })();
