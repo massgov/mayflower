@@ -7,6 +7,7 @@
     -webkit-transition: none !important;
     transition: none !important;
     transform: none !important;
+    box-sizing: border-box !important;
   }
 
   html {
@@ -15,6 +16,32 @@
 
   body {
     color: var(--mf-c-font-heading) !important;
+  }
+
+  /* ==========================================================================
+     SPACING AND ALIGNMENT ONLY - DP-39488
+     ========================================================================== */
+  
+  /* Smaller spacing between elements */
+  h1, h2, h3, h4, h5, h6, .ma__comp-heading, .ma__page-header__title {
+    margin-top: 8pt !important;
+    margin-bottom: 6pt !important;
+  }
+  
+  p, .ma__rich-text p, .field--type-text-long p {
+    margin-top: 0 !important;
+    margin-bottom: 6pt !important;
+  }
+
+  /* Eliminate left margins and padding */
+  * {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+  
+  /* Keep some left padding for lists */
+  ul, ol {
+    padding-left: 20pt !important;
   }
 
   .main-content--two .page-content > *,
@@ -47,7 +74,7 @@
   .ma__jump-links,
   .ma__header__nav,
   .ma__toc--overlay,
-  .ma__page-flipper,
+  // .ma__page-flipper, // DP-39488: Show binder navigation in print
   .ma__callout-stats,
   .ma__illustrated-header__image,
   .ma__pagination,
@@ -71,7 +98,29 @@
   .ma__fixed-feedback-button,
   #gtm-loginto, // contextual login buttons
   #specto-widget-root, // chatbot region
-  .ma__sticky-toc__stuck {
+  .ma__sticky-toc__stuck,
+  // DP-39488: Hide virtual assistant and interactive widgets
+  massgov-virtual-assistant-widget,
+  .massgov-virtual-assistant-widget,
+  .virtual-assistant,
+  .chat-widget,
+  .chatbot,
+  .assistant-widget,
+  iframe[src*="chat"],
+  iframe[src*="assistant"],
+  iframe[src*="widget"],
+  .ma__chat-widget,
+  .ma__virtual-assistant,
+  .ma__widget,
+  .chatbot-container,
+  .assistant-container,
+  .widget-container,
+  .floating-widget,
+  .fixed-widget,
+  .sticky-widget,
+  .social-sharing,
+  .social-widgets,
+  .share-buttons {
     display: none !important;
   }
 
@@ -130,10 +179,15 @@
     width: 100%;
   }
 
-  .ma__google-map {
-    display: inline !important;
-    width: 90vw !important;
-    margin: 0 auto;
+  /* DP-39488: Hide maps completely in print */
+  .ma__google-map,
+  .ma__location-banner__map,
+  .ma__location-listing__map,
+  .ma__leaflet-map,
+  .js-google-map,
+  .js-location-listing-map,
+  .map-container {
+    display: none !important;
   }
 
   .ma__location-banner__image {
@@ -322,6 +376,12 @@
   .ma__rich-text,
   table {
     margin-bottom: 2rem;
+  }
+
+  /* Smaller spacing for tables */
+  table, .ma__table {
+    margin-top: 6pt !important;
+    margin-bottom: 8pt !important;
   }
 
   .ma__footnote-list {
