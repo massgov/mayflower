@@ -24,7 +24,6 @@ export const headerBasic = (
         }}
         image={{
           src: logo,
-          alt: 'Massachusetts state seal',
           width: 45,
           height: 45
         }}
@@ -40,7 +39,9 @@ const headerUtil = (
     siteLogo={(
       <SiteLogo
         image={{
-          alt: 'Massachusetts state seal', height: 45, src: logo, width: 45
+          height: 45,
+          width: 45,
+          src: logo
         }}
         siteName="Mass.gov"
         title="Mass.gov homepage"
@@ -69,7 +70,9 @@ const headerUtilSearch = (
     siteLogo={(
       <SiteLogo
         image={{
-          alt: 'Massachusetts state seal', height: 45, src: logo, width: 45
+          height: 45,
+          src: logo,
+          width: 45
         }}
         siteName="Mass.gov"
         title="Mass.gov homepage"
