@@ -44,8 +44,7 @@ $c-bd: $c-gray-light !default;
 $c-bd-divider: $c-gray-light !default;
 $c-bd-divider-dark: $c-gray-dark !default;
 $c-bd-error: $c-error !default;
-$c-bd-input: $c-gray-light !default;
-$c-bd-input-dark: $c-gray !default;
+$c-bd-input: $c-gray !default;
 
 // Box shadow
 $c-box-shadow-black: var(--mf-c-black-25) !default;
@@ -92,7 +91,6 @@ $c-box-shadow-black: var(--mf-c-black-25) !default;
   --mf-c-bd-divider-dark: #{$c-bd-divider-dark};
   --mf-c-bd-error: #{$c-bd-error};
   --mf-c-bd-input: #{$c-bd-input};
-  --mf-c-bd-input-dark: #{$c-bd-input-dark};
 
   --mf-c-box-shadow-black: #{$c-box-shadow-black};
 }

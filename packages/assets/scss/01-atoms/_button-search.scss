@@ -26,7 +26,7 @@
   background-color: $background-color;
 
   @if $background-color==$c-white {
-    border-color: var(--mf-c-bd-input) !important;
+    border-color: var(--mf-c-bd) !important;
   } @else {
     border-color: $background-color !important;
   }
@@ -39,7 +39,7 @@
     background-color: $color;
 
     @if $color==$c-white {
-      border-color: var(--mf-c-bd-input) !important;
+      border-color: var(--mf-c-bd) !important;
     } @else {
       border-color: $color !important;
     }

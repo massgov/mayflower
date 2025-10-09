@@ -6,6 +6,12 @@
       flex-direction: row;
     position: relative;
 
+	input {
+
+		@include input-base;
+		border-right: none;
+	}
+
 
     &-unit {
       border: 2px solid var(--mf-c-bd-input);
@@ -38,10 +44,6 @@
           justify-content: center;
         position: relative;
       }
-
-  	  input.has-error {
-  	    border-color: var(--mf-c-bd-error);
-  	  }
 
   	  &-plus,
   	  &-minus {

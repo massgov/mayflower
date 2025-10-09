@@ -15,11 +15,14 @@ $bp-header-search-reduce-button: "max-width: 700px";
   }
 
   &__input {
+
+    @include input-base;
     font-size: $fonts-medium;
     height: $header-search-height;
     padding-right: 128px;
     padding-left: 1rem;
     width: 100%;
+    border-color: var(--mf-c-bd);
 
     &::-ms-clear {
       display: none;
@@ -34,7 +37,6 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
     &, &--secondary {
       border: 2px solid;
-      //border-left: 2px solid;
       display: block;
       height: $header-search-height;
       padding-top: 0;

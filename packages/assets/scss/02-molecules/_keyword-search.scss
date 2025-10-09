@@ -2,6 +2,8 @@ $header-search-height: 46px;
 
 @use "00-base/configure" as *;
 
+@use "01-atoms/input" as *;  // Import the input styles
+
 .ma__keyword-search {
   display: inline-block;
   max-width: 400px;
@@ -14,11 +16,14 @@ $header-search-height: 46px;
   }
 
   &__input {
+
+    @extend .ma__input;
     font-size: $fonts-medium;
     height: $header-search-height;
     padding-right: $header-search-height + 16;
     padding-left: 16px;
     width: 100%;
+    
   }
 
   &__reset,

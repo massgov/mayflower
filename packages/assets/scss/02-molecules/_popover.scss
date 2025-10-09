@@ -30,19 +30,26 @@
     border-radius: 0.5rem;
     width: max-content;
     max-width: min(480px, calc(100vw - 2rem));
-    /* stylelint-disable-next-line */
-    max-width: min(480px, calc(100svw - 2rem));
     font-size: clamp($fonts-small, 1em, $fonts-large);
-    position: absolute;
-    inset: calc(100% + 1rem) auto auto 50%;
-    translate: -50% 0;
+
+    // Use fixed positioning to escape table flow
+    position: fixed;
+
+    // Will be positioned by JavaScript
+    left: var(--popover-x, 0);
+    top: var(--popover-y, 0);
+
+    // Hide by default
+    visibility: hidden;
+    opacity: 0;
+
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto 2.75rem;
     grid-template-areas: "title close" "content content";
     box-shadow: 0 0.75rem 3rem var(--mf-c-black-16);
-    visibility: hidden;
     z-index: $z-skyline;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
   }
 
   &__caret {
@@ -53,11 +60,20 @@
     height: 1rem;
     rotate: -45deg;
     clip-path: polygon(0 0, 100% 100%, 100% 0);
-    position: absolute;
-    inset: calc(100% + 0.56rem) auto auto 50%;
-    translate: -50% 0;
-    z-index: $z-skyline;
+
+    // Also use fixed positioning
+    position: fixed;
+    z-index: $z-skyline + 1;
+
+    // Will be positioned by JavaScript
+    left: var(--caret-x, 0);
+    top: var(--caret-y, 0);
+
+    // Hide by default (same as dialog)
     visibility: hidden;
+    opacity: 0;
+
+    transition: opacity 0.2s ease, visibility 0.2s ease;
   }
 
   &__close {
@@ -81,7 +97,6 @@
       svg {
         fill: var(--mf-c-primary-light);
       }
-      // background-color: $c-gray-lightest;
     }
   }
 
@@ -105,7 +120,9 @@
 
     .popover__dialog,
     .popover__caret {
+
       visibility: visible;
+      opacity: 1;
     }
   }
 }

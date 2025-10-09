@@ -4,7 +4,7 @@
 
   @include ma-container();
   margin-top: 20px;
-  transition: background .2s ease;
+  transition: background 0.2s ease;
 
   .ma__toc--overlay__container .ma__toc__toc__title,
   .ma__toc__toc__title {
@@ -21,7 +21,6 @@
       width: auto;
       min-width: 60vw; // fix for windows firefox which wraps early. 60 is a reasonable width to ensure
     }
-
   }
 
   .ma__toc__subtitle {
@@ -67,14 +66,14 @@
 
   .ma__toc--overlay__container {
     position: fixed;
-      top: -100vh;
-      left: 0;
-      right: 0;
+    top: -100vh;
+    left: 0;
+    right: 0;
     height: 100vh;
     opacity: 0;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
     z-index: $z-overlay;
-    display: flex;
+    display: none;
     flex-direction: column;
 
     > * {
@@ -118,7 +117,6 @@
       transition: transform 1s ease;
       display: inline-block;
     }
-
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
@@ -139,6 +137,7 @@
     top: 0;
     bottom: 0;
     opacity: 1;
+    display: flex;
 
     > * {
       display: block;
@@ -151,7 +150,6 @@
       right: 0;
       opacity: 1;
     }
-
   }
 
   // current page indicator
@@ -162,11 +160,11 @@
     &.is-current:before {
       content: "";
       position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 10px;
-        height:100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 10px;
+      height: 100%;
     }
 
     .ma__toc--hierarchy__accordion-content .is-current:before {

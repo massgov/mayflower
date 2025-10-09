@@ -7,6 +7,7 @@
   &__label {
     display: block;
     font-size: $fonts-large;
+    font-weight: $fonts-normal;
   }
 
   &--optional &__label {
@@ -25,15 +26,69 @@
   }
 
   &__select {
-    -webkit-appearance: menulist-button;
+    appearance: auto; // Use native select styling
     font-size: $fonts-medium;
     height: 100%;
-    opacity: 0;
+    opacity: 0;  // Hidden in normal mode
     position: absolute;
       top: 0;
       left: 0;
     width: 100%;
     z-index: 2;
+    color: var(--mf-c-font-base);
+    font-weight: $fonts-light;
+    border-width: 2px;
+    
+    // Show native select in high contrast mode
+
+    @media (forced-colors: active) {
+      opacity: 1;
+      position: static;
+      height: auto;
+      min-height: 40px;
+      padding-left: 0.25rem;
+    }
+
+    &:focus {
+      outline: 2px solid var(--mf-c-focus);
+      outline-offset: 2px;
+
+      /* WebKit gets its native focus styles. */
+
+      @media (-webkit-min-device-pixel-ratio:0) {
+        outline-style: auto;
+      }
+    
+      // Focus on native select in high contrast mode
+
+      @media (forced-colors: active) {
+        outline: 2px solid Highlight;
+      }
+
+      + .ma__select-box__link {
+        outline: 2px solid var(--mf-c-focus);
+        outline-offset: 2px;
+      }
+    }
+
+    &.has-error {
+      border-color: var(--mf-c-bd-error);
+      
+      // Fix error visibility in high contrast mode
+
+      @media (forced-colors: active) {
+        border-color: Mark;
+      }
+
+      .ma__select-box__icon {
+        border-color: var(--mf-c-bd-error);
+        
+        @media (forced-colors: active) {
+          border-color: Mark;
+          border-width: 3px;
+        }
+      }
+    }
   }
 
   &__link {
@@ -47,6 +102,19 @@
     position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
+    background-color: var(--mf-c-bg);
+    border-color: var(--mf-c-bd-input);
+    
+    // Hide custom link in high contrast mode
+
+    @media (forced-colors: active) {
+      display: none;
+    }
+
+    .ma__form--light & {
+      background-color: var(--mf-c-bg-10);
+      border-color: var(--mf-c-bd-input-50);
+    }
   }
 
   &__icon {
@@ -60,73 +128,21 @@
       right: 0;
     text-align: center;
     width: 40px;
+    border-color: var(--mf-c-bd-input);
 
     &:after {
       margin: 0;
       transform: translateY(-2px) rotate(45deg);
     }
-  }
+    
+    // Hide custom icon in high contrast mode
 
-  &__select:focus + &__link {
-    outline-width: 2px;
-    outline-style: solid;
-
-    /* WebKit gets its native focus styles.
-     */
-
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline-style: auto;
+    @media (forced-colors: active) {
+      display: none;
     }
-  }
-}
-
-//theme
-
-.ma__select-box {
-
-  &__label {
-    font-weight: $fonts-normal;
-  }
-
-  &__select {
-    color: var(--mf-c-font-base);
-    font-weight: $fonts-light;
-  }
-
-  &__link {
-    background-color: var(--mf-c-bg);
-    border-color: var(--mf-c-bd-input);
-
-    .ma__form--light & {
-      background-color: var(--mf-c-bg-10);
-      border-color: var(--mf-c-bd-input-50);
-    }
-  }
-
-  &__select.has-error ~ &__link {
-    border-color: var(--mf-c-bd-error);
-  }
-
-  &__icon {
-    border-color: var(--mf-c-bd-input);
 
     .ma__form--light & {
       border-color: var(--mf-c-bd-input-50);
-    }
-  }
-
-  &__select.has-error ~ &__link &__icon {
-    border-color: var(--mf-c-bd-error);
-  }
-
-  &__select:focus + &__link {
-    border-color: Highlight;
-
-    /* WebKit gets its native focus styles.
-     */
-
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline-color: -webkit-focus-ring-color;
     }
   }
 

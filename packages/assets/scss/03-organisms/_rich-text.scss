@@ -24,6 +24,8 @@ $heading-indent: $gutter;
   .pre-content > &,
   .post-content > &__container,
   .main-content--full .page-content > &__container,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component > &,
   .main-content--full .page-content > & {
 
     // By default richt text have a right padding, unless a .no-sidebar class is added to the section container.
@@ -31,6 +33,8 @@ $heading-indent: $gutter;
     @include ma-container('restricted');
   }
 
+  .main-content--full .no-sidebar .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .no-sidebar .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component > &,
   .main-content--full .no-sidebar .page-content > & {
 
     // Use the .no-sidebar class to overide the right padding.
@@ -293,6 +297,15 @@ $heading-indent: $gutter;
   h2, h3, h4 {
 
     @include ma-comp-heading(var(--mf-c-primary-alt));
+  }
+
+  h2.ma__collapsible-header,
+  h3.ma__collapsible-header,
+  h4.ma__collapsible-header {
+
+    &:after {
+      display: none;
+    }
   }
 
   h5 {

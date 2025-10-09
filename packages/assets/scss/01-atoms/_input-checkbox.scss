@@ -1,111 +1,148 @@
-// Custom Checkboxes
-
 @use "00-base/configure" as *;
 
 .ma__input-checkbox {
-  display: inline-block;
+  display: flex;
+  align-items: flex-start;
   position: relative;
+  gap: 0.5rem;
 
   input {
-
-    @include ma-visually-hidden;
-  }
-
-  & > svg {
-    height: 24px;
     position: absolute;
-      top: 0;
-      right: 0;
-    vertical-align: top;
-    width: 24px;
+    opacity: 0;
+    width: $fonts-larger;
+    height: $fonts-larger;
+    margin: 0;
+    flex-shrink: 0;
+
+    @media (forced-colors: active) {
+      // Show native checkbox in high contrast mode
+      position: static;
+      opacity: 1;
+      appearance: auto;
+    }
   }
 
   label {
     font-size: $fonts-large;
-    line-height: 1rem;
-    padding-left: 1.25em;
-
-    &:focus {
-      outline: none;
-    }
+    font-weight: $fonts-light;
+    line-height: 1.33;  // $fonts-2xlarge/$fonts-large
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-left: calc(#{$fonts-2xlarge} + 0.5rem); // Space for checkbox
+    position: relative;
 
     &:before {
-      border: 2px solid;
-      content: "";
-      display: inline-block;
-      height: 2em;
-      font-size: .5em;
-      line-height: 1.5;
-      padding-top: .25em;
+      // Checkmark using :before pseudo-element with SVG
+      content: '';
       position: absolute;
-        top: 0.125em;
-        left: 0;
-      text-align: center;
-      width: 2em;
+      left: 0;
+      top: 0;
+      transform: translateY(-0.1em); // Small adjustment to align with text baseline
+      width: $fonts-2xlarge;
+      height: $fonts-2xlarge;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--mf-c-bd-input);
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+      margin-right: 0.25em;
+
+      @media (forced-colors: active) {
+        // Hide in high contrast mode
+        display: none;
+      }
     }
 
     span {
-      line-height: 1.2em;
-    }
-  }
-
-  &--disabled {
-
-    label {
-      opacity: 0.5;
+      font-size: $fonts-large;
     }
 
-    svg {
-      opacity: 0.5;
+    @media (forced-colors: active) {
+      // Adjust spacing in high contrast mode
+      padding-left: 0;
     }
   }
-
-  input:checked ~ label {
-
-    &:before {
-      content: url("#{$assets-path}/images/icons/checkmark.svg"); //"✔";
-    }
-  }
-
-  svg ~ label {
-    padding-right: 30px;
-  }
-}
-
-//theme
-
-.ma__input-checkbox {
 
   & > svg {
+    // Icon spacing
+    height: 24px;
+    width: 24px;
     fill: var(--mf-c-primary-alt);
   }
 
-  label {
-    font-weight: $fonts-light;
+  input:checked ~ label {
+    // States - Show checkmark when checked
 
     &:before {
-      background-color: var(--mf-c-bg);
-      border-color: var(--mf-c-bd-input-dark);
 
-      .ma__form--light & {
-        background-color: var(--mf-c-bg-10);
-        border-color: var(--mf-c-bd-input-50);
-      }
+      content: url("#{$assets-path}/images/icons/checkmark.svg");
+      background-color: var(--mf-c-bg);  // Add background color when checked
     }
   }
 
-  input.has-error ~ label:before {
+  input:focus ~ label {
+
+    &:before {
+
+      outline: 2px solid var(--mf-c-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  input:focus {
+    // Focus on native input in high contrast mode
+
+    @media (forced-colors: active) {
+
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
+    }
+  }
+
+  input.has-error ~ label:before,
+  input.has-error ~ label:after {
+
     border-color: var(--mf-c-bd-error);
   }
 
-  input:focus ~ label:before {
-    border-color: Highlight !important;
 
-    /* WebKit gets its native focus styles.
-     */
+  input ~ label.has-error:before,
+  input ~ label.has-error:after {
+    // Error state
 
-    @media (-webkit-min-device-pixel-ratio:0) {
-      outline: -webkit-focus-ring-color auto 5px;
+    border-color: var(--mf-c-bd-error);
+  }
+
+  &--disabled {
+    // Disabled state
+
+    label {
+
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:before,
+      &:after {
+
+        opacity: 0.5;
+      }
+    }
+
+    svg {
+
+      opacity: 0.5;
+    }
+  }
+
+  .ma__form--light & {
+    // Light theme
+
+    label:after {
+      background-color: var(--mf-c-bg-10);
+      border-color: var(--mf-c-bd-input-50);
     }
   }
 }

@@ -277,7 +277,6 @@ const HamburgerNav = ({
                   ref={menuButtonRef}
                   type="button"
                   aria-expanded="false"
-                  aria-label={`Open the main menu for ${siteName}`}
                   className="ma__header__hamburger__menu-button js-header-menu-button"
                 >
                   <span className="ma__header__hamburger__menu-icon" />
@@ -289,6 +288,8 @@ const HamburgerNav = ({
                   </span>
                   <span className={`ma__header__hamburger__menu-text--close js-header__menu-text--close ${menuOpen ? 'show' : ''}`}>
                     Close
+                    {' '}
+                    <span className="ma__visually-hidden">menu</span>
                   </span>
                 </button>
               )}
@@ -719,7 +720,6 @@ export const HamburgerSiteLogo = ({ Wrapper }) => {
     },
     image: {
       src: 'https://unpkg.com/@massds/mayflower-assets/static/images/logo/stateseal.png',
-      alt: 'Massachusetts state seal',
       width: 45,
       height: 45
     },

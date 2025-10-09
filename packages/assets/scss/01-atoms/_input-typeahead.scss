@@ -9,6 +9,8 @@
   }
 
   input {
+
+    @include input-base;
     width: 100%;
     -webkit-appearance: none;
 
