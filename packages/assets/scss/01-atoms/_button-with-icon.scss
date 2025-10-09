@@ -1,25 +1,5 @@
 @use "00-base/configure" as *;
 
-<<<<<<< HEAD
-=======
-$colors: (
-  "c-highlight": $c-highlight,
-  "c-primary": $c-primary,
-  "c-primary-alt": $c-primary-alt,
-  "c-black": $c-gray-darkest,
-  "c-gray-dark": $c-gray-dark,
-  "c-white": $c-white,
-);
-
-$quaternary-colors: (
-  "c-primary": $c-primary,
-  "c-primary-alt": $c-primary-alt,
-  "c-black": $c-gray-darkest,
-  "c-gray-dark": $c-gray-dark,
-  "c-white": $c-white,
-);
-
->>>>>>> develop
 .ma__button-icon {
   // These will be overridden by color modifier classes
   --button-color: var(--mf-c-primary-alt);
@@ -46,7 +26,6 @@ $quaternary-colors: (
     --button-color-transparent: var(--mf-button-icon-primary-transparent);
   }
 
-<<<<<<< HEAD
   &--c-primary-alt {
     --button-color: var(--mf-button-icon-primary-alt-base);
     --button-color-transparent: var(--mf-button-icon-primary-alt-transparent);
@@ -72,15 +51,6 @@ $quaternary-colors: (
     --button-color-transparent: var(--mf-button-icon-highlight-transparent);
     --button-border-color: var(--mf-c-highlight);
     color: var(--mf-c-font-base);
-=======
-      @if $c == $c-highlight {
-        border-color: $c;
-        color: var(--mf-c-font-base);
-      } @else {
-        color: $c;
-      }
-    }
->>>>>>> develop
   }
 
   &--small {
@@ -134,55 +104,26 @@ $quaternary-colors: (
   &--expanded,
   &:hover {
 
-<<<<<<< HEAD
     @include ma-button("solid", var(--button-color));
-=======
-    @include ma-button("solid", $c-primary-alt);
->>>>>>> develop
     color: var(--mf-c-font-inverse);
 
     svg {
       fill: var(--mf-c-white);
     }
-<<<<<<< HEAD
-=======
-
-    @each $class, $c in $colors {
-      &.ma__button-icon--#{$class} {
-
-        @include ma-button("solid", $c);
-      }
-    }
->>>>>>> develop
   }
 
   &--secondary,
   &--expanded.ma__button-icon--secondary,
   &:hover.ma__button-icon--secondary {
 
-<<<<<<< HEAD
     @include ma-button("outline", var(--button-color));
-=======
-    @include ma-button("outline", $c-primary-alt);
-
-    @each $class, $c in $colors {
-      &.ma__button-icon--#{$class} {
-
-        @include ma-button("outline", $c);
-      }
-    }
->>>>>>> develop
   }
 
   &--tertiary,
   &--expanded.ma__button-icon--tertiary,
   &:hover.ma__button-icon--tertiary {
 
-<<<<<<< HEAD
     @include ma-button("solid", var(--mf-c-gray-light));
-=======
-    @include ma-button("solid", $c-gray-light);
->>>>>>> develop
     color: var(--mf-c-font-base);
 
     svg {
@@ -209,31 +150,9 @@ $quaternary-colors: (
 
     &:hover,
     &.active {
-<<<<<<< HEAD
       border-bottom-color: var(--button-color);
       background-color: transparent !important;
     }
-=======
-      border-color: var(--mf-c-primary);
-      background-color: transparent !important;
-    }
-
-    @each $class, $c in $quaternary-colors {
-      &.ma__button-icon--#{$class} {
-        border-bottom-color: rgba($c, 0.5);
-        color: $c;
-
-        svg {
-          fill: $c;
-        }
-
-        &:hover,
-        &.active {
-          border-bottom-color: $c;
-        }
-      }
-    }
->>>>>>> develop
   }
 
   &--expanded.ma__button-icon--quaternary-simple,
@@ -259,21 +178,7 @@ $quaternary-colors: (
     svg {
       width: 10px;
       height: 10px;
-<<<<<<< HEAD
       fill: var(--button-color-transparent);
-=======
-      fill: rgba($c-primary-alt, 0.5);
-    }
-
-    @each $class, $c in $quaternary-colors {
-      &.ma__button-icon--#{$class} {
-        color: $c;
-
-        svg {
-          fill: rgba($c, 0.5);
-        }
-      }
->>>>>>> develop
     }
   }
 
