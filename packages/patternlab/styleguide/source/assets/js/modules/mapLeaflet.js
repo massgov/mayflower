@@ -72,7 +72,7 @@ export default (function(window, document, $) {
 
         // Accessibility: ensure the Leaflet popup close button is announced as "Close".
         // Leaflet renders the close button as an "×" without an accessible name, so screen readers
-        // may read "times". Add aria-label (and title for tooltips) on popup open.
+        // may read "times". Add aria-label on popup open.
         mymap.on('popupopen', function (e) {
           const btn = e && e.popup && e.popup._closeButton;
           if (btn) {
