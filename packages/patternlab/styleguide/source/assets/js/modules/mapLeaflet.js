@@ -70,6 +70,16 @@ export default (function(window, document, $) {
             mapWrapper.querySelector('.leaflet-control-attribution').style.display = 'none';
         }
 
+        // Accessibility: ensure the Leaflet popup close button is announced as "Close".
+        // Leaflet renders the close button as an "×" without an accessible name, so screen readers
+        // may read "times". Add aria-label (and title for tooltips) on popup open.
+        mymap.on('popupopen', function (e) {
+          const btn = e && e.popup && e.popup._closeButton;
+          if (btn) {
+            btn.setAttribute('aria-label', 'Close');
+          }
+        });
+
         // use marker count to determine if map bounds should be set
         const markerArray = markers.map((marker) => [marker.position.lat, marker.position.lng]);
 
