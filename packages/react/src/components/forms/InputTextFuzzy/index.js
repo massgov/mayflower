@@ -208,7 +208,10 @@ InputTextFuzzy.propTypes = {
   /** The id of the typeahead element. */
   id: PropTypes.string.isRequired,
   /** The label text above the input text box. */
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node
+  ]),
   /** The placeholder text to appear in the input text box. */
   placeholder: PropTypes.string,
   /** Style the input with a box outline. */
