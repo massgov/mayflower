@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: about-section
+    description: Add contetual info to org page social media link section title for screen reader users. (#)
+    issue: DP-9271
+    impact: Patch
