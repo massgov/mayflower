@@ -27,8 +27,7 @@
     <div class="ma__mapped-locations__map">
       {% set id = 'dataviz-' ~ random(9999) %}
       <div id="sr-info" class="ma__visually-hidden">
-        Note for screen reader users, we suggest skip the following interactive map and go to the location listing for a better user experience.
-        Currently, the map is not accessible yet for a comprehensive experience.
+        This interactive map may not function properly with screen readers. Please use the preceding link to access the full location listing for an accessible experience.
       </div>
       <a class="ma__mapped-locations__map__skip-link js-skiplink" href="#map_{{ id }}">Skip the interactive map.</a>
       {% set leafletMap = mappedLocations.leafletMap %}
