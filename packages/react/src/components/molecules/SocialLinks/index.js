@@ -13,7 +13,7 @@ import IconFacebook from 'MayflowerReactBase/Icon/IconFacebook';
 // eslint-disable-next-line import/no-unresolved
 import IconTwitter from 'MayflowerReactBase/Icon/IconTwitter';
 // eslint-disable-next-line import/no-unresolved
-import IconLinkedin from 'MayflowerReactBase/Icon/IconLinkedin';
+import IconLinkedInLogo from 'MayflowerReactBase/Icon/IconLinkedInLogo';
 // eslint-disable-next-line import/no-unresolved
 import IconYoutube from 'MayflowerReactBase/Icon/IconYoutube';
 // eslint-disable-next-line import/no-unresolved
@@ -47,7 +47,7 @@ const SocialLink = (socialLink) => {
   const icons = {
     facebook: IconFacebook,
     twitter: IconTwitter,
-    linkedin: IconLinkedin,
+    linkedin: IconLinkedInLogo,
     youtube: IconYoutube,
     instagram: IconInstagram,
     vimeo: IconVimeo

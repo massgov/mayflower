@@ -27,7 +27,7 @@ AccordionItemExample.storyName = 'Default';
 AccordionItemExample.args = {
   title: 'Collapsible Header',
   info: 'Collapsible Header',
-  icon: 'IconCirclechevron',
+  icon: 'IconCaretCircleRight',
   border: true,
   emphasize: true,
   secondary: false,
@@ -40,7 +40,7 @@ AccordionItemExample.argTypes = {
   icon: {
     control: {
       type: 'select',
-      options: ['IconCirclechevron', 'IconLaptop', 'IconPhone', 'IconFax']
+      options: ['IconCaretCircleRight', 'IconLaptop', 'IconPhone', 'IconFaxIcon']
     }
   },
   headerLevel: {

@@ -11,7 +11,7 @@ import classNames from 'classnames';
 
 import Collapse from 'MayflowerReactAnimations/Collapse';
 // eslint-disable-next-line import/no-unresolved
-import IconQuestionmark from 'MayflowerReactBase/Icon/IconQuestionmark';
+import IconQuestion from 'MayflowerReactBase/Icon/IconQuestion';
 // eslint-disable-next-line import/no-unresolved
 import IconClose from 'MayflowerReactBase/Icon/IconClose';
 import Paragraph from 'MayflowerReactText/Paragraph';
@@ -113,7 +113,7 @@ class HelpTip extends React.Component {
                 aria-controls={`help-tip-content-${id}-${index}`}
               >
                 {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
-                <IconQuestionmark height={15} width={15} />
+                <IconQuestion height={15} width={15} />
               </span>
               {this.buildDangerouslyIfHasMarkup(splitText[index + 1], hasMarkup)}
             </span>

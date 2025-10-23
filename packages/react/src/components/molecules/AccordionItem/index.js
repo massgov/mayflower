@@ -11,7 +11,7 @@ import classNames from 'classnames';
 // eslint-disable-next-line import/no-unresolved
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 // eslint-disable-next-line import/no-unresolved
-import IconCirclechevron from 'MayflowerReactBase/Icon/IconCirclechevron';
+import IconCaretCircleRight from 'MayflowerReactBase/Icon/IconCaretCircleRight';
 import Heading from 'MayflowerReactHeadings/Heading';
 import Collapse from 'MayflowerReactAnimations/Collapse';
 
@@ -111,7 +111,7 @@ AccordionItem.propTypes = {
 };
 
 AccordionItem.defaultProps = {
-  icon: <IconCirclechevron width={35} height={35} />,
+  icon: <IconCaretCircleRight width={35} height={35} />,
   border: true,
   emphasize: true,
   secondary: false,

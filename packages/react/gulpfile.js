@@ -402,6 +402,10 @@ function cleanIconDir() {
   ]);
 }
 
+function cleanIconAssets() {
+  return del(['./src/components/base/Icon/assets/*.svg']);
+}
+
 const typedSources = [
   ...sources,
 
@@ -482,6 +486,8 @@ const generateTsDeclarations = series(
   convertTsToDeclarations,
 )
 
+
+
 exports.cleanIconDir = cleanIconDir;
 exports.generateIcons = generateIcons;
 exports.transpileES5Icons = transpileES5Icons;
@@ -496,6 +502,7 @@ exports.default = series(
     styles,
     series(
       ensureAssetsDir,
+      cleanIconAssets,
       copyIconsFromAssets,
       generateIcons,
       transpileES5Icons,

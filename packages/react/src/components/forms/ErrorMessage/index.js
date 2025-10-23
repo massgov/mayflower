@@ -8,9 +8,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-unresolved
-import IconInputsuccess from 'MayflowerReactBase/Icon/IconInputsuccess';
+import IconInputSuccess from 'MayflowerReactBase/Icon/IconInputSuccess';
 // eslint-disable-next-line import/no-unresolved
-import IconInputerror from 'MayflowerReactBase/Icon/IconInputerror';
+import IconInputError from 'MayflowerReactBase/Icon/IconInputError';
 
 const ErrorMessage = ({
   inputId, error, success, status
@@ -23,7 +23,7 @@ const ErrorMessage = ({
       className={`ma__error-msg has-error ${isSuccessful ? 'ma__error-msg--success' : ''}`}
       role={isSuccessful ? 'presentation' : 'alert'}
     >
-      {isSuccessful ? <IconInputsuccess width={16} height={18} /> : <IconInputerror width={16} height={18} />}
+      {isSuccessful ? <IconInputSuccess width={16} height={18} /> : <IconInputError width={16} height={18} />}
       <span>{isSuccessful ? success : error }</span>
     </div>
   );
