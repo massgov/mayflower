@@ -13,8 +13,8 @@ export const Icons = (args) => (
   </ul>
 );
 Icons.args = {
-  width: 40,
-  height: 50,
+  width: 24,
+  height: 24,
   title: 'Icon Title Here',
   classes: [''],
   ariaHidden: false,
