@@ -10,6 +10,7 @@ const ts = require('gulp-typescript');
 const replace = require('gulp-replace');
 const { prependText } = require('gulp-append-prepend');
 const { exec } = require('child_process');
+const fs = require('fs');
 
 function clean() {
   return del(['dist', 'types']);
@@ -25,11 +26,22 @@ function styles() {
     .pipe(dest('dist'));
 }
 
-// Copying icon assets from assets to react is not currently being used.  
-// function icons() {
-//   return src(['./src/components/base/Icon/assets/*.svg'])
-//     .pipe(dest('dist/Icon/assets'));
-// }
+function ensureAssetsDir(cb) {
+  const assetsDir = './src/components/base/Icon/assets';
+  if (!fs.existsSync(assetsDir)) {
+    fs.mkdirSync(assetsDir, { recursive: true });
+  }
+  cb();
+}
+
+function copyIconsFromAssets() {
+  return src(['./node_modules/@massds/mayflower-assets/static/images/icons/*.svg'])
+    .pipe(rename((path) => {
+      // Add "icon-" prefix to the filename
+      path.basename = `icon-${path.basename}`;
+    }))
+    .pipe(dest('./src/components/base/Icon/assets'));
+}
 
 function transpileES5Icons() {
   return src('./dist/Icon/*.mjs')
@@ -483,6 +495,8 @@ exports.default = series(
     generateTsDeclarations,
     styles,
     series(
+      ensureAssetsDir,
+      copyIconsFromAssets,
       generateIcons,
       transpileES5Icons,
       transpileES6Icons

@@ -16,7 +16,7 @@ import IconDocx from 'MayflowerReactBase/Icon/IconDocx';
 // eslint-disable-next-line import/no-unresolved
 import IconXlxs from 'MayflowerReactBase/Icon/IconXlxs';
 // eslint-disable-next-line import/no-unresolved
-import IconGeneric from 'MayflowerReactBase/Icon/IconGeneric';
+import IconDocGeneric from 'MayflowerReactBase/Icon/IconDocGeneric';
 // eslint-disable-next-line import/no-unresolved
 import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 // eslint-disable-next-line import/no-unresolved
@@ -53,7 +53,7 @@ const DecorativeLink = (props) => {
         preIcon = <IconXlxs title={title} width={35} height={36} />;
         break;
       case 'generic':
-        preIcon = <IconGeneric title={title} width={35} height={36} />;
+        preIcon = <IconDocGeneric title={title} width={35} height={36} />;
         break;
       default:
         preIcon = null;
