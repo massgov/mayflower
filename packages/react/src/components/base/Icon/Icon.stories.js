@@ -34,9 +34,7 @@ BasicIcon.argTypes = {
   name: {
     control: {
       type: 'select',
-      options: Object.fromEntries(
-        Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
-      )
+      options: assets
     }
   },
   fill: {
@@ -45,6 +43,8 @@ BasicIcon.argTypes = {
     }
   }
 };
+
+console.log(assets);
 
 export const AllIcons = (args) => {
   return(

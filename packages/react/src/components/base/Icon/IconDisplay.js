@@ -13,14 +13,14 @@ import * as Icon from './index';
 
 const IconDisplay = (props) => {
   const { name } = props;
-  const componentName = name && `Icon${name[0].toUpperCase() + name.slice(1)}`;
-  const IconComponent = Icon?.[componentName] && Icon[componentName];
+  const IconComponent = Icon?.[name] && Icon[name];
+  console.log(IconComponent);
   return(
     <li style={{ width: 180, margin: 10, padding: 10 }}>
       <div className="sg-icons-info">
         { IconComponent && <IconComponent {...props} />}
         <div>
-          <span>{componentName}</span>
+          <span>{name}</span>
           <ButtonCopy content={name} />
         </div>
       </div>

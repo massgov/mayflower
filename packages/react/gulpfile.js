@@ -43,6 +43,55 @@ function copyIconsFromAssets() {
     .pipe(dest('./src/components/base/Icon/assets'));
 }
 
+function generateIconKnobOptions() {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const assetsDir = './src/components/base/Icon/assets';
+  const outputFile = './src/components/base/Icon/Icon.knob.options.js';
+  
+  // Read all SVG files from assets directory
+  if (!fs.existsSync(assetsDir)) {
+    console.warn('Assets directory does not exist:', assetsDir);
+    return Promise.resolve();
+  }
+  
+  const svgFiles = fs.readdirSync(assetsDir)
+    .filter(file => file.endsWith('.svg'))
+    .map(file => {
+      // Remove 'icon-' prefix and '.svg' extension
+      let iconName = path.basename(file, '.svg');
+      // Convert kebab-case to PascalCase
+      const pascalCaseName = iconName
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+    
+      return pascalCaseName;
+    })
+    .sort(); // Sort alphabetically
+  
+  // Generate the assets object
+  const assetsEntries = svgFiles.map(iconName => `  ${iconName}: '${iconName}'`);
+  
+  // Generate the file content
+  const fileContent = `export const assets = {
+${assetsEntries.join(',\n')}
+};
+
+export const svgOptions = {
+  choose: '',
+  ...assets
+};
+`;
+  
+  // Write the file
+  fs.writeFileSync(outputFile, fileContent);
+  console.log(`Generated ${outputFile} with ${svgFiles.length} icons`);
+  
+  return Promise.resolve();
+}
+
 function transpileES5Icons() {
   return src('./dist/Icon/*.mjs')
     .pipe(rename((p) => {
@@ -489,7 +538,9 @@ const generateTsDeclarations = series(
 
 
 exports.cleanIconDir = cleanIconDir;
+exports.copyIconsFromAssets = copyIconsFromAssets;
 exports.generateIcons = generateIcons;
+exports.generateIconKnobOptions = generateIconKnobOptions;
 exports.transpileES5Icons = transpileES5Icons;
 exports.transpileES6Icons = transpileES6Icons;
 exports.generateTsDeclarations = generateTsDeclarations;
@@ -505,6 +556,7 @@ exports.default = series(
       cleanIconAssets,
       copyIconsFromAssets,
       generateIcons,
+      generateIconKnobOptions,
       transpileES5Icons,
       transpileES6Icons
     )
