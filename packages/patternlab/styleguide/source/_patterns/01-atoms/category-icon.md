@@ -13,8 +13,6 @@ This Pattern shows a small category flag.
 catIcon: {
   icon:
     type: string (path to icon) / required 
-  small:
-    type: boolean
 }
 ~~~
 
