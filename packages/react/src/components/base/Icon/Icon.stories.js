@@ -25,9 +25,9 @@ BasicIcon.args = {
   name: 'IconAlert',
   width: 40,
   height: 50,
-  title: 'Icon Title Here',
   classes: [''],
-  ariaHidden: false,
+  ['aria-hidden']: false,
+  ['aria-label']: 'This is an icon',
   fill: '#000'
 };
 BasicIcon.argTypes = {

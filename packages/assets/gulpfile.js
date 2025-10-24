@@ -8,6 +8,8 @@ const concat = require('gulp-concat');
 const terser = require('gulp-terser');
 const del = require('del');
 const path = require('path');
+const stripSvgFills = require('./scripts/icon-strip-fills');
+
 
 sass.compiler = require('sass');
 
@@ -175,6 +177,13 @@ function compileMiniBrandBanner() {
   .pipe(dest('./js'))
 }
 
+function cleanSvgFills() {
+  return new Promise((resolve) => {
+    stripSvgFills('./static/images/icons');
+    resolve();
+  });
+}
+
 exports.deleteMainNav = deleteMainNav;
 exports.compileMainNav = compileMainNav;
 exports.compileMiniScss = compileMiniScss;
@@ -182,6 +191,7 @@ exports.compileScss = compileScss;
 exports.clean = clean;
 exports.compileBrandBanner = compileBrandBanner;
 exports.compileMiniBrandBanner = compileMiniBrandBanner;
+exports.cleanSvgFills = cleanSvgFills;
 
 const transpileHeader = series(compileMainNav, parallel(compileHeader, compileMiniHeader), deleteMainNav);
 const transpileHamburgerHeader = parallel(compileHamburgerHeader, compileMiniHamburgerHeader);

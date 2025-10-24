@@ -13,12 +13,12 @@ import * as Icon from '@massds/mayflower-react/dist/Icon';
 import './_icon-display.scss';
 
 const IconDisplay = (props) => {
-  const { name } = props;
+  const { name, ...rest } = props;
   const IconComponent = Icon?.[name] && Icon[name];
   return(
     <li style={{ width: 180, margin: 10, padding: 10 }}>
       <div className="sg-icons-info">
-        { IconComponent && <IconComponent {...props} />}
+        { IconComponent && <IconComponent {...rest} />}
         <div>
           <span>{name}</span>
           <ButtonCopy content={name} />
@@ -30,11 +30,11 @@ const IconDisplay = (props) => {
 
 IconDisplay.propTypes = {
   name: PropTypes.string.isRequired,
-  title: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  eight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   classes: PropTypes.arrayOf(PropTypes.string),
-  ariaHidden: PropTypes.bool,
+  ['aria-hidden']: PropTypes.bool,
+  ['aria-label']: PropTypes.string,
   fill: PropTypes.string
 };
 
