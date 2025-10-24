@@ -15,9 +15,9 @@ export const Icons = (args) => (
 Icons.args = {
   width: 24,
   height: 24,
-  title: 'Icon Title Here',
   classes: [''],
-  ariaHidden: false,
+  ['aria-hidden']: false,
+  ['aria-label']: 'This is an icon',
   fill: '#000'
 };
 Icons.argTypes = {
