@@ -5,7 +5,7 @@
         <div class="ma__utility-nav__translate">
           <div id="google_translate_element"></div>
           <div class="ma__utility-nav__translate-icon">
-            {{ icon('lat-lon-globe')}}
+            {{ icon('lat-lon-globe', "20", "20")}}
           </div>
         </div>
       </li>
@@ -17,7 +17,7 @@
         {% for panel in item.panels %}
           {% for link in panel.links %}
             <a class="ma__utility-nav__link direct-link" href="{{ link.href }}">
-              {{ icon(item.icon) }}
+              {{ icon(item.icon, "20", "18") }}
               <span>{{ item.text }}</span>
             </a>
          {% endfor %}
@@ -30,7 +30,7 @@
             aria-haspopup="true"
             aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}"
             aria-expanded="false">
-            {{ icon(item.icon) }}
+            {{ icon(item.icon, "20", "20") }}
             <span>
               {{ item.text }}
             </span>
