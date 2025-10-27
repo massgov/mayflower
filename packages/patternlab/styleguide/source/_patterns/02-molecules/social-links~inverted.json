@@ -1,8 +1,8 @@
 {
   "socialLinks": {
     "label": "Share:",
-    "inverted": false,
-    "theme": "c-primary-alt",
+    "inverted": true,
+    "theme": "c-primary",
     "items": [{
       "altText": "Follow us on Facebook",
       "href": "#",

@@ -43,6 +43,8 @@
   &__item {
     display: inline-block;
     vertical-align: middle;
+    line-height: 1.2;
+    margin-right: 5px;
 
     @media ($bp-large-max) {
       text-align: center;
@@ -52,10 +54,16 @@
   &__link {
     display: inline-block;
     font-size: 0;
-    height: 30px;
-    padding: 5px;
+    height: 24px;
+    width: 24px;
     transition: opacity .4s;
-    width: 30px;
+
+    &--inverted, &--c-primary--inverted, &--c-primary-alt--inverted {
+      padding: 4px;
+      height: 32px;
+      width: 32px;
+    }
+
     
     &:hover {
       opacity: .7;
@@ -79,37 +87,35 @@
   &__link {
 
     &, &--c-primary {
-      fill: var(--mf-c-primary);
+      color: var(--mf-c-primary);
     }
 
     &--c-primary-alt {
-      fill: var(--mf-c-primary-alt);
+      color: var(--mf-c-primary-alt);
     }
 
     &--inverted, &--c-primary--inverted {
       background-color: var(--mf-c-primary);
 
-      & > svg,
-      & > svg path {
-        fill: var(--mf-c-white);    
+      & > svg {
+        color: var(--mf-c-white);    
       }
     }
 
     &--c-primary-alt--inverted {
       background-color: var(--mf-c-primary-alt);
 
-      & > svg,
-      & > svg path {
-        fill: var(--mf-c-white);    
+      & > svg {
+        color: var(--mf-c-white);    
       }
     }
 
-    &[data-social-share = blog] > svg path {
-      fill: var(--mf-c-primary-alt);
+    &[data-social-share = blog] > svg {
+      color: var(--mf-c-primary-alt);
     }
 
-    &[data-social-share = email] > svg path {
-      fill: var(--mf-c-primary-alt);
+    &[data-social-share = email] > svg {
+      color: var(--mf-c-primary-alt);
     }
   }
 }
