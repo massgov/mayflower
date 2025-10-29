@@ -261,6 +261,29 @@ $heading-indent: $gutter;
   & > :last-child {
     margin-bottom: 0 !important;
   }
+
+  pre,
+  code,
+  kbd,
+  samp,
+  var {
+    font-size: 1em;
+    font-family: $fonts-mono !important;
+  }
+
+  code, kbd {
+    font-size: 90%;
+    padding: .2em .4em;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: var(--mf-c-gray-lightest);
+    border-radius: 4px;
+  }
+
+  kbd {
+    font-weight: $fonts-bold;
+    border: 1px solid var(--mf-c-gray);
+  }
 }
 
 // Fix display issue after left floated image in IE11.
