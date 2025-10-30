@@ -49,13 +49,8 @@
   &__text {
 
     @include ma-link-underline;
-    display: inline;
-
-    svg {
-
-      @include ma-link-arrow;
-      fill: var(--mf-c-font-link);
-    }
+    display: inline-flex;
+    align-items: center;
   }
 
   &__description {

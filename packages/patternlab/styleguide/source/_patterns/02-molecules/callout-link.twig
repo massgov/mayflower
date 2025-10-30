@@ -19,7 +19,7 @@ target="">
     {% if calloutLink.text %}
       {% if not calloutLink.download %}
     <span class="ma__callout-link__container">
-      <span class="ma__callout-link__text" >{{ calloutLink.text }}&nbsp;{{ icon('arrow') }}</span>
+      <span class="ma__callout-link__text" >{{ calloutLink.text }}&nbsp;{{ icon('arrow', '0.8em', '0.8em') }}</span>
     </span>
       {% else %}
           {% set sizeClass = calloutLink.iconSize ? "ma__download-link--" ~ calloutLink.iconSize : "" %}

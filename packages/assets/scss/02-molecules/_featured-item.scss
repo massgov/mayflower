@@ -60,12 +60,6 @@
           @include ma-link-transition;
           border-bottom: 3px solid transparent;
       }
-  
-      svg {
-  
-        @include ma-link-arrow;
-        fill: var(--mf-c-white);
-      }
     }
 
     &.truncated {
