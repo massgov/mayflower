@@ -2,7 +2,7 @@
   "socialLinksBar": {
     "id": "social-links-bar",
     "items": [{
-      "icon": "twitter",
+      "icon": "x-logo",
       "link": {
         "href": "/",
         "text": "MassHealth on Twitter",
