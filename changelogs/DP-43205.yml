@@ -1,0 +1,7 @@
+Changed:
+  - project: Patternlab
+    component: Video
+    description: Change default video title heading level from h3 to h2 for improved accessibility.
+    issue: DP-43205
+    impact: Patch
+
