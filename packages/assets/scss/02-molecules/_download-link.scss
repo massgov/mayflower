@@ -5,11 +5,7 @@
   @include clearfix();
 
   & + & {
-    padding-top: 25px;
-  }
-
-  &--small + &--small {
-    padding-top: 10px;
+    padding-top: 0.5rem;
   }
 
   &__icon {
