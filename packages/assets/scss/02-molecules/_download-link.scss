@@ -14,26 +14,9 @@
 
   &__icon {
     float: left;
-    height: 36px;
-    opacity: .75;
-    width: 55px;
     overflow: hidden;
-
-    & > svg {
-      height: 36px;
-      width: 34px;
-    }
-  }
-
-  &--small &__icon {
-    height: 25px;
-    margin-top: 4px;
-    width: 40px;
-
-    & > svg {
-      height: 25px;
-      width: 25px;
-    }
+    margin-top: 5px;
+    margin-inline-end: 0.5rem;
   }
 
   &__title {
@@ -92,7 +75,7 @@
 .ma__download-link {
 
   &__icon {
-    fill: var(--mf-c-font-link);
+    color: var(--mf-c-font-link);
   }
 
   &__file-link {

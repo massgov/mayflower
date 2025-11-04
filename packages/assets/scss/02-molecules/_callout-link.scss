@@ -8,14 +8,14 @@
   width: 100%;
   flex-flow: column wrap;
   justify-content: center;
-  padding: 15px 20px;
+  padding: 16px 16px 10px 16px;
   background-color: mix($c-bg, $c-font-link,90%);
   border-color: var(--mf-c-link);
   box-shadow: $box-shadow;
   text-decoration: none;
 
   @media ($bp-small-min) {
-    padding: 20px 30px;
+    padding: 20px 20px 16px 20PX;
   }
 
   &:hover,
