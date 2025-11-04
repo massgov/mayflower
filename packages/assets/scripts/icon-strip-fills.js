@@ -51,7 +51,7 @@ function stripSvgFills(iconsDir, options = {}) {
       processedCount++;
       
     } catch (error) {
-      console.error(`❌ Error processing ${file}:`, error.message);
+      console.error(error.message);
     }
   });
 
