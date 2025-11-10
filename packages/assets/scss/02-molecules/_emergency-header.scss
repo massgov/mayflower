@@ -49,12 +49,14 @@
       height: 24px;
       margin-right: 0;
       vertical-align: middle;
+      display: none;
 
 
       @media ($bp-small-min) {
         height: 32px;
         width: 2rem;
         margin-right: 7px;
+        display: inline-block;
       }
 
     }
@@ -74,7 +76,7 @@
     cursor: pointer;
     color: var(--mf-c-font-base);
     font-weight: $fonts-light;
-    text-align: left;
+    text-align: left   ;
 
     @media ($bp-small-max) {
       font-size: $fonts-medium;
