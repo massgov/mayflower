@@ -24,10 +24,6 @@
   line-height: inherit;
   background-color: var(--mf-c-warning);
 
-  @media ($bp-small-max) {
-    text-align: center;
-  }
-
   &__label {
     flex-shrink: 0;
     flex-basis: auto;
@@ -53,6 +49,16 @@
       height: 24px;
       margin-right: 0;
       vertical-align: middle;
+      display: none;
+
+
+      @media ($bp-small-min) {
+        height: 32px;
+        width: 2rem;
+        margin-right: 7px;
+        display: inline-block;
+      }
+
     }
 
     // text
@@ -70,6 +76,7 @@
     cursor: pointer;
     color: var(--mf-c-font-base);
     font-weight: $fonts-light;
+    text-align: left   ;
 
     @media ($bp-small-max) {
       font-size: $fonts-medium;
