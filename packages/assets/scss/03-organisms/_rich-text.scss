@@ -269,6 +269,7 @@ $heading-indent: $gutter;
   var {
     font-size: 1em;
     font-family: $fonts-mono !important;
+    border: 1px solid var(--mf-c-gray-lighter);
   }
 
   code:not(pre > code), // code block styles will be handled by highlight.js in openmass
@@ -283,7 +284,6 @@ $heading-indent: $gutter;
 
   kbd {
     font-weight: $fonts-bold;
-    border: 1px solid var(--mf-c-gray);
     box-shadow: $box-shadow;
   }
 }
