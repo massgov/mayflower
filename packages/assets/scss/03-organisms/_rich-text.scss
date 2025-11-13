@@ -269,6 +269,11 @@ $heading-indent: $gutter;
   var {
     font-size: 1em;
     font-family: $fonts-mono !important;
+  }
+
+  pre,
+  code,
+  kbd {
     border: 1px solid var(--mf-c-gray-lighter);
   }
 
