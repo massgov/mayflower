@@ -126,6 +126,10 @@
     svg {
       color: var(--mf-c-primary-alt);
     }
+
+    &--input-error {
+      color: var(--mf-c-error) !important;
+    }
   }
 
   &__title {
