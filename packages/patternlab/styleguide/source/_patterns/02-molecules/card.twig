@@ -25,7 +25,7 @@
           <div class="ma__card__eyebrow" id="{{ card.id }}-eyebrow">{{ card.eyebrow }}</div>
         {% endif %}
         {% set headingLevel = card.level ? card.level : 3 %}
-        <h{{ headingLevel }} class="ma__card__title" id="{{ card.id }}-title"><span>{{card.title}}&nbsp;{{ icon('arrow') }}</span></h{{ headingLevel }}>
+        <h{{ headingLevel }} class="ma__card__title" id="{{ card.id }}-title"><span>{{card.title}}&nbsp;{{ icon('arrow', '16', '16') }}</span></h{{ headingLevel }}>
         <div class="ma__card__details{{ detailsClass }}">
           {% if card.usage %}
           <div class="ma__card__thumbnail">
