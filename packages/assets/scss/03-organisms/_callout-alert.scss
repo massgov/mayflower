@@ -23,12 +23,12 @@
     border: 3px solid;
     display: block;
     padding: 15px 20px;
-    padding-left: 65px;
+    padding-left: 60px;
     position: relative;
 
     @media ($bp-small-min) {
       padding: 30px;
-      padding-left: 100px;
+      padding-left: 72px;
     }
   }
 
@@ -41,16 +41,6 @@
 
     @media ($bp-small-min) {
       left: 30px;
-    }
-
-    & > svg {
-      height: 48px;
-      width: 44px;
-
-      @media ($bp-small-max) {
-        height: 36px;
-        width: 34px;
-      }
     }
   }
 
@@ -66,9 +56,7 @@
 
       svg {
         display: inline-block;
-        height: .6em;
-        margin-right: -18px;
-        width: .6em;
+        padding-top: 0.1em;
       }
     }
   }
