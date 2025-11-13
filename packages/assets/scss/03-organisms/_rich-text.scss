@@ -277,6 +277,11 @@ $heading-indent: $gutter;
     border: 1px solid var(--mf-c-gray-lighter);
   }
 
+  pre:not(:has(> code)) { // code block styles will be handled by highlight.js in openmass
+    background-color: var(--mf-c-gray-lightest);
+    padding: 1em;
+  }
+
   code:not(pre > code), // code block styles will be handled by highlight.js in openmass
   kbd {
     font-size: 90%;
