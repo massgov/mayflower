@@ -33,25 +33,42 @@ function stripSvgFills(iconsDir, options = {}) {
         .replace(/\s+/g, ' ') // Clean up extra spaces
         .trim();
       
-      // Add currentColor to root SVG if requested
-      if (addCurrentColor && !svgContent.includes('fill=')) {
-        svgContent = svgContent.replace(
-          /<svg([^>]*)>/,
-          '<svg$1 fill="currentColor">'
-        );
-      }
+      // Process SVG tag to add attributes
+      svgContent = svgContent.replace(
+        /<svg([^>]*)>/,
+        function(match, attributes) {
+          let newAttributes = attributes;
+          
+          // Add currentColor if requested and not already present
+          if (addCurrentColor && !attributes.includes('fill=')) {
+            newAttributes += ' fill="currentColor"';
+          }
+          
+          // Add aria-hidden if not already present
+          if (!attributes.includes('aria-hidden')) {
+            newAttributes += ' aria-hidden="true"';
+          }
+          
+          return `<svg${newAttributes}>`;
+        }
+      );
       
       // Write back to file
       fs.writeFileSync(filePath, svgContent);
       
-      if (verbose && totalFills > 0) {
-        console.log(`📝 ${file}: Removed ${totalFills} fill attribute(s)`);
+      if (verbose) {
+        const changes = [];
+        if (totalFills > 0) changes.push(`Removed ${totalFills} fill attribute(s)`);
+        if (addCurrentColor) changes.push('Added currentColor');
+        changes.push('Added aria-hidden="true"');
+        
+        console.log(`📝 ${file}: ${changes.join(', ')}`);
       }
       
       processedCount++;
       
     } catch (error) {
-      console.error(error.message);
+      console.error(`❌ Error processing ${file}:`, error.message);
     }
   });
 
@@ -66,10 +83,9 @@ if (require.main === module) {
   const args = process.argv.slice(2);
   const iconsDir = args[0] || './static/images/icons';
   
-  console.log('🔧 Stripping fill attributes from SVG files...\n');
+  console.log('🔧 Processing SVG files...\n');
   
   stripSvgFills(iconsDir, {
-    backup: true,
     addCurrentColor: true,
     verbose: true
   });
