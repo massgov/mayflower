@@ -1,9 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const { optimize } = require('svgo');
+const svgoConfig = require('./svgo.config.js');
 
 function stripSvgFills(iconsDir, options = {}) {
   const {
-    addCurrentColor = true,
+    optimize: shouldOptimize = true,
     verbose = true
   } = options;
 
@@ -12,7 +14,7 @@ function stripSvgFills(iconsDir, options = {}) {
     return;
   }
 
-  // Process SVG files using regex (no external dependencies)
+  // Process SVG files
   const svgFiles = fs.readdirSync(iconsDir).filter(file => file.endsWith('.svg'));
   let processedCount = 0;
 
@@ -21,47 +23,69 @@ function stripSvgFills(iconsDir, options = {}) {
     let svgContent = fs.readFileSync(filePath, 'utf8');
     
     try {
-      // Count fills before removal
-      const fillMatches = svgContent.match(/\sfill="[^"]*"/g) || [];
-      const fillMatches2 = svgContent.match(/\sfill='[^']*'/g) || [];
-      const totalFills = fillMatches.length + fillMatches2.length;
+      const originalSize = Buffer.byteLength(svgContent, 'utf8');
+      let changes = [];
       
-      // Remove fill attributes using regex
-      svgContent = svgContent
-        .replace(/\sfill="[^"]*"/g, '') // Remove fill="..."
-        .replace(/\sfill='[^']*'/g, '') // Remove fill='...'
-        .replace(/\s+/g, ' ') // Clean up extra spaces
-        .trim();
-      
-      // Process SVG tag to add attributes
-      svgContent = svgContent.replace(
-        /<svg([^>]*)>/,
-        function(match, attributes) {
-          let newAttributes = attributes;
-          
-          // Add currentColor if requested and not already present
-          if (addCurrentColor && !attributes.includes('fill=')) {
-            newAttributes += ' fill="currentColor"';
-          }
-          
-          // Add aria-hidden if not already present
-          if (!attributes.includes('aria-hidden')) {
-            newAttributes += ' aria-hidden="true"';
-          }
-          
-          return `<svg${newAttributes}>`;
+      if (shouldOptimize) {
+        // Use SVGO to optimize and transform
+        const result = optimize(svgContent, {
+          path: filePath,
+          ...svgoConfig
+        });
+        
+        if (result.error) {
+          console.error(`❌ SVGO error for ${file}:`, result.error);
+          return;
         }
-      );
+        
+        svgContent = result.data;
+        const optimizedSize = Buffer.byteLength(svgContent, 'utf8');
+        const savings = ((originalSize - optimizedSize) / originalSize * 100).toFixed(1);
+        changes.push(`Optimized (${savings}% smaller)`);
+        changes.push('Processed with SVGO');
+      } else {
+        // Manual processing if SVGO is disabled
+        const fillMatches = svgContent.match(/\sfill="[^"]*"/g) || [];
+        const fillMatches2 = svgContent.match(/\sfill='[^']*'/g) || [];
+        const strokeMatches = svgContent.match(/\sstroke="[^"]*"/g) || [];
+        const totalRemoved = fillMatches.length + fillMatches2.length + strokeMatches.length;
+        
+        svgContent = svgContent
+          .replace(/\sfill="[^"]*"/g, '')
+          .replace(/\sfill='[^']*'/g, '')
+          .replace(/\sstroke="[^"]*"/g, '')
+          .replace(/\sstroke-width="[^"]*"/g, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+        
+        // Add attributes manually
+        svgContent = svgContent.replace(
+          /<svg([^>]*)>/,
+          function(match, attributes) {
+            let newAttributes = attributes;
+            
+            if (!attributes.includes('aria-hidden')) {
+              newAttributes += ' aria-hidden="true"';
+            }
+            
+            if (!attributes.includes('fill=')) {
+              newAttributes += ' fill="currentColor"';
+            }
+            
+            return `<svg${newAttributes}>`;
+          }
+        );
+        
+        if (totalRemoved > 0) {
+          changes.push(`Removed ${totalRemoved} attributes manually`);
+        }
+        changes.push('Added aria-hidden and fill manually');
+      }
       
       // Write back to file
       fs.writeFileSync(filePath, svgContent);
       
-      if (verbose) {
-        const changes = [];
-        if (totalFills > 0) changes.push(`Removed ${totalFills} fill attribute(s)`);
-        if (addCurrentColor) changes.push('Added currentColor');
-        changes.push('Added aria-hidden="true"');
-        
+      if (verbose && changes.length > 0) {
         console.log(`📝 ${file}: ${changes.join(', ')}`);
       }
       
@@ -83,10 +107,10 @@ if (require.main === module) {
   const args = process.argv.slice(2);
   const iconsDir = args[0] || './static/images/icons';
   
-  console.log('🔧 Processing SVG files...\n');
+  console.log('🔧 Processing SVG files with SVGO...\n');
   
   stripSvgFills(iconsDir, {
-    addCurrentColor: true,
+    optimize: true,
     verbose: true
   });
 }

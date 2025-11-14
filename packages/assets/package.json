@@ -51,6 +51,7 @@
     "stylelint": "^13.3.3",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-scss": "^3.17.1"
+    "stylelint-scss": "^3.17.1",
+    "svgo": "^4.0.0"
   }
 }
