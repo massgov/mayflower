@@ -1,38 +1,28 @@
 @use "00-base/configure" as *;
 
-.ma__rich-text .ma__icon-list,
 .ma__icon-list {
   padding-left: 0;
 
   & > li {
-    background-size: 32px 32px;
+    display: flex;
     list-style: none;
-    padding: 3px 0 3px 50px;
-
-    @media ($bp-small-min) {
-      padding-left: 60px;
-    }
+    padding: 4px 0 4px 8px;
   }
 
   & > ul {
-    padding-left: 90px;
+    padding-left: 40px;
 
     @media ($bp-small-min) {
-      padding-left: 100px;
+      padding-left: 48px;
     }
 
     li {
       list-style: disc;
     }
   }
-}
 
-//theme
-
-.ma__rich-text .ma__icon-list,
-.ma__icon-list {
-
-  & > li {
-    background: url('#{$assets-path}/images/icons/circle-chevron-green.svg') no-repeat left top;
+  &__icon {
+    color: var(--mf-c-primary-alt);
+    margin-right: 8px;
   }
 }
