@@ -77,8 +77,8 @@
     // States - Show checkmark when checked
 
     &:before {
-
-      content: url("#{$assets-path}/images/icons/checkmark.svg");
+      content: '';
+      background-image: url("#{$assets-path}/images/icons/checkmark.svg");
       background-color: var(--mf-c-bg);  // Add background color when checked
     }
   }
