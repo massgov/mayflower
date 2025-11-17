@@ -156,7 +156,10 @@ $page-header-widget-width: 350px;
     margin-bottom: 1em;
 
     .popover {
-      margin-bottom: 0;
+
+      &__trigger {
+        margin-bottom: 0;
+      }
     }
 
     .ma__page-header--has-optional-content &:last-child {
