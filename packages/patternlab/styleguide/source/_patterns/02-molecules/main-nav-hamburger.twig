@@ -5,8 +5,7 @@
       {% set menuId =  'menu-mobile-' ~ loop.index %}
       <li class="ma__main__hamburger-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-hamburger-toggle' : 'js-main-nav-hamburger-top-link' }}">
         {% if nav.subNav %}
-          <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-expanded="false" aria-haspopup="true">
-          <span class="ma__visually-hidden show-label">Show the sub topics of </span>
+          <button id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-expanded="false" aria-haspopup="true">
               {{ nav.text }}
           <span class="toggle-indicator" aria-hidden="true"></span>
           </button>
@@ -28,7 +27,7 @@
             <a role="menuitem" href="{{ nav.href }}" class="ma__main__hamburger-nav__top-link {{ altClass }}">{{ nav.text
                 }}</a>
         {% else %}
-          <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link">{{ nav.text }}</button>
+          <button id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link">{{ nav.text }}</button>
         {% endif %}
       </li>
     {% endfor %}

@@ -5,8 +5,7 @@
       {% set menuId =  'menu' ~ loop.index %}
       <li class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}" tabindex="-1">
         {% if nav.subNav %}
-          <button type="button" id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">
-              <span class="ma__visually-hidden show-label">Show the sub topics of </span>
+          <button id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">
               {{ nav.text }}
           </button>
           <div class="ma__main-nav__subitems js-main-nav-content is-closed">
@@ -26,7 +25,7 @@
           {% endif %}
           <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__top-link {{ altClass }}" tabindex="0">{{ nav.text }}</a>
         {% else %}
-          <button type="button" id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
+          <button id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
         {% endif %}
       </li>
     {% endfor %}
