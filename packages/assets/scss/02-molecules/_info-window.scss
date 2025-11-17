@@ -36,7 +36,19 @@
   }
 
   &__directions {
-    margin-top: 6px;
+
+    .ma__decorative-link {
+
+      a {
+        display: inline-flex;
+      }
+
+      svg {
+        margin-top: 3px;
+        width: 16px;
+        height: 16px;
+      }
+    }
   }
 }
 
