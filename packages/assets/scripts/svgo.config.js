@@ -44,7 +44,9 @@ module.exports = {
       params: {
         attributes: [
           { 'aria-hidden': 'true' },
-          { 'fill': 'currentColor' }
+          { 'fill': 'currentColor' },
+          { 'height': '24px' },
+          { 'width': '24px' }
         ]
       }
     }

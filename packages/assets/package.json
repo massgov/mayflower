@@ -26,7 +26,7 @@
     "test": "rushx stylelint",
     "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
     "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose",
-    "prepIcons": "gulp cleanSvgFills"
+    "prepIcons": "gulp prepIcons"
   },
   "author": "Massachusetts Digital Services (MDS)",
   "license": "MIT",
