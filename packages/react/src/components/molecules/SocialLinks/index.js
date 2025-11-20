@@ -9,17 +9,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-unresolved
-import IconFacebook from 'MayflowerReactBase/Icon/IconFacebook';
+import IconFacebookLogo from 'MayflowerReactBase/Icon/IconFacebookLogo';
 // eslint-disable-next-line import/no-unresolved
-import IconTwitter from 'MayflowerReactBase/Icon/IconTwitter';
+import IconXLogo from 'MayflowerReactBase/Icon/IconXLogo';
 // eslint-disable-next-line import/no-unresolved
-import IconLinkedInLogo from 'MayflowerReactBase/Icon/IconLinkedInLogo';
+import IconLinkedinLogo from 'MayflowerReactBase/Icon/IconLinkedinLogo';
 // eslint-disable-next-line import/no-unresolved
-import IconYoutube from 'MayflowerReactBase/Icon/IconYoutube';
+import IconYoutubeLogo from 'MayflowerReactBase/Icon/IconYoutubeLogo';
 // eslint-disable-next-line import/no-unresolved
-import IconInstagram from 'MayflowerReactBase/Icon/IconInstagram';
+import IconInstagramLogo from 'MayflowerReactBase/Icon/IconInstagramLogo';
 // eslint-disable-next-line import/no-unresolved
-import IconVimeo from 'MayflowerReactBase/Icon/IconVimeo';
+import IconVimeoLogo from 'MayflowerReactBase/Icon/IconVimeoLogo';
 
 const SocialLinks = (socialLinks) => {
   const linkClasses = classNames({
@@ -45,12 +45,12 @@ const SocialLinks = (socialLinks) => {
 
 const SocialLink = (socialLink) => {
   const icons = {
-    facebook: IconFacebook,
-    twitter: IconTwitter,
-    linkedin: IconLinkedInLogo,
-    youtube: IconYoutube,
-    instagram: IconInstagram,
-    vimeo: IconVimeo
+    facebook: IconFacebookLogo,
+    twitter: IconXLogo,
+    linkedin: IconLinkedinLogo,
+    youtube: IconYoutubeLogo,
+    instagram: IconInstagramLogo,
+    vimeo: IconVimeoLogo
   };
   const IconComponent = socialLink.linkType ? icons[socialLink.linkType] : null;
 
