@@ -80,8 +80,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp icons && gulp prod",
-    "gulp": "gulp",
+    "build": "gulp prod",
     "gulp icons": "gulp icons"
   }
 }
