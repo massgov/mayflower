@@ -1,6 +1,51 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 15.0.0 (11/21/2025)
+### Fixed 
+- (Patternlab) [RichText] DP-37275: Revert heading flow-root fix and conditionally clear fix after multiple floating images. (#1987)
+- (Patternlab) [Figure, RichText] DP-39383: Fixed single image and list overlap (#1987)
+- (Patternlab,Assets) [Print] DP-38159: Hide feedback, chatbot, TOC links and contact links in print. Simplify Header and FooterNew in print (#1986)
+- (React,Patternlab,Assets) [RadioButton, Checkbox, Inputs] DP-39360: Fix high contrast mode, increase border contrast. (#2003)
+- (Patternlab, Assets) [Print] DP-39371: Fix print styles. (#1989)
+- (Patternlab) [Card] DP-39436: Add aria-describedby to make card text accessible. (#1988)
+- (Patternlab,Assets) [Elements] DP-39495: Eliminate page horizontal scroll. (#1990)
+- (Patternlab) [HeaderHamburger] DP-39790: Remove unnecessary tabindex="-1" from ma__header__hamburger__logo div to fix WCAG 2.1 accessibility issue.
+- (Patternlab, React) [HamburgerNav, HeaderHamburger, HeaderMixedSecondary, HeaderMixed] DP-39792: Fix screen reader label for the menu/close button. (#2016)
+- (Patternlab, React) [SiteLogo] DP-39895: Remove title attribute and replace it with alt attribute on the logo image. (#2013)
+- (Patternlab) [responsiveTable] DP-40188: Fix sticky header bug. (#1998)
+- (Patternlab,React,Assets) [BrandBanner,ButtonWithIcon] DP-40399: Add aria attributes and increase icon contrast. (#2008)
+- (Patternlab, Assets) [Input,TextArea,Select,InputDate,InputNumber] DP-40822: Implement consistent focus styles for text input, selectbox, text areas and number inputs in default and high contrast modes. (#2005)
+- (Patternlab) [DownloadLinkMultilang, InlineLinksLanguage] DP-40850: Improves accessibility for multiple language translation links by adding aria-labelledby attributes that reference both the language link and associated document title, ensuring screen readers can distinguish between links for different documents.
+- (Patternlab) [Popover] DP-40941: Position the Popover dialog outside of parent div container constraint, relative to trigger and bounded by viewport using JS. (#2006)
+- (Patternlab) [TableOfContentsHierarchy, inlineOverlay] DP-41557: Fix keyboard navigation skipping links in table of contents due to focus trapping logic. (#2010)
+- (Core) [Usage] Fix Getting Started Page. (#2025)
+- (Core) [Header] Fix missing seal in Header, Footer and Template stories. (#2025)
+
+### Changed 
+- (Patternlab) [StickyTOC] DP-37775: Make StickyTOC stickiness responsive to browser zoom leve. (#1975)
+- (Assets, Core, Patternlab, React, Site) [SCSS files] DP-38077: Changed colors to use the new CSS variables rather than SCSS variables (#1981)
+- (Patternlab) [Popover] DP-39184: Change template to remove whitespace from markup (#1980)
+- (Assets) [RichText] DP-41993: Remove green line from the collapsible header. (#2012)
+- (Patternlab) [RichText] DP-42243: Add inline code styling. (#2020)
+- (Assets, Patternlab) [MappedLocations] DP-42621: Fix accessibliity issue with map on service and org pages. (#2018)
+- (Assets, Patternlab) [EmergencyHeader] DP-43210: Improve mobile layout of the sitewide alerts. (#2022)
+
+### Add 
+- (Patternlab) [isHighZoom] DP-37775: Add isHighZoom helper function to handle zoom level responsiveness. (#1975)
+
+### Added 
+- (Assets) [_color-tokens, _colors] DP-38077: Added CSS variables for colors (#1981)
+- (Assets) [Input,KeywordSearch,HeaderSearch,InputDate] DP-40822: Scope input styles to Mayflower UI only. (#2005)
+
+### Removed 
+- (Patternlab) [undefined] undefined
+- (undefined) [UtilityNav] undefined
+- (undefined) [undefined] Removed the "Contrast Settings" button entry from utilityNav.json as part of phasing out the Userway accessibility tool. (#1993)
+- (undefined) [undefined] DP-39770: undefined
+- (undefined) [undefined] undefined
+- (Patternlab,React) [BrandBanner] DP-40399: Remove hasToggle prop. (#2008)
+
 ## 14.0.0 (7/08/2025)
 ### Changed
 - (Root) DP-35448: Update docs and add to central location for SSR

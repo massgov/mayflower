@@ -1,9 +1,0 @@
-Fixed:
-  - project: Core
-    component: Usage
-    description: Fix Getting Started Page. (#2025)
-    impact: Patch
-  - project: Core
-    component: Header
-    description: Fix missing seal in Header, Footer and Template stories. (#2025)
-    impact: Patch
