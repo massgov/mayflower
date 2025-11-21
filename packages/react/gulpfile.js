@@ -217,8 +217,14 @@ function transpileES6Icons() {
     .pipe(dest('dist/Icon'));
 }
 
+
 async function generateIcons() {
-  return run('svgr --out-dir ./dist/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js')()
+  return Promise.all([
+    // generate icons in dist
+    run('svgr --out-dir ./dist/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js')(),
+    // generate icons in src
+    run('svgr --out-dir ./src/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js --ext js')()
+  ]);
 }
 
 const aliases = {
@@ -537,12 +543,15 @@ const generateTsDeclarations = series(
 
 
 
-exports.cleanIconDir = cleanIconDir;
-exports.copyIconsFromAssets = copyIconsFromAssets;
-exports.generateIcons = generateIcons;
-exports.generateIconKnobOptions = generateIconKnobOptions;
-exports.transpileES5Icons = transpileES5Icons;
-exports.transpileES6Icons = transpileES6Icons;
+exports.icons = series(
+  ensureAssetsDir,
+  cleanIconAssets,
+  copyIconsFromAssets,
+  generateIcons,
+  generateIconKnobOptions,
+  transpileES5Icons,
+  transpileES6Icons
+);
 exports.generateTsDeclarations = generateTsDeclarations;
 exports.default = series(
   clean,
