@@ -4,6 +4,7 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
 
     @include ma-container;
@@ -72,7 +73,7 @@
             margin-right: 0.5rem;
             margin-bottom: -6px;
           }
-    
+
           &__title {
             display: inline;
             width: unset;
@@ -84,7 +85,7 @@
 
   &__item {
     padding: 5px 0;
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
 
     .ma__decorative-link {
       display: block;
@@ -139,7 +140,7 @@
   .ma__link-list--no-line .ma__link-list__items {
     margin-bottom: 0;
     padding-left: 20px;
-    border-left: 3px solid $c-primary-lighter;
+    border-left: 3px solid var(--mf-c-primary-lighter);
   }
 
   .ma__link-list__items .ma__link-list__item {
@@ -185,7 +186,7 @@
   }
 
   .sidebar &__item + &__item {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 
   &--no-line {

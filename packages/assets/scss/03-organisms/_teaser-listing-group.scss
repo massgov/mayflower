@@ -4,6 +4,7 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
 
     @include ma-container;
@@ -39,7 +40,7 @@
     @include ma-link-underline;
 
     &:hover {
-      border-bottom-color: $c-link;
+      border-bottom-color: var(--mf-c-link);
     }
 
     &:after {

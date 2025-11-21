@@ -4,7 +4,7 @@
 
   @include ma-container();
   margin-top: 20px;
-  transition: background .2s ease;
+  transition: background 0.2s ease;
 
   .ma__toc--overlay__container .ma__toc__toc__title,
   .ma__toc__toc__title {
@@ -21,7 +21,6 @@
       width: auto;
       min-width: 60vw; // fix for windows firefox which wraps early. 60 is a reasonable width to ensure
     }
-
   }
 
   .ma__toc__subtitle {
@@ -67,14 +66,14 @@
 
   .ma__toc--overlay__container {
     position: fixed;
-      top: -100vh;
-      left: 0;
-      right: 0;
+    top: -100vh;
+    left: 0;
+    right: 0;
     height: 100vh;
     opacity: 0;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
     z-index: $z-overlay;
-    display: flex;
+    display: none;
     flex-direction: column;
 
     > * {
@@ -92,7 +91,7 @@
       content: "";
       position: fixed;
       z-index: -1;
-      background-color: $c-bg;
+      background-color: var(--mf-c-bg);
       opacity: 0;
       transition: opacity 0.2s ease;
     }
@@ -118,7 +117,6 @@
       transition: transform 1s ease;
       display: inline-block;
     }
-
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
@@ -139,6 +137,7 @@
     top: 0;
     bottom: 0;
     opacity: 1;
+    display: flex;
 
     > * {
       display: block;
@@ -151,7 +150,6 @@
       right: 0;
       opacity: 1;
     }
-
   }
 
   // current page indicator
@@ -162,11 +160,11 @@
     &.is-current:before {
       content: "";
       position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 10px;
-        height:100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 10px;
+      height: 100%;
     }
 
     .ma__toc--hierarchy__accordion-content .is-current:before {
@@ -180,25 +178,25 @@
 .ma__toc--overlay {
 
   .ma__toc__toc__title {
-    background: $c-gray-lightest;
-    color: $c-primary;
+    background: var(--mf-c-gray-lightest);
+    color: var(--mf-c-primary);
   }
 
   .ma__toc--hierarchy {
-    border-bottom: 1px solid $c-gray-light;
+    border-bottom: 1px solid var(--mf-c-gray-light);
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
-    color: $c-primary;
+    color: var(--mf-c-primary);
   }
 
   .ma__toc__toc__toggle[aria-expanded="true"] {
-    color: $c-font-inverse;
-    background: $c-primary;
+    color: var(--mf-c-font-inverse);
+    background: var(--mf-c-primary);
   }
 
   .ma__toc__subtitle {
-    color: $c-gray-dark;
+    color: var(--mf-c-gray-dark);
   }
 
   .ma__toc--hierarchy__accordion {
@@ -213,10 +211,10 @@
   }
 
   .ma__toc--overlay__container {
-    background: $c-white;
+    background: var(--mf-c-white);
   }
 
   li.is-current:before {
-    background: $c-primary-alt;
+    background: var(--mf-c-primary-alt);
   }
 }

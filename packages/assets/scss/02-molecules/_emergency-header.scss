@@ -22,11 +22,7 @@
   padding: 8px;
   font-size: inherit;
   line-height: inherit;
-  background-color: $c-warning;
-
-  @media ($bp-small-max) {
-    text-align: center;
-  }
+  background-color: var(--mf-c-warning);
 
   &__label {
     flex-shrink: 0;
@@ -53,12 +49,14 @@
       height: 24px;
       margin-right: 0;
       vertical-align: middle;
+      display: none;
 
 
       @media ($bp-small-min) {
         height: 32px;
         width: 2rem;
         margin-right: 7px;
+        display: inline-block;
       }
 
     }
@@ -76,8 +74,9 @@
 
   &__toggle {
     cursor: pointer;
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: $fonts-light;
+    text-align: left   ;
 
     @media ($bp-small-max) {
       font-size: $fonts-medium;

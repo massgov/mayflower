@@ -11,6 +11,8 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component  > &,
   .main-content--full .page-content > & {
 
     @include ma-container();
@@ -60,14 +62,14 @@
 //theme
 
 .ma__callout {
-  border-left-color: $c-highlight;
-  color: $c-font-heading;
+  border-left-color: var(--mf-c-highlight);
+  color: var(--mf-c-font-heading);
   font-weight: $fonts-bolder;
 
   &__header {
 
     svg {
-      fill: $c-highlight;
+      fill: var(--mf-c-highlight);
     }
   }
 }

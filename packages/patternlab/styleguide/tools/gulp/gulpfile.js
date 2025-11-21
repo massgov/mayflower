@@ -1,6 +1,7 @@
 const path = require("path");
 const gulp = require("gulp");
 const untildify = require("untildify");
+const fs = require("fs");
 require('dotenv').config();
 
 const DistRegistry = require("./Dist");
@@ -64,7 +65,6 @@ const defaults = {
 if(process.env.MAYFLOWER_DIST) {
     defaults.dest.dist = untildify(process.env.MAYFLOWER_DIST);
 }
-
 gulp.registry(new DistRegistry(defaults));
 
 gulp.task("default", gulp.series("patternlab:serve"));

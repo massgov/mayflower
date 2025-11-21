@@ -55,13 +55,13 @@
       height: 14px;
 
       path, use {
-        fill: $c-font-detail;
+        fill: var(--mf-c-font-detail);
       }
     }
   }
 
   &--label {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
     text-transform: uppercase;
     letter-spacing: $letter-spacing-large;
     margin-right: 10px;
@@ -158,19 +158,19 @@
 
       a {
 
-        color: $c-primary;
-        box-shadow: inset 0 0 $c-white, inset 0px -1px $c-bay-blue-lighter;
+        color: var(--mf-c-primary);
+        box-shadow: inset 0 0 var(--mf-c-white), inset 0px -1px var(--mf-c-bay-blue-lighter);
         // border-bottom: 1px solid $c-bay-blue-lighter;
 
         &:hover {
 
-          box-shadow: inset 0 0 $c-white, inset 0px -2px $c-bay-blue-30-tint;
+          box-shadow: inset 0 0 var(--mf-c-white), inset 0px -2px var(--mf-c-bay-blue-30-tint);
           // border-bottom: 2px solid $c-bay-blue-30-tint;
         }
       }
 
       button {
-        color: $c-primary;
+        color: var(--mf-c-primary);
 
         &.is-open {
 
@@ -192,7 +192,7 @@
       }
 
       a {
-        color: $c-primary-alt;
+        color: var(--mf-c-primary-alt);
         box-shadow: inset 0 0 $c-white, inset 0px -1px rgba($c-primary-alt, 0.4);// This can be replaced with border-bottom. See L.163.
 
         &:hover {
@@ -201,7 +201,7 @@
       }
 
       button {
-        color: $c-primary-alt;
+        color: var(--mf-c-primary-alt);
       }
     }
 
@@ -250,7 +250,7 @@
     &.single [aria-labelledby="secondary"] {
 
       a {
-        color: $c-primary-alt;
+        color: var(--mf-c-primary-alt);
         box-shadow: inset 0 0 $c-white, inset 0px -1px rgba($c-primary-alt, 0.4);
 
         &:hover {
@@ -267,7 +267,7 @@
       }
 
       button {
-        color: $c-primary-alt;
+        color: var(--mf-c-primary-alt);
       }
 
       .ma__relationship-indicators {
@@ -302,7 +302,7 @@
               height: $fonts-small;
               right: -10px;
               bottom: 1px;
-              border-right: 1px solid $c-gray-light;
+              border-right: 1px solid var(--mf-c-gray-light);
             }
           }
 

@@ -331,9 +331,9 @@ $colors: (
       &--#{$class} {
 
         @if ($c == $c-primary or $c == $c-primary-alt or $c == $c-primary-alt-dark) {
-          color: $c-font-inverse;
+          color: var(--mf-c-font-inverse);
         } @else {
-          color: $c-font-base;
+          color: var(--mf-c-font-base);
         }
       }
     }

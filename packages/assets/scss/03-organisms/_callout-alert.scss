@@ -6,6 +6,8 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component  > &,
   .main-content.main-content--full .page-content > & {
 
     @include ma-container('restricted');
@@ -90,11 +92,11 @@
   }
 
   &__icon svg {
-    fill: $c-warning;
+    fill: var(--mf-c-warning);
   }
 
   &__link {
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: bold;
 
     svg {
@@ -115,7 +117,7 @@
   }
 
   &--c-primary &__icon svg {
-    fill: $c-primary;
+    fill: var(--mf-c-primary);
   }
 
   //c-primary-alt
@@ -127,7 +129,7 @@
   }
 
   &--c-primary-alt &__icon svg {
-    fill: $c-primary-alt;
+    fill: var(--mf-c-primary-alt);
   }
 
   //c-gray-dark
@@ -139,7 +141,7 @@
   }
 
   &--c-gray-dark &__icon svg {
-    fill: $c-gray-dark;
+    fill: var(--mf-c-gray-dark);
   }
 
   //c-error-red
@@ -151,7 +153,7 @@
   }
 
   &--c-error-red &__icon svg {
-    fill: $c-error-red;
+    fill: var(--mf-c-error-red);
   }
 
   //c-white
@@ -163,7 +165,7 @@
   }
 
   &--c-white &__icon svg {
-    fill: $c-white;
+    fill: var(--mf-c-white);
   }
 
 }

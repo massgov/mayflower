@@ -24,6 +24,8 @@ $heading-indent: $gutter;
   .pre-content > &,
   .post-content > &__container,
   .main-content--full .page-content > &__container,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component > &,
   .main-content--full .page-content > & {
 
     // By default richt text have a right padding, unless a .no-sidebar class is added to the section container.
@@ -31,6 +33,8 @@ $heading-indent: $gutter;
     @include ma-container('restricted');
   }
 
+  .main-content--full .no-sidebar .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .no-sidebar .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component > &,
   .main-content--full .no-sidebar .page-content > & {
 
     // Use the .no-sidebar class to overide the right padding.
@@ -81,7 +85,6 @@ $heading-indent: $gutter;
   h4 {
 
     @include ma-comp-heading;
-    display: flow-root;  // https://dev.to/baooab/what-is-display-flow-root-28ph
   }
 
   & h2,
@@ -204,7 +207,7 @@ $heading-indent: $gutter;
 
   li {
     margin-bottom: .5em;
-    padding-left: 10px;
+    padding-left: 5px;
 
     &:last-child {
       margin-bottom: 0;
@@ -258,6 +261,41 @@ $heading-indent: $gutter;
   & > :last-child {
     margin-bottom: 0 !important;
   }
+
+  pre,
+  code,
+  kbd,
+  samp,
+  var {
+    font-size: 1em;
+    font-family: $fonts-mono !important;
+  }
+
+  pre,
+  code,
+  kbd {
+    border: 1px solid var(--mf-c-gray-lighter);
+  }
+
+  pre:not(:has(> code)) { // code block styles will be handled by highlight.js in openmass
+    background-color: var(--mf-c-gray-lightest);
+    padding: 1em;
+  }
+
+  code:not(pre > code), // code block styles will be handled by highlight.js in openmass
+  kbd {
+    font-size: 90%;
+    padding: .2em .4em;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: var(--mf-c-gray-lightest);
+    border-radius: 4px;
+  }
+
+  kbd {
+    font-weight: $fonts-bold;
+    box-shadow: $box-shadow;
+  }
 }
 
 // Fix display issue after left floated image in IE11.
@@ -283,11 +321,11 @@ $heading-indent: $gutter;
   }
 
   &__footnote {
-    border-color: $c-link;
+    border-color: var(--mf-c-link);
 
     &:hover {
-      background-color: $c-font-link;
-      color: $c-font-inverse;
+      background-color: var(--mf-c-font-link);
+      color: var(--mf-c-font-inverse);
     }
   }
 
@@ -296,12 +334,21 @@ $heading-indent: $gutter;
     @include ma-comp-heading($c-primary-alt);
   }
 
+  h2.ma__collapsible-header,
+  h3.ma__collapsible-header,
+  h4.ma__collapsible-header {
+
+    &:after {
+      display: none;
+    }
+  }
+
   h5 {
     font-weight: $fonts-bold;
   }
 
   a {
-    border-bottom-color: $c-link;
+    border-bottom-color: var(--mf-c-link);
 
     &:hover {
       border-bottom-width: 3px;
@@ -351,4 +398,14 @@ $heading-indent: $gutter;
     border-block-end-color: transparent;
   }
 
+}
+
+
+// auto clearl foat after floating images
+
+.ma__figure--large + .ma__rich-text,
+.ma__figure--medium + .ma__figure--medium + .ma__rich-text,
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text
+.ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__rich-text {
+  clear: both;
 }

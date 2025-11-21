@@ -32,7 +32,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 30px 0 45px 0;
 
     &:before {
-      background-color: $c-primary-alt;
+      background-color: var(--mf-c-primary-alt);
     }
   }
 
@@ -52,7 +52,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       width: 100%;
 
       &, & > g {
-        fill: rgba($c-font-inverse,.5);
+        fill: rgba(var(--mf-c-font-inverse),.5);
       }
 
       @media ($bp-large-extended-min) {
@@ -79,7 +79,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 0;
     vertical-align: middle;
     z-index: 1;
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
 
     @media ($bp-medium-min) {
       font-size: $fonts-8xlarge;
@@ -106,7 +106,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &__description,
   &__unlinked-title,
   .ma__decorative-link {
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     font-weight: $fonts-normal;
     letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
@@ -130,14 +130,14 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   .ma__decorative-link a {
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
 
     &:hover {
       border-bottom-color: rgba($c-font-inverse, 0.5);
     }
 
     svg {
-      fill: rgba($c-font-inverse, 0.5);
+      fill: rgba(var(--mf-c-font-inverse), 0.5);
     }
   }
 
@@ -162,7 +162,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   &__buttons-label {
     font-weight: $fonts-bold;
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     margin-right: 1rem;
     margin-top: 1rem;
     letter-spacing: $letter-spacing-large;
@@ -292,7 +292,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
     height: auto;
-    background-color: $c-primary-alt;
+    background-color: var(--mf-c-primary-alt);
 
     @media ($bp-x-large-min) {
       height: 100%;
@@ -303,7 +303,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     z-index: 1;
     top: -50%;
     transform: none;
-    background-color: $c-primary-alt;
+    background-color: var(--mf-c-primary-alt);
 
     @media ($bp-x-large-min) {
       margin-right: 70px;
@@ -335,7 +335,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
       flex-direction: column-reverse;
       padding-left: 0;
-      background-color: $c-primary-alt;
+      background-color: var(--mf-c-primary-alt);
     }
 
     .ma__page-banner-legacy__image {
@@ -360,7 +360,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       position: relative;
       display: flex;
       align-items: center;
-      background-color: $c-primary-alt;
+      background-color: var(--mf-c-primary-alt);
       background-image: none;
       height: 100%;
       width: 100%;
@@ -468,17 +468,17 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   // blue background
 
   &--blue {
-    background-color: $c-primary;
+    background-color: var(--mf-c-primary);
 
     &:before {
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
     }
 
     &.ma__page-banner-legacy--taper .ma__page-banner-legacy__content {
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
 
       &:before {
-        background-color: $c-primary;
+        background-color: var(--mf-c-primary);
       }
     }
   }
@@ -486,17 +486,17 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     // green background
 
     &--green {
-      background-color: $c-primary-alt;
+      background-color: var(--mf-c-primary-alt);
 
       &:before {
-        background-color: $c-primary-alt;
+        background-color: var(--mf-c-primary-alt);
       }
 
       &.ma__page-banner-legacy--taper .ma__page-banner-legacy__content {
-        background-color: $c-primary-alt;
+        background-color: var(--mf-c-primary-alt);
 
         &:before {
-          background-color: $c-primary-alt;
+          background-color: var(--mf-c-primary-alt);
         }
       }
     }
@@ -505,7 +505,7 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     &--white {
       background-color: white;
-      color: $c-font-base;
+      color: var(--mf-c-font-base);
 
       &:before {
         background-color: white;
@@ -524,13 +524,13 @@ $text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
       svg,
       svg > g {
-        fill: $c-primary-alt;
+        fill: var(--mf-c-primary-alt);
       }
     }
 
     &--white &__title,
     &--white &__description {
-      color: $c-font-base;
+      color: var(--mf-c-font-base);
     }
 }
 

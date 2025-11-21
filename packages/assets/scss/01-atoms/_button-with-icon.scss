@@ -6,7 +6,7 @@ $colors: (
   "c-primary-alt": $c-primary-alt,
   "c-black": $c-gray-darkest,
   "c-gray-dark": $c-gray-dark,
-  "c-white": $c-white
+  "c-white": $c-white,
 );
 
 $quaternary-colors: (
@@ -14,22 +14,21 @@ $quaternary-colors: (
   "c-primary-alt": $c-primary-alt,
   "c-black": $c-gray-darkest,
   "c-gray-dark": $c-gray-dark,
-  "c-white": $c-white
+  "c-white": $c-white,
 );
 
-
 .ma__button-icon {
-  background-color: $c-bg;
-  border: 2px solid $c-gray-light;
+  background-color: var(--mf-c-bg);
+  border: 2px solid var(--mf-c-gray-light);
   display: inline-flex;
   align-items: center;
   font-weight: $fonts-bold;
   letter-spacing: $letter-spacing-large;
   padding: 10px 14px;
   text-transform: uppercase;
-  transition: background-color .4s, color .4s, border .4s, fill .4s;
+  transition: background-color 0.4s, color 0.4s, border 0.4s, fill 0.4s;
   white-space: nowrap;
-  color: $c-primary-alt;
+  color: var(--mf-c-primary-alt);
   min-height: 46px;
   font-size: $fonts-xsmall;
 
@@ -38,7 +37,7 @@ $quaternary-colors: (
 
       @if $c == $c-highlight {
         border-color: $c;
-        color: $c-font-base
+        color: var(--mf-c-font-base);
       } @else {
         color: $c;
       }
@@ -79,9 +78,9 @@ $quaternary-colors: (
   }
 
   & > svg {
-    fill: $c-gray-dark;
+    fill: var(--mf-c-gray-dark);
     height: 20px;
-    transition: transform .5s, fill .4s;
+    transition: transform 0.5s, fill 0.4s;
   }
 
   &.ma__icon-small > svg {
@@ -93,102 +92,114 @@ $quaternary-colors: (
     cursor: not-allowed;
   }
 
-  &--expanded, &:hover {
+  &--expanded,
+  &:hover {
 
-    @include ma-button("solid",$c-primary-alt);
-    color: $c-font-inverse;
+    @include ma-button("solid", $c-primary-alt);
+    color: var(--mf-c-font-inverse);
 
     svg {
-      fill: $c-white;
+      fill: var(--mf-c-white);
     }
 
     @each $class, $c in $colors {
       &.ma__button-icon--#{$class} {
 
-        @include ma-button("solid",$c);
+        @include ma-button("solid", $c);
       }
     }
   }
 
-  &--secondary, &--expanded.ma__button-icon--secondary, &:hover.ma__button-icon--secondary {
+  &--secondary,
+  &--expanded.ma__button-icon--secondary,
+  &:hover.ma__button-icon--secondary {
 
-    @include ma-button("outline",$c-primary-alt);
+    @include ma-button("outline", $c-primary-alt);
 
     @each $class, $c in $colors {
       &.ma__button-icon--#{$class} {
 
-        @include ma-button("outline",$c);
+        @include ma-button("outline", $c);
       }
     }
   }
 
-  &--tertiary, &--expanded.ma__button-icon--tertiary, &:hover.ma__button-icon--tertiary {
+  &--tertiary,
+  &--expanded.ma__button-icon--tertiary,
+  &:hover.ma__button-icon--tertiary {
 
-    @include ma-button("solid",$c-gray-light);
-    color: $c-font-base;
+    @include ma-button("solid", $c-gray-light);
+    color: var(--mf-c-font-base);
 
     svg {
-      fill: $c-gray-darkest;
+      fill: var(--mf-c-gray-darkest);
     }
   }
 
-  &--quaternary, &--expanded.ma__button-icon--quaternary, &:hover.ma__button-icon--quaternary {
+  &--quaternary,
+  &--expanded.ma__button-icon--quaternary,
+  &:hover.ma__button-icon--quaternary {
     min-height: 0px;
     background-color: transparent;
     box-shadow: none;
     border: none;
     padding: 0;
     text-transform: none;
-    border-bottom: 2px solid $c-link;
-    color: $c-primary;
+    border-bottom: 2px solid var(--mf-c-link);
+    color: var(--mf-c-primary);
     letter-spacing: $letter-spacing-default;
 
     svg {
-      fill: $c-link;
+      fill: var(--mf-c-link);
     }
 
-    &:hover, &.active {
-      border-color: $c-primary;
+    &:hover,
+    &.active {
+      border-color: var(--mf-c-primary);
       background-color: transparent !important;
     }
 
     @each $class, $c in $quaternary-colors {
       &.ma__button-icon--#{$class} {
-        border-bottom-color: rgba($c,0.5);
+        border-bottom-color: rgba($c, 0.5);
         color: $c;
 
         svg {
-          fill: rgba($c,0.5);
+          fill: $c;
         }
 
-        &:hover, &.active {
+        &:hover,
+        &.active {
           border-bottom-color: $c;
         }
       }
     }
   }
 
-  &--expanded.ma__button-icon--quaternary-simple, &:hover.ma__button-icon--quaternary-simple:hover {
-    background-color: $c-gray-light;
+  &--expanded.ma__button-icon--quaternary-simple,
+  &:hover.ma__button-icon--quaternary-simple:hover {
+    background-color: var(--mf-c-gray-light);
   }
 
   &--quaternary-simple {
     background-color: transparent;
   }
 
-  &--quaternary-simple, &--expanded.ma__button-icon--quaternary-simple, &:hover.ma__button-icon--quaternary-simple:hover {
+  &--quaternary-simple,
+  &--expanded.ma__button-icon--quaternary-simple,
+  &:hover.ma__button-icon--quaternary-simple:hover {
     min-height: unset;
     box-shadow: none;
     border: none;
     padding: 5px 5px;
     text-transform: none;
     cursor: pointer;
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
 
     svg {
       width: 10px;
       height: 10px;
-      fill: rgba($c-primary-alt,0.5);
+      fill: rgba($c-primary-alt, 0.5);
     }
 
     @each $class, $c in $quaternary-colors {
@@ -196,7 +207,7 @@ $quaternary-colors: (
         color: $c;
 
         svg {
-          fill: rgba($c,0.5);
+          fill: rgba($c, 0.5);
         }
       }
     }
@@ -207,20 +218,20 @@ $quaternary-colors: (
     font-weight: $fonts-bold;
     letter-spacing: $letter-spacing-large;
     line-height: 1;
-    padding: .4em;
-    padding-left: .7em;
-    padding-right: .8em;
+    padding: 0.4em;
+    padding-left: 0.7em;
+    padding-right: 0.8em;
     text-transform: uppercase;
     white-space: nowrap;
     box-shadow: $box-shadow;
     min-height: unset;
     border: none;
     display: inline-block;
-    color: $c-font-inverse;
-    background-color: $c-primary-alt;
+    color: var(--mf-c-font-inverse);
+    background-color: var(--mf-c-primary-alt);
 
     &.ma__button-icon > svg {
-      fill: rgba($c-white,.5);
+      fill: rgba($c-white, 0.5);
       width: 10px;
     }
 
@@ -229,15 +240,13 @@ $quaternary-colors: (
         background-color: $c;
 
         @if $c == $c-highlight {
-          color: $c-font-base;
+          color: var(--mf-c-font-base);
 
           &.ma__button-icon > svg {
-            fill: rgba($c-gray-darkest,.5);
+            fill: rgba($c-gray-darkest, 0.5);
           }
         }
       }
     }
-
   }
-
 }

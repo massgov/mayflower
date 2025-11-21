@@ -18,6 +18,11 @@
 .fsPage {
   width: calc(100%-2px);
 }
+/* disabled 4-28-2025 see EI or JG
+.fsSection {
+  display: block;
+}
+*/
 
 /** prevent horizontal scrolling **/
 div[class^="InnerFormBody"] {
@@ -194,36 +199,6 @@ input.MuiInputBase-input::placeholder {
   color: #141414;
 }
 
-/* Time picker  */
-button.MuiPickersToolbar-root {
-  background: white;
-}
-.ipjwSe.MuiPickersToolbarText-root, .xAbeN.MuiPickersToolbarText-root {
-color:  #141414;
-}
-
-.ipjwSe.MuiPickersToolbarText-root.Mui-selected  {
-/* color: rgb(20, 85, 143) !important; */
-color:  rgb(20, 85, 143);
-font-weight: 600;
-}
-
-.xAbeN.MuiPickersToolbarText-root.Mui-selected {
-color:  #fff;
-background-color: rgb(20, 85, 143);
-padding: 2px 4px;
-font-weight: 600;
-}
-
-.MuiTypography-root.MuiTypography-overline {
-font-size: 1rem;
-}
-
-/** desktop ok button **/
-.MuiButton-textPrimary:hover {
-background-color: rgba(20, 85, 143, 0.8);
-}
-
 
 /* Number currency */
 /** Currency $ sign span **/
@@ -325,4 +300,12 @@ html.wf-active {
 
 #fsSubmissionCheckmark ~ .fsSectionText {
   text-align: left;
+}
+
+/* file upload */
+[class^=AsyncFileUploadstyles__StyledDragAndDropContainer] {
+    background: white !important;
+}
+[class^="AsyncFileUploadstyles__StyledFileItemContainer"] {
+    background: #E7EEF4 !important;
 }

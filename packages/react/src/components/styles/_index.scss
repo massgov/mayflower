@@ -23,6 +23,7 @@
 @use "01-atoms/colored-heading";
 @use "01-atoms/comp-heading";
 @use "01-atoms/sidebar-heading";
+@use "01-atoms/input";
 @use "01-atoms/forms";
 @use "04-templates/form-page";
 @use "01-atoms/footnote";
@@ -46,6 +47,7 @@
 @use "forms/FeedbackForm";
 @use "forms/Input";
 @use "01-atoms/input-checkbox";
+@use "01-atoms/textarea";
 // Required by InputCurrency.
 @use "01-atoms/input--button" as inputButton;
 @use "01-atoms/input-radio";

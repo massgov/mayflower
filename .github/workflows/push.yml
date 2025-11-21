@@ -1,0 +1,61 @@
+name: "Push docs to SSR"
+
+on:
+  push:
+    branches:
+      - develop
+      
+defaults:
+  run:
+    shell: bash --noprofile --norc -eo pipefail {0}
+
+env:
+  file_path: "./docs.manifest"
+  repo: "mayflower"
+
+jobs:
+  docs:
+    permissions:
+      id-token: write
+      contents: read
+
+    name: Push docs to s3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS Creds
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ vars.ROLE_ARN }}
+
+      - name: Check for docs.manifest
+        shell: bash
+        run: |
+          if [ ! -f ${{ env.file_path }} ]; then
+            echo "docs.manifest not found. Exiting."
+            exit 0
+          fi
+
+      - name: Create _category_.json
+        shell: bash
+        run: |
+          echo '{
+            "label": "${{ env.repo }}",
+            "position": 1,
+            "link": {
+              "type": "generated-index",
+              "description": "${{ env.repo }}"
+            }
+          }' > _category_.json
+  
+          aws s3 cp _category_.json s3://itd-mgt-ssr-tagging.secure.digital.mass.gov/documentation/${{ env.repo }}/
+
+      - name: Upload files to S3
+        shell: bash
+        run: |
+          (cat ${{ env.file_path }} ; echo ) | while read line; do
+            aws s3 cp $line s3://itd-mgt-ssr-tagging.secure.digital.mass.gov/documentation/${{ env.repo }}/
+          done
+  
+

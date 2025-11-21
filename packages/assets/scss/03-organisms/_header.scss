@@ -90,7 +90,7 @@ body {
     &--mobile {
       padding: 20px;
       width: 100%;
-      border-bottom: 2px solid $c-bd-divider;
+      border-bottom: 2px solid var(--mf-c-bd-divider);
 
       a img {
         width: 45px;
@@ -107,14 +107,14 @@ body {
 
     @media ($bp-large-min) {
       height: 15px;
-      background-color: $c-primary;
-      color: $c-font-inverse;
+      background-color: var(--mf-c-primary);
+      color: var(--mf-c-font-inverse);
     }
 
     &--mobile {
       height: 15px;
-      background-color: $c-primary;
-      color: $c-font-inverse;
+      background-color: var(--mf-c-primary);
+      color: var(--mf-c-font-inverse);
       position: fixed;
         top: 0;
         left: 0;
@@ -213,7 +213,7 @@ body {
       transition: left .5s, visibility .5s;
       z-index: $z-dropdown;
       font-weight: $fonts-bold;
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
 
       .translated-rtl &,
       .translated-ltr & {
@@ -235,8 +235,8 @@ body {
         transform-origin: 75% 75%;
         vertical-align: middle;
         width: .65em;
-        border-left-color: $c-font-inverse;
-        border-top-color: $c-font-inverse;
+        border-left-color: var(--mf-c-font-inverse);
+        border-top-color: var(--mf-c-font-inverse);
       }
 
       span {
@@ -412,29 +412,29 @@ body {
 //theme
 
 .ma__header {
-  background-color: $c-bg-section;
+  background-color: var(--mf-c-bg-section);
 
   @media ($bp-small-max) {
-    border-bottom: 1px solid $c-gray-lightest;
+    border-bottom: 1px solid var(--mf-c-gray-lightest);
   }
 
   &__nav-container {
 
     @media ($bp-header-toggle-max) {
-      background-color: $c-bg-section;
+      background-color: var(--mf-c-bg-section);
     }
   }
 
   &__button-container {
 
     @media ($bp-header-toggle-max) {
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
     }
   }
 
   &__menu-button {
     font-weight: $fonts-bold;
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
 
     span:first-child {
       opacity: 0.7;
@@ -442,11 +442,11 @@ body {
   }
 
   &__menu-icon {
-    background-color: $c-font-inverse;
+    background-color: var(--mf-c-font-inverse);
 
     &:before,
     &:after {
-      background-color: $c-font-inverse;
+      background-color: var(--mf-c-font-inverse);
     }
 
     .show-menu & {
@@ -456,14 +456,14 @@ body {
     &:before {
 
       .show-menu & {
-        background-color: $c-font-inverse;
+        background-color: var(--mf-c-font-inverse);
       }
     }
 
     &:after {
 
       .show-menu & {
-        background-color: $c-font-inverse;
+        background-color: var(--mf-c-font-inverse);
       }
     }
   }
@@ -472,7 +472,7 @@ body {
   &__main-nav {
 
     @media ($bp-header-toggle-max) {
-      border-bottom-color: $c-bd-divider;
+      border-bottom-color: var(--mf-c-bd-divider);
     }
   }
 
@@ -483,7 +483,7 @@ body {
       background-color: mix($c-white, $c-font-link, 90%);
       border-color: mix($c-white, $c-font-link, 50%);
       box-shadow: $box-shadow;
-      color: $c-font-link;
+      color: var(--mf-c-font-link);
       font-size: $fonts-medium;
 
       @media ($bp-large-min) {
@@ -491,8 +491,8 @@ body {
       }
 
       &:focus {
-        background-color: $c-bg;
-        border-color: $c-highlight !important;
+        background-color: var(--mf-c-bg);
+        border-color: var(--mf-c-highlight) !important;
       }
     }
   }

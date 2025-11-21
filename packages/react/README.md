@@ -69,6 +69,9 @@ import Button from '@massds/mayflower-react/dist/Button';
 >For a more detailed guide and information on the components included in Mayflower React and their functionality, visit our [Mayflower React Storybook][react-storybook]. Click on the Info and Knobs tabs for component prop types, details and options.
 
 4. Component styles must be imported separately, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for the React component in use. E.g. If you using the slim header and slim footer components, in a SCSS files, import these styles:
+
+> ⚠️ **DEPRECATION NOTICE**: SCSS variables from @massds/mayflower-assets will be deprecated soon. While the imports below will continue to work, we recommend preparing for migration away from direct SCSS variable usage. Future updates will provide alternative styling solutions.
+
 ```scss
 // Header
 @use "~@massds/mayflower-assets/scss/01-atoms/button-with-icon";

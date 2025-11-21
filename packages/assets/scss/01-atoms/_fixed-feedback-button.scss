@@ -4,8 +4,8 @@
   border-style: solid;
   border-width: 4px 4px 0 4px;
   border-radius: 5px 5px 0 0;
-  border-color: $c-primary-alt;
-  background-color: $c-bg;
+  border-color: var(--mf-c-primary-alt);
+  background-color: var(--mf-c-bg);
   display: inline-block;
   padding: 0 10px;
   margin-top: 0 !important;
@@ -20,7 +20,7 @@
   z-index: $z-feedback-button;
 
   a {
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
     font-size: $fonts-larger;
     font-weight: $fonts-normal;
     text-decoration: none;

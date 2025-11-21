@@ -121,7 +121,7 @@
 
       &:hover,
       &:after {
-        border-color: $c-link;
+        border-color: var(--mf-c-link);
       }
     }
   }

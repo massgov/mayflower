@@ -5,6 +5,7 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
 
     @include ma-container('restricted');
@@ -52,12 +53,12 @@
   &__icon {
 
     & > svg {
-      fill: $c-highlight;
+      fill: var(--mf-c-highlight);
     }
   }
 
   &__text {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
     font-weight: $fonts-normal;
   }
 }

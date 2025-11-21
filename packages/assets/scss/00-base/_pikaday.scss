@@ -10,6 +10,8 @@
 
 .pika-single {
   font-family: $fonts;
+  background-color: var(--mf-c-bg-section);
+  padding: 1rem;
 
   abbr[title] {
     text-decoration: none;
@@ -17,36 +19,36 @@
 }
 
 .pika-label {
-  color: $c-font-dark;
+  color: var(--mf-c-font-dark);
   font-size: $fonts-small;
 }
 
 .pika-table {
 
   th {
-    color: $c-font-dark;
+    color: var(--mf-c-font-dark);
     font-size: $fonts-xsmall;
   }
 }
 
 .pika-button {
-  background-color: $c-bg-section;
-  color: $c-font-base;
+  background-color: var(--mf-c-bg-section);
+  color: var(--mf-c-font-base);
   font-size: $fonts-xsmall;
   font-weight: $fonts-normal;
   text-align: center;
 
   .is-today & {
-    color: $c-primary;
+    color: var(--mf-c-primary);
     font-weight: $fonts-bolder;
 
     &:hover {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
     }
   }
 
   .is-disabled & {
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     opacity: .5;
   }
 
@@ -56,12 +58,12 @@
   }
 
   .is-selected & {
-    background-color: $c-primary;
+    background-color: var(--mf-c-primary);
     box-shadow: none;
     border-radius: 0;
   }
 
   .is-today.is-selected & {
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
   }
 }

@@ -7,7 +7,7 @@ h2, h3, h4, h5, h6 {
 }
 
 hr {
-  border: 1px solid $c-gray-light;
+  border: 1px solid var(--mf-c-gray-light);
 	margin: 2rem 0;
 }
 
@@ -80,7 +80,7 @@ ul {
 blockquote {
 	margin: 0;
   padding: 0 1em;
-  border-left: .25em solid $c-gray-light;
+  border-left: .25em solid var(--mf-c-gray-light);
 
 	&>:first-child {
   	margin-top: 0;
@@ -143,7 +143,7 @@ code {
   margin-left: 0;
 	margin-right: 0;
   font-size: 85%;
-  background-color: $c-gray-lightest;
+  background-color: var(--mf-c-gray-lightest);
   border-radius: 3px;
 }
 
@@ -167,7 +167,7 @@ pre {
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: $c-gray-lightest;
+  background-color: var(--mf-c-gray-lightest);
   border-radius: 3px;
 }
 

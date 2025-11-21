@@ -31,11 +31,11 @@ html {
 }
 
 body {
-  width: 100vw;
+  width: 100%;
   margin: 0;
   font-size: $fonts-medium; //16px
   line-height: 1.6;
-  color: $c-font-base;
+  color: var(--mf-c-font-base);
   font-family: $fonts;
   font-weight: $fonts-light;
 
@@ -48,7 +48,7 @@ a {
 
   @include ma-link-transition;
   font-weight: $fonts-bold;
-  color: $c-font-link;
+  color: var(--mf-c-font-link);
 }
 
 address {
@@ -133,7 +133,7 @@ ol {
 @for $i from 1 through 6 {
   h#{$i}, .ma__h#{$i} {
     margin-top: 0;
-    color: $c-font-heading;
+    color: var(--mf-c-font-heading);
 
     @include ma-heading($i);
   }
