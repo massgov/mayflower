@@ -31,10 +31,8 @@ All notable changes to this project will be documented in this file.
 - (Assets, Patternlab) [MappedLocations] DP-42621: Fix accessibliity issue with map on service and org pages. (#2018)
 - (Assets, Patternlab) [EmergencyHeader] DP-43210: Improve mobile layout of the sitewide alerts. (#2022)
 
-### Add 
-- (Patternlab) [isHighZoom] DP-37775: Add isHighZoom helper function to handle zoom level responsiveness. (#1975)
-
 ### Added 
+- (Patternlab) [isHighZoom] DP-37775: Add isHighZoom helper function to handle zoom level responsiveness. (#1975)
 - (Assets) [_color-tokens, _colors] DP-38077: Added CSS variables for colors (#1981)
 - (Assets) [Input,KeywordSearch,HeaderSearch,InputDate] DP-40822: Scope input styles to Mayflower UI only. (#2005)
 
