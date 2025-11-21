@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: RichText
-    description: Add inline code styling. (#2020)
-    issue: DP-42243
-    impact: Minor
