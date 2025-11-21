@@ -1,7 +1,7 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
-## 15.0.0 (11/21/2025)
+## 14.1.0 (11/21/2025)
 ### Fixed 
 - (Patternlab) [RichText] DP-37275: Revert heading flow-root fix and conditionally clear fix after multiple floating images. (#1987)
 - (Patternlab) [Figure, RichText] DP-39383: Fixed single image and list overlap (#1987)
@@ -39,11 +39,7 @@ All notable changes to this project will be documented in this file.
 - (Assets) [Input,KeywordSearch,HeaderSearch,InputDate] DP-40822: Scope input styles to Mayflower UI only. (#2005)
 
 ### Removed 
-- (Patternlab) [undefined] undefined
-- (undefined) [UtilityNav] undefined
-- (undefined) [undefined] Removed the "Contrast Settings" button entry from utilityNav.json as part of phasing out the Userway accessibility tool. (#1993)
-- (undefined) [undefined] DP-39770: undefined
-- (undefined) [undefined] undefined
+- (Patternlab) [UtilityNav] DP-39770: Removed the "Contrast Settings" button entry from utilityNav.json as part of phasing out the Userway accessibility tool. (#1993)
 - (Patternlab,React) [BrandBanner] DP-40399: Remove hasToggle prop. (#2008)
 
 ## 14.0.0 (7/08/2025)
