@@ -372,15 +372,8 @@
       position: relative;
 
       svg {
-        fill: var(--mf-c-font-link);
-        transform: rotate(-90deg);
-        width: 11px;
-        height: 12px;
+        color: var(--mf-c-font-link);
         margin-bottom: 5px;
-
-        use > svg {// For the bug in Firefox 55>
-          transform: rotate(0deg);
-        }
       }
 
       span {
