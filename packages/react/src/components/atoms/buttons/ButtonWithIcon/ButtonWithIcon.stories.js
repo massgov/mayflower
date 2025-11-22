@@ -42,7 +42,7 @@ ButtonWithIconExample.args = {
   capitalized: true,
   'arial-label': '',
   'aria-haspopup': false,
-  icon: 'IconChevron',
+  icon: 'IconCaretDown',
   width: 20,
   height: 20
 };
@@ -117,7 +117,7 @@ ButtonSearch.argTypes = {
     control: {
       type: 'select',
       options: {
-        IconChevron: 'IconChevron',
+        IconCaretDown: 'IconCaretDown',
         IconSearch: 'IconSearch'
       }
     }

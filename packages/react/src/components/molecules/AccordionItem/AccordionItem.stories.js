@@ -40,7 +40,7 @@ AccordionItemExample.argTypes = {
   icon: {
     control: {
       type: 'select',
-      options: ['IconCaretCircleRight', 'IconLaptop', 'IconPhone', 'IconFaxIcon']
+      options: ['IconCaretCircleRight', 'IconLaptop', 'IconPhone', 'IconFax']
     }
   },
   headerLevel: {

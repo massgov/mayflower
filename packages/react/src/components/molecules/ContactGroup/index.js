@@ -17,11 +17,11 @@ import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
 // eslint-disable-next-line import/no-unresolved
 import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 // eslint-disable-next-line import/no-unresolved
-import IconFaxIcon from 'MayflowerReactBase/Icon/IconFaxIcon';
+import IconFax from 'MayflowerReactBase/Icon/IconFax';
 
 const ContactGroup = (contactGroup) => {
   const icons = {
-    SvgMarker: <IconMarker />, SvgPhone: <IconPhone />, SvgLaptop: <IconLaptop />, SvgFax: <IconFaxIcon />
+    SvgMarker: <IconMarker />, SvgPhone: <IconPhone />, SvgLaptop: <IconLaptop />, SvgFax: <IconFax />
   };
   const Element = `h${contactGroup.level ? contactGroup.level : 2}`;
   const createItems = (item) => {

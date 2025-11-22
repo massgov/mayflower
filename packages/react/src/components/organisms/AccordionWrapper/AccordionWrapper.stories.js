@@ -20,7 +20,7 @@ const icons = {
   IconCaretCircleRight: getIcon({ name: 'IconCaretCircleRight' }),
   IconLaptop: getIcon({ name: 'IconLaptop' }),
   IconPhone: getIcon({ name: 'IconPhone' }),
-  IconFaxIcon: getIcon({ name: 'IconFaxIcon' }),
+  IconFax: getIcon({ name: 'IconFax' }),
   none: null
 };
 

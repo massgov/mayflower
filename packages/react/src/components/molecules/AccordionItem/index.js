@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-unresolved
-import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
 // eslint-disable-next-line import/no-unresolved
 import IconCaretCircleRight from 'MayflowerReactBase/Icon/IconCaretCircleRight';
 import Heading from 'MayflowerReactHeadings/Heading';
@@ -72,7 +72,7 @@ class AccordionItem extends React.Component {
             )}
             { secondary && (
               <div className="ma__accordion-header__icon--secondary">
-                <IconChevron height={20} width={20} />
+                <IconCaretDown height={20} width={20} />
               </div>
             )}
             <Heading class={headingClasses} text={title} level={headerLevel} />
