@@ -16,8 +16,8 @@ Icons.args = {
   width: 24,
   height: 24,
   classes: [''],
-  ['aria-hidden']: false,
-  ['aria-label']: 'This is an icon',
+  'aria-hidden': false,
+  'aria-label': 'This is an icon',
   fill: '#000'
 };
 Icons.argTypes = {

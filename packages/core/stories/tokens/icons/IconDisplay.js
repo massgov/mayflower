@@ -33,8 +33,8 @@ IconDisplay.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   classes: PropTypes.arrayOf(PropTypes.string),
-  ['aria-hidden']: PropTypes.bool,
-  ['aria-label']: PropTypes.string,
+  'aria-hidden': PropTypes.bool,
+  'aria-label': PropTypes.string,
   fill: PropTypes.string
 };
 
