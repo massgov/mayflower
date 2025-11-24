@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: DownloadLinkMultilang, InlineLinksLanguage
-    description: Improves accessibility for multiple language translation links by adding aria-labelledby attributes that reference both the language link and associated document title, ensuring screen readers can distinguish between links for different documents.
-    issue: DP-40850
-    impact: Patch 
