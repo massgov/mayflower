@@ -15,7 +15,16 @@
   &__trigger {
     color: var(--mf-c-primary);
     display: inline;
-    border-bottom: 3px dashed currentcolor;
+
+    &:after {
+      content: "";
+      position: absolute;
+      border-bottom: 3px dashed currentcolor;
+      pointer-events: none;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+    }
 
     &:hover {
       color: var(--mf-c-primary-light);
