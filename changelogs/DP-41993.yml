@@ -1,6 +1,0 @@
-Changed:
-  - project: Assets
-    component: RichText
-    description: Remove green line from the collapsible header. (#2012)
-    issue: DP-41993
-    impact: Patch

@@ -1,6 +1,0 @@
-Changed:
-  - project: Assets, Patternlab
-    component: EmergencyHeader
-    description: Improve mobile layout of the sitewide alerts. (#2022)
-    issue: DP-43210
-    impact: Patch

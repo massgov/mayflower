@@ -1,6 +1,0 @@
-Changed:
-  - project: Assets, Patternlab
-    component: MappedLocations
-    description: Fix accessibliity issue with map on service and org pages. (#2018)
-    issue: DP-42621
-    impact: Patch
