@@ -263,7 +263,7 @@
                 ]
               },
               "faxContactGroup": {
-                "icon": "fax-icon",
+                "icon": "fax",
                 "name": "Fax",
                 "items": [
                   {

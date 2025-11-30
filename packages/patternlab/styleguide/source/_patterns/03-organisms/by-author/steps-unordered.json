@@ -101,7 +101,7 @@
       "accordion": true,
       "isExpanded": false,
       "accordionLabel": "Expand step for doing this in person",
-      "icon":"fax-icon",
+      "icon":"fax",
       "title":"By Fax",
       "richText": {
         "rteElements": [{

@@ -2,7 +2,7 @@
 This is a variant of the [Contact Group](./?p=molecules-contact-group) pattern showing an example with as a Fax contact.
 
 ### How to generate
-* set the `icon` variable to "fax-icon"
+* set the `icon` variable to "fax"
 * populate the `name` variable to "Fax"
 * populate the `level` variable
 * populate the `contactName` variable
