@@ -16,7 +16,7 @@
       {% if not helpTip.isDescription %}
         <span class="ma_help-tip__label-a11y ma__visually-hidden">Open tooltip to learn more.</span>
       {% endif %}
-      {{icon('question-mark')}}
+      {{icon('question-mark', '18px', '18px')}}
     </button>
     {% if textAfter %}
       <span>{{ helpTip.textAfter }}</span>
@@ -31,13 +31,13 @@
       class="ma__help-tip__close-mobile"
       aria-label="close tooltip"
     >
-      {{ icon('close') }}
+      {{ icon('close', '12px', '12px') }}
     </button>
     <button
       class="ma__help-tip__close-desktop"
       aria-label="close tooltip"
     >
-      {{ icon('close') }}
+      {{ icon('close', '12px', '12px') }}
     </button>
     <div
       class="ma__help-tip__text ma__help-tip__text--c-primary"
