@@ -51,12 +51,7 @@
     margin-top: 2px;
 
     svg {
-      width: 14px;
-      height: 14px;
-
-      path, use {
-        fill: var(--mf-c-font-detail);
-      }
+      color: var(--mf-c-font-detail);
     }
   }
 
