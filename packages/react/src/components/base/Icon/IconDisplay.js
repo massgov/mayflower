@@ -12,15 +12,15 @@ import ButtonCopy from 'MayflowerReactButtons/ButtonCopy';
 import * as Icon from './index';
 
 const IconDisplay = (props) => {
-  const { name } = props;
-  const componentName = name && `Icon${name[0].toUpperCase() + name.slice(1)}`;
-  const IconComponent = Icon?.[componentName] && Icon[componentName];
+  const { name, ...rest } = props;
+  const IconComponent = Icon?.[name] && Icon[name];
+  
   return(
     <li style={{ width: 180, margin: 10, padding: 10 }}>
       <div className="sg-icons-info">
-        { IconComponent && <IconComponent {...props} />}
+        { IconComponent && <IconComponent {...rest} />}
         <div>
-          <span>{componentName}</span>
+          <span>{name}</span>
           <ButtonCopy content={name} />
         </div>
       </div>
@@ -30,11 +30,11 @@ const IconDisplay = (props) => {
 
 IconDisplay.propTypes = {
   name: PropTypes.string.isRequired,
-  title: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  eight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   classes: PropTypes.arrayOf(PropTypes.string),
-  ariaHidden: PropTypes.bool,
+  'aria-hidden': PropTypes.bool,
+  'aria-label': PropTypes.string,
   fill: PropTypes.string
 };
 

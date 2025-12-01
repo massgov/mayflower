@@ -100,7 +100,7 @@ export const assets = {
   IconFireTruck: 'IconFireTruck',
   IconFirstAid: 'IconFirstAid',
   IconFirstAidKit: 'IconFirstAidKit',
-  IconFlickr: 'IconFlickr',
+  IconFlickrLogo: 'IconFlickrLogo',
   IconFolderMinus: 'IconFolderMinus',
   IconFolderSimplePlus: 'IconFolderSimplePlus',
   IconGasPump: 'IconGasPump',
