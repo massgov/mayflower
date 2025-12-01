@@ -86,7 +86,7 @@
     @include ma-border-decorative($c-highlight);
 
     svg {
-      fill: var(--mf-c-highlight);
+      color: var(--mf-c-highlight);
     }
 
   }
