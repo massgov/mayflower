@@ -35,10 +35,26 @@ function updateCoreEnvVersion(newVer) {
 function updatePackageJsonVersions(newVer) {
   console.log('📦 Updating package.json files...');
   
-  // Find all package.json files in the packages directory
+  // Find all top-level package.json files, excluding patternlab root
   const packageJsonPaths = glob.sync('packages/*/package.json', {
     cwd: path.resolve(__dirname, '..')
-  });
+  }).filter(p => p !== 'packages/patternlab/package.json'); // Exclude patternlab root
+  
+  // Add specific patternlab styleguide package.json
+  const patternlabStyleguidePackageJson = 'packages/patternlab/styleguide/package.json';
+  const patternlabStyleguidePath = path.resolve(__dirname, '..', patternlabStyleguidePackageJson);
+  if (fs.existsSync(patternlabStyleguidePath)) {
+    packageJsonPaths.push(patternlabStyleguidePackageJson);
+  }
+  
+  // Include root package.json
+  const rootPackageJsonPath = path.resolve(__dirname, '../package.json');
+  if (fs.existsSync(rootPackageJsonPath)) {
+    packageJsonPaths.unshift('package.json');
+  }
+
+  console.log('📋 Found package.json files:');
+  packageJsonPaths.forEach(p => console.log(`    ${p}`));
 
   packageJsonPaths.forEach(relativePath => {
     const fullPath = path.resolve(__dirname, '..', relativePath);
@@ -46,7 +62,7 @@ function updatePackageJsonVersions(newVer) {
   });
 }
 
-function updatePackageJsonVersion(packageJsonPath, newVer, dryRun = false) {
+function updatePackageJsonVersion(packageJsonPath, newVer) {
   try {
     if (!fs.existsSync(packageJsonPath)) {
       console.warn(`⚠️  Package.json not found at ${packageJsonPath}`);
@@ -99,14 +115,14 @@ function updatePackageJsonVersion(packageJsonPath, newVer, dryRun = false) {
     
     // Only write if there were changes
     if (changes.length > 0) {
-      if (!dryRun) {
-        fs.writeFileSync(packageJsonPath, JSON.stringify(packageData, null, 2) + '\n');
-      }
+      fs.writeFileSync(packageJsonPath, JSON.stringify(packageData, null, 2) + '\n');
       
-      console.log(`${dryRun ? '🔍' : '✅'} Updated ${packageJsonPath}:`);
+      const relativePath = path.relative(path.resolve(__dirname, '..'), packageJsonPath);
+      console.log(`✅ Updated ${relativePath}:`);
       changes.forEach(change => console.log(`    ${change}`));
     } else {
-      console.log(`⚪ No changes needed for ${packageJsonPath}`);
+      const relativePath = path.relative(path.resolve(__dirname, '..'), packageJsonPath);
+      console.log(`⚪ No changes needed for ${relativePath}`);
     }
     
   } catch (error) {
