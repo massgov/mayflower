@@ -2,7 +2,7 @@
   "name": "@massds/mayflower-react",
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
-  "version": "13.2.0",
+  "version": "14.1.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "sideEffects": [

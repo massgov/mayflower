@@ -2,7 +2,7 @@
   "name": "mayflower-site",
   "private": true,
   "description": "Mayflower homepage",
-  "version": "0.1.0",
+  "version": "14.1.0",
   "author": "Minghua Sun <clairesunstudio@gmail.com>",
   "dependencies": {
     "@massds/mayflower-assets": "^13.0.0",
