@@ -46,27 +46,68 @@ function updatePackageJsonVersions(newVer) {
   });
 }
 
-function updatePackageJsonVersion(packageJsonPath, newVer) {
+function updatePackageJsonVersion(packageJsonPath, newVer, dryRun = false) {
   try {
     if (!fs.existsSync(packageJsonPath)) {
       console.warn(`⚠️  Package.json not found at ${packageJsonPath}`);
       return;
     }
 
-    // Read and parse package.json
     const content = fs.readFileSync(packageJsonPath, 'utf8');
     const packageData = JSON.parse(content);
     
-    // Store old version for logging
     const oldVersion = packageData.version;
+    let changes = [];
     
-    // Update version
-    packageData.version = newVer;
+    // Update main version
+    if (packageData.version) {
+      packageData.version = newVer;
+      changes.push(`version: ${oldVersion} → ${newVer}`);
+    }
     
-    // Write back to file with proper formatting
-    fs.writeFileSync(packageJsonPath, JSON.stringify(packageData, null, 2) + '\n');
+    // Function to check if a package name should be updated
+    const isMayflowerPackage = (packageName) => {
+      return packageName.startsWith('@massds/mayflower-') || 
+             packageName === '@massds/mayflower-assets' ||
+             packageName === '@massds/mayflower-react';
+    };
     
-    console.log(`✅ Updated ${packageJsonPath}: ${oldVersion} → ${newVer}`);
+    // Update Mayflower dependencies in all dependency types
+    const dependencyTypes = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies'];
+    
+    dependencyTypes.forEach(depType => {
+      if (packageData[depType]) {
+        Object.keys(packageData[depType]).forEach(depName => {
+          if (isMayflowerPackage(depName)) {
+            const oldDepVersion = packageData[depType][depName];
+            // Handle version ranges (^, ~, >=, etc.)
+            let newDepVersion = newVer;
+            if (oldDepVersion.startsWith('^')) {
+              newDepVersion = `^${newVer}`;
+            } else if (oldDepVersion.startsWith('~')) {
+              newDepVersion = `~${newVer}`;
+            } else if (oldDepVersion.startsWith('>=')) {
+              newDepVersion = `>=${newVer}`;
+            }
+            
+            packageData[depType][depName] = newDepVersion;
+            changes.push(`${depType}.${depName}: ${oldDepVersion} → ${newDepVersion}`);
+          }
+        });
+      }
+    });
+    
+    // Only write if there were changes
+    if (changes.length > 0) {
+      if (!dryRun) {
+        fs.writeFileSync(packageJsonPath, JSON.stringify(packageData, null, 2) + '\n');
+      }
+      
+      console.log(`${dryRun ? '🔍' : '✅'} Updated ${packageJsonPath}:`);
+      changes.forEach(change => console.log(`    ${change}`));
+    } else {
+      console.log(`⚪ No changes needed for ${packageJsonPath}`);
+    }
     
   } catch (error) {
     console.error(`❌ Error updating ${packageJsonPath}:`, error.message);
