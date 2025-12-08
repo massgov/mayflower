@@ -21,8 +21,8 @@
         content: "";
         height: 100%;
         position: absolute;
-          right: 100%;
-          top: 0;
+        right: 100%;
+        top: 0;
         width: 50vw;
       }
     }
@@ -38,31 +38,28 @@
 
   &__content {
 
-    @include clearfix;
+    @media ($bp-small-min) {
+
+      @include ma-grid-two-column($ratio: 3fr 5fr);
+    }
   }
 
   &__date {
     margin-bottom: 5px;
 
     @media ($bp-small-min) {
-
-      @include span-columns(3 of 8);
+      margin-bottom: 0;
     }
   }
 
   &__names {
 
     @include ma-reset-list;
-
-    @media ($bp-small-min) {
-
-      @include span-columns(5 of 8);
-    }
   }
 
   &__name {
     font-size: $fonts-medium;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
   }
 }
 

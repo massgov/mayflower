@@ -137,7 +137,7 @@
   }
 
   &__graphic {
-    background-color: mix($c-white, $c-primary-alt, 80%);
+    background-color: var(--mf-c-berkshires-green-80);
   }
 
   &__spacer {

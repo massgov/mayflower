@@ -159,7 +159,7 @@
 
   &__title {
 
-    @include ma-heading-colored($c-primary-alt);
+    @include ma-heading-colored(var(--mf-c-primary-alt));
     color: var(--mf-c-font-inverse);
     font-weight: $fonts-bold;
   }

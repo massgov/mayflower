@@ -26,7 +26,7 @@
 
     @include ma-border-decorative;
 
-    @include ma-border-decorative($c-primary-alt);
+    @include ma-border-decorative(var(--mf-c-primary-alt-50));
     margin-bottom: 45px;
     padding-bottom: 16px;
   }

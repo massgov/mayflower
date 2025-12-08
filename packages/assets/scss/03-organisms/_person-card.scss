@@ -85,7 +85,7 @@
 
   @media ($bp-large-extended-min) {
     border: 1px solid var(--mf-c-primary-alt);
-    box-shadow: 4px 2px 5px 0px rgba($c-gray-darkest,0.3);
+    box-shadow: 4px 2px 5px 0px var(--mf-c-gray-darkest-30);
   }
 
   &::before,

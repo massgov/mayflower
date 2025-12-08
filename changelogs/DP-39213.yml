@@ -1,0 +1,52 @@
+Changed:
+  - project: Assets
+    component: _color-tokens
+    description: |-
+      Complete CSS variables transition started in DP-38077 by adding pre-calculated transparency and gradient variables.
+      - Added ~105 new CSS variables for transparency variations (10%, 15%, 20%, 25%, 30%, 40%, 50%, 60%, 70%, 75%, 80%, 85%, 89%, 90%)
+      - Added pre-mixed color combinations to replace rgba() usage
+      - Added tint/shade CSS variables for all brand colors (bay-blue, berkshires-green, duckling-yellow, independence-cranberry)
+    issue: DP-39213
+    impact: Minor
+  - project: Assets
+    component: _variables
+    description: |-
+      Created new CSS variable for standardized box shadows.
+      - Added --mf-box-shadow CSS variable to replace SCSS $box-shadow usage
+      - Updated all box-shadow instances to use the new CSS variable
+    issue: DP-39213
+    impact: Patch
+
+Fixed:
+  - project: Assets
+    component: Mixins
+    description: |-
+      Remove all SCSS color functions (rgba) to complete CSS variables transition.
+      - Replaced rgba() fallbacks with pre-calculated CSS variables
+      - Added neat-warn messages with solid color fallbacks for unknown colors
+      - Fixed ma-border-decorative mixin to properly detect and handle CSS variables
+    issue: DP-39213
+    impact: Patch
+  - project: Assets
+    component: Grid
+    description: |-
+      Added new CSS Grid mixins to replace deprecated bourbon-neat span-columns system.
+      - ma-grid: Creates CSS grid containers with customizable columns, gaps, and alignment
+      - ma-grid-span: Handles grid item spanning with support for legacy "X of Y" syntax
+      - ma-grid-responsive: Provides mobile-first responsive grids with customizable breakpoints
+      - ma-grid-two-column: Simple two-column layout with customizable ratios
+      - ma-grid-span-to-end: Helper for spanning from a column to grid end
+      - Includes input validation and developer warnings for better DX
+      - Updated components to migrate from span-columns to new grid mixins
+    issue: DP-39213
+    impact: Minor
+
+Deprecated:
+  - project: Assets
+    component: Mixins
+    description: |-
+      Deprecated legacy bourbon-neat span-columns mixins in favor of CSS Grid.
+      - Added deprecation warnings to span-columns, shift, and omega mixins
+      - Provided modern CSS Grid alternatives in documentation
+    issue: DP-39213
+    impact: Minor

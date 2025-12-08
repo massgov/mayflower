@@ -2,6 +2,8 @@
 
 /// Provides an easy way to include a clearfix for containing floats.
 ///
+/// @deprecated CSS Grid doesn't use floats, so clearfix is not needed. Use `@include ma-grid()` instead.
+///
 /// @link https://goo.gl/yP5hiZ
 ///
 /// @example scss
@@ -17,6 +19,8 @@
 ///   }
 
 @mixin clearfix {
+
+  @warn "DEPRECATED: The 'clearfix' mixin is deprecated. CSS Grid doesn't use floats. Use '@include ma-grid()' instead.";
 
   &::after {
     clear: both;

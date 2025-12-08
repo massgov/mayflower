@@ -46,6 +46,6 @@
 
   &__submit {
 
-    @include ma-button('solid',$c-primary);
+    @include ma-button('solid',var(--mf-c-primary));
   }
 }

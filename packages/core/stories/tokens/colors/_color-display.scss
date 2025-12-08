@@ -55,16 +55,42 @@
   }
 }
 
-// Programetically generate gradient colors
+// Programetically generate gradient colors using pre-calculated CSS variables
 $tiles: 10;
-@mixin ma_gradient($name, $mode, $base) {
+@mixin ma_gradient($name, $mode) {
   .#{$name} {
     &--#{$mode} {
-      @for $i from 0 through $tiles {
-        $amount: $i * 10%;
-        &:nth-child(#{$i + 1}) {
-          .sg-swatch {
-            background-color: color-mix(in srgb, #{$base} $amount, var(--mf-#{$name}));
+      @if $mode == 'tint' {
+        @for $i from 0 through $tiles {
+          &:nth-child(#{$i + 1}) {
+            .sg-swatch {
+              @if $i == 0 {
+                background-color: var(--mf-c-white);
+              } @else if $i == 10 {
+                background-color: var(--mf-#{$name});
+              } @else {
+                $percentage: (10 - $i) * 10;
+                background-color: var(--mf-#{$name}-#{$percentage});
+              }
+            }
+          }
+        }
+      } @else if $mode == 'shade' {
+        @for $i from 0 through $tiles {
+          &:nth-child(#{$i + 1}) {
+            .sg-swatch {
+              @if $i == 0 {
+                background-color: var(--mf-c-black);
+              } @else if $i == 10 {
+                background-color: var(--mf-#{$name});
+              } @else if $i <= 5 {
+                $percentage: $i * 10;
+                background-color: var(--mf-#{$name}-shade-#{$percentage});
+              } @else {
+                // Shades above 50% don't exist, interpolate or use base color
+                background-color: var(--mf-#{$name}-shade-50);
+              }
+            }
           }
         }
       }
@@ -79,6 +105,6 @@ $tiles: 10;
   "c-independence-cranberry",
   "c-granite-gray"
 ) {
-  @include ma_gradient($name, 'tint', white);
-  @include ma_gradient($name, 'shade', black);
+  @include ma_gradient($name, 'tint');
+  @include ma_gradient($name, 'shade');
 }

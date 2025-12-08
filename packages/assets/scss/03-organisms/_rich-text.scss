@@ -331,7 +331,7 @@ $heading-indent: $gutter;
 
   h2, h3, h4 {
 
-    @include ma-comp-heading($c-primary-alt);
+    @include ma-comp-heading(var(--mf-c-primary-alt));
   }
 
   h2.ma__collapsible-header,

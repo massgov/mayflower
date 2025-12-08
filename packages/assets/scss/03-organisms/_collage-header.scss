@@ -32,10 +32,26 @@ $collage-header-bp-min: "min-width: 701px";
       margin: 0;
       padding-bottom: 20px;
       position: absolute;
-        top: 0;
-        right: 0;
+      top: 0;
+      right: 0;
       width: calc(100% - 420px);
       z-index: 1;
+
+      @media ($bp-large-min) {
+        --collage-gap: 16px;
+
+        @media ($bp-x-large-min) {
+          --collage-gap: 20px;
+        }
+
+        @media ($bp-page-width-min) {
+          --collage-gap: 24px;
+        }
+
+        @include ma-grid(8, var(--collage-gap));
+        grid-template-rows: 60% 37.5%;
+        gap: var(--collage-gap);
+      }
     }
   }
 
@@ -53,11 +69,11 @@ $collage-header-bp-min: "min-width: 701px";
       padding: 0;
       width: 100%;
 
-
       @media ($bp-large-min) {
 
-        @include span-columns(5 of 8);
-        height: 30%;
+        @include ma-grid-span(5);
+        grid-row: 2;
+        height: 100%;
         margin-bottom: 0;
       }
 
@@ -68,8 +84,9 @@ $collage-header-bp-min: "min-width: 701px";
 
         @media ($bp-large-min) {
 
-          @include span-columns(8 of 8);
-          height: 68%;
+          @include ma-grid-span(8);
+          grid-row: 1;
+          height: 100%;
         }
       }
 
@@ -78,7 +95,9 @@ $collage-header-bp-min: "min-width: 701px";
 
         @media ($bp-large-min) {
 
-          @include span-columns(3 of 8);
+          @include ma-grid-span(3);
+          grid-row: 2;
+          height: 100%;
         }
       }
     }
@@ -108,8 +127,8 @@ $collage-header-bp-min: "min-width: 701px";
         content: "";
         height: 100%;
         position: absolute;
-          top: 0;
-          right: calc(100% - 480px);
+        top: 0;
+        right: calc(100% - 480px);
         width: 100vw;
         transform: skew(-30deg);
       }
@@ -158,10 +177,10 @@ $collage-header-bp-min: "min-width: 701px";
     }
   }
 
-    &__lead {
+  &__lead {
 
-      @include ma-h3;
-    }
+    @include ma-h3;
+  }
 }
 
 //theme

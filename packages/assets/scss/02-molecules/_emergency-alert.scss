@@ -30,16 +30,16 @@
       span {
         border-bottom-width: 1px;
         font-size: $fonts-medium;
-        border-bottom-color: rgba($c-font-base, .5);
+        border-bottom-color: var(--mf-c-font-base-50);
         color: var(--mf-c-font-base);
 
         &:hover {
           border-bottom-width: 3px;
-          border-bottom-color: rgba($c-font-base, .5);
+          border-bottom-color: var(--mf-c-font-base-50);
         }
 
         &:after {
-          border-color: rgba($c-font-base, .5);
+          border-color: var(--mf-c-font-base-50);
         }
       }
     }
@@ -70,7 +70,7 @@
 
         span {
           border-bottom-width: 3px;
-          border-bottom-color: rgba($c-font-base, .5);
+          border-bottom-color: var(--mf-c-font-base-50);
         }
       }
 

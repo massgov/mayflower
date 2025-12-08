@@ -41,12 +41,12 @@ $colors: (
             &:hover,
             &:active,
             &:focus {
-              border-bottom-color: rgba($c-white, 0.5);
+              border-bottom-color: var(--mf-c-white-50);
             }
           }
 
           svg {
-            fill: rgba($c-white, 0.5);
+            fill: var(--mf-c-white-50);
           }
         }
       }

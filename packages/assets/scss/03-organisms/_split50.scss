@@ -7,17 +7,13 @@
   &__container {
 
     @media ($bp-medium-min) {
-
-      @include clearfix;
       padding-top: 60px;
       padding-bottom: 60px;
 
-      > *:nth-last-child(n+2),
-      > *:nth-last-child(n+2) ~ * {
+      > *:nth-last-child(n + 2),
+      > *:nth-last-child(n + 2) ~ * {
 
-        @include span-columns(6);
-
-        @include omega(2n);
+        @include ma-grid-two-column;
         margin-top: 0;
         margin-bottom: 0;
         padding-top: 0;

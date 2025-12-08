@@ -10,18 +10,12 @@ $bp-section-3up-large-max: "max-width:950px";
     @include ma-container;
   }
 
-
   &__container {
 
-
-    @include clearfix;
-    display: flex;
-    align-items: stretch;
-    flex-wrap: wrap;
-    flex-direction: column;
-
     @media ($bp-small-min) {
-      flex-flow: row wrap;
+
+      @include ma-grid-responsive(1, 2, 3);
+      align-items: stretch;
     }
 
     & > * {
@@ -31,26 +25,8 @@ $bp-section-3up-large-max: "max-width:950px";
       }
 
       @media ($bp-small-min) {
-        flex-grow: 0;
-        flex-shrink: 0;
-        flex-basis: auto;
-      }
-
-
-      @media ($bp-small-min) and ($bp-section-3up-large-max) {
-
-        @include span-columns(4 of 8);
-
-        @include omega(2n);
-      }
-
-      @media ($bp-section-3up-large-min) {
-
-          @include span-columns(4 of 12);
-
-          @include omega(3n);
+        margin-bottom: 0;
       }
     }
   }
-
 }

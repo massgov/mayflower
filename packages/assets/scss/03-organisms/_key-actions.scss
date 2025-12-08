@@ -14,8 +14,8 @@
 
     @media ($bp-medium-min) {
       display: flex;
-        flex-wrap: wrap;
-        align-items: stretch;
+      flex-wrap: wrap;
+      align-items: stretch;
       margin-left: -2.43902%;
       margin-bottom: -20px;
     }
@@ -30,7 +30,6 @@
         margin-left: -2.43902%;
       }
     }
-
   }
 
   .ma__illustrated-link,
@@ -53,13 +52,11 @@
     }
 
     @media ($bp-medium-min) and ($bp-x-large-max) {
-      //@include span-columns(4 of 8);
       margin-left: 2.43902%;
       width: 50% - 2.43902%;
     }
 
     @media ($bp-x-large-min) {
-      //@include span-columns(4 of 12);
       margin-left: 1.6129%;
       width: 33.3333% - 1.6129%;
     }
@@ -67,12 +64,9 @@
     .main-content--two & {
 
       @media ($bp-medium-min) {
-        //@include span-columns(4 of 8);
         margin-left: 2.43902%;
         width: 50% - 2.43902%;
       }
-
-      // stacked (two column was too narrow)
 
       @media ($bp-large-min) and ($bp-x-large-max) {
         width: 100% - 2.43902%;

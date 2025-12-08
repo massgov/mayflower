@@ -54,21 +54,21 @@
   .sidebar &,
   &--sidebar {
 
-    @include ma-sidebar-heading($c-bd-divider,$c-font-base);
+    @include ma-sidebar-heading(var(--mf-c-bd-divider),var(--mf-c-font-base));
   }
 
   .sidebar--colored & {
 
-    @include ma-heading-colored($c-bg-comp-title);
+    @include ma-heading-colored(var(--mf-c-bg-comp-title));
   }
 
   &--yellow {
 
-    @include ma-border-decorative($c-highlight, 1);
+    @include ma-border-decorative(var(--mf-c-highlight), 1);
   }
 
   &--gray {
 
-    @include ma-border-decorative($c-gray, 1);
+    @include ma-border-decorative(var(--mf-c-gray), 1);
   }
 }

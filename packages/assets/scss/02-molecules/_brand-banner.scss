@@ -13,18 +13,18 @@
 
     @include background-colors(
         $lightTheme: (
-            "c-primary": $c-primary-lightest,
-            "c-primary-alt": $c-primary-alt-lightest,
-            "c-highlight": $c-highlight-lightest,
-            "c-gray": $c-platinum-gray,
-            "c-white": $c-white
+            "c-primary": var(--mf-c-primary-lightest),
+            "c-primary-alt": var(--mf-c-primary-alt-lightest),
+            "c-highlight": var(--mf-c-highlight-lightest),
+            "c-gray": var(--mf-c-platinum-gray),
+            "c-white": var(--mf-c-white)
         ),
         $darkTheme: (
-            "c-primary": $c-primary,
-            "c-primary-alt": $c-primary-alt,
-            "c-highlight": $c-highlight,
-            "c-gray": $c-gray-darkest,
-            "c-black": $c-gray-darkest
+            "c-primary": var(--mf-c-primary),
+            "c-primary-alt": var(--mf-c-primary-alt),
+            "c-highlight": var(--mf-c-highlight),
+            "c-gray": var(--mf-c-gray-darkest),
+            "c-black": var(--mf-c-gray-darkest)
         )
     );
 

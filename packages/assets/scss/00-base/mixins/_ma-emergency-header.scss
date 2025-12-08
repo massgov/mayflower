@@ -10,21 +10,21 @@
   } @else {
     color: var(--mf-c-font-inverse);
   }
-  background-color: rgba($color, 1);
-  border-color: rgba($color, 1);
+  background-color: $color;
+  border-color: $color;
 
   .ma__emergency-header__label {
 
     @if $color == $c-highlight {
-      color: rgba($c-font-base, .8);
-      border-right-color: rgba($c-font-base,.3);
+      color: var(--mf-c-font-base-80);
+      border-right-color: var(--mf-c-font-base-30);
 
       svg {
         fill: var(--mf-c-font-base);
       }
     } @else {
       color: var(--mf-c-font-inverse);
-      border-right-color: rgba($c-font-inverse,.3);
+      border-right-color: var(--mf-c-font-inverse-30);
 
       svg {
         fill: var(--mf-c-font-inverse);
@@ -40,20 +40,20 @@
 
       .ma__content-link {
         color: var(--mf-c-font-base);
-        border-bottom: 1px solid rgba($c-font-base, .5);
+        border-bottom: 1px solid var(--mf-c-font-base-50);
 
         &:hover {
-          border-bottom: 3px solid rgba($c-font-base, .75);
+          border-bottom: 3px solid var(--mf-c-font-base-75);
         }
       }
     } @else {
 
       .ma__content-link {
         color: var(--mf-c-font-inverse);
-        border-bottom: 1px solid rgba($c-font-inverse, .5);
+        border-bottom: 1px solid var(--mf-c-font-inverse-50);
 
         &:hover {
-          border-bottom: 3px solid rgba($c-font-inverse, .75);
+          border-bottom: 3px solid var(--mf-c-font-inverse-75);
         }
       }
     }

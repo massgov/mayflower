@@ -1,233 +1,450 @@
 // Bay Blue (#14558f)
-$c-bay-blue-90-tint:                #E8EEF4 !default;
-$c-bay-blue-80-tint:                #D0DDE9 !default;
-$c-bay-blue-70-tint:                #B9CCDD !default;
-$c-bay-blue-60-tint:                #A1BBD2 !default;
-$c-bay-blue-50-tint:                #8AAAC7 !default;
-$c-bay-blue-40-tint:                #7299BC !default;
-$c-bay-blue-30-tint:                #5B88B1 !default;
-$c-bay-blue-20-tint:                #4377A5 !default;
-$c-bay-blue-10-tint:                #2C669A !default;
-$c-bay-blue:                        #14558f !default;
-$c-bay-blue-10-shade:               #124D81 !default;
-$c-bay-blue-20-shade:               #104472 !default;
-$c-bay-blue-30-shade:               #0E3C64 !default;
-$c-bay-blue-40-shade:               #0C3356 !default;
-$c-bay-blue-50-shade:               #0A2B48 !default;
+$c-bay-blue-90-tint: #e8eef4 !default;
+$c-bay-blue-80-tint: #d0dde9 !default;
+$c-bay-blue-70-tint: #b9ccdd !default;
+$c-bay-blue-60-tint: #a1bbd2 !default;
+$c-bay-blue-50-tint: #8aaac7 !default;
+$c-bay-blue-40-tint: #7299bc !default;
+$c-bay-blue-30-tint: #5b88b1 !default;
+$c-bay-blue-20-tint: #4377a5 !default;
+$c-bay-blue-10-tint: #2c669a !default;
+$c-bay-blue: #14558f !default;
+$c-bay-blue-10-shade: #124d81 !default;
+$c-bay-blue-20-shade: #104472 !default;
+$c-bay-blue-30-shade: #0e3c64 !default;
+$c-bay-blue-40-shade: #0c3356 !default;
+$c-bay-blue-50-shade: #0a2b48 !default;
 
-$c-bay-blue-light:                  $c-bay-blue-20-tint; //Commonly used in outlines
-$c-bay-blue-lighter:                $c-bay-blue-50-tint !default; //Commonly used in outlines
-$c-bay-blue-lightest:               $c-bay-blue-90-tint !default; //Commonly used in background
-$c-bay-blue-darker:                 $c-bay-blue-30-shade !default;
-$c-bay-blue-darkest:                $c-bay-blue-50-shade !default;
+$c-bay-blue-light: $c-bay-blue-20-tint; //Commonly used in outlines
+$c-bay-blue-lighter: $c-bay-blue-50-tint !default; //Commonly used in outlines
+$c-bay-blue-lightest: $c-bay-blue-90-tint !default; //Commonly used in background
+$c-bay-blue-darker: $c-bay-blue-30-shade !default;
+$c-bay-blue-darkest: $c-bay-blue-50-shade !default;
 
 // Berkshires Green (#388557)
-$c-berkshires-green-90-tint:        #EBF3EE !default;
-$c-berkshires-green-80-tint:        #D7E7DD !default;
-$c-berkshires-green-70-tint:        #C3DACD !default;
-$c-berkshires-green-60-tint:        #AFCEBC !default;
-$c-berkshires-green-50-tint:        #9CC2AB !default;
-$c-berkshires-green-40-tint:        #88B69A !default;
-$c-berkshires-green-30-tint:        #74AA89 !default;
-$c-berkshires-green-20-tint:        #609D79 !default;
-$c-berkshires-green-10-tint:        #4C9168 !default;
-$c-berkshires-green:                #388557 !default;
-$c-berkshires-green-10-shade:       #32784E !default;
-$c-berkshires-green-20-shade:       #2D6A46 !default;
-$c-berkshires-green-30-shade:       #275D3D !default;
-$c-berkshires-green-40-shade:       #225034 !default;
-$c-berkshires-green-50-shade:       #1C432C !default;
+$c-berkshires-green-90-tint: #ebf3ee !default;
+$c-berkshires-green-80-tint: #d7e7dd !default;
+$c-berkshires-green-70-tint: #c3dacd !default;
+$c-berkshires-green-60-tint: #afcebc !default;
+$c-berkshires-green-50-tint: #9cc2ab !default;
+$c-berkshires-green-40-tint: #88b69a !default;
+$c-berkshires-green-30-tint: #74aa89 !default;
+$c-berkshires-green-20-tint: #609d79 !default;
+$c-berkshires-green-10-tint: #4c9168 !default;
+$c-berkshires-green: #388557 !default;
+$c-berkshires-green-10-shade: #32784e !default;
+$c-berkshires-green-20-shade: #2d6a46 !default;
+$c-berkshires-green-30-shade: #275d3d !default;
+$c-berkshires-green-40-shade: #225034 !default;
+$c-berkshires-green-50-shade: #1c432c !default;
 
-$c-berkshires-green-lighter:        $c-berkshires-green-50-tint !default; //Commonly used in outlines
-$c-berkshires-green-lightest:       $c-berkshires-green-80-tint !default; //Commonly used in background
-$c-berkshires-green-dark:           #214F34 !default; // Followup needed: should be replaced with one of the gradient colors
-$c-berkshires-green-darker:         $c-berkshires-green-30-shade !default;
-$c-berkshires-green-darkest:        $c-berkshires-green-50-shade !default;
+$c-berkshires-green-lighter: $c-berkshires-green-50-tint !default; //Commonly used in outlines
+$c-berkshires-green-lightest: $c-berkshires-green-80-tint !default; //Commonly used in background
+$c-berkshires-green-dark: #214f34 !default; // Followup needed: should be replaced with one of the gradient colors
+$c-berkshires-green-darker: $c-berkshires-green-30-shade !default;
+$c-berkshires-green-darkest: $c-berkshires-green-50-shade !default;
 
 // Duckling Yellow (#f6c51b)
-$c-duckling-yellow-90-tint:         #FEF9E8 !default;
-$c-duckling-yellow-80-tint:         #FDF3D1 !default;
-$c-duckling-yellow-70-tint:         #FCEEBB !default;
-$c-duckling-yellow-60-tint:         #FBE8A4 !default;
-$c-duckling-yellow-50-tint:         #FBE28D !default;
-$c-duckling-yellow-40-tint:         #FADC76 !default;
-$c-duckling-yellow-30-tint:         #F9D65F !default;
-$c-duckling-yellow-20-tint:         #F8D149 !default;
-$c-duckling-yellow-10-tint:         #F7CB32 !default;
-$c-duckling-yellow:                 #f6c51b !default;
-$c-duckling-yellow-10-shade:        #DDB118 !default;
-$c-duckling-yellow-20-shade:        #C59E16 !default;
-$c-duckling-yellow-30-shade:        #AC8A13 !default;
-$c-duckling-yellow-40-shade:        #947610 !default;
-$c-duckling-yellow-50-shade:        #7B630E !default;
+$c-duckling-yellow-90-tint: #fef9e8 !default;
+$c-duckling-yellow-80-tint: #fdf3d1 !default;
+$c-duckling-yellow-70-tint: #fceebb !default;
+$c-duckling-yellow-60-tint: #fbe8a4 !default;
+$c-duckling-yellow-50-tint: #fbe28d !default;
+$c-duckling-yellow-40-tint: #fadc76 !default;
+$c-duckling-yellow-30-tint: #f9d65f !default;
+$c-duckling-yellow-20-tint: #f8d149 !default;
+$c-duckling-yellow-10-tint: #f7cb32 !default;
+$c-duckling-yellow: #f6c51b !default;
+$c-duckling-yellow-10-shade: #ddb118 !default;
+$c-duckling-yellow-20-shade: #c59e16 !default;
+$c-duckling-yellow-30-shade: #ac8a13 !default;
+$c-duckling-yellow-40-shade: #947610 !default;
+$c-duckling-yellow-50-shade: #7b630e !default;
 
-$c-duckling-yellow-lighter:         $c-duckling-yellow-50-tint !default; //Commonly used in outlines
-$c-duckling-yellow-lightest:        $c-duckling-yellow-90-tint !default; //Commonly used in background
-$c-duckling-yellow-darker:          $c-duckling-yellow-30-shade !default;
-$c-duckling-yellow-darkest:         $c-duckling-yellow-50-shade !default;
+$c-duckling-yellow-lighter: $c-duckling-yellow-50-tint !default; //Commonly used in outlines
+$c-duckling-yellow-lightest: $c-duckling-yellow-90-tint !default; //Commonly used in background
+$c-duckling-yellow-darker: $c-duckling-yellow-30-shade !default;
+$c-duckling-yellow-darkest: $c-duckling-yellow-50-shade !default;
 
 // Independence Cranberry (#680A1D)
-$c-independence-cranberry-90-tint:  #F0E7E8 !default;
-$c-independence-cranberry-80-tint:  #E1CED2 !default;
-$c-independence-cranberry-70-tint:  #D2B6BB !default;
-$c-independence-cranberry-60-tint:  #C39DA5 !default;
-$c-independence-cranberry-50-tint:  #B4858E !default;
-$c-independence-cranberry-40-tint:  #A46C77 !default;
-$c-independence-cranberry-30-tint:  #955461 !default;
-$c-independence-cranberry-20-tint:  #863B4A !default;
-$c-independence-cranberry-10-tint:  #772334 !default;
-$c-independence-cranberry:          #680A1D !default;
-$c-independence-cranberry-10-shade: #5E091A !default;
+$c-independence-cranberry-90-tint: #f0e7e8 !default;
+$c-independence-cranberry-80-tint: #e1ced2 !default;
+$c-independence-cranberry-70-tint: #d2b6bb !default;
+$c-independence-cranberry-60-tint: #c39da5 !default;
+$c-independence-cranberry-50-tint: #b4858e !default;
+$c-independence-cranberry-40-tint: #a46c77 !default;
+$c-independence-cranberry-30-tint: #955461 !default;
+$c-independence-cranberry-20-tint: #863b4a !default;
+$c-independence-cranberry-10-tint: #772334 !default;
+$c-independence-cranberry: #680a1d !default;
+$c-independence-cranberry-10-shade: #5e091a !default;
 $c-independence-cranberry-20-shade: #530817 !default;
 $c-independence-cranberry-30-shade: #490714 !default;
-$c-independence-cranberry-40-shade: #3E0611 !default;
-$c-independence-cranberry-50-shade: #34050F !default;
+$c-independence-cranberry-40-shade: #3e0611 !default;
+$c-independence-cranberry-50-shade: #34050f !default;
 
-$c-independence-cranberry-lighter:  $c-independence-cranberry-50-tint !default;  //Commonly used in outlines
-$c-independence-cranberry-lightest: $c-independence-cranberry-90-tint !default;  //Commonly used in outlines
-$c-independence-cranberry-darker:   $c-independence-cranberry-30-shade !default;
-$c-independence-cranberry-darkest:  $c-independence-cranberry-50-shade !default;
+$c-independence-cranberry-lighter: $c-independence-cranberry-50-tint !default; //Commonly used in outlines
+$c-independence-cranberry-lightest: $c-independence-cranberry-90-tint !default; //Commonly used in outlines
+$c-independence-cranberry-darker: $c-independence-cranberry-30-shade !default;
+$c-independence-cranberry-darkest: $c-independence-cranberry-50-shade !default;
 
 // Base Gray Scale Colors
-$c-revolution-gray:                 #141414 !default;
-$c-granite-gray:                    #535353 !default;
-$c-atlantic-gray:                   #707070 !default;
-$c-overcast-gray:                   #DCDCDC !default;
-$c-platinum-gray:                   #F2F2F2 !default;
+$c-revolution-gray: #141414 !default;
+$c-granite-gray: #535353 !default;
+$c-atlantic-gray: #707070 !default;
+$c-overcast-gray: #dcdcdc !default;
+$c-platinum-gray: #f2f2f2 !default;
 
 // Gray Scale Spectrum Mapping
-$c-black:                           #000000 !default;
-$c-gray-darkest:                    $c-revolution-gray !default;
+$c-black: #000000 !default;
+$c-gray-darkest: $c-revolution-gray !default;
 // $c-gray-darker: (place holder)
-$c-gray-dark:                       $c-granite-gray !default;
-$c-gray:                            $c-atlantic-gray !default;
-$c-gray-light:                      $c-overcast-gray !default;
-$c-gray-lighter:                    #CCCCCC !default; // Followup needed: should be added as a base color or be replaced as a gradient color from granite gray
-$c-gray-lightest:                   $c-platinum-gray !default;
-$c-white:                           white !default;
+$c-gray-dark: $c-granite-gray !default;
+$c-gray: $c-atlantic-gray !default;
+$c-gray-light: $c-overcast-gray !default;
+$c-gray-lighter: #cccccc !default; // Followup needed: should be added as a base color or be replaced as a gradient color from granite gray
+$c-gray-lightest: $c-platinum-gray !default;
+$c-white: white !default;
 
 // Error Red (#CD0D0D)
-$c-error-red:                       #CD0D0D !default;
-$c-error-red-lighter:               #EEACAC !default; //Commonly used in outlines
-$c-error-red-lightest:              #FCF3F3 !default; //Commonly used in background
+$c-error-red: #cd0d0d !default;
+$c-error-red-lighter: #eeacac !default; //Commonly used in outlines
+$c-error-red-lightest: #fcf3f3 !default; //Commonly used in background
 
 // Focus Highlight (#3e94cf)
-$c-focus-hightlight:                #3e94cf !default;
+$c-focus-hightlight: #3e94cf !default;
 
 :root {
-    // Bay Blue (#14558f)
-    --mf-c-bay-blue-90-tint:                #{$c-bay-blue-90-tint};
-    --mf-c-bay-blue-80-tint:                #{$c-bay-blue-80-tint};
-    --mf-c-bay-blue-70-tint:                #{$c-bay-blue-70-tint};
-    --mf-c-bay-blue-60-tint:                #{$c-bay-blue-60-tint};
-    --mf-c-bay-blue-50-tint:                #{$c-bay-blue-50-tint};
-    --mf-c-bay-blue-40-tint:                #{$c-bay-blue-40-tint};
-    --mf-c-bay-blue-30-tint:                #{$c-bay-blue-30-tint};
-    --mf-c-bay-blue-20-tint:                #{$c-bay-blue-20-tint};
-    --mf-c-bay-blue-10-tint:                #{$c-bay-blue-10-tint};
-    --mf-c-bay-blue:                        #{$c-bay-blue};
-    --mf-c-bay-blue-10-shade:               #{$c-bay-blue-10-shade};
-    --mf-c-bay-blue-20-shade:               #{$c-bay-blue-20-shade};
-    --mf-c-bay-blue-30-shade:               #{$c-bay-blue-30-shade};
-    --mf-c-bay-blue-40-shade:               #{$c-bay-blue-40-shade};
-    --mf-c-bay-blue-50-shade:               #{$c-bay-blue-50-shade};
+  // Bay Blue (#14558f)
+  --mf-c-bay-blue-90-tint: #{$c-bay-blue-90-tint};
+  --mf-c-bay-blue-80-tint: #{$c-bay-blue-80-tint};
+  --mf-c-bay-blue-70-tint: #{$c-bay-blue-70-tint};
+  --mf-c-bay-blue-60-tint: #{$c-bay-blue-60-tint};
+  --mf-c-bay-blue-50-tint: #{$c-bay-blue-50-tint};
+  --mf-c-bay-blue-40-tint: #{$c-bay-blue-40-tint};
+  --mf-c-bay-blue-30-tint: #{$c-bay-blue-30-tint};
+  --mf-c-bay-blue-20-tint: #{$c-bay-blue-20-tint};
+  --mf-c-bay-blue-10-tint: #{$c-bay-blue-10-tint};
+  --mf-c-bay-blue: #{$c-bay-blue};
+  --mf-c-bay-blue-10-shade: #{$c-bay-blue-10-shade};
+  --mf-c-bay-blue-20-shade: #{$c-bay-blue-20-shade};
+  --mf-c-bay-blue-30-shade: #{$c-bay-blue-30-shade};
+  --mf-c-bay-blue-40-shade: #{$c-bay-blue-40-shade};
+  --mf-c-bay-blue-50-shade: #{$c-bay-blue-50-shade};
 
-    --mf-c-bay-blue-light:                  #{$c-bay-blue-light}; //Commonly used in outlines
-    --mf-c-bay-blue-lighter:                #{$c-bay-blue-lighter}; //Commonly used in outlines
-    --mf-c-bay-blue-lightest:               #{$c-bay-blue-lightest}; //Commonly used in background
-    --mf-c-bay-blue-darker:                 #{$c-bay-blue-darker};
-    --mf-c-bay-blue-darkest:                #{$c-bay-blue-darkest};
+  --mf-c-bay-blue-light: #{$c-bay-blue-light}; //Commonly used in outlines
+  --mf-c-bay-blue-lighter: #{$c-bay-blue-lighter}; //Commonly used in outlines
+  --mf-c-bay-blue-lightest: #{$c-bay-blue-lightest}; //Commonly used in background
+  --mf-c-bay-blue-darker: #{$c-bay-blue-darker};
+  --mf-c-bay-blue-darkest: #{$c-bay-blue-darkest};
 
-    // Berkshires Green (#388557)
-    --mf-c-berkshires-green-90-tint:        #{$c-berkshires-green-90-tint};
-    --mf-c-berkshires-green-80-tint:        #{$c-berkshires-green-80-tint};
-    --mf-c-berkshires-green-70-tint:        #{$c-berkshires-green-70-tint};
-    --mf-c-berkshires-green-60-tint:        #{$c-berkshires-green-60-tint};
-    --mf-c-berkshires-green-50-tint:        #{$c-berkshires-green-50-tint};
-    --mf-c-berkshires-green-40-tint:        #{$c-berkshires-green-40-tint};
-    --mf-c-berkshires-green-30-tint:        #{$c-berkshires-green-30-tint};
-    --mf-c-berkshires-green-20-tint:        #{$c-berkshires-green-20-tint};
-    --mf-c-berkshires-green-10-tint:        #{$c-berkshires-green-10-tint};
-    --mf-c-berkshires-green:                #{$c-berkshires-green};
-    --mf-c-berkshires-green-10-shade:       #{$c-berkshires-green-10-shade};
-    --mf-c-berkshires-green-20-shade:       #{$c-berkshires-green-20-shade};
-    --mf-c-berkshires-green-30-shade:       #{$c-berkshires-green-30-shade};
-    --mf-c-berkshires-green-40-shade:       #{$c-berkshires-green-40-shade};
-    --mf-c-berkshires-green-50-shade:       #{$c-berkshires-green-50-shade};
+  // Berkshires Green (#388557)
+  --mf-c-berkshires-green-90-tint: #{$c-berkshires-green-90-tint};
+  --mf-c-berkshires-green-80-tint: #{$c-berkshires-green-80-tint};
+  --mf-c-berkshires-green-70-tint: #{$c-berkshires-green-70-tint};
+  --mf-c-berkshires-green-60-tint: #{$c-berkshires-green-60-tint};
+  --mf-c-berkshires-green-50-tint: #{$c-berkshires-green-50-tint};
+  --mf-c-berkshires-green-40-tint: #{$c-berkshires-green-40-tint};
+  --mf-c-berkshires-green-30-tint: #{$c-berkshires-green-30-tint};
+  --mf-c-berkshires-green-20-tint: #{$c-berkshires-green-20-tint};
+  --mf-c-berkshires-green-10-tint: #{$c-berkshires-green-10-tint};
+  --mf-c-berkshires-green: #{$c-berkshires-green};
+  --mf-c-berkshires-green-10-shade: #{$c-berkshires-green-10-shade};
+  --mf-c-berkshires-green-20-shade: #{$c-berkshires-green-20-shade};
+  --mf-c-berkshires-green-30-shade: #{$c-berkshires-green-30-shade};
+  --mf-c-berkshires-green-40-shade: #{$c-berkshires-green-40-shade};
+  --mf-c-berkshires-green-50-shade: #{$c-berkshires-green-50-shade};
 
-    --mf-c-berkshires-green-lighter:        #{$c-berkshires-green-lighter}; //Commonly used in outlines
-    --mf-c-berkshires-green-lightest:       #{$c-berkshires-green-lightest}; //Commonly used in background
-    --mf-c-berkshires-green-dark:           #{$c-berkshires-green-dark}; // Followup needed: should be replaced with one of the gradient colors
-    --mf-c-berkshires-green-darker:         #{$c-berkshires-green-darker};
-    --mf-c-berkshires-green-darkest:        #{$c-berkshires-green-darkest};
+  --mf-c-berkshires-green-lighter: #{$c-berkshires-green-lighter}; //Commonly used in outlines
+  --mf-c-berkshires-green-lightest: #{$c-berkshires-green-lightest}; //Commonly used in background
+  --mf-c-berkshires-green-dark: #{$c-berkshires-green-dark}; // Followup needed: should be replaced with one of the gradient colors
+  --mf-c-berkshires-green-darker: #{$c-berkshires-green-darker};
+  --mf-c-berkshires-green-darkest: #{$c-berkshires-green-darkest};
 
-    // Duckling Yellow (#f6c51b)
-    --mf-c-duckling-yellow-90-tint:         #{$c-duckling-yellow-90-tint};
-    --mf-c-duckling-yellow-80-tint:         #{$c-duckling-yellow-80-tint};
-    --mf-c-duckling-yellow-70-tint:         #{$c-duckling-yellow-70-tint};
-    --mf-c-duckling-yellow-60-tint:         #{$c-duckling-yellow-60-tint};
-    --mf-c-duckling-yellow-50-tint:         #{$c-duckling-yellow-50-tint};
-    --mf-c-duckling-yellow-40-tint:         #{$c-duckling-yellow-40-tint};
-    --mf-c-duckling-yellow-30-tint:         #{$c-duckling-yellow-30-tint};
-    --mf-c-duckling-yellow-20-tint:         #{$c-duckling-yellow-20-tint};
-    --mf-c-duckling-yellow-10-tint:         #{$c-duckling-yellow-10-tint};
-    --mf-c-duckling-yellow:                 #{$c-duckling-yellow};
-    --mf-c-duckling-yellow-10-shade:        #{$c-duckling-yellow-10-shade};
-    --mf-c-duckling-yellow-20-shade:        #{$c-duckling-yellow-20-shade};
-    --mf-c-duckling-yellow-30-shade:        #{$c-duckling-yellow-30-shade};
-    --mf-c-duckling-yellow-40-shade:        #{$c-duckling-yellow-40-shade};
-    --mf-c-duckling-yellow-50-shade:        #{$c-duckling-yellow-50-shade};
+  // Duckling Yellow (#f6c51b)
+  --mf-c-duckling-yellow-90-tint: #{$c-duckling-yellow-90-tint};
+  --mf-c-duckling-yellow-80-tint: #{$c-duckling-yellow-80-tint};
+  --mf-c-duckling-yellow-70-tint: #{$c-duckling-yellow-70-tint};
+  --mf-c-duckling-yellow-60-tint: #{$c-duckling-yellow-60-tint};
+  --mf-c-duckling-yellow-50-tint: #{$c-duckling-yellow-50-tint};
+  --mf-c-duckling-yellow-40-tint: #{$c-duckling-yellow-40-tint};
+  --mf-c-duckling-yellow-30-tint: #{$c-duckling-yellow-30-tint};
+  --mf-c-duckling-yellow-20-tint: #{$c-duckling-yellow-20-tint};
+  --mf-c-duckling-yellow-10-tint: #{$c-duckling-yellow-10-tint};
+  --mf-c-duckling-yellow: #{$c-duckling-yellow};
+  --mf-c-duckling-yellow-10-shade: #{$c-duckling-yellow-10-shade};
+  --mf-c-duckling-yellow-20-shade: #{$c-duckling-yellow-20-shade};
+  --mf-c-duckling-yellow-30-shade: #{$c-duckling-yellow-30-shade};
+  --mf-c-duckling-yellow-40-shade: #{$c-duckling-yellow-40-shade};
+  --mf-c-duckling-yellow-50-shade: #{$c-duckling-yellow-50-shade};
 
-    --mf-c-duckling-yellow-lighter:         #{$c-duckling-yellow-lighter}; //Commonly used in outlines
-    --mf-c-duckling-yellow-lightest:        #{$c-duckling-yellow-lightest}; //Commonly used in background
-    --mf-c-duckling-yellow-darker:          #{$c-duckling-yellow-darker};
-    --mf-c-duckling-yellow-darkest:         #{$c-duckling-yellow-darkest};
+  --mf-c-duckling-yellow-lighter: #{$c-duckling-yellow-lighter}; //Commonly used in outlines
+  --mf-c-duckling-yellow-lightest: #{$c-duckling-yellow-lightest}; //Commonly used in background
+  --mf-c-duckling-yellow-darker: #{$c-duckling-yellow-darker};
+  --mf-c-duckling-yellow-darkest: #{$c-duckling-yellow-darkest};
 
-    // Independence Cranberry (#680A1D)
-    --mf-c-independence-cranberry-90-tint:  #{$c-independence-cranberry-90-tint};
-    --mf-c-independence-cranberry-80-tint:  #{$c-independence-cranberry-80-tint};
-    --mf-c-independence-cranberry-70-tint:  #{$c-independence-cranberry-70-tint};
-    --mf-c-independence-cranberry-60-tint:  #{$c-independence-cranberry-60-tint};
-    --mf-c-independence-cranberry-50-tint:  #{$c-independence-cranberry-50-tint};
-    --mf-c-independence-cranberry-40-tint:  #{$c-independence-cranberry-40-tint};
-    --mf-c-independence-cranberry-30-tint:  #{$c-independence-cranberry-30-tint};
-    --mf-c-independence-cranberry-20-tint:  #{$c-independence-cranberry-20-tint};
-    --mf-c-independence-cranberry-10-tint:  #{$c-independence-cranberry-10-tint};
-    --mf-c-independence-cranberry:          #{$c-independence-cranberry};
-    --mf-c-independence-cranberry-10-shade: #{$c-independence-cranberry-10-shade};
-    --mf-c-independence-cranberry-20-shade: #{$c-independence-cranberry-20-shade};
-    --mf-c-independence-cranberry-30-shade: #{$c-independence-cranberry-30-shade};
-    --mf-c-independence-cranberry-40-shade: #{$c-independence-cranberry-40-shade};
-    --mf-c-independence-cranberry-50-shade: #{$c-independence-cranberry-50-shade};
+  // Independence Cranberry (#680A1D)
+  --mf-c-independence-cranberry-90-tint: #{$c-independence-cranberry-90-tint};
+  --mf-c-independence-cranberry-80-tint: #{$c-independence-cranberry-80-tint};
+  --mf-c-independence-cranberry-70-tint: #{$c-independence-cranberry-70-tint};
+  --mf-c-independence-cranberry-60-tint: #{$c-independence-cranberry-60-tint};
+  --mf-c-independence-cranberry-50-tint: #{$c-independence-cranberry-50-tint};
+  --mf-c-independence-cranberry-40-tint: #{$c-independence-cranberry-40-tint};
+  --mf-c-independence-cranberry-30-tint: #{$c-independence-cranberry-30-tint};
+  --mf-c-independence-cranberry-20-tint: #{$c-independence-cranberry-20-tint};
+  --mf-c-independence-cranberry-10-tint: #{$c-independence-cranberry-10-tint};
+  --mf-c-independence-cranberry: #{$c-independence-cranberry};
+  --mf-c-independence-cranberry-10-shade: #{$c-independence-cranberry-10-shade};
+  --mf-c-independence-cranberry-20-shade: #{$c-independence-cranberry-20-shade};
+  --mf-c-independence-cranberry-30-shade: #{$c-independence-cranberry-30-shade};
+  --mf-c-independence-cranberry-40-shade: #{$c-independence-cranberry-40-shade};
+  --mf-c-independence-cranberry-50-shade: #{$c-independence-cranberry-50-shade};
 
-    --mf-c-independence-cranberry-lighter:  #{$c-independence-cranberry-lighter};  //Commonly used in outlines
-    --mf-c-independence-cranberry-lightest: #{$c-independence-cranberry-lightest};  //Commonly used in outlines
-    --mf-c-independence-cranberry-darker:   #{$c-independence-cranberry-darker};
-    --mf-c-independence-cranberry-darkest:  #{$c-independence-cranberry-darkest};
+  --mf-c-independence-cranberry-lighter: #{$c-independence-cranberry-lighter}; //Commonly used in outlines
+  --mf-c-independence-cranberry-lightest: #{$c-independence-cranberry-lightest}; //Commonly used in outlines
+  --mf-c-independence-cranberry-darker: #{$c-independence-cranberry-darker};
+  --mf-c-independence-cranberry-darkest: #{$c-independence-cranberry-darkest};
 
-    // Base Gray Scale Colors
-    --mf-c-revolution-gray:                 #{$c-revolution-gray};
-    --mf-c-granite-gray:                    #{$c-granite-gray};
-    --mf-c-atlantic-gray:                   #{$c-atlantic-gray};
-    --mf-c-overcast-gray:                   #{$c-overcast-gray};
-    --mf-c-platinum-gray:                   #{$c-platinum-gray};
+  // Base Gray Scale Colors
+  --mf-c-revolution-gray: #{$c-revolution-gray};
+  --mf-c-granite-gray: #{$c-granite-gray};
+  --mf-c-atlantic-gray: #{$c-atlantic-gray};
+  --mf-c-overcast-gray: #{$c-overcast-gray};
+  --mf-c-platinum-gray: #{$c-platinum-gray};
 
-    // Gray Scale Spectrum Mapping
-    --mf-c-black:                           #{$c-black};
-    --mf-c-gray-darkest:                    #{$c-gray-darkest};
-    // --mf-c-gray-darker: (place holder)
-    --mf-c-gray-dark:                       #{$c-gray-dark};
-    --mf-c-gray:                            #{$c-gray};
-    --mf-c-gray-light:                      #{$c-gray-light};
-    --mf-c-gray-lighter:                    #{$c-gray-lighter}; // Followup needed: should be added as a base color or be replaced as a gradient color from granite gray
-    --mf-c-gray-lightest:                   #{$c-gray-lightest};
-    --mf-c-white:                           #{$c-white};
+  // Gray Scale Spectrum Mapping
+  --mf-c-black: #{$c-black};
+  --mf-c-gray-darkest: #{$c-gray-darkest};
+  // --mf-c-gray-darker: (place holder)
+  --mf-c-gray-dark: #{$c-gray-dark};
+  --mf-c-gray: #{$c-gray};
+  --mf-c-gray-light: #{$c-gray-light};
+  --mf-c-gray-lighter: #{$c-gray-lighter}; // Followup needed: should be added as a base color or be replaced as a gradient color from granite gray
+  --mf-c-gray-lightest: #{$c-gray-lightest};
+  --mf-c-white: #{$c-white};
 
-    // Error Red (#CD0D0D)
-    --mf-c-error-red:                       #{$c-error-red};
-    --mf-c-error-red-lighter:               #{$c-error-red-lighter}; //Commonly used in outlines
-    --mf-c-error-red-lightest:              #{$c-error-red-lightest}; //Commonly used in background
+  // Error Red (#CD0D0D)
+  --mf-c-error-red: #{$c-error-red};
+  --mf-c-error-red-lighter: #{$c-error-red-lighter}; //Commonly used in outlines
+  --mf-c-error-red-lightest: #{$c-error-red-lightest}; //Commonly used in background
 
-    // Focus Highlight (#3e94cf)
-    --mf-c-focus-hightlight:                #{$c-focus-hightlight};
+  // Focus Highlight (#3e94cf)
+  --mf-c-focus-hightlight: #{$c-focus-hightlight};
+
+  // White transparent variations
+  --mf-c-white-90: #ffffffe6;
+  --mf-c-white-89: #ffffffe3;
+  --mf-c-white-85: #ffffffd9;
+  --mf-c-white-80: #ffffffcc;
+  --mf-c-white-75: #ffffffbf;
+  --mf-c-white-70: #ffffffb3;
+  --mf-c-white-50: #ffffff80;
+  --mf-c-white-30: #ffffff4d;
+
+  // Black transparent variations
+  --mf-c-black-60: #00000099;
+  --mf-c-black-50: #00000080;
+  --mf-c-black-25: #00000040;
+  --mf-c-black-20: #00000033;
+  --mf-c-black-16: #00000029;
+  --mf-c-box-shadow-black: #00000040; // 25% opacity (box shadows)
+
+  // Revolution Gray transparent variations (font-base/gray-darkest)
+  --mf-c-font-base-89: #141414e3;
+  --mf-c-font-base-85: #141414d9;
+  --mf-c-font-base-80: #141414cc;
+  --mf-c-font-base-75: #141414bf;
+  --mf-c-font-base-50: #14141480;
+  --mf-c-font-base-30: #1414144d;
+  --mf-c-gray-darkest-75: #141414bf;
+  --mf-c-gray-darkest-60: #14141499;
+  --mf-c-gray-darkest-50: #14141480;
+  --mf-c-gray-darkest-40: #14141466;
+  --mf-c-gray-darkest-30: #1414144d;
+
+  // Font dark variations (gray-dark/granite-gray)
+  --mf-c-font-dark-75: #535353bf;
+  --mf-c-font-dark-50: #53535380;
+  --mf-c-gray-dark-80: #535353cc;
+  --mf-c-gray-dark-75: #535353bf;
+  --mf-c-gray-dark-50: #70707080;
+
+  // Font medium variations (gray/atlantic-gray)
+  --mf-c-font-medium-70: #707070b3;
+  --mf-c-gray-90: #707070e6;
+  --mf-c-gray-89: #707070e3;
+  --mf-c-gray-80: #707070cc;
+  --mf-c-gray-75: #707070bf;
+  --mf-c-gray-50: #70707080;
+
+  // Font inverse variations (white)
+  --mf-c-font-inverse-90: #ffffffe6;
+  --mf-c-font-inverse-80: #ffffffcc;
+  --mf-c-font-inverse-75: #ffffffbf;
+  --mf-c-font-inverse-70: #ffffffb3;
+  --mf-c-font-inverse-50: #ffffff80;
+  --mf-c-font-inverse-30: #ffffff4d;
+
+  // Border input variations (gray-light/overcast-gray)
+  --mf-c-bd-input-50: #cccccc80;
+
+  // Background variations (white)
+  --mf-c-bg-50: #ffffff80;
+  --mf-c-bg-10: #ffffff1a;
+
+  // Primary variations (bay-blue)
+  --mf-c-primary-89: #14558fe3;
+  --mf-c-primary-80: #14558fcc;
+  --mf-c-primary-75: #14558fbf;
+  --mf-c-primary-50: #14558f80;
+  --mf-c-primary-15: #14558f26;
+  --mf-c-primary-10: #14558f1a;
+
+  // Primary alt variations (berkshires-green)
+  --mf-c-primary-alt-80: #388557cc;
+  --mf-c-primary-alt-75: #388557bf;
+  --mf-c-primary-alt-70: #388557b3;
+  --mf-c-primary-alt-50: #38855780;
+  --mf-c-primary-alt-40: #38855766;
+  --mf-c-primary-alt-15: #38855726;
+
+  // Font link variations (bay-blue-40-tint)
+  --mf-c-font-link-80: #14558fcc;
+  --mf-c-font-link-70: #7299bcb3;
+  --mf-c-font-link-50: #7299bc80;
+  --mf-c-font-link-20: #7299bc33;
+
+  // Highlight/Warning variations (duckling-yellow)
+  --mf-c-highlight-50: #f3c72480;
+  --mf-c-highlight-15: #f3c72426;
+  --mf-c-warning-90: #f3c724e6;
+  --mf-c-warning-50: #f3c72480;
+
+  // Error variations
+  --mf-c-error-90: #cd0d0de6;
+  --mf-c-error-75: #cd0d0dbf;
+  --mf-c-error-50: #cd0d0d80;
+
+  // Mixed colors
+  --mf-c-white-font-base-mix: #969696; // 50% white + 50% gray-darkest
+  --mf-c-bg-subtle-black-90: #ebebeb; // 90% bg-subtle + 10% black
+  --mf-c-font-link-white-10: #f5f8fb; // 10% font-link + 90% white
+  --mf-c-font-link-white-50: #d3e2ef; // 50% font-link + 50% white
+  --mf-c-bg-granite-gray-80: #e8e8e8; // 80% white + 20% granite-gray
+  --mf-c-white-gray-dark-90: #f7f7f7; // 90% white + 10% gray-dark
+  --mf-c-white-gray-dark-50: #a9a9a9; // 50% white + 50% gray-dark
+  --mf-c-white-error-red-90: #fde8e8; // 90% white + 10% error-red
+
+  // Pre-mixed background colors (using existing tints)
+  --mf-c-bg-warning-90: #{$c-duckling-yellow-90-tint};
+  --mf-c-bg-primary-90: #{$c-bay-blue-90-tint};
+  --mf-c-bg-primary-alt-90: #{$c-berkshires-green-90-tint};
+  --mf-c-bg-error-90: #{$c-error-red-lightest};
+  --mf-c-bg-gray-90: #f2f2f2; // 90% white + 10% gray
+
+  // Pre-mixed 50% blends
+  --mf-c-bg-warning-50: #{$c-duckling-yellow-50-tint};
+  --mf-c-bg-primary-50: #{$c-bay-blue-50-tint};
+  --mf-c-bg-primary-alt-50: #{$c-berkshires-green-50-tint};
+  --mf-c-bg-error-50: #e99ba0; // 50% white + 50% error
+  --mf-c-bg-gray-50: #bfbfbf; // 50% white + 50% gray
+
+  // Additional transparent variations for color-mix replacements
+  --mf-c-black-10: #0000001a;
+  --mf-c-white-40: #ffffff66;
+  --mf-c-white-20: #ffffff33;
+  --mf-c-primary-alt-20: #38855733;
+  --mf-c-font-link-90: #14558fe6;
+  --mf-c-bg-primary-89: #e9f0f6; // 89% white + 11% primary
+  --mf-c-bg-granite-gray-50: #b4b4b4; // 50% white + 50% granite-gray
+  --mf-c-font-link-white-70: #e8f0f7; // 70% white + 30% font-link
+  --mf-c-font-detail-white-70: #d5d5d5; // 70% white + 30% font-detail
+  --mf-c-warning-15: #f3c72426; // 15% opacity (alias for duckling-yellow)
+  --mf-c-font-link-white-90: #e8eef8; // 90% white + 10% font-link
+
+  // Bay Blue tints (mixed with white)
+  --mf-c-bay-blue-90: #{$c-bay-blue-90-tint};
+  --mf-c-bay-blue-80: #{$c-bay-blue-80-tint};
+  --mf-c-bay-blue-70: #{$c-bay-blue-70-tint};
+  --mf-c-bay-blue-60: #{$c-bay-blue-60-tint};
+  --mf-c-bay-blue-50: #{$c-bay-blue-50-tint};
+  --mf-c-bay-blue-40: #{$c-bay-blue-40-tint};
+  --mf-c-bay-blue-30: #{$c-bay-blue-30-tint};
+  --mf-c-bay-blue-20: #{$c-bay-blue-20-tint};
+  --mf-c-bay-blue-10: #{$c-bay-blue-10-tint};
+
+  // Bay Blue shades (mixed with black)
+  --mf-c-bay-blue-shade-10: #{$c-bay-blue-10-shade};
+  --mf-c-bay-blue-shade-20: #{$c-bay-blue-20-shade};
+  --mf-c-bay-blue-shade-30: #{$c-bay-blue-30-shade};
+  --mf-c-bay-blue-shade-40: #{$c-bay-blue-40-shade};
+  --mf-c-bay-blue-shade-50: #{$c-bay-blue-50-shade};
+
+  // Duckling Yellow tints
+  --mf-c-duckling-yellow-90: #{$c-duckling-yellow-90-tint};
+  --mf-c-duckling-yellow-80: #{$c-duckling-yellow-80-tint};
+  --mf-c-duckling-yellow-70: #{$c-duckling-yellow-70-tint};
+  --mf-c-duckling-yellow-60: #{$c-duckling-yellow-60-tint};
+  --mf-c-duckling-yellow-50: #{$c-duckling-yellow-50-tint};
+  --mf-c-duckling-yellow-40: #{$c-duckling-yellow-40-tint};
+  --mf-c-duckling-yellow-30: #{$c-duckling-yellow-30-tint};
+  --mf-c-duckling-yellow-20: #{$c-duckling-yellow-20-tint};
+  --mf-c-duckling-yellow-10: #{$c-duckling-yellow-10-tint};
+
+  // Duckling Yellow shades
+  --mf-c-duckling-yellow-shade-10: #{$c-duckling-yellow-10-shade};
+  --mf-c-duckling-yellow-shade-20: #{$c-duckling-yellow-20-shade};
+  --mf-c-duckling-yellow-shade-30: #{$c-duckling-yellow-30-shade};
+  --mf-c-duckling-yellow-shade-40: #{$c-duckling-yellow-40-shade};
+  --mf-c-duckling-yellow-shade-50: #{$c-duckling-yellow-50-shade};
+
+  // Berkshires Green tints
+  --mf-c-berkshires-green-90: #{$c-berkshires-green-90-tint};
+  --mf-c-berkshires-green-80: #{$c-berkshires-green-80-tint};
+  --mf-c-berkshires-green-70: #{$c-berkshires-green-70-tint};
+  --mf-c-berkshires-green-60: #{$c-berkshires-green-60-tint};
+  --mf-c-berkshires-green-50: #{$c-berkshires-green-50-tint};
+  --mf-c-berkshires-green-40: #{$c-berkshires-green-40-tint};
+  --mf-c-berkshires-green-30: #{$c-berkshires-green-30-tint};
+  --mf-c-berkshires-green-20: #{$c-berkshires-green-20-tint};
+  --mf-c-berkshires-green-10: #{$c-berkshires-green-10-tint};
+
+  // Berkshires Green shades
+  --mf-c-berkshires-green-shade-10: #{$c-berkshires-green-10-shade};
+  --mf-c-berkshires-green-shade-20: #{$c-berkshires-green-20-shade};
+  --mf-c-berkshires-green-shade-30: #{$c-berkshires-green-30-shade};
+  --mf-c-berkshires-green-shade-40: #{$c-berkshires-green-40-shade};
+  --mf-c-berkshires-green-shade-50: #{$c-berkshires-green-50-shade};
+
+  // Independence Cranberry tints
+  --mf-c-independence-cranberry-90: #{$c-independence-cranberry-90-tint};
+  --mf-c-independence-cranberry-80: #{$c-independence-cranberry-80-tint};
+  --mf-c-independence-cranberry-70: #{$c-independence-cranberry-70-tint};
+  --mf-c-independence-cranberry-60: #{$c-independence-cranberry-60-tint};
+  --mf-c-independence-cranberry-50: #{$c-independence-cranberry-50-tint};
+  --mf-c-independence-cranberry-40: #{$c-independence-cranberry-40-tint};
+  --mf-c-independence-cranberry-30: #{$c-independence-cranberry-30-tint};
+  --mf-c-independence-cranberry-20: #{$c-independence-cranberry-20-tint};
+  --mf-c-independence-cranberry-10: #{$c-independence-cranberry-10-tint};
+
+  // Independence Cranberry shades
+  --mf-c-independence-cranberry-shade-10: #{$c-independence-cranberry-10-shade};
+  --mf-c-independence-cranberry-shade-20: #{$c-independence-cranberry-20-shade};
+  --mf-c-independence-cranberry-shade-30: #{$c-independence-cranberry-30-shade};
+  --mf-c-independence-cranberry-shade-40: #{$c-independence-cranberry-40-shade};
+  --mf-c-independence-cranberry-shade-50: #{$c-independence-cranberry-50-shade};
+
+  // Button Icon Component Colors
+  --mf-button-icon-primary-base: var(--mf-c-primary);
+  --mf-button-icon-primary-transparent: var(--mf-c-primary-50);
+  --mf-button-icon-primary-alt-base: var(--mf-c-primary-alt);
+  --mf-button-icon-primary-alt-transparent: var(--mf-c-primary-alt-50);
+  --mf-button-icon-gray-darkest-base: var(--mf-c-gray-darkest);
+  --mf-button-icon-gray-darkest-transparent: var(--mf-c-gray-darkest-50);
+  --mf-button-icon-gray-dark-base: var(--mf-c-gray-dark);
+  --mf-button-icon-gray-dark-transparent: var(--mf-c-gray-dark-50);
+  --mf-button-icon-white-base: var(--mf-c-white);
+  --mf-button-icon-white-transparent: var(--mf-c-white-50);
+  --mf-button-icon-highlight-base: var(--mf-c-highlight);
+  --mf-button-icon-highlight-transparent: var(--mf-c-highlight-50);
 }

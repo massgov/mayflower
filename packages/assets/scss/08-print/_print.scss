@@ -76,7 +76,7 @@
   }
 
   a::after {
-    content: " ("attr(href)")";
+    content: " (" attr(href) ")";
     font-size: 0.8em;
     font-weight: normal;
     width: 100%;
@@ -154,7 +154,6 @@
       }
 
       a:after {
-
         content: "";
       }
     }
@@ -163,17 +162,15 @@
   .ma__footer-new {
 
     &__logo {
-
       display: none !important;
     }
 
     &__navlinks {
-
       display: none !important;
     }
   }
 
-  .ma__sticky-toc__link:nth-child(n+11) {
+  .ma__sticky-toc__link:nth-child(n + 11) {
     display: block !important;
   }
 
@@ -195,7 +192,8 @@
 
     &.ma__page-banner--c-primary {
 
-      .ma__page-header__title, .ma__page-header__description {
+      .ma__page-header__title,
+      .ma__page-header__description {
         color: $c-black !important;
       }
     }
@@ -252,7 +250,7 @@
       top: 0;
       color: var(--mf-c-font-heading);
 
-      &::before, {
+      &::before {
         display: none;
       }
     }
@@ -499,7 +497,7 @@
     max-width: none;
 
     .ma__image {
-     display: none;
+      display: none;
     }
 
     .ma__featured-item__title-container {
@@ -555,7 +553,6 @@
     }
   }
 
-
   a[href^="tel:"],
   a[href^="#"],
   a[href^="mailto:"] {
@@ -580,10 +577,9 @@
       &::before {
         // checkbox
         content: "\2610";
-        margin-right:5px;
+        margin-right: 5px;
         font-size: $fonts-5xlarge;
       }
     }
   }
-
 }

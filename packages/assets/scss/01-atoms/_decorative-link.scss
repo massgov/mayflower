@@ -27,21 +27,21 @@
     }
 
     a:hover {
-      border-bottom-color: rgba($c-font-inverse,.5);
+      border-bottom-color: var(--mf-c-font-inverse-50);
     }
 
     a:focus {
       // important needed to overwrite the focus border color
-      border-bottom-color: rgba($c-font-inverse,.5) !important;
+      border-bottom-color: var(--mf-c-font-inverse-50) !important;
     }
 
     svg {
-      fill: rgba($c-font-inverse,.5);
+      fill: var(--mf-c-font-inverse-50);
     }
   }
 
   &.button-link {
-    outline: 1px solid rgba($c-font-link, 0.5);
+    outline: 1px solid var(--mf-c-font-link-50);
     display: inline-block;
     width: auto;
     padding: .5rem 1.8rem .5rem .8rem;
@@ -49,13 +49,13 @@
 
     &:hover,
     &:focus {
-      outline: 1px solid rgba($c-font-link, 1);
+      outline: 1px solid var(--mf-c-font-link);
 
       a {
         border-bottom-color: transparent;
 
         svg {
-          fill: rgba($c-font-link, 1);
+          fill: var(--mf-c-font-link);
         }
       }
     }

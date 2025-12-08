@@ -37,7 +37,7 @@ $utility-nav-height: 43px;
 
       &:hover {
         background-color: var(--mf-c-bg);
-        box-shadow: $box-shadow;
+        box-shadow: var(--mf-box-shadow);
       }
     }
 

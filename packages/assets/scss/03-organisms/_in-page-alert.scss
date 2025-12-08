@@ -39,7 +39,7 @@
       color: var(--mf-c-font-base);
 
       svg {
-        fill: rgba($c-font-base, .5);
+        fill: var(--mf-c-font-base-50);
       }
     }
   }

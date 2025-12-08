@@ -27,7 +27,7 @@
 
   &__content {
     height: 100%;
-    padding: 10px 20px 0 10px;
+    padding: 10px 20px 10px 10px;
 
     @media ($bp-x-small-min) {
       padding: 10px 20px 20px 10px;
@@ -35,9 +35,9 @@
 
     @media ($bp-small-min) {
       display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        flex-wrap: wrap;
+      align-items: flex-start;
+      flex-direction: column;
+      flex-wrap: wrap;
       padding: 12px 30px 0;
     }
 
@@ -75,9 +75,9 @@
     }
 
     & a > svg {
-      height: .75em;
+      height: 0.75em;
       margin-right: -16px;
-      width: .75em;
+      width: 0.75em;
     }
 
     a {
@@ -90,25 +90,17 @@
   &__title {
 
     @include ma-h3;
-    margin-bottom: .5em;
 
     .ma__decorative-link {
-      width: 94%;// Slightely bigger than the parent box to prevent extra bottom space with one line content.
+      width: 94%; // Slightely bigger than the parent box to prevent extra bottom space with one line content.
       box-sizing: content-box;
     }
 
     @media ($bp-x-small-min) {
-
       position: relative;
     }
 
-    @media ($bp-small-min) {
-
-      margin-bottom: .5em;
-    }
-
     @media ($bp-large-extended-max) {
-
       width: 99%;
 
       .ma__decorative-link {
@@ -135,12 +127,10 @@
     .ma__section-links--compact & {
 
       @media ($bp-large-extended-max) {
-
-          width: auto;
+        width: auto;
       }
 
       @media ($bp-x-small-max) {
-
         padding-right: 0;
       }
     }
@@ -165,10 +155,17 @@
         display: none;
       }
     }
+
+    .js-accordion &[aria-expanded="false"] {
+
+      @media ($bp-x-small-max) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &--accordion__toggle {
-    all: unset;// reeset any styles applied to button to match ones for decorative links.
+    all: unset; // reeset any styles applied to button to match ones for decorative links.
     box-sizing: inherit;
 
     display: none;
@@ -184,7 +181,6 @@
     }
 
     @media ($bp-x-small-max) {
-
       padding-right: 0.8em;
 
       .js-accordion & {
@@ -200,14 +196,14 @@
       &--status {
         display: block;
         font-size: 1.5em; //$fonts-5xlarge;
-        line-height: .75em;
+        line-height: 0.75em;
         border: none;
         overflow: hidden;
         position: absolute;
         right: 15px;
         top: 15px;
         transform-origin: center center;
-        transition: transform .5s ease;
+        transition: transform 0.5s ease;
 
         padding-left: 0;
         margin-left: 0;
@@ -239,7 +235,6 @@
 
     @include ma-reset-list;
   }
-
 
   // skip the first item
 
@@ -294,7 +289,6 @@
     svg {
       fill: var(--mf-c-font-link);
     }
-
   }
 
   &--accordion__toggle--status {

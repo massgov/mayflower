@@ -14,7 +14,7 @@
     background-color: var(--mf-c-bg);
 
     &--expanded {
-      box-shadow: $box-shadow;
+      box-shadow: var(--mf-box-shadow);
     }
 
     .ma__link-dropdown-item {

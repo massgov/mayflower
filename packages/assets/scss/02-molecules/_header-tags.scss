@@ -123,7 +123,7 @@
   &__terms {
 
     a {
-      border-color: rgba($c-font-link,.2);
+      border-color: var(--mf-c-font-link-20);
       font-weight: $fonts-normal;
 
       &:hover {

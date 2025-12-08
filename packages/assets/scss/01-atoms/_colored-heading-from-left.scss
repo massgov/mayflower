@@ -6,7 +6,7 @@
   margin-bottom: 60px;
 
   &:before {
-    content: '';
+    content: "";
     height: 100%;
     position: absolute;
     top: 0;
@@ -43,7 +43,7 @@
 
     &--highlighted {
 
-      @include ma-border-decorative($c-highlight,1);
+      @include ma-border-decorative($c-highlight, 1);
 
       padding-top: 0px;
       padding-bottom: 15px;
@@ -58,7 +58,7 @@
       margin-bottom: 0;
       margin-right: 1.6129%; // $gutter in % form
       vertical-align: middle;
-      width: 66.12903%; // @include span-columns(8 of 12);
+      width: 66.12903%;
     }
   }
 }

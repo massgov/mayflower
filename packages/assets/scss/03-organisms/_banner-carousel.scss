@@ -126,7 +126,7 @@
     }
 
     &:before {
-      background-color: rgba($c-primary,.5);
+      background-color: var(--mf-c-primary-50);
     }
 
     &:hover:before {
