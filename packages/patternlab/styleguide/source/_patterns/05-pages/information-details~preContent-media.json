@@ -4,19 +4,22 @@
     "contentTitle": "",
     "titleContext": ""
   },
-  "breadcrumbs":{
+  "breadcrumbs": {
     "light": true,
-    "links": [{
-      "text": "Home",
-      "url": "/"
-    },{
-      "text": "Unemployment",
-      "url": "/"
-    },
-    {
-      "text": "Training & Assistance",
-      "url": "/"
-    }]
+    "links": [
+      {
+        "text": "Home",
+        "url": "/"
+      },
+      {
+        "text": "Unemployment",
+        "url": "/"
+      },
+      {
+        "text": "Training & Assistance",
+        "url": "/"
+      }
+    ]
   },
   "preContent": {
     "pageHeader": {
@@ -360,87 +363,6 @@
   },
   "sidebar": {
     "coloredHeadings": false,
-    "contactList": {
-      "viewSpecific": true,
-      "sidebarHeading": {
-        "title": "Contact",
-        "titleContext": ""
-      },
-      "contacts": [
-        {
-          "accordion": false,
-          "isExpanded": false,
-          "subTitle": {
-            "href": "",
-            "text": "MassWildlife",
-            "chevron": ""
-          },
-          "groups": [
-            {
-              "icon": "phone",
-              "name": "Phone",
-              "items": [
-                {
-                  "type": "phone",
-                  "property": "",
-                  "label": "Main:",
-                  "link": {
-                    "href": "+16174438765",
-                    "text": "(617) 443-8765",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                }
-              ]
-            },
-            {
-              "icon": "laptop",
-              "name": "Online",
-              "hidden": "",
-              "items": [
-                {
-                  "type": "email",
-                  "property": "",
-                  "label": "",
-                  "link": {
-                    "href": "email@email.com",
-                    "text": "Mass.Wildlife@state.ma.us",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                },
-                {
-                  "type": "online",
-                  "property": "",
-                  "label": "Websites",
-                  "link": {
-                    "href": "#",
-                    "text": "MassWildlife Facebook",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                },
-                {
-                  "type": "online",
-                  "property": "",
-                  "label": "",
-                  "link": {
-                    "href": "#",
-                    "text": "MassWildlife Instagram",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
     "linkList": {
       "sidebarHeading": {
         "title": "Related",
