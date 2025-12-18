@@ -4391,7 +4391,7 @@ packages:
       integrity: sha512-ZXRY4jNvVgSVQ8DL3LTcakaAtXwTVUxE81hslsyD2AtoXW/wVob10HkOJ1X/pAlcI7D+2YoZKg5do8G/w6RYgA==
   /@jest/transform/26.6.2:
     dependencies:
-      '@babel/core': 7.28.5
+      '@babel/core': 7.12.17
       '@jest/types': 26.6.2
       babel-plugin-istanbul: 6.1.1
       chalk: 4.1.2
@@ -7965,7 +7965,7 @@ packages:
       integrity: sha512-G9eAoJRMLjcvN4I08wB5I7YofOb/kaJNd5uoCMX+LbKXTPCF+ZIHuqTnFaK9Jz1rgs035f9JUPUhNFtqgucy/A==
   /@types/webpack-sources/3.2.3:
     dependencies:
-      '@types/node': 16.18.126
+      '@types/node': 25.0.3
       '@types/source-list-map': 0.1.6
       source-map: 0.7.6
     dev: false
@@ -7973,7 +7973,7 @@ packages:
       integrity: sha512-4nZOdMwSPHZ4pTEZzSp0AsTM4K7Qmu40UKW4tJDiOVs20UzYF9l+qUe4s0ftfN0pin06n+5cWWDJXH+sbhAiDw==
   /@types/webpack/4.41.40:
     dependencies:
-      '@types/node': 16.18.126
+      '@types/node': 25.0.3
       '@types/tapable': 1.0.12
       '@types/uglify-js': 3.17.5
       '@types/webpack-sources': 3.2.3
@@ -20253,7 +20253,7 @@ packages:
       integrity: sha512-O8dpsF+r0WV/8MNRKfnmrtCWhuKjxrq2w+jpzBL5UZKTi2LeVWnWOmWRxFlesJONmc+wLAGvKQZEOanko0LFTg==
   /istanbul-lib-instrument/5.2.1:
     dependencies:
-      '@babel/core': 7.28.5
+      '@babel/core': 7.12.17
       '@babel/parser': 7.28.5
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.2
@@ -21698,7 +21698,7 @@ packages:
       integrity: sha512-xbEFXCYVWrSx/gEKS1VPlg84h/4L20znVIulKw6kMfmBUAZNAnF00eczz9ICMl+/hjQGo5KSXRxbL/47X3rmMw==
   /md5.js/1.3.5:
     dependencies:
-      hash-base: 3.0.5
+      hash-base: 3.1.2
       inherits: 2.0.4
       safe-buffer: 5.2.1
     dev: false
@@ -25698,7 +25698,7 @@ packages:
       integrity: sha512-ZtAp5XTO5HRzQctjPU0ybY0RRCQO19X/8fxn3w7y2VVTUbGHDKULPTL4ky3vB05euSgG5NpALhEhDPvQ56wvXg==
   /react-docgen/5.4.3:
     dependencies:
-      '@babel/core': 7.28.5
+      '@babel/core': 7.12.17
       '@babel/generator': 7.28.5
       '@babel/runtime': 7.28.4
       ast-types: 0.14.2
@@ -25932,7 +25932,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.28.4
       is-dom: 1.1.0
-      prop-types: 15.7.2
+      prop-types: 15.8.1
       react: 16.14.0
     dev: false
     peerDependencies:
@@ -25943,7 +25943,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.28.4
       is-dom: 1.1.0
-      prop-types: 15.7.2
+      prop-types: 15.8.1
       react: 17.0.2
     dev: false
     peerDependencies:
