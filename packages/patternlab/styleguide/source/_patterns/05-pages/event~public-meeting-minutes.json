@@ -10,7 +10,7 @@
         {
           "altText": "Follow us on Facebook",
           "href": "#",
-          "icon": "facebook",
+          "icon": "facebook-logo",
           "linkType": "facebook"
         },
         {
@@ -22,7 +22,7 @@
         {
           "altText": "Follow us on LinkedIn",
           "href": "#",
-          "icon": "linkedin",
+          "icon": "linkedin-logo",
           "linkType": "linkedin"
         }
       ]

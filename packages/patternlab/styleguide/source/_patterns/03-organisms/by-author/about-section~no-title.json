@@ -48,7 +48,7 @@
         "centered": ""
       },
       "items": [{
-        "icon": "facebook",
+        "icon": "facebook-logo",
         "link": {
           "href": "#",
           "text": "Facebook",
@@ -62,7 +62,7 @@
           "chevron": ""
         }
       },{
-        "icon": "instagram",
+        "icon": "instagram-logo",
         "link": {
           "href": "#",
           "text": "Instagram",
