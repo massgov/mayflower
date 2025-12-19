@@ -78,7 +78,7 @@
 
     &:before {
       content: '';
-      background-image: url("#{$assets-path}/images/icons/checkmark.svg");
+      background-image: url("#{$assets-path}/images/icons/bold/checkmark--bold.svg");
       background-color: var(--mf-c-bg);  // Add background color when checked
     }
   }
