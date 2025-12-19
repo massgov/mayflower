@@ -50,6 +50,10 @@
 
     @include ma-link-underline;
     align-items: center;
+
+    svg {
+      padding-top: 0.1em;
+    }
   }
 
   &__description {
