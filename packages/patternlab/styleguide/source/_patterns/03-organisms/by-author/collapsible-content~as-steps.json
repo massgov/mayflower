@@ -46,7 +46,7 @@
       "collapsibleHeader": {
         "info": "",
         "title":"Some Other Method",
-        "icon":"circle-chevron"
+        "icon":"caret-circle-right"
       },
       "more": null,
       "includes": [{

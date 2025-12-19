@@ -4,6 +4,6 @@
     "title": "Collapsible Header",
     "state": false,
     "description": "A description below the title.",
-    "icon": "circle-chevron"
+    "icon": "caret-circle-right"
   }
 }

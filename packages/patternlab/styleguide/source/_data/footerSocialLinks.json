@@ -4,23 +4,23 @@
     "items": [{
       "altText": "Follow us on Facebook",
       "href": "#",
-      "icon": "@atoms/05-icons/svg-facebook.twig"
+      "icon": "@atoms/05-icons/facebook-logo.twig"
     },{
       "altText": "Follow us on Twitter",
       "href": "#",
-      "icon": "@atoms/05-icons/svg-twitter.twig"
+      "icon": "@atoms/05-icons/x-logo.twig"
     },{
       "altText": "Follow us on LinkedIn",
       "href": "#",
-      "icon": "@atoms/05-icons/svg-linkedin.twig"
+      "icon": "@atoms/05-icons/linkedin-logo.twig"
     },{
       "altText": "Follow us on Youtube",
       "href": "#",
-      "icon": "@atoms/05-icons/svg-youtube.twig"
+      "icon": "@atoms/05-icons/youtube-logo.twig"
     },{
       "altText": "Follow us on Instagram",
       "href": "#",
-      "icon": "@atoms/05-icons/svg-instagram.twig"
+      "icon": "@atoms/05-icons/instagram-logo.twig"
     }]
   }
 }

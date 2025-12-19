@@ -2,7 +2,7 @@
 
 use PatternLab\Config;
 
-$function = new Twig_SimpleFunction('icon', function ($name, $width = '24', $height = '24', $class = '') {
+$function = new Twig_SimpleFunction('icon', function ($name, $width = '24', $height = '24', $class = '', $bold = true) {
   // Note: Temporary BC layer for turning icon twig files into direct
   // filename references. This exists only so we don't break anything
   // terribly while working this function into general use. Going forward,
@@ -11,7 +11,15 @@ $function = new Twig_SimpleFunction('icon', function ($name, $width = '24', $hei
     $iconname = pathinfo($name, PATHINFO_FILENAME);
     $name = preg_replace('/^svg-/', '', $iconname);
   }
-  $path = sprintf(Config::getOption('publicDir') . '/assets/images/icons/%s.svg', $name);
+  
+  // Determine the icon path based on bold parameter
+  if ($bold) {
+    $iconPath = 'bold/' . $name . '--bold';
+  } else {
+    $iconPath = $name;
+  }
+  
+  $path = sprintf(Config::getOption('publicDir') . '/assets/images/icons/%s.svg', $iconPath);
 
   $helper = new \PatternLab\IconHelper();
   $id = $helper->getId($path);
