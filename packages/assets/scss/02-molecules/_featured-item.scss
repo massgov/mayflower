@@ -60,6 +60,10 @@
           @include ma-link-transition;
           border-bottom: 3px solid transparent;
       }
+
+      svg {
+        padding-top: 2px;
+      }
     }
 
     &.truncated {

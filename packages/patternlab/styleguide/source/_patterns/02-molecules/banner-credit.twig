@@ -3,7 +3,7 @@
     <dt class="ma__banner-credit__icon">
       <span class="ma__visually-hidden">Credit for the banner image</span>
       {% set iconPath = bannerCredit.icon ? : "marker" %}
-      {{ icon(iconPath) }}
+      {{ icon(iconPath, '24px', '24px', null, false) }}
     </dt>
     <dd class="ma__banner-credit__image-name">{{ bannerCredit.imageName }}</dd>
     <dd class="ma__banner-credit__image-author">{{ bannerCredit.imageAuthor }}</dd>

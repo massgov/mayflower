@@ -161,9 +161,8 @@ $breadcrumbs-scrollbar-height: 12px;
 
       svg {
         fill: var(--mf-c-primary);
-        stroke: var(--mf-c-primary);
-        transition: fill 0.4s, stroke 0.4s;
-        will-change: fill, stroke;
+        transition: fill 0.4s;
+        will-change: fill;
       }
 
       &:hover {

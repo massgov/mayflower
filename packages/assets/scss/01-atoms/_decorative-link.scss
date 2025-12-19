@@ -6,6 +6,10 @@
   display: inline-flex;
   width: 100%;
 
+  svg {
+    padding-top: 1px;
+  }
+
   a:hover {
     border-bottom-color: var(--mf-c-link);
   }
@@ -59,12 +63,6 @@
       align-self: center;
       top: .3em;
       position: relative;
-
-      svg {
-        margin-right: 0;
-        width: 29px;
-        height: 30px;
-      }
     }
   }
 
