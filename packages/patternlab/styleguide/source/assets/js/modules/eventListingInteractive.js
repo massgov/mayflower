@@ -133,13 +133,13 @@ export default (function (window,document,$,undefined) {
       let masterListing = listing.eventListing.events,
 
       // Pass in listing and template name.
-      masterListingMarkup = listings.transformListing(masterListing, 'eventListingRow');
+      masterListingMarkup = listings.transformListing(masterListing, 'eventListingRow', {bustCache: 'icon-update-2025'});
 
       // The max number of items per page, if designated in eventListing data structure, else all
       masterData.maxItems = listing.maxItems ? listing.maxItems : masterListing.length;
 
       // The initial results heading data structure
-      masterData.resultsHeading = listing.resultsHeading;
+      masterData.resultsHeading = masterListingMarkup.resultsHeading;
 
       // Create items with listing and markup.
       masterData.items = getMasterListingWithMarkup(masterListing, masterListingMarkup, masterData.maxItems);
