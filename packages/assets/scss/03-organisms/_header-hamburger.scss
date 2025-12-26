@@ -419,7 +419,7 @@ body.show-menu {
     }
 
     & svg {
-      fill: var(--mf-c-white);
+      color: var(--mf-c-white);
       height: 20px;
       -o-transition: fill .4s;
       transition: fill .4s;

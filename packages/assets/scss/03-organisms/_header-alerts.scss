@@ -34,13 +34,7 @@
 
     &___icon {
       margin-right: 12px;
-      height: 22px;
       margin-top: 3px;
-
-      svg {
-        width: 20px;
-        height: 20px;
-      }
     }
 
     &__toggle {
@@ -100,21 +94,12 @@
     }
 
     &__icon {
-      top: 25px;
       left: 10px;
-
-      svg {
-        width: 20px;
-        height: 20px;
-      }
+      color: var(--mf-c-font-base);
     }
 
     &__title {
       font-size: $fonts-large;
-
-      &-link, &-suffix {
-        line-height: 1.6;
-      }
 
       &-text {
         line-height: 1.4;

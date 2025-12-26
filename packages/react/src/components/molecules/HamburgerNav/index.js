@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import classNames from 'classnames';
 import NavContainer from 'MayflowerReactMolecules/NavContainer';
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
-import IconHome from 'MayflowerReactBase/Icon/IconHome';
+import IconHouse from 'MayflowerReactBase/Icon/IconHouse';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import getFallbackComponent from 'MayflowerReactComponents/utilities/getFallbackComponent';
@@ -295,7 +295,7 @@ const HamburgerNav = ({
               )}
               {renderHomeLink && (
                 <a className="ma__header__hamburger__menu-home-link" href={homeLink.url}>
-                  <IconHome />
+                  <IconHouse />
                   <span>{homeLink.text}</span>
                 </a>
               )}

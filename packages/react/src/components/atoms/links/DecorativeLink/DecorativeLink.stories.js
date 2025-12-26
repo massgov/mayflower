@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 import DecorativeLink from './index';
 import DecorativeLinkDocs from './DecorativeLink.md';
-import IconGeneric from 'MayflowerReactBase/Icon/IconGeneric';
+import IconDocGeneric from 'MayflowerReactBase/Icon/IconDocGeneric';
 
 const Template = (args) => <DecorativeLink {...args} />;
 
@@ -55,7 +55,7 @@ FileDownloadExample.args = {
   href: 'https://www.mass.gov/download',
   details: '(30 MB)',
   showFileIcon: true,
-  fileIcon: <IconGeneric width={15} height={15} />
+  fileIcon: <IconDocGeneric width={15} height={15} />
 };
 FileDownloadExample.argTypes = {
   icon: {

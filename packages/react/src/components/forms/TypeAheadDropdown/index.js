@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import InputTextFuzzy from 'MayflowerReactForms/InputTextFuzzy';
 // eslint-disable-next-line import/no-unresolved
-import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
 
 const TypeAheadDropdown = (props) => {
   const [buttonExpand, setButtonExpand] = React.useState(false);
@@ -103,7 +103,7 @@ const TypeAheadDropdown = (props) => {
     onClick: handleClick,
     setButtonRef: buttonRef,
     expanded: buttonExpand,
-    icon: <IconChevron height={20} width={20} />,
+    icon: <IconCaretDown height={20} width={20} />,
     size: '',
     ...props.dropdownButton
   };

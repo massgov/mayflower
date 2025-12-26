@@ -21,12 +21,12 @@ const ${componentName} = (${props}) => {
 }
 
 ${componentName}.propTypes = {
-  title: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string,
   fill: PropTypes.string,
-  label: PropTypes.string
+  ['aria-hidden']: PropTypes.bool,
+  ['aria-label']: PropTypes.string,
 };
 
 ${exports}

@@ -10,13 +10,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 // eslint-disable-next-line import/no-unresolved
-import IconPdf from 'MayflowerReactBase/Icon/IconPdf';
+import IconDocPdf from 'MayflowerReactBase/Icon/IconDocPdf';
 // eslint-disable-next-line import/no-unresolved
-import IconDocx from 'MayflowerReactBase/Icon/IconDocx';
+import IconDocDocx from 'MayflowerReactBase/Icon/IconDocDocx';
 // eslint-disable-next-line import/no-unresolved
-import IconXlxs from 'MayflowerReactBase/Icon/IconXlxs';
+import IconDocXlsx from 'MayflowerReactBase/Icon/IconDocXlsx';
 // eslint-disable-next-line import/no-unresolved
-import IconGeneric from 'MayflowerReactBase/Icon/IconGeneric';
+import IconDocGeneric from 'MayflowerReactBase/Icon/IconDocGeneric';
 // eslint-disable-next-line import/no-unresolved
 import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 // eslint-disable-next-line import/no-unresolved
@@ -44,16 +44,16 @@ const DecorativeLink = (props) => {
     postIcon = <IconDownload aria-hidden="true" />;
     switch (ext) {
       case 'pdf':
-        preIcon = <IconPdf title={title} width={35} height={36} />;
+        preIcon = <IconDocPdf title={title} width={35} height={36} />;
         break;
       case 'docx':
-        preIcon = <IconDocx title={title} width={35} height={36} />;
+        preIcon = <IconDocDocx title={title} width={35} height={36} />;
         break;
       case 'xlxs':
-        preIcon = <IconXlxs title={title} width={35} height={36} />;
+        preIcon = <IconDocXlsx title={title} width={35} height={36} />;
         break;
       case 'generic':
-        preIcon = <IconGeneric title={title} width={35} height={36} />;
+        preIcon = <IconDocGeneric title={title} width={35} height={36} />;
         break;
       default:
         preIcon = null;

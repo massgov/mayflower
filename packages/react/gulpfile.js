@@ -10,6 +10,7 @@ const ts = require('gulp-typescript');
 const replace = require('gulp-replace');
 const { prependText } = require('gulp-append-prepend');
 const { exec } = require('child_process');
+const fs = require('fs');
 
 function clean() {
   return del(['dist', 'types']);
@@ -25,11 +26,71 @@ function styles() {
     .pipe(dest('dist'));
 }
 
-// Copying icon assets from assets to react is not currently being used.  
-// function icons() {
-//   return src(['./src/components/base/Icon/assets/*.svg'])
-//     .pipe(dest('dist/Icon/assets'));
-// }
+function ensureAssetsDir(cb) {
+  const assetsDir = './src/components/base/Icon/assets';
+  if (!fs.existsSync(assetsDir)) {
+    fs.mkdirSync(assetsDir, { recursive: true });
+  }
+  cb();
+}
+
+function copyIconsFromAssets() {
+  return src(['./node_modules/@massds/mayflower-assets/static/images/icons/*.svg'])
+    .pipe(rename((path) => {
+      // Add "icon-" prefix to the filename
+      path.basename = `icon-${path.basename}`;
+    }))
+    .pipe(dest('./src/components/base/Icon/assets'));
+}
+
+function generateIconKnobOptions() {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const assetsDir = './src/components/base/Icon/assets';
+  const outputFile = './src/components/base/Icon/Icon.knob.options.js';
+  
+  // Read all SVG files from assets directory
+  if (!fs.existsSync(assetsDir)) {
+    console.warn('Assets directory does not exist:', assetsDir);
+    return Promise.resolve();
+  }
+  
+  const svgFiles = fs.readdirSync(assetsDir)
+    .filter(file => file.endsWith('.svg'))
+    .map(file => {
+      // Remove 'icon-' prefix and '.svg' extension
+      let iconName = path.basename(file, '.svg');
+      // Convert kebab-case to PascalCase
+      const pascalCaseName = iconName
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+    
+      return pascalCaseName;
+    })
+    .sort(); // Sort alphabetically
+  
+  // Generate the assets object
+  const assetsEntries = svgFiles.map(iconName => `  ${iconName}: '${iconName}'`);
+  
+  // Generate the file content
+  const fileContent = `export const assets = {
+${assetsEntries.join(',\n')}
+};
+
+export const svgOptions = {
+  choose: '',
+  ...assets
+};
+`;
+  
+  // Write the file
+  fs.writeFileSync(outputFile, fileContent);
+  console.log(`Generated ${outputFile} with ${svgFiles.length} icons`);
+  
+  return Promise.resolve();
+}
 
 function transpileES5Icons() {
   return src('./dist/Icon/*.mjs')
@@ -156,8 +217,14 @@ function transpileES6Icons() {
     .pipe(dest('dist/Icon'));
 }
 
+
 async function generateIcons() {
-  return run('svgr --out-dir ./dist/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js')()
+  return Promise.all([
+    // generate icons in dist
+    run('svgr --out-dir ./dist/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js')(),
+    // generate icons in src
+    run('svgr --out-dir ./src/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js --ext js')()
+  ]);
 }
 
 const aliases = {
@@ -390,6 +457,10 @@ function cleanIconDir() {
   ]);
 }
 
+function cleanIconAssets() {
+  return del(['./src/components/base/Icon/assets/*.svg']);
+}
+
 const typedSources = [
   ...sources,
 
@@ -470,10 +541,17 @@ const generateTsDeclarations = series(
   convertTsToDeclarations,
 )
 
-exports.cleanIconDir = cleanIconDir;
-exports.generateIcons = generateIcons;
-exports.transpileES5Icons = transpileES5Icons;
-exports.transpileES6Icons = transpileES6Icons;
+
+
+exports.icons = series(
+  ensureAssetsDir,
+  cleanIconAssets,
+  copyIconsFromAssets,
+  generateIcons,
+  generateIconKnobOptions,
+  transpileES5Icons,
+  transpileES6Icons
+);
 exports.generateTsDeclarations = generateTsDeclarations;
 exports.default = series(
   clean,
@@ -483,7 +561,11 @@ exports.default = series(
     generateTsDeclarations,
     styles,
     series(
+      ensureAssetsDir,
+      cleanIconAssets,
+      copyIconsFromAssets,
       generateIcons,
+      generateIconKnobOptions,
       transpileES5Icons,
       transpileES6Icons
     )

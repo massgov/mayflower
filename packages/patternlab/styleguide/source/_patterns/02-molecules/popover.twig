@@ -17,7 +17,7 @@
 
 {% set dialog_opentag %}<span role="dialog" id="popover-{{ tooltip.controlId }}" aria-labelledby="popover-{{ tooltip.controlId }}-label" aria-modal="true" class="popover__dialog js-popover-dialog" tabindex="-1">{% endset %}
 {% set dialog_caret %}<span class="popover__caret js-popover-caret"></span>{% endset %}
-{% set dialog_close %}<button type="button" class="popover__close js-popover-close" aria-label="{{ tooltip.closeText }}">{{icon('close')}}</button>{% endset %}
+{% set dialog_close %}<button type="button" class="popover__close js-popover-close" aria-label="{{ tooltip.closeText }}">{{icon('close', '16px', '16px')}}</button>{% endset %}
 {% set dialog_title %}<span role="heading" aria-level="{{ headingLevel ?: 2 }}" class="popover__title" id="popover-{{ tooltip.controlId }}-label">{{ tooltip.title }}</span>{% endset %}
 {% set dialog_body %}<span class="popover__body">{{ tooltip.message }}</span>{% endset %}
 {% set dialog_closetag %}</span>{% endset %}

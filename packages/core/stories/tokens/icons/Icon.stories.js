@@ -13,11 +13,11 @@ export const Icons = (args) => (
   </ul>
 );
 Icons.args = {
-  width: 40,
-  height: 50,
-  title: 'Icon Title Here',
+  width: 24,
+  height: 24,
   classes: [''],
-  ariaHidden: false,
+  'aria-hidden': false,
+  'aria-label': 'This is an icon',
   fill: '#000'
 };
 Icons.argTypes = {
