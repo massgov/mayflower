@@ -3,7 +3,7 @@
 .ma__decorative-link {
 
   @include ma-link-decorative;
-  display: inline-flex;
+  display: inline-block;
   width: 100%;
 
   svg {
