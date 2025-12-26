@@ -1,6 +1,15 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 14.1.1 (12/8/2025)
+### Fixed 
+- (Patternlab, Core, React, Site, Assets) [update-version.js] DP-42327: Update release script to make all packages vesions, dependencies, and peer-dependencies consistent (#2030)
+- (Patternlab) [Popover] DP-43125: Fix popover spacing. (#2023)
+
+### Changed 
+- (Core) [Storybook] DP-43597: Remove pages and add sitewide banner in preparation for the microsite launch. (#2029)
+- (React) [Storybook] DP-43597: Update sitewide banner in preparation for the microsite launch. (#2029)
+
 ## 14.1.0 (11/21/2025)
 ### Fixed 
 - (Patternlab) [RichText] DP-37275: Revert heading flow-root fix and conditionally clear fix after multiple floating images. (#1987)
