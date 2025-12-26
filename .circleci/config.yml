@@ -44,7 +44,6 @@ jobs:
             - packages/assets/node_modules
             - packages/react/node_modules
             - packages/patternlab/styleguide/node_modules
-            - packages/site/node_modules
             - packages/core/node_modules
 
   patternlab_build:
@@ -365,42 +364,6 @@ jobs:
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
             fi
 
-  site_build:
-    <<: *patternlab_defaults
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-26
-      - run: cd packages/react && node ../../common/scripts/install-run-rushx.js build
-      - run:
-          name: Validate Package Build
-          command: cd packages/site && node ../../common/scripts/install-run-rushx.js build
-      - persist_to_workspace:
-          root: ~/code
-          paths: ["*"]
-
-
-  site_deploy_tag:
-    <<: *patternlab_defaults
-    steps:
-      - attach_workspace:
-          at: ~/code
-      # Only sync to S3 for stable tags.
-      - when:
-          condition:
-            matches:
-              pattern: '^[0-9]+\.[0-9]+\.[0-9]+$'
-              value: << pipeline.git.tag >>
-          steps:
-            - aws-cli/setup:
-                role-arn: $AWS_DEPLOYMENT_ROLE_ARN
-            - run: |
-                cd packages/site
-                aws s3 sync public s3://mayflower.digital.mass.gov/home --delete --profile default
-                aws configure set preview.cloudfront true --profile default
-                aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*' --profile default
-
 workflows:
   version: 2
 
@@ -414,44 +377,39 @@ workflows:
       - assets_build:
           requires: [react_build_storybook]
           filters:
-            branches: { ignore: /(docs|site\/).*/ }
+            branches: { ignore: /(docs\/).*/ }
       # patternlab
       - patternlab_build:
           requires: [build]
           filters:
-            branches: { ignore: /(docs|react\/|site\/|core\/).*/ }
+            branches: { ignore: /(docs|react\/|core\/).*/ }
       - patternlab_deploy_branch:
           requires: [patternlab_build]
           filters:
-            branches: { ignore: /(docs|react\/|site\/|core\/).*/ }
+            branches: { ignore: /(docs|react\/|core\/).*/ }
           context: aws_oidc
       - patternlab_test:
           requires: [patternlab_build]
           filters:
-            branches: { ignore: /(docs|react\/|site\/|core\/).*/ }
+            branches: { ignore: /(docs|react\/|core\/).*/ }
       # react
       - react_build_storybook:
           requires: [build]
           filters:
-            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+            branches: { ignore: /(docs|patternlab\/).*/ }
       - react_test:
           requires: [react_build_storybook]
           filters:
-            branches: { ignore: /(docs|patternlab\/|site\/|core\/).*/ }
-      # site
-      - site_build:
-          requires: [react_build_storybook]
-          filters:
-            branches: { ignore: /(docs|patternlab\/|react\/|core\/).*/ }
+            branches: { ignore: /(docs|patternlab\/|core\/).*/ }
      # core
       - core_build_storybook:
           requires: [build]
           filters:
-            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+            branches: { ignore: /(docs|patternlab\/).*/ }
       - core_deploy_branch:
           requires: [core_build_storybook]
           filters:
-            branches: { ignore: /(docs|patternlab\/|site\/|react\/).*/ }
+            branches: { ignore: /(docs|patternlab\/|react\/).*/ }
           context: aws_oidc
 
   ## Release branch automation every Monday at 1:00 p.m. ET "00 18 * * 1"
@@ -523,17 +481,6 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
-      - site_build:
-          requires: [react_build_storybook]
-          filters:
-            branches: { ignore: /.*/ }
-            tags: { only: /.*/ }
-      - site_deploy_tag:
-          requires: [site_build]
-          filters:
-            branches: { ignore: /.*/ }
-            tags: { only: /.*/ }
-          context: aws_oidc
       - core_build_storybook:
           requires: [build]
           filters:
