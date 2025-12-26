@@ -11,7 +11,7 @@ dependencies:
   '@proscom/gulp-svgr': 0.1.6
   '@rush-temp/mayflower': 'file:projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:projects/mayflower-assets.tgz'
-  '@rush-temp/mayflower-core': 'file:projects/mayflower-core.tgz_999186a02329d52b5f1871ae309a66b0'
+  '@rush-temp/mayflower-core': 'file:projects/mayflower-core.tgz_cf416c644d17a5e671a80245fcea53f7'
   '@rush-temp/mayflower-react': 'file:projects/mayflower-react.tgz_react-is@16.13.1'
   '@sayari/eslint-plugin': 0.0.1-rc.4_eslint@7.32.0
   '@storybook/addon-a11y': 6.0.21
@@ -44,6 +44,7 @@ dependencies:
   babel-preset-env: 1.7.0
   babel-preset-proposals: 0.3.0
   babelify: 8.0.0_babel-core@6.26.3
+  bootstrap: 4.6.2_jquery@3.5.1
   browser-sync: 2.29.3
   browserify: 16.5.2
   child-process-promise: 2.2.1
@@ -9211,6 +9212,16 @@ packages:
     dev: false
     resolution:
       integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
+  /bootstrap/4.6.2_jquery@3.5.1:
+    dependencies:
+      jquery: 3.5.1
+    deprecated: This version of Bootstrap is no longer supported. Please upgrade to the latest version.
+    dev: false
+    peerDependencies:
+      jquery: 1.9.1 - 3
+      popper.js: ^1.16.1
+    resolution:
+      integrity: sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ==
   /boxen/4.2.0:
     dependencies:
       ansi-align: 3.0.1
@@ -24187,7 +24198,7 @@ packages:
       integrity: sha512-gz7E36db8I9crnNlSBNGOIyOuiTag0+QXdT7SwmMBMsBx0ReWkHBQr8O8zNrfmnH/Xz34roaxF6Uev0Ao2zC9w==
       tarball: 'file:projects/mayflower-assets.tgz'
     version: 0.0.0
-  'file:projects/mayflower-core.tgz_999186a02329d52b5f1871ae309a66b0':
+  'file:projects/mayflower-core.tgz_cf416c644d17a5e671a80245fcea53f7':
     dependencies:
       '@babel/core': 7.26.0
       '@storybook/addon-actions': 6.5.16_react-dom@17.0.2+react@17.0.2
@@ -24199,6 +24210,7 @@ packages:
       '@storybook/react': 6.5.16_91b4263b702eb26e5a26fd6a09df6106
       babel-eslint: 10.1.0_eslint@7.32.0
       babel-loader: 8.4.1_fe7c70b16b7c45828aa239dff5bb615a
+      bootstrap: 4.6.2_jquery@3.5.1
       chromatic: 5.3.0_@babel+core@7.26.0
       css-loader: 3.6.0_webpack@4.47.0
       eslint: 7.32.0
@@ -24225,10 +24237,11 @@ packages:
     name: '@rush-temp/mayflower-core'
     peerDependencies:
       babel-plugin-module-resolver: '*'
+      jquery: '*'
       typescript: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-lA9W60Mq7vB4Ef5muvmyjLKQKqFLV2tRv32MmRa+PDAh9dJk6buEbvkYS3cySC9/no51vYQ/uyyjEH8oxWQ8Hw==
+      integrity: sha512-e3J+jYkJyLiDm7WHPUoVMCIdb0ePMWt8Q3GXgBJ2UwIOol0jH6mhqIRKP0Ahc55phVVdoUALgbEUzxqpyAcnyQ==
       tarball: 'file:projects/mayflower-core.tgz'
     version: 0.0.0
   'file:projects/mayflower-react.tgz_react-is@16.13.1':
@@ -24449,6 +24462,7 @@ specifiers:
   babel-preset-env: ^1.7.0
   babel-preset-proposals: ^0.3.0
   babelify: ^8.0.0
+  bootstrap: ^4.6.0
   browser-sync: ^2.26.7
   browserify: ^16.2.3
   child-process-promise: ^2.2.1
