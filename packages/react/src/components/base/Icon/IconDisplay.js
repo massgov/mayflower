@@ -14,7 +14,7 @@ import * as Icon from './index';
 const IconDisplay = (props) => {
   const { name, ...rest } = props;
   const IconComponent = Icon?.[name] && Icon[name];
-  
+
   return(
     <li style={{ width: 180, margin: 10, padding: 10 }}>
       <div className="sg-icons-info">
