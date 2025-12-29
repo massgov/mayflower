@@ -1,0 +1,6 @@
+Fixed:
+  - project: circleci
+    component: npm publilc
+    description: Fixed failed npm version. (#2032)
+    issue: 
+    impact: Patch
