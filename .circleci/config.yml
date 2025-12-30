@@ -194,9 +194,13 @@ jobs:
           docker cp ../assets $(docker-compose ps -q backstop):/src/assets
           docker cp ../../docs $(docker-compose ps -q backstop):/src/docs
           docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
-      - run: |
-          cd packages/react
-          docker-compose run backstop test
+      - run:
+          name: Run BackstopJS tests with rerun capability
+          command: |
+            cd packages/react
+            mkdir -p backstop/data/ci_report
+            # Use circleci tests run for BackstopJS
+            echo "backstop_data/bitmaps_test" | circleci tests run --command="xargs -I {} docker-compose run backstop test --config=backstop.json" --verbose
       - run:
           command: cd packages/react && docker cp $(docker-compose ps -q backstop):/src/backstop/. ./backstop/
           when: always
