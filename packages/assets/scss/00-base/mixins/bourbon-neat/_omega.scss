@@ -7,6 +7,8 @@
 @use "private" as *;
 /// Removes the element's gutter margin, regardless of its position in the grid hierarchy or display property. It can target a specific element, or every `nth-child` occurrence. Works only with `block` layouts.
 ///
+/// @deprecated CSS Grid automatically handles spacing without needing omega. Use `@include ma-grid()` on container instead.
+///
 /// @param {List} $query [block]
 ///   List of arguments. Supported arguments are `nth-child` selectors (targets a specific pseudo element) and `auto` (targets `last-child`).
 ///
@@ -37,19 +39,28 @@
 ///   }
 
 @mixin omega($query: block, $direction: default) {
+
+  @include neat-warn(
+    "DEPRECATED: The 'omega' mixin is deprecated. CSS Grid automatically handles spacing. Use '@include ma-grid()' on container instead."
+  );
+
   $table: belongs-to(table, $query);
   $auto: belongs-to(auto, $query);
 
   @if $direction != default {
 
-    @include neat-warn("The omega mixin will no longer take a $direction argument. To change the layout direction, use the direction(){...} mixin.");
+    @include neat-warn(
+      "The omega mixin will no longer take a $direction argument. To change the layout direction, use the direction(){...} mixin."
+    );
   } @else {
     $direction: get-direction($layout-direction, $default-layout-direction);
   }
 
   @if $table {
 
-    @include neat-warn("The omega mixin no longer removes padding in table layouts.");
+    @include neat-warn(
+      "The omega mixin no longer removes padding in table layouts."
+    );
   }
 
   @if length($query) == 1 {
@@ -83,6 +94,11 @@
 }
 
 @mixin nth-child($query, $direction) {
+
+  @include neat-warn(
+    "DEPRECATED: The 'nth-child' mixin is deprecated along with 'omega'. CSS Grid automatically handles spacing. Use '@include ma-grid()' on container instead."
+  );
+
   $opposite-direction: get-opposite-direction($direction);
 
   &:nth-child(#{$query}) {
@@ -116,7 +132,7 @@
       }
     }
   } @else if type-of($query) == number and unit($query) == "n" {
-    &:nth-child(#{$query}+1) {
+    &:nth-child(#{$query} + 1) {
       clear: $opposite-direction;
     }
   }

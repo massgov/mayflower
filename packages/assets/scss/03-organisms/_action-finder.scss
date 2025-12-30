@@ -13,8 +13,8 @@ $action-finder-bp: 900px;
     content: "";
     height: 100%;
     position: absolute;
-      top: 0;
-      left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 1;
   }
@@ -39,22 +39,12 @@ $action-finder-bp: 900px;
     padding-top: 0;
   }
 
-  &__category {
-
-    @include ma-h5;
-  }
-
-  h3.ma__action-finder__category {
-
-    @include ma-h3;
-  }
-
   &__search {
 
     @media ($bp-large-min) {
       display: inline-block;
       vertical-align: middle;
-      width: 32.25806%; // @include span-columns(4 of 12);
+      width: 32.25806%;
     }
   }
 
@@ -62,8 +52,8 @@ $action-finder-bp: 900px;
     margin-top: 25px;
     padding-right: 20px;
     position: absolute;
-      top: 100%;
-      left: 30px;
+    top: 100%;
+    left: 30px;
     transform: skew(30deg);
 
     @media ($bp-large-min) {
@@ -76,44 +66,38 @@ $action-finder-bp: 900px;
   &__items {
 
     @include ma-reset-list;
+    gap: 20px;
     display: flex;
-      flex-wrap: wrap;
-      justify-content: stretch;
-  }
+    flex-direction: column;
 
-  &__items {
-    padding-bottom: 25px;
+    @media ($bp-small-min) {
+
+      @include ma-grid-responsive(2, 2, 3, 20px);
+    }
+
+    padding-bottom: 45px;
 
     @media ($bp-medium-min) {
-      padding-bottom: 45px;
+      padding-bottom: 65px;
     }
   }
 
   .ma__illustrated-link,
   .ma__callout-link {
     display: flex;
-    margin-bottom: 20px;
     height: auto;
     width: 100%;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
+  }
 
-    @media screen and ($bp-small-min) and ($bp-large-max) {
+  &__category {
 
-      @include span-columns(4 of 8);
+    @include ma-h5;
+    font-weight: $fonts-normal;
+  }
 
-      @include omega(2n);
-      display: flex;
-    }
+  h3.ma__action-finder__category {
 
-    @media ($bp-large-min) {
-
-      @include span-columns(4 of 12);
-
-      @include omega(3n);
-      display: flex;
-    }
+    @include ma-h3;
   }
 
   &__items--all {
@@ -172,22 +156,26 @@ $action-finder-bp: 900px;
 }
 
 //theme
-$action-finder-bg-color: mix($c-bg, $c-primary,89%);
-$action-finder-border-color: mix($c-white, $c-primary,50%);
+$action-finder-bg-color: var(--mf-c-bg-primary-89);
+$action-finder-border-color: var(--mf-c-bg-primary-50);
 
 .ma__action-finder {
 
   &:after {
-    background-image: linear-gradient(180deg, rgba($c-black,.6), transparent 90%, transparent);
+    background-image: linear-gradient(
+      180deg,
+      var(--mf-c-black-60),
+      transparent 90%,
+      transparent
+    );
   }
 
   &--no-background {
-    background-image: linear-gradient(180deg, $c-bg 50px, $c-bg-section 51px);
+    background-image: linear-gradient(180deg, var(--mf-c-bg) 50px, var(--mf-c-bg-section) 51px);
   }
 
   &__category {
     color: var(--mf-c-font-inverse);
-    font-weight: $fonts-normal;
   }
 
   &--no-background &__category {
@@ -234,12 +222,12 @@ $action-finder-border-color: mix($c-white, $c-primary,50%);
         color: var(--mf-c-font-inverse);
 
         &:hover {
-          border-color: rgba($c-font-inverse, .5);
+          border-color: var(--mf-c-font-inverse-50);
         }
       }
 
       svg {
-        fill: rgba($c-font-inverse, .5);
+        fill: var(--mf-c-font-inverse-50);
       }
     }
   }

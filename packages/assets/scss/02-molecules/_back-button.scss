@@ -53,7 +53,7 @@
 
   a:not(.ma__button) {
 
-    @include ma-button("",$c-font-link);
+    @include ma-button("",var(--mf-c-font-link));
     border-color: var(--mf-c-bay-blue-lighter);
 
     &:before {

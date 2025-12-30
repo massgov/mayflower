@@ -98,7 +98,7 @@ $header-search-height: 46px;
   }
 
   .ma__form--light .ma__button-search {
-    border-left-color: rgba($c-bd-input,.5);
+    border-left-color: var(--mf-c-bd-input-50);
 
     &:hover {
       border-left-color: var(--mf-c-primary-alt);

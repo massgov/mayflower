@@ -1,7 +1,11 @@
 @use "00-base/variables" as *;
 
 @use "private" as *;
+
+@use "neat-warn" as *;
 /// Translates an element horizontally by a number of columns. Positive arguments shift the element to the active layout direction, while negative ones shift it to the opposite direction.
+///
+/// @deprecated Use CSS Grid `grid-column-start` or `@include ma-grid-span($span, $start)` instead.
 ///
 /// @param {Number (unitless)} $n-columns [1]
 ///   Number of columns by which the element shifts.
@@ -18,10 +22,16 @@
 
 @mixin shift($n-columns: 1) {
 
+  @include neat-warn(
+    "DEPRECATED: The 'shift' mixin is deprecated. Use CSS Grid 'grid-column-start' or '@include ma-grid-span($span, $start)' instead."
+  );
+
   @include shift-in-context($n-columns);
 }
 
 /// Translates an element horizontally by a number of columns, in a specific nesting context.
+///
+/// @deprecated Use CSS Grid `grid-column-start` or `@include ma-grid-span($span, $start)` instead.
 ///
 /// @param {List} $shift
 ///   A list containing the number of columns to shift (`$columns`) and the number of columns of the parent element (`$container-columns`).
@@ -39,13 +49,19 @@
 ///   }
 
 @mixin shift-in-context($shift: $columns of $container-columns) {
+
+  @include neat-warn(
+    "DEPRECATED: The 'shift-in-context' mixin is deprecated. Use CSS Grid 'grid-column-start' or '@include ma-grid-span($span, $start)' instead."
+  );
+
   $n-columns: nth($shift, 1);
   $parent-columns: container-shift($shift) !global;
 
   $direction: get-direction($layout-direction, $default-layout-direction);
   $opposite-direction: get-opposite-direction($direction);
 
-  margin-#{$opposite-direction}: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
+  margin-#{$opposite-direction}: $n-columns * flex-grid(1, $parent-columns) +
+    $n-columns * flex-gutter($parent-columns);
 
   // Reset nesting context
   $parent-columns: $grid-columns !global;

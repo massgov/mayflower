@@ -186,7 +186,7 @@
   }
 
   &__title {
-    background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
+    background-image: linear-gradient(-60deg, transparent, transparent 35px, var(--mf-c-primary-alt) 35px);
     color: var(--mf-c-font-inverse);
     font-weight: $fonts-bold;
   }
@@ -320,7 +320,7 @@
     background-color: var(--mf-c-bg-subtle);
     z-index: $z-sticky-content;
 
-    box-shadow: $box-shadow;
+    box-shadow: var(--mf-box-shadow);
 
     @media ($bp-header-toggle-max) {
        // Sticky toc is over the nav bar.
@@ -400,7 +400,7 @@
 
     button {
 
-      @include ma-button("solid",$c-primary);
+      @include ma-button("solid",var(--mf-c-primary));
       font-size: $fonts-large;
       padding: 10px 0;
       width: 100%;
@@ -588,7 +588,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba($c-gray-darkest, 0.3);
+  background-color: var(--mf-c-gray-darkest-30);
   pointer-events: none;
   z-index: 99;
 

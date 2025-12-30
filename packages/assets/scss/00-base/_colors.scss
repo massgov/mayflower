@@ -1,96 +1,96 @@
 // Mayflower Color Theme and Usage Mapping
 
-@use 'color-tokens' as *;
+@use "color-tokens" as *;
 
 // Theme Color Variables
-$c-primary:              $c-bay-blue !default;
-$c-primary-light:        $c-bay-blue-light !default;
-$c-primary-lighter:      $c-bay-blue-lighter !default;
-$c-primary-lightest:     $c-bay-blue-lightest !default;
-$c-primary-alt:          $c-berkshires-green !default;
-$c-primary-alt-lighter:  $c-berkshires-green-lighter !default;
+$c-primary: $c-bay-blue !default;
+$c-primary-light: $c-bay-blue-light !default;
+$c-primary-lighter: $c-bay-blue-lighter !default;
+$c-primary-lightest: $c-bay-blue-lightest !default;
+$c-primary-alt: $c-berkshires-green !default;
+$c-primary-alt-lighter: $c-berkshires-green-lighter !default;
 $c-primary-alt-lightest: $c-berkshires-green-lightest !default;
-$c-primary-alt-dark:     $c-berkshires-green-dark !default;
-$c-highlight:            $c-duckling-yellow !default;
-$c-highlight-lighter:    $c-duckling-yellow-lighter !default;
-$c-highlight-lightest:   $c-duckling-yellow-lightest !default;
+$c-primary-alt-dark: $c-berkshires-green-dark !default;
+$c-highlight: $c-duckling-yellow !default;
+$c-highlight-lighter: $c-duckling-yellow-lighter !default;
+$c-highlight-lightest: $c-duckling-yellow-lightest !default;
 
 // Utility Colors Variables
-$c-error:                $c-error-red !default;
-$c-error-lighter:        $c-error-red-lighter !default;
-$c-error-lightest:       $c-error-red-lightest !default;
-$c-warning:              $c-duckling-yellow !default;
-$c-success:              $c-berkshires-green !default;
-$c-focus:                $c-focus-hightlight !default;
-$c-link:                 $c-bay-blue-40-tint !default;// For non text link elements
-$c-visited:              $c-independence-cranberry-10-tint !default;
+$c-error: $c-error-red !default;
+$c-error-lighter: $c-error-red-lighter !default;
+$c-error-lightest: $c-error-red-lightest !default;
+$c-warning: $c-duckling-yellow !default;
+$c-success: $c-berkshires-green !default;
+$c-focus: $c-focus-hightlight !default;
+$c-link: $c-bay-blue-40-tint !default; // For non text link elements
+$c-visited: $c-independence-cranberry-10-tint !default;
 
-$c-font-base:            $c-gray-darkest !default;
-$c-font-detail:          $c-gray-dark !default;
-$c-font-dark:            $c-gray-darkest !default;
-$c-font-medium:          $c-gray !default;
+$c-font-base: $c-gray-darkest !default;
+$c-font-detail: $c-gray-dark !default;
+$c-font-dark: $c-gray-darkest !default;
+$c-font-medium: $c-gray !default;
 
-$c-font-heading:         $c-gray-darkest !default;
-$c-font-inverse:         $c-white !default;
-$c-font-link:            $c-bay-blue !default;
-$c-font-error:           $c-error !default;
+$c-font-heading: $c-gray-darkest !default;
+$c-font-inverse: $c-white !default;
+$c-font-link: $c-bay-blue !default;
+$c-font-error: $c-error !default;
 
-$c-bg:                   $c-white !default;
-$c-bg-comp-title:        $c-gray-dark !default;
-$c-bg-subtle:            $c-gray-lightest !default;
-$c-bg-section:           $c-gray-lightest !default;
+$c-bg: $c-white !default;
+$c-bg-comp-title: $c-gray-dark !default;
+$c-bg-subtle: $c-gray-lightest !default;
+$c-bg-section: $c-gray-lightest !default;
 
-$c-bd:                   $c-gray-light !default;
-$c-bd-divider:           $c-gray-light !default;
-$c-bd-divider-dark:      $c-gray-dark !default;
-$c-bd-error:             $c-error !default;
-$c-bd-input:             $c-gray !default;
+$c-bd: $c-gray-light !default;
+$c-bd-divider: $c-gray-light !default;
+$c-bd-divider-dark: $c-gray-dark !default;
+$c-bd-error: $c-error !default;
+$c-bd-input: $c-gray !default;
 
 // Box shadow
-$c-box-shadow-black:      rgba($c-black, 0.25) !default;
+$c-box-shadow-black: var(--mf-c-black-25) !default;
 
 :root {
-    --mf-c-primary:              #{$c-primary};
-    --mf-c-primary-light:        #{$c-primary-light};
-    --mf-c-primary-lighter:      #{$c-primary-lighter};
-    --mf-c-primary-lightest:     #{$c-primary-lightest};
-    --mf-c-primary-alt:          #{$c-primary-alt};
-    --mf-c-primary-alt-lighter:  #{$c-primary-alt-lighter};
-    --mf-c-primary-alt-lightest: #{$c-primary-alt-lightest};
-    --mf-c-primary-alt-dark:     #{$c-primary-alt-dark};
-    --mf-c-highlight:            #{$c-highlight};
-    --mf-c-highlight-lighter:    #{$c-highlight-lighter};
-    --mf-c-highlight-lightest:   #{$c-highlight-lightest};
+  --mf-c-primary: #{$c-primary};
+  --mf-c-primary-light: #{$c-primary-light};
+  --mf-c-primary-lighter: #{$c-primary-lighter};
+  --mf-c-primary-lightest: #{$c-primary-lightest};
+  --mf-c-primary-alt: #{$c-primary-alt};
+  --mf-c-primary-alt-lighter: #{$c-primary-alt-lighter};
+  --mf-c-primary-alt-lightest: #{$c-primary-alt-lightest};
+  --mf-c-primary-alt-dark: #{$c-primary-alt-dark};
+  --mf-c-highlight: #{$c-highlight};
+  --mf-c-highlight-lighter: #{$c-highlight-lighter};
+  --mf-c-highlight-lightest: #{$c-highlight-lightest};
 
-    --mf-c-error:                #{$c-error};
-    --mf-c-error-lighter:        #{$c-error-lighter};
-    --mf-c-error-lightest:       #{$c-error-lightest};
-    --mf-c-warning:              #{$c-warning};
-    --mf-c-success:              #{$c-success};
-    --mf-c-focus:                #{$c-focus};
-    --mf-c-link:                 #{$c-link};
-    --mf-c-visited:              #{$c-visited};
+  --mf-c-error: #{$c-error};
+  --mf-c-error-lighter: #{$c-error-lighter};
+  --mf-c-error-lightest: #{$c-error-lightest};
+  --mf-c-warning: #{$c-warning};
+  --mf-c-success: #{$c-success};
+  --mf-c-focus: #{$c-focus};
+  --mf-c-link: #{$c-link};
+  --mf-c-visited: #{$c-visited};
 
-    --mf-c-font-base:            #{$c-font-base};
-    --mf-c-font-detail:          #{$c-font-detail};
-    --mf-c-font-dark:            #{$c-font-dark};
-    --mf-c-font-medium:          #{$c-font-medium};
+  --mf-c-font-base: #{$c-font-base};
+  --mf-c-font-detail: #{$c-font-detail};
+  --mf-c-font-dark: #{$c-font-dark};
+  --mf-c-font-medium: #{$c-font-medium};
 
-    --mf-c-font-heading:         #{$c-font-heading};
-    --mf-c-font-inverse:         #{$c-font-inverse};
-    --mf-c-font-link:            #{$c-font-link};
-    --mf-c-font-error:           #{$c-font-error};
+  --mf-c-font-heading: #{$c-font-heading};
+  --mf-c-font-inverse: #{$c-font-inverse};
+  --mf-c-font-link: #{$c-font-link};
+  --mf-c-font-error: #{$c-font-error};
 
-    --mf-c-bg:                   #{$c-bg};
-    --mf-c-bg-comp-title:        #{$c-bg-comp-title};
-    --mf-c-bg-subtle:            #{$c-bg-subtle};
-    --mf-c-bg-section:           #{$c-bg-section};
+  --mf-c-bg: #{$c-bg};
+  --mf-c-bg-comp-title: #{$c-bg-comp-title};
+  --mf-c-bg-subtle: #{$c-bg-subtle};
+  --mf-c-bg-section: #{$c-bg-section};
 
-    --mf-c-bd:                   #{$c-bd};
-    --mf-c-bd-divider:           #{$c-bd-divider};
-    --mf-c-bd-divider-dark:      #{$c-bd-divider-dark};
-    --mf-c-bd-error:             #{$c-bd-error};
-    --mf-c-bd-input:             #{$c-bd-input};
+  --mf-c-bd: #{$c-bd};
+  --mf-c-bd-divider: #{$c-bd-divider};
+  --mf-c-bd-divider-dark: #{$c-bd-divider-dark};
+  --mf-c-bd-error: #{$c-bd-error};
+  --mf-c-bd-input: #{$c-bd-input};
 
-    --mf-c-box-shadow-black:     #{$c-box-shadow-black};
+  --mf-c-box-shadow-black: #{$c-box-shadow-black};
 }

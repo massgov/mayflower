@@ -21,7 +21,7 @@
 
 .ma__colored-heading {
 
-  @include ma-heading-colored($c-bg-comp-title);
+  @include ma-heading-colored(var(--mf-c-bg-comp-title));
 
   &--green {
     background-color: var(--mf-c-primary-alt);

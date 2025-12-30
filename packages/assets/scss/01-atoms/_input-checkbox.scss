@@ -141,9 +141,8 @@
     // Light theme
 
     label:after {
-
-      background-color: rgba($c-bg, 0.1);
-      border-color: rgba($c-bd-input, 0.5);
+      background-color: var(--mf-c-bg-10);
+      border-color: var(--mf-c-bd-input-50);
     }
   }
 }

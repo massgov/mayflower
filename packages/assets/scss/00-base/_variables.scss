@@ -108,3 +108,7 @@ $letter-spacing-default: 0;
 
 // Box shadow
 $box-shadow: 0 0.25rem 0.5rem var(--mf-c-box-shadow-black) !default;
+
+:root {
+  --mf-box-shadow: 0 0.25rem 0.5rem var(--mf-c-box-shadow-black);
+}

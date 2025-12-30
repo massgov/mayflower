@@ -1,9 +1,11 @@
 @use "00-base/configure" as *;
 
-
 .ma__footer-links {
 
-  @include clearfix;
+  @media ($bp-small-min) {
+
+    @include ma-grid(9);
+  }
 
   &__items {
 
@@ -18,7 +20,8 @@
     }
   }
 
-  &__nav {// react version
+  &__nav {
+    // react version
 
     &--heading {
       border-bottom: none;
@@ -39,7 +42,7 @@
     font-weight: $fonts-normal;
 
     &:hover {
-      border-bottom-color: rgba($c-font-dark,.5);
+      border-bottom-color: var(--mf-c-font-dark-50);
     }
   }
 }
@@ -65,14 +68,6 @@
   }
 
   @media ($bp-small-min) {
-
-    @include span-columns(3 of 9);
-  }
-
-  @media ($bp-x-large-min) {
-
-    @include span-columns(2 of 9);
-
-    @include shift(1 of 9);
+    grid-column: span 3;
   }
 }

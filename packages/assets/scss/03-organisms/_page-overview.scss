@@ -12,11 +12,9 @@
     @include ma-container();
   }
 
-
   &__event-image {
 
     @media ($bp-small-min) {
-      // @include span-columns(4 of 8);
       float: right;
       font-size: 0;
       margin-left: 2.43902%;

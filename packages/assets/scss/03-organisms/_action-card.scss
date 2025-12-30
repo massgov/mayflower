@@ -38,14 +38,17 @@
 
   &__items {
 
-    @include clearfix;
+    @media ($bp-medium-min) {
+
+      @include ma-grid(2);
+    }
   }
 
   &__item {
 
     @include ma-valign-block;
     cursor: pointer;
-    font-size: 0;  //valign fix
+    font-size: 0; //valign fix
     margin-bottom: 20px;
     padding: 30px 20px;
     width: 100%;
@@ -55,16 +58,9 @@
     }
 
     @media ($bp-medium-min) {
-
-      @include span-columns(6);
-
-      @include omega(2n);
       height: 215px;
       padding: 40px 20px;
-
-      &:nth-last-child(2) {
-        margin-bottom: 0;
-      }
+      margin-bottom: 0;
     }
 
     @media ($bp-large-min) {
@@ -159,17 +155,17 @@
 
   &__title {
 
-    @include ma-border-decorative($c-primary-alt);
+    @include ma-border-decorative(var(--mf-c-primary-alt-50));
   }
 
   &__item {
 
     @include ma-link-transition;
     background-color: var(--mf-c-bg-subtle);
-    box-shadow: $box-shadow;
+    box-shadow: var(--mf-box-shadow);
 
     &:hover {
-      background-color: darken($c-bg-subtle, 10%);
+      background-color: var(--mf-c-bg-subtle-black-90);
 
       a {
         border-bottom-color: var(--mf-c-font-link);
@@ -180,7 +176,7 @@
       background-color: var(--mf-c-primary);
 
       &:hover {
-        background-color: rgba($c-primary,.8);
+        background-color: var(--mf-c-primary-80);
 
         a {
           border-bottom-color: var(--mf-c-font-inverse);
@@ -192,7 +188,7 @@
       background-color: var(--mf-c-primary-alt);
 
       &:hover {
-        background-color: rgba($c-primary-alt,.8);
+        background-color: var(--mf-c-primary-alt-80);
 
         a {
           border-bottom-color: var(--mf-c-font-inverse);
@@ -204,7 +200,7 @@
       background-color: var(--mf-c-gray-dark);
 
       &:hover {
-        background-color: rgba($c-gray-dark,.8);
+        background-color: var(--mf-c-gray-dark-80);
 
         a {
           border-bottom-color: var(--mf-c-font-inverse);
@@ -217,7 +213,7 @@
 
     svg,
     svg > g {
-      fill: rgba($c-font-medium,.7);
+      fill: var(--mf-c-font-medium-70);
     }
   }
 
@@ -227,20 +223,20 @@
 
     svg,
     svg > g {
-      fill: rgba($c-font-inverse,.7);
+      fill: var(--mf-c-font-inverse-70);
     }
   }
 
   &__category {
-    color: rgba($c-font-base,.85);
+    color: var(--mf-c-font-base-85);
     font-weight: $fonts-bold;
   }
 
   &__item--blue &__category,
   &__item--green &__category,
   &__item--dark-gray &__category {
-    color: rgba($c-font-inverse,.8);
-    text-shadow: 0 0.125rem 0.125rem rgba($c-black, 0.5);
+    color: var(--mf-c-font-inverse-80);
+    text-shadow: 0 0.125rem 0.125rem var(--mf-c-black-50);
   }
 
   &__link {
@@ -267,7 +263,7 @@
     }
 
     svg {
-      fill: rgba(var(--mf-c-font-inverse), .5);
+      fill: var(--mf-c-font-inverse-50);
     }
   }
 }
