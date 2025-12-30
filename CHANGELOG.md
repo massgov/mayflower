@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 14.1.2 (12/29/2025)
+### Fixed 
+- (circleci) [npm publilc] Fixed failed npm version. (#2032)
+
 ## 14.1.1 (12/8/2025)
 ### Fixed 
 - (Patternlab, Core, React, Site, Assets) [update-version.js] DP-42327: Update release script to make all packages vesions, dependencies, and peer-dependencies consistent (#2030)
