@@ -17,19 +17,22 @@
       "sections": ".ma__information-details__content h2"
     }
   },
-  "breadcrumbs":{
+  "breadcrumbs": {
     "light": true,
-    "links": [{
-      "text": "Home",
-      "url": "/"
-    },{
-      "text": "Unemployment",
-      "url": "/"
-    },
-    {
-      "text": "Training & Assistance",
-      "url": "/"
-    }]
+    "links": [
+      {
+        "text": "Home",
+        "url": "/"
+      },
+      {
+        "text": "Unemployment",
+        "url": "/"
+      },
+      {
+        "text": "Training & Assistance",
+        "url": "/"
+      }
+    ]
   },
   "relationshipIndicators": {
     "pageTitle": "Why is habitat management needed?",
@@ -410,45 +413,5 @@
       ]
     }
   },
-  "sidebar": {
-    "coloredHeadings": false,
-    "contactList": {
-      "viewSpecific": true,
-      "sidebarHeading": {
-        "title": "Contact",
-        "titleContext": ""
-      },
-      "contacts": [
-        {
-          "accordion": false,
-          "isExpanded": false,
-          "subTitle": {
-            "href": "",
-            "text": "MassWildlife",
-            "chevron": ""
-          },
-          "groups": [
-            {
-              "icon": "phone",
-              "name": "Phone",
-              "items": [
-                {
-                  "type": "phone",
-                  "property": "",
-                  "label": "Main:",
-                  "link": {
-                    "href": "+16174438765",
-                    "text": "(617) 443-8765",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  }
+  "sidebar": {}
 }
