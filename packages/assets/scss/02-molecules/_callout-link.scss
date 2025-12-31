@@ -49,7 +49,10 @@
   &__text {
 
     @include ma-link-underline;
-    align-items: center;
+
+    svg {
+      margin-bottom: -0.1em;
+    }
   }
 
   &__description {
