@@ -81,6 +81,6 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp prod",
-    "gulp": "gulp"
+    "icons": "gulp icons"
   }
 }

@@ -27,14 +27,10 @@
       top: 16%;
       left: 0;
     width: 30px;
+    color: var(--mf-c-primary-alt);
 
     @media ($bp-medium-min) {
       top: 10%;
-    }
-
-    & > svg {
-      height: 30px;
-      width: 30px;
     }
   }
 

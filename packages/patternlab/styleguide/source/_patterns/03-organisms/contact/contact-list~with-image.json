@@ -103,7 +103,7 @@
           "details":""
         }]
       },{
-        "icon": "fax-icon",
+        "icon": "fax",
         "name": "Fax",
         "items": [{
           "type": "fax",

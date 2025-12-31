@@ -132,7 +132,7 @@
         },
         "items": [
           {
-            "icon": "twitter",
+            "icon": "x-logo",
             "link": {
               "href": "#",
               "text": "@Twitter - optional",
@@ -140,7 +140,7 @@
             }
           },
           {
-            "icon": "flickr",
+            "icon": "flickr-logo",
             "link": {
               "href": "#",
               "text": "Flickr - optional",
@@ -536,7 +536,7 @@
             ]
           },
           {
-            "icon": "fax-icon",
+            "icon": "fax",
             "name": "Fax",
             "items": [
               {
@@ -668,7 +668,7 @@
             ]
           },
           {
-            "icon": "fax-icon",
+            "icon": "fax",
             "name": "Fax",
             "items": [
               {

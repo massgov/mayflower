@@ -2,7 +2,7 @@
 
 use PatternLab\Config;
 
-$function = new Twig_SimpleFunction('icon', function ($name) {
+$function = new Twig_SimpleFunction('icon', function ($name, $width = '24', $height = '24', $class = '', $bold = true) {
   // Note: Temporary BC layer for turning icon twig files into direct
   // filename references. This exists only so we don't break anything
   // terribly while working this function into general use. Going forward,
@@ -11,19 +11,59 @@ $function = new Twig_SimpleFunction('icon', function ($name) {
     $iconname = pathinfo($name, PATHINFO_FILENAME);
     $name = preg_replace('/^svg-/', '', $iconname);
   }
-  $path = sprintf(Config::getOption('publicDir') . '/assets/images/icons/%s.svg', $name);
+  
+  // Determine the icon path based on bold parameter
+  if ($bold) {
+    $iconPath = 'bold/' . $name . '--bold';
+  } else {
+    $iconPath = $name;
+  }
+  
+  $path = sprintf(Config::getOption('publicDir') . '/assets/images/icons/%s.svg', $iconPath);
 
-  // Return two SVGs:
-  // <svg><use id="abc" /></svg>
-  // <svg><symbol id="abc">...</symbol></svg>
-  // This allows us to mirror what mass.gov is doing for styling purposes.
   $helper = new \PatternLab\IconHelper();
   $id = $helper->getId($path);
   $svg = $helper->load($path);
   $svg->setAttribute('id', $id);
+  
+  // Set dimensions on the symbol itself
+  if ($width || $height) {
+    $svg->setAttribute('width', $width ?: $height);
+    $svg->setAttribute('height', $height ?: $width);
+  }
+  
   $symbol = $helper->exportAsSymbol($svg);
+  
+  // Modify the symbol to include width/height
+  if ($width || $height) {
+    $symbol = preg_replace(
+      '/<symbol([^>]*)>/',
+      sprintf(
+        '<symbol$1 width="%s" height="%s">',
+        $width ?: $height,
+        $height ?: $width
+      ),
+      $symbol
+    );
+  }
 
-  return $helper->getSvgUse($id) . $helper->wrapSymbols([$symbol]);
+  $useElement = $helper->getSvgUse($id);
+  
+  // Also set dimensions on the use element's SVG wrapper
+  if ($width || $height || $class) {
+    $useElement = preg_replace(
+      '/<svg([^>]*)>/',
+      sprintf(
+        '<svg$1%s%s%s>',
+        $width ? ' width="' . $width . '"' : '',
+        $height ? ' height="' . $height . '"' : '',
+        $class ? ' class="' . $class . '"' : ''
+      ),
+      $useElement
+    );
+  }
+
+  return $useElement . $helper->wrapSymbols([$symbol]);
 }, [
   'is_safe' => ['html']
 ]);

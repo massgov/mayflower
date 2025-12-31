@@ -37,7 +37,7 @@
       "accordion": true,
       "isExpanded": true,
       "accordionLabel": "Expand step for doing this in person",
-      "icon":"circle-chevron",
+      "icon":"caret-circle-right",
       "title":"Some Other Method",
       "richText": {
         "rteElements": [{
@@ -101,7 +101,7 @@
       "accordion": true,
       "isExpanded": false,
       "accordionLabel": "Expand step for doing this in person",
-      "icon":"fax-icon",
+      "icon":"fax",
       "title":"By Fax",
       "richText": {
         "rteElements": [{

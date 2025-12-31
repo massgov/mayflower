@@ -19,14 +19,10 @@
   }
 
   &__icon {
-    height: 40px;
-    margin-bottom: 18px;
     text-align: center;
 
     & > svg {
-      height: 100%;
-      width: 100%;
-      fill: var(--mf-c-primary-alt);
+      color: var(--mf-c-primary-alt);
     }
   }
 

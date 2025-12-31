@@ -121,7 +121,7 @@
         },
         "items": [
           {
-            "icon": "twitter",
+            "icon": "x-logo",
             "link": {
               "href": "#",
               "text": "Optional Socia Media",
@@ -129,7 +129,7 @@
             }
           },
           {
-            "icon": "flickr",
+            "icon": "flickr-logo",
             "link": {
               "href": "#",
               "text": "ScreenName",
@@ -403,7 +403,7 @@
             ]
           },
           {
-            "icon": "fax-icon",
+            "icon": "fax",
             "name": "Fax",
             "items": [
               {

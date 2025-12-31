@@ -17,7 +17,7 @@ import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 // eslint-disable-next-line import/no-unresolved
 import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
 // eslint-disable-next-line import/no-unresolved
-import IconLatlonglobe from 'MayflowerReactBase/Icon/IconLatlonglobe';
+import IconGlobe from 'MayflowerReactBase/Icon/IconGlobe';
 
 class UtilityNav extends React.Component {
   constructor(props) {
@@ -81,7 +81,7 @@ const GoogleLanguages = () => (
     <div className="ma__utility-nav__translate">
       <div id="google_translate_element" />
       <div className="ma__utility-nav__translate-icon">
-        <IconLatlonglobe />
+        <IconGlobe />
       </div>
     </div>
   </li>

@@ -23,12 +23,12 @@
     border: 3px solid;
     display: block;
     padding: 15px 20px;
-    padding-left: 65px;
+    padding-left: 60px;
     position: relative;
 
     @media ($bp-small-min) {
       padding: 30px;
-      padding-left: 100px;
+      padding-left: 72px;
     }
   }
 
@@ -41,16 +41,6 @@
 
     @media ($bp-small-min) {
       left: 30px;
-    }
-
-    & > svg {
-      height: 48px;
-      width: 44px;
-
-      @media ($bp-small-max) {
-        height: 36px;
-        width: 34px;
-      }
     }
   }
 
@@ -66,9 +56,7 @@
 
       svg {
         display: inline-block;
-        height: .6em;
-        margin-right: -18px;
-        width: .6em;
+        padding-top: 0.1em;
       }
     }
   }
@@ -86,22 +74,14 @@
   //default
 
   &__content {
+    color: var(--mf-c-font-base);
     background-color: mix($c-white, $c-warning, 90%);
     border-color: mix($c-white, $c-warning, 50%);
     box-shadow: $box-shadow;
   }
 
-  &__icon svg {
-    fill: var(--mf-c-warning);
-  }
-
   &__link {
-    color: var(--mf-c-font-base);
     font-weight: bold;
-
-    svg {
-      fill: rgba($c-font-dark,.5);
-    }
   }
 
   &:hover &__link span {
@@ -116,20 +96,12 @@
     box-shadow: $box-shadow;
   }
 
-  &--c-primary &__icon svg {
-    fill: var(--mf-c-primary);
-  }
-
   //c-primary-alt
 
   &--c-primary-alt &__content {
     background-color: mix($c-white, $c-primary-alt, 90%);
     border-color: mix($c-white, $c-primary-alt, 50%);
     box-shadow: $box-shadow;
-  }
-
-  &--c-primary-alt &__icon svg {
-    fill: var(--mf-c-primary-alt);
   }
 
   //c-gray-dark
@@ -140,10 +112,6 @@
     box-shadow: $box-shadow;
   }
 
-  &--c-gray-dark &__icon svg {
-    fill: var(--mf-c-gray-dark);
-  }
-
   //c-error-red
 
   &--c-error-red &__content {
@@ -152,20 +120,12 @@
     box-shadow: $box-shadow;
   }
 
-  &--c-error-red &__icon svg {
-    fill: var(--mf-c-error-red);
-  }
-
   //c-white
 
   &--c-white &__content {
     background-color: mix($c-white, $c-white, 90%);
     border-color: mix($c-white, $c-gray-dark, 50%);
     box-shadow: $box-shadow;
-  }
-
-  &--c-white &__icon svg {
-    fill: var(--mf-c-white);
   }
 
 }

@@ -22,9 +22,7 @@
 
     svg {
       display: inline-block;
-      height: 45px;
       vertical-align: middle;
-      width: 60px;
     }
   }
 
@@ -69,7 +67,7 @@
   &__header {
 
     svg {
-      fill: var(--mf-c-highlight);
+      color: var(--mf-c-highlight);
     }
   }
 }

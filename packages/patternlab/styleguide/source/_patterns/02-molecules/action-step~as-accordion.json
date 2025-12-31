@@ -3,7 +3,7 @@
     "accordion": true,
     "isExpanded": false,
     "accordionLabel": "Expand Generic steps on completing something",
-    "icon": "circle-chevron",
+    "icon": "caret-circle-right",
     "title": "Generic",
     "richText": {
       "rteElements": [{

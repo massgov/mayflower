@@ -10,12 +10,7 @@
     font-size: 0;
 
     & > svg {
-      height: 18px;
-      width: 20px;
-
-      &, path {
-        fill: var(--mf-c-primary-alt);
-      }
+      color: var(--mf-c-primary-alt);
     }
   }
 

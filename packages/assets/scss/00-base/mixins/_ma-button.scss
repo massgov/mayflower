@@ -31,7 +31,7 @@
         color: var(--mf-c-primary);
 
         svg {
-          fill: var(--mf-c-primary);
+          color: var(--mf-c-primary);
         }
 
         &:hover:not(:disabled) {
@@ -42,13 +42,13 @@
         color: var(--mf-c-gray-darkest);
 
         svg {
-          fill: var(--mf-c-gray-darkest);
+          color: var(--mf-c-gray-darkest);
         }
       } @else {
         color: var(--mf-c-font-inverse);
 
         svg {
-          fill: var(--mf-c-font-inverse);
+          color: var(--mf-c-font-inverse);
         }
       }
 
@@ -67,14 +67,14 @@
         border-color: rgba($c-highlight,.5);
 
         svg {
-          fill: var(--mf-c-gray-darkest);
+          color: var(--mf-c-gray-darkest);
         }
 
         &:hover:not(:disabled) {
           color: var(--mf-c-gray-darkest);
 
           svg {
-            fill: var(--mf-c-gray-darkest);
+            color: var(--mf-c-gray-darkest);
           }
         }
 
@@ -82,14 +82,14 @@
         color: $color;
 
         svg {
-          fill: $color;
+          color: $color;
         }
 
         &:hover:not(:disabled) {
           color: var(--mf-c-font-inverse);
 
           svg {
-            fill: var(--mf-c-font-inverse);
+            color: var(--mf-c-font-inverse);
           }
         }
       }
@@ -102,11 +102,6 @@
   @if ($size == "normal") {
     font-size: $fonts-medium;
     line-height: 1.4;
-
-    svg {
-      width: $fonts-medium;
-      height: $fonts-medium;
-    }
   }
 
   // small
@@ -114,11 +109,6 @@
   @if ($size == "small") {
     font-size: $fonts-small;
     line-height: 1.2;
-
-    svg {
-      width: $fonts-small;
-      height: $fonts-small;
-    }
   }
 
   // large
@@ -126,10 +116,5 @@
   @if ($size == "large") {
     font-size: $fonts-large;
     line-height: 1.61;
-
-    svg {
-      width: $fonts-large;
-      height: $fonts-large;
-    }
   }
 }

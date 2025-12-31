@@ -4,7 +4,6 @@
 
   @include ma-link-decorative;
   display: inline-block;
-  vertical-align: middle;
   width: 100%;
 
   a:hover {
@@ -14,10 +13,6 @@
   a:focus {
     // important needed to overwrite the focus border color
     border-bottom-color: var(--mf-c-link) !important;
-  }
-
-  svg {
-    fill: var(--mf-c-font-link);
   }
 
   &--inverse {
@@ -34,10 +29,6 @@
       // important needed to overwrite the focus border color
       border-bottom-color: rgba($c-font-inverse,.5) !important;
     }
-
-    svg {
-      fill: rgba($c-font-inverse,.5);
-    }
   }
 
   &.button-link {
@@ -53,10 +44,6 @@
 
       a {
         border-bottom-color: transparent;
-
-        svg {
-          fill: rgba($c-font-link, 1);
-        }
       }
     }
   }
@@ -72,12 +59,6 @@
       align-self: center;
       top: .3em;
       position: relative;
-
-      svg {
-        margin-right: 0;
-        width: 29px;
-        height: 30px;
-      }
     }
   }
 

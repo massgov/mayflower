@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Image from 'MayflowerReactMedia/Image';
-import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
 import IconLock from 'MayflowerReactBase/Icon/IconLock';
 
@@ -72,7 +72,7 @@ const BrandBanner = ({
           <span>&nbsp;&nbsp;&nbsp;</span>
           <span className={brandBannerToggleClasses}>
             <span>Here&apos;s how you know</span>
-            <IconChevron />
+            <IconCaretDown />
           </span>
         </span>
       </button>

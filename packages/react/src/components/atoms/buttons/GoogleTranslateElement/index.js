@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-unresolved
-import IconLatlonglobe from 'MayflowerReactBase/Icon/IconLatlonglobe';
+import IconGlobe from 'MayflowerReactBase/Icon/IconGlobe';
 import useScript from 'MayflowerReactComponents/hooks/use-script';
 
 const GoogleTranslateElement = ({ id = 'google_translate_element' }) => {
@@ -14,7 +14,7 @@ const GoogleTranslateElement = ({ id = 'google_translate_element' }) => {
     <React.Fragment>
       <div id={id} className={classes} />
       <div className="ma__utility-nav__translate-icon">
-        <IconLatlonglobe />
+        <IconGlobe />
       </div>
     </React.Fragment>
   );

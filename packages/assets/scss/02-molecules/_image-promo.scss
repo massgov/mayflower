@@ -68,9 +68,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
     }
 
     svg {
-      fill: var(--mf-c-primary-alt);
-      height: 30px;
-      width: 30px;
+      color: var(--mf-c-primary-alt);
     }
   }
 
@@ -105,7 +103,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
 
     svg {
       display: inline-block;
-      fill: var(--mf-c-primary-alt);
+      color: var(--mf-c-primary-alt);
       height: 20px;
       margin-right: 0.5rem;
       width: 20px;

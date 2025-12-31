@@ -5,7 +5,7 @@ import HeaderHamburger from '@massds/mayflower-react/dist/HeaderHamburger';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
 import IconSearch from '@massds/mayflower-react/dist/Icon/IconSearch';
-import IconLatlonglobe from '@massds/mayflower-react/dist/Icon/IconLatlonglobe';
+import IconGlobe from '@massds/mayflower-react/dist/Icon/IconGlobe';
 import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
@@ -52,7 +52,7 @@ const headerUtil = (
     utilityNav={(
       <>
         <a className="ma__header_slim__utility-link" href="#main-content">
-          <IconLatlonglobe fill="#fff" />
+          <IconGlobe fill="#fff" />
           English
         </a>
         <a className="ma__header_slim__utility-link" href="#main-content">
@@ -83,7 +83,7 @@ const headerUtilSearch = (
     utilityNav={(
       <>
         <a className="ma__header_slim__utility-link" href="#main-content">
-          <IconLatlonglobe fill="#fff" />
+          <IconGlobe fill="#fff" />
           English
         </a>
         <a className="ma__header_slim__utility-link" href="#main-content">

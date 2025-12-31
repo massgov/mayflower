@@ -193,7 +193,7 @@
                 },
                 "items": [
                   {
-                    "icon": "facebook",
+                    "icon": "facebook-logo",
                     "link": {
                       "href": "#",
                       "text": "MassRevenue Facebook",
@@ -201,7 +201,7 @@
                     }
                   },
                   {
-                    "icon": "twitter",
+                    "icon": "x-logo",
                     "link": {
                       "href": "#",
                       "text": "MassRevenue Twitter",
@@ -209,7 +209,7 @@
                     }
                   },
                   {
-                    "icon": "youtube",
+                    "icon": "youtube-logo",
                     "link": {
                       "href": "#",
                       "text": "DOR Media YouTube",
@@ -225,7 +225,7 @@
                     }
                   },
                   {
-                    "icon": "linkedin",
+                    "icon": "linkedin-logo",
                     "link": {
                       "href": "#",
                       "text": "MassRevenue Linkedin",
@@ -400,7 +400,7 @@
                 ]
               },
               "faxContactGroup": {
-                "icon": "fax-icon",
+                "icon": "fax",
                 "name": "Fax",
                 "items": [
                   {

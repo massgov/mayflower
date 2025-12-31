@@ -1,5 +1,4 @@
 $location-listing--gutter-width: 30px;
-$location-listing--tags-size: 25px;
 $location-listin--map-min-width: 315px;
 
 @use "00-base/configure" as *;
@@ -204,11 +203,6 @@ $location-listin--map-min-width: 315px;
         &:first-child {
           margin-left: 0;
         }
-      }
-
-      svg {
-        height: $location-listing--tags-size;
-        width: $location-listing--tags-size;
       }
     }
 

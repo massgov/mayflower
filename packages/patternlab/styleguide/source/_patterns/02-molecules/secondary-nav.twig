@@ -14,12 +14,8 @@
           {% if item.subNav %}
             <button type="button" id="{{ buttonId }}" class="ma__secondary-nav__top-link-trigger js-secondary-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-hidden="true">
               <span class="ma__visually-hidden">Show the sub topics of {{item.text}}</span>
-              {% include "@atoms/05-icons/svg-chevron.twig" with {
-                additionalClasses: 'ma__secondary-nav__top-link-icon'
-              } %}
-              {% include "@atoms/05-icons/svg-plus.twig" with {
-                additionalClasses: 'ma__secondary-nav__top-link-icon'
-              } %}
+              {{ icon('caret-down', '24px', '24px','icon-chevron ma__secondary-nav__top-link-icon') }}
+              {{ icon('plus', '24px', '24px', 'icon-plus ma__secondary-nav__top-link-icon') }}
             </button>
             <div class="ma__secondary-nav__subitems-container js-secondary-nav-content">
               <ul id="{{ menuId }}" aria-labelledby="{{ buttonId }}" class="ma__secondary-nav__subitems">

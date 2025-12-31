@@ -113,9 +113,7 @@ $breadcrumbs-scrollbar-height: 12px;
     }
 
     svg {
-      width: 18px;
-      height: 15px;
-      margin-bottom: -2px;
+      margin-bottom: -4px;
       transition: opacity 0.4s;
     }
 
@@ -163,9 +161,8 @@ $breadcrumbs-scrollbar-height: 12px;
 
       svg {
         fill: var(--mf-c-primary);
-        stroke: var(--mf-c-primary);
-        transition: fill 0.4s, stroke 0.4s;
-        will-change: fill, stroke;
+        transition: fill 0.4s;
+        will-change: fill;
       }
 
       &:hover {
