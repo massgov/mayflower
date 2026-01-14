@@ -84,8 +84,6 @@ ButtonWithIcon.propTypes = {
   expanded: PropTypes.bool,
   // Adds capitalized class to button if true.
   capitalized: PropTypes.bool,
-  // Defines the size, default size fits the most square icons and "small" setting is specific for the chevron icon.
-  iconSize: PropTypes.oneOf(['', 'small']),
   /** The aria-label property is used to provide the label to any assistive
    * technologies. This is useful if the text value is not descriptive of the
    * button's functionality. */
