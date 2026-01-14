@@ -1,6 +1,7 @@
 @use "00-base/configure" as *;
 
 .ma__category-icon {
+
   @include ma-valign-block;
   display: inline-block;
   font-size: 0;
