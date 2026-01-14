@@ -35,10 +35,18 @@ function ensureAssetsDir(cb) {
 }
 
 function copyIconsFromAssets() {
-  return src(['./node_modules/@massds/mayflower-assets/static/images/icons/*.svg'])
+  return src(['./node_modules/@massds/mayflower-assets/static/images/icons/**/*.svg'], { base: './node_modules/@massds/mayflower-assets/static/images/icons' })
     .pipe(rename((path) => {
-      // Add "icon-" prefix to the filename
-      path.basename = `icon-${path.basename}`;
+      // Handle bold icons differently
+      if (path.dirname === 'bold') {
+        // For bold icons, keep the --bold suffix and put in bold subdirectory
+        path.dirname = 'bold';
+        path.basename = `icon-${path.basename}`;
+      } else {
+        // For regular icons, add "icon-" prefix and put in root
+        path.dirname = '';
+        path.basename = `icon-${path.basename}`;
+      }
     }))
     .pipe(dest('./src/components/base/Icon/assets'));
 }
