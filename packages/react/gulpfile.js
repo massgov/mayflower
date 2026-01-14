@@ -65,10 +65,13 @@ function generateIconKnobOptions() {
   }
   
   const svgFiles = fs.readdirSync(assetsDir)
-    .filter(file => file.endsWith('.svg'))
+    .filter(file => file.endsWith('.svg') && !file.includes('--bold')) // Only regular icons
     .map(file => {
       // Remove 'icon-' prefix and '.svg' extension
       let iconName = path.basename(file, '.svg');
+      if (iconName.startsWith('icon-')) {
+        iconName = iconName.substring(5);
+      }
       // Convert kebab-case to PascalCase
       const pascalCaseName = iconName
         .split('-')
@@ -90,6 +93,12 @@ ${assetsEntries.join(',\n')}
 export const svgOptions = {
   choose: '',
   ...assets
+};
+
+// For Storybook controls
+export const boldOptions = {
+  'Bold (default)': true,
+  'Regular': false
 };
 `;
   
