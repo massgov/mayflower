@@ -99,7 +99,8 @@ const NavItem = (obj) => {
     id: divId
   };
   const iconProps = {
-    ariaHidden: true
+    height: 20,
+    width: 18
   };
   const IconComponent = item.icon === 'building' ? IconBuilding : IconLogin;
   return(
