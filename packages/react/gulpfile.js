@@ -569,6 +569,10 @@ function cleanIconAssets() {
   return del(['./src/components/base/Icon/assets/*.svg']);
 }
 
+function cleanTsIconAssets() {
+  return del(['types/components/base/Icon/*.tsx']);
+}
+
 const typedSources = [
   ...sources,
 
@@ -584,9 +588,100 @@ const tsDeclarationSources = [
   'types/**/*.tsx',
 ];
 
-function generateTsIcons() {
-  return run('svgr --out-dir ./types/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc-ts.js')()
-}
+function buildDualVariantTsIcons() {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const iconsDir = './src/components/base/Icon/assets';
+  const tsOutputDir = './types/components/base/Icon';
+  
+  // Ensure TypeScript directory exists
+  if (!fs.existsSync(tsOutputDir)) {
+    fs.mkdirSync(tsOutputDir, { recursive: true });
+  }
+  
+  // Get all regular icons (ignore bold variants in main directory)
+  const regularIcons = fs.readdirSync(iconsDir)
+    .filter(file => file.endsWith('.svg') && !file.includes('--bold'))
+    .map(file => path.basename(file, '.svg').replace(/^icon-/, ''));
+  
+  regularIcons.forEach(iconName => {
+    const pascalName = iconName.split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('');
+    
+    const componentName = `Icon${pascalName}`;
+    const regularPath = path.join(iconsDir, `icon-${iconName}.svg`);
+    const boldPath = path.join(iconsDir, 'bold', `icon-${iconName}--bold.svg`);
+    
+    // Read regular SVG
+    const regularSvg = fs.readFileSync(regularPath, 'utf8');
+    
+    // Read bold SVG if it exists, otherwise use regular as fallback
+    let boldSvg = regularSvg;
+    if (fs.existsSync(boldPath)) {
+      boldSvg = fs.readFileSync(boldPath, 'utf8');
+    }
+    
+    // Clean SVG for JSX (same as JS version)
+    const cleanSvgForJsx = (svgString) => {
+      return svgString.trim()
+        .replace(/<svg([^>]*)>/, '<svg$1 {...props}>')
+        .replace(/fill-rule/g, 'fillRule')
+        .replace(/clip-rule/g, 'clipRule')
+        .replace(/stroke-width/g, 'strokeWidth')
+        .replace(/stroke-linecap/g, 'strokeLinecap')
+        .replace(/stroke-linejoin/g, 'strokeLinejoin');
+    };
+    
+    const cleanRegularSvg = cleanSvgForJsx(regularSvg);
+    const cleanBoldSvg = cleanSvgForJsx(boldSvg);
+    
+    // Generate TypeScript component code
+    const tsComponentCode = `// @ts-nocheck
+    import React from 'react';
+
+    export interface ${componentName}Props {
+      bold?: boolean;
+      width?: string | number;
+      height?: string | number;
+      className?: string;
+      fill?: string;
+      'aria-hidden'?: boolean;
+      'aria-label'?: string;
+      [key: string]: any;
+    }
+
+    const ${componentName}: React.FC<${componentName}Props> = (props) => {
+      const { 
+        bold = true, 
+        width = "24px", 
+        height = "24px", 
+        ...restProps 
+      } = props;
+      
+      if (bold) {
+        return (
+          ${cleanBoldSvg.replace('{...props}', 'width={width} height={height} {...restProps}')}
+        );
+      }
+      
+      return (
+        ${cleanRegularSvg.replace('{...props}', 'width={width} height={height} {...restProps}')}
+      );
+    };
+
+    export default ${componentName};
+    `;
+
+        // Write TypeScript file
+        fs.writeFileSync(path.join(tsOutputDir, `${componentName}.tsx`), tsComponentCode);
+        
+        console.log(`Generated TypeScript ${componentName} with dual variants`);
+      });
+      
+      return Promise.resolve();
+    }
 
 function ignoreTsCheckOnIcons() {
   return src(tsIcons, {base: 'types'})
@@ -638,7 +733,7 @@ function convertTsToDeclarations() {
 const generateTsDeclarations = series(
   parallel(
     series(
-      generateTsIcons,
+      buildDualVariantTsIcons,
       ignoreTsCheckOnIcons,
     ),
     series(
@@ -654,6 +749,7 @@ const generateTsDeclarations = series(
 exports.icons = series(
   ensureAssetsDir,
   cleanIconAssets,
+  cleanTsIconAssets,
   copyIconsFromAssets,
   buildDualVariantIcons,
   generateIconKnobOptions,
