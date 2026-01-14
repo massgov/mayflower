@@ -39,7 +39,7 @@ const BrandBanner = ({
   };
 
   const brandBannerToggleClasses = classNames(
-    'ma__brand-banner-button ma__button-icon ma__icon-small ma__button-icon--quaternary',
+    'ma__brand-banner-button ma__button-icon ma__button-icon--quaternary',
     {
       [`ma__button-icon--${brandBannerToggleColor}`]: bgColor && bgTheme,
       active: hovered
@@ -72,7 +72,7 @@ const BrandBanner = ({
           <span>&nbsp;&nbsp;&nbsp;</span>
           <span className={brandBannerToggleClasses}>
             <span>Here&apos;s how you know</span>
-            <IconCaretDown />
+            <IconCaretDown height={16} width={16} />
           </span>
         </span>
       </button>
@@ -85,9 +85,8 @@ const BrandBanner = ({
       >
         <li className="ma__brand-banner-expansion-item">
           <IconBuilding
-            width={30}
-            height={30}
             fill={lightTheme ? '#14558F' : '#fff'}
+            bold={false}
           />
           <div className="ma__brand-banner-expansion-item-content">
             <p>Official websites use .mass.gov</p>
@@ -99,9 +98,8 @@ const BrandBanner = ({
         </li>
         <li className="ma__brand-banner-expansion-item">
           <IconLock
-            width={30}
-            height={30}
             fill={lightTheme ? '#388557' : '#fff'}
+            bold={false}
           />
           <div className="ma__brand-banner-expansion-item-content">
             <p>Secure websites use HTTPS certificate</p>

@@ -43,8 +43,8 @@ ButtonWithIconExample.args = {
   'arial-label': '',
   'aria-haspopup': false,
   icon: 'IconCaretDown',
-  width: 20,
-  height: 20
+  width: 16,
+  height: 16
 };
 ButtonWithIconExample.argTypes = {
   type: {
