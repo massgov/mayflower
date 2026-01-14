@@ -226,13 +226,104 @@ function transpileES6Icons() {
 }
 
 
-async function generateIcons() {
-  return Promise.all([
-    // generate icons in dist
-    run('svgr --out-dir ./dist/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js')(),
-    // generate icons in src
-    run('svgr --out-dir ./src/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js --ext js')()
-  ]);
+async function buildDualVariantIcons() {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const iconsDir = './src/components/base/Icon/assets';
+  const srcOutputDir = './src/components/base/Icon';
+  const distOutputDir = './dist/Icon';
+  
+  // Ensure dist directory exists
+  if (!fs.existsSync(distOutputDir)) {
+    fs.mkdirSync(distOutputDir, { recursive: true });
+  }
+  
+  // Get all regular icons (ignore bold variants in main directory)
+  const regularIcons = fs.readdirSync(iconsDir)
+    .filter(file => file.endsWith('.svg') && !file.includes('--bold'))
+    .map(file => path.basename(file, '.svg').replace(/^icon-/, ''));
+  
+  regularIcons.forEach(iconName => {
+    const pascalName = iconName.split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('');
+    
+    const componentName = `Icon${pascalName}`;
+    const regularPath = path.join(iconsDir, `icon-${iconName}.svg`);
+    const boldPath = path.join(iconsDir, 'bold', `icon-${iconName}--bold.svg`);
+    
+    // Read regular SVG
+    const regularSvg = fs.readFileSync(regularPath, 'utf8');
+    
+    // Read bold SVG if it exists, otherwise use regular as fallback
+    let boldSvg = regularSvg;
+    if (fs.existsSync(boldPath)) {
+      boldSvg = fs.readFileSync(boldPath, 'utf8');
+    }
+    
+    // Clean SVG for JSX
+    const cleanSvgForJsx = (svgString) => {
+      return svgString.trim()
+        .replace(/<svg([^>]*)>/, '<svg$1 {...props}>')
+        .replace(/fill-rule/g, 'fillRule')
+        .replace(/clip-rule/g, 'clipRule')
+        .replace(/stroke-width/g, 'strokeWidth')
+        .replace(/stroke-linecap/g, 'strokeLinecap')
+        .replace(/stroke-linejoin/g, 'strokeLinejoin');
+    };
+    
+    const cleanRegularSvg = cleanSvgForJsx(regularSvg);
+    const cleanBoldSvg = cleanSvgForJsx(boldSvg);
+    
+    // Generate component code
+    const componentCode = `import React from 'react';
+    import PropTypes from 'prop-types';
+
+    const ${componentName} = (props) => {
+      const { 
+        bold = true, 
+        width = "24px", 
+        height = "24px", 
+        ...restProps 
+      } = props;
+      
+      if (bold) {
+        return (
+          ${cleanBoldSvg.replace('{...props}', 'width = {width} height={height} {...restProps}')}
+        );
+      }
+      
+      return (
+        ${cleanRegularSvg.replace('{...props}', 'width = {width} height={height} {...restProps}')}
+      );
+    };
+
+    ${componentName}.propTypes = {
+      bold: PropTypes.bool,
+      width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      className: PropTypes.string,
+      fill: PropTypes.string,
+      'aria-hidden': PropTypes.bool,
+      'aria-label': PropTypes.string,
+    };
+
+    export default ${componentName};
+    `;
+
+    // Write to src/
+    fs.writeFileSync(path.join(srcOutputDir, `${componentName}.js`), componentCode);
+    
+    // Write to dist/ (with .mjs extension)
+    const distCode = componentCode.replace('export default', `export { ${componentName} as default };`);
+    fs.writeFileSync(path.join(distOutputDir, `${componentName}.mjs`), distCode);
+    
+    const variantInfo = fs.existsSync(boldPath) ? 'bold + regular' : 'regular only';
+    console.log(`Generated ${componentName} with ${variantInfo} variants`);
+  });
+  
+  return Promise.resolve();
 }
 
 const aliases = {
@@ -555,7 +646,7 @@ exports.icons = series(
   ensureAssetsDir,
   cleanIconAssets,
   copyIconsFromAssets,
-  generateIcons,
+  buildDualVariantIcons,
   generateIconKnobOptions,
   transpileES5Icons,
   transpileES6Icons
@@ -572,7 +663,7 @@ exports.default = series(
       ensureAssetsDir,
       cleanIconAssets,
       copyIconsFromAssets,
-      generateIcons,
+      buildDualVariantIcons,
       generateIconKnobOptions,
       transpileES5Icons,
       transpileES6Icons
