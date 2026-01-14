@@ -55,7 +55,7 @@ FileDownloadExample.args = {
   href: 'https://www.mass.gov/download',
   details: '(30 MB)',
   showFileIcon: true,
-  fileIcon: <IconDocGeneric width={15} height={15} />
+  fileIcon: <IconDocGeneric bold={false} />
 };
 FileDownloadExample.argTypes = {
   icon: {
