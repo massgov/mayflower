@@ -14,7 +14,7 @@ const GoogleTranslateElement = ({ id = 'google_translate_element' }) => {
     <React.Fragment>
       <div id={id} className={classes} />
       <div className="ma__utility-nav__translate-icon">
-        <IconGlobe />
+        <IconGlobe height={20} width={20} />
       </div>
     </React.Fragment>
   );
