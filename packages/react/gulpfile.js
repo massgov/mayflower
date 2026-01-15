@@ -110,7 +110,10 @@ export const boldOptions = {
 }
 
 function transpileES5Icons() {
-  return src('./dist/Icon/*.mjs')
+  return src([
+      './dist/Icon/*.mjs',
+      './src/components/base/Icon/index.js'
+    ])
     .pipe(rename((p) => {
       const splitPath = p.dirname.split('/');
       // eslint-disable-next-line no-param-reassign
@@ -175,7 +178,11 @@ function transpileES5Icons() {
 }
 
 function transpileES6Icons() {
-  return src('./dist/Icon/*.mjs', '!./dist/Icon/index.mjs')
+  return src([
+      './dist/Icon/*.mjs', 
+      '!./dist/Icon/index.mjs',
+      './src/components/base/Icon/index.js'
+    ])
     .pipe(babel({
       presets: [
         [
@@ -558,6 +565,7 @@ function cleanIconDir() {
   return del([
     'src/components/base/Icon/*',
     '!src/components/base/Icon/assets',
+    '!src/components/base/Icon/index.js', 
     '!src/components/base/Icon/IconDisplay.js',
     '!src/components/base/Icon/Icon.stories.js',
     '!src/components/base/Icon/Icon.knob.options.js',
