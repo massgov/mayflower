@@ -78,7 +78,7 @@ function generateIconKnobOptions() {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join('');
     
-      return pascalCaseName;
+      return `Icon${pascalCaseName}`;
     })
     .sort(); // Sort alphabetically
   
