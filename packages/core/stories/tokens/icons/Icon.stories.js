@@ -1,5 +1,5 @@
 import React from 'react';
-import { assets } from './Icon.knob.options';
+import { assets, boldOptions } from './Icon.knob.options';
 import IconDisplay from './IconDisplay';
 import generateTitle from '../../util/generateTitle';
 
@@ -15,6 +15,7 @@ export const Icons = (args) => (
 Icons.args = {
   width: 24,
   height: 24,
+  bold: true,
   classes: [''],
   'aria-hidden': false,
   'aria-label': 'This is an icon',
@@ -25,6 +26,10 @@ Icons.argTypes = {
     control: {
       type: 'color'
     }
+  },
+  bold: {
+    control: { type: 'boolean' },
+    options: boldOptions // Use the imported boldOptions
   }
 };
 
