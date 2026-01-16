@@ -295,7 +295,7 @@ const HamburgerNav = ({
               )}
               {renderHomeLink && (
                 <a className="ma__header__hamburger__menu-home-link" href={homeLink.url}>
-                  <IconHome height={20} width={20}/>
+                  <IconHome height={20} width={20} />
                   <span>{homeLink.text}</span>
                 </a>
               )}

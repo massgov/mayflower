@@ -33,7 +33,7 @@ const DecorativeLink = (props) => {
   });
   let preIcon;
   let title;
-  let postIcon = <IconArrow  width="0.8em" height="0.8em" />;
+  let postIcon = <IconArrow width="0.8em" height="0.8em" />;
   if (showFileIcon) {
     // eslint-disable-next-line no-bitwise
     const getFileExtension = (filename) => filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2);
@@ -41,7 +41,7 @@ const DecorativeLink = (props) => {
     title = `${ext} file`;
     const genericFile = ['csv', 'doc', 'docm', 'dot', 'dotx', 'dwg', 'geojson', 'gif', 'json', 'jpg', 'kml', 'kmz', 'mp3', 'mpp', 'msg', 'odf', 'ods', 'odt', 'png', 'pps', 'ppsx', 'potx', 'ppt', 'pptm', 'pptx', 'ppsm', 'prx', 'pub', 'rdf', 'rtf', 'tiff', 'tsv', 'txt', 'xls', 'xlsb', 'xlsm', 'xml', 'zip'];
     ext = genericFile.indexOf(ext) !== -1 ? 'generic' : ext;
-    postIcon = <IconDownload width="0.8em" height="0.8em"/>;
+    postIcon = <IconDownload width="0.8em" height="0.8em" />;
     switch (ext) {
       case 'pdf':
         preIcon = <IconDocPdf title={title} height={28} width={28} bold={false} />;
@@ -57,7 +57,7 @@ const DecorativeLink = (props) => {
         break;
       default:
         preIcon = null;
-        postIcon = <IconArrow width="0.8em" height="0.8em"/>;
+        postIcon = <IconArrow width="0.8em" height="0.8em" />;
     }
   }
   return(

@@ -296,7 +296,7 @@ export const StateItem = ({
   const { link, ariaLabel, text } = data;
   return(
     <a className="ma__utility-nav__link direct-link" href={link} aria-label={ariaLabel}>
-      <IconBuilding  height={20} width={18} />
+      <IconBuilding height={20} width={18} />
       <span>{text}</span>
     </a>
   );
