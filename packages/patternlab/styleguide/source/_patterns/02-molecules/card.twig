@@ -5,8 +5,11 @@
 {% set contentClass = card.usage ? " ma__card__content--" ~ card.usage : "" %}
 {% set imgClass = card.usage ? card.usage : card.id %}
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
+{% set describedByIds = [] %}
+{% if eyebrow %}{% set describedByIds = describedByIds|merge([card.id ~ '-eyebrow']) %}{% endif %}
+{% if card.text %}{% set describedByIds = describedByIds|merge([card.id ~ '-description']) %}{% endif %}
 
-<a class="ma__card__wrapper" href="{{ card.link }}" aria-labelledby="{{ card.id }}-title" aria-describedby="{{ card.id }}-eyebrow {{ card.id }}-description">
+<a class="ma__card__wrapper" href="{{ card.link }}" aria-labelledby="{{ card.id }}-title"{% if describedByIds|length %} aria-describedby="{{ describedByIds|join(' ') }}"{% endif %}>
   <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }} {{ cardThemeClass }}">
     {% if not card.usage %}
       <style>
@@ -32,9 +35,11 @@
             <img src="{{card.thumbnail}}" alt="">
           </div>
           {% endif %}
+          {% if card.text %}
           <div class="ma__card__text" id="{{ card.id }}-description">
             {{card.text}}
           </div>
+          {% endif %}
         </div>
       </div>  
   </div>
