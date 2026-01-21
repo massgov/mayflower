@@ -1,7 +1,7 @@
 import React from 'react';
 import { assets, boldOptions } from './Icon.knob.options';
 import IconDisplay from './IconDisplay';
-import generateTitle from '../../util/generateTitle';
+import generateTitle from '@core/stories/util/generateTitle';
 
 export const Icons = (args) => (
   <ul className="sg-icons">

@@ -5,8 +5,7 @@ const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
 
 module.exports = {
   "stories": [
-    "../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-    '!../src/**/hidden/**' // Exclude hidden folder
+    "../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)"
   ],
   "addons": [
     "@storybook/addon-links",
