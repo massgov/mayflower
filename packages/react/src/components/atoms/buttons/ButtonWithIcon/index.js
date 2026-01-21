@@ -12,7 +12,7 @@ import classNames from 'classnames';
 // eslint-disable-next-line import/no-unresolved
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
 // eslint-disable-next-line import/no-unresolved
-import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
 
 const ButtonWithIcon = (props) => {
   const {
@@ -33,7 +33,7 @@ const ButtonWithIcon = (props) => {
     [`ma__button-icon--${size}`]: size,
     'ma__button-icon--expanded': expanded,
     'ma__button-icon--capitalized': capitalized,
-    'ma__icon-small': iconSize === 'small' || icon?.type === IconChevron,
+    'ma__icon-small': iconSize === 'small' || icon?.type === IconCaretDown,
     'ma__button-search': icon?.type === IconSearch,
     'ma__button-search--secondary': icon?.type === IconSearch && usage === 'secondary',
     [`ma__button-icon--${theme}`]: theme,
@@ -84,8 +84,6 @@ ButtonWithIcon.propTypes = {
   expanded: PropTypes.bool,
   // Adds capitalized class to button if true.
   capitalized: PropTypes.bool,
-  // Defines the size, default size fits the most square icons and "small" setting is specific for the chevron icon.
-  iconSize: PropTypes.oneOf(['', 'small']),
   /** The aria-label property is used to provide the label to any assistive
    * technologies. This is useful if the text value is not descriptive of the
    * button's functionality. */

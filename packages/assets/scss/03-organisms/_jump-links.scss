@@ -181,12 +181,10 @@
     position: relative;
 
     & > svg {
-      height: 22px;
       position: absolute;
         left: 0;
-        top: 4px;
       transform: rotate(90deg);
-      width: 22px;
+      color: var(--mf-c-primary-alt)
     }
 
     a {

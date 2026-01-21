@@ -18,11 +18,11 @@ const GenTeaserTitle = (props) => {
   const decorativeProps = JSON.parse(JSON.stringify(title));
   if (title.icon) {
     const IconComponent = Icon[title.icon];
-    decorativeProps.icon = <IconComponent width={15} height={15} aria-hidden="true" />;
+    decorativeProps.icon = <IconComponent width=".8em" height=".8em" />;
   }
   if (title.showFileIcon && title.fileIcon) {
     const FileIconComponent = Icon[title.fileIcon];
-    decorativeProps.fileIcon = <FileIconComponent width={15} height={15} aria-hidden="true" />;
+    decorativeProps.fileIcon = <FileIconComponent width={24} height={24} bold={false} />;
   }
   const Element = `h${level || 2}`;
   return(

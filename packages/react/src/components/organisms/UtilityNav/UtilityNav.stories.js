@@ -32,7 +32,8 @@ UtilityNavExample.args = {
 const NavItemLink = (obj) => {
   const item = obj.data;
   const iconProps = {
-    ariaHidden: true
+    height: 20,
+    width: 18
   };
   const IconComponent = item.icon === 'building' ? IconBuilding : IconLogin;
 

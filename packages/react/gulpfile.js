@@ -10,6 +10,7 @@ const ts = require('gulp-typescript');
 const replace = require('gulp-replace');
 const { prependText } = require('gulp-append-prepend');
 const { exec } = require('child_process');
+const fs = require('fs');
 
 function clean() {
   return del(['dist', 'types']);
@@ -25,14 +26,94 @@ function styles() {
     .pipe(dest('dist'));
 }
 
-// Copying icon assets from assets to react is not currently being used.  
-// function icons() {
-//   return src(['./src/components/base/Icon/assets/*.svg'])
-//     .pipe(dest('dist/Icon/assets'));
-// }
+function ensureAssetsDir(cb) {
+  const assetsDir = './src/components/base/Icon/assets';
+  if (!fs.existsSync(assetsDir)) {
+    fs.mkdirSync(assetsDir, { recursive: true });
+  }
+  cb();
+}
+
+function copyIconsFromAssets() {
+  return src(['./node_modules/@massds/mayflower-assets/static/images/icons/**/*.svg'], { base: './node_modules/@massds/mayflower-assets/static/images/icons' })
+    .pipe(rename((path) => {
+      // Handle bold icons differently
+      if (path.dirname === 'bold') {
+        // For bold icons, keep the --bold suffix and put in bold subdirectory
+        path.dirname = 'bold';
+        path.basename = `icon-${path.basename}`;
+      } else {
+        // For regular icons, add "icon-" prefix and put in root
+        path.dirname = '';
+        path.basename = `icon-${path.basename}`;
+      }
+    }))
+    .pipe(dest('./src/components/base/Icon/assets'));
+}
+
+function generateIconKnobOptions() {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const assetsDir = './src/components/base/Icon/assets';
+  const outputFile = './src/components/base/Icon/Icon.knob.options.js';
+  
+  // Read all SVG files from assets directory
+  if (!fs.existsSync(assetsDir)) {
+    console.warn('Assets directory does not exist:', assetsDir);
+    return Promise.resolve();
+  }
+  
+  const svgFiles = fs.readdirSync(assetsDir)
+    .filter(file => file.endsWith('.svg') && !file.includes('--bold')) // Only regular icons
+    .map(file => {
+      // Remove 'icon-' prefix and '.svg' extension
+      let iconName = path.basename(file, '.svg');
+      if (iconName.startsWith('icon-')) {
+        iconName = iconName.substring(5);
+      }
+      // Convert kebab-case to PascalCase
+      const pascalCaseName = iconName
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+    
+      return `Icon${pascalCaseName}`;
+    })
+    .sort(); // Sort alphabetically
+  
+  // Generate the assets object
+  const assetsEntries = svgFiles.map(iconName => `  ${iconName}: '${iconName}'`);
+  
+  // Generate the file content
+  const fileContent = `export const assets = {
+${assetsEntries.join(',\n')}
+};
+
+export const svgOptions = {
+  choose: '',
+  ...assets
+};
+
+// For Storybook controls
+export const boldOptions = {
+  'Bold (default)': true,
+  'Regular': false
+};
+`;
+  
+  // Write the file
+  fs.writeFileSync(outputFile, fileContent);
+  console.log(`Generated ${outputFile} with ${svgFiles.length} icons`);
+  
+  return Promise.resolve();
+}
 
 function transpileES5Icons() {
-  return src('./dist/Icon/*.mjs')
+  return src([
+      './dist/Icon/*.mjs',
+      './src/components/base/Icon/index.js'
+    ])
     .pipe(rename((p) => {
       const splitPath = p.dirname.split('/');
       // eslint-disable-next-line no-param-reassign
@@ -97,7 +178,11 @@ function transpileES5Icons() {
 }
 
 function transpileES6Icons() {
-  return src('./dist/Icon/*.mjs', '!./dist/Icon/index.mjs')
+  return src([
+      './dist/Icon/*.mjs', 
+      '!./dist/Icon/index.mjs',
+      './src/components/base/Icon/index.js'
+    ])
     .pipe(babel({
       presets: [
         [
@@ -156,8 +241,105 @@ function transpileES6Icons() {
     .pipe(dest('dist/Icon'));
 }
 
-async function generateIcons() {
-  return run('svgr --out-dir ./dist/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js')()
+
+async function buildDualVariantIcons() {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const iconsDir = './src/components/base/Icon/assets';
+  const srcOutputDir = './src/components/base/Icon';
+  const distOutputDir = './dist/Icon';
+  
+  // Ensure dist directory exists
+  if (!fs.existsSync(distOutputDir)) {
+    fs.mkdirSync(distOutputDir, { recursive: true });
+  }
+  
+  // Get all regular icons (ignore bold variants in main directory)
+  const regularIcons = fs.readdirSync(iconsDir)
+    .filter(file => file.endsWith('.svg') && !file.includes('--bold'))
+    .map(file => path.basename(file, '.svg').replace(/^icon-/, ''));
+  
+  regularIcons.forEach(iconName => {
+    const pascalName = iconName.split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('');
+    
+    const componentName = `Icon${pascalName}`;
+    const regularPath = path.join(iconsDir, `icon-${iconName}.svg`);
+    const boldPath = path.join(iconsDir, 'bold', `icon-${iconName}--bold.svg`);
+    
+    // Read regular SVG
+    const regularSvg = fs.readFileSync(regularPath, 'utf8');
+    
+    // Read bold SVG if it exists, otherwise use regular as fallback
+    let boldSvg = regularSvg;
+    if (fs.existsSync(boldPath)) {
+      boldSvg = fs.readFileSync(boldPath, 'utf8');
+    }
+    
+    // Clean SVG for JSX
+    const cleanSvgForJsx = (svgString) => {
+      return svgString.trim()
+        .replace(/<svg([^>]*)>/, '<svg$1 {...props}>')
+        .replace(/fill-rule/g, 'fillRule')
+        .replace(/clip-rule/g, 'clipRule')
+        .replace(/stroke-width/g, 'strokeWidth')
+        .replace(/stroke-linecap/g, 'strokeLinecap')
+        .replace(/stroke-linejoin/g, 'strokeLinejoin');
+    };
+    
+    const cleanRegularSvg = cleanSvgForJsx(regularSvg);
+    const cleanBoldSvg = cleanSvgForJsx(boldSvg);
+    
+    // Generate component code
+    const componentCode = `import React from 'react';
+    import PropTypes from 'prop-types';
+
+    const ${componentName} = (props) => {
+      const { 
+        bold = true, 
+        width = "24px", 
+        height = "24px", 
+        ...restProps 
+      } = props;
+      
+      if (bold) {
+        return (
+          ${cleanBoldSvg.replace('{...props}', 'width = {width} height={height} {...restProps}')}
+        );
+      }
+      
+      return (
+        ${cleanRegularSvg.replace('{...props}', 'width = {width} height={height} {...restProps}')}
+      );
+    };
+
+    ${componentName}.propTypes = {
+      bold: PropTypes.bool,
+      width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      className: PropTypes.string,
+      fill: PropTypes.string,
+      'aria-hidden': PropTypes.bool,
+      'aria-label': PropTypes.string,
+    };
+
+    export default ${componentName};
+    `;
+
+    // Write to src/
+    fs.writeFileSync(path.join(srcOutputDir, `${componentName}.js`), componentCode);
+    
+    // Write to dist/ (with .mjs extension)
+    const distCode = componentCode.replace('export default', `export { ${componentName} as default };`);
+    fs.writeFileSync(path.join(distOutputDir, `${componentName}.mjs`), distCode);
+    
+    const variantInfo = fs.existsSync(boldPath) ? 'bold + regular' : 'regular only';
+    console.log(`Generated ${componentName} with ${variantInfo} variants`);
+  });
+  
+  return Promise.resolve();
 }
 
 const aliases = {
@@ -383,11 +565,20 @@ function cleanIconDir() {
   return del([
     'src/components/base/Icon/*',
     '!src/components/base/Icon/assets',
+    '!src/components/base/Icon/index.js', 
     '!src/components/base/Icon/IconDisplay.js',
     '!src/components/base/Icon/Icon.stories.js',
     '!src/components/base/Icon/Icon.knob.options.js',
     '!src/components/base/Icon/_icon-display.scss'
   ]);
+}
+
+function cleanIconAssets() {
+  return del(['./src/components/base/Icon/assets/*.svg']);
+}
+
+function cleanTsIconAssets() {
+  return del(['types/components/base/Icon/*.tsx']);
 }
 
 const typedSources = [
@@ -405,9 +596,100 @@ const tsDeclarationSources = [
   'types/**/*.tsx',
 ];
 
-function generateTsIcons() {
-  return run('svgr --out-dir ./types/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc-ts.js')()
-}
+function buildDualVariantTsIcons() {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const iconsDir = './src/components/base/Icon/assets';
+  const tsOutputDir = './types/components/base/Icon';
+  
+  // Ensure TypeScript directory exists
+  if (!fs.existsSync(tsOutputDir)) {
+    fs.mkdirSync(tsOutputDir, { recursive: true });
+  }
+  
+  // Get all regular icons (ignore bold variants in main directory)
+  const regularIcons = fs.readdirSync(iconsDir)
+    .filter(file => file.endsWith('.svg') && !file.includes('--bold'))
+    .map(file => path.basename(file, '.svg').replace(/^icon-/, ''));
+  
+  regularIcons.forEach(iconName => {
+    const pascalName = iconName.split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('');
+    
+    const componentName = `Icon${pascalName}`;
+    const regularPath = path.join(iconsDir, `icon-${iconName}.svg`);
+    const boldPath = path.join(iconsDir, 'bold', `icon-${iconName}--bold.svg`);
+    
+    // Read regular SVG
+    const regularSvg = fs.readFileSync(regularPath, 'utf8');
+    
+    // Read bold SVG if it exists, otherwise use regular as fallback
+    let boldSvg = regularSvg;
+    if (fs.existsSync(boldPath)) {
+      boldSvg = fs.readFileSync(boldPath, 'utf8');
+    }
+    
+    // Clean SVG for JSX (same as JS version)
+    const cleanSvgForJsx = (svgString) => {
+      return svgString.trim()
+        .replace(/<svg([^>]*)>/, '<svg$1 {...props}>')
+        .replace(/fill-rule/g, 'fillRule')
+        .replace(/clip-rule/g, 'clipRule')
+        .replace(/stroke-width/g, 'strokeWidth')
+        .replace(/stroke-linecap/g, 'strokeLinecap')
+        .replace(/stroke-linejoin/g, 'strokeLinejoin');
+    };
+    
+    const cleanRegularSvg = cleanSvgForJsx(regularSvg);
+    const cleanBoldSvg = cleanSvgForJsx(boldSvg);
+    
+    // Generate TypeScript component code
+    const tsComponentCode = `// @ts-nocheck
+    import React from 'react';
+
+    export interface ${componentName}Props {
+      bold?: boolean;
+      width?: string | number;
+      height?: string | number;
+      className?: string;
+      fill?: string;
+      'aria-hidden'?: boolean;
+      'aria-label'?: string;
+      [key: string]: any;
+    }
+
+    const ${componentName}: React.FC<${componentName}Props> = (props) => {
+      const { 
+        bold = true, 
+        width = "24px", 
+        height = "24px", 
+        ...restProps 
+      } = props;
+      
+      if (bold) {
+        return (
+          ${cleanBoldSvg.replace('{...props}', 'width={width} height={height} {...restProps}')}
+        );
+      }
+      
+      return (
+        ${cleanRegularSvg.replace('{...props}', 'width={width} height={height} {...restProps}')}
+      );
+    };
+
+    export default ${componentName};
+    `;
+
+        // Write TypeScript file
+        fs.writeFileSync(path.join(tsOutputDir, `${componentName}.tsx`), tsComponentCode);
+        
+        console.log(`Generated TypeScript ${componentName} with dual variants`);
+      });
+      
+      return Promise.resolve();
+    }
 
 function ignoreTsCheckOnIcons() {
   return src(tsIcons, {base: 'types'})
@@ -459,7 +741,7 @@ function convertTsToDeclarations() {
 const generateTsDeclarations = series(
   parallel(
     series(
-      generateTsIcons,
+      buildDualVariantTsIcons,
       ignoreTsCheckOnIcons,
     ),
     series(
@@ -470,10 +752,18 @@ const generateTsDeclarations = series(
   convertTsToDeclarations,
 )
 
-exports.cleanIconDir = cleanIconDir;
-exports.generateIcons = generateIcons;
-exports.transpileES5Icons = transpileES5Icons;
-exports.transpileES6Icons = transpileES6Icons;
+
+
+exports.icons = series(
+  ensureAssetsDir,
+  cleanIconAssets,
+  cleanTsIconAssets,
+  copyIconsFromAssets,
+  buildDualVariantIcons,
+  generateIconKnobOptions,
+  transpileES5Icons,
+  transpileES6Icons
+);
 exports.generateTsDeclarations = generateTsDeclarations;
 exports.default = series(
   clean,
@@ -483,7 +773,11 @@ exports.default = series(
     generateTsDeclarations,
     styles,
     series(
-      generateIcons,
+      ensureAssetsDir,
+      cleanIconAssets,
+      copyIconsFromAssets,
+      buildDualVariantIcons,
+      generateIconKnobOptions,
       transpileES5Icons,
       transpileES6Icons
     )

@@ -93,7 +93,7 @@
           "details":""
         }]
       },{
-        "icon": "fax-icon",
+        "icon": "fax",
         "name": "Fax",
         "items": [{
           "type": "fax",
@@ -207,7 +207,7 @@
           "details":""
         }]
       },{
-        "icon": "fax-icon",
+        "icon": "fax",
         "name": "Fax",
         "items": [{
           "type": "fax",
