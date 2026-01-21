@@ -18,7 +18,7 @@
   {% set address = item.address %}
 {% endif %}
 
-{% set linkContext = "linkContext-" ~ random() %}
+{% set linkContext = item.label ? "linkContext-" ~ random() : "" %}
 <div class="ma__contact-group__item">
   {% if item.label %}
     <span class="ma__contact-group__label" id="{{ linkContext }}">{{item.label}}</span>
@@ -59,7 +59,7 @@
     {% if link.href %}
       <div class="ma__contact-group__directions">
         {% set decorativeLink = link %}
-        {% set decorativeLink = decorativeLink|merge({'context': linkContext}) %}
+        {% if linkContext %}{% set decorativeLink = decorativeLink|merge({'context': linkContext}) %}{% endif %}
         {% include "@atoms/decorative-link.twig" %}
       </div>
     {% endif %}
