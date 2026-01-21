@@ -10,7 +10,7 @@
     "sections": [{
       "id": "GUIDasjdhf1",
       "catIcon": {
-        "icon":"lg-fishing",
+        "icon":"fish",
         "small": true
       },
       "title" : {
@@ -35,7 +35,7 @@
     {
       "id": "GUIDasjdhf2",
       "catIcon": {
-        "icon":"lg-picnic-table",
+        "icon":"picnic-table",
         "small": true
       },
       "title" : {
@@ -63,7 +63,7 @@
     {
       "id": "GUIDasjdhf3",
       "catIcon": {
-        "icon":"lg-map-location",
+        "icon":"map-pin-area",
         "small": true
       },
       "title" : {

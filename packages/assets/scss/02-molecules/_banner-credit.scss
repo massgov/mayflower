@@ -9,14 +9,10 @@
   }
 
   &__icon {
+    color: var(--mf-c-white); 
     position: absolute;
-      top: 0;
+      top: 3px;
       left: 0;
-
-    & > svg {
-      height: 27px;
-      width: 20px;
-    }
   }
 
   &__image-name {

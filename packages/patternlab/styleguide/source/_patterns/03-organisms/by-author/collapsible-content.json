@@ -25,7 +25,7 @@
         "title": "Collapsible Header",
         "state": true,
 
-        "icon": "circle-chevron"
+        "icon": "caret-circle-right"
       },
       "more": {
         "href": "#",

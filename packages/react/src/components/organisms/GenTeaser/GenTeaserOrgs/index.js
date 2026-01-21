@@ -9,7 +9,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-unresolved
-import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 
 class GenTeaserOrgs extends React.Component {
@@ -60,7 +60,7 @@ class GenTeaserOrgs extends React.Component {
       usage: 'quaternary-simple',
       capitalized: true,
       expanded: this.state.showAll,
-      icon: <IconChevron width={16} height="16" />
+      icon: <IconCaretDown width={16} height="16" />
     };
     const toggle = <ButtonWithIcon {...toggleProps} />;
     const displayedOrgs = (this.state.showAll) ? teaserOrgs.join(', ') : shownOrgs.join(', ');

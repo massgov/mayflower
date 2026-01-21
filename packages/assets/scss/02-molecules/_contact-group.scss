@@ -14,10 +14,9 @@
 
     & > svg {
       display: inline-block;
-      height: 20px;
       margin-right: .25em;
       vertical-align: middle;
-      width: 20px;
+      color: var(--mf-c-primary-alt);
     }
 
     span {
@@ -106,10 +105,6 @@
 .ma__contact-group {
 
   &__name {
-
-    svg {
-      fill: var(--mf-c-primary-alt);
-    }
 
     span {
       font-weight: $fonts-bold;

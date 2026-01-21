@@ -81,7 +81,7 @@ button {
   color: var(--mf-c-font-base);
 
   svg {
-    fill: var(--mf-c-gray-darkest);
+    color: var(--mf-c-gray-darkest);
   }
 }
 
@@ -96,7 +96,7 @@ button {
   letter-spacing: $letter-spacing-default;
 
   svg {
-    fill: var(--mf-c-primary);
+    color: var(--mf-c-primary);
   }
 
   &:hover:not(:disabled) {
