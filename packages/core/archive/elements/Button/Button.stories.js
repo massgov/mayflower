@@ -1,4 +1,4 @@
-import { attachCSS } from '../../util/renderCode';
+import { attachCSS } from '@core/stories/util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 

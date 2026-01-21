@@ -7,7 +7,7 @@ import IconMarker from '@massds/mayflower-react/dist/Icon/IconMarker';
 import IconLaptop from '@massds/mayflower-react/dist/Icon/IconLaptop';
 import IconMail from '@massds/mayflower-react/dist/Icon/IconMail';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
-import { attachHTML } from '../../util/renderCode';
+import { attachHTML } from '@core/stories/util/renderCode';
 
 import footerLinks from './Footer.data';
 import footerWithColsLinks from './FooterWithCols.data';
