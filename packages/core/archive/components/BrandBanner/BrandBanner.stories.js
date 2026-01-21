@@ -2,9 +2,8 @@ import React from 'react';
 import BrandBanner from '@massds/mayflower-react/dist/BrandBanner';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import logoWhite from '@massds/mayflower-assets/static/images/logo/stateseal-white.png';
-import { headerBasic } from '../Header/Header.stories';
-
 import { attachHTML } from '@core/stories/util/renderCode';
+import { headerBasic } from '../Header/Header.stories';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 

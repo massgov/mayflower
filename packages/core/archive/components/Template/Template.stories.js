@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { attachHTML } from '@core/stories/util/renderCode';
 import * as headerStories from '../Header/Header.stories';
 import * as footerStories from '../Footer/Footer.stories';
 import * as brandBannerStories from '../BrandBanner/BrandBanner.stories';
-
-import { attachHTML } from '@core/stories/util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
