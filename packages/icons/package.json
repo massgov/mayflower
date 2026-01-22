@@ -2,13 +2,8 @@
   "name": "@massds/icons",
   "version": "1.0.0",
   "description": "Icon Library for the Massachusetts Design System",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "files": [
-    "dist/",
-    "static/",
-    "src/"
+    "dist/"
   ],
   "scripts": {
     "build": "gulp build",

@@ -35,7 +35,7 @@ function ensureAssetsDir(cb) {
 }
 
 function copyIconsFromAssets() {
-  return src(['./node_modules/@massds/mayflower-assets/static/images/icons/**/*.svg'], { base: './node_modules/@massds/mayflower-assets/static/images/icons' })
+  return src(['./node_modules/@massds/icons/dist/**/*.svg'], { base: './node_modules/@massds/icons/dist' })
     .pipe(rename((path) => {
       // Handle bold icons differently
       if (path.dirname === 'bold') {
