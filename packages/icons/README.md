@@ -65,14 +65,14 @@ rush icons
 
 #### Add icon to Patternlab:
 1. Run `rushx icons` in patternlab/styleguide, to copy the icon SVGs and convert to twig in patternlab —> display in patternlab
-2. [The Mayflower PHP icon function](./packages/patternlab/styleguide/source/_twig-components/functions/icon.function.php) uses icons in the assets package
+2. [The Mayflower PHP icon function](./packages/patternlab/styleguide/source/_twig-components/functions/icon.function.php) uses icons in the [the public directory](packages/patternlab/styleguide/public/assets/images/icons)
 
 #### Add icon to React:
 1. Run `rushx icons` in `react/` (Build each icon into a React component based on icon-template.js. Note that this step has been taken out of the start script, due to the number of icons slowing down the task)
 
 #### Add icon to Core:
 1. Run `rushx icons` in `core/` (Build each icon into a React component based on icon-template.js. Note that this step has been taken out of the start script, due to the number of icons slowing down the task)
-2. Update [icon options in Core](packages/core/stories/tokens/icons/Icon.knob.options.js) based on [icon options in React](packages/react/src/components/base/Icon/Icon.knob.options.js).
+2. Run `rush icons` globally to copy [icon options in React](packages/react/src/components/base/Icon/Icon.knob.options.js) and paste into [icon options in Core](packages/core/stories/tokens/icons/Icon.knob.options.js).
 
 ## Contributing
 1. Add or modify icons in the Figma Icon Library

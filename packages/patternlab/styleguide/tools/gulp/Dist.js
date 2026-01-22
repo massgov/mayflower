@@ -49,7 +49,7 @@ class DistRegistry extends DefaultRegistry {
         // Add dedicated icons copying task
         const copyIcons = task("copy-icons", function() {
             const rootDir = self.resolveRoot();
-            const iconsPath = path.join(rootDir, 'node_modules/@massds/mayflower-assets/static/images/icons/*.svg');
+            const iconsPath = path.join(rootDir, 'node_modules/@massds/icons/dist/**/*.svg');
             const iconsDestination = self.resolveDist("assets/images/icons");
             
             console.log('📋 Copying icons from:', iconsPath);
