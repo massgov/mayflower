@@ -1,0 +1,7 @@
+Fixed:
+  - project: Patternlab
+    component: Card
+    description: Fix accessibility issue where aria-describedby attribute referenced non-existent eyebrow element IDs.
+    issue: DP-44414
+    impact: Minor
+
