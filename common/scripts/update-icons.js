@@ -39,8 +39,8 @@ function main() {
   const packageJsonPath = path.join(assetsDir, 'package.json');
   if (fs.existsSync(packageJsonPath)) {
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-    if (packageJson.scripts && packageJson.scripts.prepIcons) {
-      runCommand('rushx prepIcons', assetsDir);
+    if (packageJson.scripts && packageJson.scripts.icons) {
+      runCommand('rushx icons', assetsDir);
     } else {
       console.log('⚠️  prepIcons script not found in assets package, skipping...');
     }
