@@ -254,5 +254,5 @@ export const svgOptions = {
 // For Storybook controls
 export const boldOptions = {
   'Bold (default)': true,
-  'Regular': false
+  Regular: false
 };
