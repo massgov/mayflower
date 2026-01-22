@@ -9,14 +9,8 @@
 
   &__icon {
     position: absolute;
-      top: 22px;
       left: 20px;
     text-align: center;
-
-    & > svg {
-      height: 25px;
-      width: 25px;
-    }
   }
 
   &:last-child {
@@ -130,7 +124,11 @@
   &__icon {
 
     svg {
-      fill: var(--mf-c-primary-alt);
+      color: var(--mf-c-primary-alt);
+    }
+
+    &--input-error {
+      color: var(--mf-c-error) !important;
     }
   }
 

@@ -160,7 +160,7 @@ export default (function (window,document,$,undefined) {
     let initializedMarkers = [];
     markers.forEach(function(data) {
       let markerIcon = {
-          url: `${ma.iconPath}/marker-blue.svg`, // url
+          url: `${ma.imagePath}/marker-map.svg`, // url
           scaledSize: new google.maps.Size(50, 50), // scaled size
           origin: new google.maps.Point(0,0), // origin
           anchor: new google.maps.Point(25, 30) // anchor

@@ -78,13 +78,7 @@ $quaternary-colors: (
   }
 
   & > svg {
-    fill: var(--mf-c-gray-dark);
-    height: 20px;
     transition: transform 0.5s, fill 0.4s;
-  }
-
-  &.ma__icon-small > svg {
-    height: 10px;
   }
 
   &--disabled {
@@ -195,12 +189,6 @@ $quaternary-colors: (
     text-transform: none;
     cursor: pointer;
     color: var(--mf-c-primary-alt);
-
-    svg {
-      width: 10px;
-      height: 10px;
-      fill: rgba($c-primary-alt, 0.5);
-    }
 
     @each $class, $c in $quaternary-colors {
       &.ma__button-icon--#{$class} {
