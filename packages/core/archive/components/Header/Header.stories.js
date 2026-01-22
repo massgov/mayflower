@@ -9,9 +9,8 @@ import IconGlobe from '@massds/mayflower-react/dist/Icon/IconGlobe';
 import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
+import { attachHTML } from '@core/stories/util/renderCode';
 import mainNavData from './main-nav.data';
-
-import { attachHTML } from '../../util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
