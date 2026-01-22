@@ -22,6 +22,30 @@ function runCommand(command, cwd) {
   }
 }
 
+function copyFile(source, destination) {
+  console.log(`\n📋 Copying file:`);
+  console.log(`   From: ${source}`);
+  console.log(`   To:   ${destination}`);
+  
+  try {
+    // Ensure destination directory exists
+    const destDir = path.dirname(destination);
+    if (!fs.existsSync(destDir)) {
+      fs.mkdirSync(destDir, { recursive: true });
+    }
+    
+    if (fs.existsSync(source)) {
+      fs.copyFileSync(source, destination);
+      console.log(`✅ Successfully copied icon knob options`);
+    } else {
+      console.warn(`⚠️  Source file not found: ${source}`);
+    }
+  } catch (error) {
+    console.error(`❌ Failed to copy file: ${error.message}`);
+    process.exit(1);
+  }
+}
+
 function main() {
   const rootDir = path.resolve(__dirname, '../..');
   
@@ -42,7 +66,7 @@ function main() {
     if (packageJson.scripts && packageJson.scripts.icons) {
       runCommand('rushx icons', assetsDir);
     } else {
-      console.log('⚠️  prepIcons script not found in assets package, skipping...');
+      console.log('⚠️  icons script not found in assets package, skipping...');
     }
   }
   
@@ -79,6 +103,19 @@ function main() {
   } else {
     console.log('⚠️  React package directory not found, skipping...');
   }
+  
+  // Step 4: Copy icon knob options from React to Core
+  console.log('\n📦 Step 4: Updating Core icon knob options');
+  const reactKnobOptionsSource = path.join(
+    rootDir, 
+    'packages/core/node_modules/@massds/mayflower-react/src/components/base/Icon/Icon.knob.options.js'
+  );
+  const coreKnobOptionsDestination = path.join(
+    rootDir, 
+    'packages/core/stories/tokens/icons/Icon.knob.options.js'
+  );
+  
+  copyFile(reactKnobOptionsSource, coreKnobOptionsDestination);
   
   console.log('\n🎉 Icon update process completed!');
 }
