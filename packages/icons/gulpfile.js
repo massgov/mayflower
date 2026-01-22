@@ -11,14 +11,14 @@ function clean() {
 
 function prepIconsResolve() {
   return new Promise((resolve) => {
-    prepIcons('./static/icons');
+    prepIcons('./static');
     resolve();
   });
 }
 
 function copyStaticIcons() {
-  return src('./static/icons/**/*')
-    .pipe(dest('./dist/icons'));
+  return src('./static/**/*')
+    .pipe(dest('./dist'));
 }
 
 const build = series(
