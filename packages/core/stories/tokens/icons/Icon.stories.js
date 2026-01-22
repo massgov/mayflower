@@ -3,7 +3,6 @@ import generateTitle from '@core/stories/util/generateTitle';
 import { assets, boldOptions } from './Icon.knob.options';
 import IconDisplay from './IconDisplay';
 
-
 const brandColors = [
   { color: '#141414', name: 'Neutral Default' },
   { color: '#707070', name: 'Neutral Muted' },
@@ -35,7 +34,7 @@ Icons.args = {
 };
 Icons.argTypes = {
   fill: {
-    control: { 
+    control: {
       type: 'select',
       options: brandColors.reduce((acc, item) => {
         acc[item.name] = item.color;
