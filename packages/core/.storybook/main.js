@@ -5,8 +5,7 @@ const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
 
 module.exports = {
   "stories": [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
+    "../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)"
   ],
   "addons": [
     "@storybook/addon-links",
@@ -37,5 +36,14 @@ module.exports = {
         }
       }
     }
-  ]
+  ],
+  // Add webpack configuration
+  webpackFinal: async (config) => {
+    // Add alias for @core imports
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@core': path.resolve(__dirname, '..'), // Points to packages/core/
+    };
+    return config;
+  }
 }

@@ -5,7 +5,7 @@ import Error404 from '@massds/mayflower-react/dist/Error404';
 import Error403 from '@massds/mayflower-react/dist/Error403';
 import Error500 from '@massds/mayflower-react/dist/Error500';
 
-import { attachHTML } from '../../util/renderCode';
+import { attachHTML } from '@core/stories/util/renderCode';
 
 const { STORYBOOK_CDN_PATH } = process.env;
 
