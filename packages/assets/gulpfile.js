@@ -20,8 +20,17 @@ function cleanJS() {
   return del(['js']);
 }
 
+function cleanIcons() {
+  return del(['static/images/icons']);
+}
+
 function deleteMainNav() {
   return del(['js/mainNav.js']);
+}
+
+function copyIcons() {
+  return src('node_modules/@massds/icons/dist/**/*')
+    .pipe(dest('static/images/icons'));
 }
 
 function compileScss() {
@@ -175,22 +184,35 @@ function compileMiniBrandBanner() {
   .pipe(dest('./js'))
 }
 
+// Export functions
 exports.deleteMainNav = deleteMainNav;
 exports.compileMainNav = compileMainNav;
 exports.compileMiniScss = compileMiniScss;
 exports.compileScss = compileScss;
 exports.clean = clean;
+exports.cleanIcons = cleanIcons;
+exports.copyIcons = copyIcons;
 exports.compileBrandBanner = compileBrandBanner;
 exports.compileMiniBrandBanner = compileMiniBrandBanner;
 
+// Task compositions
 const transpileHeader = series(compileMainNav, parallel(compileHeader, compileMiniHeader), deleteMainNav);
 const transpileHamburgerHeader = parallel(compileHamburgerHeader, compileMiniHamburgerHeader);
 const transpileBrandBanner = parallel(compileBrandBanner, compileMiniBrandBanner);
 const compileHeaderJS = series(transpileHamburgerHeader, transpileHeader);
-const build = series(parallel(clean, cleanJS), parallel(compileMiniScss, compileScss), compileHeaderJS, transpileBrandBanner);
+const icons = series(cleanIcons, copyIcons);
+
+// Updated build task to include icons
+const build = series(
+  parallel(clean, cleanJS, cleanIcons), 
+  parallel(compileMiniScss, compileScss, copyIcons), 
+  compileHeaderJS, 
+  transpileBrandBanner
+);
 
 exports.transpileHamburgerHeader = transpileHamburgerHeader;
 exports.compileHeaderJS = compileHeaderJS;
+exports.icons = icons;
 exports.watch = series(clean, watchScss);
 exports.build = build;
 exports.default = build;

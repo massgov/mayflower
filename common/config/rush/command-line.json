@@ -139,6 +139,14 @@
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "node common/scripts/update-icons.js"
     },
+    {
+      "commandKind": "global",
+      "name": "build:icons",
+      "summary": "Runs 'rushx build' for the icons package.",
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "cd packages/icons && rushx build"
+    },
     // {
     //   /**
     //    * (Required) Determines the type of custom command.

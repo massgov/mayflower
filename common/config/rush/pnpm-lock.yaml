@@ -8,7 +8,7 @@ dependencies:
   '@babel/plugin-syntax-dynamic-import': 7.8.3
   '@babel/plugin-transform-runtime': 7.25.9
   '@babel/preset-react': 7.25.9
-  '@proscom/gulp-svgr': 0.1.6
+  '@rush-temp/icons': 'file:projects/icons.tgz'
   '@rush-temp/mayflower': 'file:projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:projects/mayflower-assets.tgz'
   '@rush-temp/mayflower-core': 'file:projects/mayflower-core.tgz_cf416c644d17a5e671a80245fcea53f7'
@@ -23,9 +23,6 @@ dependencies:
   '@storybook/node-logger': 6.5.16
   '@storybook/preset-scss': 1.0.2_13d6fb7f5ec40a51fbcd6f7fa48ff352
   '@storybook/source-loader': 6.0.21
-  '@svgr/cli': 5.5.0
-  '@svgr/plugin-jsx': 5.5.0
-  '@svgr/webpack': 5.5.0
   '@types/react-dom': 17.0.25
   autoprefixer: 10.4.20_postcss@8.4.49
   autosuggest-highlight: 3.3.4
@@ -53,7 +50,6 @@ dependencies:
   core-js: 2.6.12
   cross-env: 5.2.1
   css-loader: 3.6.0_webpack@4.47.0
-  del: 6.0.0
   disc: 1.3.3
   dom-helpers: 3.4.0
   dotenv: 8.6.0
@@ -70,11 +66,10 @@ dependencies:
   eslint-plugin-react-hooks: 2.5.1_eslint@7.32.0
   fitvids: 2.1.1
   fuse.js: 6.6.2
-  gulp: 4.0.2
   gulp-append-prepend: 1.0.9
   gulp-autoprefixer: 5.0.0
   gulp-babel: 8.0.0
-  gulp-debug: 4.0.0_gulp@4.0.2
+  gulp-debug: 4.0.0
   gulp-environments: 1.0.1
   gulp-filter: 5.1.0
   gulp-header: 2.0.9
@@ -14087,6 +14082,21 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-a2scActrQrDBpBbR3WUZGyGS1JEPLg5PZJdIa7/Bi3GuKAmPYDK6SFhy/NZq5R8KsKKFvtfR0fakbUCcKGCCjg==
+  /gulp-debug/4.0.0:
+    dependencies:
+      chalk: 2.4.2
+      fancy-log: 1.3.3
+      plur: 3.1.1
+      stringify-object: 3.3.0
+      through2: 2.0.5
+      tildify: 1.2.0
+    dev: false
+    engines:
+      node: '>=6'
+    peerDependencies:
+      gulp: '>=4'
+    resolution:
+      integrity: sha512-cn/GhMD2nVZCVxAl5vWao4/dcoZ8wUJ8w3oqTvQaGDmC1vT7swNOEbhQTWJp+/otKePT64aENcqAQXDcdj5H1g==
   /gulp-debug/4.0.0_gulp@4.0.2:
     dependencies:
       chalk: 2.4.2
@@ -22356,7 +22366,7 @@ packages:
       block-stream: 0.0.9
       fstream: 1.0.12
       inherits: 2.0.4
-    deprecated: 'This version of tar is no longer supported, and will not receive security updates. Please upgrade asap.'
+    deprecated: 'Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me'
     dev: false
     resolution:
       integrity: sha512-FCEhQ/4rE1zYv9rYXJw/msRqsnmlje5jHP6huWeBZ704jUTy02c5AZyWujpMR1ax6mVw9NyJMfuK2CMDWVIfgA==
@@ -22368,6 +22378,7 @@ packages:
       minizlib: 2.1.2
       mkdirp: 1.0.4
       yallist: 4.0.0
+    deprecated: 'Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exhorbitant rates) by contacting i@izs.me'
     dev: false
     engines:
       node: '>=10'
@@ -24274,6 +24285,18 @@ packages:
     dev: false
     resolution:
       integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==
+  'file:projects/icons.tgz':
+    dependencies:
+      del: 6.0.0
+      gulp: 4.0.2
+      gulp-rename: 2.0.0
+      svgo: 4.0.0
+    dev: false
+    name: '@rush-temp/icons'
+    resolution:
+      integrity: sha512-4QXFtMYCqLVsOlqSVyXttcCMBS8Z7OHNXT27XQphgVvMS+DUwDqG1DfUM32AnXVBcq01cw6ZXuZdnJ6lvf/kDg==
+      tarball: 'file:projects/icons.tgz'
+    version: 0.0.0
   'file:projects/mayflower-assets.tgz':
     dependencies:
       '@babel/core': 7.12.17
@@ -24298,7 +24321,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower-assets'
     resolution:
-      integrity: sha512-+EObG9AhWmQcSNHC4wdnpXiOjkaGsGOpaYSjU945L3nKB9z5G3TeC0DELKpslGZmZwp75V6HhCe5m8QJKWtQlQ==
+      integrity: sha512-KqXpQ0wYMrIh4hNif1rb1sodaAMPnHqTVhIxmYWyeoiKVoeLzm3zw73x1GRjdCsFJ45w4mSClDxYgRMEfsHhig==
       tarball: 'file:projects/mayflower-assets.tgz'
     version: 0.0.0
   'file:projects/mayflower-core.tgz_cf416c644d17a5e671a80245fcea53f7':
@@ -24344,7 +24367,7 @@ packages:
       typescript: '*'
       webpack: '*'
     resolution:
-      integrity: sha512-e3J+jYkJyLiDm7WHPUoVMCIdb0ePMWt8Q3GXgBJ2UwIOol0jH6mhqIRKP0Ahc55phVVdoUALgbEUzxqpyAcnyQ==
+      integrity: sha512-bkEIigPXrhOuMD3wta49/5HYsTpkJoGHNvQ/8VZ4vMv0Rh9ftVkJaui3srEZk0OjJdX1Azt8c6LWHOBLYPRaSQ==
       tarball: 'file:projects/mayflower-core.tgz'
     version: 0.0.0
   'file:projects/mayflower-react.tgz_react-is@16.13.1':
@@ -24453,7 +24476,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-s7b3p+L7ZCiXXxybVdLzjUyImInyCEi9HxZIkvB9TVSnDK8pIJj13ZQepR/hdYmxJAtXfLzDLeBtMWcAYn+6rg==
+      integrity: sha512-C3Ixta0axBMrK8S6nGsHcgARlMradwvIGrAJMkO++CNz40WmBvLzg6ZmdVPc+usGSXMgZgpat7wX7BkDQkiqdQ==
       tarball: 'file:projects/mayflower-react.tgz'
     version: 0.0.0
   'file:projects/mayflower.tgz':
@@ -24515,7 +24538,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower'
     resolution:
-      integrity: sha512-oU8gN4Sp1Wiwmcl4YJHyMgtt70aTnMj5YSTUDA4DwPaCFj4UgyJga4jhtQr6CJhwq3v9UANm1MoIet5GKe2/0w==
+      integrity: sha512-RWBo30xtM0+rLGRHEPMcsuGfvzY1wViAugxc7PzE3ee7dp5NtXDLRMi2api13iPuJCd/Dim9PpLxAKP69+R5Bg==
       tarball: 'file:projects/mayflower.tgz'
     version: 0.0.0
 registry: ''
@@ -24529,7 +24552,7 @@ specifiers:
   '@babel/plugin-syntax-dynamic-import': ^7.2.0
   '@babel/plugin-transform-runtime': ^7.10.1
   '@babel/preset-react': ^7.10.1
-  '@proscom/gulp-svgr': ^0.1.3
+  '@rush-temp/icons': 'file:./projects/icons.tgz'
   '@rush-temp/mayflower': 'file:./projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:./projects/mayflower-assets.tgz'
   '@rush-temp/mayflower-core': 'file:./projects/mayflower-core.tgz'
@@ -24544,9 +24567,6 @@ specifiers:
   '@storybook/node-logger': ^6.1.10
   '@storybook/preset-scss': 1.0.2
   '@storybook/source-loader': 6.0.21
-  '@svgr/cli': ^5.5.0
-  '@svgr/plugin-jsx': ^5.5.0
-  '@svgr/webpack': ^5.5.0
   '@types/react-dom': ^17
   autoprefixer: ^10.4.20
   autosuggest-highlight: ^3.1.1
@@ -24574,7 +24594,6 @@ specifiers:
   core-js: ^2.6.5
   cross-env: ^5.2.0
   css-loader: ^3.5.3
-  del: ~6.0.0
   disc: ^1.3.3
   dom-helpers: 3.4.0
   dotenv: ^8.2.0
@@ -24591,7 +24610,6 @@ specifiers:
   eslint-plugin-react-hooks: ^2.5.0
   fitvids: ^2.0.0
   fuse.js: ^6.4.6
-  gulp: ~4.0.2
   gulp-append-prepend: ~1.0.9
   gulp-autoprefixer: ^5.0.0
   gulp-babel: ~8.0.0
