@@ -1,0 +1,67 @@
+name: Publish Icons Package
+
+on:
+  push:
+    tags:
+      - 'icons-v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm install -g @microsoft/rush
+      - run: rush install
+      - run: |
+          cd packages/icons
+          rushx build
+          # Add any tests here
+          npm pack --dry-run
+  
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/icons-v') || github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - uses: actions/checkout@v4
+        
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          
+      - run: npm install -g @microsoft/rush
+      - run: rush install
+      
+      - name: Build package
+        run: |
+          cd packages/icons
+          rushx build
+          
+      - name: Bump version (if manual)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          cd packages/icons
+          npm version ${{ github.event.inputs.version }}
+          
+      - name: Publish to npm
+        run: |
+          cd packages/icons
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
