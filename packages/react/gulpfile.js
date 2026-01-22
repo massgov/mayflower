@@ -51,42 +51,49 @@ function copyIconsFromAssets() {
     .pipe(dest('./src/components/base/Icon/assets'));
 }
 
-function generateIconKnobOptions() {
+function generateIconOptionsAndIndex() {
   const fs = require('fs');
   const path = require('path');
   
-  const assetsDir = './src/components/base/Icon/assets';
-  const outputFile = './src/components/base/Icon/Icon.knob.options.js';
+  const iconsDir = './src/components/base/Icon/assets';
+  const knobOptionsFile = './src/components/base/Icon/Icon.knob.options.js';
+  const indexFile = './src/components/base/Icon/index.js';
   
-  // Read all SVG files from assets directory
-  if (!fs.existsSync(assetsDir)) {
-    console.warn('Assets directory does not exist:', assetsDir);
+  // Ensure icons directory exists
+  if (!fs.existsSync(iconsDir)) {
+    console.warn('Assets directory does not exist:', iconsDir);
     return Promise.resolve();
   }
   
-  const svgFiles = fs.readdirSync(assetsDir)
-    .filter(file => file.endsWith('.svg') && !file.includes('--bold')) // Only regular icons
+  // Get all regular icons (ignore bold variants) and process them once
+  const iconData = fs.readdirSync(iconsDir)
+    .filter(file => file.endsWith('.svg') && !file.includes('--bold'))
     .map(file => {
-      // Remove 'icon-' prefix and '.svg' extension
+      // Remove 'icon-' prefix and '.svg' extension for knob options
       let iconName = path.basename(file, '.svg');
       if (iconName.startsWith('icon-')) {
         iconName = iconName.substring(5);
       }
-      // Convert kebab-case to PascalCase
-      const pascalCaseName = iconName
+      
+      // Convert kebab-case to PascalCase for component names
+      const pascalName = iconName
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join('');
-    
-      return `Icon${pascalCaseName}`;
+      
+      const componentName = `Icon${pascalName}`;
+      
+      return {
+        kebabName: iconName,
+        componentName
+      };
     })
-    .sort(); // Sort alphabetically
+    .sort((a, b) => a.componentName.localeCompare(b.componentName)); // Sort alphabetically
   
-  // Generate the assets object
-  const assetsEntries = svgFiles.map(iconName => `  ${iconName}: '${iconName}'`);
+  // Generate knob options file
+  const assetsEntries = iconData.map(({ componentName }) => `  ${componentName}: '${componentName}'`);
   
-  // Generate the file content
-  const fileContent = `export const assets = {
+  const knobOptionsContent = `export const assets = {
 ${assetsEntries.join(',\n')}
 };
 
@@ -102,9 +109,19 @@ export const boldOptions = {
 };
 `;
   
-  // Write the file
-  fs.writeFileSync(outputFile, fileContent);
-  console.log(`Generated ${outputFile} with ${svgFiles.length} icons`);
+  // Generate index file
+  const indexContent = `// Auto-generated icon exports
+${iconData.map(({ componentName }) => `export { default as ${componentName} } from './${componentName}';`).join('\n')}
+
+// Export count for convenience
+export const iconCount = ${iconData.length};
+`;
+  
+  // Write both files
+  fs.writeFileSync(knobOptionsFile, knobOptionsContent);
+  fs.writeFileSync(indexFile, indexContent);
+  
+  console.log(`Generated ${knobOptionsFile} and ${indexFile} with ${iconData.length} icons`);
   
   return Promise.resolve();
 }
@@ -760,7 +777,7 @@ exports.icons = series(
   cleanTsIconAssets,
   copyIconsFromAssets,
   buildDualVariantIcons,
-  generateIconKnobOptions,
+  generateIconOptionsAndIndex,
   transpileES5Icons,
   transpileES6Icons
 );
@@ -777,7 +794,7 @@ exports.default = series(
       cleanIconAssets,
       copyIconsFromAssets,
       buildDualVariantIcons,
-      generateIconKnobOptions,
+      generateIconOptionsAndIndex,
       transpileES5Icons,
       transpileES6Icons
     )
