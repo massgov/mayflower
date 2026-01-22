@@ -198,7 +198,7 @@ const PanelItem = ({
         aria-label={ariaLabel}
         aria-expanded="false"
       >
-        {CustomIcon && <CustomIcon />}
+        {CustomIcon && <CustomIcon height={20} width={18} />}
         {title && title.length > 0 && (<span>{title}</span>)}
         <span className="toggle-indicator" aria-hidden="true" />
       </button>
@@ -209,7 +209,7 @@ const PanelItem = ({
               <span>Close</span>
               <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
             </button>
-            {CustomIcon && <CustomIcon />}
+            {CustomIcon && <CustomIcon height={20} width={18} />}
             {title && title.length > 0 && (<h2>{title}</h2>)}
           </div>
           <div className="ma__utility-nav__content-body">
@@ -296,7 +296,7 @@ export const StateItem = ({
   const { link, ariaLabel, text } = data;
   return(
     <a className="ma__utility-nav__link direct-link" href={link} aria-label={ariaLabel}>
-      <IconBuilding />
+      <IconBuilding height={20} width={18} />
       <span>{text}</span>
     </a>
   );

@@ -1,0 +1,53 @@
+{
+  "socialLinks": {
+    "label": "Share:",
+    "inverted": true,
+    "theme": "c-primary",
+    "items": [{
+      "altText": "Follow us on Facebook",
+      "href": "#",
+      "icon": "facebook-logo",
+      "linkType": "facebook"
+    },{
+      "altText": "Follow us on Twitter",
+      "href": "#",
+      "icon": "x-logo",
+      "linkType": "twitter"
+    },{
+      "altText": "Follow us on LinkedIn",
+      "href": "#",
+      "icon": "linkedin-logo",
+      "linkType": "linkedin"
+    },{
+      "altText": "Follow us on Youtube",
+      "href": "#",
+      "icon": "youtube-logo",
+      "linkType": "youtube"
+    },{
+      "altText": "Follow us on Vimeo",
+      "href": "#",
+      "icon": "vimeo-logo",
+      "linkType": "vimeo"
+    },{
+      "altText": "Follow us on Medium",
+      "href": "#",
+      "icon": "medium-logo",
+      "linkType": "medium"
+    },{
+      "altText": "Follow us on Threads",
+      "href": "#",
+      "icon": "threads-logo",
+      "linkType": "threads"
+    },{
+      "altText": "Follow us on Instagram",
+      "href": "#",
+      "icon": "instagram-logo",
+      "linkType": "instagram"
+    },{
+      "altText": "Follow us on BlueSky",
+      "href": "#",
+      "icon": "bluesky-logo",
+      "linkType": "bluesky"
+    }]
+  }
+}

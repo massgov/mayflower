@@ -1,0 +1,55 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import generateTitle from '@core/stories/util/generateTitle';
+import * as stories from './Footer.stories.js';
+
+<Meta
+  title={generateTitle('Footer')}
+  parameters={{
+    viewMode: 'docs'
+  }}
+/>
+
+# Footer
+
+Footers are containers located at the bottom of each page to provide for authorship information, copyright information, contact information, sitemap, back to home and back to top links, and related links.
+
+<Canvas withSource="none" >
+  <Story story={stories.footerExample} />
+</Canvas>
+
+## Overview
+Mayflower footers displays branding information, and can include some additional content:
+- Required content:
+  - Site logo(s)
+  - Authorship information
+  - Copyright information
+- Optional content:
+  - Contact information
+  - Sitemap
+  - Site navigation links or related links
+
+
+## Variations
+
+There are currently three variations of the Footer component in used:
+1. **Footer** - The main version of Footer that is being used on Mass.gov. It contains the site logo, copyright information, and a few high-level navigational links.
+2. **Footer Slim** -  A Footer variant that organized the footer content in a two-column layout - required content on the left, and optional content on the right. This variant is used when the site needs to display contact information in the footer. It allows more than one logos for joint branding with a parent and sibling organization, or when both the service (application) and the organization have their own logos.
+3. **Footer With Columns** - A Footer variant that allows more than a few footer links, footer links are organized into up to three columns. For sites with more complex information architecture, this variant provides the opportunity for users to explore additional navigation options, such as the top level navigation menu items and other quick access links, when they reach the bottom of the page.
+
+
+### Footer
+<Canvas>
+  <Story story={stories.footer} />
+</Canvas>
+
+
+### Footer (Slim Version with Duel Logos)
+<Canvas>
+  <Story story={stories.footerSlimDuelLogo} />
+</Canvas>
+
+
+### Footer (With More Footer Links)
+<Canvas>
+  <Story story={stories.footerFullNav} />
+</Canvas>

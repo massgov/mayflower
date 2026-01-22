@@ -1,7 +1,7 @@
 import React from 'react';
-import { assets } from './Icon.knob.options';
+import generateTitle from '@core/stories/util/generateTitle';
+import { assets, boldOptions } from './Icon.knob.options';
 import IconDisplay from './IconDisplay';
-import generateTitle from '../../util/generateTitle';
 
 export const Icons = (args) => (
   <ul className="sg-icons">
@@ -13,11 +13,12 @@ export const Icons = (args) => (
   </ul>
 );
 Icons.args = {
-  width: 40,
-  height: 50,
-  title: 'Icon Title Here',
+  width: 24,
+  height: 24,
+  bold: true,
   classes: [''],
-  ariaHidden: false,
+  'aria-hidden': false,
+  'aria-label': 'This is an icon',
   fill: '#000'
 };
 Icons.argTypes = {
@@ -25,6 +26,10 @@ Icons.argTypes = {
     control: {
       type: 'color'
     }
+  },
+  bold: {
+    control: { type: 'boolean' },
+    options: boldOptions // Use the imported boldOptions
   }
 };
 

@@ -70,15 +70,15 @@
     // Icon spacing
     height: 24px;
     width: 24px;
-    fill: var(--mf-c-primary-alt);
+    color: var(--mf-c-primary-alt);
   }
 
   input:checked ~ label {
     // States - Show checkmark when checked
 
     &:before {
-
-      content: url("#{$assets-path}/images/icons/checkmark.svg");
+      content: '';
+      background-image: url("#{$assets-path}/images/icons/bold/checkmark--bold.svg");
       background-color: var(--mf-c-bg);  // Add background color when checked
     }
   }

@@ -3,6 +3,8 @@ const gulp = require("gulp");
 const untildify = require("untildify");
 const fs = require("fs");
 require('dotenv').config();
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
 
 const DistRegistry = require("./Dist");
 
@@ -62,10 +64,26 @@ const defaults = {
     minify: true
 };
 
+function copyIconsToTwig() {
+    const iconsSource = path.resolve(shared, "static", "images", "icons", "*.svg");
+    const iconsDestination = path.resolve(source, "_patterns", "01-atoms", "05-icons");
+    
+    return gulp.src(iconsSource)
+        .pipe(rename(function(path) {
+            // Change extension from .svg to .twig
+            path.extname = ".twig";
+        }))
+        .pipe(gulp.dest(iconsDestination));
+}
+
+
+
 if(process.env.MAYFLOWER_DIST) {
     defaults.dest.dist = untildify(process.env.MAYFLOWER_DIST);
 }
 gulp.registry(new DistRegistry(defaults));
+
+gulp.task("icons", copyIconsToTwig);
 
 gulp.task("default", gulp.series("patternlab:serve"));
 gulp.task("prod", gulp.series("patternlab:build"));

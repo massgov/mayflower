@@ -14,7 +14,10 @@
           aria-describedby="Link to {{ page.link.text }}">
           {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
           {% include "@atoms/09-media/image.twig" %}
-          <span class="ma__related-location__title">{{ page.link.text }}{{ icon('arrow') }}</span>
+          <span class="ma__related-location__title">
+            {{ page.link.text }}
+            {{ icon('arrow', '0.8em', '0.8em') }}
+          </span>
           </a>
         </div>
       {% endfor %}
