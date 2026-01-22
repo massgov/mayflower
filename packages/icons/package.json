@@ -1,0 +1,39 @@
+{
+  "name": "@massds/icons",
+  "version": "1.0.0",
+  "description": "Icon Library for the Massachusetts Design System",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "static/",
+    "src/"
+  ],
+  "scripts": {
+    "build": "gulp build",
+    "prepublishOnly": "npm run build",
+    "clean": "gulp clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/massgov/mayflower.git",
+    "directory": "packages/icons"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "design-system"
+  ],
+  "author": "Massachusetts Digital Services",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "del": "^6.0.0",
+    "svgo": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
