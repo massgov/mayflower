@@ -4,9 +4,10 @@ A comprehensive icon library for the Massachusetts Design System, featuring SVG 
 
 ## Overview
 
-Most icons come from the open source [Phosphor icon library](https://phosphoricons.com/), with custom icons designed in Phosphor's style to fill any gaps. Each icon component has variants built in for `regular` and `bold` styles. As a general rule of thumb, we recommend using the bold style icons on icon instances of 24px and below, and regular style icons on icon instances over 24px.
+Most icons come from the open source [Phosphor icon library](https://phosphoricons.com/), with custom icons designed in Phosphor's style to fill any gaps. Each icon component has variants built in for `regular` and `bold` styles. 
 
-**We recommend using the icon components from this library in your designs as much as possible.** However, you can also use [Phosphor's Figma plugin](https://www.figma.com/community/plugin/898620911119764089) to pull any icons that haven't been published in this library yet.
+**Style Guidelines**: We recommend using bold style icons for instances of 24px and below, and regular style icons for instances over 24px.
+>**We recommend using the icon components from this library in your designs as much as possible.** However, you can also use [Phosphor's Figma plugin](https://www.figma.com/community/plugin/898620911119764089) to pull any icons that haven't been published in this library yet.
 
 ### Icon Sources
 
@@ -17,13 +18,12 @@ Most icons come from the open source [Phosphor icon library](https://phosphorico
 
 ## Usage
 
-### Installation
 ```bash
 npm install @massds/icons
 ```
 
 ### Package Structure
-Icons are named in kebab case. Each icon has a corresponding bold icon in the `bold/` directory and is appended with `--bold` in the name.
+Icons are named in kebab-case. Each icon has a corresponding bold variant in the `bold/` directory,appended with `--bold` in the filename.
 ```
 images/
 ├── alert.svg
@@ -35,6 +35,11 @@ images/
     └── ...
 ```
 
+File Naming Convention
+- Regular icons: icon-name.svg (kebab-case)
+- Bold icons: icon-name--bold.svg (kebab-case with --bold suffix)
+- React components: IconName (PascalCase with Icon prefix)
+
 ### Browse the Full Library
 
 View all available icons in our [Storybook documentation](https://mayflower.digital.mass.gov/core/index.html?path=/docs/foundation-iconography--icons).
@@ -43,8 +48,13 @@ View all available icons in our [Storybook documentation](https://mayflower.digi
 ## Development
 
 ```bash
+# Install dependencies
 rush install
+
+# Build icons package
 rush build:icons
+
+# Update all dependent packages
 rush icons
 ```
 
@@ -63,3 +73,10 @@ rush icons
 #### Add icon to Core:
 1. Run `rushx icons` in `core/` (Build each icon into a React component based on icon-template.js. Note that this step has been taken out of the start script, due to the number of icons slowing down the task)
 2. Update [icon options in Core](packages/core/stories/tokens/icons/Icon.knob.options.js) based on [icon options in React](packages/react/src/components/base/Icon/Icon.knob.options.js).
+
+## Contributing
+1. Add or modify icons in the Figma Icon Library
+2. Export SVGs following the naming convention
+3. Run the build and integration steps above
+4. Test across all dependent packages
+5. Submit a pull request
