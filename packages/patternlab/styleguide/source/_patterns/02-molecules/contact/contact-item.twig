@@ -9,6 +9,10 @@
 {% else %}
   {% set link = item.link %}
 {% endif %}
+{# Remove info if it's "directions" to prevent redundant title #}
+{% if link.info and link.info|lower == 'directions' %}
+  {% set link = link|merge({'info': ''}) %}
+{% endif %}
 
 {# if using the older 3.4.1 data model #}
 {% if item.value %}
@@ -54,7 +58,7 @@
     {# Address - RTE version of value and look for directions link #}
   {% elseif item.type == "address" %}
     <div class="ma__contact-group__address">
-      {{ address|nl2br }}
+      {{ address|nl2br|replace({'<br': '<br aria-hidden="true"'}) }}
     </div>
     {% if link.href %}
       <div class="ma__contact-group__directions">
