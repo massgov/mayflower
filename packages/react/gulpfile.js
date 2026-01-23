@@ -761,7 +761,7 @@ const generateTsDeclarations = series(
 
 
 
-exports.icons = series(
+const icons = series(
   ensureAssetsDir,
   cleanIconAssets,
   cleanTsIconAssets,
@@ -771,22 +771,15 @@ exports.icons = series(
   transpileES5Icons,
   transpileES6Icons
 );
+exports.icons = icons;
 exports.generateTsDeclarations = generateTsDeclarations;
 exports.default = series(
   clean,
-  parallel(
+  icons,
+  series(
     transpileES5,
     transpileES6,
     generateTsDeclarations,
-    styles,
-    series(
-      ensureAssetsDir,
-      cleanIconAssets,
-      copyIconsFromAssets,
-      buildDualVariantIcons,
-      generateIconOptionsAndIndex,
-      transpileES5Icons,
-      transpileES6Icons
-    )
+    styles
   )
 );
