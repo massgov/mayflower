@@ -3,6 +3,17 @@ import generateTitle from '@core/stories/util/generateTitle';
 import { assets, boldOptions } from './Icon.knob.options';
 import IconDisplay from './IconDisplay';
 
+const brandColors = [
+  { color: '#141414', name: 'Neutral Default' },
+  { color: '#707070', name: 'Neutral Muted' },
+  { color: '#a8a8a8', name: 'Neutral Disabled' },
+  { color: '#14558f', name: 'Primary' },
+  { color: '#2d6a46', name: 'Secondary' },
+  { color: '#cd0d0d', name: 'Danger' },
+  { color: '#f6b622', name: 'Warning' },
+  { color: '#187236', name: 'Success' }
+];
+
 export const Icons = (args) => (
   <ul className="sg-icons">
     {
@@ -24,7 +35,11 @@ Icons.args = {
 Icons.argTypes = {
   fill: {
     control: {
-      type: 'color'
+      type: 'select',
+      options: brandColors.reduce((acc, item) => {
+        acc[item.name] = item.color;
+        return acc;
+      }, {})
     }
   },
   bold: {
