@@ -6,6 +6,6 @@
 
   @include input-base;
   background-image: url("#{$assets-path}/images/icons/date-picker.svg");
-  background-position: right 8px top 7px;
+  background-position: right 8px center;
   background-repeat: no-repeat;
 }

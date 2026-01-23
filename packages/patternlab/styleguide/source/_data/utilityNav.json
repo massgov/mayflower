@@ -37,7 +37,7 @@
         "id": "logInTo",
         "text": "Log in to...",
         "ariaLabelText": "Log in links for this page",
-        "icon": "@atoms/05-icons/svg-login.twig",
+        "icon": "@atoms/05-icons/login.twig",
         "closeText": "Close",
         "panels": [
           {

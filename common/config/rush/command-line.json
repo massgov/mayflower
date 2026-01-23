@@ -131,6 +131,14 @@
       "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/assets && rushx stylelint-fix"
     },
+    {
+      "commandKind": "global",
+      "name": "icons",
+      "summary": "Update all icon files in the assets, patternlab and react packages.",
+      "safeForSimultaneousRushProcesses": false,
+      "allowWarningsInSuccessfulBuild": true,
+      "shellCommand": "node common/scripts/update-icons.js"
+    },
     // {
     //   /**
     //    * (Required) Determines the type of custom command.
