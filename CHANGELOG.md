@@ -8,9 +8,10 @@ All notable changes to this project will be documented in this file.
 
 ### Added 
 - (Patternlab,React) [Icons] DP-39285: Added additional icon logic to support regular and bold variants for each icon. Updated existing icons to match new design system standards for size, color, and accessibility attributes. (#2019)
+- (Patternlab) [Iframe] DP-42935 Pass data on referring pages to form pages. (#2028)
 
 ### Fixed 
-- (Patternlab) [Card] DP-44414: Fix accessibility issue where aria-describedby attribute referenced non-existent eyebrow element IDs.
+- (Patternlab) [Card] DP-44414: Fix accessibility issue where aria-describedby attribute referenced non-existent eyebrow element IDs. (#2036)
 
 ## 14.1.2 (12/29/2025)
 ### Fixed 
