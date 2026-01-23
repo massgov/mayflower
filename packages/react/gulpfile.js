@@ -488,6 +488,7 @@ function transpileES5() {
         ],
         '@babel/plugin-proposal-optional-chaining',
         '@babel/plugin-proposal-nullish-coalescing-operator',
+        ['@babel/plugin-transform-private-property-in-object', { loose: true }],
         [
           'babel-plugin-transform-react-remove-prop-types',
           {
@@ -552,6 +553,7 @@ function transpileES6() {
         ],
         '@babel/plugin-proposal-optional-chaining',
         '@babel/plugin-proposal-nullish-coalescing-operator',
+        ['@babel/plugin-transform-private-property-in-object', { loose: true }],
         [
           'babel-plugin-transform-react-remove-prop-types',
           {
@@ -576,18 +578,6 @@ function transpileES6() {
       p.extname = '.mjs';
     }))
     .pipe(dest('dist'));
-}
-
-function cleanIconDir() {
-  return del([
-    'src/components/base/Icon/*',
-    '!src/components/base/Icon/assets',
-    '!src/components/base/Icon/index.js', 
-    '!src/components/base/Icon/IconDisplay.js',
-    '!src/components/base/Icon/Icon.stories.js',
-    '!src/components/base/Icon/Icon.knob.options.js',
-    '!src/components/base/Icon/_icon-display.scss'
-  ]);
 }
 
 function cleanIconAssets() {
