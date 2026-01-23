@@ -170,6 +170,9 @@ jobs:
       - run:
           name: Mayflower React Build Storybook
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
+          environment:
+            NODE_OPTIONS: "--max-old-space-size=8192"
+          no_output_timeout: 30m  # Increase timeout
       - run:
           name: Mayflower React Storybook Extract
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js storybook:extract
