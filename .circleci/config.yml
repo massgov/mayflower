@@ -159,6 +159,7 @@ jobs:
 
   react_build_storybook:
     <<: *patternlab_defaults
+    resource_class: large
     steps:
       - checkout
       - restore_cache:
@@ -172,7 +173,7 @@ jobs:
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
           environment:
             NODE_OPTIONS: "--max-old-space-size=8192"
-          no_output_timeout: 30m  # Increase timeout
+          no_output_timeout: 30m
       - run:
           name: Mayflower React Storybook Extract
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js storybook:extract
