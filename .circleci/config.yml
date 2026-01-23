@@ -256,7 +256,20 @@ jobs:
           command: cd packages/core && node ../../common/scripts/install-run-rushx.js lint
       - run:
           name: Mayflower Core Storybook Build
-          command: cd packages/core && node ../../common/scripts/install-run-rushx.js build
+          command: |
+            cd packages/react
+            echo "=== Before build ==="
+            ls -la dist/Icon/ 2>/dev/null || echo "No dist/Icon/ directory yet"
+            
+            node ../../common/scripts/install-run-rushx.js build
+            
+            echo "=== After build ==="
+            echo "Icon .js files:"
+            find dist/Icon/ -name "*.js" | head -5
+            echo "Icon .mjs files:"
+            find dist/Icon/ -name "*.mjs" | head -5
+            echo "Icon .d.ts files:"
+            find dist/Icon/ -name "*.d.ts" | head -5
       - persist_to_workspace:
           root: ~/code
           paths: ["*"]
