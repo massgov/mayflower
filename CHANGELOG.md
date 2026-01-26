@@ -1,6 +1,18 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 15.0.0 (1/23/2026)
+### Changed 
+- (Patternlab,React,Core) [Icons] DP-39285: Swap out all icons to a new set of shared icons from the new DS library. Each icon now offer a regular and bold variant, and is standardized on width, height, color and aria attributes. Some existing icon names are changed to match the new system and naming conventions. Please refer to the Icon documentation for the updated list of icon names. (#2019)
+- (Core) [Storybook] DP-44412: Archive Element and Component stories. (#2039)
+
+### Added 
+- (Patternlab,React) [Icons] DP-39285: Added additional icon logic to support regular and bold variants for each icon. Updated existing icons to match new design system standards for size, color, and accessibility attributes. (#2019)
+- (Patternlab) [Iframe] DP-42935 Pass data on referring pages to form pages. (#2028)
+
+### Fixed 
+- (Patternlab) [Card] DP-44414: Fix accessibility issue where aria-describedby attribute referenced non-existent eyebrow element IDs. (#2036)
+
 ## 14.1.2 (12/29/2025)
 ### Fixed 
 - (circleci) [npm publilc] Fixed failed npm version. (#2032)
