@@ -58,7 +58,13 @@
     {# Address - RTE version of value and look for directions link #}
   {% elseif item.type == "address" %}
     <div class="ma__contact-group__address">
-      {{ address|nl2br|replace({'<br': '<br aria-hidden="true"'}) }}
+      {%- set first = true -%}
+      {%- for line in address|split('\n') -%}
+        {%- set trimmed = line|trim -%}
+        {%- if trimmed != '' -%}
+          {%- if not first -%}<br aria-hidden="true">{%- endif -%}{{ trimmed }}{%- set first = false -%}
+        {%- endif -%}
+      {%- endfor -%}
     </div>
     {% if link.href %}
       <div class="ma__contact-group__directions">
