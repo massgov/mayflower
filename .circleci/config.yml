@@ -172,15 +172,12 @@ jobs:
           command: |
             cd packages/react
             echo "=== React Build Debug Info ==="
-            echo "Icon .js files:"
-            find dist/Icon/ -name "*.js" | head -10 || echo "No .js files found"
-            echo "Icon .mjs files:"
-            find dist/Icon/ -name "*.mjs" | head -10 || echo "No .mjs files found"
-            echo "Icon .d.ts files:"
-            find dist/Icon/ -name "*.d.ts" | head -10 || echo "No .d.ts files found"
-            echo "Sample icon file contents:"
-            head -5 dist/Icon/IconMarker.js 2>/dev/null || echo "IconMarker.js not found"
-            head -5 dist/Icon/IconMarker.mjs 2>/dev/null || echo "IconMarker.mjs not found"
+            echo "Contents of dist/Icon/index.js:"
+            head -20 dist/Icon/index.js || echo "index.js not found"
+            echo "Contents of dist/Icon/index.mjs:"
+            head -20 dist/Icon/index.mjs || echo "index.mjs not found"
+            echo "All files in dist/Icon/:"
+            ls -la dist/Icon/
       - run:
           name: Mayflower React Build Storybook
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build-storybook
