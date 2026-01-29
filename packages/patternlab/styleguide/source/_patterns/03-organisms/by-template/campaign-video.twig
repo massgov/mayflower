@@ -25,6 +25,12 @@
       {% set video = campaignVideo.video %}
       {% set videoHeadingLevel = headingLevel + 1 %}
       {% set video = video|merge({"headingLevel": videoHeadingLevel}) %}
+      {# Hide video heading only for section videos (not header videos) when there's no title above it #}
+      {# This prevents unnecessary H3 headings on promo page section videos without titles #}
+      {# Header videos keep their heading for accessibility even without a title #}
+      {% if not campaignVideo.isHeader and not campaignVideo.title %}
+        {% set video = video|merge({"hideHeading": true}) %}
+      {% endif %}
       {% include "@atoms/09-media/video.twig" %}
     </div>
   </div>
