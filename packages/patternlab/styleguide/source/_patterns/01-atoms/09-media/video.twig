@@ -1,6 +1,5 @@
 {% set posClass = video.position ? "ma__video--" ~ video.position : '' %}
 {% set headingLevel = video.headingLevel? : 3 %}
-{% set hideHeading = video.hideHeading ?? false %}
 {% set skiplinkId = "video-" ~ random(9999) %}
 
 
@@ -8,9 +7,7 @@
 <div class="ma__video ma__video--new {{ posClass }}">
 
   <div class="ma__video__container js-ma-responsive-video"{% if not video.link %} style="padding-bottom: 13px;"{% endif %}>
-    {% if not hideHeading %}
     <h{{ headingLevel }} class="ma__video-title ma__visually-hidden">Video: {{ video.label }}</h{{ headingLevel }}>
-    {% endif %}
 
     {% if video.link %}
       <div class="ma__video__link">
