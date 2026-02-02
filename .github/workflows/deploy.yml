@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'develop'
-      - '!docs/**'
+    #  - '!docs/**'
     # tags:
     #   - '**'
 #   workflow_dispatch:
