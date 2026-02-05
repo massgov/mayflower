@@ -52,7 +52,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
 
       - name: Configure Git
         run: |
@@ -249,7 +249,7 @@ jobs:
       - name: Add SSH key
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -300,7 +300,7 @@ jobs:
       - name: Add SSH key
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -490,7 +490,7 @@ jobs:
         working-directory: packages/react
         run: |
           aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --delete
-          aws cloudfront create-invalidation --distribution-id ${{ vars.AWS_DISTRIBUTION_ID }} --paths '/react*'
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths '/react*'
 
   core_build_storybook:
     name: Build Core Storybook
@@ -565,7 +565,7 @@ jobs:
           if [[ "$TAG_NAME" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
           fi
-          aws cloudfront create-invalidation --distribution-id ${{ vars.AWS_DISTRIBUTION_ID }} --paths '/core*'
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths '/core*'
 
   core_deploy_branch:
     name: Deploy Core (Branch)
@@ -594,7 +594,7 @@ jobs:
         run: |
           BRANCH_NAME=${GITHUB_REF#refs/heads/}
           aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/b/$BRANCH_NAME" --delete
-          aws cloudfront create-invalidation --distribution-id ${{ vars.AWS_DISTRIBUTION_ID }} --paths "/core/b*"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/core/b*"
 
   release_branch:
     name: Release Branch
@@ -603,7 +603,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -640,7 +640,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
           fetch-depth: 0
 
       - name: Configure Git
@@ -670,5 +670,5 @@ jobs:
 
       - name: Run release tag script
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
         run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-tag.js
