@@ -3,8 +3,8 @@ name: Deploy
 on:
   push:
     branches:
-      - 'develop'
-      - '!docs/**'
+      - "develop"
+      - "!docs/**"
     tags:
       - "**"
   workflow_dispatch:
@@ -52,15 +52,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Configure Git
         run: |
           git config --global user.email "ci.bot@mass.gov"
-          git config --global user.name "MassGov Bot"
+          git config --global user.name "Mayflower Bot"
 
       - name: Run auto changelog script
-        run: ./.circleci/dependabot.sh
+        run: ./.github/workflows/dependabot.sh
 
   assets_build:
     name: Build Assets
@@ -243,13 +243,13 @@ jobs:
       - name: Configure Git
         run: |
           git config --global user.email "ci.bot@mass.gov"
-          git config --global user.name "MassGov Bot"
+          git config --global user.name "Mayflower Bot"
           mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Add SSH key
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -294,13 +294,13 @@ jobs:
       - name: Configure Git
         run: |
           git config --global user.email "ci.bot@mass.gov"
-          git config --global user.name "MassGov Bot"
+          git config --global user.name "Mayflower Bot"
           mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Add SSH key
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -603,7 +603,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -627,8 +627,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.email "circleci@example.com"
-          git config --global user.name "CircleCI Deployment Bot"
+          git config --global user.email "ci.bot@mass.gov"
+          git config --global user.name "Mayflower Bot"
 
       - name: Run release branch script
         run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-branch.js
@@ -640,13 +640,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0
 
       - name: Configure Git
         run: |
-          git config --global user.email "circleci@example.com"
-          git config --global user.name "CircleCI Deployment Bot"
+          git config --global user.email "ci.bot@mass.gov"
+          git config --global user.name "Mayflower Bot"
           mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Setup Node.js
