@@ -34,11 +34,11 @@ jobs:
       - restore_cache:
           name: Restore pnpm-lock.yaml
           keys:
-            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-26
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run: {name: 'Install packages', command: 'node common/scripts/install-run-rush.js install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-26
+          key: root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
           paths:
             - common
             - packages/assets/node_modules
@@ -53,7 +53,7 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-26
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run: { name: 'Build', command: 'cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build'}
       - persist_to_workspace:
           root: ~/code
@@ -356,7 +356,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-26
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run: { name: 'Build', command: 'cd packages/assets && node ../../common/scripts/install-run-rushx.js build'}
       - run:
           name: Mayflower Style Linter
