@@ -670,5 +670,5 @@ jobs:
 
       - name: Run release tag script
         env:
-          GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-tag.js
