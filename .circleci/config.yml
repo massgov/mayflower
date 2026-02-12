@@ -257,7 +257,10 @@ jobs:
             - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run:
           name: Mayflower React NPM Package Build
-          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
+          command: |
+            cd packages/react
+            rm -rf dist
+            node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Debug React Build Output
           command: |
