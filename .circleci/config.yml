@@ -163,7 +163,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-26
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run:
           name: Mayflower React Build
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
@@ -254,7 +254,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-26
+            - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run:
           name: Mayflower React NPM Package Build
           command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
