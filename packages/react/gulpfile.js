@@ -197,6 +197,9 @@ function transpileES5Icons() {
 function transpileES6Icons() {
   return src([
       './src/components/base/Icon/Icon*.js',
+      '!./src/components/base/Icon/IconDisplay.js',
+      '!./src/components/base/Icon/Icon.knob.options.js',
+      '!./src/components/base/Icon/Icon.stories.js',
       './src/components/base/Icon/index.js'
     ])
     .pipe(babel({
