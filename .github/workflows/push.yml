@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - develop
-    paths:
-      - "docs/**"
-      - "docs.manifest"
-  workflow_dispatch:
 
 defaults:
   run:
@@ -35,6 +31,7 @@ jobs:
           role-to-assume: ${{ vars.ROLE_ARN }}
 
       - name: Check for docs.manifest
+        shell: bash
         run: |
           if [ ! -f ${{ env.file_path }} ]; then
             echo "docs.manifest not found. Exiting."
