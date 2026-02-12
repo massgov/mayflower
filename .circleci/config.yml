@@ -165,18 +165,17 @@ jobs:
           keys:
             - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run:
-          name: Mayflower React Build
-          command: cd packages/react && node ../../common/scripts/install-run-rushx.js build
+          name: Mayflower React NPM Package Build
+          command: |
+            cd packages/react
+            echo "=== Cleaning previous build ==="
+            rm -rf dist
+            echo "=== Running fresh build ==="
+            node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Debug React Build Output
           command: |
             cd packages/react
-            echo "=== React Build Debug Info ==="
-            echo "Contents of dist/Icon/index.js:"
-            head -20 dist/Icon/index.js || echo "index.js not found"
-            echo "Contents of dist/Icon/index.mjs:"
-            head -20 dist/Icon/index.mjs || echo "index.mjs not found"
-            echo "All files in dist/Icon/:"
             ls -la dist/Icon/
       - run:
           name: Mayflower React Build Storybook
@@ -259,7 +258,9 @@ jobs:
           name: Mayflower React NPM Package Build
           command: |
             cd packages/react
+            echo "=== Cleaning previous build ==="
             rm -rf dist
+            echo "=== Running fresh build ==="
             node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Debug React Build Output
