@@ -196,8 +196,7 @@ function transpileES5Icons() {
 
 function transpileES6Icons() {
   return src([
-      './dist/Icon/*.mjs', 
-      '!./dist/Icon/index.mjs',
+      './src/components/base/Icon/Icon*.js',
       './src/components/base/Icon/index.js'
     ])
     .pipe(babel({
@@ -249,10 +248,6 @@ function transpileES6Icons() {
       ]
     }))
     .pipe(rename((p) => {
-      const splitPath = p.dirname.split('/');
-      // eslint-disable-next-line no-param-reassign
-      p.dirname = splitPath[splitPath.length - 1];
-      // eslint-disable-next-line no-param-reassign
       p.extname = '.mjs';
     }))
     .pipe(dest('dist/Icon'));
