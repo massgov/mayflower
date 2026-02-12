@@ -44,7 +44,7 @@ function copyIconsFromAssets() {
         path.basename = `icon-${path.basename}`;
       } else {
         // For regular icons, add "icon-" prefix and put in root
-        path.dirname = '';
+        path.dirname = '.';
         path.basename = `icon-${path.basename}`;
       }
     }))
