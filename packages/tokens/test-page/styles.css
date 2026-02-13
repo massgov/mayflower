@@ -1,0 +1,182 @@
+/** 
+    Test styles for index.html to make sure variables are working properly. Do not directly reference this file 
+**/
+    
+@import url('../design-tokens-css/semantic-tokens.css');
+
+
+body, button, html {
+    font-family: "Noto Sans", "Helvetica", "Arial", sans-serif;
+    box-sizing: border-box;
+    /** font imported in primitives stylesheet **/
+}
+p, li {
+    color: var(--mds-background-adaptive-brand-neutral-high);
+    font: var(--mds-text-body);
+}
+
+a {
+    color: var(--mds-background-adaptive-brand-primary-mid);
+    
+}
+
+p strong {font:var(--mds-text-body-bold); }
+
+a:hover {
+    color: var(--mds-background-adaptive-brand-primary-low);
+}
+
+a:focus {
+    outline-color: var(--mds-border-focus-on-light);
+}
+
+input {
+    outline:1px solid var(--mds-border-neutral-high);
+    border-radius: var(--mds-radius-md);
+    padding: var(--mds-space-3xs) var(--mds-space-xs);
+    margin: var(--mds-space-3xs);
+    font-size: var(--mds-text-body, 16px);
+ }
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--mds-text-and-icons-brand-neutral-default);
+}
+
+h1 {
+    font: var(--mds-text-heading-2xl);
+}
+
+h2 {
+    font: var(--mds-text-heading-xl);
+}
+
+h3 {
+    font: var(--mds-text-heading-lg);
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.container {
+    margin: var(--mds-space-lg)0 ;
+}
+/** Specific component css **/
+
+.mds-badge {
+    padding: var(--mds-space-2xs);
+    display: inline-block;
+    border-radius: var(--mds-radius-sm, 4px);
+    color: var(--mds-text-and-icons-neutral-brand-default);
+    background-color: var(--mds-background-adaptive-brand-neutral-low);
+    font: var(--mds-text-eyebrow);
+    text-transform: var(--mds-text-transform-eyebrow);
+    letter-spacing: var(--mds-text-letter-spacing-eyebrow);
+}
+
+.mds-badge.primary {
+    color: var(--mds-text-and-icons-brand-primary-mid);
+    background-color: var(--mds-background-adaptive-brand-primary-lowest);
+}
+
+.mds-badge.success {
+    color: var(--mds-text-and-icons-utility-success-mid);
+    background-color: var(--mds-background-adaptive-utility-success-lowest);
+}
+
+.mds-badge.caution {
+    color: var(--mds-text-and-icons-utility-warning-mid);
+    background-color: var(--mds-background-adaptive-utility-warning-lowest);
+}
+
+.mds-badge.danger {
+    color: var(--mds-text-and-icons-utility-danger-mid);
+    background-color: var(--mds-background-adaptive-utility-danger-lowest);
+}
+
+.mds-button {
+    padding: var(--mds-space-sm);
+    font-size: var(--mds-text-body-lg, 18px);
+    border-radius: var(--mds-radius-md);
+    box-sizing: border-box;
+    border: 0;
+    height: 3.5rem;
+    vertical-align: bottom;
+}
+
+.mds-button.fill {
+    background-color: var(--mds-background-adaptive-brand-primary-mid);
+    color: var(--mds-inverse);
+    border-color: var(--mds-background-section-brand-primary-mid);
+}
+
+.mds-button.accent.fill {
+    background-color: var(--mds-background-section-brand-secondary-mid);
+    border-color: var(--mds-background-section-brand-secondary-mid);
+}
+
+.mds-button.accent.fill:hover, .mds-button.accent.outline:hover {
+    background-color: var(--mds-background-section-brand-secondary-highest);
+    color: var(--mds-inverse); /** Use adaptive for interactive*/
+}
+
+.mds-button.outline {
+    background-color: var(--mds-inverse);
+    border: 2px solid var(--mds-background-section-brand-primary-mid);
+    color: var(--mds-background-section-brand-primary-mid);
+}
+
+.mds-button.accent.outline {
+    color: var(--mds-background-section-brand-secondary-mid);
+    border: 2px solid var(--mds-background-section-brand-secondary-mid);
+}
+
+.mds-button.accent.ghost {
+    color: var(--mds-background-section-brand-secondary-mid);
+}
+
+.mds-button.ghost {
+    border: none;
+    background-color: var(--mds-inverse);
+    color: var(--mds-background-section-brand-primary-mid);
+}
+
+.mds-button.ghost:hover {
+    border: none;
+    background-color: var(--mds-inverse);
+    color: var(--mds-background-section-brand-primary-mid);
+    text-decoration: underline;
+}
+
+.mds-button.accent.ghost:hover {
+    color: var(--mds-background-section-brand-secondary-mid);
+}
+
+.mds-button.small {
+    padding: var(--mds-space-2xs, 8px) var(--mds-space-sm, 16px);
+    font-size: var(--mds-text-body-sm, 14px)
+}
+
+.mds-button:hover, .mds-button.outline:hover {
+    background-color: var(--mds-background-section-brand-primary-highest);
+    color: var(--mds-inverse);
+    box-shadow: var(--mds-shadow-hover-sm);
+}
+
+/* Elevation demo styles */
+
+.modal-shadow {
+    margin: var(--mds-space-md);
+    padding: var(--mds-space-md);
+    box-shadow: var(--mds-shadow-modal);
+    width: 300px;
+    height: 200px;
+}
+
+.container-shadow {
+    margin: var(--mds-space-md);
+    padding: var(--mds-space-md);
+    box-shadow: var(--mds-shadow-container);
+    width: 200px;
+    height: 100px;
+}
