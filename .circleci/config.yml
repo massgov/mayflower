@@ -165,12 +165,17 @@ jobs:
           keys:
             - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run:
+          name: Icons NPM Package Build
+          command: |
+            cd packages/icons
+            node ../../common/scripts/install-run-rushx.js build
+            echo "=== Check dist was created ==="
+            ls -la dist/ || echo "No dist created"
+            find dist/ -name "*.svg" | head -10 || echo "No SVG files in dist"
+      - run:
           name: Mayflower React NPM Package Build
           command: |
             cd packages/react
-            echo "=== Cleaning previous build ==="
-            rm -rf dist
-            echo "=== Running fresh build ==="
             node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Debug React Build Output
@@ -255,12 +260,17 @@ jobs:
           keys:
             - root-npm-v6-{{ checksum "common/config/rush/pnpm-lock.yaml" }}-27
       - run:
+          name: Icons NPM Package Build
+          command: |
+            cd packages/icons
+            node ../../common/scripts/install-run-rushx.js build
+            echo "=== Check dist was created ==="
+            ls -la dist/ || echo "No dist created"
+            find dist/ -name "*.svg" | head -10 || echo "No SVG files in dist"
+      - run:
           name: Mayflower React NPM Package Build
           command: |
             cd packages/react
-            echo "=== Cleaning previous build ==="
-            rm -rf dist
-            echo "=== Running fresh build ==="
             node ../../common/scripts/install-run-rushx.js build
       - run:
           name: Debug React Build Output

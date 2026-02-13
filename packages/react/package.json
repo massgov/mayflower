@@ -54,11 +54,11 @@
     "react-table": "^6.8.6",
     "react-transition-group": "^2.4.0",
     "react-virtualized": "~9.22.2",
-    "html-react-parser": "~1.4.14",
-    "@massds/icons": "~1.0.0"
+    "html-react-parser": "~1.4.14"
   },
   "peerDependencies": {
     "@massds/mayflower-assets": "^15.0.0",
+    "@massds/icons": "~1.0.0",
     "react": "^16.13.1 || ^17 || ^18",
     "react-dom": "^16.13.1 || ^17 || ^18"
   },
