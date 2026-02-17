@@ -1,7 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: PersonCard
-    description: Conditionally render bio link section only when person.bio is defined and has a valid href, preventing empty anchor tags from appearing in the rendered HTML.
-    issue: DP-44560
-    impact: Minor
-
