@@ -1,5 +1,5 @@
 Added:
   - project: Tokens
-    description: Add css variables for tokens to Mayflower repo
+    description: Add css variables for tokens to Mayflower repo #2049
     issue: DP-44969
-    impact: Minor/None (tokens are not currently used in any components)
+    impact: Minor
