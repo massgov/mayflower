@@ -68,7 +68,7 @@ EmergencyAlertsWithoutAlerts.args = {
   },
   buttonClose: true,
   title: ({ linkClasses }) => <a className={linkClasses} href="https://www.mass.gov">Our new & improved Boston office is now open!</a>,
-  iconName: 'IconOpennow'
+  iconName: 'IconOpenNow'
 };
 EmergencyAlertsWithoutAlerts.argTypes = {
   iconName: {

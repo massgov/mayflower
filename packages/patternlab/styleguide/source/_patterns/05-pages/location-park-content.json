@@ -768,7 +768,7 @@
               ]
             },
             {
-              "icon": "fax-icon",
+              "icon": "fax",
               "name": "Fax",
               "hidden": "true",
               "items": [
@@ -850,7 +850,7 @@
               ]
             },
             {
-              "icon": "fax-icon",
+              "icon": "fax",
               "name": "Fax",
               "hidden": "true",
               "items": [

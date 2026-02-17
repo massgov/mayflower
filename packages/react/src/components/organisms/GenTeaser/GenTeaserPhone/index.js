@@ -20,7 +20,7 @@ const GenTeaserPhone = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <IconPhone width={15} height={15} />
+        <IconPhone width={20} height={20} />
       </span>
       <PhoneNumber {...phoneProps} />
     </div>

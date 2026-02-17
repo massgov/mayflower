@@ -93,14 +93,6 @@
         text-align: left;
         line-height: 1.2;
 
-        svg {
-          display: inline-block;
-          height: .6em;
-          width: .6em;
-          fill: var(--mf-c-bay-blue-lighter);
-          margin-left: 5px;
-        }
-
         @media ($bp-large-min) {
           padding: 0;
           font-size: $fonts-2xlarge;

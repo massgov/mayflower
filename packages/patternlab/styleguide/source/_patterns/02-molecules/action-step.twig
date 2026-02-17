@@ -12,7 +12,7 @@
       <button class="ma__action-step__header js-accordion-link">
     {% if actionStep.icon %}
       <div class="ma__action-step__icon">
-        {{ icon(actionStep.icon) }}
+        {{ icon(actionStep.icon, '24px', '24px', 'ma__action-step__icon--' ~ actionStep.icon) }}
         {% if actionStep.iconLabel %}<span class="ma__visually-hidden">{{actionStep.iconLabel}}</span>{% endif %}
       </div>
     {% endif %}
@@ -30,8 +30,9 @@
     <h{{ headingLevel }} class="ma__action-step__title {{ link ? 'ma__decorative-link' : ''}}">
 
       {% if actionStep.icon %}
+      
         <div class="ma__action-step__icon">
-          {{ icon(actionStep.icon) }}
+          {{ icon(actionStep.icon, '24px', '24px', 'ma__action-step__icon--' ~ actionStep.icon) }}
           {% if actionStep.iconLabel %}<span class="ma__visually-hidden">{{actionStep.iconLabel}}</span>{% endif %}
         </div>
       {% endif %}
@@ -39,7 +40,7 @@
 
       {% if link %}
         <a href="{{link}}" class="ma__action-step__title-link js-clickable-link">
-          {{ actionStep.title }} &nbsp;{{ icon('arrow') }}
+          {{ actionStep.title }} &nbsp;{{ icon('arrow', '0.8em', '0.8em') }}
         </a>
       {% else %}
         <span class="ma__action-step__title-text">{{ actionStep.title }}</span>
