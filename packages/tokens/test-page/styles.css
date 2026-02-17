@@ -2,7 +2,7 @@
     Test styles for index.html to make sure variables are working properly. Do not directly reference this file 
 **/
     
-@import url('../design-tokens-css/semantic-tokens.css');
+@import url('../css/index.css');
 
 
 body, button, html {

@@ -2,7 +2,7 @@
 
 For general guidance on how to use the Design System, check out the [Design System Microsite](https://www.mass.gov/massachusetts-design-system).
 
-The semantic variables are created by running the [Token Forge Figma plugin](https://www.figma.com/community/plugin/1566133735926608173/token-forge-variables-tokens-builder) on the [Massachusetts Design System Foundations > Styles](https://www.figma.com/design/gCuxnTFonFcfYMsaaVemo7/Styles?m=auto) Figma file.
+The semantic variables (found in css/index.css) are created by running the [Token Forge Figma plugin](https://www.figma.com/community/plugin/1566133735926608173/token-forge-variables-tokens-builder) on the [Massachusetts Design System Foundations > Styles](https://www.figma.com/design/gCuxnTFonFcfYMsaaVemo7/Styles?m=auto) Figma file.
 
 Currently they are edited by hand to remove any unhelpful directories/modes imported from Figma. We're working on how to make this process cleaner once we have the tokens looking the way we want. It does, however, allow us to use the prefix for our tokens, `mds`, when exporting.
 
