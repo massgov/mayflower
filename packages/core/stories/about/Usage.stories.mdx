@@ -3,12 +3,11 @@ import { linkTo } from '@storybook/addon-links';
 import Button from '@massds/mayflower-react/dist/Button';
 
 import generateTitle from '../util/generateTitle';
-const { STORYBOOK_CDN_PATH, STORYBOOK_CDN, STORYBOOK_PKG, PKG, VERSION } = process.env;
 
 
 <Meta title={generateTitle('Usage')} />
 
-<h1>Get Started with Mayflower <small>version {VERSION}</small></h1>
+<h1>Get Started with Mayflower <small>version {process.env.STORYBOOK_VERSION}</small></h1>
 
 
 
@@ -22,10 +21,10 @@ To kickstart an HTML page with Mayflower Header, Footer, basic layout and styles
 To start building with Mayflower in HTML, start by importing the global styles and then incrementally add the styles and JS for each Mayflower component:
 
 - To import fonts and get started with basic Mayflower styles, link to the compiled `css/global.css` (or the minified version, `css/global.min.css`) from the @massds/mayflower-assets package or the assets CDN.
-    > <code>{`${STORYBOOK_CDN_PATH}/css/global.css`}</code>
+    > <code>{`${process.env.STORYBOOK_CDN_PATH}/css/global.css`}</code>
 
 - To include basic page layout styles from Mayflower, link to the compiled `css/layout.css` (or the minified version, `css/layout.min.css`) from the @massds/mayflower-assets package or the assets CDN.
-    > <code>{`${STORYBOOK_CDN_PATH}/css/layout.css`}</code>
+    > <code>{`${process.env.STORYBOOK_CDN_PATH}/css/layout.css`}</code>
 
 - To use a Mayflower branding component on your site, go to the documentation of the component, copy and paste the HTML code snippet, and link to the CDN version of CSS and JS files in the appropriate sections of your HTML.
 
@@ -57,10 +56,10 @@ The package @massds/mayflower-assets is published on NPM. If you use Node.js, yo
 npm install @massds/mayflower-assets
 ```
 
-If you are not using NPM, you can also directly <a href={`https://registry.npmjs.org/${PKG}/-/mayflower-assets-${VERSION}.tgz`}>download a compressed package for the latest version</a>, or specify a version in the URL:
+If you are not using NPM, you can also directly <a href={`https://registry.npmjs.org/${process.env.STORYBOOK_PKG}/-/mayflower-assets-${process.env.STORYBOOK_VERSION}.tgz`}>download a compressed package for the latest version</a>, or specify a version in the URL:
 <pre>
   <code>
-  {`https://registry.npmjs.org/${PKG}/-/mayflower-assets-[version].tgz`}
+  {`https://registry.npmjs.org/${process.env.STORYBOOK_PKG}/-/mayflower-assets-[version].tgz`}
   </code>
 </pre>
 
@@ -76,7 +75,7 @@ unpkg.com/@massds/mayflower-assets@[version]/[file]
 
 To explore the whole package for a specific version, you can
 1. browse the `@massds/mayflower-assets` package of the lastest version at:
-<a href={`${STORYBOOK_CDN}browse/${STORYBOOK_PKG}/`}>{`${STORYBOOK_CDN}browse/${STORYBOOK_PKG}/`}</a>
+<a href={`${process.env.STORYBOOK_CDN}browse/${process.env.STORYBOOK_PKG}/`}>{`${process.env.STORYBOOK_CDN}browse/${process.env.STORYBOOK_PKG}/`}</a>
 
 2. Navigate on the resource you want to link to, e.g. css/global.css
 3. Click on “View Raw” and copy the URL for the file.
@@ -92,9 +91,9 @@ For examples:
     <td>State Seal</td>
     <td>
       <ul style={{listStyle: 'none'}}>
-        <li>{`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.png`}</li>
-        <li>{`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal.svg`}</li>
-        <li>{`${STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.svg`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/static/images/logo/stateseal.png`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/static/images/logo/stateseal.svg`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/static/images/logo/stateseal-color.svg`}</li>
       </ul>
     </td>
   </tr>
@@ -102,10 +101,10 @@ For examples:
     <td>Fonts</td>
     <td>
       <ul style={{listStyle: 'none'}}>
-        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-Regular.woff2`}</li>
-        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-Italic.woff2`}</li>
-        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-VF.woff2`}</li>
-        <li>{`${STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSansItalic-VF.woff2`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-Regular.woff2`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-Italic.woff2`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSans-VF.woff2`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/static/fonts/noto/Latin/NotoSansItalic-VF.woff2`}</li>
       </ul>
     </td>
   </tr>
@@ -113,8 +112,8 @@ For examples:
     <td>Global CSS</td>
     <td>
       <ul style={{listStyle: 'none'}}>
-        <li>{`${STORYBOOK_CDN_PATH}/css/global.css`}</li>
-        <li>{`${STORYBOOK_CDN_PATH}/css/global.min.css`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/css/global.css`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/css/global.min.css`}</li>
       </ul>
     </td>
   </tr>
@@ -122,8 +121,8 @@ For examples:
     <td>Header CSS</td>
     <td>
       <ul style={{listStyle: 'none'}}>
-        <li>{`${STORYBOOK_CDN_PATH}/css/header.css`}</li>
-        <li>{`${STORYBOOK_CDN_PATH}/css/header.min.css`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/css/header.css`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/css/header.min.css`}</li>
       </ul>
     </td>
   </tr>
@@ -131,8 +130,8 @@ For examples:
     <td>Header JS</td>
     <td>
       <ul style={{listStyle: 'none'}}>
-        <li>{`${STORYBOOK_CDN_PATH}/js/header.js`}</li>
-        <li>{`${STORYBOOK_CDN_PATH}/js/header.min.js`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/js/header.js`}</li>
+        <li>{`${process.env.STORYBOOK_CDN_PATH}/js/header.min.js`}</li>
       </ul>
     </td>
   </tr>

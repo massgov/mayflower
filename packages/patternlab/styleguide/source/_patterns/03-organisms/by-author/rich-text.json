@@ -41,6 +41,34 @@
         }
       }
     },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "<code>pre</code>, <code>code</code>, <code>kbd</code>, and <code>samp</code> element examples"
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy text (Windows)."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "<samp>File not found.<br>Press F1 to continue</samp>"
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "<pre><code>function greet(name) \b { console.log(\"Hello, \" + name + \"!\"); } greet(\"Alice\"); greet(\"Bob\");</code></pre>"
+        }
+      }
+    },{
       "path": "@atoms/09-media/figure--image.twig",
       "data": {
         "figure": {

@@ -2,7 +2,7 @@
   {% if contactGroup.name and contactGroup.icon %}
     {% set headingLevel = contactGroup.level ? : 2 %}
     <h{{ headingLevel }} class="ma__contact-group__name">
-    {{ icon(contactGroup.icon) }}
+    {{ icon(contactGroup.icon, "24", "24") }}
       <span>{{contactGroup.name}}</span>
     </h{{ headingLevel }}>
   {% endif %}

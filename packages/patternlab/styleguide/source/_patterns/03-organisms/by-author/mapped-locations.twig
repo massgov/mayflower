@@ -2,8 +2,8 @@
   {% if mappedLocations.compHeading %}
     <div class="ma__mapped-locations__header">
       {% if mappedLocations.compHeading %}
-       {% set compHeading = mappedLocations.compHeading %}
-       {% include "@atoms/04-headings/comp-heading.twig" %}
+        {% set compHeading = mappedLocations.compHeading %}
+        {% include "@atoms/04-headings/comp-heading.twig" %}
       {% endif %}
     </div>
   {% endif %}
@@ -24,9 +24,12 @@
     </div>
   {% endif %}
   {% if mappedLocations.leafletMap %}
-    <div class="ma__mapped-locations__map" aria-hidden="true">
+    <div class="ma__mapped-locations__map">
       {% set id = 'dataviz-' ~ random(9999) %}
-      <a class="ma__mapped-locations__map__skip-link js-skiplink" href="#map_{{ id }}">Skip this map.</a>
+      <div id="sr-info" class="ma__visually-hidden">
+        This interactive map may not function properly with screen readers. Please use the preceding link to access the full location listing for an accessible experience.
+      </div>
+      <a class="ma__mapped-locations__map__skip-link js-skiplink" href="#map_{{ id }}">Skip the interactive map.</a>
       {% set leafletMap = mappedLocations.leafletMap %}
       {% include "@molecules/map-leaflet.twig" %}
       <div class="ma__mapped-locations__map__skip-link_target js-skiplink-target">
