@@ -1,7 +1,10 @@
 {
   "links": [{
-    "href": "https://www.mass.gov/topics/massachusetts-topics",
-    "text": "All Topics"
+    "href": "https://www.mass.gov/info-details/commonwealth-of-massachusetts-executive-department-digital-accessibility-statement",
+    "text": "Digital Accessibility Statement"
+  },{
+    "href": "https://www.mass.gov/massgov-privacy-policy",
+    "text": "Privacy Policy"
   },{
     "href": "https://www.mass.gov/massgov-site-policies",
     "text": "Site Policies"

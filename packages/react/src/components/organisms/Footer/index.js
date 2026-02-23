@@ -12,11 +12,7 @@ const today = new Date();
 const Footer = ({
   footerLinks,
   footerText: {
-    copyright = today.getFullYear(),
-    privacyPolicy = {
-      text: 'Mass.gov Privacy Policy',
-      url: 'https://www.mass.gov/privacypolicy'
-    }
+    copyright = today.getFullYear()
   },
   footerLogo: {
     domain = '/',
@@ -46,7 +42,6 @@ const Footer = ({
             {` ${copyright} Commonwealth of Massachusetts.`}
           </div>
           <span>Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts. </span>
-          <a href={privacyPolicy.url}>{privacyPolicy.text}</a>
         </div>
       </div>
     </div>
@@ -74,15 +69,10 @@ Footer.propTypes = {
   /** Adds footer info section. (Defaults to matching Mass.gov) <br />
    * `copyright:` Bolded copyright info starting with © <br />
    * `description:` Descriptive info below copyright <br />
-   * `privacyPolicy:` A link to the privacy policy page of the site
   */
   footerText: PropTypes.shape({
     copyright: PropTypes.string,
-    description: PropTypes.string,
-    privacyPolicy: PropTypes.shape({
-      text: PropTypes.string,
-      url: PropTypes.string
-    })
+    description: PropTypes.string
   }),
   /** Adds feedback button. */
   floatingAction: PropTypes.bool
