@@ -9,10 +9,10 @@
               {{ nav.text }}
           </button>
           <div class="ma__main-nav__subitems js-main-nav-content is-closed">
-            <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
+            <ul id="{{ menuId }}" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
               {% for subNav in nav.subNav %}
-                <li role="none" class="ma__main-nav__subitem">
-                  <a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a>
+                <li class="ma__main-nav__subitem">
+                  <a href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a>
                 </li>
               {% endfor %}
             </ul>
@@ -23,7 +23,7 @@
           {% if 'covid' in nav.text|lower %}
             {% set altClass = 'cv-alternate-style' %}
           {% endif %}
-          <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__top-link {{ altClass }}">{{ nav.text }}</a>
+          <a href="{{ nav.href }}" class="ma__main-nav__top-link {{ altClass }}">{{ nav.text }}</a>
         {% else %}
           <button id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
         {% endif %}
