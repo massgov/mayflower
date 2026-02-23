@@ -14,10 +14,6 @@ floatingAction: {
 footerLinks: {
   type: footerLinks / required
 }
-
-privacyPolicy {
-  type: privacyPolicy / required
-}
 ~~~
 
 In Patternlab footer logo and footer info are hard coded for Mass.gov use only. 
