@@ -76,7 +76,8 @@
     "gulp-postcss": "^9.0.1",
     "leaflet": "~1.7.1",
     "normalize-scss": "~7.0.1",
-    "postcss": "^8.4.49"
+    "postcss": "^8.4.49",
+    "@massds/icons": "~1.0.0"
   },
   "scripts": {
     "start": "gulp",

@@ -392,6 +392,10 @@
     {
       "packageName": "mayflower-core",
       "projectFolder": "packages/core"
+    },
+    {
+      "packageName": "@massds/icons",
+      "projectFolder": "packages/icons"
     }
     // {
     //   /**
