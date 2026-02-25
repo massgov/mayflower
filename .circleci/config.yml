@@ -45,6 +45,7 @@ jobs:
             - packages/react/node_modules
             - packages/patternlab/styleguide/node_modules
             - packages/core/node_modules
+            - packages/icons/node_modules
 
   patternlab_build:
     <<: *patternlab_defaults
