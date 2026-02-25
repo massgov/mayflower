@@ -1,0 +1,6 @@
+Added:
+  - project: Assets
+    component: Print
+    description: Enhance print styles with typography spacing and weight, colored header from left (no indent, dark text), hide maps and icons/SVG in print, and show table of contents overlay for law library/binder pages.
+    issue: DP-39488
+    impact: Patch
