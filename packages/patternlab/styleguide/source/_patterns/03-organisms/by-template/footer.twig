@@ -7,14 +7,16 @@
         } %}
       </div>
       <div class="ma__footer-new__state-organizations">
-        {{ icon('building', "20", "18") }}
-        <span>State Organizations</span>
+        <a href="{{ stateOrgsHref }}" class="direct-link">
+          {{ icon('building', "20", "18") }}
+          <span>State Organizations</span>
+        </a>
       </div>
     </div>
     <div class="ma__footer-new__content">
       <nav class="ma__footer-new__navlinks" aria-label="site navigation">
         {% for link in footerLinksNew.links %}
-          <div><a href="{{link.href}}">{{link.text}}</a></div>
+          <div><a href="{{ link.href }}">{{ link.text }}</a></div>
         {% endfor %}
       </nav>
       <div class="ma__footer-new__copyright">
