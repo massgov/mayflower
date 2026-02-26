@@ -1,4 +1,4 @@
-<section class="ma__contact-list {{ contactList.viewSpecific ? 'ma__contact-list--view-specific' : '' }}">
+<section class="ma__contact-list {{ contactList.viewSpecific ? 'ma__contact-list--view-specific' : '' }} {{ contactList.hideMobile ? 'ma__contact-list--hide-mobile' : '' }}">
   {% set contactHeading = contactList.level ? : 2 %}
 
   {% if contactList.compHeading %}
