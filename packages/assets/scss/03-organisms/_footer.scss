@@ -17,13 +17,13 @@
     padding: var(--mds-space-2xl);
     flex-direction: column;
     align-items: stretch;
-    gap: var(--mds-space-md) 0;
+    gap: var(--mds-space-md);
   }
 
   &__content-top {
     display: flex;
     align-items: flex-start;
-    gap: 0 var(--mds-space-lg);
+    gap: var(--mds-space-lg);
     align-self: stretch;
     @media ($bp-x-small-max) {
       flex-direction: column;
@@ -40,6 +40,10 @@
   &__logo {
 
     .ma__site-logo {
+      & > a {
+        gap: var(--mds-space-sm);
+      }
+
       img {
         width: 56px;
         height: 56px;
