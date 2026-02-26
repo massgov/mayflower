@@ -1,59 +1,80 @@
 @use "00-base/configure" as *;
+@use "00-base/spacing-tokens" as *;
 
 .ma__footer-new {
 
   // height: 100px;
   background-color: var(--mf-c-bg-section);
+  width: 100%;
   
   &__container {
 
     @include ma-container;
-    
+
     @include clearfix;
 
     display: flex;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
+    padding: var(--mds-space-2xl);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--mds-space-md) 0;
+  }
 
-    @media ($bp-medium-max) {
+  &__content-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0 var(--mds-space-lg);
+    align-self: stretch;
+    @media ($bp-x-small-max) {
       flex-direction: column;
-    } 
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex: 1 0 0;
+    }
   }
 
   &__logo {
 
-    @include ma-layout-left-col;
-    min-width: 45px;
-
-    @media ($bp-medium-max) {
-
+    .ma__site-logo {
       img {
-        width: 60px;
+        width: 56px;
+        height: 56px;
+      }
+
+      span {
+        // text-and-icons/brand/neutral-default
+        color: #141414;
+        -webkit-text-stroke-color: #141414;
       }
     }
+  }
+
+  &__state-organizations {
+    gap: var(--mds-space-3xs);
+    align-self: stretch;
+    color: var(--mf-c-bay-blue);
+    font-size: $fonts-large;
+    font-weight: $fonts-normal;
   }
 
   &__navlinks {
     margin-bottom: 1rem;
     display: flex;
-
-    @media ($bp-small-max) {
-      flex-direction: column;
-    }
+    // --background-adaptive-brand-neutral-low
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+    gap: 0 var(--mds-space-lg);
+    //flex-direction: row;
+    flex-wrap: wrap;
     
     & > div {
-
-
-      @media ($bp-small-min) {
-
-        &:not(:first-child) {
-          margin-left: 2.5rem;
-        }
-      }
-
-      @media ($bp-small-max) {
-        margin-top: 0.5rem;
-      }
+      padding: var(--mds-space-xs) 0;
+      justify-content: center;
+      align-items: center;
 
       & > a {
       
@@ -71,12 +92,12 @@
   }
 
   &__copyright {
-    font-size: $fonts-smaller;
+    font-size: $fonts-medium;
     color: var(--mf-c-gray-dark);
     font-weight: $fonts-light;
 
     &--bold {
-      font-weight: $fonts-normal;
+      font-weight: $fonts-bold;
     }
   }
 }

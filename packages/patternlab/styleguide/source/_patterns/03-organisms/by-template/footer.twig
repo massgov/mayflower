@@ -1,9 +1,15 @@
 <footer data-nosnippet="true" class="ma__footer-new" id="footer">
   <div class="ma__footer-new__container">
-    <div class="ma__footer-new__logo">
-      <a href="/" title="Mass.gov home page">
-        <img src="{{ sealBlackImage }}" alt="Massachusetts State Seal" width="100" height="100" />
-      </a>
+    <div class="ma__footer-new__content-top">
+      <div class="ma__footer-new__logo">
+        {% include "@atoms/09-media/site-logo.twig" with {
+          "sealImage": sealBlackImage
+        } %}
+      </div>
+      <div class="ma__footer-new__state-organizations">
+        {{ icon('building', "20", "18") }}
+        <span>State Organizations</span>
+      </div>
     </div>
     <div class="ma__footer-new__content">
       <nav class="ma__footer-new__navlinks" aria-label="site navigation">
