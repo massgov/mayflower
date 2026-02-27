@@ -7,8 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonFixedFeedback from 'MayflowerReactButtons/ButtonFixedFeedback';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
-import logo from "@massds/mayflower-assets/static/images/logo/stateseal.png";
-import {IconBuilding} from "../../base/Icon";
+import { IconBuilding } from '../../base/Icon';
 
 const today = new Date();
 
