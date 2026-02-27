@@ -11,6 +11,10 @@ floatingAction: {
   type: floatingAction / optional
 }
 
+stateOrgsHref: {
+  type: stateOrgsHref / optional
+}
+
 footerLinks: {
   type: footerLinks / required
 }
