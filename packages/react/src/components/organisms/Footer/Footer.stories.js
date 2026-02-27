@@ -27,6 +27,7 @@ FooterLiveData.args = {
     src: stateSeal
   },
   footerText: {},
+  stateOrgsHref: '/massachusetts-state-organizations',
   floatingAction: true
 };
 
