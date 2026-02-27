@@ -1,4 +1,5 @@
 @use "00-base/configure" as *;
+
 @use "00-base/spacing-tokens" as *;
 
 .ma__footer-new {
@@ -24,6 +25,7 @@
     gap: var(--mds-space-lg);
     align-self: stretch;
     flex-wrap: wrap;
+
     @media ($bp-x-small-max) {
       flex-direction: column;
     }
@@ -39,6 +41,7 @@
   &__logo {
 
     .ma__site-logo {
+
       & > a {
         gap: var(--mds-space-sm);
       }
@@ -65,10 +68,13 @@
     font-weight: $fonts-normal;
 
     .direct-link {
+
       @include ma-link-underline;
       font-weight: $fonts-normal;
+
       span {
         gap: var(--mds-space-3xs);
+
         &:hover {
           // --mds-background-adaptive-brand-primary-mid
           border-bottom: 2px solid var(--mf-c-bay-blue);
@@ -92,6 +98,7 @@
       align-items: center;
 
       & > a {
+
         @include ma-link-underline;
         padding: var(--mds-space-2xs) 0;
         color: var(--mf-c-font-base);
