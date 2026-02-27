@@ -51,7 +51,7 @@
       span {
         // text-and-icons/brand/neutral-default
         color: var(--mf-c-font-base);
-        -webkit-text-stroke-color: var(--mf-c-font-base);
+        -webkit-text-stroke-width: 0;
         font-weight: $fonts-bold;
       }
     }
