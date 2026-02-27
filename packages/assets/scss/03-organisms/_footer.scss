@@ -2,8 +2,6 @@
 @use "00-base/spacing-tokens" as *;
 
 .ma__footer-new {
-
-  // height: 100px;
   background-color: var(--mf-c-bg-section);
   width: 100%;
   
@@ -52,8 +50,9 @@
 
       span {
         // text-and-icons/brand/neutral-default
-        color: #141414;
-        -webkit-text-stroke-color: #141414;
+        color: var(--mf-c-font-base);
+        -webkit-text-stroke-color: var(--mf-c-font-base);
+        font-weight: $fonts-bold;
       }
     }
   }
