@@ -12,12 +12,6 @@ $page-header-widget-width: 350px;
     padding: 0 0 30px;
   }
 
-  // If content is the last direct child (no widgets, no divider),
-  // remove the bottom padding.
-  &__content:last-child {
-    padding-bottom: 0;
-  }
-
   &--has-widgets &__content {
 
     @media ($bp-medium-min) {
