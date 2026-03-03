@@ -5,7 +5,7 @@
 .ma__footer-new {
   background-color: var(--mf-c-bg-section);
   width: 100%;
-  
+
   &__container {
 
     @include ma-container;
@@ -17,6 +17,10 @@
     flex-direction: column;
     align-items: stretch;
     gap: var(--mds-space-md);
+
+    @media ($bp-medium-max) {
+      padding: var(--mds-space-250);
+    }
   }
 
   &__content-top {
@@ -91,7 +95,7 @@
     border-bottom: 1px solid #E6E6E6;
     gap: 0 var(--mds-space-lg);
     flex-wrap: wrap;
-    
+
     & > div {
       padding: var(--mds-space-xs) 0;
       justify-content: center;
@@ -104,7 +108,7 @@
         color: var(--mf-c-font-base);
         font-size: $fonts-large;
         font-weight: $fonts-normal;
-    
+
         &:hover {
           border-bottom-width: 2px;
           // --mds-background-adaptive-brand-neutral-high
