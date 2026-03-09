@@ -68,7 +68,7 @@ const EmergencyAlerts = ({
   });
   return(
     <Collapse in={!state.close} dimension="height">
-      <section className={sectionClasses} data-id={id} role="region" aria-labelledby="emergency-alerts-heading">
+      <section className={sectionClasses} data-id={id} aria-labelledby="emergency-alerts-heading">
         <div className={headerClasses}>
           <div className="ma__emergency-alerts__container">
             <h2 id="emergency-alerts-heading" className="visually-hidden">
