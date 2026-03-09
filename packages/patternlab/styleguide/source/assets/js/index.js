@@ -35,6 +35,7 @@ import mainNavMIxed from "./modules/mainNavMixed.js";
 import mapGoogle from "./modules/mapGoogle.js";
 import mapLeaflet from "./modules/mapLeaflet.js";
 import mobileNav from "./modules/mobileNav.js";
+import modal from "./modules/modal.js";
 import orgSelector from "./modules/orgSelector.js";
 import pageFlipper from "./modules/pageFlipper.js";
 import pagination from "./modules/pagination.js";

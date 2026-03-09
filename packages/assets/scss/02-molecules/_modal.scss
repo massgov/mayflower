@@ -1,0 +1,345 @@
+@use "00-base/configure" as *;
+
+:root {
+  --ads-color-primary: #0056b3;
+  --ads-color-primary-hover: #004494;
+  --ads-color-text: #212529;
+  --ads-color-background: #ffffff;
+  --ads-color-border: #dee2e6;
+  --ads-color-overlay: rgba(0, 0, 0, 0.5); /* black shim with 50% opacity */
+  --ads-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ads-modal-padding: 1.5rem;
+  --ads-border-radius: 0.375rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  /* inner indicator */
+  outline: 2px #F9F9F9 solid;
+  outline-offset: 0;
+  /* outer indicator */
+  box-shadow: 0 0 0 4px #193146;
+}
+
+a {text-decoration:underline;color: #b83100;}
+a:hover {text-decoration:none;}
+
+.ads-note {
+  background-color: #e7f3ff;
+  border-left: 4px solid #0056b3;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+}
+
+.ads-warning {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+}
+
+code, kbd, var, pre {
+  font-family: Monospace, Consolas, "Courier New", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+  font-size:16px;
+  line-height:1.4;
+  color:#000;
+}
+
+
+pre code {
+  background:transparent;
+  font-size: 100%;
+  border:none;
+}
+
+pre {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  white-space: pre-wrap; /* Ensures long lines wrap */
+}
+code {
+  color: #000;
+  background-color: #eee;
+  padding: 2px;
+  font-size: 100%;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border:1px solid #eee;
+}
+
+kbd {
+  background-color: #eeeeee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow:
+          0 1px 1px rgb(0 0 0 / 0.2),
+          0 2px 0 0 rgb(255 255 255 / 0.7) inset;
+  color: #333333;
+  display: inline-block;
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+ul li, ol li {margin-bottom:.5rem;}
+
+body {
+  font-family: var(--ads-font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ads-color-text);
+  background-color: #f8f9fa;
+  padding: 2rem;
+}
+
+.ads-skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100; /* Ensure it's above other content */
+}
+
+.ads-skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  display:inline-block;
+  margin:3px;
+}
+
+/* Demo page styles */
+.ads-demo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ads-demo-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.ads-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 16px;
+  font-family: var(--ads-font-family);
+  background-color: var(--ads-color-primary);
+  color: white;
+  border: 1px solid var(--ads-color-primary);
+  border-radius: var(--ads-border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ads-btn:hover {
+  background-color: var(--ads-color-primary-hover);
+}
+
+
+/* Modal overlay/shim */
+.ads-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.ads-modal-overlay.ads-active {
+  display: flex;
+}
+
+.ads-modal-overlay.ads-shim-active {
+  background-color: var(--ads-color-overlay);
+}
+
+/* Modal dialog container */
+.ads-modal-dialog {
+  position: relative;
+  background-color: var(--ads-color-background);
+  border-radius: var(--ads-border-radius);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 2rem);
+  width: 100%;
+  animation: ads-modal-fade-in 0.2s ease;
+}
+/* slight animation for the modal fade in */
+@keyframes ads-modal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Modal sizes */
+.ads-modal-small {
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.ads-modal-medium {
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.ads-modal-large {
+  min-width: 300px;
+  max-width: 900px;
+}
+
+/* Modal header */
+.ads-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ads-modal-padding);
+  border-bottom: 1px solid var(--ads-color-border);
+  gap: 1rem;
+}
+
+.ads-modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.ads-modal-close {
+  padding: 0.5rem;
+  background-color: var(--ads-color-background);
+  border: 1px solid var(--ads-color-primary);
+  border-radius: var(--ads-border-radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ads-modal-close:hover {
+  background-color: #f8f9fa;
+}
+
+
+.ads-modal-close svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Modal content */
+.ads-modal-content {
+  padding: var(--ads-modal-padding);
+  overflow-y: auto;
+  flex: 1;
+  min-height: 100px;
+}
+
+/* Modal footer */
+.ads-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ads-modal-padding);
+  border-top: 1px solid var(--ads-color-border);
+  gap: 1rem;
+}
+
+.ads-modal-btn-cancel {
+  padding: 0.625rem 1.25rem;
+  font-size: 16px;
+  font-family: var(--ads-font-family);
+  background-color: var(--ads-color-background);
+  color: var(--ads-color-text);
+  border: 1px solid var(--ads-color-primary);
+  border-radius: var(--ads-border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ads-modal-btn-cancel:hover {
+  background-color: #f8f9fa;
+}
+
+
+.ads-modal-btn-ok {
+  padding: 0.625rem 1.25rem;
+  font-size: 16px;
+  font-family: var(--ads-font-family);
+  background-color: var(--ads-color-primary);
+  color: white;
+  border: 1px solid var(--ads-color-primary);
+  border-radius: var(--ads-border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ads-modal-btn-ok:hover {
+  background-color: var(--ads-color-primary-hover);
+}
+
+
+
+/* Prevent body scroll when modal is open */
+body.ads-modal-open {
+  overflow: hidden;
+}
+
+/* Mobile and zoom: full width and height for large dialog */
+@media (max-width: 768px), (min-resolution: 150dpi) {
+  .ads-modal-overlay {
+    padding: 0;
+  }
+  .ads-modal-large {
+    max-width: 100% !important;
+    min-width: 100% !important;
+    max-height: 100vh;
+    height:100%;
+    border-radius: 0;
+    overflow-y:auto;
+  }
+  .ads-modal-large .ads-modal-content {
+    overflow:visible;
+    min-height:auto;
+  }
+}
+/* Mobile and zoom: full width and height for medium and small dialogs */
+@media (max-width: 600px), (min-resolution: 200dpi) {
+  .ads-modal-medium,
+  .ads-modal-small {
+    max-width: 100% !important;
+    min-width: 100% !important;
+    max-height: 100vh;
+    height:100%;
+    border-radius: 0;
+    overflow-y:auto;
+  }
+  .ads-modal-content {
+    overflow:visible;
+    min-height:auto;
+  }
+}
