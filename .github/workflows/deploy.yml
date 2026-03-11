@@ -128,17 +128,10 @@ jobs:
         run: |
           docker compose up --no-start web backstop
           rm -rf ./styleguide/node_modules
-          docker cp ./ $(docker compose ps -q --status=created backstop):/src/
-          docker cp ./styleguide/public/. $(docker compose ps -q --status=created web):/usr/share/nginx/html
 
       - name: Run Backstop tests
         working-directory: packages/patternlab
         run: docker compose run backstop test
-
-      - name: Copy test results
-        if: always()
-        working-directory: packages/patternlab
-        run: docker cp $(docker compose ps -q --status=exited backstop):/src/backstopjs/. ./backstopjs/
 
       - name: Upload test artifacts
         if: always()
@@ -361,19 +354,10 @@ jobs:
           docker compose up --no-start web backstop
           rm -rf ./node_modules
           rm -rf ../assets/node_modules
-          docker cp ./ $(docker compose ps -q --status=created backstop):/src/
-          docker cp ../assets $(docker compose ps -q --status=created backstop):/src/assets
-          docker cp ../../docs $(docker compose ps -q --status=created backstop):/src/docs
-          docker cp ./storybook-static/. $(docker compose ps -q --status=created web):/usr/share/nginx/html
 
       - name: Run Backstop tests
         working-directory: packages/react
         run: docker compose run backstop test
-
-      - name: Copy test results
-        if: always()
-        working-directory: packages/react
-        run: docker cp $(docker compose ps -q --status=exited backstop):/src/backstop/. ./backstop/
 
       - name: Upload test artifacts
         if: always()
