@@ -557,7 +557,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-to-assume: ${{ vars.ROLE_ARN }}
+          role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
 
       - name: Deploy to S3
         if: ${{ !contains(github.ref, '-') }}
@@ -590,7 +590,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-to-assume: ${{ vars.ROLE_ARN }}
+          role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
 
       - name: Deploy to S3
         working-directory: packages/core
