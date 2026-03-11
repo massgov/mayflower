@@ -128,8 +128,8 @@ jobs:
         run: |
           docker compose up --no-start web backstop
           rm -rf ./styleguide/node_modules
-          docker cp ./ $(docker compose ps -q backstop):/src/
-          docker cp ./styleguide/public/. $(docker compose ps -q web):/usr/share/nginx/html
+          docker cp ./ $(docker compose ps -q --latest backstop):/src/
+          docker cp ./styleguide/public/. $(docker compose ps -q --latest web):/usr/share/nginx/html
 
       - name: Run Backstop tests
         working-directory: packages/patternlab
@@ -138,7 +138,7 @@ jobs:
       - name: Copy test results
         if: always()
         working-directory: packages/patternlab
-        run: docker cp $(docker compose ps -q backstop):/src/backstopjs/. ./backstopjs/
+        run: docker cp $(docker compose ps -q --latest backstop):/src/backstopjs/. ./backstopjs/
 
       - name: Upload test artifacts
         if: always()
@@ -361,10 +361,10 @@ jobs:
           docker compose up --no-start web backstop
           rm -rf ./node_modules
           rm -rf ../assets/node_modules
-          docker cp ./ $(docker compose ps -q backstop):/src/
-          docker cp ../assets $(docker compose ps -q backstop):/src/assets
-          docker cp ../../docs $(docker compose ps -q backstop):/src/docs
-          docker cp ./storybook-static/. $(docker compose ps -q web):/usr/share/nginx/html
+          docker cp ./ $(docker compose ps -q --all backstop):/src/
+          docker cp ../assets $(docker compose ps -q --all backstop):/src/assets
+          docker cp ../../docs $(docker compose ps -q --all backstop):/src/docs
+          docker cp ./storybook-static/. $(docker compose ps -q --all web):/usr/share/nginx/html
 
       - name: Run Backstop tests
         working-directory: packages/react
@@ -373,7 +373,7 @@ jobs:
       - name: Copy test results
         if: always()
         working-directory: packages/react
-        run: docker cp $(docker compose ps -q backstop):/src/backstop/. ./backstop/
+        run: docker cp $(docker compose ps -q --latest backstop):/src/backstop/. ./backstop/
 
       - name: Upload test artifacts
         if: always()
