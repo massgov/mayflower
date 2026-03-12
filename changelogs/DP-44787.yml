@@ -1,6 +1,6 @@
 Changed:
   - project: React, Patternlab
     component: Footer
-    description: Updated footer to align with latest design iteration. (#2052)
+    description: Updated footer component to align with latest design iteration. (#2052)
     issue: DP-44787
     impact: Minor
