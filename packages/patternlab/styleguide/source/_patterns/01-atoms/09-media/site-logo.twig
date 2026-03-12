@@ -4,6 +4,6 @@
       <img src="{{ sealImage }}" alt="{{ altTitle ? altTitle : 'Mass.gov home' }}" width="45" height="45" />
     {% endif %}
 
-    <span aria-hidden="true">{{ title ? title|first : 'Mass.gov' }}</span>
+    <span aria-hidden="true">{{ title ? title : 'Mass.gov' }}</span>
   </a>
 </div>
