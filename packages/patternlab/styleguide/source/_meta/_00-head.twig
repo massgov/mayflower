@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="{{ htmlClass }} no-js" lang="en">
   <head>
-    <title>{{ title }}</title>
+    <p>look here</p>
+    <title>{{ title ? title|first : 'Mass.gov' }}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
@@ -49,7 +50,7 @@
           "@context": "http://schema.org",
           "@type": "Organization",
           "@id": "https://mayflower.digital.mass.gov/patternlab/#organization",
-          "url": "https://mayflower.digital.mass.gov/patternlab,
+          "url": "https://mayflower.digital.mass.gov/patternlab",
           "logo": "https://mayflower.digital.mass.gov/patternlab/assets/images/logo/stateseal-color.png' }}",
           "name": "Commonwealth of Massachusetts",
           "sameAs": [
