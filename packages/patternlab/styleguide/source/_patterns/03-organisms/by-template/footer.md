@@ -11,12 +11,12 @@ floatingAction: {
   type: floatingAction / optional
 }
 
-footerLinks: {
-  type: footerLinks / required
+stateOrgsHref: {
+  type: stateOrgsHref / optional
 }
 
-privacyPolicy {
-  type: privacyPolicy / required
+footerLinks: {
+  type: footerLinks / required
 }
 ~~~
 
