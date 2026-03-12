@@ -21,7 +21,6 @@ env:
 jobs:
   build:
     name: Build
-    environment: approval
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
