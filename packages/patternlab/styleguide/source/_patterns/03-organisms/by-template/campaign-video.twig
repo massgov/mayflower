@@ -23,7 +23,13 @@
 
     <div class="ma__campaign-video__video">
       {% set video = campaignVideo.video %}
-      {% set videoHeadingLevel = headingLevel + 1 %}
+      {# For section videos without a title, use H2 (section level) instead of H3 to maintain heading hierarchy #}
+      {# This prevents heading level skips while addressing the concern about unnecessary H3 headings #}
+      {% if not campaignVideo.isHeader and not campaignVideo.title %}
+        {% set videoHeadingLevel = headingLevel %}
+      {% else %}
+        {% set videoHeadingLevel = headingLevel + 1 %}
+      {% endif %}
       {% set video = video|merge({"headingLevel": videoHeadingLevel}) %}
       {% include "@atoms/09-media/video.twig" %}
     </div>
