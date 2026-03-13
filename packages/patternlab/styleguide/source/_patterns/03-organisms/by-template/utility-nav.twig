@@ -2,10 +2,28 @@
   <ul class="ma__utility-nav__items">
     {% if googleLanguages %}
       <li class="ma__utility-nav__item">
-        <div class="ma__utility-nav__translate">
-          <div id="google_translate_element"></div>
-          <div class="ma__utility-nav__translate-icon">
-            {{ icon('translate', "20", "20")}}
+        <button type="button" class="ma__utility-nav__link" data-modal-trigger="modal-medium" aria-haspopup="dialog" aria-controls="modal-medium">
+          {{ icon("translate", "20", "20") }}
+          <span>Language</span>
+        </button>
+        <div id="modal-medium" class="ads-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-medium-title">
+          <div class="ads-modal-dialog ads-modal-medium">
+            <div class="ads-modal-header">
+              <h2 id="modal-medium-title" class="ads-modal-title">Select language</h2>
+              <button type="button" class="ads-modal-close" aria-label="Close dialog">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="ads-modal-content">
+              <div id="google_translate_element"></div>
+              <p>Disclaimer: This feature uses the Google Translate Widget. Due to the limitation of machine translation, some pages or content may not be translated accurately.</p>
+            </div>
+            <div class="ads-modal-footer">
+              <button type="button" class="ads-modal-btn-translate">Translate</button>
+              <button type="button" class="ads-modal-btn-show-original">Show original</button>
+            </div>
           </div>
         </div>
       </li>

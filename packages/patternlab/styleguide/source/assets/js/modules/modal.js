@@ -21,8 +21,8 @@ class AccessibleModal {
 
         this.dialog = this.modal.querySelector('.ads-modal-dialog');
         this.closeBtn = this.modal.querySelector('.ads-modal-close');
-        this.cancelBtn = this.modal.querySelector('.ads-modal-btn-cancel');
-        this.okBtn = this.modal.querySelector('.ads-modal-btn-ok');
+        this.showOriginalBtn = this.modal.querySelector('.ads-modal-btn-show-original');
+        this.translateBtn = this.modal.querySelector('.ads-modal-btn-translate');
         this.triggerElement = null;
         this.onOkCallback = options.onOk || null;
 
@@ -41,13 +41,13 @@ class AccessibleModal {
         }
 
         // Cancel button handler - closes and returns focus
-        if (this.cancelBtn) {
-            this.cancelBtn.addEventListener('click', () => this.close());
+        if (this.showOriginalBtn) {
+            this.showOriginalBtn.addEventListener('click', () => this.close());
         }
 
         // OK button handler - executes callback, closes, and returns focus
-        if (this.okBtn) {
-            this.okBtn.addEventListener('click', () => this.handleOk());
+        if (this.translateBtn) {
+            this.translateBtn.addEventListener('click', () => this.handleOk());
         }
 
         // Click outside (backdrop/shim) to close - WCAG allows this as alternative method
