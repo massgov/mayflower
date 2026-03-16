@@ -253,6 +253,7 @@ body {
 
 /* Modal content */
 .ads-modal-content {
+  color: var(--ads-color-text);
   padding: var(--ads-modal-padding);
   overflow-y: auto;
   flex: 1;
