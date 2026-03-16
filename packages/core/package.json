@@ -1,6 +1,6 @@
 {
   "name": "mayflower-core",
-  "version": "15.0.0",
+  "version": "15.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -50,7 +50,7 @@
     "bootstrap": "^4.6.0"
   },
   "dependencies": {
-    "@massds/mayflower-assets": "^15.0.0",
-    "@massds/mayflower-react": "^15.0.0"
+    "@massds/mayflower-assets": "^15.1.0",
+    "@massds/mayflower-react": "^15.1.0"
   }
 }

@@ -1,6 +1,16 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 15.1.0 (2/17/2026)
+### Fixed 
+- (Patternlab) [ContactItem] DP-44415: Fix accessibility issue where aria-describedby attribute referenced non-existent IDs on address directions links. The linkContext ID is now only generated and passed to decorative-link when a label element exists, preventing invalid aria-describedby attributes.
+- (Patternlab) [PersonCard] DP-44560: Conditionally render bio link section only when person.bio is defined and has a valid href, preventing empty anchor tags from appearing in the rendered HTML.
+- (Patternlab) [CampaignVideo] DP-44710: Fix heading level skip accessibility issue on promo page section videos without titles by using H2 instead of H3 to maintain proper heading hierarchy
+
+### Added 
+- (Assets) [Loader] DP-44742: Add loader animation lottie file to assets.
+- (Tokens) [undefined] DP-44969: Add css variables for tokens to Mayflower repo
+
 ## 15.0.0 (1/23/2026)
 ### Changed 
 - (Patternlab,React,Core) [Icons] DP-39285: Swap out all icons to a new set of shared icons from the new DS library. Each icon now offer a regular and bold variant, and is standardized on width, height, color and aria attributes. Some existing icon names are changed to match the new system and naming conventions. Please refer to the Icon documentation for the updated list of icon names. (#2019)
