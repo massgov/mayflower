@@ -43,7 +43,7 @@
 
     <button
         id="ads-translate-reset"
-        class="ads-translate-button ads-translate-reset-button notranslate"
+        class="ads-translate-button ads-translate-reset-button"
         type="button"
         lang="en"
         style="margin-left: 8px;"
@@ -171,12 +171,6 @@
     }
 
     const originalPageLang = getOriginalPageLanguage();
-    resetButton.setAttribute('lang', originalPageLang);
-    resetButton.classList.add('notranslate');
-
-    const originalLangData = languageData[originalPageLang];
-    const originalLangName = originalLangData ? originalLangData.english : 'English';
-    resetButton.textContent = originalLangName;
 
     // Populate dropdown based on current page state
     function populateDropdown() {

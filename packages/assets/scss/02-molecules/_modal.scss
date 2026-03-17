@@ -45,36 +45,6 @@
   margin:3px;
 }
 
-/* Demo page styles */
-.ads-demo-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.ads-demo-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-.ads-btn {
-  padding: 0.75rem 1.5rem;
-  font-size: 16px;
-  font-family: var(--ads-font-family);
-  background-color: var(--ads-color-primary);
-  color: white;
-  border: 1px solid var(--ads-color-primary);
-  border-radius: var(--ads-border-radius);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.ads-btn:hover {
-  background-color: var(--ads-color-primary-hover);
-}
-
-
 /* Modal overlay/shim */
 .ads-modal-overlay {
   position: fixed;
@@ -179,51 +149,6 @@
   flex: 1;
   min-height: 100px;
 }
-
-/* Modal footer */
-.ads-modal-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--ads-modal-padding);
-  border-top: 1px solid var(--ads-color-border);
-  gap: 1rem;
-}
-
-.ads-modal-btn-show-original {
-  padding: 0.625rem 1.25rem;
-  font-size: 16px;
-  font-family: var(--ads-font-family);
-  background-color: var(--ads-color-background);
-  color: var(--ads-color-text);
-  border: 1px solid var(--ads-color-primary);
-  border-radius: var(--ads-border-radius);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.ads-modal-btn-show-original:hover {
-  background-color: #f8f9fa;
-}
-
-
-.ads-modal-btn-translate {
-  padding: 0.625rem 1.25rem;
-  font-size: 16px;
-  font-family: var(--ads-font-family);
-  background-color: var(--ads-color-primary);
-  color: white;
-  border: 1px solid var(--ads-color-primary);
-  border-radius: var(--ads-border-radius);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.ads-modal-btn-translate:hover {
-  background-color: var(--ads-color-primary-hover);
-}
-
-
 
 /* Prevent body scroll when modal is open */
 body.ads-modal-open {

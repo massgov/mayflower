@@ -173,13 +173,15 @@ body > .skiptranslate {
 }
 
 .ads-translate-reset-button {
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: var(--ads-bg-white);
+  border-color: var(--ads-primary-color);
+  color: var(--ads-primary-color);
 }
 
 .ads-translate-reset-button:hover {
-  background-color: #5a6268;
-  border-color: #545b62;
+  background-color: var(--ads-bg-white);
+  border-color: var(--ads-primary-hover);
+  color: var(--ads-primary-hover);
 }
 
 .ads-sr-only {
@@ -196,18 +198,6 @@ body > .skiptranslate {
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
-
-/* Demo content styling */
-.ads-demo-content {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: var(--ads-bg-gray);
-  border-radius: 4px;
-}
-
-.ads-demo-content h2 {
-  margin-top: 0;
 }
 
 #ads-translate-help {

@@ -226,25 +226,9 @@ class AccessibleModal {
 // Initialize modals with custom callbacks
 const modals = {};
 
-// Create modal instances - each with optional custom OK callback
-modals['modal-small'] = new AccessibleModal('modal-small', {
-    onOk: function() {
-        console.log('Small modal OK clicked');
-        // Add your custom function here
-        // Example: submit form data, save settings, etc.
-    }
-});
-
 modals['modal-medium'] = new AccessibleModal('modal-medium', {
     onOk: function() {
         console.log('Medium modal OK clicked');
-        // Add your custom function here
-    }
-});
-
-modals['modal-large'] = new AccessibleModal('modal-large', {
-    onOk: function() {
-        console.log('Large modal OK clicked');
         // Add your custom function here
     }
 });
