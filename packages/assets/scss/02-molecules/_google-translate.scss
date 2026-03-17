@@ -15,9 +15,7 @@
   --ads-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
+
 
 /* Fix Google Translate spacing issue with notranslate elements
    Google Translate strips leading/trailing spaces from inline elements,
@@ -38,15 +36,6 @@ html.translated-ltr .notranslate,
 html.translated-rtl .notranslate {
   padding-left: 0.25em;
   padding-right: 0.25em;
-}
-
-body {
-  font-family: var(--ads-font-family);
-  color: var(--ads-text-color);
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
-  padding: 20px;
 }
 
 /* Hide default Google Translate widget */
@@ -73,10 +62,6 @@ body > .skiptranslate {
 
 .goog-te-menu-frame {
   display: none !important;
-}
-
-body {
-  top: 0 !important;
 }
 
 .ads-translate-container {
