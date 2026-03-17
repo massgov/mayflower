@@ -3,7 +3,7 @@
 
 <!-- Accessible language selector -->
 <div class="ads-translate-container">
-  <legend class="ads-translate-legend">{{ icon("translate", "20", "20") }}</legend>
+  <legend class="ads-translate-legend"><span>{{ icon("translate", "28", "28") }}</span></legend>
 
   <label id="ads-translate-label" class="ads-translate-label" for="ads-translate-select">
     Select language
@@ -23,27 +23,34 @@
     </svg>
   </div>
 
-  <span id="ads-translate-help" class="ads-sr-only">
-                Select a language from the dropdown menu and press the Apply button to translate the page
-            </span>
+  <div id="ads-translate-help">
+    <span class="ads-sr-only">
+      Select a language from the dropdown menu and press the Apply button to translate the page
+    </span>
+    <p>Disclaimer: This feature uses the Google Translate Widget. Due to the limitation of machine translation, some pages or content may not be translated accurately.</p>
+  </div>
 
-  <button
-      id="ads-translate-apply"
-      class="ads-translate-button"
-      type="button"
-  >
-    Translate
-  </button>
 
-  <button
-      id="ads-translate-reset"
-      class="ads-translate-button ads-translate-reset-button notranslate"
-      type="button"
-      lang="en"
-      style="margin-left: 8px;"
-  >
-    Show original
-  </button>
+
+  <div class="ads-button-group">
+    <button
+        id="ads-translate-apply"
+        class="ads-translate-button"
+        type="button"
+    >
+      Translate
+    </button>
+
+    <button
+        id="ads-translate-reset"
+        class="ads-translate-button ads-translate-reset-button notranslate"
+        type="button"
+        lang="en"
+        style="margin-left: 8px;"
+    >
+      Show original
+    </button>
+  </div>
 </div>
 
 <!-- Hidden Google Translate Element -->

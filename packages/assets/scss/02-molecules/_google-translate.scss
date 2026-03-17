@@ -80,8 +80,11 @@ body {
 }
 
 .ads-translate-container {
-  max-width: 500px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
 }
 
 .ads-translate-fieldset {
@@ -92,20 +95,30 @@ body {
 }
 
 .ads-translate-legend {
-  font-weight: 600;
-  font-size: 18px;
-  color: var(--ads-text-color);
-  padding: 0 8px;
+  border-radius: var(--600, 48px);
+  border: 1px solid var(--border-utility-informative-mid, #14558F);
+  padding: 4px;
+  span {
+    border-radius: var(--600, 48px);
+    background-color: var(--border-utility-informative-mid, #14558F);
+    color: var(--ads-bg-white);
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .ads-translate-label {
   display: block;
+  font-size: 22px;
   font-weight: 600;
   margin-bottom: 8px;
   color: var(--ads-text-color);
 }
 
 .ads-translate-select-wrapper {
+  align-self: stretch;
   position: relative;
   margin-bottom: 16px;
 }
@@ -210,4 +223,24 @@ body {
 
 .ads-demo-content h2 {
   margin-top: 0;
+}
+
+#ads-translate-help {
+  p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.ads-button-group {
+  display: flex;
+  width: 543px;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  button {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 0;
+  }
 }

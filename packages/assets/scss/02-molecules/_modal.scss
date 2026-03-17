@@ -215,8 +215,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--ads-modal-padding);
-  border-bottom: 1px solid var(--ads-color-border);
   gap: 1rem;
 }
 
@@ -230,7 +228,7 @@ body {
 .ads-modal-close {
   padding: 0.5rem;
   background-color: var(--ads-color-background);
-  border: 1px solid var(--ads-color-primary);
+  border: 1px solid var(--ads-color-background);
   border-radius: var(--ads-border-radius);
   cursor: pointer;
   display: flex;
@@ -239,11 +237,6 @@ body {
   transition: all 0.2s ease;
   flex-shrink: 0;
 }
-
-.ads-modal-close:hover {
-  background-color: #f8f9fa;
-}
-
 
 .ads-modal-close svg {
   width: 24px;
