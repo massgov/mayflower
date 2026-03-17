@@ -1,0 +1,213 @@
+@use "00-base/configure" as *;
+
+#google_translate_element {
+  display: none;
+}
+
+:root {
+  --ads-primary-color: #14558f;
+  --ads-primary-hover: #0d3a5f;
+  --ads-text-color: #141414;
+  --ads-border-color: #767676;
+  --ads-focus-color: #0050d8;
+  --ads-bg-white: #ffffff;
+  --ads-bg-gray: #f5f5f5;
+  --ads-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Fix Google Translate spacing issue with notranslate elements
+   Google Translate strips leading/trailing spaces from inline elements,
+   causing words to run together (e.g., "brand nameMassGov Prowill not").
+   This CSS adds visual spacing ONLY when the page is translated,
+   without affecting screen reader output, as screen readers naturally
+   pause at element boundaries. Google Translate adds 'translated-ltr'
+   or 'translated-rtl' class to the <html> element when active.
+
+   NOTE: This is placed at the top of the stylesheet so component-specific
+   padding (like buttons) can override it with higher specificity. */
+.notranslate {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+html.translated-ltr .notranslate,
+html.translated-rtl .notranslate {
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+
+body {
+  font-family: var(--ads-font-family);
+  color: var(--ads-text-color);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Hide default Google Translate widget */
+.ads-goog-te-wrapper {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Hide Google Translate elements */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+.skiptranslate iframe {
+  display: none !important;
+}
+
+body > .skiptranslate {
+  display: none !important;
+}
+
+.goog-te-menu-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.ads-translate-container {
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.ads-translate-fieldset {
+  border: 2px solid var(--ads-border-color);
+  border-radius: 4px;
+  padding: 16px;
+  margin: 0;
+}
+
+.ads-translate-legend {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ads-text-color);
+  padding: 0 8px;
+}
+
+.ads-translate-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ads-text-color);
+}
+
+.ads-translate-select-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.ads-translate-select {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  font-family: var(--ads-font-family);
+  font-size: 16px;
+  color: var(--ads-text-color);
+  background-color: var(--ads-bg-white);
+  border: 2px solid var(--ads-border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.ads-translate-select:hover {
+  border-color: var(--ads-primary-color);
+}
+
+.ads-translate-select:focus {
+  outline: 3px solid var(--ads-focus-color);
+  outline-offset: 2px;
+  border-color: var(--ads-primary-color);
+}
+
+.ads-translate-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.ads-translate-button {
+  padding: 12px 24px !important;
+  font-family: var(--ads-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ads-bg-white);
+  background-color: var(--ads-primary-color);
+  border: 2px solid var(--ads-primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ads-translate-button:hover {
+  background-color: var(--ads-primary-hover);
+  border-color: var(--ads-primary-hover);
+}
+
+.ads-translate-button:focus {
+  outline: 3px solid var(--ads-focus-color);
+  outline-offset: 2px;
+}
+
+.ads-translate-button:disabled {
+  background-color: #cccccc;
+  border-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.ads-translate-reset-button {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.ads-translate-reset-button:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.ads-sr-only {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.ads-status-message {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Demo content styling */
+.ads-demo-content {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: var(--ads-bg-gray);
+  border-radius: 4px;
+}
+
+.ads-demo-content h2 {
+  margin-top: 0;
+}

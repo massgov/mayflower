@@ -2,13 +2,6 @@
   <ul class="ma__utility-nav__items">
     {% if googleLanguages %}
       <li class="ma__utility-nav__item">
-        {% set modalHtmlContent %}
-          <div id="google_translate_element"></div>
-          <p>Disclaimer: This feature uses the Google Translate Widget. Due to the limitation of machine translation, some pages or content may not be translated accurately.</p>
-        {% endset %}
-        {% set modal = modal|merge({
-          'htmlContent': modalHtmlContent
-        }) %}
         {% include "@molecules/modal.twig" %}
       </li>
     {% endif %}
