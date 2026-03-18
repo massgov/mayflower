@@ -1,0 +1,680 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "**"
+  workflow_dispatch:
+    inputs:
+      create_tag:
+        description: "Create GitHub tag"
+        required: false
+        type: boolean
+        default: false
+
+env:
+  NODE_VERSION: "14.15.2"
+  PHP_VERSION: "8.0.11"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            common
+            packages/assets/node_modules
+            packages/react/node_modules
+            packages/patternlab/styleguide/node_modules
+            packages/core/node_modules
+          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+
+      - name: Install packages
+        run: node common/scripts/install-run-rush.js install
+
+  auto_changelog:
+    name: Auto Changelog for Dependabot
+    needs: [build]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/dependabot/')
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "ci.bot@mass.gov"
+          git config --global user.name "Mayflower Bot"
+
+      - name: Run auto changelog script
+        run: ./.github/workflows/dependabot.sh
+
+  patternlab_build:
+    name: Build Patternlab
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: |
+      !startsWith(github.ref, 'refs/heads/docs/') &&
+      !startsWith(github.ref, 'refs/heads/react/') &&
+      !startsWith(github.ref, 'refs/heads/core/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore NPM cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            common
+            packages/assets/node_modules
+            packages/react/node_modules
+            packages/patternlab/styleguide/node_modules
+            packages/core/node_modules
+          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+
+      - name: Build
+        run: cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build
+
+      - name: Upload workspace
+        uses: actions/upload-artifact@v4
+        with:
+          name: patternlab-workspace
+          path: .
+          retention-days: 1
+
+  patternlab_test:
+    name: Test Patternlab
+    runs-on: ubuntu-latest
+    needs: [patternlab_build]
+    if: |
+      !startsWith(github.ref, 'refs/heads/docs/') &&
+      !startsWith(github.ref, 'refs/heads/react/') &&
+      !startsWith(github.ref, 'refs/heads/core/') &&
+      !startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Download workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: patternlab-workspace
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Start Docker services
+        working-directory: packages/patternlab
+        run: |
+          docker compose up --no-start web backstop
+          rm -rf ./styleguide/node_modules
+
+      - name: Run Backstop tests
+        working-directory: packages/patternlab
+        run: docker compose run backstop test
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backstop-patternlab
+          path: packages/patternlab/backstopjs
+
+      - name: Publish test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: patternlab-test-results
+          path: packages/patternlab/backstopjs/reports/ci
+
+  patternlab_deploy_branch:
+    name: Deploy Patternlab (Branch)
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    needs: [patternlab_build]
+    if: |
+      github.event_name == 'push' &&
+      !startsWith(github.ref, 'refs/tags/') &&
+      !startsWith(github.ref, 'refs/heads/docs/') &&
+      !startsWith(github.ref, 'refs/heads/react/') &&
+      !startsWith(github.ref, 'refs/heads/core/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: patternlab-workspace
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "ci.bot@mass.gov"
+          git config --global user.name "Mayflower Bot"
+          mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config
+
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY_ARTIFACTS }}
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
+
+      - name: Deploy Artifact Branch
+        run: |
+          cd packages/patternlab/styleguide/dist
+          git clone --bare git@github.com:massgov/mayflower-artifacts.git .git
+          git config core.bare false
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          git rev-parse --verify -q "$BRANCH_NAME" || git branch "$BRANCH_NAME" $(git show-ref -s master)
+          git symbolic-ref HEAD "refs/heads/$BRANCH_NAME"
+          git add .
+          if git diff-index --quiet HEAD; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Automated commit based on $GITHUB_SHA"
+            git push origin "$BRANCH_NAME"
+          fi
+
+      - name: Deploy S3 Branch
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$BRANCH_NAME"
+
+  patternlab_deploy_tag:
+    name: Deploy Patternlab (Tag)
+    runs-on: ubuntu-latest
+    needs: [patternlab_build]
+    permissions:
+      id-token: write
+      contents: read
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: patternlab-workspace
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "ci.bot@mass.gov"
+          git config --global user.name "Mayflower Bot"
+          mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config
+
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY_ARTIFACTS }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
+
+      - name: Deploy Artifact Tag
+        run: |
+          cd packages/patternlab/styleguide/dist
+          git clone --bare git@github.com:massgov/mayflower-artifacts.git .git
+          git config core.bare false
+          git symbolic-ref HEAD "refs/heads/master"
+          git add .
+          if git diff-index --quiet HEAD; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Automated commit based on $GITHUB_SHA"
+          fi
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          git rev-parse --verify -q "$TAG_NAME" || git tag "$TAG_NAME"
+          git push origin "$TAG_NAME"
+
+      - name: Deploy NPM Tag
+        working-directory: packages/patternlab/styleguide/dist
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          if test -z "$(npm show @massds/mayflower@$TAG_NAME 2>/dev/null)"; then
+            npm publish
+          else
+            echo "Skipping NPM publish - $TAG_NAME already exists"
+          fi
+
+      - name: Deploy S3 Tag
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          aws s3 sync packages/patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$TAG_NAME"
+          if [[ "$TAG_NAME" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            aws s3 cp --recursive packages/patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
+          fi
+
+  react_build_storybook:
+    name: Build React Storybook
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: |
+      !startsWith(github.ref, 'refs/heads/docs/') &&
+      !startsWith(github.ref, 'refs/heads/patternlab/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore NPM cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            common
+            packages/assets/node_modules
+            packages/react/node_modules
+            packages/patternlab/styleguide/node_modules
+            packages/core/node_modules
+          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+
+      - name: Build Mayflower React
+        working-directory: packages/react
+        run: node ../../common/scripts/install-run-rushx.js build
+
+      - name: Build Storybook
+        working-directory: packages/react
+        run: node ../../common/scripts/install-run-rushx.js build-storybook
+
+      - name: Extract Storybook
+        working-directory: packages/react
+        run: node ../../common/scripts/install-run-rushx.js storybook:extract
+
+      - name: Run Linter
+        working-directory: packages/react
+        run: node ../../common/scripts/install-run-rushx.js lint
+
+      - name: Upload workspace
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-workspace
+          path: .
+          retention-days: 1
+
+  react_test:
+    name: Test React
+    runs-on: ubuntu-latest
+    needs: [react_build_storybook]
+    if: |
+      !startsWith(github.ref, 'refs/heads/docs/') &&
+      !startsWith(github.ref, 'refs/heads/patternlab/') &&
+      !startsWith(github.ref, 'refs/heads/core/') &&
+      !startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Download workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: react-workspace
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Start Docker services
+        working-directory: packages/react
+        run: |
+          docker compose up --no-start web backstop
+          rm -rf ./node_modules
+          rm -rf ../assets/node_modules
+
+      - name: Run Backstop tests
+        working-directory: packages/react
+        run: docker compose run backstop test
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backstop-react
+          path: packages/react/backstop
+
+      - name: Publish test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-test-results
+          path: packages/react/backstop/data/ci_report
+
+  react_deploy_tag:
+    name: Deploy React (Tag)
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    needs: [react_build_storybook]
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Download workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: react-workspace
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Publish mayflower-react NPM package
+        working-directory: packages/react
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          if test -z "$(npm show @massds/mayflower-react@$TAG_NAME 2>/dev/null)"; then
+            npm publish
+          else
+            echo "Skipping NPM publish - $TAG_NAME already exists"
+          fi
+
+      - name: Configure AWS Credentials
+        if: ${{ !contains(github.ref, '-') }}
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ vars.ROLE_ARN }}
+
+      - name: Deploy to S3
+        if: ${{ !contains(github.ref, '-') }}
+        working-directory: packages/react
+        run: |
+          aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --delete
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths '/react*'
+
+  assets_build:
+    name: Build Assets
+    runs-on: ubuntu-latest
+    needs: [react_build_storybook]
+    if: |
+      !startsWith(github.ref, 'refs/heads/docs/') &&
+      github.event_name == 'push' &&
+      !startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            common
+            packages/assets/node_modules
+            packages/react/node_modules
+            packages/patternlab/styleguide/node_modules
+            packages/core/node_modules
+          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+
+      - name: Build
+        run: cd packages/assets && node ../../common/scripts/install-run-rushx.js build
+
+      - name: Run style linter
+        run: cd packages/assets && node ../../common/scripts/install-run-rushx.js stylelint
+
+  assets_deploy_tag:
+    name: Deploy Assets (Tag)
+    runs-on: ubuntu-latest
+    needs: [react_build_storybook]
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            common
+            packages/assets/node_modules
+            packages/react/node_modules
+            packages/patternlab/styleguide/node_modules
+            packages/core/node_modules
+          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+
+      - name: Publish mayflower-assets NPM package
+        working-directory: packages/assets
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          if test -z "$(npm show @massds/mayflower-assets@$TAG_NAME 2>/dev/null)"; then
+            npm publish
+          else
+            echo "Skipping NPM publish - $TAG_NAME already exists"
+          fi
+
+  core_build_storybook:
+    name: Build Core Storybook
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: |
+      !startsWith(github.ref, 'refs/heads/docs/') &&
+      !startsWith(github.ref, 'refs/heads/patternlab/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore NPM cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            common
+            packages/assets/node_modules
+            packages/react/node_modules
+            packages/patternlab/styleguide/node_modules
+            packages/core/node_modules
+          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+
+      - name: Build Mayflower React NPM Package
+        working-directory: packages/react
+        run: node ../../common/scripts/install-run-rushx.js build
+
+      - name: Run Core Linter
+        working-directory: packages/core
+        run: node ../../common/scripts/install-run-rushx.js lint
+
+      - name: Build Core Storybook
+        working-directory: packages/core
+        run: node ../../common/scripts/install-run-rushx.js build
+
+      - name: Upload workspace
+        uses: actions/upload-artifact@v4
+        with:
+          name: core-workspace
+          path: .
+          retention-days: 1
+
+  core_deploy_tag:
+    name: Deploy Core (Tag)
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    needs: [core_build_storybook]
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - name: Download workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: core-workspace
+
+      - name: Configure AWS Credentials
+        if: ${{ !contains(github.ref, '-') }}
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
+
+      - name: Deploy to S3
+        if: ${{ !contains(github.ref, '-') }}
+        working-directory: packages/core
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/v/$TAG_NAME" --delete
+          if [[ "$TAG_NAME" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            aws s3 cp --recursive storybook-static "s3://mayflower.digital.mass.gov/core"
+          fi
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths '/core*'
+
+  core_deploy_branch:
+    name: Deploy Core (Branch)
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    needs: [core_build_storybook]
+    if: |
+      github.event_name == 'push' &&
+      !startsWith(github.ref, 'refs/tags/') &&
+      !startsWith(github.ref, 'refs/heads/docs/') &&
+      !startsWith(github.ref, 'refs/heads/patternlab/') &&
+      !startsWith(github.ref, 'refs/heads/react/')
+    steps:
+      - name: Download workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: core-workspace
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
+
+      - name: Deploy to S3
+        working-directory: packages/core
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          aws s3 sync storybook-static "s3://mayflower.digital.mass.gov/core/b/$BRANCH_NAME" --delete
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/core/b*"
+
+  release_branch:
+    name: Release Branch
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.create_tag == 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore NPM cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            common
+            packages/assets/node_modules
+            packages/react/node_modules
+            packages/patternlab/styleguide/node_modules
+            packages/core/node_modules
+          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-27
+
+      - name: Install global dependencies
+        run: npm install -g js-yaml@3.13.1 @octokit/rest@18.12.0 semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "ci.bot@mass.gov"
+          git config --global user.name "Mayflower Bot"
+
+      - name: Run release branch script
+        run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-branch.js
+
+  github_tag:
+    name: GitHub Tag
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: |
+      github.ref == 'refs/heads/master' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    environment: approval
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "ci.bot@mass.gov"
+          git config --global user.name "Mayflower Bot"
+          mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore NPM cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            common
+            packages/assets/node_modules
+            packages/react/node_modules
+            packages/patternlab/styleguide/node_modules
+            packages/core/node_modules
+          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-27
+
+      - name: Install global dependencies
+        run: npm install -g js-yaml@3.13.1 @octokit/rest@18.12.0 semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
+
+      - name: Run release tag script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-tag.js
