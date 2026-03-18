@@ -202,7 +202,9 @@
     font-size: 0.8em;
     font-weight: normal;
     width: 100%;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .pre-content::after,
