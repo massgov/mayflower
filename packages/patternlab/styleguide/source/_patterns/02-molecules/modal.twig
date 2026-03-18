@@ -2,15 +2,15 @@
     {{ icon(modal.buttonIcon, "20", "20") }}
     <span>{{ modal.buttonText }}</span>
 </button>
-<div id="modal-medium" class="ads-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-medium-title">
-    <div class="ads-modal-dialog ads-modal-medium">
-        <div class="ads-modal-header">
-            <h2 id="modal-medium-title" class="ads-modal-title">{{ modal.title }}</h2>
-            <button type="button" class="ads-modal-close" aria-label="Close dialog">
+<div id="modal-medium" class="ma__modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-medium-title">
+    <div class="ma__modal-dialog ma__modal-medium">
+        <div class="ma__modal-header">
+            <h2 id="modal-medium-title" class="ma__modal-title">{{ modal.title }}</h2>
+            <button type="button" class="ma__modal-close" aria-label="Close dialog">
                 {{ icon("close", "24", "24") }}
             </button>
         </div>
-        <div class="ads-modal-content">
+        <div class="ma__modal-content">
             {% block htmlContent %}
                 {% include "@molecules/google-translate.twig" %}
             {% endblock %}

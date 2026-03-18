@@ -19,10 +19,10 @@ class AccessibleModal {
             return;
         }
 
-        this.dialog = this.modal.querySelector('.ads-modal-dialog');
-        this.closeBtn = this.modal.querySelector('.ads-modal-close');
-        this.showOriginalBtn = this.modal.querySelector('.ads-modal-btn-show-original');
-        this.translateBtn = this.modal.querySelector('.ads-modal-btn-translate');
+        this.dialog = this.modal.querySelector('.ma__modal-dialog');
+        this.closeBtn = this.modal.querySelector('.ma__modal-close');
+        this.showOriginalBtn = this.modal.querySelector('.ma__modal-btn-show-original');
+        this.translateBtn = this.modal.querySelector('.ma__modal-btn-translate');
         this.triggerElement = null;
         this.onOkCallback = options.onOk || null;
 
@@ -109,13 +109,13 @@ class AccessibleModal {
         this.triggerElement = triggerElement;
 
         // Add active class to overlay to make it visible
-        this.modal.classList.add('ads-active');
+        this.modal.classList.add('ma__active');
 
         // Add shim class for transparent background overlay
-        this.modal.classList.add('ads-shim-active');
+        this.modal.classList.add('ma__shim-active');
 
         // Prevent body scroll - improves usability and prevents confusion
-        document.body.classList.add('ads-modal-open');
+        document.body.classList.add('ma__modal-open');
 
         // Update list of focusable elements within dialog
         this.updateFocusableElements();
@@ -132,11 +132,11 @@ class AccessibleModal {
 
     close() {
         // Remove active classes to hide modal
-        this.modal.classList.remove('ads-active');
-        this.modal.classList.remove('ads-shim-active');
+        this.modal.classList.remove('ma__active');
+        this.modal.classList.remove('ma__shim-active');
 
         // Restore body scroll
-        document.body.classList.remove('ads-modal-open');
+        document.body.classList.remove('ma__modal-open');
 
         // Return focus to trigger element if it exists
         // Otherwise, return focus to first focusable element on page (skip link)
