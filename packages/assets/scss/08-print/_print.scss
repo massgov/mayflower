@@ -158,6 +158,8 @@
   .ma__fixed-feedback-button,
   #gtm-loginto, // contextual login buttons
   #specto-widget-root, // chatbot region
+  massgov-virtual-assistant-widget,
+  #massgov-virtual-assistant-floating-action-button,
   .ma__sticky-toc__stuck {
     display: none !important;
   }
@@ -372,7 +374,7 @@
       top: 0;
       color: var(--mf-c-font-heading);
 
-      &::before, {
+      &::before {
         display: none;
       }
     }
