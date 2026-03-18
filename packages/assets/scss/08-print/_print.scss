@@ -708,4 +708,10 @@
     }
   }
 
+  /* Best practice: hide embedded iframes in print.
+     Cross-origin iframe content is rendered inconsistently by browsers (blank gaps/cut-off). */
+  .ma__form-requirements + .ma__iframe {
+    display: none !important;
+  }
+
 }
