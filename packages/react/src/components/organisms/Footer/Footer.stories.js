@@ -1,6 +1,6 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-import stateSeal from '@massds/mayflower-assets/static/images/logo/stateseal.png';
+import stateSeal from '@massds/mayflower-assets/static/images/logo/stateseal-black.png';
 import FooterLinksData from './FooterLinks.json';
 import FooterLinksLiveData from './FooterLinksLive.json';
 import stylesFooter from '@massds/mayflower-assets/build/scss/footer.scss';
@@ -27,6 +27,7 @@ FooterLiveData.args = {
     src: stateSeal
   },
   footerText: {},
+  stateOrgsHref: '/massachusetts-state-organizations',
   floatingAction: true
 };
 
