@@ -461,6 +461,29 @@
     }
   }
 
+  /* Callout links three-up: collapse card padding/gaps in print */
+  .ma__callout-links-three-up__heading {
+    h3 {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .ma__callout-links-three-up__container {
+    margin-top: 0 !important;
+
+    > .ma__callout-link {
+      padding: 0 !important;
+      margin-bottom: 1em !important;
+    }
+  }
+
+  .ma__callout-links-three-up {
+    .ma__callout-link__container {
+      padding-right: 0 !important;
+    }
+  }
+
   .ma__press-status {
     padding: 0;
   }
