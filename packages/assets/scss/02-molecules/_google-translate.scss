@@ -67,12 +67,12 @@ body > .skiptranslate {
 }
 
 .ma__translate-legend {
-  border-radius: var(--600, 48px);
-  border: 1px solid var(--border-utility-informative-mid, #14558F);
+  border-radius: 48px;
+  border: 1px solid var(--mf-c-bay-blue);
   padding: 4px;
   span {
-    border-radius: var(--600, 48px);
-    background-color: var(--border-utility-informative-mid, #14558F);
+    border-radius: 48px;
+    background-color: var(--mf-c-bay-blue);
     color: var(--mf-c-white);
     display: flex;
     padding: 8px;
