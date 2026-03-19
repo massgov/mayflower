@@ -15,6 +15,7 @@ import expandClickableArea from "./modules/expandClickableArea";
 import feedbackForm from "./modules/feedbackForm.js";
 import footnote from "./modules/footnote.js";
 import formValidation from "./modules/formValidation.js";
+import googleTranslateSelect from "./modules/googleTranslateSelect.js";
 import helpTip from "./modules/helpTip.js";
 import headerSearch from "./modules/headerSearch.js";
 import headerTags from "./modules/headerTags.js";
