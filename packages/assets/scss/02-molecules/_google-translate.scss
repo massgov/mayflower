@@ -4,6 +4,13 @@
   display: none;
 }
 
+.translated-ltr,
+.translated-rtl {
+  body {
+    top: 0 !important;
+  }
+}
+
 /* Fix Google Translate spacing issue with notranslate elements
    Google Translate strips leading/trailing spaces from inline elements,
    causing words to run together (e.g., "brand nameMassGov Prowill not").

@@ -276,11 +276,6 @@ $utility-nav-height: 43px;
     z-index: $z-modal;
     color: var(--mf-c-font-inverse);
 
-    .translated-rtl &,
-    .translated-ltr & {
-      top: 40px;
-    }
-
     .show-menu & {
       right: 0;
     }
@@ -347,11 +342,6 @@ $utility-nav-height: 43px;
       padding-left: 20px;
       padding-right: 20px;
       background-color: var(--mf-c-primary);
-
-      .translated-rtl &,
-      .translated-ltr & {
-        height: calc(100vh - #{$header-mobile-controls-height * 2});
-      }
     }
   }
 

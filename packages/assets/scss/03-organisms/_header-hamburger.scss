@@ -233,16 +233,6 @@ body.show-menu {
       transition: left 0.6s ease, visibility 0.8s;
     }
 
-    .translated-rtl &,
-    .translated-ltr & {
-      height: calc(100vh - #{$header-mobile-controls-height * 2});
-    }
-
-    .translated-rtl &,
-    .translated-ltr & {
-      top: 44px;
-    }
-
     & .ma__header__nav-search {
       margin-bottom: 0;
       border-bottom: 0;
@@ -573,11 +563,6 @@ body.show-menu {
               max-height: auto;
 
               transition: opacity 0.4s;
-
-              .translated-rtl &,
-              .translated-ltr & {
-                height: auto;
-              }
             }
 
             &.is-closed .ma__utility-nav__container {

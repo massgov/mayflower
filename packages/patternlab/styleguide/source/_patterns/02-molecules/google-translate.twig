@@ -15,7 +15,51 @@
         class="ma__translate-select"
         aria-describedby="ma__translate-help"
     >
-      <!-- Options will be populated by JavaScript -->
+      {% block languageOptions %}
+        <option value="en">English</option>
+        <option value="af">Afrikaans</option>
+        <option value="sq">Shqip</option>
+        <option value="am">አማርኛ</option>
+        <option value="ar">العربية</option>
+        <option value="hy">Հայերեն</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="zh-TW">繁體中文</option>
+        <option value="tl">Filipino</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="el">Ελληνικά</option>
+        <option value="gu">ગુજરાતી</option>
+        <option value="ht">Kreyòl Ayisyen</option>
+        <option value="iw">עברית</option>
+        <option value="hi">हिन्दी</option>
+        <option value="hmn">Hmoob</option>
+        <option value="it">Italiano</option>
+        <option value="ja">日本語</option>
+        <option value="km">ភាសាខ្មែរ</option>
+        <option value="rw">Kinyarwanda</option>
+        <option value="ko">한국어</option>
+        <option value="lo">ລາວ</option>
+        <option value="ml">മലയാളം</option>
+        <option value="my">မြန်မာ</option>
+        <option value="ne">नेपाली</option>
+        <option value="ps">پښتو</option>
+        <option value="fa">فارسی</option>
+        <option value="pl">Polski</option>
+        <option value="pt">Português</option>
+        <option value="ro">Română</option>
+        <option value="ru">Русский</option>
+        <option value="so">Soomaali</option>
+        <option value="es">Español</option>
+        <option value="sw">Kiswahili</option>
+        <option value="ta">தமிழ்</option>
+        <option value="te">తెలుగు</option>
+        <option value="th">ไทย</option>
+        <option value="ti">ትግርኛ</option>
+        <option value="tr">Türkçe</option>
+        <option value="uk">Українська</option>
+        <option value="ur">اردو</option>
+        <option value="vi">Tiếng Việt</option>
+      {% endblock %}
     </select>
 
     <svg class="ma__translate-icon" aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
@@ -58,32 +102,6 @@
   <div id="google_translate_element"></div>
 </div>
 
-<!-- Google Translate Script -->
-<script type="text/javascript">
-  // Capture original HTML lang BEFORE Google Translate can change it
-  window.originalPageLang = document.documentElement.getAttribute('lang') || 'en';
-
-  // Prevent Google Translate from changing lang to "auto"
-  const originalSetAttribute = Element.prototype.setAttribute;
-  Element.prototype.setAttribute = function(name, value) {
-    if (this === document.documentElement && name === 'lang' && value === 'auto') {
-      return;
-    }
-    return originalSetAttribute.call(this, name, value);
-  };
-
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: window.originalPageLang,
-      includedLanguages: 'af,sq,am,ar,hy,zh-CN,zh-TW,tl,fr,de,el,gu,ht,iw,hi,hmn,it,ja,km,rw,ko,lo,ml,my,ne,ps,fa,pl,pt,ro,ru,so,es,sw,ta,te,th,ti,tr,uk,ur,vi',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false,
-      multilanguagePage: true
-    }, 'google_translate_element');
-  }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 <!-- Accessible Interface Script -->
 <script>
   (function() {
@@ -92,52 +110,7 @@
     const resetButton = document.getElementById('ma__translate-reset');
     const statusMessage = document.getElementById('ma__translate-status');
 
-    // Language data with both English and native names
-    const languageData = {
-      'en': { english: 'English', native: 'English' },
-      'af': { english: 'Afrikaans', native: 'Afrikaans' },
-      'sq': { english: 'Albanian', native: 'Shqip' },
-      'am': { english: 'Amharic', native: 'አማርኛ' },
-      'ar': { english: 'Arabic', native: 'العربية' },
-      'hy': { english: 'Armenian', native: 'Հայերեն' },
-      'zh-CN': { english: 'Chinese (Simplified)', native: '简体中文' },
-      'zh-TW': { english: 'Chinese (Traditional)', native: '繁體中文' },
-      'tl': { english: 'Filipino', native: 'Filipino' },
-      'fr': { english: 'French', native: 'Français' },
-      'de': { english: 'German', native: 'Deutsch' },
-      'el': { english: 'Greek', native: 'Ελληνικά' },
-      'gu': { english: 'Gujarati', native: 'ગુજરાતી' },
-      'ht': { english: 'Haitian Creole', native: 'Kreyòl Ayisyen' },
-      'iw': { english: 'Hebrew', native: 'עברית' },
-      'hi': { english: 'Hindi', native: 'हिन्दी' },
-      'hmn': { english: 'Hmong', native: 'Hmoob' },
-      'it': { english: 'Italian', native: 'Italiano' },
-      'ja': { english: 'Japanese', native: '日本語' },
-      'km': { english: 'Khmer', native: 'ភាសាខ្មែរ' },
-      'rw': { english: 'Kinyarwanda', native: 'Kinyarwanda' },
-      'ko': { english: 'Korean', native: '한국어' },
-      'lo': { english: 'Lao', native: 'ລາວ' },
-      'ml': { english: 'Malayalam', native: 'മലയാളം' },
-      'my': { english: 'Myanmar (Burmese)', native: 'မြန်မာ' },
-      'ne': { english: 'Nepali', native: 'नेपाली' },
-      'ps': { english: 'Pashto', native: 'پښتو' },
-      'fa': { english: 'Persian', native: 'فارسی' },
-      'pl': { english: 'Polish', native: 'Polski' },
-      'pt': { english: 'Portuguese (Brazil)', native: 'Português' },
-      'ro': { english: 'Romanian', native: 'Română' },
-      'ru': { english: 'Russian', native: 'Русский' },
-      'so': { english: 'Somali', native: 'Soomaali' },
-      'es': { english: 'Spanish', native: 'Español' },
-      'sw': { english: 'Swahili', native: 'Kiswahili' },
-      'ta': { english: 'Tamil', native: 'தமிழ்' },
-      'te': { english: 'Telugu', native: 'తెలుగు' },
-      'th': { english: 'Thai', native: 'ไทย' },
-      'ti': { english: 'Tigrinya', native: 'ትግርኛ' },
-      'tr': { english: 'Turkish', native: 'Türkçe' },
-      'uk': { english: 'Ukrainian', native: 'Українська' },
-      'ur': { english: 'Urdu', native: 'اردو' },
-      'vi': { english: 'Vietnamese', native: 'Tiếng Việt' }
-    };
+    const languageData = Array.from(languageSelect.options, option => [ option.value, option.text ]);
 
     // Store the original page language
     const ORIGINAL_LANG_COOKIE = 'original_page_lang';
@@ -171,32 +144,6 @@
     }
 
     const originalPageLang = getOriginalPageLanguage();
-
-    // Populate dropdown based on current page state
-    function populateDropdown() {
-      languageSelect.innerHTML = '';
-
-      // Get all language codes in order
-      const langCodes = Object.keys(languageData);
-
-      langCodes.forEach(code => {
-        const option = document.createElement('option');
-        option.value = code;
-
-        const langInfo = languageData[code];
-
-        // Always show both: English - Native (e.g., "English - English", "German - Deutsch")
-        if (langInfo.english === langInfo.native) {
-          // For languages where English and native are the same (e.g., English, Afrikaans)
-          option.textContent = langInfo.english;
-        } else {
-          // Show: English - Native
-          option.textContent = `${langInfo.english} - ${langInfo.native}`;
-        }
-
-        languageSelect.appendChild(option);
-      });
-    }
 
     function getCookieDomain() {
       const hostname = window.location.hostname;
@@ -234,7 +181,6 @@
 
     function initializeLanguageSelect() {
       if (!hasInitialized) {
-        populateDropdown();
 
         const optionExists = Array.from(languageSelect.options).some(opt => opt.value === currentLanguageCode);
 
@@ -275,7 +221,7 @@
     applyButton.addEventListener('click', function() {
       const selectedLanguage = languageSelect.value;
       const langInfo = languageData[selectedLanguage];
-      const selectedText = langInfo ? langInfo.english : selectedLanguage;
+      const selectedText = langInfo ? langInfo : selectedLanguage;
 
       if (selectedLanguage === currentLanguageCode) {
         statusMessage.textContent = `Already displaying in ${selectedText}`;
@@ -299,7 +245,7 @@
       document.documentElement.lang = originalPageLang;
 
       const originalLangData = languageData[originalPageLang];
-      const originalLangName = originalLangData ? originalLangData.english : originalPageLang;
+      const originalLangName = originalLangData ? originalLangData : originalPageLang;
       statusMessage.textContent = `Resetting to original language: ${originalLangName}`;
 
       applyButton.disabled = true;

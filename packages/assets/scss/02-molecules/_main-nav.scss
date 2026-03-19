@@ -161,12 +161,6 @@
       right: -300px;
       transition: visibility .5s ease, right .5s ease;
 
-      .translated-rtl &,
-      .translated-ltr & {
-        height: calc(100vh - #{$header-mobile-controls-height * 2});
-        top: 40px;
-      }
-
       .show-menu & {
         right: 0;
       }
