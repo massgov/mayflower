@@ -12,7 +12,11 @@
         </div>
         <div class="ma__modal-content">
             {% block htmlContent %}
-                {% include "@molecules/google-translate.twig" %}
+                {% if googleLanguages %}
+                    {% include "@molecules/google-translate.twig" with {
+                        "googleLanguages": googleLanguages
+                    } %}
+                {% endif %}
             {% endblock %}
         </div>
     </div>

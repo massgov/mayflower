@@ -2,7 +2,9 @@
   <ul class="ma__utility-nav__items">
     {% if googleLanguages %}
       <li class="ma__utility-nav__item">
-        {% include "@molecules/modal.twig" %}
+        {% include "@molecules/modal.twig" with {
+          "googleLanguages": googleLanguages
+        } %}
       </li>
     {% endif %}
     {% for item in utilityNav.items %}
