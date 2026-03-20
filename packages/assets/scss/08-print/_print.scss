@@ -202,7 +202,8 @@
     font-size: 0.8em;
     font-weight: normal;
     width: 100%;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .pre-content::after,
