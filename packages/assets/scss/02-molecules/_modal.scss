@@ -52,18 +52,20 @@
 }
 
 .ma__modal-overlay.ma__shim-active {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* Modal dialog container */
 .ma__modal-dialog {
   position: relative;
   background-color: var(--mf-c-white);
-  border-radius: 0.375rem;
+  border-radius: 8px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 2rem);
+  min-width: 280px;
+  max-width: 650px;
   width: 100%;
   animation: ma__modal-fade-in 0.2s ease;
 }
@@ -77,22 +79,6 @@
     opacity: 1;
     transform: scale(1);
   }
-}
-
-/* Modal sizes */
-.ma__modal-small {
-  min-width: 300px;
-  max-width: 400px;
-}
-
-.ma__modal-medium {
-  min-width: 300px;
-  max-width: 600px;
-}
-
-.ma__modal-large {
-  min-width: 300px;
-  max-width: 900px;
 }
 
 /* Modal header */
@@ -111,9 +97,12 @@
 }
 
 .ma__modal-close {
-  padding: 0.5rem;
+  margin: var(--mds-space-2xs);
+  padding: var(--mds-space-3xs);
   background-color: var(--mf-c-white);
   border: 1px solid var(--mf-c-white);
+  border-radius: var(--mds-space-2xs);
+  color: var(--mf-c-bay-blue);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -131,7 +120,7 @@
 /* Modal content */
 .ma__modal-content {
   color: var(--mf-c-gray-darkest);
-  padding: 1.5rem;
+  padding: 0 64px 64px 64px;
   overflow-y: auto;
   flex: 1;
   min-height: 100px;
@@ -147,23 +136,10 @@ body.ma__modal-open {
   .ma__modal-overlay {
     padding: 0;
   }
-  .ma__modal-large {
-    max-width: 100% !important;
-    min-width: 100% !important;
-    max-height: 100vh;
-    height:100%;
-    border-radius: 0;
-    overflow-y:auto;
-  }
-  .ma__modal-large .ma__modal-content {
-    overflow:visible;
-    min-height:auto;
-  }
 }
 /* Mobile and zoom: full width and height for medium and small dialogs */
 @media (max-width: 600px), (min-resolution: 200dpi) {
-  .ma__modal-medium,
-  .ma__modal-small {
+  .ma__modal {
     max-width: 100% !important;
     min-width: 100% !important;
     max-height: 100vh;
@@ -174,5 +150,63 @@ body.ma__modal-open {
   .ma__modal-content {
     overflow:visible;
     min-height:auto;
+  }
+}
+
+.ma__modal-legend {
+  border-radius: 48px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 4px;
+  span {
+    border-radius: 48px;
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-info {
+    border-color: var(--mf-c-bay-blue);
+    span {
+      background-color: var(--mf-c-bay-blue);
+      color: var(--mf-c-white);
+    }
+  }
+
+  &-success {
+    border-color: var(--mf-c-berkshires-green);
+    span {
+      background-color: var(--mf-c-berkshires-green);
+      color: var(--mf-c-black);
+    }
+  }
+
+  &-warning {
+    border-color: var(--mf-c-duckling-yellow);
+    span {
+      background-color: var(--mf-c-duckling-yellow);
+      color: var(--mf-c-black);
+    }
+  }
+
+  &-alert {
+    border-color: var(--mf-c-error-red);
+    span {
+      background-color: var(--mf-c-error-red);
+      color: var(--mf-c-white);
+    }
+  }
+}
+
+.ma__modal-button-group {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  button {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 0;
   }
 }

@@ -73,21 +73,6 @@ body > .skiptranslate {
   margin: 0;
 }
 
-.ma__translate-legend {
-  border-radius: 48px;
-  border: 1px solid var(--mf-c-bay-blue);
-  padding: 4px;
-  span {
-    border-radius: 48px;
-    background-color: var(--mf-c-bay-blue);
-    color: var(--mf-c-white);
-    display: flex;
-    padding: 8px;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
 .ma__translate-label {
   display: block;
   font-size: $fonts-xlarge;
@@ -198,18 +183,5 @@ body > .skiptranslate {
   p {
     font-size: $fonts-xsmall;
     text-align: center;
-  }
-}
-
-.ma__button-group {
-  display: flex;
-  width: 543px;
-  align-items: center;
-  align-self: stretch;
-  justify-content: center;
-  button {
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 0;
   }
 }

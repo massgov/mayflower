@@ -224,9 +224,10 @@ class AccessibleModal {
 }
 
 // Initialize modals with custom callbacks
+// @todo JavaScript should be updated to pull in multiple modals via selector.
 const modals = {};
 
-modals['modal-medium'] = new AccessibleModal('modal-medium', {
+modals['ma__modal'] = new AccessibleModal('ma__modal', {
     onOk: function() {
         console.log('Medium modal OK clicked');
         // Add your custom function here
