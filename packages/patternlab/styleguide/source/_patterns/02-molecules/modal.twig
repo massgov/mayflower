@@ -1,10 +1,13 @@
-<button type="button" class="ma__utility-nav__link" data-modal-trigger="ma__modal" aria-haspopup="dialog" aria-controls="ma__modal">
+{% set modalId = modal.id|default('ma__modal-' ~ random()) %}
+{% set modalTitleId = modalId ~ '-title' %}
+
+<button type="button" class="ma__utility-nav__link" data-modal-trigger="{{ modalId }}" aria-haspopup="dialog" aria-controls="{{ modalId }}">
     {% if modal.buttonIcon %}
         {{ icon(modal.buttonIcon, "20", "20") }}
     {% endif %}
     <span>{{ modal.buttonText }}</span>
 </button>
-<div id="ma__modal" class="ma__modal-overlay" role="dialog" aria-modal="true" aria-labelledby="ma__modal-title">
+<div id="{{ modalId }}" class="ma__modal-overlay ma__modal" role="dialog" aria-modal="true" aria-labelledby="{{ modalTitleId }}">
     <div class="ma__modal-dialog">
         <div class="ma__modal-header">
             <h2 id="ma__modal-title" class="ma__modal-title">{{ modal.title }}</h2>
@@ -23,4 +26,3 @@
         </div>
     </div>
 </div>
-
