@@ -1,10 +1,41 @@
 (function() {
-  const languageSelect = document.getElementById('ma__translate-select');
-  const applyButton = document.getElementById('ma__translate-apply');
-  const resetButton = document.getElementById('ma__translate-reset');
-  const statusMessage = document.getElementById('ma__translate-status');
+  const translateContainers = Array.from(document.querySelectorAll('.ma__translate-container'));
 
-  const languageData = Array.from(languageSelect.options, option => [ option.value, option.text ]);
+  if (!translateContainers.length) {
+    return;
+  }
+
+  const translateControls = translateContainers
+    .map((container) => {
+      const languageSelect = container.querySelector('.ma__translate-select');
+      const applyButton = container.querySelector('.ma__translate-button:not(.ma__translate-reset-button)');
+      const resetButton = container.querySelector('.ma__translate-reset-button');
+      const statusMessage = container.parentElement
+        ? container.parentElement.querySelector('.ma__status-message')
+        : null;
+
+      if (!languageSelect || !applyButton || !resetButton) {
+        return null;
+      }
+
+      return {
+        languageSelect,
+        applyButton,
+        resetButton,
+        statusMessage
+      };
+    })
+    .filter(Boolean);
+
+  if (!translateControls.length) {
+    return;
+  }
+
+  const primaryControls = translateControls[0];
+  const languageData = Array.from(primaryControls.languageSelect.options).reduce((accumulator, option) => {
+    accumulator[option.value] = option.text;
+    return accumulator;
+  }, {});
 
   // Store the original page language
   const ORIGINAL_LANG_COOKIE = 'original_page_lang';
@@ -73,33 +104,46 @@
   let currentLanguageCode = getCurrentLanguage();
   let hasInitialized = false;
 
-  function initializeLanguageSelect() {
-    if (!hasInitialized) {
+  function syncSelectValue(selectedLanguage) {
+    translateControls.forEach(({ languageSelect }) => {
+      languageSelect.value = selectedLanguage;
 
-      const optionExists = Array.from(languageSelect.options).some(opt => opt.value === currentLanguageCode);
+      const options = languageSelect.options;
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].value === selectedLanguage) {
+          options[i].setAttribute('selected', 'selected');
+        } else {
+          options[i].removeAttribute('selected');
+        }
+      }
+    });
+  }
+
+  function updateStatusMessages(message) {
+    translateControls.forEach(({ statusMessage }) => {
+      if (statusMessage) {
+        statusMessage.textContent = message;
+      }
+    });
+  }
+
+  function initializeLanguageSelects() {
+    if (!hasInitialized) {
+      const optionExists = Array.from(primaryControls.languageSelect.options).some(opt => opt.value === currentLanguageCode);
 
       if (!optionExists) {
         console.warn(`Language code "${currentLanguageCode}" not found in dropdown. Defaulting to original page language.`);
         currentLanguageCode = originalPageLang;
       }
 
-      languageSelect.value = currentLanguageCode;
-
-      const options = languageSelect.options;
-      for (let i = 0; i < options.length; i++) {
-        if (options[i].value === currentLanguageCode) {
-          options[i].setAttribute('selected', 'selected');
-        } else {
-          options[i].removeAttribute('selected');
-        }
-      }
+      syncSelectValue(currentLanguageCode);
 
       document.documentElement.lang = currentLanguageCode;
       hasInitialized = true;
     }
   }
 
-  initializeLanguageSelect();
+  initializeLanguageSelects();
 
   setTimeout(() => {
     if (document.documentElement.lang === 'auto') {
@@ -109,42 +153,68 @@
   }, 100);
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeLanguageSelect);
+    document.addEventListener('DOMContentLoaded', initializeLanguageSelects);
   }
 
-  applyButton.addEventListener('click', function() {
-    const selectedLanguage = languageSelect.value;
-    const langInfo = languageData[selectedLanguage];
-    const selectedText = langInfo ? langInfo : selectedLanguage;
+  translateControls.forEach(({ languageSelect, applyButton, resetButton }) => {
+    applyButton.addEventListener('click', function() {
+      const selectedLanguage = languageSelect.value;
+      const selectedText = languageData[selectedLanguage] || selectedLanguage;
 
-    if (selectedLanguage === currentLanguageCode) {
-      statusMessage.textContent = `Already displaying in ${selectedText}`;
-      return;
-    }
+      if (selectedLanguage === currentLanguageCode) {
+        updateStatusMessages(`Already displaying in ${selectedText}`);
+        return;
+      }
 
-    currentLanguageCode = selectedLanguage;
+      currentLanguageCode = selectedLanguage;
+      syncSelectValue(selectedLanguage);
 
-    if (selectedLanguage === originalPageLang) {
+      if (selectedLanguage === originalPageLang) {
+        resetToOriginalLanguage();
+      } else {
+        triggerGoogleTranslate(selectedLanguage, selectedText);
+      }
+    });
+
+    resetButton.addEventListener('click', function() {
       resetToOriginalLanguage();
-    } else {
-      triggerGoogleTranslate(selectedLanguage, selectedText);
-    }
+    });
+
+    languageSelect.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyButton.click();
+      }
+    });
   });
 
-  resetButton.addEventListener('click', function() {
-    resetToOriginalLanguage();
-  });
+  function setButtonState(buttonTextOverrides = {}) {
+    translateControls.forEach(({ applyButton, resetButton }) => {
+      applyButton.disabled = Boolean(buttonTextOverrides.applyDisabled);
+      resetButton.disabled = Boolean(buttonTextOverrides.resetDisabled);
+
+      if (buttonTextOverrides.applyText) {
+        applyButton.textContent = buttonTextOverrides.applyText;
+      }
+
+      if (buttonTextOverrides.resetText) {
+        resetButton.textContent = buttonTextOverrides.resetText;
+      }
+    });
+  }
 
   function resetToOriginalLanguage() {
     document.documentElement.lang = originalPageLang;
+    syncSelectValue(originalPageLang);
 
-    const originalLangData = languageData[originalPageLang];
-    const originalLangName = originalLangData ? originalLangData : originalPageLang;
-    statusMessage.textContent = `Resetting to original language: ${originalLangName}`;
+    const originalLangName = languageData[originalPageLang] || originalPageLang;
+    updateStatusMessages(`Resetting to original language: ${originalLangName}`);
 
-    applyButton.disabled = true;
-    resetButton.disabled = true;
-    resetButton.textContent = 'Resetting...';
+    setButtonState({
+      applyDisabled: true,
+      resetDisabled: true,
+      resetText: 'Resetting...'
+    });
 
     clearAllGoogleTranslateCookies();
 
@@ -153,19 +223,14 @@
     }, 250);
   }
 
-  languageSelect.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      applyButton.click();
-    }
-  });
-
   function triggerGoogleTranslate(langCode, langName) {
     document.documentElement.lang = langCode;
-    statusMessage.textContent = `Changing page language to ${langName}`;
+    updateStatusMessages(`Changing page language to ${langName}`);
 
-    applyButton.disabled = true;
-    applyButton.textContent = 'Translating...';
+    setButtonState({
+      applyDisabled: true,
+      applyText: 'Translating...'
+    });
 
     const cookieDomain = getCookieDomain();
     const cookieValue = `/${originalPageLang}/${langCode}`;

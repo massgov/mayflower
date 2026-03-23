@@ -3,7 +3,7 @@
     "id": "",
     "title": "Select language",
     "icon": "translate",
-    "type": "warning",
+    "type": "info",
     "buttonText": "Language"
   }
 }
