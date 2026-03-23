@@ -37,35 +37,20 @@
     return accumulator;
   }, {});
 
-  // Store the original page language
-  const ORIGINAL_LANG_COOKIE = 'original_page_lang';
-
   function getOriginalPageLanguage() {
-    const cookies = document.cookie.split(';');
-    for (let cookie of cookies) {
-      const [name, value] = cookie.trim().split('=');
-      if (name === ORIGINAL_LANG_COOKIE) {
-        return value;
-      }
+    const documentLang = document.documentElement.lang && document.documentElement.lang.trim();
+    const configuredLang = window.originalPageLang && window.originalPageLang.trim();
+
+    if (configuredLang) {
+      return configuredLang;
     }
 
-    let originalLang = window.originalPageLang || 'en';
-
-    if (!window.originalPageLang || window.originalPageLang.trim() === '') {
-      console.log('Warning: HTML tag is missing lang attribute. Defaulting to "en" (English). Please add lang attribute to <html> tag for proper accessibility.');
-      originalLang = 'en';
+    if (documentLang && documentLang !== 'auto') {
+      return documentLang;
     }
 
-    const cookieDomain = getCookieDomain();
-    const maxAge = 60 * 60 * 24 * 365;
-
-    if (cookieDomain) {
-      document.cookie = `${ORIGINAL_LANG_COOKIE}=${originalLang}; path=/; domain=${cookieDomain}; max-age=${maxAge}; SameSite=Lax`;
-    } else {
-      document.cookie = `${ORIGINAL_LANG_COOKIE}=${originalLang}; path=/; max-age=${maxAge}; SameSite=Lax`;
-    }
-
-    return originalLang;
+    console.log('Warning: HTML tag is missing lang attribute. Defaulting to "en" (English). Please add lang attribute to <html> tag for proper accessibility.');
+    return 'en';
   }
 
   const originalPageLang = getOriginalPageLanguage();
