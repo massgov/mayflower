@@ -1,6 +1,7 @@
 {
   "modal": {
     "id": "",
+    "title": "Select language",
     "buttonIcon": "translate",
     "buttonText": "Language"
   }
