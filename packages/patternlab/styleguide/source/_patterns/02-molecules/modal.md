@@ -5,7 +5,10 @@ A modal with inputs for title and text.
 
 ~~~
 "modal": {
-  "buttonIcon": "translate",
-  "buttonText": "Language"
+    "id": "",
+    "title": "Select language",
+    "icon": "translate",
+    "type": "warning",
+    "buttonText": "Language"
 }
 ~~~

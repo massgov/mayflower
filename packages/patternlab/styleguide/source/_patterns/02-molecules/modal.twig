@@ -2,9 +2,7 @@
 {% set modalTitleId = modalId ~ '-title' %}
 
 <button type="button" class="ma__utility-nav__link" data-modal-trigger="{{ modalId }}" aria-haspopup="dialog" aria-controls="{{ modalId }}">
-    {% if modal.buttonIcon %}
-        {{ icon(modal.buttonIcon, "20", "20") }}
-    {% endif %}
+    {{ icon(modal.icon, "20", "20") }}
     <span>{{ modal.buttonText }}</span>
 </button>
 <div id="{{ modalId }}" class="ma__modal-overlay ma__modal" role="dialog" aria-modal="true" aria-labelledby="{{ modalTitleId }}">
@@ -15,7 +13,7 @@
             </button>
         </div>
         <div class="ma__modal-content">
-            <legend class="ma__modal-legend ma__modal-legend-info"><span>{{ icon(modal.buttonIcon, "28", "28") }}</span></legend>
+            <legend class="ma__modal-legend ma__modal-legend-{{ modal.type|default('info') }}"><span>{{ icon(modal.icon, "28", "28") }}</span></legend>
             <h2 id="ma__modal-title" class="ma__modal-title">{{ modal.title }}</h2>
             {% block htmlContent %}
                 {% if googleLanguages %}
