@@ -1,0 +1,249 @@
+/**
+ * Semantic tokens 
+ * Use these in your projects
+ *
+ */
+
+ @import url('primitives.css');
+
+/**
+ * Color Theme tokens used in the theme.
+ *
+ */
+
+:root {
+  --mds-background-transparent: var(--mds-color-utility-base-white-transparent);
+  --mds-background-surface-default: #fdfdfd;
+  --mds-background-section-brand-neutral-lowest: var(--mds-color-brand-gray-100);
+  --mds-background-section-brand-neutral-low: var(--mds-color-brand-gray-300);
+  --mds-background-section-brand-neutral-mid: var(--mds-color-brand-gray-800);
+  --mds-background-section-brand-neutral-high: var(--mds-color-brand-gray-1100);
+  --mds-background-section-brand-neutral-highest: var(--mds-color-brand-gray-1300);
+  --mds-background-section-brand-neutral-disabled: var(--mds-color-brand-gray-200);
+  --mds-background-section-brand-primary-lowest: var(--mds-color-brand-bay-blue-100);
+  --mds-background-section-brand-primary-mid: var(--mds-color-brand-bay-blue-1000);
+  --mds-background-section-brand-primary-highest: var(--mds-color-brand-bay-blue-1300);
+  --mds-background-section-brand-secondary-lowest: var(--mds-color-brand-berkshires-green-100);
+  --mds-background-section-brand-secondary-mid: var(--mds-color-brand-berkshires-green-1000);
+  --mds-background-section-brand-secondary-highest: var(--mds-color-brand-berkshires-green-1300);
+  --mds-background-section-brand-tertiary-lowest: var(--mds-color-brand-independence-cranberry-100);
+  --mds-background-section-brand-tertiary-mid: var(--mds-color-brand-independence-cranberry-800);
+  --mds-background-section-brand-tertiary-highest: var(--mds-color-brand-independence-cranberry-1300);
+  --mds-background-section-utility-danger-lowest: var(--mds-color-utility-danger-red-100);
+  --mds-background-section-utility-danger-mid: var(--mds-color-utility-danger-red-600);
+  --mds-background-section-utility-danger-highest: var(--mds-color-utility-danger-red-1300);
+  --mds-background-section-utility-warning-lowest: var(--mds-color-utility-warning-yellow-100);
+  --mds-background-section-utility-warning-mid: var(--mds-color-utility-warning-yellow-600);
+  --mds-background-section-utility-warning-highest: var(--mds-color-utility-warning-yellow-1300);
+  --mds-background-section-utility-success-lowest: var(--mds-color-utility-success-green-100);
+  --mds-background-section-utility-success-mid: var(--mds-color-utility-success-green-600);
+  --mds-background-section-utility-success-highest: var(--mds-color-utility-success-green-1300);
+
+
+  /* Adaptive/Interactive state colors */
+  --mds-background-adaptive-brand-neutral-lowest: var(--mds-color-brand-gray-100);
+  --mds-background-adaptive-brand-neutral-low: var(--mds-color-brand-gray-300);
+  --mds-background-adaptive-brand-neutral-mid: var(--mds-color-brand-gray-900);
+  --mds-background-adaptive-brand-neutral-high: var(--mds-color-brand-gray-1000);
+  --mds-background-adaptive-brand-neutral-highest: var(--mds-color-brand-gray-1300);
+  --mds-background-adaptive-brand-neutral-disabled: var(--mds-color-brand-gray-200);
+  --mds-background-adaptive-brand-primary-lowest: var(--mds-color-brand-bay-blue-200);
+  --mds-background-adaptive-brand-primary-low: var(--mds-color-brand-bay-blue-400);
+  --mds-background-adaptive-brand-primary-mid: var(--mds-color-brand-bay-blue-1000);
+  --mds-background-adaptive-brand-primary-high: var(--mds-color-brand-bay-blue-1100);
+  --mds-background-adaptive-brand-primary-highest: var(--mds-color-brand-bay-blue-1300);
+  --mds-background-adaptive-brand-secondary-lowest: var(--mds-color-brand-berkshires-green-200);
+  --mds-background-adaptive-brand-secondary-low: var(--mds-color-brand-berkshires-green-600);
+  --mds-background-adaptive-brand-secondary-mid: var(--mds-color-brand-berkshires-green-1000);
+  --mds-background-adaptive-brand-secondary-high: var(--mds-color-brand-berkshires-green-1100);
+  --mds-background-adaptive-brand-secondary-highest: var(--mds-color-brand-berkshires-green-1300);
+  --mds-background-adaptive-brand-tertiary-lowest: var(--mds-color-brand-independence-cranberry-200);
+  --mds-background-adaptive-brand-tertiary-low: var(--mds-color-brand-independence-cranberry-500);
+  --mds-background-adaptive-brand-tertiary-mid: var(--mds-color-brand-independence-cranberry-900);
+  --mds-background-adaptive-brand-tertiary-high: var(--mds-color-brand-independence-cranberry-1100);
+  --mds-background-adaptive-brand-tertiary-highest: var(--mds-color-brand-independence-cranberry-1300);
+  --mds-background-section-utility-informative-lowest: var(--mds-utility-informative-blue-100);
+  --mds-background-section-utility-informative-mid: var(--mds-utility-informative-blue-900);
+  --mds-background-section-utility-informative-highest: var(--mds-utility-informative-blue-1300);
+  --mds-background-adaptive-brand-highlight-mid: var(--mds-color-brand-duckling-yellow-800);
+  --mds-background-adaptive-utility-danger-lowest: var(--mds-color-utility-danger-red-100);
+  --mds-background-adaptive-utility-danger-low: var(--mds-color-utility-danger-red-300);
+  --mds-background-adaptive-utility-danger-mid: var(--mds-color-utility-danger-red-600);
+  --mds-background-adaptive-utility-danger-high: var(--mds-color-utility-danger-red-900);
+  --mds-background-adaptive-utility-danger-highest: var(--mds-color-utility-danger-red-1300);
+  --mds-background-adaptive-utility-warning-lowest: var(--mds-color-utility-warning-yellow-100);
+  --mds-background-adaptive-utility-warning-low: var(--mds-color-utility-warning-yellow-300);
+  --mds-background-adaptive-utility-warning-mid: var(--mds-color-utility-warning-yellow-900);
+  --mds-background-adaptive-utility-warning-high: var(--mds-color-brand-duckling-yellow-1100);
+  --mds-background-adaptive-utility-warning-highest: var(--mds-color-utility-warning-yellow-1300);
+  --mds-background-adaptive-utility-success-lowest: var(--mds-color-utility-success-green-100);
+  --mds-background-adaptive-utility-success-low: var(--mds-color-utility-success-green-300);
+  --mds-background-adaptive-utility-success-mid: var(--mds-color-utility-success-green-600);
+  --mds-background-adaptive-utility-success-high: var(--mds-color-utility-success-green-900);
+  --mds-background-adaptive-utility-success-highest: var(--mds-color-utility-success-green-1300);
+  --mds-background-overlay: #00000099;
+  --mds-white: var(--mds-color-utility-base-white);
+  --mds-black: var(--mds-color-utility-base-black);
+  --mds-inverse: var(--mds-color-utility-base-white);
+
+  /** Text Colors **/
+  --mds-text-and-icons-brand-neutral-default: var(--mds-color-brand-gray-1300);
+  --mds-text-and-icons-brand-neutral-muted: var(--mds-color-brand-gray-900);
+  --mds-text-and-icons-brand-neutral-disabled: var(--mds-color-brand-gray-700);
+  --mds-text-and-icons-brand-primary-mid: var(--mds-color-brand-bay-blue-1000);
+  --mds-text-and-icons-brand-secondary-mid: var(--mds-color-brand-berkshires-green-1000);
+  --mds-text-and-icons-utility-danger-mid: var(--mds-color-utility-danger-red-600);
+  --mds-text-and-icons-utility-warning-mid: var(--mds-color-utility-warning-yellow-600);
+  --mds-text-and-icons-utility-success-mid: var(--mds-color-utility-success-green-900);
+
+  /** Border Colors **/
+  --mds-border-brand-neutral-lowest: var(--mds-color-brand-gray-200);
+  --mds-border-brand-neutral-low: var(--mds-color-brand-gray-400);
+  --mds-border-brand-neutral-mid: var(--mds-color-brand-gray-600);
+  --mds-border-brand-neutral-high: var(--mds-color-brand-gray-750);
+  --mds-border-brand-primary-lowest: var(--mds-color-brand-bay-blue-200);
+  --mds-border-brand-primary-low: var(--mds-color-brand-bay-blue-400);
+  --mds-border-brand-primary-mid: var(--mds-color-brand-bay-blue-1000);
+  --mds-border-brand-primary-high: var(--mds-color-brand-bay-blue-1100);
+  --mds-border-brand-primary-highest: var(--mds-color-brand-bay-blue-1300);
+  --mds-border-brand-secondary-lowest: var(--mds-color-brand-berkshires-green-200);
+  --mds-border-brand-secondary-low: var(--mds-color-brand-berkshires-green-600);
+  --mds-border-brand-secondary-mid: var(--mds-color-brand-berkshires-green-900);
+  --mds-border-brand-secondary-high: var(--mds-color-brand-berkshires-green-1100);
+  --mds-border-brand-secondary-highest: var(--mds-color-brand-berkshires-green-1300);
+  --mds-border-focus-on-light: var(--mds-color-utility-focus-blue-600);
+  --mds-border-focus-on-dark: var(--mds-color-utility-focus-blue-300);
+  --mds-border-utility-danger-low: var(--mds-color-utility-danger-red-300);
+  --mds-border-utility-danger-mid: var(--mds-color-utility-danger-red-600);
+  --mds-border-utility-warning-low: var(--mds-color-utility-warning-yellow-300);
+  --mds-border-utility-warning-mid: var(--mds-color-utility-warning-yellow-600);
+  --mds-border-utility-success-low: var(--mds-color-utility-success-green-300);
+  --mds-border-utility-success-mid: var(--mds-color-utility-success-green-600);
+
+/**
+ * Corner (border radius) tokens used in the theme.
+ */
+
+  --mds-radius-xs: var(--mds-border-radius-25);
+  --mds-radius-sm: var(--mds-border-radius-50);
+  --mds-radius-md: var(--mds-border-radius-100);
+  --mds-radius-max: var(--mds-border-radius-round);
+
+
+/** 
+  * Elevation/Box shadow tokens
+  **/
+
+  --mds-shadow-container: var(--mds-elevation-offset-none) var(--mds-elevation-offset-100) var(--mds-elevation-blur-400) 0 var(--mds-shadow-container-opacity);
+  --mds-shadow-modal: var(--mds-elevation-offset-none) var(--mds-elevation-offset-50) var(--mds-elevation-blur-300) 0 var(--mds-shadow-modal-opacity);
+  --mds-shadow-hover-sm: var(--mds-elevation-offset-none) var(--mds-elevation-offset-50) var(--mds-elevation-blur-150) 0 var(--mds-shadow-hover-opacity); 
+  --mds-shadow-hover-md: var(--mds-elevation-offset-none) var(--mds-elevation-offset-100) var(--mds-elevation-blur-200) 0 var(--mds-shadow-hover-opacity);
+
+/**
+ * Spacing tokens 
+ */
+  --mds-space-3xs: var(--mds-space-50);
+  --mds-space-2xs: var(--mds-space-100);
+  --mds-space-xs: var(--mds-space-150);
+  --mds-space-sm: var(--mds-space-200);
+  --mds-space-md: var(--mds-space-300);
+  --mds-space-lg: var(--mds-space-400);
+  --mds-space-xl: var(--mds-space-500);
+  --mds-space-2xl: var(--mds-space-600);
+  --mds-space-3xl: var(--mds-space-800);
+
+/**
+ * Typography size tokens 
+ *
+ */
+
+  /** Body text**/
+  --mds-text-body: var(--mds-font-size-200)/1.8 var(--mds-font-family);
+  --mds-text-body-bold: var(--font-weight-semibold) var(--mds-font-size-200)/1.8 var(--mds-font-family);
+  --mds-text-body-lg: var(--mds-font-size-225)/1.8 var(--mds-font-family);
+  --mds-text-body-lg-bold: var(--font-weight-semibold) var(--mds-font-size-225)/1.8 var(--mds-font-family);
+
+  /** Headings **/
+  --mds-text-heading-2xs: var(--mds-font-weight-semibold) var(--mds-font-size-225)/1.4 var(--mds-font-family-headings);
+  --mds-text-heading-xs: var(--mds-font-weight-semibold) var(--mds-font-size-275)/1.3 var(--mds-font-family-headings);
+  --mds-text-heading-sm: var(--mds-font-weight-semibold) var(--mds-font-size-300)/1.3 var(--mds-font-family-headings);
+  --mds-text-heading-md: var(--mds-font-weight-semibold) var(--mds-font-size-325)/1.2 var(--mds-font-family-headings);
+  --mds-text-heading-lg: var(--mds-font-weight-semibold) var(--mds-font-size-450)/1.2 var(--mds-font-family-headings);
+  --mds-text-heading-xl: var(--mds-font-weight-semibold) var(--mds-font-size-500)/1.2 var(--mds-font-family-headings);
+  --mds-text-heading-2xl: var(--mds-font-weight-semibold) var(--mds-font-size-550)/1.1 var(--mds-font-family-headings);
+  /** Labels **/
+  --mds-text-label-sm: var(--mds-font-weight-medium) var(--mds-font-size-175)/1.2 var(--mds-font-family);
+  --mds-text-label: var(--mds-font-weight-medium) var(--mds-font-size-200)/1.2 var(--mds-font-family);
+  --mds-text-label-md: var(--mds-font-weight-medium) var(--mds-font-size-225)/1.2 var(--mds-font-family);
+  --mds-text-label-lg: var(--mds-font-weight-medium) var(--mds-font-size-250)/1.2 var(--mds-font-family);
+  --mds-text-label-xl: var(--mds-font-weight-medium) var(--mds-font-size-275)/1.2 var(--mds-font-family);
+
+  /** Eyebrow text (uppercase text labels). Needs 1px Letter spacing **/
+  --mds-text-eyebrow: var(--mds-font-weight-semibold) var(--mds-font-size-175)/1 var(--mds-font-family);
+  --mds-text-eyebrow-md: var(--mds-font-weight-semibold) var(--mds-font-size-200)/1 var(--mds-font-family);
+  /* uppercase must be set separately as a text-transform in addition to using these variables */
+  --mds-text-transform-eyebrow: uppercase;
+  --mds-text-letter-spacing-eyebrow: 1px;
+
+  /** Caption text **/ 
+  --mds-text-caption-sm: var(--mds-font-weight-regular) var(--mds-font-size-125)/1.3 var(--mds-font-family);
+  --mds-text-caption: var(--mds-font-weight-regular) var(--mds-font-size-175)/1.3 var(--mds-font-family);
+  --mds-text-caption-bold: var(--mds-font-weight-medium) var(--mds-font-size-175)/1.3 var(--mds-font-family);
+  --mds-text-caption-md: var(--mds-font-weight-regular) var(--mds-font-size-200)/1.3 var(--mds-font-family);
+
+
+/**  Media queries for headings lg-2xl to fit smaller screens are in with breakpoint tokens below **/
+}
+
+/**
+ * Spacing tokens by Breakpoint.
+ * Use these for containers/sections
+ */
+
+/** 1280px, XL breakpoint **/
+@media (min-width: 1280px) {
+  :root {
+    --mds-breakpoint-horizontal-space-columns: 12;
+    --mds-breakpoint-horizontal-space-margin: var(--space-600);
+    --mds-breakpoint-horizontal-space-gutter: var(--space-300);
+  };
+};
+
+/** 1024px, LG breakpoint **/
+@media (min-width: 1024px) {
+  :root {
+    --mds-breakpoint-horizontal-space-columns: 12;
+    --mds-breakpoint-horizontal-space-margin: var(--space-600);
+    --mds-breakpoint-horizontal-space-gutter: var(--space-300);
+  };
+};
+
+/** 768px, MD breakpoint **/
+@media (min-width: 768px) {
+  :root {
+    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-margin: var(--space-400);
+    --mds-breakpoint-horizontal-space-gutter: var(--space-300);
+  };
+};
+  /** 480px, SM breakpoint **/
+@media (min-width: 480px) {
+  :root {
+    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-margin: var(--space-300);
+    --mds-breakpoint-horizontal-space-gutter: var(--space-200);
+    --mds-text-heading-2xl: var(--font-weight-semibold) var(--font-size-500)/1.1 var(--font-family);
+    --mds-text-heading-xl: var(--font-weight-semibold) var(--font-size-450)/1.2 var(--font-family);
+    --mds-text-heading-lg: var(--font-weight-semibold) var(--font-size-400)/1.2 var(--font-family);
+  };
+};
+/** 320px, XS breakpoint**/
+@media (min-width: 320px) {
+  :root {
+    --mds-breakpoint-horizontal-space-viewport-min-width: 288px;
+    --mds-breakpoint-horizontal-space-columns: 6;
+    --mds-breakpoint-horizontal-space-margin: var(--space-200);
+    --mds-breakpoint-horizontal-space-gutter: var(--space-100);
+  };
+};
+

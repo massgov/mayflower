@@ -1,10 +1,17 @@
 <ul class="ma__icon-list">
   {% for list in iconList %}
-    <li>{{ list.text }}</li>
+    <li>
+      <span class="ma__icon-list__icon">
+        {{ icon('caret-circle-right', '24', '24') }}
+      </span>
+      {{ list.text }}
+    </li>
     {% if list.sublist %}
       <ul>
         {% for sublist in list.sublist %}
-          <li>{{ sublist.text }}</li>
+          <li>
+            {{ sublist.text }}
+          </li>
         {% endfor %}
       </ul>
     {% endif %}

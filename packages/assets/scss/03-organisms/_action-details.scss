@@ -160,20 +160,20 @@
   &__title {
 
     @include ma-heading-colored($c-primary-alt);
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     font-weight: $fonts-bold;
   }
 
   &__anchor-links {
 
     @media ($bp-medium-max) {
-      background-color: $c-bg-section;
+      background-color: var(--mf-c-bg-section);
     }
 
     &.is-open {
 
       a + a {
-        border-top-color: $c-bd-divider;
+        border-top-color: var(--mf-c-bd-divider);
       }
     }
 
@@ -181,21 +181,21 @@
       font-weight: $fonts-normal;
 
       &.is-active {
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
         font-weight: $fonts-bold;
       }
 
       &:hover {
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
       }
     }
 
     a + a {
-      border-top-color: $c-bd-divider;
+      border-top-color: var(--mf-c-bd-divider);
     }
   }
 
   &__toggle-link {
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
   }
 }

@@ -8,6 +8,8 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content .page-content .layout--onecol-mass-service-section .layout__region--content .js-lpb-component  > &,
   .main-content--full .page-content > & {
 
     @include ma-container();
@@ -38,7 +40,7 @@
   }
 
   &--white {
-    background-color: $c-bg;
+    background-color: var(--mf-c-bg);
     border-color: mix($c-white, $c-font-detail,70%);
     box-shadow: $box-shadow;
   }
@@ -46,7 +48,7 @@
   @for $i from 2 through 6 {
     h#{$i} {
       margin-top: 0;
-      color: $c-font-heading;
+      color: var(--mf-c-font-heading);
       font-weight: $fonts-bold;
 
       @include ma-heading($i+1);

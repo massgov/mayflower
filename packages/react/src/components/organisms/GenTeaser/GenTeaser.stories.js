@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import buttonOptions from 'MayflowerReactButtons/Button/Button.knobs.options';
 import IconCatalog from 'MayflowerReactBase/Icon/IconCatalog';
 import IconData from 'MayflowerReactBase/Icon/IconData';
-import IconGeneric from 'MayflowerReactBase/Icon/IconGeneric';
+import IconDocGeneric from 'MayflowerReactBase/Icon/IconDocGeneric';
 import GenTeaser from './index';
 import GenTeaserDocs from './GenTeaser.md';
 import placeholder from '@massds/mayflower-assets/static/images/placeholder/100x100.png';
@@ -204,7 +204,7 @@ GenTeaserDataDownload.args = {
     href: 'https://www.mass.gov/files/documents/2018/06/15/download',
     icon: 'IconDownload',
     showFileIcon: true,
-    fileIcon: 'IconGeneric',
+    fileIcon: 'IconDocGeneric',
     details: '(30 MB)'
   },
   description: 'Jun 15, 2018 <b>...</b> <b>Annual Electric</b>. <b>Migration</b>. 2,015,302. 18,322,632,032. 758,696 .... <b>Monthly</b>  Competitive Supply Load Served (2015). State. Lg C &amp; I. Med C &amp; I.',

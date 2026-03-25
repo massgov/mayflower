@@ -44,6 +44,6 @@
   @include ma-button("solid",$c-primary);
 
   &:after {
-    border-color: $c-font-inverse;
+    border-color: var(--mf-c-font-inverse);
   }
 }

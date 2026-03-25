@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 // eslint-disable-next-line import/no-unresolved
-import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
 
 const ButtonAlert = (props) => {
   const {
@@ -28,7 +28,7 @@ const ButtonAlert = (props) => {
     expanded: isOpen,
     text: isOpen ? `${hideText} ${text}` : `${showText} ${text}`,
     usage: 'alert',
-    icon: <IconChevron height={10} width={10} />,
+    icon: <IconCaretDown height={10} width={10} />,
     ...rest
   };
   return(

@@ -22,11 +22,7 @@
   padding: 8px;
   font-size: inherit;
   line-height: inherit;
-  background-color: $c-warning;
-
-  @media ($bp-small-max) {
-    text-align: center;
-  }
+  background-color: var(--mf-c-warning);
 
   &__label {
     flex-shrink: 0;
@@ -38,27 +34,23 @@
     border-right-width: 1px;
     border-right-style: solid;
     border-right-color: rgba($c-font-base,.3);
-    padding-right: .5rem;
     margin-right: .5rem;
 
     @media ($bp-small-min) {
-      padding-right: 18px;
+      padding-right: 1rem;
       margin-right: 18px;
     }
 
     // icon
 
     & > svg {
-      width: 1.6rem;
-      height: 24px;
-      margin-right: 0;
+      width: 24px;
       vertical-align: middle;
+      display: none;
 
 
       @media ($bp-small-min) {
-        height: 32px;
-        width: 2rem;
-        margin-right: 7px;
+        display: inline-block;
       }
 
     }
@@ -76,8 +68,9 @@
 
   &__toggle {
     cursor: pointer;
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: $fonts-light;
+    text-align: left   ;
 
     @media ($bp-small-max) {
       font-size: $fonts-medium;

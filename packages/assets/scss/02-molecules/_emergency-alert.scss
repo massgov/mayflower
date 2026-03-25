@@ -3,14 +3,14 @@
 @use "sass:color" as *;
 
 .ma__emergency-alert {
-  background-color: $c-highlight-lightest;
+  background-color: var(--mf-c-highlight-lightest);
   font-size: $fonts-medium;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 0;
 
   & + & {
-    border-top: 1px solid $c-highlight-lighter;
+    border-top: 1px solid var(--mf-c-highlight-lighter);
   }
 
   &__time-stamp {
@@ -31,7 +31,7 @@
         border-bottom-width: 1px;
         font-size: $fonts-medium;
         border-bottom-color: rgba($c-font-base, .5);
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
 
         &:hover {
           border-bottom-width: 3px;
@@ -89,7 +89,7 @@
           width: .5em;
           border-right: 3px solid;
           border-bottom: 3px solid;
-          border-color: $c-gray-darkest;
+          border-color: var(--mf-c-gray-darkest);
         }
       }
     }

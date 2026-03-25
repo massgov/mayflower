@@ -24,7 +24,7 @@
       border-bottom: none;
 
       .ma__sidebar-heading {
-        color: $c-gray;
+        color: var(--mf-c-gray);
         font-size: $fonts-smaller;
       }
     }
@@ -35,7 +35,7 @@
     @include ma-link-underline;
     padding-bottom: 3px;
 
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: $fonts-normal;
 
     &:hover {
@@ -51,7 +51,7 @@
   max-width: 480px;
 
   @media ($bp-small-max) {
-    border-bottom: 1px solid $c-bd-divider;
+    border-bottom: 1px solid var(--mf-c-bd-divider);
     margin-bottom: 20px;
     padding-bottom: 20px;
     text-align: center;

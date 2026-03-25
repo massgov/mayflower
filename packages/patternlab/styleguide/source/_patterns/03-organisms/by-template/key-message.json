@@ -45,6 +45,7 @@
     "button":{
       "text":"Find your job",
       "href":"#"
-    }
+    },
+    "columns": ""
   }
 }

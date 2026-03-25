@@ -4,6 +4,7 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
 
     @include ma-container('restricted');
@@ -21,6 +22,6 @@
 .ma__footnote-list {
 
   &__container {
-    border-top-color: $c-bd-divider;
+    border-top-color: var(--mf-c-bd-divider);
   }
 }

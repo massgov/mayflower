@@ -1,6 +1,122 @@
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
+## 15.1.0 (2/17/2026)
+### Fixed 
+- (Patternlab) [ContactItem] DP-44415: Fix accessibility issue where aria-describedby attribute referenced non-existent IDs on address directions links. The linkContext ID is now only generated and passed to decorative-link when a label element exists, preventing invalid aria-describedby attributes.
+- (Patternlab) [PersonCard] DP-44560: Conditionally render bio link section only when person.bio is defined and has a valid href, preventing empty anchor tags from appearing in the rendered HTML.
+- (Patternlab) [CampaignVideo] DP-44710: Fix heading level skip accessibility issue on promo page section videos without titles by using H2 instead of H3 to maintain proper heading hierarchy
+
+### Added 
+- (Assets) [Loader] DP-44742: Add loader animation lottie file to assets.
+- (Tokens) [undefined] DP-44969: Add css variables for tokens to Mayflower repo
+
+## 15.0.0 (1/23/2026)
+### Changed 
+- (Patternlab,React,Core) [Icons] DP-39285: Swap out all icons to a new set of shared icons from the new DS library. Each icon now offer a regular and bold variant, and is standardized on width, height, color and aria attributes. Some existing icon names are changed to match the new system and naming conventions. Please refer to the Icon documentation for the updated list of icon names. (#2019)
+- (Core) [Storybook] DP-44412: Archive Element and Component stories. (#2039)
+
+### Added 
+- (Patternlab,React) [Icons] DP-39285: Added additional icon logic to support regular and bold variants for each icon. Updated existing icons to match new design system standards for size, color, and accessibility attributes. (#2019)
+- (Patternlab) [Iframe] DP-42935 Pass data on referring pages to form pages. (#2028)
+
+### Fixed 
+- (Patternlab) [Card] DP-44414: Fix accessibility issue where aria-describedby attribute referenced non-existent eyebrow element IDs. (#2036)
+
+## 14.1.2 (12/29/2025)
+### Fixed 
+- (circleci) [npm publilc] Fixed failed npm version. (#2032)
+
+## 14.1.1 (12/8/2025)
+### Fixed 
+- (Patternlab, Core, React, Site, Assets) [update-version.js] DP-42327: Update release script to make all packages vesions, dependencies, and peer-dependencies consistent (#2030)
+- (Patternlab) [Popover] DP-43125: Fix popover spacing. (#2023)
+
+### Changed 
+- (Core) [Storybook] DP-43597: Remove pages and add sitewide banner in preparation for the microsite launch. (#2029)
+- (React) [Storybook] DP-43597: Update sitewide banner in preparation for the microsite launch. (#2029)
+
+## 14.1.0 (11/21/2025)
+### Fixed 
+- (Patternlab) [RichText] DP-37275: Revert heading flow-root fix and conditionally clear fix after multiple floating images. (#1987)
+- (Patternlab) [Figure, RichText] DP-39383: Fixed single image and list overlap (#1987)
+- (Patternlab,Assets) [Print] DP-38159: Hide feedback, chatbot, TOC links and contact links in print. Simplify Header and FooterNew in print (#1986)
+- (React,Patternlab,Assets) [RadioButton, Checkbox, Inputs] DP-39360: Fix high contrast mode, increase border contrast. (#2003)
+- (Patternlab, Assets) [Print] DP-39371: Fix print styles. (#1989)
+- (Patternlab) [Card] DP-39436: Add aria-describedby to make card text accessible. (#1988)
+- (Patternlab,Assets) [Elements] DP-39495: Eliminate page horizontal scroll. (#1990)
+- (Patternlab) [HeaderHamburger] DP-39790: Remove unnecessary tabindex="-1" from ma__header__hamburger__logo div to fix WCAG 2.1 accessibility issue.
+- (Patternlab, React) [HamburgerNav, HeaderHamburger, HeaderMixedSecondary, HeaderMixed] DP-39792: Fix screen reader label for the menu/close button. (#2016)
+- (Patternlab, React) [SiteLogo] DP-39895: Remove title attribute and replace it with alt attribute on the logo image. (#2013)
+- (Patternlab) [responsiveTable] DP-40188: Fix sticky header bug. (#1998)
+- (Patternlab,React,Assets) [BrandBanner,ButtonWithIcon] DP-40399: Add aria attributes and increase icon contrast. (#2008)
+- (Patternlab, Assets) [Input,TextArea,Select,InputDate,InputNumber] DP-40822: Implement consistent focus styles for text input, selectbox, text areas and number inputs in default and high contrast modes. (#2005)
+- (Patternlab) [DownloadLinkMultilang, InlineLinksLanguage] DP-40850: Improves accessibility for multiple language translation links by adding aria-labelledby attributes that reference both the language link and associated document title, ensuring screen readers can distinguish between links for different documents.
+- (Patternlab) [Popover] DP-40941: Position the Popover dialog outside of parent div container constraint, relative to trigger and bounded by viewport using JS. (#2006)
+- (Patternlab) [TableOfContentsHierarchy, inlineOverlay] DP-41557: Fix keyboard navigation skipping links in table of contents due to focus trapping logic. (#2010)
+- (Core) [Usage] Fix Getting Started Page. (#2025)
+- (Core) [Header] Fix missing seal in Header, Footer and Template stories. (#2025)
+
+### Changed 
+- (Patternlab) [StickyTOC] DP-37775: Make StickyTOC stickiness responsive to browser zoom leve. (#1975)
+- (Assets, Core, Patternlab, React, Site) [SCSS files] DP-38077: Changed colors to use the new CSS variables rather than SCSS variables (#1981)
+- (Patternlab) [Popover] DP-39184: Change template to remove whitespace from markup (#1980)
+- (Assets) [RichText] DP-41993: Remove green line from the collapsible header. (#2012)
+- (Patternlab) [RichText] DP-42243: Add inline code styling. (#2020)
+- (Assets, Patternlab) [MappedLocations] DP-42621: Fix accessibliity issue with map on service and org pages. (#2018)
+- (Assets, Patternlab) [EmergencyHeader] DP-43210: Improve mobile layout of the sitewide alerts. (#2022)
+
+### Added 
+- (Patternlab) [isHighZoom] DP-37775: Add isHighZoom helper function to handle zoom level responsiveness. (#1975)
+- (Assets) [_color-tokens, _colors] DP-38077: Added CSS variables for colors (#1981)
+- (Assets) [Input,KeywordSearch,HeaderSearch,InputDate] DP-40822: Scope input styles to Mayflower UI only. (#2005)
+
+### Removed 
+- (Patternlab) [UtilityNav] DP-39770: Removed the "Contrast Settings" button entry from utilityNav.json as part of phasing out the Userway accessibility tool. (#1993)
+- (Patternlab,React) [BrandBanner] DP-40399: Remove hasToggle prop. (#2008)
+
+## 14.0.0 (7/08/2025)
+### Changed
+- (Root) DP-35448: Update docs and add to central location for SSR
+
+## 14.0.0 (4/30/2025)
+### Changed 
+- (Docs) [Docs] DP-24730: Onboarding documentation improvements. (#1626)
+- (Assets) [StickyTOC] DP-36608: Table of contents is displaying for info details pages even when \<3 sections. (#1948)
+- (Assets) [StickyTOC] DP-37249: We should see contact in the table of contents. (#1949)
+- (Patternlab) [Card Group & Stat] DP-37544: Add accordion styling to Cards & bring background color up for Stat, if within an "enhanced" heading.
+- (Patternlab) [SiteLogo] DP-37552: Microsite header updates (#1957)
+- (Patternlab) [FeaturedItemMosaic] DP-37567: Remove collapse on mobile (#1953).
+- (Patternlab) [Services, KeyMessage] DP-37834: Add two new display options for Service Section, both two column, one white and one light grey like "enhanced". Adds additional "subtitle" and "link" field to Service Section and an "eyebrow" field to Key Message Section. (#1954)
+- (Patternlab) [Card] DP-38060: Added new variant of "Card" to make the content vertical, with an included image. An optional eyebrow is also added. (#1960)
+- (Patternlab) [Card] DP-38226: Adjusts the CSS for a Card to use a separate class for inside the Card and avoid repeating .ma__card__wrapper.
+- (Patternlab) [Card] DP-38308: Makes the image field on a vertical card optional.
+- (Patternlab) [figureImage] DP-38324: Make sure meta information for the atom does not depend on image or content key availability.
+- (Patternlab) [Card] DP-38325: Fixes the max width for first card used in Campaign Feature.
+- (Patternlab) [Button Dropdown] DP-38339: Added conditional `id` attribute to the button in the Button Dropdown component to support analytics tracking for specific use cases like the "log in to" button. (#1967)
+- (Patternlab) [Image, featuredItem] DP-38375: Allow externally rendered image in featuredItem and Image components.
+- (Patternlab) [Key Message] DP-38400: Adjusts the font sizing of the subtitle. Adds additional padding around the container. Adds a new variant for two columns of text. (#1969,#1977)
+- (Patternlab) [Card] DP-38411: Adjusts image cards within a .ma__rich-text to ensure they are equal width even if there are no images.
+- (React) [HeaderHamburger] DP-38622: Make hamburger menu conditional, and add a homeLink option. (#1982)
+
+### Removed 
+- (Assets) [Heading] DP-35812: removed aria-hidden text trying to add context to headings that is not helpful.
+- (Patternlab) [Download Link Multilang] DP-36970: Fix inconsistent indentation for translated text
+- (Patternlab,React,Assets) [Tooltip] DP-37992: Remove Tooltip component, replace tooltip with popover (#1979)
+
+### Added 
+- (Assets) [Icon] DP-35898: Add Bluesky icon. (#1944)
+- (Docs) [Icon] DP-35898: Add icon contribution documentation. (#1944)
+- (Patternlab) [ButtonDropdown] DP-36147: Add ButtonDropdown component. Make it passable to PageHeader to render login options. (#1943)
+- (Patternlab) [SecondaryNav,SecondaryNavHamburger] DP-37552: Microsite header updates (#1957)
+- (React, Patternlab) [Popover] DP-37841: Add Popover component to patternlab. (#1971)
+- (Patternlab) [HeaderSearch] DP-38621: Allow HeaderSearch to add additional query parameters as hidden inputs. (#1973)
+
+### Fixed 
+- (Assets) [FixedFeedbackButton] DP-36941: moves feedback button to the vertical middle of the screen. (#1962)
+- (Patternlab) [Popover] DP-37992: fix accessibility issues (#1976)
+- (Patternlab) [Header] DP-38268: Fix z-index collision (#1963)
+
 ## 13.2.0 (1/22/2025)
 ### Added 
 - (Patternlab) [RichText] DP-22509: Add list style classnames to match openmass ckeditor specific classes. (#1927)
@@ -986,7 +1102,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
-- (Patternlab) [Figure] DP-19233: Fix the width of small size <figure> and adjust side margins for side by side layout of <figure>s. (#1227)
+- (Patternlab) [Figure] DP-19233: Fix the width of small size `<figure>` and adjust side margins for side by side layout of `<figure>s`. (#1227)
 
 ### Added
 
@@ -1852,7 +1968,7 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [CampaignVideo] DP-15564: Add campaign video component #716
 - (Patternlab) [CampaignFeature] DP-15583: Adds campaign feature molecules and organism #717
 - (React) [Icon] DP-15599: Added social media icons into Icon component options and added option to set icon fill color #712
-- (React) [SocialLinks] DP-15599: Replaced `title` with `arial-label` in SocialLinks <a> to follow best practices for Screen Readers. #712
+- (React) [SocialLinks] DP-15599: Replaced `title` with `arial-label` in SocialLinks `<a>` to follow best practices for Screen Readers. #712
 
 ### Changed
 
@@ -2977,7 +3093,7 @@ Monorepo with shared assets and synced releases going forward ;)
 
 ### Removed
 
-- DP-1234: Removed alt value from the state seal since the text "Mass.gov" is duplicate to the content in the followed <span>.
+- DP-1234: Removed alt value from the state seal since the text "Mass.gov" is duplicate to the content in the followed `<span>`.
 
 ## 5.28.0 (6/13/2018)
 
@@ -3243,7 +3359,7 @@ Monorepo with shared assets and synced releases going forward ;)
 - DP-3222-3914: [a11y] heading levels adjustment for imagePromo items #682
 - DP-6351: [a11y] Change pagination on location listing to be heading #679
 - DP-6350: [a11y] Change search query field place holder text in location #683
-- DP-2405: Change the container for an abbreviation in a page banner title to <abbr> from <span> #688
+- DP-2405: Change the container for an abbreviation in a page banner title to `<abbr>` from `<span>` #688
 
 ### Fixed
 
@@ -3334,7 +3450,7 @@ Monorepo with shared assets and synced releases going forward ;)
 
 ### Changed
 
-- DP-7252 - We've made the ajax pattern respect cache (i.e. the get request no longer appends a cache busting querystring "\_=<timestamp> parameter).
+- DP-7252 - We've made the ajax pattern respect cache (i.e. the get request no longer appends a cache busting querystring `"\_=<timestamp>` parameter).
 
 ## 5.10.0 (12/13/2017)
 
@@ -3528,7 +3644,7 @@ We hope to see you all around in code. :)
 
 - DP-4181 - Folks browsing through the repository will notice new documentation which explains how to get set up, develop, and make other contributions to Mayflower! This documentation is linked from the [shiny new repo readme](https://github.com/massgov/mayflower). ([PR #532](https://github.com/massgov/mayflower/pull/532))
 - DP-4053 - Developers can now follow a documented build + deploy process to ship their code to their own GitHub Pages where their work can be seen and tested! This documentation is linked from the [shiny new repo readme](https://github.com/massgov/mayflower). ([PR #530](https://github.com/massgov/mayflower/pull/530))
-- DP-4046 - The change above is possible because we can now host Mayflower from a subdirectory (i.e. <myname>.github.io/mayflower)! ([PR #503](https://github.com/massgov/mayflower/pull/503))
+- DP-4046 - The change above is possible because we can now host Mayflower from a subdirectory (i.e. `<myname>.github.io/mayflower`)! ([PR #503](https://github.com/massgov/mayflower/pull/503))
 - DP-4080 - Developers, reviewers, and release managers can (and should!) now follow documentation on Semantic Versioning as it applies to Mayflower. This means we have guidelines to help reviewers understand what kind of change the code they are reviewing is and to help release managers understand what kind of version of Mayflower they are releasing. This documentation is linked from the [shiny new repo readme](https://github.com/massgov/mayflower). ([PR #504](https://github.com/massgov/mayflower/pull/504))
 - We documented all the things! Well, almost all. :) Check out patterns used on [Service](http://mayflower.digital.mass.gov/?p=pages-service), [How-To's](http://mayflower.digital.mass.gov/?p=pages-howto), [Guides](http://mayflower.digital.mass.gov/?p=pages-guide), [Locations](http://mayflower.digital.mass.gov/?p=pages-location-park-content), [Topics](http://mayflower.digital.mass.gov/?p=pages-topic), and [Events](http://mayflower.digital.mass.gov/?p=pages-event) and prepare ready to be informed! (Remember you can navigate to child patterns by clicking links down in the "Lineage" section.) More goodness coming soon. (PRs [#521](https://github.com/massgov/mayflower/pull/521), [#523](https://github.com/massgov/mayflower/pull/523), [#524](https://github.com/massgov/mayflower/pull/524), [#527](https://github.com/massgov/mayflower/pull/527), [#529](https://github.com/massgov/mayflower/pull/529), [#533](https://github.com/massgov/mayflower/pull/533))
 
@@ -3573,7 +3689,7 @@ Here comes another Mayflower release, hot off the summertime presses! We've got 
 
 - The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should render (See [PR #493](https://github.com/massgov/mayflower/pull/493))
 - Assistive tech like screenreaders will now read callout stats ([@molecules/callout-stats](http://mayflower.digital.mass.gov/?p=molecules-callout-stats)) more naturally (See [PR #500](https://github.com/massgov/mayflower/pull/500) - Markup + CSS)
-- Semantic search form ([@molecules/header-search]()) label and placeholder text are more understandable (See [PR #485](https://github.com/massgov/mayflower/pull/485) - Markup + demo content)
+- Semantic search form (`@molecules/header-search`) label and placeholder text are more understandable (See [PR #485](https://github.com/massgov/mayflower/pull/485) - Markup + demo content)
 
 ## 5.4.0
 

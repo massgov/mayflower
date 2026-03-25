@@ -76,11 +76,11 @@
   }
 
   &__stat {
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
   }
 
   &__content {
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
   }
 }
 

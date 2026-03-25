@@ -16,10 +16,6 @@
   "formAction": "#",
   "formId": "formstack12345",
   "heading": "Help Us Improve Mass.gov",
-  "title": {
-    "value": "Did you find what you were looking for on this webpage?",
-    "required": true
-  },
   "inputGroup": {
     "required": true,
     "inline": true,
@@ -389,7 +385,7 @@
       },
       "items": [
         {
-          "icon": "twitter",
+          "icon": "x-logo",
           "link": {
             "href": "https://twitter.com/",
             "text": "Twitter",

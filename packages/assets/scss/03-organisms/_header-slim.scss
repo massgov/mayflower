@@ -50,9 +50,9 @@
 
       & span {
         font-weight: $fonts-light;
-        color: $c-primary-alt;
+        color: var(--mf-c-primary-alt);
         -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: $c-primary-alt;
+        -webkit-text-stroke-color: var(--mf-c-primary-alt);
         font-size: $fonts-3xlarge;
         display: inline-block;
         margin-left: 0.4rem;
@@ -65,8 +65,8 @@
 
   &__utility {
     min-height: 15px;
-    background-color: $c-primary;
-    color: $c-font-inverse;
+    background-color: var(--mf-c-primary);
+    color: var(--mf-c-font-inverse);
 
     &-container {
       display: flex;
@@ -78,7 +78,7 @@
       &:not(:first-child) {
         margin-left: 1rem;
       }
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
 
       &:hover {
         opacity: .7;
@@ -87,7 +87,7 @@
   }
 
   &__header {
-    background-color: $c-gray-lightest;
+    background-color: var(--mf-c-gray-lightest);
     position: relative;
 
     &-container {

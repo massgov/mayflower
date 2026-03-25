@@ -1,0 +1,37 @@
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@mixin input-base {
+  background-color: var(--mf-c-bg);
+  border: 2px solid var(--mf-c-bd-input);
+  color: var(--mf-c-font-base);
+  font-size: $fonts-large;
+  font-weight: $fonts-light;
+  max-width: 100%;
+  padding: 0 18px;
+
+  &:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 40px;
+  }
+
+  &:focus {
+    outline: 2px solid var(--mf-c-focus);
+    outline-offset: 2px;
+    border-color: var(--mf-c-bd-input);
+  }
+
+  &.has-error {
+    border-color: var(--mf-c-bd-error);
+
+    @media (forced-colors: active) {
+      border-color: Mark;
+    }
+  }
+}
+
+.ma__input {
+
+  @include input-base;
+}
+

@@ -9,15 +9,15 @@
 
 	  &__form {
 	     box-sizing: border-box;
-	     border: 1px solid $c-bay-blue-50-tint;
-	     background-color: $c-bay-blue-90-tint;
+	     border: 1px solid var(--mf-c-bay-blue-50-tint);
+	     background-color: var(--mf-c-bay-blue-90-tint);
 
 			@media ($bp-large-max) {
 				border-width: 1px 0;
 			}
 
 			 &--active {
-				 box-shadow: 0 0 1.25rem $c-box-shadow-black;
+				 box-shadow: 0 0 1.25rem var(--mf-c-box-shadow-black);
 			 }
 
 			 .main-content--two {
@@ -82,9 +82,9 @@
     	border-bottom-width: 1px;
     	transition: border 0.2s;
     	font-weight: 700;
-    	color: $c-font-base;
+    	color: var(--mf-c-font-base);
     	padding: 0px;
-    	border-bottom-color: $c-font-base;
+    	border-bottom-color: var(--mf-c-font-base);
 
 		&:hover {
       		border-bottom-width: 3px;

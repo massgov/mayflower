@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Card
-    description: Adjusts the CSS for a Card to use a separate class for inside the Card and avoid repeating .ma__card__wrapper.
-    issue: DP-38226
-    impact: Patch

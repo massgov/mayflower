@@ -125,12 +125,12 @@
 //theme
 
 .ma__location-filters {
-  background-color: $c-bg-section;
+  background-color: var(--mf-c-bg-section);
 
   &__tag {
 
     & > svg {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
     }
   }
 

@@ -59,16 +59,16 @@
   // Label element.
 
   &__label {
-    border-bottom: 2px solid $c-overcast-gray;
-    border-left: 2px solid $c-overcast-gray;
-    border-top: 2px solid $c-overcast-gray;
+    border-bottom: 2px solid var(--mf-c-overcast-gray);
+    border-left: 2px solid var(--mf-c-overcast-gray);
+    border-top: 2px solid var(--mf-c-overcast-gray);
     cursor: pointer;
     flex: 1;
     height: $standard-spacing--small;
     margin: 0;
 
     &:last-child {
-      border-right: 2px solid $c-overcast-gray;
+      border-right: 2px solid var(--mf-c-overcast-gray);
     }
   }
 
@@ -79,8 +79,8 @@
   }
 
   &__radio:checked + &__text {
-    background-color: $c-bay-blue;
-    color: $c-font-inverse;
+    background-color: var(--mf-c-bay-blue);
+    color: var(--mf-c-font-inverse);
   }
 
   // Element that wraps the content, but is located after the input.

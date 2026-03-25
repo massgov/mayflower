@@ -30,6 +30,8 @@ if (hamburgerMenuContainer) {
 
   let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 
+  const utilityNavToggle = document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle");
+
   let utilNavWide = document.querySelector(".js-utility-nav--wide");
   const utilityNavOrgsLink = document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link");
   const utilWideGTranslate = document.querySelector(
@@ -256,11 +258,9 @@ if (hamburgerMenuContainer) {
         utilWideGTranslate.querySelector("a").removeAttribute("tabindex");
       }
       utilityNavOrgsLink.removeAttribute("tabindex");
-      document
-        .querySelector(
-          ".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle"
-        )
-        .removeAttribute("tabindex");
+      if (utilityNavToggle) {
+        utilityNavToggle.removeAttribute("tabindex");
+      }
       document
         .querySelector(".js-header-search-access-button")
         .removeAttribute("tabindex");
@@ -346,31 +346,16 @@ if (hamburgerMenuContainer) {
       utilityNavOrgsLink.setAttribute("tabindex", "-1");
     }
 
-    document
-      .querySelector(
-        ".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle"
-      )
-      .setAttribute("tabindex", "-1");
+    if (utilityNavToggle) {
+      utilityNavToggle.setAttribute("tabindex","-1");
+    }
 
     if (alertsHeader !== null) {
       let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
       emergencyAlertsHeight = emergencyAlerts.offsetHeight;
       alertOffsetAdjusted = alertsHeader.offsetHeight / 2;
       alertlOffsetPosition = emergencyAlertsHeight - alertOffsetAdjusted;
-
-      // if (osInfo.indexOf("iPhone") !== -1) {
-      //   // Changed the duration value to 600.
-      //   customScrollTo(alertlOffsetPosition, 600);
-      //   setTimeout(lockPage(), 600);
-      // }
-      // else {
-      // window.scrollTo({
-      //   top: 0,
-      //   left: 0,
-      //   behavior: "smooth"
-      // });
       lockPage();
-      //}
 
       let hamburgerNavOffset = document.querySelector(
         ".ma__header__hamburger__nav"
@@ -595,6 +580,7 @@ if (hamburgerMenuContainer) {
             if (utilNavContentLinks[i].innerText ===document.activeElement.innerText) {
               // close the open sub nav
               const thisUtilButton = narrowUtilNavContentActive.querySelector(".js-util-nav-toggle");
+              if (!thisUtilButton) return;
               closeNarrowUtilContent(thisUtilButton);
               thisUtilButton.focus();
             }
@@ -606,7 +592,9 @@ if (hamburgerMenuContainer) {
           for (let i = 0; i < narrowNavItems.length; i++) {
             if (narrowNavItems[i].innerText === document.activeElement.innerText) {
               // close the sub nav that is being focused on
-              closeNarrowUtilContent(narrowNavItems[i].querySelector(".js-util-nav-toggle"));
+              const thisUtilButton = narrowNavItems[i].querySelector(".js-util-nav-toggle");
+              if (!thisUtilButton) return;
+              closeNarrowUtilContent(thisUtilButton);
               // close the hamburger menu
               closeMenu();
             }

@@ -3,7 +3,7 @@ import { StoryPage } from 'StorybookConfig/preview';
 import rectPlaceholder from '@massds/mayflower-assets/static/images/placeholder/190x107.png';
 import sqrPlaceholder from '@massds/mayflower-assets/static/images/placeholder/100x100.png';
 import IconWheelchair from 'MayflowerReactBase/Icon/IconWheelchair';
-import IconOpennow from 'MayflowerReactBase/Icon/IconOpennow';
+import IconOpenNow from 'MayflowerReactBase/Icon/IconOpenNow';
 import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
 
@@ -77,7 +77,7 @@ ImagePromoMapLink.args = {
   }, {
     id: 456,
     label: 'open now',
-    icon: <IconOpennow />
+    icon: <IconOpenNow />
   }],
   stacked: false,
   small: false,

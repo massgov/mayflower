@@ -17,7 +17,7 @@ const getIcon = (iconProps) => {
   );
 }
 const icons = {
-  IconCirclechevron: getIcon({ name: 'IconCirclechevron' }),
+  IconCaretCircleRight: getIcon({ name: 'IconCaretCircleRight' }),
   IconLaptop: getIcon({ name: 'IconLaptop' }),
   IconPhone: getIcon({ name: 'IconPhone' }),
   IconFax: getIcon({ name: 'IconFax' }),
@@ -39,7 +39,7 @@ AccordionWrapperExample.args = {
   accordionItem1Props: {
     title: 'Collapsible Header One',
     info: 'Collapsible Header One',
-    icon: icons.IconCirclechevron,
+    icon: icons.IconCaretCircleRight,
     id: 'accordionid1'
   },
   accordionItem2Props: {

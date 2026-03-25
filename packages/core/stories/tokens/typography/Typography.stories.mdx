@@ -13,7 +13,7 @@ const slugifyStyle = (style) => {
   const [weight, italic] = style.split(' ');
   return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
 };
-import generateTitle from '../../util/generateTitle';
+import generateTitle from '@core/stories/util/generateTitle';
 
 <Meta
   title={generateTitle('Typography')}

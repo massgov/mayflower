@@ -24,7 +24,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: $fonts-smaller;
+      font-size: $fonts-2xsmall;
       font-family: $fonts-mono;
       div {
         display: flex;
@@ -32,7 +32,7 @@
         margin-top: 20px;
       }
       span {
-        background-color: $c-gray-lightest;
+        background-color: var(--mf-c-gray-lightest);
         padding: 0.1em 0.2em;
       }
     }

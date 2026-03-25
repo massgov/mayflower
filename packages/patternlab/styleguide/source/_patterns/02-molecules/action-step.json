@@ -4,7 +4,7 @@
     "isExpanded": false,
     "accordionLabel": "Expand Generic steps on completing something",
     "iconLabel": "",
-    "icon": "circle-chevron",
+    "icon": "caret-circle-right",
     "title": "Generic",
     "level": "",
     "richText": {

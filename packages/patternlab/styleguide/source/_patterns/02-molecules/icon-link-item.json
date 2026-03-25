@@ -1,6 +1,6 @@
 {
   "item": {
-    "icon": "@atoms/05-icons/svg-twitter.twig",
+    "icon": "@atoms/05-icons/x-logo.twig",
     "link": {
       "href": "https://twitter.com/MassHHS",
       "text": "@MassHHS",

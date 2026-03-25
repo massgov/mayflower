@@ -4,8 +4,8 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
 @use "00-base/configure" as *;
 
 .ma__utility-panel {
-  background-color: $c-primary;
-  color: $c-font-inverse;
+  background-color: var(--mf-c-primary);
+  color: var(--mf-c-font-inverse);
 
   @media ($bp-header-toggle-min) {
 
@@ -68,7 +68,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       padding-right: 28px;
 
       svg {
-        fill: $c-font-inverse;
+        fill: var(--mf-c-font-inverse);
       }
     }
 
@@ -77,7 +77,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       font-size: $fonts-large;
       margin: 0;
       text-align: left;
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
       font-weight: $fonts-normal;
 
       @media ($bp-header-toggle-min) and ($bp-utility-panel-reduce-links-max) {

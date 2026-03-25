@@ -29,6 +29,6 @@
 .ma__checklist {
   
   li:before {
-    border-color: $c-bd-input;
+    border-color: var(--mf-c-bd-input);
   }
 }

@@ -5,10 +5,10 @@
 @mixin ma-emergency-header ($color: $c-highlight) {
 
   @if $color == $c-highlight {
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
 
   } @else {
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
   }
   background-color: rgba($color, 1);
   border-color: rgba($color, 1);
@@ -20,14 +20,14 @@
       border-right-color: rgba($c-font-base,.3);
 
       svg {
-        fill: $c-font-base;
+        fill: var(--mf-c-font-base);
       }
     } @else {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
       border-right-color: rgba($c-font-inverse,.3);
 
       svg {
-        fill: $c-font-inverse;
+        fill: var(--mf-c-font-inverse);
       }
     }
 
@@ -39,7 +39,7 @@
     @if $color == $c-highlight {
 
       .ma__content-link {
-        color: $c-font-base;
+        color: var(--mf-c-font-base);
         border-bottom: 1px solid rgba($c-font-base, .5);
 
         &:hover {
@@ -49,7 +49,7 @@
     } @else {
 
       .ma__content-link {
-        color: $c-font-inverse;
+        color: var(--mf-c-font-inverse);
         border-bottom: 1px solid rgba($c-font-inverse, .5);
 
         &:hover {

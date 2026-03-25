@@ -30,7 +30,7 @@
   &__container {
     
     &:before {
-      border-color: $c-bd-divider;
+      border-color: var(--mf-c-bd-divider);
     }
 
     &__label {

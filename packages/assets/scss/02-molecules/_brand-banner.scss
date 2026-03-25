@@ -3,7 +3,7 @@
 .ma__brand-banner {
 
     width: 100%;
-    background-color: $c-primary-lightest;
+    background-color: var(--mf-c-primary-lightest);
     font-size: $fonts-xsmall;
 
     @media ($bp-small-min) {
@@ -91,15 +91,15 @@
             // Icon colors
 
             &.light-c-primary > svg {
-                fill: $c-primary;
+                fill: var(--mf-c-primary);
             }
 
             &.light-c-primary-alt>svg {
-                fill: $c-primary-alt;
+                fill: var(--mf-c-primary-alt);
             }
 
             &.dark > svg {
-                fill: $c-white;
+                fill: var(--mf-c-white);
             }
 
             & + & {

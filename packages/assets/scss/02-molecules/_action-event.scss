@@ -35,7 +35,7 @@
 .ma__action-event {
 
   & + & {
-    border-top-color: $c-bd-divider;
+    border-top-color: var(--mf-c-bd-divider);
   }
 
   &__date {

@@ -22,10 +22,11 @@
       aria-label="{{ button.info }}"
       {% if button['aria-haspopup'] %} aria-haspopup="true"{% endif %}
       {% if button['aria-controls'] %} aria-controls="{{ button['aria-controls'] }}"{% endif %}
+      {% if button.id %} id="{{ button.id }}"{% endif %}
   >
     {{ button.text }}
     {% if button.icon %}
-      {{ icon(button.icon) }}
+      {{ icon(button.icon, '1em', '1em') }}
     {% endif %}
   </button>
 {% endif %}

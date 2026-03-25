@@ -27,10 +27,10 @@
 
     span {
       font-weight: $fonts-light;
-      color: $c-primary-alt;
+      color: var(--mf-c-primary-alt);
 
       -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: $c-primary-alt;
+      -webkit-text-stroke-color: var(--mf-c-primary-alt);
 
       @media ($bp-small-max) {
         -webkit-text-stroke-width: 0.03rem;

@@ -5,6 +5,7 @@
 
   .pre-content > &,
   .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
 
     @include ma-container('restricted');
@@ -26,14 +27,10 @@
       top: 16%;
       left: 0;
     width: 30px;
+    color: var(--mf-c-primary-alt);
 
     @media ($bp-medium-min) {
       top: 10%;
-    }
-
-    & > svg {
-      height: 30px;
-      width: 30px;
     }
   }
 
@@ -52,12 +49,12 @@
   &__icon {
 
     & > svg {
-      fill: $c-highlight;
+      fill: var(--mf-c-highlight);
     }
   }
 
   &__text {
-    color: $c-font-detail;
+    color: var(--mf-c-font-detail);
     font-weight: $fonts-normal;
   }
 }

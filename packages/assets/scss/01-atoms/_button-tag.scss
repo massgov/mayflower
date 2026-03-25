@@ -12,7 +12,7 @@
   padding: 8px 11px;
   white-space: nowrap;
   background-color: mix($c-bg, $c-font-link,90%);
-  color: $c-font-link;
+  color: var(--mf-c-font-link);
   font-weight: $fonts-bold;
 
   &__icon {
@@ -23,7 +23,7 @@
     margin-top: -1px;
     transform: rotate(135deg);
     vertical-align: middle;
-    color: $c-font-link;
+    color: var(--mf-c-font-link);
     // stop event bubbling from the span inside the button
     pointer-events: none;
   }

@@ -13,10 +13,10 @@
     margin-top: 0 !important;
     margin-bottom: 2rem;
     padding: 1rem;
-    border: 1px solid $c-gray-lightest;
+    border: 1px solid var(--mf-c-gray-lightest);
 
     hr {
-      color: $c-gray-lightest;
+      color: var(--mf-c-gray-lightest);
     }
 
     &--mono {

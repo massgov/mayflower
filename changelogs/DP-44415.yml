@@ -1,0 +1,7 @@
+Fixed:
+  - project: Patternlab
+    component: ContactItem
+    description: Fix accessibility issue where aria-describedby attribute referenced non-existent IDs on address directions links. The linkContext ID is now only generated and passed to decorative-link when a label element exists, preventing invalid aria-describedby attributes.
+    issue: DP-44415
+    impact: Patch
+

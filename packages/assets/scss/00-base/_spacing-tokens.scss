@@ -1,0 +1,41 @@
+:root {
+  --mds-space-0: 0;
+  --mds-space-25: 0.125rem;
+  --mds-space-50: 0.25rem;
+  --mds-space-100: 0.5rem;
+  --mds-space-150: 0.75rem;
+  --mds-space-175: 0.875rem;
+  --mds-space-200: 1rem;
+  --mds-space-250: 1.25rem;
+  --mds-space-300: 1.5rem;
+  --mds-space-350: 1.75rem;
+  --mds-space-400: 2rem;
+  --mds-space-450: 2.25rem;
+  --mds-space-500: 2.5rem;
+  --mds-space-600: 3rem;
+  --mds-space-700: 3.5rem;
+  --mds-space-800: 4rem;
+  --mds-space-900: 4.5rem;
+  --mds-space-1000: 5rem;
+  --mds-space-1100: 5.5rem;
+  --mds-space-1200: 6rem;
+  --mds-space-1300: 6.5rem;
+  --mds-space-1400: 7rem;
+  --mds-space-1500: 7.5rem;
+  --mds-space-1600: 8rem;
+  --mds-space-1800: 9rem;
+  --mds-space-2000: 10rem;
+  /**
+
+  Spacing tokens
+  */
+  --mds-space-3xs: var(--mds-space-50);
+  --mds-space-2xs: var(--mds-space-100);
+  --mds-space-xs: var(--mds-space-150);
+  --mds-space-sm: var(--mds-space-200);
+  --mds-space-md: var(--mds-space-300);
+  --mds-space-lg: var(--mds-space-400);
+  --mds-space-xl: var(--mds-space-500);
+  --mds-space-2xl: var(--mds-space-600);
+  --mds-space-3xl: var(--mds-space-800);
+}

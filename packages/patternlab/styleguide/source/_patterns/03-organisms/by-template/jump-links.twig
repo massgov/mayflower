@@ -13,7 +13,7 @@
           <div class="ma__jump-links__column">
             {% for link in jumpLinks.links[start:half] %}
               <div class="ma__jump-links__link js-scroll-anchors-link {{loop.first ? 'is-active' : ''}}">
-                {{ icon('circle-chevron') }}
+                {{ icon('caret-circle-right') }}
                 <a href="#{{ link.href }}" title="{{ link.info }}">{{ link.text }}</a>
               </div>
             {% endfor %}
@@ -21,7 +21,7 @@
           <div class="ma__jump-links__column">
             {% for link in jumpLinks.links[half:length] %}
               <div class="ma__jump-links__link js-scroll-anchors-link">
-                {{ icon('circle-chevron') }}
+                {{ icon('caret-circle-right') }}
                 <a href="#{{ link.href }}" title="{{ link.info }}">{{ link.text }}</a>
               </div>
             {% endfor %}

@@ -3,10 +3,10 @@
 
 .ma__button.ma__button--secondary {
   &.ma__button--c-primary-alt{
-    color: $c-primary-alt;
+    color: var(--mf-c-primary-alt);
     &:hover {
-      color: $c-white;
-      background-color: $c-primary-alt;
+      color: var(--mf-c-white);
+      background-color: var(--mf-c-primary-alt);
     }
   }
 }

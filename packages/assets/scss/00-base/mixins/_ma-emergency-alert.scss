@@ -7,7 +7,7 @@
 @use "sass:color" as *;
 
 @mixin ma-emergency-alert ($color) {
-  color: $c-font-base;
+  color: var(--mf-c-font-base);
   background-color: mix($c-bg, $color, 90%);
 
     & + & {

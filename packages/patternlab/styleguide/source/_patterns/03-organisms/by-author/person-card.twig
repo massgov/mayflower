@@ -16,10 +16,12 @@
         {% include "@atoms/04-headings/column-heading.twig" %}
       </div>
     </div>
+    {% if person.bio is defined and person.bio is not same as(false) and person.bio.href|default('') is not empty %}
     <div class="ma__person-card__links">
       {% include "@atoms/divider.twig" %}
       {% set link = person.bio %}
       {% include "@atoms/11-text/link.twig" %}
     </div>
+    {% endif %}
   </div>
 </div>

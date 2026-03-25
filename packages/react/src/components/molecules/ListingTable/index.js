@@ -14,7 +14,7 @@ import ClassNames from 'classnames';
 import Collapse from 'MayflowerReactAnimations/Collapse';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 // eslint-disable-next-line import/no-unresolved
-import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
 
 class ListingTableItem extends React.Component {
   constructor(props) {
@@ -65,7 +65,7 @@ class ListingTableItem extends React.Component {
                 theme="c-primary"
                 usage="quaternary-simple"
                 type="button"
-                icon={<IconChevron height={20} width={20} />}
+                icon={<IconCaretDown height={20} width={20} />}
                 onClick={(e) => this.handleClick(e)}
                 expanded={this.state.open}
                 capitalized

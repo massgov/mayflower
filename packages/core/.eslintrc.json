@@ -4,6 +4,16 @@
     },
     "extends": "airbnb",
     "parser": "babel-eslint",
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                ["@core", "./"]
+                ],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
     "rules": {
         "arrow-parens": ["warn", "always"],
         "comma-dangle": ["error", "never"],

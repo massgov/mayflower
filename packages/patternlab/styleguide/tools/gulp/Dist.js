@@ -15,9 +15,10 @@ const path = require("path");
 const gulp = require("gulp");
 const {exec} = require("child-process-promise");
 const merge = require("merge-stream");
-const browserSync    = require("browser-sync");
+const browserSync = require("browser-sync");
 const del = require("del");
 const filter = require("gulp-filter");
+const fs = require("fs");
 
 const e = require("./helpers/escape");
 const cssPipe = require("./pipelines/css");
@@ -44,18 +45,52 @@ class DistRegistry extends DefaultRegistry {
         const clean = task("clean", function() {
             return del(self.resolveDist(), {force: true});
         });
+
+        // Add dedicated icons copying task
+        const copyIcons = task("copy-icons", function() {
+            const rootDir = self.resolveRoot();
+            const iconsPath = path.join(rootDir, 'node_modules/@massds/mayflower-assets/static/images/icons/*.svg');
+            const iconsDestination = self.resolveDist("assets/images/icons");
+            
+            console.log('📋 Copying icons from:', iconsPath);
+            console.log('📋 Copying icons to:', iconsDestination);
+            
+            // Check if source directory exists
+            const iconsDir = path.dirname(iconsPath);
+            if (fs.existsSync(iconsDir)) {
+                const iconFiles = fs.readdirSync(iconsDir).filter(f => f.endsWith('.svg'));
+                console.log('📁 Found', iconFiles.length, 'icon files');
+            } else {
+                console.log('❌ Icons source directory does not exist:', iconsDir);
+            }
+            
+            return gulp.src(iconsPath, { allowEmpty: true })
+                .on('data', function(file) {
+                    console.log('📄 Copying icon:', path.basename(file.path));
+                })
+                .on('end', function() {
+                    console.log('✅ Icons copy completed');
+                })
+                .on('error', function(err) {
+                    console.log('❌ Icons copy error:', err);
+                })
+                .pipe(gulp.dest(iconsDestination));
+        });
+
         const css = task("css", function() {
             return gulp.src(sources.scss)
                 .pipe(cssPipe(config.minify, self.resolveRoot()))
                 .pipe(gulp.dest(self.resolveDist("assets/css")));
         });
         css.watchFiles = config.sources.scss;
+
         const cssLayoutParagraphs = task("cssLayoutParagraphsPipe", function() {
-          return gulp.src(sources.scss)
-            .pipe(cssLayoutParagraphsPipe(config.minify, self.resolveRoot()))
-            .pipe(gulp.dest(self.resolveDist("assets/css")));
+            return gulp.src(sources.scss)
+                .pipe(cssLayoutParagraphsPipe(config.minify, self.resolveRoot()))
+                .pipe(gulp.dest(self.resolveDist("assets/css")));
         });
-      cssLayoutParagraphs.watchFiles = config.sources.scss;
+        cssLayoutParagraphs.watchFiles = config.sources.scss;
+        
         const assets = task("assets", function() {
             var pipes = [
                 gulp.src(sources.distFiles).pipe(gulp.dest(self.resolveDist())),
@@ -68,7 +103,14 @@ class DistRegistry extends DefaultRegistry {
             ];
             return merge(pipes);
         });
-        assets.watchFiles = [sources.images, sources.fonts, sources.data, sources.templates, sources.modernizr];
+        
+        assets.watchFiles = [
+            sources.images, 
+            sources.fonts, 
+            sources.data, 
+            sources.templates, 
+            sources.modernizr
+        ];
 
         const js = task("js", function() {
             var pipes = [
@@ -80,22 +122,31 @@ class DistRegistry extends DefaultRegistry {
         });
         js.watchFiles = sources.jsWatch;
 
-        taker.task("dist:build", taker.series(clean, taker.parallel(
-            css,
-          cssLayoutParagraphs,
-            js,
-            assets
-        )));
+        // Update dist:build to include icons copying after clean
+        taker.task("dist:build", taker.series(
+            clean, 
+            copyIcons,  // Copy icons after clean but before other tasks
+            taker.parallel(
+                css,
+                cssLayoutParagraphs,
+                js,
+                assets
+            )
+        ));
+
         taker.task("dist:watch", taker.series("dist:build", task("watcher", function() {
             taker.watch(css.watchFiles, css);
             taker.watch(cssLayoutParagraphs.watchFiles, cssLayoutParagraphs);
             taker.watch(js.watchFiles, js);
             taker.watch(assets.watchFiles, assets);
+            // Watch icons and rebuild when they change
+            taker.watch(path.resolve(self.resolveRoot(), 'node_modules/@massds/mayflower-assets/static/images/icons/*.svg'), copyIcons);
         })));
 
         const cleanPatterns = task('patternlab:clean-patterns', function() {
             return del(self.resolvePatternlab('patterns'))
-        })
+        });
+
         const patterns = taker.series(cleanPatterns, task("patternlab:patterns", function() {
             return exec(`php ${e(self.resolveRoot("core/console"))} --generate --patternsonly`, {verbose: 3}).catch(function (err) {
                 console.error('ERROR: ', err);
@@ -108,7 +159,8 @@ class DistRegistry extends DefaultRegistry {
                 .pipe(gulp.dest(self.resolvePatternlab()));
         });
 
-        taker.task("patternlab:build", taker.series("dist:build", copyDist, patterns ));
+        taker.task("patternlab:build", taker.series("dist:build", copyDist, patterns));
+
         taker.task("patternlab:serve", taker.series("patternlab:build", task("server", () => {
             const sync = browserSync.create();
             sync.init({
@@ -124,11 +176,19 @@ class DistRegistry extends DefaultRegistry {
                 done();
             };
             const copyAndReload = gulp.series(copyDist, reload);
+            const iconsAndReload = gulp.series(copyIcons, copyDist, reload);
+            
             taker.watch(css.watchFiles, gulp.series(css, copyAndReload));
             taker.watch(js.watchFiles, gulp.series(js, copyAndReload));
             taker.watch(assets.watchFiles, gulp.series(assets, copyAndReload));
             taker.watch(patterns.watchFiles, gulp.series(patterns, reload));
+            
+            // Watch for icon changes during development
+            taker.watch(path.resolve(self.resolveRoot(), 'node_modules/@massds/mayflower-assets/static/images/icons/*.svg'), iconsAndReload);
         })));
+
+        // Export the copyIcons task so it can be run independently
+        taker.task("icons", copyIcons);
     }
     resolveRoot(subPath) {
         if(!this.config.sources.root) {

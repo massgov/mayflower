@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-unresolved
 import IconCopy from 'MayflowerReactBase/Icon/IconCopy';
 // eslint-disable-next-line import/no-unresolved
-import IconInputsuccess from 'MayflowerReactBase/Icon/IconInputsuccess';
+import IconInputSuccess from 'MayflowerReactBase/Icon/IconInputSuccess';
 
 const ButtonCopy = ({ content }) => {
   const [copied, setCopied] = React.useState(false);
@@ -32,7 +32,7 @@ const ButtonCopy = ({ content }) => {
       title={copyButtonTitle}
       aria-label={copyButtonTitle}
     >
-      { copied ? <IconInputsuccess width={16} height={16} /> : <IconCopy width={16} height={16} />}
+      { copied ? <IconInputSuccess width={16} height={16} /> : <IconCopy width={16} height={16} />}
     </button>
   );
 };

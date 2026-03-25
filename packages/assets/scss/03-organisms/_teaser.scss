@@ -10,7 +10,7 @@
     }
 
     &--active {
-      background-color: $c-gray-lightest;
+      background-color: var(--mf-c-gray-lightest);
     }
   }
 }
@@ -21,7 +21,7 @@
   & + & {
     border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: $c-bd-divider;
+    border-top-color: var(--mf-c-bd-divider);
     margin-top: 0;
   }
 
@@ -73,7 +73,7 @@
       letter-spacing: 0.1em;
       padding: 5px 7px;
       text-transform: uppercase;
-      background-color: $c-bg-section;
+      background-color: var(--mf-c-bg-section);
       font-weight: $fonts-bold;
     }
   }
@@ -99,7 +99,7 @@
 
         span {
           font-size: $fonts-medium;
-          color: $c-gray-dark;
+          color: var(--mf-c-gray-dark);
           font-weight: $fonts-bold;
         }
 
@@ -116,7 +116,7 @@
     font-size: $fonts-small;
     line-height: 1;
     margin-bottom: 1em;
-    color: $c-font-dark;
+    color: var(--mf-c-font-dark);
     font-style: italic;
     font-weight: $fonts-bold;
   }
@@ -128,7 +128,7 @@
   }
 
   &__org {
-    border-left-color: $c-bd-divider;
+    border-left-color: var(--mf-c-bd-divider);
 
     &__show-more {
 
@@ -141,7 +141,7 @@
       }
 
       svg {
-        fill: $c-font-link;
+        fill: var(--mf-c-font-link);
         width: 1em;
         height: 0.6em;
       }
@@ -208,13 +208,13 @@
       flex: 1 1 40%;
       flex-grow: 1;
       padding-left: 0.75em;
-      border-left: 1px solid $c-gray-light;
+      border-left: 1px solid var(--mf-c-gray-light);
     }
 
     @media ($bp-small-min) {
       flex: 1 1 40%;
       flex-grow: 1;
-      border-left: 1px solid $c-gray-light;
+      border-left: 1px solid var(--mf-c-gray-light);
       align-content: flex-start;
     }
   }
@@ -239,13 +239,13 @@
     vertical-align: middle;
     height: 1.1rem;
     width: 1.1rem;
-    fill: $c-primary-alt;
+    fill: var(--mf-c-primary-alt);
   }
 
   svg.link-arrow {
     height: 1rem;
     width: 1rem;
-    fill: $c-font-link;
+    fill: var(--mf-c-font-link);
   }
 
   .ma__decorative-link {
@@ -253,7 +253,7 @@
     svg {
       height: 1rem;
       width: 1rem;
-      fill: $c-font-link;
+      fill: var(--mf-c-font-link);
     }
   }
 
@@ -264,7 +264,7 @@
   .ma-icon {
 
     &__green {
-      fill: $c-primary-alt;
+      fill: var(--mf-c-primary-alt);
     }
   }
 

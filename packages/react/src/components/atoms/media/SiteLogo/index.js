@@ -13,12 +13,14 @@ const SiteLogo = ({
   url, image, siteName, title, Wrapper
 }) => {
   const RenderedWrapper = getFallbackComponent(Wrapper, React.Fragment);
+  // Remove title attribute and use alt attribute for image as screen reader label.
+  const computedAlt = title || 'Mass.gov home';
   return(
     <RenderedWrapper>
       <div className="ma__site-logo">
-        <a href={url.domain} title={title}>
-          {image?.src && <Image {...image} />}
-          {siteName && <span>{siteName}</span>}
+        <a href={url?.domain || '/'}>
+          {image?.src && <Image {...image} alt={computedAlt} />}
+          {siteName && <span aria-hidden="true">{siteName}</span>}
         </a>
       </div>
     </RenderedWrapper>
@@ -35,7 +37,7 @@ SiteLogo.propTypes = {
   image: PropTypes.shape(Image.propTypes),
   /** An optional label to display next to the site logo. */
   siteName: PropTypes.string,
-  /** The title attribute for the site logo link. */
+  /** The screen reader label for the site logo link. */
   title: PropTypes.string,
   /** An uninstantiated component for rendering a wrapper around the site logo div. */
   Wrapper: PropTypes.elementType
@@ -43,7 +45,6 @@ SiteLogo.propTypes = {
 
 SiteLogo.defaultProps = {
   image: {
-    alt: '',
     width: 45,
     height: 45
   }

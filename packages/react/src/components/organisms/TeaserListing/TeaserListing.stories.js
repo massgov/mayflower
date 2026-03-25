@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 import Paragraph from 'MayflowerReactText/Paragraph';
 import GenTeaser from 'MayflowerReactOrganisms/GenTeaser';
-import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
 import ButtonWithIcon from 'MayflowerReactAtoms/buttons/ButtonWithIcon';
 import Collapse from 'MayflowerReactAnimations/Collapse';
 import CompHeading from 'MayflowerReactAtoms/headings/CompHeading';
@@ -73,7 +73,7 @@ export const TeaserListingWithMore = () => {
     usage: 'quaternary-simple',
     capitalized: true,
     expanded: open,
-    icon: <IconChevron width={16} height={16} />
+    icon: <IconCaretDown width={16} height={16} />
   };
   return(
     <TeaserListing>

@@ -5,7 +5,7 @@
 @use "01-atoms/button-search" as *;
 
 .ma__header-search {
-  
+
   &__wrapper {
   	display: flex;
     position: relative;
@@ -30,7 +30,7 @@
   }
 
   //overwrite needs to port back to shared scss
-  
+
   .ma__button-search {
 
     &, &--secondary {
@@ -67,6 +67,11 @@
       height: 100%;
       display: flex;
       align-items: center;
+      border-color: var(--mf-c-bd);
+    }
+
+    &__icon {
+      border-color: var(--mf-c-bd);
     }
 
     label {

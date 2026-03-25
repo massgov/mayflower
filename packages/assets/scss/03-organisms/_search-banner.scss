@@ -295,12 +295,12 @@
   .ma__page-intro {
 
     h1 {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
       font-weight: $fonts-light;
     }
 
     &__sub-title {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
       font-weight: $fonts-light;
     }
   }
@@ -308,14 +308,14 @@
   // backward compatible with v5.6 - title was replaced with Page Intro
 
   &__title {
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     font-weight: $fonts-light;
   }
 
   // backward compatible with v5.6 - intro was replaced with Page Intro
 
   &__intro {
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     font-weight: $fonts-light;
   }
 
@@ -327,25 +327,25 @@
     }
 
     &::-webkit-input-placeholder {
-      color: $c-font-medium;
+      color: var(--mf-c-font-medium);
       font-weight: $fonts-light;
       font-style: italic;
     }
 
     &:-moz-placeholder { /* Firefox 18- */
-      color: $c-font-medium;
+      color: var(--mf-c-font-medium);
       font-weight: $fonts-light;
       font-style: italic;
     }
 
     &::-moz-placeholder {  /* Firefox 19+ */
-      color: $c-font-medium;
+      color: var(--mf-c-font-medium);
       font-weight: $fonts-light;
       font-style: italic;
     }
 
     &:-ms-input-placeholder {
-      color: $c-font-medium;
+      color: var(--mf-c-font-medium);
       font-weight: $fonts-light;
       font-style: italic;
     }
@@ -353,19 +353,19 @@
 
   &__button {
     background-color: rgba($c-white,0.75);
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
     font-weight: $fonts-bold;
 
     & > svg {
-      fill: $c-font-dark;
+      fill: var(--mf-c-font-dark);
     }
 
     &:hover {
-      background-color: $c-primary-alt;
-      color: $c-font-inverse;
+      background-color: var(--mf-c-primary-alt);
+      color: var(--mf-c-font-inverse);
 
       & > svg {
-        fill: $c-font-inverse;
+        fill: var(--mf-c-font-inverse);
       }
     }
   }
@@ -373,11 +373,11 @@
   &__links {
 
     .ma__comp-heading {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
     }
 
     .ma__decorative-link a {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
       font-weight: $fonts-light;
 
       &:hover {
@@ -395,7 +395,7 @@
     &__icon {
 
       & > svg {
-        fill: $c-font-inverse;
+        fill: var(--mf-c-font-inverse);
       }
     }
 
@@ -411,7 +411,7 @@
   &__icon {
 
     & > svg {
-      fill: $c-font-inverse;
+      fill: var(--mf-c-font-inverse);
     }
   }
 

@@ -43,6 +43,6 @@
 .ma__related-action {
 
   & + & {
-    border-top-color: $c-bd-divider;
+    border-top-color: var(--mf-c-bd-divider);
   }
 }

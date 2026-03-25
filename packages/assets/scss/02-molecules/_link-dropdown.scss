@@ -11,7 +11,7 @@
     margin: 0;
     text-align: left;
     list-style: none;
-    background-color: $c-bg;
+    background-color: var(--mf-c-bg);
 
     &--expanded {
       box-shadow: $box-shadow;
@@ -33,7 +33,7 @@
       }
 
       &:hover, &:focus {
-        background-color: $c-gray-light;
+        background-color: var(--mf-c-gray-light);
       }
     }
 

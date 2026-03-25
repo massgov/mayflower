@@ -5,7 +5,7 @@
   padding-bottom: $standard-spacing--xsmall;
 
   &__inner {
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
   
     @include ma-container;
     display: flex;
@@ -16,15 +16,15 @@
     font-size: $fonts-7xlarge;
     font-weight: $fonts-normal;
     margin-bottom: 1rem;
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
   }
 
   &--dark-font &__inner {
-    color: $c-font-dark;
+    color: var(--mf-c-font-dark);
   }
 
   &--dark-font &__inner &__title {
-    color: $c-font-dark;
+    color: var(--mf-c-font-dark);
   }
 
   &__description {

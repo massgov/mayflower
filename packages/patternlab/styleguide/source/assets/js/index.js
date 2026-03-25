@@ -39,6 +39,7 @@ import orgSelector from "./modules/orgSelector.js";
 import pageFlipper from "./modules/pageFlipper.js";
 import pagination from "./modules/pagination.js";
 import pikaday from "./modules/pikaday.js";
+import popover from "./modules/popover.js";
 import preventHorizontalListWidows from "./modules/preventHorizontalListWidows.js";
 // `richText` and `stickTOC` are needed above offsets.
 import stickyTOC from "./modules/stickyTOC.js";

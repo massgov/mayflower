@@ -342,7 +342,7 @@
                 ]
               },
               "faxContactGroup": {
-                "icon": "fax-icon",
+                "icon": "fax",
                 "name": "Fax",
                 "items": [
                   {
@@ -419,7 +419,7 @@
               },
               "items": [
                 {
-                  "icon": "twitter",
+                  "icon": "x-logo",
                   "link": {
                     "href": "https://twitter.com/MassHHS",
                     "text": "@MassHHS",
@@ -427,7 +427,7 @@
                   }
                 },
                 {
-                  "icon": "flickr",
+                  "icon": "flickr-logo",
                   "link": {
                     "href": "https://www.flickr.com/photos/mass_hhs/",
                     "text": "Mass_HHS",

@@ -55,7 +55,7 @@ export const GradientsLight = () => (
     {
       themeColors.map(({ token, name }, i) => {
         const props = {
-          token: token.match(/\$(.*)/)[1],
+          token: token.replace(/^--mf-/, ''),
           name,
           effect: 'tint'
         };
@@ -74,7 +74,7 @@ export const GradientsDark = () => (
     {
       themeColors.map(({ token, name }, i) => {
         const props = {
-          token: token.match(/\$(.*)/)[1],
+          token: token.replace(/^--mf-/, ''),
           name,
           effect: 'shade'
         };

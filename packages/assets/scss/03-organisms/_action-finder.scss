@@ -186,21 +186,21 @@ $action-finder-border-color: mix($c-white, $c-primary,50%);
   }
 
   &__category {
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     font-weight: $fonts-normal;
   }
 
   &--no-background &__category {
-    color: $c-font-base;
+    color: var(--mf-c-font-base);
   }
 
   &__search {
 
     button {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
 
       svg {
-        fill: $c-font-inverse;
+        fill: var(--mf-c-font-inverse);
       }
     }
   }
@@ -208,7 +208,7 @@ $action-finder-border-color: mix($c-white, $c-primary,50%);
   &__items--all {
 
     .ma__callout-link {
-      background-color: $c-bg;
+      background-color: var(--mf-c-bg);
       box-shadow: none;
     }
 
@@ -216,22 +216,22 @@ $action-finder-border-color: mix($c-white, $c-primary,50%);
       box-shadow: none;
 
       &__content {
-        background-color: $c-bg;
+        background-color: var(--mf-c-bg);
 
         &:after {
-          background-color: $c-bg;
+          background-color: var(--mf-c-bg);
         }
       }
     }
   }
 
   &__see-all {
-    background-color: $c-primary;
+    background-color: var(--mf-c-primary);
 
     .ma__decorative-link {
 
       a {
-        color: $c-font-inverse;
+        color: var(--mf-c-font-inverse);
 
         &:hover {
           border-color: rgba($c-font-inverse, .5);
@@ -245,20 +245,20 @@ $action-finder-border-color: mix($c-white, $c-primary,50%);
   }
 
   &--no-background &__see-all {
-    background-color: $c-bg-section;
+    background-color: var(--mf-c-bg-section);
 
     .ma__decorative-link {
 
       a {
-        color: $c-font-link;
+        color: var(--mf-c-font-link);
 
         &:hover {
-          border-color: $c-link;
+          border-color: var(--mf-c-link);
         }
       }
 
       svg {
-        fill: $c-font-link;
+        fill: var(--mf-c-font-link);
       }
     }
   }

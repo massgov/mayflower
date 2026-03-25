@@ -180,6 +180,10 @@
                     "href": "#"
                   }
                 ]
+              },
+              {
+                "text": "VII. I am a link with no section",
+                "href": "#"
               }
             ]
           }
@@ -230,19 +234,22 @@
       }
     }
   ],
-  "breadcrumbs":{
+  "breadcrumbs": {
     "light": true,
-    "links": [{
-      "text": "Home",
-      "url": "/"
-    },{
-      "text": "Unemployment",
-      "url": "/"
-    },
-    {
-      "text": "Training & Assistance",
-      "url": "/"
-    }]
+    "links": [
+      {
+        "text": "Home",
+        "url": "/"
+      },
+      {
+        "text": "Unemployment",
+        "url": "/"
+      },
+      {
+        "text": "Training & Assistance",
+        "url": "/"
+      }
+    ]
   },
   "relationshipIndicators": {
     "pageTitle": "The Name of a Court Rule",

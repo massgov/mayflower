@@ -53,10 +53,10 @@
 //theme
 
 .ma__form-requirements {
-  background-color: $c-bg-section;
+  background-color: var(--mf-c-bg-section);
 
   .main-content--two .page-content > &:before {
-    background-color: $c-bg-section;
+    background-color: var(--mf-c-bg-section);
   }
 
   // Removed per DP-27157.

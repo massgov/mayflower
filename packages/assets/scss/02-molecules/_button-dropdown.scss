@@ -26,7 +26,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    box-shadow: 0 0.25em 0.5rem $c-box-shadow-black;
+    box-shadow: 0 0.25em 0.5rem var(--mf-c-box-shadow-black);
     transition: visibility .5s ease, right .5s ease;
     z-index: $z-overlay;
     width: 260px;
@@ -48,13 +48,13 @@
 
       @include ma-reset-list;
 
-      background-color: $c-bg;
+      background-color: var(--mf-c-bg);
     }
   }
 
   .ma__button-dropdown__subitem {
     border-bottom: 1px solid;
-    border-bottom-color: $c-bd-divider;
+    border-bottom-color: var(--mf-c-bd-divider);
 
     .ma__button-dropdown__link {
 
@@ -70,7 +70,7 @@
 
       &:hover,
       &:focus {
-        background-color: $c-bg-subtle;
+        background-color: var(--mf-c-bg-subtle);
       }
     }
   }

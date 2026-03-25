@@ -390,10 +390,6 @@
       "projectFolder": "packages/patternlab/styleguide"
     },
     {
-      "packageName": "mayflower-site",
-      "projectFolder": "packages/site"
-    },
-    {
       "packageName": "mayflower-core",
       "projectFolder": "packages/core"
     }

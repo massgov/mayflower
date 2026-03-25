@@ -2,18 +2,38 @@
 
 .ma__textarea {
 
+  background-color: var(--mf-c-bg);
+  border: 2px solid var(--mf-c-bd-input);
+  font-size: $fonts-large;
+  font-weight: $fonts-light;
+  max-width: 100%;
+  min-height: 135px;
+  padding: 18px;
+  width: 100%;
+  resize: none;
+  overflow: hidden;
+
+  &:focus {
+    outline: 2px solid var(--mf-c-focus);
+    outline-offset: 2px;
+    border-color: var(--mf-c-bd-input); // Keep original border color
+  }
+
+  &.has-error {
+    border-color: var(--mf-c-bd-error);
+
+    // High contrast mode error visibility
+
+    @media (forced-colors: active) {
+      border-color: Mark;
+    }
+  }
+
   &__wrapper {
     position: relative;
-    
-    textarea {
-      width: 100%;
-      resize: none;
-      overflow: hidden;
-    }
 
-    div[aria-hidden] {
+    .remainCharWrapper {
       display: block;
-      line-height: 23.562px;
       line-height: 1.625rem;
       position: absolute;
       bottom: 8px;

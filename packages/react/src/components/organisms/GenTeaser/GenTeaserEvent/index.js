@@ -62,7 +62,7 @@ const GenTeaserEvent = (props) => {
     <>
       <div className="ma__gen-teaser__infoitem" {...rest}>
         <span className="ma__gen-teaser__infoitem-icon">
-          <IconCalendar width={15} height={15} />
+          <IconCalendar width={20} height={20} />
         </span>
         <EventTime {...eventProps} />
       </div>

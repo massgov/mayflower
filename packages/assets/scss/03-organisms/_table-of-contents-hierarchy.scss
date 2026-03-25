@@ -40,11 +40,11 @@
     padding: 0;
     padding-top: 20px;
     list-style: none;
-    background: $c-gray-lightest;
-    border: 2px solid $c-gray-light;
+    background: var(--mf-c-gray-lightest);
+    border: 2px solid var(--mf-c-gray-light);
 
     > * + * {
-      border-top: 1px solid $c-gray-light;
+      border-top: 1px solid var(--mf-c-gray-light);
     }
 
     // Visual cue for the clickable area.
@@ -55,7 +55,7 @@
       a {
         border-bottom-width: 3px;
         border-bottom-style: solid;
-        border-bottom-color: $c-link;
+        border-bottom-color: var(--mf-c-link);
       }
     }
 
@@ -77,8 +77,8 @@
       margin-bottom: 0;
       display: none;
       padding: 20px 0 10px 20px;
-      background: $c-white;
-      border-top: 2px solid $c-gray-light;
+      background: var(--mf-c-white);
+      border-top: 2px solid var(--mf-c-gray-light);
 
       // Visual cue for the clickable area.
 
@@ -89,7 +89,7 @@
       a:hover {
         border-bottom-width: 3px;
         border-bottom-style: solid;
-        border-bottom-color: $c-link;
+        border-bottom-color: var(--mf-c-link);
       }
 
       li {
@@ -126,12 +126,12 @@
       text-align: left;
       width: 100%;
       font-weight: $fonts-bolder;
-      color: $c-primary;
+      color: var(--mf-c-primary);
 
       &:after {
         font-size: $fonts-5xlarge;
         content: "+";
-        color: $c-primary-alt;
+        color: var(--mf-c-primary-alt);
         line-height: .65em;
         overflow: hidden;
         position: absolute;
@@ -223,7 +223,7 @@
   }
 
   .ma__accordion-content__body {
-    background: $c-white;
+    background: var(--mf-c-white);
     list-style: none;
     margin-bottom: unset;
     padding: 10px 0 10px 20px;

@@ -1,6 +1,4 @@
 @use "styles/global";
-@use '01-atoms/svg-icons';
-@use "01-atoms/svg-loc-icons";
 @use "base/Icon/icon-display";
 @use "base/Colors";
 @use "base/Typography";
@@ -23,6 +21,7 @@
 @use "01-atoms/colored-heading";
 @use "01-atoms/comp-heading";
 @use "01-atoms/sidebar-heading";
+@use "01-atoms/input";
 @use "01-atoms/forms";
 @use "04-templates/form-page";
 @use "01-atoms/footnote";
@@ -46,6 +45,7 @@
 @use "forms/FeedbackForm";
 @use "forms/Input";
 @use "01-atoms/input-checkbox";
+@use "01-atoms/textarea";
 // Required by InputCurrency.
 @use "01-atoms/input--button" as inputButton;
 @use "01-atoms/input-radio";
@@ -82,7 +82,6 @@
 @use "02-molecules/sort-results";
 @use "02-molecules/tabs";
 @use "02-molecules/tags";
-@use "molecules/Tooltip";
 @use "03-organisms/accordion-wrapper";
 @use "organisms/CalloutAlert";
 @use "organisms/EmergencyAlerts";

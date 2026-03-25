@@ -36,7 +36,7 @@ $total-margin: $margin * 2;
     }
 
     &--error {
-      color: $c-error;
+      color: var(--mf-c-error);
     }
   }
 

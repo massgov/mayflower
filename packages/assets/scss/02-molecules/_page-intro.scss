@@ -18,7 +18,7 @@
 .ma__page-intro {
 
   &__sub-title {
-    color: $c-font-heading;
+    color: var(--mf-c-font-heading);
     font-weight: $fonts-bold;
   }
 }

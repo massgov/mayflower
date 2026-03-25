@@ -1,5 +1,9 @@
+{% import _self as macros %}
+
 {% set hasSuggestions = headerSearch.hasSuggestions %}
 {% set suggestedScopes = headerSearch.suggestedScopes %}
+{% set defaultScope = headerSearch.defaultScope %}
+
 <div class="ma__header-search">
   <form role="search" action="https://search.mass.gov/" class="ma__form js-header-search-form" name="header-search">
     <label
@@ -24,38 +28,38 @@
       <div class="ma__header-search-suggestions hidden">
         <span role="status" aria-live="polite" class="ma__header-search-suggestions-helper"></span>
         <ul id="search-suggestions" role="listbox" tabindex="-1" class="ma__header-search-suggestions-list">
-          <li class="ma__header-search-suggestion" role="presentation" >
-            <button class="ma__header-search-suggestion-option" role="option">
-              <span>
-                {{ icon('search') }}
-                <span class="ma__visually-hidden">search&nbsp;</span>
-              </span>
-              <span class="ma__header-search-suggestion-option-text">
-                <span class="ma__header-search-suggestion-option-input"></span>
-                <span class="ma__header-search-suggestion-option-scope ma__visually-hidden"> &nbsp; across the entire site </span>
-              </span>
-            </button>
-          </li>
+          {% if defaultScope %}
+            {{ macros.searchOption(defaultScope.value, defaultScope.type, defaultScope.label, defaultScope.hideLabel) }}
+          {% else %}
+            {{ macros.searchOption('', '', 'across the entire site', true) }}
+          {% endif %}
           {% for option in suggestedScopes %}
-            <li class="ma__header-search-suggestion" role="presentation">
-              <button class="ma__header-search-suggestion-option" role="option">
-                <span>
-                  {{ icon('search') }}
-                  <span class="ma__visually-hidden">search&nbsp;</span>
-                </span>
-                <span class="ma__header-search-suggestion-option-text">
-                  <span class="ma__header-search-suggestion-option-input"></span>
-                  <span class="ma__header-search-suggestion-option-scope"> in 
-                    <span class="ma__header-search-suggestion-option-scope-value">{{ option }}</span>
-                  </span>
-                </span>
-              </button>
-            </li>
+            {{ macros.searchOption(option.value, option.type, option.label, option.hideLabel) }}
           {% endfor %}
         </ul>
       </div>
     {% endif %}
     {% set buttonSearch = headerSearch.buttonSearch %}
     {% include "@atoms/01-buttons/button-search.twig" %}
+    {% if defaultScope %}
+      <input id="{{ headerSearch.id }}-default-scope" type="hidden" name="{{ defaultScope.type }}" value="{{ defaultScope.value }}" />
+    {% endif %}
   </form>
 </div>
+
+{% macro searchOption(value, type, label, hideLabel) %}
+  <li class="ma__header-search-suggestion" role="presentation">
+    <button class="ma__header-search-suggestion-option" role="option" data-value="{{ value }}" data-type="{{ type }}">
+      <span>
+        {{ icon('search') }}
+        <span class="ma__visually-hidden">search&nbsp;</span>
+      </span>
+      <span class="ma__header-search-suggestion-option-text">
+        <span class="ma__header-search-suggestion-option-input"></span>
+        {% if not hideLabel %}
+          <span class="ma__header-search-suggestion-option-scope">{{ label }}</span>
+        {% endif %}
+      </span>
+    </button>
+  </li>
+{% endmacro %}

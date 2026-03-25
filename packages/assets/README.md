@@ -1,6 +1,8 @@
 # Mayflower Assets
 The styles provided by this package require compiling with a tool that supports the [npm sass package](https://www.npmjs.com/package/sass).
 
+> ⚠️ **DEPRECATION NOTICE**: SCSS variables in this package will be deprecated soon. We recommend planning for migration away from direct SCSS variable usage. Future updates will provide alternative styling solutions. Stay tuned for migration guides and new styling approaches.
+
 ## License
 Please note that the icons are licensed only for the usage on websites that are **owned by the Commonwealth of Massachusetts**. Mayflower is currently using a licensed icon set purchased through [Smashing Icons](https://smashicons.com/).
 

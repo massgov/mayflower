@@ -1,11 +1,31 @@
 # Mayflower
 
+## Table of Contents
+- [Overview](#overview)
+- [Project Contacts](#project-contacts)
+- [Knowledge History](#knowledge-history)
+
+
+## Overview
 Mayflower is the enterprise design system for the state government of Massachusetts.
 
 - [Core Documentation](/packages/core): The official documentation of Mayflower design system, live at [mayflower.digital.mass.gov/core](https://mayflower.digital.mass.gov/core)
 - Experimental component libraries: component libraries created by Massachusetts Digital Service to build sites like Mass.gov, Search.mass.gov, and Massachusetts budget sites.
   - [Mayflower Patternlab](/packages/patternlab) [![GitHub version][patternlab-github-badge]](/patternlab)
   - [Mayflower React](/packages/react) [![npm package][react-npm-badge]](npm)
+
+
+## Project Contacts
+
+| Name     | Role  | Email                                                                |
+|----------|-------|----------------------------------------------------------------------|
+| SSR-Team | Infra | [EOTSS-DL-DigitalSSR@ma ss.gov](mailto:EOTSS-DL-DigitalSSR@mass.gov) |
+|          |       |                                                                      |
+
+
+## Knowledge History
+See [Mayflower Release Notes](./CHANGELOG.md)
+
 
 ## License
 
@@ -100,5 +120,4 @@ For efficiency purposes, we allow CircleCI to bypass certain jobs based on the p
 | `core/`  | This will bypass Patternlab build, deploy and tests | This prefix should only be used if all your changes are in the [core](/packages/core) folder
 | `react/`  | This will bypass Patternlab build, deploy and tests | This prefix should only be used if all your changes are in the [react](/packages/react) folder, and nothing in the shared [assets](/packages/assets) folder that could potentially impact the build of the Patternlab implementation  |
 | `pattern/`  | This will bypass React Storybook build and tests | This prefix should only be used if all your changes are in the [patternlab](/packages/patternlab) folder, and nothing in the shared [assets](/packages/assets) folder that could potentially impact the build of the React implementation  |
-| `site/`  | This will bypass all React and Patternlab and assets build, deploy and tests. |  Only use this prefix if all the changes are in the [site](/packages/site) folder. e.g. Content changes to the homepage site that won't impact React, Patternlab and shared assets. |
 | `docs`  | This will bypass all React and Patternlab and assets build, deploy and tests, as well as Mayflower site build and tests. | Only use this prefix if all the changes are in the [docs](/docs) folder. e.g. Documentation changes for the repo that won't impact React, Patternlab, shared assets and the homepage static site. |

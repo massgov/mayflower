@@ -4,8 +4,8 @@ $formQuickTransitions: max-height 0.3s linear;
 @use "00-base/configure" as *;
 
 .ma__mass-feedback-form {
-  border: 2px solid $c-gray-light;
-  background: $c-bg;
+  border: 2px solid var(--mf-c-gray-light);
+  background: var(--mf-c-bg);
   max-width: 35em;
   margin: 0 0.5rem 5rem;
 
@@ -16,7 +16,7 @@ $formQuickTransitions: max-height 0.3s linear;
   &__heading {
     padding: 1rem 20px;
     font-size: $fonts-larger;
-    border-bottom: 2px solid $c-gray-light;
+    border-bottom: 2px solid var(--mf-c-gray-light);
     margin-bottom: 0;
 
     @media ($bp-small-min) {
@@ -181,15 +181,15 @@ $formQuickTransitions: max-height 0.3s linear;
     .ma__warn-msg {
 
       &.has-error, &.has-error-default {
-        border-left-color: $c-gray-lighter;
+        border-left-color: var(--mf-c-gray-lighter);
       }
     }
 
     .ma__alert-msg, .ma__error-msg {
 
       &.has-error {
-        color: $c-error;
-        border-left-color: $c-error;
+        color: var(--mf-c-error);
+        border-left-color: var(--mf-c-error);
       }
     }
 

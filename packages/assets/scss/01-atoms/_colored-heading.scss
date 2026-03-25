@@ -24,10 +24,10 @@
   @include ma-heading-colored($c-bg-comp-title);
 
   &--green {
-    background-color: $c-primary-alt;
+    background-color: var(--mf-c-primary-alt);
   }
 
     &--blue {
-    background-color: $c-primary;
+    background-color: var(--mf-c-primary);
   }
 }

@@ -4,26 +4,21 @@
 
   @include ma-link-decorative;
   display: inline-block;
-  vertical-align: middle;
   width: 100%;
 
   a:hover {
-    border-bottom-color: $c-link;
+    border-bottom-color: var(--mf-c-link);
   }
 
   a:focus {
     // important needed to overwrite the focus border color
-    border-bottom-color: $c-link !important;
-  }
-
-  svg {
-    fill: $c-font-link;
+    border-bottom-color: var(--mf-c-link) !important;
   }
 
   &--inverse {
 
     a {
-      color: $c-font-inverse;
+      color: var(--mf-c-font-inverse);
     }
 
     a:hover {
@@ -34,10 +29,6 @@
       // important needed to overwrite the focus border color
       border-bottom-color: rgba($c-font-inverse,.5) !important;
     }
-
-    svg {
-      fill: rgba($c-font-inverse,.5);
-    }
   }
 
   &.button-link {
@@ -45,7 +36,7 @@
     display: inline-block;
     width: auto;
     padding: .5rem 1.8rem .5rem .8rem;
-    background-color: $c-bg;
+    background-color: var(--mf-c-bg);
 
     &:hover,
     &:focus {
@@ -53,10 +44,6 @@
 
       a {
         border-bottom-color: transparent;
-
-        svg {
-          fill: rgba($c-font-link, 1);
-        }
       }
     }
   }
@@ -68,16 +55,11 @@
   a {
 
     .ma__download-link--icon {
-      display: inline-flex;
-      align-self: center;
-      top: .3em;
-      position: relative;
+      top: 2px;
+    }
 
-      svg {
-        margin-right: 0;
-        width: 29px;
-        height: 30px;
-      }
+    svg {
+      margin-bottom: -1px;
     }
   }
 

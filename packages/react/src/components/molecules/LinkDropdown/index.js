@@ -14,7 +14,7 @@ import classNames from 'classnames';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 // eslint-disable-next-line import/no-unresolved
-import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCaretDown from 'MayflowerReactBase/Icon/IconCaretDown';
 
 class LinkDropdown extends React.Component {
   constructor(props) {
@@ -87,7 +87,7 @@ class LinkDropdown extends React.Component {
       onKeyDown: (e) => this.handleKeyDown(e),
       setButtonRef: this.setDropDownButtonRef,
       expanded: this.state.buttonExpand,
-      icon: <IconChevron height={20} width={20} />,
+      icon: <IconCaretDown height={20} width={20} />,
       'aria-haspopup': true
     };
     const dropdownClasses = classNames({

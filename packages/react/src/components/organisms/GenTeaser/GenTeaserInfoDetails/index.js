@@ -19,7 +19,7 @@ const GenTeaserInfoDetails = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <IconComponent width={15} height={15} />
+        <IconComponent width={20} height={20} />
       </span>
       {text && !href && <span>{text}</span>}
       {href && text && <DecorativeLink text={text} href={href} />}

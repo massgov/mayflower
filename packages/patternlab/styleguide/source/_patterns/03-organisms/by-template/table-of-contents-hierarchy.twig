@@ -2,41 +2,41 @@
 
 {% set titleClass = not tableOfContentsHierarchy.title.text? 'ma__toc--hierarchy--no-title' %}
 
-<div class="ma__toc--hierarchy {{ backgroundModifier }} {{ titleClass }}"  {{ tableOfContentsHierarchy.title.id ? "aria-describedby=#{tableOfContentsHierarchy.title.id}" : "" }}>
-  {% if tableOfContentsHierarchy.title.colored %}
-    {% set coloredHeading = { "text": tableOfContentsHierarchy.title.text, "color": "green" } %}
-    {% include "@atoms/04-headings/colored-heading.twig" %}
-  {% elseif tableOfContentsHierarchy.title.text %}
+<div class="ma__toc--hierarchy {{ backgroundModifier }} {{ titleClass }}" {{ tableOfContentsHierarchy.title.id ? "aria-describedby=#{tableOfContentsHierarchy.title.id}" : "" }}>
+	{% if tableOfContentsHierarchy.title.colored %}
+		{% set coloredHeading = { "text": tableOfContentsHierarchy.title.text, "color": "green" } %}
+		{% include "@atoms/04-headings/colored-heading.twig" %}
+	{% elseif tableOfContentsHierarchy.title.text %}
 
-    {% set compHeading = {
+		{% set compHeading = {
       "title": tableOfContentsHierarchy.title.text,
       "level": tableOfContentsHierarchy.title.level,
       "titleContext": tableOfContentsHierarchy.title.titleContext,
       "sidebar": true
     }
     %}
-    {% include "@atoms/04-headings/comp-heading.twig" %}
-  {% endif %}
-  <ul class="ma__toc--hierarchy__container">
-    {% block binderSection %}
-      {% for section in tableOfContentsHierarchy.sections %}
-        {% if section.linkItems|length > 0 %}
-          {% block tocExpandableSection %}
-            {% set expandableSection = section %}
-            {% include "@molecules/expandable-section.twig" %}
-          {% endblock %}
-        {% elseif section.icon %}
-          <li data-link="{{ section.decorativeLink.href }}">
-            {% set downloadLink = section %}
-            {% include "@molecules/download-link.twig" %}
-          </li>
-        {% else %}
-          <li{{ section.isCurrent ? ' class="is-current"': ''}} data-link="{{ section.href }}">
-            {% set decorativeLink = section %}
-            {% include "@atoms/decorative-link.twig" %}
-          </li>
-        {% endif %}
-      {% endfor %}
-    {% endblock %}
-  </ul>
+		{% include "@atoms/04-headings/comp-heading.twig" %}
+	{% endif %}
+	<ul class="ma__toc--hierarchy__container">
+		{% block binderSection %}
+			{% for section in tableOfContentsHierarchy.sections %}
+				{% if section.linkItems|length > 0 %}
+					{% block tocExpandableSection %}
+						{% set expandableSection = section %}
+						{% include "@molecules/expandable-section.twig" %}
+					{% endblock %}
+				{% elseif section.icon %}
+					<li class="ma__toc--hierarchy__link" data-link="{{ section.decorativeLink.href }}">
+						{% set downloadLink = section %}
+						{% include "@molecules/download-link.twig" %}
+					</li>
+				{% else %}
+					<li class="ma__toc--hierarchy__link" {{ section.isCurrent ? ' class="is-current"': ''}} data-link="{{ section.href }}">
+						{% set decorativeLink = section %}
+						{% include "@atoms/decorative-link.twig" %}
+					</li>
+				{% endif %}
+			{% endfor %}
+		{% endblock %}
+	</ul>
 </div>

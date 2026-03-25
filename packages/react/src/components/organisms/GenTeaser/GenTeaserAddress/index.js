@@ -23,7 +23,7 @@ const GenTeaserAddress = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <IconMarker width={15} height={15} />
+        <IconMarker width={20} height={20} />
       </span>
       <Address {...addrProps} />
     </div>

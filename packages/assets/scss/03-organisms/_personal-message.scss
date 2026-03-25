@@ -29,6 +29,7 @@
 
     .pre-content > &,
     .post-content > &,
+    .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
     .main-content--full .page-content > & {
 
       @include ma-container('restricted');
@@ -47,9 +48,9 @@
 //theme
 
 .ma__personal-message {
-  background-color: $c-bg-subtle;
+  background-color: var(--mf-c-bg-subtle);
 
   .main-content--two .page-content > &:before {
-    background-color: $c-bg-subtle;
+    background-color: var(--mf-c-bg-subtle);
   }
 }

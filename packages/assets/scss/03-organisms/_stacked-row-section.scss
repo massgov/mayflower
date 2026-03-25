@@ -25,7 +25,8 @@
       }
     }
 
-    & .main-content .page-content > *,
+    & .main-content .page-content > *, 
+    & .main-content .page-content .layout--onecol-mass-service-section .layout__region--content> *,
     & .main-content--full .page-content > * {
 
       @include ma-component-spacing;
@@ -96,10 +97,10 @@
   &__section {
 
     & ~ & {
-      border-color: $c-bd-divider;
+      border-color: var(--mf-c-bd-divider);
 
       .ma__stacked-row__container:before {
-        border-color: $c-bd-divider;
+        border-color: var(--mf-c-bd-divider);
       }
     }
   }

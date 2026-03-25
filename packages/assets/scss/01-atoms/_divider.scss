@@ -35,13 +35,13 @@
 .ma__divider {
 
   &:after {
-    background-color: $c-primary-alt;
+    background-color: var(--mf-c-primary-alt);
   }
 
   &--thin {
 
     &:after {
-      background-color: $c-overcast-gray;
+      background-color: var(--mf-c-overcast-gray);
     }
   }
 }

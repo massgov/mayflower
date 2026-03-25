@@ -118,7 +118,7 @@
 //theme
 
 .ma__footer {
-  background-color: $c-bg-section;
+  background-color: var(--mf-c-bg-section);
 
   &__back2top {
 
@@ -132,13 +132,13 @@
     &:hover {
 
       svg {
-        fill: $c-font-inverse;
+        fill: var(--mf-c-font-inverse);
       }
     }
   }
 
   &__copyright {
-    color: $c-gray-dark;
+    color: var(--mf-c-gray-dark);
     font-weight: $fonts-light;
 
     &--date {

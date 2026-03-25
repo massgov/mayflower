@@ -10,13 +10,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 // eslint-disable-next-line import/no-unresolved
-import IconPdf from 'MayflowerReactBase/Icon/IconPdf';
+import IconDocPdf from 'MayflowerReactBase/Icon/IconDocPdf';
 // eslint-disable-next-line import/no-unresolved
-import IconDocx from 'MayflowerReactBase/Icon/IconDocx';
+import IconDocDocx from 'MayflowerReactBase/Icon/IconDocDocx';
 // eslint-disable-next-line import/no-unresolved
-import IconXlxs from 'MayflowerReactBase/Icon/IconXlxs';
+import IconDocXlsx from 'MayflowerReactBase/Icon/IconDocXlsx';
 // eslint-disable-next-line import/no-unresolved
-import IconGeneric from 'MayflowerReactBase/Icon/IconGeneric';
+import IconDocGeneric from 'MayflowerReactBase/Icon/IconDocGeneric';
 // eslint-disable-next-line import/no-unresolved
 import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 // eslint-disable-next-line import/no-unresolved
@@ -33,7 +33,7 @@ const DecorativeLink = (props) => {
   });
   let preIcon;
   let title;
-  let postIcon = <IconArrow aria-hidden="true" />;
+  let postIcon = <IconArrow width="0.8em" height="0.8em" />;
   if (showFileIcon) {
     // eslint-disable-next-line no-bitwise
     const getFileExtension = (filename) => filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2);
@@ -41,23 +41,23 @@ const DecorativeLink = (props) => {
     title = `${ext} file`;
     const genericFile = ['csv', 'doc', 'docm', 'dot', 'dotx', 'dwg', 'geojson', 'gif', 'json', 'jpg', 'kml', 'kmz', 'mp3', 'mpp', 'msg', 'odf', 'ods', 'odt', 'png', 'pps', 'ppsx', 'potx', 'ppt', 'pptm', 'pptx', 'ppsm', 'prx', 'pub', 'rdf', 'rtf', 'tiff', 'tsv', 'txt', 'xls', 'xlsb', 'xlsm', 'xml', 'zip'];
     ext = genericFile.indexOf(ext) !== -1 ? 'generic' : ext;
-    postIcon = <IconDownload aria-hidden="true" />;
+    postIcon = <IconDownload width="0.8em" height="0.8em" />;
     switch (ext) {
       case 'pdf':
-        preIcon = <IconPdf title={title} width={35} height={36} />;
+        preIcon = <IconDocPdf title={title} height={28} width={28} bold={false} />;
         break;
       case 'docx':
-        preIcon = <IconDocx title={title} width={35} height={36} />;
+        preIcon = <IconDocDocx title={title} height={28} width={28} bold={false} />;
         break;
       case 'xlxs':
-        preIcon = <IconXlxs title={title} width={35} height={36} />;
+        preIcon = <IconDocXlsx title={title} height={28} width={28} bold={false} />;
         break;
       case 'generic':
-        preIcon = <IconGeneric title={title} width={35} height={36} />;
+        preIcon = <IconDocGeneric title={title} height={28} width={28} bold={false} />;
         break;
       default:
         preIcon = null;
-        postIcon = <IconArrow aria-hidden="true" />;
+        postIcon = <IconArrow width="0.8em" height="0.8em" />;
     }
   }
   return(

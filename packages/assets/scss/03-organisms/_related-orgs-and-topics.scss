@@ -91,7 +91,7 @@
 
   .ma__related-orgs-and-topics--toggle {
     position: relative;
-    color: $c-primary;
+    color: var(--mf-c-primary);
     font-weight: $fonts-bold;
     background-color: transparent;
     border: none;
@@ -103,7 +103,7 @@
     font-size: $fonts-small;
 
    &:hover {
-    border-bottom-color: $c-link;
+    border-bottom-color: var(--mf-c-link);
    }
 
     &::after {
@@ -113,8 +113,8 @@
       transform: translateY(-50%) rotate(45deg);
       right: 0;
       display: inline-block;
-      border-right: 4px solid $c-link;
-      border-bottom: 4px solid $c-link;
+      border-right: 4px solid var(--mf-c-link);
+      border-bottom: 4px solid var(--mf-c-link);
       height: 10px;
       width: 10px;
       transition: all .2s;

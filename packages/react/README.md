@@ -5,7 +5,7 @@ Mayflower-react is a React component library under the [enterprise design system
 
 - **Live demo:** [mayflower-react storybook][react-storybook]
 - **NPM package:** [@massds/mayflower-react][npm].
-- **Codebase:** [Mayflower monorepo][mayflower-github] `react` subdirectory
+- **Codebase:** [Mayflower monorepo][mayflower-github] `packages/react` subdirectory
   >[Mayflower monorepo][mayflower-github] comprised of [Mayflower documentation][mayflower-doc], two component libraries — [Mayflower React][react-storybook] and [Mayflower PatternLab][patternLab], and their [shared assets][shared-assets].
   > Refer to [Mayflower PatternLab Static Site][patternlab] for the set of UI components consumed in Mass.gov.
 
@@ -69,6 +69,9 @@ import Button from '@massds/mayflower-react/dist/Button';
 >For a more detailed guide and information on the components included in Mayflower React and their functionality, visit our [Mayflower React Storybook][react-storybook]. Click on the Info and Knobs tabs for component prop types, details and options.
 
 4. Component styles must be imported separately, follow the scss modules documentation in each component. Create a scss file and import the necessary styles from mayflower-assets for the React component in use. E.g. If you using the slim header and slim footer components, in a SCSS files, import these styles:
+
+> ⚠️ **DEPRECATION NOTICE**: SCSS variables from @massds/mayflower-assets will be deprecated soon. While the imports below will continue to work, we recommend preparing for migration away from direct SCSS variable usage. Future updates will provide alternative styling solutions.
+
 ```scss
 // Header
 @use "~@massds/mayflower-assets/scss/01-atoms/button-with-icon";
@@ -114,8 +117,7 @@ declare module "@massds/mayflower-assets/static/images/*";
 ```
 
 ## Mayflower-React Development
-* `npm install`
-* `npm start`: This will run the demo application.
+* `rushx start`: This will run the demo application.
 
 
 ### System Requirements
@@ -216,6 +218,9 @@ To use yalc:
 1. Run `yalc publish` in the `react/` directory. This will run Mayflower React's build script and store the build version of the package under your yalc global directory.
 2. Run `yalc link @massds/mayflower-react` in your other project. Mayflower React will now be installed and pointing to the version from step 1.
 
+### Visual regression testing.
+
+See [separate documentation](docs/visual-regression.md).
 
 ## Mayflower-React Release Process
 

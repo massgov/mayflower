@@ -1,3 +1,5 @@
+import isHighZoom from "../helpers/isHighZoom";
+
 export default (function (window, document) {
 
   const tocs = Array.from(document.getElementsByClassName("ma__sticky-toc"));
@@ -16,6 +18,9 @@ export default (function (window, document) {
     var i;
     var totalSections = tocSectionCount;
 
+    // Get the icon template content
+    const iconTemplate = toc.querySelector("#toc-icon-template");
+    const iconHTML = iconTemplate ? iconTemplate.innerHTML : '';
 
     // Remove Related and Contact sections from total amount of sections.
     for (i = 0; i < tocSectionCount; i++) {
@@ -79,12 +84,11 @@ export default (function (window, document) {
         // toolbars to cover the section when clicked.
         section.classList.add("sticky-toc-jump-target");
 
-        // Create a link for the sticky TOC.
+        // Create a link for the sticky TOC using the icon from the template
         const tocLink = document.createElement("li");
         tocLink.className = "ma__sticky-toc__link";
         tocLink.setAttribute("data-link", `#${sectionId}`);
-        tocLink.setAttribute("role", "none");
-        tocLink.innerHTML = `<a href="#${sectionId}" role="menuitem"><svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg>${sectionTitle}</a>`;
+        tocLink.innerHTML = `<a href="#${sectionId}">${iconHTML}${sectionTitle}</a>`;
         tocListContainer.appendChild(tocLink);
         tocSections.links.push(tocLink);
 
@@ -116,6 +120,7 @@ export default (function (window, document) {
       if (tocSectionCount <= 10 && window.innerWidth > 480 ) {
         toc.querySelector(".ma__sticky-toc__footer").style.display = "none";
       }
+      
     }
 
     // Add the event listeners to handle all of the interaction.
@@ -185,7 +190,7 @@ export default (function (window, document) {
           }
 
           // Active Sticky TOC when on page TOC scrolls past.
-          if (stickyNavActive > 0) {
+          if (stickyNavActive > 0 || isHighZoom()) {
             toc.classList.remove("stuck");
           }
           else {

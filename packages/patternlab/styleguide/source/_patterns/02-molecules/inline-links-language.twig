@@ -1,0 +1,19 @@
+{% if inlineLinks and inlineLinks.links %}
+    <div class="ma__inline-links">
+        <ul class="ma__inline-links__container" aria-label="{{ inlineLinks.ariaLabel }}">
+            {% for link in inlineLinks.links %}
+                <li class="ma__inline-links__item">
+                    <a {% if link.translation_id %}id="{{ link.translation_id }}"{% endif %}
+                       href="{{ link.href }}"
+                            {% if link.translation_id and link.document_id %}aria-labelledby="{{ link.translation_id }} {{ link.document_id }}"{% endif %}
+                            {% if link.lang_label %}data-label="{{ link.lang_label }}"{% endif %}>
+                        {{ link.text }}
+                    </a>
+                </li>
+            {% endfor %}
+            <li class="ma__inline-links__item lang-toggle-container">
+                <a href="#" class="lang-toggle">Translate labels</a>
+            </li>
+        </ul>
+    </div>
+{% endif %}

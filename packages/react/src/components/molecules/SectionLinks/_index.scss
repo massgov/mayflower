@@ -3,21 +3,21 @@
 .ma__section-links {
   position: relative;
   width: 100%;
-  background-color: $c-bg-section;
+  background-color: var(--mf-c-bg-section);
 
   @media ($bp-x-small-max) {
     border-top: 2px solid;
     margin: 0 -20px;
     width: calc(100% + 40px);
-    border-top-color: $c-bd-divider;
-    background-color: $c-white;
+    border-top-color: var(--mf-c-bd-divider);
+    background-color: var(--mf-c-white);
 
     &.is-open {
-      background-color: $c-white
+      background-color: var(--mf-c-white)
     }
 
     &:last-child {
-      border-bottom: 2px solid $c-bd-divider;
+      border-bottom: 2px solid var(--mf-c-bd-divider);
     }
   }
 
@@ -69,7 +69,7 @@
     font-size: $fonts-medium;
     padding: 0 20px 20px 0;
     width: 100%;
-    border-top-color: $c-bd-divider;
+    border-top-color: var(--mf-c-bd-divider);
 
     @media ($bp-x-small-max) {
       display: none;
@@ -100,7 +100,7 @@
     font-size: $fonts-larger;
     margin-bottom: .75em;
     padding: 0 16px .75em 0;
-    border-bottom-color: $c-bd-divider;
+    border-bottom-color: var(--mf-c-bd-divider);
 
     &--center {
       align-self: center;
@@ -156,7 +156,7 @@
     }
 
     &.ma__section-links__title--center a {
-      color: $c-primary;
+      color: var(--mf-c-primary);
     }
 
     .ma__decorative-link {
@@ -169,7 +169,7 @@
 
 
     &:after {
-      color: $c-primary-alt;
+      color: var(--mf-c-primary-alt);
     }
 
     svg {

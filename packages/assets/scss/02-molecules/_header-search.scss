@@ -15,11 +15,14 @@ $bp-header-search-reduce-button: "max-width: 700px";
   }
 
   &__input {
+
+    @include input-base;
     font-size: $fonts-medium;
     height: $header-search-height;
     padding-right: 128px;
     padding-left: 1rem;
     width: 100%;
+    border-color: var(--mf-c-bd);
 
     &::-ms-clear {
       display: none;
@@ -34,7 +37,6 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
     &, &--secondary {
       border: 2px solid;
-      //border-left: 2px solid;
       display: block;
       height: $header-search-height;
       padding-top: 0;
@@ -58,7 +60,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
     position: absolute;
     width: 100%;
-    border: 2px solid $c-bd;
+    border: 2px solid var(--mf-c-bd);
     margin-top: -2px;
     z-index: $z-dropdown;
 
@@ -75,7 +77,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
       padding: 0;
       margin: 0;
       list-style: none;
-      background-color: $c-bg;
+      background-color: var(--mf-c-bg);
 
       svg {
         width: $fonts-medium;
@@ -93,11 +95,11 @@ $bp-header-search-reduce-button: "max-width: 700px";
       align-items: center;
       text-align: left;
       padding: 0.5rem 1rem;
-      border-top: 1px solid $c-bd;
+      border-top: 1px solid var(--mf-c-bd);
       font-size: $fonts-medium;
 
       &:hover {
-        background-color: $c-bg-section;
+        background-color: var(--mf-c-bg-section);
       }
 
       &-text {
@@ -110,7 +112,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
       &-scope {
         font-size: $fonts-small;
-        color: $c-font-detail;
+        color: var(--mf-c-font-detail);
         font-style: italic;
         margin-left: 0.5rem;
       }
@@ -126,11 +128,11 @@ $bp-header-search-reduce-button: "max-width: 700px";
         text-align: left;
         padding: 0.5rem 1rem;
         font-size: $fonts-medium;
-        border-top: 1px solid $c-bd;
+        border-top: 1px solid var(--mf-c-bd);
         width: 100%;
   
         &:hover, &.hover {
-          background-color: $c-bg-section;
+          background-color: var(--mf-c-bg-section);
         }
   
         &-text {
@@ -143,7 +145,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
   
         &-scope {
           font-size: $fonts-small;
-          color: $c-font-detail;
+          color: var(--mf-c-font-detail);
           font-style: italic;
           margin-left: 0.5rem;
         }

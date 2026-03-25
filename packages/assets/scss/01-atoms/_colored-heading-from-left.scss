@@ -15,18 +15,18 @@
   }
 
   &--blue {
-    background-color: $c-primary;
+    background-color: var(--mf-c-primary);
 
     &:before {
-      background-color: $c-primary;
+      background-color: var(--mf-c-primary);
     }
   }
 
   &--green {
-    background-color: $c-primary-alt;
+    background-color: var(--mf-c-primary-alt);
 
     &:before {
-      background-color: $c-primary-alt;
+      background-color: var(--mf-c-primary-alt);
     }
   }
 
@@ -35,7 +35,7 @@
     @include ma-border-decorative;
 
     margin-top: 0px;
-    color: $c-font-inverse;
+    color: var(--mf-c-font-inverse);
     margin-right: 0;
     padding: 25px 20px 20px 0;
     transform: skew(30deg);
@@ -49,7 +49,7 @@
       padding-bottom: 15px;
 
       &:after {
-        background-color: $c-highlight;
+        background-color: var(--mf-c-highlight);
       }
     }
 

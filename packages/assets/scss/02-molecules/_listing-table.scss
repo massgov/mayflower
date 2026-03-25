@@ -6,6 +6,7 @@
 
     .pre-content > &,
     .post-content > &,
+    .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
     .main-content--full .page-content > & {
 
       @include ma-container();
@@ -174,18 +175,18 @@
 .ma__listing-table {
 
   tr + tr {
-    border-top-color: $c-bd-divider;
+    border-top-color: var(--mf-c-bd-divider);
   }
 
   &__expand {
 
     > button {
-      color: $c-primary;
+      color: var(--mf-c-primary);
       font-weight: $fonts-normal;
     }
   }
 
   .main-content .ma__header-tags + & {
-    border-color: $c-bd-divider;
+    border-color: var(--mf-c-bd-divider);
   }
 }

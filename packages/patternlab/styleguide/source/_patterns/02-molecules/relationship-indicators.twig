@@ -29,7 +29,7 @@
         <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
           <li class="ma__relationship-indicators__heading">
             {% if relationshipIndicators.secondary.icon %}
-              <span class="ma__relationship-indicators--icon">{{ icon(relationshipIndicators.secondary.icon) }}</span>
+              <span class="ma__relationship-indicators--icon">{{ icon(relationshipIndicators.secondary.icon, '18px', '18px') }}</span>
             {% endif %}
             <span class="ma__relationship-indicators--label" id="secondary">
               <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is &nbsp;</span>

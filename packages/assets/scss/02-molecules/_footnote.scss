@@ -62,11 +62,11 @@
 .ma__footnote {
 
   & > &__link {
-    border-color: $c-link;
+    border-color: var(--mf-c-link);
 
     &:hover {
-      background-color: $c-font-link;
-      color: $c-font-inverse;
+      background-color: var(--mf-c-font-link);
+      color: var(--mf-c-font-inverse);
     }
   }
 }

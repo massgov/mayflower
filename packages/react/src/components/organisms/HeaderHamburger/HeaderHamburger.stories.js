@@ -32,6 +32,7 @@ HeaderHamburgerExample.parameters = {
 };
 
 HeaderHamburgerExample.storyName = 'Default';
+
 export const HeaderHamburgerWithoutUtilityNav = Template.bind({});
 HeaderHamburgerWithoutUtilityNav.args = {
   mainItems,
@@ -44,6 +45,23 @@ HeaderHamburgerWithoutUtilityNav.parameters = {
 };
 
 HeaderHamburgerWithoutUtilityNav.storyName = 'Header Hamburger without UtilityNav';
+
+export const HeaderHamburgerWithoutNavItems = Template.bind({});
+HeaderHamburgerWithoutNavItems.args = {
+  mainItems,
+  homeLink: {
+    text: 'Mass.gov',
+    url: 'https://mass.gov'
+  }
+};
+HeaderHamburgerWithoutNavItems.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={HeaderHamburgerWithoutNavItems} styles={styles} />
+  }
+};
+
+HeaderHamburgerWithoutNavItems.storyName = 'Header Hamburger without NavItems';
+
 export default {
   title: 'organisms/HeaderHamburger',
   component: HeaderHamburger,
