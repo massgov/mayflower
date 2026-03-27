@@ -1,29 +1,125 @@
 <div class="ma__utility-nav js-util-nav">
   <ul class="ma__utility-nav__items">
     {% if googleLanguages %}
+      {% set googleLanguages = '' %}
       <li class="ma__utility-nav__item">
         <div class="ma__utility-nav__translate">
-          <div id="google_translate_element"></div>
+          {# Status message for screen readers #}
+          <div id="ads-translate-status" class="ads-status-message" role="status" aria-live="polite" aria-atomic="true"></div>
+
+          {# Accessible language selector #}
+          <div class="ads-translate-container">
+            <fieldset class="ads-translate-fieldset">
+              <legend class="ads-translate-legend">Translate this page</legend>
+
+              <label id="ads-translate-label" class="ads-translate-label" for="ads-translate-select">
+                Select language
+              </label>
+
+              <div class="ads-translate-select-wrapper">
+                <select
+                  id="ads-translate-select"
+                  class="ads-translate-select"
+                  aria-describedby="ads-translate-help"
+                >
+                  <option value="en">English</option>
+                  <option value="af">Afrikaans</option>
+                  <option value="sq">Albanian</option>
+                  <option value="am">Amharic</option>
+                  <option value="ar">Arabic</option>
+                  <option value="hy">Armenian</option>
+                  <option value="zh-CN">Chinese (Simplified)</option>
+                  <option value="zh-TW">Chinese (Traditional)</option>
+                  <option value="tl">Filipino</option>
+                  <option value="fr">French</option>
+                  <option value="de">German</option>
+                  <option value="el">Greek</option>
+                  <option value="gu">Gujarati</option>
+                  <option value="ht">Haitian Creole</option>
+                  <option value="iw">Hebrew</option>
+                  <option value="hi">Hindi</option>
+                  <option value="hmn">Hmong</option>
+                  <option value="it">Italian</option>
+                  <option value="ja">Japanese</option>
+                  <option value="km">Khmer</option>
+                  <option value="rw">Kinyarwanda</option>
+                  <option value="ko">Korean</option>
+                  <option value="lo">Lao</option>
+                  <option value="ml">Malayalam</option>
+                  <option value="my">Myanmar (Burmese)</option>
+                  <option value="ne">Nepali</option>
+                  <option value="ps">Pashto</option>
+                  <option value="fa">Persian</option>
+                  <option value="pl">Polish</option>
+                  <option value="pt">Portuguese (Brazil)</option>
+                  <option value="ro">Romanian</option>
+                  <option value="ru">Russian</option>
+                  <option value="so">Somali</option>
+                  <option value="es">Spanish</option>
+                  <option value="sw">Swahili</option>
+                  <option value="ta">Tamil</option>
+                  <option value="te">Telugu</option>
+                  <option value="th">Thai</option>
+                  <option value="ti">Tigrinya</option>
+                  <option value="tr">Turkish</option>
+                  <option value="uk">Ukrainian</option>
+                  <option value="ur">Urdu</option>
+                  <option value="vi">Vietnamese</option>
+                </select>
+
+                <svg class="ads-translate-icon" aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+
+              <span id="ads-translate-help" class="ads-sr-only">
+                Select a language from the dropdown menu and press the Apply button to translate the page
+              </span>
+
+              <button
+                id="ads-translate-apply"
+                class="ads-translate-button"
+                type="button"
+              >
+                Apply translation
+              </button>
+
+              <button
+                id="ads-translate-reset"
+                class="ads-translate-button ads-translate-reset-button"
+                type="button"
+              >
+                Reset to original language
+              </button>
+            </fieldset>
+          </div>
+
+          {# Hidden Google Translate Element #}
+          <div class="ads-goog-te-wrapper">
+            <div id="google_translate_element"></div>
+          </div>
+
           <div class="ma__utility-nav__translate-icon">
             {{ icon('globe', "20", "20")}}
           </div>
         </div>
       </li>
     {% endif %}
+
     {% for item in utilityNav.items %}
       <li class="ma__utility-nav__item">
-      {% if item.text == 'State Organizations' %}
-        {# Get hef value. #}
-        {% for panel in item.panels %}
-          {% for link in panel.links %}
-            <a class="ma__utility-nav__link direct-link" href="{{ link.href }}">
-              {{ icon(item.icon, "20", "18") }}
-              <span>{{ item.text }}</span>
-            </a>
-         {% endfor %}
-        {% endfor %}
-      {% else %}
-        <button
+        {% if item.text == 'State Organizations' %}
+          {# Get hef value. #}
+          {% for panel in item.panels %}
+            {% for link in panel.links %}
+              <a class="ma__utility-nav__link direct-link" href="{{ link.href }}">
+                {{ icon(item.icon, "20", "18") }}
+                <span>{{ item.text }}</span>
+              </a>
+            {% endfor %}
+          {% endfor %}
+        {% else %}
+          <button
             class="ma__utility-nav__link js-util-nav-toggle"
             id="{{ item.id }}"
             aria-controls="panel-{{ item.id }}"
@@ -38,9 +134,9 @@
             <span class="toggle-indicator" aria-hidden="true"></span>
           </button>
           <div
-              aria-hidden="true"
-              class="ma__utility-nav__content js-util-nav-content is-closed"
-              id="panel-{{ item.id }}">
+            aria-hidden="true"
+            class="ma__utility-nav__content js-util-nav-content is-closed"
+            id="panel-{{ item.id }}">
             <div class="ma__utility-nav__container">
               <div class="ma__utility-nav__content-title">
                 {{ icon(item.icon) }}
@@ -49,7 +145,7 @@
               <div class="ma__utility-nav__content-body">
                 {% set utilityPanel = item.panel %}
                 {% for item in item.panels %}
-                {% include "@organisms/by-template/utility-panel.twig" %}
+                  {% include "@organisms/by-template/utility-panel.twig" %}
                 {% endfor %}
               </div>
               <button class="ma__utility-nav__close js-close-util-nav">
