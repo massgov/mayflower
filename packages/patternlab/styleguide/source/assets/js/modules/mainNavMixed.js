@@ -27,7 +27,9 @@ var m = false; // Flag for moving the element once per screen size.
 var translateElements = document.querySelectorAll('[data-utility-nav-modal="translate"]');
 
 if (translateElements.length > 1) {
-  jQuery(translateElements[translateElements.length - 1]).remove(); // keeping IE11 compatiblity.
+  Array.prototype.slice.call(translateElements, 1).forEach(function (element) {
+    jQuery(element).remove(); // keeping IE11 compatibility.
+  });
 }
 
 var translateElement = translateElements[0];
