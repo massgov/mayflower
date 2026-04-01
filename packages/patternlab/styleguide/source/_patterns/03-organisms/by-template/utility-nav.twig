@@ -2,11 +2,11 @@
   <ul class="ma__utility-nav__items">
     {% if googleLanguages %}
       <li class="ma__utility-nav__item">
-        {% include "@organisms/modal.twig" with {
+        {% include "@organisms/modal/modal.twig" with {
           "googleLanguages": googleLanguages,
           "modal": modal|default({})|merge({
-            "wrapperClass": ((modal.wrapperClass|default('') ~ ' ma__utility-nav__translate')|trim),
-            "triggerClass": ((modal.triggerClass|default('') ~ ' ma__utility-nav__link')|trim)
+            "wrapperClass": (modal.wrapperClass|default('')),
+            "triggerClass": ((modal.triggerClass|default('') ~ ' ma__utility-nav__link ma__utility-nav__translate')|trim)
           })
         } %}
       </li>
