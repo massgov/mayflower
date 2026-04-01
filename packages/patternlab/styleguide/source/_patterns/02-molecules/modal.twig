@@ -1,27 +1,29 @@
 {% set modalId = modal.id|default('ma__modal-' ~ random()) %}
 {% set modalTitleId = modalId ~ '-title' %}
 
-<button type="button" class="ma__utility-nav__link" data-modal-trigger="{{ modalId }}" aria-haspopup="dialog" aria-controls="{{ modalId }}">
-    {{ icon(modal.icon, "20", "20") }}
-    <span>{{ modal.buttonText }}</span>
-</button>
-<div id="{{ modalId }}" class="ma__modal-overlay ma__modal" role="dialog" aria-modal="true" aria-labelledby="{{ modalTitleId }}">
-    <div class="ma__modal-dialog">
-        <div class="ma__modal-header">
-            <button type="button" class="ma__modal-close" aria-label="Close dialog">
-                {{ icon("close", "24", "24") }}
-            </button>
-        </div>
-        <div class="ma__modal-content">
-            <legend class="ma__modal-legend ma__modal-legend-{{ modal.type|default('info') }}"><span>{{ icon(modal.icon, "28", "28") }}</span></legend>
-            <h2 id="ma__modal-title" class="ma__modal-title">{{ modal.title }}</h2>
-            {% block htmlContent %}
-                {% if googleLanguages %}
-                    {% include "@molecules/google-translate.twig" with {
-                        "googleLanguages": googleLanguages
-                    } %}
-                {% endif %}
-            {% endblock %}
+<div class="ma__utility-nav__translate">
+    <button type="button" class="ma__utility-nav__link" data-modal-trigger="{{ modalId }}" aria-haspopup="dialog" aria-controls="{{ modalId }}">
+        {{ icon(modal.icon, "20", "20") }}
+        <span>{{ modal.buttonText }}</span>
+    </button>
+    <div id="{{ modalId }}" class="ma__modal-overlay ma__modal" role="dialog" aria-modal="true" aria-labelledby="{{ modalTitleId }}">
+        <div class="ma__modal-dialog">
+            <div class="ma__modal-header">
+                <button type="button" class="ma__modal-close" aria-label="Close dialog">
+                    {{ icon("close", "24", "24") }}
+                </button>
+            </div>
+            <div class="ma__modal-content">
+                <legend class="ma__modal-legend ma__modal-legend-{{ modal.type|default('info') }}"><span>{{ icon(modal.icon, "28", "28") }}</span></legend>
+                <h2 id="ma__modal-title" class="ma__modal-title">{{ modal.title }}</h2>
+                {% block htmlContent %}
+                    {% if googleLanguages %}
+                        {% include "@molecules/google-translate.twig" with {
+                            "googleLanguages": googleLanguages
+                        } %}
+                    {% endif %}
+                {% endblock %}
+            </div>
         </div>
     </div>
 </div>
