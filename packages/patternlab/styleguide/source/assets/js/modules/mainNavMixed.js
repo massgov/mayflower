@@ -24,15 +24,23 @@ function hideHamburgerMenu () {
 // Move it depending if it's mobile or not.
 var m = false; // Flag for moving the element once per screen size.
 
-var translateElement = document.getElementsByClassName('ma__utility-nav__translate');
-jQuery(translateElement[translateElement.length-1]).remove(); // keeping IE11 compatiblity.
-translateElement = translateElement[0];
+var translateElements = document.getElementsByClassName('ma__utility-nav__translate');
+
+if (translateElements.length > 1) {
+  jQuery(translateElements[translateElements.length - 1]).remove(); // keeping IE11 compatiblity.
+}
+
+var translateElement = translateElements[0];
 
 window.addEventListener("resize", toggleGoogleTranslate);
 document.addEventListener("DOMContentLoaded", toggleGoogleTranslate);
 
 // Move the "translate" element to the corresponding menu depending the screen size.
 function toggleGoogleTranslate() {
+  if (!translateElement) {
+    return;
+  }
+
   if (mfIsMobile() && m === false) {
     m = true;
 
@@ -43,7 +51,12 @@ function toggleGoogleTranslate() {
 
   } else if (!mfIsMobile() && m === true) {
     m = false;
-    document.querySelector('.ma__header__hamburger__utility-nav .ma__utility-nav__item').appendChild(translateElement);
+    var desktopContainer = document.querySelector('.ma__header__hamburger__utility-nav .ma__utility-nav__item')
+      || document.querySelector('.ma__header__utility-nav .ma__utility-nav__item');
+
+    if (desktopContainer) {
+      desktopContainer.appendChild(translateElement);
+    }
   }
 }
 
