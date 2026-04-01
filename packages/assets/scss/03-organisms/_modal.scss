@@ -168,7 +168,7 @@ body.ma__modal-open {
     align-items: center;
   }
 
-  &-info {
+  &--info {
     border-color: var(--mds-border-brand-primary-mid);
     span {
       background-color: var(--mds-background-adaptive-brand-primary-mid);
@@ -176,7 +176,7 @@ body.ma__modal-open {
     }
   }
 
-  &-success {
+  &--success {
     border-color: var(--mds-border-utility-success-mid);
     span {
       background-color: var(--mds-background-adaptive-utility-success-mid);
@@ -184,7 +184,7 @@ body.ma__modal-open {
     }
   }
 
-  &-warning {
+  &--warning {
     border-color: var(--mds-border-utility-warning-mid);
     span {
       background-color: var(--mds-background-adaptive-utility-warning-mid);
@@ -192,7 +192,7 @@ body.ma__modal-open {
     }
   }
 
-  &-alert {
+  &--alert {
     border-color: var(--mds-border-utility-danger-mid);
     span {
       background-color: var(--mds-background-adaptive-utility-danger-mid);

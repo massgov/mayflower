@@ -19,7 +19,7 @@
                 </button>
             </div>
             <div class="ma__modal-content">
-                <legend class="ma__modal-legend ma__modal-legend-{{ modalStatus }}"><span>{{ icon(modal.icon|default('info'), "28", "28") }}</span></legend>
+                <legend class="ma__modal-legend ma__modal-legend--{{ modalStatus }}"><span>{{ icon(modal.icon, "28", "28") }}</span></legend>
                 <h2 id="{{ modalTitleId }}" class="ma__modal-title">{{ modal.title }}</h2>
                 {% block htmlContent %}
                     {% if googleLanguages %}
