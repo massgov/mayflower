@@ -104,17 +104,6 @@
   border-radius: var(--mds-radius-sm);
   color: var(--mds-text-and-icons-brand-primary-mid);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-}
-
-.ma__modal-close svg {
-  width: var(--mds-space-md);
-  height: var(--mds-space-md);
-  fill: currentColor;
 }
 
 /* Modal content */
