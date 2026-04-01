@@ -112,7 +112,6 @@
 @use "02-molecules/secondary-nav-hamburger";
 @use "02-molecules/map-google";
 @use "02-molecules/map-leaflet";
-@use "02-molecules/modal";
 @use "02-molecules/org-info";
 @use "02-molecules/org-selector";
 @use "02-molecules/page-intro";
@@ -148,6 +147,7 @@
 @use "03-organisms/collage-header";
 @use "03-organisms/collapsible-content";
 @use "03-organisms/contact-row";
+@use "03-organisms/modal";
 @use "03-organisms/contact-list";
 @use "03-organisms/content-eyebrow";
 @use "03-organisms/curated-person";
