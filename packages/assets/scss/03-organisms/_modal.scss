@@ -1,19 +1,5 @@
 @use "00-base/configure" as *;
 
-.ma__note {
-  background-color: var(--mds-background-section-brand-neutral-low);
-  border-left: 4px solid var(--mds-border-brand-primary-mid);
-  padding: 1rem 1.5rem;
-  margin: 1rem 0;
-}
-
-.ma__warning {
-  background-color: var(--mds-background-section-utility-warning-lowest);
-  border-left: 4px solid var(--mds-border-utility-warning-mid);
-  padding: 1rem 1.5rem;
-  margin: 1rem 0;
-}
-
 .ma__skip-link {
   position: absolute;
   left: -10000px;

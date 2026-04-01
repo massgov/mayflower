@@ -8,7 +8,7 @@ A modal with inputs for title and text.
     "id": "",
     "title": "Select language",
     "icon": "translate",
-    "type": "warning",
+    "status": "info",
     "buttonText": "Language",
     "wrapperClass": "",
     "triggerClass": ""

@@ -2,6 +2,7 @@
 {% set modalTitleId = modalId ~ '-title' %}
 {% set modalWrapperClass = modal.wrapperClass|default('') %}
 {% set modalTriggerClass = modal.triggerClass|default('') %}
+{% set modalStatus = modal.status|default(modal.type|default('info')) %}
 {% set modalWrapperClasses = 'ma__modal-trigger-wrapper' ~ (modalWrapperClass ? ' ' ~ modalWrapperClass : '') %}
 {% set modalTriggerClasses = 'ma__modal-trigger' ~ (modalTriggerClass ? ' ' ~ modalTriggerClass : '') %}
 
@@ -18,8 +19,8 @@
                 </button>
             </div>
             <div class="ma__modal-content">
-                <legend class="ma__modal-legend ma__modal-legend-{{ modal.type|default('info') }}"><span>{{ icon(modal.icon, "28", "28") }}</span></legend>
-                <h2 id="ma__modal-title" class="ma__modal-title">{{ modal.title }}</h2>
+                <legend class="ma__modal-legend ma__modal-legend-{{ modalStatus }}"><span>{{ icon(modal.icon|default('info'), "28", "28") }}</span></legend>
+                <h2 id="{{ modalTitleId }}" class="ma__modal-title">{{ modal.title }}</h2>
                 {% block htmlContent %}
                     {% if googleLanguages %}
                         {% include "@molecules/google-translate.twig" with {
