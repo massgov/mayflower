@@ -137,22 +137,50 @@ body.ma__modal-open {
 /* Mobile and zoom: full width and height for large dialog */
 @media (max-width: 768px), (min-resolution: 150dpi) {
   .ma__modal-overlay {
-    padding: 0;
+    padding: var(--mds-space-md);
   }
 }
 /* Mobile and zoom: full width and height for medium and small dialogs */
 @media (max-width: 600px), (min-resolution: 200dpi) {
-  .ma__modal {
-    max-width: 100% !important;
-    min-width: 100% !important;
-    max-height: 100vh;
-    height:100%;
-    border-radius: 0;
-    overflow-y:auto;
+  .ma__modal-overlay {
+    padding: var(--mds-space-md);
   }
+
+  .ma__modal-dialog {
+    padding: var(--mds-space-lg) var(--mds-space-md);
+    max-height: calc(100vh - var(--mds-space-3xl));
+  }
+
+  .ma__modal-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .ma__modal-close {
+    margin: var(--mds-space-2xs);
+  }
+
   .ma__modal-content {
-    overflow:visible;
-    min-height:auto;
+    width: 100%;
+    padding: 0;
+    overflow: visible;
+    min-height: auto;
+  }
+
+  .ma__modal-title {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .ma__modal-button-group {
+    flex-direction: column;
+    gap: var(--mds-space-sm);
+    width: 100%;
+  }
+
+  .ma__modal-button-group button {
+    width: 100%;
   }
 }
 
