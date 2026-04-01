@@ -1,0 +1,11 @@
+{
+  "modal": {
+    "id": "",
+    "title": "Select language",
+    "icon": "translate",
+    "status": "info",
+    "buttonText": "Language",
+    "wrapperClass": "",
+    "triggerClass": ""
+  }
+}

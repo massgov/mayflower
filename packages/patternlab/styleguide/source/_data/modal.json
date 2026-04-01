@@ -1,9 +1,8 @@
 {
   "modal": {
     "id": "",
-    "title": "Select",
+    "title": "Select language",
     "icon": "translate",
-    "status": "success",
     "buttonText": "Language"
   }
 }
