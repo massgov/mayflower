@@ -24,7 +24,7 @@ function hideHamburgerMenu () {
 // Move it depending if it's mobile or not.
 var m = false; // Flag for moving the element once per screen size.
 
-var translateElements = document.getElementsByClassName('ma__utility-nav__translate');
+var translateElements = document.querySelectorAll('[data-utility-nav-modal="translate"]');
 
 if (translateElements.length > 1) {
   jQuery(translateElements[translateElements.length - 1]).remove(); // keeping IE11 compatiblity.

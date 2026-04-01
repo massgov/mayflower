@@ -1,8 +1,12 @@
 {% set modalId = modal.id|default('ma__modal-' ~ random()) %}
 {% set modalTitleId = modalId ~ '-title' %}
+{% set modalWrapperClass = modal.wrapperClass|default('') %}
+{% set modalTriggerClass = modal.triggerClass|default('') %}
+{% set modalWrapperClasses = 'ma__modal-trigger-wrapper' ~ (modalWrapperClass ? ' ' ~ modalWrapperClass : '') %}
+{% set modalTriggerClasses = 'ma__modal-trigger' ~ (modalTriggerClass ? ' ' ~ modalTriggerClass : '') %}
 
-<div class="ma__utility-nav__translate">
-    <button type="button" class="ma__utility-nav__link" data-modal-trigger="{{ modalId }}" aria-haspopup="dialog" aria-controls="{{ modalId }}">
+<div class="{{ modalWrapperClasses }}"{% if googleLanguages %} data-utility-nav-modal="translate"{% endif %}>
+    <button type="button" class="{{ modalTriggerClasses }}" data-modal-trigger="{{ modalId }}" aria-haspopup="dialog" aria-controls="{{ modalId }}">
         {{ icon(modal.icon, "20", "20") }}
         <span>{{ modal.buttonText }}</span>
     </button>

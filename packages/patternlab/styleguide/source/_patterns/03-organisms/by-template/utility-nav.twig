@@ -3,7 +3,11 @@
     {% if googleLanguages %}
       <li class="ma__utility-nav__item">
         {% include "@organisms/modal.twig" with {
-          "googleLanguages": googleLanguages
+          "googleLanguages": googleLanguages,
+          "modal": modal|default({})|merge({
+            "wrapperClass": ((modal.wrapperClass|default('') ~ ' ma__utility-nav__translate')|trim),
+            "triggerClass": ((modal.triggerClass|default('') ~ ' ma__utility-nav__link')|trim)
+          })
         } %}
       </li>
     {% endif %}

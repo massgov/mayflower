@@ -9,6 +9,8 @@ A modal with inputs for title and text.
     "title": "Select language",
     "icon": "translate",
     "type": "warning",
-    "buttonText": "Language"
+    "buttonText": "Language",
+    "wrapperClass": "",
+    "triggerClass": ""
 }
 ~~~
