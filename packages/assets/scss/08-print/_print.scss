@@ -17,6 +17,92 @@
     color: var(--mf-c-font-heading) !important;
   }
 
+  /* Print typography - spacing and weight (no font-size changes) */
+  h1,
+  .ma__page-header__title,
+  .ma__comp-heading--h1 {
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+  }
+
+  h2,
+  .ma__comp-heading--h2 {
+    font-weight: 700;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    padding: 0 !important;
+  }
+
+  h3,
+  .ma__comp-heading--h3 {
+    font-weight: 700;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    padding: 0 !important;
+  }
+
+  h4,
+  .ma__comp-heading--h4 {
+    font-weight: 700;
+    margin-top: 0.75em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+  }
+
+  h5,
+  .ma__comp-heading--h5 {
+    font-weight: 700;
+    margin-top: 0.75em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+  }
+
+  h6,
+  .ma__comp-heading--h6 {
+    font-weight: 700;
+    margin-top: 0.75em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+  }
+
+  p,
+  .ma__rich-text p,
+  .ma__rich-text__content p {
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 0.75em;
+  }
+
+  a,
+  .link {
+    text-decoration: underline;
+  }
+
+  ul,
+  ol {
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 0.75em;
+    padding-left: 1.5em;
+  }
+
+  li {
+    line-height: 1.5;
+    margin-bottom: 0.25em;
+  }
+
+  /* Colored header from left - no indent, dark text in print */
+  .ma__colored-header-from-left,
+  .ma__colored-header-from-left__title {
+    margin-left: 0 !important;
+    padding-left: 2mm !important;
+    color: $c-black !important;
+  }
+
   .main-content--two .page-content > *,
   .main-content--full .page-content > * {
     margin-top: 0;
@@ -46,12 +132,13 @@
   .ma__callout-time__icon,
   .ma__jump-links,
   .ma__header__nav,
-  .ma__toc--overlay,
   .ma__page-flipper,
   .ma__callout-stats,
   .ma__illustrated-header__image,
   .ma__pagination,
   .ma__location-listing__filters,
+  .ma__location-listing__map,
+  .ma__location-banner__map,
   .ma__action-activities__image,
   .ma__action-activities__link,
   .ma__action-header__divider,
@@ -71,8 +158,43 @@
   .ma__fixed-feedback-button,
   #gtm-loginto, // contextual login buttons
   #specto-widget-root, // chatbot region
+  massgov-virtual-assistant-widget,
+  #massgov-virtual-assistant-floating-action-button,
   .ma__sticky-toc__stuck {
     display: none !important;
+  }
+
+  /* Show table of contents overlay for print (law library/binder pages) */
+  .ma__toc--overlay {
+    display: block !important;
+    position: static !important;
+  }
+
+  .ma__toc--overlay .ma__toc--overlay__container,
+  .ma__toc--overlay .ma__toc--overlay__content {
+    display: block !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .ma__toc--overlay .ma__toc__toc__toggle {
+    display: none !important;
+  }
+
+  /* Hide icons/SVG in print - avoid empty space (not [class*="icon"] - too broad, hides social links etc.) */
+  svg,
+  .icon,
+  .ma__icon,
+  .ma__header-alerts__header___icon {
+    display: none !important;
+  }
+
+  /* Remove icon spacing so no gap where icon was */
+  .ma__icon + span,
+  span + .ma__icon,
+  .icon + span,
+  span + .icon {
+    margin-left: 0 !important;
   }
 
   a::after {
@@ -80,7 +202,8 @@
     font-size: 0.8em;
     font-weight: normal;
     width: 100%;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .pre-content::after,
@@ -252,7 +375,7 @@
       top: 0;
       color: var(--mf-c-font-heading);
 
-      &::before, {
+      &::before {
         display: none;
       }
     }
@@ -336,6 +459,29 @@
 
     a {
       padding: 0 !important;
+    }
+  }
+
+  /* Callout links three-up: collapse card padding/gaps in print */
+  .ma__callout-links-three-up__heading {
+    h3 {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .ma__callout-links-three-up__container {
+    margin-top: 0 !important;
+
+    > .ma__callout-link {
+      padding: 0 !important;
+      margin-bottom: 1em !important;
+    }
+  }
+
+  .ma__callout-links-three-up {
+    .ma__callout-link__container {
+      padding-right: 0 !important;
     }
   }
 
@@ -584,6 +730,12 @@
         font-size: $fonts-5xlarge;
       }
     }
+  }
+
+  /* Best practice: hide embedded iframes in print.
+     Cross-origin iframe content is rendered inconsistently by browsers (blank gaps/cut-off). */
+  .ma__form-requirements + .ma__iframe {
+    display: none !important;
   }
 
 }
