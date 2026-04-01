@@ -4,7 +4,7 @@
  *
  */
 
- @import url('primitives.css');
+ /* Primitives are loaded before this file by the Sass token wrapper. */
 
 /**
  * Color Theme tokens used in the theme.
@@ -244,4 +244,3 @@
     --mds-breakpoint-horizontal-space-margin: var(--mds-space-200);
   };
 };
-
