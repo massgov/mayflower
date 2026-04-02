@@ -1,3 +1,5 @@
+import focusTrapping from "../helpers/focusTrapping.js";
+
 /**
  * Accessible Modal Dialog System
  * WCAG 2.2 Compliant with focus management and keyboard navigation
@@ -33,6 +35,8 @@ class AccessibleModal {
         this.focusableElements = null;
         this.firstFocusableElement = null;
         this.lastFocusableElement = null;
+        this.boundHandleKeyDown = (e) => this.handleKeyDown(e);
+        this.boundHandleFocusIn = (e) => this.handleFocusIn(e);
 
         this.init();
     }
@@ -67,8 +71,10 @@ class AccessibleModal {
             });
         }
 
-        // Keyboard navigation - handles Escape key and Tab trapping
-        this.modal.addEventListener('keydown', (e) => this.handleKeyDown(e));
+        // Keyboard navigation and focus trapping are handled at the document level
+        // so focus cannot escape the dialog while it is open.
+        document.addEventListener('keydown', this.boundHandleKeyDown);
+        document.addEventListener('focusin', this.boundHandleFocusIn);
     }
 
     /**
@@ -181,12 +187,33 @@ class AccessibleModal {
             '[tabindex]:not([tabindex="-1"])'
         ];
 
-        this.focusableElements = this.dialog.querySelectorAll(focusableSelectors.join(','));
+        this.focusableElements = Array.from(
+            this.dialog.querySelectorAll(focusableSelectors.join(','))
+        ).filter((element) => {
+            if (element.disabled) {
+                return false;
+            }
+
+            if (element.getAttribute('aria-hidden') === 'true') {
+                return false;
+            }
+
+            return element.getClientRects().length > 0;
+        });
+
         this.firstFocusableElement = this.focusableElements[0]; // Close button is first
         this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];
     }
 
+    isOpen() {
+        return this.modal.classList.contains('ma__active');
+    }
+
     handleKeyDown(e) {
+        if (!this.isOpen()) {
+            return;
+        }
+
         // Close on Escape key - WCAG 2.1.2 No Keyboard Trap
         // Users must be able to close modal with keyboard
         if (e.key === 'Escape' || e.key === 'Esc') {
@@ -196,27 +223,50 @@ class AccessibleModal {
         }
 
         // Trap focus within modal - WCAG 2.4.3 Focus Order
-        // Focus should cycle within the dialog and not escape to page behind
+        // Focus should cycle within the dialog and not escape to page behind.
         if (e.key === 'Tab') {
-            // If only one focusable element, prevent Tab from doing anything
-            if (this.focusableElements.length === 1) {
+            this.updateFocusableElements();
+
+            if (!this.focusableElements.length) {
                 e.preventDefault();
+                if (this.closeBtn) {
+                    this.closeBtn.focus();
+                }
                 return;
             }
 
-            if (e.shiftKey) {
-                // Shift + Tab - moving backward
-                if (document.activeElement === this.firstFocusableElement) {
-                    e.preventDefault();
+            if (!this.dialog.contains(document.activeElement)) {
+                e.preventDefault();
+                if (e.shiftKey) {
                     this.lastFocusableElement.focus();
-                }
-            } else {
-                // Tab - moving forward
-                if (document.activeElement === this.lastFocusableElement) {
-                    e.preventDefault();
+                } else {
                     this.firstFocusableElement.focus();
                 }
+                return;
             }
+
+            focusTrapping({
+                modalSelector: `#${this.modal.id}`,
+                keyEvent: e
+            });
+        }
+    }
+
+    handleFocusIn(e) {
+        if (!this.isOpen()) {
+            return;
+        }
+
+        if (this.dialog.contains(e.target)) {
+            return;
+        }
+
+        this.updateFocusableElements();
+
+        if (this.firstFocusableElement) {
+            this.firstFocusableElement.focus();
+        } else if (this.closeBtn) {
+            this.closeBtn.focus();
         }
     }
 
