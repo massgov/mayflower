@@ -29,6 +29,9 @@
   --mds-background-section-brand-tertiary-lowest: var(--mds-color-brand-independence-cranberry-100);
   --mds-background-section-brand-tertiary-mid: var(--mds-color-brand-independence-cranberry-800);
   --mds-background-section-brand-tertiary-highest: var(--mds-color-brand-independence-cranberry-1300);
+  --mds-background-section-utility-informative-lowest: var(--mds-utility-informative-blue-100);
+  --mds-background-section-utility-informative-mid: var(--mds-utility-informative-blue-900);
+  --mds-background-section-utility-informative-highest: var(--mds-utility-informative-blue-1300);
   --mds-background-section-utility-danger-lowest: var(--mds-color-utility-danger-red-100);
   --mds-background-section-utility-danger-mid: var(--mds-color-utility-danger-red-600);
   --mds-background-section-utility-danger-highest: var(--mds-color-utility-danger-red-1300);
@@ -38,7 +41,7 @@
   --mds-background-section-utility-success-lowest: var(--mds-color-utility-success-green-100);
   --mds-background-section-utility-success-mid: var(--mds-color-utility-success-green-600);
   --mds-background-section-utility-success-highest: var(--mds-color-utility-success-green-1300);
-
+  
 
   /* Adaptive/Interactive state colors */
   --mds-background-adaptive-brand-neutral-lowest: var(--mds-color-brand-gray-100);
@@ -62,10 +65,12 @@
   --mds-background-adaptive-brand-tertiary-mid: var(--mds-color-brand-independence-cranberry-900);
   --mds-background-adaptive-brand-tertiary-high: var(--mds-color-brand-independence-cranberry-1100);
   --mds-background-adaptive-brand-tertiary-highest: var(--mds-color-brand-independence-cranberry-1300);
-  --mds-background-section-utility-informative-lowest: var(--mds-utility-informative-blue-100);
-  --mds-background-section-utility-informative-mid: var(--mds-utility-informative-blue-900);
-  --mds-background-section-utility-informative-highest: var(--mds-utility-informative-blue-1300);
   --mds-background-adaptive-brand-highlight-mid: var(--mds-color-brand-duckling-yellow-800);
+  --mds-background-adaptive-utility-informative-lowest: var(--mds-utility-informative-blue-100);
+  --mds-background-adaptive-utility-informative-low: var(--mds-utility-informative-blue-300);
+  --mds-background-adaptive-utility-informative-mid: var(--mds-utility-informative-blue-600);
+  --mds-background-adaptive-utility-informative-high: var(--mds-utility-informative-blue-900);
+  --mds-background-adaptive-utility-informative-highest: var(--mds-utility-informative-blue-1300);
   --mds-background-adaptive-utility-danger-lowest: var(--mds-color-utility-danger-red-100);
   --mds-background-adaptive-utility-danger-low: var(--mds-color-utility-danger-red-300);
   --mds-background-adaptive-utility-danger-mid: var(--mds-color-utility-danger-red-600);
@@ -82,20 +87,15 @@
   --mds-background-adaptive-utility-success-high: var(--mds-color-utility-success-green-900);
   --mds-background-adaptive-utility-success-highest: var(--mds-color-utility-success-green-1300);
   --mds-background-overlay: #00000099;
-  --mds-white: var(--mds-color-utility-base-white);
-  --mds-black: var(--mds-color-utility-base-black);
-  --mds-inverse: var(--mds-color-utility-base-white);
-  --mds-static-white: var(--mds-color-utility-base-white);
-  --mds-static-black: var(--mds-color-utility-base-black);
-  --mds-static-inverse: var(--mds-color-utility-base-white);
 
-  /** Text Colors **/
+  /** Text and Icon Colors **/
   --mds-text-and-icons-brand-neutral-default: var(--mds-color-brand-gray-1300);
   --mds-text-and-icons-brand-neutral-muted: var(--mds-color-brand-gray-900);
   --mds-text-and-icons-brand-neutral-disabled: var(--mds-color-brand-gray-700);
   --mds-text-and-icons-brand-primary-mid: var(--mds-color-brand-bay-blue-1000);
   --mds-text-and-icons-brand-secondary-mid: var(--mds-color-brand-berkshires-green-1000);
   --mds-text-and-icons-utility-danger-mid: var(--mds-color-utility-danger-red-600);
+  --mds-text-and-icons-utility-informative-mid: var(--mds-color-utility-informative-blue-900);
   --mds-text-and-icons-utility-warning-mid: var(--mds-color-utility-warning-yellow-600);
   --mds-text-and-icons-utility-success-mid: var(--mds-color-utility-success-green-900);
 
@@ -116,12 +116,25 @@
   --mds-border-brand-secondary-highest: var(--mds-color-brand-berkshires-green-1300);
   --mds-border-focus-on-light: var(--mds-color-utility-focus-blue-600);
   --mds-border-focus-on-dark: var(--mds-color-utility-focus-blue-300);
+  --mds-border-utility-informative-low: var(--mds-utility-informative-blue-300);
+  --mds-border-utility-informative-mid: var(--mds-utility-informative-blue-900);
   --mds-border-utility-danger-low: var(--mds-color-utility-danger-red-300);
   --mds-border-utility-danger-mid: var(--mds-color-utility-danger-red-600);
   --mds-border-utility-warning-low: var(--mds-color-utility-warning-yellow-300);
   --mds-border-utility-warning-mid: var(--mds-color-utility-warning-yellow-600);
   --mds-border-utility-success-low: var(--mds-color-utility-success-green-300);
   --mds-border-utility-success-mid: var(--mds-color-utility-success-green-600);
+
+  /** Static colors - These won't change even if the theme changes **/
+  --mds-static-white: var(--mds-color-utility-base-white);
+  --mds-static-black: var(--mds-color-utility-base-black);
+  --mds-static-light-gray: var(--mds-color-brand-gray-100);
+  --mds-static-blue-mid: var(--mds-color-brand-bay-blue-1000); 
+  
+  /** Misc **/
+  --mds-inverse: var(--mds-color-utility-base-white); /** Switched based on light/dark mode **/
+
+/** End color variables **/
 
 /**
  * Corner (border radius) tokens used in the theme.
