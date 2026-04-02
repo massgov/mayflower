@@ -37,16 +37,46 @@ if (hamburgerMenuContainer) {
   const utilWideGTranslate = document.querySelector(
     ".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate"
   );
+  const isMixedHeader = document.querySelector("header.ma__header__mixed");
+  const translateModalElements = document.querySelectorAll('[data-utility-nav-modal="translate"]');
+  const translateModalElement = translateModalElements[0];
+
+  if (!isMixedHeader && translateModalElements.length > 1) {
+    Array.prototype.slice.call(translateModalElements, 1).forEach(function (element) {
+      element.remove();
+    });
+  }
+
+  function toggleTranslateModalPlacement() {
+    if (!translateModalElement || isMixedHeader) {
+      return;
+    }
+
+    let targetContainer;
+
+    if (body.clientWidth > 840) {
+      targetContainer = document.querySelector(".js-utility-nav--wide .ma__utility-nav__item");
+    } else {
+      targetContainer = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item");
+    }
+
+    if (targetContainer && translateModalElement.parentElement !== targetContainer) {
+      targetContainer.appendChild(translateModalElement);
+    }
+  }
+
   // Define all top level clickable elements with current window width.
   let topLevelClickableItems;
   window.addEventListener("DOMContentLoaded", function (e) {
     setTimeout(function timeoutFunction() {
       // This prevents GT elements get null.
       selectTopClickableItems(width);
+      toggleTranslateModalPlacement();
     }, 1000);
   });
   window.addEventListener("resize", function (e) {
     selectTopClickableItems(body.clientWidth);
+    toggleTranslateModalPlacement();
   });
 
   // Add a label for the utility nav UL on non-home pages in desktop.
