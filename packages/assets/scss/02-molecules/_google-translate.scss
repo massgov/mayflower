@@ -26,12 +26,6 @@
   padding-right: 0;
 }
 
-html.translated-ltr .notranslate,
-html.translated-rtl .notranslate {
-  padding-left: 0.25em;
-  padding-right: 0.25em;
-}
-
 /* Hide default Google Translate widget */
 .ma__goog-te-wrapper {
   position: absolute;
