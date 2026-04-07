@@ -1,4 +1,5 @@
 (function() {
+  const focusRestoreStorageKey = 'ma_translate_focus_restore';
   const translateContainers = Array.from(document.querySelectorAll('.ma__translate-container'));
 
   if (!translateContainers.length) {
@@ -54,6 +55,55 @@
   }
 
   const originalPageLang = getOriginalPageLanguage();
+
+  function getTriggerForContainer(container) {
+    const modalElement = container.closest('.ma__modal');
+
+    if (!modalElement || !modalElement.id) {
+      return null;
+    }
+
+    return document.querySelector(`[data-modal-trigger="${modalElement.id}"]`);
+  }
+
+  function restoreTriggerFocus() {
+    const triggerSelector = sessionStorage.getItem(focusRestoreStorageKey);
+
+    if (!triggerSelector) {
+      return;
+    }
+
+    sessionStorage.removeItem(focusRestoreStorageKey);
+
+    const trigger = document.querySelector(triggerSelector);
+    if (trigger) {
+      trigger.focus();
+    }
+  }
+
+  function focusTriggerBeforeReload(container) {
+    const trigger = getTriggerForContainer(container);
+    const modalElement = container.closest('.ma__modal');
+
+    if (!trigger || !modalElement) {
+      return;
+    }
+
+    sessionStorage.setItem(
+      focusRestoreStorageKey,
+      `[data-modal-trigger="${modalElement.id}"]`
+    );
+
+    if (window.modals && window.modals[modalElement.id]) {
+      window.modals[modalElement.id].close();
+      return;
+    }
+
+    modalElement.classList.remove('ma__active');
+    modalElement.classList.remove('ma__shim-active');
+    document.body.classList.remove('ma__modal-open');
+    trigger.focus();
+  }
 
   function getCookieDomain() {
     const hostname = window.location.hostname;
@@ -129,6 +179,7 @@
   }
 
   initializeLanguageSelects();
+  restoreTriggerFocus();
 
   setTimeout(() => {
     if (document.documentElement.lang === 'auto') {
@@ -153,6 +204,7 @@
 
       currentLanguageCode = selectedLanguage;
       syncSelectValue(selectedLanguage);
+      focusTriggerBeforeReload(languageSelect.closest('.ma__translate-container'));
 
       if (selectedLanguage === originalPageLang) {
         resetToOriginalLanguage();
@@ -162,6 +214,7 @@
     });
 
     resetButton.addEventListener('click', function() {
+      focusTriggerBeforeReload(languageSelect.closest('.ma__translate-container'));
       resetToOriginalLanguage();
     });
 
