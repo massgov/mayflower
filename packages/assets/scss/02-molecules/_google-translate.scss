@@ -79,7 +79,7 @@ body > .skiptranslate {
   font: var(--mds-text-label-md);
   color: var(--mds-text-and-icons-brand-neutral-default);
   background-color: var(--mds-inverse);
-  border: 2px solid var(--mds-border-brand-neutral-mid);
+  border: 2px solid var(--mds-border-brand-neutral-high);
   border-radius: var(--mds-radius-md);
   cursor: pointer;
   appearance: none;
@@ -87,14 +87,9 @@ body > .skiptranslate {
   -moz-appearance: none;
 }
 
-.ma__translate-select:hover {
-  border-color: var(--mds-border-brand-primary-mid);
-}
-
 .ma__translate-select:focus {
   outline: 3px solid var(--mds-border-focus-on-light);
   outline-offset: 2px;
-  border-color: var(--mds-border-brand-primary-mid);
 }
 
 .ma__translate-select-caret-down {
