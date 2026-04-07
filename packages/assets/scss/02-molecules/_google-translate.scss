@@ -135,15 +135,15 @@ body > .skiptranslate {
 }
 
 .ma__translate-reset-button {
-  background-color: var(--mds-inverse);
+  background-color: var(--mds-static-white);
   border-color: var(--mds-border-brand-primary-mid);
   color: var(--mds-text-and-icons-brand-primary-mid);
 }
 
 .ma__translate-reset-button:hover {
-  background-color: var(--mds-background-adaptive-brand-neutral-lowest);
-  border-color: var(--mds-background-adaptive-brand-primary-high);
-  color: var(--mds-background-adaptive-brand-primary-high);
+  background-color: var(--mds-background-adaptive-brand-primary-high);
+  border-color: var(--mds-border-brand-primary-high);
+  color: var(--mds-inverse);
 }
 
 .ma__sr-only {
