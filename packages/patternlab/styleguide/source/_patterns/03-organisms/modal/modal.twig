@@ -2,7 +2,7 @@
 {% set modalTitleId = modalId ~ '-title' %}
 {% set modalWrapperClass = modal.wrapperClass|default('') %}
 {% set modalTriggerClass = modal.triggerClass|default('') %}
-{% set modalStatus = modal.status|default(modal.type|default('info')) %}
+{% set modalStatus = modal.status|default('info') %}
 {% set modalWrapperClasses = 'ma__modal-trigger-wrapper' ~ (modalWrapperClass ? ' ' ~ modalWrapperClass : '') %}
 {% set modalTriggerClasses = 'ma__modal-trigger' ~ (modalTriggerClass ? ' ' ~ modalTriggerClass : '') %}
 
