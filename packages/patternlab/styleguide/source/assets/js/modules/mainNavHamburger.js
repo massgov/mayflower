@@ -5,6 +5,7 @@ const hamburgerMenuContainer = document.querySelector(
 );
 
 if (hamburgerMenuContainer) {
+  const HEADER_TOGGLE_BREAKPOINT = 940;
   const osInfo = navigator.appVersion;
   const body = document.querySelector("body");
   let width = body.clientWidth;
@@ -41,6 +42,10 @@ if (hamburgerMenuContainer) {
   const translateModalElements = document.querySelectorAll('[data-utility-nav-modal="translate"]');
   const translateModalElement = translateModalElements[0];
 
+  function isHeaderDesktop() {
+    return body.clientWidth > HEADER_TOGGLE_BREAKPOINT;
+  }
+
   if (!isMixedHeader && translateModalElements.length > 1) {
     Array.prototype.slice.call(translateModalElements, 1).forEach(function (element) {
       element.remove();
@@ -54,7 +59,7 @@ if (hamburgerMenuContainer) {
 
     let targetContainer;
 
-    if (body.clientWidth > 840) {
+    if (isHeaderDesktop()) {
       targetContainer = document.querySelector(".js-utility-nav--wide .ma__utility-nav__item");
     } else {
       targetContainer = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item");
@@ -80,7 +85,7 @@ if (hamburgerMenuContainer) {
   });
 
   // Add a label for the utility nav UL on non-home pages in desktop.
-  if (width > 840) {
+  if (width > HEADER_TOGGLE_BREAKPOINT) {
     let headerClass = document.querySelector("header").classList;
     if (!headerClass.contains("ma__header__mixed")) {
       utilNavWide.querySelector(".ma__utility-nav__items").setAttribute("aria-label", "Language options and quick access links");
@@ -367,8 +372,8 @@ if (hamburgerMenuContainer) {
     document.querySelector("body").style.position = "fixed";
 
     // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-    if (utilWideGTranslate.querySelector("a") && body.clientWidth > 840) {
-      // Google translate elements aren't rendered screen width under 840px, and the object is null.
+    if (utilWideGTranslate && utilWideGTranslate.querySelector("a") && isHeaderDesktop()) {
+      // Google translate elements aren't rendered in the wide utility nav below the header desktop breakpoint.
       utilWideGTranslate.querySelector("a").setAttribute("tabindex", "-1");
     }
 
@@ -396,7 +401,7 @@ if (hamburgerMenuContainer) {
 
     if (menuOverlay) {
       let overlayOffset = heightAboveMenuContainer;
-      if (width > 840) {
+      if (width > HEADER_TOGGLE_BREAKPOINT) {
         overlayOffset = overlayOffset - 1;
       }
       menuOverlay.classList.add("overlay-open");

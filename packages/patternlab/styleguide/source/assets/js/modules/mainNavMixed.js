@@ -2,12 +2,13 @@
 const mixedBody = document.querySelector("body");
 const mixedMenuButton = document.querySelector(".js-header-menu-button");
 const mixedMenuOverlay = document.querySelector(".menu-overlay");
+const HEADER_TOGGLE_BREAKPOINT = 940;
 
 let mfIsMobile = ()=>{
-  return document.documentElement.clientWidth < 840;
+  return document.documentElement.clientWidth <= HEADER_TOGGLE_BREAKPOINT;
 };
 
-// Hide hamburger menu when window size is resized to over 840 while hamburger menu is open.
+// Hide hamburger menu when window size is resized to desktop while hamburger menu is open.
 window.addEventListener("resize", hideHamburgerMenu);
 
 function hideHamburgerMenu () {
