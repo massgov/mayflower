@@ -714,7 +714,6 @@ body.show-menu {
       @media ($bp-header-toggle-min) {
 
         position: absolute;
-        top: -$header-mobile-controls-height - 4px;
       }
 
       @media ($bp-large-min) {

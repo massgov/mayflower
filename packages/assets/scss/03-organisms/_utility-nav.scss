@@ -265,7 +265,6 @@ $utility-nav-height: 43px;
 
   &__content {
     display: block;
-    margin-top: $header-mobile-controls-height;
     padding-left: 20px;
     position: fixed;
     top: 0;
@@ -338,7 +337,6 @@ $utility-nav-height: 43px;
     }
 
     @media ($bp-header-toggle-max) {
-      height: calc(100vh - #{$header-mobile-controls-height});
       padding-left: 20px;
       padding-right: 20px;
       background-color: var(--mf-c-primary);

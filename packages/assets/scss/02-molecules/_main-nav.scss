@@ -154,8 +154,6 @@
     z-index: $z-overlay;
 
     @media ($bp-header-toggle-max) {
-      margin-top: $header-mobile-controls-height;
-      height: calc(100vh - #{$header-mobile-controls-height});
       overflow-y: auto;
       padding-left: 20px;
       right: -300px;

@@ -149,12 +149,10 @@ body {
   &__nav-container {
 
     @media ($bp-header-toggle-max) {
-      height: calc(100vh - #{$header-mobile-controls-height});
       overflow-y: auto;
       position: fixed;
         top: 0;
         right: -$header-mobile-menu-width;
-      margin-top: $header-mobile-controls-height;
       transition: right 0.5s ease;
       width: $header-mobile-menu-width;
       z-index: $z-dropdown;
@@ -168,7 +166,6 @@ body {
   &__button-container {
 
     @include ma-container;
-    height: $header-mobile-controls-height;
     position: fixed;
       top: 0;
       left: 0;
@@ -367,7 +364,6 @@ body {
 
       @media ($bp-header-toggle-min) {
         position: absolute;
-          top: -$header-mobile-controls-height - 4px;
       }
 
       @media ($bp-large-min) {
