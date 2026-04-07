@@ -175,8 +175,6 @@
 
   function setButtonState(buttonTextOverrides = {}) {
     translateControls.forEach(({ applyButton, resetButton }) => {
-      applyButton.disabled = Boolean(buttonTextOverrides.applyDisabled);
-      resetButton.disabled = Boolean(buttonTextOverrides.resetDisabled);
 
       if (buttonTextOverrides.applyText) {
         applyButton.textContent = buttonTextOverrides.applyText;
@@ -196,8 +194,6 @@
     updateStatusMessages(`Resetting to original language: ${originalLangName}`);
 
     setButtonState({
-      applyDisabled: true,
-      resetDisabled: true,
       resetText: 'Resetting...'
     });
 
@@ -213,7 +209,6 @@
     updateStatusMessages(`Changing page language to ${langName}`);
 
     setButtonState({
-      applyDisabled: true,
       applyText: 'Translating...'
     });
 

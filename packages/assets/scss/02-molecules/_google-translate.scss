@@ -126,12 +126,6 @@ body > .skiptranslate {
       outline: 3px solid var(--mds-border-focus-on-light);
       outline-offset: 2px;
     }
-
-    &:disabled {
-      background-color: var(--mds-background-section-brand-neutral-lowest);
-      border-color: var(--mds-border-brand-neutral-low);
-      cursor: not-allowed;
-    }
   }
 
   &-reset-button {
