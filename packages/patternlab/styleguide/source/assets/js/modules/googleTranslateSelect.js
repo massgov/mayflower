@@ -196,15 +196,17 @@
     applyButton.addEventListener('click', function() {
       const selectedLanguage = languageSelect.value;
       const selectedText = languageData[selectedLanguage] || selectedLanguage;
+      const translateContainer = languageSelect.closest('.ma__translate-container');
 
       if (selectedLanguage === currentLanguageCode) {
         updateStatusMessages(`Already displaying in ${selectedText}`);
+        focusTriggerBeforeReload(translateContainer);
         return;
       }
 
       currentLanguageCode = selectedLanguage;
       syncSelectValue(selectedLanguage);
-      focusTriggerBeforeReload(languageSelect.closest('.ma__translate-container'));
+      focusTriggerBeforeReload(translateContainer);
 
       if (selectedLanguage === originalPageLang) {
         resetToOriginalLanguage();
