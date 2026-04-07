@@ -7,6 +7,7 @@
     <select
         id="ma__translate-select"
         class="ma__translate-select notranslate"
+        aria-labelledby="ma__translate-label"
         aria-describedby="ma__translate-help"
     >
       {% set googleLanguagesArray = googleLanguages|split(',') %}
@@ -23,9 +24,6 @@
   </div>
 
   <div id="ma__translate-help">
-    <span class="ma__sr-only">
-      Select a language from the dropdown menu and press the Apply button to translate the page
-    </span>
     <p>Disclaimer: This feature uses the Google Translate Widget. Due to the limitation of machine translation, some pages or content may not be translated accurately.</p>
   </div>
 
