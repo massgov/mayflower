@@ -1,5 +1,7 @@
 (function() {
   const focusRestoreStorageKey = 'ma_translate_focus_restore';
+  const narrowTranslateTriggerSelector = '.js-utility-nav--narrow [data-utility-nav-modal="translate"] [data-modal-trigger]';
+  const wideTranslateTriggerSelector = '.js-utility-nav--wide [data-utility-nav-modal="translate"] [data-modal-trigger]';
   const translateContainers = Array.from(document.querySelectorAll('.ma__translate-container'));
 
   if (!translateContainers.length) {
@@ -67,17 +69,47 @@
   }
 
   function restoreTriggerFocus() {
-    const triggerSelector = sessionStorage.getItem(focusRestoreStorageKey);
+    const storedFocusTarget = sessionStorage.getItem(focusRestoreStorageKey);
 
-    if (!triggerSelector) {
+    if (!storedFocusTarget) {
+      return;
+    }
+
+    let focusTarget = null;
+
+    try {
+      focusTarget = JSON.parse(storedFocusTarget);
+    } catch (error) {
+      focusTarget = {
+        selector: storedFocusTarget
+      };
+    }
+
+    if (!focusTarget || !focusTarget.selector) {
+      sessionStorage.removeItem(focusRestoreStorageKey);
+      return;
+    }
+
+    const focusTrigger = () => {
+      const trigger = document.querySelector(focusTarget.selector);
+      if (trigger) {
+        trigger.focus();
+        return true;
+      }
+
+      return false;
+    };
+
+    if (focusTarget.openHamburgerMenu) {
       return;
     }
 
     sessionStorage.removeItem(focusRestoreStorageKey);
 
-    const trigger = document.querySelector(triggerSelector);
-    if (trigger) {
-      trigger.focus();
+    if (!focusTrigger()) {
+      setTimeout(() => {
+        focusTrigger();
+      }, 100);
     }
   }
 
@@ -89,9 +121,24 @@
       return;
     }
 
+    let focusTarget = {
+      selector: `[data-modal-trigger="${modalElement.id}"]`
+    };
+
+    if (trigger.closest('.js-utility-nav--narrow')) {
+      focusTarget = {
+        selector: narrowTranslateTriggerSelector,
+        openHamburgerMenu: true
+      };
+    } else if (trigger.closest('.js-utility-nav--wide')) {
+      focusTarget = {
+        selector: wideTranslateTriggerSelector
+      };
+    }
+
     sessionStorage.setItem(
       focusRestoreStorageKey,
-      `[data-modal-trigger="${modalElement.id}"]`
+      JSON.stringify(focusTarget)
     );
 
     if (window.modals && window.modals[modalElement.id]) {

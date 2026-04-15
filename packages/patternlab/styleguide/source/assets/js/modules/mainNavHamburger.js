@@ -6,6 +6,7 @@ const hamburgerMenuContainer = document.querySelector(
 
 if (hamburgerMenuContainer) {
   const HEADER_TOGGLE_BREAKPOINT = 940;
+  const focusRestoreStorageKey = 'ma_translate_focus_restore';
   const osInfo = navigator.appVersion;
   const body = document.querySelector("body");
   let width = body.clientWidth;
@@ -70,15 +71,57 @@ if (hamburgerMenuContainer) {
     }
   }
 
-  // Define all top level clickable elements with current window width.
-  let topLevelClickableItems;
-  window.addEventListener("DOMContentLoaded", function (e) {
+  function restoreTranslateTriggerFocus() {
+    const storedFocusTarget = sessionStorage.getItem(focusRestoreStorageKey);
+
+    if (!storedFocusTarget || isHeaderDesktop()) {
+      return;
+    }
+
+    let focusTarget = null;
+
+    try {
+      focusTarget = JSON.parse(storedFocusTarget);
+    } catch (error) {
+      return;
+    }
+
+    if (!focusTarget || !focusTarget.openHamburgerMenu || !focusTarget.selector) {
+      return;
+    }
+
+    hamburgerMenuContainer.removeAttribute("aria-hidden");
+    openMenu();
+
+    setTimeout(function timeoutFunction() {
+      const trigger = document.querySelector(focusTarget.selector);
+
+      if (trigger) {
+        trigger.focus();
+      }
+
+      sessionStorage.removeItem(focusRestoreStorageKey);
+    }, 250);
+  }
+
+  function initializeHamburgerTranslateState() {
     setTimeout(function timeoutFunction() {
       // This prevents GT elements get null.
       selectTopClickableItems(width);
       toggleTranslateModalPlacement();
+      restoreTranslateTriggerFocus();
     }, 1000);
-  });
+  }
+
+  // Define all top level clickable elements with current window width.
+  let topLevelClickableItems;
+  if (document.readyState === "loading") {
+    window.addEventListener("DOMContentLoaded", function () {
+      initializeHamburgerTranslateState();
+    });
+  } else {
+    initializeHamburgerTranslateState();
+  }
   window.addEventListener("resize", function (e) {
     selectTopClickableItems(body.clientWidth);
     toggleTranslateModalPlacement();
