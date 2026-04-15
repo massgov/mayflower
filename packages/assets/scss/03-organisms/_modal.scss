@@ -87,6 +87,7 @@
     align-items: center;
     gap: var(--mds-space-md);
     min-height: 100px;
+    max-height: 70vh;
     padding: 0 var(--mds-space-3xl) var(--mds-space-3xl);
     overflow-y: auto;
     color: var(--mds-text-and-icons-brand-neutral-default);
@@ -185,6 +186,7 @@ body.ma__modal-open {
   .ma__modal {
     &-dialog {
       padding: var(--mds-space-lg) var(--mds-space-md);
+      overflow-y: auto;
       max-height: calc(100vh - var(--mds-space-3xl));
     }
 
