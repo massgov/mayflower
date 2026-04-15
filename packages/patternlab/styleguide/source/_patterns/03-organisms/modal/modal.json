@@ -1,6 +1,6 @@
 {
   "modal": {
-    "id": "",
+    "id": "ma__translate",
     "title": "Select language",
     "icon": "translate",
     "status": "info",
