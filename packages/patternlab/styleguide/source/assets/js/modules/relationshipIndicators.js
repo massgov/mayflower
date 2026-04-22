@@ -13,6 +13,7 @@ export default (function (window, document, $, undefined) {
     $(".ma__relationship-indicators--terms").each(function (index) {
       const $tagWrapper = $(this);
       const $button = $tagWrapper.find(".js-relationship-indicator-button");
+      const $buttonWrapper = $button.closest(".ma__relationship-indicators__expand-indicators");
       const $items = $tagWrapper.find("li.js-term")
       const $lastItem = $tagWrapper.find("li.ma__relationship-indicators--term--last");
       const totalCount = $items.length;
@@ -31,6 +32,7 @@ export default (function (window, document, $, undefined) {
         const $buttonCounter = $button.find(".tag-count");
         const $buttonState = $button.find(".tag-state");
         const $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
+        const $visibleItems = $tagWrapper.find(".js-term:lt(" + (groupAfter + 1) + ")");
         let expanded = false;
 
 
@@ -58,6 +60,11 @@ export default (function (window, document, $, undefined) {
         $button.show();
         $buttonCounter.text(hiddenCount);
         toggleButton(expanded);
+
+        // Keep keyboard focus order aligned with the visible reading order.
+        // Desktop places the control after the last visible item; mobile keeps
+        // it after the first visible item.
+        $buttonWrapper.insertAfter($visibleItems.last());
 
         // Set aria-controls
         let hiddenIds = "";
