@@ -1,11 +1,21 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
-const hamburgerMenuContainer = document.querySelector(
-  ".ma__header__hamburger__nav-container"
-);
+const globalMainNavHamburger = window.mainNavHamburger || {};
+window.mainNavHamburger = globalMainNavHamburger;
 
-if (hamburgerMenuContainer) {
+function initializeMainNavHamburger() {
+  const hamburgerMenuContainer = document.querySelector(
+    ".ma__header__hamburger__nav-container"
+  );
+
+  if (!hamburgerMenuContainer || globalMainNavHamburger.initialized) {
+    return;
+  }
+
+  globalMainNavHamburger.initialized = true;
+
   const HEADER_TOGGLE_BREAKPOINT = 940;
+  const DISABLE_MENU_TRANSITION_CLASS = "ma-disable-menu-transition";
   const osInfo = navigator.appVersion;
   const body = document.querySelector("body");
   let width = body.clientWidth;
@@ -311,6 +321,7 @@ if (hamburgerMenuContainer) {
 
   function commonCloseMenuTasks() {
     body.classList.remove("show-menu");
+    body.classList.remove(DISABLE_MENU_TRANSITION_CLASS);
 
     if (document.querySelector("html.stickyTOCtmp")) {
       document.querySelector("html.stickyTOCtmp").classList.add("stickyTOC");
@@ -337,7 +348,18 @@ if (hamburgerMenuContainer) {
     }
   }
 
-  function openMenu() {
+  function removeDisabledMenuTransitionClass() {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        body.classList.remove(DISABLE_MENU_TRANSITION_CLASS);
+      });
+    });
+  }
+
+  function openMenu(options = {}) {
+    const { disableTransition = false } = options;
+    const shouldDisableTransition =
+      disableTransition || body.classList.contains(DISABLE_MENU_TRANSITION_CLASS);
     let heightAboveMenuContainer;
     let emergencyAlertsHeight;
     let alertOffsetAdjusted = 0;
@@ -356,6 +378,10 @@ if (hamburgerMenuContainer) {
     if (document.querySelector("html.stickyTOC")) {
       document.querySelector("html.stickyTOC").classList.add("stickyTOCtmp");
       document.querySelector("html.stickyTOC").classList.remove("stickyTOC");
+    }
+
+    if (shouldDisableTransition) {
+      body.classList.add(DISABLE_MENU_TRANSITION_CLASS);
     }
 
     // Start open menu tasks.
@@ -411,6 +437,10 @@ if (hamburgerMenuContainer) {
         alertOverlay.classList.add("overlay-open");
       }
     }
+
+    if (shouldDisableTransition) {
+      removeDisabledMenuTransitionClass();
+    }
   }
 
   function jumpToSearch(e) {
@@ -428,6 +458,12 @@ if (hamburgerMenuContainer) {
       }, 200);
     }
   }
+
+  Object.assign(globalMainNavHamburger, {
+    openMenu,
+    closeMenu,
+    toggleMenu
+  });
 
   function anotherCloseSubMenus(item) {
     menuItems.forEach((li) => {
@@ -964,4 +1000,37 @@ if (hamburgerMenuContainer) {
       );
     }
   }, 1000); // When it's less than 1000, the iframe is null in full screen display.
+}
+
+function openMenuProxy() {
+  initializeMainNavHamburger();
+  if (globalMainNavHamburger.openMenu !== openMenuProxy) {
+    globalMainNavHamburger.openMenu.apply(globalMainNavHamburger, arguments);
+  }
+}
+
+function closeMenuProxy() {
+  initializeMainNavHamburger();
+  if (globalMainNavHamburger.closeMenu !== closeMenuProxy) {
+    globalMainNavHamburger.closeMenu();
+  }
+}
+
+function toggleMenuProxy() {
+  initializeMainNavHamburger();
+  if (globalMainNavHamburger.toggleMenu !== toggleMenuProxy) {
+    globalMainNavHamburger.toggleMenu();
+  }
+}
+
+Object.assign(globalMainNavHamburger, {
+  openMenu: globalMainNavHamburger.openMenu || openMenuProxy,
+  closeMenu: globalMainNavHamburger.closeMenu || closeMenuProxy,
+  toggleMenu: globalMainNavHamburger.toggleMenu || toggleMenuProxy,
+});
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeMainNavHamburger);
+} else {
+  initializeMainNavHamburger();
 }

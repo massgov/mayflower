@@ -75,10 +75,16 @@
 
     sessionStorage.removeItem(focusRestoreStorageKey);
 
-    const trigger = document.querySelector(triggerSelector);
-    if (trigger) {
-      trigger.focus();
-    }
+    const trigger = document.querySelector('[data-modal-trigger]');
+
+    setTimeout(() => {
+      const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
+      hamburgerMenuContainer.removeAttribute('aria-hidden');
+      window.mainNavHamburger.openMenu({ disableTransition: true });
+      if (trigger) {
+        trigger.focus();
+      }
+    }, 0);
   }
 
   function focusTriggerBeforeReload(container) {

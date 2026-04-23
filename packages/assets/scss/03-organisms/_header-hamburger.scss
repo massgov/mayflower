@@ -12,6 +12,14 @@ body.show-menu {
   }
 }
 
+body.ma-disable-menu-transition {
+  .ma__header__hamburger__nav-container,
+  .menu-overlay,
+  .alert-overlay {
+    transition: none !important;
+  }
+}
+
 .alert-overlay {
   position: fixed;
   width: 100vw;
