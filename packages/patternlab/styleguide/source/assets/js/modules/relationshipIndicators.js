@@ -122,8 +122,9 @@ export default (function (window, document, $, undefined) {
   }
 
 
-  // Initialize state for the relationship indicators.
-  groupIndicators(initialDiff < 0 ? 0 : $groupAfter);
+  // Initialize state for the relationship indicators using the active viewport.
+  // This avoids rendering desktop grouping first and then relying on resize.
+  groupIndicators($(window).width() < breakpoint ? 0 : $groupAfter);
 
   // Update the relationship indicators state when window resizes.
   $(window).resize(resizeResponse);
