@@ -357,9 +357,15 @@ function initializeMainNavHamburger() {
   }
 
   function openMenu(options = {}) {
-    const { disableTransition = false } = options;
+    const {
+      disableTransition = false,
+      disableDesktop = false
+    } = options;
     const shouldDisableTransition =
       disableTransition || body.classList.contains(DISABLE_MENU_TRANSITION_CLASS);
+    if (disableDesktop && isHeaderDesktop()) {
+      return;
+    }
     let heightAboveMenuContainer;
     let emergencyAlertsHeight;
     let alertOffsetAdjusted = 0;

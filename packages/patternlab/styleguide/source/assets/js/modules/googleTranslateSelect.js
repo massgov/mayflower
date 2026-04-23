@@ -80,7 +80,10 @@
     setTimeout(() => {
       const hamburgerMenuContainer = document.querySelector('.ma__header__hamburger__nav-container');
       hamburgerMenuContainer.removeAttribute('aria-hidden');
-      window.mainNavHamburger.openMenu({ disableTransition: true });
+      window.mainNavHamburger.openMenu({
+        disableTransition: true,
+        disableDesktop: true
+      });
       if (trigger) {
         trigger.focus();
       }
