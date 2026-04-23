@@ -25,7 +25,7 @@
     "prepublishOnly": "gulp",
     "storybook-debug": "node --inspect ./node_modules/.bin/start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
     "storybook:extract": "sb extract",
-    "build-storybook": "rushx icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static",
+    "build-storybook": "DEBUG=storybook* rushx icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static --loglevel verbose --debug-webpack",
     "jsx-to-tsx": "./scripts/jsx-to-tsx"
   },
   "pre-push": [
@@ -58,6 +58,7 @@
   },
   "peerDependencies": {
     "@massds/mayflower-assets": "^15.1.0",
+    "@massds/icons": "~1.0.0",
     "react": "^16.13.1 || ^17 || ^18",
     "react-dom": "^16.13.1 || ^17 || ^18"
   },

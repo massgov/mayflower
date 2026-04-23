@@ -4,9 +4,7 @@ import Header from '@massds/mayflower-react/dist/Header';
 import HeaderHamburger from '@massds/mayflower-react/dist/HeaderHamburger';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
 import ButtonWithIcon from '@massds/mayflower-react/dist/ButtonWithIcon';
-import IconSearch from '@massds/mayflower-react/dist/Icon/IconSearch';
-import IconGlobe from '@massds/mayflower-react/dist/Icon/IconGlobe';
-import IconLogin from '@massds/mayflower-react/dist/Icon/IconLogin';
+import { IconSearch, IconGlobe, IconLogin } from '@massds/mayflower-react/dist/Icon';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 
 import { attachHTML } from '@core/stories/util/renderCode';

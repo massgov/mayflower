@@ -35,7 +35,7 @@ function ensureAssetsDir(cb) {
 }
 
 function copyIconsFromAssets() {
-  return src(['./node_modules/@massds/mayflower-assets/static/images/icons/**/*.svg'], { base: './node_modules/@massds/mayflower-assets/static/images/icons' })
+  return src(['./node_modules/@massds/icons/dist/**/*.svg'], { base: './node_modules/@massds/icons/dist' })
     .pipe(rename((path) => {
       // Handle bold icons differently
       if (path.dirname === 'bold') {
@@ -44,49 +44,56 @@ function copyIconsFromAssets() {
         path.basename = `icon-${path.basename}`;
       } else {
         // For regular icons, add "icon-" prefix and put in root
-        path.dirname = '';
+        path.dirname = '.';
         path.basename = `icon-${path.basename}`;
       }
     }))
     .pipe(dest('./src/components/base/Icon/assets'));
 }
 
-function generateIconKnobOptions() {
+function generateIconOptionsAndIndex() {
   const fs = require('fs');
   const path = require('path');
   
-  const assetsDir = './src/components/base/Icon/assets';
-  const outputFile = './src/components/base/Icon/Icon.knob.options.js';
+  const iconsDir = './src/components/base/Icon/assets';
+  const knobOptionsFile = './src/components/base/Icon/Icon.knob.options.js';
+  const indexFile = './src/components/base/Icon/index.js';
   
-  // Read all SVG files from assets directory
-  if (!fs.existsSync(assetsDir)) {
-    console.warn('Assets directory does not exist:', assetsDir);
+  // Ensure icons directory exists
+  if (!fs.existsSync(iconsDir)) {
+    console.warn('Assets directory does not exist:', iconsDir);
     return Promise.resolve();
   }
   
-  const svgFiles = fs.readdirSync(assetsDir)
-    .filter(file => file.endsWith('.svg') && !file.includes('--bold')) // Only regular icons
+  // Get all regular icons (ignore bold variants) and process them once
+  const iconData = fs.readdirSync(iconsDir)
+    .filter(file => file.endsWith('.svg') && !file.includes('--bold'))
     .map(file => {
-      // Remove 'icon-' prefix and '.svg' extension
+      // Remove 'icon-' prefix and '.svg' extension for knob options
       let iconName = path.basename(file, '.svg');
       if (iconName.startsWith('icon-')) {
         iconName = iconName.substring(5);
       }
-      // Convert kebab-case to PascalCase
-      const pascalCaseName = iconName
+      
+      // Convert kebab-case to PascalCase for component names
+      const pascalName = iconName
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join('');
-    
-      return `Icon${pascalCaseName}`;
+      
+      const componentName = `Icon${pascalName}`;
+      
+      return {
+        kebabName: iconName,
+        componentName
+      };
     })
-    .sort(); // Sort alphabetically
+    .sort((a, b) => a.componentName.localeCompare(b.componentName)); // Sort alphabetically
   
-  // Generate the assets object
-  const assetsEntries = svgFiles.map(iconName => `  ${iconName}: '${iconName}'`);
+  // Generate knob options file
+  const assetsEntries = iconData.map(({ componentName }) => `  ${componentName}: '${componentName}'`);
   
-  // Generate the file content
-  const fileContent = `export const assets = {
+  const knobOptionsContent = `export const assets = {
 ${assetsEntries.join(',\n')}
 };
 
@@ -102,9 +109,19 @@ export const boldOptions = {
 };
 `;
   
-  // Write the file
-  fs.writeFileSync(outputFile, fileContent);
-  console.log(`Generated ${outputFile} with ${svgFiles.length} icons`);
+  // Generate index file
+  const indexContent = `// Auto-generated icon exports
+${iconData.map(({ componentName }) => `export { default as ${componentName} } from './${componentName}';`).join('\n')}
+
+// Export count for convenience
+export const iconCount = ${iconData.length};
+`;
+  
+  // Write both files
+  fs.writeFileSync(knobOptionsFile, knobOptionsContent);
+  fs.writeFileSync(indexFile, indexContent);
+  
+  console.log(`Generated ${knobOptionsFile} and ${indexFile} with ${iconData.length} icons`);
   
   return Promise.resolve();
 }
@@ -179,8 +196,6 @@ function transpileES5Icons() {
 
 function transpileES6Icons() {
   return src([
-      './dist/Icon/*.mjs', 
-      '!./dist/Icon/index.mjs',
       './src/components/base/Icon/index.js'
     ])
     .pipe(babel({
@@ -232,10 +247,6 @@ function transpileES6Icons() {
       ]
     }))
     .pipe(rename((p) => {
-      const splitPath = p.dirname.split('/');
-      // eslint-disable-next-line no-param-reassign
-      p.dirname = splitPath[splitPath.length - 1];
-      // eslint-disable-next-line no-param-reassign
       p.extname = '.mjs';
     }))
     .pipe(dest('dist/Icon'));
@@ -471,6 +482,7 @@ function transpileES5() {
         ],
         '@babel/plugin-proposal-optional-chaining',
         '@babel/plugin-proposal-nullish-coalescing-operator',
+        ['@babel/plugin-transform-private-property-in-object', { loose: true }],
         [
           'babel-plugin-transform-react-remove-prop-types',
           {
@@ -535,6 +547,7 @@ function transpileES6() {
         ],
         '@babel/plugin-proposal-optional-chaining',
         '@babel/plugin-proposal-nullish-coalescing-operator',
+        ['@babel/plugin-transform-private-property-in-object', { loose: true }],
         [
           'babel-plugin-transform-react-remove-prop-types',
           {
@@ -559,18 +572,6 @@ function transpileES6() {
       p.extname = '.mjs';
     }))
     .pipe(dest('dist'));
-}
-
-function cleanIconDir() {
-  return del([
-    'src/components/base/Icon/*',
-    '!src/components/base/Icon/assets',
-    '!src/components/base/Icon/index.js', 
-    '!src/components/base/Icon/IconDisplay.js',
-    '!src/components/base/Icon/Icon.stories.js',
-    '!src/components/base/Icon/Icon.knob.options.js',
-    '!src/components/base/Icon/_icon-display.scss'
-  ]);
 }
 
 function cleanIconAssets() {
@@ -754,32 +755,25 @@ const generateTsDeclarations = series(
 
 
 
-exports.icons = series(
+const icons = series(
   ensureAssetsDir,
   cleanIconAssets,
   cleanTsIconAssets,
   copyIconsFromAssets,
   buildDualVariantIcons,
-  generateIconKnobOptions,
+  generateIconOptionsAndIndex,
   transpileES5Icons,
   transpileES6Icons
 );
+exports.icons = icons;
 exports.generateTsDeclarations = generateTsDeclarations;
 exports.default = series(
   clean,
-  parallel(
+  icons,
+  series(
     transpileES5,
     transpileES6,
     generateTsDeclarations,
-    styles,
-    series(
-      ensureAssetsDir,
-      cleanIconAssets,
-      copyIconsFromAssets,
-      buildDualVariantIcons,
-      generateIconKnobOptions,
-      transpileES5Icons,
-      transpileES6Icons
-    )
+    styles
   )
 );

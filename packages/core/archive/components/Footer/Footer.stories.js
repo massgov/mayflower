@@ -3,9 +3,7 @@ import Footer from '@massds/mayflower-react/dist/Footer';
 import FooterSlim from '@massds/mayflower-react/dist/FooterSlim';
 import FooterWithColumns from '@massds/mayflower-react/dist/FooterWithColumns';
 import SiteLogo from '@massds/mayflower-react/dist/SiteLogo';
-import IconMarker from '@massds/mayflower-react/dist/Icon/IconMarker';
-import IconLaptop from '@massds/mayflower-react/dist/Icon/IconLaptop';
-import IconMail from '@massds/mayflower-react/dist/Icon/IconMail';
+import { IconMarker, IconLaptop, IconMail } from '@massds/mayflower-react/dist/Icon';
 import logo from '@massds/mayflower-assets/static/images/logo/stateseal.png';
 import { attachHTML } from '@core/stories/util/renderCode';
 
