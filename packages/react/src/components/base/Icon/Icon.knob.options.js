@@ -213,6 +213,7 @@ export const assets = {
   IconTrain: 'IconTrain',
   IconTrainRegional: 'IconTrainRegional',
   IconTransit: 'IconTransit',
+  IconTranslate: 'IconTranslate',
   IconTrash: 'IconTrash',
   IconTree: 'IconTree',
   IconTreeEvergreen: 'IconTreeEvergreen',

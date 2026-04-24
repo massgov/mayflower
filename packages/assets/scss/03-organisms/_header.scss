@@ -149,28 +149,16 @@ body {
   &__nav-container {
 
     @media ($bp-header-toggle-max) {
-      height: calc(100vh - #{$header-mobile-controls-height});
       overflow-y: auto;
       position: fixed;
         top: 0;
         right: -$header-mobile-menu-width;
-      margin-top: $header-mobile-controls-height;
       transition: right 0.5s ease;
       width: $header-mobile-menu-width;
       z-index: $z-dropdown;
 
-      .translated-rtl &,
-      .translated-ltr & {
-        height: calc(100vh - #{$header-mobile-controls-height * 2});
-      }
-
       .show-menu & {
         right: 0;
-      }
-
-      .translated-rtl &,
-      .translated-ltr & {
-        top: 40px;
       }
     }
   }
@@ -178,18 +166,12 @@ body {
   &__button-container {
 
     @include ma-container;
-    height: $header-mobile-controls-height;
     position: fixed;
       top: 0;
       left: 0;
     text-align: right;
     width: 100%;
     z-index: $z-dropdown;
-
-    .translated-rtl &,
-    .translated-ltr & {
-      top: 40px;
-    }
 
     @media ($bp-header-toggle-min) {
       display: none;
@@ -214,11 +196,6 @@ body {
       z-index: $z-dropdown;
       font-weight: $fonts-bold;
       color: var(--mf-c-font-inverse);
-
-      .translated-rtl &,
-      .translated-ltr & {
-        top: 43px;
-      }
 
       &:before {
         border-left: 3px solid;
@@ -387,7 +364,6 @@ body {
 
       @media ($bp-header-toggle-min) {
         position: absolute;
-          top: -$header-mobile-controls-height - 4px;
       }
 
       @media ($bp-large-min) {

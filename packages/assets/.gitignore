@@ -2,3 +2,5 @@
 **/*.css.map
 /js/
 !build/js/**
+!scss/tokens/
+!scss/tokens/*.css

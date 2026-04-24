@@ -1,0 +1,5 @@
+Added:
+  - project: Patternlab
+    description: Add accessible translation widget.
+    issue: DP-45023
+    impact: Minor

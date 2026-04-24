@@ -56,18 +56,8 @@
     top: 0;
     z-index: $z-overlay;
 
-    .translated-rtl &,
-    .translated-ltr & {
-      top: 80px;
-    }
-
     @media ($bp-medium-min) {
       top: 15px;
-
-      .translated-rtl &,
-      .translated-ltr & {
-        top: 55px;
-      }
     }
   }
 
