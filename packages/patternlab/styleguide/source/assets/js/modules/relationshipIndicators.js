@@ -35,6 +35,14 @@ export default (function (window, document, $, undefined) {
         const $visibleItems = $tagWrapper.find(".js-term:lt(" + (groupAfter + 1) + ")");
         let expanded = false;
 
+        function positionToggleButton(buttonState) {
+          if (buttonState) {
+            $buttonWrapper.insertAfter($items.last());
+          } else {
+            $buttonWrapper.insertAfter($visibleItems.last());
+          }
+        }
+
 
         function toggleButton(buttonState) {
           if (buttonState) {
@@ -50,6 +58,7 @@ export default (function (window, document, $, undefined) {
             $button.attr("aria-expanded", false);
             $button.removeClass("is-open")
           }
+          positionToggleButton(buttonState);
         }
 
         /** Button toggle logic
@@ -60,11 +69,6 @@ export default (function (window, document, $, undefined) {
         $button.show();
         $buttonCounter.text(hiddenCount);
         toggleButton(expanded);
-
-        // Keep keyboard focus order aligned with the visible reading order.
-        // Desktop places the control after the last visible item; mobile keeps
-        // it after the first visible item.
-        $buttonWrapper.insertAfter($visibleItems.last());
 
         // Set aria-controls
         let hiddenIds = "";
