@@ -251,7 +251,7 @@ function initializeMainNavHamburger() {
     if (menuButton.getAttribute("aria-expanded") === "true") {
       focusTrapping({
         focusableSelectors:
-          "[role='menuitem'], .js-utility-nav--narrow .ma__utility-nav__item .ma__utility-nav__link, .ma__utility-nav__item .ma__utility-nav__container a",
+          "a[href], button:not([disabled]), [tabindex]:not([tabindex='-1']), .js-utility-nav--narrow .ma__utility-nav__item .ma__utility-nav__link, .ma__utility-nav__item .ma__utility-nav__container a",
         closeButtonSelector: ".js-header-menu-button",
         modalSelector: ".ma__header__hamburger__nav-container",
         keyEvent: e,
