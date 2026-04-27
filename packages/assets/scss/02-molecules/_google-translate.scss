@@ -1,0 +1,158 @@
+@use "00-base/configure" as *;
+
+$translate-control-border-width: 2px;
+$translate-control-padding-y: 12px;
+$translate-control-padding-right: 40px;
+
+#google_translate_element {
+  display: none;
+}
+
+.translated-ltr,
+.translated-rtl {
+  body {
+    top: 0 !important;
+  }
+}
+
+/* Fix Google Translate spacing issue with notranslate elements
+   Google Translate strips leading/trailing spaces from inline elements,
+   causing words to run together (e.g., "brand nameMassGov Prowill not").
+   This CSS adds visual spacing ONLY when the page is translated,
+   without affecting screen reader output, as screen readers naturally
+   pause at element boundaries. Google Translate adds 'translated-ltr'
+   or 'translated-rtl' class to the <html> element when active.
+
+   NOTE: This is placed at the top of the stylesheet so component-specific
+   padding (like buttons) can override it with higher specificity. */
+.notranslate {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Hide default Google Translate widget */
+.ma__goog-te-wrapper {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Hide Google Translate elements */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+.skiptranslate iframe {
+  display: none !important;
+}
+
+body > .skiptranslate {
+  display: none !important;
+}
+
+.goog-te-menu-frame {
+  display: none !important;
+}
+
+.ma__translate {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--mds-space-md);
+  }
+
+  &-fieldset {
+    margin: 0;
+    padding: var(--mds-space-sm);
+    border: $translate-control-border-width solid var(--mds-border-brand-neutral-mid);
+    border-radius: var(--mds-radius-md);
+  }
+
+  &-select-wrapper {
+    position: relative;
+    align-self: stretch;
+    margin-bottom: var(--mds-space-sm);
+  }
+
+  &-select {
+    width: 100%;
+    padding: $translate-control-padding-y $translate-control-padding-right $translate-control-padding-y var(--mds-space-sm);
+    font: var(--mds-text-label-md);
+    color: var(--mds-text-and-icons-brand-neutral-default);
+    background-color: var(--mds-inverse);
+    border: $translate-control-border-width solid var(--mds-border-brand-neutral-high);
+    border-radius: var(--mds-radius-md);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:focus {
+      outline: 3px solid var(--mds-border-focus-on-light);
+      outline-offset: 2px;
+    }
+  }
+
+  &-select-caret-down {
+    position: absolute;
+    top: 50%;
+    right: var(--mds-space-sm);
+    width: var(--mds-space-sm);
+    height: var(--mds-space-sm);
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &-button {
+    padding: $translate-control-padding-y var(--mds-space-md) !important;
+    font: var(--mds-text-label-md);
+    color: var(--mds-inverse);
+    background-color: var(--mds-background-adaptive-brand-primary-mid);
+    border: $translate-control-border-width solid var(--mds-border-brand-primary-mid);
+    border-radius: var(--mds-radius-md);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: var(--mds-background-adaptive-brand-primary-high);
+      border-color: var(--mds-background-adaptive-brand-primary-high);
+    }
+
+    &:focus {
+      outline: 3px solid var(--mds-border-focus-on-light);
+      outline-offset: 2px;
+    }
+  }
+
+  &-reset-button {
+    background-color: var(--mds-static-white);
+    border-color: var(--mds-border-brand-primary-mid);
+    color: var(--mds-text-and-icons-brand-primary-mid);
+
+    &:hover {
+      background-color: var(--mds-background-adaptive-brand-primary-high);
+      border-color: var(--mds-border-brand-primary-high);
+      color: var(--mds-inverse);
+    }
+  }
+}
+
+.ma__sr-only,
+.ma__status-message {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+#ma__translate-help {
+  p {
+    font: var(--mds-text-caption);
+    text-align: center;
+  }
+}

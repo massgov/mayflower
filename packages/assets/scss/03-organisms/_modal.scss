@@ -1,0 +1,220 @@
+@use "00-base/configure" as *;
+
+.ma__skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100; /* Ensure it's above other content */
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    display: inline-block;
+    margin: 3px;
+  }
+}
+
+.ma__modal {
+  &-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--mds-space-sm);
+
+    &.ma__active {
+      display: flex;
+    }
+
+    &.ma__shim-active {
+      background-color: var(--mds-background-overlay);
+    }
+  }
+
+  &-dialog {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 280px;
+    max-width: 650px;
+    max-height: calc(100vh - var(--mds-space-lg));
+    background-color: var(--mds-inverse);
+    border: 1.5px solid var(--mds-border-brand-neutral-low);
+    border-radius: var(--mds-radius-md);
+    box-shadow: var(--mds-shadow-modal);
+    animation: ma__modal-fade-in 0.2s ease;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &-title {
+    display: block;
+    margin-bottom: var(--mds-space-2xs);
+    color: var(--mds-text-and-icons-brand-neutral-default);
+    font: var(--mds-text-heading-xs);
+  }
+
+  &-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: var(--mds-space-2xs);
+    padding: var(--mds-space-3xs);
+    background-color: var(--mds-inverse);
+    border: 1px solid var(--mds-inverse);
+    border-radius: var(--mds-radius-sm);
+    color: var(--mds-text-and-icons-brand-primary-mid);
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--mds-space-md);
+    min-height: 100px;
+    max-height: 70vh;
+    padding: 0 var(--mds-space-3xl) var(--mds-space-3xl);
+    overflow-y: auto;
+    color: var(--mds-text-and-icons-brand-neutral-default);
+  }
+
+  &-legend {
+    padding: var(--mds-space-3xs);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--mds-radius-max);
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--mds-space-2xs);
+      border-radius: var(--mds-radius-max);
+    }
+
+    &--info {
+      border-color: var(--mds-border-brand-primary-mid);
+
+      span {
+        background-color: var(--mds-background-adaptive-brand-primary-mid);
+        color: var(--mds-inverse);
+      }
+    }
+
+    &--success {
+      border-color: var(--mds-border-utility-success-mid);
+
+      span {
+        background-color: var(--mds-background-adaptive-utility-success-mid);
+        color: var(--mds-static-black);
+      }
+    }
+
+    &--warning {
+      border-color: var(--mds-border-utility-warning-mid);
+
+      span {
+        background-color: var(--mds-background-adaptive-utility-warning-mid);
+        color: var(--mds-static-black);
+      }
+    }
+
+    &--alert {
+      border-color: var(--mds-border-utility-danger-mid);
+
+      span {
+        background-color: var(--mds-background-adaptive-utility-danger-mid);
+        color: var(--mds-inverse);
+      }
+    }
+  }
+
+  &-button-group {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    justify-content: center;
+    gap: var(--mds-space-sm);
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1 0 0;
+    }
+  }
+}
+
+body.ma__modal-open {
+  overflow: hidden;
+}
+
+@keyframes ma__modal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px), (min-resolution: 150dpi) {
+  .ma__modal-overlay {
+    padding: var(--mds-space-md);
+  }
+}
+
+@media (max-width: 600px), (min-resolution: 200dpi) {
+  .ma__modal {
+    &-dialog {
+      padding: var(--mds-space-lg) var(--mds-space-md);
+      overflow-y: auto;
+      max-height: calc(100vh - var(--mds-space-3xl));
+    }
+
+    &-header {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &-title {
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    &-content {
+      width: 100%;
+      min-height: auto;
+      padding: 0;
+      overflow: visible;
+    }
+
+    &-button-group {
+      flex-direction: column;
+      width: 100%;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
