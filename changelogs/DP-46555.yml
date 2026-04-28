@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: EventListingInteractive
+    description: Fix results heading initialization so past-events pagination works without JavaScript errors.
+    issue: DP-46555
+    impact: Patch
