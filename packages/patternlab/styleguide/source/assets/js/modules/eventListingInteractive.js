@@ -60,6 +60,9 @@ export default (function (window,document,$,undefined) {
     function handlePagination (e, target) {
       "use strict";
       let nextPage = parseInt(target, 10);
+      if (!Number.isFinite(nextPage)) {
+        nextPage = 1;
+      }
 
       masterData.pagination = listings.transformPaginationData({ data: masterData, targetPage: nextPage });
       masterData.resultsHeading = listings.transformResultsHeading({ data: masterData, page: nextPage });
@@ -74,9 +77,11 @@ export default (function (window,document,$,undefined) {
     if (history.state) {
       defaultPage = history.state.page;
     }
-    if (params) {
-      defaultPage = params.get("page");
+    else if (params.has("_page")) {
+      // Drupal query pager is 0-based, component pages are 1-based.
+      defaultPage = parseInt(params.get("_page"), 10) + 1;
     }
+    defaultPage = Number.isFinite(Number(defaultPage)) ? Number(defaultPage) : 1;
     handlePagination(null, defaultPage);
 
 
@@ -139,7 +144,10 @@ export default (function (window,document,$,undefined) {
       masterData.maxItems = listing.maxItems ? listing.maxItems : masterListing.length;
 
       // The initial results heading data structure
-      masterData.resultsHeading = masterListingMarkup.resultsHeading;
+      masterData.resultsHeading = listing.resultsHeading ? listing.resultsHeading : {};
+      if (!Array.isArray(masterData.resultsHeading.tags)) {
+        masterData.resultsHeading.tags = [];
+      }
 
       // Create items with listing and markup.
       masterData.items = getMasterListingWithMarkup(masterListing, masterListingMarkup, masterData.maxItems);

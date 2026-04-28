@@ -17,24 +17,36 @@ export default (function (window, document, $, undefined) {
     if (history.state && history.state.page) {
       targetPageNumber = history.state.page;
     } else if (params.has('_page')) {
-      targetPageNumber = params.get('_page');
+      // Drupal query pager is 0-based, component pages are 1-based.
+      targetPageNumber = parseInt(params.get('_page'), 10) + 1;
     }
+    targetPageNumber = Number.isFinite(Number(targetPageNumber)) ? Number(targetPageNumber) : 1;
 
     // Listen for previous page button click and trigger pagination event.
-    $el.on('click', prevButton, function () {
+    $el.on('click', prevButton, function (e) {
+      e.preventDefault();
+      if ($(e.currentTarget).hasClass('disabled')) {
+        return;
+      }
       targetPageNumber = parseInt(targetPageNumber) - 1;
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
     // Listen for next button click and trigger pagination event.
-    $el.on('click', nextButton, function () {
+    $el.on('click', nextButton, function (e) {
+      e.preventDefault();
+      if ($(e.currentTarget).hasClass('disabled')) {
+        return;
+      }
       targetPageNumber = parseInt(targetPageNumber) + 1;
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
     // Listen for page number button click and trigger pagination event;
     $el.on('click', pageButton, function (e) {
-      targetPageNumber = $(e.target).data('page');
+      e.preventDefault();
+      targetPageNumber = $(e.target).closest(pageButton).data('page');
+      targetPageNumber = Number.isFinite(Number(targetPageNumber)) ? Number(targetPageNumber) : 1;
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
@@ -147,19 +159,20 @@ export default (function (window, document, $, undefined) {
   }
 
   function pushPaginationState(pageNum, replace = false) {
+    let targetPage = Number.isFinite(Number(pageNum)) ? Number(pageNum) : 1;
     let params = new URLSearchParams(window.location.search);
-    params.set('_page', pageNum);
+    params.set('_page', targetPage - 1);
 
     if (replace) {
       history.replaceState(
-        { page: pageNum },
-        `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
+        { page: targetPage },
+        `${document.title} | page ${targetPage}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
       );
     }
     else {
       history.pushState(
-        { page: pageNum },
-        `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
+        { page: targetPage },
+        `${document.title} | page ${targetPage}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
       );
     }
   }

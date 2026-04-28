@@ -66,7 +66,8 @@ export default (function(window, document, undefined, $, moment){
    */
   function transformPaginationData(args) {
     let data = args.data;
-    let targetPage = args.targetPage ? args.targetPage : 1; // default to first page if none passed
+    let rawTargetPage = Number(args.targetPage);
+    let targetPage = Number.isFinite(rawTargetPage) ? rawTargetPage : 1; // default to first page if none passed
     let totalPages = data.totalPages;
     let pages = [];
 
@@ -110,9 +111,13 @@ export default (function(window, document, undefined, $, moment){
   function transformResultsHeading(args) {
     let pageTotal = 0,
         totalActive = 0,
-        page = args.page ? args.page : 1,
+        page = Number.isFinite(Number(args.page)) ? Number(args.page) : 1,
         data = args.data,
-        resultsHeading = data.resultsHeading; // preserve active resultsHeading.tags
+        resultsHeading = data.resultsHeading ? data.resultsHeading : {}; // preserve active resultsHeading.tags
+
+    if (!Array.isArray(resultsHeading.tags)) {
+      resultsHeading.tags = [];
+    }
 
     // Tally the total active and page length.
     data.items.map(function(item){
