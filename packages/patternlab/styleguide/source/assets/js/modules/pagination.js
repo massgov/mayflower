@@ -1,5 +1,3 @@
-import twiggy from '../helpers/twiggy';
-
 export default (function (window, document, $, undefined) {
   if ($('.js-pagination').length === 0) {
     return;
@@ -70,23 +68,53 @@ export default (function (window, document, $, undefined) {
       return;
     }
 
-    // Render async with Twig.
-    return twiggy('@molecules/pagination.twig')
-      .then(template => {
-        // Truncate the pagination with ellipsis to prevent it from showing
-        // all page numbers if there are a lot.
-        let pagination = truncatePaginationDisplay(args.data);
-        // Render the pagination Twig async.
-        return template.renderAsync({ pagination: pagination });
-      })
-      .then(markup => {
-        // twiggy is appending the entire pagiantion.twig template
-        // to itself, causing a double .ma__pagination wrapper
-        // unwrappedMarkup is the markup unwrapped and still contains the 
-        // original handlers 
-        const unwrapperMarkup = $($.parseHTML(markup)).html();
-        args.$el.html(unwrapperMarkup);
-      });
+    // Truncate the pagination with ellipsis to prevent it from showing
+    // all page numbers if there are a lot.
+    let pagination = truncatePaginationDisplay(args.data);
+    const $container = $('<nav class="ma__pagination__container" aria-label="Pagination Navigation"></nav>');
+    const $prev = $('<a class="ma__pagination__prev js-pagination-prev" role="button" href="#"></a>')
+      .text(String(pagination.prev.text));
+    if (pagination.prev.disabled) {
+      $prev.addClass('disabled').attr('aria-disabled', 'true');
+    }
+    else {
+      $prev.attr('aria-label', `Go to ${String(pagination.prev.text)} page`);
+    }
+    $container.append($prev);
+
+    pagination.pages.forEach(function(page) {
+      if (page.text === "spacer") {
+        $container.append('<span class="ma__pagination__spacer">&hellip;</span>');
+        return;
+      }
+
+      const pageText = String(page.text);
+      const $page = $('<a class="ma__pagination__page js-pagination-page" href="#" role="button"></a>')
+        .text(pageText)
+        .attr('data-page', pageText);
+
+      if (page.active) {
+        $page
+          .addClass('is-active')
+          .attr('aria-label', `Currently on Page ${pageText}`);
+      }
+      else {
+        $page.attr('aria-label', `Go to Page ${pageText}`);
+      }
+      $container.append($page);
+    });
+
+    const $next = $('<a class="ma__pagination__next js-pagination-next" role="button" href="#"></a>')
+      .text(String(pagination.next.text));
+    if (pagination.next.disabled) {
+      $next.addClass('disabled').attr('aria-disabled', 'true');
+    }
+    else {
+      $next.attr('aria-label', `Go to ${String(pagination.next.text)} page`);
+    }
+    $container.append($next);
+
+    args.$el.empty().append($container);
   }
 
   /**

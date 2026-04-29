@@ -1,5 +1,3 @@
-import twiggy from '../helpers/twiggy';
-
 export default (function (window,document,$,undefined) {
   // Set up global component config
   let  clearAllButton = '.js-results-heading-clear', // events triggered on parent
@@ -43,10 +41,55 @@ export default (function (window,document,$,undefined) {
     if (!args.data) {
       return;
     }
-    // Asynchronously render via TwigJS.
-    twiggy('@molecules/results-heading.twig')
-        .then(t => t.renderAsync({resultsHeading: args.data}))
-        .then(markup => args.$el.html($(markup).children()))
+    const heading = args.data;
+    const hasTags = Array.isArray(heading.tags) && heading.tags.length > 0;
+    const $container = $('<div class="ma__results-heading__container"></div>');
+    const $title = $('<div class="ma__results-heading__title" role="status"></div>');
+
+    let titleText = `Showing ${String(heading.numResults || "0 - 0")}`;
+    if (heading.totalResults) {
+      titleText += ` of ${String(heading.totalResults)}`;
+    }
+    titleText += " results";
+    if (hasTags) {
+      titleText += "for:";
+    }
+    $title.text(titleText);
+
+    if (heading.subject) {
+      $title.append($('<span class="ma__visually-hidden"></span>').text(` for ${String(heading.subject)}`));
+    }
+    $container.append($title);
+
+    if (hasTags) {
+      const $tags = $('<fieldset class="ma__results-heading__tags"></fieldset>');
+      $tags.append('<legend class="ma__visually-hidden">Clear the active filters with the following buttons.</legend>');
+
+      heading.tags.forEach(function(tag) {
+        const $button = $('<button type="button" class="ma__results-heading__tag js-results-heading-tag"></button>')
+          .text(String(tag.text || ""));
+        if (tag.type) {
+          $button.attr('data-ma-filter-type', String(tag.type));
+        }
+        if (tag.value) {
+          $button.attr('data-ma-filter-value', String(tag.value));
+        }
+        $tags.append($button);
+      });
+
+      $tags.append('<button type="button" class="ma__results-heading__clear js-results-heading-clear">Clear all</button>');
+      $container.append($tags);
+    }
+
+    if (heading.sortResults) {
+      // Preserve the existing sort results subtree if this listing includes it.
+      const $existingSort = args.$el.find(".ma__results-heading__sort").first();
+      if ($existingSort.length) {
+        $container.append($('<div class="ma__results-heading__sort"></div>').html($existingSort.html()));
+      }
+    }
+
+    args.$el.empty().append($container);
   }
 
 })(window,document,jQuery);
