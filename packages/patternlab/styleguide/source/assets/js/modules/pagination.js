@@ -72,15 +72,12 @@ export default (function (window, document, $, undefined) {
     // all page numbers if there are a lot.
     let pagination = truncatePaginationDisplay(args.data);
     const $container = $('<nav class="ma__pagination__container" aria-label="Pagination Navigation"></nav>');
-    const $prev = $('<a class="ma__pagination__prev js-pagination-prev" role="button" href="#"></a>')
-      .text(String(pagination.prev.text));
-    if (pagination.prev.disabled) {
-      $prev.addClass('disabled').attr('aria-disabled', 'true');
-    }
-    else {
-      $prev.attr('aria-label', `Go to ${String(pagination.prev.text)} page`);
-    }
-    $container.append($prev);
+    $container.append(buildPaginationLink({
+      className: 'ma__pagination__prev js-pagination-prev',
+      text: pagination.prev.text,
+      disabled: pagination.prev.disabled,
+      ariaLabel: `Go to ${String(pagination.prev.text)} page`
+    }));
 
     pagination.pages.forEach(function(page) {
       if (page.text === "spacer") {
@@ -89,32 +86,43 @@ export default (function (window, document, $, undefined) {
       }
 
       const pageText = String(page.text);
-      const $page = $('<a class="ma__pagination__page js-pagination-page" href="#" role="button"></a>')
-        .text(pageText)
-        .attr('data-page', pageText);
-
-      if (page.active) {
-        $page
-          .addClass('is-active')
-          .attr('aria-label', `Currently on Page ${pageText}`);
-      }
-      else {
-        $page.attr('aria-label', `Go to Page ${pageText}`);
-      }
-      $container.append($page);
+      $container.append(buildPaginationLink({
+        className: 'ma__pagination__page js-pagination-page',
+        text: pageText,
+        isActive: page.active,
+        dataPage: pageText,
+        ariaLabel: page.active ? `Currently on Page ${pageText}` : `Go to Page ${pageText}`
+      }));
     });
 
-    const $next = $('<a class="ma__pagination__next js-pagination-next" role="button" href="#"></a>')
-      .text(String(pagination.next.text));
-    if (pagination.next.disabled) {
-      $next.addClass('disabled').attr('aria-disabled', 'true');
-    }
-    else {
-      $next.attr('aria-label', `Go to ${String(pagination.next.text)} page`);
-    }
-    $container.append($next);
+    $container.append(buildPaginationLink({
+      className: 'ma__pagination__next js-pagination-next',
+      text: pagination.next.text,
+      disabled: pagination.next.disabled,
+      ariaLabel: `Go to ${String(pagination.next.text)} page`
+    }));
 
     args.$el.empty().append($container);
+  }
+
+  function buildPaginationLink(args) {
+    const $link = $('<a role="button" href="#"></a>')
+      .addClass(args.className)
+      .text(String(args.text));
+
+    if (args.dataPage) {
+      $link.attr('data-page', args.dataPage);
+    }
+    if (args.isActive) {
+      $link.addClass('is-active');
+    }
+    if (args.disabled) {
+      $link.attr('aria-disabled', 'true').addClass('disabled');
+    }
+    else {
+      $link.attr('aria-label', args.ariaLabel);
+    }
+    return $link;
   }
 
   /**
