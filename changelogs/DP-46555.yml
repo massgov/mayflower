@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: EventListingInteractive
+    description: Restore initial resultsHeading from listing data; transformListing output does not include resultsHeading (potentially regression from DP-39285).
+    issue: DP-46555
+    impact: Patch
