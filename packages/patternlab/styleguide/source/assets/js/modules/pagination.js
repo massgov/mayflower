@@ -17,22 +17,23 @@ export default (function (window, document, $, undefined) {
     } else if (params.has('_page')) {
       targetPageNumber = params.get('_page');
     }
+    targetPageNumber = normalizePageNumber(targetPageNumber);
 
     // Listen for previous page button click and trigger pagination event.
     $el.on('click', prevButton, function () {
-      targetPageNumber = parseInt(targetPageNumber) - 1;
+      targetPageNumber = normalizePageNumber(targetPageNumber) - 1;
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
     // Listen for next button click and trigger pagination event.
     $el.on('click', nextButton, function () {
-      targetPageNumber = parseInt(targetPageNumber) + 1;
+      targetPageNumber = normalizePageNumber(targetPageNumber) + 1;
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
     // Listen for page number button click and trigger pagination event;
     $el.on('click', pageButton, function (e) {
-      targetPageNumber = $(e.target).data('page');
+      targetPageNumber = normalizePageNumber($(e.target).data('page'));
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
@@ -40,7 +41,7 @@ export default (function (window, document, $, undefined) {
     window.onpopstate = function (e) {
       if (e.state) {
         if (e.state.page) {
-          $el.trigger("ma:Pagination:Pagination", [e.state.page]);
+          $el.trigger("ma:Pagination:Pagination", [normalizePageNumber(e.state.page)]);
         }
       }
     };
@@ -183,6 +184,7 @@ export default (function (window, document, $, undefined) {
   }
 
   function pushPaginationState(pageNum, replace = false) {
+    pageNum = normalizePageNumber(pageNum);
     let params = new URLSearchParams(window.location.search);
     params.set('_page', pageNum);
 
@@ -198,6 +200,11 @@ export default (function (window, document, $, undefined) {
         `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
       );
     }
+  }
+
+  function normalizePageNumber(pageNum) {
+    let parsed = parseInt(pageNum, 10);
+    return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
   }
 
 })(window, document, jQuery);

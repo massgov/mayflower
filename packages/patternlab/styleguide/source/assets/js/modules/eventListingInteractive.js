@@ -60,6 +60,9 @@ export default (function (window,document,$,undefined) {
     function handlePagination (e, target) {
       "use strict";
       let nextPage = parseInt(target, 10);
+      if (!Number.isFinite(nextPage) || nextPage < 1) {
+        nextPage = 1;
+      }
 
       masterData.pagination = listings.transformPaginationData({ data: masterData, targetPage: nextPage });
       masterData.resultsHeading = listings.transformResultsHeading({ data: masterData, page: nextPage });
@@ -74,8 +77,8 @@ export default (function (window,document,$,undefined) {
     if (history.state) {
       defaultPage = history.state.page;
     }
-    if (params) {
-      defaultPage = params.get("page");
+    if (params && params.has("_page")) {
+      defaultPage = params.get("_page");
     }
     handlePagination(null, defaultPage);
 
