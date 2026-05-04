@@ -1,6 +1,6 @@
 Changed:
   - project: Patternlab
     component: RelationshipIndicators
-    description: Fix keyboard tab order in Offered by when show more/less is present.
+    description: Fix Offered by show more/less—tab order, single persistent control at end of list, expand/collapse focus management.
     issue: DP-46457
     impact: Patch

@@ -13,7 +13,6 @@ export default (function (window, document, $, undefined) {
     $(".ma__relationship-indicators--terms").each(function (index) {
       const $tagWrapper = $(this);
       const $button = $tagWrapper.find(".js-relationship-indicator-button");
-      const $buttonWrapper = $button.closest(".ma__relationship-indicators__expand-indicators");
       const $items = $tagWrapper.find("li.js-term")
       const $lastItem = $tagWrapper.find("li.ma__relationship-indicators--term--last");
       const totalCount = $items.length;
@@ -32,38 +31,25 @@ export default (function (window, document, $, undefined) {
         const $buttonCounter = $button.find(".tag-count");
         const $buttonState = $button.find(".tag-state");
         const $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
-        const $visibleItems = $tagWrapper.find(".js-term:lt(" + (groupAfter + 1) + ")");
         let expanded = false;
-
-        function positionToggleButton(buttonState) {
-          if (buttonState) {
-            $buttonWrapper.insertAfter($items.last());
-          } else {
-            $buttonWrapper.insertAfter($visibleItems.last());
-          }
-        }
-
 
         function toggleButton(buttonState) {
           if (buttonState) {
             $tagWrapper.removeClass(wrapperFoldClass);
             $buttonState.text("less");
-            $button.attr("aria-pressed", true);
             $button.attr("aria-expanded", true);
             $button.addClass("is-open")
           } else {
             $tagWrapper.addClass(wrapperFoldClass);
             $buttonState.text("more");
-            $button.attr("aria-pressed", false);
             $button.attr("aria-expanded", false);
             $button.removeClass("is-open")
           }
-          positionToggleButton(buttonState);
         }
 
         /** Button toggle logic
          * when groupIndicators is triggered on responsive (screensize crosses the threshhold) and meets the folding conditions
-         * Show toggle button, update hidden count in button label 
+         * Show toggle button, update hidden count in button label
          * Reset toggle button state and items display
         */
         $button.show();
@@ -81,12 +67,20 @@ export default (function (window, document, $, undefined) {
           hiddenIds += itemId + " ";
         });
 
-        $button.attr("aria-controls", hiddenIds);
+        $button.attr("aria-controls", hiddenIds.trim());
 
         // toggle button onclick callback
-        $button.on("click", function () {
+        $button.off("click.relationshipIndicators").on("click.relationshipIndicators", function () {
           expanded = !expanded;
           toggleButton(expanded);
+          if (expanded) {
+            const firstRevealed = $hiddenItems.first().find("a").get(0);
+            if (firstRevealed) {
+              firstRevealed.focus();
+            }
+          } else {
+            $button.get(0).focus();
+          }
         });
 
         // add back | separator for the last item
