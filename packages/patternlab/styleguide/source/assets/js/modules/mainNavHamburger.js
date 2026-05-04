@@ -17,6 +17,7 @@ function initializeMainNavHamburger() {
   const HEADER_TOGGLE_BREAKPOINT = 940;
   const DISABLE_MENU_TRANSITION_CLASS = "ma-disable-menu-transition";
   const osInfo = navigator.appVersion;
+  const userAgent = navigator.userAgent;
   const body = document.querySelector("body");
   let width = body.clientWidth;
   let alertlOffsetPosition;
@@ -54,6 +55,15 @@ function initializeMainNavHamburger() {
 
   function isHeaderDesktop() {
     return body.clientWidth > HEADER_TOGGLE_BREAKPOINT;
+  }
+
+  const isMacSafari =
+    /Macintosh/.test(userAgent) &&
+    /Safari/.test(userAgent) &&
+    !/Chrome|CriOS|Chromium|Edg|OPR|Firefox|FxiOS/.test(userAgent);
+
+  if (isMacSafari) {
+    body.classList.add("mac-safari");
   }
 
   if (!isMixedHeader && translateModalElements.length > 1) {

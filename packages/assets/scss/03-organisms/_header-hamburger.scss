@@ -295,6 +295,17 @@ body.ma-disable-menu-transition {
 
       padding-left: 20px;
     }
+
+    .mac-safari & {
+      &:focus,
+      &:focus-visible {
+        outline-style: solid !important;
+        outline-width: 2px !important;
+        outline-color: var(--mf-c-white) !important;
+        outline-offset: 0;
+        box-shadow: none !important;
+      }
+    }
   }
 
   &__menu-home-link {
@@ -421,6 +432,17 @@ body.ma-disable-menu-transition {
       width: 20px;
       display: inline-block;
       vertical-align: middle;
+    }
+
+    .mac-safari & {
+      &:focus,
+      &:focus-visible {
+        outline-style: solid !important;
+        outline-width: 2px !important;
+        outline-color: var(--mf-c-white) !important;
+        outline-offset: 0;
+        box-shadow: none !important;
+      }
     }
   }
 

@@ -1,0 +1,6 @@
+Fixed:
+  - project: Assets
+    component: BrandBanner
+    description: Set a white focus outline on site banner to improve focus visibility in Safari.
+    issue: DP-46593
+    impact: Patch
