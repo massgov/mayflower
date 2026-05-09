@@ -1,0 +1,35 @@
+@use "00-base/configure" as *;
+
+.ma__inline-message {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f1f4f6; // Light grey matching mockup
+  border: 1px solid var(--mf-c-bd-divider, #d5dce0);
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+
+  &__icon {
+    flex-shrink: 0;
+    margin-right: 15px;
+    margin-top: 2px; // Align icon visually with the heading text
+    
+    svg {
+      display: block;
+      color: var(--mf-c-primary);
+      fill: var(--mf-c-primary);
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

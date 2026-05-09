@@ -1,0 +1,30 @@
+<div class="ma__process-step">
+  {% if processStep.title %}
+    <div class="ma__process-step__header">
+      {% set compHeading = {
+        "level": processStep.level|default(3),
+        "title": processStep.title,
+        "hideLine": true
+      } %}
+      {% include "@atoms/04-headings/comp-heading.twig" %}
+    </div>
+  {% endif %}
+
+  <div class="ma__process-step__content">
+    {% if processStep.richText %}
+      {% set richText = processStep.richText %}
+      {% include "@organisms/by-author/rich-text.twig" %}
+    {% endif %}
+
+    {% if processStep.content %}
+      <div class="ma__process-step__nested">
+        {% for block in processStep.content %}
+          {% if block.richText %}
+            {% set richText = block.richText %}
+            {% include "@organisms/by-author/rich-text.twig" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>

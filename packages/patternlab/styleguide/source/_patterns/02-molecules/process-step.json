@@ -1,0 +1,17 @@
+{
+  "processStep": {
+    "title": "Check your business name",
+    "richText": {
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "To do business in the Commonwealth, you must first check to see if your desired business name is available."
+            }
+          }
+        }
+      ]
+    }
+  }
+}

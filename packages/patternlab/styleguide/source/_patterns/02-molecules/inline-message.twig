@@ -1,0 +1,11 @@
+<div class="ma__inline-message">
+  <div class="ma__inline-message__icon">
+    {{ icon('info', '24px', '24px', 'ma__inline-message__icon--info') }}
+  </div>
+  <div class="ma__inline-message__content">
+    {% if inlineMessage.richText %}
+      {% set richText = inlineMessage.richText %}
+      {% include "@organisms/by-author/rich-text.twig" %}
+    {% endif %}
+  </div>
+</div>

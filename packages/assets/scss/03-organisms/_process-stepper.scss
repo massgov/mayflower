@@ -1,0 +1,82 @@
+@use "00-base/configure" as *;
+
+.ma__process-stepper {
+  margin-bottom: 28px;
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content--full .page-content > & {
+    @include ma-container('restricted');
+  }
+
+  &__items {
+    @include ma-reset-list;
+    counter-reset: process-step-counter; // Initiate a counter
+    border: 1px solid var(--mf-c-bd-divider, #d5dce0);
+    border-radius: 4px;
+    background-color: $c-white;
+    margin-top: 24px;
+  }
+
+  &__item {
+    list-style: none; // Disable the normal item numbering
+    position: relative;
+    padding: 30px;
+    border-bottom: 1px solid var(--mf-c-bd-divider, #d5dce0);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// Inline message styles — scoped here to ensure they compile with the active pipeline
+.ma__inline-message {
+  display: flex;
+  align-items: flex-start;
+  background-color: #edf3f7; // Light blue-grey matching mockup
+  border: 1px solid var(--mf-c-bd-divider, #d5dce0);
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+
+  &__icon {
+    flex-shrink: 0;
+    margin-right: 14px;
+    margin-top: 2px; // Align icon with heading baseline
+
+    svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      color: var(--mf-c-primary, #154796);
+      fill: var(--mf-c-primary, #154796);
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+
+    // Remove top margin from first element (heading) inside the box
+    > *:first-child,
+    .ma__comp-heading {
+      margin-top: 0;
+
+      h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--mf-c-font-dark, #1b2a33);
+        margin: 0 0 8px;
+        line-height: 1.4;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--mf-c-font-dark, #1b2a33);
+    }
+  }
+}

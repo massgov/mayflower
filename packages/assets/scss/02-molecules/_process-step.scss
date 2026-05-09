@@ -1,0 +1,46 @@
+@use "00-base/configure" as *;
+
+.ma__process-step {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+  // Base padding for mobile, overriding later for larger screens
+  padding-left: 60px;
+
+  &__header {
+    position: relative;
+    padding-left: 0;
+    padding-top: 0;
+
+    // The numbered circle
+    &::before {
+      content: counter(process-step-counter);
+      counter-increment: process-step-counter;
+      border: 3px solid var(--mf-c-primary, #154796);
+      border-radius: 50%;
+      background-color: var(--mf-c-primary, #154796);
+      color: $c-white;
+      font-weight: $fonts-bold;
+      font-size: $fonts-medium;
+      height: 36px;
+      line-height: 30px; // 36px - 2*3px border
+      position: absolute;
+      top: -4px; // Slight adjustment to align with text
+      left: -60px;
+      text-align: center;
+      width: 36px;
+      z-index: 2;
+    }
+  }
+
+  &__content {
+    padding-left: 0;
+    padding-top: 10px;
+  }
+  
+  &__nested {
+    margin-top: 20px;
+    text-align: right;
+  }
+}

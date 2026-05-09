@@ -1,0 +1,51 @@
+{
+  "processStepper": {
+    "compHeading": {
+      "title": "Steps to start your business",
+      "level": 2
+    },
+    "steps": [
+      {
+        "title": "Check your business name",
+        "richText": {
+          "rteElements": [
+            {
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph": {
+                  "text": "To do business in the Commonwealth, you must first check to see if your desired business name is available."
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "File with the Secretary of the Commonwealth",
+        "richText": {
+          "rteElements": [
+            {
+              "path": "@molecules/inline-message.twig",
+              "data": {
+                "inlineMessage": {
+                  "richText": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "<strong>Let's add an inline message testing goes here</strong><br>Any business filing with the Secretary of the Commonwealth will require a link to reach their site and submit the appropriate form. <a href=\"#\">See forms and fees for filing directly at mass.gov</a> or <a href=\"#\">file electronically with the US Department of State Corporate Online Services</a>."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
