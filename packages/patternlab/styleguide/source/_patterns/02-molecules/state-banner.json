@@ -1,0 +1,17 @@
+{
+  "stateBanner": {
+    "ariaLabel": "Official website banner",
+    "nodeId": "1:929",
+    "panelId": "mds-state-banner-panel",
+    "seal": {
+      "src": "https://unpkg.com/@massds/mds-assets@1.0.1/dist/state-seal/state-seal-white.svg",
+      "alt": "Massachusetts State Seal"
+    },
+    "title": "An official website of the Commonwealth of Massachusetts",
+    "toggleText": "Here's how you know",
+    "massGovTitle": "Official websites use .mass.gov",
+    "massGovDescription": "A .mass.gov website belongs to an official government organization in Massachusetts.",
+    "httpsTitle": "Secure websites use HTTPS certificate",
+    "httpsDescription": "A lock icon or https:// means you've safely connected to the official website. Share sensitive information only on official, secure websites."
+  }
+}
