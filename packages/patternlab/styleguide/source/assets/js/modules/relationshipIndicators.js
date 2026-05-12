@@ -33,18 +33,15 @@ export default (function (window, document, $, undefined) {
         const $hiddenItems = $tagWrapper.find(".js-term:gt(" + groupAfter + ")");
         let expanded = false;
 
-
         function toggleButton(buttonState) {
           if (buttonState) {
             $tagWrapper.removeClass(wrapperFoldClass);
             $buttonState.text("less");
-            $button.attr("aria-pressed", true);
             $button.attr("aria-expanded", true);
             $button.addClass("is-open")
           } else {
             $tagWrapper.addClass(wrapperFoldClass);
             $buttonState.text("more");
-            $button.attr("aria-pressed", false);
             $button.attr("aria-expanded", false);
             $button.removeClass("is-open")
           }
@@ -52,7 +49,7 @@ export default (function (window, document, $, undefined) {
 
         /** Button toggle logic
          * when groupIndicators is triggered on responsive (screensize crosses the threshhold) and meets the folding conditions
-         * Show toggle button, update hidden count in button label 
+         * Show toggle button, update hidden count in button label
          * Reset toggle button state and items display
         */
         $button.show();
@@ -70,12 +67,20 @@ export default (function (window, document, $, undefined) {
           hiddenIds += itemId + " ";
         });
 
-        $button.attr("aria-controls", hiddenIds);
+        $button.attr("aria-controls", hiddenIds.trim());
 
         // toggle button onclick callback
-        $button.on("click", function () {
+        $button.off("click.relationshipIndicators").on("click.relationshipIndicators", function () {
           expanded = !expanded;
           toggleButton(expanded);
+          if (expanded) {
+            const firstRevealed = $hiddenItems.first().find("a").get(0);
+            if (firstRevealed) {
+              firstRevealed.focus();
+            }
+          } else {
+            $button.get(0).focus();
+          }
         });
 
         // add back | separator for the last item
@@ -115,8 +120,9 @@ export default (function (window, document, $, undefined) {
   }
 
 
-  // Initialize state for the relationship indicators.
-  groupIndicators(initialDiff < 0 ? 0 : $groupAfter);
+  // Initialize state for the relationship indicators using the active viewport.
+  // This avoids rendering desktop grouping first and then relying on resize.
+  groupIndicators($(window).width() < breakpoint ? 0 : $groupAfter);
 
   // Update the relationship indicators state when window resizes.
   $(window).resize(resizeResponse);
