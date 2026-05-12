@@ -23,7 +23,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/heads/dependabot/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
@@ -71,7 +71,7 @@ jobs:
       !startsWith(github.ref, 'refs/heads/react/') &&
       !startsWith(github.ref, 'refs/heads/core/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -160,7 +160,7 @@ jobs:
       !startsWith(github.ref, 'refs/heads/react/') &&
       !startsWith(github.ref, 'refs/heads/core/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Download workspace
         uses: actions/download-artifact@v4
@@ -214,7 +214,7 @@ jobs:
       contents: read
     if: startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Download workspace
         uses: actions/download-artifact@v4
@@ -288,7 +288,7 @@ jobs:
       !startsWith(github.ref, 'refs/heads/docs/') &&
       !startsWith(github.ref, 'refs/heads/patternlab/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -427,7 +427,7 @@ jobs:
       github.event_name == 'push' &&
       !startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -457,7 +457,7 @@ jobs:
     needs: [react_build_storybook]
     if: startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -496,7 +496,7 @@ jobs:
       !startsWith(github.ref, 'refs/heads/docs/') &&
       !startsWith(github.ref, 'refs/heads/patternlab/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -603,7 +603,7 @@ jobs:
     needs: [build]
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.create_tag == 'true'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0
@@ -644,7 +644,7 @@ jobs:
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     environment: approval
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0
