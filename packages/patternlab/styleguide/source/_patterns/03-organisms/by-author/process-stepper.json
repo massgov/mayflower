@@ -18,6 +18,12 @@
               }
             }
           ]
+        },
+        "button": {
+          "text": "Search for a business entity",
+          "href": "#",
+          "theme": "c-primary-alt",
+          "uppercaseOverride": true
         }
       },
       {
@@ -28,13 +34,15 @@
               "path": "@molecules/inline-message.twig",
               "data": {
                 "inlineMessage": {
+                  "type": "info",
+                  "heading": "Info Inline Message heading goes here",
                   "richText": {
                     "rteElements": [
                       {
                         "path": "@atoms/11-text/paragraph.twig",
                         "data": {
                           "paragraph": {
-                            "text": "<strong>Let's add an inline message testing goes here</strong><br>Any business filing with the Secretary of the Commonwealth will require a link to reach their site and submit the appropriate form. <a href=\"#\">See forms and fees for filing directly at mass.gov</a> or <a href=\"#\">file electronically with the US Department of State Corporate Online Services</a>."
+                            "text": "Any business filing with the Secretary of the Commonwealth may also have to report information to the federal government. <a href=\"#\">Learn more about filing a beneficial ownership information (BOI) report with FinCEN.</a>"
                           }
                         }
                       }
@@ -42,8 +50,64 @@
                   }
                 }
               }
+            },
+            {
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph": {
+                  "text": "If your business must file with the Secretary of the Commonwealth, visit their Filing by Subject page and follow the steps for the business structure you have chosen."
+                }
+              }
             }
           ]
+        },
+        "button": {
+          "text": "File with the Secretary of the Commonwealth",
+          "href": "#",
+          "theme": "c-primary-alt",
+          "uppercaseOverride": true
+        }
+      },
+      {
+        "title": "Get a local business certificate (DBA)",
+        "richText": {
+          "rteElements": [
+            {
+              "path": "@molecules/inline-message.twig",
+              "data": {
+                "inlineMessage": {
+                  "type": "warning",
+                  "heading": "Important Note on Certificates",
+                  "richText": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Make sure to verify if your city or town requires additional local permits alongside your business certificate. <a href=\"#\">Check local municipal guidelines.</a>"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph": {
+                  "text": "You file this certificate with the city or town clerk in the city or town where your business is located."
+                }
+              }
+            }
+          ]
+        },
+        "button": {
+          "text": "Schedule an in-person appointment",
+          "href": "#",
+          "theme": "c-primary-alt",
+          "uppercaseOverride": true
         }
       }
     ]

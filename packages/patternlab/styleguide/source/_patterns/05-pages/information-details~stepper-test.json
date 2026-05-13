@@ -153,7 +153,7 @@
                                 "href": "#",
                                 "icon": "external-link",
                                 "theme": "c-primary-alt",
-                                "usage": "secondary"
+                                "uppercaseOverride": true
                               }
                             }
                           }
@@ -170,18 +170,10 @@
                         "path": "@molecules/inline-message.twig",
                         "data": {
                           "inlineMessage": {
+                            "type": "info",
+                            "heading": "Info Inline Message heading goes here",
                             "richText": {
                               "rteElements": [
-                                {
-                                  "path": "@atoms/04-headings/comp-heading.twig",
-                                  "data": {
-                                    "compHeading": {
-                                      "level": 4,
-                                      "title": "Info Inline Message heading goes here",
-                                      "hideLine": true
-                                    }
-                                  }
-                                },
                                 {
                                   "path": "@atoms/11-text/paragraph.twig",
                                   "data": {
@@ -217,7 +209,7 @@
                                 "href": "#",
                                 "icon": "external-link",
                                 "theme": "c-primary-alt",
-                                "usage": "secondary"
+                                "uppercaseOverride": true
                               }
                             }
                           }
@@ -235,6 +227,27 @@
                         "data": {
                           "paragraph": {
                             "text": "You must file a business certificate (sometimes called a DBA or \"doing business as\" name) if you conduct business under a name other than your own. You should also get a business certificate if you use your name but add words that indicate you are in a business or profession (e.g. \"Jane Doe, Accountant\").<br><br>You file this certificate with the city or town clerk in the city or town where your business is located. <a href=\"#\">Learn more about business certificates (DBA) from mass.gov</a>."
+                          }
+                        }
+                      },
+                      {
+                        "path": "@molecules/inline-message.twig",
+                        "data": {
+                          "inlineMessage": {
+                            "type": "warning",
+                            "heading": "Important Note on Certificates",
+                            "richText": {
+                              "rteElements": [
+                                {
+                                  "path": "@atoms/11-text/paragraph.twig",
+                                  "data": {
+                                    "paragraph": {
+                                      "text": "Make sure to verify if your city or town requires additional local permits alongside your business certificate. <a href=\"#\">Check local municipal guidelines.</a>"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
                           }
                         }
                       }
@@ -282,7 +295,7 @@
                                 "href": "#",
                                 "icon": "external-link",
                                 "theme": "c-primary-alt",
-                                "usage": "primary"
+                                "uppercaseOverride": true
                               }
                             }
                           }

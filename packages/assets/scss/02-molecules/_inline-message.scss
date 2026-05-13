@@ -1,35 +1,61 @@
 @use "00-base/configure" as *;
 
+// Inline Message molecule.
+// Supported variants: info (default), warning.
+// Structure: icon + heading on same row; paragraph below full-width.
 .ma__inline-message {
-  display: flex;
-  align-items: flex-start;
-  background-color: #f1f4f6; // Light grey matching mockup
+  background-color: var(--mf-c-bay-blue-lightest, #f1f4f6); // Design token — light blue background
   border: 1px solid var(--mf-c-bd-divider, #d5dce0);
-  padding: 20px;
-  margin-bottom: 30px;
+  padding: 16px;
+  margin-bottom: 24px;
   border-radius: 4px;
+
+  // Top row: icon + bold heading on same horizontal line
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
 
   &__icon {
     flex-shrink: 0;
-    margin-right: 15px;
-    margin-top: 2px; // Align icon visually with the heading text
-    
+    display: flex;
+    align-items: center;
+
     svg {
       display: block;
-      color: var(--mf-c-primary);
-      fill: var(--mf-c-primary);
+      width: 20px;
+      height: 20px;
+      color: var(--mf-c-primary, #154796);
+      fill: var(--mf-c-primary, #154796);
     }
   }
 
-  &__content {
-    flex-grow: 1;
+  &__title {
+    font-weight: $fonts-bold;
+    font-size: $fonts-medium;
+    line-height: 1.4;
+  }
 
-    > *:first-child {
-      margin-top: 0;
+  // Body: paragraph text — full-width below the header row
+  &__content {
+    .ma__rich-text {
+      > *:first-child {
+        margin-top: 0;
+      }
     }
 
     p {
       margin-bottom: 0;
+    }
+  }
+
+  // Warning variant — yellow icon tint
+  &--warning {
+    .ma__inline-message__icon svg {
+      color: var(--mf-c-duckling-yellow, #f9c642);
+      fill: var(--mf-c-duckling-yellow, #f9c642);
     }
   }
 }

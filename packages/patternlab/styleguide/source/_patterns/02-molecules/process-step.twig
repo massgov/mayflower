@@ -15,16 +15,22 @@
       {% set richText = processStep.richText %}
       {% include "@organisms/by-author/rich-text.twig" %}
     {% endif %}
-
-    {% if processStep.content %}
-      <div class="ma__process-step__nested">
-        {% for block in processStep.content %}
-          {% if block.richText %}
-            {% set richText = block.richText %}
-            {% include "@organisms/by-author/rich-text.twig" %}
-          {% endif %}
-        {% endfor %}
-      </div>
-    {% endif %}
   </div>
+
+  {# CTA: supports both content[] array (existing pages) and button{} object (new pattern) #}
+  {% if processStep.content %}
+    <div class="ma__process-step__action">
+      {% for block in processStep.content %}
+        {% if block.richText %}
+          {% set richText = block.richText %}
+          {% include "@organisms/by-author/rich-text.twig" %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% elseif processStep.button %}
+    <div class="ma__process-step__action">
+      {% set button = processStep.button %}
+      {% include "@atoms/01-buttons/button.twig" %}
+    </div>
+  {% endif %}
 </div>

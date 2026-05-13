@@ -1,11 +1,17 @@
-<div class="ma__inline-message">
-  <div class="ma__inline-message__icon">
-    {{ icon('info', '24px', '24px', 'ma__inline-message__icon--info') }}
-  </div>
-  <div class="ma__inline-message__content">
-    {% if inlineMessage.richText %}
-      {% set richText = inlineMessage.richText %}
-      {% include "@organisms/by-author/rich-text.twig" %}
+{% set iconName = inlineMessage.type == 'warning' ? 'warning' : 'info' %}
+<div class="ma__inline-message{% if inlineMessage.type %} ma__inline-message--{{ inlineMessage.type }}{% endif %}">
+  <div class="ma__inline-message__header">
+    <span class="ma__inline-message__icon">
+      {{ icon(iconName, '20px', '20px') }}
+    </span>
+    {% if inlineMessage.heading %}
+      <strong class="ma__inline-message__title">{{ inlineMessage.heading }}</strong>
     {% endif %}
   </div>
+  {% if inlineMessage.richText %}
+    <div class="ma__inline-message__content">
+      {% set richText = inlineMessage.richText %}
+      {% include "@organisms/by-author/rich-text.twig" %}
+    </div>
+  {% endif %}
 </div>
