@@ -45,6 +45,7 @@
     }
 
     &[class*="-bg-dark"] &-container {
+
         &:focus-visible {
             outline-style: solid !important;
             outline-width: 2px !important;
