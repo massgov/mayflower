@@ -13,6 +13,8 @@
               {% include "@atoms/item-link.twig" %}
             {% endfor %}
           {% endblock %}
+          {# Expand control stays outside the block so Drupal embed overrides keep one persistent button at list end. #}
+          {% include "@atoms/relationship-indicator-expand.twig" %}
         </ul>
       </div>
     {% endif %}
@@ -45,6 +47,7 @@
               {% include "@atoms/item-link.twig" %}
             {% endfor %}
           {% endblock %}
+          {% include "@atoms/relationship-indicator-expand.twig" %}
         </ul>
       </div>
     {% endif %}
