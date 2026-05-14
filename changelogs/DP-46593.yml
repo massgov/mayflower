@@ -1,6 +1,6 @@
 Fixed:
   - project: Assets
-    component: BrandBanner
-    description: Set a white focus outline on site banner to improve focus visibility in Safari.
+    component: BrandBanner, Header, UtilityNav
+    description: Use MDS focus token on dark header surfaces with :focus-visible for keyboard focus.
     issue: DP-46593
     impact: Patch

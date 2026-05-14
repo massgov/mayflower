@@ -296,15 +296,12 @@ body.ma-disable-menu-transition {
       padding-left: 20px;
     }
 
-    .mac-safari & {
-      &:focus,
-      &:focus-visible {
-        outline-style: solid !important;
-        outline-width: 2px !important;
-        outline-color: var(--mf-c-white) !important;
-        outline-offset: 0;
-        box-shadow: none !important;
-      }
+    &:focus-visible {
+      outline-style: solid !important;
+      outline-width: 2px !important;
+      outline-color: var(--mds-border-focus-on-dark) !important;
+      outline-offset: 0;
+      box-shadow: none !important;
     }
   }
 
@@ -434,15 +431,12 @@ body.ma-disable-menu-transition {
       vertical-align: middle;
     }
 
-    .mac-safari & {
-      &:focus,
-      &:focus-visible {
-        outline-style: solid !important;
-        outline-width: 2px !important;
-        outline-color: var(--mf-c-white) !important;
-        outline-offset: 0;
-        box-shadow: none !important;
-      }
+    &:focus-visible {
+      outline-style: solid !important;
+      outline-width: 2px !important;
+      outline-color: var(--mds-border-focus-on-dark) !important;
+      outline-offset: 0;
+      box-shadow: none !important;
     }
   }
 

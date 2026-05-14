@@ -44,17 +44,13 @@
         }
     }
 
-    // Safari can render a default blue focus ring on dark banner themes.
     &[class*="-bg-dark"] &-container {
-        .mac-safari & {
-            &:focus,
-            &:focus-visible {
-                outline-style: solid !important;
-                outline-width: 2px !important;
-                outline-color: var(--mf-c-white) !important;
-                outline-offset: 0;
-                box-shadow: none !important;
-            }
+        &:focus-visible {
+            outline-style: solid !important;
+            outline-width: 2px !important;
+            outline-color: var(--mds-border-focus-on-dark) !important;
+            outline-offset: 0;
+            box-shadow: none !important;
         }
     }
 
