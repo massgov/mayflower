@@ -664,7 +664,8 @@ body.ma-disable-menu-transition {
 
         display: none;
 
-        // focusTrapping.js reply on this setting to determine the last focusable item in the nav
+        // Hidden on desktop. Keyboard trap uses `.ma__header__hamburger-wrapper` and excludes `aria-hidden`
+        // subtrees (see focusTrapping.js) so Tab order matches on all breakpoints.
 
         & .ma__utility-nav__link {
           display: none;
