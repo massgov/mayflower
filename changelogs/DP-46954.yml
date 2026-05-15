@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: RichText, CompHeading
+    description: Remove green decorative underline from H3 and H4 in rich text and component headings, and remove extra spacing reserved for that line.
+    issue: DP-46954
+    impact: Patch
