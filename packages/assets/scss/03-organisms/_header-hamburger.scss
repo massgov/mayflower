@@ -13,6 +13,7 @@ body.show-menu {
 }
 
 body.ma-disable-menu-transition {
+
   .ma__header__hamburger__nav-container,
   .menu-overlay,
   .alert-overlay {
@@ -295,6 +296,14 @@ body.ma-disable-menu-transition {
 
       padding-left: 20px;
     }
+
+    &:focus-visible {
+      outline-style: solid !important;
+      outline-width: 2px !important;
+      outline-color: var(--mds-border-focus-on-dark) !important;
+      outline-offset: 0;
+      box-shadow: none !important;
+    }
   }
 
   &__menu-home-link {
@@ -421,6 +430,14 @@ body.ma-disable-menu-transition {
       width: 20px;
       display: inline-block;
       vertical-align: middle;
+    }
+
+    &:focus-visible {
+      outline-style: solid !important;
+      outline-width: 2px !important;
+      outline-color: var(--mds-border-focus-on-dark) !important;
+      outline-offset: 0;
+      box-shadow: none !important;
     }
   }
 

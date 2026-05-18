@@ -20,6 +20,7 @@
 }
 
 .ma__modal {
+
   &-overlay {
     position: fixed;
     inset: 0;
@@ -165,6 +166,7 @@ body.ma__modal-open {
 }
 
 @keyframes ma__modal-fade-in {
+
   from {
     opacity: 0;
     transform: scale(0.95);
@@ -177,13 +179,16 @@ body.ma__modal-open {
 }
 
 @media (max-width: 768px), (min-resolution: 150dpi) {
+
   .ma__modal-overlay {
     padding: var(--mds-space-md);
   }
 }
 
 @media (max-width: 600px), (min-resolution: 200dpi) {
+
   .ma__modal {
+
     &-dialog {
       padding: var(--mds-space-lg) var(--mds-space-md);
       overflow-y: auto;
