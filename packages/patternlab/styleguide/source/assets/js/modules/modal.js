@@ -110,18 +110,28 @@ class AccessibleModal {
     }
 
     /**
-     * Move the modal overlay to document.body so it is not clipped by ancestors
-     * (e.g. the hamburger nav drawer on Android).
+     * Root node for portaled modals. Use documentElement instead of body because
+     * the hamburger menu sets body { position: fixed }, which breaks viewport-fixed
+     * overlays on mobile (notably Android).
+     */
+    getPortalRoot() {
+        return document.documentElement;
+    }
+
+    /**
+     * Move the modal overlay out of the hamburger nav drawer so it is not clipped.
      */
     portalModalToBody() {
-        if (this.modal.parentElement === document.body) {
+        const portalRoot = this.getPortalRoot();
+
+        if (this.modal.parentElement === portalRoot) {
             return;
         }
 
         this.portalParent = this.modal.parentElement;
         this.portalPlaceholder = document.createComment('ma-modal-placeholder');
         this.portalParent.insertBefore(this.portalPlaceholder, this.modal);
-        document.body.appendChild(this.modal);
+        portalRoot.appendChild(this.modal);
     }
 
     /**
