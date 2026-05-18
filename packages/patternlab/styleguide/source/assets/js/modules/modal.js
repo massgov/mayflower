@@ -30,6 +30,8 @@ class AccessibleModal {
         this.translateBtn = this.modal.querySelector('.ma__modal-btn-translate');
         this.triggerElement = null;
         this.onOkCallback = options.onOk || null;
+        this.portalParent = null;
+        this.portalPlaceholder = null;
 
         // For focus management
         this.focusableElements = null;
@@ -108,6 +110,38 @@ class AccessibleModal {
     }
 
     /**
+     * Move the modal overlay to document.body so it is not clipped by ancestors
+     * (e.g. the hamburger nav drawer on Android).
+     */
+    portalModalToBody() {
+        if (this.modal.parentElement === document.body) {
+            return;
+        }
+
+        this.portalParent = this.modal.parentElement;
+        this.portalPlaceholder = document.createComment('ma-modal-placeholder');
+        this.portalParent.insertBefore(this.portalPlaceholder, this.modal);
+        document.body.appendChild(this.modal);
+    }
+
+    /**
+     * Restore the modal overlay to its original DOM position after close.
+     */
+    restoreModalFromBody() {
+        if (!this.portalParent || !this.portalPlaceholder) {
+            return;
+        }
+
+        if (this.portalPlaceholder.parentElement) {
+            this.portalParent.insertBefore(this.modal, this.portalPlaceholder);
+            this.portalPlaceholder.remove();
+        }
+
+        this.portalParent = null;
+        this.portalPlaceholder = null;
+    }
+
+    /**
      * Open the modal
      * @param {HTMLElement|null} triggerElement - Optional element that triggered the modal
      * If null or not provided, focus will return to first focusable page element on close
@@ -116,6 +150,8 @@ class AccessibleModal {
         // Store reference to element that opened the dialog
         // If null, we'll use the fallback element when closing
         this.triggerElement = triggerElement;
+
+        this.portalModalToBody();
 
         // Add active class to overlay to make it visible
         this.modal.classList.add('ma__active');
@@ -146,6 +182,8 @@ class AccessibleModal {
 
         // Restore body scroll
         document.body.classList.remove('ma__modal-open');
+
+        this.restoreModalFromBody();
 
         // Return focus to trigger element if it exists
         // Otherwise, return focus to first focusable element on page (skip link)

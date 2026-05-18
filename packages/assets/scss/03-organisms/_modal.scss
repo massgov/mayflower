@@ -19,11 +19,16 @@
   }
 }
 
+// When portaled to body (see modal.js), sit above the hamburger nav stacking context.
+body > .ma__modal-overlay.ma__active {
+  z-index: $z-skyline;
+}
+
 .ma__modal {
   &-overlay {
     position: fixed;
     inset: 0;
-    z-index: 1000;
+    z-index: $z-modal;
     display: none;
     align-items: center;
     justify-content: center;

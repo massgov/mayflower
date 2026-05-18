@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Modal
+    description: Move the translate modal overlay to document.body when opened so it is not clipped by the hamburger nav drawer on Android.
+    issue: DP-46594
+    impact: Patch
