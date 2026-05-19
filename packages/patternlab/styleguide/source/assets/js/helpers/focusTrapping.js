@@ -1,9 +1,10 @@
 /**
  * focusTrapping: Trap keyboard focus inside of a modal
- * @param {string} focusableSelectors(requied): css selectors for all the focusable elements inside of the modal
- * @param {string} modalSelector(requied): css selector for the modal container
+ * @param {string} focusableSelectors(required): css selectors for all the focusable elements inside of the modal
+ * @param {string} modalSelector(optional): css selector for the modal container
+ * @param {Element} modalElement(optional): modal root element; takes precedence over modalSelector
  * @param {string} closeButtonSelector(optional): If the modal close button is outside of the modal container, add the css selector for it to be included as the first focusable element
- * @param {event} keyEvent(requied): keydown event
+ * @param {event} keyEvent(required): keydown event
  */
 
 // check if an element is visibly displayed using computed style
@@ -12,51 +13,81 @@ const isDisplayed = (el) => {
   return style.display !== "none" && style.visibility !== "hidden";
 };
 
-// filter out elements from array which are not visibly displayed
-const filterDisplayedElements = (elements) =>
-  elements.length > 0 && elements.filter((el) => isDisplayed(el));
+/**
+ * Browsers omit descendants of aria-hidden / inert / hidden from the tab order, but they can still match
+ * querySelector and look "displayed" to getComputedStyle. Excluding them keeps first/last aligned with Tab
+ * (e.g. narrow utility accordions in the hamburger menu at ≤940px).
+ */
+const isAccessibilityHiddenSubtree = (el, modalRoot) => {
+  let node = el;
+  while (node && node !== modalRoot) {
+    if (node.getAttribute && node.getAttribute("aria-hidden") === "true") {
+      return true;
+    }
+    if (node.hidden === true) {
+      return true;
+    }
+    if (node.inert === true) {
+      return true;
+    }
+    node = node.parentElement;
+  }
+  return false;
+};
 
 export default ({
-  focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+  focusableSelectors = 'button:not([disabled]), [href], input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
   closeButtonSelector, // e.g. menu close button that's outside of modal
-  modalSelector, // e.g. '#exampleModal',
+  modalSelector,
+  modalElement,
   keyEvent,
 }) => {
-  // add all the elements inside modal which you want to make focusable
   const focusableElements = focusableSelectors;
-  const modal = document.querySelector(modalSelector); // select the modal by it's id
+  const modal =
+    modalElement ||
+    (modalSelector ? document.querySelector(modalSelector) : null);
   const e = keyEvent;
 
-  if (modal) {
-    const focusableNodeArray = Array.from(
-      modal.querySelectorAll(focusableElements)
-    );
+  if (!modal) {
+    return;
+  }
 
-    let focusableContent = modal && filterDisplayedElements(focusableNodeArray);
-    if (closeButtonSelector) {
-      const closeButton = document.querySelector(closeButtonSelector);
+  const focusableNodeArray = Array.from(
+    modal.querySelectorAll(focusableElements)
+  );
+
+  let focusableContent = focusableNodeArray.filter(
+    (el) =>
+      isDisplayed(el) && !isAccessibilityHiddenSubtree(el, modal)
+  );
+
+  if (closeButtonSelector) {
+    const closeButton = document.querySelector(closeButtonSelector);
+    if (closeButton) {
       focusableContent = [closeButton, ...focusableContent];
     }
-    const firstFocusableElement = focusableContent[0]; // get first element to be focused inside modal
-    const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+  }
 
-    const isTabPressed = e.key === "Tab";
+  if (!focusableContent.length) {
+    return;
+  }
 
-    if (!isTabPressed) {
-      return;
-    }
+  const firstFocusableElement = focusableContent[0];
+  const lastFocusableElement = focusableContent[focusableContent.length - 1];
 
-    if (e.shiftKey) {
-      // if shift key pressed for shift + tab combination
-      if (document.activeElement === firstFocusableElement) {
-        lastFocusableElement.focus(); // add focus for the last focusable element
-        e.preventDefault();
-      }
-    } else if (document.activeElement === lastFocusableElement) {
-      // if tab key is pressed
-      // if focused has reached to last focusable element then focus first focusable element after pressing tab
-      firstFocusableElement.focus(); // add focus for the first focusable element
+  const isTabPressed = e.key === "Tab" || e.code === "Tab";
+
+  if (!isTabPressed) {
+    return;
+  }
+
+  if (e.shiftKey) {
+    if (document.activeElement === firstFocusableElement) {
+      lastFocusableElement.focus();
       e.preventDefault();
     }
+  } else if (document.activeElement === lastFocusableElement) {
+    firstFocusableElement.focus();
+    e.preventDefault();
   }
 };
