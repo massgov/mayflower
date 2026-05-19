@@ -30,6 +30,12 @@ class AccessibleModal {
         this.translateBtn = this.modal.querySelector('.ma__modal-btn-translate');
         this.triggerElement = null;
         this.onOkCallback = options.onOk || null;
+        this.portalParent = null;
+        this.portalPlaceholder = null;
+        this.isTranslateModalInstance = Boolean(
+            this.modal.classList.contains('ma__modal--translate') ||
+            this.modal.closest('[data-utility-nav-modal="translate"]')
+        );
 
         // For focus management
         this.focusableElements = null;
@@ -108,6 +114,52 @@ class AccessibleModal {
     }
 
     /**
+     * Root node for the portaled translate modal. Use documentElement instead of body
+     * because the hamburger menu sets body { position: fixed }, which breaks
+     * viewport-fixed overlays on mobile (notably Android).
+     */
+    getPortalRoot() {
+        return document.documentElement;
+    }
+
+    /**
+     * Move the translate modal overlay out of the header nav so it is not clipped.
+     */
+    portalTranslateModal() {
+        if (!this.isTranslateModalInstance) {
+            return;
+        }
+
+        const portalRoot = this.getPortalRoot();
+
+        if (this.modal.parentElement === portalRoot) {
+            return;
+        }
+
+        this.portalParent = this.modal.parentElement;
+        this.portalPlaceholder = document.createComment('ma-modal-placeholder');
+        this.portalParent.insertBefore(this.portalPlaceholder, this.modal);
+        portalRoot.appendChild(this.modal);
+    }
+
+    /**
+     * Restore the modal overlay to its original DOM position after close.
+     */
+    restoreTranslateModal() {
+        if (!this.isTranslateModalInstance || !this.portalParent || !this.portalPlaceholder) {
+            return;
+        }
+
+        if (this.portalPlaceholder.parentElement) {
+            this.portalParent.insertBefore(this.modal, this.portalPlaceholder);
+            this.portalPlaceholder.remove();
+        }
+
+        this.portalParent = null;
+        this.portalPlaceholder = null;
+    }
+
+    /**
      * Open the modal
      * @param {HTMLElement|null} triggerElement - Optional element that triggered the modal
      * If null or not provided, focus will return to first focusable page element on close
@@ -117,6 +169,8 @@ class AccessibleModal {
         // If null, we'll use the fallback element when closing
         this.triggerElement = triggerElement;
 
+        this.portalTranslateModal();
+
         // Add active class to overlay to make it visible
         this.modal.classList.add('ma__active');
 
@@ -125,6 +179,10 @@ class AccessibleModal {
 
         // Prevent body scroll - improves usability and prevents confusion
         document.body.classList.add('ma__modal-open');
+
+        if (this.isTranslateModalInstance) {
+            document.body.classList.add('ma__translate-modal-open');
+        }
 
         // Update list of focusable elements within dialog
         this.updateFocusableElements();
@@ -146,6 +204,9 @@ class AccessibleModal {
 
         // Restore body scroll
         document.body.classList.remove('ma__modal-open');
+        document.body.classList.remove('ma__translate-modal-open');
+
+        this.restoreTranslateModal();
 
         // Return focus to trigger element if it exists
         // Otherwise, return focus to first focusable element on page (skip link)
