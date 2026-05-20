@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: LinkList
+    description: Use integer lengths for two-column link list slices to avoid PHP 8 float-to-int conversion notices in New Relic.
+    issue: fix-link-list-integer-column-slice
+    impact: Patch
