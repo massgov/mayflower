@@ -1,0 +1,58 @@
+{% set stateBannerPanelId = stateBanner.id|default('ma-state-banner-panel') %}
+{% set stateBannerSealImage = stateBanner.sealImage|default(sealWhiteImage) %}
+
+<section class="ma__state-banner" aria-label="{{ stateBanner.ariaLabel|default('Official website banner') }}">
+  <div class="ma__state-banner__container">
+    <details class="ma__state-banner__details">
+      <summary class="ma__state-banner__summary">
+        <span class="ma__state-banner__inner">
+          <span class="ma__state-banner__brand">
+            {% if stateBanner.hasSeal is not same as(false) and stateBannerSealImage %}
+              <img
+                class="ma__state-banner__seal"
+                src="{{ stateBannerSealImage }}"
+                alt="Massachusetts State Seal"
+              />
+            {% endif %}
+            <span class="ma__state-banner__text">
+              <span class="ma__state-banner__official-text">
+                An official website of the Commonwealth of Massachusetts
+              </span>
+              <span class="ma__state-banner__toggle-text">
+                <span>Here's how you know</span>
+                {{ icon('caret-down', '24', '24', 'ma__state-banner__caret', false) }}
+              </span>
+            </span>
+          </span>
+        </span>
+      </summary>
+
+      <div class="ma__state-banner__panel" id="{{ stateBannerPanelId }}">
+        <div class="ma__state-banner__items" role="region" aria-label="Official website indicators">
+          <div class="ma__state-banner__item">
+            {{ icon('building', '30', '30', 'ma__state-banner__item-icon', false) }}
+            <div class="ma__state-banner__item-copy">
+              <h2>Official websites use .mass.gov</h2>
+              <p>
+                A .mass.gov website belongs to an official government
+                organization in Massachusetts.
+              </p>
+            </div>
+          </div>
+
+          <div class="ma__state-banner__item">
+            {{ icon('lock', '30', '30', 'ma__state-banner__item-icon', false) }}
+            <div class="ma__state-banner__item-copy">
+              <h2>Secure websites use HTTPS</h2>
+              <p>
+                A lock icon or https:// means you've safely connected
+                to the official website. Share sensitive information
+                only on official, secure websites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
