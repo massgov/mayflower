@@ -4,19 +4,18 @@
  * That will make theming/changes a lot easier in the long run!
  */
 
- /* The required font for mass.gov websites is Noto Sans, which is included here in a link from Google fonts */
- @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* The required font for mass.gov websites is Noto Sans, which is included here in a link from Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-
-    /** We can remove this general one eventually and use body **/
+  /** We can remove this general one eventually and use body **/
   --mds-font-family: "Noto Sans", Helvetica, Arial, sans-serif;
 
   --mds-font-family-headings: "Noto Sans", Helvetica, Arial, sans-serif;
   --mds-font-family-body: "Noto Sans", Helvetica, Arial, sans-serif;
   --mds-font-family-utility: "Noto Sans", Helvetica, Arial, sans-serif;
   --mds-font-family-label: "Noto Sans", Helvetica, Arial, sans-serif;
-  
+
   --mds-border-radius-25: 0.125rem;
   --mds-border-radius-50: 0.25rem;
   --mds-border-radius-100: 0.5rem;
@@ -30,16 +29,6 @@
   --mds-border-radius-500: 2.5rem;
   --mds-border-radius-600: 3rem;
   --mds-border-radius-round: 1000px;
-  --mds-color-utility-base-white: #ffffff;
-  --mds-color-utility-base-black: #000000;
-  --mds-color-utility-base-gray: #fdfdfd;
-  --mds-color-utility-focus-blue-300: #b2dbff;
-  --mds-color-utility-focus-blue-600: #0088ff;
-  --mds-color-utility-danger-red-100: #fef1f1;
-  --mds-color-utility-danger-red-300: #f99f9f;
-  --mds-color-utility-danger-red-600: #cd0d0d;
-  --mds-color-utility-danger-red-900: #900909;
-  --mds-color-utility-danger-red-1300: #480505;
   --mds-color-brand-gray-100: #f7f7f7;
   --mds-color-brand-gray-200: #f0f0f0;
   --mds-color-brand-gray-300: #e6e6e6;
@@ -94,40 +83,46 @@
   --mds-color-brand-duckling-yellow-1100: #ac8a13;
   --mds-color-brand-duckling-yellow-1200: #947610;
   --mds-color-brand-duckling-yellow-1300: #7b630e;
-  --mds-color-independence-cranberry-100: #f0e7e8;
-  --mds-color-independence-cranberry-200: #e1ced2;
-  --mds-color-independence-cranberry-300: #d2b6bb;
-  --mds-color-independence-cranberry-400: #c39da5;
-  --mds-color-independence-cranberry-500: #b4858e;
-  --mds-color-independence-cranberry-600: #955461;
-  --mds-color-independence-cranberry-700: #863b4a;
-  --mds-color-independence-cranberry-800: #772334;
-  --mds-color-independence-cranberry-900: #680a1d;
-  --mds-color-independence-cranberry-1000: #5e091a;
-  --mds-color-independence-cranberry-1100: #530817;
-  --mds-color-independence-cranberry-1200: #490714;
-  --mds-color-independence-cranberry-1300: #34050f;
-  --mds-color-utility-base-white : #ffffff;
-  --mds-color-utility-base-black : #000000;
-  --mds-color-utility-base-white-transparent : #ffffff00;
-  --mds-color-utility-base-black-transparent : #00000000;
-  --mds-color-utility-focus-blue-300 : #b2dbff;
-  --mds-color-utility-focus-blue-600 : #0088ff;
-  --mds-color-utility-informative-blue-100 : #e8eef4;
-  --mds-color-utility-informative-blue-300 : #b9ccdd;
-  --mds-color-utility-informative-blue-600 : #7299bc;
-  --mds-color-utility-informative-blue-900 : #14558f;
-  --mds-color-utility-informative-blue-1300 : #0a2b48;
+  --mds-color-brand-independence-cranberry-100: #f0e7e8;
+  --mds-color-brand-independence-cranberry-200: #e1ced2;
+  --mds-color-brand-independence-cranberry-300: #d2b6bb;
+  --mds-color-brand-independence-cranberry-400: #c39da5;
+  --mds-color-brand-independence-cranberry-500: #b4858e;
+  --mds-color-brand-independence-cranberry-600: #955461;
+  --mds-color-brand-independence-cranberry-700: #863b4a;
+  --mds-color-brand-independence-cranberry-800: #772334;
+  --mds-color-brand-independence-cranberry-900: #680a1d;
+  --mds-color-brand-independence-cranberry-1000: #5e091a;
+  --mds-color-brand-independence-cranberry-1100: #530817;
+  --mds-color-brand-independence-cranberry-1200: #490714;
+  --mds-color-brand-independence-cranberry-1300: #34050f;
+  --mds-color-brand-surface-1000 : #fdfdfd;
+  --mds-color-utility-base-white: #ffffff;
+  --mds-color-utility-base-black: #141414;
+  --mds-color-utility-base-white-transparent: #ffffff00;
+  --mds-color-utility-base-black-transparent: #00000099;
+  --mds-color-utility-danger-red-100: #fef1f1;
+  --mds-color-utility-danger-red-300: #f99f9f;
+  --mds-color-utility-danger-red-600: #cd0d0d;
+  --mds-color-utility-danger-red-900: #900909;
+  --mds-color-utility-danger-red-1300: #480505;
+  --mds-color-utility-focus-blue-300: #b2dbff;
+  --mds-color-utility-focus-blue-600: #0088ff;
+  --mds-color-utility-informative-blue-100: #e8eef4;
+  --mds-color-utility-informative-blue-300: #b9ccdd;
+  --mds-color-utility-informative-blue-600: #7299bc;
+  --mds-color-utility-informative-blue-900: #14558f;
+  --mds-color-utility-informative-blue-1300: #0a2b48;
   --mds-color-utility-success-green-100: #eafbef;
   --mds-color-utility-success-green-300: #81e4a2;
   --mds-color-utility-success-green-600: #24a850;
   --mds-color-utility-success-green-900: #187236;
   --mds-color-utility-success-green-1300: #0b3218;
-  --mds-color-utility-warning-yellow-100: #fff9eb;
-  --mds-color-utility-warning-yellow-300: #fcdf9c;
-  --mds-color-utility-warning-yellow-600: #f6b622;
-  --mds-color-utility-warning-yellow-900: #bf8808;
-  --mds-color-utility-warning-yellow-1300: #7b5705;
+  --mds-color-utility-warning-yellow-100: #fef9e8;
+  --mds-color-utility-warning-yellow-300: #fceebb;
+  --mds-color-utility-warning-yellow-600: #fadc76;
+  --mds-color-utility-warning-yellow-900: #f6c51b;
+  --mds-color-utility-warning-yellow-1300: #7b630e;
   --mds-font-size-100: 0.625rem;
   --mds-font-size-125: 0.75rem;
   --mds-font-size-175: 0.875rem;
