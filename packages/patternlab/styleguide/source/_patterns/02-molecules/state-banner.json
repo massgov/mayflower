@@ -1,6 +1,6 @@
 {
   "stateBanner": {
-    "id": "ma-state-banner-panel",
+    "id": "mds-state-banner-panel",
     "ariaLabel": "Official website banner",
     "hasSeal": true
   }
