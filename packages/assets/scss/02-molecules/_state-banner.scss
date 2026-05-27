@@ -1,192 +1,174 @@
 @use "00-base/configure" as *;
 
-.ma__state-banner {
+h2,
+p {
+  margin: 0;
+  color: unset;
+}
+
+/** end reset styles **/
+
+/** Actual MDS component styles **/
+
+/** TODO: put this in general styling rather than in the specific component styles **/
+:focus-visible, :focus {
+  border-radius: var(--mds-radius-sm);
+  outline: 2px solid var(--mds-border-focus-on-light);
+  outline-offset: 2px;
+}
+
+.mds-state-banner__container {
+  background: transparent;
+  color: inherit;
+}
+
+.mds-state-banner {
   width: 100%;
-  padding-block: var(--mds-space-3xs);
-  color: var(--mds-static-white);
-  background-color: var(--mds-static-black);
-  font: var(--mds-text-body);
+  font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
+}
 
-  &__container {
-    @include ma-container;
-    color: inherit;
-    background: transparent;
+.mds-state-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--mds-space-sm);
+  width: 100%; /** Make clickable area of the banner full width **/
+}
+
+.mds-state-banner__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--mds-space-2xs);
+}
+
+.mds-state-banner__seal {
+  width: 1.5rem;
+  height: 1.5rem;
+  align-self: self-start;
+  margin-top: 2px; /** needs more spacing above, but needs to align to top for wrapping to work **/
+}
+
+.mds-state-banner__toggle-text {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 2px solid;
+  border-color: currentColor;
+  line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
+}
+
+.mds-state-banner__details {
+  interpolate-size: allow-keywords; /** need this to allow for the "auto" value in block-size to transition properly **/
+}
+
+.mds-state-banner__details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: /** TODO update with animation tokens once we have them defined **/
+    block-size 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    content-visibility 300ms cubic-bezier(0.16, 1, 0.3, 1) allow-discrete;
+}
+
+.mds-state-banner__details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition: /** TODO update with animation duration token once we have them **/
+    block-size 300ms ease-in,
+    opacity 300ms ease-in,
+    transform 300ms ease-in,
+    content-visibility 300ms ease-in allow-discrete;
+}
+
+/** Hide the default "disclosure triangle" on the summary element **/
+.mds-state-banner__summary::marker {
+  content: "";
+}
+
+.mds-state-banner__summary::-webkit-details-marker {
+  display: none;
+}
+
+.mds-state-banner__caret {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 160ms ease;
+  font-weight: bold;
+}
+
+.mds-state-banner__details[open] .mds-state-banner__caret {
+  transform: rotate(180deg);
+}
+
+.mds-state-banner__items {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--mds-breakpoint-horizontal-space-gutter);
+}
+
+.mds-state-banner__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mds-space-sm);
+  flex: 1 1 20rem;
+}
+
+.mds-state-banner__item-icon {
+  width: 1.875rem;
+  height: 1.875rem;
+  fill: currentColor;
+  flex: none;
+}
+
+.mds-state-banner__text {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mds-state-banner__seal {
+    align-self: self-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .mds-state-banner .mds-section-container {
+    padding-inline: var(--mds-space-sm);
   }
 
-  &__summary {
-    display: block;
-    cursor: pointer;
-    list-style: none;
-
-    &:focus,
-    &:focus-visible {
-      border-radius: var(--mds-radius-sm);
-      outline: 2px solid var(--mds-border-focus-on-dark);
-      outline-offset: 2px;
-    }
-
-    &::marker {
-      content: "";
-    }
-
-    &::-webkit-details-marker {
-      display: none;
-    }
-  }
-
-  &__inner {
+  .mds-state-banner__summary {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 0 var(--mds-space-sm);
-    width: 100%;
   }
 
-  &__brand {
-    display: flex;
-    align-items: center;
-    gap: var(--mds-space-2xs);
+  .mds-state-banner__seal {
+    display: none;
   }
 
-  &__seal {
-    flex: none;
-    align-self: flex-start;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-top: 2px;
+  .mds-state-banner__text,
+  .mds-state-banner__toggle-text {
+    font: var(--mds-text-caption);
   }
 
-  &__text {
-    display: block;
-  }
-
-  &__official-text {
-    margin-inline-end: var(--mds-space-sm);
-  }
-
-  &__toggle-text {
+  .mds-state-banner__toggle-text {
     display: inline-flex;
-    align-items: center;
-    border-bottom: 2px solid currentColor;
-    line-height: 1.75;
+    padding-block-end: 2px;
   }
 
-  &__details {
-    interpolate-size: allow-keywords;
-
-    &::details-content {
-      block-size: 0;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(-8px);
-      transition:
-        block-size 300ms cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 300ms cubic-bezier(0.16, 1, 0.3, 1),
-        transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
-        content-visibility 300ms cubic-bezier(0.16, 1, 0.3, 1) allow-discrete;
-    }
-
-    &[open]::details-content {
-      block-size: auto;
-      opacity: 1;
-      transform: translateY(0);
-      transition:
-        block-size 300ms ease-in,
-        opacity 300ms ease-in,
-        transform 300ms ease-in,
-        content-visibility 300ms ease-in allow-discrete;
-    }
+  .mds-state-banner__caret {
+    width: 1rem;
+    height: 1rem;
   }
 
-  &__caret {
-    flex: none;
+  .mds-state-banner__item-icon {
     width: 1.5rem;
     height: 1.5rem;
-    margin-inline-start: var(--mds-space-2xs);
-    fill: currentColor;
-    transition: transform 160ms ease;
   }
 
-  &__details[open] &__caret {
-    transform: rotate(180deg);
-  }
-
-  &__items {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: var(--mds-breakpoint-horizontal-space-gutter, 2rem);
-  }
-
-  &__item {
-    display: flex;
-    flex: 1 1 20rem;
-    align-items: flex-start;
-    gap: var(--mds-space-sm);
-    padding-block-start: var(--mds-space-2xs);
-    padding-block-end: var(--mds-space-sm);
-  }
-
-  &__item-icon {
-    flex: none;
-    width: 1.875rem;
-    height: 1.875rem;
-    fill: currentColor;
-  }
-
-  &__item-copy {
-    padding-block-start: var(--mds-space-2xs);
-
-    h2 {
-      margin: 0;
-      font: var(--mds-text-label);
-    }
-
-    p {
-      margin: var(--mds-space-2xs) 0 0;
-      font: inherit;
-    }
-  }
-
-  @media ($bp-x-small-max) {
-
-    &__container {
-      padding-inline: var(--mds-space-sm);
-    }
-
-    &__summary {
-      display: flex;
-      align-items: center;
-    }
-
-    &__seal {
-      display: none;
-    }
-
-    &__text,
-    &__toggle-text {
-      font: var(--mds-text-caption);
-    }
-
-    &__toggle-text {
-      padding-block-end: 2px;
-    }
-
-    &__caret {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    &__item-icon {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-
-    &__item-copy {
-
-      h2,
-      p {
-        font: var(--mds-text-caption);
-      }
-    }
+  .mds-state-banner__item-copy p,
+  .mds-state-banner__item-copy h2 {
+    font: var(--mds-text-caption);
   }
 }

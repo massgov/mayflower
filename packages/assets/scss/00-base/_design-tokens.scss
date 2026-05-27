@@ -1,8 +1,10 @@
 @use "sass:meta";
 
-// Load tracked CSS token sources into the Sass build so components can
-// reference the variables at runtime via var(--mds-*).
+// Load MassDS token and utility CSS into the Sass build so components can
+// reference the variables and helper classes at runtime via var(--mds-*).
 
-@include meta.load-css("../tokens/primitives.css");
+@include meta.load-css("@massds/mds-tokens/dist/primitives.css");
 
-@include meta.load-css("../tokens/index.css");
+@include meta.load-css("@massds/mds-tokens/dist/index.css");
+
+@include meta.load-css("@massds/mds-styles/dist/index.css");
