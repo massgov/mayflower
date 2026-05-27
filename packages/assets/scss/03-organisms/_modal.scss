@@ -55,7 +55,7 @@ body.ma__translate-modal-open {
     }
 
     &.ma__shim-active {
-      background-color: var(--mds-background-overlay);
+      background-color: var(--mds-background-base-overlay);
     }
   }
 
@@ -67,7 +67,7 @@ body.ma__translate-modal-open {
     min-width: 280px;
     max-width: 650px;
     max-height: calc(100vh - var(--mds-space-lg));
-    background-color: var(--mds-inverse);
+    background-color: var(--mds-background-section-utility-inverse);
     border: 1.5px solid var(--mds-border-brand-neutral-low);
     border-radius: var(--mds-radius-md);
     box-shadow: var(--mds-shadow-modal);
@@ -94,8 +94,8 @@ body.ma__translate-modal-open {
     flex-shrink: 0;
     margin: var(--mds-space-2xs);
     padding: var(--mds-space-3xs);
-    background-color: var(--mds-inverse);
-    border: 1px solid var(--mds-inverse);
+    background-color: var(--mds-background-adaptive-utility-inverse);
+    border: 1px solid var(--mds-border-utility-inverse);
     border-radius: var(--mds-radius-sm);
     color: var(--mds-text-and-icons-brand-primary-mid);
     cursor: pointer;
@@ -133,7 +133,7 @@ body.ma__translate-modal-open {
 
       span {
         background-color: var(--mds-background-adaptive-brand-primary-mid);
-        color: var(--mds-inverse);
+        color: var(--mds-text-and-icons-utility-inverse);
       }
     }
 
@@ -160,7 +160,7 @@ body.ma__translate-modal-open {
 
       span {
         background-color: var(--mds-background-adaptive-utility-danger-mid);
-        color: var(--mds-inverse);
+        color: var(--mds-text-and-icons-utility-inverse);
       }
     }
   }
