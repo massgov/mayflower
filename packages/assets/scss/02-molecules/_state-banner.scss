@@ -1,140 +1,177 @@
 @use "00-base/configure" as *;
+@use "@massds/mds-styles/dist/scss/index.scss" as mixins;
 
+
+/** reset styles **/
 h2,
 p {
   margin: 0;
   color: unset;
 }
 
-/** end reset styles **/
 
-/** Actual MDS component styles **/
+$state-banner-transition-duration: 300ms;
+$state-banner-transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
+$state-banner-transition-open-easing: ease-in;
+$state-banner-panel-offset: -8px;
+$state-banner-caret-transition-duration: 160ms;
+$state-banner-icon-size: 1.5rem;
+$state-banner-item-icon-size: 1.875rem;
+$state-banner-item-min-width: 20rem;
 
-/** TODO: put this in general styling rather than in the specific component styles **/
-:focus-visible, :focus {
-  border-radius: var(--mds-radius-sm);
-  outline: 2px solid var(--mds-border-focus-on-light);
-  outline-offset: 2px;
+@mixin details-content-transition($easing) {
+  transition:
+    block-size $state-banner-transition-duration $easing,
+    opacity $state-banner-transition-duration $easing,
+    transform $state-banner-transition-duration $easing,
+    content-visibility $state-banner-transition-duration $easing allow-discrete;
 }
 
+// Container and banner shell.
 .mds-state-banner__container {
+  @include mixins.section-container;
+
   background: transparent;
   color: inherit;
 }
 
 .mds-state-banner {
   width: 100%;
+  padding-block: var(--mds-space-3xs);
+  background-color: var(--mds-background-section-utility-static-black);
+  color: var(--mds-text-and-icons-utility-static-white);
   font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
+
+  // Banner summary content.
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--mds-space-sm);
+    width: 100%; /** Make clickable area of the banner full width **/
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-2xs);
+  }
+
+  &__seal {
+    width: $state-banner-icon-size;
+    height: $state-banner-icon-size;
+    align-self: self-start;
+    margin-top: 2px; /** needs more spacing above, but needs to align to top for wrapping to work **/
+  }
+
+  &__toggle-text {
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 2px solid;
+    border-color: currentColor;
+    line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
+  }
+
+  // Expandable details panel.
+  &__details {
+    interpolate-size: allow-keywords; /** need this to allow for the "auto" value in block-size to transition properly **/
+
+    &::details-content {
+      block-size: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY($state-banner-panel-offset);
+
+      @include details-content-transition($state-banner-transition-easing);
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+      transform: translateY(0);
+
+      @include details-content-transition($state-banner-transition-open-easing);
+    }
+  }
+
+  // Summary disclosure affordance.
+  &__summary {
+    @include mixins.focus;
+
+    /** Hide the default "disclosure triangle" on the summary element **/
+    &::marker {
+      content: "";
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__caret {
+    width: $state-banner-icon-size;
+    height: $state-banner-icon-size;
+    margin-inline-start: var(--mds-space-2xs);
+    transition: transform $state-banner-caret-transition-duration ease;
+    font-weight: bold;
+  }
+
+  &__details[open] &__caret {
+    transform: rotate(180deg);
+  }
+
+  // Expanded panel content.
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--mds-breakpoint-horizontal-space-gutter);
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--mds-space-sm);
+    flex: 1 1 $state-banner-item-min-width;
+    padding-block: var(--mds-space-2xs) var(--mds-space-sm);
+  }
+
+  &__item-icon {
+    width: $state-banner-item-icon-size;
+    height: $state-banner-item-icon-size;
+    fill: currentColor;
+    flex: none;
+  }
+
+  &__text {
+    display: block;
+  }
+
+  &__text-prefix {
+    margin-inline-end: var(--mds-space-sm);
+  }
+
+  &__item-copy {
+    padding-block-start: var(--mds-space-2xs);
+  }
+
+  &__item-heading {
+    font: var(--mds-text-label);
+  }
+
+  &__item-description {
+    padding-block-start: var(--mds-space-2xs);
+  }
 }
 
-.mds-state-banner__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0 var(--mds-space-sm);
-  width: 100%; /** Make clickable area of the banner full width **/
-}
-
-.mds-state-banner__brand {
-  display: flex;
-  align-items: center;
-  gap: var(--mds-space-2xs);
-}
-
-.mds-state-banner__seal {
-  width: 1.5rem;
-  height: 1.5rem;
-  align-self: self-start;
-  margin-top: 2px; /** needs more spacing above, but needs to align to top for wrapping to work **/
-}
-
-.mds-state-banner__toggle-text {
-  display: inline-flex;
-  align-items: center;
-  border-bottom: 2px solid;
-  border-color: currentColor;
-  line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
-}
-
-.mds-state-banner__details {
-  interpolate-size: allow-keywords; /** need this to allow for the "auto" value in block-size to transition properly **/
-}
-
-.mds-state-banner__details::details-content {
-  block-size: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: /** TODO update with animation tokens once we have them defined **/
-    block-size 300ms cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 300ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
-    content-visibility 300ms cubic-bezier(0.16, 1, 0.3, 1) allow-discrete;
-}
-
-.mds-state-banner__details[open]::details-content {
-  block-size: auto;
-  opacity: 1;
-  transform: translateY(0);
-  transition: /** TODO update with animation duration token once we have them **/
-    block-size 300ms ease-in,
-    opacity 300ms ease-in,
-    transform 300ms ease-in,
-    content-visibility 300ms ease-in allow-discrete;
-}
-
-/** Hide the default "disclosure triangle" on the summary element **/
-.mds-state-banner__summary::marker {
-  content: "";
-}
-
-.mds-state-banner__summary::-webkit-details-marker {
-  display: none;
-}
-
-.mds-state-banner__caret {
-  width: 1.5rem;
-  height: 1.5rem;
-  transition: transform 160ms ease;
-  font-weight: bold;
-}
-
-.mds-state-banner__details[open] .mds-state-banner__caret {
-  transform: rotate(180deg);
-}
-
-.mds-state-banner__items {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: var(--mds-breakpoint-horizontal-space-gutter);
-}
-
-.mds-state-banner__item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--mds-space-sm);
-  flex: 1 1 20rem;
-}
-
-.mds-state-banner__item-icon {
-  width: 1.875rem;
-  height: 1.875rem;
-  fill: currentColor;
-  flex: none;
-}
-
-.mds-state-banner__text {
-  display: block;
-}
-
-@media (max-width: 768px) {
+// Responsive refinements.
+@include mixins.max-width(md) {
   .mds-state-banner__seal {
     align-self: self-start;
   }
 }
 
-@media (max-width: 480px) {
-  .mds-state-banner .mds-section-container {
+@include mixins.max-width(sm) {
+  .mds-state-banner__container {
     padding-inline: var(--mds-space-sm);
   }
 
@@ -163,12 +200,14 @@ p {
   }
 
   .mds-state-banner__item-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: $state-banner-icon-size;
+    height: $state-banner-icon-size;
   }
 
-  .mds-state-banner__item-copy p,
-  .mds-state-banner__item-copy h2 {
-    font: var(--mds-text-caption);
+  .mds-state-banner__item-copy {
+    p,
+    h2 {
+      font: var(--mds-text-caption);
+    }
   }
 }
