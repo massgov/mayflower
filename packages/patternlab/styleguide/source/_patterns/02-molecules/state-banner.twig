@@ -2,10 +2,10 @@
 {% set stateBannerSealImage = stateBanner.sealImage|default(sealWhiteImage) %}
 
 <section
-  class="mds-state-banner mds-padding-block-3xs mds-background-section-utility-static-black mds-text-and-icons-utility-static-white"
+  class="mds-state-banner"
   aria-label="{{ stateBanner.ariaLabel|default('Official website banner') }}"
 >
-  <div class="mds-state-banner__container mds-section-container">
+  <div class="mds-state-banner__container">
     <details class="mds-state-banner__details">
       <summary class="mds-state-banner__summary">
         <span class="mds-state-banner__inner">
@@ -18,13 +18,13 @@
               />
             {% endif %}
             <p class="mds-state-banner__text">
-              <span class="mds-margin-inline-end-sm">
+              <span class="mds-state-banner__text-prefix">
                 An official website of the Commonwealth of Massachusetts
               </span>
               <span class="mds-state-banner__toggle-text">
                 <span>Here's how you know</span>
                 <svg
-                  class="mds-state-banner__caret mds-margin-inline-start-2xs"
+                  class="mds-state-banner__caret"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
@@ -42,9 +42,9 @@
 
       <div class="mds-state-banner__panel" id="{{ stateBannerPanelId }}">
         <div class="mds-state-banner__items" role="region" aria-label="Official website indicators">
-          <div class="mds-state-banner__item mds-padding-block-start-2xs mds-padding-block-end-sm">
+          <div class="mds-state-banner__item">
             <svg
-              class="mds-state-banner__item-icon mds-text-and-icons-static-white"
+              class="mds-state-banner__item-icon"
               aria-hidden="true"
               viewBox="0 0 24 24"
               focusable="false"
@@ -60,18 +60,18 @@
                 d="M7.57 18.164a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.646.645m4.466 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645m4.466 0a.645.645 0 0 1-.645-.645v-4.898a.645.645 0 1 1 1.29 0v4.898a.645.645 0 0 1-.645.645"
               />
             </svg>
-            <div class="mds-state-banner__item-copy mds-padding-block-start-2xs">
-              <h2 class="mds-text-label">Official websites use .mass.gov</h2>
-              <p class="mds-padding-block-start-2xs">
+            <div class="mds-state-banner__item-copy">
+              <h2 class="mds-state-banner__item-heading">Official websites use .mass.gov</h2>
+              <p class="mds-state-banner__item-description">
                 A .mass.gov website belongs to an official government
                 organization in Massachusetts.
               </p>
             </div>
           </div>
 
-          <div class="mds-state-banner__item mds-padding-block-start-2xs mds-padding-block-end-sm">
+          <div class="mds-state-banner__item">
             <svg
-              class="mds-state-banner__item-icon mds-text-and-icons-static-white"
+              class="mds-state-banner__item-icon"
               aria-hidden="true"
               viewBox="0 0 24 24"
               focusable="false"
@@ -80,9 +80,9 @@
                 d="M19.5 7.5h-3V5.25a4.5 4.5 0 1 0-9 0V7.5h-3A1.5 1.5 0 0 0 3 9v10.5A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5V9a1.5 1.5 0 0 0-1.5-1.5M9 5.25a3 3 0 1 1 6 0V7.5H9zM19.5 19.5h-15V9h15z"
               />
             </svg>
-            <div class="mds-state-banner__item-copy mds-padding-block-start-2xs">
-              <h2 class="mds-text-label">Secure websites use HTTPS</h2>
-              <p class="mds-text-body mds-padding-block-start-2xs">
+            <div class="mds-state-banner__item-copy">
+              <h2 class="mds-state-banner__item-heading">Secure websites use HTTPS</h2>
+              <p class="mds-state-banner__item-description">
                 A lock icon or https:// means you've safely connected
                 to the official website. Share sensitive information
                 only on official, secure websites.
