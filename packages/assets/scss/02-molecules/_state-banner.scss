@@ -30,7 +30,7 @@ $state-banner-item-min-width: 20rem;
 
 // Container and banner shell.
 .mds-state-banner__container {
-  @include mixins.section-container;
+  @include ma-container;
 
   background: transparent;
   color: inherit;
@@ -159,7 +159,6 @@ $state-banner-item-min-width: 20rem;
     color: unset;
     font: var(--mds-text-label);
     margin: 0;
-
   }
 
   &__item-description {
