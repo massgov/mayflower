@@ -135,12 +135,27 @@
                         "path": "@atoms/11-text/paragraph.twig",
                         "data": {
                           "paragraph": {
-                            "text": "To do business in the Commonwealth, you must first check to see if your desired business name is available."
+                            "text": "The Secretary of the Commonwealth lets you <a href=\"#\">search for a Business Entity</a> to make sure the business name you want is available."
                           }
                         }
                       }
                     ]
                   },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "inline link",
+                          "href": "#"
+                        },
+                        "size": "26MB",
+                        "format": "Filesize",
+                        "noParentheses": true
+                      }
+                    }
+                  ],
                   "content": [
                     {
                       "richText": {
@@ -197,6 +212,21 @@
                       }
                     ]
                   },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "inline link",
+                          "href": "#"
+                        },
+                        "size": "26MB",
+                        "format": "Filesize",
+                        "noParentheses": true
+                      }
+                    }
+                  ],
                   "content": [
                     {
                       "richText": {
@@ -219,40 +249,42 @@
                   ]
                 },
                 {
-                  "title": "Get a local business certificate (DBA) from your city or town",
+                  "title": "Get a business certificate (DBA) from your city or town",
                   "richText": {
                     "rteElements": [
                       {
                         "path": "@atoms/11-text/paragraph.twig",
                         "data": {
                           "paragraph": {
-                            "text": "You must file a business certificate (sometimes called a DBA or \"doing business as\" name) if you conduct business under a name other than your own. You should also get a business certificate if you use your name but add words that indicate you are in a business or profession (e.g. \"Jane Doe, Accountant\").<br><br>You file this certificate with the city or town clerk in the city or town where your business is located. <a href=\"#\">Learn more about business certificates (DBA) from mass.gov</a>."
+                            "text": "You must file a business certificate (sometimes called a DBA or \"doing business as\" name) if your business operates under any name other than its legal name. The \"legal name\" is the official name used when incorporating or, in the case of a sole proprietor, the owner's legal name."
                           }
                         }
                       },
                       {
-                        "path": "@molecules/inline-message.twig",
+                        "path": "@atoms/11-text/paragraph.twig",
                         "data": {
-                          "inlineMessage": {
-                            "type": "warning",
-                            "heading": "Important Note on Certificates",
-                            "richText": {
-                              "rteElements": [
-                                {
-                                  "path": "@atoms/11-text/paragraph.twig",
-                                  "data": {
-                                    "paragraph": {
-                                      "text": "Make sure to verify if your city or town requires additional local permits alongside your business certificate. <a href=\"#\">Check local municipal guidelines.</a>"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
+                          "paragraph": {
+                            "text": "You'll file your business certificate in the city or town where your business is located. <a href=\"#\">Learn more about if your business needs a business certificate and how to get one.</a>"
                           }
                         }
                       }
                     ]
-                  }
+                  },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "inline link",
+                          "href": "#"
+                        },
+                        "size": "26MB",
+                        "format": "Filesize",
+                        "noParentheses": true
+                      }
+                    }
+                  ]
                 },
                 {
                   "title": "Get an EIN",
@@ -262,12 +294,27 @@
                         "path": "@atoms/11-text/paragraph.twig",
                         "data": {
                           "paragraph": {
-                            "text": "An <a href=\"#\">Employer Identification Number (EIN)</a> is used to identify a business entity. It is issued by the Internal Revenue Service (IRS). Follow this application process if you need an EIN.<br><br>A sole proprietorship without employees does not include an employer identification number for tax purposes."
+                            "text": "An <a href=\"#\">Employer Identification Number (EIN)</a> is used to identify a business and is issued by the Internal Revenue Service (IRS). It's also called a Federal Tax Identification Number.<br><br>A sole proprietorship with no employees is the only business structure that does not have to get an EIN."
                           }
                         }
                       }
                     ]
-                  }
+                  },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "inline link",
+                          "href": "#"
+                        },
+                        "size": "26MB",
+                        "format": "Filesize",
+                        "noParentheses": true
+                      }
+                    }
+                  ]
                 },
                 {
                   "title": "Register with MassTaxConnect",
@@ -277,12 +324,27 @@
                         "path": "@atoms/11-text/paragraph.twig",
                         "data": {
                           "paragraph": {
-                            "text": "If your business collects or is responsible for paying taxes to the state, you must <a href=\"#\">register with MassTaxConnect</a>. You may also visit mass.gov/dor for more information about your tax responsibilities."
+                            "text": "If your business is responsible for collecting and paying taxes to the state, you'll need to <a href=\"#\">create a MassTaxConnect account</a>. You can pay business taxes to the Department of Revenue through MassTaxConnect."
                           }
                         }
                       }
                     ]
                   },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "inline link",
+                          "href": "#"
+                        },
+                        "size": "26MB",
+                        "format": "Filesize",
+                        "noParentheses": true
+                      }
+                    }
+                  ],
                   "content": [
                     {
                       "richText": {

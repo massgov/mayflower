@@ -24,7 +24,22 @@
           "href": "#",
           "theme": "c-primary-alt",
           "uppercaseOverride": true
-        }
+        },
+        "downloadLinks": [
+          {
+            "downloadLink": {
+              "iconSize": "small",
+              "icon": "file",
+              "decorativeLink": {
+                "text": "inline link",
+                "href": "#"
+              },
+              "size": "26MB",
+              "format": "Filesize",
+              "noParentheses": true
+            }
+          }
+        ]
       },
       {
         "title": "File with the Secretary of the Commonwealth",
@@ -66,7 +81,22 @@
           "href": "#",
           "theme": "c-primary-alt",
           "uppercaseOverride": true
-        }
+        },
+        "downloadLinks": [
+          {
+            "downloadLink": {
+              "iconSize": "small",
+              "icon": "file",
+              "decorativeLink": {
+                "text": "inline link",
+                "href": "#"
+              },
+              "size": "26MB",
+              "format": "Filesize",
+              "noParentheses": true
+            }
+          }
+        ]
       },
       {
         "title": "Get a local business certificate (DBA)",
@@ -108,7 +138,22 @@
           "href": "#",
           "theme": "c-primary-alt",
           "uppercaseOverride": true
-        }
+        },
+        "downloadLinks": [
+          {
+            "downloadLink": {
+              "iconSize": "small",
+              "icon": "file",
+              "decorativeLink": {
+                "text": "inline link",
+                "href": "#"
+              },
+              "size": "26MB",
+              "format": "Filesize",
+              "noParentheses": true
+            }
+          }
+        ]
       }
     ]
   }

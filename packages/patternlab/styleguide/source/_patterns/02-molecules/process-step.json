@@ -12,6 +12,21 @@
           }
         }
       ]
-    }
+    },
+    "downloadLinks": [
+      {
+        "downloadLink": {
+          "iconSize": "small",
+          "icon": "file",
+          "decorativeLink": {
+            "text": "inline link",
+            "href": "#"
+          },
+          "size": "26MB",
+          "format": "Filesize",
+          "noParentheses": true
+        }
+      }
+    ]
   }
 }

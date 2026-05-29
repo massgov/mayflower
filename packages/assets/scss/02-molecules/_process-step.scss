@@ -8,6 +8,7 @@
     padding-left: 56px; // Offset only the heading to make room for the circle
 
     // Numbered circle — auto-incremented via organism counter
+
     &::before {
       content: counter(process-step-counter);
       counter-increment: process-step-counter;
@@ -19,6 +20,7 @@
       justify-content: center;
       font-weight: $fonts-bold;
       font-size: $fonts-medium; // Responsive circle font size
+
       @media ($bp-medium-min) {
         font-size: $fonts-larger;
       }
@@ -31,8 +33,10 @@
     }
 
     // Explicitly make the heading font size responsive within the step header
+
     .ma__comp-heading {
       font-size: $fonts-xlarge; // Scaled down to 22px on mobile to prevent multi-line bulkiness
+
       @media ($bp-medium-min) {
         font-size: $fonts-3xlarge; // Larger 26px heading on desktop
       }
@@ -44,16 +48,19 @@
   }
 
   // Right-aligned CTA block — used for buttons at the bottom of each step
+
   &__action {
     margin-top: 20px;
     text-align: right;
 
     // Force right alignment even if button is wrapped in legacy rich-text
+
     .ma__rich-text {
       text-align: right;
     }
 
     // Scale down button font size gracefully on mobile
+
     .ma__button {
       font-size: $fonts-small; // Smaller font on mobile
 
@@ -63,7 +70,82 @@
     }
   }
 
+  // Right-aligned download links box
+
+  .ma__form-downloads {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    margin-bottom: 0;
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: auto;
+    }
+  }
+
+  .ma__download-link {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--mf-c-bg-subtle, #f2f2f2);
+    border: 1px solid var(--mf-c-bd-divider, #d5dce0);
+    border-radius: 4px;
+    padding: 10px 16px;
+    width: auto;
+    margin-top: 0;
+
+    & + .ma__download-link {
+      margin-top: 8px;
+    }
+
+    &__icon {
+      float: none;
+      margin-inline-end: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--mf-c-primary, #154796);
+
+      svg {
+        width: 20px !important;
+        height: 20px !important;
+        display: block;
+      }
+    }
+
+    &__title {
+      width: auto;
+      font-size: $fonts-medium;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      line-height: 1.4;
+    }
+
+    &__file-link {
+      font-weight: $fonts-normal;
+      margin-right: 8px;
+      border-bottom: 1px solid var(--mf-c-link);
+      text-decoration: none;
+
+      &:hover {
+        border-bottom-color: transparent;
+      }
+    }
+
+    &__file-spec {
+      font-size: $fonts-medium;
+      color: var(--mf-c-font-detail, #535353);
+      font-weight: $fonts-normal;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+  }
+
   // Mobile: Remove wrapper overrides as padding is now safely on the header
+
   @media (#{$bp-medium-max}) {
     // Keep 40x40 circle and offset size same as desktop
   }

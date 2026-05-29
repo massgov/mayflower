@@ -15,6 +15,13 @@
       {% set richText = processStep.richText %}
       {% include "@organisms/by-author/rich-text.twig" %}
     {% endif %}
+
+    {% block formDownloads %}
+      {% if processStep.downloadLinks %}
+        {% set formDownloads = { "downloadLinks": processStep.downloadLinks } %}
+        {% include "@organisms/by-author/form-downloads.twig" %}
+      {% endif %}
+    {% endblock %}
   </div>
 
   {# CTA: supports both content[] array (existing pages) and button{} object (new pattern) #}

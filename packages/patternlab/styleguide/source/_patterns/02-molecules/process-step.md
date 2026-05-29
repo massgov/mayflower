@@ -7,6 +7,7 @@ A single step in a process-stepper, featuring a title and rich text content.
 ### Pattern Contains
 * Comp Heading
 * Rich Text
+* Form Downloads
 
 ### Variables
 ~~~
@@ -18,6 +19,11 @@ processStep: {
   },
   content: [{
     type: array
+  }],
+  downloadLinks: [{
+    downloadLink: {
+      type: object
+    }
   }]
 }
 ~~~
