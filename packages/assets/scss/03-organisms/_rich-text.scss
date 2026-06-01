@@ -79,10 +79,7 @@ $heading-indent: $gutter;
 
   // rich text has an optional title
 
-  h2:not(.ma__comp-heading),
-  h3:not(.ma__comp-heading),
-  h3:not(.ma__sidebar-heading),
-  h4 {
+  h2:not(.ma__comp-heading) {
 
     @include ma-comp-heading;
   }
@@ -118,12 +115,6 @@ $heading-indent: $gutter;
   }
 
   h4 {
-    margin-bottom: .6em;
-    padding-bottom: .45em;
-
-    &:after {
-      width: 1.5em;
-    }
 
     &.ma__rich-text__indent {
       margin-left: $heading-indent * 2; // 1.
@@ -332,7 +323,7 @@ $heading-indent: $gutter;
     }
   }
 
-  h2, h3, h4 {
+  h2 {
 
     @include ma-comp-heading($c-primary-alt);
   }

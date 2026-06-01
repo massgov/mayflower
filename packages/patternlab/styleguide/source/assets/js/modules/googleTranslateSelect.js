@@ -111,6 +111,7 @@
     modalElement.classList.remove('ma__active');
     modalElement.classList.remove('ma__shim-active');
     document.body.classList.remove('ma__modal-open');
+    document.body.classList.remove('ma__translate-modal-open');
     trigger.focus();
   }
 
