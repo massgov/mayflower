@@ -10,6 +10,7 @@ $translate-control-padding-right: 40px;
 
 .translated-ltr,
 .translated-rtl {
+
   body {
     top: 0 !important;
   }
@@ -25,12 +26,14 @@ $translate-control-padding-right: 40px;
 
    NOTE: This is placed at the top of the stylesheet so component-specific
    padding (like buttons) can override it with higher specificity. */
+
 .notranslate {
   padding-left: 0;
   padding-right: 0;
 }
 
 /* Hide default Google Translate widget */
+
 .ma__goog-te-wrapper {
   position: absolute;
   left: -9999px;
@@ -40,6 +43,7 @@ $translate-control-padding-right: 40px;
 }
 
 /* Hide Google Translate elements */
+
 .goog-te-banner-frame.skiptranslate {
   display: none !important;
 }
@@ -57,6 +61,7 @@ body > .skiptranslate {
 }
 
 .ma__translate {
+
   &-container {
     display: flex;
     flex-direction: column;
@@ -151,6 +156,7 @@ body > .skiptranslate {
 }
 
 #ma__translate-help {
+
   p {
     font: var(--mds-text-caption);
     text-align: center;

@@ -19,11 +19,32 @@
   }
 }
 
+// Portaled translate modal (see modal.js) — full viewport above the hamburger nav.
+html > .ma__modal-overlay.ma__modal--translate.ma__active {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  z-index: $z-skyline;
+}
+
+// Hide the open drawer and its dim overlay while the translate modal is open on mobile.
+body.ma__translate-modal-open {
+  @media ($bp-header-toggle-max) {
+    .ma__header__hamburger__nav-container,
+    .menu-overlay.overlay-open {
+      visibility: hidden;
+    }
+  }
+}
+
 .ma__modal {
+
   &-overlay {
     position: fixed;
     inset: 0;
-    z-index: 1000;
+    z-index: $z-modal;
     display: none;
     align-items: center;
     justify-content: center;
@@ -165,6 +186,7 @@ body.ma__modal-open {
 }
 
 @keyframes ma__modal-fade-in {
+
   from {
     opacity: 0;
     transform: scale(0.95);
@@ -177,13 +199,16 @@ body.ma__modal-open {
 }
 
 @media (max-width: 768px), (min-resolution: 150dpi) {
+
   .ma__modal-overlay {
     padding: var(--mds-space-md);
   }
 }
 
 @media (max-width: 600px), (min-resolution: 200dpi) {
+
   .ma__modal {
+
     &-dialog {
       padding: var(--mds-space-lg) var(--mds-space-md);
       overflow-y: auto;

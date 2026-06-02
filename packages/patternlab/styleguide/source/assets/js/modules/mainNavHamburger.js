@@ -14,6 +14,10 @@ function initializeMainNavHamburger() {
 
   globalMainNavHamburger.initialized = true;
 
+  const headerMenuFocusTrapRoot =
+    hamburgerMenuContainer.closest(".ma__header__hamburger-wrapper") ||
+    hamburgerMenuContainer;
+
   const HEADER_TOGGLE_BREAKPOINT = 940;
   const DISABLE_MENU_TRANSITION_CLASS = "ma-disable-menu-transition";
   const osInfo = navigator.appVersion;
@@ -243,21 +247,36 @@ function initializeMainNavHamburger() {
         }
       });
     });
-  }
 
-  // hamburger menu keyboard nav
-  // Tabbing through all links and buttons in the hamburger menu container and the menu button.
-  document.addEventListener("keydown", function (e) {
-    if (menuButton.getAttribute("aria-expanded") === "true") {
-      focusTrapping({
-        focusableSelectors:
-          "a[href], button:not([disabled]), [tabindex]:not([tabindex='-1']), .js-utility-nav--narrow .ma__utility-nav__item .ma__utility-nav__link, .ma__utility-nav__item .ma__utility-nav__container a",
-        closeButtonSelector: ".js-header-menu-button",
-        modalSelector: ".ma__header__hamburger__nav-container",
-        keyEvent: e,
-      });
+    // Tab / Shift+Tab cycle within the flyout shell (includes wide utility row on >940px). focusTrapping
+    // ignores nodes under aria-hidden so the cycle matches the real tab order on ≤940px (narrow utility accordions).
+    function handleHeaderMenuFocusIn(e) {
+      if (menuButton.getAttribute("aria-expanded") !== "true") {
+        return;
+      }
+      if (!headerMenuFocusTrapRoot || headerMenuFocusTrapRoot.contains(e.target)) {
+        return;
+      }
+      if (
+        e.target instanceof HTMLIFrameElement &&
+        /goog-te|skiptranslate/i.test(e.target.className)
+      ) {
+        return;
+      }
+      menuButton.focus();
     }
-  });
+
+    document.addEventListener("keydown", function (e) {
+      if (menuButton.getAttribute("aria-expanded") === "true") {
+        focusTrapping({
+          modalElement: headerMenuFocusTrapRoot,
+          keyEvent: e,
+        });
+      }
+    });
+
+    document.addEventListener("focusin", handleHeaderMenuFocusIn, true);
+  }
 
   if (jumpToSearchButton !== null) {
     jumpToSearchButton.addEventListener("click", (e) => {

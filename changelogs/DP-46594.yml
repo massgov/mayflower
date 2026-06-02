@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Modal
+    description: Portal the translate modal to documentElement when opened and hide the hamburger drawer while it is open so the nav edge does not show through on Android.
+    issue: DP-46594
+    impact: Patch

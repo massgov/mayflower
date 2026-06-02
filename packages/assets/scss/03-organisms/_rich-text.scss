@@ -79,10 +79,7 @@ $heading-indent: $gutter;
 
   // rich text has an optional title
 
-  h2:not(.ma__comp-heading),
-  h3:not(.ma__comp-heading),
-  h3:not(.ma__sidebar-heading),
-  h4 {
+  h2:not(.ma__comp-heading) {
 
     @include ma-comp-heading;
   }
@@ -118,12 +115,6 @@ $heading-indent: $gutter;
   }
 
   h4 {
-    margin-bottom: .6em;
-    padding-bottom: .45em;
-
-    &:after {
-      width: 1.5em;
-    }
 
     &.ma__rich-text__indent {
       margin-left: $heading-indent * 2; // 1.
@@ -173,6 +164,8 @@ $heading-indent: $gutter;
   ul {
     margin-bottom: $rich-text-spacing-mobile;
     padding-left: 20px;
+    list-style-position: outside;
+    overflow: hidden;
 
     &.ma__link-list__items--no-bullets {
       padding-left: 0;
@@ -194,7 +187,8 @@ $heading-indent: $gutter;
 
   ol {
     margin-bottom: $rich-text-spacing-mobile;
-    padding-left: 20px;
+    padding-left: 25px;
+    overflow: hidden;
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
@@ -329,7 +323,7 @@ $heading-indent: $gutter;
     }
   }
 
-  h2, h3, h4 {
+  h2 {
 
     @include ma-comp-heading($c-primary-alt);
   }
@@ -401,11 +395,11 @@ $heading-indent: $gutter;
 }
 
 
-// auto clearl foat after floating images
+// auto clear float after floating images
 
 .ma__figure--large + .ma__rich-text,
 .ma__figure--medium + .ma__figure--medium + .ma__rich-text,
-.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text,
 .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__rich-text {
   clear: both;
 }
