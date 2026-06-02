@@ -1,0 +1,6 @@
+Fixed:
+  - project: Assets
+    component: TranslateWidget
+    description: Fix JS error with mobile translate component.
+    issue: DP-47109
+    impact: Patch
