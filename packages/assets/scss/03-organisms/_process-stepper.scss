@@ -17,13 +17,24 @@
     border-radius: 4px;
     background-color: $c-white;
     margin-top: 24px;
+    padding-left: 0;
+
+    .ma__rich-text & {
+      padding-left: 0;
+    }
   }
 
   &__item {
     list-style: none;
     position: relative;
-    padding: 28px 30px; // Matches design: generous vertical + horizontal
+    padding: 28px 30px; // Equal spacing on left and right
     border-bottom: 1px solid var(--mf-c-bd-divider, #d5dce0);
+    margin-bottom: 0;
+
+    .ma__rich-text & {
+      padding: 28px 30px;
+      margin-bottom: 0;
+    }
 
     &:last-child {
       border-bottom: none;
@@ -42,8 +53,14 @@
     }
 
     &__item {
-      padding: 24px 20px; // Maintain safe reading distance from viewport edges
+      padding: 24px 20px; // Equal spacing on mobile left and right
       border-bottom: 1px solid var(--mf-c-bd-divider, #d5dce0);
+      margin-bottom: 0;
+
+      .ma__rich-text & {
+        padding: 24px 20px;
+        margin-bottom: 0;
+      }
 
       &:last-child {
         border-bottom: none;

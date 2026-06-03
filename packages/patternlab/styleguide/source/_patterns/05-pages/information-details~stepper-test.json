@@ -147,12 +147,12 @@
                         "iconSize": "small",
                         "icon": "file",
                         "decorativeLink": {
-                          "text": "inline link",
+                          "text": "Psychiatric Outpatient Hospital Bulletin 1: Admission Hour Required on All Psychiatric Outpatient Hospital Claims",
                           "href": "#"
                         },
-                        "size": "26MB",
-                        "format": "Filesize",
-                        "noParentheses": true
+                        "size": "1.98 KB",
+                        "format": "TXT",
+                        "noParentheses": false
                       }
                     }
                   ],
