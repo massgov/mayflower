@@ -1,10 +1,10 @@
-{% set stepHeading = 2 %}
+{% set stepHeading = 3 %}
 
 <section class="ma__process-stepper">
   {% if processStepper.compHeading %}
     {% set compHeading = processStepper.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
-    {% set stepHeading = (compHeading.level ?: stepHeading) + 1 %}
+    {% set stepHeading = (compHeading.level ?: 2) + 1 %}
   {% endif %}
   
   {% block processSteps %}
@@ -12,7 +12,7 @@
       <ol class="ma__process-stepper__items">
         {% for processStep in processStepper.steps %}
           <li class="ma__process-stepper__item">
-            {% set processStep = processStep|merge({"level":stepHeading}) %}
+            {% set processStep = processStep|merge({"level": processStep.level|default(stepHeading)}) %}
             {% include "@molecules/process-step.twig" %}
           </li>
         {% endfor %}
