@@ -188,7 +188,13 @@ $heading-indent: $gutter;
   ol {
     margin-bottom: $rich-text-spacing-mobile;
     padding-left: 25px;
-    overflow: hidden;
+    list-style-position: outside;
+
+    &.list-style-decimal-leading-zero,
+    &[start] {
+      // Wider markers (01., 14., etc.) need more space; overflow:hidden clips them.
+      padding-left: 2.5em;
+    }
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
