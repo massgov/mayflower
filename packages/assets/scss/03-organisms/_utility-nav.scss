@@ -91,6 +91,14 @@ $utility-nav-height: 43px;
       &:hover {
         opacity: .7;
       }
+
+      &:focus-visible {
+        outline-style: solid !important;
+        outline-width: 2px !important;
+        outline-color: var(--mds-border-focus-on-dark) !important;
+        outline-offset: 0;
+        box-shadow: none !important;
+      }
     }
 
     &:after {
