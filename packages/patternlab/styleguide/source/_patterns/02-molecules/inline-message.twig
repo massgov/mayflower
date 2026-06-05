@@ -4,6 +4,13 @@
     <span class="ma__inline-message__icon">
       {{ icon(iconName, '20px', '20px') }}
     </span>
+    <span class="ma__visually-hidden">
+      {%- if inlineMessage.type == 'warning' -%}
+        Warning: 
+      {%- else -%}
+        Important notice: 
+      {%- endif -%}
+    </span>
     {% if inlineMessage.heading %}
       <strong class="ma__inline-message__title">{{ inlineMessage.heading }}</strong>
     {% endif %}
