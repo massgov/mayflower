@@ -1,6 +1,7 @@
 {% set iconName = inlineMessage.type == 'warning' ? 'warning' : 'info' %}
-<div class="ma__inline-message{% if inlineMessage.type %} ma__inline-message--{{ inlineMessage.type }}{% endif %}">
-  <div class="ma__inline-message__header">
+{% set headingId = 'ma__inline-message__heading-' ~ random(100000, 999999) %}
+<div class="ma__inline-message{% if inlineMessage.type %} ma__inline-message--{{ inlineMessage.type }}{% endif %}" role="group" aria-labelledby="{{ headingId }}">
+  <div class="ma__inline-message__header" id="{{ headingId }}">
     <span class="ma__inline-message__icon">
       {{ icon(iconName, '20px', '20px') }}
     </span>
