@@ -187,13 +187,8 @@ $heading-indent: $gutter;
 
   ol {
     margin-bottom: $rich-text-spacing-mobile;
-    padding-left: 25px;
+    padding-left: 32px;
     list-style-position: outside;
-
-    &.list-style-decimal-leading-zero {
-      // Leading-zero markers (01., 02., …) are wider than single-digit decimals.
-      padding-left: 30px;
-    }
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
