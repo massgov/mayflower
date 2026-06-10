@@ -9,6 +9,7 @@
   padding: 12px;
   margin-bottom: 24px;
   border-radius: 4px;
+  overflow: auto;
 
   // Top row: icon + bold heading on same horizontal line
   &__header {
