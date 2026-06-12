@@ -263,6 +263,10 @@ function initializeMainNavHamburger() {
       ) {
         return;
       }
+      // Portaled modals (e.g. translate) sit outside the hamburger wrapper; do not fight modal focus trap.
+      if (e.target.closest(".ma__modal.ma__active")) {
+        return;
+      }
       menuButton.focus();
     }
 
