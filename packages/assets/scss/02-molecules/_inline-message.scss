@@ -1,0 +1,65 @@
+@use "00-base/configure" as *;
+
+// Inline Message molecule.
+// Supported variants: info (default), warning.
+// Structure: icon + heading on same row; paragraph below full-width.
+.ma__inline-message {
+  background-color: var(--mf-c-bay-blue-lightest, #f1f4f6); // Design token — light blue background
+  border: 1px solid var(--mf-c-bd-divider, #d5dce0);
+  padding: 12px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  overflow: auto;
+
+  // Top row: icon + bold heading on same horizontal line
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+
+    svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      color: var(--mf-c-primary, #154796);
+      fill: var(--mf-c-primary, #154796);
+    }
+  }
+
+  &__title {
+    font-weight: $fonts-bold;
+    font-size: $fonts-medium;
+    line-height: 1.4;
+  }
+
+  // Body: paragraph text — full-width below the header row
+  &__content {
+    .ma__rich-text {
+      >*:first-child {
+        margin-top: 0;
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  // Warning variant — yellow icon tint, background, and border
+  &--warning {
+    background-color: var(--mf-c-duckling-yellow-lightest, #fef9e8);
+    border-color: var(--mf-c-duckling-yellow-lighter, #fbe28d);
+
+    .ma__inline-message__icon svg {
+      color: var(--mf-c-duckling-yellow, #f6c51b);
+      fill: var(--mf-c-duckling-yellow, #f6c51b);
+    }
+  }
+}
