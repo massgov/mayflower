@@ -34,7 +34,7 @@
 
   &__title {
     font-weight: $fonts-bold;
-    font-size: $fonts-medium;
+    font-size: $fonts-large; // 18px (--mds-text-heading-2xs equivalent)
     line-height: 1.4;
   }
 
