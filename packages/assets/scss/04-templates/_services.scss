@@ -331,6 +331,17 @@
         margin-inline-start: 40px;
       }
 
+      // In narrow two-column service layouts, keep callout links full width.
+      > .ma__callout-links-three-up .ma__callout-links-three-up__container > * {
+        @media ($bp-x-large-min) {
+          width: 100%;
+          max-width: 100%;
+          float: none;
+          margin-inline: 0;
+          flex: 1 1 100%;
+        }
+      }
+
       .ma__section-links__content {
 
         .ma__section-links__title .ma__decorative-link {

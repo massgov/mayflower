@@ -1,6 +1,3 @@
-$bp-section-3up-large-min: "min-width:951px";
-$bp-section-3up-large-max: "max-width:950px";
-
 @use "00-base/configure" as *;
 
 .ma__callout-links-three-up {
@@ -37,14 +34,15 @@ $bp-section-3up-large-max: "max-width:950px";
       }
 
 
-      @media ($bp-small-min) and ($bp-section-3up-large-max) {
+      // Match key-actions behavior: two columns until xl, then three.
+      @media ($bp-small-min) and ($bp-x-large-max) {
 
         @include span-columns(4 of 8);
 
         @include omega(2n);
       }
 
-      @media ($bp-section-3up-large-min) {
+      @media ($bp-x-large-min) {
 
           @include span-columns(4 of 12);
 
