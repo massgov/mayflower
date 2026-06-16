@@ -29,7 +29,6 @@
       width: 20px;
       height: 20px;
       color: var(--mf-c-primary, #154796);
-      fill: var(--mf-c-primary, #154796);
     }
   }
 
@@ -58,8 +57,7 @@
     border-color: var(--mf-c-duckling-yellow-lighter, #fbe28d);
 
     .ma__inline-message__icon svg {
-      color: var(--mf-c-duckling-yellow, #f6c51b);
-      fill: var(--mf-c-duckling-yellow, #f6c51b);
+      color: var(--mds-background-section-utility-warning-highest, #7b5705);
     }
   }
 }
