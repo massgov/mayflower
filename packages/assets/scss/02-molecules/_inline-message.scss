@@ -33,9 +33,7 @@
   }
 
   &__title {
-    font-weight: $fonts-bold;
-    font-size: $fonts-large; // 18px (--mds-text-heading-2xs equivalent)
-    line-height: 1.4;
+    font: var(--mds-text-heading-2xs);
   }
 
   // Body: paragraph text — full-width below the header row
@@ -47,6 +45,7 @@
     }
 
     p {
+      font: var(--mds-text-body);
       margin-bottom: 0;
     }
   }
