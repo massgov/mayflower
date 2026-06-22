@@ -5,14 +5,6 @@
   padding-left:20px;
   margin-bottom: 45px;
 
-  .rich-text .ma__callout-alert + & {
-    margin-top: 17px;
-
-    @media ($bp-small-min) {
-      margin-top: 32px;
-    }
-  }
-
   @media ($bp-x-small-min) {
     padding-left:38px;
   }
