@@ -15,7 +15,7 @@
     @include ma-component-spacing('large');
   }
 
-  .rich-text & {
+  .ma__rich-text & {
     margin-bottom: 1.75rem;
   }
 
@@ -65,6 +65,14 @@
     border-bottom: 3px solid;
   }
 
+}
+
+.ma__rich-text .ma__callout-alert + .ma__callout-time {
+  margin-top: 17px;
+
+  @media ($bp-small-min) {
+    margin-top: 32px;
+  }
 }
 
 //theme
