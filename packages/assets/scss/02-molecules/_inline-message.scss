@@ -3,6 +3,7 @@
 // Inline Message molecule.
 // Supported variants: info (default), warning.
 // Structure: icon + heading on same row; paragraph below full-width.
+
 .ma__inline-message {
   background-color: var(--mf-c-bay-blue-lightest, #f1f4f6); // Design token — light blue background
   border: 1px solid var(--mf-c-bd-divider, #d5dce0);
@@ -12,6 +13,7 @@
   overflow: auto;
 
   // Top row: icon + bold heading on same horizontal line
+
   &__header {
     display: flex;
     align-items: center;
@@ -37,8 +39,11 @@
   }
 
   // Body: paragraph text — full-width below the header row
+
   &__content {
+
     .ma__rich-text {
+
       >*:first-child {
         margin-top: 0;
       }
@@ -51,6 +56,7 @@
   }
 
   // Warning variant — yellow icon tint, background, and border
+
   &--warning {
     background-color: var(--mf-c-duckling-yellow-lightest, #fef9e8);
     border-color: var(--mf-c-duckling-yellow-lighter, #fbe28d);

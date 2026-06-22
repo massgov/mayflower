@@ -1,5 +1,5 @@
 Fixed:
-  - project: Patternlab
+  - project: Assets
     component: Callout
     description: Add vertical spacing between Highlight and Callout in rich text.
     issue: DP-41032

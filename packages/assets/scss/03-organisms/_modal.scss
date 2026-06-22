@@ -20,18 +20,24 @@
 }
 
 // Portaled translate modal (see modal.js) — full viewport above the hamburger nav.
+
 html > .ma__modal-overlay.ma__modal--translate.ma__active {
   position: fixed;
   inset: 0;
   width: 100%;
   min-height: 100vh;
+
+  /* stylelint-disable-next-line unit-no-unknown */
   min-height: 100dvh;
   z-index: $z-skyline;
 }
 
 // Hide the open drawer and its dim overlay while the translate modal is open on mobile.
+
 body.ma__translate-modal-open {
+
   @media ($bp-header-toggle-max) {
+
     .ma__header__hamburger__nav-container,
     .menu-overlay.overlay-open {
       visibility: hidden;
