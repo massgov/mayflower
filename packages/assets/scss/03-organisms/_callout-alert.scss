@@ -16,7 +16,19 @@
   }
 
   .ma__rich-text & {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
+
+    @media ($bp-small-min) {
+      margin-bottom: 1.75rem;
+    }
+
+    &:not(:first-child) {
+      margin-top: 1.5rem;
+
+      @media ($bp-small-min) {
+        margin-top: 1.75rem;
+      }
+    }
   }
 
   &__content {
@@ -65,14 +77,6 @@
     border-bottom: 3px solid;
   }
 
-}
-
-.ma__rich-text .ma__callout-alert + .ma__callout-time {
-  margin-top: 17px;
-
-  @media ($bp-small-min) {
-    margin-top: 32px;
-  }
 }
 
 //theme
