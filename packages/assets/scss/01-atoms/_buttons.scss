@@ -54,7 +54,9 @@ button {
   }
 
   // Prevents buttons inside rich-text from inheriting link border-bottom underlines on hover
+
   &:not(&--quaternary) {
+
     .ma__rich-text & {
       border-bottom: none;
 
