@@ -12,7 +12,7 @@ const shell = require('shelljs');
 
 // Added simple-git to use for git add "npm install simple-git"
 // Could not use the shell.exec to git add the remove changelogs.
-const git = require('simple-git/promise')();
+const git = require('simple-git')();
 
 const { octokit } = require('./release-vars');
 const { newLogsWithTitle, version } = require('./compile-changelogs');
