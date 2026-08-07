@@ -1,13 +1,5 @@
 @use "00-base/configure" as *;
-@use "@massds/mds-styles/dist/scss/index.scss" as mixins;
-
-
-/** reset styles **/
-h2,
-p {
-  margin: 0;
-  color: unset;
-}
+@use "@massds/mds-styles/dist/scss" as mixins;
 
 /** State Banner component styles **/
 
@@ -28,28 +20,31 @@ $state-banner-item-min-width: 20rem;
     content-visibility $state-banner-transition-duration $easing allow-discrete;
 }
 
-// Container and banner shell.
 .mds-state-banner__container {
-  @include ma-container;
+  @include mixins.section-container;
 
   background: transparent;
   color: inherit;
 }
 
 .mds-state-banner {
+  @include mixins.box-sizing-reset;
+  @include mixins.text-block-reset;
+  @include mixins.font-smoothing-reset;
+
   width: 100%;
   padding-block: var(--mds-space-3xs);
   background-color: var(--mds-background-section-utility-static-black);
   color: var(--mds-text-and-icons-utility-static-white);
-  font: var(--mds-text-body); /** need to use var instead of utility class to best support font size change for smaller screens **/
 
-  // Banner summary content.
+  @include mixins.text("body");
+
   &__inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0 var(--mds-space-sm);
-    width: 100%; /** Make clickable area of the banner full width **/
+    width: 100%;
   }
 
   &__brand {
@@ -62,7 +57,7 @@ $state-banner-item-min-width: 20rem;
     width: $state-banner-icon-size;
     height: $state-banner-icon-size;
     align-self: self-start;
-    margin-top: 2px; /** needs more spacing above, but needs to align to top for wrapping to work **/
+    margin-top: 2px;
   }
 
   &__toggle-text {
@@ -70,12 +65,11 @@ $state-banner-item-min-width: 20rem;
     align-items: center;
     border-bottom: 2px solid;
     border-color: currentColor;
-    line-height: 1.75; /** to match how it renders in figma, even though this is the same value of 1.8 in both **/
+    line-height: 1.75;
   }
 
-  // Expandable details panel.
   &__details {
-    interpolate-size: allow-keywords; /** need this to allow for the "auto" value in block-size to transition properly **/
+    interpolate-size: allow-keywords;
 
     &::details-content {
       block-size: 0;
@@ -95,11 +89,9 @@ $state-banner-item-min-width: 20rem;
     }
   }
 
-  // Summary disclosure affordance.
   &__summary {
     @include mixins.focus;
 
-    // Hide the default "disclosure triangle" on the summary element
     &::marker {
       content: "";
     }
@@ -110,6 +102,9 @@ $state-banner-item-min-width: 20rem;
   }
 
   &__caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: $state-banner-icon-size;
     height: $state-banner-icon-size;
     margin-inline-start: var(--mds-space-2xs);
@@ -121,7 +116,6 @@ $state-banner-item-min-width: 20rem;
     transform: rotate(180deg);
   }
 
-  // Expanded panel content.
   &__items {
     display: flex;
     flex-wrap: wrap;
@@ -137,10 +131,18 @@ $state-banner-item-min-width: 20rem;
   }
 
   &__item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: $state-banner-item-icon-size;
     height: $state-banner-item-icon-size;
-    fill: currentColor;
     flex: none;
+  }
+
+  &__caret .mds-icon,
+  &__item-icon .mds-icon {
+    width: 100%;
+    height: 100%;
   }
 
   &__text {
@@ -156,9 +158,7 @@ $state-banner-item-min-width: 20rem;
   }
 
   &__item-heading {
-    color: unset;
-    font: var(--mds-text-label);
-    margin: 0;
+    @include mixins.text("label");
   }
 
   &__item-description {
@@ -166,7 +166,6 @@ $state-banner-item-min-width: 20rem;
   }
 }
 
-// Responsive refinements.
 @include mixins.max-width(md) {
   .mds-state-banner__seal {
     align-self: self-start;
@@ -189,8 +188,7 @@ $state-banner-item-min-width: 20rem;
 
   .mds-state-banner__text,
   .mds-state-banner__toggle-text {
-    margin: 0;
-    font: var(--mds-text-caption);
+    @include mixins.text("caption");
   }
 
   .mds-state-banner__toggle-text {
@@ -211,7 +209,7 @@ $state-banner-item-min-width: 20rem;
   .mds-state-banner__item-copy {
     p,
     h2 {
-      font: var(--mds-text-caption);
+      @include mixins.text("caption");
     }
   }
 }
