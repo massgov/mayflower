@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: InlineMessage
+    description: Resolve warning message icon color contrast issue and match font styles to design. (#2079)
+    issue: DP-47635
+    impact: Patch

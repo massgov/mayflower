@@ -22,6 +22,10 @@
 
 .ma__information-details {
 
+  .pre-content .ma__inline-message__content .ma__rich-text {
+    margin-bottom: initial;
+  }
+
   .pre-content .ma__rich-text {
     margin-bottom: 30px;
   }
@@ -47,7 +51,7 @@
   }
 
   &__pre-content-media {
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
   }
 
   .ma__iframe {

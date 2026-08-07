@@ -164,6 +164,8 @@ $heading-indent: $gutter;
   ul {
     margin-bottom: $rich-text-spacing-mobile;
     padding-left: 20px;
+    list-style-position: outside;
+    overflow: hidden;
 
     &.ma__link-list__items--no-bullets {
       padding-left: 0;
@@ -185,7 +187,8 @@ $heading-indent: $gutter;
 
   ol {
     margin-bottom: $rich-text-spacing-mobile;
-    padding-left: 20px;
+    padding-left: 32px;
+    list-style-position: outside;
 
     @media ($bp-small-min) {
       margin-bottom: $rich-text-spacing;
@@ -392,11 +395,11 @@ $heading-indent: $gutter;
 }
 
 
-// auto clearl foat after floating images
+// auto clear float after floating images
 
 .ma__figure--large + .ma__rich-text,
 .ma__figure--medium + .ma__figure--medium + .ma__rich-text,
-.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text
+.ma__figure--small + .ma__figure--small + .ma__figure--small + .ma__rich-text,
 .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__figure--x-small + .ma__rich-text {
   clear: both;
 }

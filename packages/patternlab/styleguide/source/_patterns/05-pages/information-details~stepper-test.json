@@ -1,0 +1,473 @@
+{
+  "breadcrumbs": {
+    "links": [
+      {
+        "text": "Mass.gov",
+        "url": "#"
+      },
+      {
+        "text": "Living",
+        "url": "#"
+      },
+      {
+        "text": "Working and Doing Business in Mass",
+        "url": "#"
+      },
+      {
+        "text": "Starting a Business",
+        "url": "#"
+      }
+    ]
+  },
+  "preContent": {
+    "pageHeader": {
+      "title": "Starting a business in Massachusetts",
+      "background": {
+        "image": "https://picsum.photos/1200/400"
+      }
+    },
+    "overview": {
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Learn about the requirements for starting your business and find resources available before and after you start your business.<br><br>Depending on your business, you may need to file with the Secretary of the Commonwealth. You may also need to get a Business Certificate (DBA), request an Employer Identification Number (EIN), and create a MassTaxConnect account to make tax reports and tax payments."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "pageContent": [
+    {
+      "rteElements": [
+        {
+          "path": "@atoms/04-headings/comp-heading.twig",
+          "data": {
+            "compHeading": {
+              "title": "General guidance for starting a business",
+              "level": 2
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Explore these resources before starting your business in Massachusetts."
+            }
+          }
+        },
+        {
+          "path": "@atoms/05-lists/unordered-list.twig",
+          "data": {
+            "unorderedList": {
+              "items": [
+                "<strong>Get free training and counseling.</strong> The Massachusetts Small Business Development Center offers several <a href=\"#\">free business advising and training services</a>.",
+                "<strong>Conduct market research.</strong> Conduct a <a href=\"#\">competitive analysis</a> to set your business apart from the competition. This means studying your competitors to understand their strengths and weaknesses, and what they offer to similar customers. Use the U.S. Small Business Administration's <a href=\"#\">market information statistics and data</a> to research businesses in your area.",
+                "<strong>Write a business plan.</strong> You can find <a href=\"#\">business plan templates</a> on the U.S. Small Business Administration's website.",
+                "<strong>Learn about local zoning.</strong> Check with the zoning boards in your <a href=\"#\">city or town</a> to see if your business needs a license to operate."
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "rteElements": [
+        {
+          "path": "@atoms/04-headings/comp-heading.twig",
+          "data": {
+            "compHeading": {
+              "title": "Choose your business structure",
+              "level": 2
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "The business structure you choose affects the way you operate your business, from calculating taxes, personal liability, to your daily operations, and how much of your personal assets are at risk.<br><br>There are requirements depending on the business structure you choose. The most common structures in Massachusetts are:"
+            }
+          }
+        },
+        {
+          "path": "@atoms/05-lists/unordered-list.twig",
+          "data": {
+            "unorderedList": {
+              "items": [
+                "<a href=\"#\">Sole proprietorships</a>",
+                "<a href=\"#\">Partnerships</a>",
+                "<a href=\"#\">Limited Liability Companies (LLCs)</a>",
+                "<a href=\"#\">Corporations (for-profit and non-profit)</a>"
+              ]
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "You'll want to choose the business structure that gives you the right balance of legal protections and benefits.<br><br>Learn about <a href=\"#\">the differences and similarities in common business structures in this chart offered by the Small Business Administration</a>."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "rteElements": [
+        {
+          "path": "@organisms/by-author/process-stepper.twig",
+          "data": {
+            "processStepper": {
+              "compHeading": {
+                "title": "Steps to start your business",
+                "level": 2
+              },
+              "steps": [
+                {
+                  "title": "Check your business name",
+                  "richText": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "The Secretary of the Commonwealth lets you <a href=\"#\">search for a Business Entity</a> to make sure the business name you want is available."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "Psychiatric Outpatient Hospital Bulletin 1: Admission Hour Required on All Psychiatric Outpatient Hospital Claims",
+                          "href": "#"
+                        },
+                        "size": "1.98 KB",
+                        "format": "TXT",
+                        "noParentheses": false
+                      }
+                    }
+                  ],
+                  "content": [
+                    {
+                      "richText": {
+                        "rteElements": [
+                          {
+                            "path": "@atoms/01-buttons/button.twig",
+                            "data": {
+                              "button": {
+                                "text": "Search for a Business Entity",
+                                "href": "#",
+                                "icon": "external-link",
+                                "theme": "c-primary-alt",
+                                "uppercaseOverride": true
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "File with the Secretary of the Commonwealth",
+                  "richText": {
+                    "rteElements": [
+                      {
+                        "path": "@molecules/inline-message.twig",
+                        "data": {
+                          "inlineMessage": {
+                            "type": "info",
+                            "heading": "Info Inline Message heading goes here",
+                            "richText": {
+                              "rteElements": [
+                                {
+                                  "path": "@atoms/11-text/paragraph.twig",
+                                  "data": {
+                                    "paragraph": {
+                                      "text": "Any business filing with the Secretary of the Commonwealth may also have to report information to the federal government. <a href=\"#\">Learn more about filing a beneficial ownership information (BOI) report with the U.S. Department of the Treasury's Financial Crimes Enforcement Network (FinCEN).</a>"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "If your business must file with the Secretary of the Commonwealth, visit their <a href=\"#\">Filing by Subject</a> page and follow the steps for the business structure (\"subject\") you've chosen to complete your filing. Sole proprietors and general partnerships can skip this step.<br><br><i>Note: The Sec. of the Commonwealth's website refers to business types or structures as \"subjects.\"</i><br><br>In most cases, you can choose to file online, by fax, by mail, or in person."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "inline link",
+                          "href": "#"
+                        },
+                        "size": "26MB",
+                        "format": "Filesize",
+                        "noParentheses": true
+                      }
+                    }
+                  ],
+                  "content": [
+                    {
+                      "richText": {
+                        "rteElements": [
+                          {
+                            "path": "@atoms/01-buttons/button.twig",
+                            "data": {
+                              "button": {
+                                "text": "File with the Secretary of the Commonwealth",
+                                "href": "#",
+                                "icon": "external-link",
+                                "theme": "c-primary-alt",
+                                "uppercaseOverride": true
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "Get a business certificate (DBA) from your city or town",
+                  "richText": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "You must file a business certificate (sometimes called a DBA or \"doing business as\" name) if your business operates under any name other than its legal name. The \"legal name\" is the official name used when incorporating or, in the case of a sole proprietor, the owner's legal name."
+                          }
+                        }
+                      },
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "You'll file your business certificate in the city or town where your business is located. <a href=\"#\">Learn more about if your business needs a business certificate and how to get one.</a>"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "inline link",
+                          "href": "#"
+                        },
+                        "size": "26MB",
+                        "format": "Filesize",
+                        "noParentheses": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "Get an EIN",
+                  "richText": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "An <a href=\"#\">Employer Identification Number (EIN)</a> is used to identify a business and is issued by the Internal Revenue Service (IRS). It's also called a Federal Tax Identification Number.<br><br>A sole proprietorship with no employees is the only business structure that does not have to get an EIN."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "inline link",
+                          "href": "#"
+                        },
+                        "size": "26MB",
+                        "format": "Filesize",
+                        "noParentheses": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "Register with MassTaxConnect",
+                  "richText": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "If your business is responsible for collecting and paying taxes to the state, you'll need to <a href=\"#\">create a MassTaxConnect account</a>. You can pay business taxes to the Department of Revenue through MassTaxConnect."
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "downloadLinks": [
+                    {
+                      "downloadLink": {
+                        "iconSize": "small",
+                        "icon": "file",
+                        "decorativeLink": {
+                          "text": "inline link",
+                          "href": "#"
+                        },
+                        "size": "26MB",
+                        "format": "Filesize",
+                        "noParentheses": true
+                      }
+                    }
+                  ],
+                  "content": [
+                    {
+                      "richText": {
+                        "rteElements": [
+                          {
+                            "path": "@atoms/01-buttons/button.twig",
+                            "data": {
+                              "button": {
+                                "text": "Create a MassTaxConnect account",
+                                "href": "#",
+                                "icon": "external-link",
+                                "theme": "c-primary-alt",
+                                "uppercaseOverride": true
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "rteElements": [
+        {
+          "path": "@atoms/04-headings/comp-heading.twig",
+          "data": {
+            "compHeading": {
+              "title": "Next steps after you've started your business",
+              "level": 2
+            }
+          }
+        },
+        {
+          "path": "@atoms/04-headings/comp-heading.twig",
+          "data": {
+            "compHeading": {
+              "title": "Available business resources and support",
+              "level": 3
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "After starting your business, you may still have questions. We've compiled a list of state agencies for you to turn to, including <a href=\"#\">the Secretary of the Commonwealth</a>, <a href=\"#\">MassDevelopment</a>, and the <a href=\"#\">Massachusetts Department of Revenue</a>.<br><br>If you don't know the exact agency or department you're looking for, or if you need to talk directly with a live expert, <a href=\"#\">submit an online request to MassB2B</a>. MassB2B is a resource hub built for the Commonwealth of Massachusetts and will connect you with a business professional offering guidance on how to navigate the many business resources available in Massachusetts."
+            }
+          }
+        },
+        {
+          "path": "@atoms/04-headings/comp-heading.twig",
+          "data": {
+            "compHeading": {
+              "title": "Check if you need workers' compensation insurance",
+              "level": 3
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "All Massachusetts employers must carry <a href=\"#\">workers' compensation insurance</a>. This is required no matter how many employees you have, the hours they work, or if you are only going to be an employer of your relatives."
+            }
+          }
+        },
+        {
+          "path": "@atoms/04-headings/comp-heading.twig",
+          "data": {
+            "compHeading": {
+              "title": "Learn about your business tax responsibilities",
+              "level": 3
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Depending on your business, local or city laws could require you to <a href=\"#\">register for a new business with MassTaxConnect</a> or to get a special license or permit.<br><br>If your business is located out of state, you could still have to collect or pay sales taxes under the <a href=\"#\">Massachusetts Single Sales Factor</a> rules."
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "sidebar": {
+    "contactList": {
+      "contacts": [
+        {
+          "title": "Registry of Motor Vehicles",
+          "link": {
+            "url": "#",
+            "text": "More info"
+          }
+        }
+      ]
+    },
+    "linkList": {
+      "compHeading": {
+        "title": "Related",
+        "level": 2
+      },
+      "links": [
+        {
+          "url": "#",
+          "text": "Renew your RMV driver's license"
+        },
+        {
+          "url": "#",
+          "text": "Renew your RMV commercial vehicle registration"
+        },
+        {
+          "url": "#",
+          "text": "Massachusetts commercial driver's license (CDL)"
+        }
+      ]
+    }
+  }
+}

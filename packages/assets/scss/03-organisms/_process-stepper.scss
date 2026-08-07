@@ -1,0 +1,74 @@
+@use "00-base/configure" as *;
+
+.ma__process-stepper {
+  margin-bottom: 28px;
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container('restricted');
+  }
+
+  &__items {
+
+    @include ma-reset-list;
+    counter-reset: process-step-counter;
+    border: 1px solid var(--mf-c-bd-divider, #d5dce0);
+    border-radius: 4px;
+    background-color: $c-white;
+    margin-top: 24px;
+    padding-left: 0;
+
+    .ma__rich-text & {
+      padding-left: 0;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    position: relative;
+    padding: 28px 30px; // Equal spacing on left and right
+    border-bottom: 1px solid var(--mf-c-bd-divider, #d5dce0);
+    margin-bottom: 0;
+
+    .ma__rich-text & {
+      padding: 28px 30px;
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  // Mobile: full-width, remove outer card border, keep horizontal step dividers
+
+  @media (#{$bp-medium-max}) {
+
+    &__items {
+      border: none;
+      border-radius: 0;
+      margin-top: 16px;
+      // Break out of the standard container padding to go full-bleed
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+
+    &__item {
+      padding: 24px 20px; // Equal spacing on mobile left and right
+      border-bottom: 1px solid var(--mf-c-bd-divider, #d5dce0);
+      margin-bottom: 0;
+
+      .ma__rich-text & {
+        padding: 24px 20px;
+        margin-bottom: 0;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

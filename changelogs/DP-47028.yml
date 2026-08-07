@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: ItemList
+    description: Clean calculation logic for Related Organizations to avoid log noise. (#2081)
+    issue: DP-47028
+    impact: Patch

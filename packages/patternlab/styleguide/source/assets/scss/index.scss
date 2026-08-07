@@ -64,6 +64,7 @@
 @use "02-molecules/action-gallery";
 @use "02-molecules/action-image";
 @use "02-molecules/action-step";
+@use "02-molecules/process-step";
 @use "02-molecules/arrow-nav";
 @use "02-molecules/back-button";
 @use "02-molecules/banner-credit";
@@ -100,6 +101,7 @@
 @use "02-molecules/illustrated-link";
 @use "02-molecules/image-link";
 @use "02-molecules/image-promo";
+@use "02-molecules/inline-message";
 @use "02-molecules/info-window";
 @use "02-molecules/keyword-search";
 @use "02-molecules/labelled-list";
@@ -214,6 +216,7 @@
 @use "03-organisms/suggested-pages";
 @use "03-organisms/search-box-with-links";
 @use "03-organisms/steps-ordered";
+@use "03-organisms/process-stepper";
 @use "03-organisms/steps-unordered";
 @use "03-organisms/table-of-contents-hierarchy";
 @use "03-organisms/table-of-contents-overlay";

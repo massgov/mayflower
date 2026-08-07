@@ -1,0 +1,18 @@
+{
+  "inlineMessage": {
+    "type": "info",
+    "heading": "Info Inline Message heading goes here",
+    "richText": {
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Inline Message description goes here which can be up to 150 characters and includes rich text. Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipisicing el.</a>"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
