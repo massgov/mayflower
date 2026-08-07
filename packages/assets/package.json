@@ -55,7 +55,7 @@
     "svgo": "^4.0.0"
   },
   "dependencies": {
-    "@massds/mds-styles": "~1.0.0",
-    "@massds/mds-tokens": "~1.1.0"
+    "@massds/mds-styles": "~1.1.0",
+    "@massds/mds-tokens": "~2.0.0"
   }
 }

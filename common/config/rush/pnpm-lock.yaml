@@ -8,8 +8,8 @@ dependencies:
   '@babel/plugin-syntax-dynamic-import': 7.8.3
   '@babel/plugin-transform-runtime': 7.25.9
   '@babel/preset-react': 7.25.9
-  '@massds/mds-styles': 1.0.0_@massds+mds-tokens@1.1.0
-  '@massds/mds-tokens': 1.1.0
+  '@massds/mds-styles': 1.1.0_@massds+mds-tokens@2.0.0
+  '@massds/mds-tokens': 2.0.0
   '@rush-temp/mayflower': 'file:projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:projects/mayflower-assets.tgz'
   '@rush-temp/mayflower-core': 'file:projects/mayflower-core.tgz_cf416c644d17a5e671a80245fcea53f7'
@@ -4074,22 +4074,22 @@ packages:
     dev: false
     resolution:
       integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==
-  /@massds/mds-styles/1.0.0_@massds+mds-tokens@1.1.0:
+  /@massds/mds-styles/1.1.0_@massds+mds-tokens@2.0.0:
     dependencies:
-      '@massds/mds-tokens': 1.1.0
+      '@massds/mds-tokens': 2.0.0
     dev: false
     engines:
       node: 24.14.0
     peerDependencies:
-      '@massds/mds-tokens': ^1.0.0
+      '@massds/mds-tokens': ^2.0.0
     resolution:
-      integrity: sha512-t7cnKgXD3fukBqOaLpoJcg7/ULBaSfCbAhXiqtsh1Vm12erZPDwoGpIetILEQ4q/JSwb0Z7P+deqNYy2W30nbQ==
-  /@massds/mds-tokens/1.1.0:
+      integrity: sha512-OTGtxvE32aEuf80nRNGEHkBuSHrleLp8B1si+BdehA2vXZhL+WNzDKuz8kUv+ZQahJORn1YBUo8HZYj3DeyDaQ==
+  /@massds/mds-tokens/2.0.0:
     dev: false
     engines:
       node: 24.14.0
     resolution:
-      integrity: sha512-K3FZ28Rd+iSnJRKQOp96Z9YueagwPkQfpRNbAMrsNj8JX55qlNRi0HTCStNDonTYIZyLIpruqNfDA50LJPoV7Q==
+      integrity: sha512-eh3Ka+F5czqi02SWilJZKjZNaTuug9nHk4e0c4ARYzeVrP60aDF9K/VCxtAnOPaOduRz3hATMCrMQos1O7LBgg==
   /@mdx-js/loader/1.6.22_react@18.3.1:
     dependencies:
       '@mdx-js/mdx': 1.6.22
@@ -24295,8 +24295,8 @@ packages:
     dependencies:
       '@babel/core': 7.12.17
       '@babel/preset-env': 7.12.17_@babel+core@7.12.17
-      '@massds/mds-styles': 1.0.0_@massds+mds-tokens@1.1.0
-      '@massds/mds-tokens': 1.1.0
+      '@massds/mds-styles': 1.1.0_@massds+mds-tokens@2.0.0
+      '@massds/mds-tokens': 2.0.0
       babel-plugin-remove-import-export: 1.1.1
       babel-plugin-rewire-exports: 2.2.0
       del: 6.0.0
@@ -24317,7 +24317,7 @@ packages:
     dev: false
     name: '@rush-temp/mayflower-assets'
     resolution:
-      integrity: sha512-Ki/Zi8YyOGAAdY/6W1GP/LO3JubiPtR4/SfJT4U9gjTY/WYQerlhZFtu/lzbOOjegmkoVqhQRdnvleNseSnWCA==
+      integrity: sha512-hgmzBlFVwDh7Ub8M8Az4XrDiRxfow69GYKS60AQmtm13oelOKR/V93zGT4mg+sRSQVQnj8cvN2n15euAabiCIA==
       tarball: 'file:projects/mayflower-assets.tgz'
     version: 0.0.0
   'file:projects/mayflower-core.tgz_cf416c644d17a5e671a80245fcea53f7':
@@ -24548,8 +24548,8 @@ specifiers:
   '@babel/plugin-syntax-dynamic-import': ^7.2.0
   '@babel/plugin-transform-runtime': ^7.10.1
   '@babel/preset-react': ^7.10.1
-  '@massds/mds-styles': ~1.0.0
-  '@massds/mds-tokens': ~1.1.0
+  '@massds/mds-styles': ~1.1.0
+  '@massds/mds-tokens': ~2.0.0
   '@rush-temp/mayflower': 'file:./projects/mayflower.tgz'
   '@rush-temp/mayflower-assets': 'file:./projects/mayflower-assets.tgz'
   '@rush-temp/mayflower-core': 'file:./projects/mayflower-core.tgz'
