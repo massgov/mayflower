@@ -12,5 +12,13 @@
    *
    * This option is strongly recommended. The default value is false.
    */
-  "useWorkspaces": true
+  "useWorkspaces": true,
+
+  /**
+   * Pin transitive deps that break Storybook 6 / webpack 4 when pnpm resolves latest.
+   * react-draggable >= 4.5 ships .mjs that webpack 4 cannot consume.
+   */
+  "globalOverrides": {
+    "react-draggable": "4.4.6"
+  }
 }
