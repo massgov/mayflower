@@ -21,7 +21,8 @@ $state-banner-item-min-width: 20rem;
 }
 
 .mds-state-banner__container {
-  @include mixins.section-container;
+  // use mayflower container mixin to apply horizontal padding and align with page content
+  @include ma-container;
 
   background: transparent;
   color: inherit;
