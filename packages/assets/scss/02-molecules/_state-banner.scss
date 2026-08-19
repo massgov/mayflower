@@ -24,8 +24,9 @@ $state-banner-item-min-width: 20rem;
   // use mayflower container mixin to apply horizontal padding and align with page content
   @include ma-container;
 
-  background: transparent;
-  color: inherit;
+  // Mayflower overrides - do we need to set these in MDS?
+  // background: transparent;
+  // color: inherit;
 }
 
 .mds-state-banner {
@@ -129,6 +130,10 @@ $state-banner-item-min-width: 20rem;
     gap: var(--mds-space-sm);
     flex: 1 1 $state-banner-item-min-width;
     padding-block: var(--mds-space-2xs) var(--mds-space-sm);
+    // Mayflower overrides - Mayflower h2 styles have color set
+    &-heading {
+      color: var(--mds-text-and-icons-utility-static-white);
+    }
   }
 
   &__item-icon {
@@ -138,6 +143,8 @@ $state-banner-item-min-width: 20rem;
     width: $state-banner-item-icon-size;
     height: $state-banner-item-icon-size;
     flex: none;
+    // Mayflower overrides - not using the mds-assets icons so we need to explicitly set the fill
+    fill: currentColor
   }
 
   &__caret .mds-icon,
