@@ -92,6 +92,8 @@ $state-banner-item-min-width: 20rem;
   }
 
   &__summary {
+    list-style: none;
+
     @include mixins.focus;
 
     &::marker {
