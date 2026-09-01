@@ -24,6 +24,16 @@ $bp-header-search-reduce-button: "max-width: 700px";
     width: 100%;
     border-color: var(--mf-c-bd);
 
+    @media (prefers-color-scheme: dark), (forced-colors: active) {
+      color: var(--mf-c-font-inverse);
+
+      &::placeholder {
+        color: var(--mf-c-font-inverse);
+        forced-color-adjust: none;
+        opacity: 1;
+      }
+    }
+
     &::-ms-clear {
       display: none;
     }
