@@ -1,4 +1,5 @@
 @use "00-base/configure" as *;
+@use "@massds/mds-styles/dist/scss" as mixins;
 
 // Inline Message molecule.
 // Supported variants: info (default), warning.
@@ -35,7 +36,7 @@
   }
 
   &__title {
-    font: var(--mds-text-heading-2xs);
+    @include mixins.text("heading-2xs");
   }
 
   // Body: paragraph text — full-width below the header row
@@ -50,7 +51,7 @@
     }
 
     p {
-      font: var(--mds-text-body);
+      @include mixins.text("body");
       margin-bottom: 0;
     }
   }

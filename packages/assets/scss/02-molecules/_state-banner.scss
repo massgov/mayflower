@@ -1,0 +1,225 @@
+@use "00-base/configure" as *;
+@use "@massds/mds-styles/dist/scss" as mixins;
+
+/** State Banner component styles **/
+
+$state-banner-transition-duration: 300ms;
+$state-banner-transition-easing: cubic-bezier(0.16, 1, 0.3, 1);
+$state-banner-transition-open-easing: ease-in;
+$state-banner-panel-offset: -8px;
+$state-banner-caret-transition-duration: 160ms;
+$state-banner-icon-size: 1.5rem;
+$state-banner-item-icon-size: 1.875rem;
+$state-banner-item-min-width: 20rem;
+
+@mixin details-content-transition($easing) {
+  transition:
+    block-size $state-banner-transition-duration $easing,
+    opacity $state-banner-transition-duration $easing,
+    transform $state-banner-transition-duration $easing,
+    content-visibility $state-banner-transition-duration $easing allow-discrete;
+}
+
+.mds-state-banner__container {
+  // use mayflower container mixin to apply horizontal padding and align with page content
+  @include ma-container;
+
+  // Mayflower overrides - do we need to set these in MDS?
+  // background: transparent;
+  // color: inherit;
+}
+
+.mds-state-banner {
+  @include mixins.box-sizing-reset;
+  @include mixins.text-block-reset;
+  @include mixins.font-smoothing-reset;
+
+  width: 100%;
+  padding-block: var(--mds-space-3xs);
+  background-color: var(--mds-background-section-utility-static-black);
+  color: var(--mds-text-and-icons-utility-static-white);
+
+  @include mixins.text("body");
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--mds-space-sm);
+    width: 100%;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-2xs);
+  }
+
+  &__seal {
+    width: $state-banner-icon-size;
+    height: $state-banner-icon-size;
+    align-self: self-start;
+    margin-top: 2px;
+  }
+
+  &__toggle-text {
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 2px solid;
+    border-color: currentColor;
+    line-height: 1.75;
+  }
+
+  &__details {
+    interpolate-size: allow-keywords;
+
+    &::details-content {
+      block-size: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY($state-banner-panel-offset);
+
+      @include details-content-transition($state-banner-transition-easing);
+    }
+
+    &[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+      transform: translateY(0);
+
+      @include details-content-transition($state-banner-transition-open-easing);
+    }
+  }
+
+  &__summary {
+    list-style: none;
+
+    @include mixins.focus(false);
+
+    &::marker {
+      content: "";
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $state-banner-icon-size;
+    height: $state-banner-icon-size;
+    margin-inline-start: var(--mds-space-2xs);
+    transition: transform $state-banner-caret-transition-duration ease;
+    font-weight: bold;
+  }
+
+  &__details[open] &__caret {
+    transform: rotate(180deg);
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--mds-breakpoint-horizontal-space-gutter);
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--mds-space-sm);
+    flex: 1 1 $state-banner-item-min-width;
+    padding-block: var(--mds-space-2xs) var(--mds-space-sm);
+    // Mayflower overrides - Mayflower h2 styles have color set
+    &-heading {
+      color: var(--mds-text-and-icons-utility-static-white);
+    }
+  }
+
+  &__item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $state-banner-item-icon-size;
+    height: $state-banner-item-icon-size;
+    flex: none;
+    // Mayflower overrides - not using the mds-assets icons so we need to explicitly set the fill
+    fill: currentColor
+  }
+
+  &__caret .mds-icon,
+  &__item-icon .mds-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__text {
+    display: block;
+  }
+
+  &__text-prefix {
+    margin-inline-end: var(--mds-space-sm);
+  }
+
+  &__item-copy {
+    padding-block-start: var(--mds-space-2xs);
+  }
+
+  &__item-heading {
+    @include mixins.text("label");
+  }
+
+  &__item-description {
+    padding-block-start: var(--mds-space-2xs);
+  }
+}
+
+@include mixins.max-width(md) {
+  .mds-state-banner__seal {
+    align-self: self-start;
+  }
+}
+
+@include mixins.max-width(sm) {
+  .mds-state-banner__container {
+    padding-inline: var(--mds-space-sm);
+  }
+
+  .mds-state-banner__summary {
+    display: flex;
+    align-items: center;
+  }
+
+  .mds-state-banner__seal {
+    display: none;
+  }
+
+  .mds-state-banner__text,
+  .mds-state-banner__toggle-text {
+    @include mixins.text("caption");
+  }
+
+  .mds-state-banner__toggle-text {
+    display: inline-flex;
+    padding-block-end: 2px;
+  }
+
+  .mds-state-banner__caret {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .mds-state-banner__item-icon {
+    width: $state-banner-icon-size;
+    height: $state-banner-icon-size;
+  }
+
+  .mds-state-banner__item-copy {
+    p,
+    h2 {
+      @include mixins.text("caption");
+    }
+  }
+}
