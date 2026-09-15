@@ -1,0 +1,7 @@
+{
+  "stateBanner": {
+    "id": "mds-state-banner-panel",
+    "ariaLabel": "Official website banner",
+    "hasSeal": true
+  }
+}
