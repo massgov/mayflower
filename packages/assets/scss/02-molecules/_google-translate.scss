@@ -1,4 +1,5 @@
 @use "00-base/configure" as *;
+@use "@massds/mds-styles/dist/scss" as mixins;
 
 $translate-control-border-width: 2px;
 $translate-control-padding-y: 12px;
@@ -86,9 +87,9 @@ body > .skiptranslate {
   &-select {
     width: 100%;
     padding: $translate-control-padding-y $translate-control-padding-right $translate-control-padding-y var(--mds-space-sm);
-    font: var(--mds-text-label-md);
+    @include mixins.text("label-md");
     color: var(--mds-text-and-icons-brand-neutral-default);
-    background-color: var(--mds-inverse);
+    background-color: var(--mds-background-adaptive-utility-inverse);
     border: $translate-control-border-width solid var(--mds-border-brand-neutral-high);
     border-radius: var(--mds-radius-md);
     cursor: pointer;
@@ -114,8 +115,8 @@ body > .skiptranslate {
 
   &-button {
     padding: $translate-control-padding-y var(--mds-space-md) !important;
-    font: var(--mds-text-label-md);
-    color: var(--mds-inverse);
+    @include mixins.text("label-md");
+    color: var(--mds-text-and-icons-utility-inverse);
     background-color: var(--mds-background-adaptive-brand-primary-mid);
     border: $translate-control-border-width solid var(--mds-border-brand-primary-mid);
     border-radius: var(--mds-radius-md);
@@ -141,7 +142,7 @@ body > .skiptranslate {
     &:hover {
       background-color: var(--mds-background-adaptive-brand-primary-high);
       border-color: var(--mds-border-brand-primary-high);
-      color: var(--mds-inverse);
+      color: var(--mds-text-and-icons-utility-inverse);
     }
   }
 }
@@ -158,7 +159,7 @@ body > .skiptranslate {
 #ma__translate-help {
 
   p {
-    font: var(--mds-text-caption);
+    @include mixins.text("caption");
     text-align: center;
   }
 }

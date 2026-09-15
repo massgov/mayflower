@@ -53,5 +53,9 @@
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-scss": "^3.17.1",
     "svgo": "^4.0.0"
+  },
+  "dependencies": {
+    "@massds/mds-styles": "~1.1.0",
+    "@massds/mds-tokens": "~2.0.0"
   }
 }
