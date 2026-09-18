@@ -14,6 +14,13 @@ importers:
   .: {}
 
   ../../packages/assets:
+    dependencies:
+      '@massds/mds-styles':
+        specifier: ~1.1.0
+        version: 1.1.0(@massds/mds-tokens@2.0.0)
+      '@massds/mds-tokens':
+        specifier: ~2.0.0
+        version: 2.0.0
     devDependencies:
       '@babel/core':
         specifier: ~7.12.3
@@ -1479,6 +1486,16 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@massds/mds-styles@1.1.0':
+    resolution: {integrity: sha512-OTGtxvE32aEuf80nRNGEHkBuSHrleLp8B1si+BdehA2vXZhL+WNzDKuz8kUv+ZQahJORn1YBUo8HZYj3DeyDaQ==}
+    engines: {node: 24.14.0}
+    peerDependencies:
+      '@massds/mds-tokens': ^2.0.0
+
+  '@massds/mds-tokens@2.0.0':
+    resolution: {integrity: sha512-eh3Ka+F5czqi02SWilJZKjZNaTuug9nHk4e0c4ARYzeVrP60aDF9K/VCxtAnOPaOduRz3hATMCrMQos1O7LBgg==}
+    engines: {node: 24.14.0}
 
   '@mdx-js/loader@1.6.22':
     resolution: {integrity: sha512-9CjGwy595NaxAYp0hF9B/A0lH6C8Rms97e2JS9d3jVUtILn6pT5i5IV965ra3lIWc7Rs1GG1tBdVF7dCowYe6Q==}
@@ -11493,6 +11510,12 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@massds/mds-styles@1.1.0(@massds/mds-tokens@2.0.0)':
+    dependencies:
+      '@massds/mds-tokens': 2.0.0
+
+  '@massds/mds-tokens@2.0.0': {}
 
   '@mdx-js/loader@1.6.22(react@17.0.2)':
     dependencies:

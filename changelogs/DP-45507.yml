@@ -1,0 +1,20 @@
+Changed:
+  - project: Assets
+    component: Tokens
+    description: Added @massds/mds-tokens and @massds/mds-styles as dependencies. Upgrade all tokens references to point the latest version.
+    issue: DP-45507
+    impact: Minor
+
+Added:
+  - project: Patternlab
+    component: StateBanner
+    description: Added the StateBanner from MDS.
+    issue: DP-45507
+    impact: Minor
+
+Removed:
+  - project: Patternlab
+    component: BrandBanner
+    description: Remove the legacy BrandBanner.
+    issue: DP-45507
+    impact: Major
