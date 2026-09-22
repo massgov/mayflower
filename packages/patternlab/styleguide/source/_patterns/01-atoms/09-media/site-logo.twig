@@ -2,7 +2,7 @@
   <a href="{{ url ? url : '/' }}">
     {% if sealImage %}
       <picture>
-        <source srcset="{{ sealWhiteImage }}" media="(prefers-color-scheme: dark) and (forced-colors: active)" />
+        <source srcset="{{ sealWhiteImage }}" media="(forced-colors: active)" />
         <img src="{{ sealImage }}" alt="{{ altTitle ? altTitle : 'Mass.gov home' }}" width="45" height="45" />
       </picture>
     {% endif %}
