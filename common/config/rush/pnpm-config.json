@@ -1,0 +1,24 @@
+/**
+ * This configuration file provides settings specific to the PNPM package manager.
+ * More documentation is available on the Rush website: https://rushjs.io
+ */
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/pnpm-config.schema.json",
+
+  /**
+   * If true, then `rush install` and `rush update` will use the PNPM workspaces feature
+   * to perform the install, instead of the old model where Rush generated the symlinks
+   * for each projects's node_modules folder.
+   *
+   * This option is strongly recommended. The default value is false.
+   */
+  "useWorkspaces": true,
+
+  /**
+   * Pin transitive deps that break Storybook 6 / webpack 4 when pnpm resolves latest.
+   * react-draggable >= 4.5 ships .mjs that webpack 4 cannot consume.
+   */
+  "globalOverrides": {
+    "react-draggable": "4.4.6"
+  }
+}

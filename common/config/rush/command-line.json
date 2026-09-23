@@ -16,7 +16,6 @@
       "name": "build:assets",
       "summary": "Runs 'rushx build' for the assets package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/assets && rushx build"
     },
     {
@@ -24,7 +23,6 @@
       "name": "start:react",
       "summary": "Runs 'rushx start' for the react package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/react && rushx start"
     },
     {
@@ -32,7 +30,6 @@
       "name": "build:react",
       "summary": "Runs 'rushx build' for the react package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/react && rushx build"
     },
     {
@@ -40,7 +37,6 @@
       "name": "start:patternlab",
       "summary": "Runs 'rushx start' for the patternlab package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/patternlab/styleguide && rushx start"
     },
     {
@@ -48,7 +44,6 @@
       "name": "build:patternlab",
       "summary": "Runs 'rushx build' for the patternlab package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/patternlab/styleguide && rushx build"
     },
     {
@@ -56,7 +51,6 @@
       "name": "start:site",
       "summary": "Runs 'rushx start' for the gatsby site package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/site && rushx start"
     },
     {
@@ -64,7 +58,6 @@
       "name": "start:core",
       "summary": "Runs 'rushx start' for the core storybook site package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/core && rushx start"
     },
     {
@@ -72,7 +65,6 @@
       "name": "build:core",
       "summary": "Runs 'rushx build' for the core storybook site package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/core && rushx build"
     },
     {
@@ -80,7 +72,6 @@
       "name": "backstop:react",
       "summary": "Runs 'rushx backstop' for the react package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/react && rushx backstop"
     },
     {
@@ -88,7 +79,6 @@
       "name": "backstop-approve:react",
       "summary": "Runs 'rushx backstop:approve' for the react package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/react && rushx backstop:approve"
     },
     {
@@ -96,7 +86,6 @@
       "name": "backstop-report:react",
       "summary": "Runs 'open backstop/data/html_report/index.html' for the react package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/react && open backstop/data/html_report/index.html"
     },
     {
@@ -104,7 +93,6 @@
       "name": "backstop:patternlab",
       "summary": "Runs 'gulp prod && docker compose run backstop test' for the patternlab package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/patternlab/styleguide && gulp prod && docker compose run backstop test"
     },
     {
@@ -112,7 +100,6 @@
       "name": "backstop-approve:patternlab",
       "summary": "Runs 'rushx docker compose run backstop approve' for the patternlab package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/patternlab && docker compose run backstop approve"
     },
     {
@@ -120,7 +107,6 @@
       "name": "backstop-report:patternlab",
       "summary": "Runs 'open backstopjs/reports/html/index.html' for the patternlab package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/patternlab && open backstopjs/reports/html/index.html"
     },
     {
@@ -128,7 +114,6 @@
       "name": "stylelint",
       "summary": "Runs 'rushx stylelint-fix' for the assets package.",
       "safeForSimultaneousRushProcesses": true,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "cd packages/assets && rushx stylelint-fix"
     },
     {
@@ -136,7 +121,6 @@
       "name": "icons",
       "summary": "Update all icon files in the assets, patternlab and react packages.",
       "safeForSimultaneousRushProcesses": false,
-      "allowWarningsInSuccessfulBuild": true,
       "shellCommand": "node common/scripts/update-icons.js"
     },
     // {

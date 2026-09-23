@@ -2,8 +2,8 @@
   "name": "@massds/mayflower",
   "description": "Open source UI components and visual style guide for Massachusetts government websites",
   "engines": {
-    "node": ">6.9.0",
-    "npm": ">5.0.0"
+    "node": ">=24.11.1 <25.0.0",
+    "npm": ">=10.0.0"
   },
   "version": "15.1.0",
   "author": "Massachusetts Digital Services (MDS)",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/massgov/mayflower#readme",
   "devDependencies": {
-    "@massds/mayflower-assets": "^15.1.0",
+    "@massds/mayflower-assets": "workspace:^15.1.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babelify": "^8.0.0",
@@ -47,7 +47,7 @@
     "gulp-if": "^2.0.2",
     "gulp-pixrem": "^1.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-terser": "^1.2.0",
     "handlebars": "^4.7.6",
@@ -59,7 +59,7 @@
     "picturefill": "^3.0.3",
     "pikaday": "^1.8.0",
     "postcss-prefix-selector": "^2.1.0",
-    "sass": "~1.30.0",
+    "sass": "~1.64.2",
     "smoothscroll-polyfill": "^0.4.4",
     "svg4everybody": "^2.1.9",
     "terser": "^4.6.3",
