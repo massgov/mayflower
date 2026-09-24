@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab, React
+    component: Backstop
+    description: Update Backstop references for existing develop visual drift on LinkList, All Icons, and location map screenshots.
+    issue: TBD
+    impact: Patch
