@@ -40,8 +40,9 @@
         {% endblock %}
       </ul>
     {% else %}
-      {% set length = linkList.links|length/2 %}
-      {% set half = length|round(0,'ceil') %}
+      {% set total = linkList.links|length %}
+      {% set half = (total / 2)|round(0,'ceil') %}
+      {% set remainder = total - half %}
       <ul class="ma__link-list__items ma__link-list__items_columns {{ bulletClass }}">
         {% for decorativeLink in linkList.links[0:half] %}
           <li class="ma__link-list__item item-left">
@@ -55,7 +56,7 @@
             {% endif %}
           </li>
         {% endfor %}
-        {% for decorativeLink in linkList.links[half:length] %}
+        {% for decorativeLink in linkList.links[half:remainder] %}
           <li class="ma__link-list__item item-right">
             {% if decorativeLink.icon %}
               {% set downloadLink = decorativeLink %}

@@ -7,10 +7,12 @@
   .post-content > &,
   .main-content--full .page-content .layout--onecol-mass-service-section .layout__region--content > &,
   .main-content--full .page-content > & {
+
     @include ma-container('restricted');
   }
 
   &__items {
+
     @include ma-reset-list;
     counter-reset: process-step-counter;
     border: 1px solid var(--mf-c-bd-divider, #d5dce0);
@@ -42,7 +44,9 @@
   }
 
   // Mobile: full-width, remove outer card border, keep horizontal step dividers
+
   @media (#{$bp-medium-max}) {
+
     &__items {
       border: none;
       border-radius: 0;

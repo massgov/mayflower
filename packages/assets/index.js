@@ -10,5 +10,6 @@ module.exports = {
     path.join(__dirname, 'scss/04-templates'),
     path.join(__dirname, 'scss/05-dataviz'),
     path.join(__dirname, 'scss/08-print'),
+    path.join(__dirname, 'node_modules'),
   ]
 };

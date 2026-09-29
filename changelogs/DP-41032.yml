@@ -1,0 +1,6 @@
+Fixed:
+  - project: Assets
+    component: Callout
+    description: Add vertical spacing for Highlight and callout components in rich text.
+    issue: DP-41032
+    impact: Patch
