@@ -187,6 +187,17 @@ $action-finder-bp: 900px;
   }
 }
 
+// Single callout links in rich text should not use the 3-up action-finder width.
+.ma__rich-text .ma__action-finder .ma__callout-link:only-child {
+
+  @media ($bp-large-min) {
+    float: none;
+    margin-right: 0;
+    clear: none;
+    width: 100% * 5 / 12;
+  }
+}
+
 //theme
 $action-finder-bg-color: mix($c-bg, $c-primary,89%);
 $action-finder-border-color: mix($c-white, $c-primary,50%);
