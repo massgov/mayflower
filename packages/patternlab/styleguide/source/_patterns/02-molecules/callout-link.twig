@@ -30,8 +30,7 @@ target="">
               </div>
           {% endif %}
           <span class="ma__download-link__file-link ma__callout-link__text">
-                  <span class="ma__visually-hidden">Open {{ calloutLink.format }} file{% if calloutLink.size %}, {{ calloutLink.size }},{% endif %} for</span>
-                  {{ calloutLink.text }}
+                  {{ calloutLink.text }}<span class="ma__visually-hidden">, Open {{ calloutLink.format }} file{% if calloutLink.size %}, {{ calloutLink.size }}{% endif %}</span>
               </span>
           {% if calloutLink.format or calloutLink.size %}
               <span class="ma__download-link__file-spec">({{ calloutLink.format }} {{ calloutLink.size }})</span>

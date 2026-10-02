@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: DownloadLink, DownloadLinkMultilang, CalloutLink
+    description: Announce the document title before file type and size so screen readers hear the link name first.
+    issue: DP-48741
+    impact: Patch
