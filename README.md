@@ -111,9 +111,9 @@ Custom commands for rush are defined within `common/config/rush/command-line.jso
 
 > For more information on custom commands see the [Rush custom commands documentation](https://rushjs.io/pages/maintainer/custom_commands/).
 
-## Continuous Integration using CircleCI
+## Continuous Integration using Github Actions
 By default, each push to a remote branch will trigger build and tests for React Storybook and Patternlab, deploy the Patternlab site build bundle to S3, as well as run the distribution build for the mayflower-tokens package in the [assets](/assets) folder.
-For efficiency purposes, we allow CircleCI to bypass certain jobs based on the prefix of the branch name. Please only use these prefixes for the following scenarios:
+For efficiency purposes, GHA should bypass certain jobs based on the prefix of the branch name. Please only use these prefixes for the following scenarios:
 
 | Branch name prefix  | Rule | Scenario |
 |---|---|---|
