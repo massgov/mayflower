@@ -1,6 +1,6 @@
 Fixed:
   - project: Patternlab
     component: ActionFinder
-    description: Size a single callout link in a rich-text action finder to the article column from 621px, instead of the action-finder column grid.
+    description: Use the 5-column action-finder measure for a single rich-text callout link from 911px, with a 20rem floor, so the card keeps its shape without collapsing into a tall 4-column stack.
     issue: DP-45281
     impact: Minor

@@ -187,16 +187,19 @@ $action-finder-bp: 900px;
   }
 }
 
-// A lone callout is wrapped in its own action finder. The grid is 4 of 8
-// from 621px and 4 of 12 from 911px, which is a fraction of the article
-// column. Keep the callout-link molecule's full column width. Grouped
+// A lone callout is the only cell in its action finder. From 911px the
+// shared rule is 4 of 12, which is a 3-up cell, so the card gets narrow
+// and tall. Use the 5-column grid measure, and keep at least a 20rem
+// button when that percentage would still be too narrow. Grouped
 // action finders stay on the grid.
 .ma__rich-text .ma__action-finder .ma__callout-link:only-child {
 
-  @media ($bp-small-min) {
-    float: none;
-    margin-right: 0;
-    width: 100%;
+  @media ($bp-large-min) {
+    @include span-columns(5 of 12);
+
+    display: flex;
+    min-width: min(100%, 20rem);
+    max-width: 100%;
   }
 }
 
