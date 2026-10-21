@@ -1,6 +1,6 @@
 Fixed:
   - project: Patternlab
     component: ActionFinder
-    description: Use 5-of-12 width for a single callout link in rich-text action-finder so the button is not sized for a three-up grid.
+    description: Size a single callout link in a rich-text action finder to the article column from 621px, instead of the action-finder column grid.
     issue: DP-45281
     impact: Minor

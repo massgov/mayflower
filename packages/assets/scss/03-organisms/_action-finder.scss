@@ -187,14 +187,16 @@ $action-finder-bp: 900px;
   }
 }
 
-// Single callout links in rich text should not use the 3-up action-finder width.
+// A lone callout is wrapped in its own action finder. The grid is 4 of 8
+// from 621px and 4 of 12 from 911px, which is a fraction of the article
+// column. Keep the callout-link molecule's full column width. Grouped
+// action finders stay on the grid.
 .ma__rich-text .ma__action-finder .ma__callout-link:only-child {
 
-  @media ($bp-large-min) {
+  @media ($bp-small-min) {
     float: none;
     margin-right: 0;
-    clear: none;
-    width: 100% * 5 / 12;
+    width: 100%;
   }
 }
 
