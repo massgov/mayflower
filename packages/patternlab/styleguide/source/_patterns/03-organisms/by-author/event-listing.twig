@@ -1,5 +1,9 @@
 {% set gridClass = eventListing.grid ? 'ma__event-listing--grid' : '' %}
+{# Standalone listings (no section heading) may pass a level. Nested lists stay H3. #}
 {% set teaserHeading = 3 %}
+{% if not eventListing.compHeading and not eventListing.sidebarHeading and eventListing.level %}
+  {% set teaserHeading = eventListing.level %}
+{% endif %}
 
 <section class="ma__event-listing {{ gridClass }} js-event-listing">
   <div class="ma__event-listing__container">

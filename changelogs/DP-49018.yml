@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: EventListing
+    description: Let standalone event listings set the item heading level so past and upcoming event titles can be H2 without changing nested lists that already have a section heading.
+    issue: DP-49018
+    impact: Patch
