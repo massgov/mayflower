@@ -66,57 +66,6 @@
             "install-path": "../alchemy/zippy"
         },
         {
-            "name": "cweagans/composer-patches",
-            "version": "1.7.3",
-            "version_normalized": "1.7.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cweagans/composer-patches.git",
-                "reference": "e190d4466fe2b103a55467dfa83fc2fecfcaf2db"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/e190d4466fe2b103a55467dfa83fc2fecfcaf2db",
-                "reference": "e190d4466fe2b103a55467dfa83fc2fecfcaf2db",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0 || ^2.0",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "composer/composer": "~1.0 || ~2.0",
-                "phpunit/phpunit": "~4.6"
-            },
-            "time": "2022-12-20T22:53:13+00:00",
-            "type": "composer-plugin",
-            "extra": {
-                "class": "cweagans\\Composer\\Patches"
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "cweagans\\Composer\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Cameron Eagans",
-                    "email": "me@cweagans.net"
-                }
-            ],
-            "description": "Provides a way to patch Composer packages.",
-            "support": {
-                "issues": "https://github.com/cweagans/composer-patches/issues",
-                "source": "https://github.com/cweagans/composer-patches/tree/1.7.3"
-            },
-            "install-path": "../cweagans/composer-patches"
-        },
-        {
             "name": "doctrine/collections",
             "version": "1.8.0",
             "version_normalized": "1.8.0.0",
@@ -191,36 +140,41 @@
         },
         {
             "name": "doctrine/deprecations",
-            "version": "v1.0.0",
-            "version_normalized": "1.0.0.0",
+            "version": "1.1.6",
+            "version_normalized": "1.1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de"
+                "reference": "d4fe3e6fd9bb9e72557a19674f44d8ac7db4c6ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
-                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/d4fe3e6fd9bb9e72557a19674f44d8ac7db4c6ca",
+                "reference": "d4fe3e6fd9bb9e72557a19674f44d8ac7db4c6ca",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1|^8.0"
+                "php": "^7.1 || ^8.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<=7.5 || >=14"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^9",
-                "phpunit/phpunit": "^7.5|^8.5|^9.5",
-                "psr/log": "^1|^2|^3"
+                "doctrine/coding-standard": "^9 || ^12 || ^14",
+                "phpstan/phpstan": "1.4.10 || 2.1.30",
+                "phpstan/phpstan-phpunit": "^1.0 || ^2",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.6 || ^10.5 || ^11.5 || ^12.4 || ^13.0",
+                "psr/log": "^1 || ^2 || ^3"
             },
             "suggest": {
                 "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
             },
-            "time": "2022-05-02T15:47:09+00:00",
+            "time": "2026-02-07T07:09:04+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "Doctrine\\Deprecations\\": "lib/Doctrine/Deprecations"
+                    "Doctrine\\Deprecations\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -231,7 +185,7 @@
             "homepage": "https://www.doctrine-project.org/",
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/v1.0.0"
+                "source": "https://github.com/doctrine/deprecations/tree/1.1.6"
             },
             "install-path": "../doctrine/deprecations"
         },
@@ -351,18 +305,12 @@
         },
         {
             "name": "pattern-lab/core",
-            "version": "v2.8.1",
+            "version": "2.8.1",
             "version_normalized": "2.8.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal-pattern-lab/patternlab-php-core.git",
-                "reference": "ed89147c334acc576191bdd3462b4b2e6a5f8b31"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupal-pattern-lab/patternlab-php-core/zipball/ed89147c334acc576191bdd3462b4b2e6a5f8b31",
-                "reference": "ed89147c334acc576191bdd3462b4b2e6a5f8b31",
-                "shasum": ""
+                "type": "path",
+                "url": "php-packages/patternlab-core",
+                "reference": "92da8580826a8144588ba45344f601e5573f466d"
             },
             "require": {
                 "alchemy/zippy": "^0.3",
@@ -377,13 +325,7 @@
                 "symfony/process": "^3.1",
                 "symfony/yaml": "^3.0"
             },
-            "time": "2017-09-03T18:20:59+00:00",
             "type": "library",
-            "extra": {
-                "patches_applied": {
-                    "temporarily revert array_replace_recursive function": "patches/PsuedoPatternRule.patch"
-                }
-            },
             "installation-source": "dist",
             "autoload": {
                 "psr-0": {
@@ -420,28 +362,25 @@
                 "wiki": "http://patternlab.io/docs/",
                 "source": "https://github.com/drupal-pattern-lab/patternlab-php-core/releases"
             },
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
             "install-path": "../pattern-lab/core"
         },
         {
             "name": "pattern-lab/patternengine-twig",
-            "version": "v2.2.3",
+            "version": "2.2.3",
             "version_normalized": "2.2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal-pattern-lab/patternengine-php-twig.git",
-                "reference": "f3254de28b9f0a0a1e1015070209a1e06908a829"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupal-pattern-lab/patternengine-php-twig/zipball/f3254de28b9f0a0a1e1015070209a1e06908a829",
-                "reference": "f3254de28b9f0a0a1e1015070209a1e06908a829",
-                "shasum": ""
+                "type": "path",
+                "url": "php-packages/patternengine-twig",
+                "reference": "b0628125f4c1d81c2e73991affbc0b660bf7ba80"
             },
             "require": {
                 "pattern-lab/core": "^2.0.0",
                 "twig/twig": "~1.0"
             },
-            "time": "2017-05-25T23:13:15+00:00",
             "type": "patternlab-patternengine",
             "extra": {
                 "patternlab": {
@@ -490,24 +429,21 @@
                 "wiki": "http://patternlab.io/docs/",
                 "source": "https://github.com/drupal-pattern-lab/patternengine-php-twig/releases"
             },
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
             "install-path": "../pattern-lab/patternengine-twig"
         },
         {
             "name": "pattern-lab/styleguidekit-assets-default",
-            "version": "v3.4.2",
+            "version": "3.4.2",
             "version_normalized": "3.4.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal-pattern-lab/styleguidekit-assets-default.git",
-                "reference": "9452f6e032766a0675c2e446d65e6054d2a08a97"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupal-pattern-lab/styleguidekit-assets-default/zipball/9452f6e032766a0675c2e446d65e6054d2a08a97",
-                "reference": "9452f6e032766a0675c2e446d65e6054d2a08a97",
-                "shasum": ""
+                "type": "path",
+                "url": "php-packages/styleguidekit-assets-default",
+                "reference": "7b8445954bc5f2748557b15a2472eeed781aace9"
             },
-            "time": "2017-05-25T23:00:23+00:00",
             "type": "patternlab-styleguidekit",
             "extra": {
                 "patternlab": {
@@ -556,27 +492,24 @@
                 "wiki": "http://patternlab.io/docs/",
                 "source": "https://github.com/pattern-lab/styleguidekit-assets-default/releases"
             },
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
             "install-path": "../pattern-lab/styleguidekit-assets-default"
         },
         {
             "name": "pattern-lab/styleguidekit-twig-default",
-            "version": "v3.0.3",
+            "version": "3.0.3",
             "version_normalized": "3.0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal-pattern-lab/styleguidekit-twig-default.git",
-                "reference": "5eed2e583d4e3d320c6b13aa926fefe9d0e10ee7"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupal-pattern-lab/styleguidekit-twig-default/zipball/5eed2e583d4e3d320c6b13aa926fefe9d0e10ee7",
-                "reference": "5eed2e583d4e3d320c6b13aa926fefe9d0e10ee7",
-                "shasum": ""
+                "type": "path",
+                "url": "php-packages/styleguidekit-twig-default",
+                "reference": "a07487d9128d3bd6af630c5194fea50ef8005039"
             },
             "require": {
                 "pattern-lab/styleguidekit-assets-default": "^3.0.0"
             },
-            "time": "2017-08-28T18:42:55+00:00",
             "type": "patternlab-styleguidekit",
             "installation-source": "dist",
             "license": [
@@ -606,6 +539,10 @@
                 "issues": "https://github.com/pattern-lab/styleguidekit-twig-default/issues",
                 "wiki": "http://patternlab.io/docs/",
                 "source": "https://github.com/pattern-lab/styleguidekit-twig-default/releases"
+            },
+            "transport-options": {
+                "symlink": false,
+                "relative": true
             },
             "install-path": "../pattern-lab/styleguidekit-twig-default"
         },
@@ -946,27 +883,27 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.10.0",
-            "version_normalized": "1.10.0.0",
+            "version": "1.12.1",
+            "version_normalized": "1.12.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "594fd6462aad8ecee0b45ca5045acea4776667f1"
+                "reference": "9a90eb5d32d5a500296bf43f946d60246444d5f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/594fd6462aad8ecee0b45ca5045acea4776667f1",
-                "reference": "594fd6462aad8ecee0b45ca5045acea4776667f1",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/9a90eb5d32d5a500296bf43f946d60246444d5f7",
+                "reference": "9a90eb5d32d5a500296bf43f946d60246444d5f7",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3 || ^7.0 || ^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.5",
+                "phpstan/phpstan": "^1.11",
                 "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^8.5.13"
             },
-            "time": "2023-05-11T13:16:46+00:00",
+            "time": "2026-06-12T11:32:29+00:00",
             "bin": [
                 "bin/jsonlint"
             ],
@@ -985,7 +922,7 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be"
+                    "homepage": "https://seld.be"
                 }
             ],
             "description": "JSON Linter",
@@ -997,7 +934,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/jsonlint/issues",
-                "source": "https://github.com/Seldaek/jsonlint/tree/1.10.0"
+                "source": "https://github.com/Seldaek/jsonlint/tree/1.12.1"
             },
             "funding": [
                 {
@@ -1264,21 +1201,21 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.27.0",
-            "version_normalized": "1.27.0.0",
+            "version": "v1.37.0",
+            "version_normalized": "1.37.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "5bbc823adecdae860bb64756d639ecfec17b050a"
+                "reference": "141046a8f9477948ff284fa65be2095baafb94f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/5bbc823adecdae860bb64756d639ecfec17b050a",
-                "reference": "5bbc823adecdae860bb64756d639ecfec17b050a",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/141046a8f9477948ff284fa65be2095baafb94f2",
+                "reference": "141046a8f9477948ff284fa65be2095baafb94f2",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=7.2"
             },
             "provide": {
                 "ext-ctype": "*"
@@ -1286,15 +1223,12 @@
             "suggest": {
                 "ext-ctype": "For best performance"
             },
-            "time": "2022-11-03T14:55:06+00:00",
+            "time": "2026-04-10T16:19:22+00:00",
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "1.27-dev"
-                },
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "installation-source": "dist",
@@ -1329,7 +1263,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.27.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -1338,6 +1272,10 @@
                 },
                 {
                     "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
                     "type": "github"
                 },
                 {
@@ -1487,17 +1425,17 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.44.7",
-            "version_normalized": "1.44.7.0",
+            "version": "v1.44.8",
+            "version_normalized": "1.44.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "0887422319889e442458e48e2f3d9add1a172ad5"
+                "reference": "b1f009c449e435a0384814e67205d9190a4d050e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/0887422319889e442458e48e2f3d9add1a172ad5",
-                "reference": "0887422319889e442458e48e2f3d9add1a172ad5",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b1f009c449e435a0384814e67205d9190a4d050e",
+                "reference": "b1f009c449e435a0384814e67205d9190a4d050e",
                 "shasum": ""
             },
             "require": {
@@ -1508,7 +1446,7 @@
                 "psr/container": "^1.0",
                 "symfony/phpunit-bridge": "^4.4.9|^5.0.9"
             },
-            "time": "2022-09-28T08:38:36+00:00",
+            "time": "2024-09-09T17:17:16+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1552,7 +1490,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v1.44.7"
+                "source": "https://github.com/twigphp/Twig/tree/v1.44.8"
             },
             "funding": [
                 {

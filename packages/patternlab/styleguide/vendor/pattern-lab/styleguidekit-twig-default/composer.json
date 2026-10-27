@@ -1,5 +1,6 @@
 {
   "name":             "pattern-lab/styleguidekit-twig-default",
+  "version":          "3.0.3",
   "description":      "The default Twig-based StyleguideKit for Pattern Lab. Contains styles and mark-up for Pattern Lab's front-end.",
   "keywords":         ["twig", "pattern lab", "styleguide"],
   "homepage":         "http://patternlab.io",

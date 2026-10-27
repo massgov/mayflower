@@ -25,20 +25,24 @@
 	},
 	"repositories": [
 		{
-			"type": "vcs",
-			"url": "https://github.com/drupal-pattern-lab/patternlab-php-core"
+			"type": "path",
+			"url": "php-packages/patternlab-core",
+			"options": { "symlink": false }
 		},
 		{
-			"type": "vcs",
-			"url": "https://github.com/drupal-pattern-lab/patternengine-php-twig"
+			"type": "path",
+			"url": "php-packages/patternengine-twig",
+			"options": { "symlink": false }
 		},
 		{
-			"type": "vcs",
-			"url": "https://github.com/drupal-pattern-lab/styleguidekit-assets-default"
+			"type": "path",
+			"url": "php-packages/styleguidekit-assets-default",
+			"options": { "symlink": false }
 		},
 		{
-			"type": "vcs",
-			"url": "https://github.com/drupal-pattern-lab/styleguidekit-twig-default"
+			"type": "path",
+			"url": "php-packages/styleguidekit-twig-default",
+			"options": { "symlink": false }
 		}
 	],
 	"require": {
@@ -48,8 +52,7 @@
 		"pattern-lab/styleguidekit-assets-default": "^3.0.0",
 		"pattern-lab/styleguidekit-twig-default": "^3.0.0",
 		"phing/phing": "^2.14",
-		"pear/versioncontrol_git": "dev-master",
-		"cweagans/composer-patches": "^1.6"
+		"pear/versioncontrol_git": "dev-master"
 	},
 	"scripts": {
 		"post-install-cmd": [
@@ -82,16 +85,6 @@
 			"config": {
 				"overrideConfig": false
 		 	}
-		},
-		"patches": {
-			"pattern-lab/core": {
-				"temporarily revert array_replace_recursive function": "patches/PsuedoPatternRule.patch"
-			}
-		}
-	},
-	"config": {
-		"allow-plugins": {
-			"cweagans/composer-patches": true
 		}
 	}
 }

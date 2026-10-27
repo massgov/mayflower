@@ -10,6 +10,7 @@
  */
 
 namespace Seld\JsonLint;
+
 use stdClass;
 
 /**
@@ -31,6 +32,8 @@ class JsonParser
     const ALLOW_DUPLICATE_KEYS = 2;
     const PARSE_TO_ASSOC = 4;
     const ALLOW_COMMENTS = 8;
+    const ALLOW_DUPLICATE_KEYS_TO_ARRAY = 16;
+    const VALIDATE_UTF8_ENCODING = 32;
 
     /** @var Lexer */
     private $lexer;
@@ -201,6 +204,13 @@ class JsonParser
      */
     public function parse($input, $flags = 0)
     {
+        if (($flags & self::ALLOW_DUPLICATE_KEYS_TO_ARRAY) && ($flags & self::ALLOW_DUPLICATE_KEYS)) {
+            throw new \InvalidArgumentException('Only one of ALLOW_DUPLICATE_KEYS and ALLOW_DUPLICATE_KEYS_TO_ARRAY can be used, you passed in both.');
+        }
+        if ($flags & self::VALIDATE_UTF8_ENCODING) {
+            Utf8Validator::validate($input);
+        }
+
         $this->failOnBOM($input);
 
         $this->flags = $flags;
@@ -235,7 +245,7 @@ class JsonParser
 
         while (true) {
             // retrieve state number from top of stack
-            $state = $this->stack[\count($this->stack)-1];
+            $state = $this->stack[\count($this->stack) - 1];
 
             // use default actions if available
             if (isset($this->defaultActions[$state])) {
@@ -273,7 +283,7 @@ class JsonParser
                         }
                     }
 
-                    $errStr = 'Parse error on line ' . ($yylineno+1) . ":\n";
+                    $errStr = 'Parse error on line ' . ($yylineno + 1) . ":\n";
                     $errStr .= $this->lexer->showPosition() . "\n";
                     if ($message) {
                         $errStr .= $message;
@@ -319,12 +329,12 @@ class JsonParser
                         throw new ParsingException($errStr ?: 'Parsing halted.');
                     }
                     $this->popStack(1);
-                    $state = $this->stack[\count($this->stack)-1];
+                    $state = $this->stack[\count($this->stack) - 1];
                 }
 
                 $preErrorSymbol = $symbol; // save the lookahead token
                 $symbol = Lexer::T_ERROR;         // insert generic error symbol as new lookahead
-                $state = $this->stack[\count($this->stack)-1];
+                $state = $this->stack[\count($this->stack) - 1];
                 /** @var array<int, int>|false */
                 $action = isset($this->table[$state][Lexer::T_ERROR]) ? $this->table[$state][Lexer::T_ERROR] : false;
                 if ($action === false) {
@@ -334,7 +344,7 @@ class JsonParser
             }
 
             // this shouldn't happen, unless resolve defaults are off
-            if (\is_array($action[0]) && \count($action) > 1) { // @phpstan-ignore-line
+            if (\is_array($action[0]) && \count($action) > 1) {
                 throw new ParsingException('Parse Error: multiple actions possible at state: ' . $state . ', token: ' . $symbol);
             }
 
@@ -386,7 +396,7 @@ class JsonParser
                     $this->vstack[] = $newToken;
                     $this->lstack[] = $position;
                     /** @var int */
-                    $newState = $this->table[$this->stack[\count($this->stack)-2]][$this->stack[\count($this->stack)-1]];
+                    $newState = $this->table[$this->stack[\count($this->stack) - 2]][$this->stack[\count($this->stack) - 1]];
                     $this->stack[] = $newState;
                     break;
 
@@ -484,14 +494,21 @@ class JsonParser
                     $errStr .= $this->lexer->showPosition() . "\n";
                     $errStr .= "Duplicate key: ".$this->vstack[$len][0];
                     throw new DuplicateKeyException($errStr, $this->vstack[$len][0], array('line' => $yylineno+1));
-                } elseif (($this->flags & self::ALLOW_DUPLICATE_KEYS) && isset($this->vstack[$len-2][$key])) {
+                }
+                if (($this->flags & self::ALLOW_DUPLICATE_KEYS) && isset($this->vstack[$len-2][$key])) {
                     $duplicateCount = 1;
                     do {
                         $duplicateKey = $key . '.' . $duplicateCount++;
                     } while (isset($this->vstack[$len-2][$duplicateKey]));
-                    $key = $duplicateKey;
+                    $this->vstack[$len-2][$duplicateKey] = $this->vstack[$len][1];
+                } elseif (($this->flags & self::ALLOW_DUPLICATE_KEYS_TO_ARRAY) && isset($this->vstack[$len-2][$key])) {
+                    if (!isset($this->vstack[$len-2][$key]['__duplicates__']) || !is_array($this->vstack[$len-2][$key]['__duplicates__'])) {
+                        $this->vstack[$len-2][$key] = array('__duplicates__' => array($this->vstack[$len-2][$key]));
+                    }
+                    $this->vstack[$len-2][$key]['__duplicates__'][] = $this->vstack[$len][1];
+                } else {
+                    $this->vstack[$len-2][$key] = $this->vstack[$len][1];
                 }
-                $this->vstack[$len-2][$key] = $this->vstack[$len][1];
             } else {
                 assert($this->vstack[$len-2] instanceof stdClass);
                 $token = $this->vstack[$len-2];
@@ -500,19 +517,26 @@ class JsonParser
                 } else {
                     $key = $this->vstack[$len][0];
                 }
-                if (($this->flags & self::DETECT_KEY_CONFLICTS) && isset($this->vstack[$len-2]->{$key})) {
+                if (($this->flags & self::DETECT_KEY_CONFLICTS) && isset($this->vstack[$len-2]->$key)) {
                     $errStr = 'Parse error on line ' . ($yylineno+1) . ":\n";
                     $errStr .= $this->lexer->showPosition() . "\n";
                     $errStr .= "Duplicate key: ".$this->vstack[$len][0];
                     throw new DuplicateKeyException($errStr, $this->vstack[$len][0], array('line' => $yylineno+1));
-                } elseif (($this->flags & self::ALLOW_DUPLICATE_KEYS) && isset($this->vstack[$len-2]->{$key})) {
+                }
+                if (($this->flags & self::ALLOW_DUPLICATE_KEYS) && isset($this->vstack[$len-2]->$key)) {
                     $duplicateCount = 1;
                     do {
                         $duplicateKey = $key . '.' . $duplicateCount++;
                     } while (isset($this->vstack[$len-2]->$duplicateKey));
-                    $key = $duplicateKey;
+                    $this->vstack[$len-2]->$duplicateKey = $this->vstack[$len][1];
+                } elseif (($this->flags & self::ALLOW_DUPLICATE_KEYS_TO_ARRAY) && isset($this->vstack[$len-2]->$key)) {
+                    if (!isset($this->vstack[$len-2]->$key->__duplicates__)) {
+                        $this->vstack[$len-2]->$key = (object) array('__duplicates__' => array($this->vstack[$len-2]->$key));
+                    }
+                    $this->vstack[$len-2]->$key->__duplicates__[] = $this->vstack[$len][1];
+                } else {
+                    $this->vstack[$len-2]->$key = $this->vstack[$len][1];
                 }
-                $this->vstack[$len-2]->$key = $this->vstack[$len][1];
             }
             break;
         case 18:

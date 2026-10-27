@@ -11,15 +11,11 @@ class ComposerStaticInit8b1bb549747f81cdd4aa7e4da433b26e
     );
 
     public static $prefixLengthsPsr4 = array (
-        'c' => 
-        array (
-            'cweagans\\Composer\\' => 18,
-        ),
-        'T' => 
+        'T' =>
         array (
             'Twig\\' => 5,
         ),
-        'S' => 
+        'S' =>
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
@@ -30,114 +26,110 @@ class ComposerStaticInit8b1bb549747f81cdd4aa7e4da433b26e
             'Shudrum\\Component\\ArrayFinder\\' => 30,
             'Seld\\JsonLint\\' => 14,
         ),
-        'M' => 
+        'M' =>
         array (
             'Michelf\\' => 8,
         ),
-        'D' => 
+        'D' =>
         array (
             'Doctrine\\Deprecations\\' => 22,
             'Doctrine\\Common\\Collections\\' => 28,
         ),
-        'A' => 
+        'A' =>
         array (
             'Alchemy\\Zippy\\' => 14,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'cweagans\\Composer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/cweagans/composer-patches/src',
-        ),
-        'Twig\\' => 
+        'Twig\\' =>
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
-        'Symfony\\Polyfill\\Ctype\\' => 
+        'Symfony\\Polyfill\\Ctype\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'Symfony\\Component\\Yaml\\' => 
+        'Symfony\\Component\\Yaml\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
-        'Symfony\\Component\\Process\\' => 
+        'Symfony\\Component\\Process\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
         ),
-        'Symfony\\Component\\Finder\\' => 
+        'Symfony\\Component\\Finder\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/finder',
         ),
-        'Symfony\\Component\\Filesystem\\' => 
+        'Symfony\\Component\\Filesystem\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/filesystem',
         ),
-        'Symfony\\Component\\EventDispatcher\\' => 
+        'Symfony\\Component\\EventDispatcher\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
         ),
-        'Shudrum\\Component\\ArrayFinder\\' => 
+        'Shudrum\\Component\\ArrayFinder\\' =>
         array (
             0 => __DIR__ . '/..' . '/shudrum/array-finder',
         ),
-        'Seld\\JsonLint\\' => 
+        'Seld\\JsonLint\\' =>
         array (
             0 => __DIR__ . '/..' . '/seld/jsonlint/src/Seld/JsonLint',
         ),
-        'Michelf\\' => 
+        'Michelf\\' =>
         array (
             0 => __DIR__ . '/..' . '/michelf/php-markdown/Michelf',
         ),
-        'Doctrine\\Deprecations\\' => 
+        'Doctrine\\Deprecations\\' =>
         array (
-            0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
+            0 => __DIR__ . '/..' . '/doctrine/deprecations/src',
         ),
-        'Doctrine\\Common\\Collections\\' => 
+        'Doctrine\\Common\\Collections\\' =>
         array (
             0 => __DIR__ . '/..' . '/doctrine/collections/lib/Doctrine/Common/Collections',
         ),
-        'Alchemy\\Zippy\\' => 
+        'Alchemy\\Zippy\\' =>
         array (
             0 => __DIR__ . '/..' . '/alchemy/zippy/src',
         ),
     );
 
     public static $prefixesPsr0 = array (
-        'V' => 
+        'V' =>
         array (
-            'VersionControl' => 
+            'VersionControl' =>
             array (
                 0 => __DIR__ . '/..' . '/pear/versioncontrol_git',
             ),
         ),
-        'T' => 
+        'T' =>
         array (
-            'Twig_' => 
+            'Twig_' =>
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
             ),
         ),
-        'P' => 
+        'P' =>
         array (
-            'PatternLab\\PatternEngine\\Twig' => 
+            'PatternLab\\PatternEngine\\Twig' =>
             array (
                 0 => __DIR__ . '/..' . '/pattern-lab/patternengine-twig/src',
             ),
-            'PatternLab' => 
+            'PatternLab' =>
             array (
                 0 => __DIR__ . '/../..' . '/core/src',
                 1 => __DIR__ . '/..' . '/pattern-lab/core/src',
             ),
         ),
-        'C' => 
+        'C' =>
         array (
-            'Console' => 
+            'Console' =>
             array (
                 0 => __DIR__ . '/..' . '/pear/console_getopt',
             ),
-            'Colors' => 
+            'Colors' =>
             array (
                 0 => __DIR__ . '/..' . '/kevinlebrun/colors.php/src',
             ),
@@ -215,12 +207,6 @@ class ComposerStaticInit8b1bb549747f81cdd4aa7e4da433b26e
         'ContainsRegexpSelector' => __DIR__ . '/..' . '/phing/phing/classes/phing/types/selectors/ContainsRegexpSelector.php',
         'ContainsSelector' => __DIR__ . '/..' . '/phing/phing/classes/phing/types/selectors/ContainsSelector.php',
         'CopyTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/CopyTask.php',
-        'CoverageMerger' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/coverage/CoverageMerger.php',
-        'CoverageMergerTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/coverage/CoverageMergerTask.php',
-        'CoverageReportTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/coverage/CoverageReportTask.php',
-        'CoverageReportTransformer' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/coverage/CoverageReportTransformer.php',
-        'CoverageSetupTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/coverage/CoverageSetupTask.php',
-        'CoverageThresholdTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/coverage/CoverageThresholdTask.php',
         'Crap4jPHPUnitResultFormatter' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phpunit/formatter/Crap4jPHPUnitResultFormatter.php',
         'CreoleSQLExecTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/creole/CreoleSQLExecTask.php',
         'CreoleTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/creole/CreoleTask.php',

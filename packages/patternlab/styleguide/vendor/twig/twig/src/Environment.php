@@ -41,11 +41,11 @@ use Twig\TokenParser\TokenParserInterface;
  */
 class Environment
 {
-    public const VERSION = '1.44.7';
-    public const VERSION_ID = 14407;
+    public const VERSION = '1.44.8';
+    public const VERSION_ID = 14408;
     public const MAJOR_VERSION = 1;
     public const MINOR_VERSION = 44;
-    public const RELEASE_VERSION = 7;
+    public const RELEASE_VERSION = 8;
     public const EXTRA_VERSION = '';
 
     protected $charset;
@@ -494,7 +494,6 @@ class Environment
                      * where the cache was cleared between the above calls to write to and load from
                      * the cache.
                      */
-
                     eval('?>'.$content);
                 }
             }

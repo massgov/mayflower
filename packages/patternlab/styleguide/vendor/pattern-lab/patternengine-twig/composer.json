@@ -1,5 +1,6 @@
 {
 	"name":             "pattern-lab/patternengine-twig",
+	"version":          "2.2.3",
 	"description":      "Twig-based PatternEngine for Pattern Lab.",
 	"keywords":         ["twig", "pattern lab", "pattern engine"],
 	"homepage":         "http://patternlab.io",

@@ -102,7 +102,7 @@ class Lexer
                 case self::T_COMMENT:
                 case self::T_OPEN_COMMENT:
                     if (!($this->flags & JsonParser::ALLOW_COMMENTS)) {
-                        $this->parseError('Lexical error on line ' . ($this->yylineno+1) . ". Comments are not allowed.\n" . $this->showPosition());
+                        $this->parseError('Lexical error on line ' . ($this->yylineno + 1) . ". Comments are not allowed.\n" . $this->showPosition());
                     }
                     $this->skipUntil($symbol === self::T_COMMENT ? self::T_BREAK_LINE : self::T_CLOSE_COMMENT);
                     if ($this->done) {
@@ -140,6 +140,10 @@ class Lexer
      */
     public function showPosition()
     {
+        if ($this->yylineno === 0 && $this->offset === 1 && $this->match !== '{') {
+            return $this->match.'...' . "\n^";
+        }
+
         $pre = str_replace("\n", '', $this->getPastInput());
         $c = str_repeat('-', max(0, \strlen($pre) - 1)); // new Array(pre.length + 1).join("-");
 
@@ -243,7 +247,7 @@ class Lexer
                 $this->yylineno += $lineCount;
                 $this->yylloc = array(
                     'first_line' => $this->yylloc['last_line'],
-                    'last_line' => $this->yylineno+1,
+                    'last_line' => $this->yylineno + 1,
                     'first_column' => $this->yylloc['last_column'],
                     'last_column' => $lineCount > 0 ? \strlen($lines[$lineCount - 1]) : $this->yylloc['last_column'] + \strlen($match[0]),
                 );
@@ -261,7 +265,7 @@ class Lexer
         }
 
         $this->parseError(
-            'Lexical error on line ' . ($this->yylineno+1) . ". Unrecognized text.\n" . $this->showPosition()
+            'Lexical error on line ' . ($this->yylineno + 1) . ". Unrecognized text.\n" . $this->showPosition()
         );
     }
 
