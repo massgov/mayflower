@@ -43,7 +43,7 @@
     "gulp-babel": "~8.0.0",
     "gulp-concat": "~2.6.1",
     "gulp-rename": "~2.0.0",
-    "gulp-sass": "~4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-terser": "~1.4.1",
     "jquery": "~3.5.1",
     "normalize-scss": "~7.0.1",

@@ -1,12 +1,17 @@
 {
+  "private": true,
+  "engines": {
+    "node": ">=24.22.1 <25.0.0",
+    "npm": ">=11.19.1 <12.0.0"
+  },
   "dependencies": {
-    "@octokit/rest": "^18.12.0",
-    "js-yaml": "^3.13.1",
-    "semver": "^6.3.0",
-    "shelljs": "^0.8.3",
-    "simple-git": "^1.126.0"
+    "@octokit/rest": "^22.0.1",
+    "js-yaml": "^3.15.2",
+    "semver": "^7.8.5",
+    "shelljs": "^0.10.0",
+    "simple-git": "^4.0.2"
   },
   "volta": {
-    "node": "14.17.3"
+    "node": "24.22.1"
   }
 }

@@ -2,7 +2,7 @@ const {
   src, dest, series, parallel, watch
 } = require('gulp');
 const babel = require('gulp-babel');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 const terser = require('gulp-terser');
@@ -10,8 +10,6 @@ const del = require('del');
 const path = require('path');
 const prepIcons = require('./scripts/prepIcons');
 
-
-sass.compiler = require('sass');
 
 function clean() {
   return del(['css']);
