@@ -52,28 +52,6 @@
 		"pattern-lab/styleguidekit-assets-default": "^3.0.0",
 		"pattern-lab/styleguidekit-twig-default": "^3.0.0"
 	},
-	"scripts": {
-		"post-install-cmd": [
-			"PatternLab\\Installer::postInstallCmd"
-		],
-		"post-update-cmd": [
-			"PatternLab\\Installer::postUpdateCmd"
-		],
-		"post-root-package-install": [
-			"PatternLab\\Installer::setProjectInstall",
-			"PatternLab\\Installer::getSuggestedStarterKits",
-			"PatternLab\\Installer::getConfigOverrides"
-		],
-		"post-package-install": [
-			"PatternLab\\Installer::postPackageInstall"
-		],
-		"post-package-update": [
-			"PatternLab\\Installer::postPackageUpdate"
-		],
-		"pre-package-uninstall": [
-			"PatternLab\\Installer::prePackageUninstall"
-		]
-	},
 	"extra": {
 		"patternlab": {
 			"starterKitSuggestions": [
