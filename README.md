@@ -38,6 +38,10 @@ This project is licensed under the is licensed under the GNU General Public Lice
 ## Monorepo Package Management
 This monorepo is managed using [Rush](https://rushjs.io/) and [PNPM](https://pnpm.js.org/).
 #### Getting Started on Development
+Mayflower development and builds require Node.js 24.22.1. Use the version in
+`.nvmrc` (for example, run `nvm install && nvm use`) or allow Volta to select
+the version pinned in `package.json`.
+
 To get started, install rush globally by running the following command:
 
 ```

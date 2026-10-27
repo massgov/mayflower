@@ -1,28 +1,29 @@
 ## Prerequisites
 
-[Node.js](http://nodejs.org/) >= v4 must be installed.
+[Node.js](https://nodejs.org/) 24.22.1 must be installed. From the repository
+root, use the version pinned in `.nvmrc` or `package.json`.
 
 ## Installation
 
-- Running `npm install` in the component's root directory will install everything you need for development.
+- Run `rush install` from the repository root to install everything needed for development.
 
 ## Demo Development Server
 
-- `npm start` will run a development server with the component's demo app at [http://localhost:3000](http://localhost:3000) with hot module reloading.
+- `rushx start` will run the component's development server.
 
 ## Running Tests
 
-- `npm test` will run the tests once.
+- Use the repository's Rush commands and CI workflow to run component tests.
 
-- `npm run test:coverage` will run the tests and produce a coverage report in `coverage/`.
+- Run package scripts with `rushx`, not `npm run`.
 
-- `npm run test:watch` will run the tests on every change.
+- Run `rushx lint` to lint the component.
 
 ## Building
 
-- `npm run build` will build the component for publishing to npm and also bundle the demo app.
+- `rushx build` will build the component for publishing.
 
-- `npm run clean` will delete built resources.
+- `rushx build-storybook` will build the Storybook site.
 
 ## Creating New Components
 Follow these mayflower-react component [road runner rules](http://thechive.com/2015/03/10/chuck-jones-9-unbreakable-rules-for-the-coyote-and-the-road-runner-cartoon-series-10-photos/):

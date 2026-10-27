@@ -1,0 +1,6 @@
+Security:
+  - project: Patternlab, React
+    component: BuildTooling
+    description: Update the development and CI toolchain to the latest Node.js 24 security release.
+    issue: DP-49384
+    impact: Patch
