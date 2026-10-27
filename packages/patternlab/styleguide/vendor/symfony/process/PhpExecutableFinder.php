@@ -19,7 +19,7 @@ namespace Symfony\Component\Process;
  */
 class PhpExecutableFinder
 {
-    private $executableFinder;
+    private ExecutableFinder $executableFinder;
 
     public function __construct()
     {
@@ -28,20 +28,23 @@ class PhpExecutableFinder
 
     /**
      * Finds The PHP executable.
-     *
-     * @param bool $includeArgs Whether or not include command arguments
-     *
-     * @return string|false The PHP executable path or false if it cannot be found
      */
-    public function find($includeArgs = true)
+    public function find(bool $includeArgs = true): string|false
     {
+        if ($php = getenv('PHP_BINARY')) {
+            if (!is_executable($php) && !$php = $this->executableFinder->find($php)) {
+                return false;
+            }
+
+            if (@is_dir($php)) {
+                return false;
+            }
+
+            return $php;
+        }
+
         $args = $this->findArguments();
         $args = $includeArgs && $args ? ' '.implode(' ', $args) : '';
-
-        // HHVM support
-        if (\defined('HHVM_VERSION')) {
-            return (getenv('PHP_BINARY') ?: \PHP_BINARY).$args;
-        }
 
         // PHP_BINARY return the current sapi executable
         if (\PHP_BINARY && \in_array(\PHP_SAPI, ['cli', 'cli-server', 'phpdbg'], true)) {
@@ -49,7 +52,7 @@ class PhpExecutableFinder
         }
 
         if ($php = getenv('PHP_PATH')) {
-            if (!@is_executable($php)) {
+            if (!@is_executable($php) || @is_dir($php)) {
                 return false;
             }
 
@@ -57,12 +60,12 @@ class PhpExecutableFinder
         }
 
         if ($php = getenv('PHP_PEAR_PHP_BIN')) {
-            if (@is_executable($php)) {
+            if (@is_executable($php) && !@is_dir($php)) {
                 return $php;
             }
         }
 
-        if (@is_executable($php = \PHP_BINDIR.('\\' === \DIRECTORY_SEPARATOR ? '\\php.exe' : '/php'))) {
+        if (@is_executable($php = \PHP_BINDIR.('\\' === \DIRECTORY_SEPARATOR ? '\\php.exe' : '/php')) && !@is_dir($php)) {
             return $php;
         }
 
@@ -71,21 +74,22 @@ class PhpExecutableFinder
             $dirs[] = 'C:\xampp\php\\';
         }
 
+        if ($herdPath = getenv('HERD_HOME')) {
+            $dirs[] = $herdPath.\DIRECTORY_SEPARATOR.'bin';
+        }
+
         return $this->executableFinder->find('php', false, $dirs);
     }
 
     /**
      * Finds the PHP executable arguments.
      *
-     * @return array The PHP executable arguments
+     * @return list<non-empty-string>
      */
-    public function findArguments()
+    public function findArguments(): array
     {
         $arguments = [];
-
-        if (\defined('HHVM_VERSION')) {
-            $arguments[] = '--php';
-        } elseif ('phpdbg' === \PHP_SAPI) {
+        if ('phpdbg' === \PHP_SAPI) {
             $arguments[] = '-qrr';
         }
 

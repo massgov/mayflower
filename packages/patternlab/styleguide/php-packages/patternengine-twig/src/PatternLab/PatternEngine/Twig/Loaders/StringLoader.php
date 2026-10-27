@@ -16,6 +16,10 @@ use \PatternLab\Config;
 use \PatternLab\Dispatcher;
 use \PatternLab\PatternEngine\Loader;
 use \PatternLab\PatternEngine\Twig\TwigUtil;
+use \Twig\Environment;
+use \Twig\Loader\ArrayLoader;
+use \Twig\Loader\ChainLoader;
+use \Twig\Loader\FilesystemLoader as TwigFilesystemLoader;
 
 class StringLoader extends Loader {
 	
@@ -46,13 +50,13 @@ class StringLoader extends Loader {
 		$loaders = array();
 		// add the paths to the filesystem loader if the paths existed
 		if (count($filesystemLoaderPaths) > 0) {
-			$loaders[] = new \Twig_Loader_Filesystem($filesystemLoaderPaths);
+			$loaders[] = new TwigFilesystemLoader($filesystemLoaderPaths);
 		}
-		$loaders[] = new \Twig_Loader_String();
+		$loaders[] = new ArrayLoader();
 		
 		// set-up Twig
-		$twigLoader = new \Twig_Loader_Chain($loaders);
-		$instance   = new \Twig_Environment($twigLoader, array("debug" => $twigDebug));
+		$twigLoader = new ChainLoader($loaders);
+		$instance   = new Environment($twigLoader, array("debug" => $twigDebug));
 		
 		// customize Twig
 		TwigUtil::setInstance($instance);
@@ -82,7 +86,7 @@ class StringLoader extends Loader {
 	*/
 	public function render($options = array()) {
 		
-		return $this->instance->render($options["string"], $options["data"]);
+		return $this->instance->createTemplate($options["string"])->render($options["data"]);
 		
 	}
 	

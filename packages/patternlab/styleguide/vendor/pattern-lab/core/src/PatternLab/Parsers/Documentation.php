@@ -131,7 +131,6 @@ class Documentation {
 	*/
 	protected static function setLineEndings() {
 		if (!self::$lineEndingsSet) {
-			ini_set("auto_detect_line_endings", true);
 			self::$lineEndingsSet = true;
 		}
 	}

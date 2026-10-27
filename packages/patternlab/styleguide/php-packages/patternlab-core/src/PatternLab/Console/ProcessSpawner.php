@@ -106,12 +106,12 @@ class ProcessSpawner {
 		
 		if (is_string($commandOptions)) {
 			
-			$process = new Process(escapeshellcmd((string) $commandOptions));
+			$process = Process::fromShellCommandline((string) $commandOptions);
 			return array("process" => $process, "output" => true);
 			
 		} else if (is_array($commandOptions)) {
 			
-			$commandline = escapeshellcmd((string) $commandOptions["command"]);
+			$commandline = (string) $commandOptions["command"];
 			$cwd         = isset($commandOptions["cwd"])     ? $commandOptions["cwd"]     : null;
 			$env         = isset($commandOptions["env"])     ? $commandOptions["env"]     : null;
 			$input       = isset($commandOptions["input"])   ? $commandOptions["input"]   : null;
@@ -120,7 +120,7 @@ class ProcessSpawner {
 			$idle        = isset($commandOptions["idle"])    ? $commandOptions["idle"]    : null;
 			$output      = isset($commandOptions["output"])  ? $commandOptions["output"]  : true;
 			
-			$process = new Process($commandline, $cwd, $env, $input, $timeout, $options);
+			$process = Process::fromShellCommandline($commandline, $cwd, $env, $input, $timeout, $options);
 			
 			// double-check idle
 			if (!empty($idle)) {

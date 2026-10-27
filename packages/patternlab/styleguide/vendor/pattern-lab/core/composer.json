@@ -29,16 +29,13 @@
     }
   },
   "require": {
-    "php": ">=5.4",
-    "alchemy/zippy": "^0.3",
+    "php": "^8.4.27",
     "kevinlebrun/colors.php": "^1.0",
     "michelf/php-markdown": "^1.6",
-    "seld/jsonlint": "^1.0",
-    "shudrum/array-finder": "^1.0",
-    "symfony/event-dispatcher": "^3.0",
-    "symfony/filesystem": "^3.0",
-    "symfony/finder": "^3.0",
-    "symfony/process": "^3.1",
-    "symfony/yaml": "^3.0"
+    "seld/jsonlint": "^1.12",
+    "symfony/filesystem": "^7.4",
+    "symfony/finder": "^7.4",
+    "symfony/process": "^7.4",
+    "symfony/yaml": "^7.4"
   }
 }

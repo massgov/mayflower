@@ -46,13 +46,11 @@
 		}
 	],
 	"require": {
-		"php": ">=5.4",
+		"php": "^8.4.27",
 		"pattern-lab/core": "^2.0.0",
 		"pattern-lab/patternengine-twig": "^2.0.0",
 		"pattern-lab/styleguidekit-assets-default": "^3.0.0",
-		"pattern-lab/styleguidekit-twig-default": "^3.0.0",
-		"phing/phing": "^2.14",
-		"pear/versioncontrol_git": "dev-master"
+		"pattern-lab/styleguidekit-twig-default": "^3.0.0"
 	},
 	"scripts": {
 		"post-install-cmd": [
@@ -86,5 +84,11 @@
 				"overrideConfig": false
 		 	}
 		}
+	},
+	"config": {
+		"platform": {
+			"php": "8.4.27"
+		},
+		"sort-packages": true
 	}
 }

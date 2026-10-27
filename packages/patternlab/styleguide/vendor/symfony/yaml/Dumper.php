@@ -18,121 +18,86 @@ use Symfony\Component\Yaml\Tag\TaggedValue;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
- * @final since version 3.4
+ * @final
  */
 class Dumper
 {
     /**
-     * The amount of spaces to use for indentation of nested nodes.
-     *
-     * @var int
+     * @param int $indentation The amount of spaces to use for indentation of nested nodes
      */
-    protected $indentation;
-
-    /**
-     * @param int $indentation
-     */
-    public function __construct($indentation = 4)
+    public function __construct(private int $indentation = 4)
     {
         if ($indentation < 1) {
             throw new \InvalidArgumentException('The indentation must be greater than zero.');
         }
-
-        $this->indentation = $indentation;
-    }
-
-    /**
-     * Sets the indentation.
-     *
-     * @param int $num The amount of spaces to use for indentation of nested nodes
-     *
-     * @deprecated since version 3.1, to be removed in 4.0. Pass the indentation to the constructor instead.
-     */
-    public function setIndentation($num)
-    {
-        @trigger_error('The '.__METHOD__.' method is deprecated since Symfony 3.1 and will be removed in 4.0. Pass the indentation to the constructor instead.', \E_USER_DEPRECATED);
-
-        $this->indentation = (int) $num;
     }
 
     /**
      * Dumps a PHP value to YAML.
      *
-     * @param mixed $input  The PHP value
-     * @param int   $inline The level where you switch to inline YAML
-     * @param int   $indent The level of indentation (used internally)
-     * @param int   $flags  A bit field of Yaml::DUMP_* constants to customize the dumped YAML string
-     *
-     * @return string The YAML representation of the PHP value
+     * @param mixed                     $input  The PHP value
+     * @param int                       $inline The level where you switch to inline YAML
+     * @param int                       $indent The level of indentation (used internally)
+     * @param int-mask-of<Yaml::DUMP_*> $flags  A bit field of Yaml::DUMP_* constants to customize the dumped YAML string
      */
-    public function dump($input, $inline = 0, $indent = 0, $flags = 0)
+    public function dump(mixed $input, int $inline = 0, int $indent = 0, int $flags = 0): string
     {
-        if (\is_bool($flags)) {
-            @trigger_error('Passing a boolean flag to toggle exception handling is deprecated since Symfony 3.1 and will be removed in 4.0. Use the Yaml::DUMP_EXCEPTION_ON_INVALID_TYPE flag instead.', \E_USER_DEPRECATED);
-
-            if ($flags) {
-                $flags = Yaml::DUMP_EXCEPTION_ON_INVALID_TYPE;
-            } else {
-                $flags = 0;
-            }
+        if ($flags & Yaml::DUMP_NULL_AS_EMPTY && $flags & Yaml::DUMP_NULL_AS_TILDE) {
+            throw new \InvalidArgumentException('The Yaml::DUMP_NULL_AS_EMPTY and Yaml::DUMP_NULL_AS_TILDE flags cannot be used together.');
         }
 
-        if (\func_num_args() >= 5) {
-            @trigger_error('Passing a boolean flag to toggle object support is deprecated since Symfony 3.1 and will be removed in 4.0. Use the Yaml::DUMP_OBJECT flag instead.', \E_USER_DEPRECATED);
+        return $this->doDump($input, $inline, $indent, $flags);
+    }
 
-            if (func_get_arg(4)) {
-                $flags |= Yaml::DUMP_OBJECT;
-            }
-        }
-
+    private function doDump(mixed $input, int $inline = 0, int $indent = 0, int $flags = 0, int $nestingLevel = 0): string
+    {
         $output = '';
         $prefix = $indent ? str_repeat(' ', $indent) : '';
         $dumpObjectAsInlineMap = true;
 
         if (Yaml::DUMP_OBJECT_AS_MAP & $flags && ($input instanceof \ArrayObject || $input instanceof \stdClass)) {
-            $dumpObjectAsInlineMap = empty((array) $input);
+            $dumpObjectAsInlineMap = !(array) $input;
         }
 
-        if ($inline <= 0 || (!\is_array($input) && !$input instanceof TaggedValue && $dumpObjectAsInlineMap) || empty($input)) {
-            $output .= $prefix.Inline::dump($input, $flags);
+        if ($inline <= 0 || (!\is_array($input) && !$input instanceof TaggedValue && $dumpObjectAsInlineMap) || !$input) {
+            $output .= $prefix.Inline::dump($input, $flags, 0 === $nestingLevel);
+        } elseif ($input instanceof TaggedValue) {
+            $output .= $this->dumpTaggedValue($input, $inline, $indent, $flags, $prefix, $nestingLevel);
         } else {
             $dumpAsMap = Inline::isHash($input);
+            $compactNestedMapping = Yaml::DUMP_COMPACT_NESTED_MAPPING & $flags && !$dumpAsMap;
 
             foreach ($input as $key => $value) {
-                if ($inline >= 1 && Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK & $flags && \is_string($value) && false !== strpos($value, "\n") && false === strpos($value, "\r")) {
-                    // If the first line starts with a space character, the spec requires a blockIndicationIndicator
-                    // http://www.yaml.org/spec/1.2/spec.html#id2793979
-                    $blockIndentationIndicator = (' ' === substr($value, 0, 1)) ? (string) $this->indentation : '';
-                    $output .= sprintf("%s%s%s |%s\n", $prefix, $dumpAsMap ? Inline::dump($key, $flags).':' : '-', '', $blockIndentationIndicator);
+                if ('' !== $output && "\n" !== $output[-1]) {
+                    $output .= "\n";
+                }
 
-                    foreach (explode("\n", $value) as $row) {
-                        $output .= sprintf("%s%s%s\n", $prefix, str_repeat(' ', $this->indentation), $row);
-                    }
+                if (\is_int($key) && Yaml::DUMP_NUMERIC_KEY_AS_STRING & $flags) {
+                    $key = (string) $key;
+                }
+
+                if (Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK & $flags && \is_string($value) && str_contains($value, "\n") && !str_contains($value, "\r")) {
+                    $output .= \sprintf('%s%s%s |%s%s', $prefix, $dumpAsMap ? Inline::dump($key, $flags).':' : '-', '', $this->getBlockIndentationIndicator($value), $this->getBlockChompingIndicator($value));
+                    $output .= $this->dumpBlockScalarLines($value, $prefix);
 
                     continue;
                 }
 
                 if ($value instanceof TaggedValue) {
-                    $output .= sprintf('%s%s !%s', $prefix, $dumpAsMap ? Inline::dump($key, $flags).':' : '-', $value->getTag());
+                    $output .= \sprintf('%s%s !%s', $prefix, $dumpAsMap ? Inline::dump($key, $flags).':' : '-', $value->getTag());
 
-                    if ($inline >= 1 && Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK & $flags && \is_string($value->getValue()) && false !== strpos($value->getValue(), "\n") && false === strpos($value->getValue(), "\r\n")) {
-                        // If the first line starts with a space character, the spec requires a blockIndicationIndicator
-                        // http://www.yaml.org/spec/1.2/spec.html#id2793979
-                        $blockIndentationIndicator = (' ' === substr($value->getValue(), 0, 1)) ? (string) $this->indentation : '';
-                        $output .= sprintf(" |%s\n", $blockIndentationIndicator);
-
-                        foreach (explode("\n", $value->getValue()) as $row) {
-                            $output .= sprintf("%s%s%s\n", $prefix, str_repeat(' ', $this->indentation), $row);
-                        }
+                    if (Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK & $flags && \is_string($value->getValue()) && str_contains($value->getValue(), "\n") && !str_contains($value->getValue(), "\r")) {
+                        $output .= \sprintf(' |%s%s', $this->getBlockIndentationIndicator($value->getValue()), $this->getBlockChompingIndicator($value->getValue()));
+                        $output .= $this->dumpBlockScalarLines($value->getValue(), $prefix);
 
                         continue;
                     }
 
-                    if ($inline - 1 <= 0 || null === $value->getValue() || is_scalar($value->getValue())) {
-                        $output .= ' '.$this->dump($value->getValue(), $inline - 1, 0, $flags)."\n";
+                    if ($inline - 1 <= 0 || null === $value->getValue() || \is_scalar($value->getValue())) {
+                        $output .= ' '.$this->doDump($value->getValue(), $inline - 1, 0, $flags, $nestingLevel + 1)."\n";
                     } else {
                         $output .= "\n";
-                        $output .= $this->dump($value->getValue(), $inline - 1, $dumpAsMap ? $indent + $this->indentation : $indent + 2, $flags);
+                        $output .= $this->doDump($value->getValue(), $inline - 1, $dumpAsMap ? $indent + $this->indentation : $indent + 2, $flags, $nestingLevel + 1);
                     }
 
                     continue;
@@ -141,20 +106,82 @@ class Dumper
                 $dumpObjectAsInlineMap = true;
 
                 if (Yaml::DUMP_OBJECT_AS_MAP & $flags && ($value instanceof \ArrayObject || $value instanceof \stdClass)) {
-                    $dumpObjectAsInlineMap = empty((array) $value);
+                    $dumpObjectAsInlineMap = !(array) $value;
                 }
 
-                $willBeInlined = $inline - 1 <= 0 || !\is_array($value) && $dumpObjectAsInlineMap || empty($value);
+                $willBeInlined = $inline - 1 <= 0 || !\is_array($value) && $dumpObjectAsInlineMap || !$value;
 
-                $output .= sprintf('%s%s%s%s',
+                $output .= \sprintf('%s%s%s%s',
                     $prefix,
                     $dumpAsMap ? Inline::dump($key, $flags).':' : '-',
-                    $willBeInlined ? ' ' : "\n",
-                    $this->dump($value, $inline - 1, $willBeInlined ? 0 : $indent + $this->indentation, $flags)
+                    $willBeInlined || ($compactNestedMapping && \is_array($value) && Inline::isHash($value)) ? ' ' : "\n",
+                    $compactNestedMapping && \is_array($value) && Inline::isHash($value) ? substr($this->doDump($value, $inline - 1, $indent + 2, $flags, $nestingLevel + 1), $indent + 2) : $this->doDump($value, $inline - 1, $willBeInlined ? 0 : $indent + $this->indentation, $flags, $nestingLevel + 1)
                 ).($willBeInlined ? "\n" : '');
             }
         }
 
         return $output;
+    }
+
+    private function dumpTaggedValue(TaggedValue $value, int $inline, int $indent, int $flags, string $prefix, int $nestingLevel): string
+    {
+        $output = \sprintf('%s!%s', $prefix ? $prefix.' ' : '', $value->getTag());
+
+        if (Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK & $flags && \is_string($value->getValue()) && str_contains($value->getValue(), "\n") && !str_contains($value->getValue(), "\r")) {
+            $output .= \sprintf(' |%s%s', $this->getBlockIndentationIndicator($value->getValue()), $this->getBlockChompingIndicator($value->getValue()));
+            $output .= $this->dumpBlockScalarLines($value->getValue(), $prefix);
+
+            return $output;
+        }
+
+        if ($inline - 1 <= 0 || null === $value->getValue() || \is_scalar($value->getValue())) {
+            return $output.' '.$this->doDump($value->getValue(), $inline - 1, 0, $flags, $nestingLevel + 1)."\n";
+        }
+
+        return $output."\n".$this->doDump($value->getValue(), $inline - 1, $indent, $flags, $nestingLevel + 1);
+    }
+
+    private function getBlockChompingIndicator(string $value): string
+    {
+        // a block made of line breaks only has no content, so only the keep indicator preserves them
+        if ("\n" === $value || isset($value[-2]) && "\n" === $value[-2] && "\n" === $value[-1]) {
+            return '+';
+        }
+
+        if ("\n" === $value[-1]) {
+            return '';
+        }
+
+        return '-';
+    }
+
+    private function dumpBlockScalarLines(string $value, string $prefix): string
+    {
+        $output = '';
+
+        foreach (explode("\n", $value) as $row) {
+            if ('' === $row) {
+                $output .= "\n";
+            } else {
+                $output .= \sprintf("\n%s%s%s", $prefix, str_repeat(' ', $this->indentation), $row);
+            }
+        }
+
+        return $output;
+    }
+
+    private function getBlockIndentationIndicator(string $value): string
+    {
+        $lines = explode("\n", $value);
+
+        // The spec requires a block indentation indicator when the first line that is not empty starts with a space, even if that line holds only spaces
+        // http://www.yaml.org/spec/1.2/spec.html#id2793979
+        foreach ($lines as $line) {
+            if ('' !== $line) {
+                return str_starts_with($line, ' ') ? (string) $this->indentation : '';
+            }
+        }
+
+        return '';
     }
 }

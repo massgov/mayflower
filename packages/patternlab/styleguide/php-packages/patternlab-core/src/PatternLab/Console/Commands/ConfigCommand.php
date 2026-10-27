@@ -15,7 +15,7 @@ use \PatternLab\Console;
 use \PatternLab\Console\Command;
 use \PatternLab\Generator;
 use \PatternLab\Timer;
-use \Shudrum\Component\ArrayFinder\ArrayFinder;
+use \PatternLab\ArrayFinder;
 
 class ConfigCommand extends Command {
 	

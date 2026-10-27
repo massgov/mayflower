@@ -15,7 +15,7 @@ namespace PatternLab;
 use \PatternLab\Console;
 use \PatternLab\FileUtil;
 use \PatternLab\Timer;
-use \Shudrum\Component\ArrayFinder\ArrayFinder;
+use \PatternLab\ArrayFinder;
 use \Symfony\Component\Yaml\Yaml;
 use \Symfony\Component\Yaml\Exception\ParseException;
 

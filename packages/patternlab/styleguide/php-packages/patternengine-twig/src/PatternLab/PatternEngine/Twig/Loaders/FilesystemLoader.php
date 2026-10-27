@@ -16,6 +16,8 @@ use \PatternLab\Config;
 use \PatternLab\Dispatcher;
 use \PatternLab\PatternEngine\Loader;
 use \PatternLab\PatternEngine\Twig\TwigUtil;
+use \Twig\Environment;
+use \Twig\Loader\FilesystemLoader as TwigFilesystemLoader;
 
 class FilesystemLoader extends Loader {
 	
@@ -45,8 +47,8 @@ class FilesystemLoader extends Loader {
 		}
 		
 		// set-up Twig
-		$twigLoader = new \Twig_Loader_Filesystem($filesystemLoaderPaths);
-		$instance   = new \Twig_Environment($twigLoader, array("debug" => $twigDebug));
+		$twigLoader = new TwigFilesystemLoader($filesystemLoaderPaths);
+		$instance   = new Environment($twigLoader, array("debug" => $twigDebug));
 		
 		// customize Twig
 		TwigUtil::setInstance($instance);

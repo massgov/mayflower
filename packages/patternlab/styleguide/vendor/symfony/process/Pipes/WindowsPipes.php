@@ -26,19 +26,18 @@ use Symfony\Component\Process\Process;
  */
 class WindowsPipes extends AbstractPipes
 {
-    private $files = [];
-    private $fileHandles = [];
-    private $lockHandles = [];
-    private $readBytes = [
+    private array $files = [];
+    private array $fileHandles = [];
+    private array $lockHandles = [];
+    private array $readBytes = [
         Process::STDOUT => 0,
         Process::STDERR => 0,
     ];
-    private $haveReadSupport;
 
-    public function __construct($input, $haveReadSupport)
-    {
-        $this->haveReadSupport = (bool) $haveReadSupport;
-
+    public function __construct(
+        mixed $input,
+        private bool $haveReadSupport,
+    ) {
         if ($this->haveReadSupport) {
             // Fix for PHP bug #51800: reading from STDOUT pipe hangs forever on Windows if the output is too big.
             // Workaround for this problem is to use temporary files instead of pipes on Windows platform.
@@ -50,10 +49,10 @@ class WindowsPipes extends AbstractPipes
             ];
             $tmpDir = sys_get_temp_dir();
             $lastError = 'unknown reason';
-            set_error_handler(function ($type, $msg) use (&$lastError) { $lastError = $msg; });
+            set_error_handler(static function ($type, $msg) use (&$lastError) { $lastError = $msg; });
             for ($i = 0;; ++$i) {
                 foreach ($pipes as $pipe => $name) {
-                    $file = sprintf('%s\\sf_proc_%02X.%s', $tmpDir, $i, $name);
+                    $file = \sprintf('%s\\sf_proc_%02X.%s', $tmpDir, $i, $name);
 
                     if (!$h = fopen($file.'.lock', 'w')) {
                         if (file_exists($file.'.lock')) {
@@ -71,7 +70,7 @@ class WindowsPipes extends AbstractPipes
                     }
                     $this->lockHandles[$pipe] = $h;
 
-                    if (!fclose(fopen($file, 'w')) || !$h = fopen($file, 'r')) {
+                    if (!($h = fopen($file, 'w')) || !fclose($h) || !$h = fopen($file, 'r')) {
                         flock($this->lockHandles[$pipe], \LOCK_UN);
                         fclose($this->lockHandles[$pipe]);
                         unset($this->lockHandles[$pipe]);
@@ -88,15 +87,22 @@ class WindowsPipes extends AbstractPipes
         parent::__construct($input);
     }
 
+    public function __serialize(): array
+    {
+        throw new \BadMethodCallException('Cannot serialize '.__CLASS__);
+    }
+
+    public function __unserialize(array $data): void
+    {
+        throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
+    }
+
     public function __destruct()
     {
         $this->close();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getDescriptors()
+    public function getDescriptors(): array
     {
         if (!$this->haveReadSupport) {
             $nullstream = fopen('NUL', 'c');
@@ -118,18 +124,12 @@ class WindowsPipes extends AbstractPipes
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFiles()
+    public function getFiles(): array
     {
         return $this->files;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function readAndWrite($blocking, $close = false)
+    public function readAndWrite(bool $blocking, bool $close = false): array
     {
         $this->unblock();
         $w = $this->write();
@@ -139,7 +139,7 @@ class WindowsPipes extends AbstractPipes
             if ($w) {
                 @stream_select($r, $w, $e, 0, Process::TIMEOUT_PRECISION * 1E6);
             } elseif ($this->fileHandles) {
-                usleep(Process::TIMEOUT_PRECISION * 1E6);
+                usleep((int) (Process::TIMEOUT_PRECISION * 1E6));
             }
         }
         foreach ($this->fileHandles as $type => $fileHandle) {
@@ -161,26 +161,17 @@ class WindowsPipes extends AbstractPipes
         return $read;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function haveReadSupport()
+    public function haveReadSupport(): bool
     {
         return $this->haveReadSupport;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function areOpen()
+    public function areOpen(): bool
     {
         return $this->pipes && $this->fileHandles;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function close()
+    public function close(): void
     {
         parent::close();
         foreach ($this->fileHandles as $type => $handle) {

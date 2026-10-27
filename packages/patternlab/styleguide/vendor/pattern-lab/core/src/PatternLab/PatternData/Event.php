@@ -13,9 +13,7 @@
 namespace PatternLab\PatternData;
 
 use \PatternLab\Timer;
-use \Symfony\Component\EventDispatcher;
-
-class Event extends EventDispatcher\Event {
+class Event {
 	
 	protected $options;
 	

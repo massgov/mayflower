@@ -18,32 +18,23 @@ use Symfony\Component\Finder\SplFileInfo;
  * Extends the \RecursiveDirectoryIterator to support relative paths.
  *
  * @author Victor Berchet <victor@suumit.com>
+ *
+ * @extends \RecursiveDirectoryIterator<string, SplFileInfo>
  */
 class RecursiveDirectoryIterator extends \RecursiveDirectoryIterator
 {
-    /**
-     * @var bool
-     */
-    private $ignoreUnreadableDirs;
-
-    /**
-     * @var bool
-     */
-    private $rewindable;
+    private bool $ignoreUnreadableDirs;
+    private bool $ignoreFirstRewind = true;
 
     // these 3 properties take part of the performance optimization to avoid redoing the same work in all iterations
-    private $rootPath;
-    private $subPath;
-    private $directorySeparator = '/';
+    private string $rootPath;
+    private string $subPath;
+    private string $directorySeparator = '/';
 
     /**
-     * @param string $path
-     * @param int    $flags
-     * @param bool   $ignoreUnreadableDirs
-     *
      * @throws \RuntimeException
      */
-    public function __construct($path, $flags, $ignoreUnreadableDirs = false)
+    public function __construct(string $path, int $flags, bool $ignoreUnreadableDirs = false)
     {
         if ($flags & (self::CURRENT_AS_PATHNAME | self::CURRENT_AS_SELF)) {
             throw new \RuntimeException('This iterator only support returning current as fileinfo.');
@@ -59,34 +50,50 @@ class RecursiveDirectoryIterator extends \RecursiveDirectoryIterator
 
     /**
      * Return an instance of SplFileInfo with support for relative paths.
-     *
-     * @return SplFileInfo File information
      */
-    public function current()
+    public function current(): SplFileInfo
     {
         // the logic here avoids redoing the same work in all iterations
 
-        if (null === $subPathname = $this->subPath) {
-            $subPathname = $this->subPath = (string) $this->getSubPath();
+        if (!isset($this->subPath)) {
+            $this->subPath = $this->getSubPath();
         }
+        $subPathname = $this->subPath;
         if ('' !== $subPathname) {
             $subPathname .= $this->directorySeparator;
         }
         $subPathname .= $this->getFilename();
+        $basePath = $this->rootPath;
 
-        if ('/' !== $basePath = $this->rootPath) {
+        if ('/' !== $basePath && !str_ends_with($basePath, $this->directorySeparator) && !str_ends_with($basePath, '/')) {
             $basePath .= $this->directorySeparator;
         }
 
         return new SplFileInfo($basePath.$subPathname, $this->subPath, $subPathname);
     }
 
+    public function hasChildren(bool $allowLinks = false): bool
+    {
+        $hasChildren = parent::hasChildren($allowLinks);
+
+        if (!$hasChildren || !$this->ignoreUnreadableDirs) {
+            return $hasChildren;
+        }
+
+        try {
+            parent::getChildren();
+
+            return true;
+        } catch (\UnexpectedValueException) {
+            // If directory is unreadable and finder is set to ignore it, skip children
+            return false;
+        }
+    }
+
     /**
-     * @return \RecursiveIterator
-     *
      * @throws AccessDeniedException
      */
-    public function getChildren()
+    public function getChildren(): \RecursiveDirectoryIterator
     {
         try {
             $children = parent::getChildren();
@@ -96,63 +103,32 @@ class RecursiveDirectoryIterator extends \RecursiveDirectoryIterator
                 $children->ignoreUnreadableDirs = $this->ignoreUnreadableDirs;
 
                 // performance optimization to avoid redoing the same work in all children
-                $children->rewindable = &$this->rewindable;
                 $children->rootPath = $this->rootPath;
             }
 
             return $children;
         } catch (\UnexpectedValueException $e) {
-            if ($this->ignoreUnreadableDirs) {
-                // If directory is unreadable and finder is set to ignore it, a fake empty content is returned.
-                return new \RecursiveArrayIterator([]);
-            } else {
-                throw new AccessDeniedException($e->getMessage(), $e->getCode(), $e);
-            }
+            throw new AccessDeniedException($e->getMessage(), $e->getCode(), $e);
         }
     }
 
-    /**
-     * Do nothing for non rewindable stream.
-     */
-    public function rewind()
+    public function next(): void
     {
-        if (false === $this->isRewindable()) {
+        $this->ignoreFirstRewind = false;
+
+        parent::next();
+    }
+
+    public function rewind(): void
+    {
+        // some streams like FTP are not rewindable, ignore the first rewind after creation,
+        // as newly created DirectoryIterator does not need to be rewound
+        if ($this->ignoreFirstRewind) {
+            $this->ignoreFirstRewind = false;
+
             return;
         }
 
-        // @see https://bugs.php.net/68557
-        if (\PHP_VERSION_ID < 50523 || \PHP_VERSION_ID >= 50600 && \PHP_VERSION_ID < 50607) {
-            parent::next();
-        }
-
         parent::rewind();
-    }
-
-    /**
-     * Checks if the stream is rewindable.
-     *
-     * @return bool true when the stream is rewindable, false otherwise
-     */
-    public function isRewindable()
-    {
-        if (null !== $this->rewindable) {
-            return $this->rewindable;
-        }
-
-        // workaround for an HHVM bug, should be removed when https://github.com/facebook/hhvm/issues/7281 is fixed
-        if ('' === $this->getPath()) {
-            return $this->rewindable = false;
-        }
-
-        if (false !== $stream = @opendir($this->getPath())) {
-            $infos = stream_get_meta_data($stream);
-            closedir($stream);
-
-            if ($infos['seekable']) {
-                return $this->rewindable = true;
-            }
-        }
-
-        return $this->rewindable = false;
     }
 }

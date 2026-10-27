@@ -25,8 +25,9 @@
 		}
 	},
 	"require": {
+		"php":                    "^8.4.27",
 		"pattern-lab/core": "^2.0.0",
-		"twig/twig":        "~1.0"
+		"twig/twig":        "^3.30"
 	},
 	"extra": {
 		"patternlab": {

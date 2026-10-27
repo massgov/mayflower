@@ -22,17 +22,23 @@ use Symfony\Component\Process\Process;
  */
 class UnixPipes extends AbstractPipes
 {
-    private $ttyMode;
-    private $ptyMode;
-    private $haveReadSupport;
-
-    public function __construct($ttyMode, $ptyMode, $input, $haveReadSupport)
-    {
-        $this->ttyMode = (bool) $ttyMode;
-        $this->ptyMode = (bool) $ptyMode;
-        $this->haveReadSupport = (bool) $haveReadSupport;
-
+    public function __construct(
+        private ?bool $ttyMode,
+        private bool $ptyMode,
+        mixed $input,
+        private bool $haveReadSupport,
+    ) {
         parent::__construct($input);
+    }
+
+    public function __serialize(): array
+    {
+        throw new \BadMethodCallException('Cannot serialize '.__CLASS__);
+    }
+
+    public function __unserialize(array $data): void
+    {
+        throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
     }
 
     public function __destruct()
@@ -40,10 +46,7 @@ class UnixPipes extends AbstractPipes
         $this->close();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getDescriptors()
+    public function getDescriptors(): array
     {
         if (!$this->haveReadSupport) {
             $nullstream = fopen('/dev/null', 'c');
@@ -67,7 +70,7 @@ class UnixPipes extends AbstractPipes
             return [
                 ['pty'],
                 ['pty'],
-                ['pty'],
+                ['pipe', 'w'], // stderr needs to be in a pipe to correctly split error and output, since PHP will use the same stream for both
             ];
         }
 
@@ -78,18 +81,12 @@ class UnixPipes extends AbstractPipes
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFiles()
+    public function getFiles(): array
     {
         return [];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function readAndWrite($blocking, $close = false)
+    public function readAndWrite(bool $blocking, bool $close = false): array
     {
         $this->unblock();
         $w = $this->write();
@@ -99,7 +96,7 @@ class UnixPipes extends AbstractPipes
         unset($r[0]);
 
         // let's have a look if something changed in streams
-        set_error_handler([$this, 'handleError']);
+        set_error_handler($this->handleError(...));
         if (($r || $w) && false === stream_select($r, $w, $e, 0, $blocking ? Process::TIMEOUT_PRECISION * 1E6 : 0)) {
             restore_error_handler();
             // if a system call has been interrupted, forget about it, let's try again
@@ -135,18 +132,12 @@ class UnixPipes extends AbstractPipes
         return $read;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function haveReadSupport()
+    public function haveReadSupport(): bool
     {
         return $this->haveReadSupport;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function areOpen()
+    public function areOpen(): bool
     {
         return (bool) $this->pipes;
     }

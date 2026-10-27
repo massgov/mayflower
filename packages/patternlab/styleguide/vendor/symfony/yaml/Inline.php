@@ -24,22 +24,17 @@ use Symfony\Component\Yaml\Tag\TaggedValue;
  */
 class Inline
 {
-    const REGEX_QUOTED_STRING = '(?:"([^"\\\\]*+(?:\\\\.[^"\\\\]*+)*+)"|\'([^\']*+(?:\'\'[^\']*+)*+)\')';
+    public const REGEX_QUOTED_STRING = '(?:"([^"\\\\]*+(?:\\\\.[^"\\\\]*+)*+)"|\'([^\']*+(?:\'\'[^\']*+)*+)\')';
 
-    public static $parsedLineNumber = -1;
-    public static $parsedFilename;
+    public static int $parsedLineNumber = -1;
+    public static ?string $parsedFilename = null;
 
-    private static $exceptionOnInvalidType = false;
-    private static $objectSupport = false;
-    private static $objectForMap = false;
-    private static $constantSupport = false;
+    private static bool $exceptionOnInvalidType = false;
+    private static bool $objectSupport = false;
+    private static bool $objectForMap = false;
+    private static bool $constantSupport = false;
 
-    /**
-     * @param int         $flags
-     * @param int|null    $parsedLineNumber
-     * @param string|null $parsedFilename
-     */
-    public static function initialize($flags, $parsedLineNumber = null, $parsedFilename = null)
+    public static function initialize(int $flags, ?int $parsedLineNumber = null, ?string $parsedFilename = null): void
     {
         self::$exceptionOnInvalidType = (bool) (Yaml::PARSE_EXCEPTION_ON_INVALID_TYPE & $flags);
         self::$objectSupport = (bool) (Yaml::PARSE_OBJECT & $flags);
@@ -55,49 +50,15 @@ class Inline
     /**
      * Converts a YAML string to a PHP value.
      *
-     * @param string $value      A YAML string
-     * @param int    $flags      A bit field of PARSE_* constants to customize the YAML parser behavior
-     * @param array  $references Mapping of variable names to values
-     *
-     * @return mixed A PHP value
+     * @param int   $flags      A bit field of Yaml::PARSE_* constants to customize the YAML parser behavior
+     * @param array $references Mapping of variable names to values
      *
      * @throws ParseException
      */
-    public static function parse($value, $flags = 0, $references = [])
+    public static function parse(string $value, int $flags = 0, array &$references = [], ?ParserState $state = null): mixed
     {
-        if (\is_bool($flags)) {
-            @trigger_error('Passing a boolean flag to toggle exception handling is deprecated since Symfony 3.1 and will be removed in 4.0. Use the Yaml::PARSE_EXCEPTION_ON_INVALID_TYPE flag instead.', \E_USER_DEPRECATED);
-
-            if ($flags) {
-                $flags = Yaml::PARSE_EXCEPTION_ON_INVALID_TYPE;
-            } else {
-                $flags = 0;
-            }
-        }
-
-        if (\func_num_args() >= 3 && !\is_array($references)) {
-            @trigger_error('Passing a boolean flag to toggle object support is deprecated since Symfony 3.1 and will be removed in 4.0. Use the Yaml::PARSE_OBJECT flag instead.', \E_USER_DEPRECATED);
-
-            if ($references) {
-                $flags |= Yaml::PARSE_OBJECT;
-            }
-
-            if (\func_num_args() >= 4) {
-                @trigger_error('Passing a boolean flag to toggle object for map support is deprecated since Symfony 3.1 and will be removed in 4.0. Use the Yaml::PARSE_OBJECT_FOR_MAP flag instead.', \E_USER_DEPRECATED);
-
-                if (func_get_arg(3)) {
-                    $flags |= Yaml::PARSE_OBJECT_FOR_MAP;
-                }
-            }
-
-            if (\func_num_args() >= 5) {
-                $references = func_get_arg(4);
-            } else {
-                $references = [];
-            }
-        }
-
         self::initialize($flags);
+        $state ??= new ParserState();
 
         $value = trim($value);
 
@@ -105,42 +66,42 @@ class Inline
             return '';
         }
 
-        if (2 /* MB_OVERLOAD_STRING */ & (int) ini_get('mbstring.func_overload')) {
-            $mbEncoding = mb_internal_encoding();
-            mb_internal_encoding('ASCII');
+        $i = 0;
+        $isQuoted = null;
+        $tag = self::parseTag($value, $i, $flags);
+
+        // a tag without value, possibly followed by a comment
+        if (null !== $tag && '' !== $tag && (!isset($value[$i]) || '#' === $value[$i])) {
+            if (str_starts_with($tag, 'php/')) {
+                throw new ParseException(\sprintf('Missing value for tag "%s".', $tag), self::$parsedLineNumber + 1, $value, self::$parsedFilename);
+            }
+
+            return new TaggedValue($tag, '');
         }
 
-        try {
-            $i = 0;
-            $tag = self::parseTag($value, $i, $flags);
-            switch ($value[$i]) {
-                case '[':
-                    $result = self::parseSequence($value, $flags, $i, $references);
-                    ++$i;
-                    break;
-                case '{':
-                    $result = self::parseMapping($value, $flags, $i, $references);
-                    ++$i;
-                    break;
-                default:
-                    $result = self::parseScalar($value, $flags, null, $i, null === $tag, $references);
-            }
-
-            // some comments are allowed at the end
-            if (preg_replace('/\s*#.*$/A', '', substr($value, $i))) {
-                throw new ParseException(sprintf('Unexpected characters near "%s".', substr($value, $i)), self::$parsedLineNumber + 1, $value, self::$parsedFilename);
-            }
-
-            if (null !== $tag) {
-                return new TaggedValue($tag, $result);
-            }
-
-            return $result;
-        } finally {
-            if (isset($mbEncoding)) {
-                mb_internal_encoding($mbEncoding);
-            }
+        switch ($value[$i]) {
+            case '[':
+                $result = self::parseSequence($state, $value, $flags, $i, $references);
+                ++$i;
+                break;
+            case '{':
+                $result = self::parseMapping($state, $value, $flags, $i, $references);
+                ++$i;
+                break;
+            default:
+                $result = self::parseScalar($value, $flags, null, $i, true, $references, $isQuoted, $state);
         }
+
+        // some comments are allowed at the end
+        if (preg_replace('/\s*#.*$/A', '', substr($value, $i))) {
+            throw new ParseException(\sprintf('Unexpected characters near "%s".', substr($value, $i)), self::$parsedLineNumber + 1, $value, self::$parsedFilename);
+        }
+
+        if (null !== $tag && '' !== $tag) {
+            return new TaggedValue($tag, $result);
+        }
+
+        return $result;
     }
 
     /**
@@ -149,39 +110,25 @@ class Inline
      * @param mixed $value The PHP variable to convert
      * @param int   $flags A bit field of Yaml::DUMP_* constants to customize the dumped YAML string
      *
-     * @return string The YAML string representing the PHP value
-     *
      * @throws DumpException When trying to dump PHP resource
      */
-    public static function dump($value, $flags = 0)
+    public static function dump(mixed $value, int $flags = 0, bool $rootLevel = false): string
     {
-        if (\is_bool($flags)) {
-            @trigger_error('Passing a boolean flag to toggle exception handling is deprecated since Symfony 3.1 and will be removed in 4.0. Use the Yaml::DUMP_EXCEPTION_ON_INVALID_TYPE flag instead.', \E_USER_DEPRECATED);
-
-            if ($flags) {
-                $flags = Yaml::DUMP_EXCEPTION_ON_INVALID_TYPE;
-            } else {
-                $flags = 0;
-            }
-        }
-
-        if (\func_num_args() >= 3) {
-            @trigger_error('Passing a boolean flag to toggle object support is deprecated since Symfony 3.1 and will be removed in 4.0. Use the Yaml::DUMP_OBJECT flag instead.', \E_USER_DEPRECATED);
-
-            if (func_get_arg(2)) {
-                $flags |= Yaml::DUMP_OBJECT;
-            }
-        }
-
         switch (true) {
             case \is_resource($value):
                 if (Yaml::DUMP_EXCEPTION_ON_INVALID_TYPE & $flags) {
-                    throw new DumpException(sprintf('Unable to dump PHP resources in a YAML file ("%s").', get_resource_type($value)));
+                    throw new DumpException(\sprintf('Unable to dump PHP resources in a YAML file ("%s").', get_resource_type($value)));
                 }
 
-                return 'null';
+                return self::dumpNull($flags);
             case $value instanceof \DateTimeInterface:
-                return $value->format('c');
+                return $value->format(match (true) {
+                    !$length = \strlen(rtrim($value->format('u'), '0')) => 'c',
+                    $length < 4 => 'Y-m-d\TH:i:s.vP',
+                    default => 'Y-m-d\TH:i:s.uP',
+                });
+            case $value instanceof \UnitEnum:
+                return \sprintf('!php/enum %s::%s', $value::class, $value->name);
             case \is_object($value):
                 if ($value instanceof TaggedValue) {
                     return '!'.$value->getTag().' '.self::dump($value->getValue(), $flags);
@@ -192,25 +139,27 @@ class Inline
                 }
 
                 if (Yaml::DUMP_OBJECT_AS_MAP & $flags && ($value instanceof \stdClass || $value instanceof \ArrayObject)) {
-                    return self::dumpArray($value, $flags & ~Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE);
+                    return self::dumpHashArray($value, $flags);
                 }
 
                 if (Yaml::DUMP_EXCEPTION_ON_INVALID_TYPE & $flags) {
                     throw new DumpException('Object support when dumping a YAML file has been disabled.');
                 }
 
-                return 'null';
+                return self::dumpNull($flags);
             case \is_array($value):
                 return self::dumpArray($value, $flags);
             case null === $value:
-                return 'null';
+                return self::dumpNull($flags, $rootLevel);
             case true === $value:
                 return 'true';
             case false === $value:
                 return 'false';
-            case ctype_digit($value):
-                return \is_string($value) ? "'$value'" : (int) $value;
-            case is_numeric($value) && false === strpos($value, "\f") && false === strpos($value, "\n") && false === strpos($value, "\r") && false === strpos($value, "\t") && false === strpos($value, "\v"):
+            case \is_int($value):
+                return $value;
+            case \is_float($value) && is_nan($value):
+                return '.NaN';
+            case is_numeric($value) && false === strpbrk($value, "\f\n\r\t\v"):
                 $locale = setlocale(\LC_NUMERIC, 0);
                 if (false !== $locale) {
                     setlocale(\LC_NUMERIC, 'C');
@@ -221,7 +170,9 @@ class Inline
                         $repr = str_ireplace('INF', '.Inf', $repr);
                     } elseif (floor($value) == $value && $repr == $value) {
                         // Preserve float data type since storing a whole number will result in integer value.
-                        $repr = '!!float '.$repr;
+                        if (!str_contains($repr, 'E')) {
+                            $repr .= '.0';
+                        }
                     }
                 } else {
                     $repr = \is_string($value) ? "'$value'" : (string) $value;
@@ -236,9 +187,19 @@ class Inline
             case self::isBinaryString($value):
                 return '!!binary '.base64_encode($value);
             case Escaper::requiresDoubleQuoting($value):
+            case Yaml::DUMP_FORCE_DOUBLE_QUOTES_ON_VALUES & $flags:
                 return Escaper::escapeWithDoubleQuotes($value);
             case Escaper::requiresSingleQuoting($value):
-            case Parser::preg_match('{^[0-9]+[_0-9]*$}', $value):
+                $singleQuoted = Escaper::escapeWithSingleQuotes($value);
+                if (!str_contains($value, "'")) {
+                    return $singleQuoted;
+                }
+                // Attempt double-quoting the string instead to see if it's more efficient.
+                $doubleQuoted = Escaper::escapeWithDoubleQuotes($value);
+
+                return \strlen($doubleQuoted) < \strlen($singleQuoted) ? $doubleQuoted : $singleQuoted;
+            case Parser::preg_match('{^[+-]?[0-9][0-9_]*(\.[0-9_]+)?$}', $value):
+            case Parser::preg_match('{^[+-]?0o[0-7_]++$}', $value):
             case Parser::preg_match(self::getHexRegex(), $value):
             case Parser::preg_match(self::getTimestampRegex(), $value):
                 return Escaper::escapeWithSingleQuotes($value);
@@ -249,14 +210,8 @@ class Inline
 
     /**
      * Check if given array is hash or just normal indexed array.
-     *
-     * @internal
-     *
-     * @param array|\ArrayObject|\stdClass $value The PHP array or array-like object to check
-     *
-     * @return bool true if value is hash array, false otherwise
      */
-    public static function isHash($value)
+    public static function isHash(array|\ArrayObject|\stdClass $value): bool
     {
         if ($value instanceof \stdClass || $value instanceof \ArrayObject) {
             return true;
@@ -278,10 +233,8 @@ class Inline
      *
      * @param array $value The PHP array to dump
      * @param int   $flags A bit field of Yaml::DUMP_* constants to customize the dumped YAML string
-     *
-     * @return string The YAML string representing the PHP array
      */
-    private static function dumpArray($value, $flags)
+    private static function dumpArray(array $value, int $flags): string
     {
         // array
         if (($value || Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE & $flags) && !self::isHash($value)) {
@@ -290,51 +243,71 @@ class Inline
                 $output[] = self::dump($val, $flags);
             }
 
-            return sprintf('[%s]', implode(', ', $output));
+            return \sprintf('[%s]', implode(', ', $output));
         }
 
-        // hash
+        return self::dumpHashArray($value, $flags);
+    }
+
+    /**
+     * Dumps hash array to a YAML string.
+     *
+     * @param array|\ArrayObject|\stdClass $value The hash array to dump
+     * @param int                          $flags A bit field of Yaml::DUMP_* constants to customize the dumped YAML string
+     */
+    private static function dumpHashArray(array|\ArrayObject|\stdClass $value, int $flags): string
+    {
         $output = [];
+        $keyFlags = $flags & ~Yaml::DUMP_FORCE_DOUBLE_QUOTES_ON_VALUES;
         foreach ($value as $key => $val) {
-            $output[] = sprintf('%s: %s', self::dump($key, $flags), self::dump($val, $flags));
+            if (\is_int($key) && Yaml::DUMP_NUMERIC_KEY_AS_STRING & $flags) {
+                $key = (string) $key;
+            }
+
+            $output[] = \sprintf('%s: %s', self::dump($key, $keyFlags), self::dump($val, $flags));
         }
 
-        return sprintf('{ %s }', implode(', ', $output));
+        return \sprintf('{ %s }', implode(', ', $output));
+    }
+
+    private static function dumpNull(int $flags, bool $rootLevel = false): string
+    {
+        if (Yaml::DUMP_NULL_AS_TILDE & $flags) {
+            return '~';
+        }
+
+        if (Yaml::DUMP_NULL_AS_EMPTY & $flags && !$rootLevel) {
+            return '';
+        }
+
+        return 'null';
     }
 
     /**
      * Parses a YAML scalar.
      *
-     * @param string   $scalar
-     * @param int      $flags
-     * @param string[] $delimiters
-     * @param int      &$i
-     * @param bool     $evaluate
-     * @param array    $references
-     *
-     * @return string
-     *
      * @throws ParseException When malformed inline YAML string is parsed
-     *
-     * @internal
      */
-    public static function parseScalar($scalar, $flags = 0, $delimiters = null, &$i = 0, $evaluate = true, $references = [], $legacyOmittedKeySupport = false)
+    public static function parseScalar(string $scalar, int $flags = 0, ?array $delimiters = null, int &$i = 0, bool $evaluate = true, array &$references = [], ?bool &$isQuoted = null, ?ParserState $state = null): mixed
     {
-        if (\in_array($scalar[$i], ['"', "'"])) {
+        if (\in_array($scalar[$i], ['"', "'"], true)) {
             // quoted scalar
+            $isQuoted = true;
             $output = self::parseQuotedScalar($scalar, $i);
 
             if (null !== $delimiters) {
-                $tmp = ltrim(substr($scalar, $i), ' ');
+                $tmp = ltrim(substr($scalar, $i), " \n");
                 if ('' === $tmp) {
-                    throw new ParseException(sprintf('Unexpected end of line, expected one of "%s".', implode('', $delimiters)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+                    throw new ParseException(\sprintf('Unexpected end of line, expected one of "%s".', implode('', $delimiters)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
                 }
                 if (!\in_array($tmp[0], $delimiters)) {
-                    throw new ParseException(sprintf('Unexpected characters (%s).', substr($scalar, $i)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+                    throw new ParseException(\sprintf('Unexpected characters (%s).', substr($scalar, $i)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
                 }
             }
         } else {
             // "normal" string
+            $isQuoted = false;
+
             if (!$delimiters) {
                 $output = substr($scalar, $i);
                 $i += \strlen($output);
@@ -343,24 +316,22 @@ class Inline
                 if (Parser::preg_match('/[ \t]+#/', $output, $match, \PREG_OFFSET_CAPTURE)) {
                     $output = substr($output, 0, $match[0][1]);
                 }
-            } elseif (Parser::preg_match('/^(.'.($legacyOmittedKeySupport ? '+' : '*').'?)('.implode('|', $delimiters).')/', substr($scalar, $i), $match)) {
+            } elseif (Parser::preg_match('/^(.*?)('.implode('|', $delimiters).')/', substr($scalar, $i), $match)) {
                 $output = $match[1];
                 $i += \strlen($output);
+                $output = trim($output);
             } else {
-                throw new ParseException(sprintf('Malformed inline YAML string: "%s".', $scalar), self::$parsedLineNumber + 1, null, self::$parsedFilename);
+                throw new ParseException(\sprintf('Malformed inline YAML string: "%s".', $scalar), self::$parsedLineNumber + 1, null, self::$parsedFilename);
             }
 
             // a non-quoted string cannot start with @ or ` (reserved) nor with a scalar indicator (| or >)
-            if ($output && ('@' === $output[0] || '`' === $output[0] || '|' === $output[0] || '>' === $output[0])) {
-                throw new ParseException(sprintf('The reserved indicator "%s" cannot start a plain scalar; you need to quote the scalar.', $output[0]), self::$parsedLineNumber + 1, $output, self::$parsedFilename);
-            }
-
-            if ($output && '%' === $output[0]) {
-                @trigger_error(self::getDeprecationMessage(sprintf('Not quoting the scalar "%s" starting with the "%%" indicator character is deprecated since Symfony 3.1 and will throw a ParseException in 4.0.', $output)), \E_USER_DEPRECATED);
+            if ($output && ('@' === $output[0] || '`' === $output[0] || '|' === $output[0] || '>' === $output[0] || '%' === $output[0])) {
+                throw new ParseException(\sprintf('The reserved indicator "%s" cannot start a plain scalar; you need to quote the scalar.', $output[0]), self::$parsedLineNumber + 1, $output, self::$parsedFilename);
             }
 
             if ($evaluate) {
-                $output = self::evaluateScalar($output, $flags, $references);
+                $state ??= new ParserState();
+                $output = self::evaluateScalar($state, $output, $flags, $references, $isQuoted);
             }
         }
 
@@ -370,20 +341,15 @@ class Inline
     /**
      * Parses a YAML quoted scalar.
      *
-     * @param string $scalar
-     * @param int    &$i
-     *
-     * @return string
-     *
      * @throws ParseException When malformed inline YAML string is parsed
      */
-    private static function parseQuotedScalar($scalar, &$i)
+    private static function parseQuotedScalar(string $scalar, int &$i = 0): string
     {
         if (!Parser::preg_match('/'.self::REGEX_QUOTED_STRING.'/Au', substr($scalar, $i), $match)) {
-            throw new ParseException(sprintf('Malformed inline YAML string: "%s".', substr($scalar, $i)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+            throw new ParseException(\sprintf('Malformed inline YAML string: "%s".', substr($scalar, $i)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
         }
 
-        $output = substr($match[0], 1, \strlen($match[0]) - 2);
+        $output = substr($match[0], 1, -1);
 
         $unescaper = new Unescaper();
         if ('"' == $scalar[$i]) {
@@ -400,255 +366,355 @@ class Inline
     /**
      * Parses a YAML sequence.
      *
-     * @param string $sequence
-     * @param int    $flags
-     * @param int    &$i
-     * @param array  $references
-     *
-     * @return array
-     *
      * @throws ParseException When malformed inline YAML string is parsed
      */
-    private static function parseSequence($sequence, $flags, &$i = 0, $references = [])
+    private static function parseSequence(ParserState $state, string $sequence, int $flags, int &$i = 0, array &$references = []): array
     {
+        $state->enterNestingLevel(self::$parsedLineNumber + 1, null, self::$parsedFilename);
+
         $output = [];
         $len = \strlen($sequence);
         ++$i;
 
-        // [foo, bar, ...]
-        while ($i < $len) {
-            if (']' === $sequence[$i]) {
-                return $output;
-            }
-            if (',' === $sequence[$i] || ' ' === $sequence[$i]) {
-                ++$i;
-
-                continue;
-            }
-
-            $tag = self::parseTag($sequence, $i, $flags);
-            switch ($sequence[$i]) {
-                case '[':
-                    // nested sequence
-                    $value = self::parseSequence($sequence, $flags, $i, $references);
-                    break;
-                case '{':
-                    // nested mapping
-                    $value = self::parseMapping($sequence, $flags, $i, $references);
-                    break;
-                default:
-                    $isQuoted = \in_array($sequence[$i], ['"', "'"]);
-                    $value = self::parseScalar($sequence, $flags, [',', ']'], $i, null === $tag, $references);
-
-                    // the value can be an array if a reference has been resolved to an array var
-                    if (\is_string($value) && !$isQuoted && false !== strpos($value, ': ')) {
-                        // embedded mapping?
-                        try {
-                            $pos = 0;
-                            $value = self::parseMapping('{'.$value.'}', $flags, $pos, $references);
-                        } catch (\InvalidArgumentException $e) {
-                            // no, it's not
-                        }
-                    }
-
-                    --$i;
-            }
-
-            if (null !== $tag) {
-                $value = new TaggedValue($tag, $value);
-            }
-
-            $output[] = $value;
-
-            ++$i;
-        }
-
-        throw new ParseException(sprintf('Malformed inline YAML string: "%s".', $sequence), self::$parsedLineNumber + 1, null, self::$parsedFilename);
-    }
-
-    /**
-     * Parses a YAML mapping.
-     *
-     * @param string $mapping
-     * @param int    $flags
-     * @param int    &$i
-     * @param array  $references
-     *
-     * @return array|\stdClass
-     *
-     * @throws ParseException When malformed inline YAML string is parsed
-     */
-    private static function parseMapping($mapping, $flags, &$i = 0, $references = [])
-    {
-        $output = [];
-        $len = \strlen($mapping);
-        ++$i;
-        $allowOverwrite = false;
-
-        // {foo: bar, bar:foo, ...}
-        while ($i < $len) {
-            switch ($mapping[$i]) {
-                case ' ':
-                case ',':
-                    ++$i;
-                    continue 2;
-                case '}':
-                    if (self::$objectForMap) {
-                        return (object) $output;
-                    }
-
-                    return $output;
-            }
-
-            // key
-            $isKeyQuoted = \in_array($mapping[$i], ['"', "'"], true);
-            $key = self::parseScalar($mapping, $flags, [':', ' '], $i, false, [], true);
-
-            if ('!php/const' === $key) {
-                $key .= self::parseScalar($mapping, $flags, [':', ' '], $i, false, [], true);
-                if ('!php/const:' === $key && ':' !== $mapping[$i]) {
-                    $key = '';
-                    --$i;
-                } else {
-                    $key = self::evaluateScalar($key, $flags);
-                }
-            }
-
-            if (':' !== $key && false === $i = strpos($mapping, ':', $i)) {
-                break;
-            }
-
-            if (':' === $key) {
-                @trigger_error(self::getDeprecationMessage('Omitting the key of a mapping is deprecated and will throw a ParseException in 4.0.'), \E_USER_DEPRECATED);
-            }
-
-            if (!$isKeyQuoted) {
-                $evaluatedKey = self::evaluateScalar($key, $flags, $references);
-
-                if ('' !== $key && $evaluatedKey !== $key && !\is_string($evaluatedKey) && !\is_int($evaluatedKey)) {
-                    @trigger_error(self::getDeprecationMessage('Implicit casting of incompatible mapping keys to strings is deprecated since Symfony 3.3 and will throw \Symfony\Component\Yaml\Exception\ParseException in 4.0. Quote your evaluable mapping keys instead.'), \E_USER_DEPRECATED);
-                }
-            }
-
-            if (':' !== $key && !$isKeyQuoted && (!isset($mapping[$i + 1]) || !\in_array($mapping[$i + 1], [' ', ',', '[', ']', '{', '}'], true))) {
-                @trigger_error(self::getDeprecationMessage('Using a colon after an unquoted mapping key that is not followed by an indication character (i.e. " ", ",", "[", "]", "{", "}") is deprecated since Symfony 3.2 and will throw a ParseException in 4.0.'), \E_USER_DEPRECATED);
-            }
-
-            if ('<<' === $key) {
-                $allowOverwrite = true;
-            }
-
+        try {
+            // [foo, bar, ...]
+            $lastToken = null;
             while ($i < $len) {
-                if (':' === $mapping[$i] || ' ' === $mapping[$i]) {
+                if (']' === $sequence[$i]) {
+                    return $output;
+                }
+                if (',' === $sequence[$i] || ' ' === $sequence[$i]) {
+                    if (',' === $sequence[$i] && (null === $lastToken || 'separator' === $lastToken)) {
+                        $output[] = null;
+                    } elseif (',' === $sequence[$i]) {
+                        $lastToken = 'separator';
+                    }
+
                     ++$i;
 
                     continue;
                 }
 
-                $tag = self::parseTag($mapping, $i, $flags);
-                switch ($mapping[$i]) {
+                $tag = self::parseTag($sequence, $i, $flags);
+                $anchorRef = self::parseAnchor($sequence, $i);
+                if (null !== $anchorRef && null === $tag) {
+                    $tag = self::parseTag($sequence, $i, $flags);
+                }
+
+                if (null !== $anchorRef && (!isset($sequence[$i]) || ',' === $sequence[$i] || ']' === $sequence[$i])) {
+                    $value = null;
+                    $references[$anchorRef] = $value;
+                    if (null !== $tag && '' !== $tag) {
+                        $value = new TaggedValue($tag, $value);
+                    }
+                    $output[] = $value;
+                    $lastToken = 'value';
+                    continue;
+                }
+
+                if (!isset($sequence[$i])) {
+                    break;
+                }
+
+                switch ($sequence[$i]) {
                     case '[':
                         // nested sequence
-                        $value = self::parseSequence($mapping, $flags, $i, $references);
-                        // Spec: Keys MUST be unique; first one wins.
-                        // Parser cannot abort this mapping earlier, since lines
-                        // are processed sequentially.
-                        // But overwriting is allowed when a merge node is used in current block.
-                        if ('<<' === $key) {
-                            foreach ($value as $parsedValue) {
-                                $output += $parsedValue;
-                            }
-                        } elseif ($allowOverwrite || !isset($output[$key])) {
-                            if (null !== $tag) {
-                                $output[$key] = new TaggedValue($tag, $value);
-                            } else {
-                                $output[$key] = $value;
-                            }
-                        } elseif (isset($output[$key])) {
-                            @trigger_error(self::getDeprecationMessage(sprintf('Duplicate key "%s" detected whilst parsing YAML. Silent handling of duplicate mapping keys in YAML is deprecated since Symfony 3.2 and will throw \Symfony\Component\Yaml\Exception\ParseException in 4.0.', $key)), \E_USER_DEPRECATED);
-                        }
+                        $value = self::parseSequence($state, $sequence, $flags, $i, $references);
                         break;
                     case '{':
                         // nested mapping
-                        $value = self::parseMapping($mapping, $flags, $i, $references);
-                        // Spec: Keys MUST be unique; first one wins.
-                        // Parser cannot abort this mapping earlier, since lines
-                        // are processed sequentially.
-                        // But overwriting is allowed when a merge node is used in current block.
-                        if ('<<' === $key) {
-                            $output += $value;
-                        } elseif ($allowOverwrite || !isset($output[$key])) {
-                            if (null !== $tag) {
-                                $output[$key] = new TaggedValue($tag, $value);
-                            } else {
-                                $output[$key] = $value;
-                            }
-                        } elseif (isset($output[$key])) {
-                            @trigger_error(self::getDeprecationMessage(sprintf('Duplicate key "%s" detected whilst parsing YAML. Silent handling of duplicate mapping keys in YAML is deprecated since Symfony 3.2 and will throw \Symfony\Component\Yaml\Exception\ParseException in 4.0.', $key)), \E_USER_DEPRECATED);
-                        }
+                        $value = self::parseMapping($state, $sequence, $flags, $i, $references);
                         break;
                     default:
-                        $value = self::parseScalar($mapping, $flags, [',', '}'], $i, null === $tag, $references);
-                        // Spec: Keys MUST be unique; first one wins.
-                        // Parser cannot abort this mapping earlier, since lines
-                        // are processed sequentially.
-                        // But overwriting is allowed when a merge node is used in current block.
-                        if ('<<' === $key) {
-                            $output += $value;
-                        } elseif ($allowOverwrite || !isset($output[$key])) {
-                            if (null !== $tag) {
-                                $output[$key] = new TaggedValue($tag, $value);
-                            } else {
-                                $output[$key] = $value;
+                        $value = self::parseScalar($sequence, $flags, [',', ']'], $i, null === $tag, $references, $isQuoted, $state);
+
+                        // the value can be an array if a reference has been resolved to an array var
+                        if (\is_string($value) && !$isQuoted && str_contains($value, ': ')) {
+                            // embedded mapping?
+                            $j = $i;
+                            $mappingValue = $value;
+                            $mappingException = null;
+                            do {
+                                try {
+                                    $pos = 0;
+                                    $value = self::parseMapping($state, '{'.$mappingValue.'}', $flags, $pos, $references);
+                                    $i = $j;
+                                    $mappingException = null;
+                                    break;
+                                } catch (ParseException $exception) {
+                                    $mappingException = $exception;
+                                    if ($j >= $len) {
+                                        break;
+                                    }
+
+                                    $mappingValue .= $sequence[$j++];
+                                    if ($j >= $len) {
+                                        break;
+                                    }
+
+                                    $mappingValue .= self::parseScalar($sequence, $flags, [',', ']'], $j, null === $tag, $references);
+                                }
+                            } while ($j < $len);
+
+                            if ($mappingException) {
+                                throw $mappingException;
                             }
-                        } elseif (isset($output[$key])) {
-                            @trigger_error(self::getDeprecationMessage(sprintf('Duplicate key "%s" detected whilst parsing YAML. Silent handling of duplicate mapping keys in YAML is deprecated since Symfony 3.2 and will throw \Symfony\Component\Yaml\Exception\ParseException in 4.0.', $key)), \E_USER_DEPRECATED);
                         }
+
                         --$i;
                 }
+
+                if (null !== $anchorRef) {
+                    $references[$anchorRef] = $value;
+                }
+
+                if (null !== $tag && '' !== $tag) {
+                    $value = new TaggedValue($tag, $value);
+                }
+
+                $output[] = $value;
+
+                $lastToken = 'value';
                 ++$i;
-
-                continue 2;
             }
-        }
 
-        throw new ParseException(sprintf('Malformed inline YAML string: "%s".', $mapping), self::$parsedLineNumber + 1, null, self::$parsedFilename);
+            throw new ParseException(\sprintf('Malformed inline YAML string: "%s".', $sequence), self::$parsedLineNumber + 1, null, self::$parsedFilename);
+        } finally {
+            $state->leaveNestingLevel();
+        }
+    }
+
+    /**
+     * Parses a YAML mapping.
+     *
+     * @throws ParseException When malformed inline YAML string is parsed
+     */
+    private static function parseMapping(ParserState $state, string $mapping, int $flags, int &$i = 0, array &$references = []): array|\stdClass
+    {
+        $state->enterNestingLevel(self::$parsedLineNumber + 1, null, self::$parsedFilename);
+
+        $output = [];
+        $len = \strlen($mapping);
+        ++$i;
+        $allowOverwrite = false;
+
+        try {
+            // {foo: bar, bar:foo, ...}
+            while ($i < $len) {
+                switch ($mapping[$i]) {
+                    case ' ':
+                    case ',':
+                    case "\n":
+                        ++$i;
+                        continue 2;
+                    case '}':
+                        if (self::$objectForMap) {
+                            return (object) $output;
+                        }
+
+                        return $output;
+                }
+
+                // key
+                $offsetBeforeKeyParsing = $i;
+                $isKeyQuoted = \in_array($mapping[$i], ['"', "'"], true);
+                $key = self::parseScalar($mapping, $flags, [':', ' '], $i, false);
+
+                if ($offsetBeforeKeyParsing === $i) {
+                    throw new ParseException('Missing mapping key.', self::$parsedLineNumber + 1, $mapping);
+                }
+
+                if ('!php/const' === $key || '!php/enum' === $key) {
+                    $key .= ' '.self::parseScalar($mapping, $flags, ['(?<!:):(?!:)'], $i, false);
+                    $key = self::evaluateScalar($state, $key, $flags);
+                }
+
+                if (self::$objectForMap && \is_string($key) && str_starts_with($key, "\0")) {
+                    throw new ParseException('Mapping keys starting with a NUL byte are not supported with the "Yaml::PARSE_OBJECT_FOR_MAP" flag.', self::$parsedLineNumber + 1, $mapping);
+                }
+
+                if (false === $i = strpos($mapping, ':', $i)) {
+                    break;
+                }
+
+                if (!$isKeyQuoted) {
+                    $evaluatedKey = self::evaluateScalar($state, $key, $flags, $references);
+
+                    if ('' !== $key && $evaluatedKey !== $key && (!\is_string($evaluatedKey) || '!' === $key[0]) && !\is_int($evaluatedKey)) {
+                        throw new ParseException('Implicit casting of incompatible mapping keys to strings is not supported. Quote your evaluable mapping keys instead.', self::$parsedLineNumber + 1, $mapping);
+                    }
+                }
+
+                if (!$isKeyQuoted && (!isset($mapping[$i + 1]) || !\in_array($mapping[$i + 1], [' ', ',', '[', ']', '{', '}', "\n"], true))) {
+                    throw new ParseException('Colons must be followed by a space or an indication character (i.e. " ", ",", "[", "]", "{", "}").', self::$parsedLineNumber + 1, $mapping);
+                }
+
+                $isMergeKey = !$isKeyQuoted && '<<' === $key;
+
+                if ($isMergeKey) {
+                    $allowOverwrite = true;
+                }
+
+                while ($i < $len) {
+                    if (':' === $mapping[$i] || ' ' === $mapping[$i] || "\n" === $mapping[$i]) {
+                        ++$i;
+
+                        continue;
+                    }
+
+                    $tag = self::parseTag($mapping, $i, $flags);
+                    $anchorRef = self::parseAnchor($mapping, $i);
+                    if (null !== $anchorRef && null === $tag) {
+                        $tag = self::parseTag($mapping, $i, $flags);
+                    }
+
+                    if (null !== $anchorRef && (!isset($mapping[$i]) || \in_array($mapping[$i], [',', '}', "\n"], true))) {
+                        $value = null;
+                        $references[$anchorRef] = $value;
+                        if (!$isMergeKey) {
+                            if ($allowOverwrite || !isset($output[$key])) {
+                                $output[$key] = null !== $tag ? new TaggedValue($tag, $value) : $value;
+                            } elseif (isset($output[$key])) {
+                                throw new ParseException(\sprintf('Duplicate key "%s" detected.', $key), self::$parsedLineNumber + 1, $mapping);
+                            }
+                        }
+                        continue 2;
+                    }
+
+                    if (!isset($mapping[$i])) {
+                        break;
+                    }
+
+                    switch ($mapping[$i]) {
+                        case '[':
+                            // nested sequence
+                            $value = self::parseSequence($state, $mapping, $flags, $i, $references);
+                            if (null !== $anchorRef) {
+                                $references[$anchorRef] = $value;
+                            }
+                            // Spec: Keys MUST be unique; first one wins.
+                            // Parser cannot abort this mapping earlier, since lines
+                            // are processed sequentially.
+                            // But overwriting is allowed when a merge node is used in current block.
+                            if ($isMergeKey) {
+                                foreach ($value as $parsedValue) {
+                                    if (self::$objectForMap && $parsedValue instanceof \stdClass) {
+                                        $parsedValue = (array) $parsedValue;
+                                    }
+
+                                    if (!\is_array($parsedValue)) {
+                                        throw new ParseException('Merge items must be arrays.', self::$parsedLineNumber + 1, $mapping);
+                                    }
+
+                                    $output += $parsedValue;
+                                }
+                            } elseif ($allowOverwrite || !isset($output[$key])) {
+                                if (null !== $tag) {
+                                    $output[$key] = new TaggedValue($tag, $value);
+                                } else {
+                                    $output[$key] = $value;
+                                }
+                            } elseif (isset($output[$key])) {
+                                throw new ParseException(\sprintf('Duplicate key "%s" detected.', $key), self::$parsedLineNumber + 1, $mapping);
+                            }
+                            break;
+                        case '{':
+                            // nested mapping
+                            $value = self::parseMapping($state, $mapping, $flags, $i, $references);
+                            if (null !== $anchorRef) {
+                                $references[$anchorRef] = $value;
+                            }
+                            // Spec: Keys MUST be unique; first one wins.
+                            // Parser cannot abort this mapping earlier, since lines
+                            // are processed sequentially.
+                            // But overwriting is allowed when a merge node is used in current block.
+                            if ($isMergeKey) {
+                                $output += (array) $value;
+                            } elseif ($allowOverwrite || !isset($output[$key])) {
+                                if (null !== $tag) {
+                                    $output[$key] = new TaggedValue($tag, $value);
+                                } else {
+                                    $output[$key] = $value;
+                                }
+                            } elseif (isset($output[$key])) {
+                                throw new ParseException(\sprintf('Duplicate key "%s" detected.', $key), self::$parsedLineNumber + 1, $mapping);
+                            }
+                            break;
+                        default:
+                            $value = self::parseScalar($mapping, $flags, [',', '}', "\n"], $i, null === $tag, $references, $isValueQuoted, $state);
+                            if (null !== $anchorRef) {
+                                $references[$anchorRef] = $value;
+                            }
+                            // Spec: Keys MUST be unique; first one wins.
+                            // Parser cannot abort this mapping earlier, since lines
+                            // are processed sequentially.
+                            // But overwriting is allowed when a merge node is used in current block.
+                            if ($isMergeKey) {
+                                if (self::$objectForMap && $value instanceof \stdClass) {
+                                    $value = (array) $value;
+                                }
+
+                                if (!\is_array($value)) {
+                                    throw new ParseException('YAML merge keys used with a scalar value instead of an array.', self::$parsedLineNumber + 1, $mapping);
+                                }
+
+                                $output += $value;
+                            } elseif ($allowOverwrite || !isset($output[$key])) {
+                                if (null !== $tag) {
+                                    $output[$key] = new TaggedValue($tag, $value);
+                                } else {
+                                    $output[$key] = $value;
+                                }
+                            } elseif (isset($output[$key])) {
+                                throw new ParseException(\sprintf('Duplicate key "%s" detected.', $key), self::$parsedLineNumber + 1, $mapping);
+                            }
+                            --$i;
+                    }
+                    ++$i;
+
+                    continue 2;
+                }
+            }
+
+            throw new ParseException(\sprintf('Malformed inline YAML string: "%s".', $mapping), self::$parsedLineNumber + 1, null, self::$parsedFilename);
+        } finally {
+            $state->leaveNestingLevel();
+        }
     }
 
     /**
      * Evaluates scalars and replaces magic values.
      *
-     * @param string $scalar
-     * @param int    $flags
-     * @param array  $references
-     *
-     * @return mixed The evaluated YAML string
-     *
      * @throws ParseException when object parsing support was disabled and the parser detected a PHP object or when a reference could not be resolved
      */
-    private static function evaluateScalar($scalar, $flags, $references = [])
+    private static function evaluateScalar(ParserState $state, string $scalar, int $flags, array &$references = [], ?bool &$isQuotedString = null): mixed
     {
+        $isQuotedString = false;
         $scalar = trim($scalar);
-        $scalarLower = strtolower($scalar);
 
-        if (0 === strpos($scalar, '*')) {
-            if (false !== $pos = strpos($scalar, '#')) {
-                $value = substr($scalar, 1, $pos - 2);
-            } else {
-                $value = substr($scalar, 1);
+        if (str_starts_with($scalar, '*')) {
+            $value = substr($scalar, 1);
+
+            // remove comments
+            if (Parser::preg_match('/[ \t]+#/', $value, $match, \PREG_OFFSET_CAPTURE)) {
+                $value = substr($value, 0, $match[0][1]);
             }
 
             // an unquoted *
-            if (false === $value || '' === $value) {
+            if ('' === $value) {
                 throw new ParseException('A reference must contain at least one character.', self::$parsedLineNumber + 1, $value, self::$parsedFilename);
             }
 
             if (!\array_key_exists($value, $references)) {
-                throw new ParseException(sprintf('Reference "%s" does not exist.', $value), self::$parsedLineNumber + 1, $value, self::$parsedFilename);
+                throw new ParseException(\sprintf('Reference "%s" does not exist.', $value), self::$parsedLineNumber + 1, $value, self::$parsedFilename);
             }
+
+            $state->countAlias($references[$value], self::$parsedLineNumber + 1, null, self::$parsedFilename);
 
             return $references[$value];
         }
+
+        $scalarLower = strtolower($scalar);
 
         switch (true) {
             case 'null' === $scalarLower:
@@ -661,47 +727,27 @@ class Inline
                 return false;
             case '!' === $scalar[0]:
                 switch (true) {
-                    case 0 === strpos($scalar, '!str'):
-                        @trigger_error(self::getDeprecationMessage('Support for the !str tag is deprecated since Symfony 3.4. Use the !!str tag instead.'), \E_USER_DEPRECATED);
+                    case '!!str' === $scalar:
+                    case '!!binary' === $scalar:
+                        return '';
+                    case str_starts_with($scalar, '!!str '):
+                        $s = substr($scalar, 6);
 
-                        return (string) substr($scalar, 5);
-                    case 0 === strpos($scalar, '!!str '):
-                        return (string) substr($scalar, 6);
-                    case 0 === strpos($scalar, '! '):
-                        @trigger_error(self::getDeprecationMessage('Using the non-specific tag "!" is deprecated since Symfony 3.4 as its behavior will change in 4.0. It will force non-evaluating your values in 4.0. Use plain integers or !!float instead.'), \E_USER_DEPRECATED);
-
-                        return (int) self::parseScalar(substr($scalar, 2), $flags);
-                    case 0 === strpos($scalar, '!php/object:'):
-                        if (self::$objectSupport) {
-                            @trigger_error(self::getDeprecationMessage('The !php/object: tag to indicate dumped PHP objects is deprecated since Symfony 3.4 and will be removed in 4.0. Use the !php/object (without the colon) tag instead.'), \E_USER_DEPRECATED);
-
-                            return unserialize(substr($scalar, 12));
+                        if (\in_array($s[0] ?? '', ['"', "'"], true)) {
+                            $isQuotedString = true;
+                            $s = self::parseQuotedScalar($s);
                         }
 
-                        if (self::$exceptionOnInvalidType) {
-                            throw new ParseException('Object support when parsing a YAML file has been disabled.', self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
-                        }
-
-                        return null;
-                    case 0 === strpos($scalar, '!!php/object:'):
-                        if (self::$objectSupport) {
-                            @trigger_error(self::getDeprecationMessage('The !!php/object: tag to indicate dumped PHP objects is deprecated since Symfony 3.1 and will be removed in 4.0. Use the !php/object (without the colon) tag instead.'), \E_USER_DEPRECATED);
-
-                            return unserialize(substr($scalar, 13));
-                        }
-
-                        if (self::$exceptionOnInvalidType) {
-                            throw new ParseException('Object support when parsing a YAML file has been disabled.', self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
-                        }
-
-                        return null;
-                    case 0 === strpos($scalar, '!php/object'):
+                        return $s;
+                    case str_starts_with($scalar, '! '):
+                        return substr($scalar, 2);
+                    case str_starts_with($scalar, '!php/object'):
                         if (self::$objectSupport) {
                             if (!isset($scalar[12])) {
-                                return false;
+                                throw new ParseException('Missing value for tag "!php/object".', self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
                             }
 
-                            return unserialize(self::parseScalar(substr($scalar, 12)));
+                            return unserialize(self::parseScalar(substr($scalar, 12)), ['allowed_classes' => true]);
                         }
 
                         if (self::$exceptionOnInvalidType) {
@@ -709,25 +755,10 @@ class Inline
                         }
 
                         return null;
-                    case 0 === strpos($scalar, '!php/const:'):
-                        if (self::$constantSupport) {
-                            @trigger_error(self::getDeprecationMessage('The !php/const: tag to indicate dumped PHP constants is deprecated since Symfony 3.4 and will be removed in 4.0. Use the !php/const (without the colon) tag instead.'), \E_USER_DEPRECATED);
-
-                            if (\defined($const = substr($scalar, 11))) {
-                                return \constant($const);
-                            }
-
-                            throw new ParseException(sprintf('The constant "%s" is not defined.', $const), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
-                        }
-                        if (self::$exceptionOnInvalidType) {
-                            throw new ParseException(sprintf('The string "%s" could not be parsed as a constant. Did you forget to pass the "Yaml::PARSE_CONSTANT" flag to the parser?', $scalar), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
-                        }
-
-                        return null;
-                    case 0 === strpos($scalar, '!php/const'):
+                    case str_starts_with($scalar, '!php/const'):
                         if (self::$constantSupport) {
                             if (!isset($scalar[11])) {
-                                return '';
+                                throw new ParseException('Missing value for tag "!php/const".', self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
                             }
 
                             $i = 0;
@@ -735,40 +766,83 @@ class Inline
                                 return \constant($const);
                             }
 
-                            throw new ParseException(sprintf('The constant "%s" is not defined.', $const), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+                            throw new ParseException(\sprintf('The constant "%s" is not defined.', $const), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
                         }
                         if (self::$exceptionOnInvalidType) {
-                            throw new ParseException(sprintf('The string "%s" could not be parsed as a constant. Did you forget to pass the "Yaml::PARSE_CONSTANT" flag to the parser?', $scalar), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+                            throw new ParseException(\sprintf('The string "%s" could not be parsed as a constant. Did you forget to pass the "Yaml::PARSE_CONSTANT" flag to the parser?', $scalar), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
                         }
 
                         return null;
-                    case 0 === strpos($scalar, '!!float '):
+                    case str_starts_with($scalar, '!php/enum'):
+                        if (self::$constantSupport) {
+                            if (!isset($scalar[11])) {
+                                throw new ParseException('Missing value for tag "!php/enum".', self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+                            }
+
+                            $i = 0;
+                            $enumName = self::parseScalar(substr($scalar, 10), 0, null, $i, false);
+                            $useName = str_contains($enumName, '::');
+                            $enum = $useName ? strstr($enumName, '::', true) : $enumName;
+
+                            if (!enum_exists($enum)) {
+                                throw new ParseException(\sprintf('The enum "%s" is not defined.', $enum), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+                            }
+                            if (!$useName) {
+                                return $enum::cases();
+                            }
+                            if ($useValue = str_ends_with($enumName, '->value')) {
+                                $enumName = substr($enumName, 0, -7);
+                            }
+
+                            if (!\defined($enumName)) {
+                                throw new ParseException(\sprintf('The string "%s" is not the name of a valid enum.', $enumName), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+                            }
+
+                            $value = \constant($enumName);
+
+                            if (!$useValue) {
+                                return $value;
+                            }
+                            if (!$value instanceof \BackedEnum) {
+                                throw new ParseException(\sprintf('The enum "%s" defines no value next to its name.', $enumName), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+                            }
+
+                            return $value->value;
+                        }
+                        if (self::$exceptionOnInvalidType) {
+                            throw new ParseException(\sprintf('The string "%s" could not be parsed as an enum. Did you forget to pass the "Yaml::PARSE_CONSTANT" flag to the parser?', $scalar), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+                        }
+
+                        return null;
+                    case str_starts_with($scalar, '!!float '):
                         return (float) substr($scalar, 8);
-                    case 0 === strpos($scalar, '!!binary '):
+                    case str_starts_with($scalar, '!!binary '):
                         return self::evaluateBinaryScalar(substr($scalar, 9));
-                    default:
-                        @trigger_error(self::getDeprecationMessage(sprintf('Using the unquoted scalar value "%s" is deprecated since Symfony 3.3 and will be considered as a tagged value in 4.0. You must quote it.', $scalar)), \E_USER_DEPRECATED);
                 }
 
-            // Optimize for returning strings.
-            // no break
-            case '+' === $scalar[0] || '-' === $scalar[0] || '.' === $scalar[0] || is_numeric($scalar[0]):
+                throw new ParseException(\sprintf('The string "%s" could not be parsed as it uses an unsupported built-in tag.', $scalar), self::$parsedLineNumber, $scalar, self::$parsedFilename);
+            case preg_match('/^(?:\+|-)?0o(?P<value>[0-7_]++)$/', $scalar, $matches):
+                $value = str_replace('_', '', $matches['value']);
+
+                if ('-' === $scalar[0]) {
+                    return -octdec($value);
+                }
+
+                return octdec($value);
+            case \in_array($scalar[0], ['+', '-', '.'], true) || is_numeric($scalar[0]):
                 if (Parser::preg_match('{^[+-]?[0-9][0-9_]*$}', $scalar)) {
-                    $scalar = str_replace('_', '', (string) $scalar);
+                    $scalar = str_replace('_', '', $scalar);
+
+                    if ('+' === $scalar[0]) {
+                        $scalar = substr($scalar, 1);
+                    }
                 }
 
                 switch (true) {
                     case ctype_digit($scalar):
-                        if (preg_match('/^0[0-7]+$/', $scalar)) {
-                            return octdec($scalar);
-                        }
-
-                        $cast = (int) $scalar;
-
-                        return ($scalar === (string) $cast) ? $cast : $scalar;
                     case '-' === $scalar[0] && ctype_digit(substr($scalar, 1)):
-                        if (preg_match('/^-0[0-7]+$/', $scalar)) {
-                            return -octdec(substr($scalar, 1));
+                        if ($scalar < \PHP_INT_MIN || \PHP_INT_MAX < $scalar) {
+                            return $scalar;
                         }
 
                         $cast = (int) $scalar;
@@ -780,97 +854,122 @@ class Inline
 
                         return '0x' === $scalar[0].$scalar[1] ? hexdec($scalar) : (float) $scalar;
                     case '.inf' === $scalarLower:
-                    case '.nan' === $scalarLower:
                         return -log(0);
+                    case '.nan' === $scalarLower:
+                        return \NAN;
                     case '-.inf' === $scalarLower:
                         return log(0);
-                    case Parser::preg_match('/^(-|\+)?[0-9][0-9,]*(\.[0-9_]+)?$/', $scalar):
                     case Parser::preg_match('/^(-|\+)?[0-9][0-9_]*(\.[0-9_]+)?$/', $scalar):
-                        if (false !== strpos($scalar, ',')) {
-                            @trigger_error(self::getDeprecationMessage('Using the comma as a group separator for floats is deprecated since Symfony 3.2 and will be removed in 4.0.'), \E_USER_DEPRECATED);
-                        }
-
-                        return (float) str_replace([',', '_'], '', $scalar);
+                        return (float) str_replace('_', '', $scalar);
                     case Parser::preg_match(self::getTimestampRegex(), $scalar):
-                        if (Yaml::PARSE_DATETIME & $flags) {
+                        try {
                             // When no timezone is provided in the parsed date, YAML spec says we must assume UTC.
-                            return new \DateTime($scalar, new \DateTimeZone('UTC'));
+                            $time = new \DateTimeImmutable($scalar, new \DateTimeZone('UTC'));
+                        } catch (\Exception $e) {
+                            // Some dates accepted by the regex are not valid dates.
+                            throw new ParseException(\sprintf('The date "%s" could not be parsed as it is an invalid date.', $scalar), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename, $e);
                         }
 
-                        $timeZone = date_default_timezone_get();
-                        date_default_timezone_set('UTC');
-                        $time = strtotime($scalar);
-                        date_default_timezone_set($timeZone);
+                        if (Yaml::PARSE_DATETIME & $flags) {
+                            return $time;
+                        }
 
-                        return $time;
+                        if ('' !== rtrim($time->format('u'), '0')) {
+                            return $time->format('U') + $time->format('u') / 1e6;
+                        }
+
+                        try {
+                            if (false !== $scalar = $time->getTimestamp()) {
+                                return $scalar;
+                            }
+                        } catch (\DateRangeError|\ValueError) {
+                            // no-op
+                        }
+
+                        return $time->format('U');
                 }
         }
 
         return (string) $scalar;
     }
 
-    /**
-     * @param string $value
-     * @param int    &$i
-     * @param int    $flags
-     *
-     * @return string|null
-     */
-    private static function parseTag($value, &$i, $flags)
+    private static function parseAnchor(string $value, int &$i): ?string
+    {
+        if (!isset($value[$i]) || '&' !== $value[$i]) {
+            return null;
+        }
+
+        if (!Parser::preg_match('/^&(?P<ref>[^ \t,\[\]\{\}\n]++)\s*+/A', substr($value, $i), $matches)) {
+            return null;
+        }
+
+        $i += \strlen($matches[0]);
+
+        return $matches['ref'];
+    }
+
+    private static function parseTag(string $value, int &$i, int $flags): ?string
     {
         if ('!' !== $value[$i]) {
             return null;
         }
 
-        $tagLength = strcspn($value, " \t\n", $i + 1);
+        $tagLength = strcspn($value, " \t\n[]{},", $i + 1);
         $tag = substr($value, $i + 1, $tagLength);
 
         $nextOffset = $i + $tagLength + 1;
         $nextOffset += strspn($value, ' ', $nextOffset);
 
-        // Is followed by a scalar
-        if ((!isset($value[$nextOffset]) || !\in_array($value[$nextOffset], ['[', '{'], true)) && 'tagged' !== $tag) {
-            // Manage non-whitelisted scalars in {@link self::evaluateScalar()}
+        if ('' === $tag && (!isset($value[$nextOffset]) || \in_array($value[$nextOffset], [']', '}', ','], true))) {
+            throw new ParseException('Using the unquoted scalar value "!" is not supported. You must quote it.', self::$parsedLineNumber + 1, $value, self::$parsedFilename);
+        }
+
+        // Is followed by a scalar and is a built-in tag
+        if ('' !== $tag && (!isset($value[$nextOffset]) || !\in_array($value[$nextOffset], ['[', '{'], true)) && ('!' === $tag[0] || \in_array($tag, ['str', 'php/const', 'php/enum', 'php/object'], true))) {
+            // Manage in {@link self::evaluateScalar()}
             return null;
         }
 
+        $i = $nextOffset;
+
         // Built-in tags
-        if ($tag && '!' === $tag[0]) {
-            throw new ParseException(sprintf('The built-in tag "!%s" is not implemented.', $tag), self::$parsedLineNumber + 1, $value, self::$parsedFilename);
+        if ('' !== $tag && '!' === $tag[0]) {
+            throw new ParseException(\sprintf('The built-in tag "!%s" is not implemented.', $tag), self::$parsedLineNumber + 1, $value, self::$parsedFilename);
         }
 
-        if (Yaml::PARSE_CUSTOM_TAGS & $flags) {
-            $i = $nextOffset;
-
+        if ('' === $tag || Yaml::PARSE_CUSTOM_TAGS & $flags) {
             return $tag;
         }
 
-        throw new ParseException(sprintf('Tags support is not enabled. Enable the `Yaml::PARSE_CUSTOM_TAGS` flag to use "!%s".', $tag), self::$parsedLineNumber + 1, $value, self::$parsedFilename);
+        throw new ParseException(\sprintf('Tags support is not enabled. Enable the "Yaml::PARSE_CUSTOM_TAGS" flag to use "!%s".', $tag), self::$parsedLineNumber + 1, $value, self::$parsedFilename);
     }
 
-    /**
-     * @param string $scalar
-     *
-     * @return string
-     *
-     * @internal
-     */
-    public static function evaluateBinaryScalar($scalar)
+    public static function evaluateBinaryScalar(string $scalar): string
     {
-        $parsedBinaryData = self::parseScalar(preg_replace('/\s/', '', $scalar));
+        $parsedBinaryData = preg_replace('/\s/', '', $scalar);
+
+        if ('' === $parsedBinaryData || '' === $parsedBinaryData = self::parseScalar($parsedBinaryData)) {
+            return '';
+        }
+
+        if (!\is_scalar($parsedBinaryData ?? '') && !$parsedBinaryData instanceof \Stringable) {
+            throw new ParseException(\sprintf('The "!!binary" tag only supports a base64 encoded string, got "%s".', get_debug_type($parsedBinaryData)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+        }
+
+        $parsedBinaryData = (string) $parsedBinaryData;
 
         if (0 !== (\strlen($parsedBinaryData) % 4)) {
-            throw new ParseException(sprintf('The normalized base64 encoded data (data without whitespace characters) length must be a multiple of four (%d bytes given).', \strlen($parsedBinaryData)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+            throw new ParseException(\sprintf('The normalized base64 encoded data (data without whitespace characters) length must be a multiple of four (%d bytes given).', \strlen($parsedBinaryData)), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
         }
 
         if (!Parser::preg_match('#^[A-Z0-9+/]+={0,2}$#i', $parsedBinaryData)) {
-            throw new ParseException(sprintf('The base64 encoded data (%s) contains invalid characters.', $parsedBinaryData), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
+            throw new ParseException(\sprintf('The base64 encoded data (%s) contains invalid characters.', $parsedBinaryData), self::$parsedLineNumber + 1, $scalar, self::$parsedFilename);
         }
 
         return base64_decode($parsedBinaryData, true);
     }
 
-    private static function isBinaryString($value)
+    private static function isBinaryString(string $value): bool
     {
         return !preg_match('//u', $value) || preg_match('/[^\x00\x07-\x0d\x1B\x20-\xff]/', $value);
     }
@@ -878,50 +977,31 @@ class Inline
     /**
      * Gets a regex that matches a YAML date.
      *
-     * @return string The regular expression
-     *
      * @see http://www.yaml.org/spec/1.2/spec.html#id2761573
      */
-    private static function getTimestampRegex()
+    private static function getTimestampRegex(): string
     {
         return <<<EOF
-        ~^
-        (?P<year>[0-9][0-9][0-9][0-9])
-        -(?P<month>[0-9][0-9]?)
-        -(?P<day>[0-9][0-9]?)
-        (?:(?:[Tt]|[ \t]+)
-        (?P<hour>[0-9][0-9]?)
-        :(?P<minute>[0-9][0-9])
-        :(?P<second>[0-9][0-9])
-        (?:\.(?P<fraction>[0-9]*))?
-        (?:[ \t]*(?P<tz>Z|(?P<tz_sign>[-+])(?P<tz_hour>[0-9][0-9]?)
-        (?::(?P<tz_minute>[0-9][0-9]))?))?)?
-        $~x
-EOF;
+                    ~^
+                    (?P<year>[0-9][0-9][0-9][0-9])
+                    -(?P<month>[0-9][0-9]?)
+                    -(?P<day>[0-9][0-9]?)
+                    (?:(?:[Tt]|[ \t]+)
+                    (?P<hour>[0-9][0-9]?)
+                    :(?P<minute>[0-9][0-9])
+                    :(?P<second>[0-9][0-9])
+                    (?:\.(?P<fraction>[0-9]*))?
+                    (?:[ \t]*(?P<tz>Z|(?P<tz_sign>[-+])(?P<tz_hour>[0-9][0-9]?)
+                    (?::(?P<tz_minute>[0-9][0-9]))?))?)?
+                    $~x
+            EOF;
     }
 
     /**
      * Gets a regex that matches a YAML number in hexadecimal notation.
-     *
-     * @return string
      */
-    private static function getHexRegex()
+    private static function getHexRegex(): string
     {
-        return '~^0x[0-9a-f_]++$~i';
-    }
-
-    private static function getDeprecationMessage($message)
-    {
-        $message = rtrim($message, '.');
-
-        if (null !== self::$parsedFilename) {
-            $message .= ' in '.self::$parsedFilename;
-        }
-
-        if (-1 !== self::$parsedLineNumber) {
-            $message .= ' on line '.(self::$parsedLineNumber + 1);
-        }
-
-        return $message.'.';
+        return '~^0x[0-9a-fA-F_]++$~';
     }
 }

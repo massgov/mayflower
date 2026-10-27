@@ -22,6 +22,10 @@ use \PatternLab\Template;
 use \PatternLab\Timer;
 
 class PatternCodeHelper extends \PatternLab\PatternData\Helper {
+
+	protected $exportFiles;
+	protected $exportClean;
+	protected $patternPaths;
 	
 	public function __construct($options = array()) {
 		

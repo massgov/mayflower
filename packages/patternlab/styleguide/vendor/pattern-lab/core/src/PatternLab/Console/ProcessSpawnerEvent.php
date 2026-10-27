@@ -12,9 +12,7 @@
 
 namespace PatternLab\Console;
 
-use \Symfony\Component\EventDispatcher\Event as SymfonyEvent;
-
-class ProcessSpawnerEvent extends SymfonyEvent {
+class ProcessSpawnerEvent {
 	
 	protected $pluginProcesses;
 	

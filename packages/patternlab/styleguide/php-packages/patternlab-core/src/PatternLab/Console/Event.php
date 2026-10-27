@@ -12,9 +12,7 @@
 
 namespace PatternLab\Console;
 
-use Symfony\Component\EventDispatcher;
-
-class Event extends EventDispatcher\Event {
+class Event {
 	
 	protected $options;
 	

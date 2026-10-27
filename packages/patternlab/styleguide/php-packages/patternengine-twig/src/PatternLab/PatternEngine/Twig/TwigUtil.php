@@ -15,6 +15,8 @@ namespace PatternLab\PatternEngine\Twig;
 use \PatternLab\Config;
 use \PatternLab\Console;
 use \Symfony\Component\Finder\Finder;
+use \Twig\Extension\CoreExtension;
+use \Twig\Extension\DebugExtension;
 
 class TwigUtil {
 	
@@ -120,7 +122,7 @@ class TwigUtil {
 		$intervalFormat = Config::getOption("twigDefaultIntervalFormat");
 		
 		if ($dateFormat && $intervalFormat && !empty($dateFormat) && !empty($intervalFormat)) {
-			self::$instance->getExtension("core")->setDateFormat($dateFormat, $intervalFormat);
+			self::$instance->getExtension(CoreExtension::class)->setDateFormat($dateFormat, $intervalFormat);
 		}
 		
 	}
@@ -131,7 +133,7 @@ class TwigUtil {
 	public static function loadDebug() {
 		
 		if (Config::getOption("twigDebug")) {
-			self::$instance->addExtension(new \Twig_Extension_Debug());
+			self::$instance->addExtension(new DebugExtension());
 		}
 		
 	}
@@ -235,7 +237,7 @@ class TwigUtil {
 				if ($baseName[0] != "_") {
 					
 					// add the macro to the global context
-					self::$instance->addGlobal($file->getBasename(".".$macroExt), self::$instance->loadTemplate($baseName));
+					self::$instance->addGlobal($file->getBasename(".".$macroExt), self::$instance->load($baseName));
 					
 				}
 				

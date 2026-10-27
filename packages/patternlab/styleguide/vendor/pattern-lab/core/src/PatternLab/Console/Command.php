@@ -16,6 +16,7 @@ use \PatternLab\Timer;
 
 class Command {
 	
+	protected $command;
 	protected $pathPHP;
 	protected $pathConsole;
 	

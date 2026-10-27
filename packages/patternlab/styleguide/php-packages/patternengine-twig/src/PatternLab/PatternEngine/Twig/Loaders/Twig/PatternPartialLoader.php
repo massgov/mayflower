@@ -14,8 +14,11 @@
 namespace PatternLab\PatternEngine\Twig\Loaders\Twig;
 
 use \PatternLab\PatternEngine\Util;
+use \Twig\Error\LoaderError;
+use \Twig\Loader\LoaderInterface;
+use \Twig\Source;
 
-class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderInterface {
+class PatternPartialLoader implements LoaderInterface {
 	
 	/** Identifier of the main namespace. */
 	const MAIN_NAMESPACE = '__main__';
@@ -24,6 +27,7 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 	protected $cache        = array();
 	protected $patternPaths = array();
 	protected $extension    = '.twig';
+	protected Util $patternUtil;
 	
 	/**
 	 * Constructor.
@@ -93,7 +97,7 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 		$this->cache = array();
 		
 		if (!is_dir($path)) {
-			throw new \Twig_Error_Loader(sprintf('The "%s" directory does not exist.', $path));
+			throw new LoaderError(sprintf('The "%s" directory does not exist.', $path));
 		}
 		
 		$this->paths[$namespace][] = rtrim($path, '/\\');
@@ -112,7 +116,7 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 		$this->cache = array();
 		
 		if (!is_dir($path)) {
-			throw new \Twig_Error_Loader(sprintf('The "%s" directory does not exist.', $path));
+			throw new LoaderError(sprintf('The "%s" directory does not exist.', $path));
 		}
 		
 		$path = rtrim($path, '/\\');
@@ -128,21 +132,22 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getSource($name) {
-		return file_get_contents($this->findTemplate($name));
+	public function getSourceContext(string $name): Source {
+		$path = $this->findTemplate($name);
+		return new Source(file_get_contents($path), $name, $path);
 	}
 	
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getCacheKey($name) {
+	public function getCacheKey(string $name): string {
 		return $this->findTemplate($name);
 	}
 	
 	/**
 	 * {@inheritdoc}
 	 */
-	public function exists($name) {
+	public function exists(string $name): bool {
 		
 		$name = $this->normalizeName($name);
 		
@@ -154,7 +159,7 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 			$this->findTemplate($name);
 			
 			return true;
-		} catch (\Twig_Error_Loader $exception) {
+		} catch (LoaderError $exception) {
 			return false;
 		}
 	}
@@ -162,11 +167,11 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 	/**
 	 * {@inheritdoc}
 	 */
-	public function isFresh($name, $time) {
+	public function isFresh(string $name, int $time): bool {
 		return filemtime($this->findTemplate($name)) <= $time;
 	}
 	
-	protected function findTemplate($name) {
+	protected function findTemplate(string $name): string {
 		
 		list($partialName,$styleModifier,$parameters) = $this->patternUtil->getPartialInfo($name);
 		
@@ -184,7 +189,7 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 		$shortname = $name;
 		if (isset($name[0]) && '@' == $name[0]) {
 			if (false === $pos = strpos($name, '/')) {
-				throw new \Twig_Error_Loader(sprintf('Malformed namespaced template name "%s" (expecting "@namespace/template_name").', $name));
+				throw new LoaderError(sprintf('Malformed namespaced template name "%s" (expecting "@namespace/template_name").', $name));
 			}
 			
 			$namespace = substr($name, 1, $pos - 1);
@@ -192,7 +197,7 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 		}
 		
 		if (!isset($this->paths[$namespace])) {
-			throw new \Twig_Error_Loader(sprintf('There are no registered paths for namespace "%s".', $namespace));
+			throw new LoaderError(sprintf('There are no registered paths for namespace "%s".', $namespace));
 		}
 		
 		foreach ($this->paths[$namespace] as $path) {
@@ -202,17 +207,17 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 		}
 		
 		
-		throw new \Twig_Error_Loader(sprintf('Unable to find template "%s" (looked into: %s).', $partialName, implode(', ', $this->paths[$namespace])));
+		throw new LoaderError(sprintf('Unable to find template "%s" (looked into: %s).', $partialName, implode(', ', $this->paths[$namespace])));
 	}
 	
-	protected function normalizeName($name) {
+	protected function normalizeName(string $name): string {
 		return preg_replace('#/{2,}#', '/', strtr((string) $name, '\\', '/'));
 	}
 	
-	protected function validateName($name) {
+	protected function validateName(string $name): void {
 		
 		if (false !== strpos($name, "\0")) {
-			throw new \Twig_Error_Loader('A template name cannot contain NUL bytes.');
+			throw new LoaderError('A template name cannot contain NUL bytes.');
 		}
 		
 		$name = ltrim($name, '/');
@@ -226,7 +231,7 @@ class PatternPartialLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderI
 			}
 			
 			if ($level < 0) {
-				throw new \Twig_Error_Loader(sprintf('Looks like you try to load a template outside configured directories (%s).', $name));
+				throw new LoaderError(sprintf('Looks like you try to load a template outside configured directories (%s).', $name));
 			}
 		}
 		
