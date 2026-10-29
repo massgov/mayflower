@@ -29,6 +29,8 @@
     }
   },
   "require": {
+    "ext-phar": "*",
+    "ext-zlib": "*",
     "php": "^8.4.27",
     "kevinlebrun/colors.php": "^1.0",
     "michelf/php-markdown": "^1.6",

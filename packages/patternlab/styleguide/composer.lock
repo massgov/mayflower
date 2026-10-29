@@ -120,9 +120,11 @@
             "dist": {
                 "type": "path",
                 "url": "php-packages/patternlab-core",
-                "reference": "e8dec49e2031ef4f012fa8b6de7c75242cd60123"
+                "reference": "b4cedb6a64373a9ec1af894464963bb5568afb6d"
             },
             "require": {
+                "ext-phar": "*",
+                "ext-zlib": "*",
                 "kevinlebrun/colors.php": "^1.0",
                 "michelf/php-markdown": "^1.6",
                 "php": "^8.4.27",

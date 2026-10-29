@@ -116,8 +116,16 @@ class PatternLoader extends Loader {
 	* @return {String}       the rendered result
 	*/
 	public function render($options = array()) {
-		
-		return $this->instance->render($options["pattern"], $options["data"]);
+
+		$result = $this->instance->render($options["pattern"], $options["data"]);
+
+		// The fallback loader treats unresolved names as inline Twig source. If a
+		// namespaced pattern reaches it unchanged, the requested file was missing.
+		if (str_starts_with($result, "@")) {
+			throw new \RuntimeException("Twig file not found: ".$result);
+		}
+
+		return $result;
 		
 	}
 	

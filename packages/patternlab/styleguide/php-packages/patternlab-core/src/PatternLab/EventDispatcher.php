@@ -14,12 +14,15 @@ class EventDispatcher {
 	}
 
 	public function dispatch(string $eventName, ?object $event = null): object {
-		$event = $event ?? new \stdClass();
+		$event = $event ?? new Event();
 		$listeners = $this->listeners[$eventName] ?? array();
 		krsort($listeners);
 
 		foreach ($listeners as $priorityListeners) {
 			foreach ($priorityListeners as $listener) {
+				if ($event instanceof Event && $event->isPropagationStopped()) {
+					break 2;
+				}
 				$listener($event, $eventName, $this);
 			}
 		}

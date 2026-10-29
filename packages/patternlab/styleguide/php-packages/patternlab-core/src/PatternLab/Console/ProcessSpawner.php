@@ -120,7 +120,10 @@ class ProcessSpawner {
 			$idle        = isset($commandOptions["idle"])    ? $commandOptions["idle"]    : null;
 			$output      = isset($commandOptions["output"])  ? $commandOptions["output"]  : true;
 			
-			$process = Process::fromShellCommandline($commandline, $cwd, $env, $input, $timeout, $options);
+			$process = Process::fromShellCommandline($commandline, $cwd, $env, $input, $timeout);
+			if (!empty($options)) {
+				$process->setOptions($options);
+			}
 			
 			// double-check idle
 			if (!empty($idle)) {

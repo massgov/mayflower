@@ -12,7 +12,7 @@
 
 namespace PatternLab\Console;
 
-class Event {
+class Event extends \PatternLab\Event {
 	
 	protected $options;
 	

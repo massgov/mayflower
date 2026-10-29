@@ -13,7 +13,7 @@
 namespace PatternLab\PatternData;
 
 use \PatternLab\Timer;
-class Event {
+class Event extends \PatternLab\Event {
 	
 	protected $options;
 	

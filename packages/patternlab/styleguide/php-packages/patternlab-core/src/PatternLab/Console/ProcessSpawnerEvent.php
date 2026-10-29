@@ -12,7 +12,7 @@
 
 namespace PatternLab\Console;
 
-class ProcessSpawnerEvent {
+class ProcessSpawnerEvent extends \PatternLab\Event {
 	
 	protected $pluginProcesses;
 	

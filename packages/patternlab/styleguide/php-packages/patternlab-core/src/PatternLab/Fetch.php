@@ -12,12 +12,10 @@
 
 namespace PatternLab;
 
-use \Alchemy\Zippy\Zippy;
 use \PatternLab\Config;
 use \PatternLab\Console;
 use \PatternLab\InstallerUtil;
 use \PatternLab\Timer;
-use \PatternLab\Zippy\UnpackFileStrategy;
 use \Symfony\Component\Filesystem\Filesystem;
 use \Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
@@ -72,17 +70,16 @@ class Fetch {
 		
 		Console::writeInfo("finished downloading the starterkit...");
 		
-		// make sure the temp dir exists before copying into it
-		if (!is_dir($tempDirSK)) {
-			mkdir($tempDirSK);
-		}
-		
-		// extract, if the zip is supposed to be unpacked do that (e.g. stripdir)
+		// Recreate the extraction directory so a failed prior download cannot leave
+		// stale StarterKit files behind.
+		$fs->remove($tempDirSK);
+		$fs->mkdir($tempDirSK, 0775);
+
+		// Extract the GitHub tarball using PHP's native archive support.
 		try {
-			$zippy = Zippy::load();
-			$zippy->addStrategy(new UnpackFileStrategy());
-			$zippy->getAdapterFor('tar.gz')->open($tempFile)->extract($tempDirSK);
-		} catch(\RuntimeException $e) {
+			$archive = new \PharData($tempFile);
+			$archive->extractTo($tempDirSK, null, true);
+		} catch (\Throwable $e) {
 			Console::writeError("failed to extract the starterkit. easiest solution is to manually download it and copy <path>./dist</path to <path>./source/</path>...");
 		}
 		
