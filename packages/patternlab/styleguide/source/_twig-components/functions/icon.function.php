@@ -1,8 +1,9 @@
 <?php
 
 use PatternLab\Config;
+use Twig\TwigFunction;
 
-$function = new Twig_SimpleFunction('icon', function ($name, $width = '24', $height = '24', $class = '', $bold = true) {
+$function = new TwigFunction('icon', function ($name, $width = '24', $height = '24', $class = '', $bold = true) {
   // Note: Temporary BC layer for turning icon twig files into direct
   // filename references. This exists only so we don't break anything
   // terribly while working this function into general use. Going forward,

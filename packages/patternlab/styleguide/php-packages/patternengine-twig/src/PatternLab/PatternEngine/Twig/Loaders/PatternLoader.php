@@ -1,0 +1,132 @@
+<?php
+
+/*!
+ * Twig Pattern Engine Loader Class - Patterns
+ *
+ * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+ * Licensed under the MIT license
+ *
+ * Sets an instance of Twig to deal with patterns. Tries to find
+ * files on system first. If not tries to load them as strings.
+ *
+ */
+
+namespace PatternLab\PatternEngine\Twig\Loaders;
+
+use \PatternLab\Config;
+use \PatternLab\Dispatcher;
+use \PatternLab\PatternEngine\Twig\Loaders\Twig\PatternPartialLoader as Twig_Loader_PatternPartialLoader;
+use \PatternLab\PatternEngine\Twig\Loaders\Twig\StringFallbackLoader;
+use \PatternLab\PatternEngine\Loader;
+use \PatternLab\PatternEngine\Twig\TwigUtil;
+use \Twig\Environment;
+use \Twig\Loader\ChainLoader;
+use \Twig\Loader\FilesystemLoader as TwigFilesystemLoader;
+
+class PatternLoader extends Loader {
+	
+	/**
+	* Load a new Twig instance that uses the Pattern Loader
+	*/
+	public function __construct($options = array()) {
+		
+		// set-up default vars
+		$twigDebug      = Config::getOption("twigDebug");
+		$twigAutoescape = Config::getOption("twigAutoescape");
+		
+		// go through various places where things can exist
+		$filesystemLoaderPaths = array();
+		
+		// see if source/_macros exists
+		$macrosPath = Config::getOption("sourceDir").DIRECTORY_SEPARATOR."_macros";
+		if (is_dir($macrosPath)) {
+			$filesystemLoaderPaths[] = $macrosPath;
+		}
+		
+		// see if source/_layouts exists. if so add it to be searchable
+		$layoutsPath = Config::getOption("sourceDir").DIRECTORY_SEPARATOR."_layouts";
+		if (is_dir($layoutsPath)) {
+			$filesystemLoaderPaths[] = $layoutsPath;
+		}
+
+		// add source/_patterns subdirectories for Drupal theme template compatibility
+		$patternSourceDir = Config::getOption("sourceDir").DIRECTORY_SEPARATOR."_patterns";
+		$patternObjects = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($patternSourceDir), \RecursiveIteratorIterator::SELF_FIRST);
+		$patternObjects->setFlags(\FilesystemIterator::SKIP_DOTS);
+
+		// sort the returned objects
+		$patternObjects = iterator_to_array($patternObjects);
+		ksort($patternObjects);
+
+		foreach ($patternObjects as $name => $object) {
+			if ($object->isDir()) {
+				$filesystemLoaderPaths[] = $object->getPathname();
+			}
+		}
+		
+		// set-up the loader list in order that they should be checked
+		// 1. Patterns 2. Filesystem 3. String
+		$loaders   = array();
+		// 1. add Patterns
+		$loaders[] = new Twig_Loader_PatternPartialLoader(Config::getOption("patternSourceDir"),array("patternPaths" => $options["patternPaths"]));
+
+		// 2. add the paths to the filesystem loader if the paths existed
+		if (count($filesystemLoaderPaths) > 0) {
+			$filesystemLoader = new TwigFilesystemLoader($filesystemLoaderPaths);
+			$loaders[] = TwigUtil::addPaths($filesystemLoader, $patternSourceDir);
+		}
+
+		// Setting loaders and giving plugins a chance to manipulate them
+		TwigUtil::setLoaders($loaders);
+		// set-up the dispatcher
+		$dispatcherInstance = Dispatcher::getInstance();
+		$dispatcherInstance->dispatch("twigLoaderPreInit.customize");
+		// getting the loaders back
+		$loaders = TwigUtil::getLoaders();
+
+		// Preserve Pattern Lab's legacy inline-template fallback. This must be last.
+		$loaders[] = new StringFallbackLoader();
+
+		// set-up Twig
+		$twigLoader = new ChainLoader($loaders);
+		$instance   = new Environment($twigLoader, array("debug" => $twigDebug, "autoescape" => $twigAutoescape));
+		
+		// customize Twig
+		TwigUtil::setInstance($instance);
+		TwigUtil::loadFilters();
+		TwigUtil::loadFunctions();
+		TwigUtil::loadTags();
+		TwigUtil::loadTests();
+		TwigUtil::loadDateFormats();
+		TwigUtil::loadDebug();
+		TwigUtil::loadMacros();
+
+		$dispatcherInstance->dispatch("twigLoader.customize");
+		$dispatcherInstance->dispatch("twigPatternLoader.customize");
+
+		// get the instance
+		$this->instance = TwigUtil::getInstance();
+		
+	}
+	
+	/**
+	* Render a pattern
+	* @param  {Array}        the options to be rendered by Twig
+	*
+	* @return {String}       the rendered result
+	*/
+	public function render($options = array()) {
+
+		$result = $this->instance->render($options["pattern"], $options["data"]);
+
+		// The fallback loader treats unresolved names as inline Twig source. If a
+		// namespaced pattern reaches it unchanged, the requested file was missing.
+		if (str_starts_with($result, "@")) {
+			throw new \RuntimeException("Twig file not found: ".$result);
+		}
+
+		return $result;
+		
+	}
+	
+}

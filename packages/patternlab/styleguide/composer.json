@@ -25,53 +25,32 @@
 	},
 	"repositories": [
 		{
-			"type": "vcs",
-			"url": "https://github.com/drupal-pattern-lab/patternlab-php-core"
+			"type": "path",
+			"url": "php-packages/patternlab-core",
+			"options": { "symlink": false }
 		},
 		{
-			"type": "vcs",
-			"url": "https://github.com/drupal-pattern-lab/patternengine-php-twig"
+			"type": "path",
+			"url": "php-packages/patternengine-twig",
+			"options": { "symlink": false }
 		},
 		{
-			"type": "vcs",
-			"url": "https://github.com/drupal-pattern-lab/styleguidekit-assets-default"
+			"type": "path",
+			"url": "php-packages/styleguidekit-assets-default",
+			"options": { "symlink": false }
 		},
 		{
-			"type": "vcs",
-			"url": "https://github.com/drupal-pattern-lab/styleguidekit-twig-default"
+			"type": "path",
+			"url": "php-packages/styleguidekit-twig-default",
+			"options": { "symlink": false }
 		}
 	],
 	"require": {
-		"php": ">=5.4",
+		"php": "^8.4.27",
 		"pattern-lab/core": "^2.0.0",
 		"pattern-lab/patternengine-twig": "^2.0.0",
 		"pattern-lab/styleguidekit-assets-default": "^3.0.0",
-		"pattern-lab/styleguidekit-twig-default": "^3.0.0",
-		"phing/phing": "^2.14",
-		"pear/versioncontrol_git": "dev-master",
-		"cweagans/composer-patches": "^1.6"
-	},
-	"scripts": {
-		"post-install-cmd": [
-			"PatternLab\\Installer::postInstallCmd"
-		],
-		"post-update-cmd": [
-			"PatternLab\\Installer::postUpdateCmd"
-		],
-		"post-root-package-install": [
-			"PatternLab\\Installer::setProjectInstall",
-			"PatternLab\\Installer::getSuggestedStarterKits",
-			"PatternLab\\Installer::getConfigOverrides"
-		],
-		"post-package-install": [
-			"PatternLab\\Installer::postPackageInstall"
-		],
-		"post-package-update": [
-			"PatternLab\\Installer::postPackageUpdate"
-		],
-		"pre-package-uninstall": [
-			"PatternLab\\Installer::prePackageUninstall"
-		]
+		"pattern-lab/styleguidekit-twig-default": "^3.0.0"
 	},
 	"extra": {
 		"patternlab": {
@@ -82,16 +61,12 @@
 			"config": {
 				"overrideConfig": false
 		 	}
-		},
-		"patches": {
-			"pattern-lab/core": {
-				"temporarily revert array_replace_recursive function": "patches/PsuedoPatternRule.patch"
-			}
 		}
 	},
 	"config": {
-		"allow-plugins": {
-			"cweagans/composer-patches": true
-		}
+		"platform": {
+			"php": "8.4.27"
+		},
+		"sort-packages": true
 	}
 }
