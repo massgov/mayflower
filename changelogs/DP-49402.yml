@@ -7,7 +7,7 @@ Security:
 Changed:
   - project: Patternlab, React, Core, Assets
     component: BuildTooling
-    description: Update Sass compilation and Storybook token resolution for the upgraded toolchain, remove obsolete package lockfiles, and document developer setup.
+    description: Update Sass compilation for the upgraded toolchain, remove obsolete package lockfiles, and document developer setup.
     issue: DP-49402
     impact: Patch
   - project: Patternlab, React
