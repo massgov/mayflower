@@ -26,6 +26,14 @@
         true,
         { "ignorePseudoClasses": ["start","end","decrement","increment"] }
     ],
+    "property-no-unknown": [
+      true,
+      { "ignoreProperties": ["interpolate-size"] }
+    ],
+    "selector-pseudo-element-no-unknown": [
+      true,
+      { "ignorePseudoElements": ["details-content"] }
+    ],
     "at-rule-name-space-after": "always",
     "rule-empty-line-before": "always",
     "scss/at-else-closing-brace-newline-after": "always-last-in-chain",

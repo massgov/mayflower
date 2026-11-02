@@ -20,3 +20,9 @@ Changed:
     description: Replace the pre-push dependency with a Rush-managed Git hook that runs React lint on every push without requiring root dependencies.
     issue: DP-49402
     impact: Patch
+Fixed:
+  - project: Assets
+    component: BuildTooling
+    description: Fix assets lint failures by correcting SCSS spacing and allowing interpolate-size and the details-content pseudo-element in the existing Stylelint configuration.
+    issue: DP-49402
+    impact: Patch
