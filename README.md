@@ -57,7 +57,9 @@ You can also use the repository bootstrap without a global install: `node common
 
 Once installed, run `rush install`. This will install pnpm and each package's dependencies on disk and symlink together all local packages that depend on one another.
 
-Then run `npm ci` from the repository root to install the root tooling and set up the Git pre-push hook. Rush does not install these root dependencies. The hook runs React lint on every push, including Patternlab-only changes. You can run the same check manually from the repository root with `npm run lint:react`.
+Rush also installs the Git pre-push hook from `common/git-hooks/pre-push`. The hook runs React lint on every push, including Patternlab-only changes. No root dependency installation is needed for the hook. You can run the same check manually from the repository root with `npm run lint:react`.
+
+The root dependencies are used by the release scripts and are installed separately with `npm ci` when those scripts are needed.
 
 To start developing mayflower react:
 - `rush start:react`
