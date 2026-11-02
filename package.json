@@ -4,6 +4,15 @@
     "node": ">=24.22.1 <25.0.0",
     "npm": ">=11.19.1 <12.0.0"
   },
+  "scripts": {
+    "lint:react": "cd packages/react && node ../../common/scripts/install-run-rushx.js lint"
+  },
+  "pre-push": [
+    "lint:react"
+  ],
+  "devDependencies": {
+    "pre-push": "^0.1.1"
+  },
   "dependencies": {
     "@octokit/rest": "^22.0.1",
     "glob": "^14.0.3",
@@ -14,5 +23,8 @@
   },
   "volta": {
     "node": "24.22.1"
+  },
+  "allowScripts": {
+    "pre-push@0.1.4": true
   }
 }
