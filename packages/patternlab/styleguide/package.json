@@ -2,7 +2,7 @@
   "name": "@massds/mayflower",
   "description": "Open source UI components and visual style guide for Massachusetts government websites",
   "engines": {
-    "node": ">6.9.0",
+    "node": ">=24.22.1 <25.0.0",
     "npm": ">5.0.0"
   },
   "version": "15.1.0",
@@ -47,7 +47,7 @@
     "gulp-if": "^2.0.2",
     "gulp-pixrem": "^1.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "~5.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-terser": "^1.2.0",
     "handlebars": "^4.7.6",

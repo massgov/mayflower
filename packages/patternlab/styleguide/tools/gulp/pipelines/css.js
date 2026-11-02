@@ -1,5 +1,5 @@
 
-var gulpSass          = require("gulp-sass"),
+var gulpSass          = require("gulp-sass")(require("sass")),
     autoprefixer  = require("gulp-autoprefixer"),
     pixrem        = require("gulp-pixrem"),
     rename        = require("gulp-rename"),
@@ -10,7 +10,6 @@ var gulpSass          = require("gulp-sass"),
     gulpIf        = require("gulp-if"),
     lazypipe      = require("lazypipe");
 
-gulpSass.compiler = require("sass");
 /**
  * Contains pipeline definitions for transforming CSS.
  *

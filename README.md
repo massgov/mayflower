@@ -38,11 +38,22 @@ This project is licensed under the is licensed under the GNU General Public Lice
 ## Monorepo Package Management
 This monorepo is managed using [Rush](https://rushjs.io/) and [PNPM](https://pnpm.js.org/).
 #### Getting Started on Development
+Use Node.js **24.22.1**, pinned in `.nvmrc` and the root Volta configuration. With nvm, install and select it before installing dependencies:
+
+```sh
+nvm install
+nvm use
+```
+
+Rush enforces Node.js `>=24.22.1 <25.0.0`. This repository pins Rush 5.181.0 and PNPM 8.15.9; Rush installs the configured PNPM version automatically.
+
 To get started, install rush globally by running the following command:
 
 ```
 npm install -g @microsoft/rush
 ```
+
+You can also use the repository bootstrap without a global install: `node common/scripts/install-run-rush.js install`.
 
 Once installed, run `rush install`. This will install pnpm and each package's dependencies on disk and symlink together all local packages that depend on one another.
 
@@ -85,7 +96,7 @@ Each packages' dependencies from npm are installed using Rush's cli tools. When 
 
 Rush configuration is stored in the root directory as `rush.json`.
 
-Each package also no longer uses package-lock.json or yarn.lock. Instead, a single pnpm-lock.yaml file is made under `common/temp/` which is created/updated when running rush commands.
+Rush uses the committed lockfile at `common/config/rush/pnpm-lock.yaml`; package-level `package-lock.json` and `yarn.lock` files are not used by Rush. Run `rush update` after changing dependencies and commit the resulting lockfile. Rush copies it into `common/temp/` during installation.
 
 Rush also either symlinks (by default) or local installs a copy of every package that uses one another from the monorepo. An example of this is Mayflower React. Mayflower React depends on Mayflower Assets, so under Mayflower React's `node_modules/` there is a symlink that points directly to the location of Mayflower Assets on disk instead of the rush temporary store under `common/temp/`.
 

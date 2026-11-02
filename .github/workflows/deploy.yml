@@ -15,7 +15,7 @@ on:
         default: false
 
 env:
-  NODE_VERSION: "14.15.2"
+  NODE_VERSION: "24.22.1"
   PHP_VERSION: "8.4.27"
 
 jobs:
@@ -39,7 +39,7 @@ jobs:
             packages/react/node_modules
             packages/patternlab/styleguide/node_modules
             packages/core/node_modules
-          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+          key: rush-node-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('rush.json', 'common/config/rush/pnpm-lock.yaml') }}
 
       - name: Install packages
         run: node common/scripts/install-run-rush.js install
@@ -93,7 +93,7 @@ jobs:
             packages/react/node_modules
             packages/patternlab/styleguide/node_modules
             packages/core/node_modules
-          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+          key: rush-node-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('rush.json', 'common/config/rush/pnpm-lock.yaml') }}
 
       - name: Validate Composer configuration
         working-directory: packages/patternlab/styleguide
@@ -321,7 +321,7 @@ jobs:
             packages/react/node_modules
             packages/patternlab/styleguide/node_modules
             packages/core/node_modules
-          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+          key: rush-node-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('rush.json', 'common/config/rush/pnpm-lock.yaml') }}
 
       - name: Build Mayflower React
         working-directory: packages/react
@@ -460,7 +460,7 @@ jobs:
             packages/react/node_modules
             packages/patternlab/styleguide/node_modules
             packages/core/node_modules
-          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+          key: rush-node-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('rush.json', 'common/config/rush/pnpm-lock.yaml') }}
 
       - name: Build
         run: cd packages/assets && node ../../common/scripts/install-run-rushx.js build
@@ -491,7 +491,7 @@ jobs:
             packages/react/node_modules
             packages/patternlab/styleguide/node_modules
             packages/core/node_modules
-          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+          key: rush-node-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('rush.json', 'common/config/rush/pnpm-lock.yaml') }}
 
       - name: Publish mayflower-assets NPM package
         working-directory: packages/assets
@@ -529,7 +529,7 @@ jobs:
             packages/react/node_modules
             packages/patternlab/styleguide/node_modules
             packages/core/node_modules
-          key: root-npm-v6-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-26
+          key: rush-node-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('rush.json', 'common/config/rush/pnpm-lock.yaml') }}
 
       - name: Build Mayflower React NPM Package
         working-directory: packages/react
