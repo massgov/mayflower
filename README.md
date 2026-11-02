@@ -45,7 +45,7 @@ nvm install
 nvm use
 ```
 
-Rush enforces Node.js `>=24.22.1 <25.0.0`. This repository pins Rush 5.181.0 and PNPM 8.15.9; Rush installs the configured PNPM version automatically.
+Rush enforces Node.js `>=24.22.1 <25.0.0`. This repository pins Rush 5.181.0 and PNPM 10.34.9; Rush installs the configured PNPM version automatically.
 
 To get started, install rush globally by running the following command:
 

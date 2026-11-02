@@ -2,11 +2,12 @@
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');
 
-const { Octokit } = require("@octokit/rest")
-
-const octokit = new Octokit({
-  auth: process.env.DANGER_GITHUB_API_TOKEN
-});
+async function getOctokit() {
+  const { Octokit } = await import('@octokit/rest');
+  return new Octokit({
+    auth: process.env.DANGER_GITHUB_API_TOKEN || process.env.GITHUB_TOKEN
+  });
+}
 
 // Find out the latest release tag and display it in the command line.
 const latest = shell.exec('git tag  | grep -E "^[0-9]" | sort -V | tail -1');
@@ -15,5 +16,5 @@ const latest = shell.exec('git tag  | grep -E "^[0-9]" | sort -V | tail -1');
 console.log(`Previous release tag: ${latest}`);
 
 
-exports.octokit = octokit;
+exports.getOctokit = getOctokit;
 exports.latest = latest;

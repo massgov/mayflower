@@ -1,5 +1,8 @@
 const path = require('path');
 const assets = require('@massds/mayflower-assets');
+const tokenPrimitives = require.resolve('@massds/mds-tokens/dist/primitives.css', {
+  paths: [path.dirname(require.resolve('@massds/mayflower-assets'))]
+});
 const nodeModules = path.resolve(path.join(process.cwd(), 'node_modules'));
 const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
 
@@ -42,6 +45,7 @@ module.exports = {
     // Add alias for @core imports
     config.resolve.alias = {
       ...config.resolve.alias,
+      './primitives.css$': tokenPrimitives,
       '@core': path.resolve(__dirname, '..'), // Points to packages/core/
     };
     return config;
