@@ -57,11 +57,6 @@ $narrow-template-header-height: 170px;
   position: relative;
   text-align: center;
 
-  .translated-rtl &,
-  .translated-ltr & {
-    min-height: calc(100vh - 40px);
-  }
-
   &:before {
     content: "";
     height: 200%;
@@ -132,11 +127,6 @@ $narrow-template-header-height: 170px;
     justify-content: center;
     max-width: $narrow-template-max-width;
     min-height: calc(100vh - #{$narrow-template-header-height});
-
-    .translated-rtl &,
-    .translated-ltr & {
-      min-height: calc(100vh - #{$narrow-template-header-height + 40px});
-    }
   }
 
   &__content {

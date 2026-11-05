@@ -2,8 +2,9 @@
 
 <div class="ma__download-link {{ sizeClass }}">
   {% if downloadLink.icon %}
+    {% set iconSize = downloadLink.iconSize == 'small' ? '20px' : '32px' %}
     <span class="ma__download-link__icon">
-      {{ icon(downloadLink.icon, '32px', '32px', null, false) }}
+      {{ icon(downloadLink.icon, iconSize, iconSize, null, false) }}
     </span>
   {% endif %}
   <span class="ma__download-link__title">
@@ -14,11 +15,16 @@
       <a
         class="ma__download-link__file-link"
         href="{{ downloadLink.decorativeLink.href}}">
-        <span class="ma__visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %},&nbsp;</span>
-          {{ downloadLink.decorativeLink.text }}
+          {{ downloadLink.decorativeLink.text }}<span class="ma__visually-hidden">, Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }}{% endif %}</span>
       </a>
       {% if downloadLink.format or downloadLink.size or downloadLink.language %}
-        <span class="ma__download-link__file-spec">({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})</span>
+        <span class="ma__download-link__file-spec">
+          {%- if downloadLink.noParentheses or downloadLink.noParenthesis -%}
+            {% if downloadLink.language %}{{ downloadLink.language }} {% endif %}{{ downloadLink.format }}{% if downloadLink.format and downloadLink.size %}: {% endif %}{{ downloadLink.size }}
+          {%- else -%}
+            ({% if downloadLink.language %}{{ downloadLink.language ~ ',' }} {% endif %}{{ downloadLink.format }} {{ downloadLink.size }})
+          {%- endif -%}
+        </span>
       {% endif %}
     {% endif %}
   </span>

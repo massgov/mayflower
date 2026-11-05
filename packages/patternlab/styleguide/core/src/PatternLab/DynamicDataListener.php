@@ -30,7 +30,7 @@ class DynamicDataListener extends Listener {
    * @return bool|string
    */
   private function getGitVersion() {
-    $proc = new Process('git describe --tags');
+    $proc = new Process(['git', 'describe', '--tags']);
     $proc->run();
     return $proc->isSuccessful() ? trim($proc->getOutput()) : FALSE;
   }
@@ -44,7 +44,7 @@ class DynamicDataListener extends Listener {
    * @return bool|string
    */
   private function getGitDate() {
-    $proc = new Process('git show -s --format=%ci HEAD');
+    $proc = new Process(['git', 'show', '-s', '--format=%ci', 'HEAD']);
     $proc->run();
     if($proc->isSuccessful()) {
       $date = new \DateTime($proc->getOutput());

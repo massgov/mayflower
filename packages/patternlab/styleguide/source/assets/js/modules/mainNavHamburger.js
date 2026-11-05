@@ -1,10 +1,25 @@
 import focusTrapping from "../helpers/focusTrapping.js";
 
-const hamburgerMenuContainer = document.querySelector(
-  ".ma__header__hamburger__nav-container"
-);
+const globalMainNavHamburger = window.mainNavHamburger || {};
+window.mainNavHamburger = globalMainNavHamburger;
 
-if (hamburgerMenuContainer) {
+function initializeMainNavHamburger() {
+  const hamburgerMenuContainer = document.querySelector(
+    ".ma__header__hamburger__nav-container"
+  );
+
+  if (!hamburgerMenuContainer || globalMainNavHamburger.initialized) {
+    return;
+  }
+
+  globalMainNavHamburger.initialized = true;
+
+  const headerMenuFocusTrapRoot =
+    hamburgerMenuContainer.closest(".ma__header__hamburger-wrapper") ||
+    hamburgerMenuContainer;
+
+  const HEADER_TOGGLE_BREAKPOINT = 940;
+  const DISABLE_MENU_TRANSITION_CLASS = "ma-disable-menu-transition";
   const osInfo = navigator.appVersion;
   const body = document.querySelector("body");
   let width = body.clientWidth;
@@ -37,20 +52,54 @@ if (hamburgerMenuContainer) {
   const utilWideGTranslate = document.querySelector(
     ".js-utility-nav--wide .ma__utility-nav__item .ma__utility-nav__translate"
   );
+  const isMixedHeader = document.querySelector("header.ma__header__mixed");
+  const translateModalElements = document.querySelectorAll('[data-utility-nav-modal="translate"]');
+  const translateModalElement = translateModalElements[0];
+
+  function isHeaderDesktop() {
+    return body.clientWidth > HEADER_TOGGLE_BREAKPOINT;
+  }
+
+  if (!isMixedHeader && translateModalElements.length > 1) {
+    Array.prototype.slice.call(translateModalElements, 1).forEach(function (element) {
+      element.remove();
+    });
+  }
+
+  function toggleTranslateModalPlacement() {
+    if (!translateModalElement || isMixedHeader) {
+      return;
+    }
+
+    let targetContainer;
+
+    if (isHeaderDesktop()) {
+      targetContainer = document.querySelector(".js-utility-nav--wide .ma__utility-nav__item");
+    } else {
+      targetContainer = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item");
+    }
+
+    if (targetContainer && translateModalElement.parentElement !== targetContainer) {
+      targetContainer.appendChild(translateModalElement);
+    }
+  }
+
   // Define all top level clickable elements with current window width.
   let topLevelClickableItems;
   window.addEventListener("DOMContentLoaded", function (e) {
     setTimeout(function timeoutFunction() {
       // This prevents GT elements get null.
       selectTopClickableItems(width);
+      toggleTranslateModalPlacement();
     }, 1000);
   });
   window.addEventListener("resize", function (e) {
     selectTopClickableItems(body.clientWidth);
+    toggleTranslateModalPlacement();
   });
 
   // Add a label for the utility nav UL on non-home pages in desktop.
-  if (width > 840) {
+  if (width > HEADER_TOGGLE_BREAKPOINT) {
     let headerClass = document.querySelector("header").classList;
     if (!headerClass.contains("ma__header__mixed")) {
       utilNavWide.querySelector(".ma__utility-nav__items").setAttribute("aria-label", "Language options and quick access links");
@@ -198,21 +247,40 @@ if (hamburgerMenuContainer) {
         }
       });
     });
-  }
 
-  // hamburger menu keyboard nav
-  // Tabbing through all links and buttons in the hamburger menu container and the menu button.
-  document.addEventListener("keydown", function (e) {
-    if (menuButton.getAttribute("aria-expanded") === "true") {
-      focusTrapping({
-        focusableSelectors:
-          "[role='menuitem'], .js-utility-nav--narrow .ma__utility-nav__item .ma__utility-nav__link, .ma__utility-nav__item .ma__utility-nav__container a",
-        closeButtonSelector: ".js-header-menu-button",
-        modalSelector: ".ma__header__hamburger__nav-container",
-        keyEvent: e,
-      });
+    // Tab / Shift+Tab cycle within the flyout shell (includes wide utility row on >940px). focusTrapping
+    // ignores nodes under aria-hidden so the cycle matches the real tab order on ≤940px (narrow utility accordions).
+    function handleHeaderMenuFocusIn(e) {
+      if (menuButton.getAttribute("aria-expanded") !== "true") {
+        return;
+      }
+      if (!headerMenuFocusTrapRoot || headerMenuFocusTrapRoot.contains(e.target)) {
+        return;
+      }
+      if (
+        e.target instanceof HTMLIFrameElement &&
+        /goog-te|skiptranslate/i.test(e.target.className)
+      ) {
+        return;
+      }
+      // Portaled modals (e.g. translate) sit outside the hamburger wrapper; do not fight modal focus trap.
+      if (e.target.closest(".ma__modal.ma__active")) {
+        return;
+      }
+      menuButton.focus();
     }
-  });
+
+    document.addEventListener("keydown", function (e) {
+      if (menuButton.getAttribute("aria-expanded") === "true") {
+        focusTrapping({
+          modalElement: headerMenuFocusTrapRoot,
+          keyEvent: e,
+        });
+      }
+    });
+
+    document.addEventListener("focusin", handleHeaderMenuFocusIn, true);
+  }
 
   if (jumpToSearchButton !== null) {
     jumpToSearchButton.addEventListener("click", (e) => {
@@ -276,6 +344,7 @@ if (hamburgerMenuContainer) {
 
   function commonCloseMenuTasks() {
     body.classList.remove("show-menu");
+    body.classList.remove(DISABLE_MENU_TRANSITION_CLASS);
 
     if (document.querySelector("html.stickyTOCtmp")) {
       document.querySelector("html.stickyTOCtmp").classList.add("stickyTOC");
@@ -302,7 +371,24 @@ if (hamburgerMenuContainer) {
     }
   }
 
-  function openMenu() {
+  function removeDisabledMenuTransitionClass() {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        body.classList.remove(DISABLE_MENU_TRANSITION_CLASS);
+      });
+    });
+  }
+
+  function openMenu(options = {}) {
+    const {
+      disableTransition = false,
+      disableDesktop = false
+    } = options;
+    const shouldDisableTransition =
+      disableTransition || body.classList.contains(DISABLE_MENU_TRANSITION_CLASS);
+    if (disableDesktop && isHeaderDesktop()) {
+      return;
+    }
     let heightAboveMenuContainer;
     let emergencyAlertsHeight;
     let alertOffsetAdjusted = 0;
@@ -323,6 +409,10 @@ if (hamburgerMenuContainer) {
       document.querySelector("html.stickyTOC").classList.remove("stickyTOC");
     }
 
+    if (shouldDisableTransition) {
+      body.classList.add(DISABLE_MENU_TRANSITION_CLASS);
+    }
+
     // Start open menu tasks.
     body.classList.add("show-menu");
 
@@ -337,8 +427,8 @@ if (hamburgerMenuContainer) {
     document.querySelector("body").style.position = "fixed";
 
     // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-    if (utilWideGTranslate.querySelector("a") && body.clientWidth > 840) {
-      // Google translate elements aren't rendered screen width under 840px, and the object is null.
+    if (utilWideGTranslate && utilWideGTranslate.querySelector("a") && isHeaderDesktop()) {
+      // Google translate elements aren't rendered in the wide utility nav below the header desktop breakpoint.
       utilWideGTranslate.querySelector("a").setAttribute("tabindex", "-1");
     }
 
@@ -366,7 +456,7 @@ if (hamburgerMenuContainer) {
 
     if (menuOverlay) {
       let overlayOffset = heightAboveMenuContainer;
-      if (width > 840) {
+      if (width > HEADER_TOGGLE_BREAKPOINT) {
         overlayOffset = overlayOffset - 1;
       }
       menuOverlay.classList.add("overlay-open");
@@ -375,6 +465,10 @@ if (hamburgerMenuContainer) {
       if (document.querySelector(".ma__emergency-alerts")) {
         alertOverlay.classList.add("overlay-open");
       }
+    }
+
+    if (shouldDisableTransition) {
+      removeDisabledMenuTransitionClass();
     }
   }
 
@@ -393,6 +487,12 @@ if (hamburgerMenuContainer) {
       }, 200);
     }
   }
+
+  Object.assign(globalMainNavHamburger, {
+    openMenu,
+    closeMenu,
+    toggleMenu
+  });
 
   function anotherCloseSubMenus(item) {
     menuItems.forEach((li) => {
@@ -929,4 +1029,37 @@ if (hamburgerMenuContainer) {
       );
     }
   }, 1000); // When it's less than 1000, the iframe is null in full screen display.
+}
+
+function openMenuProxy() {
+  initializeMainNavHamburger();
+  if (globalMainNavHamburger.openMenu !== openMenuProxy) {
+    globalMainNavHamburger.openMenu.apply(globalMainNavHamburger, arguments);
+  }
+}
+
+function closeMenuProxy() {
+  initializeMainNavHamburger();
+  if (globalMainNavHamburger.closeMenu !== closeMenuProxy) {
+    globalMainNavHamburger.closeMenu();
+  }
+}
+
+function toggleMenuProxy() {
+  initializeMainNavHamburger();
+  if (globalMainNavHamburger.toggleMenu !== toggleMenuProxy) {
+    globalMainNavHamburger.toggleMenu();
+  }
+}
+
+Object.assign(globalMainNavHamburger, {
+  openMenu: globalMainNavHamburger.openMenu || openMenuProxy,
+  closeMenu: globalMainNavHamburger.closeMenu || closeMenuProxy,
+  toggleMenu: globalMainNavHamburger.toggleMenu || toggleMenuProxy,
+});
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeMainNavHamburger);
+} else {
+  initializeMainNavHamburger();
 }

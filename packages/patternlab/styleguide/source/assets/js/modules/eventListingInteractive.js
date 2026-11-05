@@ -60,6 +60,9 @@ export default (function (window,document,$,undefined) {
     function handlePagination (e, target) {
       "use strict";
       let nextPage = parseInt(target, 10);
+      if (!Number.isFinite(nextPage) || nextPage < 1) {
+        nextPage = 1;
+      }
 
       masterData.pagination = listings.transformPaginationData({ data: masterData, targetPage: nextPage });
       masterData.resultsHeading = listings.transformResultsHeading({ data: masterData, page: nextPage });
@@ -74,8 +77,8 @@ export default (function (window,document,$,undefined) {
     if (history.state) {
       defaultPage = history.state.page;
     }
-    if (params) {
-      defaultPage = params.get("page");
+    if (params && params.has("_page")) {
+      defaultPage = params.get("_page");
     }
     handlePagination(null, defaultPage);
 
@@ -133,13 +136,13 @@ export default (function (window,document,$,undefined) {
       let masterListing = listing.eventListing.events,
 
       // Pass in listing and template name.
-      masterListingMarkup = listings.transformListing(masterListing, 'eventListingRow', {bustCache: 'icon-update-2025'});
+      masterListingMarkup = listings.transformListing(masterListing, 'eventListingRow');
 
       // The max number of items per page, if designated in eventListing data structure, else all
       masterData.maxItems = listing.maxItems ? listing.maxItems : masterListing.length;
 
       // The initial results heading data structure
-      masterData.resultsHeading = masterListingMarkup.resultsHeading;
+      masterData.resultsHeading = listing.resultsHeading;
 
       // Create items with listing and markup.
       masterData.items = getMasterListingWithMarkup(masterListing, masterListingMarkup, masterData.maxItems);

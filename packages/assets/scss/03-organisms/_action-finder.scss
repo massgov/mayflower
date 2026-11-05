@@ -27,6 +27,22 @@ $action-finder-bp: 900px;
     }
   }
 
+  .ma__rich-text & {
+    margin-bottom: 1.5rem;
+
+    @media ($bp-small-min) {
+      margin-bottom: 1.75rem;
+    }
+
+    &:not(:first-child) {
+      margin-top: 1.5rem;
+
+      @media ($bp-small-min) {
+        margin-top: 1.75rem;
+      }
+    }
+  }
+
   &__container {
 
     @include ma-container;
@@ -168,6 +184,22 @@ $action-finder-bp: 900px;
     &:after {
       content: none;
     }
+  }
+}
+
+// A lone callout is the only cell in its action finder. From 911px the
+// shared rule is 4 of 12, which is a 3-up cell, so the card gets narrow
+// and tall. Use the 5-column grid measure, and keep at least a 20rem
+// button when that percentage would still be too narrow. Grouped
+// action finders stay on the grid.
+.ma__rich-text .ma__action-finder .ma__callout-link:only-child {
+
+  @media ($bp-large-min) {
+    @include span-columns(5 of 12);
+
+    display: flex;
+    min-width: min(100%, 20rem);
+    max-width: 100%;
   }
 }
 

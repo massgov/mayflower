@@ -2,12 +2,13 @@
 const mixedBody = document.querySelector("body");
 const mixedMenuButton = document.querySelector(".js-header-menu-button");
 const mixedMenuOverlay = document.querySelector(".menu-overlay");
+const HEADER_TOGGLE_BREAKPOINT = 940;
 
 let mfIsMobile = ()=>{
-  return document.documentElement.clientWidth < 840;
+  return document.documentElement.clientWidth <= HEADER_TOGGLE_BREAKPOINT;
 };
 
-// Hide hamburger menu when window size is resized to over 840 while hamburger menu is open.
+// Hide hamburger menu when window size is resized to desktop while hamburger menu is open.
 window.addEventListener("resize", hideHamburgerMenu);
 
 function hideHamburgerMenu () {
@@ -24,15 +25,25 @@ function hideHamburgerMenu () {
 // Move it depending if it's mobile or not.
 var m = false; // Flag for moving the element once per screen size.
 
-var translateElement = document.getElementsByClassName('ma__utility-nav__translate');
-jQuery(translateElement[translateElement.length-1]).remove(); // keeping IE11 compatiblity.
-translateElement = translateElement[0];
+var translateElements = document.querySelectorAll('[data-utility-nav-modal="translate"]');
+
+if (translateElements.length > 1) {
+  Array.prototype.slice.call(translateElements, 1).forEach(function (element) {
+    jQuery(element).remove(); // keeping IE11 compatibility.
+  });
+}
+
+var translateElement = translateElements[0];
 
 window.addEventListener("resize", toggleGoogleTranslate);
 document.addEventListener("DOMContentLoaded", toggleGoogleTranslate);
 
 // Move the "translate" element to the corresponding menu depending the screen size.
 function toggleGoogleTranslate() {
+  if (!translateElement) {
+    return;
+  }
+
   if (mfIsMobile() && m === false) {
     m = true;
 
@@ -43,7 +54,12 @@ function toggleGoogleTranslate() {
 
   } else if (!mfIsMobile() && m === true) {
     m = false;
-    document.querySelector('.ma__header__hamburger__utility-nav .ma__utility-nav__item').appendChild(translateElement);
+    var desktopContainer = document.querySelector('.ma__header__hamburger__utility-nav .ma__utility-nav__item')
+      || document.querySelector('.ma__header__utility-nav .ma__utility-nav__item');
+
+    if (desktopContainer) {
+      desktopContainer.appendChild(translateElement);
+    }
   }
 }
 

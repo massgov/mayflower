@@ -15,8 +15,20 @@
     @include ma-component-spacing('large');
   }
 
-  .rich-text & {
-    margin-bottom: 1.75rem;
+  .ma__rich-text & {
+    margin-bottom: 1.5rem;
+
+    @media ($bp-small-min) {
+      margin-bottom: 1.75rem;
+    }
+
+    &:not(:first-child) {
+      margin-top: 1.5rem;
+
+      @media ($bp-small-min) {
+        margin-top: 1.75rem;
+      }
+    }
   }
 
   &__content {

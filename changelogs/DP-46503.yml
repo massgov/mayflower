@@ -1,0 +1,7 @@
+Changed:
+  - project: Assets
+    component: PrintStyles
+    description: Hide virtual assistant widget and floating action button in print styles.
+    issue: DP-46503
+    impact: Patch
+

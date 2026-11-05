@@ -1,0 +1,25 @@
+{% set iconName = inlineMessage.type == 'warning' ? 'warning' : 'info' %}
+{% set headingId = 'ma__inline-message__heading-' ~ random(100000, 999999) %}
+<div class="ma__inline-message{% if inlineMessage.type %} ma__inline-message--{{ inlineMessage.type }}{% endif %}" role="group" aria-labelledby="{{ headingId }}">
+  <div class="ma__inline-message__header" id="{{ headingId }}">
+    <span class="ma__inline-message__icon">
+      {{ icon(iconName, '20px', '20px') }}
+    </span>
+    <span class="ma__visually-hidden">
+      {%- if inlineMessage.type == 'warning' -%}
+        Warning: 
+      {%- else -%}
+        Important notice: 
+      {%- endif -%}
+    </span>
+    {% if inlineMessage.heading %}
+      <strong class="ma__inline-message__title">{{ inlineMessage.heading }}</strong>
+    {% endif %}
+  </div>
+  {% if inlineMessage.richText %}
+    <div class="ma__inline-message__content">
+      {% set richText = inlineMessage.richText %}
+      {% include "@organisms/by-author/rich-text.twig" %}
+    </div>
+  {% endif %}
+</div>

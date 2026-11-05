@@ -1,0 +1,7 @@
+Added:
+  - project: Assets
+    component: Loader
+    description: Add loader animation lottie file to assets.
+    issue: DP-44742
+    impact: Minor
+

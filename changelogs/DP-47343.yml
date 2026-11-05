@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: RichText
+    description: Prevent ordered list markers from being clipped for leading-zero styles and continued lists with a start attribute.
+    issue: DP-47343
+    impact: Minor

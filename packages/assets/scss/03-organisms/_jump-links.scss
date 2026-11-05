@@ -100,11 +100,6 @@
       &[data-sticky='middle'] {
         position: fixed;
           top: 40px;
-
-        .translated-rtl &,
-        .translated-ltr & {
-          top: 80px;
-        }
       }
 
       &[data-sticky='bottom'] {

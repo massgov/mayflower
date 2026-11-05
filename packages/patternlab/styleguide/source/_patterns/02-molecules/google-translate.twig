@@ -1,0 +1,52 @@
+<!-- Status message for screen readers -->
+<div id="ma__translate-status" class="ma__status-message" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Accessible language selector -->
+<div class="ma__translate-container">
+  <div class="ma__translate-select-wrapper">
+    <select
+        id="ma__translate-select"
+        class="ma__translate-select notranslate"
+        aria-labelledby="ma__translate-title"
+        aria-describedby="ma__translate-help"
+    >
+      {% set googleLanguagesArray = googleLanguages|split(',') %}
+      {% for langCode, langName in languageList %}
+        {% if langCode in googleLanguagesArray  %}
+          <option value="{{ langCode }}">{{ langName }}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+
+    <span class="ma__translate-select-caret-down">
+      {{ icon("caret-down", "20", "20") }}
+    </span>
+  </div>
+
+  <div id="ma__translate-help">
+    <p>Disclaimer: This feature uses the Google Translate Widget. Due to the limitation of machine translation, some pages or content may not be translated accurately.</p>
+  </div>
+
+  <div class="ma__modal-button-group">
+    <button
+        id="ma__translate-apply"
+        class="ma__translate-button"
+        type="button"
+    >
+      Translate
+    </button>
+    <button
+        id="ma__translate-reset"
+        class="ma__translate-button ma__translate-reset-button"
+        type="button"
+        lang="en"
+    >
+      Show original
+    </button>
+  </div>
+</div>
+
+<!-- Hidden Google Translate Element -->
+<div class="ma__goog-te-wrapper">
+  <div id="google_translate_element"></div>
+</div>

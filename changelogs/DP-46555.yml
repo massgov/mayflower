@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: EventListingInteractive
+    description: Moved pagination/results heading updates to JS and reverted the DP-39285 regression.
+    issue: DP-46555
+    impact: Patch

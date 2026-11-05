@@ -72,3 +72,14 @@
     @include ma-border-decorative($c-gray, 1);
   }
 }
+
+h3.ma__comp-heading:not(.ma__comp-heading--sidebar),
+h4.ma__comp-heading:not(.ma__comp-heading--sidebar),
+.ma__comp-heading.ma__h3:not(.ma__comp-heading--sidebar),
+.ma__comp-heading.ma__h4:not(.ma__comp-heading--sidebar) {
+  padding-bottom: 0;
+
+  &::after {
+    display: none;
+  }
+}

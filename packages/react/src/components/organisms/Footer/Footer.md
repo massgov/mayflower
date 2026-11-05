@@ -19,11 +19,7 @@ footerLogo: {
 
 footerText: {
   copyright: string / optional,
-  description: string / optional,
-  privacyPolicy: {
-    text: string / optional,
-    url: string / optional
-  }
+  description: string / optional
 }
 
 floatingAction: boolean / optional

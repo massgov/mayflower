@@ -1,0 +1,32 @@
+{
+  "processStep": {
+    "title": "Check your business name",
+    "richText": {
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "To do business in the Commonwealth, you must first check to see if your desired business name is available."
+            }
+          }
+        }
+      ]
+    },
+    "downloadLinks": [
+      {
+        "downloadLink": {
+          "iconSize": "small",
+          "icon": "file",
+          "decorativeLink": {
+            "text": "inline link",
+            "href": "#"
+          },
+          "size": "26MB",
+          "format": "Filesize",
+          "noParentheses": true
+        }
+      }
+    ]
+  }
+}

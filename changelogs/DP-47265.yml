@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: InformationDetails
+    description: Reduce spacing after pre-content media on information details pages. (#2082)
+    issue: DP-47265
+    impact: Patch

@@ -1,0 +1,34 @@
+{% set modalId = modal.id|default('ma__modal-' ~ random()) %}
+{% set modalTitleId = modalId ~ '-title' %}
+{% set modalWrapperClass = modal.wrapperClass|default('') %}
+{% set modalTriggerClass = modal.triggerClass|default('') %}
+{% set modalStatus = modal.status|default('info') %}
+{% set modalWrapperClasses = 'ma__modal-trigger-wrapper' ~ (modalWrapperClass ? ' ' ~ modalWrapperClass : '') %}
+{% set modalTriggerClasses = 'ma__modal-trigger' ~ (modalTriggerClass ? ' ' ~ modalTriggerClass : '') %}
+
+<div class="{{ modalWrapperClasses }}"{% if googleLanguages %} data-utility-nav-modal="translate"{% endif %}>
+    <button type="button" class="{{ modalTriggerClasses }}" data-modal-trigger="{{ modalId }}" aria-haspopup="dialog" aria-controls="{{ modalId }}">
+        {{ icon(modal.icon, "20", "20") }}
+        <span>{{ modal.buttonText }}</span>
+    </button>
+    <div id="{{ modalId }}" class="ma__modal-overlay ma__modal{% if googleLanguages %} ma__modal--translate{% endif %}" role="dialog" aria-modal="true" aria-labelledby="{{ modalTitleId }}">
+        <div class="ma__modal-dialog">
+            <div class="ma__modal-header">
+                <button type="button" class="ma__modal-close" aria-label="Close dialog">
+                    {{ icon("close", "24", "24") }}
+                </button>
+            </div>
+            <div class="ma__modal-content">
+                <div class="ma__modal-legend ma__modal-legend--{{ modalStatus }}"><span>{{ icon(modal.icon, "28", "28") }}</span></div>
+                <h2 id="{{ modalTitleId }}" class="ma__modal-title">{{ modal.title }}</h2>
+                {% block htmlContent %}
+                    {% if googleLanguages %}
+                        {% include "@molecules/google-translate.twig" with {
+                            "googleLanguages": googleLanguages
+                        } %}
+                    {% endif %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>

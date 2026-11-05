@@ -12,6 +12,15 @@ body.show-menu {
   }
 }
 
+body.ma-disable-menu-transition {
+
+  .ma__header__hamburger__nav-container,
+  .menu-overlay,
+  .alert-overlay {
+    transition: none !important;
+  }
+}
+
 .alert-overlay {
   position: fixed;
   width: 100vw;
@@ -233,16 +242,6 @@ body.show-menu {
       transition: left 0.6s ease, visibility 0.8s;
     }
 
-    .translated-rtl &,
-    .translated-ltr & {
-      height: calc(100vh - #{$header-mobile-controls-height * 2});
-    }
-
-    .translated-rtl &,
-    .translated-ltr & {
-      top: 44px;
-    }
-
     & .ma__header__nav-search {
       margin-bottom: 0;
       border-bottom: 0;
@@ -296,6 +295,14 @@ body.show-menu {
     @media ($bp-medium-max) {
 
       padding-left: 20px;
+    }
+
+    &:focus-visible {
+      outline-style: solid !important;
+      outline-width: 2px !important;
+      outline-color: var(--mds-border-focus-on-dark) !important;
+      outline-offset: 0;
+      box-shadow: none !important;
     }
   }
 
@@ -423,6 +430,14 @@ body.show-menu {
       width: 20px;
       display: inline-block;
       vertical-align: middle;
+    }
+
+    &:focus-visible {
+      outline-style: solid !important;
+      outline-width: 2px !important;
+      outline-color: var(--mds-border-focus-on-dark) !important;
+      outline-offset: 0;
+      box-shadow: none !important;
     }
   }
 
@@ -573,11 +588,6 @@ body.show-menu {
               max-height: auto;
 
               transition: opacity 0.4s;
-
-              .translated-rtl &,
-              .translated-ltr & {
-                height: auto;
-              }
             }
 
             &.is-closed .ma__utility-nav__container {
@@ -671,7 +681,8 @@ body.show-menu {
 
         display: none;
 
-        // focusTrapping.js reply on this setting to determine the last focusable item in the nav
+        // Hidden on desktop. Keyboard trap uses `.ma__header__hamburger-wrapper` and excludes `aria-hidden`
+        // subtrees (see focusTrapping.js) so Tab order matches on all breakpoints.
 
         & .ma__utility-nav__link {
           display: none;
@@ -729,7 +740,6 @@ body.show-menu {
       @media ($bp-header-toggle-min) {
 
         position: absolute;
-        top: -$header-mobile-controls-height - 4px;
       }
 
       @media ($bp-large-min) {

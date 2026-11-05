@@ -1,0 +1,11 @@
+{
+  "modal": {
+    "id": "ma__translate",
+    "title": "Select language",
+    "icon": "translate",
+    "status": "info",
+    "buttonText": "Language",
+    "wrapperClass": "",
+    "triggerClass": ""
+  }
+}

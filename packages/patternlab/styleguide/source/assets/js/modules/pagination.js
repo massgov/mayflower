@@ -1,5 +1,3 @@
-import twiggy from '../helpers/twiggy';
-
 export default (function (window, document, $, undefined) {
   if ($('.js-pagination').length === 0) {
     return;
@@ -19,22 +17,23 @@ export default (function (window, document, $, undefined) {
     } else if (params.has('_page')) {
       targetPageNumber = params.get('_page');
     }
+    targetPageNumber = normalizePageNumber(targetPageNumber);
 
     // Listen for previous page button click and trigger pagination event.
     $el.on('click', prevButton, function () {
-      targetPageNumber = parseInt(targetPageNumber) - 1;
+      targetPageNumber = normalizePageNumber(targetPageNumber) - 1;
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
     // Listen for next button click and trigger pagination event.
     $el.on('click', nextButton, function () {
-      targetPageNumber = parseInt(targetPageNumber) + 1;
+      targetPageNumber = normalizePageNumber(targetPageNumber) + 1;
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
     // Listen for page number button click and trigger pagination event;
     $el.on('click', pageButton, function (e) {
-      targetPageNumber = $(e.target).data('page');
+      targetPageNumber = normalizePageNumber($(e.target).data('page'));
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
@@ -42,7 +41,7 @@ export default (function (window, document, $, undefined) {
     window.onpopstate = function (e) {
       if (e.state) {
         if (e.state.page) {
-          $el.trigger("ma:Pagination:Pagination", [e.state.page]);
+          $el.trigger("ma:Pagination:Pagination", [normalizePageNumber(e.state.page)]);
         }
       }
     };
@@ -70,23 +69,61 @@ export default (function (window, document, $, undefined) {
       return;
     }
 
-    // Render async with Twig.
-    return twiggy('@molecules/pagination.twig')
-      .then(template => {
-        // Truncate the pagination with ellipsis to prevent it from showing
-        // all page numbers if there are a lot.
-        let pagination = truncatePaginationDisplay(args.data);
-        // Render the pagination Twig async.
-        return template.renderAsync({ pagination: pagination });
-      })
-      .then(markup => {
-        // twiggy is appending the entire pagiantion.twig template
-        // to itself, causing a double .ma__pagination wrapper
-        // unwrappedMarkup is the markup unwrapped and still contains the 
-        // original handlers 
-        const unwrapperMarkup = $($.parseHTML(markup)).html();
-        args.$el.html(unwrapperMarkup);
-      });
+    // Truncate the pagination with ellipsis to prevent it from showing
+    // all page numbers if there are a lot.
+    let pagination = truncatePaginationDisplay(args.data);
+    const $container = $('<nav class="ma__pagination__container" aria-label="Pagination Navigation"></nav>');
+    $container.append(buildPaginationLink({
+      className: 'ma__pagination__prev js-pagination-prev',
+      text: pagination.prev.text,
+      disabled: pagination.prev.disabled,
+      ariaLabel: `Go to ${String(pagination.prev.text)} page`
+    }));
+
+    pagination.pages.forEach(function(page) {
+      if (page.text === "spacer") {
+        $container.append('<span class="ma__pagination__spacer">&hellip;</span>');
+        return;
+      }
+
+      const pageText = String(page.text);
+      $container.append(buildPaginationLink({
+        className: 'ma__pagination__page js-pagination-page',
+        text: pageText,
+        isActive: page.active,
+        dataPage: pageText,
+        ariaLabel: page.active ? `Currently on Page ${pageText}` : `Go to Page ${pageText}`
+      }));
+    });
+
+    $container.append(buildPaginationLink({
+      className: 'ma__pagination__next js-pagination-next',
+      text: pagination.next.text,
+      disabled: pagination.next.disabled,
+      ariaLabel: `Go to ${String(pagination.next.text)} page`
+    }));
+
+    args.$el.empty().append($container);
+  }
+
+  function buildPaginationLink(args) {
+    const $link = $('<a role="button" href="#"></a>')
+      .addClass(args.className)
+      .text(String(args.text));
+
+    if (args.dataPage) {
+      $link.attr('data-page', args.dataPage);
+    }
+    if (args.isActive) {
+      $link.addClass('is-active');
+    }
+    if (args.disabled) {
+      $link.attr('aria-disabled', 'true').addClass('disabled');
+    }
+    else {
+      $link.attr('aria-label', args.ariaLabel);
+    }
+    return $link;
   }
 
   /**
@@ -147,6 +184,7 @@ export default (function (window, document, $, undefined) {
   }
 
   function pushPaginationState(pageNum, replace = false) {
+    pageNum = normalizePageNumber(pageNum);
     let params = new URLSearchParams(window.location.search);
     params.set('_page', pageNum);
 
@@ -162,6 +200,11 @@ export default (function (window, document, $, undefined) {
         `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
       );
     }
+  }
+
+  function normalizePageNumber(pageNum) {
+    let parsed = parseInt(pageNum, 10);
+    return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
   }
 
 })(window, document, jQuery);

@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: MainNavHamburger
+    description: Fixed keyboard trap on hamburger close button. (#2068)
+    issue: DP-46676
+    impact: Minor

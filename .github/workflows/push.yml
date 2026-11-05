@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - develop
-      
+
 defaults:
   run:
     shell: bash --noprofile --norc -eo pipefail {0}
@@ -19,11 +19,12 @@ jobs:
       id-token: write
       contents: read
 
-    name: Push docs to s3
+    name: Push docs to S3
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Configure AWS Creds
+
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
@@ -48,7 +49,7 @@ jobs:
               "description": "${{ env.repo }}"
             }
           }' > _category_.json
-  
+
           aws s3 cp _category_.json s3://itd-mgt-ssr-tagging.secure.digital.mass.gov/documentation/${{ env.repo }}/
 
       - name: Upload files to S3
@@ -57,5 +58,3 @@ jobs:
           (cat ${{ env.file_path }} ; echo ) | while read line; do
             aws s3 cp $line s3://itd-mgt-ssr-tagging.secure.digital.mass.gov/documentation/${{ env.repo }}/
           done
-  
-
