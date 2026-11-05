@@ -1,4 +1,4 @@
-const gulpSass = require("gulp-sass");
+const gulpSass = require("gulp-sass")(require("sass"));
 const autoprefixer = require("gulp-autoprefixer");
 const pixrem = require("gulp-pixrem");
 const rename = require("gulp-rename");
@@ -11,7 +11,6 @@ const lazypipe = require("lazypipe");
 const gulpPostcss = require("gulp-postcss");
 const postcssPrefixSelector = require("postcss-prefix-selector");
 
-gulpSass.compiler = require("sass");
 
 /**
  * Custom PostCSS plugin to remove `@font-face` and `html` rules.
