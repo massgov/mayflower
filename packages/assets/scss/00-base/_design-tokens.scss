@@ -5,4 +5,5 @@
 
 @include meta.load-css("@massds/mds-tokens/dist/primitives.css");
 
-@include meta.load-css("@massds/mds-tokens/dist/index.css");
+@include meta.load-css("../../../tokens/css/index.css");
+
