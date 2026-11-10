@@ -1,10 +1,10 @@
 /**
- * Semantic tokens
+ * Semantic tokens 
  * Use these in your projects
  *
  */
 
-/*@import url('/packages/tokens/css/primitives.css');*/
+ @import url('primitives.css');
 
 /**
  * Color Theme tokens used in the theme.
@@ -130,17 +130,17 @@
   --mds-radius-max: var(--mds-border-radius-round);
 
 
-/**
+/** 
   * Elevation/Box shadow tokens
   **/
 
   --mds-shadow-container: var(--mds-elevation-offset-none) var(--mds-elevation-offset-100) var(--mds-elevation-blur-400) 0 var(--mds-shadow-container-opacity);
   --mds-shadow-modal: var(--mds-elevation-offset-none) var(--mds-elevation-offset-50) var(--mds-elevation-blur-300) 0 var(--mds-shadow-modal-opacity);
-  --mds-shadow-hover-sm: var(--mds-elevation-offset-none) var(--mds-elevation-offset-50) var(--mds-elevation-blur-150) 0 var(--mds-shadow-hover-opacity);
+  --mds-shadow-hover-sm: var(--mds-elevation-offset-none) var(--mds-elevation-offset-50) var(--mds-elevation-blur-150) 0 var(--mds-shadow-hover-opacity); 
   --mds-shadow-hover-md: var(--mds-elevation-offset-none) var(--mds-elevation-offset-100) var(--mds-elevation-blur-200) 0 var(--mds-shadow-hover-opacity);
 
 /**
- * Spacing tokens
+ * Spacing tokens 
  */
   --mds-space-3xs: var(--mds-space-50);
   --mds-space-2xs: var(--mds-space-100);
@@ -153,7 +153,7 @@
   --mds-space-3xl: var(--mds-space-800);
 
 /**
- * Typography size tokens
+ * Typography size tokens 
  *
  */
 
@@ -185,7 +185,7 @@
   --mds-text-transform-eyebrow: uppercase;
   --mds-text-letter-spacing-eyebrow: 1px;
 
-  /** Caption text **/
+  /** Caption text **/ 
   --mds-text-caption-sm: var(--mds-font-weight-regular) var(--mds-font-size-125)/1.3 var(--mds-font-family);
   --mds-text-caption: var(--mds-font-weight-regular) var(--mds-font-size-175)/1.3 var(--mds-font-family);
   --mds-text-caption-bold: var(--mds-font-weight-medium) var(--mds-font-size-175)/1.3 var(--mds-font-family);

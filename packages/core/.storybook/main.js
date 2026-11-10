@@ -2,6 +2,7 @@ const path = require('path');
 const assets = require('@massds/mayflower-assets');
 const nodeModules = path.resolve(path.join(process.cwd(), 'node_modules'));
 const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
+const mdsPrimitivesCss = require.resolve('@massds/mds-tokens/dist/primitives.css');
 
 module.exports = {
   "stories": [
@@ -43,6 +44,9 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@core': path.resolve(__dirname, '..'), // Points to packages/core/
+      // Workaround: when css-loader sees "primitives.css" (or "./primitives.css"), force it to the package file instead of story-local resolution.
+      'primitives.css$': mdsPrimitivesCss,
+      './primitives.css$': mdsPrimitivesCss,
     };
     return config;
   }
