@@ -1,4 +1,5 @@
 @use "00-base/configure" as *;
+
 @use "@massds/mds-styles/dist/scss" as mixins;
 
 $translate-control-border-width: 2px;
@@ -87,6 +88,7 @@ body > .skiptranslate {
   &-select {
     width: 100%;
     padding: $translate-control-padding-y $translate-control-padding-right $translate-control-padding-y var(--mds-space-sm);
+
     @include mixins.text("label-md");
     color: var(--mds-text-and-icons-brand-neutral-default);
     background-color: var(--mds-background-adaptive-utility-inverse);
@@ -115,6 +117,7 @@ body > .skiptranslate {
 
   &-button {
     padding: $translate-control-padding-y var(--mds-space-md) !important;
+
     @include mixins.text("label-md");
     color: var(--mds-text-and-icons-utility-inverse);
     background-color: var(--mds-background-adaptive-brand-primary-mid);
@@ -159,6 +162,7 @@ body > .skiptranslate {
 #ma__translate-help {
 
   p {
+
     @include mixins.text("caption");
     text-align: center;
   }

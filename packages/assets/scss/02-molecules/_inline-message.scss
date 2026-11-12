@@ -1,4 +1,5 @@
 @use "00-base/configure" as *;
+
 @use "@massds/mds-styles/dist/scss" as mixins;
 
 // Inline Message molecule.
@@ -36,6 +37,7 @@
   }
 
   &__title {
+
     @include mixins.text("heading-2xs");
   }
 
@@ -51,6 +53,7 @@
     }
 
     p {
+
       @include mixins.text("body");
       margin-bottom: 0;
     }
