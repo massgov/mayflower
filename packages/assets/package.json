@@ -31,7 +31,7 @@
   "author": "Massachusetts Digital Services (MDS)",
   "license": "MIT",
   "peerDependencies": {
-    "sass": "~1.30.0"
+    "sass": "~1.64.2"
   },
   "devDependencies": {
     "@babel/core": "~7.12.3",
@@ -43,11 +43,11 @@
     "gulp-babel": "~8.0.0",
     "gulp-concat": "~2.6.1",
     "gulp-rename": "~2.0.0",
-    "gulp-sass": "~4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-terser": "~1.4.1",
     "jquery": "~3.5.1",
     "normalize-scss": "~7.0.1",
-    "sass": "~1.30.0",
+    "sass": "~1.64.2",
     "stylelint": "^13.3.3",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",
