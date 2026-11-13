@@ -4,6 +4,7 @@ const iconPath = path.resolve(__dirname, '../src/components/base/Icon/assets');
 const nodeModules = path.resolve(path.join(process.cwd(), 'node_modules'));
 const pnpmNodeModules = path.join(nodeModules, '.pnpm', 'node_modules');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const mdsPrimitivesCss = require.resolve('@massds/mds-tokens/dist/primitives.css');
 
 module.exports = {
   stories: [
@@ -111,7 +112,7 @@ module.exports = {
     // modify storybook's file-loader rule to avoid conflicts with svgr
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test && rule.test.test('.svg'));
     fileLoaderRule.exclude = iconPath;
-    
+
     config.plugins.push(
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
@@ -161,7 +162,10 @@ module.exports = {
         MayflowerReactUtilities: path.resolve(__dirname, '../src/components/utilities'),
         MayflowerReactGenTeaser: path.resolve(__dirname, '../src/components/organisms/GenTeaser'),
         MayflowerReactHooks: path.resolve(__dirname, '../src/components/hooks'),
-        SharedAssets: '@massds/mayflower-assets/static'
+        SharedAssets: '@massds/mayflower-assets/static',
+        // Workaround: when css-loader sees "primitives.css" (or "./primitives.css"), force it to the package file instead of story-local resolution.
+        'primitives.css$': mdsPrimitivesCss,
+        './primitives.css$': mdsPrimitivesCss,
       }};
 
     // Return the altered config

@@ -192,9 +192,11 @@ $action-finder-bp: 900px;
 // and tall. Use the 5-column grid measure, and keep at least a 20rem
 // button when that percentage would still be too narrow. Grouped
 // action finders stay on the grid.
+
 .ma__rich-text .ma__action-finder .ma__callout-link:only-child {
 
   @media ($bp-large-min) {
+
     @include span-columns(5 of 12);
 
     display: flex;
