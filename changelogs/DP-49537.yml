@@ -1,0 +1,4 @@
+Fixed:
+  - project: React
+    description: Added alias for primitives in core and react to force storybook to use the package file.
+    impact: Patch
