@@ -1,0 +1,13 @@
+Fixed:
+  - project: React
+    component: Storybook
+    description: Added alias for primitives in core and react to force storybook to use the package file.
+    issue: DP-49537
+    impact: Patch
+
+Security:
+  - project: Patternlab
+    component: Libraries
+    description: Updates Symfony Filesystem and YAML to 7.4.23 to address security advisories and unblock Patternlab CI.
+    issue: DP-49537
+    impact: Patch
