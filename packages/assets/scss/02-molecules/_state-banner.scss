@@ -1,4 +1,5 @@
 @use "00-base/configure" as *;
+
 @use "@massds/mds-styles/dist/scss" as mixins;
 
 /** State Banner component styles **/
@@ -22,6 +23,7 @@ $state-banner-item-min-width: 20rem;
 
 .mds-state-banner__container {
   // use mayflower container mixin to apply horizontal padding and align with page content
+
   @include ma-container;
 
   // Mayflower overrides - do we need to set these in MDS?
@@ -30,8 +32,11 @@ $state-banner-item-min-width: 20rem;
 }
 
 .mds-state-banner {
+
   @include mixins.box-sizing-reset;
+
   @include mixins.text-block-reset;
+
   @include mixins.font-smoothing-reset;
 
   width: 100%;
@@ -133,6 +138,7 @@ $state-banner-item-min-width: 20rem;
     flex: 1 1 $state-banner-item-min-width;
     padding-block: var(--mds-space-2xs) var(--mds-space-sm);
     // Mayflower overrides - Mayflower h2 styles have color set
+
     &-heading {
       color: var(--mds-text-and-icons-utility-static-white);
     }
@@ -168,6 +174,7 @@ $state-banner-item-min-width: 20rem;
   }
 
   &__item-heading {
+
     @include mixins.text("label");
   }
 
@@ -177,12 +184,14 @@ $state-banner-item-min-width: 20rem;
 }
 
 @include mixins.max-width(md) {
+
   .mds-state-banner__seal {
     align-self: self-start;
   }
 }
 
 @include mixins.max-width(sm) {
+
   .mds-state-banner__container {
     padding-inline: var(--mds-space-sm);
   }
@@ -198,6 +207,7 @@ $state-banner-item-min-width: 20rem;
 
   .mds-state-banner__text,
   .mds-state-banner__toggle-text {
+
     @include mixins.text("caption");
   }
 
@@ -217,8 +227,10 @@ $state-banner-item-min-width: 20rem;
   }
 
   .mds-state-banner__item-copy {
+
     p,
     h2 {
+
       @include mixins.text("caption");
     }
   }
