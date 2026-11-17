@@ -29,7 +29,7 @@ let newLogs = [];
   * consolidate changelogs with the same changeTypes together
 */
 changelogs.forEach((fileName) => {
-  const content = yaml.safeLoad(fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8'));
+  const content = yaml.load(fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8'));
   Object.keys(content).forEach((changeType) => {
     // If it encounters a new change type
     if(changeTypes.indexOf(changeType) < 0) {

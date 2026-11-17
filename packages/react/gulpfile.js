@@ -756,6 +756,7 @@ const generateTsDeclarations = series(
 
 exports.icons = series(
   ensureAssetsDir,
+  cleanIconDir,
   cleanIconAssets,
   cleanTsIconAssets,
   copyIconsFromAssets,

@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const glob = require('glob');
 
-module.exports = function updateVersion(newVer) {
+function updateVersion(newVer) {
   console.log(`🚀 Updating version to ${newVer}...`);
   
   // Update the .env file (existing functionality)
@@ -62,6 +62,26 @@ function updatePackageJsonVersions(newVer) {
   });
 }
 
+function nextMayflowerDependencyVersion(oldDepVersion, newVer) {
+  const workspacePrefix = oldDepVersion.startsWith('workspace:') ? 'workspace:' : '';
+  const range = workspacePrefix ? oldDepVersion.slice(workspacePrefix.length) : oldDepVersion;
+
+  if (range === '*') {
+    return `${workspacePrefix}*`;
+  }
+
+  let next = newVer;
+  if (range.startsWith('^')) {
+    next = `^${newVer}`;
+  } else if (range.startsWith('~')) {
+    next = `~${newVer}`;
+  } else if (range.startsWith('>=')) {
+    next = `>=${newVer}`;
+  }
+
+  return `${workspacePrefix}${next}`;
+}
+
 function updatePackageJsonVersion(packageJsonPath, newVer) {
   try {
     if (!fs.existsSync(packageJsonPath)) {
@@ -96,16 +116,8 @@ function updatePackageJsonVersion(packageJsonPath, newVer) {
         Object.keys(packageData[depType]).forEach(depName => {
           if (isMayflowerPackage(depName)) {
             const oldDepVersion = packageData[depType][depName];
-            // Handle version ranges (^, ~, >=, etc.)
-            let newDepVersion = newVer;
-            if (oldDepVersion.startsWith('^')) {
-              newDepVersion = `^${newVer}`;
-            } else if (oldDepVersion.startsWith('~')) {
-              newDepVersion = `~${newVer}`;
-            } else if (oldDepVersion.startsWith('>=')) {
-              newDepVersion = `>=${newVer}`;
-            }
-            
+            const newDepVersion = nextMayflowerDependencyVersion(oldDepVersion, newVer);
+
             packageData[depType][depName] = newDepVersion;
             changes.push(`${depType}.${depName}: ${oldDepVersion} → ${newDepVersion}`);
           }
@@ -147,5 +159,8 @@ if (require.main === module) {
     process.exit(1);
   }
   
-  module.exports(newVersion);
+  updateVersion(newVersion);
 }
+
+module.exports = updateVersion;
+module.exports.nextMayflowerDependencyVersion = nextMayflowerDependencyVersion;
