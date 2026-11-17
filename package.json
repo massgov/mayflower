@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "@octokit/rest": "^22.0.1",
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^4.3.2",
     "semver": "^7.7.2",
     "shelljs": "^0.8.5",
     "simple-git": "^4.1.0"
   },
   "overrides": {
-    "brace-expansion": "^1.1.18",
+    "brace-expansion": "^1.1.22",
     "minimatch": "^3.1.5"
   },
   "volta": {
