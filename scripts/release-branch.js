@@ -12,9 +12,10 @@ const shell = require('shelljs');
 
 // Added simple-git to use for git add "npm install simple-git"
 // Could not use the shell.exec to git add the remove changelogs.
-const git = require('simple-git/promise')();
+const { simpleGit } = require('simple-git');
+const git = simpleGit();
 
-const { octokit } = require('./release-vars');
+const { octokit: octokitPromise } = require('./release-vars');
 const { newLogsWithTitle, version } = require('./compile-changelogs');
 const updateCoreVersion = require('./update-version');
 
@@ -22,6 +23,7 @@ const updateCoreVersion = require('./update-version');
 const releaseBranch = 'release/' + version;
 
 (async function() {
+  const octokit = await octokitPromise;
   // This asynchronous logic will happen sequentially.
   // If an error is thrown, it will break out of this
   // asynchronous function immediately and exit 1.
@@ -36,7 +38,7 @@ const releaseBranch = 'release/' + version;
   // await git.push('origin', releaseBranch, {'--force': null});
 
   //Create the pull request in GitHub
-  await octokit.pulls.create({
+  await octokit.rest.pulls.create({
     owner: 'massgov',
     repo: 'mayflower',
     title: `Release ${version}`,
