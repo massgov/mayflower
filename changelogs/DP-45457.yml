@@ -1,0 +1,12 @@
+Changed:
+  - project: React, Patternlab
+    component: BuildTooling
+    description: Update development tooling and CI workflows for Node.js 24 compatibility.
+    issue: DP-45457
+    impact: Patch
+Security:
+  - project: React, Patternlab
+    component: Libraries
+    description: Update release tooling dependencies and lockfiles to address compatible dependency advisories.
+    issue: DP-45457
+    impact: Patch
