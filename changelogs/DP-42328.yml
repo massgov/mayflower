@@ -4,3 +4,9 @@ Security:
     description: Update critical npm packages and make the Mayflower toolchain compatible with Node.js 24. Upgrades Rush to 5.178.0, pnpm to 9.15.9, gulp-sass to 5.x (Dart Sass), remediates critical/high advisories in root tooling, and adds React/ReactDOM as React package devDependencies so pnpm workspaces can resolve peers for lint and builds.
     issue: DP-42328
     impact: Minor
+Fixed:
+  - project: Patternlab, React
+    component: Dependency
+    description: Keep the pnpm workspace protocol when the release script bumps internal Mayflower package versions.
+    issue: DP-42328
+    impact: Patch
