@@ -641,8 +641,8 @@ jobs:
             packages/core/node_modules
           key: root-npm-v9-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-1
 
-      - name: Install global dependencies
-        run: npm install -g js-yaml@4.3.2 @octokit/rest@22.0.1 semver@7.7.2 shelljs@0.8.5 simple-git@4.1.0
+      - name: Install release dependencies
+        run: npm ci --ignore-scripts
 
       - name: Configure Git
         run: |
@@ -650,7 +650,7 @@ jobs:
           git config --global user.name "Mayflower Bot"
 
       - name: Run release branch script
-        run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-branch.js
+        run: node scripts/release-branch.js
 
   github_tag:
     name: GitHub Tag
@@ -688,10 +688,10 @@ jobs:
             packages/core/node_modules
           key: root-npm-v9-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-1
 
-      - name: Install global dependencies
-        run: npm install -g js-yaml@4.3.2 @octokit/rest@22.0.1 semver@7.7.2 shelljs@0.8.5 simple-git@4.1.0
+      - name: Install release dependencies
+        run: npm ci --ignore-scripts
 
       - name: Run release tag script
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-tag.js
+        run: node scripts/release-tag.js
