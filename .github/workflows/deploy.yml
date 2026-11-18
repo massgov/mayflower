@@ -23,15 +23,15 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Restore pnpm cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             common
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/heads/dependabot/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
@@ -71,7 +71,7 @@ jobs:
       !startsWith(github.ref, 'refs/heads/react/') &&
       !startsWith(github.ref, 'refs/heads/core/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -80,12 +80,12 @@ jobs:
           tools: composer:v2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Restore NPM cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             common
@@ -115,7 +115,7 @@ jobs:
         run: cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build
 
       - name: Upload workspace
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: patternlab-workspace
           path: .
@@ -132,12 +132,12 @@ jobs:
       !startsWith(github.ref, 'refs/tags/')
     steps:
       - name: Download workspace
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: patternlab-workspace
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Start Docker services
         working-directory: packages/patternlab
@@ -151,14 +151,14 @@ jobs:
 
       - name: Upload test artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: backstop-patternlab
           path: packages/patternlab/backstopjs
 
       - name: Publish test results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: patternlab-test-results
           path: packages/patternlab/backstopjs/reports/ci
@@ -177,10 +177,10 @@ jobs:
       !startsWith(github.ref, 'refs/heads/react/') &&
       !startsWith(github.ref, 'refs/heads/core/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Download workspace
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: patternlab-workspace
 
@@ -191,12 +191,12 @@ jobs:
           mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Add SSH key
-        uses: webfactory/ssh-agent@v0.9.0
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.DEPLOY_KEY_ARTIFACTS }}
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           aws-region: us-east-1
           role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
@@ -231,10 +231,10 @@ jobs:
       contents: read
     if: startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Download workspace
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: patternlab-workspace
 
@@ -245,18 +245,18 @@ jobs:
           mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Add SSH key
-        uses: webfactory/ssh-agent@v0.9.0
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.DEPLOY_KEY_ARTIFACTS }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: "https://registry.npmjs.org"
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           aws-region: us-east-1
           role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
@@ -305,15 +305,15 @@ jobs:
       !startsWith(github.ref, 'refs/heads/docs/') &&
       !startsWith(github.ref, 'refs/heads/patternlab/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Restore NPM cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             common
@@ -340,7 +340,7 @@ jobs:
         run: node ../../common/scripts/install-run-rushx.js lint
 
       - name: Upload workspace
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: react-workspace
           path: .
@@ -357,12 +357,12 @@ jobs:
       !startsWith(github.ref, 'refs/tags/')
     steps:
       - name: Download workspace
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: react-workspace
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Start Docker services
         working-directory: packages/react
@@ -377,14 +377,14 @@ jobs:
 
       - name: Upload test artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: backstop-react
           path: packages/react/backstop
 
       - name: Publish test results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: react-test-results
           path: packages/react/backstop/data/ci_report
@@ -399,12 +399,12 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - name: Download workspace
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: react-workspace
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: "https://registry.npmjs.org"
@@ -423,7 +423,7 @@ jobs:
 
       - name: Configure AWS Credentials
         if: ${{ !contains(github.ref, '-') }}
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           aws-region: us-east-1
           role-to-assume: ${{ vars.ROLE_ARN }}
@@ -444,15 +444,15 @@ jobs:
       github.event_name == 'push' &&
       !startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Restore cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             common
@@ -474,16 +474,16 @@ jobs:
     needs: [react_build_storybook]
     if: startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: "https://registry.npmjs.org"
 
       - name: Restore cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             common
@@ -513,15 +513,15 @@ jobs:
       !startsWith(github.ref, 'refs/heads/docs/') &&
       !startsWith(github.ref, 'refs/heads/patternlab/')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Restore NPM cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             common
@@ -544,7 +544,7 @@ jobs:
         run: node ../../common/scripts/install-run-rushx.js build
 
       - name: Upload workspace
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: core-workspace
           path: .
@@ -560,13 +560,13 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - name: Download workspace
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: core-workspace
 
       - name: Configure AWS Credentials
         if: ${{ !contains(github.ref, '-') }}
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           aws-region: us-east-1
           role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
@@ -597,12 +597,12 @@ jobs:
       !startsWith(github.ref, 'refs/heads/react/')
     steps:
       - name: Download workspace
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: core-workspace
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           aws-region: us-east-1
           role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
@@ -620,18 +620,18 @@ jobs:
     needs: [build]
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.create_tag == 'true'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Restore NPM cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             common
@@ -641,8 +641,8 @@ jobs:
             packages/core/node_modules
           key: root-npm-v9-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-1
 
-      - name: Install global dependencies
-        run: npm install -g js-yaml@3.13.1 @octokit/rest@18.12.0 semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
+      - name: Install release dependencies
+        run: npm ci --ignore-scripts
 
       - name: Configure Git
         run: |
@@ -650,7 +650,7 @@ jobs:
           git config --global user.name "Mayflower Bot"
 
       - name: Run release branch script
-        run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-branch.js
+        run: node scripts/release-branch.js
 
   github_tag:
     name: GitHub Tag
@@ -661,7 +661,7 @@ jobs:
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     environment: approval
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0
@@ -673,12 +673,12 @@ jobs:
           mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Restore NPM cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             common
@@ -688,10 +688,10 @@ jobs:
             packages/core/node_modules
           key: root-npm-v9-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}-1
 
-      - name: Install global dependencies
-        run: npm install -g js-yaml@3.13.1 @octokit/rest@18.12.0 semver@6.3.0 shelljs@0.8.3 simple-git@1.126.0
+      - name: Install release dependencies
+        run: npm ci --ignore-scripts
 
       - name: Run release tag script
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: export NODE_PATH=$(npm root --quiet -g) && node scripts/release-tag.js
+        run: node scripts/release-tag.js

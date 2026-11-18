@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { octokit, latest } = require('./release-vars');
+const { octokit: octokitPromise, latest } = require('./release-vars');
 
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 const re = /\n##\s/;
@@ -19,17 +19,17 @@ if (version.trim() === latest.toString().trim()) {
 }
 
 // Cut the release tag in GitHub
-octokit.repos.createRelease({
-  owner: 'massgov',
-  repo: 'mayflower',
-  tag_name: version,
-  target_commitish: 'master',
-  name: version,
-  body: newLogsWithTitle
-})
-.then(console.log, console.log)
-.catch((err) => {
+(async function() {
+  const octokit = await octokitPromise;
+  await octokit.rest.repos.createRelease({
+    owner: 'massgov',
+    repo: 'mayflower',
+    tag_name: version,
+    target_commitish: 'master',
+    name: version,
+    body: newLogsWithTitle
+  });
+})().catch((err) => {
   console.error(`There was an error thrown during the cutting of the release tag: ${err.toString()}`);
-  process.exit(1)
-  }
-);
+  process.exit(1);
+});
