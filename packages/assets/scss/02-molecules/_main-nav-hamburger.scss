@@ -48,7 +48,7 @@
     }
 
     &:focus {
-      background-color: var(--mds-border-brand-neutral-low);
+      background-color: var(--mds-interactive-brand-neutral-low); // closest color match in MDS
       outline: 2px solid var(--mf-c-gray-darkest);
     }
 

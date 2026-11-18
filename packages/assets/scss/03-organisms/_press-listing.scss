@@ -193,7 +193,7 @@
     width: 1px;
     height: 100%;
     position: absolute;
-    background-color: var(--mds-border-brand-neutral-low);
+    background-color: var(--mds-background-section-brand-neutral-low); // closest to MDS equivalent of divider color
     top: 0;
     right: -30px;
   }
