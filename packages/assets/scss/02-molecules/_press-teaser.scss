@@ -109,7 +109,7 @@
 .ma__press-teaser {
 
   & + & {
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
   }
 
   &__eyebrow span {
@@ -125,6 +125,6 @@
   }
 
   &__org {
-    border-left-color: var(--mf-c-bd-divider);
+    border-left-color: var(--mds-border-brand-neutral-low);
   }
 }

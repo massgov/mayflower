@@ -244,15 +244,15 @@ $event-listing-bp-show-grid: $bp-medium-min;
   }
 
   &--grid &__item {
-    border-color: var(--mf-c-bd-divider);
+    border-color: var(--mds-border-brand-neutral-low);
 
     &:after {
-      border-color: var(--mf-c-bd-divider);
+      border-color: var(--mds-border-brand-neutral-low);
     }
   }
 
   &__item + &__item {
-    border-color: var(--mf-c-bd-divider);
+    border-color: var(--mds-border-brand-neutral-low);
   }
 
   .post-content > & {
@@ -262,12 +262,12 @@ $event-listing-bp-show-grid: $bp-medium-min;
   .post-content > & &__container {
 
     & > *:last-child {
-      border-bottom-color: var(--mf-c-bd-divider);
+      border-bottom-color: var(--mds-border-brand-neutral-low);
     }
   }
 
   .post-content > & &__item {
-    border-left-color: var(--mf-c-bd-divider);
+    border-left-color: var(--mds-border-brand-neutral-low);
   }
 }
 

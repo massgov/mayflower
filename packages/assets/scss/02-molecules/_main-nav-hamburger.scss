@@ -6,7 +6,7 @@
   padding: 0;
 
   @media ($bp-header-toggle-max) {
-    border-top: 2px solid var(--mf-c-bd-divider);
+    border-top: 2px solid var(--mds-border-brand-neutral-low);
   }
 
   &__items {
@@ -15,7 +15,7 @@
   }
 
   &__item {
-    border-bottom: 2px solid var(--mf-c-bd-divider);
+    border-bottom: 2px solid var(--mds-border-brand-neutral-low);
   }
 
   &__top-link {
@@ -48,7 +48,7 @@
     }
 
     &:focus {
-      background-color: var(--mf-c-bd-divider);
+      background-color: var(--mds-interactive-brand-neutral-low); // closest color match in MDS
       outline: 2px solid var(--mf-c-gray-darkest);
     }
 
@@ -153,7 +153,7 @@
       text-decoration: none;
 
       &>span {
-          border-bottom: 2px solid var(--mf-c-gray-darkest);
+          border-bottom: 2px solid var(--mds-border-brand-neutral-high);
       }
     }
   }

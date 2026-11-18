@@ -4,7 +4,7 @@ $formQuickTransitions: max-height 0.3s linear;
 @use "00-base/configure" as *;
 
 .ma__mass-feedback-form {
-  border: 2px solid var(--mf-c-gray-light);
+  border: 2px solid var(--mds-border-brand-neutral-low);
   background: var(--mf-c-bg);
   max-width: 35em;
   margin: 0 0.5rem 5rem;
@@ -16,7 +16,7 @@ $formQuickTransitions: max-height 0.3s linear;
   &__heading {
     padding: 1rem 20px;
     font-size: $fonts-larger;
-    border-bottom: 2px solid var(--mf-c-gray-light);
+    border-bottom: 2px solid var(--mds-border-brand-neutral-low);
     margin-bottom: 0;
 
     @media ($bp-small-min) {

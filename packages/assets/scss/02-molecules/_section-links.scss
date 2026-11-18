@@ -274,14 +274,14 @@
   }
 
   @media ($bp-x-small-max) {
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
 
     &.is-open {
       background-color: var(--mf-c-bg);
     }
 
     &:last-child {
-      border-bottom-color: var(--mf-c-bd-divider);
+      border-bottom-color: var(--mds-border-brand-neutral-low);
     }
   }
 
@@ -306,7 +306,7 @@
     & + .ma__section-links__items {
 
       @media ($bp-x-small-max) {
-        border-top: 1px solid var(--mf-c-bd-divider);
+        border-top: 1px solid var(--mds-border-brand-neutral-low);
         padding-top: 0.75em;
         margin-top: 0.75em;
       }

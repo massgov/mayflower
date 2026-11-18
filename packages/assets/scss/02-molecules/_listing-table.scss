@@ -175,7 +175,7 @@
 .ma__listing-table {
 
   tr + tr {
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
   }
 
   &__expand {
@@ -187,6 +187,6 @@
   }
 
   .main-content .ma__header-tags + & {
-    border-color: var(--mf-c-bd-divider);
+    border-color: var(--mds-border-brand-neutral-low);
   }
 }

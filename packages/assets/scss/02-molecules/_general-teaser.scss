@@ -20,7 +20,7 @@
   & + & {
     border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
 
     @media ($bp-large-max) {
       margin-top: 30px;
@@ -118,7 +118,7 @@
     margin-bottom: 1em;
     font-style: italic;
     font-weight: $fonts-bold;
-    border-left-color: var(--mf-c-bd-divider);
+    border-left-color: var(--mds-border-brand-neutral-low);
 
     & + & {
       border-left-style: solid;
@@ -153,7 +153,7 @@
     font-size: $fonts-xsmall;
     font-weight: bold;
     text-align: center;
-    border: 1px solid var(--mf-c-gray-light);
+    border: 1px solid var(--mds-border-brand-neutral-low);
     background-color: var(--mf-c-bg);
     padding: 0px 5px;
     min-width: 60px;

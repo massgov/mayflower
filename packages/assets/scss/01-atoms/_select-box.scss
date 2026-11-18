@@ -38,7 +38,7 @@
     color: var(--mf-c-font-base);
     font-weight: $fonts-light;
     border-width: 2px;
-    
+
     // Show native select in high contrast mode
 
     @media (forced-colors: active) {
@@ -58,7 +58,7 @@
       @media (-webkit-min-device-pixel-ratio:0) {
         outline-style: auto;
       }
-    
+
       // Focus on native select in high contrast mode
 
       @media (forced-colors: active) {
@@ -72,8 +72,8 @@
     }
 
     &.has-error {
-      border-color: var(--mf-c-bd-error);
-      
+      border-color: var(--mds-border-utility-danger-mid);
+
       // Fix error visibility in high contrast mode
 
       @media (forced-colors: active) {
@@ -81,8 +81,8 @@
       }
 
       .ma__select-box__icon {
-        border-color: var(--mf-c-bd-error);
-        
+        border-color: var(--mds-border-utility-danger-mid);
+
         @media (forced-colors: active) {
           border-color: Mark;
           border-width: 3px;
@@ -103,8 +103,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     background-color: var(--mf-c-bg);
-    border-color: var(--mf-c-bd-input);
-    
+    border-color: var(--mds-border-brand-neutral-high);
+
     // Hide custom link in high contrast mode
 
     @media (forced-colors: active) {
@@ -128,13 +128,13 @@
       right: 0;
     text-align: center;
     width: 40px;
-    border-color: var(--mf-c-bd-input);
+    border-color: var(--mds-border-brand-neutral-high);
 
     &:after {
       margin: 0;
       transform: translateY(-2px) rotate(45deg);
     }
-    
+
     // Hide custom icon in high contrast mode
 
     @media (forced-colors: active) {

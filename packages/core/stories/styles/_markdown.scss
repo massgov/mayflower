@@ -7,7 +7,7 @@ h2, h3, h4, h5, h6 {
 }
 
 hr {
-  border: 1px solid var(--mf-c-gray-light);
+  border: 1px solid var(--mds-border-brand-neutral-low);
 	margin: 2rem 0;
 }
 
@@ -80,7 +80,7 @@ ul {
 blockquote {
 	margin: 0;
   padding: 0 1em;
-  border-left: .25em solid var(--mf-c-gray-light);
+  border-left: .25em solid var(--mds-border-brand-neutral-low);
 
 	&>:first-child {
   	margin-top: 0;

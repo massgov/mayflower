@@ -163,7 +163,7 @@
     &.is-open {
 
       a + a {
-        border-top-color: var(--mf-c-bd-divider);
+        border-top-color: var(--mds-border-brand-neutral-low);
       }
     }
 
@@ -181,7 +181,7 @@
     }
 
     a + a {
-      border-top-color: var(--mf-c-bd-divider);
+      border-top-color: var(--mds-border-brand-neutral-low);
     }
   }
 
