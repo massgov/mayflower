@@ -101,15 +101,12 @@ The following example uses gulp to compile all .scss files under src (with excep
 ```javascript
 // gulpfile.js
 const { src, dest, series } = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const rename = require('gulp-rename');
 const flatmap = require('gulp-flatmap');
 const del = require('del');
 const bourbon = require('bourbon');
 const path = require('path');
-// Replaces node_sass with sass.
-sass.compiler = require('sass');
-
 const compileSass = () => {
   return src([
     // Compile all scss files
