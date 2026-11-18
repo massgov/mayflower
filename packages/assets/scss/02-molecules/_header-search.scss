@@ -22,7 +22,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
     padding-right: 128px;
     padding-left: 1rem;
     width: 100%;
-    border-color: var(--mf-c-bd);
+    border-color: var(--mds-border-brand-neutral-low);
 
     @media (forced-colors: active) {
       color: var(--mf-c-font-inverse);
@@ -70,7 +70,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
     position: absolute;
     width: 100%;
-    border: 2px solid var(--mf-c-bd);
+    border: 2px solid var(--mds-border-brand-neutral-low);
     margin-top: -2px;
     z-index: $z-dropdown;
 
@@ -91,7 +91,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
       svg {
         width: $fonts-medium;
-        height: $fonts-medium; 
+        height: $fonts-medium;
         margin-right: 1rem;
         flex-shrink: 0;
       }
@@ -105,7 +105,7 @@ $bp-header-search-reduce-button: "max-width: 700px";
       align-items: center;
       text-align: left;
       padding: 0.5rem 1rem;
-      border-top: 1px solid var(--mf-c-bd);
+      border-top: 1px solid var(--mds-border-brand-neutral-low);
       font-size: $fonts-medium;
 
       &:hover {
@@ -138,21 +138,21 @@ $bp-header-search-reduce-button: "max-width: 700px";
         text-align: left;
         padding: 0.5rem 1rem;
         font-size: $fonts-medium;
-        border-top: 1px solid var(--mf-c-bd);
+        border-top: 1px solid var(--mds-border-brand-neutral-low);
         width: 100%;
-  
+
         &:hover, &.hover {
           background-color: var(--mf-c-bg-section);
         }
-  
+
         &-text {
           display: block;
         }
-  
+
         &-input {
           font-weight: $fonts-bold;
         }
-  
+
         &-scope {
           font-size: $fonts-small;
           color: var(--mf-c-font-detail);

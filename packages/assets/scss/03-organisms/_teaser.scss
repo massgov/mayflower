@@ -208,13 +208,13 @@
       flex: 1 1 40%;
       flex-grow: 1;
       padding-left: 0.75em;
-      border-left: 1px solid var(--mf-c-gray-light);
+      border-left: 1px solid var(--mds-border-brand-neutral-low);
     }
 
     @media ($bp-small-min) {
       flex: 1 1 40%;
       flex-grow: 1;
-      border-left: 1px solid var(--mf-c-gray-light);
+      border-left: 1px solid var(--mds-border-brand-neutral-low);
       align-content: flex-start;
     }
   }

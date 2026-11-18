@@ -18,7 +18,7 @@
   &:focus {
     outline: 2px solid var(--mf-c-focus);
     outline-offset: 2px;
-    border-color: var(--mf-c-bd-input);
+    border-color: var(--mds-border-brand-neutral-high);
   }
 
   &.has-error {

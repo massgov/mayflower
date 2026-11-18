@@ -41,10 +41,10 @@
     padding-top: 20px;
     list-style: none;
     background: var(--mf-c-gray-lightest);
-    border: 2px solid var(--mf-c-gray-light);
+    border: 2px solid var(--mds-border-brand-neutral-low);
 
     > * + * {
-      border-top: 1px solid var(--mf-c-gray-light);
+      border-top: 1px solid var(--mds-border-brand-neutral-low);
     }
 
     // Visual cue for the clickable area.
@@ -78,7 +78,7 @@
       display: none;
       padding: 20px 0 10px 20px;
       background: var(--mf-c-white);
-      border-top: 2px solid var(--mf-c-gray-light);
+      border-top: 2px solid var(--mds-border-brand-neutral-low);
 
       // Visual cue for the clickable area.
 

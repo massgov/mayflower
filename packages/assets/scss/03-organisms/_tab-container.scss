@@ -34,15 +34,15 @@
 
   &-body {
     padding: 1rem;
-    border: 1px solid var(--mf-c-gray-light);
+    border: 1px solid var(--mds-border-brand-neutral-low);
     margin-top: -1px;
 
     @extend %focus;
   }
 
   .ma__tab-title {
-    border-left: 1px solid var(--mf-c-gray-light);
-    border-top: 1px solid var(--mf-c-gray-light);
+    border-left: 1px solid var(--mds-border-brand-neutral-low);
+    border-top: 1px solid var(--mds-border-brand-neutral-low);
     border-right: none;
     border-bottom: none;
     margin-bottom: -1px;
@@ -52,7 +52,7 @@
     }
 
     &:last-child {
-      border-right: 1px solid var(--mf-c-gray-light);
+      border-right: 1px solid var(--mds-border-brand-neutral-low);
     }
 
 
@@ -87,7 +87,7 @@
     .ma__tab-container {
 
       &-head {
-        border-bottom: 1px solid var(--mf-c-gray-light);
+        border-bottom: 1px solid var(--mds-border-brand-neutral-low);
       }
 
       &-body {

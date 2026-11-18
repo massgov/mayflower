@@ -16,7 +16,7 @@
   &:focus {
     outline: 2px solid var(--mf-c-focus);
     outline-offset: 2px;
-    border-color: var(--mf-c-bd-input); // Keep original border color
+    border-color: var(--mds-border-brand-neutral-high); // Keep original border color
   }
 
   &.has-error {

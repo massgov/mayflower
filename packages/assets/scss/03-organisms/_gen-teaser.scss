@@ -269,7 +269,7 @@
     @media ($bp-small-min) {
       padding-left: .75em;
       margin-left: .75em;
-      border-left: 1px solid var(--mf-c-gray-light);
+      border-left: 1px solid var(--mds-border-brand-neutral-low);
 
       & > *:first-child {
         margin-top: 0rem;
@@ -334,7 +334,7 @@
     font-size: $fonts-xsmall;
     font-weight: bold;
     text-align: center;
-    border: 1px solid var(--mf-c-gray-light);
+    border: 1px solid var(--mds-border-brand-neutral-low);
     background-color: var(--mf-c-bg);
     padding: 0px 5px;
     min-width: 60px;
@@ -375,7 +375,7 @@
         height: 42px;
         min-height: 42px;
         background-color: var(--mf-c-bg);
-        border-color: var(--mf-c-gray-light) !important;
+        border-color: var(--mds-border-brand-neutral-low) !important;
         color: var(--mf-c-primary-alt);
 
         svg {
