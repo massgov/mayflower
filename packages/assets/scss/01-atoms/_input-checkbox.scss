@@ -45,7 +45,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid var(--mf-c-bd-input);
+      border: 2px solid var(--mds-border-brand-neutral-high);
       transition: opacity 0.2s ease;
       pointer-events: none;
       margin-right: 0.25em;
@@ -105,7 +105,7 @@
   input.has-error ~ label:before,
   input.has-error ~ label:after {
 
-    border-color: var(--mf-c-bd-error);
+    border-color: var(--mds-border-utility-danger-mid);
   }
 
 
@@ -113,7 +113,7 @@
   input ~ label.has-error:after {
     // Error state
 
-    border-color: var(--mf-c-bd-error);
+    border-color: var(--mds-border-utility-danger-mid);
   }
 
   &--disabled {

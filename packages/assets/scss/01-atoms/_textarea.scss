@@ -3,7 +3,7 @@
 .ma__textarea {
 
   background-color: var(--mf-c-bg);
-  border: 2px solid var(--mf-c-bd-input);
+  border: 2px solid var(--mds-border-brand-neutral-high);
   font-size: $fonts-large;
   font-weight: $fonts-light;
   max-width: 100%;
@@ -20,7 +20,7 @@
   }
 
   &.has-error {
-    border-color: var(--mf-c-bd-error);
+    border-color: var(--mds-border-utility-danger-mid);
 
     // High contrast mode error visibility
 

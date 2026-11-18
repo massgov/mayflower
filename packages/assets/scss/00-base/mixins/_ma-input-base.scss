@@ -4,7 +4,7 @@
 
 @mixin input-base {
   background-color: var(--mf-c-bg);
-  border: 2px solid var(--mf-c-bd-input);
+  border: 2px solid var(--mds-border-brand-neutral-high);
   color: var(--mf-c-font-base);
   font-size: $fonts-large;
   font-weight: $fonts-light;
@@ -22,7 +22,7 @@
   }
 
   &.has-error {
-    border-color: var(--mf-c-bd-error);
+    border-color: var(--mds-border-utility-danger-mid);
 
     @media (forced-colors: active) {
       border-color: Mark;

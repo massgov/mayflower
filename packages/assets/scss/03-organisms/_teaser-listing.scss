@@ -299,7 +299,7 @@
 .ma__teaser-listing {
 
   &__optional-content, &__featured-items, &__items, &__extra {
-    border-color: var(--mf-c-bd-divider);
+    border-color: var(--mds-border-brand-neutral-low);
   }
 
   &__featured-items .ma__general-teaser,
@@ -307,7 +307,7 @@
   &__item {
 
     &, &:after {
-      border-color: var(--mf-c-bd-divider);
+      border-color: var(--mds-border-brand-neutral-low);
     }
   }
 }

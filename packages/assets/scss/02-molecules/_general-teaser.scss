@@ -20,7 +20,7 @@
   & + & {
     border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
 
     @media ($bp-large-max) {
       margin-top: 30px;
@@ -118,7 +118,7 @@
     margin-bottom: 1em;
     font-style: italic;
     font-weight: $fonts-bold;
-    border-left-color: var(--mf-c-bd-divider);
+    border-left-color: var(--mds-border-brand-neutral-low);
 
     & + & {
       border-left-style: solid;

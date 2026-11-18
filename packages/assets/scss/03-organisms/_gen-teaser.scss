@@ -20,7 +20,7 @@
     border-top-style: solid;
     margin-top: 20px;
     padding-top: 20px;
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
 
     @media ($bp-large-min) {
       margin-top: 30px;
@@ -138,7 +138,7 @@
   }
 
   &__date + &__org {
-    border-left: 1px solid var(--mf-c-bd-divider);
+    border-left: 1px solid var(--mds-border-brand-neutral-low);
     margin-left: .75em;
     padding-left: .75em;
   }
@@ -200,7 +200,7 @@
       @media ($bp-small-min) {
         flex: 1 50%;
         align-content: flex-start;
-        border-left: 1px solid var(--mf-c-bd-divider);
+        border-left: 1px solid var(--mds-border-brand-neutral-low);
         margin-left: .75em;
         padding-left: .75em;
       }

@@ -90,7 +90,7 @@ body {
     &--mobile {
       padding: 20px;
       width: 100%;
-      border-bottom: 2px solid var(--mf-c-bd-divider);
+      border-bottom: 2px solid var(--mds-border-brand-neutral-low);
 
       a img {
         width: 45px;
@@ -448,7 +448,7 @@ body {
   &__main-nav {
 
     @media ($bp-header-toggle-max) {
-      border-bottom-color: var(--mf-c-bd-divider);
+      border-bottom-color: var(--mds-border-brand-neutral-low);
     }
   }
 

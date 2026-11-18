@@ -98,7 +98,7 @@
 .ma__header-contact {
 
   &__accordion {
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
     color: var(--mf-c-primary);
     font-weight: $fonts-bold;
 
@@ -110,7 +110,7 @@
   &__column {
 
     & + & {
-      border-color: var(--mf-c-bd-divider);
+      border-color: var(--mds-border-brand-neutral-low);
     }
   }
 }

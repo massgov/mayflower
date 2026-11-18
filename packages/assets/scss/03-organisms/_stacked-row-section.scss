@@ -25,7 +25,7 @@
       }
     }
 
-    & .main-content .page-content > *, 
+    & .main-content .page-content > *,
     & .main-content .page-content .layout--onecol-mass-service-section .layout__region--content> *,
     & .main-content--full .page-content > * {
 
@@ -97,10 +97,10 @@
   &__section {
 
     & ~ & {
-      border-color: var(--mf-c-bd-divider);
+      border-color: var(--mds-border-brand-neutral-low);
 
       .ma__stacked-row__container:before {
-        border-color: var(--mf-c-bd-divider);
+        border-color: var(--mds-border-brand-neutral-low);
       }
     }
   }

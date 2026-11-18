@@ -32,12 +32,12 @@
 
     .curated-person--org {
       padding-left: 1rem;
-      border-left: 1px solid var(--mf-c-bd-divider);
+      border-left: 1px solid var(--mds-border-brand-neutral-low);
     }
   }
 
   .ma__contact-us__content-wrap {
-    border-bottom: 1px solid var(--mf-c-bd-divider);
+    border-bottom: 1px solid var(--mds-border-brand-neutral-low);
     padding-bottom: 1rem;
 
     @media ($bp-large-min) {
@@ -62,7 +62,7 @@
         position: absolute;
         right: 20px;
         top: 0;
-        background-color: var(--mf-c-bd-divider);
+        background-color: var(--mds-border-brand-neutral-low);
       }
     }
 
@@ -75,7 +75,7 @@
 
       &:not(:first-child) {
         padding: 0 10px;
-        border-left: 1px solid var(--mf-c-bd-divider);
+        border-left: 1px solid var(--mds-border-brand-neutral-low);
       }
     }
   }

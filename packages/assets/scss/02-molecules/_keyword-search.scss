@@ -23,7 +23,7 @@ $header-search-height: 46px;
     padding-right: $header-search-height + 16;
     padding-left: 16px;
     width: 100%;
-    
+
   }
 
   &__reset,
@@ -89,7 +89,7 @@ $header-search-height: 46px;
 
   .ma__button-search {
     background-color: transparent;
-    border-left-color: var(--mf-c-bd-input);
+    border-left-color: var(--mds-border-brand-neutral-high);
 
     &:hover {
       background: var(--mf-c-primary-alt);

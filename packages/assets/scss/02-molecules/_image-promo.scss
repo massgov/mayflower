@@ -5,7 +5,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
 .ma__image-promo {
 
   @include clearfix();
-  border-color: var(--mf-c-bd-divider);
+  border-color: var(--mds-border-brand-neutral-low);
   display: flex;
   flex-wrap: wrap;
 
