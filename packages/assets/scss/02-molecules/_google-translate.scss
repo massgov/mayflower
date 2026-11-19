@@ -89,7 +89,7 @@ body > .skiptranslate {
     width: 100%;
     padding: $translate-control-padding-y $translate-control-padding-right $translate-control-padding-y var(--mds-space-sm);
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
     color: var(--mds-text-and-icons-brand-neutral-default);
     background-color: var(--mds-background-adaptive-utility-inverse);
     border: $translate-control-border-width solid var(--mds-border-brand-neutral-high);
@@ -118,7 +118,7 @@ body > .skiptranslate {
   &-button {
     padding: $translate-control-padding-y var(--mds-space-md) !important;
 
-    @include mixins.text("label-md");
+    @include mixins.text("label-lg");
     color: var(--mds-text-and-icons-utility-inverse);
     background-color: var(--mds-background-adaptive-brand-primary-mid);
     border: $translate-control-border-width solid var(--mds-border-brand-primary-mid);
