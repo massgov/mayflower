@@ -1,0 +1,7 @@
+Changed:
+  - project: Assets
+    component: Tokens
+    description: Updated @massds/mds-tokens and @massds/mds-styles to latest beta versions
+    issue: DP-49619
+    impact: Minor
+
