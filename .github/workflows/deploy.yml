@@ -111,6 +111,10 @@ jobs:
         working-directory: packages/patternlab/styleguide
         run: composer audit --locked --abandoned=fail
 
+      - name: Test image URL escaping in Chrome
+        working-directory: packages/patternlab/styleguide
+        run: node --test tests/image-url.test.cjs
+
       - name: Build
         run: cd packages/patternlab/styleguide && node ../../../common/scripts/install-run-rushx.js build
 

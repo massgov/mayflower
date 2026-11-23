@@ -30,13 +30,13 @@
       {% if pageBanner.renderImageOnMobile %}
         {# Optional pageBanner.bgNarrow #}
         {{ classBgImage }} {
-          background-image: url('{{ (bgNarrowClass) ? pageBanner.bgNarrow : pageBanner.bgWide }}');
+          background-image: url('{{ ((bgNarrowClass) ? pageBanner.bgNarrow : pageBanner.bgWide)|e('css') }}');
         }
       {% endif %}
 
       @media (min-width: 1051px) {
         {{ classBgImage }} {
-          background-image: url('{{ pageBanner.bgWide }}');
+          background-image: url('{{ pageBanner.bgWide|e('css') }}');
         }
       }
     </style>

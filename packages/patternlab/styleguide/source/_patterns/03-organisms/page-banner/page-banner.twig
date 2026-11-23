@@ -19,13 +19,13 @@
     <style>
         {% if pageBanner.renderImageOnMobile %}
             .ma__page-banner__image {
-                background-image: url('{{ imageMobile }}');
+                background-image: url('{{ imageMobile|e('css') }}');
                 display: block;
             }
         {% endif %}
         @media (min-width: 1001px) {
             .ma__page-banner__image {
-                background-image: url('{{ imageMedium }}');
+                background-image: url('{{ imageMedium|e('css') }}');
 
                 {% if pageBanner.bgPositionX and pageBanner.bgPositionY %}
                     background-position: {{ pageBanner.bgPositionX }} {{ pageBanner.bgPositionY }};
@@ -34,7 +34,7 @@
         }
         @media (min-width: 1201px) {
             .ma__page-banner__image {
-                background-image: url('{{ pageBanner.image }}');
+                background-image: url('{{ pageBanner.image|e('css') }}');
             }
         }
     </style>

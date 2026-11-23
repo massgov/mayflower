@@ -16,12 +16,12 @@
   {% if actionFinder.bgWide %}
     <style>
       #{{ actionFinder.id }} {
-        background-image: url('{{actionFinder.bgNarrow}}');
+        background-image: url('{{actionFinder.bgNarrow|e('css')}}');
       }
 
       @media (min-width: 801px) {
         #{{ actionFinder.id }} {
-          background-image: url('{{actionFinder.bgWide}}');
+          background-image: url('{{actionFinder.bgWide|e('css')}}');
         }
       }
     </style>
