@@ -1,7 +1,7 @@
 Changed:
   - project: Assets
     component: Tokens
-    description: Updated @massds/mds-tokens and @massds/mds-styles to latest beta versions
+    description: Updated @massds/mds-tokens to 3.0.0-beta.1 and @massds/mds-styles to 2.0.0-beta.1. Components that have been updated to new names are - Brand Banner, Google Translate, Brand Banner, Google Translate, State Banner, Header Hamburger, Modal, Utility Nav. https://github.com/massgov/mayflower/pull/2100#issuecomment-7146280408
     issue: DP-49619
     impact: Major
 
