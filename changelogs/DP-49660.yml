@@ -1,0 +1,6 @@
+Security:
+  - project: Patternlab
+    component: Libraries
+    description: Updates twig/twig to 3.31.1 to address security advisories and unblock Patternlab CI. (#2103)
+    issue: DP-49660
+    impact: Patch
