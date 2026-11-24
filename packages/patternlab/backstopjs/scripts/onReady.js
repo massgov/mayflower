@@ -44,21 +44,23 @@ module.exports = async function(page, scenario, vp) {
 
     await page.addStyleTag({
         content: '' +
-        // Force all animation to complete immediately. A zero duration does not
-        // stop a transition that is already running, so transition-property is
-        // set to none as well: that cancels it and applies the end value.
+        // Force all animation to complete immediately.
         '*, *::before, *::after {\n' +
         '  animation-delay: 0ms !important;\n' +
         '  animation-duration: 0ms !important;\n' +
-        '  transition-property: none !important;\n' +
         '  transition-duration: 0ms !important;\n' +
         '  transition-delay: 0ms !important;\n' +
         '}' +
-        // Hide Leaflet map tiles. They load from an external tile server and
-        // Leaflet fades them in with JavaScript, so they differ between runs.
-        // Markers, controls and the map size stay in the screenshot.
+        // Leaflet maps: hide the tiles, which load from an external tile server
+        // and are faded in by JavaScript, so they differ between runs. Markers,
+        // controls and the map size stay in the screenshot. A zero duration does
+        // not stop a transition that is already running (e.g. the disabled zoom
+        // button), so transitions inside the map are cancelled as well.
         '.leaflet-tile-pane {\n' +
         '  visibility: hidden !important;\n' +
+        '}' +
+        '.leaflet-container, .leaflet-container * {\n' +
+        '  transition-property: none !important;\n' +
         '}' +
         // Kill Video embeds (show black box instead)
         '.fluid-width-video-wrapper:after {' +

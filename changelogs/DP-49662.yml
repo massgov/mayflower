@@ -1,6 +1,6 @@
 Fixed:
   - project: Patternlab
     component: Backstop
-    description: Hides Leaflet map tiles and cancels running CSS transitions before Backstop screenshots, so pages with a map no longer fail at random. (#2104)
+    description: Hides Leaflet map tiles and cancels running transitions inside the map before Backstop screenshots, so pages with a map no longer fail at random. (#2104)
     issue: DP-49662
     impact: Patch
