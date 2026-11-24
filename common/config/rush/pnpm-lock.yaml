@@ -16,10 +16,10 @@ importers:
   ../../packages/assets:
     dependencies:
       '@massds/mds-styles':
-        specifier: ^2.0.0-beta.1
+        specifier: ~2.0.0-beta.1
         version: 2.0.0-beta.1(@massds/mds-tokens@3.0.0-beta.1)
       '@massds/mds-tokens':
-        specifier: ^3.0.0-beta.1
+        specifier: ~3.0.0-beta.1
         version: 3.0.0-beta.1
     devDependencies:
       '@babel/core':
