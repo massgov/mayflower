@@ -1,10 +1,11 @@
 {% set level = level ? : generalTeaser.level %}
 {% set headingLevel = level ? : 2 %}
-<h{{ headingLevel }} class="ma__general-teaser__title">
+{% set titleTag = (level > 0) ? 'h' ~ headingLevel : 'div' %}
+<{{ titleTag }} class="ma__general-teaser__title">
   {% if title.href %}
     {% set decorativeLink = title %}
     {% include "@atoms/decorative-link.twig" %}
   {% else %}
     {{ title.text }}
   {% endif %}
-</h{{ headingLevel }}>
+</{{ titleTag }}>
