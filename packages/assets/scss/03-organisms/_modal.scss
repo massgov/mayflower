@@ -63,7 +63,7 @@ body.ma__translate-modal-open {
     }
 
     &.ma__shim-active {
-      background-color: var(--mds-background-base-overlay);
+      background-color: var(--mds-overlay-black-mid);
     }
   }
 
@@ -75,7 +75,7 @@ body.ma__translate-modal-open {
     min-width: 280px;
     max-width: 650px;
     max-height: calc(100vh - var(--mds-space-lg));
-    background-color: var(--mds-background-section-utility-inverse);
+    background-color: var(--mds-base-inverse);
     border: 1.5px solid var(--mds-border-brand-neutral-low);
     border-radius: var(--mds-radius-md);
     box-shadow: var(--mds-shadow-modal);
@@ -91,7 +91,7 @@ body.ma__translate-modal-open {
   &-title {
     display: block;
     margin-bottom: var(--mds-space-2xs);
-    color: var(--mds-text-and-icons-brand-neutral-default);
+    color: var(--mds-content-brand-neutral-default);
 
     @include mixins.text("heading-xs");
   }
@@ -103,10 +103,10 @@ body.ma__translate-modal-open {
     flex-shrink: 0;
     margin: var(--mds-space-2xs);
     padding: var(--mds-space-3xs);
-    background-color: var(--mds-background-adaptive-utility-inverse);
-    border: 1px solid var(--mds-border-utility-inverse);
+    background-color: var(--mds-base-inverse);
+    border: 1px solid var(--mds-base-inverse);
     border-radius: var(--mds-radius-sm);
-    color: var(--mds-text-and-icons-brand-primary-mid);
+    color: var(--mds-content-brand-primary-mid);
     cursor: pointer;
     transition: color 0.2s ease;
   }
@@ -120,7 +120,7 @@ body.ma__translate-modal-open {
     max-height: 70vh;
     padding: 0 var(--mds-space-3xl) var(--mds-space-3xl);
     overflow-y: auto;
-    color: var(--mds-text-and-icons-brand-neutral-default);
+    color: var(--mds-content-brand-neutral-default);
   }
 
   &-legend {
@@ -141,8 +141,8 @@ body.ma__translate-modal-open {
       border-color: var(--mds-border-brand-primary-mid);
 
       span {
-        background-color: var(--mds-background-adaptive-brand-primary-mid);
-        color: var(--mds-text-and-icons-utility-inverse);
+        background-color: var(--mds-interactive-brand-primary-mid);
+        color: var(--mds-base-inverse);
       }
     }
 
@@ -150,8 +150,8 @@ body.ma__translate-modal-open {
       border-color: var(--mds-border-utility-success-mid);
 
       span {
-        background-color: var(--mds-background-adaptive-utility-success-mid);
-        color: var(--mds-static-black);
+        background-color: var(--mds-background-section-utility-success-mid);
+        color: var(--mds-base-black);
       }
     }
 
@@ -159,8 +159,8 @@ body.ma__translate-modal-open {
       border-color: var(--mds-border-utility-warning-mid);
 
       span {
-        background-color: var(--mds-background-adaptive-utility-warning-mid);
-        color: var(--mds-static-black);
+        background-color: var(--mds-background-section-utility-warning-mid);
+        color: var(--mds-base-black);
       }
     }
 
@@ -168,8 +168,8 @@ body.ma__translate-modal-open {
       border-color: var(--mds-border-utility-danger-mid);
 
       span {
-        background-color: var(--mds-background-adaptive-utility-danger-mid);
-        color: var(--mds-text-and-icons-utility-inverse);
+        background-color: var(--mds-background-section-utility-danger-mid);
+        color: var(--mds-base-inverse);
       }
     }
   }

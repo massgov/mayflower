@@ -95,7 +95,7 @@ $utility-nav-height: 43px;
       &:focus-visible {
         outline-style: solid !important;
         outline-width: 2px !important;
-        outline-color: var(--mds-border-focus-on-dark) !important;
+        outline-color: var(--mds-focus-on-dark) !important;
         outline-offset: 0;
         box-shadow: none !important;
       }
