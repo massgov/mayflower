@@ -5,13 +5,13 @@
     {# Allow empty banner images to support setting randomized image with JS. #}
     {% if searchBanner.bgNarrow %}
     #{{ patternId }} {
-      background-image: url('{{ searchBanner.bgNarrow }}');
+      background-image: url('{{ searchBanner.bgNarrow|e('css') }}');
     }
     {% endif %}
     {% if searchBanner.bgWide %}
     @media (min-width: 801px) {
       #{{ patternId }} {
-        background-image: url('{{ searchBanner.bgWide }}');
+        background-image: url('{{ searchBanner.bgWide|e('css') }}');
       }
     }
     {% endif %}

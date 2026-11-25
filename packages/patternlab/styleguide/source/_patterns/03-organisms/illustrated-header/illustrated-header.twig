@@ -28,13 +28,13 @@
   {% if illustratedHeader.bgImage %}
     <style>
       .ma__illustrated-header__image {
-        background-image: url('{{ illustratedHeader.bgImage }}');
+        background-image: url('{{ illustratedHeader.bgImage|e('css') }}');
       }
 
       {% if illustratedHeader.retinaBgImage %}
       @media (-webkit-min-device-pixel-ratio: 2) {
         .ma__illustrated-header__image {
-          background-image: url('{{ illustratedHeader.retinaBgImage }}');
+          background-image: url('{{ illustratedHeader.retinaBgImage|e('css') }}');
         }
       }
       {% endif %}

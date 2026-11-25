@@ -22,6 +22,25 @@ Element base accessibility resource. It can be used while coding or after coding
 
 ## Testing
 
+### Image URL escaping regression tests
+
+After installing Composer dependencies in `styleguide`, run:
+
+```sh
+cd packages/patternlab/styleguide
+node --test tests/image-url.test.cjs
+```
+
+The tests require PHP, Node.js, and Chrome/Chromium. Set `CHROME_BIN` if the browser
+is outside its standard install location. `PHP_BIN` and `MAYFLOWER_TWIG_AUTOLOAD`
+can select an alternate PHP executable and Composer autoloader.
+
+Controlled fixtures render the full Twig templates with HTML autoescaping enabled
+and disabled. Chrome parses the style blocks (including every media-query branch)
+and HTML attributes, and the tests verify the interpreted URLs and `itok` parameters.
+They also cover image fallbacks and CSS string characters. A restrictive CSP blocks
+all network requests; no running site or environment-specific URLs are needed.
+
 ### Visual regression testing
 
 See [separate documentation](docs/visual-regression.md).

@@ -14,7 +14,7 @@
     {% if not card.usage %}
       <style>
         .ma__card__img--{{ card.id }} {
-          background-image: url('{{ thumbnail }}');
+          background-image: url('{{ thumbnail|e('css') }}');
         }
       </style>
     {% endif %}
