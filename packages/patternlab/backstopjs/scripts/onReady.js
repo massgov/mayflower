@@ -44,12 +44,21 @@ module.exports = async function(page, scenario, vp) {
 
     await page.addStyleTag({
         content: '' +
-        // Force all animation to complete immediately.
+        // Force all animation to complete immediately. A zero duration does not
+        // stop a transition that is already running, so transition-property is
+        // set to none as well: that cancels it and applies the end value.
         '*, *::before, *::after {\n' +
         '  animation-delay: 0ms !important;\n' +
         '  animation-duration: 0ms !important;\n' +
+        '  transition-property: none !important;\n' +
         '  transition-duration: 0ms !important;\n' +
         '  transition-delay: 0ms !important;\n' +
+        '}' +
+        // Hide Leaflet map tiles. They load from an external tile server and
+        // Leaflet fades them in with JavaScript, so they differ between runs.
+        // Markers, controls and the map size stay in the screenshot.
+        '.leaflet-tile-pane {\n' +
+        '  visibility: hidden !important;\n' +
         '}' +
         // Kill Video embeds (show black box instead)
         '.fluid-width-video-wrapper:after {' +
