@@ -20,10 +20,12 @@ const banned = [
     'maps.googleapis.com',
     '9p83os0fkf.execute-api.us-east-1.amazonaws.com/v1/waittime',
     'public.tableau.com/javascripts',
+    'tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/MassGISBasemap',
 ];
 // Block scripts that do analytics tracking, have side effects based on
 // domain, or cause timeouts on page load because they load in lots of extra
-// stuff.
+// stuff. MassGIS map tiles are blocked too: onReady.js hides them anyway, and
+// a stalled tile request would hold up the page load and the image wait.
 const bannedRE = new RegExp(banned.map(escapeRegexp).join('|'))
 
 async function interceptRequest(request) {
