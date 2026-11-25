@@ -1,0 +1,6 @@
+Security:
+  - project: Patternlab
+    component: Libraries
+    description: Raises the PHP version used for the Pattern Lab build to 8.4.28. (#2102)
+    issue: DP-49639
+    impact: Patch

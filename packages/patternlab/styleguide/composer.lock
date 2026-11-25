@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30b0cd77762639f4205a170c2d8bf4f4",
+    "content-hash": "e69f79fa41358a5c2592131235b4959c",
     "packages": [
         {
             "name": "kevinlebrun/colors.php",
@@ -1015,11 +1015,11 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.4.27"
+        "php": "^8.4.28"
     },
     "platform-dev": {},
     "platform-overrides": {
-        "php": "8.4.27"
+        "php": "8.4.28"
     },
     "plugin-api-version": "2.9.0"
 }

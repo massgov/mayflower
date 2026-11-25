@@ -46,7 +46,7 @@
 		}
 	],
 	"require": {
-		"php": "^8.4.27",
+		"php": "^8.4.28",
 		"pattern-lab/core": "^2.0.0",
 		"pattern-lab/patternengine-twig": "^2.0.0",
 		"pattern-lab/styleguidekit-assets-default": "^3.0.0",
@@ -65,7 +65,7 @@
 	},
 	"config": {
 		"platform": {
-			"php": "8.4.27"
+			"php": "8.4.28"
 		},
 		"sort-packages": true
 	}

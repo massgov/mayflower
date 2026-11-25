@@ -16,7 +16,7 @@ on:
 
 env:
   NODE_VERSION: "24.19.0"
-  PHP_VERSION: "8.4.27"
+  PHP_VERSION: "8.4.28"
 
 jobs:
   build:
