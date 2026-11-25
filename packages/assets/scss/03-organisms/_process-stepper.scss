@@ -15,7 +15,7 @@
 
     @include ma-reset-list;
     counter-reset: process-step-counter;
-    border: 1px solid var(--mf-c-bd-divider, #d5dce0);
+    border: 1px solid var(--mds-border-brand-neutral-low, #d5dce0);
     border-radius: 4px;
     background-color: $c-white;
     margin-top: 24px;
@@ -30,7 +30,7 @@
     list-style: none;
     position: relative;
     padding: 28px 30px; // Equal spacing on left and right
-    border-bottom: 1px solid var(--mf-c-bd-divider, #d5dce0);
+    border-bottom: 1px solid var(--mds-border-brand-neutral-low, #d5dce0);
     margin-bottom: 0;
 
     .ma__rich-text & {
@@ -58,7 +58,7 @@
 
     &__item {
       padding: 24px 20px; // Equal spacing on mobile left and right
-      border-bottom: 1px solid var(--mf-c-bd-divider, #d5dce0);
+      border-bottom: 1px solid var(--mds-border-brand-neutral-low, #d5dce0);
       margin-bottom: 0;
 
       .ma__rich-text & {

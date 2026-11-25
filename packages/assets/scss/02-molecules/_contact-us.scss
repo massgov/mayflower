@@ -124,7 +124,7 @@
     padding-left: 30px;
     padding-right: 30px;
     margin-top: 20px;
-    border-left: 1px solid var(--mf-c-bd-divider);
+    border-left: 1px solid var(--mds-border-brand-neutral-low);
 
     // Reset if we aren't in an accordion
 
@@ -197,7 +197,7 @@
       @media ($bp-medium-min) {
         padding-left: 30px;
         margin-left: 30px;
-        border-left: 1px solid var(--mf-c-bd-divider);
+        border-left: 1px solid var(--mds-border-brand-neutral-low);
       }
 
       .ma__contact-group {
@@ -256,11 +256,11 @@
 .ma__contact-us {
 
   & + & {
-    border-color: var(--mf-c-bd-divider);
+    border-color: var(--mds-border-brand-neutral-low);
   }
 
   &--accordion {
-    border-color: var(--mf-c-bd-divider);
+    border-color: var(--mds-border-brand-neutral-low);
   }
 
   &--accordion:not(.is-open) &__header {

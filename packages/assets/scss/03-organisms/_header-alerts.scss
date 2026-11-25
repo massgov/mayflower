@@ -10,7 +10,7 @@
 
     color: var(--mf-c-gray-darkest);
     margin-bottom: 0;
-    border: 1px solid var(--mf-c-bd-divider-dark);
+    border: 1px solid var(--mds-border-brand-neutral-low-dark);
 
     &__button {
       color: var(--mf-c-gray-darkest);
@@ -73,7 +73,7 @@
 
   .ma__action-step {
 
-    border-color: var(--mf-c-bd-divider-dark);
+    border-color: var(--mds-border-brand-neutral-high);
     border-width: 1px;
     border-style: solid;
     border-top: 0;
@@ -117,7 +117,7 @@
 
       &:after {
         content: "";
-        border-color: var(--mf-c-bd-divider);
+        border-color: var(--mds-border-brand-neutral-low);
         border-width: 1px;
         border-style: solid;
         margin-top: 20px;

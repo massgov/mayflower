@@ -35,7 +35,7 @@
 
   &__dialog {
     background: var(--mf-c-white);
-    border: 1px solid var(--mf-c-gray-light);
+    border: 1px solid var(--mds-border-brand-neutral-low);
     border-radius: 0.5rem;
     width: max-content;
     max-width: min(480px, calc(100vw - 2rem));
@@ -64,7 +64,7 @@
   &__caret {
     display: block;
     background: var(--mf-c-white);
-    border: 1px solid var(--mf-c-gray-light);
+    border: 1px solid var(--mds-border-brand-neutral-low);
     width: 1rem;
     height: 1rem;
     rotate: -45deg;
@@ -120,7 +120,7 @@
     line-height: 1.63;
     grid-area: content;
     padding: 1rem;
-    border-top: 1px solid var(--mf-c-gray-light);
+    border-top: 1px solid var(--mds-border-brand-neutral-low);
   }
 
   &--open {

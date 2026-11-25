@@ -252,12 +252,12 @@ $page-header-widget-width: 350px;
   &__tags {
 
     @media ($bp-medium-min) {
-      border-color: var(--mf-c-bd-divider);
+      border-color: var(--mds-border-brand-neutral-low);
     }
 
     .ma__header-tags,
     .ma__social-links {
-      border-color: var(--mf-c-bd-divider);
+      border-color: var(--mds-border-brand-neutral-low);
     }
   }
 

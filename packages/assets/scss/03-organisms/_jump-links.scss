@@ -270,7 +270,7 @@
   }
 
   &__column {
-    border-color: var(--mf-c-bd-divider);
+    border-color: var(--mds-border-brand-neutral-low);
   }
 
   &__link {
@@ -304,7 +304,7 @@
       }
 
       & + & {
-        border-top-color: var(--mf-c-bd-divider);
+        border-top-color: var(--mds-border-brand-neutral-low);
       }
 
     }

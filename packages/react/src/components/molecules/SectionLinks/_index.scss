@@ -9,7 +9,7 @@
     border-top: 2px solid;
     margin: 0 -20px;
     width: calc(100% + 40px);
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
     background-color: var(--mf-c-white);
 
     &.is-open {
@@ -17,7 +17,7 @@
     }
 
     &:last-child {
-      border-bottom: 2px solid var(--mf-c-bd-divider);
+      border-bottom: 2px solid var(--mds-border-brand-neutral-low);
     }
   }
 
@@ -69,7 +69,7 @@
     font-size: $fonts-medium;
     padding: 0 20px 20px 0;
     width: 100%;
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
 
     @media ($bp-x-small-max) {
       display: none;
@@ -100,7 +100,7 @@
     font-size: $fonts-larger;
     margin-bottom: .75em;
     padding: 0 16px .75em 0;
-    border-bottom-color: var(--mf-c-bd-divider);
+    border-bottom-color: var(--mds-border-brand-neutral-low);
 
     &--center {
       align-self: center;

@@ -61,7 +61,7 @@ body.ma-disable-menu-transition {
   background-color: var(--mf-c-bg-section);
 
   @media ($bp-small-max) {
-    border-bottom: 1px solid var(--mf-c-gray-lightest);
+    border-bottom: 1px solid var(--mds-border-brand-neutral-lowest);
   }
 
   &--slim {
@@ -175,7 +175,7 @@ body.ma-disable-menu-transition {
     &--mobile {
       padding: 20px;
       width: 100%;
-      border-bottom: 2px solid var(--mf-c-bd-divider);
+      border-bottom: 2px solid var(--mds-border-brand-neutral-low);
 
       a img {
         width: 45px;
@@ -483,7 +483,7 @@ body.ma-disable-menu-transition {
 
           &__item {
 
-            border-bottom: 2px solid var(--mf-c-bd-divider);
+            border-bottom: 2px solid var(--mds-border-brand-neutral-low);
             padding: 0;
 
             &:hover {
@@ -509,7 +509,7 @@ body.ma-disable-menu-transition {
             width: 100%;
 
             &:focus {
-              background-color: var(--mf-c-bd-divider);
+              background-color: var(--mds-interactive-brand-neutral-low); // closest color match in MDS
               outline: 2px solid var(--mf-c-gray-darkest);
             }
 
@@ -617,7 +617,7 @@ body.ma-disable-menu-transition {
 
               & .ma__rich-text {
                 padding-top: 0.8em;
-                border-top: 2px solid var(--mf-c-bd-divider);
+                border-top: 2px solid var(--mds-border-brand-neutral-low);
               }
             }
 

@@ -95,10 +95,10 @@
 
   &__plus,
   &__minus {
-    border-color: var(--mf-c-bd-input);
+    border-color: var(--mds-border-brand-neutral-high);
 
     &:after {
-      border-color: var(--mf-c-gray-darkest);
+      border-color: var(--mds-border-brand-neutral-high);
       border-left-color: transparent;
       border-right-color: transparent;
     }
@@ -106,6 +106,6 @@
 
   input.has-error ~ &__plus,
   input.has-error ~ &__minus {
-    border-color: var(--mf-c-bd-error);
+    border-color: var(--mds-border-utility-danger-mid);
   }
 }

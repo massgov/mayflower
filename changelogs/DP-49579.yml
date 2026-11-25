@@ -1,0 +1,6 @@
+Fixed:
+  - project: Assets, React
+    component: CSS
+    description: Updated all border colors to use the new design system variables
+    issue: DP-49579
+    impact: Minor

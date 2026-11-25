@@ -51,7 +51,7 @@
   max-width: 480px;
 
   @media ($bp-small-max) {
-    border-bottom: 1px solid var(--mf-c-bd-divider);
+    border-bottom: 1px solid var(--mds-border-brand-neutral-low);
     margin-bottom: 20px;
     padding-bottom: 20px;
     text-align: center;

@@ -189,11 +189,11 @@
     &__item {
       width: 100%;
       flex-wrap: wrap;
-      border-block-end: 1px solid var(--mf-c-gray-light);
+      border-block-end: 1px solid var(--mds-border-brand-neutral-low);
       align-items: stretch;
 
       &:first-of-type {
-        border-block-start: 1px solid var(--mf-c-gray-light);
+        border-block-start: 1px solid var(--mds-border-brand-neutral-low);
       }
 
       &.has-subnav,
@@ -256,7 +256,7 @@
     }
 
     &__top-link-trigger {
-      border-inline-start: 1px solid var(--mf-c-gray-light);
+      border-inline-start: 1px solid var(--mds-border-brand-neutral-low);
 
       .icon-chevron {
         display: none;

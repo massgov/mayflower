@@ -44,11 +44,11 @@
   &__container {
 
     > *:nth-child(2n) {
-      border-left-color: var(--mf-c-bd-divider);
+      border-left-color: var(--mds-border-brand-neutral-low);
     }
   }
 
   &--has-divider &__container {
-    border-top-color: var(--mf-c-bd-divider);
+    border-top-color: var(--mds-border-brand-neutral-low);
   }
 }

@@ -4,7 +4,7 @@
 
 @use "00-base/configure" as *;
 
-.ma__sticky-nav { 
+.ma__sticky-nav {
 
   @include clearfix;
 
@@ -29,7 +29,7 @@
 
   @media ($bp-medium-max) {
     background-color: var(--mf-c-gray-lightest);
-    border: 1px solid var(--mf-c-gray-light);
+    border: 1px solid var(--mds-border-brand-neutral-low);
     left: 0;
     // when the nav is sticky, add a box shadow
 
@@ -76,7 +76,7 @@
     cursor: pointer;
     display: none;
     line-height: 1.2;
-    border-top-color: var(--mf-c-gray-light);
+    border-top-color: var(--mds-border-brand-neutral-low);
     padding: 12px;
 
     @media ($bp-medium-min) {
@@ -207,7 +207,7 @@
     margin-top: -20px;
     margin-bottom: 20px;
     padding-bottom: 3px;
-  
+
     @media ($bp-medium-min) {
       background-color: var(--mf-c-gray-lightest);
       box-shadow: $box-shadow;
@@ -273,7 +273,7 @@
 
         &.is-active {
           border-bottom-color: var(--mf-c-primary-alt);
-          
+
           &:hover {
             border-bottom-color: var(--mf-c-primary-alt-lighter);
 
@@ -284,5 +284,5 @@
         }
       }
     }
-  }   
+  }
 }
